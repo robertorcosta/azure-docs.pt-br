@@ -1,17 +1,14 @@
 ---
 title: Entender como funcionam os efeitos
 description: As definições de Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c345f96ef5176c4afb3d46aaca2e9903c7911fb1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464040"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959896"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -24,7 +21,7 @@ Atualmente, há suporte para esses efeitos em uma definição de política:
 - [AuditIfNotExists](#auditifnotexists)
 - [Negar](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Desabilitado](#disabled)
+- [Desabilitada](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (visualização)
 - [EnforceRegoPolicy](#enforceregopolicy) (visualização)
 - [Alterar](#modify)

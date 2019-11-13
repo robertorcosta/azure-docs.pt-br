@@ -1,6 +1,6 @@
 ---
-title: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js | Microsoft Docs
-description: Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure por meio de um aplicativo Node.js.
+title: 'Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js'
+description: 'Início Rápido: Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure por meio de um aplicativo Node.js.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,24 +11,24 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 3dbec81237edd7cbf51e4812e83da068b9a366e0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
-ms.translationtype: MT
+ms.openlocfilehash: 40543f55dc0cb56f6bc575f926456faf2d0ae5a3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541003"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719215"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Como os tópicos do barramento de serviço de uso e as assinaturas com Node. js e o pacote azure-sb
-> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote de Node. js"]
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure-sb
+> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote do Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-Neste tutorial, você aprenderá a criar aplicativos Node. js para enviar mensagens para um tópico do barramento de serviço e receber mensagens de uma assinatura do barramento de serviço usando o [azure-sb](https://www.npmjs.com/package/azure-sb) pacote. Os exemplos são escritos em JavaScript e usar o Node. js [módulo do Azure](https://www.npmjs.com/package/azure) que usa internamente o `azure-sb` pacote.
+Neste tutorial, você aprenderá a criar aplicativos Node.js para enviar mensagens para um tópico do Barramento de Serviço e receber mensagens de uma assinatura do Barramento de Serviço usando o pacote [azure-sb](https://www.npmjs.com/package/azure-sb). As amostras são escritas em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) do Node.js que usa internamente o pacote `azure-sb`.
 
-O [azure-sb](https://www.npmjs.com/package/azure-sb) usos do pacote [APIs de tempo de execução do REST do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Você pode obter uma experiência mais rápida usando a nova [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacote que usa o mais rápido [protocolo AMQP 1.0](service-bus-amqp-overview.md). Para saber mais sobre o novo pacote, consulte [como usar tópicos do barramento de serviço e assinaturas com Node. js e @azure/service-bus pacote](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), caso contrário, continue lendo para saber como usar os [azure](https://www.npmjs.com/package/azure) pacote.
+O pacote [azure-sb](https://www.npmjs.com/package/azure-sb) usa [APIs REST de runtime do Barramento de Serviço](/rest/api/servicebus/service-bus-runtime-rest). Obtenha uma experiência mais rápida com o novo pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido. Para saber mais sobre o novo pacote, confira [Como usar tópicos e assinaturas do Barramento de Serviço com o Node.js e o pacote @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package); caso contrário, continue lendo para ver como usar o pacote [azure](https://www.npmjs.com/package/azure).
 
 Os cenários abordados aqui incluem:
 
@@ -41,11 +41,11 @@ Os cenários abordados aqui incluem:
 Para saber mais sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#next-steps).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar sua [benefícios de assinante do MSDN ou Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Siga as etapas no [guia de início rápido: Use o portal do Azure para criar um tópico do barramento de serviço e assinaturas do tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um barramento de serviço **namespace** e obtenha o **cadeia de caracteres de conexão**.
+- Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Siga as etapas no [Início Rápido: Usar o portal do Azure para criar um tópico e assinaturas do Barramento de Serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um **namespace** do Barramento de Serviço e obter a **cadeia de conexão**.
 
     > [!NOTE]
-    > Você aprenderá a criar uma **tópico** e uma **assinatura** para o tópico usando **Node. js** neste início rápido. 
+    > Você criará um **tópico** e uma **assinatura** para o tópico usando o **Node.js** neste início rápido. 
 
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
 Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site da Web do Azure], [Serviço de Nuvem do Node.js][Node.js Cloud Service] usando o Windows PowerShell ou Site com o WebMatrix.
@@ -150,7 +150,7 @@ As assinaturas do tópico também são criadas com o objeto **ServiceBusService*
 > [!NOTE]
 > Por padrão, as assinaturas são persistentes até que elas ou o tópico ao qual estão associadas sejam excluídos. Se o aplicativo contiver lógica para criar uma assinatura, ele deverá primeiro verificar se a assinatura existe usando o método `getSubscription`.
 >
-> Você pode ter as assinaturas são excluídas automaticamente definindo a [AutoDeleteOnIdle propriedade](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> Exclua as assinaturas automaticamente definindo a [propriedade AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 O filtro **MatchAll** é o filtro padrão usado quando uma assinatura é criada. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada AllMessages e usa o filtro padrão **MatchAll**.
@@ -314,7 +314,7 @@ Há também um tempo limite associado a uma mensagem bloqueada na assinatura. Se
 Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `deleteMessage` seja chamado, a mensagem será reenviada ao aplicativo quando for reiniciado. Esse comportamento geralmente é chamado de *Processamento Pelo menos uma Vez*. Ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não puder tolerar o processamento duplicado, será necessário adicionar lógica ao aplicativo para tratar a entrega de mensagens duplicadas. É possível usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-Tópicos e assinaturas são persistentes, a menos que o [autoDeleteOnIdle propriedade](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) é definido e devem ser explicitamente excluídos por meio de [portal do Azure][Azure portal] ou programaticamente.
+Os tópicos e as assinaturas são persistentes, a menos que a [propriedade autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) seja definida, e precisam ser explicitamente excluídos por meio do [portal do Azure][Azure portal] ou de maneira programática.
 O exemplo a seguir demonstra como excluir o tópico denominado `MyTopic`:
 
 ```javascript

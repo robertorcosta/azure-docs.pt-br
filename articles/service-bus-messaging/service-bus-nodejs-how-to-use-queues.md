@@ -1,6 +1,6 @@
 ---
-title: Usar filas do barramento de serviço do Azure no node. js
-description: Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js.
+title: 'Início Rápido: Usar filas do Barramento de Serviço do Azure no Node.js'
+description: 'Início Rápido: Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,35 +11,36 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1aba29f8ed7cacb8f2911ae2d37358869e6a7730
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
-ms.translationtype: MT
+ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001130"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719230"
 ---
-# <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Usar filas do barramento de serviço no Azure com node. js e o pacote Azure-SB
-> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
+# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Início Rápido: Usar filas do Barramento de Serviço no Azure com o Node.js e o pacote azure-sb
+
+> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote do Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-Neste tutorial, você aprenderá a criar aplicativos node. js para enviar mensagens e receber mensagens de uma fila do barramento de serviço do Azure usando o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) . Os exemplos são escritos em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) node. js que usa internamente o pacote Azure-SB.
+Neste tutorial, você aprenderá a criar aplicativos Node.js para enviar e receber mensagens em uma fila do Barramento de Serviço do Azure usando o pacote [azure-sb](https://www.npmjs.com/package/azure-sb). As amostras são escritas em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) do Node.js que usa internamente o pacote azure-sb.
 
-O pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) usa [APIs REST de tempo de execução do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Você pode obter uma experiência mais rápida usando o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md)mais rápido. Para saber mais sobre o novo pacote, consulte [como usar filas do barramento de serviço com o pacote node. js e @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), caso contrário, continue lendo para ver como usar o pacote [do Azure](https://www.npmjs.com/package/azure) .
+O pacote [azure-sb](https://www.npmjs.com/package/azure-sb) usa [APIs REST de runtime do Barramento de Serviço](/rest/api/servicebus/service-bus-runtime-rest). Obtenha uma experiência mais rápida com o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido. Para saber mais sobre o novo pacote, confira [Como usar filas do Barramento de Serviço com o Node.js e o pacote @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package); caso contrário, continue lendo para ver como usar o pacote [azure](https://www.npmjs.com/package/azure).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se você não tiver uma fila com a qual trabalhar, siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) para criar uma fila.
-    1. Leia a **visão geral** rápida das **filas**do barramento de serviço. 
-    2. Crie um **namespace**do barramento de serviço. 
-    3. Obter a **cadeia de conexão**. 
+- Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Caso você não tenha uma fila para trabalhar, siga as etapas do artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md) para criar uma fila.
+    1. Leia a **visão geral** rápida das **filas** do Barramento de Serviço. 
+    2. Crie um **namespace** do Barramento de Serviço. 
+    3. Obtenha a **cadeia de conexão**. 
 
         > [!NOTE]
-        > Você criará uma **fila** no namespace do barramento de serviço usando o Node. js neste tutorial. 
+        > Você criará uma **fila** no namespace do Barramento de Serviço usando o Node.js neste tutorial. 
  
 
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
@@ -50,7 +51,7 @@ Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure Node.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
 1. Use a janela de comando **Windows PowerShell para Node.js** para navegar até a pasta **c:\\node\\sbqueues\\WebRole1** na qual você criou o aplicativo de exemplo.
-2. Digite **NPM install Azure** na janela de comando, que deve resultar em uma saída semelhante ao exemplo a seguir:
+2. Digite **npm install azure** na janela Comando, que deverá resultar em uma saída semelhante ao seguinte exemplo:
 
     ```
     azure@0.7.5 node_modules\azure
@@ -65,7 +66,7 @@ Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure Node.
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. Você pode executar manualmente o comando **ls** para verificar se uma pasta **node_modules** foi criada. Dentro dessa pasta, localize o pacote **do Azure** , que contém as bibliotecas necessárias para acessar as filas do barramento de serviço.
+3. Você pode executar manualmente o comando **ls** para verificar se uma pasta **node_modules** foi criada. Dentro dessa pasta, encontre o pacote **azure**, que contém as bibliotecas necessárias para acessar as filas do Barramento de Serviço.
 
 ### <a name="import-the-module"></a>Importar o módulo
 Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte ao início do arquivo **server.js** do aplicativo:
@@ -75,9 +76,9 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurar uma conexão do barramento de serviço do Azure
-O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta ao chamar `createServiceBusService`.
+O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essa variável de ambiente não estiver definida, você precisará especificar as informações da conta ao chamar `createServiceBusService`.
 
-Para obter um exemplo de como definir as variáveis de ambiente no [portal do Azure][Azure portal] para um site do Azure, consulte [aplicativo Web do node. js com armazenamento][Node.js Web Application with Storage].
+Para obter um exemplo de como definir as variáveis de ambiente no [portal do Azure][Azure portal] para um Site do Azure, confira [Aplicativo Web Node.js com Armazenamento][Node.js Web Application with Storage].
 
 ## <a name="create-a-queue"></a>Criar uma fila
 O objeto **ServiceBusService** permite que você trabalhe com filas de barramento de serviço. O código a seguir cria um objeto **ServiceBusService**. Adicione-o próximo ao início do arquivo **server.js** , após a instrução de importação do módulo Azure:
@@ -124,7 +125,7 @@ Após fazer seu pré-processamento nas opções de solicitação, o método prec
 function (returnObject, finalCallback, next)
 ```
 
-Nesse retorno de chamada, e depois de processar o `returnObject` (a resposta da solicitação para o servidor), o retorno de chamada deve invocar `next` se existir para continuar processando outros filtros ou invocar `finalCallback`, o que encerra a invocação de serviço.
+Nesse retorno de chamada, e após o processamento do `returnObject` (a resposta da solicitação ao servidor), o retorno de chamada precisará invocar `next`, se ele existir, para continuar processando outros filtros ou invocar `finalCallback`, que encerra a invocação de serviço.
 
 Dois filtros que implementam a lógica de repetição são incluídos com o Azure SDK para Node.js, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. O código a seguir cria um objeto `ServiceBusService` que usa o `ExponentialRetryPolicyFilter`:
 
@@ -151,14 +152,14 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens mantidas em uma fila, mas há uma limitação no tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][Service Bus quotas].
+As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens armazenadas em uma fila, mas há um limite no tamanho total das mensagens armazenadas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 As mensagens são recebidas de uma fila usando o método `receiveQueueMessage` no objeto **ServiceBusService**. Por padrão, as mensagens são excluídas da fila à medida que são lidas; no entanto, você pode ler (pico) e bloquear a mensagem sem excluí-la da fila configurando o parâmetro opcional `isPeekLock` como **true**.
 
-O comportamento padrão de leitura e exclusão da mensagem como parte da operação Receive é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem quando ocorrer uma falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o barramento de serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+O comportamento padrão de leitura e exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-Se o parâmetro `isPeekLock` for definido como **true**, o Receive se tornará uma operação de duas etapas, o que torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método `deleteMessage` e fornecendo a mensagem a ser excluída como um parâmetro. O método `deleteMessage` marcará a mensagem como sendo consumida e a removerá da assinatura.
+Se o parâmetro `isPeekLock` estiver definido como **true**, o recebimento se tornará uma operação de dois estágios, o que possibilita o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método `deleteMessage` e fornecendo a mensagem a ser excluída como um parâmetro. O método `deleteMessage` marcará a mensagem como sendo consumida e a removerá da assinatura.
 
 O exemplo a seguir demonstra como receber e processar mensagens usando `receiveQueueMessage`. Primeiro, o exemplo recebe e exclui uma mensagem, em seguida recebe a mensagem usando `isPeekLock` definido como **true** e, então, exclui a mensagem usando `deleteMessage`:
 
@@ -181,11 +182,11 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como tratar falhas do aplicativo e mensagens ilegíveis
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele chamará o método `unlockMessage` no objeto **ServiceBusService**. Isso fará com que o barramento de serviço desbloqueie a mensagem dentro da fila e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro aplicativo de consumo.
+O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele chamará o método `unlockMessage` no objeto **ServiceBusService**. Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
 
-Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o barramento de serviço desbloqueará a mensagem automaticamente e a tornará disponível para ser recebido novamente.
+Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite de bloqueio (por exemplo, em caso de falha do aplicativo), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `deleteMessage` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Essa abordagem é geralmente chamada *de processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em determinadas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não puder tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica adicional ao aplicativo para lidar com a entrega de mensagens duplicadas. Geralmente, ele é obtido usando a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas de entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `deleteMessage` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Essa abordagem é frequentemente chamada de *Processamento Pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar uma lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
 > [!NOTE]
 > É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador de Barramento de Serviço permite que usuários se conectem a um namespace de serviço do Barramento de Serviço e administrem entidades de mensagens de uma maneira fácil. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 

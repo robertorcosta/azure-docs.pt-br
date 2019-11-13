@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 11/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21117e551642571d5b974e66d0769ed9906b9d50
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 85905e31b9375bac7f813782cbc224a6e770b7ce
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018204"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013123"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar usuários de colaboração B2B do Azure Active Directory no Portal do Azure
 
@@ -25,7 +25,7 @@ Como um usuário que é atribuído a qualquer uma das funções de diretório de
 Depois de adicionar um usuário convidado ao diretório, você poderá enviar ao usuário convidado um link direto para um aplicativo compartilhado, ou o usuário convidado poderá clicar na URL de resgate no email de convite. Para obter mais informações sobre o processo de resgate, consulte [Regaste de convite de colaboração B2B](redemption-experience.md).
 
 > [!IMPORTANT]
-> Você deve seguir as etapas em [Como: Adicionar as informações de privacidade da organização no Azure Active Directory](https://aka.ms/adprivacystatement) para adicionar a URL de política de privacidade da sua organização. Como parte do processo de resgate de convite pela primeira vez, um usuário convidado deve concordar com os termos de privacidade para continuar. 
+> Você deve seguir as etapas em [Instruções: adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement) para adicionar a URL da declaração de privacidade da sua organização. Como parte do processo de resgate de convite pela primeira vez, um usuário convidado deve concordar com os termos de privacidade para continuar. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -45,14 +45,18 @@ Para adicionar usuários de colaboração B2B ao diretório, siga estas etapas:
    > [!NOTE]
    > A opção **Novo usuário convidado** também está disponível na página **Relações organizacionais**. No **Azure Active Directory**, em **Gerenciar**, selecione **Relações organizacionais**.
 
-5. Em **Nome de usuário**, insira o endereço de email do usuário externo. Opcionalmente, inclua uma mensagem de boas-vindas. Por exemplo:
-
-   ![Mostra onde o novo usuário convidado está na interface do usuário](./media/add-users-administrator/InviteGuest.png) 
+5. Na página **novo usuário** , selecione **convidar usuário** e, em seguida, adicione as informações do usuário convidado. 
 
     > [!NOTE]
     > Não há suporte para endereços de email de grupo; insira o endereço de email para um indivíduo. Além disso, alguns provedores de email permitem que os usuários adicionem um sinal de adição (+) de símbolo e texto adicional aos seus endereços de email para ajudar com coisas como a filtragem de caixa de entrada. No entanto, o Microsoft Azure Active Directory atualmente não dá suporte além para símbolos de adição em endereços de email. Para evitar problemas de entrega, omita o símbolo de adição e quaisquer caracteres seguintes até o símbolo @.
 
-6. Selecione **Convidar** para enviar automaticamente o convite ao usuário convidado. 
+   - **Name.** O nome e o sobrenome do usuário convidado.
+   - **Endereço de email (obrigatório)** . O endereço de email do usuário convidado.
+   - **Mensagem pessoal (opcional)** Inclua uma mensagem de boas-vindas pessoal para o usuário convidado.
+   - **Grupos**: você pode adicionar o usuário convidado a um ou mais grupos existentes ou pode fazer isso mais tarde.
+   - **Função de diretório**: se você precisar de permissões administrativas do Azure ad para o usuário, poderá adicioná-las a uma função do Azure AD. 
+
+7. Selecione **Convidar** para enviar automaticamente o convite ao usuário convidado. 
  
 Depois de enviar o convite, a conta de usuário é automaticamente adicionada ao diretório como convidado.
 

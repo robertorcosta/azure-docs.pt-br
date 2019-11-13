@@ -1,26 +1,26 @@
 ---
-title: Enviar e receber eventos usando o Go - Hubs de eventos do Azure | Microsoft Docs
-description: Este artigo fornece instruções passo a passo para a criação de um aplicativo Go que envia eventos dos Hubs de Eventos do Azure.
+title: 'Início Rápido: Enviar e receber eventos usando Go – Hubs de Eventos do Azure'
+description: 'Início Rápido: Este artigo fornece instruções passo a passo para a criação de um aplicativo Go que envia eventos dos Hubs de Eventos do Azure.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 823ebc985c77785f8b48d12d5919dbbd1b2b1459
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821681"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720576"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>Enviar eventos para ou receber eventos dos Hubs de eventos usando o Go
+# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Início Rápido: Enviar ou receber eventos dos Hubs de Eventos usando o Go
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
 
-Este tutorial descreve como escrever aplicativos Go para enviar eventos para ou receber eventos de um hub de eventos. 
+Este tutorial descreve como escrever aplicativos Go para enviar ou receber eventos de um hub de eventos. 
 
 > [!NOTE]
 > Você pode baixar do [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs) este início rápido como um exemplo, substituir as cadeias de caracteres `EventHubConnectionString` e `EventHubName` pelos valores do hub de eventos e executá-lo. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
@@ -31,7 +31,7 @@ Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 - Go instalado Localmente. Siga [estas instruções](https://golang.org/doc/install), se necessário.
 - Uma conta ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][] antes de começar.
-- **Criar um namespace de Hubs de eventos e um hub de eventos**. Use o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento que seu aplicativo precisa se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md).
+- **Criar um namespace de Hubs de Eventos e um hub de eventos**. Use o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de Eventos e obter as credenciais de gerenciamento que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md).
 
 ## <a name="send-events"></a>Enviar eventos
 Esta seção mostra como criar um aplicativo Go para enviar eventos para um hub de eventos. 
@@ -137,7 +137,7 @@ Afirme como as concessões em partições e pontos de verificação no evento fl
 
 Exemplos para a criação de artefatos de armazenamento com o SDK Go estão disponíveis na [repositório de exemplos do Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) e na amostra correspondente a este tutorial.
 
-### <a name="go-packages"></a>Vá de pacotes
+### <a name="go-packages"></a>Pacotes do Go
 
 Para receber as mensagens, obter os pacotes de Go para Hubs de Eventos com `go get` ou `dep`:
 
@@ -214,9 +214,9 @@ if err != nil {
 }
 ```
 
-### <a name="create-a-check-pointer-and-a-leaser"></a>Criar um ponteiro de seleção e um leaser 
+### <a name="create-a-check-pointer-and-a-leaser"></a>Criar um ponteiro de verificação e um leaser 
 
-Criar uma **leaser**, responsável pela concessão de uma partição para um destinatário específico e uma **verificar ponteiro**, responsáveis por gravar pontos de verificação para o fluxo de mensagens para que podem começar a outros destinatários lendo o deslocamento correto.
+Criar um **leaser**, responsável pela concessão de uma partição para um destinatário específico e um **ponteiro de verificação**, responsáveis por gravar pontos de verificação para o fluxo de mensagens para que podem começar a outros destinatários lendo o deslocamento correto.
 
 Atualmente, um único **StorageLeaserCheckpointer** está disponível que usa o mesmo contêiner de armazenamento para gerenciar as concessões e pontos de verificação. Além dos nomes de conta e o contêiner de armazenamento, o **StorageLeaserCheckpointer** precisa de credenciais criadas na etapa anterior e o struct de ambiente do Azure para acessar corretamente o contêiner.
 
@@ -233,7 +233,7 @@ if err != nil {
 
 ### <a name="construct-event-processor-host"></a>Construir o Host do processador de eventos
 
-Agora você tem as partes necessárias para construir um EventProcessorHost, da seguinte maneira. O mesmo **StorageLeaserCheckpointer** é usado como um leaser e o ponteiro de seleção, conforme descrito anteriormente:
+Agora você tem as partes necessárias para construir um EventProcessorHost, da seguinte maneira. O mesmo **StorageLeaserCheckpointer** é usado como um leaser e um ponteiro de verificação, conforme descrito anteriormente:
 
 ```go
 ctx := context.Background()
@@ -285,7 +285,7 @@ if err != nil {
 Leia os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Recursos e a terminologia nos Hubs de eventos do Azure](event-hubs-features.md)
+- [Recursos e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)
 - [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
 

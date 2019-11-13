@@ -1,6 +1,6 @@
 ---
-title: Configurar replicação para VMs s2d (espaços de armazenamento diretos) no Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como configurar a replicação para VMs S2D, de uma região do Azure para outra, usando o Site Recovery.
+title: Replicar VMs do Azure executando Espaços de Armazenamento Diretos usando Azure Site Recovery
+description: Este artigo descreve como replicar VMs do Azure que executam Espaços de Armazenamento Diretos usando Azure Site Recovery.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
-ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ac7fa577aa33eda036c0f8544cc5ab03b12cd7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790263"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954461"
 ---
-# <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>Replicar máquinas virtuais do Azure usando espaços de armazenamento diretos para outra região do Azure
+# <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicar VMs do Azure em execução Espaços de Armazenamento Diretos para outra região
 
 Este artigo descreve como habilitar a recuperação de desastre de VMs do Azure executando espaços de armazenamento diretos.
 

@@ -1,6 +1,6 @@
 ---
-title: Como usar as filas do Barramento de Serviço do Azure com Ruby | Microsoft Docs
-description: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Ruby.
+title: 'Início Rápido: Como usar filas do Barramento de Serviço do Azure com Ruby'
+description: 'Início Rápido: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Ruby.'
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -11,31 +11,31 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 48f60b7c07cc16b4d9994d5644069fdcb4881e0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 09fdc58254d260b6ffeff958b6bbda50332adfac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991871"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718762"
 ---
-# <a name="how-to-use-service-bus-queues-with-ruby"></a>Como usar filas do Barramento de Serviço com Ruby
+# <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Início Rápido: Como usar filas do Barramento de Serviço com Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Neste tutorial, você aprenderá como criar aplicativos Ruby para enviar e receber mensagens de uma fila do barramento de serviço. Os exemplos são gravados no Ruby e usam a gema do Azure.
+Neste tutorial, você aprenderá a criar aplicativos Ruby para enviar mensagens para uma fila do Barramento de Serviço e receber mensagens dela. Os exemplos são gravados no Ruby e usam a gema do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar sua [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga as etapas na [portal do Azure de uso para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) artigo.
-    1. Leia o quick **visão geral** do barramento de serviço **filas**. 
-    2. Criar um barramento de serviço **namespace**. 
-    3. Obter o **cadeia de caracteres de conexão**. 
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. É possível ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md).
+    1. Leia a rápida **visão geral** das **filas** do Barramento de Serviço. 
+    2. Crie um **namespace** do Barramento de Serviço. 
+    3. Obtenha a **cadeia de conexão**. 
 
         > [!NOTE]
-        > Você aprenderá a criar uma **fila** no namespace do barramento de serviço usando o Ruby neste tutorial. 
+        > Você criará uma **fila** no namespace do Barramento de Serviço usando o Ruby neste tutorial. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -79,7 +79,7 @@ As mensagens são recebidas de uma fila usando o método `receive_queue_message(
 
 O comportamento padrão faz com que a leitura e a exclusão se dividam em uma operação de dois estágios, o que também torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método `delete_queue_message()` e fornecendo a mensagem a ser excluída como um parâmetro. O método `delete_queue_message()` marcará a mensagem como tendo sido consumida e a removerá da fila.
 
-Se o `:peek_lock` parâmetro é definido como **falso**, ler e excluir a mensagem se torna o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço marca a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+Se o parâmetro `:peek_lock` estiver definido como **false**, a leitura e a exclusão da mensagem se tornarão o modelo mais simples e funcionarão melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço marca a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
 O exemplo a seguir demonstra como receber e processar mensagens usando `receive_queue_message()`. O exemplo primeiro recebe e exclui uma mensagem usando `:peek_lock` definido como **false**, então recebe outra mensagem e exclui a mensagem usando `delete_queue_message()`:
 

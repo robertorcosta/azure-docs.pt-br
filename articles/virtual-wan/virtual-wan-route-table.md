@@ -1,25 +1,25 @@
 ---
-title: Criar uma tabela de rotas do hub virtual da WAN Virtual do Azure para conduzir a NVA | Microsoft Docs
+title: 'WAN virtual: criar tabela de rotas de Hub virtual para NVA: Azure PowerShell'
 description: Tabela de rotas do hub virtual da WAN Virtual para conduzir o tráfego para uma solução de virtualização de rede.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 18af56f6924484c6267871cf3fed34f80a8f12a4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2d8922084dbe30c2dbe494028f2e5a1497fb3759
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744708"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74015004"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Criar uma tabela de rotas do Hub Virtual para conduzir o tráfego para uma solução de virtualização de rede
 
 Este artigo mostra como conduzir tráfego de um Hub Virtual para uma Solução de Virtualização de Rede. 
 
-![Diagrama de WAN virtual](./media/virtual-wan-route-table/vwanroute.png)
+![Diagrama de WAN Virtual](./media/virtual-wan-route-table/vwanroute.png)
 
 Neste artigo, você aprenderá a:
 
@@ -43,7 +43,7 @@ Verifique se você atende aos seguintes critérios:
 5. Verifique se você tem duas VNets já criadas. Elas serão usadas como VNets spoke. Neste artigo, os espaços de endereço da VNets spoke são 10.0.2.0/24 e 10.0.3.0/24. Se você precisar obter informações sobre como criar uma VNets, consulte [Criar uma rede virtual usando o PowerShell](../virtual-network/quick-create-powershell.md).
 6. Certifique-se de que não há nenhum gateway de rede virtual nas VNets.
 
-## <a name="signin"></a>1. Entrar
+## <a name="signin"></a>1. entrar
 
 Certifique-se de instalar a versão mais recente dos cmdlets do PowerShell do Resource Manager. Para saber mais sobre como instalar cmdlets do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps). Isso é importante porque as versões anteriores dos cmdlets não contêm os valores atuais que são necessários para este exercício.
 
@@ -57,15 +57,15 @@ Certifique-se de instalar a versão mais recente dos cmdlets do PowerShell do Re
    ```powershell
    Get-AzSubscription
    ```
-3. Especifique a assinatura que você deseja usar.
+3. Especifique a assinatura que você quer usar.
 
    ```powershell
    Select-AzSubscription -SubscriptionName "Name of subscription"
    ```
 
-## <a name="rg"></a>2. Criar recursos
+## <a name="rg"></a>2. criar recursos
 
-1. Crie um grupo de recursos.
+1. Crie um grupos de recursos.
 
    ```powershell
    New-AzResourceGroup -Location "West US" -Name "testRG"
@@ -81,7 +81,7 @@ Certifique-se de instalar a versão mais recente dos cmdlets do PowerShell do Re
    New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24" -Location "West US"
    ```
 
-## <a name="connections"></a>3. Criar conexões
+## <a name="connections"></a>3. criar conexões
 
 Crie conexões de rede virtual de hub da VNet de spoke indireto e a VNet DMZ para o hub virtual.
 
@@ -95,7 +95,7 @@ Crie conexões de rede virtual de hub da VNet de spoke indireto e a VNet DMZ par
   New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
-## <a name="route"></a>4. Crie uma rota de hub virtual
+## <a name="route"></a>4. criar uma rota de Hub virtual
 
 Neste artigo, os espaços de endereço da VNet de spoke indireto são 10.0.2.0/24 e 10.0.3.0/24 e o endereço IP privado do adaptador de rede da NVA DMZ é 10.0.4.5.
 
@@ -103,7 +103,7 @@ Neste artigo, os espaços de endereço da VNet de spoke indireto são 10.0.2.0/2
 $route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
-## <a name="applyroute"></a>5. Crie uma tabela de rota de hub virtual
+## <a name="applyroute"></a>5. criar uma tabela de rotas do Hub virtual
 
 Crie uma tabela de rota do hub virtual e, em seguida, aplique a rota criada.
  
@@ -111,7 +111,7 @@ Crie uma tabela de rota do hub virtual e, em seguida, aplique a rota criada.
 $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
-## <a name="commit"></a>6. Confirmar as alterações
+## <a name="commit"></a>6. confirmar as alterações
 
 Confirme as alterações no hub virtual.
 

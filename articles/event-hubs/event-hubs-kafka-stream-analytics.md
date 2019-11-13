@@ -1,26 +1,26 @@
 ---
-title: Processar eventos do Apache Kafka usando Stream Analytics – Hubs de Eventos do Azure | Microsoft Docs
-description: Este artigo mostra como processar eventos do Kafka que são ingeridos por meio de hubs de eventos, usando Azure Stream Analytics
+title: 'Tutorial: Processar eventos do Apache Kafka usando Stream Analytics – Hubs de Eventos do Azure'
+description: 'Tutorial: Este artigo mostra como processar eventos do Kafka que são ingeridos por meio de hubs de eventos, usando Azure Stream Analytics'
 services: event-hubs
 documentationcenter: ''
 author: spelluru
 manager: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
-ms.translationtype: MT
+ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626183"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720620"
 ---
-# <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics 
+# <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics 
 Este artigo mostra como transmitir dados para os Hubs de Eventos habilitados para Kafka e processá-los com o Azure Stream Analytics. Este artigo apresenta as seguintes etapas: 
 
 1. Criar um namespace de Hubs de Eventos habilitados para Kafka.
@@ -133,7 +133,7 @@ A consulta no trabalho do Stream Analytics passa pelos dados sem executar quaisq
 
 ### <a name="configure-job-input"></a>Configurar entrada de trabalho
 
-1. Na mensagem de notificação, selecione **ir para o recurso** para ver as **trabalho do Stream Analytics** página. 
+1. Na mensagem de notificação, selecione **Ir para o recurso** para ver a página do **trabalho do Stream Analytics**. 
 2. Selecione **Entradas** na seção **TOPOLOGIA DO TRABALHO** no menu esquerdo.
 3. Selecione **Adicionar entrada de fluxo** e, em seguida, selecione **Hub de eventos**. 
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 13481788bce22876fa13080d0be34db29e2a72cb
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747375"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961577"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -186,6 +186,7 @@ A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de com
 
 |Sistema operacional de servidor | Sistema operacional de cliente compatível  |
 | --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
@@ -247,7 +248,7 @@ Como o processo de recuperação de arquivo anexa todos os discos do backup, qua
 - Cada vez que o usuário baixa um script, o backup do Azure inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, isso levará um tempo considerável. Se houver picos de solicitações sucessivas, a preparação de destino entrará em uma espiral de download. Portanto, é recomendável baixar um script do portal/PowerShell/CLI, aguardar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Neste momento, espera-se que o destino esteja pronto para a conexão do script.
 - Após a recuperação de arquivos, certifique-se de voltar ao portal para clicar em "desmontar discos" para pontos de recuperação em que você não conseguiu montar volumes. Essencialmente, essa etapa limpará todos os processos/sessões existentes e aumentará a chance de recuperação.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 Se você tiver problemas durante a recuperação de arquivos de máquinas virtuais, verifique a tabela a seguir para obter informações adicionais.
 

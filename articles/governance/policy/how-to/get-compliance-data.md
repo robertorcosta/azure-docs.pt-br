@@ -1,17 +1,14 @@
 ---
 title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: bd65fcf6ebff931fbb408ca8337a37d355221dfe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b460a3e70b5462be3fdc7f34dd7261d491a495b3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480248"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959579"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -89,9 +86,9 @@ A tabela a seguir mostra como os diferentes efeitos da política funcionam com a
 
 | Estado do recurso | Efeito | Avaliação da política | Estado de conformidade |
 | --- | --- | --- | --- |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Verdadeiro | Sem conformidade |
+| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | verdadeiro | Sem conformidade |
 | Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | Verdadeiro | Sem conformidade |
+| Novo | Auditoria, AuditIfNotExist\* | verdadeiro | Sem conformidade |
 | Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
 
 \* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE.
@@ -271,7 +268,7 @@ Seus resultados devem se parecer com o exemplo a seguir:
 
 Para obter mais informações sobre como consultar eventos de política, consulte o artigo de referência de [eventos de Azure Policy](/rest/api/policy-insights/policyevents) .
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell"></a>PowerShell do Azure
 
 O módulo Azure PowerShell para Azure Policy está disponível no Galeria do PowerShell como [AZ. PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
 Usando o PowerShellGet, você pode instalar o módulo usando `Install-Module -Name Az.PolicyInsights` (verifique se você tem a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps) instalada):

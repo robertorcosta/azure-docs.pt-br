@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: bdbc50983708327cf5d3857282c92fcab1c28b09
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d9c294d4ddadd1f6be7f66cd7fdd0f0dc723e18f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930544"
+ms.locfileid: "73950570"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Log de diagnósticos no Azure Cosmos DB 
 
@@ -401,7 +401,7 @@ Agora que você habilitou a coleta de dados, execute o seguinte exemplo de pesqu
 ![Pesquisa de logs de exemplo para os 10 logs mais recentes](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### <a name="cosmosdb-log-analytics-queries-in-azure-monitor"></a>CosmosDB Log Analytics consultas em Azure Monitor
+### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Azure Cosmos DB Log Analytics consultas no Azure Monitor
 
 Aqui estão algumas consultas adicionais que você pode inserir na caixa de **pesquisa de log** para ajudá-lo a monitorar seus contêineres de Cosmos do Azure. Essas consultas funcionam com a [nova linguagem](../log-analytics/log-analytics-log-search-upgrade.md).  
 
@@ -445,6 +445,7 @@ Para saber mais sobre o significado dos dados retornados pelas pesquisas de logs
     | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
     ```
+
     > [!NOTE]
     > Este comando é para um log de atividades, não de um log de diagnóstico.
 
@@ -462,8 +463,6 @@ Para saber mais sobre o significado dos dados retornados pelas pesquisas de logs
     | order by requestCharge_s desc
     | limit 100
     ```
-    
-      
 
 * Para consultar quais operações demoram mais de 3 milissegundos:
 
@@ -496,11 +495,8 @@ Para saber mais sobre o significado dos dados retornados pelas pesquisas de logs
     AzureDiagnostics 
     | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
     | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
-    
-   
     ```
     
-
 Para obter mais informações sobre como usar a nova linguagem de pesquisa de logs, consulte [entender pesquisas de logs em logs de Azure monitor](../log-analytics/log-analytics-log-search-new.md). 
 
 ## <a id="interpret"></a>Interpretar seus logs

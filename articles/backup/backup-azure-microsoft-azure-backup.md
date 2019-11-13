@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747430"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012925"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -36,7 +36,7 @@ Este artigo explica como preparar o ambiente para fazer backup de cargas de trab
 O MABS implantado em uma VM do Azure pode fazer backup de VMs no Azure, mas deve estar no mesmo domínio para habilitar a operação de backup. O processo de back-up de uma VM do Azure permanece o mesmo que fazer backup de VMs no local, no entanto, a implantação de MABS no Azure tem algumas limitações. Para obter mais informações sobre limitações, consulte [DPM como uma máquina virtual do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece informações e procedimentos para a restauração de VMs implantadas usando o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece informações e procedimentos para a restauração de VMs implantadas usando o modelo do Gerenciador de Recursos.
 >
 >
 
@@ -56,7 +56,7 @@ Proteger as cargas de trabalho com o Servidor de Backup do Azure tem muitas nuan
 
 Se você não deseja executar o servidor de base no Azure, poderá executar o servidor em uma VM do Hyper-V, uma VM do VMware ou um host físico. Os requisitos mínimos recomendados para o hardware do servidor são dois núcleos e 8 GB de RAM. Os sistemas operacionais com suporte são listados na seguinte tabela:
 
-| Sistema operacional | Plataforma | SKU |
+| Sistema Operacional | Plataforma | Sku |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials  |
@@ -185,14 +185,14 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
 
     Use os seguintes valores para a configuração do SSRS:
     * Conta de serviço: ' usar conta interna ' deve ser serviço de rede
-    * URL do serviço Web: ' diretório virtual ' deve ser ReportServer_<SQLInstanceName>
-    * Banco de dados: DatabaseName deve ser ReportServer $<SQLInstanceName>
-    * URL do portal da Web: ' diretório virtual ' deve ser Reports_<SQLInstanceName>
+    * URL do serviço Web: ' diretório virtual ' deve ser ReportServer_\<SQLINSTANCENAME >
+    * Banco de dados: DatabaseName deve ser ReportServer $\<SQLINSTANCENAME >
+    * URL do portal da Web: ' diretório virtual ' deve ser Reports_\<SQLINSTANCENAME >
 
     [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
 
     > [!NOTE]
-    > O licenciamento para SQL Server usado como o banco de dados do MABS é regido pelos [termos do Microsoft Online Services](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST). De acordo com o OST, SQL Server agrupadas com MABS podem ser usadas somente como o banco de dados para MABS.
+    > O licenciamento para SQL Server usado como o banco de dados do MABS é regido pelos [termos do Microsoft Online Services](https://www.microsoft.com/licensing/product-licensing/products) (OST). De acordo com o OST, SQL Server agrupadas com MABS podem ser usadas somente como o banco de dados para MABS.
 
 4. Forneça um local para a instalação dos arquivos do servidor de Backup do Microsoft Azure e clique em **Avançar**.
 
@@ -229,7 +229,7 @@ Quando a etapa de instalação for concluída, os ícones da área de trabalho d
 A primeira cópia de backup é mantida no armazenamento anexado ao computador do Servidor de Backup do Azure. Para saber mais sobre a adição de discos, consulte [Configurar os pools de armazenamento e o armazenamento em disco](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
 
 > [!NOTE]
-> Você precisará adicionar armazenamento de backup mesmo se planejar enviar dados para o Azure. Na arquitetura atual do Servidor de Backup do Azure, o Cofre do Backup do Azure mantém a *segunda* cópia dos dados, enquanto o armazenamento local mantém a primeira (e obrigatória) cópia de backup.
+> Você precisará adicionar armazenamento de backup mesmo se planejar enviar dados para o Azure. Na arquitetura atual do Servidor de Backup do Azure, o cofre do Backup do Azure mantém a *segunda* cópia dos dados, enquanto o armazenamento local mantém a primeira (e obrigatória) cópia de backup.
 >
 >
 
@@ -336,7 +336,7 @@ Use as etapas a seguir para fazer upgrade do MABS:
    >
    > Não saia enquanto a instância do SQL estiver sendo atualizada, a saída desinstalará a instância de relatório do SQL e, portanto, uma tentativa de atualização do MABS falhará.
 
-   Aspectos importantes a serem observados:
+
 
    > [!IMPORTANT]
    >
@@ -348,7 +348,7 @@ Use as etapas a seguir para fazer upgrade do MABS:
 4. Os backups devem continuar sem a necessidade de reiniciar os servidores de produção.
 5. Agora, você pode começar a proteger seus dados. Se estiver atualizando para o Armazenamento de Backup Moderno, durante a proteção você também poderá escolher os volumes nos quais quer armazenar os backups e verificar o espaço provisionado. [Saiba mais](backup-mabs-add-storage.md).
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 Se o servidor de Backup do Microsoft Azure falha com erros durante a fase de instalação (ou no backup ou na restauração), consulte o [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para saber mais.
 Você também pode consultar as [Perguntas frequentes relacionadas ao Backup do Azure](backup-azure-backup-faq.md)

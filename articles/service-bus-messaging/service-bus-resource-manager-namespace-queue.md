@@ -1,6 +1,6 @@
 ---
-title: Criar namespace e fila do Barramento de Serviço do Azure usando um modelo do Azure Resource Manager | Microsoft Docs
-description: Criar um namespace e uma fila do Barramento de Serviço usando um modelo do Azure Resource Manager
+title: 'Início Rápido: Criar um namespace e uma fila do Barramento de Serviço do Azure usando um modelo do Azure Resource Manager'
+description: 'Início Rápido: Criar um namespace e uma fila do Barramento de Serviço usando um modelo do Azure Resource Manager'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c6a4202b944b2eb95008964eb1040f176645334
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 40aeff225cfa6d499ebdfae6736e0684b2a27244
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482380"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718804"
 ---
-# <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Criar um namespace e uma fila do Barramento de Serviço usando um modelo do Azure Resource Manager
+# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Início Rápido: Criar um namespace e uma fila do Barramento de Serviço usando um modelo do Azure Resource Manager
 
 Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace e uma fila do Barramento de Serviço nesse namespace. O artigo explica como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
@@ -37,7 +37,7 @@ Para ver o modelo completo, consulte o [Modelo de namespace e fila do Barramento
 > * [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
 > * [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite a Galeria de [modelos de início rápido do Azure][Azure Quickstart Templates] e pesquise por **barramento de serviço**.
+> Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e pesquise por **Barramento de Serviço**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -139,9 +139,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte o tópico a seguir que mostra como criar uma regra de autorização para o namespace/fila: [criar uma regra de autorização do barramento de serviço para namespace e fila usando um modelo de Azure Resource Manager](service-bus-resource-manager-namespace-auth-rule.md)
+Consulte o tópico a seguir que mostra como criar uma regra de autorização para namespace/fila: [Criar uma regra de autorização do Barramento de Serviço para um namespace e uma fila usando um modelo do Azure Resource Manager](service-bus-resource-manager-namespace-auth-rule.md)
 
-Saiba como gerenciar esses recursos exibindo estes artigos:
+Saiba como gerenciar esses recursos analisando estes artigos:
 
 * [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-manage-with-ps.md)
 * [Gerenciar recursos do Barramento de Serviço com o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

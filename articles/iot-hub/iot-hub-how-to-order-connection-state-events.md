@@ -1,5 +1,5 @@
 ---
-title: Ordenar eventos de conexão de dispositivo do Hub IoT usando o Azure Cosmos DB | Microsoft Docs
+title: Solicitar eventos de conexão do dispositivo fr Hub IoT do Azure w/Azure Cosmos DB
 description: Este artigo descreve como ordenar e registrar eventos de conexão de dispositivo do Hub IoT usando o Azure Cosmos DB para manter o estado de conexão mais recente
 services: iot-hub
 ms.service: iot-hub
@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67988295"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954264"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de conexão de dispositivo do Hub IoT usando o Azure Cosmos DB
 
@@ -20,7 +20,7 @@ A Grade de Eventos do Azure ajuda a criar aplicativos baseados em eventos e a in
 
 O número de sequência é uma representação em cadeia de caracteres de um número hexadecimal. É possível usar a comparação de cadeia de caracteres para identificar o número maior. Se você estiver convertendo a cadeia de caracteres para hexadecimal, o número será um número de 256 bits. O número de sequência é estritamente crescente; portanto, o evento mais recente terá um número maior do que os outros eventos. Isso é útil caso você tenha conexões e desconexões de dispositivo frequentes e queira garantir que apenas o evento mais recente será usado para disparar uma ação downstream, pois a Grade de Eventos do Azure não oferece suporte à ordenação de eventos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma conta ativa do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -131,7 +131,7 @@ Primeiramente, crie um procedimento armazenado e o configure para executar uma l
 
     ![salvar procedimento armazenado](./media/iot-hub-how-to-order-connection-state-events/save-stored-procedure.png)
 
-## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+## <a name="create-a-logic-app"></a>criar um aplicativo lógico
 
 Primeiro, crie um aplicativo lógico e adicione um gatilho de Grade de eventos que monitora o grupo de recursos de sua máquina virtual.
 
@@ -220,7 +220,7 @@ No seu fluxo de trabalho de aplicativo lógico, as condições ajudam a executar
 
    **ID do banco de dados**: ToDoList
 
-   **ID da coleção**: Itens
+   **ID da coleção**: itens
 
    **ID do SPROC**: LatestDeviceConnectionState
 
@@ -264,7 +264,7 @@ Nesta seção, você configura o Hub IoT para publicar eventos à medida que oco
 
    ![Criar nova assinatura de evento](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. Preencha os **detalhes da assinatura do evento**: Forneça um nome descritivo e selecione **Esquema da Grade de Eventos**.
+4. Preencha os **detalhes da assinatura do evento**: forneça um nome descritivo e selecione **esquema de grade de eventos**.
 
 5. Preencha os campos de **tipos de evento** . Na lista suspensa, selecione somente **dispositivo conectado** e **dispositivo desconectado** do menu. Clique em qualquer outro lugar na tela para fechar a lista e salvar suas seleções.
 
@@ -292,7 +292,7 @@ Como a assinatura de evento já foi configurada, vamos testar conectando um disp
 
 3. Para**IID do dispositivo**, insira `Demo-Device-1`.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 5. É possível adicionar vários dispositivos com diferentes IDs de dispositivo.
 

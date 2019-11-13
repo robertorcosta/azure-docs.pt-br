@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2d0a05c763b21b0cf22a724f9a5faa9d70b5b557
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579692"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010654"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -59,11 +59,11 @@ Você pode implantar modelos personalizados e de linha de base no portal e, em s
 
 O conjunto de dados antigo e o novo devem ser combinados em um único arquivo .zip (para dados acústicos) ou em um arquivo .txt (para dados de linguagem). Quando a adaptação for concluída, o novo modelo atualizado precisará ser reimplantado para a obtenção de um novo ponto de extremidade
 
-**P: Quando uma nova versão de uma linha de base está disponível, minha implantação é atualizada automaticamente?**
+**P: quando uma nova versão de uma linha de base está disponível, minha implantação é atualizada automaticamente?**
 
 **R**: As implantações NÃO serão atualizadas automaticamente.
 
-Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa implantação permanecerá como está. Os clientes podem desativar o modelo implantado, adaptar-se novamente usando a versão mais recente da linha de base e reimplantar.
+Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa implantação permanecerá como está. Os clientes podem desativar o modelo implantado, readaptar-se usando a versão mais recente da linha de base e reimplantar.
 
 **P: E se eu precisar de maior simultaneidade para o modelo implantado do que o oferecido no portal?**
 
@@ -71,26 +71,31 @@ Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa im
 
 Contate o [suporte de fala](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) se você precisar de uma escala mais alta.
 
-Para aumentar a simultaneidade para um modelo personalizado, precisamos das seguintes informações:
+Para aumentar a simultaneidade para um ***modelo personalizado***, precisamos das seguintes informações:
 
-- A região em que o modelo é implantado.
-- A ID do ponto de extremidade do modelo implantado.
+- A região em que o modelo é implantado,
+- a ID do ponto de extremidade do modelo implantado:
+  - Obtido com o [portal de fala personalizada](https://aka.ms/customspeech),
+  - entrar (se necessário),
+  - Selecione seu projeto e implantação,
+  - Selecione o ponto de extremidade para o qual você precisa do aumento de simultaneidade,
+  - Copie o `Endpoint ID`.
 
-Para aumentar a simultaneidade para modelos de base, precisamos das seguintes informações:
+Para aumentar a simultaneidade para um ***modelo base***, precisamos das seguintes informações:
 
 - A região do seu serviço,
 
 e qualquer um
 
-- um token de acesso para você subrscription (veja [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+- um token de acesso para sua assinatura (veja [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
-ou o
+ou
 
 - a ID de recurso para sua assinatura:
-  - Vá para https://portal.azure.com,
+  - Vá para a [portal do Azure](https://portal.azure.com),
   - Selecione `Cognitive Services` na caixa de pesquisa,
   - nos serviços exibidos, escolha o serviço de fala para o qual você deseja aumentar a simultaneidade,
-  - exibir as propriedades deste serviço,
+  - exibir o `Properties` para este serviço,
   - Copie o `Resource ID`completo.
 
 **Pergunta: Posso baixar meu modelo e executá-lo localmente?**
@@ -107,7 +112,7 @@ ou o
 
 **P: como sou cobrado por áudio de canal duplo?**
 
-**R**: se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado de acordo com a duração de cada arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo.
+**R**: se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado por duração do arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo.
 
 > [!IMPORTANT]
 > Se você tiver mais problemas de privacidade que o impeçam de usar o serviço de voz personalizada, entre em contato com um dos canais de suporte.
@@ -184,8 +189,8 @@ ou o
  
 **P: quais experiências de fala foram aprimoradas pelo modelo de locatário?**
 
-**R:** Quando o modelo de locatário é habilitado, criado e publicado, ele é usado para melhorar o reconhecimento de qualquer aplicativo empresarial criado usando o serviço de fala; Isso também passa um token AAD do usuário que indica a associação à empresa. 
- 
+**R:** Quando o modelo de locatário é habilitado, criado e publicado, ele é usado para melhorar o reconhecimento de qualquer aplicativo empresarial criado usando o serviço de fala; Isso também passa um token AAD do usuário que indica a associação à empresa.
+
 As experiências de fala incorporadas ao Office 365, como ditado e legendas do PowerPoint, não são alteradas quando você cria um modelo de locatário para seus aplicativos de serviço de fala.
 
 ## <a name="next-steps"></a>Próximas etapas

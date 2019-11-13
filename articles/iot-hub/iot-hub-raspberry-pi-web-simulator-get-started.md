@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi simulado para nuvem (Node.js) – Conectar o simulador web Raspberry Pi ao Hub IoT do Azure | Microsoft Docs
+title: Conectar o simulador da Web do Raspberry Pi ao Hub IoT do Azure (Node. js)
 description: Conectar o simulador web Raspberry Pi ao Hub IoT do Azure para que o Raspberry Pi envie dados para a nuvem do Azure.
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 9af2f0860c415ddb701e24ed8a698fae36d42e1f
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: efbe41be6c923f3547df86fd6faeb56bff5e0802
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838715"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954522"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Conectar o simulador online Raspberry Pi ao Hub IoT do Azure (Node.js)
 
@@ -94,17 +94,17 @@ Há três áreas no simulador da web.
 
 1. Na área de codificação, verifique se você está trabalhando no aplicativo de exemplo padrão. Substitua o espaço reservado na Linha 15 com cadeia de conexão do dispositivo do Azure IoT hub.
 1. 
-   ![Substitua a cadeia de caracteres de conexão do dispositivo](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
+   ![Substituir a cadeia de conexão do dispositivo](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
 
-2. Selecione **executados** ou tipo `npm start` para executar o aplicativo.
+2. Selecione **executar** ou digite `npm start` para executar o aplicativo.
 
 Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens que são enviadas ao seu Hub IoT ![saída - dados de sensor enviados do Raspberry Pi para o seu Hub IoT](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Ler as mensagens recebidas pelo seu hub
 
-Uma maneira para monitorar mensagens recebidas pelo hub IoT do dispositivo simulado é usar as ferramentas do IoT do Azure para Visual Studio Code. Para obter mais informações, consulte [usar as ferramentas de IoT do Azure para Visual Studio Code para enviar e receber mensagens entre o dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Uma maneira de monitorar as mensagens recebidas pelo Hub IoT do dispositivo simulado é usar as ferramentas de IoT do Azure para Visual Studio Code. Para saber mais, confira [usar as ferramentas de IOT do Azure para Visual Studio Code para enviar e receber mensagens entre o dispositivo e o Hub IOT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Para obter mais formas processar os dados enviados pelo seu dispositivo, continue na próxima seção.
+Para obter mais maneiras de processar dados enviados pelo seu dispositivo, continue na próxima seção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

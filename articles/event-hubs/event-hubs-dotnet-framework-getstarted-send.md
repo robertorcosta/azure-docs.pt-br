@@ -1,6 +1,6 @@
 ---
-title: Enviar e receber eventos usando o .NET Framework - Hubs de eventos do Azure | Microsoft Docs
-description: Este artigo fornece um passo a passo para criar um aplicativo do .NET Framework que envia eventos para Hubs de eventos do Azure.
+title: 'Início Rápido: Enviar e receber eventos usando o .NET Framework – Hubs de Eventos do Azure'
+description: 'Início Rápido: Este artigo apresenta instruções passo a passo para a criação de um aplicativo .NET Framework que envia eventos para os Hubs de Eventos do Azure.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,30 +11,30 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 96ce71a7b3076adec169f103060a167b61c42d5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 89419e9a3ef364d4095800a617a84ff2f63c09a0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603516"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720657"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Enviar eventos para ou receber eventos de Hubs de eventos do Azure usando o .NET Framework
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Início Rápido: Enviar ou receber eventos de Hubs de Eventos do Azure usando o .NET Framework
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
 
-Este tutorial mostra como criar aplicativos de console do .NET Framework no C# para enviar eventos para ou receber eventos de um hub de eventos. 
+Este tutorial mostra como criar aplicativos de console do .NET Framework em C# para enviar ou receber eventos de um eventhub. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com).
-- **Criar um namespace de Hubs de eventos e um hub de eventos**. A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento das quais que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md). Em seguida, obtenha o **cadeia de caracteres de conexão para o namespace de hub de eventos** seguindo as instruções do artigo: [Obter a cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Você usa a cadeia de conexão posteriormente no tutorial.
+- **Criar um namespace de Hubs de Eventos e um hub de eventos**. A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento das quais que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md). Em seguida, obtenha a **cadeia de conexão para o namespace do hub de eventos** seguindo as instruções do artigo: [Obter a cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Você usa a cadeia de conexão posteriormente no tutorial.
 
 ## <a name="send-events"></a>Enviar eventos 
-Esta seção mostra como criar um aplicativo de console do .NET Framework para enviar eventos para um hub de eventos. 
+Esta seção mostra como criar um aplicativo de console .NET Framework para enviar eventos para um hub de eventos. 
 
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
@@ -103,7 +103,7 @@ No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Vis
 5. Execute o programa e certifique-se de que não existem erros.
   
 ## <a name="receive-events"></a>Receber eventos
-Nesta seção, você escreve um aplicativo de console do .NET Framework que recebe mensagens de um hub de eventos usando o [Event Processor Host](event-hubs-event-processor-host.md). O [Host do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica o recebimento de eventos de hubs de eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses hubs de eventos. Ao usar o Host do Processador de Eventos, você pode dividir eventos através de vários receptores, mesmo quando hospedados em nós diferentes. 
+Nesta seção, você escreve um aplicativo de console do .NET Framework que recebe mensagens de um hub de eventos usando o [Host do Processador de Eventos](event-hubs-event-processor-host.md). O [Host do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica o recebimento de eventos de hubs de eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses hubs de eventos. Ao usar o Host do Processador de Eventos, você pode dividir eventos através de vários receptores, mesmo quando hospedados em nós diferentes. 
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -218,7 +218,7 @@ No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Vis
 Leia os seguintes artigos: 
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Recursos e a terminologia nos Hubs de eventos do Azure](event-hubs-features.md).
+- [Recursos e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md).
 - [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
 

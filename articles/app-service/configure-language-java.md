@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 75632d4fcdbf27f70b1b84f08f7295212dbac6a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ad9ee8a21390126f20da4037a438a2655b8b5d47
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471098"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012267"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Windows para o serviço Azure App
 
@@ -35,15 +35,11 @@ Caso contrário, o método de implantação dependerá do tipo de arquivo morto:
 
 - Para implantar arquivos .war para Tomcat, use o ponto de extremidade `/api/wardeploy/` para executar POST de seu arquivo morto. Para obter mais informações sobre essa API, confira [essa documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 
-Não implante seu. War usando FTP. A ferramenta FTP foi projetada para carregar os scripts de inicialização, dependências ou outros arquivos de tempo de execução. Não é a opção ideal para a implantação de aplicativos Web.
+Não implante seu. War usando FTP. A ferramenta FTP foi projetada para carregar os scripts de inicialização, dependências ou outros arquivos de runtime. Não é a opção ideal para a implantação de aplicativos Web.
 
 ## <a name="logging-and-debugging-apps"></a>Aplicativos de registro em log e depuração
 
 Relatórios de desempenho, visualizações de tráfego e verificações de integridade estão disponíveis para cada aplicativo por meio do portal do Azure. Para obter mais informações, consulte [visão geral do diagnóstico de serviço Azure app](overview-diagnostics.md).
-
-### <a name="ssh-console-access"></a>Acesso ao console SSH
-
-[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ### <a name="stream-diagnostic-logs"></a>Logs de diagnóstico de fluxo
 
@@ -68,7 +64,7 @@ O serviço de Azure App dá suporte ao ajuste e à personalização prontos para
 - [Adicionar uma CDN](../cdn/cdn-add-to-web-app.md)
 - [Configurar o site kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
-### <a name="set-java-runtime-options"></a>Definir opções de tempo de execução do Java
+### <a name="set-java-runtime-options"></a>Definir opções de runtime do Java
 
 Para definir a memória alocada ou outras opções de tempo de execução da JVM, crie uma [configuração de aplicativo](configure-common.md#configure-app-settings) chamada `JAVA_OPTS` com as opções. O serviço de aplicativo passa essa configuração como uma variável de ambiente para o tempo de execução Java quando ele é iniciado.
 
@@ -296,7 +292,7 @@ Para editar `server.xml` do Tomcat ou outros arquivos de configuração, primeir
 
 Por fim, reinicie o Serviço de Aplicativo. Suas implantações devem ir para `D:\home\site\wwwroot\webapps` assim como antes.
 
-## <a name="java-runtime-statement-of-support"></a>Declaração de suporte do tempo de execução do Java
+## <a name="java-runtime-statement-of-support"></a>Declaração de suporte do runtime do Java
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões e manutenção do JDK
 
@@ -312,7 +308,7 @@ Os patches e as correções para grandes vulnerabilidades de segurança serão l
 
 ### <a name="deprecation-and-retirement"></a>Reprovação e desativação
 
-Se um tempo de execução do Java com suporte for desativado, os desenvolvedores do Azure que usam o tempo de execução afetado receberão um aviso de reprovação pelo menos seis meses antes de o tempo de execução ser desativado.
+Se um runtime do Java com suporte for desativado, os desenvolvedores do Azure que usam o runtime afetado receberão um aviso de reprovação pelo menos seis meses antes de o runtime ser desativado.
 
 ### <a name="local-development"></a>Desenvolvimento local
 
@@ -322,7 +318,7 @@ Os desenvolvedores podem baixar a Production Edition do Azul Zulu Enterprise JDK
 
 O suporte ao produto para o [azul Zulu com suporte do Azure](https://www.azul.com/downloads/azure-only/zulu/) está disponível por meio da Microsoft ao desenvolver para o azure ou [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) com um [plano de suporte qualificado do Azure](https://azure.microsoft.com/support/plans/).
 
-### <a name="runtime-support"></a>Suporte de tempo de execução
+### <a name="runtime-support"></a>Suporte de runtime
 
 Os desenvolvedores podem [abrir um problema](/azure/azure-supportability/how-to-create-azure-support-request) com o Azul Zulu JDK por meio do Suporte do Azure se tiverem um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 

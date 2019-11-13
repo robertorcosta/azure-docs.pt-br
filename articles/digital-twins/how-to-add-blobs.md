@@ -1,6 +1,6 @@
 ---
 title: Como adicionar BLOBs a objetos – Azure digital gêmeos | Microsoft Docs
-description: Saiba como adicionar blobs a objetos nos Gêmeos Digitais do Azure.
+description: Saiba como adicionar BLOBs a usuários, dispositivos e espaços no gêmeos digital do Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a278501f1110da0ab332d0e1acf170892be26ee
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0a6629db50d0cec13d866d28a0823ccd3ed43f42
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949122"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014206"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos nos Gêmeos Digitais do Azure
 
@@ -30,13 +30,13 @@ Você pode usar solicitações multipartes para fazer o upload de blobs para pon
 
 [!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
-### <a name="blob-metadata"></a>Metadados do blob
+### <a name="blob-metadata"></a>Metadados de blob
 
 Além de **Content-Type** e **Content-Disposition**, as solicitações multipartes de blob dos Gêmeos Digitais do Azure devem especificar o corpo JSON correto. Qual corpo JSON a ser enviado depende do tipo de operação de solicitação HTTP que está sendo executada.
 
 Os quatro esquemas JSON principais são:
 
-[esquemas ![JSON](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
+[![esquemas JSON](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
 
 Metadados de blobs JSON são compatíveis com o seguinte modelo:
 
@@ -51,14 +51,14 @@ Metadados de blobs JSON são compatíveis com o seguinte modelo:
   }
 ```
 
-| Atributo | type | Descrição |
+| Atributo | Digite | DESCRIÇÃO |
 | --- | --- | --- |
 | **parentId** | String | A entidade pai a ser associada ao blob (espaços, dispositivos ou usuários) |
 | **name** |String | Um nome amigável para humanos para o blob |
-| **type** | String | O tipo de blob – não é possível usar *type* e *typeId*  |
-| **typeId** | Integer | A ID do tipo de blob – não é possível usar *type* e *typeId* |
+| **tipo** | String | O tipo de blob – não é possível usar *type* e *typeId*  |
+| **typeId** | Inteiro | A ID do tipo de blob – não é possível usar *type* e *typeId* |
 | **subtype** | String | O subtipo do blob – não é possível usar *subtype* e *subtypeId* |
-| **subtypeId** | Integer | A ID do subtipo do blob – não é possível usar *subtype* e *subtypeId* |
+| **subtypeId** | Inteiro | A ID do subtipo do blob – não é possível usar *subtype* e *subtypeId* |
 | **description** | String | Descrição personalizada do blob |
 | **sharing** | String | Se o blob pode ser compartilhado – enum [`None`, `Tree`, `Global`] |
 
@@ -106,18 +106,18 @@ Blobs retornados individualmente estão em conformidade com o seguinte esquema J
 }
 ```
 
-| Atributo | type | Descrição |
+| Atributo | Digite | DESCRIÇÃO |
 | --- | --- | --- |
-| **id** | String | O identificador exclusivo do blob |
+| **ID** | String | O identificador exclusivo do blob |
 | **name** |String | Um nome amigável para humanos para o blob |
 | **parentId** | String | A entidade pai a ser associada ao blob (espaços, dispositivos ou usuários) |
-| **type** | String | O tipo de blob – não é possível usar *type* e *typeId*  |
-| **typeId** | Integer | A ID do tipo de blob – não é possível usar *type* e *typeId* |
+| **tipo** | String | O tipo de blob – não é possível usar *type* e *typeId*  |
+| **typeId** | Inteiro | A ID do tipo de blob – não é possível usar *type* e *typeId* |
 | **subtype** | String | O subtipo do blob – não é possível usar *subtype* e *subtypeId* |
-| **subtypeId** | Integer | A ID do subtipo do blob – não é possível usar *subtype* e *subtypeId* |
+| **subtypeId** | Inteiro | A ID do subtipo do blob – não é possível usar *subtype* e *subtypeId* |
 | **sharing** | String | Se o blob pode ser compartilhado – enum [`None`, `Tree`, `Global`] |
 | **description** | String | Descrição personalizada do blob |
-| **contentInfos** | Array | Especifica as informações de metadados não estruturados, incluindo a versão |
+| **contentInfos** | Matriz | Especifica as informações de metadados não estruturados, incluindo a versão |
 | **fullName** | String | O nome completo do blob |
 | **spacePaths** | String | O caminho de espaço |
 
@@ -181,7 +181,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Por fim, usuários de [cURL](https://curl.haxx.se/) podem fazer solicitações de formulário de várias partes da mesma maneira:
 
-[blobs de @no__t 1Device](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[exemplo de ondulação de ![](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
 curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
@@ -208,7 +208,7 @@ As seções a seguir descrevem os pontos de extremidade de API relacionados ao b
 
 Você pode anexar blobs aos dispositivos. A imagem a seguir mostra a documentação de referência do Swagger para suas APIs de Gerenciamento. Ela especifica os pontos de extremidade da API relacionados ao dispositivo para consumo de blob e qualquer parâmetro de caminho necessário para passar para eles.
 
-[blobs de @no__t 1Device](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
+[![blobs de dispositivo](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
 
 Por exemplo, para atualizar ou criar um blob e anexar o blob a um dispositivo, faça uma solicitação HTTP PATCH autenticada para:
 
@@ -216,7 +216,7 @@ Por exemplo, para atualizar ou criar um blob e anexar o blob a um dispositivo, f
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 ```
 
-| Parâmetro | Substitua por |
+| . | Substitua por |
 | --- | --- |
 | *YOUR_BLOB_ID* | A ID do blob desejado |
 
@@ -226,7 +226,7 @@ Solicitações bem-sucedidas retornam um objeto JSON como [descrito anteriorment
 
 Você também pode anexar blobs aos espaços. A imagem abaixo lista todos os pontos de extremidade da API de espaços responsáveis pela manipulação dos blobs. Lista também os parâmetros de caminho a serem passados para esses pontos de extremidade.
 
-[blobs de @no__t 1Space](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
+[blobs de ![espaço](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
 
 Por exemplo, para retornar um blob anexado a um espaço, faça uma solicitação HTTP GET autenticada para:
 
@@ -234,7 +234,7 @@ Por exemplo, para retornar um blob anexado a um espaço, faça uma solicitação
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 ```
 
-| Parâmetro | Substitua por |
+| . | Substitua por |
 | --- | --- |
 | *YOUR_BLOB_ID* | A ID do blob desejado |
 
@@ -246,7 +246,7 @@ Uma solicitação PATCH para o mesmo ponto de extremidade atualiza descrições 
 
 Você pode anexar os blobs aos modelos do usuário (por exemplo, para associar uma imagem de perfil). A imagem abaixo exibe os pontos de extremidade relevantes da API de usuários e quaisquer parâmetros de caminho obrigatório, como `id`:
 
-[blobs de @no__t 1User](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
+[![blobs de usuário](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
 
 Por exemplo, para buscar um blob anexado a um usuário, faça uma solicitação HTTP GET autenticada com todos os dados de formulário necessários para:
 
@@ -254,7 +254,7 @@ Por exemplo, para buscar um blob anexado a um usuário, faça uma solicitação 
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 ```
 
-| Parâmetro | Substitua por |
+| . | Substitua por |
 | --- | --- |
 | *YOUR_BLOB_ID* | A ID do blob desejado |
 

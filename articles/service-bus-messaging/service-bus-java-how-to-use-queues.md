@@ -1,6 +1,6 @@
 ---
-title: Usar filas do barramento de serviço do Azure com Java
-description: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java.
+title: 'Início Rápido: Usar filas do Barramento de Serviço do Azure com Java'
+description: 'Início Rápido: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java.'
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -11,38 +11,39 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 19cfd2c5dd4229e4687fcb1a3286509c9b768d7a
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
-ms.translationtype: MT
+ms.openlocfilehash: bb51f30a69294cd78d0664a5bdae70c969da1972
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155491"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721693"
 ---
-# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Usar filas do barramento de serviço do Azure com Java para enviar e receber mensagens
+# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Início Rápido: Usar filas do Barramento de Serviço do Azure com Java para enviar e receber mensagens
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-Neste tutorial, você aprenderá a criar aplicativos Java para enviar e receber mensagens de uma fila do barramento de serviço do Azure. 
+Neste tutorial, você aprenderá a criar aplicativos Java para enviar mensagens para uma fila do Barramento de Serviço do Azure e receber mensagens dela. 
 
 > [!NOTE]
 > Você pode encontrar amostras Java no GitHub no repositório [azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se você não tiver uma fila com a qual trabalhar, siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) para criar uma fila.
-    1. Leia a **visão geral** rápida das **filas**do barramento de serviço. 
-    2. Crie um **namespace**do barramento de serviço. 
-    3. Obter a **cadeia de conexão**.
-    4. Criar uma **fila**do barramento de serviço.
-3. Instale o [SDK do Azure para Java][Azure SDK for Java]. 
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Caso você não tenha uma fila para trabalhar, siga as etapas do artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md) para criar uma fila.
+    1. Leia a **visão geral** rápida das **filas** do Barramento de Serviço. 
+    2. Crie um **namespace** do Barramento de Serviço. 
+    3. Obtenha a **cadeia de conexão**.
+    4. Criar uma **fila** do Barramento de Serviço.
+3. Instalar o [SDK do Azure para Java][Azure SDK for Java]. 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
 Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
 
-![Adicionar bibliotecas de Microsoft Azure para Java ao seu projeto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+![Adicionar Bibliotecas do Microsoft Azure para Java a seu projeto do Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 Adicione as seguintes instruções `import` à parte superior do arquivo Java:
 

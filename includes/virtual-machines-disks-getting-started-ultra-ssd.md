@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 838037804baad9105b4636934de957c2e5f3e810
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3525edb2a73811254b2a4dce70ce3edb58988492
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611991"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012461"
 ---
-# <a name="using-azure-ultra-disks"></a>Usando os ultra discos do Azure
-
 Os ultra discos do Azure oferecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para VMs (máquinas virtuais) IaaS do Azure. Essa nova oferta fornece o melhor em desempenho de linha, nos mesmos níveis de disponibilidade que nossas ofertas de discos atuais. Um grande benefício dos ultra discos é a capacidade de alterar dinamicamente o desempenho do SSD junto com suas cargas de trabalho sem a necessidade de reiniciar suas VMs. Ultra discos são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho com transações pesadas.
 
 ## <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA
@@ -49,9 +47,9 @@ A resposta será semelhante ao formulário abaixo, em que X é a zona a ser usad
 
 Preservar o valor de **zonas** , representa sua zona de disponibilidade e você precisará dela para implantar um ultra Disk.
 
-|ResourceType  |Nome  |Local  |Zonas  |Restrição  |Recurso  |Valor  |
+|ResourceType  |NOME  |Local padrão  |Zonas  |Restrição  |Recurso  |Valor  |
 |---------|---------|---------|---------|---------|---------|---------|
-|discos     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
 > Se não houver resposta do comando, o tamanho da VM selecionado não terá suporte com ultra discos na região selecionada.
