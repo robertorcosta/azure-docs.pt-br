@@ -1,17 +1,14 @@
 ---
 title: Exemplo de blueprint ISO 27001 – Visão Geral
 description: Visão geral da amostra de blueprint ISO 27001. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do ISO 27001.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 8c9d657788e8fd56e37acbf8924cb28573858ead
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2e6e3d8d1abec1262f60ca25a549f35658ed54d3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200676"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037318"
 ---
 # <a name="overview-of-the-iso-27001-blueprint-sample"></a>Visão geral da amostra de blueprint ISO 27001
 

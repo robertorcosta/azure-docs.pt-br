@@ -1,18 +1,14 @@
 ---
 title: Exemplo de blueprint da zona de aterrissagem de Migração do CAF – Visão geral
 description: Visão geral e arquitetura do exemplo de blueprint da zona de aterrissagem de migração do CAF.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
-ms.service: blueprints
-ms.custom: fasttrack-new
-ms.openlocfilehash: 28a6bbb21cfd32d21d5d2ffdcaf10faf1a1f8a9f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cba1eb6d4761ae8e236f22fa22ff08c129d9637e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163542"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038457"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Visão geral do exemplo de blueprint da zona de aterrissagem de migração do Cloud Adoption Framework da Microsoft para o Azure
 
