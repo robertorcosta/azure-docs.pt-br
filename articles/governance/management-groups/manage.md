@@ -1,17 +1,14 @@
 ---
 title: Como trabalhar com seus grupos de gerenciamento-governança do Azure
 description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia de grupos de gerenciamento.
-author: rthorn17
-ms.service: governance
 ms.date: 05/22/2019
-ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 57695157119b81580777c0581adccb267e7e9faa
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255935"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960233"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -43,7 +40,7 @@ Você pode alterar o nome do grupo de gerenciamento usando o portal, o PowerShel
 
    ![Renomear painel de grupo para renomear grupo de gerenciamento](./media/rename_context.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="change-the-name-in-powershell"></a>Alterar o nome no PowerShell
 
@@ -249,7 +246,7 @@ Para ver quais permissões você tem no portal do Azure, selecione o grupo de ge
 
    ![Mover painel para alterar grupo pai](./media/move_small_context.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="move-subscriptions-in-powershell"></a>Mover assinaturas no PowerShell
 
@@ -300,7 +297,7 @@ Quando você move um grupo de gerenciamento pai, a hierarquia sob esse grupo é 
 
    ![Mover um grupo de gerenciamento para um grupo novo ou existente](./media/add_context_MG.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="move-management-groups-in-powershell"></a>Mover grupos de gerenciamento no PowerShell
 
@@ -350,7 +347,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 Para saber mais sobre grupos de gerenciamento, consulte:
 
 - [Criar grupos de gerenciamento para organizar recursos do Azure](create.md)
-- [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](manage.md)
+- [Como alterar, excluir ou gerenciar grupos de gerenciamento](manage.md)
 - [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
 - [Revisar grupos de gerenciamento na API REST](/rest/api/resources/managementgroups)
 - [Revisar grupos de gerenciamento na CLI do Azure](/cli/azure/account/management-group)

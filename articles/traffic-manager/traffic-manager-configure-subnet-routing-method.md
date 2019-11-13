@@ -1,5 +1,5 @@
 ---
-title: Configurar o método de roteamento de tráfego da sub-rede usando o Gerenciador de Tráfego do Azure
+title: Configurar o roteamento de tráfego de sub-rede-Gerenciador de tráfego do Azure
 description: Este artigo explica como configurar o Gerenciador de Tráfego para rotear o tráfego de sub-redes específicas.
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 1a7bc38a91dc7621a3b09d7901c70eecb21101d6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3751a14e8c317d6a4f23c1aa051b7e13305acf5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060953"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014604"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tráfego direto para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 
@@ -27,7 +27,7 @@ No cenário discutido neste artigo, usando o roteamento de sub-rede, dependendo 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para ver o Gerenciador de Tráfego em ação, este tutorial exige que você implante o seguinte:
 - dois sites básicos em execução em diferentes regiões do Azure - **Leste dos EUA** (serve como site interno) e **Europa Ocidental** (serve como site de produção).
 - duas VMs de teste para testar o Gerenciador de Tráfego do Microsoft Azure - uma VM no **Leste dos EUA** e a segunda VM na **Europa Ocidental**.
@@ -64,7 +64,7 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
     
     |Configuração|Valor|
     |---|---|
-    |Rede virtual| Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet1*, para a sub-rede, insira *mySubnet*.|
+    |rede virtual| Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet1*, para a sub-rede, insira *mySubnet*.|
     |Grupo de Segurança de Rede|Selecione **Básico**, e na lista **Selecionar as portas de entrada públicas**, selecione **HTTP** e **RDP** |
     |Diagnóstico de inicialização|Selecione **Desabilitado**.|
     |||
@@ -73,12 +73,12 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
 
 7. Conclua as etapas 1 a 6 novamente, com as seguintes alterações:
 
-    |Configuração|Value|
+    |Configuração|Valor|
     |---|---|
     |Grupo de recursos | Selecione **Novo**e digite *myResourceGroupTM2*|
     |Local padrão|Europa Ocidental|
     |Nome da VM | myIISVMWEurope|
-    |Rede virtual | Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet2*, para a sub-rede, insira *mySubnet*.|
+    |rede virtual | Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet2*, para a sub-rede, insira *mySubnet*.|
     |||
 
 8. As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
@@ -149,7 +149,7 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
 
     |Configuração|Valor|
     |---|---|
-    |Rede virtual| Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet3*, para sub-rede, insira *mySubnet3*.|
+    |rede virtual| Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet3*, para sub-rede, insira *mySubnet3*.|
     |Grupo de Segurança de Rede|Selecione **Básico**, e na lista **Selecionar as portas de entrada públicas**, selecione **HTTP** e **RDP** |
     |Diagnóstico de inicialização|Selecione **Desabilitado**.|
     |||
@@ -158,11 +158,11 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
 
 7. Conclua as etapas 1 a 5 novamente, com as seguintes alterações:
 
-    |Configuração|Value|
+    |Configuração|Valor|
     |---|---|
     |Nome da VM | *myVMWEurope*|
     |Grupo de recursos | Selecione **Existente** e em seguida, digite *myResourceGroupTM2*|
-    |Rede virtual | Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet4*, para sub-rede, insira *mySubnet4*.|
+    |rede virtual | Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet4*, para sub-rede, insira *mySubnet4*.|
     |||
 
 8. As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
@@ -192,9 +192,9 @@ Adicione as duas VMs executando o IIS servidores - *myIISVMEastUS* & *myIISVMWEu
 2. Em **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade** e clique em **Adicionar**.
 3. Insira, ou selecione, as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **OK**:
 
-    | Configuração                 | Value                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Type                    | Ponto de extremidade do Azure                                   |
+    | Digite                    | Ponto de extremidade do Azure                                   |
     | NOME           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP público                          |
     | Recurso de destino          | **Escolha um endereço IP Público** para mostrar a lista de recursos com endereços IP públicos na mesma assinatura. Em **Recursos**, selecione o endereço IP público denominado *myIISVMEastUS-ip*. Isso é o endereço IP público do servidor IIS VM no Leste dos EUA.|
@@ -219,7 +219,7 @@ Você pode determinar o nome DNS do seu perfil do Gerenciador de Tráfego confor
 
 1. Na barra de pesquisa do portal, procure o nome do **Perfil do Gerenciador de Tráfego** criado na seção anterior. Nos resultados exibidos, clique no perfil do gerenciador de tráfego.
 1. Clique em **Visão Geral**.
-2. O **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego criado recentemente. Nas implantações de produção, você configura um nome de domínio intuitivo para apontar para o nome de domínio do Gerenciador de Tráfego, usando um registro DNS CNAME.
+2. O **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Nas implantações de produção, você configura um nome de domínio intuitivo para apontar para o nome de domínio do Gerenciador de Tráfego, usando um registro DNS CNAME.
 
    ![Nome DNS do Gerenciador de Tráfego](./media/traffic-manager-subnet-routing-method/traffic-manager-dns-name.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Introdução ao módulo gêmeo e à identidade do módulo do Hub IoT (Node.js) | Microsoft Docs
+title: Comece com a identidade do módulo do Hub IoT do Azure & módulo "/".
 description: Saiba como criar a identidade do módulo e atualizar o módulo gêmeo usando SDKs de IoT para Node.js.
 author: wesmc7777
 manager: philmea
@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 0fc676fd32c585324bac0024655765ebd628385a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bf80925a2dc5c6d06ba14fe1c0d72a2fc1f88d51
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165902"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953863"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Introdução à identidade do módulo do Hub IoT e ao módulo "". js "
 
@@ -32,7 +32,7 @@ Ao fim deste tutorial, você terá dois aplicativos do Node.js:
 > [!NOTE]
 > Para obter informações sobre os SDKs de IoT do Azure que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução, veja [SDKs de IoT do Azure](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Node. js versão 10.0. x ou posterior. [Preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node. js para este tutorial no Windows ou no Linux.
 
@@ -56,7 +56,7 @@ Nesta seção, você criará um aplicativo Node.js que cria uma identidade do di
 
 2. Dentro desse diretório, primeiro execute **npm init -y** para criar um package.json vazio com os padrões. Esse é o arquivo de projeto do código.
 
-3. Execute **NPM install-S Azure-iothub @ no__t-1modules-Preview** para instalar o SDK do serviço dentro do subdiretório **node_modules** .
+3. Execute **NPM install-S Azure-iothub\@modules-Preview** para instalar o SDK do serviço dentro do subdiretório **node_modules** .
 
     > [!NOTE]
     > O nome do subdiretório node_modules usa o módulo word para significar "uma biblioteca de nós". Este termo não está relacionado com módulos do Hub IoT.
@@ -118,7 +118,7 @@ Nesta seção, você criará um aplicativo Node.js que cria uma identidade do di
 
     ```
 
-Esse aplicativo cria uma identidade do dispositivo com a ID **myFirstDevice** e uma identidade do módulo com a ID **myFirstModule** no dispositivo **myFirstDevice**. (se essa ID de módulo já existir no registro de identidade, o código simplesmente irá recuperar as informações do módulo existentes.) Em seguida, o aplicativo exibe a chave primária dessa identidade. Você usa essa chave no aplicativo de módulo simulado para se conectar ao Hub IoT.
+Esse aplicativo cria uma identidade do dispositivo com a ID **myFirstDevice** e uma identidade do módulo com a ID **myFirstModule** no dispositivo **myFirstDevice**. (Se essa ID de módulo já existir no registro de identidade, o código simplesmente recuperará as informações de módulo existentes.) Em seguida, o aplicativo exibe a chave primária para essa identidade. Você usa essa chave no aplicativo de módulo simulado para se conectar ao Hub IoT.
 
 Execute isso usando o nó add.js. Ele fornecerá uma cadeia de conexão para a identidade do dispositivo e outra para a identidade do módulo.
 
@@ -133,7 +133,7 @@ Nesta seção, você criará um aplicativo Node.js no dispositivo simulado que a
 
    ![Detalhes do módulo do Portal do Azure](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. Da mesma forma que você fez na etapa anterior, crie um diretório para o código do dispositivo e use NPM para inicializá-lo e instalar o SDK do dispositivo (**NPM install-S Azure-IOT-Device-AMQP @ no__t-1modules-Preview**).
+2. Da mesma forma que você fez na etapa anterior, crie um diretório para o código do dispositivo e use NPM para inicializá-lo e instalar o SDK do dispositivo (**NPM install-S Azure-IOT-Device-amqp\@modules-Preview**).
 
    > [!NOTE]
    > O comando npm install pode parecer lento. Seja paciente, pois está baixando muitos códigos do repositório de pacotes.

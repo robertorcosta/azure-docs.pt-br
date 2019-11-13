@@ -1,17 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como a definição de diretiva de recurso é usada pela Política do Azure para estabelecer convenções para recursos em sua organização, descrevendo quando a diretiva é aplicada e qual efeito tomar.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 50edf2941aeb24d800752eec1e93f69abf4211ea
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464035"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960007"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -23,9 +20,9 @@ O esquema de definição de política é encontrado aqui: [https://schema.manage
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
 - modo
-- parâmetros
+- parameters
 - nome de exibição
-- Descrição
+- Description
 - regra de política
   - avaliação de lógica
   - efeito
@@ -66,7 +63,7 @@ Por exemplo, o JSON a seguir mostra uma política que limita os locais em que os
 
 Todos os exemplos de Azure Policy estão em [exemplos de Azure Policy](../samples/index.md).
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>Modo
 
 O **modo** é configurado dependendo de se a política tem como alvo uma propriedade Azure Resource Manager ou uma propriedade de provedor de recursos.
 
@@ -93,7 +90,7 @@ Atualmente, há suporte para os seguintes modos de provedor de recursos durante 
 > [!NOTE]
 > Os modos de provedor de recursos só dão suporte a definições de políticas internas e não oferecem suporte a iniciativas durante a visualização.
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Parâmetros ajudam a simplificar o gerenciamento de política, reduzindo o número de definições de política. Pense em parâmetros como os campos em um formulário – `name`, `address`, `city`, `state`. Esses parâmetros sempre permanecem iguais, porém, seus valores mudam com base no preenchimento individual do formulário.
 Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir parâmetros em uma definição de política, você pode reutilizar essa política para diferentes cenários usando valores diferentes.
@@ -224,7 +221,7 @@ Você pode aninhar operadores lógicos. A exemplo a seguir mostra uma operação
 },
 ```
 
-### <a name="conditions"></a>Condições
+### <a name="conditions"></a>Conditions
 
 Uma condição avalia se um **campo** ou um acessador de **valor** atende a determinados critérios. As condições com suporte são:
 
@@ -461,7 +458,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 A lista de aliases sempre está aumentando. Para descobrir quais aliases atualmente são compatíveis com o Azure Policy, use um dos seguintes métodos:
 
-- Azure PowerShell
+- PowerShell do Azure
 
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell

@@ -1,6 +1,6 @@
 ---
-title: Provisionar e gerenciar a Versão Prévia do Azure Time Series | Microsoft Docs
-description: Noções básicas sobre como provisionar e gerenciar a Versão Prévia do Azure Time Series Insights.
+title: Provisionar e gerenciar um ambiente de visualização – série temporal do Azure | Microsoft Docs
+description: Saiba como provisionar e gerenciar um ambiente de visualização de Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 47c96cb14f2e466d02d57f73fb2e66bc1f44a311
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f66925c20f6767286eb98a7f5fab180845da4c33
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989921"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014795"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Provisionar e gerenciar a Versão Prévia do Azure Time Series Insights
 
 Este artigo descreve como criar e gerenciar um ambiente de Versão Prévia do Azure Time Series Insights usando o [portal do Azure](https://portal.azure.com/).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Os ambientes de Versão Prévia do Azure Time Series Insights são ambientes de PAYG (pago conforme o uso).
 
@@ -70,7 +70,7 @@ Para criar um ambiente de visualização de Azure Time Series Insights:
      > [!TIP]
      > O tempo de enfileiramento de mensagens pode não ser a configuração mais adequada para uso em cenários de eventos de lote ou em cenários de carregamento de dados históricos. Nesses casos, certifique-se de verificar sua decisão de usar ou não usar uma propriedade Timestamp.
 
-     [guia origem do evento![](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
+     [guia origem do evento ![](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Confirme se o seu ambiente foi provisionado com as configurações desejadas.
 
@@ -93,7 +93,7 @@ Para criar um ambiente de visualização de Azure Time Series Insights:
 
 [![Time Series Insights ambiente de visualização no portal do Azure](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre Time Series Insights ambientes geralmente disponíveis e ambientes de visualização lendo [planejar seu ambiente](./time-series-insights-update-plan.md).
 

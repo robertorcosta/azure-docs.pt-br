@@ -1,18 +1,18 @@
 ---
-title: Configurar a recuperação de desastre para VMs do Hyper-V locais em nuvens do VMM para o Azure com Site Recovery
+title: Configurar a recuperação de desastre do Hyper-V (com VMM) usando Azure Site Recovery
 description: Saiba como configurar a recuperação de desastre de VMs do Hyper-V locais em nuvens do System Center VMM para o Azure usando Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f686a02e363025daa5d0c3b3d4e53e07da636544
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fdf6d9674305ca13af51f3f7b97e0a40568738b6
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933829"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953962"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V em nuvens do VMM para o Azure
 
@@ -20,7 +20,7 @@ Este artigo descreve como habilitar a replicação para VMs do Hyper-V locais ge
 
 Este é o terceiro tutorial em uma série que mostra como configurar a recuperação de desastre para o Azure para VMs VMware locais. No tutorial anterior, preparamos [o ambiente do Hyper-V local](hyper-v-prepare-on-premises-tutorial.md) para recuperação de desastre no Azure.
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Selecionar a origem e o destino de replicação.
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção **Guias de Instruções** da [documentação do Site Recovery](https://docs.microsoft.com/azure/site-recovery).
 
 > [!WARNING]
-> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+> O suporte para a recuperação de desastre de VMs do Hyper-V usando o System Center VMM será preterido em um futuro próximo. É recomendável ler os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -135,6 +135,6 @@ A Recuperação de Site verifica se você tem uma ou mais contas de armazenament
 
    É possível acompanhar o progresso da ação **Habilitar Proteção** em **Trabalhos** > **Trabalhos do Site Recovery**. Depois que o trabalho **Finalizar Proteção** for concluído, a replicação inicial será concluída e a VM estará pronta para failover.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Realizar uma simulação de recuperação de desastre](tutorial-dr-drill-azure.md)

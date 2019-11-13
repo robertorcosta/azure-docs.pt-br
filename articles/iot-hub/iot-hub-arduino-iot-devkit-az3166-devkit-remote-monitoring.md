@@ -1,5 +1,5 @@
 ---
-title: Kit de Desenvolvimento de IoT para nuvem -- Conectar Kit de Desenvolvimento MXChip de IoT para Hub IoT | Microsoft Docs
+title: Conectar o MXChip IoT DevKit ao monitoramento remoto do Hub IoT do Azure
 description: Neste tutorial, saiba como enviar status de sensores em IoT DevKit AZ3166 para o acelerador de solução de monitoramento remoto do Azure IoT.
 author: liydu
 manager: jeffya
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 24e31bfa916df969368dce736cf841ed4fdfe2c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9eab035d494892671a2451866311ca06599ec030
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484039"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953729"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Conectar o MXChip IoT DevKit ao acelerador de solução de Monitoramento Remoto do Azure IoT
 
 Neste tutorial, você aprenderá como executar um aplicativo de exemplo em DevKit para enviar os dados do sensor para o seu acelerador de solução de Monitoramento Remoto do Azure IoT.
 
-O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é uma placa compatível com Arduino all-in-one periféricos e sensores avançados. É possível desenvolvê-lo usando a [extensão do Visual Studio Code para Arduino](https://aka.ms/arduino). E vem com um [ catálogo de projetos ](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) crescente para guiá-lo no protótipo de soluções de IoT (Internet das Coisas) que aproveitam os serviços do Microsoft Azure.
+O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é uma placa compatível com Arduino all-in-one periféricos e sensores avançados. É possível desenvolvê-lo usando a [extensão do Visual Studio Code para Arduino](https://aka.ms/arduino). E vem com um [catálogo de projetos](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) crescente para guiá-lo no protótipo de soluções de IoT (Internet das Coisas) que aproveitam os serviços do Microsoft Azure.
 
 ## <a name="what-you-need"></a>O que você precisa
 

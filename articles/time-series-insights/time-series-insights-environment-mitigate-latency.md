@@ -1,6 +1,6 @@
 ---
-title: Como monitorar e reduzir a limitação e prevenir a latência no Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve como monitorar, diagnosticar e atenuar problemas de desempenho que causam latência e limitação no Azure Time Series Insights.
+title: Como monitorar e reduzir a limitação-Azure Time Series Insights | Microsoft Docs
+description: Saiba como monitorar, diagnosticar e atenuar problemas de desempenho que causam latência e limitação no Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4e82cdf43f568b6415cb7cb00ce0244654559b7d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7ea98baa9cb202e2584c18998c5ab96d1c1f9e5a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990141"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012653"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e melhorar a limitação para reduzir a latência no Azure Time Series Insights
 
@@ -44,7 +44,7 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência ca
 
 1. No portal do Azure, selecione **alertas**.
 
-   [Alertas de![](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [Alertas de ![](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
 1. O painel **criar regra** será exibido. Selecione **Adicionar** em **condição**.
 
@@ -56,7 +56,7 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência ca
 
    A partir daí, você pode configurar alertas usando algumas das seguintes condições:
 
-   |Métrica  |Descrição  |
+   |Métrica  |DESCRIÇÃO  |
    |---------|---------|
    |**Bytes de Entrada Recebidos**     | Contagem de bytes brutos lidos de origens de evento. A contagem bruta geralmente inclui o nome e o valor da propriedade.  |  
    |**Mensagens de Entrada Inválidas Recebidas**     | Contagem de mensagens inválidas lidas de todas as origens de evento dos Hubs de Eventos do Azure ou do Hub IoT do Azure.      |
@@ -70,11 +70,11 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência ca
 
 1. Depois de configurar a lógica de sinal desejada, examine visualmente a regra de alerta escolhida.
 
-   [Entrada de![](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [Entrada de ![](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>Limitação e gerenciamento de entrada
 
-* Se você estiver sendo limitado, verá um valor para o *retardo de tempo de mensagens recebidas de entrada*, informando quantos segundos por trás do ambiente de análise de séries temporais são do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação do Appx. 30-60 segundos).  
+* Se você estiver sendo limitado, verá um valor para o *retardo de tempo de mensagens recebidas de entrada*, informando quantos segundos por trás do ambiente de análise de séries temporais são do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação de Appx. 30-60 segundos).  
 
   *Retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine a quantas mensagens atrás você está.  A maneira mais fácil de alcançar é aumentar a capacidade do seu ambiente para um tamanho que permitirá superar a diferença.  
 
@@ -92,7 +92,7 @@ Para reduzir a limitação ou a latência enfrentada, a melhor maneira de corrig
 
 É possível evitar a latência e a limitação configurando corretamente o ambiente para a quantidade de dados que você deseja analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, consulte [Dimensionar o ambiente](time-series-insights-how-to-scale-your-environment.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia sobre como [diagnosticar e resolver problemas em seu ambiente de time Series insights](time-series-insights-diagnose-and-solve-problems.md).
 

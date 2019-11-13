@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 7c2866441c7439008fad27ced9b9b1dddea848ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492828"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961946"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -73,7 +73,7 @@ Continue a usar o ponto de extremidade de previsão da API v2 até que a V 4.7 d
 
 ## <a name="v2-api-deprecation"></a>Reprovação da API v2 
 
-A API de previsão v2 não será preterida por pelo menos 9 meses após a visualização v3, de junho de 8rd, 2020. 
+A API de previsão v2 não será preterida por pelo menos 9 meses após a visualização v3, 8 de junho de 2020. 
 
 ## <a name="endpoint-url-changes"></a>Alterações de URL de ponto de extremidade 
 
@@ -101,14 +101,14 @@ Se desejar consultar por versão, primeiro você precisará [publicar via API](h
 
 A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 
-|Nome do parâmetro|Tipo|Versão|Padrão|Finalidade|
+|Nome do parâmetro|Digite|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
-|`log`|booleano|V2 & v3|false|Armazenar consulta no arquivo de log. O valor padrão é falso.| 
-|`query`|string|Somente V3|Nenhum padrão-ele é necessário na solicitação GET|**Em v2**, o expressão a ser previsto está no parâmetro `q`. <br><br>**No v3**, a funcionalidade é passada no parâmetro `query`.|
-|`show-all-intents`|booleano|Somente V3|false|Retorne todas as intenções com a pontuação correspondente no objeto **preditiva. retenções** . As intenções são retornadas como objetos em um objeto de `intents` pai. Isso permite o acesso programático sem a necessidade de encontrar a intenção em uma matriz: `prediction.intents.give`. Em v2, elas foram retornadas em uma matriz. |
-|`verbose`|booleano|V2 & v3|false|**Em v2**, quando definido como true, todas as intenções previstas foram retornadas. Se você precisar de todas as intenções previstas, use o parâmetro v3 de `show-all-intents`.<br><br>**No v3**, esse parâmetro fornece apenas detalhes de metadados de entidade de previsão de entidade.  |
-|`timezoneOffset`|string|V2|-|Fuso horário aplicado às entidades datetimeV2.|
-|`datetimeReference`|string|V3|-|[Fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicado às entidades datetimeV2. Substitui `timezoneOffset` de v2.|
+|`log`|Booleano|V2 & v3|false|Armazenar consulta no arquivo de log. O valor padrão é falso.| 
+|`query`|cadeia de caracteres|Somente V3|Nenhum padrão-ele é necessário na solicitação GET|**Em v2**, o expressão a ser previsto está no parâmetro `q`. <br><br>**No v3**, a funcionalidade é passada no parâmetro `query`.|
+|`show-all-intents`|Booleano|Somente V3|false|Retorne todas as intenções com a pontuação correspondente no objeto **preditiva. retenções** . As intenções são retornadas como objetos em um objeto de `intents` pai. Isso permite o acesso programático sem a necessidade de encontrar a intenção em uma matriz: `prediction.intents.give`. Em v2, elas foram retornadas em uma matriz. |
+|`verbose`|Booleano|V2 & v3|false|**Em v2**, quando definido como true, todas as intenções previstas foram retornadas. Se você precisar de todas as intenções previstas, use o parâmetro v3 de `show-all-intents`.<br><br>**No v3**, esse parâmetro fornece apenas detalhes de metadados de entidade de previsão de entidade.  |
+|`timezoneOffset`|cadeia de caracteres|V2|-|Fuso horário aplicado às entidades datetimeV2.|
+|`datetimeReference`|cadeia de caracteres|V3|-|[Fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicado às entidades datetimeV2. Substitui `timezoneOffset` de v2.|
 
 
 ### <a name="v3-post-body"></a>Corpo da POSTAgem v3
@@ -125,13 +125,13 @@ A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 }
 ```
 
-|Propriedade|Tipo|Versão|Padrão|Finalidade|
+|Propriedade|Digite|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
 |`dynamicLists`|array|Somente V3|Não obrigatório.|As [listas dinâmicas](#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
 |`externalEntities`|array|Somente V3|Não obrigatório.|[Entidades externas](#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |
-|`options.datetimeReference`|string|Somente V3|Nenhum padrão|Usado para determinar o [deslocamento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para o datetimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.preferExternalEntities`|booleano|Somente V3|false|Especifica se a [entidade externa do usuário (com o mesmo nome da entidade existente)](#override-existing-model-predictions) é usada ou a entidade existente no modelo é usada para previsão. |
-|`query`|string|Somente V3|Obrigatório.|**Em v2**, o expressão a ser previsto está no parâmetro `q`. <br><br>**No v3**, a funcionalidade é passada no parâmetro `query`.|
+|`options.datetimeReference`|cadeia de caracteres|Somente V3|Nenhum padrão|Usado para determinar o [deslocamento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para o datetimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.preferExternalEntities`|Booleano|Somente V3|false|Especifica se a [entidade externa do usuário (com o mesmo nome da entidade existente)](#override-existing-model-predictions) é usada ou a entidade existente no modelo é usada para previsão. |
+|`query`|cadeia de caracteres|Somente V3|Obrigatório.|**Em v2**, o expressão a ser previsto está no parâmetro `q`. <br><br>**No v3**, a funcionalidade é passada no parâmetro `query`.|
 
 
 
@@ -417,7 +417,7 @@ A principal finalidade é estender entidades predefinidas, mas não se limita a 
 A propriedade `resolution` pode ser um número, uma cadeia de caracteres, um objeto ou uma matriz:
 
 * Dallas
-* {"texto": "valor"}
+* {"text": "value"}
 * 12345 
 * ["a", "b", "c"]
 

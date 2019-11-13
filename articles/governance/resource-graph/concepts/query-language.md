@@ -1,17 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas de gráfico de recursos e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o grafo de recursos do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622631"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959046"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -47,7 +44,7 @@ Resources
 | limit 1
 ```
 
-A consulta a seguir mostra um uso mais complexo de `join`. A consulta limita a tabela unida aos recursos de assinaturas e com `project` para incluir apenas o campo original _SubscriptionId_ e o campo de _nome_ renomeado como _subnome_. A renomeação do campo evita `join` adicioná-lo como _Nome1_ , pois o campo já existe nos _recursos_. A tabela original é filtrada com `where` e o `project` a seguir inclui colunas de ambas as tabelas. O resultado da consulta é um único cofre de chaves que exibe o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
+A consulta a seguir mostra um uso mais complexo de `join`. A consulta limita a tabela ingressada aos recursos de assinaturas e com `project` para incluir apenas o campo original _subscriptionId_ e o campo _name_ renomeado para _SubName_. A renomeação do campo evita `join` adicioná-lo como _Nome1_ , pois o campo já existe nos _recursos_. A tabela original é filtrada com `where` e o `project` a seguir inclui colunas das duas tabelas. O resultado da consulta é um cofre de chaves único exibindo o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
 
 ```kusto
 Resources
@@ -73,7 +70,7 @@ Aqui está a lista de operadores de tabela KQL com suporte do grafo de recursos 
 |[count](/azure/kusto/query/countoperator) |[Contar cofres de chaves](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um alias específico](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contagem de máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Key Vault com o nome da assinatura](../samples/advanced.md#join) |Tipos de junção com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta. Estratégias de junção personalizadas, como junção de difusão, não são permitidas. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
+|[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de junção com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta. Estratégias de junção personalizadas, como junção de difusão, não são permitidas. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
 |[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `take` |
 |[MV-expandir](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_Limite_ máximo de 400 |
 |[Ordene](/azure/kusto/query/orderoperator) |[Listar recursos classificados por nome](../samples/starter.md#list-resources) |Sinônimo de `sort` |
@@ -100,7 +97,7 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
 
 - `$`-escape o caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
 
-  - `\` **bash** - 
+  - **bash** - `\`
 
     Exemplo de consulta que escapa a propriedade _\$tipo_ no bash:
 

@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi para nuvem (Node.js) – Conectar o Raspberry Pi ao Hub IoT do Azure | Microsoft Docs
+title: Conectar o Raspberry Pi ao Hub IoT do Azure na nuvem (Node. js)
 description: Saiba como configurar e conectar o Raspberry Pi ao Hub IoT do Azure para o Raspberry Pi para enviar dados para a plataforma de nuvem do Azure neste tutorial.
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266144"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954551"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (Node.js)
 
@@ -137,7 +137,7 @@ Use a placa universal e os cabos de jumper para conectar um LED e um BME280 ao P
 
 O sensor BME280 pode coletar dados de temperatura e umidade. O LED pisca quando o dispositivo envia uma mensagem para a nuvem.
 
-Para os pinos do sensor, use a seguinte fiação:
+Use a seguinte fiação para os pinos do sensor:
 
 | Início (Sensor e LED)     | End (quadro)            | Cor de cabo   |
 | -----------------------  | ---------------------- | ------------: |
@@ -229,7 +229,7 @@ Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
 
    Se você **não tiver o sensor**, defina o valor `simulatedData` como `true` para fazer com que o aplicativo de exemplo crie e use dados simulados de sensor.
 
-   *Observação: O endereço I2C usado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, ele também pode ser 0x76: se você encontrar um erro I2C, tente alterar o valor para 118 e ver se isso funciona melhor. Para ver qual endereço é usado pelo sensor, execute `sudo i2cdetect -y 1` em um shell no Raspberry Pi*
+   *Observação: o endereço I2C usado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, ele também pode ser 0x76: se você encontrar um erro I2C, tente alterar o valor para 118 e ver se isso funciona melhor. Para ver qual endereço é usado pelo sensor, execute `sudo i2cdetect -y 1` em um shell no Raspberry Pi*
 
 2. Salve e saia digitando Control-O > Enter > Control-X.
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 11/04/2019
-ms.openlocfilehash: 2206afc45c7ea35c41f51839b66dca33982939ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d44fb94978c450808c8a1c0852d4c771a100857e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489822"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961710"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerenciar e solicitar cotas para recursos do Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,7 +92,7 @@ Também há um limite no número de instâncias de contêiner que você pode cri
 Para obter uma lista mais detalhada e atualizada de limites de cota, confira o site de cota de todo o Azure [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Armazenamento
-Há um limite no número de contas de armazenamento por região também em uma determinada assinatura. O limite padrão é 200 e inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento em uma única região, faça uma solicitação por meio do [Suporte do Microsoft Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). A equipe de Armazenamento do Microsoft Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
+Há um limite no número de contas de armazenamento por região também em uma determinada assinatura. O limite padrão é 250 e inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 250 contas de armazenamento em uma determinada região, faça uma solicitação por meio [do suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). A equipe de Armazenamento do Microsoft Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
 
 
 ## <a name="workspace-level-quota"></a>Cota de nível de espaço de trabalho

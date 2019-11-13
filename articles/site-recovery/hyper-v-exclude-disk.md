@@ -1,19 +1,18 @@
 ---
-title: Excluir discos da replicação durante a configuração da recuperação de desastre com o serviço Azure Site Recovery | Microsoft Docs
+title: Excluir discos da replicação na recuperação de desastre com o Azure Site Recovery
 description: Descreve como excluir discos de VM da replicação durante a recuperação de desastre no Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 11/12/2019
 ms.author: mayg
-ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12304067e1a92559c2313fd7382f271249a8c784
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773857"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961450"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 Este artigo descreve como excluir discos da replicação. Essa exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos de destino que esses discos utilizam.
@@ -22,7 +21,7 @@ Este artigo descreve como excluir discos da replicação. Essa exclusão pode ot
 
 **Recurso** | **VMware no Azure** | **Hyper-V para Azure** | **Azure para Azure**| **Hyper-V para Hyper-V** 
 --|--|--|--|--
-Exclusão de disco | Sim | sim | Não | Não
+Exclusão de disco | sim | sim | Não | Não
 
 ## <a name="why-exclude-disks-from-replication"></a>Por que excluir discos da replicação?
 Excluir discos da replicação geralmente é necessário porque:
@@ -60,7 +59,7 @@ Vamos considerar dois cenários para entender o recurso de disco de exclusão:
 - Disco tempdb do SQL Server
 - Disco (pagefile.sys) de arquivo de paginação
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir disco tempdb do SQL Server
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir o disco tempdb do SQL Server
 Vamos considerar uma máquina virtual do SQL Server que tenha um tempdb que possa ser excluído.
 
 O nome do disco virtual é SalesDB.
@@ -83,7 +82,7 @@ Os discos na máquina virtual do Azure após o failover são os seguintes:
 **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operacional
-Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona esse disco e atribui a primeira letra da unidade disponível.
 Disk2 | D:\ | Banco de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -135,7 +134,7 @@ Há duas maneiras de criar esse caminho:
 Confira as seguintes diretrizes do Azure para o disco de armazenamento temporário:
 
 * [Uso de SSDs em VMs do Azure para armazenar o TempDB do SQL Server e Extensões do Pool de Buffer](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
-* [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
+* [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
 ## <a name="failback-from-azure-to-an-on-premises-host"></a>Failback (do Azure para um host local)
 Agora vamos entender os discos que são replicados quando você faz o failover do Azure para seu host do Hyper-V local. Os discos criados manualmente no Azure não serão replicados. Por exemplo, se você executar failover de três discos e criar dois diretamente na VM do Azure, apenas os três discos com failover serão enviados por failback. Não é possível incluir discos criados manualmente em failback ou em nova proteção do local para o Azure. Ele também não replicar disco de armazenamento temporário para hosts locais.
@@ -147,7 +146,7 @@ No exemplo anterior, a configuração de disco de máquina virtual do Azure é a
 **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operacional
-Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona esse disco e atribui a primeira letra da unidade disponível.
 Disk2 | D:\ | Banco de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -163,12 +162,12 @@ DB-disco 2 (disco excluídos) | Disk2 | E:\ | Arquivos temporários
 DB-Disk3 (disco excluídos) | Disk3 | F:\ | Banco de dados do tempdb do SQL (caminho da pasta (F:\MSSQL\Data\)
 DB-Disk4 | Disk4 | G:\ | User Database2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: Excluir o disco (pagefile.sys) do arquivo de paginação
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: excluir o disco (pagefile.sys) do arquivo de paginação
 
 Vamos considerar uma máquina virtual que tem um disco de arquivo de paginação que pode ser excluído.
 Existem dois casos.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: O arquivo de paginação está configurado na unidade D:
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: o arquivo de paginação é configurado na unidade D:
 Aqui está a configuração de disco:
 
 **Nome do disco** | **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
@@ -197,7 +196,7 @@ Aqui estão as configurações de arquivo de paginação na máquina virtual do 
 
 ![Configurações do arquivo de paginação na máquina virtual do Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: O arquivo de paginação está configurado em outra unidade (diferente da unidade D:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: o arquivo de paginação é configurado em outra unidade (que não seja a unidade D:)
 
 Aqui está a configuração de disco de máquina virtual de origem:
 

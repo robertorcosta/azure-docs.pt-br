@@ -1,19 +1,18 @@
 ---
-title: Usando planos de recuperação em recuperação de desastre com o Azure Site Recovery
+title: Sobre os planos de recuperação no Azure Site Recovery
 description: Saiba mais sobre como usar planos de recuperação para recuperação de desastres com o serviço Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9e45787e7ae39b62605f5d8a54afd4ad95c9cca7
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 640f7258821718c5d406dd581d1f9c503e0d41c2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331907"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953884"
 ---
 # <a name="about-recovery-plans"></a>Sobre planos de recuperação
 
@@ -92,7 +91,7 @@ Assista a um vídeo de exemplo rápido mostrando um failover de clique para um a
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar](site-recovery-create-recovery-plans.md) um plano de recuperação.
 - Saiba mais sobre [execução de failovers](site-recovery-failover.md).  

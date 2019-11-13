@@ -1,5 +1,5 @@
 ---
-title: Informações sobre rede na recuperação de desastre do Azure para o Azure usando o Azure Site Recovery | Microsoft Docs
+title: Sobre a rede na recuperação de desastre da VM do Azure com o Azure Site Recovery
 description: Fornece uma visão geral da rede para a replicação de VMs do Azure usando o Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5c2cd96ccfa3a26a9009188ad424eefaaeb7ce48
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906849"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954202"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>Informações sobre rede para replicação do Azure para o Azure
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
 
 

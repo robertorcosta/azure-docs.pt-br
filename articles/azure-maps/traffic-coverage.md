@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722650"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958011"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego dos Mapas do Azure
 
 Mapas do Azure fornece informações de tráfego avançadas na forma **fluxo** e **incidentes** de tráfego. Esses dados podem ser visualizados em mapas ou usados para gerar rotas mais inteligentes que fatores em condições reais de direção.
 
-No entanto, Mapas não têm o mesmo nível de informações e precisão para todas as regiões. A tabela a seguir fornece informações sobre quais tipos de informações de tráfego que você pode solicitar de cada região: 
+No entanto, o Maps não tem o mesmo nível de informações e precisão para todos os países ou regiões. A tabela a seguir fornece informações sobre o tipo de informações de tráfego que você pode solicitar de cada país ou região: 
 
 ## <a name="americas"></a>Américas
 
-|País/Região  |Incidentes  |Flow  |
+|País/Região  |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasil     |✓         |✓         |
@@ -39,18 +39,18 @@ No entanto, Mapas não têm o mesmo nível de informações e precisão para tod
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-|País/Região   |Incidentes  |Flow  |
+|País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
 |Brunei   |✓         |✓        |
-|Região Administrativa Especial de Hong Kong     |✓         |✓         |
+|RAE de Hong Kong     |✓         |✓         |
 |Índia   |✓         |✓         |
 |Indonésia     |✓         |✓         |
 |RAE de Macau     |✓         |✓         |
 |Malásia     |✓         |✓         |
 |Nova Zelândia     |✓         |✓         |
 |Filipinas  |✓         |✓         |
-|Cingapura     |✓         |✓         |
+|Singapura     |✓         |✓         |
 |Taiwan     |✓         |✓        |
 |Tailândia     |✓         |✓        |
 |Vietnã   |✓         |✓         |
@@ -58,7 +58,7 @@ No entanto, Mapas não têm o mesmo nível de informações e precisão para tod
 
 ## <a name="europe"></a>Europa
 
-|País/Região   |Incidentes  |Flow  |
+|País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Áustria     |✓         |✓         |
@@ -116,7 +116,7 @@ No entanto, Mapas não têm o mesmo nível de informações e precisão para tod
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-|País/Região |Incidentes  |Flow  |
+|País/Região |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Bahrein     |✓         |✓         |
 |Egito     |✓         |✓         |
@@ -127,7 +127,7 @@ No entanto, Mapas não têm o mesmo nível de informações e precisão para tod
 |Moçambique  |✓         |✓         |
 |Nigéria   |✓        |✓        |
 |Omã     |✓         |✓         |
-|Qatar     |✓         |✓         |
+|Catar     |✓         |✓         |
 |Arábia Saudita     |✓         |✓         |
 |África do Sul     |✓         |✓         |
 |Emirados Árabes Unidos  |✓         |✓         |

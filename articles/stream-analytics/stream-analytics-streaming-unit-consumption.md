@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d9c4169176707f98181f2a479e470cf89ff2e04f
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 25105847b7134b7119252a66ac7e8502771ce5db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988242"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961270"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Streaming
 
@@ -86,7 +86,7 @@ Por exemplo, na consulta a seguir, o número associado a `clusterid` é a cardin
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Para atenuar quaisquer problemas causados pela alta cardinalidade na consulta anterior, você pode enviar eventos para o Hub de eventos particionado por `clusterid`e escalar horizontalmente a consulta, permitindo que o sistema processe cada partição de entrada separadamente usando **Partition** conforme mostrado no exemplo a seguir:
+Para atenuar quaisquer problemas causados pela alta cardinalidade na consulta anterior, você pode enviar eventos para o Hub de eventos particionado por `clusterid`e escalar horizontalmente a consulta, permitindo que o sistema processe cada partição de entrada separadamente usando **Partition by** , conforme mostrado no exemplo abaixo:
 
    ```sql
    SELECT count(*) 
@@ -99,7 +99,7 @@ Depois que a consulta é particionada horizontalmente, ela é espalhada em vári
 As partições do Hub de Evento devem ser particionadas pela chave de agrupamento para evitar a necessidade de uma etapa de redução. Para obter mais informações, confira [Visão Geral dos Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
 ## <a name="temporal-joins"></a>Junções temporais
-A memória consumida (tamanho do estado) de uma junção temporal é proporcional ao número de eventos no espaço de manobra temporal da junção, que é a taxa de entrada de eventos multiplicada pelo tamanho do espaço de manobra. Em outras palavras, a memória consumida por junções é proporcional ao intervalo de tempo DateDiff multiplicado por taxa média de eventos.
+A memória consumida (tamanho do estado) de uma junção temporal é proporcional ao número de eventos no espaço de manobra temporal da junção, que é a taxa de entrada do evento multiplicada pelo tamanho do espaço da ondulação. Em outras palavras, a memória consumida por junções é proporcional ao intervalo de tempo DateDiff multiplicado por taxa média de eventos.
 
 O número de eventos sem correspondência na junção afeta a utilização da memória para a consulta. A consulta a seguir está tentando localizar as impressões de anúncio que geram cliques:
 
@@ -145,7 +145,7 @@ Os dados de referência no ASA são carregados na memória para uma pesquisa rá
 ### <a name="use-of-udf-functions"></a>Uso de funções UDF
 Quando você adiciona uma função UDF, o Azure Stream Analytics carrega o runtime do JavaScript na memória. Isso afetará a % de SU.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Criar consultas paralelizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Dimensionar trabalhos do Azure Stream Analytics para aumentar a produtividade](stream-analytics-scale-jobs.md)
 

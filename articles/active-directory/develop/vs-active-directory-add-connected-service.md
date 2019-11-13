@@ -1,5 +1,5 @@
 ---
-title: Adicionar um Azure Active Directory usando os serviços conectados no Visual Studio | Azure
+title: Adicionar um Azure Active Directory usando os serviços conectados | Azure
 description: Adicionar um Active Directory do Azure usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04c8b6bfeaabfa20b9b9b884584d40de7f09e9ac
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 36827401060e330d57b6afac3db0abbde0c27dc2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802481"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73941940"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionando um Active Directory do Azure usando Serviços Conectados no Visual Studio
 
@@ -27,7 +27,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
 
 No momento, o serviço conectado do Active Directory não dá suporte a aplicativos ASP.NET Core.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Conta do Azure: se não tiver uma conta do Azure, você poderá [inscrever-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 - **Visual Studio 2015 ou posterior**. [Baixe o Visual Studio agora mesmo](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -72,7 +72,7 @@ Quando você adiciona o serviço conectado ao assistente, o Visual Studio adicio
 - [O que aconteceu com meu projeto do .NET MVC?](vs-active-directory-dotnet-what-happened.md)
 - [O que aconteceu com meu projeto da API Web?](vs-active-directory-webapi-what-happened.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
 - [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v1-aspnet-webapp.md)

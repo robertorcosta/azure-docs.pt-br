@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470100"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958035"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -26,11 +26,11 @@ O Azure fornece diagnósticos internos para auxiliar na depuração de um [aplic
 Este artigo usa o [portal do Azure](https://portal.azure.com) e a CLI do Azure para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> Além das instruções de registro neste artigo, há uma nova funcionalidade integrada de registro em log com o monitoramento do Azure. Você encontrará essa funcionalidade na página [logs e na página Configurações de diagnóstico (versão prévia)](https://aka.ms/appsvcblog-azmon). 
+> Além das instruções de registro neste artigo, há uma nova funcionalidade integrada de registro em log com o monitoramento do Azure. Você encontrará mais informações sobre esse recurso na seção [enviar logs para Azure monitor (versão prévia)](#send-logs-to-azure-monitor-preview) . 
 >
 >
 
-|Tipo|Plataforma|Localização|DESCRIÇÃO|
+|Digite|Plataforma|Local padrão|DESCRIÇÃO|
 |-|-|-|-|
 | Registro em log do aplicativo | Windows, Linux | Sistema de arquivos do serviço de aplicativo e/ou BLOBs de armazenamento do Azure | Registra as mensagens geradas pelo código do aplicativo. As mensagens podem ser geradas pela estrutura da Web que você escolher ou do código do aplicativo diretamente usando o padrão de log padrão do seu idioma. Cada mensagem recebe uma das seguintes categorias: **crítico**, **erro**, **aviso**, **informações**, **depuração**e **rastreamento**. Você pode selecionar o quão detalhado deseja que o log seja definindo o nível de severidade ao habilitar o log do aplicativo.|
 | Log do servidor Web| Windows | Sistema de arquivos do serviço de aplicativo ou BLOBs de armazenamento do Azure| Dados de solicitação HTTP brutos no [formato de arquivo de log estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de log inclui dados como o método HTTP, o URI de recurso, o IP do cliente, a porta do cliente, o agente do usuário, o código de resposta e assim por diante. |
@@ -66,7 +66,7 @@ Selecione o **nível**ou o nível de detalhes para o log. A tabela a seguir most
 
 | Nível | Categorias incluídas |
 |-|-|
-|**Desabilitado** | Nenhum |
+|**Desabilitada** | nenhum |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
 |**Informações** | Informações, Aviso, Erro, Crítico|
@@ -93,7 +93,7 @@ Para o **log do servidor Web**, selecione **armazenamento** para armazenar logs 
 Em **período de retenção (dias)** , defina o número de dias que os logs devem ser retidos.
 
 > [!NOTE]
-> Se você [regenerar as chaves de acesso de sua conta de armazenamento](../storage/common/storage-create-storage-account.md), será necessário redefinir a respectiva configuração de log para usar as chaves atualizadas. Para fazer isso:
+> Se você [regenerar as chaves de acesso de sua conta de armazenamento](../storage/common/storage-create-storage-account.md), é necessário redefinir a respectiva configuração de log para usar as chaves atualizadas. Para fazer isso:
 >
 > 1. Na guia **Configurar**, defina o respectivo recurso de log como **Desativado**. Salve sua configuração.
 > 2. Habilite o registro no blob da conta de armazenamento novamente. Salve sua configuração.
@@ -178,7 +178,28 @@ Para aplicativos do Windows, o arquivo ZIP contém o conteúdo do diretório *D:
 | **Logs do servidor Web** | */LogFiles/http/RawLogs/* | Contém arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou um utilitário como o [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O serviço de aplicativo não dá suporte aos campos `s-computername`, `s-ip`ou `cs-version`. |
 | **Logs de implantação** | */LogFiles/git/* e */Deployments/* | Conter logs gerados pelos processos de implantação internos, bem como logs para implantações do git. |
 
+## <a name="send-logs-to-azure-monitor-preview"></a>Enviar logs para Azure Monitor (versão prévia)
+
+Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), você pode [criar configurações de diagnóstico (versão prévia)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) para enviar logs para contas de armazenamento, Hubs de eventos e log Analytics. 
+
+> [!div class="mx-imgBorder"]
+> ![configurações de diagnóstico (versão prévia)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+
+### <a name="supported-log-types"></a>Tipos de log com suporte
+
+A tabela a seguir mostra os tipos de log e as descrições com suporte: 
+
+| Tipo de log | Suporte do Windows | Suporte para Linux | DESCRIÇÃO |
+|-|-|-|
+| AppServiceConsoleLogs | TBA | sim | Saída padrão e erro padrão |
+| AppServiceHTTPLogs | sim | sim | Logs do Web Server |
+| AppServiceEnvironmentPlatformLogs | sim | sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
+| AppServiceAuditLogs | sim | sim | Atividade de logon via FTP e kudu |
+| AppServiceFileAuditLogs | TBA | TBA | Alterações de arquivo via FTP e kudu |
+| AppServiceAppLogs | TBA | Java SE & Tomcat | Logs de aplicativos |
+
 ## <a name="nextsteps"></a> Próximas etapas
+* [Logs de consulta com Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Como monitorar aplicativos no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 * [Solucionar problemas de Serviço de Aplicativo do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analisar logs de aplicativos no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

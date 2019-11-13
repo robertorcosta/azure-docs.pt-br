@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 68714a06f72a522df0245d9c044bb6ff6557d52f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 45ce22f208ee31b7202705eb4e42c38bedf09a8b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949817"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013983"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerenciar atribuições de função nos Gêmeos Digitais do Azure
 
@@ -36,13 +36,13 @@ Cada atribuição de função está em conformidade com a seguinte definição:
 
 A tabela abaixo descreve cada atributo:
 
-| Atributo | Nome | Necessário | Tipo | Descrição |
+| Atributo | NOME | obrigatórios | Digite | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
-| roleId | Identificador de definição de função | Sim | Cadeia | A ID exclusiva da atribuição de função desejada. Encontre definições de funções e seus identificadores consultando a API do Sistema ou examinando a tabela abaixo. |
-| objectId | Identificador de objeto | Sim | Cadeia | Uma ID do Azure Active Directory, ID de objeto de entidade de serviço ou nome de domínio. Para o que atribuições de função é atribuída. A atribuição de função precisa ser formatada de acordo com seu tipo associado. Para o ObjectIdType `DomainName`, ObjectId precisa começar com o caractere `“@”`. |
-| objectIdType | Tipo de identificador de objeto | Sim | Cadeia | O tipo de identificador de Objeto usado. Consulte **ObjectIdTypes com suporte** abaixo. |
-| path | Caminho de espaço | Sim | Cadeia | O caminho de acesso completo para o objeto `Space`. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para todo o gráfico, especifique `"/"`. Esse caractere designa a raiz, mas seu uso é desencorajado. Sempre siga o princípio de privilégios mínimos. |
-| tenantId | Identificador de locatário | Varia | Cadeia | Na maioria dos casos, uma ID de locatário do Azure Active Directory. Não permitido para ObjectIdTypes `DeviceId` e `TenantId`. Obrigatório para ObjectIdTypes `UserId` e `ServicePrincipalId`. Opcional para o ObjectIdType DomainName. |
+| roleId | Identificador de definição de função | sim | String | A ID exclusiva da atribuição de função desejada. Encontre definições de funções e seus identificadores consultando a API do Sistema ou examinando a tabela abaixo. |
+| objectId | Identificador de objeto | sim | String | Uma ID do Azure Active Directory, ID de objeto de entidade de serviço ou nome de domínio. Para o que atribuições de função é atribuída. A atribuição de função precisa ser formatada de acordo com seu tipo associado. Para o ObjectIdType `DomainName`, ObjectId precisa começar com o caractere `“@”`. |
+| objectIdType | Tipo de identificador de objeto | sim | String | O tipo de identificador de Objeto usado. Consulte **ObjectIdTypes com suporte** abaixo. |
+| path | Caminho de espaço | sim | String | O caminho de acesso completo para o objeto `Space`. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para todo o gráfico, especifique `"/"`. Esse caractere designa a raiz, mas seu uso é desencorajado. Siga sempre o Princípio do Menor Privilégio. |
+| tenantId | Identificador de locatário | Varia | String | Na maioria dos casos, uma ID de locatário do Azure Active Directory. Não permitido para ObjectIdTypes `DeviceId` e `TenantId`. Obrigatório para ObjectIdTypes `UserId` e `ServicePrincipalId`. Opcional para o ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificadores de definição de função com suporte
 
@@ -60,7 +60,7 @@ Anteriormente, o atributo **objectIdType** foi introduzido.
 
 Os Gêmeos Digitais do Azure oferecem suporte para operações *CREATE*, *READ* e *DELETE* completas para atribuições de função. As operações *UPDATE* são tratadas pela adição de atribuições de função, remoção de atribuições de função, ou modificação de nós [Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md) aos quais as atribuições de função concedem acesso.
 
-[1Role-pontos de extremidade de atribuição de @no__t](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
+[pontos de extremidade de atribuição de função ![](media/security-roles/role-assignments.png)](media/security-roles/role-assignments.png#lightbox)
 
 A documentação de referência do Swagger fornecida contém informações adicionais sobre todos os pontos de extremidade disponíveis, operações de solicitação e definições da API.
 
@@ -112,7 +112,7 @@ Com o corpo JSON a seguir:
 
 ### <a name="retrieve-all-roles"></a>Recuperar todas as funções
 
-[funções ![System](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
+[![funções do sistema](media/security-roles/system-api.png)](media/security-roles/system-api.png#lightbox)
 
 Para listar todas as funções disponíveis (definições de função), faça uma solicitação HTTP GET autenticada para:
 
@@ -161,12 +161,12 @@ Para verificar uma atribuição de função específica, faça uma solicitação
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **Valor de parâmetro** | **Necessária** |  **Tipo** |  **Descrição** |
+| **Valor de parâmetro** | **Obrigatório** |  **Tipo** |  **Descrição** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | Cadeia |   A objectId para o UserId objectIdType. |
-| YOUR_PATH | True | Cadeia |   O caminho escolhido para verificar o acesso. |
-| YOUR_ACCESS_TYPE |  True | Cadeia |   *Ler*, *criar*, *Atualizar*ou *excluir* |
-| YOUR_RESOURCE_TYPE | True | Cadeia |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *Extended*, *ponto de extremidade*, *keystore*, *correspondente*, *ontologia*, *relatório*,  *RoleDefinition*, *sensor*, *SensorExtendedProperty*, *espaço*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *sistema* , *UerDefinedFunction*, *User*, *UserBlobMetadata*ou *extendeproperty* |
+| YOUR_USER_ID |  verdadeiro | String |   A objectId para o UserId objectIdType. |
+| YOUR_PATH | verdadeiro | String |   O caminho escolhido para verificar o acesso. |
+| YOUR_ACCESS_TYPE |  verdadeiro | String |   *Ler*, *criar*, *Atualizar*ou *excluir* |
+| YOUR_RESOURCE_TYPE | verdadeiro | String |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *Extended*, *ponto de extremidade*, *keystore*, *correspondência*, *ontologia*, *relatório*, *RoleDefinition*, *sensor*, *SensorExtendedProperty*, *espaço*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *sistema*,  *UerDefinedFunction*, *User*, *UserBlobMetadata*ou *extendeproperty* |
 
 Uma solicitação bem-sucedida retornará um booliano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao usuário para o caminho especificado e o recurso determinado.
 
@@ -204,7 +204,7 @@ Para revogar uma permissão de um destinatário, exclua a atribuição de funç�
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
-| Parâmetro | Substitua por |
+| . | Substitua por |
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | A **id** da atribuição de função a ser removida |
 
@@ -240,7 +240,7 @@ Uma solicitação com êxito retornará um status de resposta 201 juntamente com
 
 Os exemplos a seguir demonstram como configurar o corpo JSON em vários cenários de atribuição de função comumente encontrados.
 
-* **Exemplo**: Um usuário precisa de acesso administrativo a um andar de um espaço de locatário.
+* **Exemplo**: um usuário precisa de acesso administrativo a um andar de um espaço de locatário.
 
    ```JSON
    {
@@ -252,7 +252,7 @@ Os exemplos a seguir demonstram como configurar o corpo JSON em vários cenário
    }
    ```
 
-* **Exemplo**: Um aplicativo executa cenários de teste simulando dispositivos e sensores.
+* **Exemplo**: um aplicativo executa dispositivos de simulação de cenários de teste e sensores.
 
    ```JSON
    {
@@ -264,7 +264,7 @@ Os exemplos a seguir demonstram como configurar o corpo JSON em vários cenário
    }
     ```
 
-* **Exemplo**: Todos os usuários que fazem parte de um domínio recebem acesso de leitura para espaços, sensores e usuários. Esse acesso inclui seus objetos relacionados correspondentes.
+* **Exemplo**: todos os usuários que fazem parte de um domínio recebem acesso de leitura para espaços, sensores e usuários. Esse acesso inclui seus objetos relacionados correspondentes.
 
    ```JSON
    {

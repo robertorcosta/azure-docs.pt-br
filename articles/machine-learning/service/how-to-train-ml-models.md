@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 04/19/2019
+ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb3b9504abcd453977d63a9bfccf77a33da6455a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9bb22a564f52dfcdb3fbec6d842e452ca416059f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489474"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961706"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Treinar modelos com o Azure Machine Learning usando o estimador
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Com o Azure Machine Learning, é possível enviar facilmente seu script de treinamento para [vários destinos de computação](how-to-set-up-training-targets.md#compute-targets-for-training), usando o [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) e o [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Esse padrão oferece a você muita flexibilidade e o máximo controle.
+Com o Azure Machine Learning, você pode enviar facilmente seu script de treinamento para [vários destinos de computação](how-to-set-up-training-targets.md#compute-targets-for-training), usando um [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) e um [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Esse padrão oferece a você muita flexibilidade e o máximo controle.
 
 Para facilitar o treinamento do modelo de aprendizado profundo, o SDK do Python do Azure Machine Learning oferece uma abstração alternativa de nível mais alto, a classe do estimador, que permite que os usuários construam facilmente configurações de execução. Você pode criar e usar um [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar o script de treinamento usando qualquer estrutura de aprendizado que escolher (como scikit-learn) em qualquer destino de computação escolhido, seja seu computador local, uma única VM no Azure ou um cluster de GPU no Azure. Para as tarefas PyTorch, TensorFlow e Chainer, Azure Machine Learning também fornece os respectivos estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar o uso dessas estruturas.
 
@@ -44,7 +44,8 @@ Use um `Estimator` para um treinamento de nó único executado em computação r
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-folder': ds.as_mount(),
+    # to mount files referenced by mnist dataset
+    '--data-folder': ds.as_named_input('mnist').as_mount(),
     '--regularization': 0.8
 }
 
@@ -57,7 +58,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Este snippet de código especifica os seguintes parâmetros para o `Estimator` construtor.
 
-Parâmetro | DESCRIÇÃO
+. | DESCRIÇÃO
 --|--
 `source_directory`| O diretório local que contém todo o código necessário para o trabalho de treinamento. Essa pasta é copiada do computador local para a computação remota.
 `script_params`| Dicionário que especifica os argumentos de linha de comando a serem passados para o script de treinamento `entry_script`, na forma de pares de `<command-line argument, value>`. Para especificar um sinalizador detalhado em `script_params`, use `<command-line argument, "">`.
@@ -109,7 +110,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 O código acima expõe os seguintes novos parâmetros para o `Estimator` construtor:
 
-Parâmetro | DESCRIÇÃO | Padrão
+. | DESCRIÇÃO | Padrão
 --|--|--
 `custom_docker_image`| O nome da imagem que você deseja usar. Fornece somente as imagens disponíveis em repositórios do docker público (no Hub do Docker neste caso). Para usar uma imagem de um repositório privado do docker, use o parâmetro `environment_definition` do construtor em vez disso. [Confira o exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| O número de nós a serem usados no seu trabalho de treinamento. | `1`
@@ -135,7 +136,8 @@ Para um bloco de anotações que treina um modelo scikit usando o estimador, con
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 Para blocos de anotações em modelos de treinamento usando avaliadores específicos da estrutura de aprendizado profundo, consulte:
-* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
+
+* [instruções-uso do-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
@@ -144,5 +146,5 @@ Para blocos de anotações em modelos de treinamento usando avaliadores específ
 * [Executar as métricas de durante o treinamento de faixa](how-to-track-experiments.md)
 * [Treinar modelos de PyTorch](how-to-train-pytorch.md)
 * [Treinar modelos de TensorFlow](how-to-train-tensorflow.md)
-* [Ajustar hiperparâmetros](how-to-tune-hyperparameters.md)
+* [Ajustar os hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Implantar um modelo treinado](how-to-deploy-and-where.md)

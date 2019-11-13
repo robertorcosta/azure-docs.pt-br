@@ -3,7 +3,7 @@ title: Azure Active Directory de detecções de riscos | Microsoft Docs
 description: Este artice fornece uma visão geral detalhada de quais detecções de risco são.
 services: active-directory
 keywords: proteção de identidade do azure active directory, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523ae8e1ba31a4fe2c9683007f717149dfdc3bc6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127330"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014475"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Azure Active Directory de detecções de risco
 
@@ -80,7 +80,7 @@ Quando o serviço obtém pares de nome de usuário / senha, eles são verificado
 
 Esse tipo de detecção de risco identifica os usuários que entraram com êxito de um endereço IP que foi identificado como um endereço IP de proxy anônimo. Esses proxies geralmente são usados por usuários que desejam ocultar o endereço IP de seu dispositivo e podem ser usados com objetivos mal-intencionados.
 
-### <a name="impossible-travel-to-atypical-locations"></a>Viagem impossível a localizações atípicas
+### <a name="impossible-travel-to-atypical-locations"></a>Viagem impossível a locais atípicos
 
 Esse tipo de detecção de risco identifica duas entradas provenientes de locais geograficamente distantes, em que pelo menos um dos locais também pode ser atípicos para o usuário, dado o comportamento passado. Entre muitos outros fatores, esse algoritmo de aprendizado de máquina leva em consideração o tempo entre as duas entradas e o tempo que seria necessário para o usuário ir do primeiro até o segundo local, indicando que um usuário diferente está usando as mesmas credenciais.
 
@@ -115,12 +115,12 @@ Para os tipos de detecção de risco Azure Active Directory detecta, os tipos de
 
 | Tipo de detecção de risco | Tipo de Detecção |
 | :-- | --- | 
-| [Usuários com credenciais vazadas](#leaked-credentials) | Offline |
+| [Usuários com credenciais vazadas](#leaked-credentials) | Off-line |
 | [Entradas de endereços de IP anônimos](#sign-ins-from-anonymous-ip-addresses) | Tempo real |
-| [Viagem impossível a locais atípicos](#impossible-travel-to-atypical-locations) | Offline |
+| [Viagem impossível a locais atípicos](#impossible-travel-to-atypical-locations) | Off-line |
 | [Entradas de locais desconhecidos](#sign-in-from-unfamiliar-locations) | Tempo real |
-| [Entradas de dispositivos infectados](#sign-ins-from-infected-devices) | Offline |
-| [Entradas de endereços de IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
+| [Entradas de dispositivos infectados](#sign-ins-from-infected-devices) | Off-line |
+| [Entradas de endereços de IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Off-line|
 
 
 ## <a name="risk-level"></a>Nível de risco
@@ -131,11 +131,11 @@ A severidade da detecção de riscos representa a intensidade do sinal como um i
 
 Por exemplo, 
 
-* **Alta**: Alta confiança e detecção de risco de alta gravidade. Esses eventos são fortes indicadores de que a identidade do usuário foi comprometida e as contas de usuário afetadas devem ser corrigidas imediatamente.
+* **Alta**: alta confiança e detecção de risco de alta gravidade. Esses eventos são fortes indicadores de que a identidade do usuário foi comprometida e as contas de usuário afetadas devem ser corrigidas imediatamente.
 
-* **Média**: Alta gravidade, mas a detecção de riscos de confiança mais baixa ou vice-versa. Esses eventos são potencialmente arriscados e quaisquer contas de usuário afetadas devem ser corrigidas.
+* **Médio**: alta gravidade, mas a detecção de riscos de confiança mais baixa, ou vice-versa. Esses eventos são potencialmente arriscados e quaisquer contas de usuário afetadas devem ser corrigidas.
 
-* **Baixa**: Baixa confiança e detecção de risco de severidade baixa. Esse evento pode não exigir uma ação imediata, mas, quando combinado com outras detecções de risco, pode fornecer uma forte indicação de que a identidade é comprometida.
+* **Baixo**: baixa confiança e baixa gravidade de risco de severidade. Esse evento pode não exigir uma ação imediata, mas, quando combinado com outras detecções de risco, pode fornecer uma forte indicação de que a identidade é comprometida.
 
 ![Nível de risco](./media/concept-risk-events/01.png)
 
@@ -148,7 +148,7 @@ As detecções de risco de credenciais vazadas são classificadas como **altas**
 O nível de risco para esse tipo de detecção de risco é **médio** porque um endereço IP anônimo não é uma indicação forte de um comprometimento de conta. Recomendamos contatar o usuário imediatamente para verificar se ele estava usando endereços IP anônimos.
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>Viagem impossível a localizações atípicas
+### <a name="impossible-travel-to-atypical-locations"></a>Viagem impossível a locais atípicos
 
 Viagens impossíveis geralmente são um bom indicativo de que um hacker conseguiu entrar com êxito. No entanto, podem ocorrer falsos positivos quando um usuário estiver viajando usando um novo dispositivo ou usando uma VPN que normalmente não é usada por outros usuários na organização. Outra fonte de falsos positivos são os aplicativos que transmitem IPs de servidor incorretamente como IPs de cliente, o que pode dar a entender que as entradas estão ocorrendo do datacenter em que o aplicativo de back-end está hospedado (geralmente são datacenters Microsoft, o que dá a entender que as entradas estão ocorrendo de endereços IP de propriedade da Microsoft). Como resultado desses falsos positivos, o nível de risco para essa detecção de risco é **médio**.
 
@@ -172,7 +172,7 @@ Para obter mais informações sobre como abordar infecções por malware, consul
 Recomendamos contatar o usuário para verificar se ele realmente entrou de um endereço IP que foi marcado como suspeito. O nível de risco desse tipo de evento é “**Médio**”, pois vários dispositivos podem estar atrás do mesmo endereço IP, enquanto apenas alguns podem ser responsáveis pela atividade suspeita. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 * [Usuários em relatório de segurança de risco](concept-user-at-risk.md)
 * [Relatório de segurança de entradas arriscadas](concept-risky-sign-ins.md)

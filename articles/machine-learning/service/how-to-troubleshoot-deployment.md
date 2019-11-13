@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a79c95d627bbdec3a91a1d048a48ff061b308ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cb0f373000d09cb387fb73eec344997381fe45d1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489357"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961675"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas Azure Machine Learning implantação do serviço kubernetes do Azure e instâncias de contêiner do Azure
 
@@ -41,6 +41,16 @@ Ao implantar um modelo no Azure Machine Learning, o sistema executa várias tare
 4. Inicialize um novo contêiner (ou contêineres) em ACI ou AKS. 
 
 Saiba mais sobre esse processo na introdução a [Gerenciamento de Modelos](concept-model-management-and-deployment.md).
+
+## <a name="prerequisites"></a>pré-requisitos
+
+* Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* O [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* A [extensão da CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* Para depurar localmente, você deve ter uma instalação de Docker em funcionamento no sistema local.
+
+    Para verificar a instalação do Docker, use o comando `docker run hello-world` de um terminal ou um prompt de comando. Para obter informações sobre como instalar o Docker ou solucionar erros do Docker, consulte a [documentação do Docker](https://docs.docker.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -152,12 +162,9 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
 * Examine as políticas de acesso do Key Vault e use essas políticas para definir a propriedade `accessPolicies` do modelo.
 * Verifique se o recurso de Key Vault já existe. Se tiver, não a recrie por meio do modelo. Por exemplo, adicione um parâmetro que permita desabilitar a criação do recurso de Key Vault se ele já existir.
 
-## <a name="debug-locally"></a>Depurar localmente
+## <a name="debug-locally"></a>Depurar Localmente
 
 Se você encontrar problemas ao implantar um modelo para ACI ou AKS, tente implantá-lo como um local. Usar um local torna mais fácil solucionar problemas. A imagem do Docker que contém o modelo é baixada e iniciada no sistema local.
-
-> [!IMPORTANT]
-> As implantações locais exigem uma instalação de Docker em funcionamento no sistema local. O Docker deve estar em execução antes de você implantar um local. Para obter informações sobre como instalar e usar o Docker, consulte [https://www.docker.com/](https://www.docker.com/).
 
 > [!WARNING]
 > Não há suporte para implantações locais em cenários de produção.
@@ -245,7 +252,7 @@ Use as informações na seção [inspecionar o log do Docker](#dockerlog) para v
 
 ## <a name="function-fails-get_model_path"></a>Falha de função: get_model_path()
 
-Geralmente, na função `init()` no script de pontuação, a função [Model. Get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) é chamada para localizar um arquivo de modelo ou uma pasta de arquivos de modelo no contêiner. Se a pasta ou o arquivo de modelo não puder ser encontrado, a função falhará. A maneira mais fácil para depurar esse erro é executar o código do Python no shell do contêiner abaixo:
+Geralmente, na função `init()` no script de pontuação, a função [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) é chamada para localizar um arquivo de modelo ou uma pasta de arquivos de modelo no contêiner. Se a pasta ou o arquivo de modelo não puder ser encontrado, a função falhará. A maneira mais fácil para depurar esse erro é executar o código do Python no shell do contêiner abaixo:
 
 ```python
 from azureml.core.model import Model
@@ -325,8 +332,8 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
 
 > [!IMPORTANT]
 > Esse método de depuração não funciona ao usar `Model.deploy()` e `LocalWebservice.deploy_configuration` para implantar um modelo localmente. Em vez disso, você deve criar uma imagem usando a classe [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) . 
->
-> As implantações locais exigem uma instalação de Docker em funcionamento no sistema local. O Docker deve estar em execução antes de você implantar um local. Para obter informações sobre como instalar e usar o Docker, consulte [https://www.docker.com/](https://www.docker.com/).
+
+As implantações locais exigem uma instalação de Docker em funcionamento no sistema local. Para obter mais informações sobre como usar o Docker, consulte a [documentação do Docker](https://docs.docker.com/).
 
 ### <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
 

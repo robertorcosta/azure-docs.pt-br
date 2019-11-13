@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529665a03d2203dcb501b59d7647f4390bdaeb78
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5bae9f565dd37fbd3bcae38833662e13e0b7ac6d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936733"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960642"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>API Web que chama as APIs da Web-configuração de código
 
@@ -99,9 +99,9 @@ Este cenário avançado é detalhado em [asserções do cliente](msal-net-client
 
 ### <a name="how-to-call-on-behalf-of"></a>Como chamar em nome de
 
-A chamada em nome de (obo) é feita chamando o método [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) na `IConfidentialClientApplication` interface.
+A chamada em nome de (OBO) é feita chamando o método [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) na interface `IConfidentialClientApplication`.
 
-O `UserAssertion` é criado a partir do token de portador recebido pela API da Web de seus próprios clientes. Há [dois construtores](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), um que usa um token de portador JWT e um que usa qualquer tipo de declaração de usuário (outro tipo de token de segurança, que tipo é especificado em um parâmetro adicional chamado `assertionType`).
+A `UserAssertion` é criada a partir do token de portador recebido pela API da Web de seus próprios clientes. Há [dois construtores](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), um que usa um token de portador JWT e um que usa qualquer tipo de declaração de usuário (outro tipo de token de segurança, que tipo é especificado em um parâmetro adicional chamado `assertionType`).
 
 ![imagem](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
@@ -141,7 +141,9 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 }
 ```
 
-## <a name="protocol"></a>Protocol
+Você também pode ver um exemplo de em nome da implementação do Flow em [NodeJS e Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
+
+## <a name="protocol"></a>Protocolo
 
 Para obter mais informações sobre o protocolo em nome de, consulte [plataforma de identidade da Microsoft e fluxo em nome de OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
 

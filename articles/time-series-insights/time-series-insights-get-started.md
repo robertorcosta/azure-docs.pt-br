@@ -1,6 +1,6 @@
 ---
-title: Criar um ambiente de Análise de Séries Temporais do Azure | Microsoft Docs
-description: Este artigo descreve como usar o portal do Azure para criar um novo ambiente do Time Series Insights.
+title: Criar um ambiente-Azure Time Series Insights | Microsoft Docs
+description: Saiba como usar o portal do Azure para criar um novo ambiente de Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1b51931385eb7e2e0bf2a1baf5cc4c3379eab2df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: fc3f21c95ad6f4bb033336018dddb9e966e9cc9a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991225"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006909"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Criar um novo ambiente de Análise de Séries Temporais no portal do Azure
 
@@ -28,13 +28,13 @@ O Time Series Insights permite que você comece a visualizar e a consultar dados
 
 Siga estas etapas para criar um ambiente:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione o botão **+ criar um recurso** .
 
 1. Selecione a categoria **Internet das Coisas** e selecione **Time Series Insights**.
 
-   [![criar o ambiente de time Series insights](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox))
+   [![Criar o ambiente de time Series insights](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox)
 
 1. Na página **Time Series Insights**, selecione **Criar**.
 
@@ -42,14 +42,14 @@ Siga estas etapas para criar um ambiente:
    
    [![criar o grupo de recursos Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
    
-   Configuração|Valor sugerido|Descrição
+   Configuração|Valor sugerido|DESCRIÇÃO
    ---|---|---
    Nome do ambiente | Um nome exclusivo | Esse nome representa o ambiente no [explorer do Time Series](https://insights.timeseries.azure.com)
-   Subscription | Sua assinatura | Se você tiver várias assinaturas, escolha a assinatura que contenha a origem do evento de preferência. A Análise das Séries Temporais podem detectar automaticamente o Hub IoT do Azure e os recursos de Hub de Eventos existentes na mesma assinatura.
-   Resource group | Criar um novo ou usar um existente | Um grupo de recursos é uma coleção de recursos do Azure que são usados juntos. Você pode escolher um grupo de recursos existente, como aquele que contém seu Hub de Eventos ou Hub IoT. Ou você pode criar um novo se esse recurso não estiver relacionado a outros recursos.
-   Location | Mais próximo da origem do evento | Preferencialmente, escolha o mesmo local de centro de dados que contenha os dados de origem do evento, em um esforço para evitar os custos de largura de banda entre regiões e zonas e a latência adicional ao mover os dados para fora da região.
-   tipo de preço | S1 | Escolha a taxa de transferência necessária. Para ter custos mais baixos e a capacidade inicial, selecione S1.
-   Capacity | 1 | A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.  Você pode alterar a capacidade de um ambiente após a criação. Para custos mais baixos, selecione uma capacidade 1. 
+   Assinatura | Sua assinatura | Se você tiver várias assinaturas, escolha a assinatura que contenha a origem do evento de preferência. A Análise das Séries Temporais podem detectar automaticamente o Hub IoT do Azure e os recursos de Hub de Eventos existentes na mesma assinatura.
+   Grupo de recursos | Criar um novo ou usar um existente | Um grupo de recursos é uma coleção de recursos do Azure que são usados juntos. Você pode escolher um grupo de recursos existente, como aquele que contém seu Hub de Eventos ou Hub IoT. Ou você pode criar um novo se esse recurso não estiver relacionado a outros recursos.
+   Local padrão | Mais próximo da origem do evento | Preferencialmente, escolha o mesmo local de centro de dados que contenha os dados de origem do evento, em um esforço para evitar os custos de largura de banda entre regiões e zonas e a latência adicional ao mover os dados para fora da região.
+   Tipo de preço | S1 | Escolha a taxa de transferência necessária. Para ter custos mais baixos e a capacidade inicial, selecione S1.
+   Capacidade | 1 | A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.  Você pode alterar a capacidade de um ambiente após a criação. Para custos mais baixos, selecione uma capacidade 1. 
   
 1. Selecione **Criar** para iniciar o processo de provisionamento. Isso poderá levar alguns minutos.
 
@@ -63,7 +63,7 @@ Siga estas etapas para criar um ambiente:
 
    [![criar o PIN de Time Series Insights ao painel](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Defina as políticas de acesso de dados](time-series-insights-data-access.md) para proteger seu ambiente.
 
@@ -71,4 +71,4 @@ Siga estas etapas para criar um ambiente:
 
 * [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
 
-* Exibir seu ambiente no [explorador do Time Series Insights](https://insights.timeseries.azure.com).
+* Exibir seu ambiente no [Explorador do Time Series Insights](https://insights.timeseries.azure.com).

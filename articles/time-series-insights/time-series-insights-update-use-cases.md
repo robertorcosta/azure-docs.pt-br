@@ -1,6 +1,6 @@
 ---
-title: Casos de uso da Versão Prévia do Azure Time Series Insights | Microsoft Docs
-description: Entender casos de uso da Versão Prévia do Azure Time Series Insights.
+title: Visualizar casos de uso-Azure Time Series Insights | Microsoft Docs
+description: Saiba mais sobre Azure Time Series Insights casos de uso de visualização.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: b2c1aec7f5b653824ab999da2706549e54d47e3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 175fbf598ae2224d1e1ee0e9c9a3f9ba446965c3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492067"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014682"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casos de uso da Versão Prévia do Azure Time Series Insights
 

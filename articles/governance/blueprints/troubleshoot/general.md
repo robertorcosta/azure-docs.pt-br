@@ -1,17 +1,14 @@
 ---
 title: Solução de problemas comuns
 description: Saiba como solucionar problemas de criação, atribuição e remoção de blueprints.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
-ms.service: blueprints
-ms.openlocfilehash: b99e94bfdcbf12e82a094f14995b6b93aa3354ed
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b6f1d6c40f7268e90f09457e680a3ef33996c341
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978217"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960282"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar problemas usando o Azure Blueprint
 
@@ -33,7 +30,7 @@ Muitos erros serão o resultado da atribuição de um blueprint para um escopo. 
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="policy-violation"></a>Cenário: Violação de política
+### <a name="policy-violation"></a>Cenário: violação de política
 
 #### <a name="issue"></a>Problema
 
@@ -50,7 +47,7 @@ Uma política pode entrar em conflito com a implantação por vários motivos:
 
 Altere o plano gráfico para que ele não entre em conflito com as políticas nos detalhes do erro. Se isso não for possível, uma opção alternativa será alterar o escopo da atribuição de política para que o blueprint não esteja mais em conflito com a política.
 
-### <a name="escape-function-parameter"></a>Cenário: O parâmetro de blueprint é uma função
+### <a name="escape-function-parameter"></a>Cenário: o parâmetro Blueprint é uma função
 
 #### <a name="issue"></a>Problema
 

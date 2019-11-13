@@ -1,5 +1,5 @@
 ---
-title: Configurar recuperação de desastres de VMs VMware para o Azure usando PowerShell no Azure Site Recovery | Microsoft Docs
+title: Configurar a recuperação de desastres do VMware usando o PowerShell no Azure site Revoery
 description: Saiba como configurar replicação e failover para o Azure para recuperação de desastre de VMs VMware utilizando o PowerShell no Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 7c13bb8586995a82ee240df39a9c95a67743e2a8
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9546ae590918cdf6f3a6a95b9a68e9208054dcee
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503349"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953939"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação de desastre de VMs VMware para o Azure usando o PowerShell
 
@@ -25,19 +25,19 @@ Você aprenderá como:
 > - Valide o registro do servidor no cofre.
 > - Configure a replicação, incluindo uma política de replicação. Adicione o vCenter Server e descubra VMs.
 > - Adicionar um vCenter server e descobrir
-> - Criar contas de armazenamento para manter os logs de replicação ou de dados e replicar as VMs.
-> - Executar um failover. Definir configurações de failover, execute um configurações para replicar máquinas virtuais.
+> - Crie contas de armazenamento para manter os logs de replicação ou dados e replicar as VMs.
+> - Executar um failover. Defina as configurações de failover, execute as configurações para replicar máquinas virtuais.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar:
 
 - Verifique se você entende os [componentes e a arquitetura do cenário](vmware-azure-architecture.md).
 - Examine os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) de todos os componentes.
-- Você tem o Azure PowerShell `Az` módulo. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
+- Você tem o módulo Azure PowerShell `Az`. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Fazer logon no Azure
 
@@ -46,7 +46,7 @@ Faça logon em sua assinatura do Azure usando o cmdlet Connect-AzAccount:
 ```azurepowershell
 Connect-AzAccount
 ```
-Selecione a assinatura do Azure na qual deseja replicar suas máquinas virtuais do VMware. Use o cmdlet Get-AzSubscription para obter a lista de assinaturas do Azure, que você tem acesso ao. Selecione a assinatura do Azure para trabalhar usando o cmdlet Select-AzSubscription.
+Selecione a assinatura do Azure na qual deseja replicar suas máquinas virtuais do VMware. Use o cmdlet Get-AzSubscription para obter a lista de assinaturas do Azure às quais você tem acesso. Selecione a assinatura do Azure com a qual trabalhar usando o cmdlet Select-AzSubscription.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionName "ASR Test Subscription"
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Defina o contexto do cofre usando o cmdlet Set-ASRVaultContext. Após a definição, operações posteriores do Azure Site Recovery na sessão do PowerShell serão executadas no contexto do cofre selecionado.
 
 > [!TIP]
-> O módulo do PowerShell do Azure Site Recovery (módulo Az.RecoveryServices) vem com aliases fáceis de usar para a maioria dos cmdlets. Os cmdlets no módulo assumem a forma  *\<operação >-**AzRecoveryServicesAsr**\<objeto >* e têm aliases equivalentes que assumem a forma  *\< Operação >-**ASR**\<objeto >* . Você pode substituir os aliases de cmdlet para facilidade de uso.
+> O módulo Azure Site Recovery PowerShell (módulo AZ. Recoveryservices) é fornecido com aliases fáceis de usar para a maioria dos cmdlets. Os cmdlets no módulo assumem a forma *\<operação >-**AzRecoveryServicesAsr**\<de objeto >* e têm aliases equivalentes que tomam a forma *\<operação re> objeto\<-**ASR*** >. Você pode substituir os aliases de cmdlet para facilitar o uso.
 
 No exemplo a seguir, os detalhes do cofre da variável $vault são usados para especificar o contexto do cofre para a sessão do PowerShell.
 
@@ -118,7 +118,7 @@ No exemplo a seguir, os detalhes do cofre da variável $vault são usados para e
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Como alternativa para o cmdlet Set-ASRVaultContext, um também pode usar o cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile para definir o contexto de cofre. Especifique o caminho no qual o arquivo de chave de registro do cofre está localizado como o parâmetro - path para o cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Por exemplo:
+Como alternativa ao cmdlet Set-ASRVaultContext, um também pode usar o cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile para definir o contexto do cofre. Especifique o caminho no qual o arquivo de chave de registro do cofre está localizado como o parâmetro-Path para o cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Por exemplo:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -316,9 +316,9 @@ Errors           : {}
 
 ## <a name="create-storage-accounts-for-replication"></a>Criar contas de armazenamento para replicação
 
-**Para gravar em disco gerenciado, use [módulo de Powershell Az.RecoveryServices 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) em diante.** Ele só requer a criação de uma conta de armazenamento de log. É recomendável usar um tipo de conta padrão e a redundância LRS, pois ele é usado para armazenar os logs apenas temporários. Certifique-se de que a conta de armazenamento é criada na mesma região do Azure que o cofre.
+**Para gravar no disco gerenciado, use o [módulo AZ. recoveryservices do PowerShell 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) em diante.** Ele requer apenas a criação de uma conta de armazenamento de log. É recomendável usar um tipo de conta padrão e redundância LRS, já que ela é usada para armazenar somente logs temporários. Verifique se a conta de armazenamento foi criada na mesma região do Azure que o cofre.
 
-Se você estiver usando uma versão do módulo de Az.RecoveryServices anteriores a 2.0.0, use as etapas a seguir para criar contas de armazenamento. Essas contas de armazenamento são usadas posteriormente para replicar máquinas virtuais. Certifique-se de que as contas de armazenamento sejam criadas na mesma região do cofre do Azure. Você pode ignorar esta etapa se planeja usar uma conta de armazenamento existente para replicação.
+Se você estiver usando uma versão do módulo AZ. Recoveryservices com mais de 2.0.0, use as etapas a seguir para criar contas de armazenamento. Essas contas de armazenamento são usadas posteriormente para replicar máquinas virtuais. Certifique-se de que as contas de armazenamento sejam criadas na mesma região do cofre do Azure. Você pode ignorar esta etapa se planeja usar uma conta de armazenamento existente para replicação.
 
 > [!NOTE]
 > Ao replicar máquinas virtuais locais para uma conta de armazenamento premium, você precisa especificar uma conta de armazenamento padrão adicional (conta de armazenamento de log). A conta de armazenamento de log mantém os logs de replicação como um armazenamento intermediário até que os logs possam ser aplicados no armazenamento premium de destino.
@@ -340,8 +340,8 @@ São necessários de 15 a 20 minutos para que as máquinas virtuais sejam descob
 Você precisará dos detalhes a seguir para proteger uma máquina virtual descoberta:
 
 * O item de proteção a ser replicado.
-* A conta de armazenamento para replicar a máquina virtual (somente se você estiver replicando para conta de armazenamento). 
-* Um armazenamento de log é necessário para proteger máquinas virtuais para uma conta de armazenamento premium ou em um disco gerenciado.
+* A conta de armazenamento na qual replicar a máquina virtual (somente se você estiver replicando para a conta de armazenamento). 
+* Um armazenamento de log é necessário para proteger as máquinas virtuais em uma conta de armazenamento Premium ou em um disco gerenciado.
 * O Servidor de Processo usado para replicação. A lista de servidores de processo disponíveis foi recuperada e salva nas variáveis ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* e ***$ProcessServers[1]*** *(ConfigurationServer)* .
 * A conta a ser usada para a instalação por push do software do serviço de mobilidade nas máquinas. A lista de contas disponíveis foi recuperada e armazenada na variável ***$AccountHandles***.
 * O mapeamento de contêiner de proteção para a política de replicação a ser usada para replicação.
@@ -351,7 +351,7 @@ Você precisará dos detalhes a seguir para proteger uma máquina virtual descob
 Agora, replique as seguintes máquinas virtuais usando as configurações especificadas nesta tabela
 
 
-|Máquina virtual  |Servidor de processo        |Conta de armazenamento              |Conta de armazenamento de log  |Política           |Conta para instalação do serviço de mobilidade|Grupo de recursos de destino  | Rede virtual de destino  |Sub-rede de destino  |
+|Máquina virtual  |Servidor de processo        |Conta de Armazenamento              |Conta de armazenamento de log  |Política           |Conta para instalação do serviço de mobilidade|Grupo de recursos de destino  | Rede virtual de destino  |Sub-rede de destino  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |N/D| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
@@ -493,4 +493,4 @@ Nesta etapa, fazemos o failover da máquina virtual Win2K12VM1 para um ponto de 
 2. Após concluir o failover com êxito, você poderá confirmar a operação de failover e configurar a replicação inversa do Azure de volta ao site VMware local.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como automatizar as tarefas mais usando o [referência do PowerShell do Azure Site Recovery](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).
+Saiba como automatizar mais tarefas usando a [referência do Azure site Recovery PowerShell](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

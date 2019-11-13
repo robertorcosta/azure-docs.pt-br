@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 247dee2cfbb00b185e941fde05c2198459a05e20
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 73dc95260e7beb306834d094957518f36106b0f4
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815734"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73945762"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Active Directory
 
@@ -29,11 +29,6 @@ O licenciamento baseado em grupo no Azure Active Directory (Azure AD) introduz o
 Quando você atribui licenças diretamente a usuários individuais, sem usar o licenciamento baseado em grupo, a operação de atribuição pode falhar. Por exemplo, quando você executa o cmdlet do PowerShell `Set-MsolUserLicense` em um sistema de usuário, o cmdlet pode falhar por vários motivos relacionados à lógica de negócios. Por exemplo, pode haver um número insuficiente de licenças ou um conflito entre dois planos de serviço que não podem ser atribuídos ao mesmo tempo. O problema é relatado imediatamente para você.
 
 Quando você está usando o licenciamento com base em grupo, os mesmos erros podem ocorrer, mas eles ocorrem em segundo plano quando o serviço do Azure AD está atribuindo licenças. Por esse motivo, os erros não podem ser comunicados a você imediatamente. Em vez disso, eles são registrados no objeto do usuário e relatados por meio do portal administrativo. Observe que a intenção original de licenciar o usuário nunca é perdida, mas é registrada em um estado de erro para investigação e resolução futuras.
-
-## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException em logs de auditoria
-
-**Problema:** O usuário tem LicenseAssignmentAttributeConcurrencyException para a atribuição de licença nos logs de auditoria.
-Quando o licenciamento baseado em grupo tenta processar a atribuição de licença simultânea da mesma licença a um usuário, essa exceção é registrada no usuário. Isso geralmente acontece quando um usuário é membro de mais de um grupo com a mesma licença atribuída. O AZure AD tentará processar novamente a licença de usuário e resolverá o problema. Não é necessária nenhuma ação do cliente para corrigir esse problema.
 
 ## <a name="find-license-assignment-errors"></a>Localizar erros de atribuição de licença
 
@@ -121,6 +116,11 @@ Depois de solucionar quaisquer problemas de endereço proxy para os usuários af
 **Problema:** Ao atualizar a atribuição de licença em um usuário ou grupo, você pode ver que o atributo email e ProxyAddresses do Azure AD de alguns usuários são alterados.
 
 Atualizar a atribuição de licença em um usuário faz com que o cálculo do endereço proxy seja disparado, o que pode alterar os atributos do usuário. Para entender o motivo exato da alteração e resolver o problema, consulte este artigo sobre [como o atributo proxyAddresses é populado no Azure ad](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException em logs de auditoria
+
+**Problema:** O usuário tem LicenseAssignmentAttributeConcurrencyException para a atribuição de licença nos logs de auditoria.
+Quando o licenciamento baseado em grupo tenta processar a atribuição de licença simultânea da mesma licença a um usuário, essa exceção é registrada no usuário. Isso geralmente acontece quando um usuário é membro de mais de um grupo com a mesma licença atribuída. O AZure AD tentará processar novamente a licença de usuário e resolverá o problema. Não é necessária nenhuma ação do cliente para corrigir esse problema.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>Mais de uma licença de produto atribuída a um grupo
 

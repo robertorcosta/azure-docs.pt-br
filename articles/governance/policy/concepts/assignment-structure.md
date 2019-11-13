@@ -1,17 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de política
 description: Descreve a definição de atribuição de política usada por Azure Policy para relacionar definições de política e parâmetros a recursos para avaliação.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 500e40b8d3a5943c7f64f5b190223cb1dc7b4c92
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255903"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960029"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -20,7 +17,7 @@ As atribuições de política são usadas pelo Azure Policy para definir quais r
 Você usa JSON para criar uma atribuição de política. A atribuição de política contém elementos para:
 
 - nome de exibição
-- description
+- Description
 - metadata
 - modo de imposição
 - definição de política
@@ -62,10 +59,10 @@ A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o res
 
 Essa propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |type |Corrigir manualmente |Entrada do log de atividades |DESCRIÇÃO |
+|Modo |Valor JSON |Digite |Corrigir manualmente |Entrada do log de atividades |DESCRIÇÃO |
 |-|-|-|-|-|-|
-|Enabled |Padrão |cadeia de caracteres |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
-|Desabilitado |DoNotEnforce |cadeia de caracteres |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
+|Habilitado |Padrão |cadeia de caracteres |sim |sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
+|Desabilitado |DoNotEnforce |cadeia de caracteres |sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
 
 Se **imposiçãomode** não for especificado em uma definição de política ou iniciativa, o valor _padrão_ será usado. [As tarefas de correção](../how-to/remediate-resources.md) podem ser iniciadas para políticas de [deployIfNotExists](./effects.md#deployifnotexists) , **mesmo quando** é definido como _DoNotEnforce_.
 
@@ -74,7 +71,7 @@ Se **imposiçãomode** não for especificado em uma definição de política ou 
 Este campo deve ser o nome do caminho completo de uma definição de política ou uma definição de iniciativa.
 `policyDefinitionId` é uma cadeia de caracteres e não uma matriz. É recomendável que, em vez disso, várias políticas sejam atribuídas juntas, para usar uma [iniciativa](./definition-structure.md#initiatives) .
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Esse segmento da atribuição de política fornece os valores para os parâmetros definidos na definição de [política ou definição de iniciativa](./definition-structure.md#parameters).
 Esse design torna possível reutilizar uma definição de política ou iniciativa com recursos diferentes, mas verificar valores comerciais ou resultados diferentes.

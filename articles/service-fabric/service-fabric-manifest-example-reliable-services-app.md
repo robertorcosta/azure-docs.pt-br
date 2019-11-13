@@ -1,5 +1,5 @@
 ---
-title: Exemplos de manifesto do aplicativo Reliable Services do Azure Service Fabric | Microsoft Docs
+title: Exemplos de manifesto de aplicativo dos Reliable Services do Azure Service Fabric
 description: Saiba como definir as configurações do aplicativo e do manifesto do serviço para um aplicativo Reliable Services do Service Fabric.
 services: service-fabric
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: a5678b4c4c0f7a9d8d3f3cf6e838580de2059a8f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 9cc79610b6dc9f9d2869a41e0b483168087368cc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035634"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013236"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de aplicativo de Reliable Services e manifesto do serviço
 A seguir estão exemplos dos manifestos de aplicativo e serviço para um aplicativo do Service Fabric com um front-end Web do ASP.NET Core e um back-end com estado. O objetivo desses exemplos é mostrar quais configurações estão disponíveis e como usá-las. Esses manifestos de aplicativo e serviços se baseiam em manifestos [Início Rápido do Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -399,7 +399,7 @@ O nome do executável.  Por exemplo, "MySetup.bat" ou "MyServiceHost.exe". Para 
  Para obter mais informações, veja [Elemento Arguments](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>Elemento WorkingFolder
-O diretório de trabalho para o processo no pacote de códigos no nó de cluster em que o aplicativo é implantado. Você pode especificar três valores: Work (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de códigos, independentemente do local em que o EXE é definido no diretório do pacote de códigos. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido para a pasta de trabalho do aplicativo. Esse é o local em que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou base de código, uma vez que essas pastas podem ser compartilhadas entre instâncias diferentes do aplicativo e ser excluídas. Para obter mais informações, veja [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+O diretório de trabalho para o processo no pacote de códigos no nó de cluster em que o aplicativo é implantado. Você pode especificar três valores: Trabalho (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de códigos, independentemente do local em que o EXE é definido no diretório do pacote de códigos. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido para a pasta de trabalho do aplicativo. Esse é o local em que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou base de código, uma vez que essas pastas podem ser compartilhadas entre instâncias diferentes do aplicativo e ser excluídas. Para obter mais informações, veja [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="consoleredirection-element"></a>Elemento ConsoleRedirection
 
@@ -449,7 +449,7 @@ O executável especificado pelo EntryPoint normalmente é o host de serviço de 
 O nome do executável.  Por exemplo, "MySetup.bat" ou "MyServiceHost.exe". Para obter mais informações, veja [elemento de programa](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>Elemento WorkingFolder
-O diretório de trabalho para o processo no pacote de códigos no nó de cluster em que o aplicativo é implantado. Você pode especificar três valores: Work (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de códigos, independentemente do local em que o EXE é definido no diretório do pacote de códigos. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido para a pasta de trabalho do aplicativo. Esse é o local em que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou base de código, uma vez que essas pastas podem ser compartilhadas entre instâncias diferentes do aplicativo e ser excluídas. Para obter mais informações, veja [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+O diretório de trabalho para o processo no pacote de códigos no nó de cluster em que o aplicativo é implantado. Você pode especificar três valores: Trabalho (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de códigos, independentemente do local em que o EXE é definido no diretório do pacote de códigos. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido para a pasta de trabalho do aplicativo. Esse é o local em que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou base de código, uma vez que essas pastas podem ser compartilhadas entre instâncias diferentes do aplicativo e ser excluídas. Para obter mais informações, veja [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="configpackage-element"></a>Elemento ConfigPackage
 Declara uma pasta nomeada pelo atributo Name, em PackageRoot, que contém um arquivo Settings.xml. Esse arquivo contém seções de configurações de par chave-valor, definido pelo usuário, que o processo pode ler de volta no tempo de execução. Durante a atualização, se apenas a versão do ConfigPackage tiver sido alterada, o processo de execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Para obter mais informações, confira [Elemento ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)

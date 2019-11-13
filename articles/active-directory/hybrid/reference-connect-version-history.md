@@ -2,26 +2,22 @@
 title: 'Azure AD Connect: histórico de liberação de versão | Microsoft Docs'
 description: Este artigo lista todas as versões do Azure AD Connect e do Azure AD Sync
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927449"
+ms.locfileid: "73944220"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -35,24 +31,23 @@ Tópico |  Detalhes
 --------- | --------- |
 Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](how-to-upgrade-previous-version.md) do Azure AD Connect.
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
-
-Download | [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Baixar| [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >A liberação de uma nova versão do Azure AD Connect é um processo que requer várias etapas de controle de qualidade para garantir a funcionalidade de operação do serviço e, enquanto passamos por esse processo, o número de versão de uma nova versão e o status da versão serão atualizados para refletir o estado mais recente.
 Enquanto passarmos por esse processo, o número de versão da versão será mostrado com um "X" na posição do número de liberação secundária, como em "1.3. X. 0" – isso indica que as notas de versão deste documento são válidas para todas as versões que começam com "1,3.". Assim que finalizamos o processo de liberação, o número de versão de lançamento será atualizado para a versão lançada mais recentemente e o status da versão será atualizado para "liberado para download e atualização automática".
-Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão foi disponibilizada para atualização automática ou apenas para baixar. Se a atualização automática foi habilitada no seu servidor do Azure AD Connect, então esse servidor atualizará automaticamente para a versão mais recente do Azure AD Connect que é liberado para atualização automática. Observe que nem todas as configurações do Azure AD Connect estão qualificadas para atualização automática. Siga este link para ler mais sobre [atualização automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão foi disponibilizada para atualização automática ou apenas para baixar. Se a atualização automática foi habilitada no seu servidor do Azure AD Connect, então esse servidor atualizará automaticamente para a versão mais recente do Azure AD Connect que é liberado para atualização automática. Observe que nem todas as configurações do Azure AD Connect estão qualificadas para atualização automática. Siga este link para ler mais sobre [atualização automática](how-to-connect-install-automatic-upgrade.md)
 
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>Status de liberação
-08/11/2019: liberado para download. Não disponível para atualização automática
+11/08/2019: liberado para download. Não disponível para atualização automática
 
 >[!IMPORTANT]
 >Devido a uma alteração de esquema interna nesta versão do Azure AD Connect, se você gerenciar as definições de configuração da relação de confiança do ADFS usando o PowerShell do MSOnline, deverá atualizar seu módulo do MSOnline PowerShell para a versão 1.1.183.57 ou superior
 ### <a name="fixed-issues"></a>Problemas corrigidos
 
 Esta versão corrige um problema com dispositivos ingressados no Azure AD híbridos existentes. Esta versão contém uma nova regra de sincronização de dispositivo que corrige esse problema.
-Observe que essa alteração de regra pode causar a exclusão de dispositivos obsoletos do Azure AD. Isso não é uma causa de preocupação, pois esses objetos de dispositivo não são usados pelo Azure AD durante a autorização de acesso condicional. Para alguns clientes, o número de dispositivos que serão excluídos por meio dessa alteração de regra pode exceder o limite de exclusão. Se você vir a exclusão de objetos de dispositivo no Azure AD excedendo o limite de exclusão de exportação, é aconselhável permitir que as exclusões sejam passadas. [Como permitir que as exclusões fluam quando excederem o limite de exclusão](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+Observe que essa alteração de regra pode causar a exclusão de dispositivos obsoletos do Azure AD. Isso não é uma causa de preocupação, pois esses objetos de dispositivo não são usados pelo Azure AD durante a autorização de acesso condicional. Para alguns clientes, o número de dispositivos que serão excluídos por meio dessa alteração de regra pode exceder o limite de exclusão. Se você vir a exclusão de objetos de dispositivo no Azure AD excedendo o limite de exclusão de exportação, é aconselhável permitir que as exclusões sejam passadas. [Como permitir que as exclusões fluam quando excederem o limite de exclusão](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## <a name="14250"></a>1.4.25.0
 
@@ -129,7 +124,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 
 ### <a name="fixed-issues"></a>Problemas corrigidos 
 
-- Correção de uma elevação de vulnerabilidade de privilégio existente no Microsoft Azure Active Directory Connect Build 1.3.20.0.  Essa vulnerabilidade, em determinadas condições, pode permitir que um invasor execute dois cmdlets do PowerShell no contexto de uma conta com privilégios e execute ações privilegiadas.  Essa atualização de segurança resolve o problema desabilitando esses cmdlets. Para obter mais informações, consulte [atualização de segurança](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
+- Correção de uma elevação de vulnerabilidade de privilégio existente no Microsoft Azure Active Directory Connect Build 1.3.20.0.  Essa vulnerabilidade, em determinadas condições, pode permitir que um invasor execute dois cmdlets do PowerShell no contexto de uma conta com privilégios e execute ações privilegiadas.  Essa atualização de segurança resolve o problema desabilitando esses cmdlets. Para obter mais informações, consulte [atualização de segurança](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -1186,7 +1181,7 @@ Lançamento: novembro de 2015
 
 **Novo cenário com suporte:**
 
-* Dá suporte a várias organizações local do Exchange. Para obter mais informações, confira [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx).
+* Dá suporte a várias organizações local do Exchange. Para obter mais informações, confira [Implantações híbridas com várias florestas do Active Directory](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
 
 **Problemas corrigidos:**
 

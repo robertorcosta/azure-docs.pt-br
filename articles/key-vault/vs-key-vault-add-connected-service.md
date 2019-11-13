@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4cbc4044b5d1270cecd1a271d2a1db02801650dd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815109"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012765"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Key Vault ao seu aplicativo Web usando os Serviços Conectados do Visual Studio
 
@@ -22,7 +22,7 @@ Neste tutorial, você aprenderá como adicionar facilmente tudo o que você prec
 
 Para obter detalhes sobre as alterações que os Serviços Conectados realizam em seu projeto para habilitar o Key Vault, confira [Serviço Conectado do Key Vault — O que aconteceu com meu projeto do ASP.NET 4.7.1](#how-your-aspnet-framework-project-is-modified) ou [Serviço Conectado do Key Vault — O que aconteceu com meu projeto do ASP.NET Core](#how-your-aspnet-core-project-is-modified).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - **Uma assinatura do Azure**. Se você não tiver uma assinatura, Inscreva-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual studio 2019 versão 16,3 Preview 1** ou posterior ou **visual studio 2017 versão 15,7** com a carga de trabalho de **desenvolvimento da Web** instalada. [Baixe agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -135,6 +135,21 @@ Quando não for mais necessário, exclua o grupo de recursos. Isso exclui o Key 
 2. Selecione **Excluir grupo de recursos**.
 3. Na caixa **digite o nome do grupo de recursos:** , insira o nome do grupo de recursos e selecione **excluir**.
 
+## <a name="troubleshooting"></a>Solucionando problemas
+
+Se o cofre de chaves estiver sendo executado em um conta Microsoft diferente daquele em que você está conectado ao Visual Studio (por exemplo, o cofre de chaves está sendo executado em sua conta corporativa, mas o Visual Studio estiver usando sua conta privada), você receberá um erro no arquivo Program.cs , que o Visual Studio não pode obter acesso ao cofre de chaves. Para corrigir esse problema:
+
+1. Vá para a [portal do Azure](https://portal.azure.com) e abra o Key Vault.
+
+1. Escolha **políticas de acesso**e, em seguida, **Adicionar política de acesso**e escolha a conta com a qual você fez logon como principal.
+
+1. No Visual Studio, escolha **arquivo** > **configurações de conta**.
+Selecione **Adicionar uma conta** na seção **todas as contas** . Entre com a conta que você escolheu como entidade de segurança da sua política de acesso.
+
+1. Escolha **ferramentas** > **Opções**e procure autenticação de **serviço do Azure**. Em seguida, selecione a conta que você acabou de adicionar ao Visual Studio.
+
+Agora, quando você depurar seu aplicativo, o Visual Studio se conectará à conta em que o cofre de chaves está localizado.
+
 ## <a name="how-your-aspnet-core-project-is-modified"></a>Como seu projeto de ASP.NET Core é modificado
 
 Esta seção identifica as alterações exatas feitas em um projeto ASP.NET ao adicionar o serviço conectado do Key Vault usando o Visual Studio.
@@ -143,7 +158,7 @@ Esta seção identifica as alterações exatas feitas em um projeto ASP.NET ao a
 
 Afeta as referências de .NET do arquivo de projeto e as referências de pacote NuGet.
 
-| Tipo | Referência |
+| Digite | Referência |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -179,7 +194,7 @@ Esta seção identifica as alterações exatas feitas em um projeto ASP.NET ao a
 
 Afeta o arquivo de projeto referências do .NET e `packages.config` (referências do NuGet).
 
-| Tipo | Referência |
+| Digite | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

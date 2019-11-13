@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74f4e8750497fc1ae9875caeb60de65b5f6cd808
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e993ad17a07ff741ff33073304ed774dcf30203d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896032"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961650"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurar o logon único baseado em SAML para aplicativos que não são da Galeria
 
@@ -50,7 +50,7 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, consul
 
 1. Insira as configurações a seguir. Você deve obter os valores do fornecedor do aplicativo. Pode inserir os valores manualmente ou carregar um arquivo de metadados para extrair o valor dos campos.
 
-    | Configuração Básica do SAML | Iniciado por SP | iniciado por idP | Descrição |
+    | Configuração Básica do SAML | Iniciado por SP | iniciado por idP | DESCRIÇÃO |
     |:--|:--|:--|:--|
     | **Identificador (ID da entidade)** | Obrigatório para alguns aplicativos | Obrigatório para alguns aplicativos | Identifica exclusivamente o aplicativo. O Azure AD envia o identificador para o aplicativo como o parâmetro Audience do token SAML. O aplicativo deve validá-lo. Esse valor também aparece como a ID da entidade em todos os metadados SAML fornecidos pelo aplicativo. *Encontre esse valor como o elemento **Emissor** na **AuthnRequest** (solicitação SAML) enviada pelo aplicativo.* |
     | **URL de Resposta** | obrigatórios | obrigatórios | Especifica onde o aplicativo espera receber o token SAML. A URL de resposta também é chamada de URL do ACS (Serviço do Consumidor de Declaração). Você pode usar os campos de URL de resposta adicionais para especificar várias URLs de resposta. Por exemplo, você pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para fins de teste, você pode especificar várias URLs de resposta (host local e URLs públicas) ao mesmo tempo. |
@@ -76,7 +76,7 @@ Quando um usuário é autenticado no aplicativo, o Azure AD emite ao aplicativo 
 
 5. Para adicionar uma declaração, selecione **Adicionar nova declaração** na parte superior da página. Insira o **Nome** e selecione a fonte apropriada. Se você selecionar a origem **Atributo**, precisará escolher o **Atributo de origem** que deseja usar. Se você selecionar a origem **Tradução**, precisará escolher a **Transformação** e o **Parâmetro 1** que deseja usar. Para obter detalhes, confira [Como adicionar declarações específicas do aplicativo](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Salve as alterações quando terminar. 
 
-6. Clique em **Salvar**. A nova declaração será exibida na tabela.
+6. Selecione **Salvar**. A nova declaração será exibida na tabela.
 
    > [!NOTE]
    > Para obter outras maneiras de personalizar o token SAML do Azure AD para seu aplicativo, confira os recursos a seguir.
@@ -160,7 +160,7 @@ Se uma mensagem de erro for exibida, conclua as seguintes etapas:
 
 Para obter mais informações, consulte [depurar o logon único baseado em SAML para aplicativos no Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atribuir usuários e grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
 - [Configurar o provisionamento automático de conta de usuário](configure-automatic-user-provisioning-portal.md)

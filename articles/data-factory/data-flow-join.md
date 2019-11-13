@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aae502b350f2cf2e98849b2b6e25543516a0c547
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675922"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961829"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformação de junção no fluxo de dados de mapeamento
 
@@ -48,7 +48,7 @@ A junção cruzada gera o produto cruzado dos dois fluxos com base em uma condi�
 1. Selecione seu **tipo de junção**
 1. Escolha em quais colunas de chave você deseja fazer a correspondência para a condição de junção. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor calculado, passe o mouse sobre a lista suspensa coluna e selecione **coluna computada**.
 
-![Transformação de junção](media/data-flow/join.png "Ingressar")
+![Transformação de junção](media/data-flow/join.png "Join")
 
 ## <a name="optimizing-join-performance"></a>Otimizando o desempenho da junção
 

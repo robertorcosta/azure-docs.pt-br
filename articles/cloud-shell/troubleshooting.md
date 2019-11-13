@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 91dc87cd6bda93663fb4b4eae3d498ae56ba4b3e
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169593"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961547"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solução de problemas e limitações do Azure Cloud Shell
 
@@ -31,61 +31,67 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 
 ### <a name="early-timeouts-in-firefox"></a>Tempos limites iniciais no FireFox
 
-- **Detalhes**: o Cloud Shell utiliza um websocket aberto para passar a entrada/saída para o navegador. FireFox tem políticas predefinidas que podem fechar o websocket prematuramente, causando tempos limites iniciais no Cloud Shell.
-- **Resolução**: abra o FireFox e acesse "about:config" na caixa URL. Procure por "network.websocket.timeout.ping.request" e altere o valor de 0 para 10.
+- **Detalhes**: Cloud Shell utiliza um websocket aberto para passar a entrada/saída para o navegador. FireFox tem políticas predefinidas que podem fechar o websocket prematuramente, causando tempos limites iniciais no Cloud Shell.
+- **Resolução**: Abra o FireFox e acesse "sobre: config" na caixa URL. Procure por "network.websocket.timeout.ping.request" e altere o valor de 0 para 10.
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Desabilitando o Cloud Shell em um ambiente de rede bloqueado
 
-- **Detalhes**: os administradores podem querer desabilitar o acesso ao Cloud Shell para seus usuários. O Cloud Shell utiliza o acesso ao domínio `ux.console.azure.com`, que pode ser negado, interrompendo qualquer acesso aos ponto de entrada de Cloud Shell, incluindo portal.azure.com, shell.azure.com, Visual Studio Code extensão de conta do Azure e docs.microsoft.com.
-- **Resolução**: restrinja o acesso ao `ux.console.azure.com` por meio das configurações de rede para seu ambiente. Ícone do Cloud Shell ainda existirá no portal.azure.com, mas não se conectará com êxito ao serviço.
+- **Detalhes**: os administradores podem querer desabilitar o acesso ao Cloud Shell para seus usuários. Cloud Shell utiliza o acesso ao domínio `ux.console.azure.com`, que pode ser negado, interrompendo qualquer acesso aos ponto de entrada de Cloud Shell, incluindo portal.azure.com, shell.azure.com, Visual Studio Code extensão de conta do Azure e docs.microsoft.com.
+- **Resolução**: restringir o acesso ao `ux.console.azure.com` por meio das configurações de rede para seu ambiente. Ícone do Cloud Shell ainda existirá no portal.azure.com, mas não se conectará com êxito ao serviço.
 
-### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Diálogo de armazenamento – erro: 403 RequestDisallowedByPolicy
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Caixa de diálogo Armazenamento – Erro: 403 RequestDisallowedByPolicy
 
-- **Detalhes**: a criação de uma conta de armazenamento por meio do Cloud Shell falha devido a uma política do Azure imposta pelo seu administrador. A mensagem de erro incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Resolução**: contate o administrador do Azure para remover ou atualizar a política do Azure que nega a criação de armazenamento.
+- **Detalhes**: ao criar uma conta de armazenamento por meio do Cloud Shell, ela não é bem-sucedida devido a uma política do Azure colocada pelo administrador. A mensagem de erro incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Resolução**: contate o administrador do Azure para remover ou atualizar a política do Azure negando a criação de armazenamento.
 
-### <a name="storage-dialog---error-400-disallowedoperation"></a>Diálogo de armazenamento – erro: 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>Caixa de diálogo – Erro: 400 DisallowedOperation
 
-- **Detalhes**: ao usar uma assinatura do Azure Active Directory, não será possível criar armazenamento.
-- **Resolução**: use uma assinatura do Azure capaz de criar recursos de armazenamento. Assinaturas do Azure AD não são capazes de criar recursos do Azure.
+- **Detalhes**: Ao usar uma assinatura do Azure Active Directory, você não consegue criar armazenamento.
+- **Solução**: use uma assinatura do Azure capaz de criar recursos de armazenamento. Assinaturas do Azure AD não são capazes de criar recursos do Azure.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Saída do terminal – erro: Falha ao conectar o terminal: não é possível estabelecer o websocket. Pressione `Enter` para reconectar.
-- **Detalhes**: o Cloud Shell requer a capacidade de estabelecer uma conexão websocket com a infraestrutura do Cloud Shell.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal de saída – Erro: Falha ao conectar o terminal: o websocket não pode ser estabelecido. Pressione `Enter` para reconectar.
+- **Detalhes**: o Cloud Shell requer a capacidade de estabelecer uma conexão websocket à infraestrutura do Cloud Shell.
 - **Resolução**: verifique se você definiu as configurações de rede para permitir o envio de solicitações HTTPS e solicitações de websocket para domínios em *.console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Definir sua conexão de Cloud Shell para dar suporte ao uso do TLS 1.2
- - **Detalhes**: Para definir a versão do TLS para sua conexão com o Cloud Shell, você deve definir configurações específicas do navegador.
- - **Resolução**: navegue até as configurações de segurança do navegador e marque a caixa de seleção ao lado de “Usar TLS 1.2”.
+ - **Detalhes**: para definir a versão do TLS para sua conexão com Cloud Shell, você deve definir configurações específicas do navegador.
+ - **Resolução**: Navegue até as configurações de segurança do seu navegador e selecione a caixa de seleção ao lado de "Usar TLS 1.2".
 
 ## <a name="bash-troubleshooting"></a>Solução de problemas de Bash
 
 ### <a name="cannot-run-the-docker-daemon"></a>Não é possível executar o daemon do Docker
 
-- **Detalhes**: o Cloud Shell utiliza um contêiner para hospedar o ambiente de shell e, como resultado, a execução do daemon deixa de ser permitida.
-- **Resolução**: utilize o [docker-machine](https://docs.docker.com/machine/overview/), que está instalado por padrão, para gerenciar contêineres do Docker de um host remoto do Docker.
+- **Detalhes**: O Cloud Shell utiliza um contêiner para hospedar o seu ambiente de shell e, como resultado, a execução do daemon deixa de ser permitida.
+- **Resolução**: utilize o [Docker Machine](https://docs.docker.com/machine/overview/), que é instalado por padrão, para gerenciar contêineres do Docker de um host remoto do Docker.
 
 ## <a name="powershell-troubleshooting"></a>Solução de problemas do PowerShell
 
 ### <a name="gui-applications-are-not-supported"></a>Não há suporte para aplicativos GUI
 
 - **Detalhes**: se um usuário inicia um aplicativo GUI, o prompt não retorna. Por exemplo, quando um usuário clona um repositório do GitHub privado com autenticação de dois fatores habilitada, uma caixa de diálogo é exibida para completar a autenticação de dois fatores.
-- **Resolução**: Feche e reabra o shell.
+- **Resolução**: feche e reabra o shell.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Solucionando problemas de gerenciamento remoto de máquinas virtuais do Azure
 > [!NOTE]
 > As VMs do Azure devem ter um endereço IP voltado para o público.
 
-- **Detalhes**: devido às configurações do Firewall do Windows para WinRM, o usuário pode ver o seguinte erro: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Resolução**:  execute `Enable-AzVMPSRemoting` para habilitar todos os aspectos da comunicação remota do PowerShell no computador de destino.
+- **Detalhes**: devido às configurações do Firewall do Windows para WinRM, o usuário pode ver o seguinte erro:`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Resolução**: execute `Enable-AzVMPSRemoting` para habilitar todos os aspectos da comunicação remota do PowerShell no computador de destino.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` não atualiza o resultado na unidade do Azure
 
-- **Detalhes**: por padrão, para otimizar a experiência do usuário, os resultados de `dir` são armazenados em cache na unidade do Azure.
+- **Detalhes**: por padrão, para otimizar a experiência do usuário, os resultados de `dir` é armazenado em cache na unidade do Azure.
 - **Resolução**: depois de criar, atualizar ou remover um recurso do Azure, execute `dir -force` para atualizar os resultados na unidade do Azure.
 
 ## <a name="general-limitations"></a>Limitações gerais
 
 O Azure Cloud Shell tem as seguintes limitações conhecidas:
+
+### <a name="quota-limitations"></a>Limitações de cota
+
+Azure Cloud Shell tem um limite de 20 usuários simultâneos por locatário por região. Se você tentar abrir mais sessões simultâneas do que o limite, verá um erro "usuário do locatário sobre cota". Se você tiver uma necessidade legítima de ter mais sessões abertas do que isso (por exemplo, para sessões de treinamento), entre em contato com o suporte antes do uso antecipado para solicitar um aumento de cota.
+
+O Cloud Shell é fornecido como um serviço gratuito e foi projetado para ser usado para configurar seu ambiente do Azure, não como uma plataforma de computação de uso geral. O uso automatizado excessivo pode ser considerado em violação aos termos de serviço do Azure e pode levar a Cloud Shell acesso bloqueado.
 
 ### <a name="system-state-and-persistence"></a>Estado do sistema e persistência
 
@@ -157,10 +163,10 @@ O Azure Cloud Shell leva seus dados pessoais a sério, os dados capturados e arm
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-### <a name="export"></a>Exportação
+### <a name="export"></a>Exportar
 Para **exportar** as configurações de usuário Cloud Shell salvas para você, como o shell preferencial, o tamanho da fonte e o tipo de fonte, execute os seguintes comandos.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Inicializar o Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Execute os seguintes comandos no PowerShell:
 
 Bash:
@@ -177,13 +183,13 @@ PowerShell:
   ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
-### <a name="delete"></a>Excluir
+### <a name="delete"></a>Exclusão
 Para **excluir** as configurações de usuário Cloud Shell salvas para você, como o shell preferencial, o tamanho da fonte e o tipo de fonte, execute os seguintes comandos. Na próxima vez que você iniciar o Cloud Shell você deverá carregar um compartilhamento de arquivos novamente. 
 
 >[!Note]
 > Se você excluir as configurações de usuário, vá para arquivos do Azure para concluir essa ação. Vá para os seus arquivos do Azure para concluir essa ação.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Inicializar o Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Execute os seguintes comandos no PowerShell:
 
 Bash:

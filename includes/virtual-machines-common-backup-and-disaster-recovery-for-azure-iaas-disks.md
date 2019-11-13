@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302281"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012528"
 ---
-# <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastre de discos de IaaS do Azure
-
 Este artigo explica como planejar o backup e a DR (recuperação de desastre) de VMs (máquinas virtuais) e discos de IaaS no Azure. Este documento aborda discos gerenciados e discos não gerenciados.
 
 Primeiro, abordamos as funcionalidades internas de tolerância a falhas da plataforma Azure que ajudam a proteger contra falhas locais. Em seguida, abordamos os cenários de desastre que não são totalmente cobertos pelas funcionalidades internas. Também mostramos vários exemplos de cenários de carga de trabalho nos quais diferentes considerações sobre backup e DR se aplicam. Depois, examinamos possíveis soluções para DR de discos de IaaS.
@@ -63,15 +61,15 @@ Para ajudar a proteger as cargas de trabalho de IaaS contra interrupções, voc�
 
 Suas considerações sobre DR podem incluir os seguintes aspectos:
 
-- Alta disponibilidade: A capacidade do aplicativo de continuar em execução em um estado íntegro, sem tempo de inatividade significativo. Por *estado íntegro*, esse estado significa que o aplicativo está respondendo e que os usuários podem se conectar ao aplicativo e interagir com ele. Alguns aplicativos e bancos de dados críticos podem precisar estar sempre disponíveis, mesmo quando há falhas na plataforma. Para essas cargas de trabalho, talvez você precise planejar a redundância para o aplicativo, bem como para os dados.
+- Alta disponibilidade: a capacidade do aplicativo de continuar em execução em um estado íntegro, sem tempo de inatividade significativo. Por *estado íntegro*, esse estado significa que o aplicativo está respondendo e que os usuários podem se conectar ao aplicativo e interagir com ele. Alguns aplicativos e bancos de dados críticos podem precisar estar sempre disponíveis, mesmo quando há falhas na plataforma. Para essas cargas de trabalho, talvez você precise planejar a redundância para o aplicativo, bem como para os dados.
 
-- Durabilidade dos dados: Em alguns casos, a principal consideração é garantir que os dados são preservados no caso de um desastre. Portanto, talvez seja necessário fazer um backup dos dados em outro site. Para essas cargas de trabalho, talvez não seja necessário ter a redundância total para o aplicativo, mas apenas um backup regular dos discos.
+- Durabilidade dos dados: em alguns casos, a principal consideração é garantir que os dados são preservados no caso de um desastre. Portanto, talvez seja necessário fazer um backup dos dados em outro site. Para essas cargas de trabalho, talvez não seja necessário ter a redundância total para o aplicativo, mas apenas um backup regular dos discos.
 
 ## <a name="backup-and-dr-scenarios"></a>Cenários de backup e DR
 
 Vamos examinar alguns exemplos típicos de cenários de carga de trabalho do aplicativo e as considerações sobre o planejamento da recuperação de desastre.
 
-### <a name="scenario-1-major-database-solutions"></a>Cenário 1: Principais soluções de banco de dados
+### <a name="scenario-1-major-database-solutions"></a>Cenário 1: principais soluções de banco de dados
 
 Considere um servidor de banco de dados de produção, como o SQL Server ou o Oracle, que pode dar suporte à alta disponibilidade. Usuários e aplicativos de produção críticos dependem desse banco de dados. O plano de recuperação de desastre para esse sistema pode precisar dar suporte aos seguintes requisitos:
 
@@ -82,21 +80,21 @@ O plano de recuperação de desastre pode exigir a manutenção de uma réplica 
 
 Bancos de dados NoSQL, como o MongoDB, também dão suporte a [réplicas](https://docs.mongodb.com/manual/replication/) para redundância. As réplicas para alta disponibilidade são usadas.
 
-### <a name="scenario-2-a-cluster-of-redundant-vms"></a>Cenário 2: Um cluster de VMs redundantes
+### <a name="scenario-2-a-cluster-of-redundant-vms"></a>Cenário 2: um cluster de VMs redundantes
 
 Considere uma carga de trabalho manipulada por um cluster de VMs que fornece redundância e balanceamento de carga. Um exemplo é um cluster do Cassandra implantado em uma região. Esse tipo de arquitetura já fornece um alto nível de redundância nessa região. No entanto, para proteger a carga de trabalho contra uma falha de nível regional, você deve considerar a distribuição do cluster em duas regiões ou a realização de backups periódicos em outra região.
 
-### <a name="scenario-3-iaas-application-workload"></a>Cenário 3: Carga de trabalho de aplicativos IaaS
+### <a name="scenario-3-iaas-application-workload"></a>Cenário 3: carga de trabalho de aplicativos IaaS
 
 Vamos examinar a carga de trabalho de aplicativos IaaS. Por exemplo, isso pode ser uma carga de trabalho de produção típica em execução em uma VM do Azure. Isso pode ser um servidor Web ou servidor de arquivos que mantém o conteúdo e outros recursos de um site. Também pode ser um aplicativo de negócios personalizado em execução em uma VM que armazenou seus dados, recursos e o estado do aplicativo nos discos da VM. Nesse caso, é importante fazer backups regularmente. A frequência de backup deve se basear na natureza da carga de trabalho da VM. Por exemplo, se o aplicativo é executado diariamente e modifica dados, o backup deve ser feito a cada hora.
 
 Outro exemplo é um servidor de relatórios que efetua pull de dados de outras fontes e gera relatórios agregados. A perda dessa VM ou desses discos poderá levar à perda dos relatórios. No entanto, talvez seja possível executar o processo de relatórios novamente e regenerar o resultado. Nesse caso, você realmente não tem uma perda de dados, mesmo se o servidor de relatório é atingido por um desastre. Como resultado, talvez você tenha um nível mais alto de tolerância da perda de parte dos dados no servidor de relatório. Nesse caso, backups menos frequentes são uma opção para reduzir os custos.
 
-### <a name="scenario-4-iaas-application-data-issues"></a>Cenário 4: Problemas de dados de aplicativos IaaS
+### <a name="scenario-4-iaas-application-data-issues"></a>Cenário 4: problemas de dados de aplicativos IaaS
 
 Problemas de dados de aplicativos IaaS são outra possibilidade. Considere um aplicativo que calcula, mantém e fornece dados comerciais críticos, como informações sobre preços. Uma nova versão do aplicativo tinha um bug de software que calculava os preços incorretamente e corrompeu os dados comerciais existentes fornecidos pela plataforma. Aqui, a melhor decisão é reverter para a versão anterior do aplicativo e dos dados. Para possibilitar isso, faça backups periódicos do sistema.
 
-## <a name="disaster-recovery-solution-azure-backup"></a>Solução de recuperação de desastre: Serviço de Backup do Azure 
+## <a name="disaster-recovery-solution-azure-backup"></a>Solução de recuperação de desastre: Backup do Azure 
 
 O [Backup do Azure](https://azure.microsoft.com/services/backup/) é usado para backups e DR e funciona com [discos gerenciados](../articles/virtual-machines/windows/managed-disks-overview.md), bem como com discos não gerenciados. Crie um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup.
 
@@ -121,7 +119,7 @@ A alta disponibilidade é melhor alcançada com discos gerenciados em um conjunt
 
 Suas escolhas de alta disponibilidade, backup e DR nos níveis do aplicativo ou da infraestrutura podem ser representadas da seguinte maneira:
 
-| Nível |   Alta disponibilidade   | Backup ou DR |
+| Nível |   alta disponibilidade   | Backup ou DR |
 | --- | --- | --- |
 | Aplicativo | SQL Server AlwaysOn | Serviço de Backup do Azure |
 | Infraestrutura    | Conjunto de disponibilidade  | Armazenamento com redundância geográfica com instantâneos consistentes |
@@ -172,7 +170,7 @@ Para obter mais informações, consulte as instruções sobre como [usar o porta
 
 Use também o PowerShell para [criar uma nova VM com base em discos restaurados](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Solução alternativa: Instantâneos consistentes
+## <a name="alternative-solution-consistent-snapshots"></a>Solução alternativa: instantâneos consistentes
 
 Se não for possível usar o Backup do Azure, implemente seu próprio mecanismo de backup usando instantâneos. É complicado criar instantâneos consistentes para todos os discos usados por uma VM e, em seguida, replicar esses instantâneos em outra região. Por esse motivo, o Azure considera o uso do serviço de Backup uma opção melhor do que a criação de uma solução personalizada.
 

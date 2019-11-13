@@ -1,17 +1,14 @@
 ---
 title: Criar grupos de gerenciamento para organizar recursos-governança do Azure
 description: Saiba como criar grupos de gerenciamento do Azure para gerenciar vários recursos usando o portal, o Azure PowerShell e a CLI do Azure.
-author: rthorn17
-ms.service: governance
 ms.date: 04/05/2019
-ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 17154ea72a49ff48a482b1149eeecf0229fcccd7
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 335dd8f7f3a9ec20c2b7740e4ec97454489027f6
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254698"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960213"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gerenciamento para o gerenciamento e a organização de recursos
 
@@ -44,7 +41,7 @@ Você pode criar o grupo de gerenciamento usando o portal, o PowerShell ou a CLI
 
    ![Painel de opções para criar um novo grupo de gerenciamento](./media/create_context_menu.png)  
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="create-in-powershell"></a>Criar no PowerShell
 
@@ -96,7 +93,7 @@ az account management-group create --name ContosoSubGroup --parent Contoso
 Para saber mais sobre grupos de gerenciamento, consulte:
 
 - [Criar grupos de gerenciamento para organizar recursos do Azure](create.md)
-- [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](manage.md)
+- [Como alterar, excluir ou gerenciar grupos de gerenciamento](manage.md)
 - [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
 - [Revisar grupos de gerenciamento na API REST](/rest/api/resources/managementgroups)
 - [Revisar grupos de gerenciamento na CLI do Azure](/cli/azure/account/management-group)

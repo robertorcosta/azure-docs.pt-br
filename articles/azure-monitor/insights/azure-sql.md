@@ -6,14 +6,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 12/17/2018
+ms.date: 11/12/2019
 ms.reviewer: carlrab
-ms.openlocfilehash: 75e8cffea08c7db4526c647a32ed92be2d1779f1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b092c547edf37b31e6099227d8cc0e69048bad7a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899124"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961981"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
@@ -32,13 +32,28 @@ Para uma visão geral prática sobre o uso da solução da Análise de SQL do Az
 
 A Análise de SQL do Azure é uma solução de monitoramento somente em nuvem que dá suporte ao streaming de telemetria de diagnóstico para o banco de dados SQL do Azure: único, em pool e Instância Gerenciada. Como a solução não usa agentes para se conectar ao Azure Monitor, a solução não oferece suporte ao monitoramento de SQL Server hospedados localmente ou em VMs, consulte a tabela de compatibilidade abaixo.
 
-| Fonte Conectada | Com suporte | Descrição |
+| Fonte Conectada | Suportado | DESCRIÇÃO |
 | --- | --- | --- |
 | [Configurações de diagnóstico](../platform/diagnostic-settings.md) | **Sim** | Os dados de log e métrica do Azure são enviados para Azure Monitor logs diretamente pelo Azure. |
 | [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não | Azure Monitor não lê os dados de uma conta de armazenamento. |
 | [Agentes do Windows](../platform/agent-windows.md) | Não | Agentes diretos do Windows não são usados pela solução. |
 | [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | Agentes do Linux diretos não são usados pela solução. |
 | [Grupo de gerenciamento do System Center Operations Manager](../platform/om-agents.md) | Não | Uma conexão direta do agente de Operations Manager para Azure Monitor não é usada pela solução. |
+
+## <a name="azure-sql-analytics-options"></a>Opções de Análise de SQL do Azure
+
+A tabela abaixo descreve as opções com suporte para duas versões do painel Análise de SQL do Azure, uma para o banco de dados SQL do Azure e pools elásticos e a outra para Instância Gerenciada.
+
+| Opção Análise de SQL do Azure | DESCRIÇÃO | Suporte ao Banco de Dados SQL e aos pools elásticos | Suporte para Instância Gerenciada |
+| --- | ------- | ----- | ----- |
+| Recurso por tipo | Perspectiva que conta todos os recursos monitorados. | sim | sim |
+| Insights | Fornece uma busca detalhada hierárquica no Intelligent Insights sobre o desempenho. | sim | sim |
+| Erros | Fornece drill down hierárquico sobre erros do SQL que ocorreram nos bancos de dados. | sim | sim |
+| Tempos limite | Fornece drill down hierárquico sobre tempos limite do SQL que ocorreram nos bancos de dados. | sim | Não |
+| Bloqueios | Fornece drill down hierárquico sobre bloqueios do SQL que ocorreram nos bancos de dados. | sim | Não |
+| Esperas do banco de dados | Fornece drill down hierárquico sobre estatísticas de espera do SQL sobre o nível do banco de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |sim | sim |
+| Duração da consulta | Fornece drill down hierárquico sobre as estatísticas de execução de consulta como duração da consulta, uso da CPU, uso de E/S dos dados, uso de E/S do log. | sim | sim |
+| Esperas da consulta | Fornece drill down hierárquico sobre as estatísticas de espera da consulta por categoria de espera. | sim | sim |
 
 ## <a name="configuration"></a>Configuração
 Use o processo descrito em [Adicionar soluções de Azure monitor da Galeria de soluções](../../azure-monitor/insights/solutions.md) para adicionar a solução de análise de SQL do Azure (versão prévia) ao seu espaço de trabalho do log Analytics.
@@ -95,21 +110,6 @@ A seleção da exibição Instância Gerenciada mostra detalhes sobre a utiliza�
 
 ![Tempos limite da Análise de SQL do Azure](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
-### <a name="perspectives"></a>Perspectivas
-
-A tabela abaixo descreve as perspectivas compatíveis com duas versões do painel, uma para o Banco de Dados SQL do Azure e os pools elásticos e a outra para a Instância Gerenciada.
-
-| Perspectiva | Descrição | Suporte ao Banco de Dados SQL e aos pools elásticos | Suporte para Instância Gerenciada |
-| --- | ------- | ----- | ----- |
-| Recurso por tipo | Perspectiva que conta todos os recursos monitorados. | SIM | SIM |
-| Visões | Fornece uma busca detalhada hierárquica no Intelligent Insights sobre o desempenho. | SIM | SIM |
-| Errors | Fornece drill down hierárquico sobre erros do SQL que ocorreram nos bancos de dados. | SIM | SIM |
-| Tempos limite | Fornece drill down hierárquico sobre tempos limite do SQL que ocorreram nos bancos de dados. | SIM | Não |
-| Bloqueios | Fornece drill down hierárquico sobre bloqueios do SQL que ocorreram nos bancos de dados. | SIM | Não |
-| Esperas do banco de dados | Fornece drill down hierárquico sobre estatísticas de espera do SQL sobre o nível do banco de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |SIM | SIM |
-| Duração da consulta | Fornece drill down hierárquico sobre as estatísticas de execução de consulta como duração da consulta, uso da CPU, uso de E/S dos dados, uso de E/S do log. | SIM | SIM |
-| Esperas da consulta | Fornece drill down hierárquico sobre as estatísticas de espera da consulta por categoria de espera. | SIM | SIM |
-
 ### <a name="intelligent-insights-report"></a>Relatório de Insights inteligentes
 
 O [Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) do Banco de dados SQL do Azure permite que você saiba o que está acontecendo com o desempenho do Banco de Dados SQL do Microsoft Azure. Todos os insights inteligentes coletados podem ser visualizados e acessados por meio da perspectiva de Insights.
@@ -130,7 +130,7 @@ Por meio das perspectivas de Duração da consulta e Espera da consulta, é poss
 
 ![Consultas de Análise de SQL do Azure](./media/azure-sql/azure-sql-sol-queries.png)
 
-## <a name="permissions"></a>Permissões
+## <a name="permissions"></a>permissões
 
 Para usar a Análise de SQL do Azure, os usuários precisam receber uma permissão mínima da função de leitor no Azure. No entanto, essa função não permite que os usuários vejam o texto de consulta ou realizem quaisquer ações de ajuste automático. As funções mais permissivas no Azure que permitem usar a solução em toda a extensão são Proprietário, Colaborador, Colaborador do banco de dados do SQL ou Colaborador do SQL Server. Também convém considerar a criação de uma função personalizada no portal, com permissões específicas necessárias apenas para usar a Análise de SQL do Azure e sem acesso ao gerenciamento de outros recursos.
 
@@ -286,7 +286,7 @@ AzureDiagnostics
 
 Enquanto a solução for gratuita para usar, aplica-se o consumo de telemetria de diagnóstico acima das unidades gratuitas de ingestão de dados alocados por mês, consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/monitor). As unidades gratuitas de ingestão de dados fornecidas habilitam o monitoramento gratuito de vários bancos de dados por mês. Observe que os bancos de dados mais ativos, com cargas de trabalho mais pesadas, vão ingerir mais dados em comparação com os bancos de dados ociosos. Você pode monitorar facilmente o consumo de ingestão de dados na solução selecionando o workspace do OMS no menu de navegação da Análise de SQL do Azure e, em seguida, selecionando Uso e custos estimados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Use [consultas de log](../log-query/log-query-overview.md) em Azure monitor para exibir dados do Azure SQL detalhados.
 - [Criar seus próprios painéis](../learn/tutorial-logs-dashboards.md) mostrando os dados do Azure SQL.

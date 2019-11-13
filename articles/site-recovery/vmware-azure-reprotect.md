@@ -1,5 +1,5 @@
 ---
-title: Proteger novamente as VMs do Azure para um site local durante a recuperação de desastre de VMs e servidores físicos do VMware | Microsoft Docs
+title: Proteja novamente VMs VMware/servidores físicos para um site local com Azure Site Recovery
 description: Após o failover para o Azure durante a recuperação de desastre de VMs e servidores físicos do VMware, saiba como fazer o failback do Azure para o site local.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3d5f38d940b99c6a74d784f174c91d4127353dc
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791812"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961336"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Proteja novamente e execute o failback de computadores em um site local após o failover no Azure
 
@@ -44,7 +44,7 @@ Se você usou um modelo para criar suas máquinas virtuais, verifique se cada m�
 
 - Leia todo o [pré-requisitos para portas e lista de permissão de URL](vmware-azure-deploy-configuration-server.md#prerequisites).
 
-## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor em processo no Azure
+## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor de processo no Azure
 
 Você precisa de um servidor de processo no Azure antes de realizar o failback para o site local:
 
@@ -130,7 +130,7 @@ Observe as seguintes informações:
     - Você pode não apenas para um host de ESXi. Não é possível failback de VMs VMware ou servidores físicos para hosts do Hyper-V, computadores físicos ou estações de trabalho VMware.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois que a máquina virtual entrou em um estado protegido, você poderá [iniciar um failback](vmware-azure-failback.md). O failback desliga a máquina virtual no Azure e inicia a máquina virtual no local. Espere algum tempo de inatividade do aplicativo. Escolha um horário para realizar failback quando o aplicativo puder tolerar o tempo de inatividade.
 

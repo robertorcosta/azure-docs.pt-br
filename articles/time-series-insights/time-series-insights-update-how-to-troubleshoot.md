@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar e solucionar problemas de Azure Time Series Insights visualização | Microsoft Docs
-description: Entenda como diagnosticar e solucionar problemas com o Azure Time Series Insights Preview.
+title: Diagnosticar e solucionar problemas de um ambiente de visualização-Azure Time Series Insights | Microsoft Docs
+description: Saiba como diagnosticar e solucionar problemas em um ambiente de visualização de Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b65edbd808abd6ff660ef00a8a680b4d3f0846c
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989897"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014771"
 ---
-# <a name="diagnose-and-troubleshoot"></a>Diagnosticar e solucionar problemas
+# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnosticar e solucionar problemas de um ambiente de visualização
 
 Este artigo resume vários problemas comuns que você pode encontrar ao trabalhar com o ambiente da Versão prévia do Azure Time Series Insights. O artigo também descreve possíveis causas e soluções para cada problema.
 
@@ -25,7 +25,7 @@ Este artigo resume vários problemas comuns que você pode encontrar ao trabalha
 
 Esse problema pode ocorrer se você não tem permissões para acessar o ambiente do Time Series Insights. Os usuários precisam de uma função de acesso de nível de leitura para exibir o ambiente do Time Series Insights. Para verificar os níveis de acesso atuais e conceder acesso adicional, acesse a seção **políticas de acesso a dados** no recurso de Time Series Insights no [portal do Azure](https://portal.azure.com/).
 
-  [Ambiente de![](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [Ambiente de ![](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: nenhum dado é visto no Gerenciador de visualização
 
@@ -35,7 +35,7 @@ Há vários motivos comuns pelos quais você não pode ver seus dados no [Gerenc
 
     Verifique se a origem do evento, que é um hub de eventos ou um hub IoT, está recebendo dados de suas marcas ou instâncias. Para verificar, acesse a página de visão geral do recurso no portal do Azure.
 
-    [Painel de![-ideias](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [Painel de ![-ideias](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - Os dados de origem do evento não estão no formato JSON.
 
@@ -98,7 +98,7 @@ Se a propriedade Carimbo de data/hora não for especificada explicitamente, o te
 
    Os modelos de série temporal têm suporte apenas em ambientes pagos conforme o uso. Para obter mais informações sobre como acessar seu ambiente S1 ou S2 no Time Series Insights Preview Explorer, consulte [Visualizar dados no Gerenciador](./time-series-insights-update-explorer.md).
 
-   [Acesso![](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [![Access](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - Talvez você não tenha permissões para exibir e editar o modelo.
 
@@ -108,9 +108,9 @@ Se a propriedade Carimbo de data/hora não for especificada explicitamente, o te
 
 Esse problema pode ocorrer o ambiente não tem uma hierarquia de modelo do Time Series definida. Para obter mais informações, confira [Trabalhar com modelos do Time Series](./time-series-insights-update-how-to-tsm.md).
 
-  [Modelos de série temporal![](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [Modelos de série temporal ![](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia [Trabalhar com modelos do Time Series](./time-series-insights-update-how-to-tsm.md).
 - Saiba mais sobre [as formas JSON com suporte](./how-to-shape-query-json.md).

@@ -1,6 +1,6 @@
 ---
-title: Como depurar UDFs nos Gêmeos Digitais do Azure | Microsoft Docs
-description: Diretrizes sobre como depurar UDFs em Gêmeos Digitais do Azure.
+title: Como depurar UDFs – gêmeos digital do Azure | Microsoft Docs
+description: Saiba mais sobre as abordagens recomendadas para depurar funções definidas pelo usuário no Azure digital gêmeos.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b122df279ecde8ed9ed49b5a89251073f3feda7
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 130250156f0fae3e6c40742278479b5d4612657b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949899"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005927"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário em Gêmeos Digitais do Azure
 
@@ -35,7 +35,7 @@ Os Gêmeos Digitais do Azure dão suporte a registro em log, monitoramento e an�
 
 * Para a configuração de log específica do Azure digital gêmeos, leia [como configurar o monitoramento e o registro em log](./how-to-configure-monitoring.md).
 * Consulte a visão geral de [Azure monitor](../azure-monitor/overview.md) para saber mais sobre configurações de log avançadas habilitadas por meio de Azure monitor.
-* Examine o artigo [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/resource-logs-overview.md) para definir as configurações de log de diagnóstico no Azure digital gêmeos por meio do portal do azure, CLI do Azure ou PowerShell.
+* Examine o artigo [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/resource-logs-overview.md) para definir as configurações de log de diagnóstico no gêmeos digital do Azure por meio do portal do Azure, CLI do Azure ou PowerShell.
 
 Uma vez configurado, você poderá selecionar todas as categorias de log, métricas e usar espaços de trabalho de Azure Monitor do log Analytics eficientes para dar suporte aos seus esforços de depuração.
 
@@ -88,7 +88,7 @@ Verifique se existe uma atribuição de função para sua função definida pelo
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Valor do parâmetro | Substitua por |
+| Valor de parâmetro | Substitua por |
 | --- | --- |
 | YOUR_USER_DEFINED_FUNCTION_ID | A ID da função definida pelo usuário para a qual serão recuperadas as atribuições de função|
 
@@ -102,7 +102,7 @@ Com a chamada a seguir à API de Gerenciamento das instâncias dos Gêmeos Digit
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Parâmetro | Substitua por |
+| . | Substitua por |
 | --- | --- |
 | *YOUR_MATCHER_IDENTIFIER* | A ID do correspondente que você deseja avaliar |
 | *YOUR_SENSOR_IDENTIFIER* | A ID do sensor que você deseja avaliar |
@@ -126,7 +126,7 @@ Com a seguinte chamada para as APIs de Gerenciamento dos Gêmeos Digitais do Azu
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Parâmetro | Substitua por |
+| . | Substitua por |
 | --- | --- |
 | *YOUR_SENSOR_IDENTIFIER* | A ID do sensor para enviar telemetria |
 

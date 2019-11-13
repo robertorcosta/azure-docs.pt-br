@@ -1,17 +1,14 @@
 ---
 title: Saiba Azure Policy do serviço kubernetes do Azure
 description: Saiba como Azure Policy usa o rego e o agente de política aberto para gerenciar clusters no serviço kubernetes do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480898"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959791"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Entender Azure Policy para o serviço kubernetes do Azure
 
@@ -92,7 +89,7 @@ O _complemento Azure Policy_ para kubernetes conecta o serviço de Azure Policy 
 
 ### <a name="installing-the-add-on"></a>Instalando o complemento
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>pré-requisitos
 
 Antes de instalar o complemento no cluster do AKS, a extensão de visualização deve ser instalada. Esta etapa é feita com CLI do Azure:
 

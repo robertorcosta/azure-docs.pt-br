@@ -1,5 +1,5 @@
 ---
-title: Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT do Azure (C) | Microsoft Docs
+title: Introdução à identidade do módulo do Hub IoT do Azure & Module d (C)
 description: Saiba como criar a identidade do módulo e atualizar o módulo gêmeo usando SDKs de IoT para C.
 author: chrissie926
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 9bc64a2eefbd268c5d7eae9b32a992ed29151f61
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e33a7a1360a837df08725b2e592973b465dff38c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813833"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954216"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Introdução à identidade do módulo do Hub IoT e ao módulo d (C)
 
@@ -31,7 +31,7 @@ No fim deste tutorial, você tem dois aplicativos de C:
 > [!NOTE]
 > Para obter informações sobre os SDKs de IoT do Azure que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução, consulte [SDKs de IoT do Azure](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma conta ativa do Azure. (Se não tiver uma conta, você poderá criar uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
@@ -177,7 +177,7 @@ int main(void)
 }
 ```
 
-Esse aplicativo cria uma identidade do dispositivo com a ID **myFirstDevice** e uma identidade do módulo com a ID **myFirstModule** no dispositivo **myFirstDevice**. (se essa ID de módulo já existir no registro de identidade, o código simplesmente irá recuperar as informações do módulo existentes.) Em seguida, o aplicativo exibe a chave primária dessa identidade. Você usa essa chave no aplicativo de módulo simulado para se conectar ao Hub IoT.
+Esse aplicativo cria uma identidade do dispositivo com a ID **myFirstDevice** e uma identidade do módulo com a ID **myFirstModule** no dispositivo **myFirstDevice**. (Se essa ID de módulo já existir no registro de identidade, o código simplesmente recuperará as informações de módulo existentes.) Em seguida, o aplicativo exibe a chave primária para essa identidade. Você usa essa chave no aplicativo de módulo simulado para se conectar ao Hub IoT.
 
 > [!NOTE]
 > O Registro de identidade do Hub IoT armazena apenas as identidades de dispositivo e módulo para habilitar o acesso seguro ao Hub IoT. O registro de identidade armazena IDs de dispositivo e chaves para usar como credenciais de segurança. O registro de identidade também armazena um sinalizador de habilitado/desabilitado para cada dispositivo que você pode usar para desabilitar o acesso ao dispositivo. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Não há nenhum sinalizador habilitado/desabilitado para as identidades do módulo. Para saber mais, confira [Guia de Desenvolvedor do Hub IoT](iot-hub-devguide-identity-registry.md).

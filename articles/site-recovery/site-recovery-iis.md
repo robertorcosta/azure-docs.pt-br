@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastres para um aplicativo Web baseado em IIS de várias camadas usando o Azure Site Recovery | Microsoft Docs
+title: Configurar a recuperação de desastre para um aplicativo Web do IIS usando Azure Site Recovery
 description: Saiba como replicar máquinas de virtuais de um farm da Web do IIS usando o Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480300"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954659"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastre para um aplicativo Web baseado em IIS de várias camadas
 
@@ -26,7 +26,7 @@ Uma boa solução de recuperação de desastres tem suporte para modelos de plan
 
 Este artigo descreve como proteger um aplicativo Web baseado no IIS (Serviços de Informações da Internet) usando o [Azure Site Recovery](site-recovery-overview.md). O artigo aborda as melhores práticas para replicação de um aplicativo Web baseado no IIS de três camadas para Azure, como fazer uma análise da recuperação de desastres e como fazer failover no aplicativo para Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, certifique-se de que você sabe fazer as tarefas a seguir:
 
@@ -60,10 +60,10 @@ Para os exemplos neste artigo, usamos máquinas virtuais VMware com o IIS 7.5 no
 
 Cenário | Para um site secundário | Para o Azure
 --- | --- | ---
-Hyper-V | Sim | Sim
-VMware | Sim | Sim
-Servidor físico | Não | Sim
-Azure|ND|Sim
+Hyper-V | sim | sim
+VMware | sim | sim
+Servidor físico | Não | sim
+Azure|ND|sim
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 

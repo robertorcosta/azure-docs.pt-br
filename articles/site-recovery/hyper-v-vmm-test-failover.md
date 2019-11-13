@@ -1,5 +1,5 @@
 ---
-title: Executar uma simulação de recuperação de desastre do Hyper-V para um site secundário usando o Azure Site Recovery | Microsoft Docs
+title: Executar uma análise de recuperação de desastre do NHyper-V em um site secundário com Azure Site Recovery
 description: Saiba como executar uma simulação de recuperação de desastres de VMs do Hyper-V em nuvens do VMM para um datacenter local secundário usando o Azure Site Recovery.
 author: rajani-janaki-ram
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: ef8504f3f79d23fa0d59493c06cfbe133e1c4113
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 444868f1716ae55f1851e50c057b172f5e3eb3d1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933451"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961391"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação de desastres para as VMs do Hyper-V em um site secundário
 
@@ -147,7 +147,7 @@ Este procedimento descreve como executar um failover de teste para um plano de r
 * Essa forma de realizar o teste resulta em um tempo de inatividade para o aplicativo de produção. Solicite aos usuários do aplicativo que não usem o aplicativo quando a simulação de DR estiver em andamento.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Depois de executar uma simulação de recuperação de desastre com êxito, você pode [executar um failover completo](site-recovery-failover.md).
 
 
