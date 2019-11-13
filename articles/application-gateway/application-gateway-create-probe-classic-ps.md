@@ -1,26 +1,18 @@
 ---
-title: Criar uma investigação personalizada - Gateway de Aplicativo do Azure - PowerShell clássico | Microsoft Docs
+title: Criar uma investigação personalizada usando o PowerShell-Aplicativo Azure gateway
 description: Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no modelo de implantação clássico
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f05c6d82a00e78a4237019128db541eb63f20ba
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "58861872"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012245"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o Gateway de Aplicativo (clássico) pelo uso do PowerShell
 
@@ -32,17 +24,17 @@ ms.locfileid: "58861872"
 Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente com o PowerShell. As investigações personalizadas são úteis para aplicativos que tenham uma página de verificação de integridade específica ou para aplicativos que não forneçam uma resposta bem-sucedida no aplicativo Web padrão.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicativo
 
 Para criar um Application Gateway:
 
 1. Criar um recurso de gateway de aplicativo.
 2. Crie um arquivo XML de configuração ou um objeto de configuração.
-3. Confirme a configuração do recurso de gateway de aplicativo recém-criado.
+3. Confirme a configuração do recurso de Application Gateway recém-criado.
 
 ### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Criar um recurso de gateway de aplicativo com uma investigação personalizada
 
@@ -148,11 +140,11 @@ Um novo item de configuração \<Probe\> é adicionado para configurar investiga
 
 Os parâmetros de configuração são:
 
-|Parâmetro|DESCRIÇÃO|
+|.|DESCRIÇÃO|
 |---|---|
 |**Nome** |Nome de referência da investigação personalizada. |
 | **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|
-| **Host** e **Path** | Caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http:\//contoso.com/ e, em seguida, a investigação personalizada pode ser configurado para "http:\//contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.|
+| **Host** e **Path** | Caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http:\//contoso.com/, a investigação personalizada poderá ser configurada para "http:\//contoso.com/path/custompath.htm" para verificações de investigação ter uma resposta HTTP bem-sucedida.|
 | **Intervalo** | Configura as verificações de intervalo de investigação em segundos.|
 | **Tempo limite** | Define o tempo limite da investigação para uma verificação de resposta HTTP.|
 | **UnhealthyThreshold** | O número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.|
@@ -161,7 +153,7 @@ O nome da investigação é referenciado na configuração \<BackendHttpSettings
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Adicionar uma investigação personalizada a um gateway de aplicativo existente
 
-Alterar a configuração atual de um gateway de aplicativo exige três etapas: obter o arquivo de configuração XML atual, modificar para ter uma investigação personalizada e configurar o gateway de aplicativo com as novas configurações de XML.
+Alterar a configuração atual de um Application Gateway exige três etapas: obter o arquivo de configuração XML atual, modificar para ter uma investigação personalizada e configurar o Application Gateway com as novas configurações de XML.
 
 1. Obtenha o arquivo XML usando `Get-AzureApplicationGatewayConfig`. Este cmdlet exporta o XML de configuração a ser modificado para adicionar uma configuração de investigação.
 

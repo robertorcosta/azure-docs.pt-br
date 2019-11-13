@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6cd721fdd7841df279bbe24cab1057ea5e16e0e2
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 4b2dcf8f156f231041d7636d103eea59816ec65f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850464"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008435"
 ---
-# <a name="regions-for-virtual-machines-in-azure"></a>Regiões para máquinas virtuais no Azure
 É importante entender como e onde as VMs (máquinas virtuais) operam no Azure, juntamente com suas opções para maximizar o desempenho, a disponibilidade e a redundância. Este artigo fornece uma visão geral dos recursos de redundância e disponibilidade do Azure.
 
 
@@ -43,9 +42,9 @@ Cada região do Azure é emparelhada com outra região na mesma área geográfic
 
 Exemplos de pares de regiões incluem:
 
-| Primária | Secundário |
+| Primário | Secundário |
 |:--- |:--- |
-| Oeste dos EUA |East US |
+| Oeste dos EUA |Leste dos EUA |
 | Norte da Europa |Europa Ocidental |
 | Sudeste Asiático |Ásia Oriental |
 
@@ -75,8 +74,8 @@ A tabela a seguir oferece uma visão geral das diferenças entre os tipos de rep
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Os dados são replicados entre várias instalações. |Não |Sim |Sim |Sim |
-| Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |Sim |
+| Os dados são replicados entre várias instalações. |Não |sim |sim |sim |
+| Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
 Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/common/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).

@@ -307,8 +307,8 @@
               href: concepts-gating-overview.md
             - name: Implantação da tecnologia sintética
               href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Observação sobre transparência da Voz Personalizada
-              href: 'https://aka.ms/neural-tts-transparency-note'
+            - name: Divulgação para ator de voz
+              href: 'https://aka.ms/disclosure-voice-talent'
             - name: Diretrizes de design de divulgação
               href: concepts-disclosure-guidelines.md
             - name: Padrões de design de divulgação

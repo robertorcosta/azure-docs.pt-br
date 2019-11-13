@@ -1,7 +1,7 @@
 ---
 title: O que há de novo Reconhecimento vocal (LUIS)
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém notícias sobre Reconhecimento vocal.
+description: Este artigo é atualizado regularmente com notícias sobre os API de Reconhecimento Vocal de serviços cognitivas do Azure.
 author: diberry
 manager: nitinme
 ms.custom: experiment-luis-0519
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e32d0f4906dea69d6eab27faca4a2e41106ed73
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836835"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953372"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo no Reconhecimento vocal
 
-Saiba o que há de novo no serviço. Esses itens incluem notas de versão, vídeos, Postagens de blog e outros tipos de informações. Marque esta página para manter-se atualizada com o serviço.  
+Conheça o que há de novo no serviço. Esses itens incluem notas de versão, vídeos, Postagens de blog e outros tipos de informações. Marque esta página para manter-se atualizado quanto ao serviço.  
 
 ## <a name="release-notes"></a>Notas de versão 
 
@@ -90,4 +90,4 @@ Os seguintes recursos foram lançados na conferência Build 2019:
 
 ## <a name="service-updates"></a>Atualizações de serviço
 
-[Comunicados de atualização do Azure para serviços cognitivas](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Comunicados de atualização do Azure para os Serviços Cognitivos](https://azure.microsoft.com/updates/?product=cognitive-services)

@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: de2e33ceb182383d9529bfe41afffbbf28e1e493
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 40da2016026c8a7e02d1b243a783d01559e8c197
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671312"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005513"
 ---
-# <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager
 Este artigo descreve como migrar recursos de infra-estrutura como serviço (IaaS) dos modelos de implantação do Classic para o Resource Manager e detalha como conectar recursos dos dois modelos de implantação que coexistem na sua assinatura usando gateways de site a site de rede virtual. Você pode ler mais sobre os [recursos e benefícios do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
 
 ## <a name="goal-for-migration"></a>Meta de migração
@@ -75,19 +74,19 @@ Se a sua conta de armazenamento não tiver discos associados ou dados de Máquin
 > [!NOTE]
 > O modelo de implantação do Resource Manager não tem o conceito de discos e imagens clássicas. Quando a conta de armazenamento é migrada, os discos e imagens clássicos não ficarão visíveis na pilha do Resource Manager, mas os VHDs de backup permanecem na conta de armazenamento.
 
-As capturas de tela a seguir mostram como atualizar uma conta de armazenamento clássico para uma conta de armazenamento do Azure Resource Manager usando o portal do Azure:
+As capturas de tela a seguir mostram como atualizar uma conta de armazenamento clássico para uma conta de armazenamento Azure Resource Manager usando portal do Azure:
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Navegue até sua conta de armazenamento.
-3. No **as configurações** seção, clique em **migrar para ARM**.
+3. Na seção **configurações** , clique em **migrar para o ARM**.
 4. Clique em **validar** para determinar a viabilidade de migração.
-5. Se a validação é bem-sucedida, clique em **preparar** para criar uma conta de armazenamento migrada.
-6. Tipo de **yes** para confirmar a migração e clique em **confirmar** para concluir a migração.
+5. Se a validação for aprovada, clique em **preparar** para criar uma conta de armazenamento migrada.
+6. Digite **Sim** para confirmar a migração e clique em **confirmar** para concluir a migração.
 
-    ![Validar a conta de armazenamento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    ![Validar conta de armazenamento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
     
-    ![Preparar a conta de armazenamento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    ![Preparar conta de armazenamento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
     
-    ![Finalizar a migração da conta de armazenamento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
+    ![Finalizar migração da conta de armazenamento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>Migração de recursos não anexados
 Contas de armazenamento sem discos associados ou dados de máquinas virtuais podem ser migradas independentemente.
@@ -113,9 +112,9 @@ Atualmente, não há suporte para os seguintes recursos. Se preferir, você pode
 ### <a name="unsupported-configurations"></a>Configurações sem suporte
 Atualmente, não há suporte para as seguintes configurações.
 
-| Serviço | Configuração | Recomendações |
+| O Barramento de | Configuração | Recomendações |
 | --- | --- | --- |
-| Gerenciador de Recursos |Controle de acesso baseado em função (RBAC) para recursos clássicos |Como o URI dos recursos é modificado após a migração, é recomendável planejar as atualizações da política de RBAC que precisam ocorrer após a migração. |
+| Gerenciador de Recursos |RBAC (controle de acesso baseado em função) para recursos clássicos |Como o URI dos recursos é modificado após a migração, é recomendável planejar as atualizações da política de RBAC que precisam ocorrer após a migração. |
 | Computação |Várias sub-redes associadas a uma VM |Atualize a configuração de sub-rede para referenciar apenas uma sub-rede. Isso poderá exigir que você remova um NIC secundário (que está referenciado a outra sub-rede) da máquina virtual e anexá-lo novamente depois que a migração for concluída. |
 | Computação |Máquinas virtuais que pertencem a uma rede virtual, mas que não têm uma sub-rede explícita atribuída |Opcionalmente, você pode excluir a VM. |
 | Computação |Máquinas virtuais que têm alertas e políticas de Escala Automática |A migração passa e essas configurações serão descartadas. É altamente recomendável que você avalie seu ambiente antes de fazer a migração. Se preferir, você pode redefinir as configurações de alerta após a conclusão da migração. |

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sngun
-ms.openlocfilehash: 80a0a3440a7fb5d056d1d76fb9d82931721b6e16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514206"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007325"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conectar-se de forma privada a uma conta do Azure Cosmos usando o link privado do Azure
 
@@ -35,12 +35,12 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Nome | Insira *MyVirtualNetwork*. |
+    | NOME | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Assinatura | Selecione sua assinatura.|
     | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Localização | Selecione **WestCentralUS**.|
-    | Sub-rede – Nome | Insira *mysubnet*. |
+    | Local padrão | Selecione **WestCentralUS**.|
+    | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
 
@@ -61,7 +61,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
     | Nome da máquina virtual | Insira *myVm*. |
     | Região | Selecione **WestCentralUS**. |
     | Opções de disponibilidade | Deixe o padrão **Nenhuma redundância de infraestrutura necessária**. |
-    | Imagem | Selecione **Windows Server 2019 datacenter**. |
+    | Imagem | Selecione **Windows Server 2019 Datacenter**. |
     | Tamanho | Deixe o padrão **Standard DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de Usuário | Insira um nome de usuário de sua escolha. |
@@ -81,9 +81,9 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Rede virtual | Deixe o **MyVirtualNetwork**padrão.  |
-    | Espaço de endereço | Deixe o **10.1.0.0/24**padrão.|
-    | Sub-rede | Deixe o padrão **mysubnet (10.1.0.0/24)** .|
+    | rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
+    | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
+    | Sub-rede | Deixar o padrão **mySubnet (10.1.0.0/24)** .|
     | IP público | Deixe o padrão **(novo) myVm-ip**. |
     | Porta de entrada públicas | Selecione **Permitir portas selecionadas**. |
     | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.|
@@ -99,7 +99,7 @@ Crie uma [conta da API do SQL do Azure Cosmos](../cosmos-db/create-cosmosdb-reso
 
 ## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Criar um ponto de extremidade privado para sua conta do Azure Cosmos
 
-Crie um link privado para sua conta do Azure Cosmos, conforme descrito na seção [criar um link privado usando a Portal do Azure](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) do artigo vinculado.
+Crie um link privado para sua conta do Azure Cosmos, conforme descrito na seção [criar um link privado usando a Portal do Azure](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) do artigo vinculado.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
 
@@ -168,7 +168,7 @@ Nesta seção, você se conectará de forma privada à conta do Azure Cosmos usa
 
 Quando você terminar de usar o ponto de extremidade privado, a conta do Azure Cosmos e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
 
-1. Insira o *MyResource* na caixa de **pesquisa** na parte superior do portal e selecione o *MyResource* nos resultados da pesquisa.
+1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa.
 
 1. Selecione **Excluir grupo de recursos**.
 

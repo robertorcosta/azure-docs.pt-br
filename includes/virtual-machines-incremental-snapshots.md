@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171906"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014544"
 ---
-# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Faça backup dos discos não gerenciados de VM do Azure com instantâneos incrementais
 ## <a name="overview"></a>Visão geral
 O Armazenamento do Azure oferece a capacidade de fazer instantâneos dos blobs. Os instantâneos capturam o estado do blob no momento em questão. Neste artigo, descrevemos um cenário no qual você pode manter backups dos discos de máquinas virtuais usando instantâneos. Você pode usar essa metodologia quando optar por não usar o Serviço de Backup e Recuperação do Azure e desejar criar uma estratégia de backup personalizada para seus discos da máquina virtual.
 
@@ -58,7 +57,7 @@ Se as condições a seguir forem atendidas,
 * O blob foi criado em 1º de janeiro de 2016 ou posteriormente.
 * O blob não foi substituído por [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) ou [Copiar Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre dois instantâneos.
 
-**Observação**: Esse recurso está disponível para Blobs de páginas do Azure Standard e Premium.
+**Observação**: este recurso está disponível para os Blobs de Página do Azure Premium e Standard.
 
 Quando você tem uma estratégia de backup personalizada usando instantâneos, copiar os instantâneos de uma conta de armazenamento para outra pode ser um processo lento que consome muito espaço de armazenamento. Em vez de copiar todo o instantâneo para uma conta de armazenamento de backup, você pode gravar a diferença em um blob de páginas de backup. Dessa forma, o tempo para copiar e o espaço para armazenar backups são reduzidos substancialmente.
 
@@ -109,7 +108,7 @@ As etapas a seguir descrevem como restaurar o disco premium *mypremiumdisk* para
 
 ![Restaurar disco por meio de instantâneos](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 Use os links a seguir para saber mais sobre como criar instantâneos de um blob e planejar a infraestrutura de backup da VM.
 
 * [Criando um instantâneo de um Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)

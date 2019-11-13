@@ -3,7 +3,7 @@ title: Códigos de erro no portal de Azure Active Directory | Microsoft Docs
 description: Referência de códigos de erro no relatório de atividade de entrada.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/08/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809815"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014308"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -107,7 +107,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50128|Nome de domínio inválido - Nenhuma informação de identificação de inquilino encontrada na solicitação ou implícita por qualquer credencial fornecida.|
 |50129|O dispositivo não está associado ao local de trabalho - **A junção no local de trabalho** é necessária para registrar o dispositivo.|
 |50130|O valor da declaração não pode ser interpretado como um método de autenticação conhecido.|
-|50131|Usado em vários erros de acesso condicional. Por exemplo Estado de dispositivo Windows inválido, solicitação bloqueada devido a atividades suspeitas, decisões de política de acesso e política de segurança.|
+|50131|Usado em vários erros de acesso condicional. Por exemplo, Estado de dispositivo Windows inválido, solicitação bloqueada devido a atividades suspeitas, decisões de política de acesso e política de segurança.|
 |50132|As credenciais foram revogadas pelos seguintes motivos:<ul><li>O artefato de SSO é inválido ou expirou</li><li>Sessão não atualizada o suficiente para o aplicativo</li><li>Uma solicitação de entrada silenciosa foi enviada, mas a sessão do usuário com o Azure AD é inválida ou expirou.</li></ul>|
 |50133|A sessão é inválida devido à expiração ou alteração de senha recente.|
 |50135|A alteração da senha é necessária devido ao risco da conta.|

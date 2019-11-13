@@ -1,5 +1,5 @@
 ---
-title: Sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastres de VMs do Hyper-V para o Azure | Microsoft Docs
+title: Planejador de Implantações para a recuperação de desastres do Hyper-V com Azure Site Recovery
 description: Saiba mais sobre a recuperação de desastre do Hyper-V do Planejador de Implantações do Azure Site Recovery para o Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 6e7da548eb2cc6e314d446270cc04d1c57be7ae3
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 72b1311227f5c9f9efc35b2940d3c843a21dc261
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618825"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954023"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
 
@@ -28,7 +28,7 @@ A ferramenta fornece os seguintes detalhes:
 
 **Avaliação de compatibilidade**
 
-* Avaliação de qualificação de VM com base no número de discos, no tamanho do disco, em IOPS, em variações e em algumas características da VM.
+* Avaliação de qualificação de uma VM com base no número de discos, no tamanho do disco, no IOPS, na em algumas características da VM.
 
 **Largura de banda de rede necessária versus avaliação de RPO**
 
@@ -72,19 +72,19 @@ A ferramenta fornece os seguintes detalhes:
 
 | | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
-Cenários com suporte |Sim|sim|Não|Sim*|Não
-Versão com suporte | vCenter 6,7, 6,5, 6,0 ou 5,5| Windows Server 2016, Windows Server 2012 R2 | N/A |Windows Server 2016, Windows Server 2012 R2|N/A
-Configuração com suporte|vCenter, ESXi| cluster do Hyper-V, host do Hyper-V|N/A|cluster do Hyper-V, host do Hyper-V|N/A|
-Número de servidores que podem ser analisados por instância em execução do Planejador de Implantações do Azure Site Recovery |Único (máquinas virtuais que pertencem a um vCenter Server ou um servidor ESXi podem ser criados em um momento)|Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| N/A |Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| N/A
+Cenários com suporte |sim|sim|Não|Sim*|Não
+Versão com suporte | vCenter 6,7, 6,5, 6,0 ou 5,5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
+Configuração com suporte|vCenter, ESXi| cluster do Hyper-V, host do Hyper-V|ND|cluster do Hyper-V, host do Hyper-V|ND|
+Número de servidores que podem ser analisados por instância em execução do Planejador de Implantações do Azure Site Recovery |Único (máquinas virtuais que pertencem a um vCenter Server ou um servidor ESXi podem ser criados em um momento)|Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND |Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND
 
 *A ferramenta destina-se principalmente ao cenário de recuperação de desastre do Hyper-V para o Azure. Para a recuperação de desastre do Hyper-V para o site secundário, ela só pode ser usado para entender as recomendações do lado de origem, como a largura de banda de rede necessária, o espaço livre de armazenamento necessário em cada um dos servidores Hyper-V de origem e os números e as definições de lote da replicação inicial.  Ignore as recomendações do Azure e os custos do relatório. Além disso, a operação Obter Taxa de Transferência não é aplicável ao cenário de recuperação de desastre do Hyper-V para o site secundário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, análise e geração de relatórios. Também há uma quarta opção para calcular apenas a taxa de transferência. Os requisitos para o servidor no qual as diferentes fases precisam ser executadas são apresentados na tabela a seguir:
 
-| Requisito de servidor | Descrição |
+| Requisito de servidor | DESCRIÇÃO |
 |---|---|
-|Obter lista de VMs, criação de perfis e medida de taxa de transferência |<ul><li>Sistema operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração do computador: 8 vCPUs, 16 GB de RAM, HDD de 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>A VM de onde você está executando a ferramenta de planejamento de implantação do Azure Site Recovery deve ser adicionada à lista TrustedHosts de todos os servidores do Hyper-V.</li><li>Os servidores Hyper-V a serem analisados devem ser adicionados à lista TrustedHosts da VM cliente na qual a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada com privilégios administrativos do PowerShell ou do console de linha de comando no cliente</ul></ul>|
+|Obter lista de VMs, criação de perfis e medida de taxa de transferência |<ul><li>Sistema operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>A VM de onde você está executando a ferramenta de planejamento de implantação do Azure Site Recovery deve ser adicionada à lista TrustedHosts de todos os servidores do Hyper-V.</li><li>Os servidores Hyper-V a serem analisados devem ser adicionados à lista TrustedHosts da VM cliente na qual a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada com privilégios administrativos do PowerShell ou do console de linha de comando no cliente</ul></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
 | Permissões de usuário | Conta de administrador para acessar o cluster do Hyper-V/host do Hyper-V durante operações de criação de perfis e de obtenção de lista de VM.<br>Todos os hosts que precisam ser analisados devem ter um domínio do administrador com as mesmas credenciais de conta ou seja, nome de usuário e senha
  |
@@ -110,12 +110,12 @@ A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, aná
 A ferramenta é empacotada em uma pasta .zip. A mesma ferramenta oferece suporte para os cenários de recuperação de desastre do VMware para o Azure e do Hyper-V para o Azure. Você também pode usar essa ferramenta para o cenário de recuperação de desastre do Hyper-V-para um site secundário mas ignorar a recomendação de infraestrutura do Azure do relatório.
 
 1.  Copie a pasta .zip para o Windows Server do qual você deseja executar a ferramenta. Você pode executar a ferramenta em um Windows Server 2012 R2 ou um Windows Server 2016. O servidor deve ter acesso de rede para se conectar ao cluster do Hyper-V ou ao host do Hyper-V que contém as VMs para análise. É recomendável que você tenha a mesma configuração de hardware na VM onde a ferramenta será executada e no servidor do Hyper-V que você deseja proteger. Essa configuração garante que a taxa de transferência obtida relatada pela ferramenta corresponda à taxa de transferência real que o Azure Site Recovery pode alcançar durante a replicação. O cálculo de taxa de transferência depende da largura de banda disponível no servidor e da configuração de hardware (CPU, armazenamento e assim por diante) do servidor. A taxa de transferência é calculada desde o servidor onde a ferramenta está em execução no Azure. Se a configuração de hardware do servidor for diferente do servidor do Hyper-V, a taxa de transferência obtida relatada pela ferramenta será imprecisa.
-A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, 300 GB de HDD.
+A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, disco rígido de 300 GB.
 
 1.  Extraia a pasta .zip.
 A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploymentPlanner.exe na pasta pai.
 
-Exemplo: Copie o arquivo .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v2.3.zip
+Exemplo: copiar o arquivo .zip para a unidade E:\ e extraí-lo. E:\ASR Deployment Planner_v2.3.zip
 
 E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 

@@ -1,18 +1,18 @@
 ---
-title: Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o portal do Azure
+title: Redirecionamento de HTTP para HTTPS no portal-Aplicativo Azure gateway
 description: Saiba como criar um gateway de aplicativo com o tráfego redirecionado de HTTP para HTTPS usando o portal do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/7/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101448"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012876"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o portal do Azure
 
@@ -21,7 +21,7 @@ Você pode usar o portal do Azure para criar um [gateway de aplicativo](overview
 Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
-> * Crie um certificado autoassinado
+> * Criar um certificado autoassinado
 > * Configurar uma rede
 > * Criar um gateway de aplicativo com o certificado
 > * Adicionar um ouvinte e uma regra de direcionamento
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Este tutorial requer o módulo Azure PowerShell versão 1.0.0 ou posterior para criar um certificado e instalar o IIS. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste tutorial, você também precisa executar `Login-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
 Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável. Para este tutorial, você cria um certificado autoassinado usando o [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Você pode usar o [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi retornada para exportar um arquivo pfx do certificado.
 
@@ -63,9 +63,9 @@ Export-PfxCertificate `
   -Password $pwd
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicativo
 
-Uma rede virtual é necessária para a comunicação entre os recursos que você criar. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicativo e a outra para os servidores de back-end. Você pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicativo.
+Uma rede virtual é necessária para a se comunicar entre os recursos que você criar. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicativo e a outra para os servidores de back-end. Você pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicativo.
 
 1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Clique em **Criar um recurso** encontrado na parte superior esquerda do portal do Azure.
@@ -92,7 +92,7 @@ Uma rede virtual é necessária para a comunicação entre os recursos que você
 9. Em **Configuração do ouvinte**, selecione **HTTPS**,escolha **Selecionar um arquivo**, navegue até o arquivo *c:\appgwcert.pfx* e selecione **Abrir**.
 10. Insira *appgwcert* como o nome do certificado e *Azure123456!* para a senha.
 11. Deixe o firewall do aplicativo Web desabilitado e selecione **OK**.
-12. Examine as configurações na página de resumo e selecione **OK** para criar os recursos de rede e o gateway de aplicativo. A criação do gateway de aplicativo pode levar vários minutos, aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
+12. Examine as configurações na página de resumo e selecione **OK** para criar os recursos de rede e o gateway de aplicativo. Pode demorar vários minutos para o gateway de aplicativo ser criado, aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
 
 ### <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
@@ -157,13 +157,13 @@ A interface do usuário do portal do conjunto de dimensionamento de máquinas vi
 3. Selecione **Pools de back-end**.
 4. Selecione **myAppGatewaymyvmss**.
 5. Selecione **Remover todos os destinos do pool de back-end**.
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 7. Depois que esse processo for concluído, selecione o pool de back-end **myAppGatewaymyvmss**, selecione **Excluir** e **OK** para confirmar.
 8. Selecione **appGatewayBackendPool**.
 9. Em **Destinos**, selecione **VMSS**.
 10. Em **VMSS**, selecione **myvmss**.
 11. Em **Configurações do Adaptador de Rede**, selecione **myvmssNic**.
-12. Clique em **Salvar**.
+12. Selecione **Salvar**.
 
 ### <a name="upgrade-the-scale-set"></a>Atualizar o conjunto de dimensionamento
 
@@ -215,13 +215,13 @@ Você pode obter o endereço IP público do aplicativo na página Visão Geral d
 1. Selecione **myAppGateway**.
 2. Na página **Visão Geral**, anote o endereço IP em **Endereço IP público de front-end**.
 
-3. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Por exemplo, http://52.170.203.149
+3. Copie o endereço IP público e, em seguida, cole-o na barra de endereços do seu navegador. Por exemplo, http://52.170.203.149
 
    ![Aviso de segurança](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 
 4. Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e depois **Prosseguir para a página da Web**. Seu site de IIS protegido é exibido, como no exemplo a seguir:
 
-   ![Testar a URL de base no gateway de aplicativo](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
+   ![Testar a URL de base no gateway do aplicativo](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

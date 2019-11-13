@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620432"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012901"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acessar e personalizar o portal do desenvolvedor
 
 O portal do desenvolvedor é um site da Web, totalmente personalizado e gerado com a documentação de suas APIs. É aí que os consumidores de API podem descobrir suas APIs, aprender a usá-las e solicitar acesso.
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Acessar a versão gerenciada do portal do desenvolvedor
@@ -38,9 +38,9 @@ Você pode encontrar mais detalhes no portal do desenvolvedor na [visão geral d
 
 > [!WARNING]
 > O portal do desenvolvedor está sendo lançado no momento para serviços de gerenciamento de API.
-> Se o serviço for criado recentemente ou for um serviço de camada de desenvolvedor, você já deverá ter a versão mais recente. Caso contrário, você poderá ter problemas (por exemplo, com a funcionalidade de publicação). A distribuição de recursos será concluída na segunda-feira de novembro de 11, 2019. 
+> Se o serviço for criado recentemente ou for um serviço de camada de desenvolvedor, você já deverá ter a versão mais recente. Caso contrário, você poderá ter problemas (por exemplo, com a funcionalidade de publicação). Espera-se que a distribuição de recursos seja concluída até sexta-feira de 22 de novembro de 2019. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Conclua o seguinte guia de início rápido: [Criar uma nova instância do serviço de Gerenciamento de API do Azure](get-started-create-service-instance.md)
 - Importar e publicar uma instância de gerenciamento de API do Azure. Para obter mais informações, consulte [importar e publicar](import-and-publish.md)
@@ -131,4 +131,4 @@ Depois de publicar o portal, você pode acessá-lo na mesma URL do painel admini
 
 Saiba mais sobre o portal do desenvolvedor:
 
-- [Visão geral do portal do desenvolvedor do gerenciamento de API do Azure](api-management-howto-developer-portal.md)
+- [Visão Geral do portal do desenvolvedor do Gerenciamento de API do Azure](api-management-howto-developer-portal.md)

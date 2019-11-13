@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 62657134775d21ad6aabdf8f02a1e001de0a6094
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55a9cbcfdb9766c6adc6d10f975fa4d074ec3aaf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176839"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011662"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o Azure Active Directory B2C no Gerenciamento de API do Azure
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O Azure Active Directory B2C é uma solução de gerenciamento de identidade na nuvem para os seus aplicativos móveis e Web voltados para o consumidor. Você pode usá-lo para gerenciar o acesso ao portal do desenvolvedor. Este guia mostra a configuração necessária no seu serviço de gerenciamento de API para integrar com o Azure Active Directory B2C. Para saber mais sobre como habilitar o acesso ao portal do desenvolvedor usando o Azure Active Directory clássico, veja [Como autorizar contas de desenvolvedor usando o Azure Active Directory].
 
@@ -59,7 +59,7 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 
    ![Registrar um novo aplicativo 3][api-management-howto-aad-b2c-app-details]
 
-7. Selecione o botão **Criar**. Quando o aplicativo é criado, ele aparece no **aplicativos** folha. Clique no nome do aplicativo para ver seus detalhes.
+7. Selecione o botão **Criar** . Quando o aplicativo é criado, ele aparece no **aplicativos** folha. Clique no nome do aplicativo para ver seus detalhes.
 
    ![Registrar um novo aplicativo 4][api-management-howto-aad-b2c-app-created]
 
@@ -77,7 +77,7 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
     
 12. Especifique o nome de domínio do locatário de Azure Active Directory B2C no **locatário de entrada**.
 
-13. O campo **autoridade** permite que você controle a URL de logon do Azure ad B2C a ser usada. Defina o valor como **< your_b2c_tenant_name >. b2clogin. com**.
+13. O campo **autoridade** permite que você controle a URL de logon do Azure ad B2C a ser usada. Defina o valor para **< your_b2c_tenant_name >. b2clogin. com**.
 
 14. Especifique a **Política de inscrição** e a **Política de entrada** das políticas do locatário B2C. Opcionalmente, você também pode fornecer **Política de Edição de Perfil** e **Política de Redefinição de Senha**.
 
@@ -87,11 +87,11 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 
 ## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Portal do desenvolvedor-adicionar Azure AD B2C autenticação de conta
 
-Para habilitar a entrada com AAD B2C no portal do desenvolvedor, você precisa adicionar o widget **botões OAuth** ao formulário de entrada.
+No portal do desenvolvedor, entre com AAD B2C é possível com o widget **botões OAuth** . O widget já está incluído na página de entrada do conteúdo do portal do desenvolvedor padrão.
 
 ![Widget de botões do AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-Embora uma nova conta seja criada automaticamente sempre que um novo usuário entrar com AAD B2C, você pode considerar adicionar o mesmo widget no formulário de inscrição.
+Embora uma nova conta seja criada automaticamente sempre que um novo usuário entrar com AAD B2C, você pode considerar adicionar o mesmo widget à página de inscrição.
 
 ## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>Portal do desenvolvedor herdado-como se inscrever com Azure AD B2C
 
@@ -110,13 +110,13 @@ Embora uma nova conta seja criada automaticamente sempre que um novo usuário en
    > [!NOTE]
    > Se o Azure Active Directory B2C for a única opção habilitada no **identidades** guia no portal do Editor, você será redirecionado para a política de inscrição diretamente.
 
-   ![Portal do desenvolvedor][api-management-howto-aad-b2c-dev-portal-b2c-options]
+   ![portal do Desenvolvedor][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
    Quando a inscrição for concluída, você será redirecionado para o portal do desenvolvedor. Agora você está conectado no portal do desenvolvedor para a instância de serviço de Gerenciamento de API.
 
     ![Registro concluído][api-management-registration-complete]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 *  [Visão geral do Azure Active Directory B2C]
 *  [Azure Active Directory B2C: estrutura de política extensível]

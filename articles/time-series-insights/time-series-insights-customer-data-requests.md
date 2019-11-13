@@ -1,6 +1,6 @@
 ---
-title: Recursos de solicitação de dados do cliente no Azure Time Series Insights | Microsoft Docs
-description: Resumo de recursos de solicitação de dados do cliente do Azure Time Series Insights.
+title: Recursos de solicitação de dados do cliente-Azure Time Series Insights | Microsoft Docs
+description: Saiba mais sobre os recursos de solicitação de dados do cliente no Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: ba883ec3ce8f8ca4491b8576e6633ba2837bb5b2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d134c7cbe220e6aa6b1471b50aa23e17d09734d5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990098"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007022"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -60,13 +60,13 @@ Para exibir e exportar os dados armazenados no Time Series Insights, é necessá
 
 Para obter mais informações, confira [Explorador do Azure Time Series Insights](time-series-insights-explorer.md).
 
-**Excluir os dados**
+**Excluir dados**
 
 No momento, o Time Series Insights não dá suporte à exclusão granular de dados. No entanto, o Time Series Insights fornece a capacidade de remover os dados do cliente armazenados no Time Series Insights com a configuração de políticas de retenção. Ajuste o período de retenção de todo o ambiente do Time Series Insights para qualquer número de dias, a fim de dar suporte aos seus requisitos de exclusão.
 
 Para obter mais informações, confira [Configurando a retenção no Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Leia mais sobre como [conceder acesso a dados ao seu ambiente de Azure Time Series insights](./time-series-insights-data-access.md).
 

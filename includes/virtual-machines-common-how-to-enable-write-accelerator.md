@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 7b9b30f1598f7e50d25b15aaf2fda896ee9e5012
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e0bb50e14467d2950d97da660fc8e6fa176b99
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66249025"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008914"
 ---
-# <a name="enable-write-accelerator"></a>Habilitar acelerador de gravação
-
 O Acelerador de Gravação é uma capacidade de disco máquinas virtuais (VMs) da Série M no Armazenamento Premium com Azure Managed Disks exclusivamente. Como o nome indica, o objetivo da funcionalidade é melhorar a latência de E/S das gravações no Armazenamento Premium do Azure. O Acelerador de Gravação é ideal para quando as atualizações do arquivo de log são necessárias para manter em disco em um modo de alto desempenho para bancos de dados modernos.
 
 O Acelerador de Gravação está disponível para as VMs da Série M na nuvem pública.
@@ -61,7 +59,7 @@ São os limites de IOPS por VM e *não* por disco. Todos os discos do Acelerador
 
 As próximas seções descreverão como o Acelerador de Gravação pode ser habilitado nos VHDs do Armazenamento Premium do Azure.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 Os pré-requisitos a seguir são aplicáveis ao uso do Acelerador de Gravação neste momento:
 

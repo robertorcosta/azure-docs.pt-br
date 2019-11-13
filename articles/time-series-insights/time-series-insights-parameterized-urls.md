@@ -1,6 +1,6 @@
 ---
-title: Compartilhar exibições personalizadas do Azure Time Series Insights com URLs parametrizadas | Microsoft Docs
-description: Este artigo descreve como desenvolver URLs parametrizadas no Azure Time Series Insights para que uma exibição do cliente possa ser facilmente compartilhada.
+title: Compartilhar exibições personalizadas com URLs parametrizadas-Azure Time Series Insights | Microsoft Docs
+description: Saiba como desenvolver URLs com parâmetros no Azure Time Series Insights para compartilhar facilmente exibições personalizadas.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991105"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006385"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 
@@ -33,7 +33,7 @@ O parâmetro `environmentId=<guid>` especifica a ID do ambiente de destino. É u
 
 Um parâmetro de ID do ambiente de exemplo é `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Tempo
+## <a name="time"></a>Hora
 
 Você pode especificar valores de tempo relativos ou absolutos com uma URL parametrizada.
 
@@ -67,20 +67,20 @@ Os valores aceitos correspondem ao menu de **tempo rápido** do time Series insi
 
 O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os termos de uma exibição Time Series Insights:
 
-| . | Item de URL | Descrição |
+| . | Item de URL | DESCRIÇÃO |
 | --- | --- | --- |
 | **name** | `\<string>` | O nome do *termo*. |
 | **splitBy** | `\<string>` | O nome da coluna para *dividido por*. |
 | **measureName** | `\<string>` | O nome da coluna de *medida*. |
 | **predicado** | `\<string>` | O cláusula *where* para filtragem do lado do servidor. |
-| **Uso** | `true` | Um parâmetro opcional que especifica o uso da soma para sua medida. </br>  Observe que, se `Events` for a medida selecionada, Count será selecionado por padrão.  </br>  Se `Events` não for selecionado, a média será selecionada por padrão. |
+| **useSum** | `true` | Um parâmetro opcional que especifica o uso da soma para sua medida. </br>  Observe que, se `Events` for a medida selecionada, Count será selecionado por padrão.  </br>  Se `Events` não for selecionado, a média será selecionada por padrão. |
 
 * O par `multiChartStack=<true/false>` chave-valor habilita o empilhamento no gráfico.
 * O par `multiChartSameScale=<true/false>` chave-valor habilita a mesma escala do eixo Y entre os termos dentro de um parâmetro opcional.  
 * O `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permite que você ajuste o controle deslizante de intervalo para fornecer uma exibição mais granular ou mais suave do gráfico.  
 * O parâmetro `timezoneOffset=<integer>` permite que você defina o fuso horário do gráfico a ser exibido como um deslocamento para UTC.
 
-| Par (es) | Descrição |
+| Par (es) | DESCRIÇÃO |
 | --- | --- |
 | `multiChartStack=false` | o `true` é habilitado por padrão, assim, passe `false` para Stack. |
 | `multiChartStack=false&multiChartSameScale=true` | O empilhamento deve estar habilitado para usar a mesma escala de eixo Y entre os termos.  É `false` por padrão, então a passagem de ' true ' habilita essa funcionalidade. |
@@ -117,9 +117,9 @@ A URL acima descreve e compila a exibição do Time Series Insights Explorer:
 
 A exibição completa (incluindo o gráfico):
 
-[exibição de gráfico de![](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[exibição de gráfico de ![](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [consultar dados usando C# ](time-series-insights-query-data-csharp.md)o.
 

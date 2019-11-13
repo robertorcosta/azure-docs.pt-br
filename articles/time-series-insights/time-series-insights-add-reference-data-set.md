@@ -1,5 +1,5 @@
 ---
-title: Como adicionar um conjunto de dados de referência ao seu ambiente Azure Time Series Insights | Microsoft Docs
+title: Como adicionar um conjunto de dados de referência ao seu ambiente-Azure Time Series Insights | Microsoft Docs
 description: Este artigo descreve como adicionar um conjunto de dados de referência para ampliar dados no seu ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3aca1f64d469ce228a4b2738c72c0b4bc1956051
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 31ae271a4ad6aa1370828640884a54eb2669804d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991286"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012715"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente Time Series Insights usando o Portal do Azure
 
@@ -34,7 +34,7 @@ Os dados de referência não estão unidos retroativamente. Assim, somente os da
 
 ## <a name="add-a-reference-data-set"></a>Adicionar um conjunto de dados de referência
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Localize seu ambiente de Azure Time Series Insights existente. Selecione **Todos os recursos** no menu à esquerda do portal do Azure. Selecione o seu ambiente de Análise de Séries Temporais.
 
@@ -94,11 +94,11 @@ Os dados de referência não estão unidos retroativamente. Assim, somente os da
 
 1. Para carregar os dados, selecione o botão **Carregar linhas**.
 
-    [Upload de![](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
+    [Upload de ![](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
 
     A página confirma o carregamento concluído e exibe a mensagem **Conjunto de dados carregado com êxito**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciar dados de referência](time-series-insights-manage-reference-data-csharp.md) programaticamente.
 

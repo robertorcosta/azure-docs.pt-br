@@ -1,6 +1,6 @@
 ---
-title: Modelagem de dados na Versão Prévia do Azure Time Series Insights | Microsoft Docs
-description: Entenda a modelagem de dados na Versão Prévia do Azure Time Series Insights.
+title: Modelagem de dados em ambientes de visualização – Azure Time Series Insights | Microsoft Docs
+description: Saiba mais sobre a modelagem de dados na visualização Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81c2c2af78f5f066e1b27e14fa774df04d7c5868
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: fb1bfb30d531f8b93489c8fc1dfbc6b8172339a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063994"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006469"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelagem de dados na Versão Prévia do Azure Time Series Insights
 
@@ -76,7 +76,7 @@ Para saber mais sobre como usar a atualização, leia [Gerenciador da Versão Pr
 
 1. Insira os detalhes de hierarquia e selecione **Criar**.
 
-    [![os detalhes do hierarquia e o botão "criar"](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
+    [detalhes da hierarquia de ![e o botão "criar"](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Carregar em massa uma ou mais hierarquias
 
@@ -130,7 +130,7 @@ Para saber mais sobre como usar a atualização, leia [Gerenciador da Versão Pr
 
     [![seleções para editar uma única instância](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre o modelo de série temporal, leia [modelagem de dados](./time-series-insights-update-tsm.md).
 

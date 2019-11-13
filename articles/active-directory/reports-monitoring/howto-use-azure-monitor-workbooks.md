@@ -2,7 +2,7 @@
 title: Azure Monitor pastas de trabalho para relatórios | Microsoft Docs
 description: Saiba como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory.
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/30/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200117"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014371"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory
 
@@ -54,7 +54,7 @@ Este artigo:
  
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para usar pastas de trabalho de monitoramento, você precisa de:
 
@@ -81,7 +81,7 @@ Você deve estar em uma das seguintes funções, bem como ter acesso ao espaço 
 
 Para acessar pastas de trabalho:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Navegue até **Azure Active Directory** > **monitorar** **pastas de trabalho** > . 
 
@@ -116,7 +116,7 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 
 Para cada tendência, você obtém uma divisão das seguintes categorias:
 
-- Location
+- Local padrão
 
     ![Entradas por local](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -179,7 +179,7 @@ Para entradas desabilitadas, você obtém uma divisão pelo status de acesso con
 
 ## <a name="conditional-access-insights"></a>Insights de Acesso Condicional
 
-### <a name="overview"></a>Visão Geral
+### <a name="overview"></a>Visão geral
 
 As pastas de trabalho contêm consultas de log de entrada que podem ajudar os administradores de ti a monitorar o impacto das políticas de acesso condicional em seu locatário. Você tem a capacidade de relatar o acesso concedido ou negado a muitos usuários. A pasta de trabalho contém informações sobre quantos usuários ignoraram as políticas de acesso condicional com base nos atributos dos usuários no momento da entrada. Ele contém detalhes por condição para que o impacto de uma política possa ser contextual por condição, incluindo a plataforma do dispositivo, o estado do dispositivo, o aplicativo cliente, o risco de entrada, o local e o aplicativo.
 
@@ -300,6 +300,6 @@ Para ajudá-lo a solucionar problemas de entrada, Azure Monitor oferece uma divi
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Crie relatórios interativos usando monitorar pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).

@@ -12,12 +12,12 @@ ms.date: 01/16/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5f1b41e345caafdc465872c948be76c31d55e8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7287e32fbeff751bddf91bed32afeeae84f9378c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928869"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014528"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Configurações de cookie para acessar aplicativos locais no Azure Active Directory
 
@@ -27,16 +27,16 @@ O Azure AD (Azure Active Directory) tem cookies de sessão e de acesso para aces
 
 O [Proxy de Aplicativo](application-proxy.md) utiliza as configurações de cookie de sessão e de acesso a seguir.
 
-| Configuração de cookies | Padrão | Descrição | Recomendações |
+| Configuração de cookies | Padrão | DESCRIÇÃO | Recomendações |
 | -------------- | ------- | ----------- | --------------- |
 | Usar Cookie Somente HTTP | **Não** | **Sim** permite que o Proxy de Aplicativo inclua o sinalizador HTTPOnly nos cabeçalhos de resposta HTTP. Esse sinalizador oferece benefícios de segurança adicionais, por exemplo, impede que o script CSS (do lado do cliente) copie ou modifique os cookies.<br></br><br></br>Antes de darmos suporte à configuração Somente HTTP, o Proxy de Aplicativo criptografava e transmitia cookies por um canal SSL seguro SSL para impedir modificações. | Use **Sim** para ter os benefícios de segurança adicionais.<br></br><br></br>Use **Não** para clientes ou agentes de usuário que exijam acesso ao cookie de sessão. Por exemplo, use **Não** para um cliente RDP ou MTSC que se conecta a um servidor de Gateway de Área de Trabalho Remota por meio do Proxy de Aplicativo.|
 | Usar um Cookie Seguro | **Não** | **Sim** permite que o Proxy de Aplicativo inclua o sinalizador Secure nos cabeçalhos de resposta HTTP. Os cookies seguros melhoram a segurança ao transmitir cookies em um canal TLS seguro, como HTTPS. Isso impede que os cookies sejam observados por partes não autorizadas devido à transmissão do cookie em texto não criptografado. | Use **Sim** para ter os benefícios de segurança adicionais.|
 | Usar cookie persistente | **Não** | **Sim** permite que o Proxy de Aplicativo defina seus cookies de acesso para não expirarem quando o navegador da Web for fechado. A persistência dura até que o token de acesso expire ou até que o usuário exclua manualmente os cookies persistentes. | Use **Não** por causa do risco de segurança associado à autenticação contínua dos usuários.<br></br><br></br>Sugerimos usar **Sim** apenas para aplicativos mais antigos que não podem compartilhar cookies entre processos. É melhor atualizar seu aplicativo para lidar com o compartilhamento de cookies entre processos em vez de usar cookies persistentes. Por exemplo, você pode precisar de cookies persistentes para permitir que um usuário abra documentos do Office no modo de exibição de gerenciador em um site do SharePoint. Sem cookies persistentes, essa operação poderá falhar se os cookies de acesso não forem compartilhados entre o navegador, o processo do gerenciador e o processo do Office. |
 
 ## <a name="samesite-cookies"></a>SameSite cookies
-A partir da versão [Chrome 80](https://support.google.com/chrome/a/answer/7679408?hl=en) e, eventualmente, em navegadores que aproveitam [Chromium](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html), os cookies que não especificam o atributo [SameSite](https://web.dev/samesite-cookies-explained) serão tratados como se estivessem definidos como **SameSite = LAX**. O atributo SameSite declara como os cookies devem ser restritos a um contexto de mesmo site. Quando definido como LAX, o cookie é enviado apenas para solicitações de mesmo site ou navegação de nível superior. No entanto, o proxy de aplicativo exige que esses cookies sejam preservados no contexto de terceiros para manter os usuários conectados corretamente durante a sessão. Devido a isso, estamos fazendo atualizações para o acesso ao proxy de aplicativo e cookies de sessão para evitar o impacto adverso dessa alteração. As atualizações incluem:
+A partir da versão Chrome 80 e, eventualmente, em navegadores que aproveitam Chromium, os cookies que não especificam o atributo [SameSite](https://web.dev/samesite-cookies-explained) serão tratados como se estivessem definidos como **SameSite = LAX**. O atributo SameSite declara como os cookies devem ser restritos a um contexto de mesmo site. Quando definido como LAX, o cookie é enviado apenas para solicitações de mesmo site ou navegação de nível superior. No entanto, o proxy de aplicativo exige que esses cookies sejam preservados no contexto de terceiros para manter os usuários conectados corretamente durante a sessão. Devido a isso, estamos fazendo atualizações para o acesso ao proxy de aplicativo e cookies de sessão para evitar o impacto adverso dessa alteração. As atualizações incluem:
 
-* Definir o atributo **SameSite** como **None**-permite que os cookies de acesso e sessões do proxy de aplicativo sejam enviados corretamente no contexto de terceiros.
+* Definindo o atributo **SameSite** como **None**. Isso permite que os cookies de acesso e sessões do proxy de aplicativo sejam enviados corretamente no contexto de terceiros.
 * Definir a configuração **usar cookie seguro** para usar **Sim** como o padrão. O Chrome também exige que os cookies especifiquem o sinalizador de segurança ou que serão rejeitados. Essa alteração será aplicada a todos os aplicativos existentes publicados por meio do proxy de aplicativo. Observe que os cookies de acesso ao proxy de aplicativo sempre foram definidos como seguros e transmitidos somente por HTTPS. Essa alteração será aplicada somente aos cookies de sessão.
 
 Essas alterações nos cookies de proxy de aplicativo serão implantadas ao longo das próximas semanas antes da data de lançamento do Chrome 80.
@@ -48,7 +48,7 @@ Além disso, se o aplicativo de back-end tiver cookies que precisam estar dispon
 ## <a name="set-the-cookie-settings---azure-portal"></a>Definir as configurações de cookie – portal do Azure
 Para definir as configurações de cookie usando o portal do Azure:
 
-1. Entre no [portal do Azure](https://portal.azure.com). 
+1. Entre no [Portal do Azure](https://portal.azure.com). 
 2. Navegue até **Azure Active Directory** > **Aplicativos Empresariais** > **Todos os Aplicativos**.
 3. Selecione o aplicativo para o qual você deseja habilitar a configuração de um cookie.
 4. Clique em **Proxy de Aplicativo**.

@@ -1,18 +1,17 @@
 ---
-title: Sobre a recuperação de desastres de VMs VMware para o Azure usando o Azure Site Recovery | Microsoft Docs
+title: Recuperação de desastres do VMware com Azure Site Recovery
 description: Este artigo fornece uma visão geral da recuperação de desastres de VMs VMware para o Azure usando o serviço Azure Site Recovery.
-author: raynew
+author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 9/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: dca8174caabf4799c338d780a78ba58f1af5a2f1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814315"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954387"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação de desastres de VMs do VMware para o Azure
 
@@ -88,16 +87,16 @@ Aqui está o que você precisa fazer:
 Depois de ter sua infraestrutura do Azure e local em vigor, você pode configurar a recuperação de desastres.
 
 1. Para entender os componentes que você precisará implantar, revise o [VMware para a arquitetura do Azure](vmware-azure-architecture.md) e o [físico para a arquitetura do Azure](physical-azure-architecture.md). Há vários componentes, por isso é importante entender como eles se encaixam.
-2. **Ambiente de origem**: como uma primeira etapa na implantação, configure seu ambiente de origem de replicação. Você especifica o que você deseja replicar e onde você deseja replicar.
-3. **Servidor de configuração**: é preciso configurar um servidor de configuração em seu ambiente de origem local:
+2. **Ambiente de origem**: como uma primeira etapa na implantação, você configura seu ambiente de origem de replicação. Você especifica o que você deseja replicar e onde você deseja replicar.
+3. **Servidor de configuração**: você precisa configurar um servidor de configuração em seu ambiente de origem local:
     - O servidor de configuração é uma única máquina local. Para recuperação de desastre VMware, recomendamos que você a implante como uma VM VMware que pode ser implantada a partir de um modelo OVF para download.
     - O servidor de configuração coordena as comunicações entre o local e o Azure
     - Alguns outros componentes são executados na máquina do servidor de configuração.
         - O servidor de processo recebe, otimiza e envia dados de replicação para a conta de armazenamento em cache no Azure. Ele também lida com a instalação automática do serviço Mobility em máquinas que você deseja replicar e executa a descoberta automática de VMs em servidores VMware.
         - O servidor de destino mestre lida com os dados de replicação durante o failback do Azure.
     - A configuração inclui o registro do servidor de configuração no cofre, o download do servidor MySQL e do VMware PowerCLI e a especificação das contas criadas para a descoberta automática e a instalação do serviço Mobilidade.
-4. **Ambiente de destino**: Você configura o ambiente de destino do Azure especificando suas configurações de rede e sua assinatura do Azure.
-5. **Política de replicação**: especifique como a replicação deve ocorrer. As configurações incluem a frequência com que os pontos de recuperação são criados e armazenados e se os instantâneos consistentes com o aplicativo devem ser criados.
+4. **Ambiente de destino**: configure seu ambiente de destino do Azure especificando suas configurações de rede e sua assinatura do Azure.
+5. **Política de replicação**: você especifica como a replicação deve ocorrer. As configurações incluem a frequência com que os pontos de recuperação são criados e armazenados e se os instantâneos consistentes com o aplicativo devem ser criados.
 6. **Habilite a replicação**. Você habilita a replicação para máquinas locais. Se você criou uma conta para instalar o serviço Mobility, ela será instalada quando você habilitar a replicação para uma máquina. 
 
 *Precisa de mais ajuda?*

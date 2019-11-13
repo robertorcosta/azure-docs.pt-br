@@ -1,6 +1,6 @@
 ---
-title: Visualizar dados no gerenciador da versão prévia do Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve os vários recursos e opções disponíveis no aplicativo Web do Time Series Insights Explorer.
+title: Visualizar dados no Gerenciador de visualização-Azure Time Series Insights | Microsoft Docs
+description: Saiba mais sobre os recursos e as opções disponíveis no Gerenciador do Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f6c03ace13b9b6cb1bda004799502e1f382051d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f09de6fee4c9de39d98ec66714686ab1e805c4cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989963"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014873"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualizar os dados na atualização do gerenciador
 
 Este documento descreve a interface do usuário e os recursos de experiência do usuário e a interface do [aplicativo Web de demonstração](https://insights.timeseries.azure.com/preview/demo)do Azure Time Series insights Preview. Especificamente, ele aborda o layout do exemplo hospedado, opções de personalização de interface e navegação por meio da demonstração fornecida.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para começar a usar o Azure Time Series Insights Explorer Preview, você deve:
 
@@ -103,7 +103,7 @@ Para reconfigurar o layout da página **analisar** gráfico, selecione o ícone 
 
 Com o gráfico, você pode exibir Time Series Insights instâncias como linhas. Você pode recolher o painel de ambiente, o modelo de dados e o painel de controle de intervalo de tempo selecionando os controles da Web para aumentar o tamanho do gráfico.
 
-  [Visão geral do gráfico de visualização de![](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
+  [Visão geral do gráfico de visualização de ![](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
 
 - **Intervalo de datas selecionado**: controla quais elementos de dados estão disponíveis para visualização.
 
@@ -159,7 +159,7 @@ O painel de navegação Time Series Insights visualização aparece na parte sup
 
 ### <a name="current-session-share-link-control"></a>Controle de link de compartilhamento de sessão atual
 
-  [ícone de compartilhamento de![](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
+  [ícone de compartilhamento de ![](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
 
 Selecione o ícone novo **compartilhamento** para compartilhar um link de URL com sua equipe.
 
@@ -167,7 +167,7 @@ Selecione o ícone novo **compartilhamento** para compartilhar um link de URL co
 
 ### <a name="tenant-section"></a>Seção de Locatário
 
-  [seleção de locatário![](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
+  [seleção de locatário ![](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
 
 * Exibe as informações atuais da sua conta de entrada de Time Series Insights.
 * Use-o para alternar entre os temas de Time Series Insights disponíveis.
@@ -177,7 +177,7 @@ Selecione o ícone novo **compartilhamento** para compartilhar um link de URL co
 
 Para selecionar um novo tema, selecione o ícone de perfil localizado no canto superior direito. Em seguida, selecione **alterar tema**.
 
-  [seleção de tema de![](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [seleção de tema de ![](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
 
 > [!TIP]
 > A seleção de idioma também está disponível selecionando o ícone de perfil.
@@ -203,12 +203,12 @@ O painel de editor de termos de visualização do Azure Time Series Insights lev
 
 **Em que**: Use a cláusula WHERE para filtrar rapidamente seus eventos usando o conjunto de operandos listados na tabela a seguir. Caso você realize uma pesquisa selecionando um operando, o predicado é atualizado automaticamente com base nessa pesquisa. Os tipos de operando com suporte incluem o seguinte:
 
-| Operação | Tipos com suporte   | Notas |
+| Operação | Tipos com suporte   | Observações |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Todos os operandos devem ser do mesmo tipo ou ser uma constante NULL. |
-| `HAS` | string | Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos. |
+| `HAS` | String | Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos. |
 
 Para saber mais sobre os tipos de dados e operações de consulta com suporte, confira [TSX (expressão de série temporal)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx).
 
@@ -226,7 +226,7 @@ Você pode mostrar e ocultar elementos no painel de gráfico selecionando o íco
 
   [![exibição consultada e filtrada dois](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md) na visualização de Azure Time Series insights.
 - Leia o documento de visualização de Time Series Insights na [modelagem de dados](./time-series-insights-update-tsm.md).

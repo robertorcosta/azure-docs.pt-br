@@ -1,5 +1,5 @@
 ---
-title: Integrar o Azure ExpressRoute à recuperação de desastre para VMs do Azure usando o Azure com o Azure Site Recovery | Microsoft Docs
+title: Integrar a recuperação de desastre de VM do Azure ExpressRoute ao Azure Site Recovery
 description: Descreve como usar o Azure ExpressRoute com o Azure Site Recovery para recuperação e migração de desastres
 services: site-recovery
 author: mayurigupta13
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722114"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954092"
 ---
-# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o ExpressRoute do Azure à recuperação de desastres para VMs do Azure
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integre o ExpressRoute com a recuperação de desastre para VMs do Azure
 
 
 Este artigo descreve como integrar o Azure ExpressRoute ao [Azure Site Recovery](site-recovery-overview.md), quando você configura a recuperação de desastres de VMs do Azure para uma região secundária do Azure.
@@ -28,8 +28,8 @@ O Site Recovery permite a recuperação de desastres das VMs do Azure, replicand
 
 A ExpressRoute permite que você estenda as redes locais para a nuvem do Microsoft Azure por meio de uma conexão privada, facilitada por um provedor de conectividade. Se você tiver configurado o ExpressRoute, ele se integra ao Site Recovery da seguinte maneira:
 
-- **Habilitar a replicação entre as regiões do Azure**: O tráfego de replicação para a recuperação de desastres da VM do Azure está somente no Azure, e a Rota Expressa não é necessária ou usada para replicação. No entanto, se você estiver se conectando de um site local às VMs do Azure no site principal do Azure, há vários problemas a serem observados ao configurar a recuperação de desastres para essas VMs do Azure.
-- **Failover entre as regiões do Azure**: Quando ocorrem interrupções, você faz failover das VMs do Azure da região primária para secundária do Azure. Após o failover para uma região secundária, há várias etapas a serem seguidas para acessar as VMs do Azure na região secundária usando o ExpressRoute.
+- **Durante a replicação entre as regiões do Azure**: o tráfego de replicação para a recuperação de desastres da VM do Azure está somente no Azure, e a Rota Expressa não é necessária ou usada para replicação. No entanto, se você estiver se conectando de um site local às VMs do Azure no site principal do Azure, há vários problemas a serem observados ao configurar a recuperação de desastres para essas VMs do Azure.
+- **Failover entre as regiões do Azure**: quando ocorrem interrupções, você faz failover das VMs do Azure da região primária para secundária do Azure. Após o failover para uma região secundária, há várias etapas a serem seguidas para acessar as VMs do Azure na região secundária usando o ExpressRoute.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -90,12 +90,12 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
     - **VNet1 de origem**: 10.1.0.0/24.
     - **VNet2 de origem**: 10.2.0.0/24.
     - Cada rede virtual spoke é conectado ao **vNet do Hub**.
-- **VNet do hub**. Há uma vNet do hub **vNet do Hub de Origem**: 10.10.10.0/24.
+- **VNet do hub**. Há uma vNet do hub **vNet do Hub de código-fonte**: 10.10.10.0/24.
   - Este hub vNet atua como o gatekeeper.
   - Todas as comunicações entre sub-redes passam por esse hub.
     - **Sub-redes vNet do Hub**. O hub vNet tem duas sub-redes:
     - **Subrede NVA**: 10.10.10.0/25. Essa sub-rede contém uma NVA (10.10.10.10).
-    - **Gateway de sub-rede**: 10.10.10.128/25. Essa sub-rede contém um gateway da Rota Expressa conectado a uma conexão da Rota Expressa que direciona para o site local por meio de um domínio de roteamento de emparelhamento.
+    - **A sub-rede de gateway**: 10.10.10.128/25. Essa sub-rede contém um gateway da Rota Expressa conectado a uma conexão da Rota Expressa que direciona para o site local por meio de um domínio de roteamento de emparelhamento.
 - O datacenter local tem uma conexão de circuito de Rota Expressa por meio de uma borda de parceiro em Hong Kong.
 - Todo o roteamento é controlado por meio das tabelas de rota do Azure (UDR).
 - Todo o tráfego de saída entre o vNets ou o datacenter no local é roteado pelo NVA.
@@ -104,22 +104,22 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 
 #### <a name="spoke-to-hub"></a>Do spoke para o hub
 
-**Direção** | **Configuração** | **Estado**
+**Direção** | **Configuração** | **State**
 --- | --- | ---
-Do spoke para o hub | Permitir que o endereço de rede virtual | Enabled
-Do spoke para o hub | Permitir o tráfego encaminhado | Enabled
-Do spoke para o hub | Permitir o trânsito de gateway | Desabilitado
-Do spoke para o hub | Use remover gateways | Enabled
+Do spoke para o hub | Permitir que o endereço de rede virtual | Habilitado
+Do spoke para o hub | Permitir tráfego encaminhado | Habilitado
+Do spoke para o hub | Permitir trânsito de gateway | Desabilitado
+Do spoke para o hub | Use remover gateways | Habilitado
 
  ![Configuração do emparelhamento spoke-hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>Do hub para o spoke
 
-**Direção** | **Configuração** | **Estado**
+**Direção** | **Configuração** | **State**
 --- | --- | ---
-Do hub para o spoke | Permitir que o endereço de rede virtual | Enabled
-Do hub para o spoke | Permitir o tráfego encaminhado | Enabled
-Do hub para o spoke | Permitir o trânsito de gateway | Enabled
+Do hub para o spoke | Permitir que o endereço de rede virtual | Habilitado
+Do hub para o spoke | Permitir tráfego encaminhado | Habilitado
+Do hub para o spoke | Permitir trânsito de gateway | Habilitado
 Do hub para o spoke | Use remover gateways | Desabilitado
 
  ![Configuração do emparelhamento hub-spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

@@ -3,7 +3,7 @@ title: Pré-requisitos para a API de relatório de Azure Active Directory | Micr
 description: Aprenda sobre os pré-requisitos para acessar a API de relatório do Azure AD
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/30/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5e198a900241bc7bb0b6aff9a57eed59d1cd86
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a9559f85e31a38c50034d6aacc8f65e4d68aec2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895243"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014429"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure Active Directory
 
@@ -110,7 +110,7 @@ A seção a seguir lista as etapas para ambas as APIs. Se não quiser acessar um
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. Na página **permissões necessárias** , selecione **permissões de aplicativo** **, expanda diretório caixa** de seleção **diretório. ReadAll**.  Selecione **adicionar permissões**.
+3. Na página **permissões necessárias** , selecione **permissões de aplicativo** **, expanda diretório caixa** de seleção **diretório. ReadAll**.  Selecione **Adicionar Permissões**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
@@ -127,7 +127,7 @@ A seção a seguir lista as etapas para ambas as APIs. Se não quiser acessar um
 Esta seção mostra como obter as seguintes configurações de seu diretório:
 
 - Nome de domínio
-- ID do cliente
+- Id do Cliente
 - Segredo do cliente
 
 Você precisa desses valores ao configurar chamadas para a API de relatórios. 
@@ -183,7 +183,7 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
 
     b. Como **Expira**, selecione **Em 2 anos**.
 
-    c. Clique em **Save** (Salvar).
+    c. Clique em **Salvar**.
 
     d. Copie o valor da chave.
 
@@ -222,7 +222,7 @@ O acesso a relatórios de entrada requer uma licença do Azure Active Directory 
 
 Siga as etapas em [pré-requisitos para acessar a API de relatório de Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para garantir que seu aplicativo esteja sendo executado com o conjunto certo de permissões. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obter dados usando a API de Relatório do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
 * [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 

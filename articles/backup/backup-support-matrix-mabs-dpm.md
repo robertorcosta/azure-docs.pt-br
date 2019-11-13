@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: cb3561030cfd86137d7d668ca14db605cc365e86
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: d9c55773772b4f331de95bd98b1973225357c0cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969018"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012786"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Backup do Microsoft Azure Server ou o System Center DPM
 
@@ -30,7 +30,7 @@ O MABS é baseado no System Center DPM e fornece funcionalidade semelhante com a
 - Para o MABS e o DPM, o Azure fornece armazenamento de backup de longo prazo. Além disso, o DPM permite fazer backup de dados para armazenamento de longo prazo em fita. O MABS não possui essa funcionalidade.
 - Você pode fazer backup de um servidor DPM primário com um servidor DPM secundário. O servidor secundário protegerá o banco de dados do servidor primário e as réplicas de fonte de dados armazenadas no servidor primário. Se o servidor primário falhar, o servidor secundário poderá continuar a proteger as cargas de trabalho protegidas pelo servidor primário, até que o servidor primário esteja disponível novamente.  O MABS não possui essa funcionalidade.
 
-Você baixa o MABS do [centro de download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=57520). Ele pode ser executado localmente ou em uma VM do Azure.
+Você baixa o MABS do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Ele pode ser executado localmente ou em uma VM do Azure.
 
 O DPM e o MABS são compatíveis com backup de uma ampla variedade de aplicativos e sistemas operacionais de clientes e servidores. Eles fornecem vários cenários de backup:
 
@@ -47,7 +47,7 @@ O backup usando o DPM/MABS e o backup do Azure funciona da seguinte maneira:
 1. O Agente do MARS (Serviços de Recuperação do Microsoft Azure) é instalado no servidor MARS/DPM.
 1. O agente MARS faz backup dos discos do DPM/MABS em um cofre de serviços de recuperação de backup no Azure usando o backup do Azure.
 
-Para obter mais informações:
+Para mais informações:
 
 - [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura do MABS.
 - [Examine o que tem suporte](backup-support-matrix-mars-agent.md) para o agente Mars.
@@ -159,8 +159,8 @@ A tabela a seguir resume o que pode ser feito backup no MABS das máquinas locai
 **Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64 bits) | MABS v3, v2 | No local. | Volume/compartilhamento/pasta/arquivo.<br/><br/> Compatíveis com volumes com eliminação de duplicação.<br/><br/> Os volumes devem ter pelo menos 1 GB e NTFS. |
 **Windows Server 2016 (Datacenter, Standard, não Nano)**<br/><br/> 64/32 bits | MABS v3, v2 | VM local/Azure.| Volume/compartilhamento/pasta/arquivo; estado do sistema/bare metal.<br/><br/> Compatíveis com volumes com eliminação de duplicação. |
 **Windows Server 2012 R2 (Datacenter e Standard)**<br/><br/> 64/32 bits | MABS v3, v2 | VM local/Azure. | **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Azure VMprotection**: volume/compartilhamento/pasta/arquivo.<br/><br/> Compatíveis com volumes com eliminação de duplicação. |
-**Windows Server 2012 com SP1 (Datacenter e Standard)**<br/><br/> 64/32 bits | MABS v3, v2 <br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) deve ser instalado. | VM local/Azure. | **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Proteção de VM do Azure**: volume/compartilhamento/pasta/arquivo.<br/><br/> Compatíveis com volumes com eliminação de duplicação. |
-**Windows 2008 R2 com SP1 (Standard e Enterprise)**<br/><br/> 64/32 bits | Com suporte do MABS v3, v2.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) deve ser instalado. | VM local/Azure. |   **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Proteção de VM do Azure**: volume/compartilhamento/pasta/arquivo.<br/><br/> Compatíveis com volumes com eliminação de duplicação. |
+**Windows Server 2012 com SP1 (Datacenter e Standard)**<br/><br/> 64/32 bits | MABS v3, v2 <br/><br/> O [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) deve ser instalado. | VM local/Azure. | **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Proteção de VM do Azure**: volume/compartilhamento/pasta/arquivo.<br/><br/> Compatíveis com volumes com eliminação de duplicação. |
+**Windows 2008 R2 com SP1 (Standard e Enterprise)**<br/><br/> 64/32 bits | Com suporte do MABS v3, v2.<br/><br/> O [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) deve ser instalado. | VM local/Azure. |   **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Proteção de VM do Azure**: volume/compartilhamento/pasta/arquivo.<br/><br/> Compatíveis com volumes com eliminação de duplicação. |
 **Windows 2008 R2 (Standard e Enterprise)**<br/><br/> 64/32 bits | Para MABS v3, v2, o sistema operacional deve estar executando o SP1. | VM local/Azure. | **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Proteção de VM do Azure**: volume/compartilhamento/pasta/arquivo.<br/><br/> Compatíveis com volumes com eliminação de duplicação. |
 **Windows Server 2008 com SP2**<br/><br/> 64/32 bits | MABS v3, v2 | MABS v2, v3 tem suporte quando o MABS é implantado como uma VM VMware.<br/><br/> Não é compatível com o MABS em execução na VM do Azure. | Volume/compartilhamento/pasta/arquivo; estado do sistema/bare metal. |
 **Windows Storage Server 2008** | MABS v3, v2 | MABS como VM do Hyper-V/servidor físico local. <br/><br/> Não é compatível com o MABS em execução na VM do Azure. | Volume/compartilhamento/pasta/arquivo; estado do sistema/bare metal.
@@ -182,7 +182,7 @@ A tabela a seguir resume o que pode ser feito backup no DPM das máquinas locais
 **Windows Server 2016 (Datacenter, Standard, não Nano)**<br/><br/> 64/32 bits | VM local/Azure.<br/><br/> Somente o DPM 2016.| Volume/compartilhamento/pasta/arquivo; estado do sistema/bare metal.<br/><br/> Compatíveis com volumes com eliminação de duplicação.
 **Windows Server 2012 R2 (Datacenter e Standard)**<br/><br/> 64/32 bits | VM local/Azure. | **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Proteção de VM do Azure**: volume/compartilhamento/pasta/arquivo.<br/><br/> Volumes com eliminação de duplicação com suporte no DPM 2012 R2 e posterior.
 **Windows Server 2012 com SP1 (Datacenter e Standard)**<br/><br/> 64/32 bits | VM local/Azure. | **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Proteção de VM do Azure**: volume/compartilhamento/pasta/arquivo.<br/><br/> Volumes com eliminação de duplicação com suporte no DPM 2012 R2 e posterior.
-**Windows 2008 R2 com SP1 (Standard e Enterprise)**<br/><br/> 64/32 bits | VM local/Azure.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) deve ser instalado. |   **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Proteção de VM do Azure**: volume/compartilhamento/pasta/arquivo.
+**Windows 2008 R2 com SP1 (Standard e Enterprise)**<br/><br/> 64/32 bits | VM local/Azure.<br/><br/> O [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) deve ser instalado. |   **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.<br/><br/> **Proteção de VM do Azure**: volume/compartilhamento/pasta/arquivo.
 **Windows 2008 R2 (Standard e Enterprise)**<br/><br/> 64/32 bits | No local.<br/><br/> O DPM não pode ser instalado como uma VM do VMware.<br/><br/> Não é compatível com o DPM em execução na VM do Azure. | **Proteção local**: volume/compartilhamento/pasta/arquivo; Estado do sistema/bare-metal.
 **Windows Server 2008 com SP2**<br/><br/> 64/32 bits | Somente no local.<br/><br/> O DPM é compatível ao executar como uma VM do VMware. Não é compatível ao executar como um servidor físico ou VM do Hyper-V. | Volume/compartilhamento/pasta/arquivo; estado do sistema/bare metal.
 **Windows Storage Server 2008** | O DPM no local em execução como um servidor físico ou VM do Hyper-V. | Volume/compartilhamento/pasta/arquivo; estado do sistema/bare metal.
@@ -190,7 +190,7 @@ A tabela a seguir resume o que pode ser feito backup no DPM das máquinas locais
 **SQL Server 2016 com SP1** | Não é compatível com o DPM 2012 R2; Compatível com o DPM SAC, o DPM 2016 executando o pacote cumulativo de atualizações 4 ou posterior.<br/><br/> VM local/Azure.| Fazer backup do banco de dados do SQL Server.<br/><br/> Compatível com o backup de cluster do SQL Server.<br/><br/>Não compatível com bancos de dados armazenados no CSVs.
 **SQL Server 2016** | Não é compatível com o DPM 2012 R2. Com suporte para o DPM SAC, o DPM 2016 do pacote cumulativo de atualizações 2 e posterior.<br/><br/> VM local/Azure.| Fazer backup do banco de dados do SQL Server.<br/><br/> Compatível com o backup de cluster do SQL Server.<br/><br/>Não compatível com bancos de dados armazenados no CSVs.
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 com o DPM 2012 R2 executando o pacote cumulativo de atualizações 4 e posterior.<br/><br/> VM local/Azure.| Fazer backup do banco de dados do SQL Server.<br/><br/> Compatível com o backup de cluster do SQL Server.<br/><br/>Não compatível com bancos de dados armazenados no CSVs.
-**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | Para o Exchange 2016, o DPM 2012 R2 precisa do pacote cumulativo de atualizações 9 ou posterior.<br/><br/> Local | Fazer backup do servidor Exchange autônomo, banco de dados em um DAG.<br/><br/> Recupere a caixa de correio, o banco de dados da caixa de correio no DAG.<br/><br/> Não é compatível com ReFS.<br/><br/> Fazer backup de clusters de discos não compartilhados.<br/><br/> Fazer backup do Exchange Server configurado para replicação contínua.
+**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | Para o Exchange 2016, o DPM 2012 R2 precisa do pacote cumulativo de atualizações 9 ou posterior.<br/><br/> Configuração local | Fazer backup do servidor Exchange autônomo, banco de dados em um DAG.<br/><br/> Recupere a caixa de correio, o banco de dados da caixa de correio no DAG.<br/><br/> Não é compatível com ReFS.<br/><br/> Fazer backup de clusters de discos não compartilhados.<br/><br/> Fazer backup do Exchange Server configurado para replicação contínua.
 **SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | SharePoint 2016 no DPM 2016 e posterior.<br/><br/>VM local/Azure. | Fazer backup do farm, servidor Web front-end.<br/><br/> Recuperar farm, banco de dados, aplicativo Web, arquivo ou item de lista, pesquisa do SharePoint, servidor Web front-end.<br/><br/> Não é possível fazer backup de um farm usando SQL Server AlwaysOn para os bancos de dados de conteúdo.
 **Hyper-V no Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (com SP1)** | Hyper-V no 2016 com suporte para o DPM 2016 e posterior.<br/><br/> No local. | **Agente mAbs no host Hyper-V**: fazer backup de VMs inteiras e arquivos de dados de host. Fazer backup das VMs com armazenamento local, das VMs em cluster com armazenamento CSV, das VMs com armazenamento de servidor de arquivos SMB.<br/><br/> **Agente mAbs na VM convidada**: fazer backup de cargas de trabalho em execução na VM. CSVs.<br/><br/> **Recuperação**: VM, recuperação em nível de item de VHD/volume/pastas/arquivos.<br/><br/> **VMs do Linux**: faça backup quando o Hyper-V estiver em execução no Windows Server 2012 R2 e posterior. A recuperação de VMs do Linux é para o computador inteiro.
 **VMs do VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> O DPM 2012 R2 precisa do System Center com pacote cumulativo de atualizações 1) <br/><br/>No local. | Faça backup de VMs VMware em armazenamento CSVs, NFS e SAN.<br/><br/> Recuperar toda a VM.<br/><br/> Backup do Windows/Linux.<br/><br/> Recuperação em nível de item de pasta/arquivos somente para VMs do Windows.<br/><br/> Não é compatível com vApps de VMware.<br/><br/> A recuperação de VMs do Linux é para o computador inteiro.
@@ -198,7 +198,7 @@ A tabela a seguir resume o que pode ser feito backup no DPM das máquinas locais
 - As cargas de trabalho clusterizadas com backup pelo DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou em um domínio filho/confiável.
 - Você pode usar a autenticação NTLM/certificado para fazer backup de dados em grupos de trabalho ou domínios não confiáveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura do MABS.
 - [Revise](backup-support-matrix-mars-agent.md) o que é compatível com o agente do MARS.

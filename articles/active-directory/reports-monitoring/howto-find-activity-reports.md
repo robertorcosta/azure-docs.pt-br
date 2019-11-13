@@ -3,7 +3,7 @@ title: Localizar relatórios de atividade do usuário no portal do Azure | Micro
 description: Saiba onde os relatórios de atividade do usuário do Azure Active Directory estão no portal do Azure.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7fdf8c17c8dcbdc8203cb46342c8474b3d9832f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820933"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008209"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -52,10 +52,10 @@ Você pode usar a filtragem avançada no relatório de auditoria para acessar um
 
 As categorias incluem:
 
-- Tudo
+- Todos
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
+- Autenticação
 - Autorização
 - Contato
 - Dispositivo
@@ -73,16 +73,16 @@ Você também pode filtrar em um serviço específico usando o filtro suspenso d
 
 Os serviços incluem:
 
-- Tudo
-- Revisões de Acesso
+- Todos
+- Revisões de acesso
 - Provisionamento de conta de usuário 
 - SSO de aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso condicional
+- Acesso Condicional
 - Diretório principal
 - Gerenciamento de direitos
-- Proteção de identidade
+- Identity Protection
 - Usuários Convidados
 - PIM
 - Gerenciamento de grupos de autoatendimento
@@ -119,7 +119,7 @@ A tabela a seguir lista os relatórios de segurança da atividade anômala do Az
 
 | Relatório de atividades anômalas do Azure AD |  Tipo de detecção de risco de proteção de identidade|
 | :--- | :--- |
-| Usuários com credenciais vazadas | Credenciais vazadas |
+| Usuários com credenciais insuficientes | Credenciais vazadas |
 | Atividades de entrada irregulares | Viagem impossível a locais atípicos |
 | Entradas de dispositivos possivelmente infectados | Entradas de dispositivos infectados|
 | Entradas de fontes desconhecidas | Entradas de endereços IP anônimos |
@@ -149,7 +149,7 @@ Você pode acessar relatórios sobre as detecções de risco detectadas na seç�
 
 Baixei os logs de atividade (auditoria ou entradas) e não vejo todos os registros para o momento que escolhi. Por quê? 
 
- ![Relatório](./media/troubleshoot-missing-data-download/01.png)
+ ![Relatórios](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -165,13 +165,13 @@ Você pode aproveitar as [APIs de relatórios do Azure AD](concept-reporting-api
 
 Eu executei algumas ações no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Audit Logs`, mas não é possível encontrá-los.
 
- ![Relatório](./media/troubleshoot-missing-audit-data/01.png)
+ ![Relatórios](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Causa
 
 As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
 
-| Relate | &nbsp; | Latência (P95) | Latência (P99) |
+| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
 |--------|--------|---------------|---------------|
 | Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
 | Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
@@ -186,13 +186,13 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Eu entrei recentemente no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Sign-ins`, mas não é possível encontrá-los.
 
- ![Relatório](./media/troubleshoot-missing-audit-data/02.png)
+ ![Relatórios](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
 As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
 
-| Relate | &nbsp; | Latência (P95) | Latência (P99) |
+| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
 |--------|--------|---------------|---------------|
 | Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
 | Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
@@ -207,13 +207,13 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Não consigo exibir mais de 30 dias de dados de entrada e de auditoria no portal do Azure. Por quê? 
 
- ![Relatório](./media/troubleshoot-missing-audit-data/03.png)
+ ![Relatórios](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 
 Dependendo da sua licença, as Ações do Azure Active Directory armazenam relatórios de atividades para as durações a seguir:
 
-| Relate           | &nbsp; |  AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
+| Relatório           | &nbsp; |  AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Auditoria de Diretório  | &nbsp; |   7 dias     | 30 dias             | 30 dias             |
 | Atividade de Entrada | &nbsp; | Não disponível. Você pode acessar sua própria atividade de entrada por 7 dias na folha de perfil do usuário individual | 30 dias | 30 dias             |
@@ -224,7 +224,7 @@ Para saber mais informações, confira [Políticas de retenção de relatório d
 
 Você tem duas opções para manter os dados por mais de 30 dias. Você pode usar as [APIs de emissão de relatórios do Azure AD](concept-reporting-api.md) para recuperar os dados por meio de programação e armazená-los em um banco de dados. Como alternativa, você pode integrar os logs de auditoria em um sistema SIEM de terceiros, como o Splunk ou SumoLogic.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral de logs de auditoria](concept-audit-logs.md)
 * [Visão geral de entradas](concept-sign-ins.md)

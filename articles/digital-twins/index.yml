@@ -3,7 +3,7 @@ title: Documentação da Versão Prévia dos Gêmeos Digitais do Azure
 summary: Saiba como usar os Gêmeos Digitais do Azure para conectar pessoas, lugares e coisas, e criar soluções IoT com inteligência espacial. Veja o Guia de início rápido e Tutoriais para monitorar um prédio inteligente imaginário, aprender conceitos detalhados e criar uma solução IoT de última geração que modela seu ambiente físico.
 metadata:
   title: Documentação da Versão Prévia dos Gêmeos Digitais do Azure – Tutoriais, Referência da API | Microsoft Docs
-  description: Use os Gêmeos Digitais do Azure para criar soluções espaciais inteligentes.
+  description: Saiba como usar os Gêmeos Digitais do Azure para conectar pessoas, lugares e coisas, e criar soluções de IoT com inteligência espacial.
   services: digital-twins
   ms.service: digital-twins
   ms.subservice: digital-twins
@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 09/03/2019
-  ms.openlocfilehash: b5a449d09b1068dbf874828b9e65b1ac318b58fd
-  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.openlocfilehash: 3d55dcfc4b57d0179ca6e02bae50bf3d37dc70f3
+  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 09/24/2019
-  ms.locfileid: "71219721"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74009311"
 landingContent:
 - title: Sobre os Gêmeos Digitais do Azure
   linkLists:

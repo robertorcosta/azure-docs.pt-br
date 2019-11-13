@@ -1,5 +1,5 @@
 ---
-title: Entender a autenticação de API usando o gêmeos digital do Azure | Microsoft Docs
+title: Entender a autenticação de API – Azure digital gêmeos | Microsoft Docs
 description: Saiba como se conectar e autenticar com APIs usando o gêmeos digital do Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 53b53fa5185ade87dfdd21f0805641657d49d676
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6af6a4501ad58fc8e371b895da601d177d872f41
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800219"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013951"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Conectar e autenticar com APIs
 
@@ -51,7 +51,7 @@ Quando os desenvolvedores arquitetam os Gêmeos Digitais do Azure, eles geralmen
 
 Para obter instruções sobre como orquestrar o fluxo [Em nome de OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Você também pode exibir exemplos de código em [chamar uma API da web downstream](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para configurar e testar os Gêmeos Digitais do Azure usando o fluxo de concessão implícita do OAuth 2.0, leia [Configurar o Postman](./how-to-configure-postman.md).
 

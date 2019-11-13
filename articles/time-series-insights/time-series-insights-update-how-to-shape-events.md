@@ -1,6 +1,6 @@
 ---
-title: Formatar eventos com Versão Prévia do Azure Time Series Insights | Microsoft Docs
-description: Entenda como formatar eventos com Azure Time Series Insights visualização.
+title: Eventos de forma-Azure Time Series Insights | Microsoft Docs
+description: Saiba como formatar eventos com Azure Time Series Insights visualização.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b9dd10a4017d821794af037e502c784b10cd62f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: bd1b59ac2037669be021dfad3bf5032b794bef4a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585273"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006246"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formatar eventos com Versão Prévia do Azure Time Series Insights
 
@@ -117,7 +117,7 @@ A instância de série temporal contém metadados de dispositivo. Esses metadado
 
 A Versão Prévia do Time Series Insights une uma tabela (após o nivelamento) durante o tempo de consulta. A tabela inclui colunas adicionais, como **Tipo**. O exemplo a seguir demonstra como você pode [Formatar](./time-series-insights-send-events.md#supported-json-shapes) seus dados de telemetria.
 
-| deviceId  | Tipo | L1 | L2 | timestamp | Taxa de series_Flow ft3/s | series_Engine de pressão do óleo psi |
+| deviceId  | Digite | L1 | L2 | timestamp | Taxa de series_Flow ft3/s | series_Engine de pressão do óleo psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULADOR | Sistema de Bateria | 2018-01-17T01:17:00Z |   1,0172575712203979 |    34,7 |
 | `FXXX` | Default_Type | SIMULADOR |   Sistema de Bateria |    2018-01-17T01:17:00Z | 2,445906400680542 |  49,2 |

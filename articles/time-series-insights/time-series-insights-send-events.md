@@ -1,6 +1,6 @@
 ---
-title: Enviar eventos para um ambiente do Azure Time Series Insights | Microsoft Docs
-description: Saiba como configurar um hub de eventos e executar um aplicativo de exemplo para efetuar push de eventos que podem ser exibidos no Azure Time Series Insights.
+title: Enviar eventos para um ambiente-Azure Time Series Insights | Microsoft Docs
+description: Saiba como configurar um hub de eventos, executar um aplicativo de exemplo e enviar eventos para seu ambiente de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2878a77918fdd1c1cd298ae536bcdd3bec065e91
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: cdcd64b5281ce16002720072db3b5f29f1978cac
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991138"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014823"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights usando um hub de eventos
 
@@ -55,7 +55,7 @@ Este artigo explica como criar e configurar um hub de eventos nos hubs de evento
 
 ## <a name="add-a-time-series-insights-instance"></a>Adicionar uma instância do Time Series Insights
 
-A atualização do Time Series Insights usa instâncias para adicionar dados contextuais aos dados de telemetria recebidos. Os dados são unidos no momento da consulta usando uma **ID da série temporal**. A **ID da série temporal** para o projeto Windmills de exemplo que usamos mais adiante neste artigo é `id`. Para saber mais sobre as instâncias do time Series insights e a **ID da série temporal**, confira [modelos de série temporal](./time-series-insights-update-tsm.md).
+A atualização do Time Series Insights usa instâncias para adicionar dados contextuais aos dados de telemetria recebidos. Os dados são unidos no momento da consulta usando uma **ID da série temporal**. A **ID da série temporal** para o projeto Windmills de exemplo que usamos mais adiante neste artigo é `id`. Para saber mais sobre instâncias do Time Series Insight e **ID da série temporal**, consulte [Modelos do Time Series](./time-series-insights-update-tsm.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Criar uma origem de evento do Time Series Insights
 
@@ -192,10 +192,10 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
     |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
-    |Oeste dos EUA|manufacturer1|Leste dos EUA|device1|2016-01-08T01:08:00Z|pressão|psi|108.09|
+    |Oeste dos EUA|manufacturer1|Leste dos EUA|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
     |Oeste dos EUA|manufacturer1|Leste dos EUA|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Exiba seu ambiente](https://insights.timeseries.azure.com) no time Series insights Explorer.
 

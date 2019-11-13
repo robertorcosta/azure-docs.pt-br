@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 604cf0564039a542ec117612bcbf74601388c0f7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61063372"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007618"
 ---
 # <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
-O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e [Serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="autoscale-concepts"></a>Conceitos de dimensionamento automático
 * Um recurso pode ter apenas *uma* configuração de Dimensionamento Automático
@@ -38,7 +38,7 @@ Se você tiver uma configuração que tenha no máximo = 2, mínimo = 2 e atual 
 Se você atualizar manualmente a contagem de instâncias para um valor acima ou abaixo do máximo, o mecanismo de dimensionamento automático dimensionará novamente para o mínimo (se estiver abaixo) ou máximo (se estiver acima) automaticamente. Por exemplo, você pode definir o intervalo entre 3 e 6. Se você tiver uma instância em execução, o mecanismo de dimensionamento automático dimensionará para três instâncias na sua próxima execução. Da mesma forma, se você definir manualmente a escala para oito instâncias, na próxima execução, o dimensionamento automático será dimensionado de volta para seis instâncias na sua próxima execução.  O dimensionamento manual é muito temporário, a menos que você também redefina as regras de dimensionamento automático.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Sempre use uma combinação de regras de escala e redução horizontal que executa um aumento e uma redução
-Se você usar apenas uma parte da combinação, dimensionamento automático só terão ação em uma única direção (escala horizontal, ou) até atingir o máximo ou contagens de instâncias mínima de definido no perfil. Isso não é ideal, o ideal é que você deseja que seu recurso escale verticalmente em momentos de alto uso para garantir a disponibilidade. Da mesma forma, em momentos de pouco uso, você deseja que seu recurso reduza verticalmente para economizar custos.
+Se você usar apenas uma parte da combinação, o dimensionamento automático só executará uma ação em uma única direção (scale out ou in) até atingir o máximo ou as contagens de instâncias mínimas de definidas no perfil. Isso não é ideal, o ideal é que você deseja que seu recurso escale verticalmente em momentos de alto uso para garantir a disponibilidade. Da mesma forma, em momentos de pouco uso, você deseja que seu recurso reduza verticalmente para economizar custos.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Escolher a estatística apropriada para sua métrica de diagnóstico
 Para métricas de diagnóstico, você pode escolher entre *Média*, *Mínimo*, *Máximo* e *Total* como uma métrica para expandir. A estatística mais comum é *Média*.
@@ -48,8 +48,8 @@ Recomendamos escolher cuidadosamente limites diferentes para escalar e reduzir h
 
 *Não recomendamos* as configurações de dimensionamento automático como os exemplos abaixo com os valores de limite igual ou muito semelhante para condições de redução e escala:
 
-* Aumentar as instâncias por contagem de 1 quando a Contagem de Threads < = 600
-* Reduzir as instâncias por contagem de 1 quando a Contagem de Threads >= 600
+* Aumentar as instâncias por contagem de 1 quando a contagem de threads > = 600
+* Diminuir as instâncias por contagem de 1 quando a contagem de threads < = 600
 
 Vejamos um exemplo de como o que pode levar a um comportamento que possa parecer confuso. Considere a sequência a seguir.
 
@@ -147,7 +147,7 @@ Você também pode usar um alerta do Log de Atividades para monitorar a integrid
 
 Além de usar os alertas do log de atividades, você também pode configurar as notificações por e-mail ou webhook para obter notificações de ações de dimensionamento bem-sucedidas através do guia de notificações nas configurações de dimensionamento automático.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

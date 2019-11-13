@@ -1,20 +1,19 @@
 ---
-title: Gerenciar o servidor de configuração para recuperação de desastre do VMware e do servidor físico com o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como gerenciar um servidor de configuração existente para recuperação de desastre de VMs VMware e servidores físicos no Azure com o Azure Site Recovery.
+title: Gerenciar o servidor de configuração para recuperação de desastre com o Azure Site Recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791830"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954353"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerenciar o servidor de configuração para a recuperação de desastre do servidor físico/VM do VMware
 
 Você configura um servidor de configuração local quando você usa o [Azure Site Recovery](site-recovery-overview.md) para recuperação de desastre de VMs VMware e servidores físicos para o Azure. O servidor de configuração coordena a comunicação entre o ambiente de VMware local e o Azure e gerencia a replicação de dados. Este artigo resume as tarefas comuns para gerenciar o servidor de configuração depois de implantado.
 
@@ -155,16 +154,16 @@ Atualize o servidor da seguinte maneira:
 
 1. No cofre, vá para **Gerenciar**  >  **Infraestrutura de Recuperação do Site**  >  **Servidores de Configuração**.
 2. Se uma atualização estiver disponível, aparecerá um link no **versão do agente** > coluna.
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Baixe o arquivo instalador da atualização no servidor de configuração.
 
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Atualização](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Clique duas vezes para executar o instalador.
 5. O instalador detecta a versão atual em execução no computador. Clique em **Sim** para iniciar a atualização.
 6. Quando a atualização for concluída valida a configuração do servidor.
 
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Atualização](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Clique em **Finish** para fechar o instalador.
 8. Para atualizar o restante dos componentes do Site Recovery, veja as nossas [diretrizes de atualização](https://aka.ms/asr_vmware_upgrades).
@@ -185,9 +184,9 @@ Execute o arquivo de instalação da seguinte maneira:
   ```
 
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-|Nome do parâmetro| Type | Descrição| Valores|
+|Nome do Parâmetro| Digite | DESCRIÇÃO| Valores|
 |-|-|-|-|
 | /ServerMode|obrigatórios|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
 |/InstallLocation|obrigatórios|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
@@ -294,7 +293,7 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 1. No portal do Azure, navegue para **Cofre de Serviços de Recuperação** > **Gerenciar** > **Infraestrutura de Recuperação do Site** > **Para máquinas VMware e físicas** > **Servidores de Configuração**
 2. Clique no servidor de configuração que você deseja atualizar.
 3. No blade com detalhes do servidor de configuração escolhido, clique em **Mais** >  **Refresh Server**.
-4. Monitore o progresso do trabalho em **Cofre de Serviços de Recuperação** > **Monitorando** >  **trabalhos de Recuperação do Site**.
+4. Monitore o progresso do trabalho em **Cofre dos Serviços de Recuperação** > **Monitoramento** > **trabalhos do Site Recovery**.
 
 ## <a name="failback-requirements"></a>Requisitos de failback
 
@@ -302,6 +301,6 @@ Durante a reprotecção e o failback, o servidor de configuração local deve es
 
 Assegure-se de fazer backups agendados regulares de seu servidor de configuração. Se ocorrer um desastre e o servidor de configuração for perdido, você deve primeiro restaurar o servidor de configuração a partir de uma cópia de backup e garantir que o servidor de configuração restaurado tenha o mesmo endereço IP com o qual foi registrado no vault. O failback não funcionará se um endereço IP diferente for usado para o servidor de configuração restaurado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Analise os tutoriais para configurar a recuperação de desastre de [VMs VMware](vmware-azure-tutorial.md) para o Azure.

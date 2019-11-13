@@ -1,5 +1,5 @@
 ---
-title: Desenvolvimento do Azure IoT Hub para dispositivos restritos usando o SDK C do Hub IoT | Microsoft Docs
+title: O Hub IoT do Azure desenvolve para dispositivos restritos usando o SDK do Hub IoT C
 description: Guia do desenvolvedor - diretrizes sobre como desenvolver usando SDKs do IoT do Azure para dispositivos restritos.
 author: robinsh
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
-ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880960"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954692"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desenvolver para dispositivos restritos usando SDKs C de IoT do Azure
 
@@ -27,13 +27,13 @@ O SDK C está disponível em formulário de pacote do apt-get, NuGet e MBED. Par
 
 Crie o SDK C para dispositivos restritos.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 Siga este [Guia de instalação do SDK C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) para preparar o ambiente de desenvolvimento para criar o SDK C. Antes de chegar à etapa de compilação com cmake, é possível invocar sinalizadores cmake para remover recursos não utilizados.
 
 ### <a name="remove-additional-protocol-libraries"></a>Remover bibliotecas de protocolo adicionais
 
-O SDK do C dá suporte a cinco protocolos hoje: MQTT, MQTT sobre WebSocket, AMQPs, AMQP por WebSocket e HTTPS. A maioria dos cenários requer um ou dois protocolos em execução em um cliente, portanto, é possível remover a biblioteca de protocolos que não está usando do SDK. Informações adicionais sobre como escolher o protocolo de comunicação apropriado para seu cenário podem ser localizadas em [Escolher um protocolo de comunicação do Hub IoT](iot-hub-devguide-protocols.md). Por exemplo, o MQTT é um protocolo leve que geralmente é mais adequado para dispositivos restritos.
+Atualmente, o SDK C dá suporte a cinco protocolos: MQTT, MQTT sobre WebSocket, AMQPs, AMQP sobre WebSocket e HTTPS. A maioria dos cenários requer um ou dois protocolos em execução em um cliente, portanto, é possível remover a biblioteca de protocolos que não está usando do SDK. Informações adicionais sobre como escolher o protocolo de comunicação apropriado para seu cenário podem ser localizadas em [Escolher um protocolo de comunicação do Hub IoT](iot-hub-devguide-protocols.md). Por exemplo, o MQTT é um protocolo leve que geralmente é mais adequado para dispositivos restritos.
 
 Você pode remover as bibliotecas AMQP e HTTP usando o seguinte comando do cmake:
 

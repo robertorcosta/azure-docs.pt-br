@@ -3,7 +3,7 @@ title: Latências de relatórios do Azure Active Directory | Microsoft Docs
 description: Saiba quanto tempo leva para que os eventos de relatório sejam exibidos no seu portal do Azure
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce62a5059304fe83d933a46ae69f4b8e0c276ba7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127028"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007697"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
 
@@ -59,7 +59,7 @@ Há dois tipos de relatórios de segurança:
 
 A tabela a seguir lista as informações de latência para relatórios de segurança.
 
-| Relatório | Mínimo | Average | Máximo |
+| Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
 | Usuários em risco          | 5 minutos   | 15 minutos  | 2 horas  |
 | Entradas de risco         | 5 minutos   | 15 minutos  | 2 horas  |
@@ -70,12 +70,12 @@ O Azure AD usa algoritmos de aprendizado de máquina e heurística adaptáveis p
 
 A tabela a seguir lista as informações de latência para as detecções de risco.
 
-| Relatório | Mínimo | Average | Máximo |
+| Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
 | Entradas de endereços IP anônimos |5 minutos |15 minutos |2 horas |
 | Entradas de locais desconhecidos |5 minutos |15 minutos |2 horas |
-| Usuários com credenciais vazadas |2 horas |4 horas |8 horas |
-| Viagem impossível a localizações atípicas |5 minutos |1 hora |8 horas  |
+| Usuários com credenciais insuficientes |2 horas |4 horas |8 horas |
+| Viagem impossível a locais atípicos |5 minutos |1 hora |8 horas  |
 | Entradas de dispositivos infectados |2 horas |4 horas |8 horas  |
 | Entradas de endereços IP com atividade suspeita |2 horas |4 horas |8 horas  |
 
@@ -83,5 +83,5 @@ A tabela a seguir lista as informações de latência para as detecções de ris
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral dos relatórios do Azure AD](overview-reports.md)
-* [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)
+* [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)
 * [Azure Active Directory de detecções de risco](concept-risk-events.md)

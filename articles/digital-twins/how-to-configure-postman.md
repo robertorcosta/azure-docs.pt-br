@@ -1,6 +1,6 @@
 ---
-title: Como configurar o Postman para os Gêmeos Digitais do Azure | Microsoft Docs
-description: Como configurar o Postman para os Gêmeos Digitais do Azure.
+title: Como configurar o postmaster – Azure digital gêmeos | Microsoft Docs
+description: Saiba como configurar e usar o postmaster para testar as APIs do Azure digital gêmeos.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 14e6a52f86586eaae019d9658c2f813a15fc3474
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 5a357a246f2ba6c294b107e447218f386623f5c5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949201"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014188"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman para os Gêmeos Digitais do Azure
 
@@ -46,9 +46,9 @@ Configurar seu aplicativo Azure Active Directory para usar o fluxo de concessão
         [![API de Pesquisa para Espaços Inteligentes do Azure](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
     > [!IMPORTANT]
-    > O nome e a ID da API do Azure AD que serão exibidos dependerá do seu locatário:
-    > * As contas de locatário e cliente de teste devem Pesquisar `Azure Digital Twins`.
-    > * Outras contas da Microsoft devem Pesquisar `Azure Smart Spaces Service`.
+    > A ID e o nome da API do Azure AD que serão exibidos dependerão do locatário:
+    > * As contas de locatário e cliente de teste devem pesquisar `Azure Digital Twins`.
+    > * Outras contas Microsoft devem pesquisar `Azure Smart Spaces Service`.
 
 1. A API selecionada é exibida como **Gêmeos Digitais do Azure** no mesmo painel **Solicitar permissões de API**. Selecione a lista suspensa **Ler (1)** e a caixa de seleção **Read.Write**. Selecione o botão **Adicionar permissões**.
 
@@ -56,7 +56,7 @@ Configurar seu aplicativo Azure Active Directory para usar o fluxo de concessão
 
 1. Dependendo das configurações da sua organização, talvez você precise seguir etapas adicionais para conceder acesso de administrador a essa API. Entre em contato com seu administrador para obter mais informações. Assim que o acesso de administrador for aprovado, a coluna **CONSENTIMENTO DO ADMINISTRADOR NECESSÁRIO** no painel de **Permissões de API** será mostrada da seguinte forma para as suas APIs:
 
-    [![Adicionar permissões de API](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [aprovação de consentimento do administrador ![](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
 
 1. Selecione **manifesto** para abrir o manifesto do aplicativo para seu aplicativo. Definir *oauth2AllowImplicitFlow* para `true`.
@@ -85,7 +85,7 @@ Configure e configure o postmaster para obter um token de Azure Active Directory
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Nome  | Substitua por | Exemplo |
+    | NOME  | Substitua por | Exemplo |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | O nome do seu locatário ou organização | `microsoft` |
 
@@ -96,14 +96,14 @@ Configure e configure o postmaster para obter um token de Azure Active Directory
     | Tipo de concessão | `Implicit` |
     | URL de retorno de chamada | `https://www.getpostman.com/oauth2/callback` |
     | URL de autenticação | Use a **URL de autorização** da **etapa 2** |
-    | ID do cliente | Use a **ID do aplicativo** para o Azure Active Directory aplicativo que foi criado ou reutilizado da seção anterior |
+    | Id do Cliente | Use a **ID do aplicativo** para o Azure Active Directory aplicativo que foi criado ou reutilizado da seção anterior |
     | Escopo | Deixar em branco |
     | Estado | Deixar em branco |
-    | Autenticação de Cliente | `Send as Basic Auth header` |
+    | Autenticação de cliente | `Send as Basic Auth header` |
 
 1. Agora, o cliente deve se parecer com:
 
-    [exemplo de cliente ![Postman](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [![exemplo de cliente do postmaster](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Selecione **Solicitação de Token**.
 
@@ -119,14 +119,14 @@ Depois de concluir as etapas anteriores, configure o Postman para fazer uma soli
 
 1. Na guia **Cabeçalho**, adicione uma chave do cabeçalho da solicitação HTTP **Content-Type** com valor `multipart/mixed`.
 
-   [![Filtragem de tipo com várias partes/misturadas](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [tipo de conteúdo ![com várias partes/misturado](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialize dados não textuais em arquivos. Os dados JSON seriam salvos como um arquivo JSON.
 1. Na guia **corpo** , selecione `form-data`. 
 1. Adicione cada arquivo atribuindo um nome de **chave** , selecionando `file`.
 1. Em seguida, selecione cada arquivo por meio do botão **Escolher arquivo**.
 
-   [exemplo de cliente ![Postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [![exemplo de cliente do postmaster](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
    > * O cliente Postman não requer que as partes com várias partes tenham um **Content-Type** ou **Content-Disposition** atribuído manualmente.

@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612001"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008594"
 ---
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
-
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos Azure Premium SSD.
 
 ## <a name="managed-disks"></a>Managed Disks
@@ -151,7 +149,7 @@ Os instantâneos de suporte a SSD Premium, SSD padrão e HDD padrão. Para esses
 A reserva de disco é a opção de comprar um ano de armazenamento em disco com antecedência, reduzindo o custo total.
 
 **Quais opções a reserva de disco do Azure oferece?**
-A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, você pode optar por pagar com um único pagamento antecipado ou pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks.
+A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, você pode optar pelo pagamento único antecipado ou por pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks.
 
 As reservas são feitas na forma de discos, não na capacidade. Em outras palavras, ao reservar um disco P80 (32 TiB), você obtém um único disco P80, não é possível divvy essa reserva específica em dois discos menores P70 (16 TiB). É claro que você pode reservar tantos discos quanto desejar, incluindo dois discos P70 (16 TiB) separados.
 
@@ -301,7 +299,7 @@ Não. Azure Site Recovery proteção do Azure para o Azure para VMs com Managed 
 
 **Posso migrar VMs com discos não gerenciados localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
 
-Sim
+sim
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e Criptografia de Serviço de Armazenamento
 
@@ -342,25 +340,13 @@ Sim. Todos os instantâneos e imagens criados após 9 de junho de 2017 são crip
 
 **Posso converter máquinas virtuais com discos não gerenciados que estão localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
 
-Sim
+sim
 
 **Um VHD exportado de um disco gerenciado ou instantâneo também será criptografado?**
 
 Não. Mas se você exportar um VHD para uma conta de armazenamento criptografada de um disco gerenciado ou instantâneo criptografado, ele estará criptografado. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Discos Premium: gerenciados e não gerenciados
-
-**Quais regiões dão suporte à capacidade de intermitência para o tamanho de disco SSD Premium aplicável?**
-
-No momento, há suporte para a capacidade de intermitência no Azure West EUA Central.
-
-**Quais regiões são 4/8/16 GiB de tamanhos de disco gerenciado (P1/P2/P3, E1/E2/E3) com suporte no?**
-
-Atualmente, há suporte para esses novos tamanhos de disco no Azure West EUA Central.
-
-**Os tamanhos de disco P1/P2/P3 têm suporte para discos não gerenciados ou BLOBs de página?**
-
-Não, só há suporte para ele no SSD Premium Managed Disks. 
 
 **Se uma VM usa uma série de tamanho que dá suporte aos discos Premium SSD, como um DSv2, é possível anexar discos de dados standard e premium?** 
 
@@ -392,6 +378,22 @@ Não há nenhuma desvantagem em usar CORTE nos Discos do Azure Premium ou Standa
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: gerenciados e não gerenciados
 
+**Quais regiões dão suporte à capacidade de intermitência para o tamanho de disco SSD Premium aplicável?**
+
+No momento, há suporte para a capacidade de intermitência no Azure West EUA Central.
+
+**Quais regiões são 4/8/16 GiB de tamanhos de disco gerenciado (P1/P2/P3, E1/E2/E3) com suporte no?**
+
+Atualmente, há suporte para esses novos tamanhos de disco no Azure West EUA Central.
+
+**Os tamanhos de disco P1/P2/P3 têm suporte para discos não gerenciados ou BLOBs de página?**
+
+Não, só há suporte para os discos gerenciados do SSD Premium. 
+
+**Os tamanhos de disco E1/E2/E3 têm suporte para discos não gerenciados ou BLOBs de páginas?**
+
+Não, os discos gerenciados do SSD Standard de qualquer tamanho não podem ser usados com discos não gerenciados ou BLOBs de páginas.
+
 **Qual é o maior tamanho de disco gerenciado com suporte para o sistema operacional e os discos de dados?**
 
 O tipo de partição a que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato do MBR dá suporte a tamanho de disco de até 2 TiB. O maior tamanho a que o Azure dá suporte para um disco do sistema operacional é 2 TiB. O Azure dá suporte a até 32 TiB para discos de dados gerenciados no Azure global, 4 TiB em nuvens soberanas do Azure.
@@ -410,7 +412,7 @@ Você não precisa atualizar as ferramentas existentes do Azure para criar, anex
 
 |Ferramentas do Azure      | Versões com suporte                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Número de versão 4.1.0: versão de junho de 2017 ou posterior|
+|PowerShell do Azure | Número de versão 4.1.0: versão de junho de 2017 ou posterior|
 |CLI do Azure v1     | Número de versão 0.10.13: versão de maio de 2017 ou posterior|
 |CLI do Azure v2     | Número de versão 2.0.12: versão de julho de 2017 ou posterior|
 |AzCopy           | Número de versão 6.1.0: versão de junho de 2017 ou posterior|

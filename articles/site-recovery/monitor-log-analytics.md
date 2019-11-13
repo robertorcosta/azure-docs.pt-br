@@ -1,18 +1,18 @@
 ---
-title: Monitorar Azure Site Recovery com logs de Azure Monitor (Log Analytics) | Microsoft Docs
+title: Monitorar Azure Site Recovery com logs de Azure Monitor
 description: Saiba como monitorar Azure Site Recovery com Azure Monitor logs (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/13/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331932"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936082"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorar Site Recovery com os logs do Azure Monitor
 
@@ -327,6 +327,6 @@ AzureDiagnostics  
 
 Para o alerta, defina o **valor do limite** como 1 e **período** como 1440 minutos para verificar falhas no último dia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais sobre](site-recovery-monitor-and-troubleshoot.md) o monitoramento de site Recovery interno.

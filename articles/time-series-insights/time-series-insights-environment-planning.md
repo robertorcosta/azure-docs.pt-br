@@ -1,6 +1,6 @@
 ---
-title: Planejar a escala do ambiente do Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve como seguir as práticas recomendadas ao planejar um ambiente de Azure Time Series Insights. As áreas cobertas incluem capacidade de armazenamento, retenção de dados, capacidade de entrada, monitoramento e continuidade dos negócios e recuperação de desastres (BCDR).
+title: Planeje seu ambiente GA-Azure Time Series Insights | Microsoft Docs
+description: Saiba mais sobre as práticas recomendadas a serem seguidas ao planejar seu ambiente GA.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 649ff31e40bf612f1b70f81e895920f7fc21f082
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 2dd3b79e931464e83264433a923e9078b2f62525
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991250"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006947"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planeje seu ambiente Azure Time Series Insights GA
 
@@ -123,7 +123,7 @@ Para saber mais sobre como criar, carregar e gerenciar seus dados de referência
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Comece criando [um novo ambiente de time Series insights no portal do Azure](time-series-insights-get-started.md).
 

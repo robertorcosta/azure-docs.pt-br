@@ -1,27 +1,24 @@
 ---
 title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa a configuração de convidado para auditar as configurações dentro de um computador do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 0e5592f629646db3132ffd65fd56b1a0d5d5be39
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5148ecb2f10a2ac517c5cf6c7f682a0f25808910
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581436"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959774"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
 Além da auditoria e da [correção](../how-to/remediate-resources.md) dos recursos do Azure, Azure Policy pode auditar as configurações dentro de um computador. A validação é executada pela extensão e pelo cliente de Configuração de Convidado. A extensão, por meio do cliente, valida as configurações como:
 
 - A configuração do sistema operacional
-- Configuração ou presença de aplicativo
-- Configurações de ambiente
+- Configuração ou presença do aplicativo
+- Configurações do ambiente
 
-Neste momento, Azure Policy configuração de convidado audita apenas as configurações dentro do computador. Ele não aplica configurações.
+Neste momento, a Configuração de Convidado do Azure Policy audita somente as configurações dentro do computador. Ela não aplica configurações.
 
 ## <a name="extension-and-client"></a>Extensão e cliente
 
@@ -75,9 +72,9 @@ O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos
 
 A tabela a seguir mostra uma lista de sistemas operacionais com suporte em imagens do Azure:
 
-|Editor|Nome|Versões|
+|Publicador|NOME|Versões|
 |-|-|-|
-|Canônico|Ubuntu Server|14.04, 16.04, 18.04|
+|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 datacenter, 2012 R2 Datacenter, 2016 Data Center, 2019 datacenter|
 |Microsoft|Windows Client|Windows 10|
@@ -159,7 +156,7 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
-Onde `<version>` refere-se ao número de versão atual.
+Onde `<version>` se refere ao número de versão atual.
 
 ### <a name="collecting-logs-remotely"></a>Coletando logs remotamente
 

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1def431bd24019c5f7d15cf7ac0e7550b85d17c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176712"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012956"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
 
 Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os usuários do Azure Active Directory (Azure AD). Este guia também mostra como gerenciar grupos de usuários do Azure AD, adicionando grupos externos que contêm os usuários.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 - Importar e publicar uma instância de gerenciamento de API do Azure. Para obter mais informações, consulte [Importar e publicar](import-and-publish.md).
@@ -32,8 +32,8 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar contas de desenvolvedor usando o Azure AD
 
-1. Entre no [portal do Azure](https://portal.azure.com). 
-2. Selecionar ![seta](./media/api-management-howto-aad/arrow.png).
+1. Entre no [Portal do Azure](https://portal.azure.com). 
+2. Escolha ![seta](./media/api-management-howto-aad/arrow.png).
 3. Digite **api** na caixa de pesquisa.
 4. Selecione **Serviços de Gerenciamento de API**.
 5. Selecione uma instância do Serviço de Gerenciamento de API.
@@ -100,11 +100,11 @@ Os usuários da instância do Azure AD configurada já podem entrar no portal do
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> portal do desenvolvedor-adicionar autenticação de conta do Azure AD
 
-Para habilitar a entrada com o AAD no portal do desenvolvedor, você precisa adicionar o widget **botões OAuth** ao formulário de entrada.
+No portal do desenvolvedor, é possível entrar com o AAD com o widget **botões do OAuth** . O widget já está incluído na página de entrada do conteúdo do portal do desenvolvedor padrão.
 
 ![Widget de botões do AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-Embora uma nova conta seja criada automaticamente sempre que um novo usuário entrar com o AAD, você pode considerar adicionar o mesmo widget no formulário de inscrição.
+Embora uma nova conta seja criada automaticamente sempre que um novo usuário entrar com o AAD, você pode considerar adicionar o mesmo widget à página de inscrição.
 
 ## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Portal do desenvolvedor herdado-como entrar com o Azure AD
 

@@ -1,6 +1,6 @@
 ---
 title: Como configurar o monitoramento – gêmeos digital do Azure | Microsoft Docs
-description: Como configurar o monitoramento nos Gêmeos Digitais do Azure.
+description: Saiba como configurar opções de monitoramento e log para o gêmeos digital do Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7d81636bfb60c2d5fa059da01ac535e09b829f4
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 38d55df5f705aa3639540c4731c4c17c61c9b9ac
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949988"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005971"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar o monitoramento nos Gêmeos Digitais do Azure
 
@@ -40,17 +40,17 @@ O log de atividades dos Gêmeos Digitais do Azure é habilitado por padrão e po
 1. Selecionar sua instância de Gêmeos Digitais do Azure.
 1. Escolher o **log de atividades** para exibir o painel de exibição:
 
-    [log de ![Activity](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
+    [log de atividades ![](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
 Para o registro de log de atividades avançadas:
 
 1. Selecione a opção **Logs** para exibir a **Visão geral da Análise do Log de Atividades**:
 
-    [![Selection](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
+    [Seleção de ![](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
 
 1. A **Visão geral da Análise do Log de Atividades** resume dados de log de atividade essenciais:
 
-    [Visão geral de @no__t do log Analytics do 1Activity]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
+    [Visão geral do ![log Analytics]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
 
 >[!TIP]
 >Use **logs de atividade** para insights rápidos de eventos no nível da assinatura.
@@ -70,12 +70,12 @@ Para habilitar logs de diagnóstico, siga estas etapas:
 1. Abra os recursos no portal do Azure.
 1. Selecione **configurações de diagnóstico**:
 
-    [configurações de @no__t 1Diagnostic um](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
+    [![configurações de diagnóstico um](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
 1. Selecione **Ativar diagnóstico** para coletar dados (se não tiver sido habilitado anteriormente).
 1. Preencha os campos solicitados e selecione como e onde os dados serão salvos:
 
-    [configurações de ![Diagnostic dois](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
+    [![configurações de diagnóstico duas](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
 
     Os logs de diagnóstico são frequentemente salvos usando o [armazenamento de arquivos do Azure](../storage/files/storage-files-deployment-guide.md) e compartilhados com [logs de Azure monitor](../azure-monitor/log-query/get-started-portal.md). Ambas as opções podem ser selecionadas.
 
@@ -99,15 +99,15 @@ A consulta de log completa é fornecida por meio de [logs de Azure monitor](../a
 1. No portal do Microsoft Azure, pesquise **Log Analytics**.
 1. Você verá suas instâncias de **espaço de trabalho log Analytics** disponíveis. Para consultar, escolha um e selecione **Logs**:
 
-    [análise de ![Log](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
+    [![log Analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
 1. Se você ainda não tiver uma instância de **espaço de trabalho log Analytics** , poderá criar um espaço de trabalho selecionando o botão **Adicionar** :
 
-    [OMS de @no__t 1Create](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
+    [![criar OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
 Depois que a instância do **espaço de trabalho do log Analytics** for provisionada, você poderá usar consultas poderosas para localizar entradas em vários logs ou Pesquisar usando critérios específicos usando o gerenciamento de **log**:
 
-   [gerenciamento de @no__t 1Log](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
+   [gerenciamento de log do ![](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
 Para obter mais informações sobre as operações de consulta avançada, confira [Introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
 
@@ -116,7 +116,7 @@ Para obter mais informações sobre as operações de consulta avançada, confir
 
 Os logs de Azure Monitor também fornecem serviços de notificação de erro e alerta avançados, que podem ser exibidos selecionando **diagnosticar e resolver problemas**:
 
-   [![Alert e notificações de erro](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
+   [![alertas e notificações de erro](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
 >[!TIP]
 >Use **log Analytics espaço de trabalho** para consultar históricos de log para várias funcionalidades, assinaturas ou serviços do aplicativo.

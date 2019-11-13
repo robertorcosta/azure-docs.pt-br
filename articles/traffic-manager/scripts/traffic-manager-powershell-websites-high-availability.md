@@ -1,10 +1,10 @@
 ---
-title: Exemplo de script do Azure PowerShell – Rotear o tráfego para alta disponibilidade de aplicativos | Microsoft Docs
+title: Rotear o tráfego para HA de aplicativos-Azure PowerShell-Gerenciador de tráfego
 description: Exemplo de script do Azure PowerShell – Rotear o tráfego para alta disponibilidade de aplicativos
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
-manager: twooley
+manager: kumudD
 editor: ''
 tags: azure-infrastructure
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: allensu
-ms.openlocfilehash: 1c04859e2fe8841eb679f0b3e22b54ce71f88230
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd81ef459d4b3a60d5da3dff9fff4119392ac8cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050962"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014646"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Rotear o tráfego para alta disponibilidade de aplicativos usando o Azure PowerShell
 
@@ -47,7 +47,7 @@ Remove-AzResourceGroup -Name myResourceGroup2
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicativo Web, o perfil do Gerenciador de tráfego e todos os recursos relacionados. Cada comando da tabela é vinculado à documentação específica do comando.
+Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicativo Web, o perfil do Gerenciador de tráfego e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
 
 | Comando | Observações |
 |---|---|
@@ -60,6 +60,6 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 Exemplos adicionais de script de PowerShell de rede podem ser encontrados na [Documentação de visão geral da rede do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

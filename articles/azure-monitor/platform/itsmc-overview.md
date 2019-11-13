@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 54f3d76704a1f9bf7fec2f3c6c68c88fffd993b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932262"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936201"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -113,12 +113,12 @@ Depois de criar a conexão de ITSM, crie itens de trabalho na ferramenta de ITSM
 
 Os Grupos de Ações fornecem uma maneira modular e reutilizável de disparar ações para os Alertas do Azure. Use Grupos de Ação com alertas de métricas, alertas do Log de Atividades e alertas do Azure Log Analytics no portal do Azure.
 
-Use este procedimento:
+Use o seguinte procedimento:
 
 1. No portal do Azure, clique em **Monitorar**.
 2. No painel esquerdo, clique em **Grupos de ações**. A janela **Adicionar grupo de ações** é exibida.
 
-    ![Grupos de ações](media/itsmc-overview/action-groups.png)
+    ![Grupos de Ação](media/itsmc-overview/action-groups.png)
 
 3. Forneça um **nome** e um **ShortName** para o grupo de ações. Selecione o **Grupo de Recursos** e a **Assinatura** em que deseja criar seu grupo de ações.
 
@@ -187,11 +187,11 @@ ServiceDeskWorkItemType_s="Incident"
 - Criado por
 - Resolvido por
 - Fechado por
-- Origem
+- Fonte
 - Atribuído a
 - Categoria
 - Title
-- Descrição
+- DESCRIÇÃO
 - Data de criação
 - Data de fechamento
 - Data de resolução
@@ -208,10 +208,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - ID da Central de Serviços
 - Criado por
 - Fechado por
-- Origem
+- Fonte
 - Atribuído a
 - Title
-- Type
+- Digite
 - Categoria
 - Estado
 - Escalonamento
@@ -229,7 +229,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de término prevista
 - Data de início do trabalho
 - Data de término do trabalho
-- Descrição
+- DESCRIÇÃO
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída de um incidente do ServiceNow
@@ -248,7 +248,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Atribuído a  |
 | Category_s | Categoria |
 | Title_s|  Descrição breve |
-| Description_s|  Notas |
+| Description_s|  Observações |
 | CreatedDate_t|  Aberto |
 | ClosedDate_t| closed|
 | ResolvedDate_t|Resolvido|
@@ -263,7 +263,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Descrição breve |
-| Type_s|  Type |
+| Type_s|  Digite |
 | Category_s|  Categoria |
 | CRState_s|  Estado|
 | Urgency_s|  Urgência |
@@ -276,7 +276,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de término planejada |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de término real|
-| Description_s | Descrição |
+| Description_s | DESCRIÇÃO |
 | Computador  | Item de Configuração |
 
 
@@ -299,9 +299,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  Se você não conseguir criar o namespace de retransmissão do barramento de serviço, certifique-se de que o provedor de recursos necessário está registrado na assinatura. Se ele não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço usando o Portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) do Portal do Azure.
 
 
-## <a name="contact-us"></a>Contate-nos
+## <a name="contact-us"></a>Fale conosco
 
 Em caso de dúvidas ou comentários sobre o Conector de Gerenciamento de Serviço de TI, entre em contato conosco pelo email [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Adicionar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviço de TI](../../azure-monitor/platform/itsmc-connections.md).

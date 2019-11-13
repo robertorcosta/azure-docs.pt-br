@@ -1,5 +1,5 @@
 ---
-title: Ativar aplicativos de vários usuários com os Gêmeos Digitais do Azure| Microsoft Docs
+title: Habilitar aplicativos multilocatários – Azure digital gêmeos | Microsoft Docs
 description: Como configurar aplicativos multilocatário do Azure Active Directory para os Gêmeos Digitais do Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6394d519b93b55358ef9d528f89978d5a3cf3007
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958765"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005910"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Ativar aplicativos de vários usuários com Gêmeos Digitais do Azure
 
@@ -57,13 +57,13 @@ Para resolver o cenário de problema anterior, as seguintes ações são necess�
   1. Abrir **assinaturas**.
   1. Selecione a assinatura que tem um locatário do Azure Active Directory a ser usado no aplicativo do **DEVELOPER**.
 
-     [assinaturas de Active Directory @no__t 1Azure](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
+     [![Azure Active Directory assinaturas](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. Selecione **Provedores de Recursos**.
   1. Pesquise **Microsoft.IoTSpaces**.
   1. Selecione **Registrar**.
 
-     [![Azure Active Directory provedores de recursos](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
+     [provedores de recursos de Azure Active Directory ![](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>Próximas etapas
 

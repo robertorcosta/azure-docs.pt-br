@@ -1,6 +1,6 @@
 ---
-title: Saída e pontos de extremidade em gêmeos digitais do Azure | Microsoft Docs
-description: Diretrizes sobre como criar pontos de extremidade de Gêmeos Digitais do Azure.
+title: Saída e pontos de extremidade – Azure digital gêmeos | Microsoft Docs
+description: Saiba como criar e saída de pontos de extremidade de evento no Azure digital gêmeos.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822267"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010065"
 ---
-# <a name="egress-and-endpoints"></a>Pontos de extremidade e de saída
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Saída e pontos de extremidade no Azure digital gêmeos
 
 Os *pontos de extremidade* dos Gêmeos Digitais do Azure representam um agente de mensagens ou eventos na assinatura de um usuário do Azure. Eventos e mensagens podem ser enviados para os tópicos Hubs de Eventos do Azure, Grade de Eventos do Azure e Barramento de Serviço do Azure.
 
@@ -47,16 +47,16 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 }
 ```
 
-| Atributo | Tipo | DESCRIÇÃO |
+| Atributo | Digite | DESCRIÇÃO |
 | --- | --- | --- |
-| ID | string | Identificador exclusivo do evento. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| ID | cadeia de caracteres | Identificador exclusivo do evento. |
+| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
 | data | objeto | Dados do evento específicos ao provedor de recursos. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
-| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
 
 Para obter mais informações sobre o esquema de evento da Grade de Eventos:
 
@@ -95,7 +95,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- Sistema
+- System
 - Usuário
 - UserBlobMetadata
 - UserExtendedProperty

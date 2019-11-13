@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852032"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73942160"
 ---
 # <a name="supported-account-types"></a>Tipos de conta com suporte
 
@@ -41,7 +41,7 @@ Na nuvem pública do Microsoft Azure, a maioria dos tipos de aplicativos pode co
   - Com a conta corporativa ou de estudante ou com a conta Microsoft pessoal.
   - Somente com a conta Microsoft pessoal.
     > [!NOTE]
-    > Atualmente, a plataforma de identidade da Microsoft dá suporte a contas Microsoft pessoais somente registrando um aplicativo para **contas corporativas ou de estudante ou contas Microsoft pessoais** e, em seguida, restringe a entrada no código do aplicativo especificando uma autoridade do Azure AD ao criar o aplicativo, como `https://login.onmicrosoftonline.com/consumers`.
+    > Atualmente, a plataforma de identidade da Microsoft dá suporte a contas Microsoft pessoais somente registrando um aplicativo para **contas corporativas ou de estudante ou contas Microsoft pessoais** e, em seguida, restringe a entrada no código do aplicativo especificando uma autoridade do Azure AD ao criar o aplicativo, como `https://login.microsoftonline.com/consumers`.
 
 - Se você estiver inserindo uma empresa no aplicativo de consumidores, também poderá conectar usuários com suas identidades sociais, usando o Azure AD B2C.
 

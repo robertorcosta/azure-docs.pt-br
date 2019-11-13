@@ -4,29 +4,28 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 90ccc89f80da7c2abce324c077f0fb1a436b8d44
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1a18812c6447266d34f2c8aa1ccff8984f68570a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170978"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008812"
 ---
-# <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usar ferramentas de automação de infraestrutura com máquinas virtuais no Azure
 Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
 
 - Automatizar a configuração de VMs
     - As ferramentas incluem [Ansible](#ansible), [Chef](#chef) e [Puppet](#puppet).
-    - As ferramentas específicas para a personalização de VM incluem [cloud-init](#cloud-init) para VMs do Linux, [DSC (Configuração de Estado Desejado) do PowerShell](#powershell-dsc) e [Extensão de Script Personalizado do Azure](#azure-custom-script-extension) para todas as VMs do Azure.
+    - Ferramentas específicas para a personalização de VM incluem [cloud-init](#cloud-init) para VMs do Linux, [DSC (Configuração de Estado Desejado) do PowerShell](#powershell-dsc)e a [Extensão de Script Personalizado do Azure](#azure-custom-script-extension) para todas as VMs do Azure.
  
 - Automatizar o gerenciamento de infraestrutura
-    - As ferramentas incluem o [Packer](#packer), para automatizar as builds de imagem de VM personalizadas, e o [Terraform](#terraform), para automatizar a infraestrutura do processo de compilação.
+    - As ferramentas incluem o [Packer](#packer), para automatizar as builds de imagem de VM personalizadas, e [Terraform](#terraform), para automatizar a infraestrutura do processo de compilação.
     - A [Automação do Azure](#azure-automation) pode executar ações em sua infraestrutura local e do Azure.
 
 - Automatizar a entrega e a implantação de aplicativos
     - Os exemplos incluem [Azure DevOps Services](#azure-devops-services) e [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) é um mecanismo de automação para gerenciamento de configurações, criação de VMs ou implantação de aplicativos. O Ansible usa um modelo sem agente, normalmente com as chaves SSH para autenticar e gerenciar computadores de destino. As tarefas de configuração são definidas em playbooks, com uma quantidade de módulos do Ansible para executar tarefas específicas. Para saber mais, confira [Como o Ansible funciona](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) é um mecanismo de automação para gerenciamento de configuração, criação de VMs ou implantação do aplicativo. O Ansible usa um modelo sem agente, normalmente com as chaves SSH para autenticar e gerenciar computadores de destino. As tarefas de configuração são definidas em playbooks, com uma quantidade de módulos do Ansible para executar tarefas específicas. Para saber mais, confira [Como o Ansible funciona](https://www.ansible.com/how-ansible-works).
 
 Saiba como:
 

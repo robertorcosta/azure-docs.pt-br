@@ -154,6 +154,8 @@
         - name: Implantar – API REST
           displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: Implantação de hipóteses
+          href: template-deploy-what-if.md
         - name: Reimplantar após erro
           displayName: rollback
           href: rollback-on-error.md

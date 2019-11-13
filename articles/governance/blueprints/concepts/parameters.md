@@ -1,17 +1,14 @@
 ---
 title: Use parâmetros para criar blueprints dinâmicos
 description: Conheça parâmetros estáticos e dinâmicos e como sua utilização cria blueprints dinâmicos.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 2bb38e0698d7504ba1bb139ca1bd5e3b14e5cdd4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: da0670bdc880c47c3b715dc8344896a6c695924c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981064"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960506"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -61,7 +58,7 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 1. Clique em um plano gráfico existente e, em seguida, clique em **Editar Blueprint** ou clique em **+ criar plano gráfico** e preencha as informações na guia **noções básicas** .
 
-1. Clique em **Avançar: Artefatos** OU clique na guia **Artefatos**.
+1. Clique em **Próximo: artefatos** OU clique na guia **Artefatos**.
 
 1. Os artefatos adicionados ao blueprint que têm opções de parâmetro exibem **X de Y parâmetros populados** na coluna **Parâmetros**. Clique na linha do artefato para editar os seus parâmetros.
 
@@ -75,7 +72,7 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
-- `{YourMG}`: substitua pelo nome do seu grupo de gerenciamento
+- `{YourMG}` - Substitua pelo nome do seu grupo de gerenciamento
 - `{subscriptionId}`: substitua por sua ID da assinatura
 
 ##### <a name="blueprint-level-parameter"></a>Parâmetro de nível do Blueprint

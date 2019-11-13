@@ -1,6 +1,6 @@
 ---
-title: Como configurar a retenção no ambiente do Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve como configurar a retenção no ambiente do Azure Time Series Insights.
+title: Como configurar a retenção em seu ambiente-Azure Time Series Insights | Microsoft Docs
+description: Saiba como configurar a retenção em seu ambiente de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4d326af691ae27894dc94d7581ba68951f090e
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: aa905d1686939346827d07419a62fd6f299387ec
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990054"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012606"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurando a retenção no Azure Time Series Insights
 
@@ -34,7 +34,7 @@ Para mais informações detalhadas a fim de compreender melhor essas configuraç
 
 ## <a name="configure-data-retention"></a>Configurar retenção de dados
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Localize seu ambiente Time Series Insights existente. Selecione **Todos os recursos** no menu à esquerda do portal do Azure. Selecione o seu ambiente de Análise de Séries Temporais.
 
@@ -48,11 +48,11 @@ Para mais informações detalhadas a fim de compreender melhor essas configuraç
 
 1. Mude a configuração de **Comportamento em caso de limite de armazenamento excedido**. Selecione o comportamento **Limpar dados antigos** ou **Colocar a entrada em pausa**.
 
-    [retenção de dados![-aceite e salve.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [retenção de dados ![-aceite e salve.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. Aceite a caixa de seleção indicando que você analisou a documentação e entendeu os riscos potenciais de perda de dados. Selecione **Salvar** para configurar as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para mais informações, veja [Noções básicas sobre retenção no Time Series Insights](time-series-insights-concepts-retention.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Solução de Problemas
+title: Solucionando problemas
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -9,14 +9,14 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: e145c234c7fc0bc7b9263f40f22d3fd90c1b7250
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 0afdc0ac246e4cacbd4f45cca36c3c57b1c26e02
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064126"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005984"
 ---
-# <a name="troubleshooting-guide"></a>Guia de solução de problemas
+# <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
 Este guia contém informações sobre problemas comuns que você pode ter ao usar o Azure Dev Spaces.
 
@@ -94,6 +94,10 @@ Apesar da mensagem de erro ao executar `az aks use-dev-spaces` com uma versão d
 
 Para corrigir esse problema, atualize a instalação do [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) para o 2.0.63 ou posterior. Esta atualização resolverá a mensagem de erro que você recebe ao executar `az aks use-dev-spaces`. Como alternativa, você pode continuar a usar sua versão atual do CLI do Azure e a CLI do Azure Dev Spaces.
 
+### <a name="aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>Clusters AKS com intervalos de endereços IP autorizados do servidor de API habilitados
+
+Se você tiver [intervalos de endereços IP autorizados do servidor de API](../aks/api-server-authorized-ip-ranges.md) habilitados para o cluster AKs, você também deverá [criar](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) ou [Atualizar](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) seu cluster para [permitir intervalos adicionais com base em sua região](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>Problemas comuns ao preparar seu projeto para Azure Dev Spaces
 
 ### <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Aviso "Dockerfile não pôde ser gerado devido a um idioma sem suporte"
@@ -143,7 +147,7 @@ Esse erro ocorrerá se o cliente do Helm não puder mais se comunicar com o pod 
 
 Para corrigir esse problema, reinicie os nós de agente no cluster.
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Erro "Release azds-\<identificador\>-\<spacename\>-\<ServiceName\> falhou: os serviços '\<ServiceName\>' já existe" ou "acesso pull negado para \<ServiceName\>, o repositório não existe ou pode exigir ' Docker login "
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Erro "Release azds-\<identificador\>-\<spacename\>-\<ServiceName\> falhou: os serviços '\<ServiceName\>' já existe" ou "acesso de pull negado para \<ServiceName\>, o repositório não existe ou pode exigir ' Docker login"
 
 Esses erros podem ocorrer se você misturar comandos Helm diretos em execução (como `helm install`, `helm upgrade`ou `helm delete`) com comandos de espaços de desenvolvimento (como `azds up` e `azds down`) dentro do mesmo espaço de desenvolvimento. Elas ocorrem porque os espaços de desenvolvimento têm sua própria instância de gaveta, que está em conflito com a instância de seu próprio gaveta em execução no mesmo espaço de desenvolvimento.
 
@@ -295,9 +299,9 @@ Para corrigir esse problema, feche e reabra Visual Studio Code. Reinicie o depur
 
 ### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erro "falha na inspeção interna: Watch ENOSPC" ao anexar a depuração a um aplicativo node. js
 
-Esse erro ocorre quando o nó que executa o Pod com o aplicativo node. js ao qual você está tentando se anexar com um depurador excedeu o valor de *_user_watches FS. INotifyPropertyChanged. Max* . Em alguns casos, [o valor padrão de *FS. INotifyPropertyChanged. Max _user_watches* pode ser muito pequeno para lidar com a anexação de um depurador diretamente a um pod](https://github.com/Azure/AKS/issues/772).
+Esse erro ocorre quando o nó que executa o Pod com o aplicativo node. js ao qual você está tentando se anexar com um depurador excedeu o valor *FS. INotifyPropertyChanged. max_user_watches* . Em alguns casos, [o valor padrão de *FS. inotifypropertychanged. max_user_watches* pode ser muito pequeno para lidar com a anexação de um depurador diretamente a um pod](https://github.com/Azure/AKS/issues/772).
 
-Uma solução alternativa temporária para esse problema é aumentar o valor de *FS. INotifyPropertyChanged. Max _user_watches* em cada nó no cluster e reiniciar esse nó para que as alterações entrem em vigor.
+Uma solução alternativa temporária para esse problema é aumentar o valor de *FS. INotifyPropertyChanged. max_user_watches* em cada nó no cluster e reiniciar esse nó para que as alterações entrem em vigor.
 
 ## <a name="other-common-issues"></a>Outros problemas comuns
 
@@ -372,7 +376,7 @@ Para atualizar a função RBAC do usuário para o controlador:
     * Para *função*, selecione *colaborador* ou *proprietário*.
     * Para *Atribuir acesso a*, selecione *Usuário, grupo ou entidade de serviço do Azure AD*.
     * Para *selecionar*, pesquise o usuário que você deseja conceder permissões.
-1. Clique em *Save* (Salvar).
+1. Clique em *Salvar*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
 

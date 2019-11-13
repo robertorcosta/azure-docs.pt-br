@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7716fba7a16b393143ffb9c97e7203e15bc07d82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747296"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012948"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
 
@@ -124,7 +124,7 @@ Para editar a configuração de replicação de armazenamento:
 
 ## <a name="download-azure-backup-server-installer"></a>Baixar o instalador do Servidor de Backup do Azure
 
-Há duas maneiras de baixar o instalador do Servidor de Backup do Azure. Você pode baixar o instalador do Servidor de Backup do Azure do [Centro de Download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55269). Você também pode baixar o instalador do Servidor de Backup do Azure conforme estiver configurando um cofre dos Serviços de Recuperação. As etapas a seguir orientam você durante o download do instalador do portal do Azure ao configurar um cofre de Serviços de Recuperação.
+Há duas maneiras de baixar o instalador do Servidor de Backup do Azure. Você pode baixar o instalador do Servidor de Backup do Azure do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=55269). Você também pode baixar o instalador do Servidor de Backup do Azure conforme estiver configurando um cofre dos Serviços de Recuperação. As etapas a seguir orientam você durante o download do instalador do portal do Azure ao configurar um cofre de Serviços de Recuperação.
 
 1. Na sua máquina virtual do Azure Stack, [entre na sua assinatura do Azure no portal do Azure](https://portal.azure.com/).
 2. No menu esquerdo, selecione **Todos os Serviços**.
@@ -326,7 +326,7 @@ A primeira cópia de backup é mantida no armazenamento anexado ao computador do
 
 O Servidor de Backup do Azure requer conectividade com o serviço de Backup Azure para que o produto funcione com êxito. Para validar se o computador tem conectividade com o Azure, use o cmdlet ```Get-DPMCloudConnection``` no console do PowerShell do Servidor de Backup do Azure. Se a saída do cmdlet for TRUE, existe conectividade, caso contrário, não existe nenhuma conectividade.
 
-Ao mesmo tempo, a assinatura do Azure deve estar em um estado íntegro. Para descobrir o estado de sua assinatura e gerenciá-la, faça logon no [portal da assinatura](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Ao mesmo tempo, a assinatura do Azure deve estar em um estado íntegro. Para descobrir o estado da sua assinatura e gerenciá-la, entre no portal de [assinatura](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 Quando você souber o estado da conectividade do Azure e da assinatura do Azure, poderá usar a tabela abaixo para descobrir o impacto sobre a funcionalidade de backup/restauração oferecida.
 
@@ -358,7 +358,7 @@ Depois que a conectividade com o Azure for restaurada para o Servidor de Backup 
 - Enquanto uma assinatura está com o estado *Desprovisionado*, ela perde a funcionalidade. Restaurar o estado da assinatura para *Ativo* reativa a funcionalidade de backup/restauração. Se os dados de backup no disco local forem mantidos com um período de retenção suficientemente grande, eles poderão ser recuperados. No entanto, os dados de backup no Azure serão irremediavelmente perdidos depois da assinatura entrar no estado *Desprovisionado*.
 - Enquanto uma assinatura está com o estado *Expirado*, ela perde a funcionalidade. Os backups agendados não são executados enquanto a assinatura está com o estado *Expirado*.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 Se o servidor de Backup do Microsoft Azure falhar com erros durante a fase de instalação (ou no backup ou na restauração), consulte o [documento de códigos de erro](https://support.microsoft.com/kb/3041338).
 Você também pode consultar as [Perguntas frequentes relacionadas ao Backup do Azure](backup-azure-backup-faq.md)

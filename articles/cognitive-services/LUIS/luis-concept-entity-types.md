@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 9dc26e50e1c0f43e816e422f0fee91a246ea04a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e91a475c7fd7f207c8b38d3da8abe7affd668b2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487602"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013508"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entidades e sua finalidade no LUIS
 
@@ -91,11 +91,11 @@ Escolha a entidade com base em como os dados devem ser extraídos e como devem s
 
 |Tipo de entidade|Finalidade|
 |--|--|
-|[**Aprendido com o computador**](#composite-entity)|Agrupamento pai de entidades, independentemente do tipo de entidade. As entidades aprendidas por computador aprendem com o contexto no expressão. Isso torna a variação do posicionamento no exemplo declarações significativa. |
-|[**Lista**](#list-entity)|Lista de itens e seus sinônimos extraídos com **correspondência exata de texto**.|
-|[**Pattern.any**](#patternany-entity)|Entidade na qual é difícil determinar o final da entidade. |
-|[**Predefinida**](#prebuilt-entity)|Já treinado para extrair um tipo específico de dados, como URL ou email. Algumas dessas entidades predefinidas são definidas no projeto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) de software livre. Se não houver suporte à sua cultura ou entidade específica, contribua para o projeto.|
-|[**Expressão regular**](#regular-expression-entity)|Usa uma expressão regular para **correspondência exata de texto**.|
+|[**Aprendido com o computador**](tutorial-machine-learned-entity.md)|Agrupamento pai de entidades, independentemente do tipo de entidade. As entidades aprendidas por computador aprendem com o contexto no expressão. Isso torna a variação do posicionamento no exemplo declarações significativa. |
+|[**Lista**](reference-entity-list.md)|Lista de itens e seus sinônimos extraídos com **correspondência exata de texto**.|
+|[**Pattern.any**](reference-entity-pattern-any.md)|Entidade na qual é difícil determinar o final da entidade. |
+|[**Predefinida**](luis-reference-prebuilt-entities.md)|Já treinado para extrair um tipo específico de dados, como URL ou email. Algumas dessas entidades predefinidas são definidas no projeto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) de software livre. Se não houver suporte à sua cultura ou entidade específica, contribua para o projeto.|
+|[**Expressão regular**](reference-entity-regular-expression.md)|Usa uma expressão regular para **correspondência exata de texto**.|
 
 ### <a name="entity-role-defines-context"></a>Função de entidade define contexto
 

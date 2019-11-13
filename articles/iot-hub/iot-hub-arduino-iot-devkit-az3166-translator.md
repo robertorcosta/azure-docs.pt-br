@@ -1,20 +1,19 @@
 ---
-title: Criar um tradutor do Kit de Desenvolvimento da IoT usando um Azure Functions e os Serviços Cognitivos | Microsoft Docs
+title: Tornar o tradutor w/Azure Functions, serviços cognitivas, IoT DevKit
 description: Use o microfone no Kit de Desenvolvimento da IoT para receber uma mensagem de voz e os Serviços Cognitivos do Azure para processá-la em um texto traduzido em inglês
 author: liydu
-manager: jeffya
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: df7e7b426a8c85c8051d7f588c706a6f8811e183
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e840a1ae7161ea3e7b370889a1f0fb648ca120e
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60518954"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953347"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Usar o Kit de Desenvolvimento da IoT AZ3166 com um Azure Functions e os Serviços Cognitivos para criar um tradutor de idiomas
 
@@ -40,21 +39,21 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
 1. Verifique se o kit de desenvolvimento de IoT **não está conectado** ao computador. Inicie o VS Code primeiro e, em seguida, conecte o kit de desenvolvimento ao computador.
 
-1. Clique em `F1` para abrir a paleta de comandos, digite e selecione **Workbench dos Dispositivos de IoT do Azure: Abrir Exemplos...** . Em seguida, selecione **Kit de Desenvolvimento de IoT** como placa.
+1. Clique em `F1` para abrir a paleta de comandos, digite e selecione **Azure IOT Device Workbench: abrir exemplos...** . Em seguida, selecione **IOT devkit** como placa.
 
 1. Na página de Exemplos do IoT Workbench, encontre **Introdução** e clique em **Abrir Exemplo**. Em seguida, selecione o caminho padrão para baixar o código de exemplo.
   ![Abrir exemplo](media/iot-hub-arduino-iot-devkit-az3166-translator/open-sample.png)
 
 ## <a name="use-speech-service-with-azure-functions"></a>Usar o Serviço de Fala com o Azure Functions
 
-1. No Visual Studio Code clique em `F1` novamente, digite e selecione **Workbench dos Dispositivos de IoT do Azure: Provisionar Serviços do Azure...** . ![Provisionar Serviços do Azure](media/iot-hub-arduino-iot-devkit-az3166-translator/provision.png)
+1. Em VS Code, clique em `F1`, digite e selecione **Azure IOT Device Workbench: provisionar serviços do Azure...** . ![provisionar serviços do Azure](media/iot-hub-arduino-iot-devkit-az3166-translator/provision.png)
 
 1. Siga as etapas para concluir o provisionamento do Hub IoT e do Azure Functions.
    ![Provisionar passos](media/iot-hub-arduino-iot-devkit-az3166-translator/provision-steps.png)
 
    Anote o nome de dispositivo de Hub IoT do Azure que foi criado.
 
-1. Abra `Functions\DevKitTranslatorFunction.cs` e atualize as seguintes linhas de código com o nome do dispositivo e a chave de serviço de fala que você anotou.
+1. Abra `Functions\DevKitTranslatorFunction.cs` e atualize as linhas de código a seguir com o nome do dispositivo e a chave do serviço de fala anotada.
    ```csharp
    // Subscription Key of Speech Service
    const string speechSubscriptionKey = "";
@@ -66,7 +65,7 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
    const string deviceName = "";
    ```
 
-1. Clique em `F1`, digite e selecione **Workbench dos Dispositivos de IoT do Azure: Implantar no Azure...** . Se o VS Code solicitar a confirmação de reimplantação, clique em **Sim**.
+1. Clique em `F1`, digite e selecione **Azure IOT Device Workbench: implantar no Azure...** . Se VS Code solicitar confirmação para reimplantação, clique em **Sim**.
    ![Implantar o aviso](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-warning.png)
 
 1. Verifique se a implantação foi bem-sucedida.
@@ -91,13 +90,13 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
    ![Modo de configuração do Kit de Desenvolvimento](media/iot-hub-arduino-iot-devkit-az3166-translator/devkit-configuration-mode.png)
 
-1. Clique, `F1` digite e selecione **Workbench dos Dispositivos de IoT do Azure: Definir as configurações do dispositivo... > Definir a Cadeia de conexão do dispositivo**. Selecione **Selecione a Cadeia de conexão do dispositivo Hub IoT** para configurá-lo para o Kit de desenvolvimento.
+1. Clique em `F1`, digite e selecione **Azure IOT Device Workbench: definir configurações do dispositivo... Cadeia de conexão do dispositivo > config**. Selecione **Selecione a Cadeia de conexão do dispositivo Hub IoT** para configurá-lo para o Kit de desenvolvimento.
    ![Configurar cadeia de conexão](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string.png)
 
 1. Ao completar com sucesso, uma notificação aparecerá.
    ![Configurar cadeias de conexão com sucesso](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string-success.png)
 
-1. Clique em `F1` novamente, digite e selecione **Workbench dos Dispositivos de IoT do Azure: Carregar o código de dispositivo**. Ele começa a compilar e carregar o código para o Kit de desenvolvimento.
+1. Clique em `F1` novamente, digite e selecione **Azure IOT Device Workbench: carregar o código do dispositivo**. Ele começa a compilar e carregar o código para o Kit de desenvolvimento.
    ![Upload de dispositivo](media/iot-hub-arduino-iot-devkit-az3166-translator/device-upload.png)
 
 ## <a name="test-the-project"></a>Teste do projeto

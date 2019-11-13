@@ -3,7 +3,7 @@ title: Esquema de log de entrada no Azure Monitor | Microsoft Docs
 description: Descrever o esquema de logon de entrada do Azure AD para uso no Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4259a23778db175de2a0331e692e878df39d0a07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 98157009b5a005d1d1f9efbe2f59bac1302cdb01
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895013"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014326"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar o esquema de logs de entrada do Azure AD no Azure Monitor
 
@@ -143,12 +143,12 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 
 ## <a name="field-descriptions"></a>Descrições de campo
 
-| Nome do campo | Descrição |
+| Nome do campo | DESCRIÇÃO |
 |------------|-------------|
-| Tempo | Data e hora em UTC. |
+| Hora | Data e hora em UTC. |
 | ResourceId | Esse valor não é mapeado e você pode ignorar esse campo com segurança.  |
 | OperationName | Para inscrições, esse valor é sempre *Atividade de login*. |
-| OperationVersion | A versão da API REST solicitada pelo cliente. |
+| OperationVersion | Versão da API REST solicitada pelo cliente. |
 | Categoria | Para inscrições, esse valor é sempre *Atividade de login*. | 
 | TenantId | O GUID de locatário associado aos logs. |
 | ResultType | O resultado da operação de login pode ser *Sucesso* ou *Falha*. | 
@@ -164,10 +164,10 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 | CorrelationId | GUID opcional passado pelo cliente. Esse valor pode ajudar a correlacionar operações do lado do cliente com operações do lado do servidor e é útil ao rastrear logs que abrangem os serviços. |
 | Identidade | A identidade do token que foi apresentada ao fazer a solicitação. Pode ser uma conta de usuário, conta do sistema ou principal de serviço. |
 | Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo*. |
-| Location | Fornece o local da atividade de entrada. |
-| propriedades | Lista todas as propriedades que estão associadas a entradas. Para obter mais informações, consulte [Microsoft Graph referência de API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Esse esquema usa os mesmos nomes de atributos como no recurso de entrada, para legibilidade.
+| Local padrão | Fornece o local da atividade de entrada. |
+| Propriedades | Lista todas as propriedades que estão associadas a entradas. Para obter mais informações, consulte [Microsoft Graph referência de API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Esse esquema usa os mesmos nomes de atributos como no recurso de entrada, para legibilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Interpretar o esquema de trilhas de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpretar o esquema de logs de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Saiba mais sobre os Logs de Diagnóstico do Azure](../../azure-monitor/platform/resource-logs-overview.md)
