@@ -1,5 +1,5 @@
 ---
-title: Recursos e extensões de máquina virtual do Microsoft Azure| Microsoft Docs
+title: Extensões e recursos da máquina virtual do Azure
 description: Saiba o que são as extensões Azure VM e como usá-las com as máquinas virtuais do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: akjosh
-ms.openlocfilehash: deb49267a262705370e48e150cc5ed6c4dc04247
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168893"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072969"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensões e recursos da máquina virtual do Azure
 Extensões de máquina virtual do Azure (VM) são pequenos aplicativos que fornecem as tarefas de configuração e automação de pós-implantação em VMs do Azure, você pode usar imagens existentes e personalizá-las como parte de suas implantações, você saindo da empresa de criação de imagem personalizada.
@@ -54,7 +54,7 @@ As extensões instalam aplicativos, como os aplicativos, há alguns requisitos, 
 
 As informações de solução de problemas para cada extensão podem ser encontradas na seção **solução de problemas e suporte** na visão geral da extensão. Aqui está uma lista das informações de solução de problemas disponíveis:
 
-| Namespace | Solução de problemas |
+| Namespace | Solucionando problemas |
 |-----------|-----------------|
 | Microsoft. Azure. Monitoring. dependencyagent. dependencyagentlinux | [Dependência de Azure Monitor para Linux](agent-dependency-linux.md#troubleshoot-and-support) |
 | Microsoft. Azure. Monitoring. dependencyagent. dependencyagentwindows | [Dependência Azure Monitor para Windows](agent-dependency-windows.md#troubleshoot-and-support) |

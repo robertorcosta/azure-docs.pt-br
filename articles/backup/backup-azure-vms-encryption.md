@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5968a675c3f0f9a2c6426ed73d06e2d116a8ff3b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 004f15a1af11e3ed27f792e245888671b94fbb1a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827395"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074923"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer backup e restaurar a VM do Azure criptografada
 
@@ -32,13 +32,11 @@ O backup do Azure pode fazer backup e restaurar VMs do Azure usando ADE com e se
 
 **Tipo de disco da VM** | **ADE (BEK/DM-cript.)** | **ADE e KEK**
 --- | --- | ---
-**Não gerenciados** | Sim | Sim
-**Administra**  | Sim | Sim
+**Não gerenciados** | sim | sim
+**Administra**  | sim | sim
 
 - Saiba mais sobre [Ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)e [KEKs](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
 - Leia as [perguntas frequentes](../security/azure-security-disk-encryption-faq.md) sobre a criptografia de disco de VM do Azure.
-
-
 
 ### <a name="limitations"></a>Limitações
 
@@ -47,9 +45,6 @@ O backup do Azure pode fazer backup e restaurar VMs do Azure usando ADE com e se
 - Você pode fazer backup e restaurar VMs criptografadas dentro da mesma assinatura e região que o cofre de backup dos serviços de recuperação.
 - As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você precisa recuperar toda a VM para restaurar arquivos e pastas.
 - Ao restaurar uma VM, você não pode usar a opção [substituir VM existente](backup-azure-arm-restore-vms.md#restore-options) para VMs criptografadas. Essa opção só tem suporte para discos gerenciados não criptografados.
-
-
-
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -62,10 +57,8 @@ Antes de começar, faça o seguinte:
 
 Além disso, há algumas coisas que você pode precisar fazer em algumas circunstâncias:
 
-- **Instale o agente de VM na VM**: O Backup do Azure faz backup de VMs do Azure instalando uma extensão para o agente de VM do Azure em execução no computador. Se sua VM foi criada a partir de uma imagem do Azure Marketplace, o agente está instalado e em execução. Se você criar uma VM personalizada ou migrar um computador local, talvez seja necessário [instalar o agente manualmente](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-- **Permitir acesso de saída explicitamente**: Em geral, você não precisa permitir explicitamente o acesso à rede de saída para uma VM do Azure para que ela se comunique com o backup do Azure. No entanto, algumas VMs podem enfrentar problemas de conexão, mostrando o erro **ExtensionSnapshotFailedNoNetwork** ao tentar se conectar. Se isso acontecer, você deverá [permitir explicitamente o acesso de saída](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access), para que a extensão de backup do Azure possa se comunicar com os endereços IP públicos do Azure para o tráfego de backup.
-
-
+- **Instalar o agente de VM na VM: o**backup do Azure faz backup de VMs do Azure instalando uma extensão para o agente de VM do Azure em execução no computador. Se sua VM foi criada a partir de uma imagem do Azure Marketplace, o agente está instalado e em execução. Se você criar uma VM personalizada ou migrar um computador local, talvez seja necessário [instalar o agente manualmente](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+- **Permitir acesso de saída explicitamente**: geralmente, você não precisa permitir explicitamente o acesso à rede de saída para uma VM do Azure para que ela se comunique com o backup do Azure. No entanto, algumas VMs podem enfrentar problemas de conexão, mostrando o erro **ExtensionSnapshotFailedNoNetwork** ao tentar se conectar. Se isso acontecer, você deverá [permitir explicitamente o acesso de saída](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access), para que a extensão de backup do Azure possa se comunicar com os endereços IP públicos do Azure para o tráfego de backup.
 
 ## <a name="configure-a-backup-policy"></a>Configurar uma política de backup
 
@@ -75,7 +68,7 @@ Além disso, há algumas coisas que você pode precisar fazer em algumas circuns
     ![Folha Backup](./media/backup-azure-vms-encryption/select-backup.png)
 
 3. Em **meta de Backup** > **em que sua carga de trabalho está em execução?** selecione **Azure**.
-4. Em **o que você deseja fazer backup?** selecione **máquina virtual** > **OK**.
+4. Em **o que você deseja fazer backup?** selecione a **máquina virtual** > **OK**.
 
       ![Folha Cenário](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
@@ -86,7 +79,6 @@ Além disso, há algumas coisas que você pode precisar fazer em algumas circuns
     ![Abrir a folha Cenário](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
 6. Se você não quiser usar a política padrão, selecione **criar nova**e [criar uma política personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
-
 
 7. Escolha as VMs criptografadas que você deseja fazer backup usando a política selecionar e selecione **OK**.
 
@@ -104,18 +96,16 @@ Além disso, há algumas coisas que você pode precisar fazer em algumas circuns
 
 9. Clique em **habilitar backup** para implantar a política de backup no cofre e habilite o backup para as VMs selecionadas.
 
-
 ## <a name="trigger-a-backup-job"></a>Disparar um trabalho de backup
 
 O backup inicial será executado de acordo com o agendamento, mas você poderá executá-lo imediatamente da seguinte maneira:
 
 1. No menu do cofre, clique em **Itens de backup**.
-2. Em **Itens de Backup**, clique em **Máquina Virtual do Azure**.
+2. Em **itens de backup**, clique em **máquina virtual do Azure**.
 3. Na lista **itens de backup** , clique nas reticências (...).
 4. Clique em **Fazer backup agora**.
 5. Em **fazer backup agora**, use o controle de calendário para selecionar o último dia em que o ponto de recuperação deve ser retido. Em seguida, clique em **OK**.
 6. Monitorar as notificações do portal. Você pode monitorar o andamento do trabalho no painel do cofre > **Trabalhos de Backup** > **Em Andamento**. Dependendo do tamanho da VM, a criação do backup inicial pode demorar um pouco.
-
 
 ## <a name="provide-permissions"></a>Fornecer permissões
 
@@ -130,7 +120,7 @@ Para definir permissões:
 2. Selecione o cofre de chaves associado à VM criptografada que você está fazendo backup.
 3. Selecione **políticas de acesso** > **Adicionar novo**.
 4. Selecione **selecionar entidade de segurança**e digite **Gerenciamento de backup**.
-5. Selecione **serviço de gerenciamento de Backup** > **selecionar**.
+5. Selecione **serviço de gerenciamento de Backup** > **selecione**.
 
     ![Seleção de serviço de backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
@@ -140,11 +130,11 @@ Para definir permissões:
 
     ![Seleção de backup do Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. Clique em **OK**. O **serviço de gerenciamento de backup** é adicionado às políticas de **acesso**.
+7. Clique em **OK**. O **serviço de gerenciamento de backup** é adicionado às políticas de **acesso**.
 
     ![Políticas de acesso](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
-7. Clique em **salvar** para fornecer ao Azure o backup com as permissões.
+8. Clique em **salvar** para fornecer ao Azure o backup com as permissões.
 
 ## <a name="restore-an-encrypted-vm"></a>Restaurar uma VM criptografada
 
@@ -154,7 +144,7 @@ Você restaura as VMs criptografadas da seguinte maneira:
 2. Em seguida, siga um destes procedimentos:
     - Use o modelo gerado durante a operação de restauração para personalizar as configurações da VM e disparar a implantação da VM. [Saiba mais](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     - Crie uma nova VM com base nos discos restaurados usando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-    - Para VMs do Linux, redefina a extensão ADE para que os discos de dados sejam abertos e montados. 
+    - Para VMs do Linux, redefina a extensão ADE para que os discos de dados sejam abertos e montados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,23 +1,19 @@
 ---
-title: Criar um gateway de aplicativo com redirecionamento interno – Azure PowerShell | Microsoft Docs
+title: Redirecionamento interno usando o PowerShell
+titleSuffix: Azure Application Gateway
 description: Saiba como criar um gateway de aplicativo que redireciona o tráfego interno da Web ao pool back-end adequado de servidores usando o Azure Powershell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: c917ab08d9640599c31d2ebf911e1554cf90425d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4e0c7707066028996e360a342db9f8dc0fd87599
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835398"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075119"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com redirecionamento interno usando o Azure PowerShell
 
@@ -27,10 +23,10 @@ Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um Gateway de Aplicativo
+> * Criar um gateway de aplicativo
 > * Adicionar ouvintes e regras de redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end
-> * Criar um registro CNAME no seu domínio
+> * Criar um registro CNAME em seu domínio
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -50,7 +46,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede
 
-Crie as configurações de sub-rede para *myBackendSubnet* e *myAGSubnet* usando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual chamada *myVNet* usando [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com as configurações de sub-rede. Por fim, crie o endereço IP público denominado *myAGPublicIPAddress* usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Esses recursos são usados para fornecer conectividade de rede ao gateway do aplicativo e seus recursos associados.
+Crie as configurações de sub-rede para *myBackendSubnet* e *myAGSubnet* usando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual denominada *myVNet* usando [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com as configurações e sub-rede. Por fim, crie o endereço IP público nomeado *myAGPublicIPAddress* usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Esses recursos são usados para fornecer conectividade de rede ao gateway do aplicativo e seus recursos associados.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -72,7 +68,7 @@ $pip = New-AzPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicativo
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e porta de front-end
 
@@ -226,7 +222,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, você criará um conjunto de dimensionamento de máquinas virtuais que oferece suporte ao pool de back-end criado. O conjunto de dimensionamento criado é chamado *myvmss* e contém duas instâncias de máquina virtual em que você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
+Neste exemplo, você criará um conjunto de dimensionamento de máquinas virtuais que oferece suporte ao pool de back-end criado. O conjunto de dimensionamento criado é chamado *myvmss* e contém duas instâncias de máquina virtual em que você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando você define as configurações de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -288,7 +284,7 @@ Update-AzVmss `
 
 ## <a name="create-cname-record-in-your-domain"></a>Criar um registro CNAME em seu domínio
 
-Depois de criar o gateway de aplicativo com seu endereço IP público, é possível obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. Você pode usar [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway de aplicativo. Copie o valor de *fqdn* em DNSSettings e use-o como o valor do registro CNAME a ser criado. O uso de registros A não é recomendável, pois o VIP pode mudar quando o gateway de aplicativo for reinicializado.
+Depois de criar o gateway de aplicativo com seu endereço IP público, você pode obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. Você pode usar [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway de aplicativo. Copie o valor de *fqdn* em DNSSettings e use-o como o valor do registro CNAME a ser criado. O uso de registros A não é recomendável, pois o VIP pode mudar quando o gateway de aplicativo for reinicializado.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -308,7 +304,7 @@ Neste artigo, você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um Gateway de Aplicativo
+> * Criar um gateway de aplicativo
 > * Adicionar ouvintes e regras de redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com os pools de back-end
-> * Criar um registro CNAME no seu domínio
+> * Criar um registro CNAME em seu domínio

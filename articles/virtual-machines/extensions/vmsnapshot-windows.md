@@ -1,5 +1,5 @@
 ---
-title: Extensão de janelas de VM instantânea para Azure Backup | Microsoft Docs
+title: Extensão de janelas de VM instantânea para Azure Backup
 description: Fazer backup consistente de aplicativo da máquina virtual para o Azure Backup usando a extensão de VM instantânea
 services: backup, virtual-machines-windows
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8e6468d06341f49e3c57532df8cacb0b6eb25b05
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 32e8b0099ef464312b6f2b9c0eb989154815af77
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706584"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072899"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensão de janelas de VM instantânea para Azure Backup
 
 O Backup do Azure oferece suporte para backup de cargas de trabalho do local para nuvem e fazendo backup de recursos de nuvem para o cofre de Serviços de Recuperação. Azure Backup usa extensão de VM instantânea para levar um backup consistente de aplicativo da máquina virtual do Azure sem a necessidade de desligar a VM. Extensão de VM instantânea é publicada e suportada pela Microsoft como parte do serviço de Azure Backup. Azure Backup irá instalar a extensão como parte do primeiro backup agendado disparado após habilitar o backup. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão de VM Instantânea.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 Para obter uma lista dos sistemas operacionais suportados, consulte [Sistemas Operacionais com suporte pelo Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -61,9 +61,9 @@ O JSON a seguir mostra o esquema para a extensão de VM instantânea. A extensã
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo | Tipo de dados |
+| NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | cadeia de caracteres |
 | commandStartTimeUTCTicks | 6.36458E+17 | cadeia de caracteres |
 | localidade | pt-BR | cadeia de caracteres |
@@ -92,7 +92,7 @@ az backup protection enable-for-vm \
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Dados sobre o estado das implantações de extensão podem ser recuperados do Portal do Azure usando a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando a CLI do Azure.
 

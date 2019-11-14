@@ -1,5 +1,5 @@
 ---
-title: Upload de um VHD generalizado para criar várias VMs no Azure | Microsoft Docs
+title: Carregar um VHD generalizado para criar várias VMs no Azure
 description: Carregar um VHD generalizado para uma conta de armazenamento do Azure para criar uma VM Windows para utilizar com o modelo de implantação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 24ed7b75dfa8cb09c530a3f4a896aa9ff9aa92b5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 933b648f15418c4838d3da1ea8379267765c784b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749185"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073337"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Upload de um VHD generalizado para o Azure para criar uma nova VM
 
@@ -145,7 +145,7 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando poderá demorar um pouco para concluir.
+Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando pode demorar um pouco para ser concluído.
 
 
 ## <a name="create-a-new-vm"></a>Criar uma nova VM 
@@ -181,7 +181,7 @@ Crie a vNet e a sub-rede da [rede virtual](../../virtual-network/virtual-network
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>Criar um endereço IP público e um adaptador de rede
-Para habilitar a comunicação com a máquina virtual na rede virtual, são necessários um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e um adaptador de rede.
+Para habilitar a comunicação com a máquina virtual na rede virtual, é necessário um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e uma interface de rede.
 
 1. Criar um endereço IP público. Este exemplo cria um endereço IP público chamado **myPip**. 
    

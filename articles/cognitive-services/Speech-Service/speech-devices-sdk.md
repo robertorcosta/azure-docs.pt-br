@@ -1,7 +1,7 @@
 ---
 title: Sobre o SDK de dispositivos de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Introdução ao SDK de Dispositivos de Fala. O Serviço de Fala funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora, você pode levar os aplicativos de fala para o próximo nível com hardware e software correspondentes. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico.
+description: Introdução ao SDK de Dispositivos de Fala. O Serviço de Fala funciona com uma ampla variedade de dispositivos e fontes de áudio. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 243072477c7d249d7066a7a448061c51a0bd2f34
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 31d1a60cc6c1316dcfccb4f9ba2571708fddd991
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468726"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072387"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Sobre os dispositivos de fala do SDK
 
@@ -23,9 +23,9 @@ Os [serviços de fala](overview.md) funcionam com uma ampla variedade de disposi
 
 O SDK de dispositivos de fala pode ajudá-lo:
 
-* Teste rapidamente novos cenários de voz.
-* Integre mais facilmente os serviços de fala baseados em nuvem em seu dispositivo.
-* Crie uma experiência de usuário excepcional para seus clientes.
+- Teste rapidamente novos cenários de voz.
+- Integre mais facilmente os serviços de fala baseados em nuvem em seu dispositivo.
+- Crie uma experiência de usuário excepcional para seus clientes.
 
 O SDK de dispositivos de fala consome os [Speech SDK](speech-sdk.md). Ele usa o SDK de fala para enviar o áudio que é processado pelo nosso algoritmo de processamento de áudio avançado da matriz de microfone do dispositivo para os [serviços de fala](overview.md). Usa o áudio multicanal para fornecer um [reconhecimento de fala em campo distante](speech-to-text.md) mais preciso através da supressão de ruído, cancelamento de eco, beamforming e remoção da reverberação.
 
@@ -53,6 +53,5 @@ O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v
 
 > [!div class="nextstepaction"]
 > [Escolha seu dispositivo de fala](get-speech-devices-sdk.md)
->
 > [!div class="nextstepaction"]
-> [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)
+> [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)

@@ -1,23 +1,19 @@
 ---
-title: Criar um gateway de aplicativo com redirecionamento interno – CLI do Azure | Microsoft Docs
+title: Redirecionamento interno usando a CLI
+titleSuffix: Azure Application Gateway
 description: Saiba como criar um gateway de aplicativo que redireciona o tráfego interno da Web ao pool adequado, usando a CLI do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2018
 ms.author: victorh
-ms.openlocfilehash: 6a4a47f93054c4c93043b5215371b5eea7244d46
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: eea3f4bb38b0a6a796bc2ba7c8652f20ce159735
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835002"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074463"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento interno usando a CLI do Azure
 
@@ -27,10 +23,10 @@ Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um Gateway de Aplicativo
+> * Criar um gateway de aplicativo
 > * Adicionar ouvintes e regras de redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end
-> * Criar um registro CNAME no seu domínio
+> * Criar um registro CNAME em seu domínio
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -40,9 +36,9 @@ Se você optar por instalar e usar a CLI localmente, este guia de início rápid
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Criar um grupo de recursos usando [az group create](/cli/azure/group).
+Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos usando [az group create](/cli/azure/group).
 
-O exemplo a seguir cria um grupo de recursos denominado *myResourceGroupAG* no local *eastus*.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupAG* no local *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -96,7 +92,7 @@ Pode levar vários minutos para o gateway de aplicativo ser criado. Depois de cr
 - *appGatewayBackendHttpSettings* - Especifica que a porta 80 e um protocolo HTTP são usados para comunicação.
 - *appGatewayHttpListener* - O ouvinte padrão associado ao *appGatewayBackendPool*.
 - *appGatewayFrontendIP* - Atribui *myAGPublicIPAddress* ao *appGatewayHttpListener*.
-- *rule1* - A regra padrão de roteamento que está associada ao *appGatewayHttpListener*.
+- *rule1* - A regra de roteamento padrão que está associada com *appGatewayHttpListener*.
 
 
 ## <a name="add-listeners-and-rules"></a>Adicionar ouvintes e regras 
@@ -197,7 +193,7 @@ az vmss extension set \
 
 ## <a name="create-cname-record-in-your-domain"></a>Criar um registro CNAME em seu domínio
 
-Depois de criar o gateway de aplicativo com seu endereço IP público, é possível obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. Use [az network public-ip show](/cli/azure/network/public-ip) para obter o endereço DNS do gateway de aplicativo. Copie o valor de *fqdn* em DNSSettings e use-o como o valor do registro CNAME a ser criado. O uso de registros A não é recomendável, pois o VIP pode mudar quando o gateway de aplicativo for reinicializado.
+Depois de criar o gateway de aplicativo com seu endereço IP público, você pode obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. Use [az network public-ip show](/cli/azure/network/public-ip) para obter o endereço DNS do gateway de aplicativo. Copie o valor de *fqdn* em DNSSettings e use-o como o valor do registro CNAME a ser criado. O uso de registros A não é recomendável, pois o VIP pode mudar quando o gateway de aplicativo for reinicializado.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -217,14 +213,14 @@ Altere o endereço para seu outro domínio, por exemplo http://www.contoso.org e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um Gateway de Aplicativo
+> * Criar um gateway de aplicativo
 > * Adicionar ouvintes e regras de redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end
-> * Criar um registro CNAME no seu domínio
+> * Criar um registro CNAME em seu domínio
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o que você pode fazer com o gateway de aplicativo](./application-gateway-introduction.md)

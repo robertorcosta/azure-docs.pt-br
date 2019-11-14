@@ -1,18 +1,19 @@
 ---
-title: Regras e grupos de regras CRS de firewall do aplicativo Web Gateway de Aplicativo do Azure
+title: Regras e grupos de regras do CRS
+titleSuffix: Azure Web Application Firewall
 description: Esta página fornece informações sobre regras e grupos de regras CRS do firewall do aplicativo Web.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/31/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 59e4203ca219802a95a09761b90c00a039b47631
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516962"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075366"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regras e grupos de regras CRS do firewall do aplicativo Web
 
@@ -55,7 +56,7 @@ O CRS 3,1 inclui 13 grupos de regras, conforme mostrado na tabela a seguir. Cada
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-31)**|Proteger contra ataques de fixação da de sessão|
 |**[SOLICITAÇÃO-944-APLICATIVO-ATAQUE-SESSÃO-JAVA](#crs944-31)**|Proteger contra ataques JAVA|
 
-### <a name="owasp-crs-30"></a>OWASP CRS 3,0
+### <a name="owasp-crs-30"></a>OWASP CRS 3.0
 
 O CRS 3,0 inclui 12 grupos de regras, conforme mostrado na tabela a seguir. Cada grupo contém várias regras, que podem ser desabilitadas.
 
@@ -228,7 +229,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |RuleId|DESCRIÇÃO|
 |---|---|
 |933100|Ataque de injeção de PHP = marcação de abertura/fechamento encontrada|
-|933110|Ataque de injeção de PHP = carregamento de arquivo de Script PHP encontrado|
+|933110|Ataque de injeção de PHP = carregamento de arquivo de script PHP encontrado|
 |933111|Ataque de injeção de PHP: carregamento de arquivo de script PHP encontrado|
 |933120|Ataque de injeção de PHP = política de configuração encontrada|
 |933130|Ataque de injeção de PHP = variáveis encontradas|
@@ -296,7 +297,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |942251|Detecta injeções de HAVING|
 |942260|Detecta tentativas básicas de bypass de autenticação SQL 2/3|
 |942270|Procurando injeção de sql básica. Cadeia de caracteres de ataque comum para MySQL Oracle e outros|
-|942280|Detecta postgres pg_sleep injeção, WAITFOR DELAY ataques e tentativas de desligamento de banco de dados|
+|942280|Detecta postgres injeção de pg_sleep, WAITFOR atrasa ataques e tentativas de desligamento de banco de dados|
 |942290|Localiza tentativas de injeção de SQL MongoDB básica|
 |942300|Detecta comentários, condições e injeções ch(a)r do MySQL|
 |942310|Detecta tentativas de injeção de SQL encadeadas 2/2|
@@ -339,7 +340,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |944130|Classes Java suspeitas|
 |944200|Exploração da desserialização do Java Apache Commons|
 
-# <a name="owasp-30tabowasp30"></a>[OWASP 3,0](#tab/owasp30)
+# <a name="owasp-30tabowasp30"></a>[OWASP 3.0](#tab/owasp30)
 
 ## <a name="owasp30"></a>Conjuntos de regras
 
@@ -461,7 +462,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |RuleId|DESCRIÇÃO|
 |---|---|
 |933100|Ataque de injeção de PHP = marcação de abertura/fechamento encontrada|
-|933110|Ataque de injeção de PHP = carregamento de arquivo de Script PHP encontrado|
+|933110|Ataque de injeção de PHP = carregamento de arquivo de script PHP encontrado|
 |933120|Ataque de injeção de PHP = política de configuração encontrada|
 |933130|Ataque de injeção de PHP = variáveis encontradas|
 |933150|Ataque de injeção de PHP = nome da função PHP de alto risco encontrado|
@@ -470,7 +471,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |933151|Ataque de injeção de PHP = nome da função PHP de médio risco encontrado|
 |933131|Ataque de injeção de PHP = variáveis encontradas|
 |933161|Ataque de injeção de PHP = chamada de função PHP de valor baixo encontrada|
-|933111|Ataque de injeção de PHP = carregamento de arquivo de Script PHP encontrado|
+|933111|Ataque de injeção de PHP = carregamento de arquivo de script PHP encontrado|
 
 ### <a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 

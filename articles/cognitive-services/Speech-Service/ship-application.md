@@ -1,7 +1,7 @@
 ---
 title: Desenvolver aplicativos com o SDK de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar aplicativos usando o SDK de Fala.
+description: Saiba como implantar um aplicativo que usa o SDK de fala em plataformas com suporte.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 166ae00085f07ef24d746b60947a31e7680a0f00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0bcfd40510352abc9e64782255d3c8349b8ad87e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491012"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072417"
 ---
 # <a name="ship-an-application"></a>Enviar um aplicativo
 
@@ -39,15 +39,15 @@ Para a entrada do microfone, as bibliotecas do Media Foundation precisam ser ins
 
 Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretório do seu aplicativo. Dessa forma, seu aplicativo pode acessar diretamente as bibliotecas. Selecione a versão correta (Win32/x64) que corresponda ao seu aplicativo.
 
-| Nome | Função
-|:-----|:----|
-| `Microsoft.CognitiveServices.Speech.core.dll` | SDK principal, necessário para implantação nativa e gerenciada
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | Necessário para implantação gerenciada
+| NOME | Função |
+| :--- | :------- |
+| `Microsoft.CognitiveServices.Speech.core.dll`   | SDK principal, necessário para implantação nativa e gerenciada |
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | Necessário para implantação gerenciada                      |
 
->[!NOTE]
+> [!NOTE]
 > A partir da versão 1.3.0, o arquivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fornecido em versões anteriores) não é mais necessário. A funcionalidade agora está integrada no SDK principal.
 
->[!NOTE]
+> [!NOTE]
 > Para o projeto do .NET Framework (Windows Forms C# app), verifique se as bibliotecas estão incluídas nas configurações de implantação do projeto. Você pode verificar isso em `Properties -> Publish Section`. Clique no botão `Application Files` e localize as bibliotecas correspondentes na lista rolar para baixo. Verifique se o valor está definido como `Included`. O Visual Studio incluirá o arquivo quando o projeto for publicado/implantado.
 
 ## <a name="linux"></a>Linux
@@ -56,9 +56,9 @@ O SDK de fala atualmente dá suporte às distribuições Ubuntu 16, 4, Ubuntu 18
 Para um aplicativo nativo, você precisa enviar a biblioteca do SDK de Fala, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Selecione a versão (x86/x64) que corresponde ao seu aplicativo. Dependendo da versão do Linux, talvez você também precise incluir as seguintes dependências:
 
-* As bibliotecas compartilhadas da biblioteca GNU C (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
-* A biblioteca OpenSSL (`libssl.so.1.0.0` ou `libssl.so.1.0.2`)
-* A biblioteca compartilhada para aplicativos ALSA (`libasound.so.2`)
+- As bibliotecas compartilhadas da biblioteca GNU C (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
+- A biblioteca OpenSSL (`libssl.so.1.0.0` ou `libssl.so.1.0.2`)
+- A biblioteca compartilhada para aplicativos ALSA (`libasound.so.2`)
 
 No Ubuntu, as bibliotecas de GNU C já devem estar instaladas por padrão. Os três últimos podem ser instalados usando estes comandos:
 
@@ -76,5 +76,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer fala em C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Obter a assinatura de avaliação do Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Veja como reconhecer fala em C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

@@ -1,7 +1,7 @@
 ---
 title: Standard Load Balancer e Zonas de Disponibilidade do Azure
-titlesuffix: Azure Load Balancer
-description: Load Balancer Standard e Zonas de Disponibilidade
+titleSuffix: Azure Load Balancer
+description: Com este roteiro de aprendizagem, comece a usar o Azure Standard Load Balancer e Zonas de Disponibilidade.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 925e7857d337f7f2fd501e4e4467c05952b0da65
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 63a7db6e7078df978f47a6d53ea82df83c22c800
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882955"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076980"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e Zonas de Disponibilidade
 

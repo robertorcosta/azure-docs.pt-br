@@ -1,7 +1,7 @@
 ---
 title: Definição de sugestões personalizadas da Sugestão Automática – Pesquisa Personalizada do Bing
 titleSuffix: Azure Cognitive Services
-description: Descreve como configurar a Sugestão Automática Personalizada com sugestões personalizadas
+description: A sugestão automática personalizada retorna uma lista de cadeias de consulta de pesquisa sugeridas que são relevantes para sua experiência de pesquisa.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: b08eb49b0c4f9655326d2ab09ce39210205e28a9
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405110"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072798"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurar experiência de sugestão automática personalizada
 

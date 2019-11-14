@@ -1,5 +1,5 @@
 ---
-title: Extensão do Driver GPU NVIDIA - VMs do Windows Azure | Microsoft Docs
+title: Extensão do driver NVIDIA GPU – VMs do Windows do Azure
 description: Extensão do Microsoft Azure para instalar os Drivers NVIDIA GPU em série N de computação VMs que executam o Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 13a7189d9758fd6d1e7daac38e948e1b482a019b
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686770"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073031"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de Driver NVIDIA GPU para Windows
 
@@ -29,7 +29,7 @@ Essa extensão instala drivers de GPU NVIDIA em VMs série N do Windows. Depende
 As instruções sobre a instalação manual dos drivers e as versões atuais com suporte estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Linux](hpccompute-gpu-linux.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -37,9 +37,9 @@ A Extensão suporta os seguintes OS:
 
 | Distribuição | Versão |
 |---|---|
-| Windows 10 | Core |
-| Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
+| Windows 10 | Núcleo |
+| Windows Server 2016 | Núcleo |
+| Windows Server 2012 R2 | Núcleo |
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
@@ -69,13 +69,13 @@ O JSON a seguir mostra o esquema para a extensão.
 }
 ```
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Propriedades
 
-| Nome | Valor/Exemplo | Tipo de dados |
+| NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
+| apiVersion | 2015-06-15 | data |
+| publicador | Microsoft.HpcCompute | cadeia de caracteres |
+| type | NvidiaGpuDriverWindows | cadeia de caracteres |
 | typeHandlerVersion | 1.2 | int |
 
 
@@ -163,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operação concluída com êxito |
 | 1 | Operação concluída com êxito. É necessário reiniciar. |
-| 100 | Operação sem suporte ou não pôde ser concluída. | Possíveis causas: Não há suporte para a versão do PowerShell, o tamanho da VM não é uma VM da série N, falha ao baixar dados. Verifique os arquivos de log para determinar a causa do erro. |
+| 100 | Operação sem suporte ou não pôde ser concluída. | Possíveis causas: não há suporte para a versão do PowerShell, o tamanho da VM não é uma VM da série N, Falha ao fazer download de dados. Verifique os arquivos de log para determinar a causa do erro. |
 | 240, 840 | Tempo limite da operação. | Operação de teste. |
 | -1 | Exceção ocorreu. | Verifique os arquivos de log para determinar a causa da exceção. |
 | -5x | Operação foi interrompida devido a reinicialização pendente. | Reinicializar VM. Instalação continuará após a reinicialização. Desinstalação deve ser invocada manualmente. |

@@ -1,7 +1,7 @@
 ---
 title: Perguntas frequentes sobre o serviço de Conversão de Fala em Texto no Azure
 titleSuffix: Azure Cognitive Services
-description: Obtenha respostas para as perguntas mais populares sobre o serviço de Fala em Texto.
+description: Obtenha respostas para perguntas frequentes sobre o serviço de fala para texto.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 2d0a05c763b21b0cf22a724f9a5faa9d70b5b557
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f03a937aff17c6ee622f3b5ab6045f912b51bbf2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010654"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072574"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -25,7 +25,7 @@ Se você não encontrar respostas para suas perguntas nas perguntas frequentes, 
 
 **P: Qual é a diferença entre um modelo de linha de base e um modelo personalizado de fala em texto?**
 
-**R**: Um modelo de linha de base foi treinado usando dados de propriedade da Microsoft e já está implantado na nuvem.  Você pode usar um modelo personalizado a fim de adaptar um modelo para se adequar melhor a um ambiente específico que tenha determinado ruído ambiente ou linguagem. Chãos de fábrica, carros, ruas barulhentas exigiriam um modelo acústico adaptado. Tópicos como biologia, física, radiologia, nomes de produtos e acrônimos personalizados exigiriam um modelo de linguagem adaptado.
+**R**: Um modelo de linha de base foi treinado usando dados de propriedade da Microsoft e já está implantado na nuvem. Você pode usar um modelo personalizado a fim de adaptar um modelo para se adequar melhor a um ambiente específico que tenha determinado ruído ambiente ou linguagem. Chãos de fábrica, carros, ruas barulhentas exigiriam um modelo acústico adaptado. Tópicos como biologia, física, radiologia, nomes de produtos e acrônimos personalizados exigiriam um modelo de linguagem adaptado.
 
 **P: Por onde começar se eu quiser usar um modelo de linha de base?**
 
@@ -123,13 +123,13 @@ ou
 
 **R**: O limite atual de um conjunto de dados é de 2 GB. O limite é devido à restrição quanto ao tamanho de um arquivo para upload HTTP.
 
-**P: Posso compactar os arquivos de texto para poder carregar um arquivo de texto maior?** 
+**P: Posso compactar os arquivos de texto para poder carregar um arquivo de texto maior?**
 
 **R**: Não. No momento são permitidos apenas os arquivos de texto não compactados.
 
 **P: o relatório de dados diz que houve falha em declarações. Qual é o problema?**
 
-**R**: A falha ao carregar 100% das declarações em um arquivo não é problema. Se a maioria das declarações em um conjunto de dados acústicos ou de linguagem (por exemplo, mais de 95 por cento) é importada com êxito, o conjunto de dados pode ser usado. No entanto, é recomendável que você tente entender por que as expressões falharam e corrigir os problemas. Os problemas mais comuns, como a formatação de erros, são difíceis de resolver. 
+**R**: A falha ao carregar 100% das declarações em um arquivo não é problema. Se a maioria das declarações em um conjunto de dados acústicos ou de linguagem (por exemplo, mais de 95 por cento) é importada com êxito, o conjunto de dados pode ser usado. No entanto, é recomendável que você tente entender por que as expressões falharam e corrigir os problemas. Os problemas mais comuns, como a formatação de erros, são difíceis de resolver.
 
 ## <a name="creating-an-acoustic-model"></a>Criar um modelo acústico
 
@@ -139,11 +139,11 @@ ou
 
 **P: Quais dados devo coletar?**
 
-**R**: Colete dados que sejam o mais próximos possível do cenário do aplicativo e do caso de uso. A coleta de dados deve corresponder ao aplicativo de destino e aos usuários em termos de dispositivo ou dispositivos, ambientes e tipos de alto-falantes. Em geral, você deve coletar dados de uma variedade de falantes o mais ampla possível. 
+**R**: Colete dados que sejam o mais próximos possível do cenário do aplicativo e do caso de uso. A coleta de dados deve corresponder ao aplicativo de destino e aos usuários em termos de dispositivo ou dispositivos, ambientes e tipos de alto-falantes. Em geral, você deve coletar dados de uma variedade de falantes o mais ampla possível.
 
 **P: Como devo coletar dados acústicos?**
 
-**R**: Você pode criar um aplicativo de coleta de dados independente ou usar um software de gravação de áudio pronto para uso. Você também pode criar uma versão do seu aplicativo que registre os dados de áudio e usá-los. 
+**R**: Você pode criar um aplicativo de coleta de dados independente ou usar um software de gravação de áudio pronto para uso. Você também pode criar uma versão do seu aplicativo que registre os dados de áudio e usá-los.
 
 **P: Preciso transcrever dados de adaptação?**
 
@@ -167,7 +167,7 @@ ou
 
 **R**: Os resultados mostram uma comparação entre o modelo de linha de base e o modelo personalizado. Você deve tentar atingir o modelo de referência para que a personalização seja útil.
 
-**P: Como faço para determinar o WER de um modelo de base para que eu possa ver se houve melhoria?** 
+**P: Como faço para determinar o WER de um modelo de base para que eu possa ver se houve melhoria?**
 
 **R**: Os resultados do teste offline mostram a exatidão da precisão da linha de base do modelo personalizado e a melhoria em relação à linha de base.
 
@@ -179,14 +179,14 @@ ou
 
 **P: Posso carregar apenas uma lista de palavras?**
 
-**R**: Carregar uma lista de palavras adicionará as palavras ao vocabulário, mas isso não ensinará ao sistema como as palavras normalmente são usadas. Fornecendo expressões completas ou parciais (orações ou frases de itens que os usuários provavelmente dirão), o modelo de linguagem pode aprender as novas palavras e como elas são usadas. O modelo de linguagem personalizado é bom não apenas para incluir novas palavras no sistema, mas também para ajustar a probabilidade de palavras conhecidas para sua aplicação. Fornecer utterances completas ajuda o sistema Saiba mais. 
+**R**: Carregar uma lista de palavras adicionará as palavras ao vocabulário, mas isso não ensinará ao sistema como as palavras normalmente são usadas. Fornecendo expressões completas ou parciais (orações ou frases de itens que os usuários provavelmente dirão), o modelo de linguagem pode aprender as novas palavras e como elas são usadas. O modelo de linguagem personalizado é bom não apenas para incluir novas palavras no sistema, mas também para ajustar a probabilidade de palavras conhecidas para sua aplicação. Fornecer utterances completas ajuda o sistema Saiba mais.
 
 ## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modelo de locatário (Fala Personalizada com dados do Office 365)
 
 **P: quais informações estão incluídas no modelo de locatário e como elas são criadas?**
 
-**R:** Um modelo de locatário é criado usando emails de [grupo público](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) e documentos que podem ser vistos por qualquer pessoa em sua organização. 
- 
+**R:** Um modelo de locatário é criado usando emails de [grupo público](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) e documentos que podem ser vistos por qualquer pessoa em sua organização.
+
 **P: quais experiências de fala foram aprimoradas pelo modelo de locatário?**
 
 **R:** Quando o modelo de locatário é habilitado, criado e publicado, ele é usado para melhorar o reconhecimento de qualquer aplicativo empresarial criado usando o serviço de fala; Isso também passa um token AAD do usuário que indica a associação à empresa.
@@ -195,5 +195,5 @@ As experiências de fala incorporadas ao Office 365, como ditado e legendas do P
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Solução de problemas](troubleshooting.md)
-* [Notas de versão](releasenotes.md)
+- [Solução de problemas](troubleshooting.md)
+- [Notas de versão](releasenotes.md)

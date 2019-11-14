@@ -1,7 +1,7 @@
 ---
 title: Configure sua experiência de Pesquisa Personalizada do Bing | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: Descreve como criar um site e serviços de pesquisa vertical
+description: O portal permite criar uma instância de pesquisa que especifica as fatias da Web; domínios, subpáginas e páginas da Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854091"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072829"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure sua experiência de Pesquisa Personalizada do Bing
 
@@ -25,9 +25,9 @@ O portal permite criar uma instância de pesquisa que especifica as fatias da We
 
 Ao definir fatias da web, use o seguinte:
 
-| Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
+| Nome da fatia | DESCRIÇÃO                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domínio     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com`, o Bing também retorna resultados `support.microsoft.com` de `technet.microsoft.com`ou. |
+| Domínio     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo: `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com`, o Bing também retornará resultados de `support.microsoft.com` ou `technet.microsoft.com`. |
 | Subpágina    | Uma fatia de subpágina inclui todo o conteúdo localizado na subpágina e nos caminhos abaixo. É possível especificar no máximo duas subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página da web    | Uma fatia da página da Web pode incluir apenas essa página da Web em uma pesquisa personalizada. Opcionalmente, é possível especificar se quer incluir subpáginas.                                                                                                                                                                                  |
 
@@ -70,7 +70,7 @@ Para carregar um arquivo, crie um arquivo de texto e especifique um único domí
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>Obtenha sugestões de sites para a sua experiência de pesquisa
 
-Depois de adicionar as fatias da web para a lista **Ativo**, o portal de Pesquisa Personalizada do Bing gerará sugestões de sites e subpáginas na parte inferior da guia. Essas são fatias que a Pesquisa Personalizada do Bing acha que você talvez queira incluir. Clique em **Atualizar** para obter sugestões atualizadas depois de atualizar as configurações da sua instância de pesquisa personalizada. Esta seção só é visível se as sugestões estiverem disponíveis.
+Depois de adicionar Web Slices à lista **ativa** , o portal de pesquisa personalizada do Bing gerará sugestões de site e subpágina na parte inferior da guia. Essas são fatias que Pesquisa Personalizada do Bing pensa que você talvez queira incluir. Clique em **Atualizar** para obter sugestões atualizadas depois de atualizar as configurações da sua instância de pesquisa personalizada. Esta seção só é visível se as sugestões estiverem disponíveis.
 
 ## <a name="search-for-images-and-videos"></a>Pesquisar imagens e vídeos
 
@@ -94,7 +94,7 @@ O portal permite que você ajuste a classificação da pesquisa de conteúdo de 
 
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Bloquear      | Mova o domínio, a subpágina ou a página da Web para a lista Bloqueado. O Bing excluirá o conteúdo do site selecionado para não aparecer nos resultados da pesquisa.                    |
+| Bloco      | Mova o domínio, a subpágina ou a página da Web para a lista Bloqueado. O Bing excluirá o conteúdo do site selecionado para não aparecer nos resultados da pesquisa.                    |
 | Aumentar      | Aumenta o conteúdo do domínio ou da subpágina nos resultados da pesquisa.                                                                                        |
 | Rebaixar     | Rebaixa o conteúdo do domínio ou subpágina ao nível abaixo nos resultados da pesquisa. Você seleciona se quer rebaixar o conteúdo do domínio ou da subpágina à qual a página da Web pertence. |
 | Fixar no início | Move o domínio, a subpágina ou a página da Web para a lista **Fixado**. Isso força que a página da Web sejam exibida como o primeiro resultado de pesquisa para uma determinada consulta de pesquisa.                   |
@@ -114,7 +114,7 @@ Superaumentar, aumentar e rebaixar não estão disponíveis para as pesquisas de
 
 ## <a name="pin-slices-to-the-top-of-search-results"></a>Fixar fatias na parte superior dos resultados da pesquisa
 
-O portal também permite que você fixe URLs na parte superior dos resultados da pesquisa de termos de pesquisa específicos, usando a guia **Fixado**. Insira uma URL e uma consulta para especificar a página da Web que será exibida como o resultado principal. Observe que você pode fixar no máximo uma página da Web por consulta de pesquisa, e apenas as páginas da Web indexadas serão exibidas em pesquisas. A fixação de resultados não está disponível para pesquisas de imagem e vídeo.
+O portal também permite que você fixe URLs na parte superior dos resultados da pesquisa para termos de pesquisa específicos, usando a guia **fixado** . Insira uma URL e uma consulta para especificar a página da Web que será exibida como o resultado superior. Observe que você pode fixar no máximo uma página da Web por consulta de pesquisa, e apenas as páginas da Web indexadas serão exibidas em pesquisas. A fixação de resultados não está disponível para pesquisas de imagem e vídeo.
 
 Você pode fixar uma página da Web na parte superior de duas maneiras:
 
@@ -129,11 +129,11 @@ Por padrão, as páginas da Web só estão fixadas na parte superior dos resulta
 > [!NOTE]
 > Todas as comparações entre a consulta de pesquisa do usuário e a consulta de pesquisa da fixação diferenciam maiúsculas de minúsculas.
 
-| Valor | Descrição                                                                          |
+| Valor | DESCRIÇÃO                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Começa com | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário começa com a cadeia de caracteres de consulta da fixação |
 | Termina com   | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário termina com a cadeia de caracteres de consulta da fixação.  |
-| Contém    | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário contém a cadeia de caracteres de consulta da fixação.   |
+| Contém:    | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário contém a cadeia de caracteres de consulta da fixação.   |
 
 
 Para alterar a condição de correspondência da fixação, clique no ícone de edição da fixação. Na coluna **Condição de correspondência de consulta**, clique na lista suspensa e selecione a nova condição a ser usada. Em seguida, clique no ícone de salvar para salvar as alterações.

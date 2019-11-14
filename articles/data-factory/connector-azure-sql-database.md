@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de ou para o banco de dado SQL do Azure usando Data Factory
-description: Saiba como copiar dados de armazenamentos de dados de origem com suporte para o Banco de Dados SQL do Azure ou do Banco de Dados SQL do Azure para armazenamentos de dados de coletor com suporte, usando o Data Factory.
+title: Copiar e transformar dados no banco de dados SQL do Azure usando Data Factory
+description: Saiba como copiar dados para dentro e para o banco de dados SQL do Azure, e transforme-os usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 4ef47bc1064c095792a90ed69880106af77e9dfd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b899d9884a80a882ca03d3d970421227a48a3803
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681117"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075589"
 ---
-# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o Banco de Dados SQL do Azure usando o Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados no banco de dados SQL do Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-azure-sql-connector.md)
 > * [Versão atual](connector-azure-sql-database.md)
 
-Este artigo descreve como copiar dados de e para o Azure SQL Database. Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para o banco de dados SQL do Azure e usar o fluxo de dados para transformar dados no banco de dado SQL do Azure. Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -35,7 +35,7 @@ Este conector do banco de dados SQL do Azure tem suporte para as seguintes ativi
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 
-Especificamente, este conector de banco de dados SQL do Azure dá suporte a estas funções:
+Para a atividade de cópia, este conector do banco de dados SQL do Azure dá suporte a essas funções:
 
 - Copiar dados usando a autenticação do SQL e a autenticação do token de aplicativo do Azure Active Directory (Azure AD) com uma entidade de serviço ou identidades gerenciadas para recursos do Azure.
 - Como fonte, recuperar dados usando uma consulta SQL ou um procedimento armazenado.
@@ -58,10 +58,10 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 Essas propriedades são suportadas por um serviço vinculado ao Banco de Dados SQL do Azure:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade  **tipo** deve ser definida como **AzureSqlDatabase**. | Sim |
-| connectionString | Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL do Azure para a propriedade **connectionString**. <br/>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha ou chave de entidade de serviço em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| type | A propriedade  **tipo** deve ser definida como **AzureSqlDatabase**. | sim |
+| connectionString | Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL do Azure para a propriedade **connectionString**. <br/>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha ou chave de entidade de serviço em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). | sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory ou [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | locatário | Especifique as informações do locatário, como o nome de domínio ou a ID do locatário, sob a qual seu aplicativo reside. Recupere-o passando o mouse no canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
@@ -227,13 +227,13 @@ Para usar a autenticação de identidade gerenciada, siga estas etapas.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de valores, consulte [DataSets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Esta seção fornece uma lista de propriedades com suporte pelo conjunto de dados do banco de dados SQL do Azure.
+Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de valores, consulte [DataSets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). 
 
-Para copiar dados de ou para o Azure SQL Database, há suporte para as seguintes propriedades:
+As propriedades a seguir têm suporte para o conjunto de dados do Azure SQL Database:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** do conjunto de dados deve ser definida como **AzureSqlTable**. | Sim |
+| type | A propriedade **tipo** do conjunto de dados deve ser definida como **AzureSqlTable**. | sim |
 | schema | Nome do esquema. |Não para fonte, Sim para o coletor  |
 | tabela | Nome da tabela/exibição. |Não para fonte, Sim para o coletor  |
 | tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para fonte, Sim para o coletor |
@@ -267,9 +267,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Azure SQL Database, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **AzureSqlSource**. O tipo "sqlsource" ainda tem suporte para compatibilidade com versões anteriores. | Sim |
+| type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **AzureSqlSource**. O tipo "sqlsource" ainda tem suporte para compatibilidade com versões anteriores. | sim |
 | sqlReaderQuery | Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | Não |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. | Não |
 | storedProcedureParameters | Parâmetros para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não |
@@ -373,9 +373,9 @@ GO
 
 Para copiar os dados para o Azure SQL Database, há suporte para as seguintes propriedades na seção **coletor** de atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **Type** do coletor da atividade de cópia deve ser definida como **AzureSqlSink**. O tipo "sqlsink" ainda tem suporte para compatibilidade com versões anteriores. | Sim |
+| type | A propriedade **Type** do coletor da atividade de cópia deve ser definida como **AzureSqlSink**. O tipo "sqlsink" ainda tem suporte para compatibilidade com versões anteriores. | sim |
 | writeBatchSize | Número de linhas a serem inseridas na tabela SQL *por lote*.<br/> O valor permitido é **inteiro** (número de linhas). Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha. | Não |
 | writeBatchTimeout | O tempo de espera para o lote inserir operação seja concluída antes de expirar.<br/> O valor permitido é **intervalo de tempo**. Um exemplo é "00:30:00" (30 minutos). | Não |
 | preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar os dados no Azure SQL Database. É chamado apenas uma vez por execução de cópia. Use essa propriedade para limpar os dados pré-carregados. | Não |
@@ -474,7 +474,7 @@ Consulte as respectivas seções sobre como configurar o em Azure Data Factory e
 
 A anexação de dados é o comportamento padrão desse conector do coletor de banco de dados SQL do Azure. Azure Data Factory faz uma inserção em massa para gravar em sua tabela com eficiência. Você pode configurar a origem e o coletor de acordo com a atividade de cópia.
 
-### <a name="upsert-data"></a>Upsert data
+### <a name="upsert-data"></a>Upsert de dados
 
 **Opção 1:** Quando você tiver uma grande quantidade de dados a serem copiados, use a seguinte abordagem para fazer um Upsert: 
 
@@ -538,7 +538,7 @@ A amostra a seguir mostra como usar um procedimento armazenado para fazer um ups
     )
     ```
 
-2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **SqlWriterStoredProcedureName**. Ele manipula os dados de entrada da sua origem especificada e mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
+2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **sqlWriterStoredProcedureName**. Ele manipula os dados de entrada da sua origem especificada e mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -560,9 +560,9 @@ A amostra a seguir mostra como usar um procedimento armazenado para fazer um ups
     ```json
     "sink": {
         "type": "AzureSqlSink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"
@@ -583,27 +583,27 @@ Quando os dados são copiados do ou para o banco de dados SQL do Azure, os segui
 |:--- |:--- |
 | bigint |Int64 |
 | binário |Byte[] |
-| bit |Booliano |
+| bit |Boolean |
 | char |String, Char[] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |Datetimeoffset |
-| Decimal |Decimal |
+| DECIMAL |DECIMAL |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Duplo |
 | imagem |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |DECIMAL |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérico |Decimal |
+| numérico |DECIMAL |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |DECIMAL |
 | sql_variant |Objeto |
 | texto |String, Char[] |
 | tempo real |TimeSpan |

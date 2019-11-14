@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 6dadb84b5323568ff736d9e39a1297515f33368c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9a70ecacdf10c985cabca8fa3ddf4314bf266afe
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681177"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075602"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados para e da Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -45,7 +45,7 @@ Especificamente, este conector da Instância Gerenciada do Banco de Dados SQL do
 >[!NOTE]
 >A entidade de serviço e as autenticações de identidade gerenciada atualmente não são compatíveis com este conector. Para contornar, escolha um conector do banco de dados SQL do Azure e especifique manualmente o servidor da instância gerenciada.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para acessar o [ponto de extremidade público](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)do instância gerenciada do banco de dados SQL do Azure, você pode usar um Azure data Factory tempo de execução de integração do Azure gerenciado. Certifique-se de habilitar o ponto de extremidade público e também permitir o tráfego de ponto de extremidade público no grupo de segurança de rede para que Azure Data Factory possa se conectar ao seu banco de dados. Para obter mais informações, consulte [este guia](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
@@ -61,14 +61,14 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenciada do Banco de Dados SQL do Azure:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade Type deve ser definida como **AzureSqlMI**. | Sim |
-| connectionString |Esta propriedade especifica as informações de **ConnectionString** necessárias para se conectar à instância gerenciada usando a autenticação do SQL. Para obter mais informações, confira os exemplos a seguir. <br/>A porta padrão é 1433. Se você estiver usando Instância Gerenciada do Banco de Dados SQL do Azure com um ponto de extremidade público, especifique explicitamente a porta 3342.<br>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| type | A propriedade Type deve ser definida como **AzureSqlMI**. | sim |
+| connectionString |Esta propriedade especifica as informações de **ConnectionString** necessárias para se conectar à instância gerenciada usando a autenticação do SQL. Para obter mais informações, confira os exemplos a seguir. <br/>A porta padrão é 1433. Se você estiver usando Instância Gerenciada do Banco de Dados SQL do Azure com um ponto de extremidade público, especifique explicitamente a porta 3342.<br>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory ou [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | locatário | Especifique as informações do locatário, como o nome de domínio ou a ID do locatário, sob a qual seu aplicativo reside. Recupere-o passando o mouse no canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
-| connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Você pode usar um tempo de execução de integração auto-hospedado ou um tempo de execução de integração do Azure se sua instância gerenciada tiver um ponto de extremidade público e permitir que Azure Data Factory o acesse. Se não for especificado, o tempo de execução de integração do Azure padrão será usado. |Sim |
+| connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Você pode usar um tempo de execução de integração auto-hospedado ou um tempo de execução de integração do Azure se sua instância gerenciada tiver um ponto de extremidade público e permitir que Azure Data Factory o acesse. Se não for especificado, o tempo de execução de integração do Azure padrão será usado. |sim |
 
 Para diferentes tipos de autenticação, consulte as seções a seguir sobre pré-requisitos e amostras JSON, respectivamente:
 
@@ -242,9 +242,9 @@ Para obter uma lista completa das seções e das propriedades disponíveis para 
 
 Para copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure, há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureSqlMITable**. | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureSqlMITable**. | sim |
 | schema | Nome do esquema. |Não para fonte, Sim para o coletor  |
 | tabela | Nome da tabela/exibição. |Não para fonte, Sim para o coletor  |
 | tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para fonte, Sim para o coletor |
@@ -278,9 +278,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para uso 
 
 Para copiar dados de Instância Gerenciada do Banco de Dados SQL do Azure, as propriedades a seguir têm suporte na seção origem da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como **SqlMISource**. | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como **SqlMISource**. | sim |
 | sqlReaderQuery |Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |Não |
 | sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não |
 | storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e o uso de maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
@@ -384,9 +384,9 @@ GO
 
 Para copiar dados para Instância Gerenciada do Banco de Dados SQL do Azure, as propriedades a seguir têm suporte na seção coletor de atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade Type do coletor da atividade de cópia deve ser definida como **SqlMISink**. | Sim |
+| type | A propriedade Type do coletor da atividade de cópia deve ser definida como **SqlMISink**. | sim |
 | writeBatchSize |Número de linhas a serem inseridas na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha.  |Não |
 | writeBatchTimeout |Essa propriedade especifica o tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são para o TimeSpan. Um exemplo é "00: 30:00", que são 30 minutos. |Não |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados na instância gerenciada. É chamado apenas uma vez por execução de cópia. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não |
@@ -484,7 +484,7 @@ Consulte as respectivas seções sobre como configurar o em Azure Data Factory e
 
 Acrescentar dados é o comportamento padrão desse conector do coletor de Instância Gerenciada do Banco de Dados SQL do Azure. Azure Data Factory faz uma inserção em massa para gravar em sua tabela com eficiência. Você pode configurar a origem e o coletor de acordo com a atividade de cópia.
 
-### <a name="upsert-data"></a>Upsert data
+### <a name="upsert-data"></a>Upsert de dados
 
 **Opção 1:** Quando você tiver uma grande quantidade de dados a serem copiados, use a seguinte abordagem para fazer um Upsert: 
 
@@ -548,7 +548,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um ups
     )
     ```
 
-2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **SqlWriterStoredProcedureName**. Ele manipula os dados de entrada da sua origem especificada e mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
+2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **sqlWriterStoredProcedureName**. Ele manipula os dados de entrada da sua origem especificada e mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -570,9 +570,9 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um ups
     ```json
     "sink": {
         "type": "SqlMISink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"
@@ -589,27 +589,27 @@ Quando dados são copiados para e da Instância Gerenciada do Banco de Dados SQL
 |:--- |:--- |
 | bigint |Int64 |
 | binário |Byte[] |
-| bit |Booliano |
+| bit |Boolean |
 | char |String, Char[] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |Datetimeoffset |
-| Decimal |Decimal |
+| DECIMAL |DECIMAL |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Duplo |
 | imagem |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |DECIMAL |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérico |Decimal |
+| numérico |DECIMAL |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |DECIMAL |
 | sql_variant |Objeto |
 | texto |String, Char[] |
 | tempo real |TimeSpan |

@@ -1,7 +1,6 @@
 ---
-title: Visão geral do IPv6 para o Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Entender o suporte a IPv6 para o Azure Load Balancer e VMs com balanceamento de carga.
+title: Visão geral do IPv6-Azure Load Balancer
+description: Com este roteiro de aprendizagem, comece a usar o suporte a IPv6 para Azure Load Balancer e VMs com balanceamento de carga.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 07dd3ee507f31099e32f18143d2beedf76e83c36
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147338"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077018"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para o Azure Load Balancer
 
 
 >[!NOTE] 
->O Azure Load Balancer é compatível com dois tipos diferentes: Básico e Standard. Este artigo discute o Load Balancer Basic. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](load-balancer-standard-overview.md).
+>O Azure Load Balancer oferece suporte a dois tipos diferentes: Basic e Standard. Este artigo discute o Load Balancer Basic. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](load-balancer-standard-overview.md).
 
 Os balanceadores de carga voltados para a Internet da SKU básica podem ser implantados com um endereço IPv6. Além de conectividade IPv4, isso permite os seguintes recursos:
 

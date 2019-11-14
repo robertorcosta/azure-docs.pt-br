@@ -1,5 +1,5 @@
 ---
-title: Usar o Azure PowerShell para habilitar o diagnóstico em uma máquina virtual Windows | Microsoft Docs
+title: Usar Azure PowerShell para habilitar o diagnóstico em uma VM do Windows
 services: virtual-machines-windows
 documentationcenter: ''
 description: Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 547de4862081b56bf627c3a00564ce6564f2ad09
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d43859de71b6e41d5df444716b5504ca6b78400b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750094"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073152"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows
 
@@ -88,7 +88,7 @@ A configuração precisa ser atualizada para incluir o seguinte:
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
-  * Para obter mais informações sobre como as métricas são geradas com base na configuração de métricas e contadores de desempenho, veja a [Tabela de métricas do Diagnóstico do Azure no armazenamento](diagnostics-template.md#wadmetrics-tables-in-storage).
+  * Para obter mais informações sobre como as métricas são geradas com base na configuração de contadores e métricas de desempenho, consulte a [tabela de métricas de Diagnóstico do Azure no armazenamento](diagnostics-template.md#wadmetrics-tables-in-storage).
 * O elemento **StorageAccount** precisa ser atualizado com o nome da conta de armazenamento de diagnóstico.
   
     ```xml
@@ -196,6 +196,6 @@ A configuração precisa ser atualizada para incluir o seguinte:
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter orientações adicionais sobre como usar a funcionalidade do Diagnóstico do Azure e outras técnicas para solucionar problemas, consulte [Habilitar o diagnóstico nos Serviços de Nuvem e nas Máquinas Virtuais do Azure](../../cloud-services/cloud-services-dotnet-diagnostics.md).
+* Para obter diretrizes adicionais sobre como usar a capacidade de Diagnóstico do Azure e outras técnicas para solucionar problemas, consulte [Habilitar o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](../../cloud-services/cloud-services-dotnet-diagnostics.md).
 * [esquema de configuração de diagnóstico](https://msdn.microsoft.com/library/azure/mt634524.aspx) explica as várias opções de configurações de XML para a extensão de diagnóstico.
 

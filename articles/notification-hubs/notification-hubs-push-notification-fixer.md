@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: c9754c1d7fee5af13de6176dbf8a1ca6e57a71eb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213158"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076856"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnosticar notificações eliminadas nos hubs de notificação do Azure
 
@@ -33,7 +33,7 @@ Uma pergunta comum sobre os hubs de notificação do Azure é como solucionar pr
 
 Em um fluxo de envio de notificação típico, a mensagem é enviada do *back-end do aplicativo* para os Hubs de Notificação. Os hubs de notificação processam todos os registros. Leva em consideração as marcas configuradas e as expressões de marca para determinar os destinos. Destinos são os registros que precisam receber a notificação por push. Esses registros podem abranger qualquer uma das plataformas com suporte: Android, Baidu (dispositivos Android na China), Amazon (sistema operacional de incêndio) iOS, Windows e Windows Phone.
 
-Com os destinos estabelecidos, os Hubs de Notificação efetuam push nas notificações para o *serviço de notificação por push* para a plataforma do dispositivo. Alguns exemplos são o serviço APNs (Apple Push Notification Service) para Apple e FCM (Firebase Cloud Messaging) para o Google. Os Hubs de Notificação efetuam push de notificações divididas em diversos lotes de registros. Ele é autenticado com o respectivo serviço de notificação por push, com base nas credenciais definidas na portal do Azure, em **Configurar Hub de notificação**. O serviço de notificação por push encaminha as notificações para os respectivos *dispositivos cliente*.
+Com os destinos estabelecidos, os Hubs de Notificação efetuam push nas notificações para o *serviço de notificação por push* para a plataforma do dispositivo. Os exemplos incluem o serviço de notificação por push da Apple (APNs) para iOS e macOS e o firebase Cloud Messaging (FCM) para dispositivos Android. Os Hubs de Notificação efetuam push de notificações divididas em diversos lotes de registros. Ele é autenticado com o respectivo serviço de notificação por push, com base nas credenciais definidas na portal do Azure, em **Configurar Hub de notificação**. O serviço de notificação por push encaminha as notificações para os respectivos *dispositivos cliente*.
 
 O segmento final da entrega de notificação é entre o serviço de notificação por push da plataforma e o dispositivo. A entrega de notificação pode falhar em qualquer um dos quatro estágios do processo de notificação por push (cliente, back-end de aplicativo, hubs de notificação e serviço de notificação por push da plataforma). Para obter mais informações sobre a arquitetura dos Hubs de Notificação, consulte [Visão geral dos Hubs de Notificação].
 
@@ -103,7 +103,7 @@ Cada lote é enviado para o serviço de notificação por push, que, por sua vez
 
 Nesse caso, o registro com falha é removido do banco de dados. Em seguida, tentamos entregar a notificação novamente para o restante dos dispositivos nesse lote.
 
-Para obter mais informações de erro sobre a tentativa de entrega com falha em relação a um registro, você pode usar [as APIs REST dos hubs de notificação por telemetria de mensagem: Obtenha telemetria](https://msdn.microsoft.com/library/azure/mt608135.aspx) de mensagens de notificação e [comentários de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para obter o código de exemplo, consulte o [Exemplo de envio de REST](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Para obter mais informações de erro sobre a tentativa de entrega com falha em relação a um registro, você pode usar as APIs REST dos hubs de notificação [por telemetria de mensagem: obter telemetria de mensagem de notificação](https://msdn.microsoft.com/library/azure/mt608135.aspx) e [comentários de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para obter o código de exemplo, consulte o [Exemplo de envio de REST](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problemas do serviço de notificação por push
 
@@ -125,7 +125,7 @@ Aqui estão os caminhos para diagnosticar a causa raiz das notificações descar
 
 #### <a name="push-notification-service-developer-portal"></a>Portal do desenvolvedor do serviço de notificação por push ####
 
-Verifique as credenciais no respectivo portal do desenvolvedor do serviço de notificação por push (APNs, FCM, Serviço de Notificação do Windows e assim por diante). Para obter mais informações, confira [Tutorial: Enviar notificações para aplicativos da Plataforma Universal do Windows usando Hubs de Notificação do Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Verifique as credenciais no respectivo portal do desenvolvedor do serviço de notificação por push (APNs, FCM, Serviço de Notificação do Windows e assim por diante). Para obter mais informações, consulte [tutorial: enviar notificações para plataforma universal do Windows aplicativos usando os hubs de notificação do Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Portal do Azure ####
 
@@ -145,22 +145,22 @@ Você pode exibir e gerenciar todos os registros em seu hub. Os registros podem 
 
 Clique com o botão direito do mouse no Hub de notificação em **Gerenciador de servidores**e selecione **diagnosticar**. 
 
-![Gerenciador de Servidores do Visual Studio: Menu diagnosticar](./media/notification-hubs-diagnosing/diagnose-menu.png)
+![Gerenciador de Servidores do Visual Studio: menu diagnosticar](./media/notification-hubs-diagnosing/diagnose-menu.png)
 
 Você verá a seguinte página:
 
-![Visual Studio: Página de diagnóstico](./media/notification-hubs-diagnosing/diagnose-page.png)
+![Visual Studio: página de diagnóstico](./media/notification-hubs-diagnosing/diagnose-page.png)
 
 Alterne para a página de **registros do dispositivo** :
 
-![Visual Studio: Registros de dispositivo](./media/notification-hubs-diagnosing/VSRegistrations.png)
+![Visual Studio: registros de dispositivo](./media/notification-hubs-diagnosing/VSRegistrations.png)
 
 Você pode usar a página de **envio de teste** para enviar uma mensagem de notificação de teste:
 
-![Visual Studio: Envio de Teste](./media/notification-hubs-diagnosing/test-send-vs.png)
+![Visual Studio: enviar teste](./media/notification-hubs-diagnosing/test-send-vs.png)
 
 > [!NOTE]
-> Use o Visual Studio para editar os registros somente durante o desenvolvimento/teste e com um número limitado de registros. Se você precisar editar seus registros em massa, considere o uso da funcionalidade de registro de exportação e importação descrita [em como: Exportar e modificar registros em massa](https://msdn.microsoft.com/library/dn790624.aspx).
+> Use o Visual Studio para editar os registros somente durante o desenvolvimento/teste e com um número limitado de registros. Se você precisar editar seus registros em massa, considere o uso da funcionalidade exportar e importar Registro descrita em [como: exportar e modificar registros em massa](https://msdn.microsoft.com/library/dn790624.aspx).
 
 #### <a name="service-bus-explorer"></a>Service Bus Explorer ####
 
@@ -183,7 +183,7 @@ Você também pode enviar notificações de teste do Visual Studio.
 Para obter mais informações sobre como usar os Hubs de Notificação com o Gerenciador de Servidores do Visual Studio, consulte estes artigos:
 
 * [Como exibir registros de dispositivo para hubs de notificação](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
-* [Aprofundamento: Visual Studio 2013 Update 2 RC e SDK 2.3 do Azure]
+* [Análise aprofundada: Visual Studio 2013 Atualização 2 RC e SDK do Azure 2.3]
 * [Anunciando o lançamento do Visual Studio 2013 Atualização 3 e SDK do Azure 2.4]
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Depurar notificações com falha e examinar o resultado da notificação
@@ -291,7 +291,7 @@ Para obter mais informações sobre o acesso programático, consulte [acesso pro
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [View device registrations for notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Aprofundamento: Visual Studio 2013 Update 2 RC e SDK 2.3 do Azure]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Análise aprofundada: Visual Studio 2013 Atualização 2 RC e SDK do Azure 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Anunciando o lançamento do Visual Studio 2013 Atualização 3 e SDK do Azure 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Programmatic telemetry access]: https://msdn.microsoft.com/library/azure/dn458823.aspx

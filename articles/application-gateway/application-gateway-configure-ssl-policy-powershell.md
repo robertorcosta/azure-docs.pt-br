@@ -1,19 +1,19 @@
 ---
-title: Configurar política SSL no Gateway de Aplicativo do Azure - PowerShell
+title: Configurar a política SSL usando o PowerShell
+titleSuffix: Azure Application Gateway
 description: Esta página fornece instruções para configurar a política SSL no Gateway de Aplicativo do Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/3/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 5c881a42cdd6fd76c591cf12b341fd777d18baea
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018259"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075240"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e conjuntos de codificação no Gateway de Aplicativo
 
@@ -108,7 +108,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Configurar uma política de SSL personalizada
 
-Ao configurar uma política SSL personalizada, você passa os seguintes parâmetros: PolicyType, MinProtocolVersion, CipherSuite e ApplicationGateway. Se tentar passar outros parâmetros, você receberá um erro ao criar ou atualizar o Gateway de Aplicativo. 
+Ao configurar uma política de SSL personalizada, passe os seguintes parâmetros: PolicyType, MinProtocolVersion, CipherSuite e ApplicationGateway. Se tentar passar outros parâmetros, você receberá um erro ao criar ou atualizar o Gateway de Aplicativo. 
 
 O exemplo a seguir define uma política personalizada do SSL em um gateway de aplicativo. Define a versão mínima do protocolo `TLSv1_1` e permite que os seguintes conjuntos de codificação:
 
@@ -134,7 +134,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Criar um gateway de aplicativo com uma política de SSL predefinida
 
-Ao configurar uma política SSL predefinida, você passa os seguintes parâmetros: PolicyType, PolicyName e ApplicationGateway. Se tentar passar outros parâmetros, você receberá um erro ao criar ou atualizar o Gateway de Aplicativo.
+Ao configurar uma política de SSL predefinida, passe os seguintes parâmetros: PolicyType, PolicyName e ApplicationGateway. Se tentar passar outros parâmetros, você receberá um erro ao criar ou atualizar o Gateway de Aplicativo.
 
 O exemplo a seguir cria um novo gateway de aplicativo com uma política SSL predefinida.
 
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Atualizar um gateway de aplicativo existente com uma política de SSL predefinida
 
-Para configurar uma política SSL personalizada, passe os seguintes parâmetros: **PolicyType**, **MinProtocolVersion**, **CipherSuite** e **ApplicationGateway**. Para configurar uma política SSL predefinida, passe os seguintes parâmetros: **PolicyType**, **PolicyName** e **ApplicationGateway**. Se tentar passar outros parâmetros, você receberá um erro ao criar ou atualizar o Gateway de Aplicativo.
+Para definir uma política de SSL personalizada, passe os seguintes parâmetros: **PolicyType**, **MinProtocolVersion**, **CipherSuite** e **ApplicationGateway**. Para definir uma política de SSL predefinida, passe os seguintes parâmetros: **PolicyType**, **PolicyName** e **ApplicationGateway**. Se tentar passar outros parâmetros, você receberá um erro ao criar ou atualizar o Gateway de Aplicativo.
 
 No exemplo a seguir, há exemplos de código para a política personalizada e para a política predefinida. Remova a marca de comentário da política que deseja usar.
 

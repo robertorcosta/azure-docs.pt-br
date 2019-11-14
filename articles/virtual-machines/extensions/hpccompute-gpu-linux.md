@@ -1,5 +1,5 @@
 ---
-title: Extensão do Driver GPU NVIDIA - VMs do Linux Azure | Microsoft Docs
+title: Extensão do driver NVIDIA GPU – VMs Linux do Azure
 description: Extensão do Microsoft Azure para instalar os Drivers NVIDIA GPU em série N de computação VMs que executam o Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 83646c0b11bf558f667b29271a27d31e5489c157
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174009"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073738"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de Driver NVIDIA GPU para Linux
 
@@ -26,11 +26,11 @@ ms.locfileid: "71174009"
 
 Essa extensão instala drivers de GPU NVIDIA em VMs série N do Linux. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instalar drivers NVIDIA usando esta extensão, estará aceitando e concordando com os termos do [Contrato de Licença de Usuário Final da NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
 
-As instruções sobre a instalação manual dos drivers e as versões atuais com suporte [estão](
-https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)disponíveis aqui.
+As instruções sobre a instalação manual dos drivers e as versões atuais com suporte estão disponíveis [aqui](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Windows](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -70,24 +70,24 @@ O JSON a seguir mostra o esquema para a extensão.
 }
 ```
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Propriedades
 
-| Nome | Valor/Exemplo | Tipo de dados |
+| NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| apiVersion | 2015-06-15 | data |
+| publicador | Microsoft.HpcCompute | cadeia de caracteres |
+| type | NvidiaGpuDriverLinux | cadeia de caracteres |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Configurações
 
 Todas as configurações são opcionais. O comportamento padrão é não atualizar o kernel se não for necessário para a instalação do driver, instale o driver mais recente com suporte e o CUDA toolkit (conforme aplicável).
 
-| Nome | Descrição | Valor padrão | Valores Válidos | Tipo de dados |
+| NOME | DESCRIÇÃO | Valor padrão | Valores Válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | Atualize o kernel, mesmo que não seja necessário para instalação do driver | false | true, false | boolean |
-| driverVersion | NV: versão do driver GRID<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
-| installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | true | true, false | boolean |
+| updateOS | Atualize o kernel, mesmo que não seja necessário para instalação do driver | false | verdadeiro, falso | Booleano |
+| driverVersion | NV: Versão do driver de grade<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRADE: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | cadeia de caracteres |
+| installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | verdadeiro | verdadeiro, falso | Booleano |
 
 
 ## <a name="deployment"></a>Implantação

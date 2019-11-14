@@ -1,7 +1,7 @@
 ---
 title: Pesquisar imagens GIF usando a API de Pesquisa de Imagem do Bing
 titleSuffix: Azure Cognitive Services
-description: Use a API de Pesquisa de Imagem do Bing para pesquisar imagens .gif na Web.
+description: A API de Pesquisa de Imagem do Bing permite que você pesquise em toda a Web para obter as imagens .gif mais relevantes.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a8c9afa618df468e038c80f72713b12c7f6ee226
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ad33b5a28728a8e7f9c0a70ff81ea5a9e65624bd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882286"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072648"
 ---
 # <a name="search-for-gif-images"></a>Pesquisar imagens GIF 
 
-A API de Pesquisa de Imagem do Bing permite que você pesquise em toda a Web para obter as imagens .gif mais relevantes.  Os desenvolvedores podem integrar GIFs de engajamento em vários cenários de conversa. 
+A API de Pesquisa de Imagem do Bing permite que você pesquise em toda a Web para obter as imagens .gif mais relevantes.  Os desenvolvedores podem integrar GIFs envolventes em vários cenários de conversa. 
 
 A URL a seguir é uma consulta de imagens .gif animadas.
 ```
@@ -208,5 +208,5 @@ O código obtém os seguintes resultados como objetos JSON:
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início Rápido do C#](quickstarts/csharp.md)
+- [Início rápido em C#](quickstarts/csharp.md)
 - [Tutorial do aplicativo de página única de Pesquisa de Imagem](tutorial-bing-image-search-single-page-app.md)

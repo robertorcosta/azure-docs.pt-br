@@ -1,5 +1,6 @@
 ---
-title: Gerar um certificado autoassinado de Aplicativo Azure gateway com uma autoridade de certificação raiz Personalizada
+title: Gerar um certificado autoassinado com uma autoridade de certificação raiz Personalizada
+titleSuffix: Azure Application Gateway
 description: Saiba como gerar um certificado autoassinado de Aplicativo Azure gateway com uma autoridade de certificação raiz Personalizada
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833363"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075082"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gerar um certificado autoassinado de Aplicativo Azure gateway com uma autoridade de certificação raiz Personalizada
 
@@ -29,7 +30,7 @@ Neste artigo, você aprenderá a:
 - Criar um certificado autoassinado assinado por sua autoridade de certificação personalizada
 - Carregar um certificado raiz autoassinado para um gateway de aplicativo para autenticar o servidor de back-end
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - **[OpenSSL](https://www.openssl.org/) em um computador executando Windows ou Linux** 
 
@@ -184,7 +185,7 @@ Para carregar o certificado raiz confiável do portal, selecione as **configura�
 
 ![Adicionar um certificado usando o portal](media/self-signed-certificates/portal-cert.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell"></a>PowerShell do Azure
 
 Ou, você pode usar CLI do Azure ou Azure PowerShell para carregar o certificado raiz. O código a seguir é um exemplo de Azure PowerShell.
 

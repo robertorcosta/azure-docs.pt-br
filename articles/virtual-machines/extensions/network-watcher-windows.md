@@ -1,5 +1,5 @@
 ---
-title: Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows | Microsoft Docs
+title: Extensão da máquina virtual do agente do observador de rede do Azure para Windows
 description: Implante o Agente do Observador de Rede na máquina virtual Windows usando uma extensão da máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 77685fd6549906cfb050e12d53ec151c964fda42
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 998e160edce25b9d466a1db090abcefeb7870172
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084403"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073680"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Agente do Observador de Rede para Windows
 
@@ -30,7 +30,7 @@ O [Observador de Rede do Azure](../../network-watcher/network-watcher-monitoring
 
 Este documento detalha as opções com suporte de plataformas e implantação para a extensão da máquina virtual do Agente do Observador de Rede para Windows. A instalação do agente não interrompe nem requer um reinício da máquina virtual. É possível implantar a extensão em máquinas virtuais que você implanta. Se a máquina virtual for implantada por um serviço do Azure, verifique a documentação do serviço para determinar se ele permite ou não a instalação de extensões na máquina virtual.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -64,10 +64,10 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Observador de Red
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo |
+| NOME | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publisher | Microsoft.Azure.NetworkWatcher |
+| publicador | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
@@ -93,7 +93,7 @@ Set-AzVMExtension `
 
 ## <a name="troubleshooting-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshooting"></a>Solução de problemas
+### <a name="troubleshooting"></a>Solucionando problemas
 
 Você pode recuperar dados sobre o estado das implantações de extensão por meio do portal do Azure e do PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o módulo do Azure PowerShell:
 

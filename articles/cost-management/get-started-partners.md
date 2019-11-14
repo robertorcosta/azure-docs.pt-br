@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 611b3e608d9b0de9423c861ec70e9fc2e7ad67d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: cd3efbea7b194da54bc1d9bebd1cc77987bd9dea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720759"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072343"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao gerenciamento de custos do Azure para parceiros
 
-O gerenciamento de custos do Azure está disponível nativamente para parceiros que integraram seus clientes a um contrato de clientes da Microsoft. Este artigo explica como os parceiros usam os recursos de [Gerenciamento de custos do Azure](https://docs.microsoft.com/azure/cost-management/) . Ele também descreve como os parceiros permitem o acesso de gerenciamento de custos para seus clientes. Os clientes podem usar os recursos de gerenciamento de custos quando habilitados pelo parceiro CSP.
+O gerenciamento de custos do Azure está disponível nativamente para parceiros que integraram seus clientes a um contrato de cliente da Microsoft e compraram um plano do Azure. Este artigo explica como os parceiros usam os recursos de [Gerenciamento de custos do Azure](https://docs.microsoft.com/azure/cost-management/) . Ele também descreve como os parceiros permitem o acesso de gerenciamento de custos para seus clientes. Os clientes podem usar os recursos de gerenciamento de custos quando habilitados pelo parceiro CSP.
 
 Os parceiros CSP usam o gerenciamento de custos para:
 
@@ -37,7 +37,7 @@ Veja um exemplo que mostra os custos de um único cliente.
 
 Todas as funcionalidades disponíveis no gerenciamento de custos do Azure também estão disponíveis com APIs REST. Use as APIs para automatizar as tarefas de gerenciamento de custos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O gerenciamento de custos do Azure requer acesso de leitura à sua conta de cobrança ou assinatura. O acesso pode ser concedido em qualquer nível acima de seus recursos, da conta de cobrança ou de um grupo de gerenciamento para grupos de recursos individuais nos quais você gerencia seus aplicativos. Para obter mais informações sobre como habilitar e atribuir acesso ao gerenciamento de custos do Azure para uma conta de cobrança, consulte [atribuir funções e permissões de usuários](/partner-center/permissions-overview). As funções de **administrador global** e **agente de administração** podem gerenciar os custos de uma conta de cobrança.
 

@@ -1,5 +1,5 @@
 ---
-title: Fazer backup de arquivos em VMs Azure Stack
+title: Fazer backup de arquivos em VMs Azure Stack-backup do Azure
 description: Use o Backup do Azure para fazer backup e recuperar aplicativos e arquivos no ambiente do Azure Stack.
 ms.reviewer: adigan
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: dc498e08509280b0dcd19cb1556a3c5a152f6d97
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210218"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074104"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer backup de arquivos e aplicativos no Azure Stack
 
@@ -55,7 +55,7 @@ Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais d
 
     ![O assistente de Novo Grupo de Proteção se abre](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Para selecionar **Desejo proteção online**, primeiro você deve selecionar **Desejo proteção a curto prazo usando:** Disk. O Servidor de Backup do Azure não protege em fita, então o disco é a única opção de proteção a curto prazo.
+    Para selecionar **Desejo proteção online**, primeiro você deve selecionar **Desejo proteção a curto prazo using:** Disk. O Servidor de Backup do Azure não protege em fita, então o disco é a única opção de proteção a curto prazo.
 
 5. Na tela **Especificar Objetivos De Curto Prazo**, escolha por quanto tempo manter os pontos de recuperação salvos em disco e quando salvar backups incrementais. Clique em **Avançar**.
 

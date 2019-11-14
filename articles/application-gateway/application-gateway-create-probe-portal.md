@@ -1,31 +1,24 @@
 ---
-title: Criar uma investigação personalizada-Aplicativo Azure gateway-portal do Azure | Microsoft Docs
+title: Criar uma investigação personalizada usando o portal
+titleSuffix: Azure Application Gateway
 description: Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o portal
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/14/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 18799d928f7239eea311aa39159bfa0b5416ca1a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 15daf47a1cb44635932311e60b3690af9ff58677
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821117"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074602"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma investigação personalizada para o Gateway de Aplicativo usando o portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-probe-portal.md)
+> * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -41,7 +34,7 @@ As investigações são configuradas em um processo de duas etapas pelo portal. 
 
 ### <a name="createprobe"></a>Inserir Propriedades da investigação
 
-1. Entre no [portal do Azure](https://portal.azure.com). Caso você ainda não tenha uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
+1. Entre no [Portal do Azure](https://portal.azure.com). Caso ainda não tenha uma conta, você pode se inscrever para obter uma [avaliação gratuita por um mês](https://azure.microsoft.com/free).
 
 2. No painel Favoritos do portal do Azure, clique em Todos os recursos. Clique no gateway de aplicativo na folha Todos os recursos. Se a assinatura que você selecionou já contém vários recursos, você pode inserir partners.contoso.net na caixa Filtrar por nome... para acessar facilmente o gateway de aplicativo.
 
@@ -90,7 +83,7 @@ As investigações são configuradas em um processo de duas etapas pelo portal. 
 
 ### <a name="createprobe"></a>Criar a investigação
 
-1. Entre no [portal do Azure](https://portal.azure.com). Caso você ainda não tenha uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
+1. Entre no [Portal do Azure](https://portal.azure.com). Caso ainda não tenha uma conta, você pode se inscrever para obter uma [avaliação gratuita por um mês](https://azure.microsoft.com/free).
 
 2. No painel portal do Azure favoritos, selecione **todos os recursos**. Selecione o gateway de aplicativo na página **todos os recursos** . Se a assinatura que você selecionou já contém vários recursos, você pode inserir partners.contoso.net na caixa Filtrar por nome... para acessar facilmente o gateway de aplicativo.
 
@@ -117,7 +110,7 @@ As investigações são configuradas em um processo de duas etapas pelo portal. 
 
 ### <a name="add-probe-to-the-gateway"></a>Adicionar a investigação ao gateway
 
-Agora que a investigação foi criada, é hora de adicioná-la ao gateway. As configurações da investigação são definidas nas configurações de http do back-end do Gateway de Aplicativo.
+Agora que a investigação foi criada, é hora de adicioná-la ao gateway. As configurações da investigação são definidas nas configurações de http do back-end do Application Gateway.
 
 1. Clique em **Configurações de HTTP** do Gateway de Aplicativo e clique nas configurações de HTTP do back-end atual listadas na janela para abrir a folha de configuração.
 
@@ -126,7 +119,7 @@ Agora que a investigação foi criada, é hora de adicioná-la ao gateway. As co
 2. Na página Configurações do **appgatewaybackendhttp** , marque a caixa de seleção **usar investigação personalizada** e escolha a investigação criada na seção [criar a investigação](#createprobe) no menu suspenso **investigação personalizada** .
    Ao concluir, clique em **Salvar** e as configurações são aplicadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Exiba a integridade dos recursos de back-end conforme determinado pela investigação usando a [exibição integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health).
 

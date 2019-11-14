@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b88983b4941143e5323ee795908cb332bdd79817
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fa2876b88a520480813ebfb8af8219d53c32057a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678413"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075554"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -42,7 +42,7 @@ Para copiar dados de uma origem para um coletor, o serviço que executa a ativid
 2. Executa a serialização/desserialização, a compactação/descompactação, o mapeamento de coluna e assim por diante. Ele executa essas operações com base na configuração do conjunto de dados de entrada, no conjunto de informações de saída e na atividade de cópia.
 3. Grava dados no armazenamento de dados de coletor/destino.
 
-![Visão geral da atividade de cópia](media/copy-activity-overview/copy-activity-overview.png)
+![Copiar a visão geral da atividade](media/copy-activity-overview/copy-activity-overview.png)
 
 ## <a name="supported-data-stores-and-formats"></a>Fontes de dados e formatos com suporte
 
@@ -52,20 +52,7 @@ Para copiar dados de uma origem para um coletor, o serviço que executa a ativid
 
 Você pode usar a atividade de cópia para copiar arquivos como estão entre dois armazenamentos de dados baseados em arquivo. Nesse caso, os dados são copiados com eficiência sem nenhuma serialização ou desserialização.
 
-A atividade de cópia também pode ler e gravar em arquivos nestes formatos:
-- Texto
-- JSON
-- Avro
-- ORC
-- Parquet
-
-A atividade de cópia pode compactar e descompactar arquivos com estes codecs: 
-- Gzip
-- Deflate
-- Bzip2
-- ZipDeflate
-
-Para obter mais informações, consulte [formatos de arquivo e compactação com suporte](supported-file-formats-and-compression-codecs.md).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 Por exemplo, você pode executar as seguintes atividades de cópia:
 
@@ -141,12 +128,12 @@ O modelo a seguir de uma atividade de cópia contém uma lista completa de propr
 
 | Propriedade | DESCRIÇÃO | Obrigatório? |
 |:--- |:--- |:--- |
-| Tipo | Para uma atividade de cópia, defina como `Copy` | Sim |
-| inputs | Especifique o conjunto de dados que você criou que aponta para a origem. A atividade de cópia dá suporte a apenas uma única entrada. | Sim |
-| outputs | Especifique o conjunto de dados que você criou que aponta para o coletor. A atividade de cópia dá suporte a apenas uma única saída. | Sim |
-| typeProperties | Especifique as propriedades para configurar a atividade de cópia. | Sim |
-| fonte | Especifique o tipo de origem da cópia e as propriedades correspondentes para recuperar dados.<br/><br/>Para obter mais informações, consulte a seção "Propriedades da atividade de cópia" no artigo do conector listado em [formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats). | Sim |
-| coletor | Especifique o tipo de coletor de cópia e as propriedades correspondentes para gravar dados.<br/><br/>Para obter mais informações, consulte a seção "Propriedades da atividade de cópia" no artigo do conector listado em [formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats). | Sim |
+| type | Para uma atividade de cópia, defina como `Copy` | sim |
+| inputs | Especifique o conjunto de dados que você criou que aponta para a origem. A atividade de cópia dá suporte a apenas uma única entrada. | sim |
+| outputs | Especifique o conjunto de dados que você criou que aponta para o coletor. A atividade de cópia dá suporte a apenas uma única saída. | sim |
+| typeProperties | Especifique as propriedades para configurar a atividade de cópia. | sim |
+| fonte | Especifique o tipo de origem da cópia e as propriedades correspondentes para recuperar dados.<br/><br/>Para obter mais informações, consulte a seção "Propriedades da atividade de cópia" no artigo do conector listado em [formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats). | sim |
+| coletor | Especifique o tipo de coletor de cópia e as propriedades correspondentes para gravar dados.<br/><br/>Para obter mais informações, consulte a seção "Propriedades da atividade de cópia" no artigo do conector listado em [formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats). | sim |
 | tradutor | Especifique mapeamentos de coluna explícita da origem para o coletor. Essa propriedade se aplica quando o comportamento de cópia padrão não atende às suas necessidades.<br/><br/>Para obter mais informações, consulte [mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md). | Não |
 | dataIntegrationUnits | Especifique uma medida que represente a quantidade de energia que o [tempo de execução de integração do Azure](concepts-integration-runtime.md) usa para a cópia de dados. Essas unidades eram anteriormente conhecidas como DMU (unidades de movimentação de dados de nuvem). <br/><br/>Para obter mais informações, consulte [unidades de integração de dados](copy-activity-performance.md#data-integration-units). | Não |
 | parallelCopies | Especifique o paralelismo que você deseja que a atividade de cópia use ao ler dados da origem e gravar dados no coletor.<br/><br/>Para obter mais informações, consulte [cópia paralela](copy-activity-performance.md#parallel-copy). | Não |
@@ -197,9 +184,9 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 | throughput | Taxa de transferência de dados. | Número de ponto flutuante, em KBps |
 | sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int32 (nenhuma unidade) |
 | sinkPeakConnections| Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados do coletor durante a execução da atividade de cópia.| Valor Int32 (nenhuma unidade) |
-| sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para SQL Data Warehouse. | Booliano |
-| redshiftUnload | Se o UNLOAD é usado quando os dados são copiados do redshift. | Booliano |
-| hdfsDistcp | Se DistCp é usado quando os dados são copiados do HDFS. | Booliano |
+| sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para SQL Data Warehouse. | Boolean |
+| redshiftUnload | Se o UNLOAD é usado quando os dados são copiados do redshift. | Boolean |
+| hdfsDistcp | Se DistCp é usado quando os dados são copiados do HDFS. | Boolean |
 | effectiveIntegrationRuntime | O tempo de execução de integração (IR) ou tempos de execução usados para ativar a atividade de execução, no formato `<IR name> (<region if it's Azure IR>)`. | Texto (cadeia de caracteres) |
 | usedDataIntegrationUnits | As unidades de integração de dados efetivas durante a cópia. | Valor Int32 |
 | usedParallelCopies | ParallelCopies efetivos durante a cópia. | Valor Int32 |

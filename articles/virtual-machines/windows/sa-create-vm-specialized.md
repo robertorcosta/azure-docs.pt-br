@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM de um disco especializado no Azure | Microsoft Docs
+title: Criar VM de um disco especializado no Azure
 description: Criar uma nova VM anexando um disco não gerenciado, no modelo de implantação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cdbf55aae52cec9df1ba34cbeb34c67b8e5fc5d0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d887ef2ef74bb433d6e8ae7f53cd0b77f5948303
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749190"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073341"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD especializado em uma conta de armazenamento
 
@@ -102,7 +102,7 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando poderá demorar um pouco para concluir.
+Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando pode demorar um pouco para ser concluído.
 
 
 ## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>Opção 2: Copie o VHD de uma VM existente do Azure
@@ -185,7 +185,7 @@ Transfer failed:         0
 Elapsed time:            00.00:13:07
 ```
 
-### <a name="troubleshooting"></a>Solucionar problemas
+### <a name="troubleshooting"></a>Solucionando problemas
 * Ao usar o AZCopy, se você receber o erro “Falha do servidor em autenticar a solicitação”, verifique se o valor do cabeçalho Authorization está formado corretamente, incluindo a assinatura. Se estiver usando a Chave 2 ou a chave de armazenamento secundária, tente usar a chave primária ou a primeira chave de armazenamento.
 
 ## <a name="create-the-new-vm"></a>Crie a nova VM 
@@ -231,7 +231,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 Para obter mais informações sobre regras de NSGs e pontos de extremidade, veja [Abrir portas para uma VM no Azure usando PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Criar um endereço IP público e uma NIC
-Para habilitar a comunicação com a máquina virtual na rede virtual, são necessários um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e um adaptador de rede.
+Para habilitar a comunicação com a máquina virtual na rede virtual, é necessário um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e uma interface de rede.
 
 1. Crie o endereço IP público. Neste exemplo, o nome do endereço IP público é definido como **myIP**.
    

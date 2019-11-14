@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7440859748a613f7d6af751974e07289175ed7ac
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: b9a292d06ce68d211b5c758e287f2935411c6f12
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968364"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074777"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
 
@@ -42,7 +42,7 @@ Uma vez que os backups de log ocorrem a cada 15 minutos, monitorar os trabalhos 
 
 Para monitorar alertas de backup de banco de dados:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. No painel de cofres, selecione **Alertas e Eventos**.
 
@@ -117,7 +117,7 @@ Você pode executar diferentes tipos de backups sob demanda:
 - Backup diferencial
 - Backup de log
 
-Embora você precise especificar a duração da retenção para backup completo somente cópia, o período de retenção para backup completo ad hoc será definido automaticamente como 45 dias a partir da hora atual.
+Embora você precise especificar a duração da retenção para backup completo somente cópia, o período de retenção para backup completo sob demanda será definido automaticamente como 45 dias a partir da hora atual.
 
 Para obter mais informações, consulte [SQL Server tipos de backup](backup-architecture.md#sql-server-backup-types).
 
@@ -170,6 +170,6 @@ Você pode corrigir a versão da política para todos os itens impactados em um 
 
 Use essa opção com cuidado; Quando disparado em uma VM com uma extensão já íntegra, essa operação fará com que a extensão seja reiniciada. Isso pode resultar na falha de todos os trabalhos em andamento. Por outro, verifique um ou mais [sintomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de disparar a operação de novo registro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, consulte [solucionar problemas de backups em um banco de dados SQL Server](backup-sql-server-azure-troubleshoot.md).

@@ -1,7 +1,7 @@
 ---
 title: Enviar solicitações para a API de Sugestão Automática do Bing
 titleSuffix: Azure Cognitive Services
-description: Saiba como enviar solicitações para a API de Sugestão Automática do Bing.
+description: A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial da caixa de pesquisa. Saiba mais sobre como enviar solicitações.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: dbc8e2ccbd0a9d8c395a3b4e8a95e4e51f152792
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d479548e682e814345e13d9416d08ec453f90304
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882428"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072857"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Enviando solicitações para a API de Sugestão Automática do Bing.
 
@@ -27,7 +27,7 @@ A **API de Sugestão Automática do Bing** inclui um ponto de extremidade, que r
 
 Para obter as consultas sugeridas usando a API do Bing, envie uma solicitação `GET` para o ponto de extremidade a seguir. Use os cabeçalhos e parâmetros de URL para definir mais especificações.
 
-**Ponto de extremidade:** Retorna as sugestões de pesquisa como resultados JSON que são relevantes à entrada do usuário definida por `?q=""`.
+**Ponto de extremidade:** retorna as sugestões de pesquisa como resultados JSON relevantes à entrada do usuário definidos por `?q=""`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
@@ -35,10 +35,10 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 Para obter detalhes sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., confira a referência [API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference).
 
-As APIs do **Bing** dão suporte a ações de pesquisa que retornam os resultados de acordo com seu tipo. Todos os pontos de extremidade de pesquisa retornam os resultados como objetos de resposta JSON.
+As APIs do **Bing** oferecem suporte a ações de pesquisa que retornam resultados de acordo com seu tipo. Todos os pontos de extremidade de pesquisa retornam resultados como objetos de resposta JSON.
 Todos os pontos de extremidade dão suporte a consultas que retornam um idioma e/ou um local específico por longitude, latitude e raio de pesquisa.
 
-Para obter informações completas sobre os parâmetros compatíveis com cada ponto de extremidade, confira as páginas de referência de cada tipo.
+Para obter informações completas sobre os parâmetros com suporte para cada ponto de extremidade, consulte as páginas de referência para cada tipo.
 Para obter exemplos de solicitações básicas usando a API de Sugestão Automática, confira [Inícios Rápidos da Sugestão Automática](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest).
 
 ## <a name="bing-autosuggest-api-requests"></a>Solicitações da API de Sugestão Automática do Bing
@@ -48,9 +48,9 @@ Para obter exemplos de solicitações básicas usando a API de Sugestão Automá
 
 É recomendável que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente dá mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas em um servidor fornece um ponto único de upgrade para atualizações futuras.
 
-A solicitação deve especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) que contém o termo de pesquisa parcial do usuário. Embora seja opcional, a solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), que identifica o mercado de onde você deseja obter os resultados. Para uma lista de parâmetros de consulta opcionais, consulte [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta devem ser codificados em URL.
+A solicitação deve especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) que contém o termo de pesquisa parcial do usuário. Embora seja opcional, a solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), que identifica o mercado de onde você deseja obter os resultados. Para uma lista de parâmetros de consulta opcionais, consulte [Parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta devem ser codificados em URL.
 
-A solicitação precisa especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Embora isso seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:
+A solicitação deve especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Embora isso seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:
 
 - [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
 - [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
@@ -59,14 +59,14 @@ A solicitação precisa especificar o cabeçalho [Ocp-Apim-Subscription-Key](htt
 
 Os cabeçalhos de IP e local do cliente são importantes para retornar o conteúdo com reconhecimento de local.
 
-Para obter uma lista de todos os cabeçalhos de solicitação e resposta, confira [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
+Para obter uma lista de todos os cabeçalhos de solicitação e resposta, consulte [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
 
 > [!NOTE]
 > Quando você chama a API de Sugestão Automática do Bing por meio do JavaScript, os recursos de segurança interna do navegador podem impedi-lo de acessar os valores desses cabeçalhos.
 
 Para resolver esse problema, faça a solicitação da API de Sugestão Automática do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
 
-É fácil instalar um proxy CORS para permitir que nosso [aplicativo de tutorial](../tutorials/autosuggest.md) acesse os cabeçalhos opcionais do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, insira o comando a seguir em um prompt de comando.
+É fácil instalar um proxy CORS para permitir que nosso [aplicativo de tutorial](../tutorials/autosuggest.md) acesse os cabeçalhos opcionais do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, digite o comando a seguir em um prompt de comando.
 
     npm install -g cors-proxy-server
 
@@ -74,11 +74,11 @@ Em seguida, altere o ponto de extremidade da API de Sugestão Automática do Bin
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
-Por fim, inicie o proxy CORS com o seguinte comando:
+Finalmente, inicie o proxy CORS com o comando a seguir:
 
     cors-proxy-server
 
-Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
+Deixe a janela de comando aberta enquanto você usa o aplicativo de tutorial, já que se fechar a janela irá parar o proxy. Na seção expansível Cabeçalhos HTTP abaixo dos resultados da pesquisa, agora você pode ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 
 A solicitação deve incluir todos os parâmetros e cabeçalhos de consulta sugeridos. 
 
@@ -93,7 +93,7 @@ O exemplo a seguir mostra uma solicitação que retorna as cadeias de caracteres
 > Host: api.cognitive.microsoft.com
 > ```
 
-Se for a primeira vez que você chama qualquer uma das APIs do Bing, não inclua o cabeçalho da ID do cliente. Inclua apenas o cabeçalho da ID do cliente, se você já chamou uma API do Bing e o Bing retornou uma ID do cliente para a combinação de usuário e dispositivo.
+Se for a primeira vez que você chama qualquer uma das APIs do Bing, não inclua o cabeçalho da ID de cliente. Inclua apenas o cabeçalho da ID do cliente, se você já chamou uma API do Bing e o Bing retornou uma ID do cliente para a combinação de usuário e dispositivo.
 
 O grupo de sugestão da web a seguir é uma resposta à solicitação acima. O grupo contém uma lista de sugestões de consulta de pesquisa, sendo que cada sugestão inclui um campo `displayText`, `query` e `url`.
 

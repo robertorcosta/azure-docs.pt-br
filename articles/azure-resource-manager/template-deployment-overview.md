@@ -1,25 +1,25 @@
 ---
-title: Modelos do Azure Resource Manager
-description: Descreve como usar modelos de Azure Resource Manager para a implantação de recursos.
+title: Visão geral de modelos de Azure Resource Manager
+description: Descreve os benefícios que usam modelos de Azure Resource Manager para a implantação de recursos.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 956450e5a47e4d0e16de44b6bc72c6cb24d05889
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71300146"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074378"
 ---
-# <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
+# <a name="azure-resource-manager-templates-overview"></a>Visão geral de modelos de Azure Resource Manager
 
 Com a mudança para a nuvem, muitas equipes adotaram métodos de desenvolvimento Agile. Essas equipes iteram rapidamente. Eles precisam implantar repetidamente suas soluções na nuvem e saber que sua infraestrutura está em um estado confiável. À medida que a infraestrutura se tornou parte do processo iterativo, a divisão entre operações e desenvolvimento desapareceu. As equipes precisam gerenciar a infraestrutura e o código do aplicativo por meio de um processo unificado.
 
 Para atender a esses desafios, você pode automatizar implantações e usar a prática da infraestrutura como código. No código, você define a infraestrutura que precisa ser implantada. O código de infraestrutura torna-se parte do seu projeto. Assim como o código do aplicativo, você armazena o código de infraestrutura em um repositório de origem e a versão. Qualquer um em sua equipe pode executar o código e implantar ambientes semelhantes.
 
-Para implementar a infraestrutura como código para suas soluções do Azure, use Azure Resource Manager modelos. O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite que você declare o que pretende implantar sem precisar escrever a sequência de comandos de programação para criá-lo. No modelo, você especifica os recursos a serem implantados e as propriedades desses recursos.
+Para implementar a infraestrutura como código para suas soluções do Azure, use Azure Resource Manager modelos. O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. No modelo, você especifica os recursos a serem implantados e as propriedades desses recursos.
 
 ## <a name="why-choose-resource-manager-templates"></a>Por que escolher modelos do Resource Manager?
 
@@ -41,7 +41,7 @@ Se você estiver tentando decidir entre usar modelos do Resource Manager e uma d
 
 * **Implantações controladas**: no portal do Azure, você pode examinar o histórico de implantação e obter informações sobre a implantação do modelo. Você pode ver o modelo que foi implantado, os valores de parâmetro passados e todos os valores de saída. Outra infraestrutura como serviços de código não é rastreada por meio do Portal.
 
-   ![Histórico de implantação](./media/template-deployment-overview/deployment-history.png)
+   ![Histórico de implantações](./media/template-deployment-overview/deployment-history.png)
 
 * **Política como código**: [Azure Policy](../governance/policy/overview.md) é uma política como estrutura de código para automatizar a governança. Se você estiver usando políticas do Azure, a correção de política será feita em recursos sem conformidade quando implantada por meio de modelos.
 
@@ -71,7 +71,7 @@ O modelo tem as seguintes seções:
 
 ## <a name="template-deployment-process"></a>Processo de Implantação de modelo
 
-Quando você implanta um modelo, o Resource Manager converte o modelo em operações da API REST. Por exemplo, quando o Resource Manager recebe um modelo com a seguinte definição de recurso:
+Quando você implanta um modelo, o Resource Manager converte o modelo em operações da API REST. Por exemplo, quando o Gerenciador de Recursos recebe um modelo com a seguinte definição de recurso:
 
 ```json
 "resources": [
@@ -90,7 +90,7 @@ Quando você implanta um modelo, o Resource Manager converte o modelo em operaç
 ]
 ```
 
-Ele converte a definição para a seguinte operação de API REST, que é enviada para o provedor de recursos Microsoft. Storage:
+Converte a definição para a seguinte operação de API REST, que é enviada para o provedor de recursos Microsoft.Storage:
 
 ```HTTP
 PUT
@@ -109,21 +109,22 @@ REQUEST BODY
 
 ## <a name="template-design"></a>Design de modelo
 
-A maneira como você define modelos e grupos de recursos depende inteiramente de você e como deseja gerenciar sua solução. Por exemplo, você pode implantar seu aplicativo de três camadas por meio de um único modelo para um único grupo de recursos.
+Como você define grupos de recursos e modelos é de sua responsabilidade e de como você deseja gerenciar a sua solução. Por exemplo, você pode implantar seu aplicativo de três camadas por meio de um único modelo para um único grupo de recursos.
 
 ![modelo de três camadas](./media/template-deployment-overview/3-tier-template.png)
 
-Mas, você não precisa definir toda a infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode facilmente reutilizar esses modelos para soluções diferentes. Para implantar uma solução específica, você cria um modelo mestre que vincula todos os modelos necessários. A imagem a seguir mostra como implantar uma solução de três camadas por meio de um modelo pai que inclui três modelos aninhados.
+Mas, você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode reutilizar esses modelos facilmente para soluções diferentes. Para implantar uma solução específica, você deve criar um modelo mestre que vincule todos os modelos necessários. A imagem a seguir mostra como implantar uma solução de três camadas com o modelo pai que inclui três modelos aninhados.
 
-![modelo de camada aninhada](./media/template-deployment-overview/nested-tiers-template.png)
+![modelo de camadas aninhadas](./media/template-deployment-overview/nested-tiers-template.png)
 
-Se você previsionar suas camadas com ciclos de vida separados, poderá implantar suas três camadas para separar grupos de recursos. Observe que os recursos ainda podem ser vinculados a recursos em outros grupos de recursos.
+Ao prever suas camadas com ciclos de vida separados, você pode implantar os três níveis para separar grupos de recursos. Observe que os recursos ainda podem ser vinculados aos recursos em outros grupos de recursos.
 
 ![modelo de camada](./media/template-deployment-overview/tier-templates.png)
 
 Para obter informações sobre modelos aninhados, confira [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
+* Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, consulte [tutorial: criar e implantar seu primeiro modelo de Azure Resource Manager](template-tutorial-create-first-template.md).
 * Para obter informações sobre as propriedades em arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber mais sobre como exportar modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).

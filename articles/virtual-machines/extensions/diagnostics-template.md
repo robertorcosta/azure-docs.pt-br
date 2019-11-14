@@ -1,5 +1,5 @@
 ---
-title: Adicionar monitoramento e diagnóstico a uma máquina virtual do Azure | Microsoft Docs
+title: Adicionar monitoramento & diagnóstico a uma máquina virtual do Azure
 description: Use um modelo de Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ba8fdba3b7283185920432b5b096b80b2e32021
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092535"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073835"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager
 A Extensão Diagnóstico do Azure fornece funcionalidades de monitoramento e diagnóstico em uma máquina virtual do Azure baseada no Windows. É possível habilitar esses recursos na máquina virtual incluindo a extensão como parte do modelo do Azure Resource Manager. Para saber mais sobre como incluir extensões como parte de um modelo de máquina virtual, confira [Criando modelos do Gerenciador de Recursos do Azure com extensões de VM](../windows/template-description.md#extensions) . Este artigo descreve como adicionar a extensão de diagnóstico do Microsoft Azure para a um modelo de máquina virtual do Windows.  
@@ -157,26 +157,26 @@ O valor MetricAggregation de *PT1M* e *PT1H* significa uma agregação ao longo 
 ## <a name="wadmetrics-tables-in-storage"></a>Tabelas WADMetrics no armazenamento
 A configuração de métricas acima vai gerar tabelas na conta de armazenamento de diagnóstico com as seguintes convenções de nomenclatura:
 
-* **WADMetrics**: Prefixo padrão para todas as tabelas WADMetrics
-* **PT1H** ou **PT1M**: Significa que a tabela contém dados agregados para períodos de 1 hora ou 1 minuto
-* **P10D**: Significa que a tabela conterá dados por 10 dias a partir do momento em que a tabela iniciou a coleção de dados
-* **V2S**: Constante de cadeia de caracteres
-* **yyyymmdd**: A data em que a tabela iniciou a coleção de dados
+* **WADMetrics**: prefixo padrão para todas as tabelas WADMetrics
+* **PT1H** ou **PT1M**: significa que a tabela contém dados de agregação para períodos de 1 hora ou 1 minuto
+* **P10D**: significa que a tabela incluirá dados por 10 dias a partir da data de início da coleta de dados da tabela
+* **V2S**: constante de cadeia de caracteres
+* **yyyymmdd**: a data de início da coleta de dados da tabela
 
 Exemplo: *WADMetricsPT1HP10DV2S20151108* inclui dados agregados das métricas para o período de uma hora durante 10 dias, com início em 11 de novembro de 2015    
 
 Cada tabela WADMetrics inclui as seguintes colunas:
 
-* **PartitionKey**: A partitionkey é criada com base no valor *resourceID* para identificar exclusivamente o recurso de VM. Por exemplo: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
-* **RowKey**: Segue o formato `<Descending time tick>:<Performance Counter Name>`. O cálculo do tique de tempo decrescente é o tique do tempo máximo menos o tempo de início do período de agregação. Por exemplo, se o período de exemplo tivesse se iniciado em 10 de novembro de 2015 à 00:00 UTC, o cálculo seria: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para o contador de desempenho de bytes de memória disponível, a chave de linha se parecerá com:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName**: É o nome do contador de desempenho. Ele corresponde ao *counterSpecifier* definido na configuração XML.
-* **Maximum**: O valor máximo do contador de desempenho durante o período de agregação.
-* **Mínimos**: O valor mínimo do contador de desempenho durante o período de agregação.
-* **Total**: A soma de todos os valores do contador de desempenho relatados durante o período de agregação.
-* **Contagem**: O número total de valores relatados do contador de desempenho.
-* **Average**: O valor médio (total/contagem) do contador de desempenho durante o período de agregação.
+* **PartitionKey**: a partitionkey é criada com base no valor *resourceID* para identificar exclusivamente o recurso VM. Por exemplo: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **RowKey**: segue o formato `<Descending time tick>:<Performance Counter Name>`. O cálculo do tique de tempo decrescente é o tique do tempo máximo menos o tempo de início do período de agregação. Por exemplo, se o período de exemplo tivesse se iniciado em 10 de novembro de 2015 à 00:00 UTC, o cálculo seria: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para o contador de desempenho de bytes de memória disponível, a chave de linha se parecerá com:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **CounterName**: é o nome do contador de desempenho. Ele corresponde ao *counterSpecifier* definido na configuração XML.
+* **Maximum**: o valor máximo do contador de desempenho durante o período de agregação.
+* **Minimum**: o valor mínimo do contador de desempenho durante o período de agregação.
+* **Total**: a soma de todos os valores do contador de desempenho relatados durante o período de agregação.
+* **Count**: o número total de valores relatados do contador de desempenho.
+* **Average**: o valor médio (total/contagem) do contador de desempenho durante o período de agregação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 * Para obter um modelo de exemplo completo de uma máquina virtual do Windows com extensão de diagnóstico, confira [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Implante o modelo do Azure Resource Manager usando o [Azure PowerShell](../windows/ps-template.md) ou a [Linha de Comando do Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Saiba mais sobre a [Criação de modelos do Gerenciador de Recursos do Azure](../../resource-group-authoring-templates.md)

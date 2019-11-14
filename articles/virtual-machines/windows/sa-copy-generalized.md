@@ -1,5 +1,5 @@
 ---
-title: Criar uma imagem não gerenciada de uma VM generalizada no Azure | Microsoft Docs
+title: Criar uma imagem não gerenciada de uma VM generalizada no Azure
 description: Criar uma imagem não gerenciada de uma VM Windows generalizada para usar ao criar várias cópias de uma VM no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: b0277e07f67b3f9124dc0e27b20e3d49e0d2f6e9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f25968fb74f0f10b1d498866c036dd04d4d5d134
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749205"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073389"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem de VM não gerenciada a partir de uma VM do Azure
 
@@ -148,7 +148,7 @@ Crie a vNet e a sub-rede da [rede virtual](../../virtual-network/virtual-network
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>Criar um endereço IP público e um adaptador de rede
-Para habilitar a comunicação com a máquina virtual na rede virtual, são necessários um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e um adaptador de rede.
+Para habilitar a comunicação com a máquina virtual na rede virtual, é necessário um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e uma interface de rede.
 
 1. Criar um endereço IP público. Este exemplo cria um endereço IP público chamado **myPip**. 
    

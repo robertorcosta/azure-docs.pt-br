@@ -1,7 +1,7 @@
 ---
-title: Criar um Azure Load Balancer usando a API REST
-titlesuffix: Azure Load Balancer
-description: Saiba como criar um Azure Load Balancer usando a API REST.
+title: Criar um balanceador de carga usando a API REST
+titleSuffix: Azure Load Balancer
+description: Neste artigo, saiba como criar um Azure Load Balancer usando a API REST.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275551"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077086"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Criar um Azure Load Balancer básico usando a API REST
 
@@ -33,12 +33,12 @@ Use a seguinte solicitação HTTP PUT para criar um novo Azure Load Balancer Bá
   ```
 ### <a name="uri-parameters"></a>Parâmetros de URI
 
-|Nome  |No  |Obrigatório |Tipo |DESCRIÇÃO |
+|NOME  |Nesse  |obrigatórios |Digite |DESCRIÇÃO |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  verdadeiro       |   string      |  As credenciais de assinatura que identificam exclusivamente a assinatura do Microsoft Azure. A ID da assinatura faz parte do URI para cada chamada de serviço.      |
-|resourceGroupName     |     path    | verdadeiro        |  string       |   O nome do grupo de recursos.     |
-|loadBalancerName     |  path       |      verdadeiro   |    string     |    O nome do balanceador de carga.    |
-|api-version    |   query     |  verdadeiro       |     string    |  Versão de API do cliente.      |
+|subscriptionId   |  path       |  verdadeiro       |   cadeia de caracteres      |  As credenciais de assinatura que identificam exclusivamente a assinatura do Microsoft Azure. A ID da assinatura faz parte do URI para cada chamada de serviço.      |
+|resourceGroupName     |     path    | verdadeiro        |  cadeia de caracteres       |   O nome do grupo de recursos.     |
+|loadBalancerName     |  path       |      verdadeiro   |    cadeia de caracteres     |    O nome do balanceador de carga.    |
+|api-version    |   query     |  verdadeiro       |     cadeia de caracteres    |  Versão de API do cliente.      |
 
 
 
@@ -46,9 +46,9 @@ Use a seguinte solicitação HTTP PUT para criar um novo Azure Load Balancer Bá
 
 O único parâmetro necessário é `location`. Se você não definir a versão do *SKU*, um Load Balancer Básico será criado por padrão.  Use [parâmetros opcionais](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) para personalizar o balanceador de carga.
 
-| Nome | Tipo | DESCRIÇÃO |
+| NOME | Digite | DESCRIÇÃO |
 | :--- | :--- | :---------- |
-| location | string | Local do recurso. Obtenha uma lista atual de locais usando a operação [Listar locais](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
+| location | cadeia de caracteres | Local do recurso. Obtenha uma lista atual de locais usando a operação [Listar locais](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>Exemplo: criar e atualizar um Load Balancer Básico

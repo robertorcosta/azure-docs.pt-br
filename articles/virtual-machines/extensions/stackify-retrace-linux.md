@@ -1,5 +1,5 @@
 ---
-title: Extensão do Agente Linux Azure de Stackify Retrace | Microsoft Docs
+title: Retrace Stackify extensão do agente Linux do Azure
 description: Implantar o agente Linux de Stackify Retrace em uma máquina virtual Linux
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
-ms.openlocfilehash: 2278f1bef3a72408b097f9a2d676931fd07369f4
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173968"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073632"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extensão do Agente Linux de Stackify Retrace
 
@@ -37,7 +37,7 @@ O Retrace é a ÚNICA ferramenta que fornece todos os recursos a seguir em todos
 
 Esta extensão fornece um caminho de instalação para o agente Linux para Retrace. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional 
 
@@ -183,7 +183,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 
 ### <a name="error-codes"></a>Códigos do Erro
 
-| Código de erro | Significado | Ação possível |
+| Código do erro | Significado | Possível ação |
 | :---: | --- | --- |
 | 10 | Erro de instalação | wget é obrigatório |
 | 20 | Erro de instalação | phython é obrigatório. |

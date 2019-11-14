@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7d09e7839356c040e6632ef728cc579abaa17268
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: d9272aa4a46a5835558be8c695b62ec0770e3827
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968343"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074056"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
 
@@ -74,7 +74,7 @@ Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são envi
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver os trabalhos de backup agendados no menu trabalhos de backup?
 
-O menu **trabalho de backup** mostrará apenas os trabalhos de backup ad hoc. Para o trabalho agendado, use [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
+O menu **trabalho de backup** mostrará apenas os trabalhos de backup sob demanda. Para o trabalho agendado, use [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Bancos de dados futuros são adicionados automaticamente ao backup?
 
@@ -104,6 +104,6 @@ Um banco de dados que você [adiciona a uma instância autoprotegida](backup-sql
 
   ![Descobrir manualmente um banco de dados recém-adicionado](./media/backup-azure-sql-database/view-newly-added-database.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [fazer backup de um banco de dados SQL Server](backup-azure-sql-database.md) em execução em uma VM do Azure.

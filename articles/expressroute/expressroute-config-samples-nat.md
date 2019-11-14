@@ -1,5 +1,5 @@
 ---
-title: Exemplos de configuração do roteador – NAT – Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: exemplos de configuração do roteador-NAT'
 description: Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: ccee0f0c01119ebbfb5ba9c5980ee006a555a399
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef2fd40db422c459ca966e802344ef45f7ec01de
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367601"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072106"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemplos de configuração do roteador para configurar e gerenciar o NAT
 
@@ -83,7 +82,7 @@ Comandos de NAT
 
 
 ## <a name="juniper-srx-series-routers"></a>Roteadores da série Juniper SRX
-### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Criar interfaces de Ethernet redundantes para o cluster
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. criar interfaces Ethernet redundantes para o cluster
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -115,7 +114,7 @@ Comandos de NAT
     }
 
 
-### <a name="2-create-two-security-zones"></a>2. Criar duas zonas de segurança
+### <a name="2-create-two-security-zones"></a>2. criar duas zonas de segurança
 * A Zona de Confiança para a rede interna e Zona Não Confiável para rede externa de frente para os Roteadores de Extremidade
 * Atribuir as interfaces apropriadas para as zonas
 * Permitir os serviços nas interfaces
@@ -123,7 +122,7 @@ Comandos de NAT
     security {       zones {           security-zone Trust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth0.100;               }           }           security-zone Untrust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth1.100;               }           }       }   }
 
 
-### <a name="3-create-security-policies-between-zones"></a>3. Criar políticas de segurança entre zonas
+### <a name="3-create-security-policies-between-zones"></a>3. criar políticas de segurança entre zonas
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -154,7 +153,7 @@ Comandos de NAT
     }
 
 
-### <a name="4-configure-nat-policies"></a>4. Configurar políticas NAT
+### <a name="4-configure-nat-policies"></a>4. configurar políticas de NAT
 * Criar dois pools NAT. Um será usado para a saída de tráfego NAT para a Microsoft e outro da Microsoft para o cliente.
 * Criar o respectivo tráfego de regras de NAT
   
@@ -213,10 +212,10 @@ Comandos de NAT
            }
        }
 
-### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configurar o BGP para anunciar prefixos seletivos em cada direção
-Veja exemplos na [exemplos de configuração de roteamento](expressroute-config-samples-routing.md) página.
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. configurar o BGP para anunciar prefixos seletivos em cada direção
+Consulte os exemplos na página [exemplos de configuração de roteamento](expressroute-config-samples-routing.md) .
 
-### <a name="6-create-policies"></a>6. Criar políticas
+### <a name="6-create-policies"></a>6. criar políticas
     routing-options {
                   autonomous-system <Customer-ASN>;
     }

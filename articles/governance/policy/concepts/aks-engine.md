@@ -1,17 +1,14 @@
 ---
 title: Saiba Azure Policy para o mecanismo AKS
 description: Saiba como Azure Policy usa o CustomResourceDefinitions e o agente de política aberto do gatekeeper V3 para gerenciar clusters com o mecanismo do AKS.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 71f3f26b9ea7f24d674c911e18c785b0798a072c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 904575680b62233ad5ec7422abbf66cf57dc4e11
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512126"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072060"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Entender Azure Policy para o mecanismo AKS
 
@@ -32,7 +29,7 @@ Para habilitar e usar Azure Policy para o mecanismo AKS com seu cluster kubernet
 - [Atribuir uma definição de política para o mecanismo de AKS](#built-in-policies)
 - [Aguardar validação](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recursos de serviço, sua assinatura deve habilitar o provedor de recursos **Microsoft. PolicyInsights** e criar uma atribuição de função para a entidade de serviço de cluster. 
 
@@ -47,7 +44,7 @@ Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recurs
      az provider register --namespace 'Microsoft.PolicyInsights'
      ```
 
-   - Azure PowerShell
+   - PowerShell do Azure
    
      ```azurepowershell-interactive
      # Log in first with Connect-AzAccount if you're not using Cloud Shell

@@ -1,5 +1,5 @@
 ---
-title: Computação do Azure – Extensão de Diagnóstico Linux | Microsoft Docs
+title: Computação do Azure-extensão de diagnóstico do Linux
 description: Como configurar a Extensão de Diagnóstico Linux (LAD) no Azure para coletar métricas e eventos de log de VMs Linux em execução no Azure.
 services: virtual-machines-linux
 author: abhijeetgaiha
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 63008de6d29790333764f4dcca27b8dc03cedbdb
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: b8a5a344f2f1d8280ca60169786e72a0e1dd291e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838186"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073162"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -49,11 +49,11 @@ Estas instruções de instalação e uma [configuração de amostra para downloa
 
 A configuração para download é apenas um exemplo; modifique-a para atender às suas necessidades.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 * **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para atualizá-la.
-* **CLI do Azure**. [Configurar o ambiente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
-* O comando wget, caso ainda não o tenha: Execute `sudo apt-get install wget`.
+* **CLI do Azure** [Configurar o ambiente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
+* O comando wget, caso ainda não o tenha: execute `sudo apt-get install wget`.
 * Uma assinatura existente do Azure e uma conta de armazenamento existente nela para armazenar os dados.
 * A lista de distribuições Linux com suporte está em https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -127,7 +127,7 @@ Esse conjunto de informações de configuração contém informações confidenc
 }
 ```
 
-Nome | Valor
+NOME | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento na qual os dados são gravados pela extensão.
 storageAccountEndPoint | (opcional) O ponto de extremidade que identifica a nuvem na qual existe a conta de armazenamento. Se essa configuração estiver ausente, o LAD utiliza como padrão a nuvem pública do Azure, `https://core.windows.net`. Para usar uma conta de armazenamento no Azure Alemanha, no Azure Governamental ou Azure China, defina este valor corretamente.
@@ -170,7 +170,7 @@ Elemento | Valor
 name | Uma cadeia de caracteres usada para se referir a esse coletor em outro lugar na configuração da extensão.
 type | O tipo de coletor que está sendo definido. Determina os outros valores (se houver) em instâncias desse tipo.
 
-A versão 3.0 da Extensão de Diagnóstico do Linux dá suporte a dois tipos de coletores: EventHub e JsonBlob.
+A extensão de Diagnóstico do Linux versão 3.0 oferece suporte a dois tipos de coletor: EventHub e JsonBlob.
 
 #### <a name="the-eventhub-sink"></a>O coletor EventHub
 
@@ -255,7 +255,7 @@ Elemento | Valor
 eventVolume | (opcional) Controla o número de partições criadas dentro da tabela de armazenamento. Pode ser `"Large"`, `"Medium"` ou `"Small"`. Se esse campo não for especificado, o valor padrão será `"Medium"`.
 sampleRateInSeconds | (opcional) O intervalo padrão entre a coleta de métricas brutas (não agregadas). A menor taxa de amostra com suporte é de 15 segundos. Se esse campo não for especificado, o valor padrão será `15`.
 
-#### <a name="metrics"></a>metrics
+#### <a name="metrics"></a>Métricas
 
 ```json
 "metrics": {
@@ -269,7 +269,7 @@ sampleRateInSeconds | (opcional) O intervalo padrão entre a coleta de métricas
 
 Elemento | Valor
 ------- | -----
-resourceId | A ID de recurso do Azure Resource Manager da VM ou conjunto de dimensionamento de máquinas virtuais à qual pertence a VM. Essa configuração também deverá ser especificada se algum coletor JsonBlob for usado na configuração.
+ResourceId | A ID de recurso do Azure Resource Manager da VM ou conjunto de dimensionamento de máquinas virtuais à qual pertence a VM. Essa configuração também deverá ser especificada se algum coletor JsonBlob for usado na configuração.
 scheduledTransferPeriod | A frequência na qual as métricas agregadas serão computadas e transferidas para as Métricas do Azure, expressas como um intervalo de tempo de IS 8601. O menor período de transferência é 60 segundos, ou seja, PT1M. Você deve especificar pelo menos um scheduledTransferPeriod.
 
 As amostras de métricas especificados na seção performanceCounters são coletados a cada 15 segundos ou na taxa de amostra explicitamente definidas para o contador. Se várias frequências scheduledTransferPeriod aparecerem (como no exemplo), cada agregação será calculada independentemente.
@@ -314,9 +314,9 @@ type | Identifica o provedor real da métrica.
 class | Junto com "counter", identifica a métrica específica dentro do namespace do provedor.
 contador | Junto com "class", identifica a métrica específica dentro do namespace do provedor.
 counterSpecifier | Identifica a métrica específica dentro do namespace de Métricas do Azure.
-condição | (opcional) Seleciona uma instância específica do objeto ao qual a métrica se aplica ou seleciona a agregação em todas as instâncias desse objeto. Para saber mais, confira as definições de métricas `builtin`.
+condition | (opcional) Seleciona uma instância específica do objeto ao qual a métrica se aplica ou seleciona a agregação em todas as instâncias desse objeto. Para saber mais, confira as definições de métricas `builtin`.
 sampleRate | O intervalo IS 8601 que define a taxa na qual as amostras brutas para esta métrica são coletados. Se não estiver definido, o intervalo de coleta será definido pelo valor de [sampleRateInSeconds](#ladcfg). A menor taxa de amostra com suporte é de 15 segundos (PT15S).
-unidade | Deve ser uma destas cadeias de caracteres: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Define a unidade para a métrica. Os consumidores dos dados coletados esperam que os valores de dados coletados correspondam a essa unidade. O LAD ignora esse campo.
+unit | Deve ser uma destas cadeias de caracteres: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Define a unidade para a métrica. Os consumidores dos dados coletados esperam que os valores de dados coletados correspondam a essa unidade. O LAD ignora esse campo.
 displayName | O rótulo (no idioma especificado pela configuração da localidade associada) a ser anexado a esses dados nas Métricas do Azure. O LAD ignora esse campo.
 
 O counterSpecifier é um identificador arbitrário. Os consumidores de métricas, como o gráfico do Portal do Azure e o recurso de alerta, usam o counterSpecifier como a "chave" que identifica uma métrica ou instância de uma métrica. Para as métricas `builtin`, é recomendável usar valores counterSpecifier que começam com `/builtin/`. Se você estiver coletando a instância específica de uma métrica, recomendamos anexar o identificador da instância para o valor de counterSpecifier. Alguns exemplos:
@@ -386,8 +386,8 @@ Elemento | Valor
 ------- | -----
 namespace | (opcional) O namespace OMI dentro do qual a consulta deve ser executada. Se não for especificado, o valor padrão será "root/scx", implementado pelos [Provedores de várias plataformas do System Center](https://github.com/Microsoft/SCXcore).
 query | A consulta OMI a ser executada.
-table | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (veja [Configurações protegidas](#protected-settings)).
-frequency | (opcional) O número de segundos entre a execução da consulta. O valor padrão é 300 (5 minutos); o valor mínimo é de 15 segundos.
+tabela | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (veja [Configurações protegidas](#protected-settings)).
+frequência | (opcional) O número de segundos entre a execução da consulta. O valor padrão é 300 (5 minutos); o valor mínimo é de 15 segundos.
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores adicionais para os quais os resultados brutos de métricas de amostras devem ser publicados. Nenhuma agregação desses exemplos brutos é calculada pela extensão ou Métricas do Azure.
 
 As informações de "tabela" ou "coletores" ou de ambos devem ser especificadas.
@@ -409,7 +409,7 @@ Controla a captura de arquivos de log. O LAD captura novas linhas de texto, como
 Elemento | Valor
 ------- | -----
 file | O nome de caminho completo do arquivo de log a ser observado e capturado. O nome do caminho deve nomear um único arquivo; ele não pode nomear um diretório ou conter curingas.
-table | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual novas linhas depois do "final" do arquivo são gravadas.
+tabela | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual novas linhas depois do "final" do arquivo são gravadas.
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores adicionais para os quais as linhas de log são enviadas.
 
 As informações de "tabela" ou "coletores" ou de ambos devem ser especificadas.
@@ -500,7 +500,7 @@ TransfersPerSecond | Operações de leitura ou gravação por segundo
 
 Os valores agregados em todos os sistemas de arquivo podem ser obtidos pela configuração `"condition": "IsAggregate=True"`. Os valores para um sistema de arquivos montado específico, como "/mnt", podem ser obtidos pela configuração `"condition": 'Name="/mnt"'`. 
 
-**OBSERVAÇÃO**: Se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name = '/mnt '
+**Observação**: se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name = '/mnt '
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métricas internas para a classe Disk
 
@@ -695,7 +695,7 @@ Os dados enviados para coletores JsonBlob são armazenados nos blobs na conta de
 Além disso, você pode usar essas ferramentas de interface do usuário para acessar os dados no Armazenamento do Azure:
 
 * Gerenciador de Servidores do Visual Studio.
-* [Gerenciador do Armazenamento do Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Gerenciador de Armazenamento do Azure").
+* [Gerenciador do Armazenamento do Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Explorador de Armazenamento do Azure").
 
 Esse instantâneo de uma sessão do Gerenciador de Armazenamento do Microsoft Azure mostra as tabelas do Armazenamento do Azure geradas e os contêineres de uma extensão de LAD 3.0 configurada corretamente em uma VM de teste. A imagem não coincide exatamente com a [configuração de amostra do LAD 3.0](#an-example-lad-30-configuration).
 

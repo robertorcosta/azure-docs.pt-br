@@ -8,102 +8,111 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 10/25/2019
 ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3f90e594e69c58364b699299964273ce371e525
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561724"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073513"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicionar um nome de domínio personalizado usando o portal do Azure Active Directory
-Todo novo locatário do Azure AD vem com um nome de domínio inicial: *domainname*.onmicrosoft.com. Você não pode alterar ou excluir o nome de domínio inicial, mas pode adicionar nomes da sua organização à lista. Adicionar nomes de domínio personalizados ajuda a criar nomes de usuário que são familiares para seus usuários, como *Alain\@contoso.com*.
+
+Todos os novos locatários do Azure AD vêm com um nome de domínio inicial, *\<domainname >. onmicrosoft. com*. Você não pode alterar ou excluir o nome de domínio inicial, mas pode adicionar os nomes de sua organização. Adicionar nomes de domínio personalizados ajuda a criar nomes de usuário que são familiares para seus usuários, como *alain\@contoso.com*.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Antes de poder adicionar um nome de domínio personalizado, é necessário criar seu nome de domínio com um registrador de domínios. Para um registrador de domínios reconhecido, consulte [Registradores reconhecidos pelo ICANN](https://www.icann.org/registrar-reports/accredited-list.html).
+
+Para poder adicionar um nome de domínio personalizado, crie seu nome de domínio com um registrador de domínio. Para um registrador de domínios reconhecido, consulte [Registradores reconhecidos pelo ICANN](https://www.icann.org/registrar-reports/accredited-list.html).
 
 ## <a name="create-your-directory-in-azure-ad"></a>Criar seu diretório no Azure AD
-Depois de obter seu nome de domínio, é possível criar seu primeiro diretório do Azure AD.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/) do seu diretório, usando uma conta com a função **Proprietário** para a assinatura e, em seguida, selecione **Azure Active Directory**. Para saber mais sobre funções de assinatura, consulte [Funções de administrador da assinatura clássica, funções RBAC do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+Depois de obter seu nome de domínio, é possível criar seu primeiro diretório do Azure AD. Entre no portal do Azure do seu diretório, usando uma conta com a função de **proprietário** para a assinatura.
 
-    ![Tela de portal do Azure, mostrando a opção do Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+Para criar seu novo diretório, siga as etapas em [Criar um novo locatário para sua organização](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
 
-    >[!TIP]
-    > Se você planeja federar seu AD do Windows Server local com o Azure AD, você precisa selecionar a caixa de seleção **Pretendo configurar esse domínio para logon único com meu Active Directory local** quando você executa a ferramenta Azure AD Connect para sincronizar seus diretórios. Você também precisa registrar o mesmo nome de domínio selecionado para federação com seu diretório local na etapa **domínio do Azure AD** no assistente. Você pode ver como é essa etapa do assistente [nessas instruções](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Se você não tiver a ferramenta Azure AD Connect, poderá [baixá-la aqui](https://go.microsoft.com/fwlink/?LinkId=615771).
+>[!IMPORTANT]
+>A pessoa que cria o locatário torna-se automaticamente o administrador global desse locatário. O administrador global pode adicionar mais administradores ao locatário.
 
-2. Para criar seu novo diretório, siga as etapas em [Criar um novo locatário para sua organização](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
+Para obter mais informações sobre as funções de assinatura, consulte [funções de RBAC do Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    >[!Important]
-    >A pessoa que cria o locatário torna-se automaticamente o administrador global desse locatário. O administrador global pode adicionar mais administradores ao locatário.
+>[!TIP]
+> Se você planeja federar seu AD do Windows Server local com o Azure AD, você precisa selecionar o **plano para configurar esse domínio para logon único com o meu Active Directory local** ao executar a ferramenta de Azure ad Connect para sincronizar seus diretórios.
+>
+> Você também precisa registrar o mesmo nome de domínio selecionado para federação com seu diretório local na etapa **domínio do Azure AD** no assistente. Para ver como essa configuração se parece, consulte [verificar o domínio do Azure ad selecionado para Federação](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Se você não tiver a ferramenta Azure AD Connect, poderá [baixá-la aqui](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="add-your-custom-domain-name-to-azure-ad"></a>Adicionar seu nome de domínio personalizado ao Azure AD
+
 Depois de criar seu diretório, você pode adicionar seu nome de domínio personalizado.
 
-1. Selecione **Nomes de domínio personalizado** e, em seguida, selecione **Adicionar domínio personalizado**.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador global para o diretório.
+
+1. Pesquise e selecione *Azure Active Directory* em qualquer página. Em seguida, selecione **nomes de domínio personalizados** > **Adicionar domínio personalizado**.
 
     ![Página nomes de domínio personalizados, com Adicionar domínio personalizado mostrado](media/add-custom-domain/add-custom-domain.png)
 
-2. Digite o novo nome de domínio da sua organização na caixa **Nome de domínio personalizado** (por exemplo, _contoso.com_) e, em seguida, selecione **Adicionar domínio**.
-
-    O domínio não verificado será adicionado e a página **Contoso** será exibida, mostrando suas informações de DNS.
-
-    >[!Important]
-    >É necessário incluir .com, .net ou qualquer outra extensão de nível superior para isso funcionar adequadamente.
+1. Em **nome de domínio personalizado**, insira o novo nome da sua organização, neste exemplo, *contoso.com*. Selecione **Adicionar domínio**.
 
     ![Página nomes de domínio personalizados, com a página Adicionar domínio personalizado](media/add-custom-domain/add-custom-domain-blade.png)
 
-4. Copie as informações de DNS da página da **Contoso**. Por exemplo, MS=ms64983159.
+    >[!IMPORTANT]
+    >Você deve incluir *. com*, *.net*ou qualquer outra extensão de nível superior para que isso funcione corretamente.
+
+    O domínio não verificado é adicionado. A página **contoso.com** aparece mostrando as informações de DNS. Salve essas informações. Você precisará dela mais tarde para criar um registro TXT para configurar o DNS.
 
     ![Página da Contoso com informações sobre entrada de DNS](media/add-custom-domain/contoso-blade-with-dns-info.png)
 
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>Adicionar suas informações de DNS ao registrador de domínios
-Depois de adicionar seu nome de domínio personalizado ao Azure AD, você deve retornar ao seu registrador de domínios e adicionar as informações de DNS do Azure AD do seu arquivo TXT copiado. A criação desse registro TXT para seu domínio "verifica" a propriedade do nome do domínio.
 
--  Volte para seu registrador de domínios, crie um registro TXT para seu domínio com base nas informações de DNS copiadas, defina a **TTL** (vida útil) como 3600 segundos (60 minutos) e, em seguida, salve as informações.
+Depois de adicionar seu nome de domínio personalizado ao Azure AD, você deve retornar ao seu registrador de domínios e adicionar as informações de DNS do Azure AD do seu arquivo TXT copiado. A criação desse registro TXT para seu domínio verifica a propriedade do seu nome de domínio.
 
-    >[!Important]
-    >Você pode registrar quantos nomes de domínio desejar. No entanto, cada domínio obtém seu próprio registro TXT do Azure AD. Tenha cuidado ao inserir suas informações de arquivo TXT no registrador de domínios. Se inserir informações erradas ou duplicadas por engano, precisará esperar até a TTL atingir o tempo limite (60 minutos) para poder tentar novamente.
+Volte para seu registrador de domínio e crie um novo registro TXT para seu domínio com base nas informações de DNS copiadas. Defina o tempo de vida (TTL) como 3600 segundos (60 minutos) e salve o registro.
+
+>[!IMPORTANT]
+>Você pode registrar quantos nomes de domínio desejar. No entanto, cada domínio obtém seu próprio registro TXT do Azure AD. Tenha cuidado ao inserir as informações do arquivo TXT no registrador de domínios. Se você inserir as informações erradas ou duplicadas por engano, terá que aguardar até que o TTL expire (60 minutos) antes de tentar novamente.
 
 ## <a name="verify-your-custom-domain-name"></a>Verificar seu nome de domínio personalizado
-Depois de registrar seu nome de domínio personalizado, precisa certificar-se de que ele é válido no Azure AD. A propagação de seu registrador de domínios ao Azure AD pode ser instantânea ou pode demorar alguns dias, dependendo do seu registrador de domínios.
 
-### <a name="to-verify-your-custom-domain-name"></a>Como verificar seu nome de domínio personalizado
+Depois de registrar seu nome de domínio personalizado, verifique se ele é válido no Azure AD. A propagação do seu registrador de domínio para o Azure AD pode ser instantânea ou pode levar alguns dias, dependendo do seu registrador de domínio.
+
+Para verificar seu nome de domínio personalizado, siga estas etapas:
+
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador global para o diretório.
 
-2. Selecione **Azure Active Directory** e, depois, selecione **Nomes de domínio personalizado**.
+1. Procure e selecione *Azure Active Directory* em qualquer página e, em seguida, selecione **nomes de domínio personalizados**.
 
-3. Na página **Fabrikam – Nomes de domínio personalizado**, selecione o nome de domínio personalizado, **Contoso**.
+1. Em **nomes de domínio personalizados**, selecione o nome de domínio personalizado. Neste exemplo, selecione **contoso.com**.
 
     ![Página Fabrikam – nomes de domínio personalizado, com contoso realçado](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 
-4. Na página **Contoso**, selecione **Verificar** para garantir que seu domínio personalizado foi devidamente registrado e é válido para o Azure AD.
+1. Na página **contoso.com** , selecione **verificar** para certificar-se de que seu domínio personalizado está registrado corretamente e é válido para o Azure AD.
 
     ![Página da Contoso com informações sobre entrada de DNS e o botão Verificar](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
 Depois de verificar seu nome de domínio personalizado, você pode excluir seu arquivo TXT ou MX de verificação.
 
 ## <a name="common-verification-issues"></a>Problemas comuns de verificação
-- Se o Azure AD não puder verificar um nome de domínio personalizado, tente as sugestões a seguir:
-  - **Aguarde pelo menos uma hora e tente novamente**. Os registros DNS precisam ser propagados para que o Azure AD possa verificar o domínio; esse processo pode demorar uma hora ou mais.
 
-  - **Verifique se o registro DNS está correto.** Volte para o site do registrador de nomes de domínio e verifique se a entrada está lá e se corresponde às informações de entrada de DNS fornecidas pelo Azure AD.
+Se o Azure AD não puder verificar um nome de domínio personalizado, tente as sugestões a seguir:
 
-    Se você não conseguir atualizar o registro no site do registrador, deverá compartilhar a entrada com alguém que tenha as permissões corretas para adicioná-la e verificar se ela está correta.
+- **Aguarde pelo menos uma hora e tente novamente**. Os registros DNS precisam ser propagados para que o Azure AD possa verificar o domínio. Esse processo pode levar uma hora ou mais.
 
-- **Verifique se o nome de domínio não está em uso em outro diretório.** Um nome de domínio só pode ser verificado em um diretório, o que significa que, se seu nome de domínio está verificado em outro diretório no momento, não pode ser verificado também no novo diretório. Para corrigir esse problema de duplicação, você deve excluir o nome de domínio do diretório antigo. Para obter mais informações sobre a exclusão de nomes de domínio, consulte [Gerenciar nomes de domínio personalizado](../users-groups-roles/domains-manage.md).
+- **Verifique se o registro DNS está correto.** Volte para o site de registrador de nomes de domínio. Verifique se a entrada está lá e se ela corresponde às informações de entrada de DNS fornecidas pelo Azure AD.
 
-- **Confira se você não tem nenhum locatário do Power BI não gerenciado.** Se os usuários tiverem ativado o Power BI por meio de inscrição de autoatendimento e criado um locatário não gerenciado para sua organização, você deverá assumir o gerenciamento como administrador interno ou externo, usando o PowerShell. Para saber mais sobre como assumir um diretório não gerenciado, confira [Assumir um diretório não gerenciado como administrador no Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
+  Se você não puder atualizar o registro no site do registrador, compartilhe a entrada com alguém que tenha permissões para adicionar a entrada e verifique se ela está correta.
+
+- **Verifique se o nome de domínio não está em uso em outro diretório.** Um nome de domínio só pode ser verificado em um diretório. Se o seu nome de domínio estiver atualmente verificado em outro diretório, ele também não poderá ser verificado no novo diretório. Para corrigir esse problema de duplicação, você deve excluir o nome de domínio do diretório antigo. Para obter mais informações sobre a exclusão de nomes de domínio, consulte [Gerenciar nomes de domínio personalizado](../users-groups-roles/domains-manage.md).
+
+- **Confira se você não tem nenhum locatário do Power BI não gerenciado.** Se os usuários tiverem ativado o Power BI por meio de inscrição de autoatendimento e criado um locatário não gerenciado para sua organização, você deverá assumir o gerenciamento como administrador interno ou externo, usando o PowerShell. Para obter mais informações, confira [Controlar um diretório não gerenciado como administrador no Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Adicione outro administrador global ao seu diretório. Para obter mais informações, consulte [Como atribuir funções e administradores](active-directory-users-assign-role-azure-portal.md).
 
-- Para adicionar usuários ao seu domínio, consulte [Como adicionar ou excluir usuários](add-users-azure-active-directory.md).
+- Adicione usuários ao seu domínio. Para obter mais informações, consulte [como adicionar ou excluir usuários](add-users-azure-active-directory.md).
 
 - Gerencie suas informações de nome de domínio no Azure AD. Para obter mais informações, confira [Gerenciamento de nomes de domínio personalizado](../users-groups-roles/domains-manage.md).
 

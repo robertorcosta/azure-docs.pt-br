@@ -1,5 +1,5 @@
 ---
-title: Extensão de máquina virtual Azure Monitor para Linux | Microsoft Docs
+title: Extensão de máquina virtual Azure Monitor para Linux
 description: Implante o agente do Log Analytics na máquina virtual do Linux usando uma extensão da máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: akjosh
-ms.openlocfilehash: 75f659f9559703cedccef0d8e726b5c8c5bb49be
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: a021c76eb973eba11e1dc1ee89f3d7f829a53f70
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435833"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073055"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Azure Monitor para Linux
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Os logs de Azure Monitor fornecem recursos de monitoramento, alertas e correção de alertas em ativos locais e na nuvem. A extensão da máquina virtual do agente do Log Analytics para Linux é publicada e recebe suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas, configurações e opções de implantação com suporte para a extensão da máquina virtual Azure Monitor para Linux.
 
@@ -32,7 +32,7 @@ Os logs de Azure Monitor fornecem recursos de monitoramento, alertas e correçã
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -103,7 +103,7 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A 
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| name | Valor/Exemplo |
+| NOME | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |

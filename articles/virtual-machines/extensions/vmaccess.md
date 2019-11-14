@@ -1,5 +1,5 @@
 ---
-title: Redefinir o acesso a uma VM do Linux do Azure | Microsoft Docs
+title: Redefinir o acesso a uma VM Linux do Azure
 description: Como gerenciar usuários administrativos e redefinir o acesso em VMs Linux usando a extensão VMAccess e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
-ms.openlocfilehash: 447c10037503c627092bb23e23b4fe1ee88ca45d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173958"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073601"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gerenciar usuários administrativos, SSH e verificar ou reparar discos em VMs Linux do usando a extensão VMAccess com a CLI do Azure
 ## <a name="overview"></a>Visão geral
@@ -31,7 +31,7 @@ Este artigo mostra como usar a extensão VMAccess do Azure para verificar ou rep
 > [!NOTE]
 > Se você usar a extensão VMAccess para redefinir a senha da sua VM depois de instalar a extensão de logon do AAD, será preciso executar novamente a extensão de logon do AAD para habilitar novamente o logon do AAD para seu computador.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 ### <a name="operating-system"></a>Sistema operacional
 
 A extensão de Acesso de VM pode ser executada nessas distribuições do Linux:
@@ -68,7 +68,7 @@ az vm user update \
 
 > **OBSERVAÇÃO:** O comando `az vm user update` acrescenta o novo texto de chave pública ao arquivo `~/.ssh/authorized_keys` para o usuário administrador na VM. Isso não substitui ou remove quaisquer chaves SSH existentes. Isso não removerá as chaves anteriores definidas no momento da implantação ou atualizações subsequentes através da extensão VMAccess.
 
-## <a name="reset-password"></a>Redefinir Senha
+## <a name="reset-password"></a>Redefinir senha
 O exemplo a seguir redefine a senha para o usuário `azureuser` na VM denominada `myVM`:
 
 ```azurecli-interactive

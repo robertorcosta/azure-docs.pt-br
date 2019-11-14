@@ -1,5 +1,5 @@
 ---
-title: Visão Geral dos Agente de Máquina Virtual do Azure | Microsoft Docs
+title: Visão Geral do Agente de Máquina Virtual do Azure
 description: Visão Geral do Agente de Máquina Virtual do Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 24c7f6c1488d7a78a16aafef88177f7045eb2492
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b1f627668c6bbd1d802eb3a4c11b6171e84887c8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244648"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073254"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente de Máquina Virtual do Azure
 O Agente de VM (Máquina Virtual) do Microsoft Azure é um processo seguro e leve que gerencia a interação da máquina virtual (VM) com o Controlador de Malha do Azure. O Agente de VM tem uma função fundamental na habilitação e execução de extensões de máquina virtual do Azure. Extensões de VM habilitam a configuração de VM pós-implantação, como instalação e configuração de software. Extensões de VM também habilitam os recursos de recuperação como redefinir a senha administrativa de uma VM. Sem o Agente de VM do Azure, não é possível executar extensões da VM.
@@ -67,7 +67,7 @@ O Agente de VM pode ser instalado clicando duas vezes no arquivo do Windows Inst
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
 ```
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 O agente de VM do Windows precisa de pelo menos o Windows Server 2008 R2 (64 bits) para ser executado com o .NET Framework 4,0. Consulte [suporte mínimo de versão para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 ## <a name="detect-the-vm-agent"></a>Detectar o Agente de VM

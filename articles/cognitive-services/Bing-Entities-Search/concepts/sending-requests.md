@@ -1,7 +1,7 @@
 ---
 title: Enviando solicitações de pesquisa para a API de Pesquisa de Entidade do Bing
 titleSuffix: Azure cognitive Services
-description: Saiba como enviar solicitações de pesquisa à API de Pesquisa de Entidade do Bing
+description: A API de Pesquisa de Entidade do Bing envia uma consulta de pesquisa para o Bing e obtém os resultados que incluem entidades e locais.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 0788b220f2612170fdea974a8bb27e8374a0b3be
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f68429a75ddb141c9e42babde3faa9f93fe949cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879201"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072678"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Enviando solicitações de pesquisa para a API de Pesquisa de Entidade do Bing
 
-A API de Pesquisa de Entidade do Bing envia uma consulta de pesquisa para o Bing e obtém os resultados que incluem entidades e locais. Os resultados de local incluem restaurantes, hotel ou outras empresas locais. Para locais, a consulta pode especificar o nome da empresa local ou ela pode solicitar uma lista (por exemplo, restaurantes próximos a mim). Os resultados de entidade incluem pessoas, lugares ou coisas. Neste contexto, o local é atrações turísticas, estados, países, regiões etc.
+A API de Pesquisa de Entidade do Bing envia uma consulta de pesquisa para o Bing e obtém os resultados que incluem entidades e locais. Os resultados de locais incluem restaurantes, hotel ou outras empresas locais. Para locais, a consulta pode especificar o nome da empresa local ou ela pode solicitar uma lista (por exemplo, restaurantes próximos a mim). Os resultados de entidade incluem pessoas, lugares ou coisas. Neste contexto, o local é atrações turísticas, estados, países, regiões etc.
 
 ## <a name="the-endpoint"></a>O ponto de extremidade
 
@@ -31,7 +31,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/entities
 
 As solicitações precisam usar o protocolo HTTPS.
 
-É recomendável que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para versões futuras da API.
+É recomendável que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, chamadas a partir de um servidor fornecem um único ponto de atualização para versões futuras da API.
 
 ## <a name="specifying-query-parameters-and-headers"></a>Especificar cabeçalhos e parâmetros de consulta
 
@@ -46,7 +46,7 @@ A solicitação deve especificar o cabeçalho [Ocp-Apim-Subscription-Key](https:
 
 Os cabeçalhos de IP e local do cliente são importantes para retornar o conteúdo com reconhecimento de local.  
 
-Para obter uma lista de todos os cabeçalhos de solicitação e resposta, confira [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers).
+Para obter uma lista de todos os cabeçalhos de solicitação e resposta, consulte [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers).
 
 ## <a name="the-request"></a>A solicitação
 
@@ -66,7 +66,7 @@ Se for a primeira vez que você chama qualquer uma das APIs do Bing, não inclua
 
 ## <a name="the-response"></a>A resposta
 
-O exemplo a seguir mostra a resposta à solicitação anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing. Para obter informações sobre o objeto de resposta, consulte [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
+O exemplo a seguir mostra a resposta para a solicitação anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing. Para obter informações sobre o objeto de resposta, consulte [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 

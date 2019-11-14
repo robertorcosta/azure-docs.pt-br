@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar uma VM Windows no Azure usando Python | Microsoft Docs
+title: Criar e gerenciar uma VM do Windows no Azure usando o Python
 description: Aprenda a usar o Python para criar e gerenciar uma VM Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: fcbf4e054359534f924b401f2f42e1d4c33890be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1686e86600fb28165ae44e7ca6c0c406dfa26d72
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102491"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065592"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerenciar VMs Windows no Azure usando Python
 
-Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) precisa de vários recursos do Azure suporte. Este artigo aborda a criação, o gerenciamento e a exclusão de recursos da VM usando Python. Você aprenderá como:
+Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) precisa de vários recursos do Azure de suporte. Este artigo aborda a criação, o gerenciamento e a exclusão de recursos da VM usando Python. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um projeto do Visual Studio
 > * Instalar Pacotes
 > * Criar credenciais
 > * Criar recursos
-> * Executar outras tarefas de gerenciamento
+> * Executar tarefas de gerenciamento
 > * Excluir recursos
 > * Executar o aplicativo
 
@@ -52,7 +52,7 @@ Você deve ver nas janelas de saída que os pacotes do Azure foram instalados co
 
 ## <a name="create-credentials"></a>Criar credenciais
 
-Antes de começar essa etapa, verifique se você tem uma [entidade de serviço do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Você também deve registrar a ID do aplicativo, a chave de autenticação e a ID de locatário que precisará em uma etapa posterior.
+Antes de começar essa etapa, verifique se você tem uma [entidade de serviço do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Além disso, registre o ID do aplicativo, a chave de autenticação e o ID do locatário que serão necessários em uma etapa posterior.
 
 1. Abra o arquivo *myPythonProject.py* que foi criado e, em seguida, adicione este código para habilitar o aplicativo para execução:
 
@@ -79,7 +79,7 @@ Antes de começar essa etapa, verifique se você tem uma [entidade de serviço d
     VM_NAME = 'myVM'
     ```
 
-    Substitua **subscription-id** pelo identificador da assinatura.
+    Substitua **subscription-id** pelo seu identificador de inscrição.
 
 4. Para criar as credenciais do Active Directory que você precisa para fazer solicitações, adicione essa função após as variáveis no arquivo .py:
 
@@ -94,7 +94,7 @@ Antes de começar essa etapa, verifique se você tem uma [entidade de serviço d
         return credentials
     ```
 
-    Substitua **application-id**, **authentication-key** e **tenant-id** pelos valores coletados anteriormente ao criar a entidade de serviço do Azure Active Directory.
+    Substitua **id-aplicativo**, **chave-autenticação** e **id-locatário** com os valores coletados anteriormente ao criar a entidade de serviço do Azure Active Directory.
 
 5. Para chamar a função que você adicionou anteriormente, adicione este código sob a instrução **if** no final do arquivo .py:
 
@@ -123,7 +123,7 @@ compute_client = ComputeManagementClient(
 )
 ```
 
-### <a name="create-the-vm-and-supporting-resources"></a>Criar a VM e recursos de suporte
+### <a name="create-the-vm-and-supporting-resources"></a>Criar a VM e os recursos de suporte
 
 Todos os recursos devem estar contidos em um [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md).
 
@@ -145,7 +145,7 @@ Todos os recursos devem estar contidos em um [Grupo de recursos](../../azure-res
     input('Resource group created. Press enter to continue...')
     ```
 
-Os [conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais usadas por seu aplicativo.
+Os [Conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais usadas por seu aplicativo.
 
 1. Para criar um conjunto de disponibilidade, adicione essa função após as variáveis no arquivo .py:
    
@@ -171,7 +171,7 @@ Os [conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a man
     input('Availability set created. Press enter to continue...')
     ```
 
-Um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
+Um [Endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
 
 1. Para criar um endereço IP público para a máquina virtual, adicione essa função após as variáveis no arquivo .py:
 
@@ -361,7 +361,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
     input('Press enter to continue...')
     ```
 
-## <a name="perform-management-tasks"></a>Executar outras tarefas de gerenciamento
+## <a name="perform-management-tasks"></a>Executar tarefas de gerenciamento
 
 Durante o ciclo de vida de uma máquina virtual, é possível que você queira executar tarefas de gerenciamento, como inicialização, interrupção ou exclusão de uma máquina virtual. Além disso, é possível que você queira criar um código para automatizar tarefas complexas ou repetitivas.
 
@@ -470,7 +470,7 @@ Você pode parar uma máquina virtual e manter todas as suas configurações, ma
 
 ### <a name="resize-the-vm"></a>Redimensionar a VM
 
-Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte [Tamanhos de VM](sizes.md).
+Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte[Tamanhos de VM](sizes.md).
 
 1. Para alterar o tamanho da máquina virtual, adicione essa função após as variáveis no arquivo .py:
 
@@ -565,9 +565,9 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 1. Para executar o aplicativo de console, clique em **Iniciar** no Visual Studio.
 
-2. Pressione **Enter** depois que o status de cada recurso for retornado. Nas informações de status, você deverá ver um estado de provisionamento **Bem-sucedido**. Após a criação da máquina virtual será possível excluir todos os recursos criados. Antes de pressionar **Enter** para iniciar a exclusão dos recursos, você terá alguns minutos para verificar a criação no portal do Azure. Se o portal do Azure for aberto, talvez seja necessário atualizar a folha para verificar novos recursos.  
+2. Pressione **Enter** após o status de cada recurso ser retornado. Nas informações de status, você deverá ver um estado de provisionamento **Bem-sucedido**. Após a criação da máquina virtual será possível excluir todos os recursos criados. Antes de pressionar **Enter** para iniciar a exclusão dos recursos, você terá alguns minutos para verificar a criação no portal do Azure. Se o portal do Azure for aberto, talvez seja necessário atualizar a folha para verificar novos recursos.  
 
-    Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. Pode levar alguns minutos depois que o aplicativo foi concluído antes de todos os recursos e o grupo de recursos serem excluídos.
+    Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. Isso poderá demorar vários minutos após a conclusão do aplicativo, antes que todos os recursos e o grupo de recursos sejam excluídos.
 
 
 ## <a name="next-steps"></a>Próximas etapas

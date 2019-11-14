@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Agente de VM do Azure Linux | Microsoft Docs
+title: Visão geral do agente de VM Linux do Azure
 description: Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8bc28c7454296f32dda09894ad3dca2f4fae99b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169152"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073863"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
 
@@ -107,12 +107,12 @@ Consulte a documentação do [repositório do agente Linux do Azure no GitHub](h
 
 ## <a name="command-line-options"></a>Opções de Linha de Comando
 ### <a name="flags"></a>Sinalizadores
-* extensa Aumentar o detalhamento do comando especificado
-* aplicação Ignorar a confirmação interativa para alguns comandos
+* verbose: aumentar o nível de detalhes do comando especificado
+* forçar: Ignorar confirmação interativa para alguns comandos
 
 ### <a name="commands"></a>Comandos
-* Ajuda: Lista os comandos e sinalizadores com suporte.
-* desprovisionar Tente limpar o sistema e torná-lo adequado para reprovisionamento. A operação a seguir deleta:
+* Ajuda: lista os comandos com suporte e sinalizadores.
+* deprovisionar: tentativa de limpar o sistema e torná-lo adequado para reprovisionamento. A operação a seguir deleta:
   
   * Todas as chaves de host SSH (se Provisioning.RegenerateSshHostKeyPair for 'y' no arquivo de configuração)
   * Configuração de servidor de nomes em /etc/resolv.conf
@@ -125,11 +125,11 @@ Consulte a documentação do [repositório do agente Linux do Azure no GitHub](h
 > 
 > 
 
-* desprovisionar + usuário: Executa tudo em-desprovision (acima) e também exclui a última conta de usuário provisionada (Obtida de/var/lib/waagent) e dados associados. Este parâmetro é quando a desconfiguração de uma imagem que foi anteriormente provisionamento no Azure para podem ser capturada e usada novamente.
-* Versão: Exibe a versão do waagent
-* serialconsole: Configura o GRUB para marcar ttyS0 (a primeira porta serial) como o console de inicialização. Isso garante que os logs de inicialização do kernel são enviados para a porta serial e disponibilizados para depuração.
-* demonstração Execute waagent como um daemon para gerenciar a interação com a plataforma. Esse argumento é especificado para waagent no script de inicialização de waagent.
-* Comece Executar waagent como um processo em segundo plano
+* deprovisionar + usuário: executa tudo em - deprovisiona (acima) e também exclui a última conta de usuário provisionado (obtida em /var/lib/waagent) e dados associados. Este parâmetro é quando a desconfiguração de uma imagem que foi anteriormente provisionamento no Azure para podem ser capturada e usada novamente.
+* versão: exibe a versão do waagent
+* serialconsole: configura GRUB para marcar ttyS0 (a primeira porta serial) como o console de inicialização. Isso garante que os logs de inicialização do kernel são enviados para a porta serial e disponibilizados para depuração.
+* daemon: executar waagent como um daemon para gerenciar a interação com a plataforma. Esse argumento é especificado para waagent no script de inicialização de waagent.
+* Iniciar: executar waagent como um processo em segundo plano
 
 ## <a name="configuration"></a>Configuração
 Um arquivo de configuração (/ etc/waagent.conf) controla as ações de waagent. A seguir mostra um arquivo de configuração de exemplo:
@@ -343,6 +343,6 @@ As Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpad.net/ubuntu
 
 * Para mais informações, consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e o espaço de troca nas Imagens de Nuvem do Ubuntu durante o provisionamento:
   
-  * [Ubuntu Wiki: Configurar partições de permuta](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Wiki do Ubuntu: configurar partições de troca](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injetando dados personalizados em uma Máquina Virtual do Azure](../windows/classic/inject-custom-data.md)
 

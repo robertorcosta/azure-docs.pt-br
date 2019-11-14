@@ -1,7 +1,7 @@
 ---
 title: Como selecionar um dispositivo de entrada de áudio com o SDK de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como selecionar dispositivos de entrada de áudio no SDK de Fala.
+description: Saiba mais sobre como selecionar dispositivos de entrada de áudio noC++SDK C#de fala (, Python, Objective-C, Java, JavaScript) obtendo as IDs dos dispositivos de áudio conectados a um sistema.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 8324f9fccbe46cf6fc0ce297aac29b0d8025b078
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 967e4fbc5484c152867fe5558040631d21e6c0b3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562731"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072427"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selecionar um dispositivo de entrada de áudio com o SDK de Fala
 
@@ -46,7 +46,8 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```JavaScript
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
->[!Note]
+
+> [!Note]
 > O uso do microfone não está disponível para JavaScript em execução no Node.js
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Identificações do dispositivo de áudio em aplicativos do Windows Desktop

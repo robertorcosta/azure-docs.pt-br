@@ -1,7 +1,7 @@
 ---
 title: Balanceamento de carga em várias configurações de IP – Portal do Azure
-titlesuffix: Azure Load Balancer
-description: Balanceamento de carga entre as configurações de IP primárias e secundárias.
+titleSuffix: Azure Load Balancer
+description: Neste artigo, saiba mais sobre o balanceamento de carga nas configurações de IP primário e secundário usando o portal do Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274727"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077001"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
@@ -42,7 +42,7 @@ Em nosso cenário, estamos usando a seguinte configuração:
 - O Azure Load Balancer é usado para expor os dois endereços IP de front-end, um para cada site. Os endereços de front-end são usados para distribuir o tráfego para a respectiva configuração de IP de cada site.
 - O mesmo número da porta é usado para endereços IP de front-end e endereços IP do pool de back-end.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Nosso cenário pressupõe que você tem um grupo de recursos denominado **contosofabrikam** com a seguinte configuração:
 
@@ -130,7 +130,7 @@ Configure o pool de IPs de front-end no balanceador de carga para cada site (con
 
 Depois que o pool de front-end estiver configurado, os endereços IP serão exibidos nas configurações de **configuração de IP de front-end** do balanceador de carga. 
     
-### <a name="step-4-configure-the-back-end-pool"></a>Etapa 4: Configure o pool de back-end
+### <a name="step-4-configure-the-back-end-pool"></a>Etapa 4: Configurar o pool de back-end
 
 Configure o pool de endereços de back-end no balanceador de carga para cada site (contoso.com e fabrikam.com):
         
@@ -168,7 +168,7 @@ Configure uma investigação de integridade para o balanceador de carga:
 
 4. Digite um nome para a investigação de integridade (por exemplo, **HTTP**). Selecione **OK**.
 
-### <a name="step-6-configure-load-balancing-rules"></a>Etapa 6: Configuração de regras de balanceamento de carga
+### <a name="step-6-configure-load-balancing-rules"></a>Etapa 6: Configurar regras de balanceamento de carga
 
 Configure as regras de balanceamento de carga para cada site (contoso.com e fabrikam.com):
     

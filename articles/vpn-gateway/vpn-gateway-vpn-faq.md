@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 11/12/2019
 ms.author: yushwang
-ms.openlocfilehash: 23dc017b6ffcca8761966a10bd5cb45b32c7a602
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd012ab94ba47f700230ac761f2dc803988cefd4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786708"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075408"
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
 
@@ -48,7 +48,7 @@ Para saber mais sobre conexões de gateway de VPN, confira [Sobre gateway de VPN
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Qual é a diferença entre uma conexão site a site e uma ponto a site?
 
-**Site a Site** as configurações (túnel VPN IPsec/IKE) estão entre o local e o Azure. Isso significa que você pode conectar, a partir de qualquer um dos computadores localizados em suas instalações, qualquer máquina virtual ou instância de função em sua rede virtual, dependendo de como você escolhe configurar o roteamento e as permissões. É uma ótima opção para uma conexão entre locais sempre disponível e é bastante adequada para configurações híbridas. Esse tipo de conexão se baseia em um dispositivo de VPN IPsec (dispositivo de hardware ou software), que deve ser implantado na borda de sua rede. Para criar esse tipo de conexão, você deve ter um endereço IPv4 voltado para o exterior.
+**Site a Site** as configurações (túnel VPN IPsec/IKE) estão entre o local e o Azure. Isso significa que você pode conectar, a partir de qualquer um dos computadores localizados em suas instalações, qualquer máquina virtual ou instância de função em sua rede virtual, dependendo de como você escolhe configurar o roteamento e as permissões. É uma ótima opção para uma conexão entre locais sempre disponível e é bastante adequada para configurações híbridas. Esse tipo de conexão se baseia em um dispositivo de VPN IPsec (dispositivo de hardware ou software), que deve ser implantado na borda de sua rede. Para criar esse tipo de conexão, você deve ter um endereço IPv4 voltado para o público.
 
 As configurações **Ponto a Site** (VPN no SSTP) permitem conectar, a partir de um único computador e de qualquer lugar, qualquer coisa localizada em sua rede virtual. Elas usam o cliente de VPN integrado ao Windows. Como parte da configuração de ponto a site, você pode instalar um certificado e um pacote de configuração de cliente VPN, que contém as configurações que permitem que o computador se conecte a qualquer máquina virtual ou instância de função na rede virtual. É ótimo quando você deseja se conectar a uma rede virtual, mas não está localizado no local. Também é uma boa opção quando você não tem acesso a hardware de VPN ou a um endereço IPv4 voltado para o exterior, sendo que ambos são necessários para uma conexão site a site.
 
@@ -69,11 +69,11 @@ Os gateways baseados em política implementam VPNs baseadas em política. As VPN
 Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Posso atualizar meu gateway de VPN baseado em Política para baseado em Rota?
-Não. Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
+Não. Um tipo de gateway de vnet do Azure não pode ser alterado de baseado em política para baseado em rota ou de outra maneira. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
 1. Exclua todas as conexões associadas ao gateway a ser excluído.
 1. Exclua o gateway:
 1. [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [PowerShell do Azure](vpn-gateway-delete-vnet-gateway-powershell.md)
+1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 1. [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Criar um novo gateway do tipo desejado e concluir a configuração da VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
@@ -81,7 +81,7 @@ Não. Um tipo de gateway de rede virtual do Azure não pode ser alterado de bas
 
 Sim. A sub-rede de gateway contém os endereços IP que usam os serviços de gateway de rede virtual. Você precisa criar uma sub-rede de gateway para a VNet para configurar um gateway de rede virtual. Todas as sub-redes de gateway devem ser nomeadas como ‘GatewaySubnet’ para funcionar adequadamente. Não dê outro nome à sua sub-rede de gateway. E não implante VMs ou qualquer outra coisa na sub-rede de gateway.
 
-Quando você cria a sub-rede de gateway, pode especificar o número de endereços IP que contém a sub-rede. Os endereços IP na sub-rede do gateway são alocados para o serviço de gateway. Algumas configurações exigem mais endereços IP a ser alocada para os serviços de gateway que outras pessoas. Convém certificar-se de que sua sub-rede de gateway contenha endereços IP suficientes para acomodar o crescimento futuro e possíveis novas configurações de conexão adicionais. Dessa forma, embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, é recomendável criar uma sub-rede de gateway de /27 ou maior (/27, /26, /25 etc.). Examine os requisitos para a configuração que deseja criar e verifique se a sub-rede de gateway que você tem atende a esses requisitos.
+Quando você cria a sub-rede de gateway, pode especificar o número de endereços IP que contém a sub-rede. Os endereços IP na sub-rede do gateway são alocados para o serviço de gateway. Algumas configurações exigem mais endereços IP a ser alocada para os serviços de gateway que outras pessoas. Você deseja certificar-se de que sua sub-rede de gateway contenha endereços IP suficientes para acomodar o crescimento futuro e possíveis novas configurações de conexão adicionais. Dessa forma, embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, é recomendável criar uma sub-rede de gateway de /27 ou maior (/27, /26, /25 etc.). Examine os requisitos para a configuração que deseja criar e verifique se a sub-rede de gateway que você tem atende a esses requisitos.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Posso implantar máquinas virtuais ou instâncias de função na minha sub-rede de gateway?
 
@@ -243,4 +243,4 @@ As informações adicionais de rede virtual são exibidas em [Perguntas Frequent
 * Para saber mais sobre o Gateway de VPN, veja [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md).
 * Para saber mais sobre definições de configuração de Gateway de VPN, veja [Sobre definições de configuração do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-**"OpenVPN" é uma marca registrada da Inc OpenVPN.**
+**"OpenVPN" é uma marca comercial da OpenVPN Inc.**

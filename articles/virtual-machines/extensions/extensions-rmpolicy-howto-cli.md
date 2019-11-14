@@ -1,5 +1,5 @@
 ---
-title: Usar a política do Azure para restringir a instalação da extensão VM | Microsoft Docs
+title: Usar Azure Policy para restringir a instalação da extensão de VM
 description: Use a política do Azure para restringir as implantações de extensão VM.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 20099bb32a1984be0bfbbaaa4e7bc6cd4481a806
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 113736198f40510981c80909c862282fa07ac68d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174020"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073766"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usar a política do Azure para restringir a instalação de extensões nas VMs do Linux
 
 Se você quiser impedir o uso ou a instalação de certas extensões de suas VMs do Linux, você pode criar uma política do Azure usando o CLI para restringir as extensões de máquinas virtuais dentro de um grupo de recursos. 
 
-Este tutorial usa o CLI dentro da Cloud Shell do Azure, que é constantemente atualizada para a versão mais recente. Se você deseja executar a CLI do Azure localmente, você precisa instalar a versão 2.0.26 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Este tutorial usa o CLI dentro da Cloud Shell do Azure, que é constantemente atualizada para a versão mais recente. Se você deseja executar a CLI do Azure localmente, você precisa instalar a versão 2.0.26 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-rules-file"></a>Criar um arquivo de regras
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorar eventos agendados para suas VMs do Windows no Azure | Microsoft Docs
+title: Monitorar eventos agendados para suas VMs do Windows no Azure
 description: Saiba como monitorar suas máquinas virtuais do Azure para eventos agendados.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376206"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073308"
 ---
 # <a name="monitoring-scheduled-events"></a>Eventos Agendados de monitoramento
 
@@ -32,7 +32,7 @@ Neste artigo, descreveremos como capturar Eventos Agendados de manutenção para
 
 ![Diagrama mostrando o ciclo de vida do evento](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para este exemplo, será necessário criar uma [máquina virtual do Windows em um conjunto de disponibilidade](tutorial-availability-sets.md). Eventos Agendados fornecer notificações sobre as alterações que podem afetar qualquer uma das máquinas virtuais em seu conjunto de disponibilidade, serviço de nuvem, conjunto de dimensionamento de máquinas virtuais ou VMs autônomas. Executaremos um [serviço](https://github.com/microsoft/AzureScheduledEventsService) que sonda eventos agendados em uma das VMs que atuarão como coletor, para obter eventos para todas as outras VMs no conjunto de disponibilidade.    
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 Baixe o arquivo. zip de instalação do projeto do [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Conecte-se ao **myCollectorVM** e copie o arquivo. zip para a máquina virtual e Extraia todos os arquivos. Em sua VM, abra um prompt do PowerShell. Mova o prompt para a pasta que contém `SchService.ps1`, por exemplo: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>` e configure o serviço.
+Conecte-se ao **myCollectorVM** e copie o arquivo. zip para a máquina virtual e Extraia todos os arquivos. Em sua VM, abra um prompt do PowerShell. Mova o prompt para a pasta que contém `SchService.ps1`, por exemplo: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`e configure o serviço.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -157,7 +157,7 @@ Depois que os eventos forem enviados para Log Analytics, você poderá executar 
 
     ![Salvar a consulta](./media/notifications/save-query.png)
 
-1. Selecione **nova regra de alerta**. 
+1. Selecione **Nova regra de alerta**. 
 1. Na página **criar regra** , deixe `collectorworkspace` como o **recurso**.
 1. Em **condição**, selecione a entrada *sempre que a pesquisa de logs do cliente for <login undefined>* . A página **Configurar lógica de sinal** será aberta.
 1. Em **valor do limite**, insira *0* e, em seguida, selecione **concluído**.
@@ -175,6 +175,6 @@ Depois que os eventos forem enviados para Log Analytics, você poderá executar 
 Para gerenciar suas regras de alerta, vá para o grupo de recursos, selecione **alertas** no menu à esquerda e, em seguida, selecione **gerenciar regras de alerta** na parte superior da página.
 
      
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais, consulte a página de [serviço de eventos agendados](https://github.com/microsoft/AzureScheduledEventsService) no github.

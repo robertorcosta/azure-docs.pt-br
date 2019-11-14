@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault extensão de VM para Linux | Microsoft Docs
+title: Azure Key Vault extensão de VM para Linux
 description: Implante um agente executando a atualização automática de certificados de Key Vault em máquinas virtuais usando uma extensão de máquina virtual.
 services: virtual-machines-linux
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 5991d3d2197822b239b946de66f020dd258f835a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2de8a072aec66c2c087541ed9620f3dbdc137ee9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584374"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073014"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Key Vault para Linux
 
@@ -61,22 +61,22 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 > [!NOTE]
 > Suas URLs de certificados observadas devem estar no formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Isso ocorre porque o caminho `/secrets` retorna o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Key Vault certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isso ocorre porque o caminho `/secrets` retorna o certificado completo, incluindo a chave privada, enquanto o caminho de `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Key Vault certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo | Tipo de Dados |
+| NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | data |
-| publicador | Microsoft.Azure.KeyVault.Edp | string |
-| Tipo | KeyVaultForLinux | string |
+| publicador | Microsoft.Azure.KeyVault.Edp | cadeia de caracteres |
+| type | KeyVaultForLinux | cadeia de caracteres |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | string |
-| certificateStoreName | MY | string |
-| linkOnRenewal | false | booleano |
-| certificateStoreLocation  | LocalMachine | string |
-| requiredInitialSync | verdadeiro | booleano |
+| pollingIntervalInS | 3600 | cadeia de caracteres |
+| certificateStoreName | MY | cadeia de caracteres |
+| linkOnRenewal | false | Booleano |
+| certificateStoreLocation  | LocalMachine | cadeia de caracteres |
+| requiredInitialSync | verdadeiro | Booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
 
 
@@ -196,7 +196,7 @@ Por favor esteja ciente das seguintes restrições/exigências:
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o Azure PowerShell.
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="azure-powershell"></a>PowerShell do Azure
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```

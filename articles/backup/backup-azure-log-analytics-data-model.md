@@ -1,6 +1,6 @@
 ---
 title: Modelo de dados de logs de Azure Monitor para o backup do Azure
-description: Este artigo fala sobre detalhes do modelo de dados de logs de Azure Monitor para dados de backup do Azure.
+description: Neste artigo, saiba mais sobre o Azure Monitor Log Analytics detalhes do modelo de dados para dados de backup do Azure.
 ms.reviewer: adigan
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: dacurwin
-ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 283dc4c1ad4bc683833da3d689d842fa84079a00
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689235"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074941"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de dados do Log Analytics para dados de Backup do Azure
 
@@ -29,16 +29,16 @@ Você pode usar os seguintes campos fornecidos como parte do modelo de dados par
 
 Essa tabela fornece detalhes sobre campos relacionados ao alerta.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | AlertUniqueId_s |Texto |Identificador exclusivo do alerta gerado |
 | AlertType_s |Texto |Tipo de alerta, por exemplo, Backup |
 | AlertStatus_s |Texto |Status do alerta, por exemplo, Ativo |
-| AlertOccurrenceDateTime_s |Date/Time |Data e hora em que o alerta foi criado |
+| AlertOccurrenceDateTime_s |Data/hora |Data e hora em que o alerta foi criado |
 | AlertSeverity_s |Texto |Gravidade do alerta, por exemplo, Crítico |
-|AlertTimeToResolveInMinutes_s    | Number        |Tempo necessário para resolver um alerta. Em branco para alertas ativos.         |
+|AlertTimeToResolveInMinutes_s    | NUMBER        |Tempo necessário para resolver um alerta. Em branco para alertas ativos.         |
 |AlertConsolidationStatus_s   |Texto         |Identificar se o alerta é um alerta consolidado ou não         |
-|CountOfAlertsConsolidated_s     |Number         |Número de alertas consolidados se for um alerta consolidado          |
+|CountOfAlertsConsolidated_s     |NUMBER         |Número de alertas consolidados se for um alerta consolidado          |
 |AlertRaisedOn_s     |Texto         |Tipo de entidade em que o alerta é gerado         |
 |AlertCode_s     |Texto         |Código para identificar exclusivamente um tipo de alerta         |
 |RecommendedAction_s   |Texto         |Ação recomendada para resolver o alerta         |
@@ -50,12 +50,12 @@ Essa tabela fornece detalhes sobre campos relacionados ao alerta.
 | OperationName |Texto |Nome da operação atual, por exemplo, alerta |
 | Categoria |Texto |Categoria de dados de diagnóstico enviados por push para logs de Azure Monitor. Sempre AzureBackupReport |
 | Recurso |Texto |Este é o recurso para o qual os dados estão sendo coletados, ele mostra o nome do cofre dos Serviços de Recuperação |
-| ProtectedContainerUniqueId_s |Texto |Identificador exclusivo do servidor protegido associado ao alerta (was ProtectedServerUniqueId_s em v1)|
+| ProtectedContainerUniqueId_s |Texto |Identificador exclusivo do servidor protegido associado ao alerta (foi ProtectedServerUniqueId_s em v1)|
 | VaultUniqueId_s |Texto |Identificador exclusivo do cofre protegido associado ao alerta |
 | SourceSystem |Texto |Sistema de origem dos dados atuais - Azure |
-| resourceId |Texto |Identificador exclusivo para o recurso sobre quais dados são coletados. Por exemplo, id de recurso do Cofre de serviços de recuperação |
+| ResourceId |Texto |Identificador exclusivo para o recurso sobre quais dados são coletados. Por exemplo, uma ID de recurso do cofre dos serviços de recuperação |
 | SubscriptionId |Texto |Identificador de assinatura do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
-| GrupoRecuso |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
+| ResourceGroup |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
 | ResourceProvider |Texto |Provedor de recursos para o qual os dados são coletados. Por exemplo, Microsoft.RecoveryServices |
 | ResourceType |Texto |Tipo de recursos para o qual os dados são coletados. Por exemplo, Cofres |
 
@@ -63,7 +63,7 @@ Essa tabela fornece detalhes sobre campos relacionados ao alerta.
 
 Esta tabela fornece detalhes sobre os campos relacionados ao item de backup.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | EventName_s |Texto |O nome do evento. Sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Texto |Identificador único do item de backup |
@@ -83,9 +83,9 @@ Esta tabela fornece detalhes sobre os campos relacionados ao item de backup.
 | Categoria |Texto |Categoria de dados de diagnóstico enviados por push para logs de Azure Monitor. Sempre AzureBackupReport |
 | Recurso |Texto |Recursos para os quais dados são coletados, por exemplo, nome do cofre dos serviços de recuperação |
 | SourceSystem |Texto |Sistema de origem dos dados atuais - Azure |
-| resourceId |Texto |Id do recurso para os dados sendo coletados, por exemplo, serviços de recuperação do Cofre de id de recurso |
+| ResourceId |Texto |ID de recurso para dados que estão sendo coletados, por exemplo, ID de recurso do cofre de serviços de recuperação |
 | SubscriptionId |Texto |Identificador de assinatura do recurso (por exemplo cofre de Serviços de Recuperação) para dados sendo coletados |
-| GrupoRecuso |Texto |grupo de Recursos do recurso (por exemplo cofre de Serviços de Recuperação) para dados sendo coletados |
+| ResourceGroup |Texto |grupo de Recursos do recurso (por exemplo cofre de Serviços de Recuperação) para dados sendo coletados |
 | ResourceProvider |Texto |fornecedor de Recurso para dados sendo coletados, por exemplo Microsoft.RecoveryServices |
 | ResourceType |Texto |Tipo de recurso para os dados que estão sendo coletados, por exemplo, os cofres |
 
@@ -93,10 +93,10 @@ Esta tabela fornece detalhes sobre os campos relacionados ao item de backup.
 
 Esta tabela fornece detalhes sobre associações de itens de backup com várias entidades.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome desse evento, é sempre AzureBackupCentralReport |  
-| BackupItemUniqueId_s |Texto |ID exclusivo do item de backup |
+| BackupItemUniqueId_s |Texto |ID exclusiva do item de backup |
 | SchemaVersion_s |Texto |Este campo denota a versão atual do esquema, é **v2** |
 | State_s |Texto |Estado atual do objeto de associação de item de backup, por exemplo, Ativo, Excluído |
 | BackupManagementType_s |Texto |Tipo de fornecedor para servidor fazendo trabalho de backup, por exemplo, IaaSVM, FileFolder |
@@ -108,9 +108,9 @@ Esta tabela fornece detalhes sobre associações de itens de backup com várias 
 | ProtectedContainerUniqueId_s |Texto |Identificador exclusivo do servidor protegido associado ao item de backup (foi ProtectedServerUniqueId_s em v1) |
 | VaultUniqueId_s |Texto |Identificador exclusivo do cofre que contém o item de backup |
 | SourceSystem |Texto |Sistema de origem dos dados atuais - Azure |
-| resourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, id de recurso do Cofre de serviços de recuperação |
+| ResourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, ID de recurso do cofre dos serviços de recuperação |
 | SubscriptionId |Texto |Identificador de assinatura do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados estão sendo coletados |
-| GrupoRecuso |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados estão sendo coletados |
+| ResourceGroup |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados estão sendo coletados |
 | ResourceProvider |Texto |fornecedor de Recurso para dados sendo coletados, por exemplo Microsoft.RecoveryServices |
 | ResourceType |Texto |Tipo de recurso para os dados que estão sendo coletados, por exemplo, os cofres |
 
@@ -118,7 +118,7 @@ Esta tabela fornece detalhes sobre associações de itens de backup com várias 
 
 Esta tabela fornece detalhes sobre associações de itens de backup com várias entidades.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 |BackupManagementServerName_s     |Texto         |Nome do servidor de gerenciamento de backup        |
 |AzureBackupAgentVersion_s     |Texto         |Versão do agente de backup do Azure no servidor de gerenciamento de backup          |
@@ -127,17 +127,17 @@ Esta tabela fornece detalhes sobre associações de itens de backup com várias 
 |BackupManagementServerType_s     |Texto         |Tipo de servidor de gerenciamento de backup, como MABS, SC DPM|
 |BackupManagementServerUniqueId_s     |Texto         |Campo para identificar exclusivamente o servidor de gerenciamento de backup       |
 | SourceSystem |Texto |Sistema de origem dos dados atuais - Azure |
-| resourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, id de recurso do Cofre de serviços de recuperação |
+| ResourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, ID de recurso do cofre dos serviços de recuperação |
 | SubscriptionId |Texto |Identificador de assinatura do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados estão sendo coletados |
-| GrupoRecuso |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados estão sendo coletados |
+| ResourceGroup |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados estão sendo coletados |
 | ResourceProvider |Texto |fornecedor de Recurso para dados sendo coletados, por exemplo Microsoft.RecoveryServices |
 | ResourceType |Texto |Tipo de recurso para os dados que estão sendo coletados, por exemplo, os cofres |
 
-### <a name="job"></a>Trabalho
+### <a name="job"></a>trabalho
 
 Esta tabela fornece detalhes sobre campos relacionados ao trabalho.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | EventName_s |Texto |O nome do evento. Sempre AzureBackupCentralReport |
 | BackupItemUniqueId_s |Texto |Identificador único do item de backup |
@@ -153,19 +153,19 @@ Esta tabela fornece detalhes sobre campos relacionados ao trabalho.
 | JobOperation_s |Texto |Operação para a qual o trabalho é executado, por exemplo, backup, restauração, backup de configuração |
 | JobStatus_s |Texto |Status do trabalho concluído, por exemplo, Concluído, Com Falha |
 | JobFailureCode_s |Texto |Cadeia de caracteres de código de falha pela qual a falha no trabalho ocorreu |
-| JobStartDateTime_s |Date/Time |Data e hora em que o trabalho iniciou a execução |
+| JobStartDateTime_s |Data/hora |Data e hora em que o trabalho iniciou a execução |
 | BackupStorageDestination_s |Texto |Destino do armazenamento de backup, por exemplo, Nuvem, Disco  |
 | AdHocOrScheduledJob_s |Texto | Campo para especificar se o trabalho é ad hoc ou agendado |
-| JobDurationInSecs_s | Number |Duração total do trabalho em segundos |
-| DataTransferredInMB_s | Number |Dados transferidos em MB para este trabalho|
-| JobUniqueId_g |Texto |ID exclusivo para identificar o trabalho |
+| JobDurationInSecs_s | NUMBER |Duração total do trabalho em segundos |
+| DataTransferredInMB_s | NUMBER |Dados transferidos em MB para este trabalho|
+| JobUniqueId_g |Texto |ID exclusiva para identificar o trabalho |
 | RecoveryJobDestination_s |Texto | Destino de um trabalho de recuperação, onde os dados são recuperados |
 | RecoveryJobRPDateTime_s |DateTime | A data, a hora em que o ponto de recuperação que está sendo recuperado foi criado |
 | RecoveryJobRPLocation_s |Texto | O local onde o ponto de recuperação que está sendo recuperado foi armazenado|
 | SourceSystem |Texto |Sistema de origem dos dados atuais - Azure |
-| resourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, id de recurso do Cofre de serviços de recuperação|
+| ResourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, ID de recurso do cofre dos serviços de recuperação|
 | SubscriptionId |Texto |Identificador de assinatura do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
-| GrupoRecuso |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
+| ResourceGroup |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
 | ResourceProvider |Texto |Provedor de recursos para o qual os dados são coletados. Por exemplo, Microsoft.RecoveryServices |
 | ResourceType |Texto |Tipo de recursos para o qual os dados são coletados. Por exemplo, Cofres |
 
@@ -173,7 +173,7 @@ Esta tabela fornece detalhes sobre campos relacionados ao trabalho.
 
 Esta tabela fornece detalhes sobre campos relacionados a políticas.
 
-| Campo | Tipo de dados | Versões aplicáveis | Descrição |
+| Campo | Tipo de Dados | Versões aplicáveis | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | EventName_s |Texto ||Este campo representa o nome desse evento, é sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema, é **v2** |
@@ -182,7 +182,7 @@ Esta tabela fornece detalhes sobre campos relacionados a políticas.
 | OperationName |Texto ||Este campo representa o nome da operação atual - Política |
 | Categoria |Texto ||Este campo representa a categoria de dados de diagnóstico enviados por push aos logs de Azure Monitor, é AzureBackupReport |
 | Recurso |Texto ||Este é o recurso para o qual os dados estão sendo coletados, ele mostra o nome do cofre dos Serviços de Recuperação |
-| PolicyUniqueId_g |Texto ||ID exclusivo para identificar a política |
+| PolicyUniqueId_g |Texto ||ID exclusiva para identificar a política |
 | PolicyName_s |Texto ||Nome da política definido |
 | BackupFrequency_s |Texto ||Frequência com que os backups são executados, por exemplo, diária, semanal |
 | BackupTimes_s |Texto ||Data e hora quando os backups são agendados |
@@ -205,15 +205,15 @@ Esta tabela fornece detalhes sobre campos relacionados a políticas.
 | YearlyRetentionDaysOfTheMonth_s |Texto ||Dias do mês selecionados para a retenção anual |
 | SynchronisationFrequencyPerDay_s |Número inteiro |v2|Número de vezes em um dia em que um backup de arquivo é sincronizado para SC DPM e MABS |
 | DiffBackupFormat_s |Texto |v2|Formato para backups diferenciais para SQL no backup de VM do Azure |
-| DiffBackupTime_s |Time |v2|Tempo para backups diferenciais para SQL no backup de VM do Azure|
+| DiffBackupTime_s |Hora |v2|Tempo para backups diferenciais para SQL no backup de VM do Azure|
 | DiffBackupRetentionDuration_s |Número decimal |v2|Duração da retenção para backups diferenciais para SQL no backup de VM do Azure|
 | LogBackupFrequency_s |Número decimal |v2|Frequência de backups de log para SQL|
 | LogBackupRetentionDuration_s |Número decimal |v2|Duração da retenção para backups de log para SQL no backup de VM do Azure|
 | DiffBackupDaysofTheWeek_s |Texto |v2|Dias da semana para backups diferenciais para SQL no backup de VM do Azure|
 | SourceSystem |Texto ||Sistema de origem dos dados atuais - Azure |
-| resourceId |Texto ||Identificador de recurso para os dados sendo coletados. Por exemplo, id de recurso do Cofre de serviços de recuperação |
+| ResourceId |Texto ||Identificador de recurso para os dados sendo coletados. Por exemplo, ID de recurso do cofre dos serviços de recuperação |
 | SubscriptionId |Texto ||Identificador de assinatura do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
-| GrupoRecuso |Texto ||grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
+| ResourceGroup |Texto ||grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
 | ResourceProvider |Texto ||Provedor de recursos para o qual os dados são coletados. Por exemplo, Microsoft.RecoveryServices |
 | ResourceType |Texto ||Tipo de recursos para o qual os dados são coletados. Por exemplo, Cofres |
 
@@ -221,7 +221,7 @@ Esta tabela fornece detalhes sobre campos relacionados a políticas.
 
 Esta tabela fornece detalhes sobre associações de políticas com várias entidades.
 
-| Campo | Tipo de dados | Versões aplicáveis | Descrição |
+| Campo | Tipo de Dados | Versões aplicáveis | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | EventName_s |Texto ||Este campo representa o nome desse evento, é sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema, é **v2** |
@@ -230,13 +230,13 @@ Esta tabela fornece detalhes sobre associações de políticas com várias entid
 | OperationName |Texto ||Este campo representa o nome da operação atual - PolicyAssociation |
 | Categoria |Texto ||Este campo representa a categoria de dados de diagnóstico enviados por push aos logs de Azure Monitor, é AzureBackupReport |
 | Recurso |Texto ||Este é o recurso para o qual os dados estão sendo coletados, ele mostra o nome do cofre dos Serviços de Recuperação |
-| PolicyUniqueId_g |Texto ||ID exclusivo para identificar a política |
-| VaultUniqueId_s |Texto ||ID exclusivo do cofre ao qual esta política pertence |
+| PolicyUniqueId_g |Texto ||ID exclusiva para identificar a política |
+| VaultUniqueId_s |Texto ||ID exclusiva do cofre ao qual essa política pertence |
 | BackupManagementServerUniqueId_s |Texto |v2 |Campo para identificar exclusivamente o servidor de gerenciamento de backup no qual o item de backup está protegido, se aplicável        |
 | SourceSystem |Texto ||Sistema de origem dos dados atuais - Azure |
-| resourceId |Texto ||Identificador de recurso para os dados sendo coletados. Por exemplo, id de recurso do Cofre de serviços de recuperação |
+| ResourceId |Texto ||Identificador de recurso para os dados sendo coletados. Por exemplo, ID de recurso do cofre dos serviços de recuperação |
 | SubscriptionId |Texto ||Identificador de assinatura do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
-| GrupoRecuso |Texto ||grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
+| ResourceGroup |Texto ||grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
 | ResourceProvider |Texto ||Provedor de recursos para o qual os dados são coletados. Por exemplo, Microsoft.RecoveryServices |
 | ResourceType |Texto ||Tipo de recursos para o qual os dados são coletados. Por exemplo, Cofres |
 
@@ -244,7 +244,7 @@ Esta tabela fornece detalhes sobre associações de políticas com várias entid
 
 Esta tabela fornece campos básicos sobre contêineres protegidos. (Was ProtectedServer em v1)
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ProtectedContainerUniqueId_s |Texto | Campo para identificar exclusivamente um contêiner protegido |
 | ProtectedContainerOSType_s |Texto |Tipo de so do contêiner protegido |
@@ -263,7 +263,7 @@ Esta tabela fornece campos básicos sobre contêineres protegidos. (Was Protecte
 
 Esta tabela fornece detalhes sobre campos relacionados ao armazenamento.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | CloudStorageInBytes_s |Número decimal |Armazenamento de backup na nuvem usado pelos backups, calculados com base no valor mais recente (este campo é apenas para o esquema v1)|
 | ProtectedInstances_s |Número decimal |Número de instâncias protegidas utilizadas para calcular o armazenamento de front-end na cobrança, calculada baseada no valor mais recente |
@@ -274,12 +274,12 @@ Esta tabela fornece detalhes sobre campos relacionados ao armazenamento.
 | OperationName |Texto |Este campo representa o nome da operação atual - Armazenamento |
 | Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviados por push aos logs de Azure Monitor, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para o qual os dados estão sendo coletados, ele mostra o nome do cofre dos Serviços de Recuperação |
-| ProtectedServerUniqueId_s |Texto |ID exclusivo do servidor protegido para o qual o armazenamento é calculado |
-| VaultUniqueId_s |Texto |ID exclusivo do cofre para armazenamento é calculado |
+| ProtectedServerUniqueId_s |Texto |ID exclusiva do servidor protegido para o qual o armazenamento é calculado |
+| VaultUniqueId_s |Texto |A ID exclusiva do cofre para armazenamento é calculada |
 | SourceSystem |Texto |Sistema de origem dos dados atuais - Azure |
-| resourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, id de recurso do Cofre de serviços de recuperação |
+| ResourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, ID de recurso do cofre dos serviços de recuperação |
 | SubscriptionId |Texto |Identificador de assinatura do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
-| GrupoRecuso |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
+| ResourceGroup |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
 | ResourceProvider |Texto |Provedor de recursos para o qual os dados são coletados. Por exemplo, Microsoft.RecoveryServices |
 | ResourceType |Texto |Tipo de recursos para o qual os dados são coletados. Por exemplo, Cofres |
 | StorageUniqueId_s |Texto |ID exclusiva usada para identificar a entidade de armazenamento |
@@ -291,21 +291,21 @@ Esta tabela fornece detalhes sobre campos relacionados ao armazenamento.
 
 Esta tabela fornece campos básicos relacionados ao armazenamento que conectam o armazenamento a outras entidades.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- |  --- |
 | StorageUniqueId_s |Texto |ID exclusiva usada para identificar a entidade de armazenamento |
 | SchemaVersion_s |Texto |Este campo denota a versão atual do esquema, é **v2** |
 | BackupItemUniqueId_s |Texto |ID exclusiva usada para identificar o item de backup relacionado à entidade de armazenamento |
 | BackupManagementServerUniqueId_s |Texto |ID exclusiva usada para identificar o servidor de gerenciamento de backup relacionado à entidade de armazenamento|
 | VaultUniqueId_s |Texto |ID exclusiva usada para identificar o cofre relacionado à entidade de armazenamento|
-| StorageConsumedInMBs_s |Number|Tamanho do armazenamento consumido pelo item de backup correspondente no armazenamento correspondente |
-| StorageAllocatedInMBs_s |Number |Tamanho do armazenamento alocado pelo item de backup correspondente no armazenamento correspondente do tipo disco|
+| StorageConsumedInMBs_s |NUMBER|Tamanho do armazenamento consumido pelo item de backup correspondente no armazenamento correspondente |
+| StorageAllocatedInMBs_s |NUMBER |Tamanho do armazenamento alocado pelo item de backup correspondente no armazenamento correspondente do tipo disco|
 
 ### <a name="vault"></a>Cofre
 
 Esta tabela fornece detalhes sobre campos relacionados ao cofre.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome desse evento, é sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo denota a versão atual do esquema, é **v2** |
@@ -313,14 +313,14 @@ Esta tabela fornece detalhes sobre campos relacionados ao cofre.
 | OperationName |Texto |Este campo representa o nome da operação atual - Cofre |
 | Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviados por push aos logs de Azure Monitor, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para o qual os dados estão sendo coletados, ele mostra o nome do cofre dos Serviços de Recuperação |
-| VaultUniqueId_s |Texto |ID exclusivo do cofre |
+| VaultUniqueId_s |Texto |ID exclusiva do cofre |
 | VaultName_s |Texto |Nome do cofre |
 | AzureDataCenter_s |Texto |Data center onde o cofre está localizado |
 | StorageReplicationType_s |Texto |Tipo de replicação de armazenamento para o cofre, por exemplo, GeoRedundant |
 | SourceSystem |Texto |Sistema de origem dos dados atuais - Azure |
-| resourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, id de recurso do Cofre de serviços de recuperação |
+| ResourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, ID de recurso do cofre dos serviços de recuperação |
 | SubscriptionId |Texto |Identificador de assinatura do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
-| GrupoRecuso |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
+| ResourceGroup |Texto |grupo de Recursos do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |
 | ResourceProvider |Texto |Provedor de recursos para o qual os dados são coletados. Por exemplo, Microsoft.RecoveryServices |
 | ResourceType |Texto |Tipo de recursos para o qual os dados são coletados. Por exemplo, Cofres |
 
@@ -328,7 +328,7 @@ Esta tabela fornece detalhes sobre campos relacionados ao cofre.
 
 Esta tabela fornece campos básicos sobre servidores de gerenciamento de backup.
 
-|Campo  |Tipo de dados  | Descrição  |
+|Campo  |Tipo de Dados  | DESCRIÇÃO  |
 |---------|---------|----------|
 |BackupManagementServerName_s     |Texto         |Nome do servidor de gerenciamento de backup        |
 |AzureBackupAgentVersion_s     |Texto         |Versão do agente de backup do Azure no servidor de gerenciamento de backup          |
@@ -341,7 +341,7 @@ Esta tabela fornece campos básicos sobre servidores de gerenciamento de backup.
 
 Esta tabela especifica as cargas de trabalho às quais um volume está associado.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | StorageUniqueId_s |Texto |ID exclusiva usada para identificar a entidade de armazenamento |
 | BackupItemType_s |Texto |As cargas de trabalho para as quais este volume é o armazenamento preferencial|
@@ -350,7 +350,7 @@ Esta tabela especifica as cargas de trabalho às quais um volume está associado
 
 Esta tabela fornece campos relacionados a instâncias protegidas básicas.
 
-| Campo | Tipo de dados |Versões aplicáveis | Descrição |
+| Campo | Tipo de Dados |Versões aplicáveis | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | BackupItemUniqueId_s |Texto |v2|ID exclusiva usada para identificar o item de backup para VMs com backup usando o DPM, MABS|
 | ProtectedContainerUniqueId_s |Texto |v2|ID exclusiva usada para identificar o contêiner protegido para tudo, exceto VMs com backup usando o DPM, MABS|
@@ -360,7 +360,7 @@ Esta tabela fornece campos relacionados a instâncias protegidas básicas.
 
 Esta tabela fornece campos básicos relacionados ao ponto de recuperação.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | BackupItemUniqueId_s |Texto |ID exclusiva usada para identificar o item de backup para VMs com backup usando o DPM, MABS|
 | OldestRecoveryPointTime_s |Texto |Data e hora do ponto de recuperação mais antigo para o item de backup|

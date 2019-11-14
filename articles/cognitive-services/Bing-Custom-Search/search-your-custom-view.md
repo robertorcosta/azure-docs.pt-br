@@ -1,7 +1,7 @@
 ---
 title: Pesquisar uma exibição personalizada – Pesquisa Personalizada do Bing
 titleSuffix: Azure Cognitive Services
-description: Descreve como pesquisar um modo de exibição personalizado da Web.
+description: Depois de configurar sua experiência de pesquisa personalizada, você pode testá-la de dentro do portal de Pesquisa Personalizada do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: 814f57d4011823da80e53cce41ffcb523fc0bf1b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f04bfc306a89c7bb6caf3f928f5fdfec66358649
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405009"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072740"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chame sua instância de Pesquisa Personalizada do Bing no Portal
 
@@ -24,28 +24,28 @@ Depois de configurar sua experiência de pesquisa personalizada, você pode test
 ![uma captura de tela do portal de pesquisa personalizada do Bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Criar uma consulta de pesquisa 
 
-Depois que você entrou no [portal](https://customsearch.ai) de Pesquisa Personalizada do Bing, selecione sua instância de pesquisa e clique na guia **Produção**. Em **Pontos de extremidade**, selecione um ponto de extremidade de API (por exemplo, API Web). Sua assinatura determina quais pontos de extremidade são mostrados.
+Depois de entrar no [portal](https://customsearch.ai)de pesquisa personalizada do Bing, selecione sua instância de pesquisa e clique na guia **produção** . Em **ponto**de extremidade, selecione um ponto de extremidade de API (por exemplo, API Web). Sua assinatura determina quais pontos de extremidade são mostrados.
 
 Para criar uma consulta de pesquisa, insira os valores de parâmetro para seu ponto de extremidade. Observe que os parâmetros exibidos no portal podem mudar dependendo do ponto de extremidade queescolher. Consulte a [referência de API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a assinatura que sua instância de pesquisa usa, adicione a chave de assinatura apropriada e atualize os parâmetros de mercado e/ou de idioma apropriados.
 
 Alguns parâmetros importantes estão abaixo:
 
 
-|Parâmetro  |Descrição  |
+|.  |DESCRIÇÃO  |
 |---------|---------|
-|Consulta     | O termo de pesquisa a ser pesquisado. Disponível somente para pontos de extremidade da Web, de Imagem, de Vídeo e da Sugestão Automática |
+|Consultar     | O termo de pesquisa a ser pesquisado. Disponível somente para pontos de extremidade da Web, de Imagem, de Vídeo e da Sugestão Automática |
 |ID de configuração personalizada | O ID de configuração da instância selecionada de Pesquisa Personalizada. Este campo é somente leitura. |
-|Market     | O mercado que os resultados serão originados. Disponível somente para Web, Imagem, Vídeo e ponto de extremidade da Interface do Usuário Hospedada.        |
+|Mercado     | O mercado que os resultados serão originados. Disponível somente para Web, Imagem, Vídeo e ponto de extremidade da Interface do Usuário Hospedada.        |
 |Chave de Assinatura | A chave de assinatura para o teste. Selecione uma chave na lista suspensa ou inserir uma manualmente.          |
 
 Clicar em **Parâmetros adicionais** revela os seguintes parâmetros:  
 
-|Parâmetro  |Descrição  |
+|.  |DESCRIÇÃO  |
 |---------|---------|
-|Safe Search     | Um filtro usado para filtrar as páginas da Web para conteúdo adulto. Disponível somente para Web, Imagem, Vídeo e ponto de extremidade da Interface do Usuário Hospedada.        |
+|Salvar pesquisa     | Um filtro usado para filtrar as páginas da Web para conteúdo adulto. Disponível somente para Web, Imagem, Vídeo e ponto de extremidade da Interface do Usuário Hospedada.        |
 |Linguagens de Interface do Usuário    | A linguagem a ser usada para cadeias de caracteres de interface do usuário. Por exemplo, se você habilitar imagens e vídeos na interface do usuário hospedada, as guias **Imagem** e **Vídeo** usarão o idioma especificado.        |
-|Count     | O número de resultados da pesquisa a ser retornado na resposta. Disponível somente para pontos de extremidade da Web, de Imagem e de Vídeo.         |
-|Offset    | O número de resultados da pesquisa a ignorar antes de retornar resultados. Disponível somente para pontos de extremidade da Web, de Imagem e de Vídeo.        |
+|Contagem     | O número de resultados da pesquisa a ser retornado na resposta. Disponível somente para pontos de extremidade da Web, de Imagem e de Vídeo.         |
+|Deslocamento    | O número de resultados da pesquisa a ignorar antes de retornar resultados. Disponível somente para pontos de extremidade da Web, de Imagem e de Vídeo.        |
     
 Depois de especificar todas as opções necessárias, clique em **Chamar** para exibir a resposta JSON no painel direito. Se você selecionar o ponto de extremidade da Interface do Usuário Hospedada, poderá testar a experiência de pesquisa no painel inferior.
 

@@ -1,5 +1,5 @@
 ---
-title: Recursos e extensões da VM do Azure para Linux | Microsoft Docs
+title: Recursos e extensões de VM do Azure para Linux
 description: Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure, agrupadas pelas funcionalidades fornecidas ou aperfeiçoadas.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: f66ec2ea9d0c042b698db1725980e981a27a55d0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169006"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073759"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
@@ -37,7 +37,7 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite a execução de qualquer script Bash em uma VM. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, confira [Extensão de Script Personalizado de VM do Linux](custom-script-linux.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para lidar com a extensão na VM, é necessário ter o Agente Linux do Microsoft Azure instalado. Algumas extensões individuais têm pré-requisitos, como acesso a recursos ou dependências.
 
@@ -85,7 +85,7 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões da VM do Azure podem executar em uma VM existente com o comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado *MyResource*Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o\/script a ser executado (https:/RAW.githubusercontent.com/me/Project/Hello.sh) com suas próprias informações. 
+As extensões da VM do Azure podem executar em uma VM existente com o comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado *MyResource*Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o script a ser executado (https:\//raw.githubusercontent.com/me/project/hello.sh) com suas próprias informações. 
 
 ```azurecli
 az vm extension set `
@@ -113,7 +113,7 @@ A imagem a seguir mostra a instalação da extensão Script Personalizado do Lin
 
 ![Instalar a extensão de script personalizado](./media/features-linux/installscriptextensionlinux.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
+### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 
 É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
 
@@ -336,7 +336,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 1. Para verificar o Log do agente do Linux, observe a atividade em que a extensão estava sendo provisionada em */var/log/waagent.log*
 
-2. Verifique os logs de extensão reais para obter mais detalhes em */var/log/Azure/\<ExtensionName >*
+2. Verifique os logs de extensão reais para obter mais detalhes em */var/log/azure/\<extensionname >*
 
 3. Verifique as seções de solução de problemas da documentação específica da extensão para códigos de erro, problemas conhecidos etc.
 
@@ -396,14 +396,14 @@ az vm extension delete \
 
 Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 
-1. Selecione uma VM.
+1. Selecionar uma máquina virtual.
 2. Escolha **Extensões**.
 3. Selecione a extensão desejada.
 4. Escolha **Desinstalar**.
 
 ## <a name="common-vm-extension-reference"></a>Referência à extensão VM comum
 
-| Nome da extensão | Descrição | Mais informações |
+| Nome da extensão | DESCRIÇÃO | Mais informações |
 | --- | --- | --- |
 | Extensão de Script Personalizado para Linux |Executar scripts em uma máquina virtual do Azure |[Extensão de Script Personalizado para Linux](custom-script-linux.md) |
 | Extensão de acesso à VM |Restabelecer o acesso a uma máquina virtual do Azure |[Extensão de acesso à VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

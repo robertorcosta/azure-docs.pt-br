@@ -1,5 +1,5 @@
 ---
-title: Tamanhos de VM Windows do Azure — HPC | Microsoft Docs
+title: Tamanhos de VM Windows do Azure-HPC
 description: Lista os diferentes tamanhos disponíveis para máquinas virtuais de computação de alto desempenho Windows no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: 0c5398caf85566f78c7ebe9e8ba114a53d2f6271
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e96c74eb4b9b96459bb5de7db2faeb47ed99a82e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088531"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065446"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
@@ -39,7 +39,7 @@ Em VMs não habilitadas para SR-IOV, as implementações de MPI com suporte usam
 * **Extensão de VM InfiniBandDriverWindows** -em VMs compatíveis com RDMA, adicione a extensão InfiniBandDriverWindows para habilitar a InfiniBand. Essa extensão de VM do Windows instala drivers diretos de rede do Windows (em VMs que não são de SR-IOV) ou drivers Mellanox OFED (em VMs SR-IOV) para conectividade RDMA.
 Em determinadas implantações de instâncias A8 e A9, a extensão HpcVmDrivers é adicionada automaticamente. Observe que a extensão de VM HpcVmDrivers está sendo preterida; Ele não será atualizado. Para adicionar a extensão de VM a uma VM, use cmdlets do [Azure PowerShell](/powershell/azure/overview). 
 
-  O comando a seguir instala a extensão mais recente da versão 1,0 do InfiniBandDriverWindows em uma VM compatível com RDMA existente chamada *myVM* implantada no grupo de recursos chamado MyResource Group na região *oeste dos EUA* :
+  O comando a seguir instala a extensão mais recente da versão 1,0 do InfiniBandDriverWindows em uma VM compatível com RDMA existente chamada *myVM* implantada no grupo de recursos chamado *MyResource* Group na região *oeste dos EUA* :
 
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
@@ -53,7 +53,7 @@ Em determinadas implantações de instâncias A8 e A9, a extensão HpcVmDrivers 
   } 
   ```
 
-  O comando a seguir instala a extensão mais recente da versão 1,0 do InfiniBandDriverWindows em todas as VMs compatíveis com RDMA em um conjunto de dimensionamento de VM existente chamado *myVMSS* implantado no grupo de recursos chamado MyResource Group:
+  O comando a seguir instala a extensão mais recente da versão 1,0 do InfiniBandDriverWindows em todas as VMs compatíveis com RDMA em um conjunto de dimensionamento de VM existente chamado *myVMSS* implantado no grupo de recursos chamado *MyResource*Group:
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
@@ -81,7 +81,7 @@ O Azure fornece várias opções para criar clusters de VMs do Windows HPC que p
 
 * **Azure Batch** - Crie um pool do [Azure Batch](/azure/batch/) para executar cargas de trabalho MPI em nós de computação do Windows Server. Para obter mais informações, consulte [Usar instâncias habilitadas para RDMA ou habilitadas para GPU em Conjuntos de lotes](../../batch/batch-pool-compute-intensive-sizes.md). Consulte também o [Batch Shipyard](https://github.com/Azure/batch-shipyard) projeto, para executar cargas de trabalho baseados em contêiner no lote.
 
-* **Pacote Microsoft HPC** - [Pacote HPC](https://docs.microsoft.com/powershell/high-performance-computing/overview) inclui um ambiente de tempo de execução para MS-MPI que usa a rede RDMA do Azure quando implantado em VMs do Windows compatíveis com RDMA. Por exemplo implantações, consulte [configurar um cluster de RDMA do Windows com o pacote HPC para executar aplicativos MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* **Pacote Microsoft HPC** - [Pacote HPC](https://docs.microsoft.com/powershell/high-performance-computing/overview) inclui um ambiente de runtime para MS-MPI que usa a rede RDMA do Azure quando implantado em VMs do Windows compatíveis com RDMA. Por exemplo implantações, consulte [configurar um cluster de RDMA do Windows com o pacote HPC para executar aplicativos MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="other-sizes"></a>Outros tamanhos
 - [Propósito geral](sizes-general.md)

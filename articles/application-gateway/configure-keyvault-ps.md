@@ -1,18 +1,19 @@
 ---
-title: Configurar a terminação SSL com certificados de Key Vault usando Azure PowerShell
+title: Configurar terminação SSL com certificados Key Vault-PowerShell
+titleSuffix: Azure Application Gateway
 description: Saiba como você pode integrar Aplicativo Azure gateway com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: b7408d6169e1cf42bcda8855a19076c739d086dd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c40c4cf9f25ce17bc7042191324aeb864696995f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001005"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074592"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurar a terminação SSL com certificados de Key Vault usando Azure PowerShell
 
@@ -22,11 +23,11 @@ Para obter mais informações, consulte [terminação SSL com certificados Key V
 
 Este artigo mostra como usar um script de Azure PowerShell para integrar o cofre de chaves ao seu gateway de aplicativo para certificados de terminação SSL.
 
-Este artigo requer Azure PowerShell módulo versão 1.0.0 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, você também precisará criar uma conexão com o Azure executando `Connect-AzAccount`.
+Este artigo requer Azure PowerShell módulo versão 1.0.0 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, você também precisa criar uma conexão com o Azure executando `Connect-AzAccount`.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, você deve ter o módulo ManagedServiceIdentity instalado:
 

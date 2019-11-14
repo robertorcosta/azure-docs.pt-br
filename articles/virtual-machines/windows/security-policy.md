@@ -1,5 +1,5 @@
 ---
-title: Proteger e usar políticas nas VMs Windows no Azure | Microsoft Docs
+title: Proteger e usar políticas em suas VMs do Windows no Azure
 description: Saiba mais sobre a segurança e as políticas para o Windows e as máquinas virtuais no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: da89d2181909688c465160d88274614f7e325aaf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4ae87a7a7a62d2cbf9b712fdd99b9a275aaf4f22
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709210"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073301"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteger e usar políticas em máquinas virtuais no Azure
 

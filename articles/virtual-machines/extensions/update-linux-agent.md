@@ -1,5 +1,5 @@
 ---
-title: Atualizar o Agente Linux do Azure por meio do GitHub | Microsoft Docs
+title: Atualizar o agente Linux do Azure do GitHub
 description: Saiba como atualizar o Agente Linux do Microsoft Azure para sua VM do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: akjosh
-ms.openlocfilehash: 1ae3c3a74d1a46a98fa6676e18ffe71a4d6937a1
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 2215136c02d9cf967e0184af7588ce8d48362009
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168763"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072948"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Como atualizar o Agente Linux do Azure em uma VM
 
@@ -396,7 +396,7 @@ Normalmente, isso é tudo de que você precisa. Porém, se por algum motivo for 
 
 Instale o wget (existem algumas distribuições que não o instalam por padrão, como Red Hat, CentOS e Oracle Linux versões 6.4 e 6.5) digitando `sudo yum install wget` na linha de comando.
 
-### <a name="1-download-the-latest-version"></a>1. Baixar a última versão
+### <a name="1-download-the-latest-version"></a>1. Baixe a versão mais recente
 Abra [a versão do Agente Linux do Azure no GitHub](https://github.com/Azure/WALinuxAgent/releases) em uma página da Web e encontre o número de versão mais recente. (Você pode localizar sua versão atual digitando `waagent --version`.)
 
 #### <a name="for-version-22x-or-later-type"></a>Para a versão 2.2. x ou posterior, digite:
@@ -414,7 +414,7 @@ unzip v2.2.14.zip
 cd WALinuxAgent-2.2.14
 ```
 
-### <a name="2-install-the-azure-linux-agent"></a>2. Instale o Agente Linux do Azure
+### <a name="2-install-the-azure-linux-agent"></a>2. instalar o agente Linux do Azure
 
 #### <a name="for-version-22x-use"></a>Para a versão 2.2. x, use:
 Talvez seja necessário instalar o pacote `setuptools` primeiro, veja [aqui](https://pypi.python.org/pypi/setuptools). Em seguida, execute:
@@ -444,7 +444,7 @@ Para habilitar a execução:
 sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="3-restart-the-waagent-service"></a>3. Reinicie o serviço do waagent
+### <a name="3-restart-the-waagent-service"></a>3. Reinicie o serviço waagent
 Para a maioria das distribuições do Linux:
 
 ```bash
@@ -463,7 +463,7 @@ Para o CoreOS, use:
 sudo systemctl restart waagent
 ```
 
-### <a name="4-confirm-the-azure-linux-agent-version"></a>4. Confirme a versão do Agente Linux do Azure
+### <a name="4-confirm-the-azure-linux-agent-version"></a>4. Confirme a versão do agente Linux do Azure
     
 ```bash
 waagent -version
