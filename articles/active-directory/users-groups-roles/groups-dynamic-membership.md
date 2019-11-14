@@ -1,25 +1,25 @@
 ---
-title: Regras de associação de grupo dinâmica baseada em atributos - Azure Active Directory | Microsoft Docs
+title: Regras para associação de grupo dinâmico-Azure AD | Microsoft Docs
 description: Como criar regras de associação para preencher automaticamente os grupos e uma referência de regra.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 050bc3cf6b81b9467d9947a4f611477e2fcbcd9a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a6cfad04d9b0dd3537d60f2651ed341d96bd0210
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885856"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027121"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -372,8 +372,8 @@ Os seguintes atributos de dispositivo podem ser usados.
  Atributo do dispositivo  | Valores | Exemplo
  ----- | ----- | ----------------
  accountEnabled | verdadeiro, falso | (device.accountEnabled -eq true)
- displayName | Um valor de cadeia de caracteres. |(Device. displayName-EQ "Rob iPhone")
- deviceOSType | Um valor de cadeia de caracteres. | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contém "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
+ displayName | Um valor de cadeia de caracteres. |(device.displayName -eq "Rob iPhone")
+ deviceOSType | Um valor de cadeia de caracteres. | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contém "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | Um valor de cadeia de caracteres. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | o nome de uma categoria de dispositivo válida | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Um valor de cadeia de caracteres. | (device.deviceManufacturer -eq "Samsung")

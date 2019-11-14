@@ -1,24 +1,24 @@
 ---
-title: Permissões de função de administrador personalizado para gerenciamento de registro de aplicativo-Azure Active Directory | Microsoft Docs
+title: Permissões da função de administrador personalizada disponíveis – Azure AD | Microsoft Docs
 description: Permissões de função de administrador personalizado para delegar o gerenciamento de identidade.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ebffbc1c451404d93383a483eecdd4a25acf6b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928612"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025159"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Subtipos de registro de aplicativo e permissões no Azure Active Directory
 
@@ -52,7 +52,7 @@ Criar permissões concedem acesso ao **novo** comando de registro.
 
 Há duas permissões disponíveis para conceder a capacidade de excluir registros de aplicativo:
 
-#### <a name="microsoftdirectoryapplicationsdelete"></a>Microsoft. Directory/Applications/Delete
+#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft.directory/applications/delete
 
 Concede a capacidade de excluir registros de aplicativo, independentemente do subtipo; ou seja, aplicativos de locatário único e multilocatário.
 
@@ -65,7 +65,7 @@ Concede a capacidade de excluir registros de aplicativo restritos àqueles que s
 > [!NOTE]
 > Ao atribuir uma função que contém permissões de criação, a atribuição de função deve ser feita no escopo do diretório. Uma permissão de criação atribuída a um escopo de recurso não concede a capacidade de criar registros de aplicativo.
 
-### <a name="read"></a>Leitura
+### <a name="read"></a>Ler
 
 Todos os usuários Membros na organização podem ler informações de registro do aplicativo por padrão. No entanto, os usuários convidados e as entidades de serviço do aplicativo não podem. Se você planeja atribuir uma função a um usuário ou aplicativo convidado, deve incluir as permissões de leitura apropriadas.
 
@@ -91,7 +91,7 @@ Concede acesso para ler as propriedades de registro de aplicativo padrão. Isso 
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Standard/Read, mas somente para aplicativos de locatário único.
 
-### <a name="update"></a>Atualizar
+### <a name="update"></a>Atualização
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. Directory/Applications/myproperties/Update
 
@@ -101,7 +101,7 @@ Capacidade de atualizar todas as propriedades em aplicativos de diretório únic
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/myproperties/Update, mas somente para aplicativos de locatário único.
 
-#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>Microsoft. Directory/Applications/Audience/Update
+#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
 Capacidade de atualizar a propriedade de tipo de conta com suporte (signInAudience) em aplicativos de diretório único e vários diretórios.
 
@@ -111,7 +111,7 @@ Capacidade de atualizar a propriedade de tipo de conta com suporte (signInAudien
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Audience/Update, mas somente para aplicativos de locatário único.
 
-#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>Microsoft. Directory/aplicativos/autenticação/atualização
+#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft.directory/applications/authentication/update
 
 Capacidade de atualizar a URL de resposta, a URL de saída, o fluxo implícito e as propriedades de domínio do Publicador em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página de autenticação de registro do aplicativo, exceto tipos de conta com suporte:
 
@@ -131,7 +131,7 @@ Capacidade de atualizar o nome, o logotipo, a URL da Home Page, a URL dos termos
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Basic/Update, mas somente para aplicativos de locatário único.
 
-#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>Microsoft. Directory/aplicativos/credenciais/atualização
+#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directory/applications/credentials/update
 
 Capacidade de atualizar as propriedades de certificados e segredos de cliente em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página certificados de registro de aplicativo & segredos:
 
@@ -141,7 +141,7 @@ Capacidade de atualizar as propriedades de certificados e segredos de cliente em
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Credentials/Update, mas somente para aplicativos de diretório único.
 
-#### <a name="microsoftdirectoryapplicationsownersupdate"></a>Microsoft. Directory/Applications/Owners/Update
+#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 
 Capacidade de atualizar a propriedade de proprietário em um locatário único e multilocatário. Concede acesso a todos os campos na página proprietários de registro do aplicativo:
 
@@ -167,7 +167,7 @@ Concede as mesmas permissões que Microsoft. Directory/Applications/Permissions/
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Criar funções personalizadas usando [o portal do Azure, o PowerShell do Azure AD e o API do Graph](roles-create-custom.md)
 - [Exibir as atribuições para uma função personalizada](roles-view-assignments.md)

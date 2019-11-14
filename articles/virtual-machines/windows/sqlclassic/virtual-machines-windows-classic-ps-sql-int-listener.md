@@ -1,27 +1,28 @@
 ---
-title: Configurar um ouvinte de ILB para grupos de disponibilidade AlwaysOn no Azure | Microsoft Docs
-description: Este tutorial usa os recursos criados com o modelo de implantação clássico e cria um ouvinte para grupo de disponibilidade AlwaysOn no Azure que usa um balanceador de carga interno.
+title: Configurar um ouvinte de ILB para grupos de disponibilidade (clássico)
+description: Este tutorial usa recursos criados com o modelo de implantação clássico e cria um ouvinte de grupo de disponibilidade Always On no para uma VM SQL Server no Azure que usa um balanceador de carga interno.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
-ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77j
 ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: ca8adf4f9ce221533240e6c797f1fb01dacf6e8d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 29aaedeafb3995cc09e221d2e049dd538808904a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101898"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032664"
 ---
-# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurar um ouvinte de ILB para grupos de disponibilidade AlwaysOn no Azure
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurar um ouvinte de ILB para grupos de disponibilidade em VMs SQL Server do Azure
 > [!div class="op_single_selector"]
 > * [Ouvinte interno](../classic/ps-sql-int-listener.md)
 > * [Ouvinte externo](../classic/ps-sql-ext-listener.md)
@@ -31,7 +32,7 @@ ms.locfileid: "70101898"
 ## <a name="overview"></a>Visão geral
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager.
 
 Para configurar um ouvinte para um grupo de disponibilidade AlwaysOn no modelo do Resource Manager, veja [Configurar um balanceador de carga para um grupo de disponibilidade AlwaysOn no Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 

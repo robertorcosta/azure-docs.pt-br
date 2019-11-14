@@ -1,5 +1,5 @@
 ---
-title: Implantar o OpenShift no Azure Stack | Microsoft Docs
+title: Implantar OpenShift no Azure Stack
 description: Implante o OpenShift no Azure Stack.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 97529118d420813cf638f211bdd5559068802c95
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d6c73b8cd33aa85793a2ce839410065e03b97be7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390644"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035540"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implantar o OpenShift Container Platform ou OKD no Azure Stack
 
@@ -59,7 +59,7 @@ Uma imagem de RHEL (OpenShift Container Platform) ou imagem do CentOS (OKD) prec
 
 Para implantar usando o modelo do Gerenciador de Recursos, um arquivo de parâmetros é usado para fornecer todos os parâmetros de entrada. Para personalizar ainda mais a implantação, crie um fork do repositório do GitHub e altere os itens apropriados.
 
-Algumas opções comuns de personalização incluem, mas não estão limitadas a:
+Algumas opções de personalização comuns incluem, mas não se limitam a:
 
 - Tamanho de VM de bastião (variável em azuredeploy.json)
 - Convenções de nomenclatura (variáveis em azuredeploy.json)
@@ -68,7 +68,7 @@ Algumas opções comuns de personalização incluem, mas não estão limitadas a
 
 Para obter as etapas implantar usando a CLI do Azure, siga a seção apropriada na seção [OpenShift Container Platform](./openshift-container-platform-3x.md) ou na seção [OKD](./openshift-okd.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Tarefas de pós-implantação](./openshift-container-platform-3x-post-deployment.md)
 - [Solução de problemas de implantação do OpenShift no Azure](./openshift-container-platform-3x-troubleshooting.md)

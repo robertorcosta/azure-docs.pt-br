@@ -1,5 +1,5 @@
 ---
-title: Sincronização de tempo para VMs Linux no Azure | Microsoft Docs
+title: Sincronização de tempo para VMs Linux no Azure
 description: Sincronização de tempo para máquinas virtuais Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 7e23b71edd05154f3c19a097ebf92c690426c777
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e5d68a31db3797f9919d044eed284d0d09052390
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100777"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034654"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de tempo para VMs Linux no Azure
 
@@ -29,7 +29,7 @@ O Azure é apoiado pela infraestrutura que executa o Windows Server 2016. O Wind
 >[!NOTE]
 >Para uma rápida visão geral do Serviço de Tempo do Windows, dê uma olhada neste [vídeo de visão geral de alto nível](https://aka.ms/WS2016TimeVideo).
 >
-> Para obter mais informações, consulte [Hora precisa para Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Visão geral
 
@@ -41,11 +41,11 @@ No hardware autônomo, o sistema operacional Linux só lê o relógio de hardwar
 
 As interações da máquina virtual com o host também podem afetar o relógio. Durante a manutenção de [memória preservando a manutenção](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), as VMs são pausadas por até 30 segundos. Por exemplo, antes de iniciar a manutenção, o relógio da VM exibe as 10:00:00 e dura 28 segundos. Depois que a VM for retomada, o relógio na VM ainda mostrará 10:00:00 AM, o que seria 28 segundos de folga. Para corrigir isso, o serviço VMICTimeSync monitora o que está acontecendo no host e solicita que as alterações ocorram nas VMs para compensar.
 
-Sem a sincronização de data/hora, o relógio na VM acumularia erros. Quando há apenas uma VM, o efeito pode não ser significativo, a menos que a carga de trabalho exija uma cronometragem altamente precisa. Mas na maioria dos casos, temos várias VMs interconectadas que usam o tempo para rastrear transações, e a hora precisa ser consistente durante toda a implantação. Quando a hora entre as VMs for diferente, você poderá ver os seguintes efeitos:
+Sem a sincronização de data/hora, o relógio na VM acumularia erros. Quando há apenas uma VM, o efeito pode não ser significativo, a menos que a carga de trabalho exija uma cronometragem altamente precisa. Mas na maioria dos casos, temos várias VMs interconectadas que usam o tempo para rastrear transações, e a hora precisa ser consistente durante toda a implantação. Quando o tempo entre as VMs é diferente, você pode ver os seguintes efeitos:
 
-- A autenticação falhará. Protocolos de segurança como Kerberos ou tecnologia dependente de certificado requerem que a hora esteja consistente em todos os sistemas.
+- A autenticação falhará. Protocolos de segurança como o Kerberos ou a tecnologia dependente de certificado dependem do tempo ser consistente em todos os sistemas.
 - É muito difícil descobrir o que aconteceu em um sistema se os logs (ou outros dados) não corresponderem com a hora. O mesmo evento poderia parecer que ocorreu em momentos diferentes, dificultando a correlação.
-- Se o relógio estiver desligado, a cobrança poderá ser calculada incorretamente.
+- Se o relógio estiver desligado, o faturamento pode ser calculado incorretamente.
 
 
 
@@ -71,7 +71,7 @@ Para confirmar que o NTP está sincronizando corretamente, execute o comando `nt
 
 ### <a name="host-only"></a>Somente do host 
 
-Como os servidores NTP como time.windows.com e ntp.ubuntu.com são públicos, sincronizar o tempo com eles requer o envio de tráfego pela Internet. Atrasos de pacotes variados podem afetar negativamente a qualidade da sincronização de horário. Remover o NTP alternando para a sincronização somente de host pode, às vezes, melhorar seus resultados de sincronização de horário.
+Como os servidores NTP como time.windows.com e ntp.ubuntu.com são públicos, sincronizar o tempo com eles requer o envio de tráfego pela Internet. Os atrasos de pacotes variados podem afetar negativamente a qualidade da sincronização de tempo. A remoção do NTP alternando para a sincronização somente de host pode às vezes melhorar o tempo de sincronização dos resultados.
 
 Alternar para a sincronização de horário somente de host faz sentido se você tiver problemas de sincronização de horário usando a configuração padrão. Experimente a sincronização somente do host para ver se isso melhoraria a sincronização de tempo na sua VM. 
 
@@ -154,6 +154,6 @@ No Ubuntu e no SUSE, a sincronização de tempo é configurada usando [systemd](
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [Hora precisa para Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
+Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
 
 

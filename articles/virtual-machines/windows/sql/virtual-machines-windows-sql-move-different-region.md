@@ -1,5 +1,5 @@
 ---
-title: Mover SQL Server VM para outra região no Azure com Azure Site Recovery Services | Microsoft Docs
+title: Mover máquina virtual para outra região (Azure Site Recovery)
 description: Saiba como você pode migrar sua máquina virtual SQL Server de uma região para outra no Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,23 +14,24 @@ ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 063876316c92780d061388283a55c7f50dd3d78a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3b84119cdcc1bb7e8603de64e3d23c69dac70cc3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100537"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022304"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Mover SQL Server VM para outra região no Azure com os serviços Azure Site Recovery
 
 Este artigo ensina como usar Azure Site Recovery para migrar sua VM (máquina virtual) SQL Server de uma região para outra no Azure. 
 
 Mover uma VM SQL Server para uma região diferente requer o seguinte:
-1. [**Preparando**](#prepare-to-move): Confirme se a VM SQL Server de origem e a região de destino estão adequadamente preparados para a movimentação. 
-1. [**Configurando**](#configure-azure-site-recovery-vault): Mover sua VM de SQL Server requer que seja um objeto replicado dentro do cofre de Azure Site Recovery. Você precisa adicionar sua VM SQL Server ao cofre de Azure Site Recovery. 
-1. [**Teste**](#test-move-process): Migrar a VM SQL Server requer o failover da região de origem para a região de destino replicada. Para garantir que o processo de movimentação terá êxito, você precisa primeiro testar se a VM SQL Server pode fazer failover com êxito para a região de destino. Isso ajudará a expor quaisquer problemas e evitá-los ao executar a movimentação real. 
-1. [**Movendo**](#move-the-sql-server-vm): Depois que o failover de teste for aprovado e você souber que é seguro migrar sua VM SQL Server, você pode executar a movimentação da VM para a região de destino. 
-1. [**Limpando**](#clean-up-source-resources): Para evitar encargos de cobrança, remova o SQL Server VM do cofre e todos os recursos desnecessários que são deixados no grupo de recursos. 
+1. [**Preparando**](#prepare-to-move): Confirme se a VM de origem SQL Server e a região de destino estão adequadamente preparados para a movimentação. 
+1. [**Configurando**](#configure-azure-site-recovery-vault): mover sua VM SQL Server requer que seja um objeto replicado dentro do cofre de Azure site Recovery. Você precisa adicionar sua VM SQL Server ao cofre de Azure Site Recovery. 
+1. [**Testes**](#test-move-process): a migração da VM SQL Server requer o failover da região de origem para a região de destino replicada. Para garantir que o processo de movimentação terá êxito, você precisa primeiro testar se a VM SQL Server pode fazer failover com êxito para a região de destino. Isso ajudará a expor quaisquer problemas e evitá-los ao executar a movimentação real. 
+1. [**Movendo**](#move-the-sql-server-vm): depois que o failover de teste for aprovado e você souber que é seguro migrar sua VM SQL Server, você pode executar a movimentação da VM para a região de destino. 
+1. [**Limpeza**](#clean-up-source-resources): para evitar cobranças, remova o SQL Server VM do cofre e todos os recursos desnecessários que são deixados no grupo de recursos. 
 
 ## <a name="verify-prerequisites"></a>Verificar pré-requisitos 
 
@@ -78,7 +79,7 @@ As etapas a seguir mostram como usar o Azure Site Recovery para copiar dados par
 1. Na guia **noções básicas** , em **detalhes do projeto**, crie um novo grupo de recursos na região de destino ou selecione um grupo de recursos existente na região de destino. 
 1. Em **detalhes da instância**, especifique um nome para o cofre e, em seguida, selecione a **região** de destino na lista suspensa. 
 1. Selecione **examinar + criar** para criar o cofre dos serviços de recuperação. 
-1. Selecione **todos os serviços** no canto superior esquerdo do painel de navegação e, no tipo de caixa de pesquisa `recovery services`, digite. 
+1. Selecione **todos os serviços** no canto superior esquerdo do painel de navegação e, na caixa de pesquisa, digite `recovery services`. 
 1. Opcionalmente Selecione a estrela ao lado **dos cofres dos serviços de recuperação** para adicioná-lo à sua barra de navegação rápida. 
 1. Selecione **cofres dos serviços de recuperação** e selecione o cofre dos serviços de recuperação que você criou. 
 1. No painel **visão geral** , selecione **replicar**. 
@@ -113,7 +114,7 @@ As etapas a seguir mostram como usar Azure Site Recovery para testar o processo 
    ![Monitorar o andamento do teste de failover](media/virtual-machines-windows-sql-move-to-new-region/monitor-failover-test-job.png)
 
 1. Quando o teste for concluído, navegue até **máquinas virtuais** no portal e examine a máquina virtual recém-criada. Verifique se a VM SQL Server está em execução, se está dimensionada corretamente e se está conectada à rede apropriada. 
-1. Exclua a VM que foi criada como parte do teste, pois a opção de **failover** ficará esmaecida até que os recursos de teste de failover sejam limpos. Navegue de volta para o cofre, selecione **itens replicados**, selecione o SQL Server VM e, em seguida, selecione **limpar failover de teste**. Registre e salve as observações associadas ao teste na seção **observações** e marque a caixa de seleção ao lado **de teste concluída. Excluir máquinas**virtuais de failover de teste. Selecione **OK** para limpar os recursos após o teste. 
+1. Exclua a VM que foi criada como parte do teste, pois a opção de **failover** ficará esmaecida até que os recursos de teste de failover sejam limpos. Navegue de volta para o cofre, selecione **itens replicados**, selecione o SQL Server VM e, em seguida, selecione **limpar failover de teste**. Registre e salve as observações associadas ao teste na seção **observações** e marque a caixa de seleção ao lado de **teste concluída. Excluir máquinas virtuais de failover de teste**. Selecione **OK** para limpar os recursos após o teste. 
 
    ![limpar itens após o teste de failover](media/virtual-machines-windows-sql-move-to-new-region/cleanup-test-items.png)
 
@@ -149,7 +150,7 @@ Para evitar encargos de cobrança, remova o SQL Server VM do cofre e exclua todo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, confira os seguintes artigos: 
+Para obter mais informações, consulte os seguintes artigos: 
 
 * [Visão geral do SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [SQL Server em um FAQ de VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)

@@ -1,18 +1,14 @@
 ---
 title: Exemplos do NHS & oficial do Reino Unido no Reino Unido – mapeamento de controle
 description: Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: e86c7040e94553b032b565e282639047a1ed8750
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5ba7cf481276b236c9299e660acb9668feeea683
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162949"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037759"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS
 
@@ -48,9 +44,9 @@ Entender em que local os recursos do Azure podem ter configurações de criptogr
 
 ## <a name="52-vulnerability-management"></a>5,2 gerenciamento de vulnerabilidades
 
-Este projeto ajuda você a gerenciar as vulnerabilidades do sistema de informações atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitoram a proteção de ponto de extremidade ausente, atualizações do sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades do SQL e virtual vulnerabilidades do computador. Esses insights fornecem informações em tempo real sobre o estado de segurança dos recursos implantados e podem ajudá-lo a priorizar as ações de correção.
+Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo [Azure Policy](../../../policy/overview.md) definições que monitoram a proteção de ponto de extremidade ausente, atualizações do sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades da máquina virtual. Esses insights fornecem informações em tempo real sobre o estado de segurança dos recursos implantados e podem ajudá-lo a priorizar as ações de correção.
 
-- Monitorar o Endpoint Protection ausente na Central de Segurança do Azure
+- monitora o Endpoint Protection ausente na Central de Segurança do Azure
 - As atualizações do sistema devem ser instaladas em suas máquinas
 - As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
@@ -67,13 +63,13 @@ Este projeto ajuda a proteger os ativos do sistema de informações atribuindo d
 
 ## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 gerenciamento seguro de usuários/10 identidade e autenticação
 
-O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar os direitos de acesso atribuindo definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou permissões de leitura/gravação e contas com permissão de proprietário, leitura e/ou gravação que não têm vários fatores autenticação habilitada.
+O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar os direitos de acesso atribuindo definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou permissões de leitura/gravação e contas com permissão de proprietário, leitura e/ou gravação que não têm a autenticação multifator habilitada.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - A MFA deve ser habilitada para contas com permissões de gravação em sua assinatura
 - O MFA deve ser habilitado em contas com permissões de leitura em sua assinatura
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
-- As contas externas com permissões de gravação do proprietário devem ser removidas da sua assinatura
+- As contas externas com permissões de gravação devem ser removidas de sua assinatura
 - As contas externas com permissões de leitura devem ser removidas de sua assinatura
 
 Este projeto atribui definições de Azure Policy para auditar o uso de autenticação de Azure Active Directory para SQL Servers e Service Fabric. O uso da autenticação do Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft.
@@ -86,7 +82,7 @@ Esse projeto também atribui definições de Azure Policy para auditar contas qu
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
-- As contas externas com permissões de gravação do proprietário devem ser removidas da sua assinatura
+- As contas externas com permissões de gravação devem ser removidas de sua assinatura
 
 Esse plano gráfico também atribui uma definição de Azure Policy que audita as permissões de arquivo de senha de VM do Linux para alertar se elas estiverem definidas incorretamente. Esse design permite que você tome medidas corretivas para garantir que os autenticadores não sejam comprometidos.
 
@@ -124,14 +120,14 @@ Além de usar mais de 25 políticas para o gerenciamento de usuários seguro apr
 
 ## <a name="12-secure-service-administration"></a>12 administração segura de serviços
 
-O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo cinco definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou gravação e contas com o proprietário e/ou permissões de gravação que não têm autenticação multifator habilitada.
+O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo cinco definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou gravação e contas com o proprietário e/ou permissões de gravação que não têm a autenticação multifator habilitada.
 
 Sistemas usados para a administração de um serviço de nuvem têm acesso altamente privilegiado ao serviço. Um comprometimento teria um impacto significativo, incluindo os meios para ignorar os controles de segurança e roubar ou manipular grandes volumes de dados. Os métodos usados pelos administradores do provedor de serviços para gerenciar o serviço operacional devem ser projetados para atenuar qualquer risco de exploração que possa prejudicar a segurança do serviço. Se esse princípio não for implementado, um invasor poderá ter meios para ignorar os controles de segurança e roubar ou manipular grandes volumes de dados.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - A MFA deve ser habilitada para contas com permissões de gravação em sua assinatura
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
-- As contas externas com permissões de gravação do proprietário devem ser removidas da sua assinatura
+- As contas externas com permissões de gravação devem ser removidas de sua assinatura
 
 Este projeto atribui definições de Azure Policy para auditar o uso de autenticação de Azure Active Directory para SQL Servers e Service Fabric. O uso da autenticação do Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft.
 
@@ -143,7 +139,7 @@ Esse projeto também atribui definições de Azure Policy para auditar contas qu
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
-- As contas externas com permissões de gravação do proprietário devem ser removidas da sua assinatura
+- As contas externas com permissões de gravação devem ser removidas de sua assinatura
 
 Esse plano gráfico também atribui uma definição de Azure Policy que audita as permissões de arquivo de senha de VM do Linux para alertar se elas estiverem definidas incorretamente. Esse design permite que você tome medidas corretivas para garantir que os autenticadores não sejam comprometidos.
 
@@ -160,7 +156,7 @@ Este blueprint ajuda você a garantir que os eventos do sistema sejam registrado
 - \[Visualização\]: implantar o agente do Log Analytics para VMs do Windows
 - Implantar o observador de rede quando redes virtuais são criadas
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você analisou o mapeamento de controle dos planos gráficos do Reino Unido e do Reino Unido NHS, visite os artigos a seguir para saber mais sobre a visão geral e como implantar este exemplo:
 
@@ -168,7 +164,7 @@ Agora que você analisou o mapeamento de controle dos planos gráficos do Reino 
 > [Plantas oficiais do Reino Unido e do Reino Unido do NHS-visão geral](./index.md)
 > plantas oficiais do Reino [Unido e do Reino Unido NHS-implantar etapas](./deploy.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Outros artigos sobre blueprints e como usá-los:
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

@@ -1,26 +1,25 @@
 ---
-title: Conteúdo da função de administrador para serviços de Microsoft 365 – Azure AD | Microsoft Docs
+title: Documentos de função de administrador entre Microsoft 365 serviços – Azure AD | Microsoft Docs
 description: Encontre referências de conteúdo e API para funções de administrador para serviços de Microsoft 365 no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12ffa1d4f3e802b3419b31844ddd8133ceab5086
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 430b65217da33185cd3b5c235fb148f3350e1bfe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304387"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024450"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Funções de administrador para serviços Microsoft 365s
 

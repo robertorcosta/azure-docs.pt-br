@@ -1,18 +1,14 @@
 ---
 title: Exemplo do Canadá Federal PBMM Blueprint – implantar etapas
 description: Implante as etapas para o exemplo do Canadá Federal PBMM Blueprint, incluindo detalhes do parâmetro de artefato do Blueprint.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 22806f497283c1885446eadd5f444dacf3769c12
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 788c52ee9a2bf9a0a2c506c2a34d221ff08bd0af
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163332"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038407"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implantar os exemplos do Canadá Federal PBMM Blueprint
 
@@ -95,7 +91,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
-Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
+Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
 |-|-|-|-|
 |\[Visualização\]: implantar o agente do Log Analytics para VMs do Linux |Atribuição de política |Workspace do Log Analytics para VMs Linux |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Visualização\]: implantar o agente do Log Analytics para VMs do Linux |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
@@ -111,7 +107,7 @@ Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |Implantar configurações de diagnóstico para Grupos de Segurança de Rede |Atribuição de política |Prefixo da conta de armazenamento para diagnóstico do grupo de segurança de rede |Esse prefixo é combinado com o local do grupo de segurança de rede para formar o nome da conta de armazenamento criada. |
 |Implantar configurações de diagnóstico para Grupos de Segurança de Rede |Atribuição de política |Nome do grupo de recursos da conta de armazenamento para diagnóstico do grupo de segurança de rede (precisa existir) |O grupo de recursos no qual a conta de armazenamento é criada. Esse grupo de recursos já precisa existir. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você analisou as etapas para implantar o exemplo de PBMM Federal do Canadá, visite os seguintes artigos para saber mais sobre a visão geral e o mapeamento de controle:
 
@@ -119,7 +115,7 @@ Agora que você analisou as etapas para implantar o exemplo de PBMM Federal do C
 > [Governo Federal do Canadá PBMM-visão geral](./index.md)
 > [Planejamento Federal de PBMM do Canadá – mapeamento de controle](./control-mapping.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Outros artigos sobre blueprints e como usá-los:
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

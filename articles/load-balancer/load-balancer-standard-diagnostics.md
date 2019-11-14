@@ -1,6 +1,5 @@
 ---
-title: Diagnóstico de Standard Load Balancer do Azure com métricas, alertas e integridade de recursos
-titlesuffix: Azure Load Balancer
+title: Diagnósticos com métricas, alertas e integridade de recursos-Azure Standard Load Balancer
 description: Use as informações disponíveis sobre métricas, alertas e recursos de integridade para diagnosticar sua Standard Load Balancer do Azure.
 services: load-balancer
 documentationcenter: na
@@ -13,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: b241f753c0de6e14282c679c5aec3c32be68e348
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: ff42c6e9bd3c25721d2b77e49c2dd98a3eebdb43
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516263"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048740"
 ---
-# <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer com métricas, alertas e integridade de recursos
+# <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
 
 O Standard Load Balancer do Azure expõe os seguintes recursos de diagnóstico:
 
-* **Métricas e alertas**multidimensionais: Fornece novos recursos de diagnóstico multidimensionais por meio de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para configurações padrão do Load Balancer. Você pode monitorar, gerenciar e solucionar problemas de seus recursos padrão do Load Balancer.
+* **Métricas e alertas multidimensionais**: fornece novos recursos de diagnóstico multidimensionais por meio de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para configurações padrão do Load Balancer. Você pode monitorar, gerenciar e solucionar problemas de seus recursos padrão do Load Balancer.
 
-* **Integridade de recursos**: A página Load Balancer na portal do Azure e a página Resource Health (em monitor) expõem a seção Resource Health para Standard Load Balancer. 
+* **Resource Health**: a página Load Balancer na portal do Azure e a página Resource Health (em monitor) expõem a seção Resource Health para Standard Load Balancer. 
 
 Este artigo fornece um tour rápido dessas funcionalidades e oferece maneiras de usá-las para o Load Balancer Standard.
 
@@ -36,14 +35,14 @@ O Azure Load Balancer fornece novas métricas multidimensionais por meio das nov
 
 As várias configurações do Load Balancer Standard oferecem as seguintes métricas:
 
-| Métrica | Tipo de recurso | Descrição | Agregação recomendada |
+| Métrica | Tipo de recurso | DESCRIÇÃO | Agregação recomendada |
 | --- | --- | --- | --- |
-| Disponibilidade do caminho de dados (disponibilidade VIP)| Balanceador de carga público e interno | O Load Balancer Standard usa continuamente o caminho de dados de dentro de uma região para o front-end do balanceador de carga e até a pilha do SDN compatível com a sua VM. Contanto que instâncias íntegras permaneçam, a medição seguirá o mesmo caminho que o tráfego com balanceamento de carga do seu aplicativo. O caminho de dados que seus clientes usam também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.| Average |
-| Status da investigação de integridade (disponibilidade DIP) | Balanceador de carga público e interno | O Load Balancer Standard usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade do aplicativo de acordo com as definições de configuração. Essa métrica fornece uma exibição agregada ou por ponto de extremidade filtrado de cada ponto de extremidade de instância no pool do balanceador de carga. É possível ver como o Load Balancer exibe a integridade de seu aplicativo conforme indicado pela configuração de sua investigação de integridade. |  Average |
-| Pacotes SYN (sincronizar) | Balanceador de carga público e interno | O Load Balancer Standard não encerra conexões TCP nem interage com fluxos de pacote TCP ou UDP. Fluxos e seus handshakes estão sempre entre a origem e a instância VM. Para solucionar melhor os problemas dos cenários de protocolo TCP, é possível usar contadores de pacotes SYN para entender quantas tentativas de conexão TCP são feitas. A métrica informa o número de pacotes SYN do TCP que foram recebidos.| Average |
-| Conexões SNAT | Balanceador de carga público |O Load Balancer Standard relata o número de fluxos de saída mascarados para o front-end do endereço IP Público. As portas SNAT (conversão de endereços de rede) de origem são um recurso esgotável. Essa métrica pode dar uma indicação do grau de dependência que seu aplicativo tem do SNAT para fluxos com origem externa. Contadores para fluxos SNAT de saída bem-sucedidos e com falha são relatados e podem ser usados para solucionar problemas e entender a integridade dos fluxos de saída.| Average |
-| Contadores de bytes |  Balanceador de carga público e interno | O Load Balancer Standard informa os dados processados por front-end.| Average |
-| Contadores de pacotes |  Balanceador de carga público e interno | O Load Balancer Standard relata os pacotes processados por front-end.| Average |
+| Disponibilidade do caminho de dados (disponibilidade VIP)| Balanceador de carga público e interno | O Load Balancer Standard usa continuamente o caminho de dados de dentro de uma região para o front-end do balanceador de carga e até a pilha do SDN compatível com a sua VM. Contanto que instâncias íntegras permaneçam, a medição seguirá o mesmo caminho que o tráfego com balanceamento de carga do seu aplicativo. O caminho de dados que seus clientes usam também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.| Média |
+| Status da investigação de integridade (disponibilidade DIP) | Balanceador de carga público e interno | O Load Balancer Standard usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade do aplicativo de acordo com as definições de configuração. Essa métrica fornece uma exibição agregada ou por ponto de extremidade filtrado de cada ponto de extremidade de instância no pool do balanceador de carga. É possível ver como o Load Balancer exibe a integridade de seu aplicativo conforme indicado pela configuração de sua investigação de integridade. |  Média |
+| Pacotes SYN (sincronizar) | Balanceador de carga público e interno | O Load Balancer Standard não encerra conexões TCP nem interage com fluxos de pacote TCP ou UDP. Fluxos e seus handshakes estão sempre entre a origem e a instância VM. Para solucionar melhor os problemas dos cenários de protocolo TCP, é possível usar contadores de pacotes SYN para entender quantas tentativas de conexão TCP são feitas. A métrica informa o número de pacotes SYN do TCP que foram recebidos.| Média |
+| Conexões SNAT | Balanceador de carga público |O Load Balancer Standard relata o número de fluxos de saída mascarados para o front-end do endereço IP Público. As portas SNAT (conversão de endereços de rede) de origem são um recurso esgotável. Essa métrica pode dar uma indicação do grau de dependência que seu aplicativo tem do SNAT para fluxos com origem externa. Contadores para fluxos SNAT de saída bem-sucedidos e com falha são relatados e podem ser usados para solucionar problemas e entender a integridade dos fluxos de saída.| Média |
+| Contadores de bytes |  Balanceador de carga público e interno | O Load Balancer Standard informa os dados processados por front-end.| Média |
+| Contadores de pacotes |  Balanceador de carga público e interno | O Load Balancer Standard relata os pacotes processados por front-end.| Média |
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Exibir suas métricas do balanceador de carga no portal do Azure
 
@@ -58,7 +57,7 @@ Para exibir as métricas de seus recursos do Load Balancer Standard:
 
     ![Métricas para Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
-    *Figura: Métrica de disponibilidade de caminho de dados para Standard Load Balancer*
+    *Figura: métrica de disponibilidade de caminho de dados para Standard Load Balancer*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperar as métricas multidimensionais programaticamente por meio de APIs
 
@@ -81,7 +80,7 @@ Para obter a disponibilidade do caminho de dados para seus recursos de Standard 
 
 ![Investigação do VIP](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Figura: Detalhes de investigação de front-end Load Balancer*
+*Figura: detalhes de investigação de front-end Load Balancer*
 
 A métrica é gerada por uma medida de ativa e dentro da faixa. Um serviço de investigação dentro da região origina o tráfego da medida. O serviço é ativado assim que você cria uma implantação com um front-end público, e ele continua até que você remova o front-end. 
 
@@ -121,7 +120,7 @@ Para obter estatísticas de conexão SNAT:
 
 ![Conexão SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Figura: Contagem de conexões SNAT do Load Balancer*
+*Figura: contagem de conexões SNAT do Load Balancer*
 
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Como verificar as tentativas de conexão de entrada/saída para meu serviço?
@@ -132,7 +131,7 @@ Use **Total** como a agregação para a maioria dos cenários.
 
 ![Conexão SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Figura: Contagem de SYN do Load Balancer*
+*Figura: contagem de SYN do Load Balancer*
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Como verificar o consumo de largura de banda da rede? 
@@ -149,7 +148,7 @@ Para obter estatísticas de contagem de bytes ou de pacotes:
 
 ![Contagem de Bytes](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Figura: Contagem de bytes do Load Balancer*
+*Figura: contagem de bytes do Load Balancer*
 
 #### <a name = "vipavailabilityandhealthprobes"></a>Como posso diagnosticar a implantação do meu balanceador de carga?
 
@@ -161,7 +160,7 @@ Você pode usar métricas de investigação de integridade para entender como o 
 
 ![Combinando métricas de status de investigação de integridade e disponibilidade de caminho de dados](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
-*Figura: Combinando métricas de status de investigação de integridade e disponibilidade de caminho de dados*
+*Figura: combinação de métricas de status de investigação de integridade e disponibilidade do caminho de dados*
 
 O gráfico exibe as seguintes informações:
 - A infraestrutura que hospeda suas VMs não estava disponível e está em 0% no início do gráfico. Posteriormente, a infraestrutura estava íntegra e as VMs estavam acessíveis e mais de uma VM foi colocada no back-end. Essas informações são indicadas pelo rastreamento azul para disponibilidade de caminho de dados (disponibilidade de VIP), que foi posterior em 100%. 
@@ -178,27 +177,27 @@ Para exibir a integridade dos seus recursos do Load Balancer Standard:
 
    ![Página do Monitor](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *Figura: O link da Integridade do Serviço no Azure Monitor*
+   *Figura: o link da Integridade do Serviço no Azure Monitor*
 
 2. Selecione **Resource Health** e certifique-se de que a **ID da assinatura** e o **Tipo de recurso = Load Balancer** estão selecionados.
 
-   ![Status de integridade do recurso](./media/load-balancer-standard-diagnostics/LBHealth3.png)
+   ![Status de integridade de recurso](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   *Figura: Selecionar recurso para exibição de integridade*
+   *Figura: selecione o recurso para o modo de exibição de integridade*
 
 3. Na lista, selecione o recurso do Load Balancer para exibir o status da integridade histórico.
 
     ![Status de integridade do Load Balancer](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Figura: Exibição de Resource Health do Load Balancer*
+   *Figura: modo de exibição de integridade de recurso do Load Balancer*
  
 Os vários status da integridade do recurso e suas descrições estão listadas na seguinte tabela: 
 
-| Status de integridade do recurso | Descrição |
+| Status de integridade de recurso | DESCRIÇÃO |
 | --- | --- |
 | Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
-| Não Disponível | O recurso padrão do Load Balancer não está íntegro. Faça o diagnóstico da integridade selecionando **Azure Monitor** > **Métricas**.<br>( O status indisponível também pode significar que o recurso não está conectado ao balanceador de carga padrão.) |
-| Unknown | O status de integridade do recurso para o recurso padrão do Load Balancer ainda não foi atualizado.<br>(O status*desconhecido* também pode significar que o recurso não está conectado ao balanceador de carga padrão.)  |
+| Indisponível | O recurso padrão do Load Balancer não está íntegro. Faça o diagnóstico da integridade selecionando **Azure Monitor** > **Métricas**.<br>(O status*indisponível* também pode significar que o recurso não está conectado ao balanceador de carga padrão.) |
+| Desconhecido | O status de integridade do recurso para o recurso padrão do Load Balancer ainda não foi atualizado.<br>(O status*desconhecido* também pode significar que o recurso não está conectado ao balanceador de carga padrão.)  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

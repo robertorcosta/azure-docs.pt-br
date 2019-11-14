@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 335e3c3ddabbf5bc267458fc1c55fef0e551583e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d4dedf2f90baa5eae005f47719e67bd8e97d8490
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833771"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039018"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -26,7 +26,7 @@ Este artigo descreve os limites e os detalhes de configuração para criar e exe
 
 Estes são os limites de definição de um único aplicativo lógico:
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 | ---- | ----- | ----- |
 | Ações por fluxo de trabalho | 500 | Para estender esse limite, adicione fluxos de trabalho aninhados conforme necessário. |
 | Profundidade de aninhamento permitido para ações | 8 | Para estender esse limite, adicione fluxos de trabalho aninhados conforme necessário. |
@@ -48,7 +48,7 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 Estes são os limites de execução de um único aplicativo lógico:
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Duração da execução | 90 dias | 365 dias | Para alterar o limite padrão, consulte [alterar duração da execução](#change-duration). |
 | Retenção de armazenamento | 90 dias a partir da hora de início de execução | 365 dias | Para alterar o limite padrão, consulte [alterar retenção de armazenamento](#change-retention). |
@@ -65,7 +65,7 @@ Para alterar o limite padrão de duração da execução e retenção de armazen
 
 1. No Portal do Azure, no menu do aplicativo lógico, escolha **Configurações de fluxo de trabalho**.
 
-2. Em **Opções de tempo de execução**, na lista **Retenção histórica de execuções em dias** , escolha **Personalizado**.
+2. Em **Opções de runtime**, na lista **Retenção histórica de execuções em dias** , escolha **Personalizado**.
 
 3. Digite ou arraste o controle deslizante para o número de dias que você deseja.
 
@@ -75,13 +75,13 @@ Para alterar o limite padrão de duração da execução e retenção de armazen
 
 Estes são os limites de execução de um único aplicativo lógico:
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 | ---- | ----- | ----- |
-| Simultaneidade do gatilho | * Ilimitada quando o controle de simultaneidade está desativado <p><p>* 25 é o limite padrão, quando o controle de simultaneidade está ativado, o que não pode ser desfeito depois de ativar o controle. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>**Observação**: quando a simultaneidade é ativada, o limite de divisão é consideravelmente reduzido a 100 itens para [matrizes de delote](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). Se o número de itens exceder esse limite, o recurso de divisão será desabilitado. <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Simultaneidade do gatilho | * Ilimitada quando o controle de simultaneidade está desativado <p><p>* 25 é o limite padrão, quando o controle de simultaneidade está ativado, o que não pode ser desfeito depois de ativar o controle. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>**Observação**: quando a simultaneidade é ativada, o limite de divisão é reduzido para 100 itens para [matrizes de delote](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Execuções de espera máximo | Quando o controle de simultaneidade é ativado, o número mínimo de execuções de espera é 10 mais o número de execuções simultâneas (simultaneidade do gatilho). Você pode alterar o número máximo até 100, inclusive. | Esse limite descreve o maior número de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Itens da matriz de foreach | 100.000 | Esse limite descreve o maior número de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](../connectors/connectors-native-query.md). |
 | Simultaneidade de foreach | 20 é o limite padrão quando o controle de simultaneidade é desativado. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite é o maior número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusive, consulte [Alterar o limite de simultaneidade “para cada”](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Executar loops "para cada" sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Itens SplitOn | * 100.000 sem simultaneidade de gatilho <p><p>* 100 com simultaneidade de gatilho | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que usa uma propriedade 'SplitOn' que [divide ou retira de lote os itens da matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "Foreach". Essa expressão referencia a matriz a ser usada para criar e executar uma instância de fluxo de trabalho para cada item da matriz. <p><p>**Observação**: quando a simultaneidade é ativada, o limite de divisão é significanly reduzido. Se o número de itens exceder esse limite, a divisão será desabilitada. |
+| Itens SplitOn | * 100.000 sem simultaneidade de gatilho <p><p>* 100 com simultaneidade de gatilho | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que usa uma propriedade 'SplitOn' que [divide ou retira de lote os itens da matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "Foreach". Essa expressão referencia a matriz a ser usada para criar e executar uma instância de fluxo de trabalho para cada item da matriz. <p><p>**Observação**: quando a simultaneidade é ativada, o limite de divisão é reduzido para 100 itens. |
 | Iterações Until | 5\.000 | |
 ||||
 
@@ -93,13 +93,13 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 ### <a name="multi-tenant-logic-apps-service"></a>Serviço de aplicativos lógicos multilocatários
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 | ---- | ----- | ----- |
 | Ação: Execuções a cada 5 minutos | 100.000 é o limite padrão, mas 300.000 é o limite máximo. | Para alterar o limite padrão, consulte [Execute seu aplicativo lógico no modo "alto rendimento"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está na visualização. Ou, você pode distribuir a carga de trabalho entre mais de um aplicativo lógico conforme necessário. |
 | Ação: Saída de chamadas simultâneas | ~2.500 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
-| Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
-| Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos  | 60.000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
-| Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
+| Ponto de extremidade de runtime: chamadas de entrada simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
+| Ponto de extremidade de runtime: lê chamadas por 5 minutos  | 60.000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
+| Ponto de extremidade de runtime: invoca chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
 | Taxa de transferência de conteúdo por 5 minutos | 600 MB | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
 ||||
 
@@ -107,7 +107,7 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 Estes são os limites de taxa de transferência para o SKU Premium:
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 |------|-------|-------|
 | Limite de execução de unidade base | Sistema-limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~ 4.000 execuções de ação por minuto, que é ~ 160 milhões execuções de ação por mês | |
 | Limite de execução de unidade de escala | Sistema-limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer aproximadamente 2.000 execuções de ação adicionais por minuto, que é ~ 80 milhões mais execuções de ação por mês | |
@@ -135,7 +135,7 @@ Estes são os limites para uma única solicitação HTTP ou chamada de conector 
 
 Algumas operações de conector fazem chamadas assíncronas ou escutam solicitações de webhook, portanto o tempo limite para essas operações pode ter mais do que esses limites. Para obter mais informações, consulte os detalhes técnicos para o conector específico e também [Gatilhos e ações de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Solicitação de saída | 120 segundos | 240 segundos | Para operações com execução mais longa, use um [padrão de sondagem assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
 | Resposta síncrona | 120 segundos | 240 segundos | Para a solicitação original obter a resposta, todas as etapas na resposta devem ser finalizadas dentro do limite, a menos que você chame outro aplicativo lógico como um fluxo de trabalho aninhado. Para obter mais informações, consulte [Chamar, acionar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). |
@@ -143,16 +143,16 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 #### <a name="message-size"></a>Tamanho da mensagem
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Tamanho da mensagem | 100 MB | 200 MB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. |
-| Tamanho da mensagem com agrupamento | 1 GB | 5 GB | Esse limite se aplica a ações com compatibilidade nativa com o agrupamento ou que permitem que você habilite o agrupamento na configuração de tempo de execução. <p>Para o ambiente do serviço de integração, o mecanismo dos aplicativos lógicos dá suporte a esse limite, mas os conectores têm seus próprios limites de agrupamento até o limite do mecanismo, por exemplo, consulte a [referência de API do conector de armazenamento de BLOBs do Azure](https://docs.microsoft.com/connectors/azureblob/). Para obter mais informações sobre agrupamento, consulte [tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). |
+| Tamanho da mensagem com agrupamento | 1 GB | 5 GB | Esse limite se aplica a ações com compatibilidade nativa com o agrupamento ou que permitem que você habilite o agrupamento na configuração de runtime. <p>Para o ambiente do serviço de integração, o mecanismo dos aplicativos lógicos dá suporte a esse limite, mas os conectores têm seus próprios limites de agrupamento até o limite do mecanismo, por exemplo, consulte a [referência de API do conector de armazenamento de BLOBs do Azure](https://docs.microsoft.com/connectors/azureblob/). Para obter mais informações sobre agrupamento, consulte [tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). |
 | Limite de avaliação da expressão | 131.072 caracteres | 131.072 caracteres | As expressões `@concat()`, `@base64()`, `@string()` não podem ser maiores do que esse limite. |
 |||||
 
 #### <a name="retry-policy"></a>Política de repetição
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 | ---- | ----- | ----- |
 | Tentativas de repetição | 90 | O padrão é 4. Para alterar o padrão, use o [Parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Atraso máximo de nova tentativa | 1 dia | Para alterar o padrão, use o [Parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
@@ -165,7 +165,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 Aqui estão os limites para conectores personalizados que você pode criar de APIs da Web.
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Número de conectores personalizados | 1\.000 por assinatura do Azure | 1\.000 por assinatura do Azure ||
 | Número de solicitações por minuto para um conector personalizado | 500 solicitações por minuto por conexão | 2\.000 solicitações por minuto por *conector personalizado* ||
@@ -175,7 +175,7 @@ Aqui estão os limites para conectores personalizados que você pode criar de AP
 
 ## <a name="managed-identities"></a>Identidades gerenciadas
 
-| Nome | Limite |
+| NOME | Limite |
 | ---- | ----- |
 | Número de aplicativos lógicos que têm a identidade atribuída pelo sistema em uma assinatura do Azure por região | 100 |
 |||
@@ -195,7 +195,7 @@ Cada assinatura do Azure tem estes limites de conta de integração:
   | SKU DO ISE | Limites da conta de integração |
   |---------|----------------------------|
   | **Premium** | total de 5 contas [padrão](../logic-apps/logic-apps-pricing.md#integration-accounts) , incluindo uma conta padrão gratuitamente. Nenhuma conta gratuita ou básica é permitida. |
-  | **Desenvolvedores** | 5 total- [livre](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitado a 1 conta) e [padrão](../logic-apps/logic-apps-pricing.md#integration-accounts) combinado, ou todas as contas padrão. Nenhuma conta básica é permitida. Use a [SKU do desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentação, desenvolvimento e teste, mas não para teste de produção ou de desempenho. |
+  | **Developer** | 5 total- [livre](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitado a 1 conta) e [padrão](../logic-apps/logic-apps-pricing.md#integration-accounts) combinado, ou todas as contas padrão. Nenhuma conta básica é permitida. Use a [SKU do desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentação, desenvolvimento e teste, mas não para teste de produção ou de desempenho. |
   |||
 
 Custos adicionais se aplicam a contas de integração que você adiciona além das contas de integração incluídas com um ISE. Para saber como o preço e a cobrança funcionam para o ISEs, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -209,7 +209,7 @@ Aqui estão os limites do número de artefatos para cada camada de conta de inte
 > [!NOTE]
 > Use a camada gratuita somente para cenários exploratórios, não cenários de produção. Esta camada restringe o uso e a taxa de transferência e não tem nenhum SLA (Contrato de Nível de Serviço).
 
-| Artefato | Grátis | Basic | Standard |
+| Artefato | Grátis | Básica | Standard |
 |----------|------|-------|----------|
 | Contratos comerciais de EDI | 10 | 1 | 1\.000 |
 | Parceiros comerciais de EDI | 25 | 2 | 1\.000 |
@@ -228,10 +228,10 @@ Aqui estão os limites do número de artefatos para cada camada de conta de inte
 | -------- | ----- | ----- |
 | Assembly | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 | Mapa (arquivo XSLT) | 8 MB | Para carregar arquivos maiores que 2 MB, use a [API REST de Aplicativos Lógicos do Azure – Mapas](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |
-| Esquema | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
+| ESQUEMA | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
-| Ponto de extremidade de tempo de execução | Limite | Observações |
+| Ponto de extremidade de runtime | Limite | Observações |
 |------------------|-------|-------|
 | Chamadas de leitura a cada 5 minutos | 60.000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
 | Chamadas de invocação a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
@@ -245,7 +245,7 @@ Aqui estão os limites do número de artefatos para cada camada de conta de inte
 
 Estes são os limites de tamanho de mensagem que se aplicam aos protocolos B2B:
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | AS2 | v2-100 MB<br>v1-50 MB | v2-200 MB <br>v1-50 MB | Aplicável ao decodificar e codificar |
 | X12 | 50 MB | 50 MB | Aplicável ao decodificar e codificar |

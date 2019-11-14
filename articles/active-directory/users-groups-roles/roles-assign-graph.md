@@ -1,5 +1,5 @@
 ---
-title: Atribuir e remover funções de administrador personalizadas usando Microsoft Graph API-Azure Active Directory | Microsoft Docs
+title: Atribuir funções de administrador do Azure AD com a API Microsoft Graph | Microsoft Docs
 description: Atribuir e remover funções de administrador do Azure AD com o API do Graph no Azure Active Directory
 services: active-directory
 author: curtand
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 898f444e868a469aed5358f49f48f5bcbfab4450
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 2f5be5829843e9857239ca5ea9a7395f569f563a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707572"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025334"
 ---
 # <a name="assign-custom-admin-roles-using-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizadas usando API do Graph no Azure Active Directory 
 
@@ -32,13 +32,13 @@ Conecte-se ao seu locatário do Azure AD usando uma conta de administrador globa
 
 Solicitação HTTP para criar uma atribuição de função entre um usuário e uma definição de função.
 
-POSTAR
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-Body
+corpo
 
 ``` HTTP
 {
@@ -48,7 +48,7 @@ Body
 }
 ```
 
-Resposta
+resposta
 
 ``` HTTP
 HTTP/1.1 201 Created
@@ -56,13 +56,13 @@ HTTP/1.1 201 Created
 
 Solicitação HTTP para criar uma atribuição de função na qual a definição de entidade ou função não existe
 
-POSTAR
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-Body
+corpo
 
 ``` HTTP
 {
@@ -72,7 +72,7 @@ Body
 }
 ```
 
-Resposta
+resposta
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -83,13 +83,13 @@ Solicitação HTTP para criar uma atribuição de função com escopo de recurso
 > [!NOTE] 
 > Atualmente, as funções internas têm uma limitação em que podem ser escopos somente para o escopo "/" de toda a organização ou o escopo "/AU/*". O escopo de recurso único não funciona para funções internas, mas funciona para funções personalizadas.
 
-POSTAR
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-Body
+corpo
 
 ``` HTTP
 {
@@ -99,7 +99,7 @@ Body
 }
 ```
 
-Resposta
+resposta
 
 ``` HTTP
 HTTP/1.1 400 Bad Request
@@ -127,13 +127,13 @@ HTTP/1.1 400 Bad Request
 
 Solicitação HTTP para obter uma atribuição de função para uma determinada entidade
 
-OBTER
+GET
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=principalId eq ‘<object-id-of-principal>’
 ```
 
-Resposta
+resposta
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -153,13 +153,13 @@ HTTP/1.1 200 OK
 
 Solicitação HTTP para obter uma atribuição de função para uma determinada definição de função.
 
-OBTER
+GET
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-Resposta
+resposta
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -173,13 +173,13 @@ HTTP/1.1 200 OK
 
 Solicitação HTTP para obter uma atribuição de função por ID.
 
-OBTER
+GET
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-Resposta
+resposta
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -195,26 +195,26 @@ HTTP/1.1 200 OK
 
 Solicitação HTTP para excluir uma atribuição de função entre um usuário e uma definição de função.
 
-DELETE
+EXCLUIR
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-Resposta
+resposta
 ``` HTTP
 HTTP/1.1 204 No Content
 ```
 
 Solicitação HTTP para excluir uma atribuição de função que não existe mais
 
-DELETE
+EXCLUIR
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-Resposta
+resposta
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -222,13 +222,13 @@ HTTP/1.1 404 Not Found
 
 Solicitação HTTP para excluir uma atribuição de função entre a definição de função própria e interna
 
-DELETE
+EXCLUIR
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-Resposta
+resposta
 
 ``` HTTP
 HTTP/1.1 400 Bad Request

@@ -8,14 +8,14 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 058506110a8ac4b11f272406a854f72062a1c90d
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: e7998ea0753ba7ab5d97142c34dc9e333f8b4f5d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514711"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034072"
 ---
-# <a name="azcopy-login"></a>logon do azcopy
+# <a name="azcopy-login"></a>azcopy login
 
 Faz logon no Azure Active Directory para acessar os recursos de armazenamento do Azure.
 
@@ -35,6 +35,13 @@ Consulte os exemplos para obter mais informações.
 ```azcopy
 azcopy login [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
+
+- [Introdução ao AzCopy](storage-use-azcopy-v10.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
+- [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -92,11 +99,11 @@ Certifique-se de tratar/Path/to/My/CERT como um caminho para um arquivo PEM ou P
 
 ## <a name="options"></a>Opções
 
-|Opção|Descrição|
+|Opção|DESCRIÇÃO|
 |--|--|
 |--ID do aplicativo-cadeia de caracteres|ID do aplicativo da identidade atribuída pelo usuário. Necessário para autenticação de entidade de serviço.|
 |--Cadeia de caracteres de caminho do certificado|Caminho para o certificado para autenticação SPN. Necessário para autenticação de entidade de serviço baseada em certificado.|
-|-h,--ajuda|Mostra o conteúdo da ajuda para o comando de logon.|
+|-h, --help|Mostra o conteúdo da ajuda para o comando de logon.|
 |--identidade|Faça logon usando a identidade da máquina virtual, também conhecida como MSI (identidade de serviço gerenciada).|
 |--identidade-Client-ID cadeia de caracteres|ID do cliente da identidade atribuída pelo usuário.|
 |--Identity-Object-ID String|ID de objeto da identidade atribuída pelo usuário.|
@@ -106,7 +113,7 @@ Certifique-se de tratar/Path/to/My/CERT como um caminho para um arquivo PEM ou P
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 
-|Opção|Descrição|
+|Opção|DESCRIÇÃO|
 |---|---|
 |--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
 |--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|

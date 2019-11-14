@@ -1,31 +1,31 @@
 ---
-title: Exemplos do PowerShell para gerenciar grupos e Visualizar write-back de grupo no local-Azure Active Directory | Microsoft Docs
+title: Exemplos do PowerShell v2 para gerenciamento de grupos – Azure AD | Microsoft Docs
 description: Esta página fornece exemplos do PowerShell para ajudar no gerenciamento de seus grupos no Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, Grupos, Gerenciamento de grupos
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e22baabda901a34f624cf27c25037ff3ba94e90
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1aa696ccaecc24df700315962c1f01f3a298c56c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381850"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026706"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets da versão 2 do Azure Active Directory para gerenciamento de grupos
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> * [PowerShell](groups-settings-v2-cmdlets.md)
+> - [Portal do Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
 
@@ -199,7 +199,7 @@ Para excluir grupos do diretório, use o cmdlet Remove-AzureADGroup da seguinte 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 ```
 
-## <a name="manage-group-membership"></a>Gerenciar associação a um grupo
+## <a name="manage-group-membership"></a>Gerenciar associação ao grupo
 
 ### <a name="add-members"></a>Adicionar membros
 
@@ -311,7 +311,7 @@ Se quiser remover um proprietário de um grupo, use o cmdlet Remove-AzureADGroup
 Quando um grupo é criado, certos pontos de extremidade permitem que o usuário final especifique um mailNickname ou o alias a ser usado como parte do endereço de email do grupo. Os grupos com os seguintes aliases de email altamente privilegiados só podem ser criados por um administrador global do Azure AD. 
   
 * abuso
-* administrador
+* admin
 * administrator
 * hostmaster
 * majordomo

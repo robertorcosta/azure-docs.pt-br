@@ -1,5 +1,5 @@
 ---
-title: Tamanhos de VM Linux do Azure — HPC | Microsoft Docs
+title: Tamanhos de VM Linux do Azure-HPC
 description: Lista os diferentes tamanhos disponíveis para máquinas virtuais de computação de alto desempenho Linux no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: ee99869c2b7a7b3ab38fdd9eae0687862ea53819
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 214ab48b6b0dca37eff3b3f155aaa92afc7fee16
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100870"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034886"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamanhos de máquina virtual de computação de alto desempenho
 
@@ -42,7 +42,7 @@ O Azure Marketplace tem muitas distribuições do Linux que dão suporte à cone
   
 * **HPC baseado em CentOS** – para VMs não habilitadas para Sr-IOV, versão 6,5 do HPC baseada em CentOS ou uma versão posterior, até 7,5 são adequadas. Para VMs da série H, as versões 7,1 a 7,5 são recomendadas. OS drivers RDMA e o Intel MPI 5.1 são instalados na VM.
   Para VMs SR-IOV, o CentOS-HPC 7,6 vem otimizado e pré-carregado com os drivers RDMA e vários pacotes MPI instalados.
-  Para outras imagens de VM RHEL/CentOS, adicione a extensão InfiniBandLinux para habilitar a InfiniBand. Esta extensão de VM do Linux instala drivers Mellanox OFED (em VMs SR-IOV) para conectividade RDMA. O cmdlet do PowerShell a seguir instala a versão mais recente (versão 1,0) da extensão InfiniBandDriverLinux em uma VM compatível com RDMA existente. A VM compatível com RDMA é denominada *myVM* e é implantada no grupo de recursos chamado MyResource Group na região *oeste dos EUA* da seguinte maneira:
+  Para outras imagens de VM RHEL/CentOS, adicione a extensão InfiniBandLinux para habilitar a InfiniBand. Esta extensão de VM do Linux instala drivers Mellanox OFED (em VMs SR-IOV) para conectividade RDMA. O cmdlet do PowerShell a seguir instala a versão mais recente (versão 1,0) da extensão InfiniBandDriverLinux em uma VM compatível com RDMA existente. A VM compatível com RDMA é denominada *myVM* e é implantada no grupo de recursos chamado *MyResource* Group na região *oeste dos EUA* da seguinte maneira:
 
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
@@ -56,7 +56,7 @@ O Azure Marketplace tem muitas distribuições do Linux que dão suporte à cone
   } 
   ```
   
-  O comando a seguir instala a extensão mais recente da versão 1,0 do InfiniBandDriverLinux em todas as VMs compatíveis com RDMA em um conjunto de dimensionamento de VM existente chamado *myVMSS* implantado no grupo de recursos chamado MyResource Group:
+  O comando a seguir instala a extensão mais recente da versão 1,0 do InfiniBandDriverLinux em todas as VMs compatíveis com RDMA em um conjunto de dimensionamento de VM existente chamado *myVMSS* implantado no grupo de recursos chamado *MyResource*Group:
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
   Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"

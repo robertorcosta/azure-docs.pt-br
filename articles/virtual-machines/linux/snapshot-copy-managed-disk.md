@@ -1,5 +1,5 @@
 ---
-title: Crie um instantâneo de um VHD no Azure | Microsoft Docs
+title: Criar um instantâneo de um VHD no Azure
 description: Saiba como criar uma cópia de um VHD no Azure como um backup ou para solução de problemas.
 documentationcenter: ''
 author: roygara
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 9f2f3ac3668f0e48716fc30fb69cd1782dbd4e56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15696469ca3861586617e9f418f8a55a7ea90467
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706979"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034789"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo 
 

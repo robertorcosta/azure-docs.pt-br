@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar uma Máquina Virtual do Azure usando o C# | Microsoft Docs
+title: Criar e gerenciar uma máquina virtual do Azure usando oC#
 description: Use o C# e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c6d092889deec934f1db1f1c93c06aa0dc217df5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079601"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032783"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerenciar VMs Windows no Azure usando C# #
 
@@ -30,7 +30,7 @@ Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines
 > * Instalar o pacote
 > * Criar credenciais
 > * Criar recursos
-> * Executar outras tarefas de gerenciamento
+> * Executar tarefas de gerenciamento
 > * Excluir recursos
 > * Executar o aplicativo
 
@@ -128,7 +128,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 ### <a name="create-the-availability-set"></a>Criar o conjunto de disponibilidade
 
-Os [conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais usadas por seu aplicativo.
+Os [Conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais usadas por seu aplicativo.
 
 Para criar o conjunto de disponibilidade, adicione este código ao método Main:
 
@@ -143,7 +143,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
 
 ### <a name="create-the-public-ip-address"></a>Criar um endereço IP público
 
-Um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
+Um [Endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
 
 Para criar o endereço IP público para a máquina virtual, adicione este código ao método Main:
    
@@ -349,7 +349,7 @@ Console.ReadLine();
 
 ### <a name="resize-the-vm"></a>Redimensionar a VM
 
-Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte [Tamanhos de VM](sizes.md).  
+Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte[Tamanhos de VM](sizes.md).  
 
 Para alterar o tamanho da máquina virtual, adicione este código ao método Main:
 

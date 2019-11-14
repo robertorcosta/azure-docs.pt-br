@@ -1,5 +1,5 @@
 ---
-title: Converter o armazenamento do Azure Managed disks de Standard para Premium ou Premium para Standard | Microsoft Docs
+title: Converter o armazenamento do Azure Managed disks de Standard para Premium ou Premium para Standard
 description: Como converter o Azure Managed disks de Standard para Premium ou Premium para Standard usando Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 274697d555974f286c2c71f26280640077c11f81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b63d4d0247fd640e961d03d336d6b211473c48fb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749555"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033916"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Atualizar o tipo de armazenamento de um disco gerenciado
 
@@ -22,7 +22,7 @@ Não há suporte para essa funcionalidade em discos não gerenciados. Mas você 
 
  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Como a conversão requer uma reinicialização da VM (máquina virtual), você deve agendar a migração do armazenamento em disco durante uma janela de manutenção pré-existente.
 * Se o disco não for gerenciado, primeiro [converta-o em um disco gerenciado](convert-unmanaged-to-managed-disks.md) para que você possa alternar entre as opções de armazenamento.

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: ranjithr
+ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5dae268e2c659bcd39c7b274f2f12c64b4504353
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719787"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024237"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
@@ -94,7 +94,7 @@ Uma lista separada por ponto e vírgula de arquivos que são observados para alt
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-O valor padrão é false. Se habilitado, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_CONTROL\_PIPE) e enviar uma mensagem de "reciclagem". Isso fará com que w3wp seja reciclado normalmente.
+O valor padrão é falso. Se habilitado, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_CONTROL\_PIPE) e enviar uma mensagem de "reciclagem". Isso fará com que w3wp seja reciclado normalmente.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -106,7 +106,7 @@ O valor padrão é 0, o que significa que esse recurso está desabilitado. Quand
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-O valor padrão é false. Se configurado como verdadeiro, o iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP que enviar ao valor do cabeçalho `iisnode-debug` como URL. Peças individuais de informações de diagnóstico podem ser obtidas observando o fragmento de URL, no entanto, uma visualização está disponível ao abrir a URL em um navegador.
+O valor padrão é falso. Se configurado como verdadeiro, o iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP que enviar ao valor do cabeçalho `iisnode-debug` como URL. Peças individuais de informações de diagnóstico podem ser obtidas observando o fragmento de URL, no entanto, uma visualização está disponível ao abrir a URL em um navegador.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -114,7 +114,7 @@ Essa configuração controla o registro em log de stdout e stderr por iisnode. I
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-O valor padrão é false. Quando definido como true, iisnode exibirá o código de status HTTP e o código de erro Win32 no navegador. O código win32 será útil na depuração de certos tipos de problemas.
+O valor padrão é falso. Quando definido como true, iisnode exibirá o código de status HTTP e o código de erro Win32 no navegador. O código win32 será útil na depuração de certos tipos de problemas.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (não habilitar em sites de produção ativos)
 
@@ -212,7 +212,7 @@ As alterações anteriores criarão o perfil da função WriteConsoleLog e grava
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Fazer o download do arquivo e abri-lo com as ferramentas do Chrome F12. Pressione F12 no Chrome e clique na guia **Perfis**. Clique no botão **Carregar**. Selecione o arquivo profile.cpuprofile que você baixou. Clique no perfil que você acabou de carregar.
+Fazer o download do arquivo e abri-lo com as ferramentas do Chrome F12. Pressione F12 no Chrome e escolha a guia **perfis** . escolha o botão **carregar** . Selecione o arquivo profile.cpuprofile que você baixou. Clique no perfil que você acabou de carregar.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
@@ -276,7 +276,7 @@ Habilite FREB para que o aplicativo veja o código de erro win32 (habilite FREB 
 
 NODE.exe tem uma configuração chamada `NODE_PENDING_PIPE_INSTANCES`. Em Serviço de Aplicativo do Azure, esse valor é definido como 5000. Isso significa que node.exe pode aceitar 5.000 solicitações por vez no pipe nomeado. Esse valor deve ser suficiente para a maioria dos aplicativos de nó em execução no Serviço de Aplicativo do Azure. Você não deve ver 503.1003 no Serviço de Aplicativo do Azure devido ao alto valor para `NODE_PENDING_PIPE_INSTANCES`
 
-## <a name="more-resources"></a>Mais recursos
+## <a name="more-resources"></a>Mais Recursos
 
 Siga estes links para saber mais sobre aplicativos do node.js no Serviço de Aplicativo do Azure.
 
@@ -284,5 +284,5 @@ Siga estes links para saber mais sobre aplicativos do node.js no Serviço de Apl
 * [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro de desenvolvedores do Node. js](../nodejs-use-node-modules-azure-apps.md)
+* [Centro de desenvolvedores do Node.js](../nodejs-use-node-modules-azure-apps.md)
 * [Explorar o Console de Depuração Super Secret Kudu](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

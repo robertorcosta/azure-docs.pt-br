@@ -1,5 +1,5 @@
 ---
-title: Imagens do Red Hat Enterprise Linux no Azure | Microsoft Docs
+title: Imagens do Red Hat Enterprise Linux no Azure
 description: Saiba mais sobre imagens do Red Hat Enterprise Linux no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: eaabe9da20c22dd3e4d924887adcbc7081857e91
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764313"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035109"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imagens do Red Hat Enterprise Linux no Azure
 Este artigo descreve as imagens de Red Hat Enterprise Linux (RHEL) disponíveis no Azure Marketplace, juntamente com as políticas em torno de seus nomes e retenção.
@@ -64,7 +64,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>Convenção de nomenclatura atual
 Todas as imagens RHEL publicadas atualmente usam o modelo pago conforme o uso e estão conectadas à [atualização de infra-estrutura RHUI (Red Hat) no Azure](https://aka.ms/rhui-update). Uma nova Convenção de nomenclatura foi adotada para imagens da família RHEL 7 nas quais o esquema de particionamento de disco (RAW, LVM) é especificado na SKU em vez da versão. A versão da imagem RHEL conterá 7-RAW ou 7-LVM. A nomenclatura família do RHEL 6 não foi alterada no momento.
 
-Haverá 2 tipos de SKUs de imagem do RHEL 7 nesta Convenção de nomenclatura: SKUs que listam a versão secundária e SKUs que não têm. Se você quiser usar uma SKU 7-RAW ou 7-LVM, poderá especificar a versão secundária do RHEL que deseja implantar na versão. Se você escolher a versão "mais recente", será provisionada a versão secundária mais recente do RHEL.
+Haverá 2 tipos de SKUs de imagem RHEL 7 nesta Convenção de nomenclatura: SKUs que listam a versão secundária e SKUs que não têm. Se você quiser usar uma SKU 7-RAW ou 7-LVM, poderá especificar a versão secundária do RHEL que deseja implantar na versão. Se você escolher a versão "mais recente", será provisionada a versão secundária mais recente do RHEL.
 
 >[!NOTE]
 > O RHEL para conjunto SAP de imagens, a versão do RHEL permanece fixa. Assim, sua convenção de nomenclatura inclui uma versão específica na SKU.
@@ -88,7 +88,7 @@ Por exemplo, você pode ver as seguintes imagens do RHEL 7,4 disponíveis:
 RedHat:RHEL:7-RAW:7.4.2018010506
 RedHat:RHEL:7.4:7.4.2019041718
 ```
-Nesse caso, `RedHat:RHEL:7.4:7.4.2019041718` será anexado a repositórios do eus por padrão e `RedHat:RHEL:7-RAW:7.4.2018010506` será anexado a repositórios não eus por padrão.
+Nesse caso, os `RedHat:RHEL:7.4:7.4.2019041718` serão anexados aos repositórios do EUS por padrão e `RedHat:RHEL:7-RAW:7.4.2018010506` serão anexados a repositórios não EUS por padrão.
 
 ### <a name="for-customers-that-dont-want-to-use-eus-images"></a>Para clientes que não desejam usar imagens EUS:
 Se você não quiser usar uma imagem conectada ao EUS por padrão, implante usando uma imagem que não contenha um número de versão secundário na SKU.
@@ -112,7 +112,7 @@ RHEL 8,0      |N/D                            | Nenhum EUS disponível no Red Ha
 ## <a name="list-of-rhel-images-available"></a>Lista de imagens RHEL disponíveis
 As ofertas a seguir são SKUs que estão atualmente disponíveis para uso geral:
 
-Oferta| SKU | Particionamento | Provisionamento | Observações
+Oferta| Sku | Particionamento | Provisionamento | Observações
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 7-RAW    | RAW    | Agente do Linux | Família de imagens RHEL 7. x. <br> Não anexado a repositórios do EUS por padrão.
 |             | 7-LVM    | LVM    | Agente do Linux | Família de imagens RHEL 7. x. <br> Não anexado a repositórios do EUS por padrão.
