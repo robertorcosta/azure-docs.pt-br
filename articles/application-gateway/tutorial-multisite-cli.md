@@ -1,23 +1,18 @@
 ---
-title: Criar um gateway de aplicativo com hospedagem de vários sites – CLI do Azure | Microsoft Docs
+title: Hospedagem de vários sites usando a CLI-Aplicativo Azure gateway
 description: Saiba como criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5edc2e5228146aee913027a83e495d94c003e237
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717275"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047346"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Criar um gateway de aplicativo com hospedagem de vários sites usando a CLI do Azure
 
@@ -27,10 +22,10 @@ Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um Gateway de Aplicativo
+> * Criar um gateway de aplicativo
 > * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
-> * Criar um registro CNAME no seu domínio
+> * Criar um registro CNAME em seu domínio
 
 ![Exemplo de roteamento de vários sites](./media/tutorial-multisite-cli/scenario.png)
 
@@ -38,13 +33,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Criar um grupo de recursos usando [az group create](/cli/azure/group).
+Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos usando [az group create](/cli/azure/group).
 
-O exemplo a seguir cria um grupo de recursos denominado *myResourceGroupAG* no local *eastus*.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupAG* no local *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -98,7 +93,7 @@ Pode levar vários minutos para o gateway de aplicativo ser criado. Depois de cr
 - *appGatewayBackendHttpSettings* - Especifica que a porta 80 e um protocolo HTTP são usados para comunicação.
 - *appGatewayHttpListener* - O ouvinte padrão associado ao *appGatewayBackendPool*.
 - *appGatewayFrontendIP* - Atribui *myAGPublicIPAddress* ao *appGatewayHttpListener*.
-- *rule1* - A regra padrão de roteamento que está associada ao *appGatewayHttpListener*.
+- *rule1* - A regra de roteamento padrão que está associada com *appGatewayHttpListener*.
 
 ### <a name="add-the-backend-pools"></a>Adicionar os pools de back-end
 
@@ -138,9 +133,9 @@ az network application-gateway http-listener create \
   --host-name www.fabrikam.com   
   ```
 
-### <a name="add-routing-rules"></a>Adicionar regras de redirecionamento
+### <a name="add-routing-rules"></a>Adicionar regras de roteamento
 
-As regras são processadas na ordem em que são criadas e o tráfego é redirecionado usando a primeira regra que corresponde à URL enviada para o gateway de aplicativo. Por exemplo, se você tiver uma regra usando um ouvinte básico e outra usando um ouvinte multissite, ambas na mesma porta, a regra com o ouvinte multissite deverá ser listada antes daquela com o ouvinte básico, para que a função multissite funcione conforme esperado. 
+As regras são processadas na ordem em que são criadas, e o tráfego é redirecionado usando a primeira regra que corresponde à URL enviada para o gateway de aplicativo. Por exemplo, se você tiver uma regra usando um ouvinte básico e outra usando um ouvinte multissite, ambas na mesma porta, a regra com o ouvinte multissite deverá ser listada antes daquela com o ouvinte básico, para que a função multissite funcione conforme esperado. 
 
 Neste exemplo, você criará duas novas regras e excluirá a regra padrão que foi criada quando você criou o gateway de aplicativo. Você pode adicionar a regra usando [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
@@ -211,7 +206,7 @@ for i in `seq 1 2`; do
 done
 ```
 
-## <a name="create-a-cname-record-in-your-domain"></a>Criar um registro CNAME no seu domínio
+## <a name="create-a-cname-record-in-your-domain"></a>Criar um registro CNAME em seu domínio
 
 Depois de criar o gateway de aplicativo com seu endereço IP público, você pode obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. Use [az network public-ip show](/cli/azure/network/public-ip) para obter o endereço DNS do gateway de aplicativo. Copie o valor de *fqdn* em DNSSettings e use-o como o valor do registro CNAME a ser criado. 
 
@@ -223,7 +218,7 @@ az network public-ip show \
   --output tsv
 ```
 
-O uso de registros A não é recomendado, pois o VIP pode mudar quando o gateway de aplicativo for reiniciado.
+O uso de registros A não é recomendável, pois o VIP pode mudar quando o gateway de aplicativo for reinicializado.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
@@ -237,14 +232,14 @@ Altere o endereço para seu outro domínio e você verá algo parecido com o exe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um Gateway de Aplicativo
+> * Criar um gateway de aplicativo
 > * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
-> * Criar um registro CNAME no seu domínio
+> * Criar um registro CNAME em seu domínio
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o que você pode fazer com o gateway de aplicativo](application-gateway-introduction.md)

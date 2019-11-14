@@ -1,5 +1,5 @@
 ---
-title: Autenticação multifator (MFA) e Azure Active Directory de Privileged Identity Management | Microsoft Docs
+title: MFA ou 2FA e Privileged Identity Management-Azure AD | Microsoft Docs
 description: Saiba como o PIM (Azure AD Privileged Identity Management) valida a MFA (autenticação multifator).
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/31/2018
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aa58c354198e648227b9b0b43d1f60546f87d32
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6df593909c3ae5962e413eb84e64196fade0326b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063074"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022146"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Autenticação multifator e Privileged Identity Management
 
@@ -38,7 +38,7 @@ A opção mais simples é contar com a autenticação multifator do Azure para u
 
 Como alternativa, se os usuários autenticarem no local, você poderá fazer com que seu provedor de identidade seja responsável pela autenticação multifator. Por exemplo, se você tiver configurado os Serviços de Federação do AD para exigir a autenticação baseada em cartão inteligente antes de acessar o Azure AD, [Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS](../authentication/howto-mfa-adfs.md) inclui instruções para configurar o AD FS a fim de enviar solicitações ao Azure AD. Quando um usuário tenta ativar uma função, Privileged Identity Management aceitará que a autenticação multifator já tenha sido validada para o usuário depois de receber as declarações apropriadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Definir as configurações de função do Azure AD no Privileged Identity Management](pim-how-to-change-default-settings.md)
 - [Definir configurações de função de recurso do Azure no Privileged Identity Management](pim-resource-roles-configure-role-settings.md)

@@ -4,12 +4,12 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: b150cad22528234286fa7939bf7055e8312ed361
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 3086d15ba541aa7f08f983dac4bc363f43248a9e
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229171"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062850"
 ---
 ## <a name="webapi-project"></a>Projeto WebAPI
 1. No Visual Studio, abra o projeto **AppBackend** que você criou no tutorial **Notificar Usuários** .
@@ -36,10 +36,11 @@ ms.locfileid: "68229171"
 
             public Notification CreateNotification(string payload)
             {
-                var notification = new Notification() {
-                Id = notifications.Count,
-                Payload = payload,
-                Read = false
+                var notification = new Notification
+                {
+                    Id = notifications.Count,
+                    Payload = payload,
+                    Read = false
                 };
 
                 notifications.Add(notification);
@@ -91,5 +92,5 @@ ms.locfileid: "68229171"
 Observe que agora o método `Post` não envia uma notificação de sistema. Ele envia uma notificação bruta, que contém somente a ID de notificação, sem conteúdo sensível. Além disso, certifique-se de comentar a operação de envio para as plataformas para as quais você não tem credenciais configuradas em seu hub de notificação, já que elas resultarão em erros.
 
 1. Agora, reimplantaremos esse aplicativo em um Site do Azure para torná-lo acessível a partir de todos os dispositivos. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
-2. Selecione o Site do Azure como seu destino de publicação. Entre em sua conta do Azure e selecione um site novo ou existente, então anote a propriedade **URL de destino** na guia **Conexão**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end* . Clique em **Publicar**.
+2. Selecione o Site do Azure como seu destino de publicação. Entre com sua conta do Azure e selecione um site novo ou existente e anote a propriedade **URL de destino** na guia **conexão** . Iremos nos referir a essa URL como seu *ponto de extremidade de back-end* posteriormente neste tutorial. Clique em **Publicar**.
 

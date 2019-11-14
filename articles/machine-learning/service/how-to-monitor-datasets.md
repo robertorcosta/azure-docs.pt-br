@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fa7ee6663aae24451af195de4a8225c7a6b351e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 24b9b120240ffc6f7dd2252d12c9f8af2bcfafbc
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647139"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049168"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,10 +34,10 @@ As métricas e as informações estão disponíveis por meio do Aplicativo Azure
 > [!Important]
 > Observe que o monitoramento de descompasso de dados com o SDK está disponível em todas as edições, ao passo que monitorar a descompasso de dados por meio do estúdio na Web é apenas a Enterprise Edition.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para criar e trabalhar com monitores de conjunto de trabalho, você precisa de:
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
 * O [SDK do Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que inclui o pacote de conjuntos de linhas do azureml.
 * Dados estruturados (tabulares) com um carimbo de data/hora especificado no caminho do arquivo, nome do arquivo ou coluna nos dados.
@@ -131,12 +131,12 @@ Esta tabela contém as configurações básicas usadas para o monitor de conjunt
 
 | Configuração | DESCRIÇÃO | Dicas | Mutável | 
 | ------- | ----------- | ---- | ------- | 
-| Nome | Nome do monitor de DataSet. | | Não |
+| NOME | Nome do monitor de DataSet. | | Não |
 | Conjunto de linha de base | Conjunto de tabelas que será usado como a linha de base para comparação do conjunto de origem de destino ao longo do tempo. | O conjunto de linha de base deve ter recursos em comum com o DataSet de destino. Em geral, a linha de base deve ser definida como um conjunto de linhas de treinamento do modelo ou uma fatia do conjunto de origem de destino. | Não |
 | DataSet de destino | Conjunto de dados tabular com coluna timestamp especificada que será analisada para descompasso | O conjunto de dados de destino deve ter recursos em comum com o conjunto de dados de linha de base e deve ser um conjunto de dados `timeseries` para o qual são anexados novos. Os dados de histórico no DataSet de destino podem ser analisados ou novos dados podem ser monitorados. | Não | 
 | Frequência | Essa é a frequência que será usada para agendar o trabalho de pipeline e analisar os dados históricos se estiver executando um aterramento. As opções incluem diário, semanal ou mensal. | Ajuste essa configuração para incluir um tamanho comparável de dados para a linha de base. | Não | 
-| Recursos | Lista de recursos que serão analisados para descompasso de dados ao longo do tempo | Definido como um ou mais recursos de saída do modelo para medir a descompasso de conceito. Não inclua recursos que naturalmente se descompassom ao longo do tempo (mês, ano, índice, etc.). Você pode aterrar e monitorar o descompasso de dados existente depois de ajustar a lista de recursos. | Sim | 
-| Destino de computação | Azure Machine Learning o destino de computação para executar os trabalhos do monitor de conjunto de trabalho. | | Sim | 
+| Recursos | Lista de recursos que serão analisados para descompasso de dados ao longo do tempo | Definido como um ou mais recursos de saída do modelo para medir a descompasso de conceito. Não inclua recursos que naturalmente se descompassom ao longo do tempo (mês, ano, índice, etc.). Você pode aterrar e monitorar o descompasso de dados existente depois de ajustar a lista de recursos. | sim | 
+| Destino de computação | Azure Machine Learning o destino de computação para executar os trabalhos do monitor de conjunto de trabalho. | | sim | 
 
 ### <a name="monitor-settings"></a>Configurações do monitor
 
@@ -144,10 +144,10 @@ Essas configurações são para o pipeline monitor do conjunto de DataSet agenda
 
 | Configuração | DESCRIÇÃO | Dicas | Mutável | 
 | ------- | ----------- | ---- | ------- |
-| Habilitar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite-o para analisar dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | Sim | 
-| Latency | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL que meu DataSet encapsula, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
-| Endereços de email | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | Sim | 
-| Limite | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | Sim | 
+| Habilitar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite-o para analisar dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | sim | 
+| Latência | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL que meu DataSet encapsula, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
+| Endereços de email | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | sim | 
+| Limite | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | sim | 
 
 ### <a name="backfill-settings"></a>Configurações de aterramento
 
@@ -179,7 +179,7 @@ O monitor do conjunto de resultados resultante será exibido na lista. Selecione
 
 ### <a name="from-python-sdk"></a>Do SDK do Python
 
-Consulte a [documentação de referência do SDK do Python sobre descompasso de dados](https://aka.ms/datadriftapi) para obter detalhes completos. 
+Consulte a [documentação de referência do SDK do Python sobre descompasso de dados](/python/api/azureml-datadrift/azureml.datadrift) para obter detalhes completos. 
 
 Veja a seguir um exemplo de criação de um monitor de conjunto de um DataSet usando o SDK do Python
 
@@ -307,7 +307,7 @@ Você pode usar um grupo de ações existente ou criar um novo para definir a a�
 
 ![Novo grupo de ação](media/how-to-monitor-datasets/action-group.png)
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 Limitações e problemas conhecidos:
 

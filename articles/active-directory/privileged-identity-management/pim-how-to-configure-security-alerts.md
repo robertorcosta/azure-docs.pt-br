@@ -1,25 +1,25 @@
 ---
-title: Configurar alertas de segurança para funções do Azure AD no PIM-Azure Active Directory | Microsoft Docs
-description: Saiba como configurar alertas de segurança para funções do Azure AD no Azure AD Privileged Identity Management (PIM).
+title: Alertas de segurança para funções do Azure AD no PIM – Azure AD | Microsoft Docs
+description: Configure alertas de segurança para funções do Azure AD Privileged Identity Management no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e188ef651f6fe539932cf1670f914e8b57564567
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: e05502b40f7f917526b2514d83dcc58636ac06f3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809092"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023053"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurar alertas de segurança para funções do Azure AD no Privileged Identity Management
 
@@ -57,12 +57,12 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 | **Prevenção** | [Exigir MFA](pim-how-to-change-default-settings.md) para cada função.  |
 | **Ação de mitigação no portal** | Torna necessária a autenticação multifator para a ativação da função com privilégios. |
 
-### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>O locatário não tem o Microsoft Azure AD Premium P2
+### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>A organização não tem Azure AD Premium P2
 
 | | |
 | --- | --- |
 | **Severidade** | Baixo |
-| **Por que recebo este alerta?** | O locatário atual não tem o Microsoft Azure AD Premium P2. |
+| **Por que recebo este alerta?** | A organização do Azure AD atual não tem Azure AD Premium P2. |
 | **Como corrigir?** | Revise informações sobre [edições do Microsoft Azure Active Directory](../fundamentals/active-directory-whatis.md). Atualizar para o Microsoft Azure Active Directory Premium P2. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>Contas obsoletas possíveis em uma função com privilégios
@@ -128,6 +128,6 @@ Você pode personalizar alguns dos alertas de segurança no Privileged Identity 
 
     ![Para o alerta selecionado, painel configurações de alerta de segurança](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Definir as configurações de função do Azure AD no Privileged Identity Management](pim-how-to-change-default-settings.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe7ba0f6daec0b85ec73611ba4e48d72f16146e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45351cc29b2b7028863aff06ab5a511674604d6f
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515129"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048951"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Conectar o acesso à Internet do Zscaler ao Azure Sentinel
 
@@ -48,7 +48,7 @@ Certifique-se de configurar a segurança da máquina de acordo com a política d
 Para usar a comunicação TLS entre a solução de segurança e a máquina de syslog, você precisará configurar o daemon de syslog (rsyslog ou syslog-ng) para se comunicar em TLS: [criptografando o tráfego de syslog com TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [criptografando mensagens de log com TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Verifique se o computador Linux que você usa como proxy está executando um dos seguintes sistemas operacionais:
 
 - 64 bits
@@ -75,7 +75,7 @@ Verifique se o computador Linux que você usa como proxy está executando um dos
    - Syslog RFC 5424
  
 Verifique se o computador também atende aos seguintes requisitos: 
-- Permissões
+- permissões
     - Você deve ter permissões elevadas (sudo) em seu computador. 
 - Requisitos de software
     - Verifique se você tem o Python em execução no seu computador
@@ -106,7 +106,7 @@ Nesta etapa, você precisa selecionar o computador Linux que atuará como um pro
     - Porta = 514
     - Formato = CEF
     - Endereço IP-certifique-se de enviar as mensagens CEF para o endereço IP da máquina virtual que você dedicaram para essa finalidade.
- Para obter mais informações, consulte o [Guia de integração do Azure Sentinel Zscaler](https://aka.ms/ZscalerCEFInstructions).
+ Para obter mais informações, consulte o [Guia de implantação do Zscaler e do Azure Sentinel](https://aka.ms/ZscalerCEFInstructions).
  
    > [!NOTE]
    > Esta solução oferece suporte a RFC 3164 ou a RFC 5424 do syslog.

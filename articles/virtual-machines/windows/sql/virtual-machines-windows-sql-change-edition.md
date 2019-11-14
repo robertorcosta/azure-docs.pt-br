@@ -1,5 +1,5 @@
 ---
-title: Executar uma atualização in-loco de uma edição do SQL Server em uma VM do Azure | Microsoft Docs
+title: Atualização in-loco do SQL Server Edition
 description: Saiba como alterar a edição de sua VM SQL Server no Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/26/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eec2e588b1c2b03e9880dad0848b8213bf5fa449
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1db45097b0416b680571cb47ec1d9b52f9275c43
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100518"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022212"
 ---
 # <a name="perform-an-in-place-upgrade-of-a-sql-server-edition-on-an-azure-vm"></a>Executar uma atualização in-loco de uma edição do SQL Server em uma VM do Azure
 
@@ -38,13 +39,13 @@ Se você atualizou a edição do SQL Server usando a mídia de instalação apó
 1. Selecione **aplicar** para aplicar as alterações de metadados de edição. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para fazer uma alteração in-loco da edição do SQL Server, você precisará do seguinte: 
 
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/).
 - Uma [vm SQL Server no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada com o [provedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
-- Instale a mídia com a edição desejada do SQL Server. Os clientes que têm o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter a mídia de instalação do centro de licenciamento por [volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm o Software Assurance podem usar a mídia de instalação de um Azure Marketplace SQL Server imagem de VM que tem a edição desejada.
+- Instale a mídia com a edição desejada do SQL Server. Os clientes que têm o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter a mídia de instalação do [centro de licenciamento por volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm o Software Assurance podem usar a mídia de instalação de um Azure Marketplace SQL Server imagem de VM que tem a edição desejada.
 
 
 ## <a name="upgrade-an-edition"></a>Atualizar uma edição
@@ -91,7 +92,7 @@ Depois que a edição do SQL Server for rebaixada, modifique a propriedade de ed
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, confira os seguintes artigos: 
+Para obter mais informações, consulte os seguintes artigos: 
 
 * [Visão geral do SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Perguntas frequentes para SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)

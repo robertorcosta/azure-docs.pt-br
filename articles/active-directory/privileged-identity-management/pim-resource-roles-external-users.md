@@ -1,33 +1,33 @@
 ---
-title: Convidar convidados e atribuir funções de recursos do Azure no Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: Atribuir funções de recurso do Azure a convidados no PIM – Azure AD | Microsoft Docs
 description: Saiba como convidar usuários convidados externos e atribuir funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08c2ef1695d118c248abfc500025479d1186eb05
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 2efcf77d65fa2f9e203ed805cd7d78b9802ee3aa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895643"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021931"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide usuários convidados e atribua funções de recursos do Azure no Privileged Identity Management
 
 Os usuários convidados do Azure Active Directory (Azure AD) fazem parte dos recursos de colaboração B2B (entre empresas) no Azure AD para que você possa gerenciar usuários e fornecedores externos convidados como convidados no Azure AD. Ao combinar a colaboração B2B com o Azure AD Privileged Identity Management (PIM), você pode estender seus requisitos de conformidade e governança para convidados. Por exemplo, você pode usar esses recursos de Privileged Identity Management para tarefas de identidade do Azure com convidados:
 
 - Atribuir acesso a recursos específicos do Azure
-- Habilitar acesso Just-In-Time
+- Habilitar acesso just-in-time
 - Especifique a data de duração e de término da atribuição
 - Exigir autenticação multifator na atribuição ou ativação ativa
 - Realizar as revisões de acesso
@@ -163,7 +163,7 @@ Você pode exibir os logs de auditoria para controlar o que os convidados estão
 
     ![Logs de auditoria de diretório listando data, destino, iniciado por e atividade](./media/pim-resource-roles-external-users/audit-directory.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atribuir funções de administrador do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
 - [O que é o acesso de usuário convidado na colaboração B2B do Azure AD?](../b2b/what-is-b2b.md)

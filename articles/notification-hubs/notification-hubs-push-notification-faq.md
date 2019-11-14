@@ -1,5 +1,5 @@
 ---
-title: 'Hubs de Notificação do Azure: Perguntas frequentes | Microsoft Docs'
+title: 'Hubs de Notificação do Azure: perguntas frequentes | Microsoft Docs'
 description: Perguntas frequentes sobre como projetar/implementar soluções em Hubs de Notificação
 services: notification-hubs
 documentationcenter: mobile
@@ -13,18 +13,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 5de8c9523e05411a4751766c836b8e99ebb977c1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 11/13/2019
+ms.openlocfilehash: ee1bd413894ff5c12883279ccd8a9e9eac3c1790
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213139"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048781"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações por push com Hubs de Notificação do Azure: Perguntas frequentes
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
 
 ## <a name="general"></a>Geral
 
@@ -38,16 +38,16 @@ Mapeamento recomendado corresponde a um namespace com um único aplicativo. Dent
 
 Os detalhes de preços mais recentes podem ser encontrados na página [Preços dos Hubs de Notificação]. Os Hubs de Notificação são cobrados no nível de namespace. (Para a definição de um namespace, veja "Qual é a estrutura de recursos dos Hubs de Notificação?") Os Hubs de Notificação oferecem três camadas:
 
-* **Grátis**: Esta camada é um bom ponto de partida para explorar os recursos de envio. Não é recomendável para aplicativos de produção. Obter 500 dispositivos e 1 milhão envia incluído por namespace por mês, com nenhuma garantia (SLA) contrato de nível de serviço.
-* **Básico**: Essa camada (ou a Standard) é recomendável para aplicativos de produção menores. Obter 200.000 dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base.
-* **Standard**: Essa camada é recomendada para aplicativos de produção médios a grandes. Obter 10 milhões de dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Inclui telemetria avançada (dados adicionais sobre status de push fornecido).
+* **Livre**: esta camada é um bom ponto de partida para explorar os recursos de envio. Não é recomendável para aplicativos de produção. Obter 500 dispositivos e 1 milhão envia incluído por namespace por mês, com nenhuma garantia (SLA) contrato de nível de serviço.
+* **Básico**: essa camada (ou a Standard) é recomendável para aplicativos de produção menores. Obter 200.000 dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base.
+* **Padrão**:essa camada é recomendada para aplicativos de produção médios a grandes. Obter 10 milhões de dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Inclui telemetria avançada (dados adicionais sobre status de push fornecido).
 
 Recursos de camada padrão:
 
-* **Telemetria avançada**: Você pode usar os Hubs de Notificação por Telemetria de Mensagem para rastrear quaisquer solicitações de envio por push e Comentários do Sistema de Notificação de Plataforma para depuração.
-* **Multilocação**: Você pode trabalhar com as credenciais do Sistema de Notificação de Plataforma em nível de namespace. Esta opção permite que você dividida locatários facilmente em hubs no mesmo namespace.
-* **Push agendado**: Você pode agendar que notificações sejam enviadas a qualquer momento.
-* **Operações em massa**: habilita a funcionalidade de exportação/importação de registros, conforme descrito no documento [Importação/Exportação de Registros].
+* **Telemetria avançada**: você pode usar os Hubs de Notificação por Telemetria de Mensagem para rastrear quaisquer solicitações de envio por push e Comentários do Sistema de Notificação de Plataforma para depuração.
+* **Multilocação**: você pode trabalhar com as credenciais do Sistema de Notificação de Plataforma em nível de namespace. Esta opção permite que você dividida locatários facilmente em hubs no mesmo namespace.
+* **Push agendado**: você pode agendar que notificações sejam enviadas a qualquer momento.
+* **Operações em massa**: habilita a funcionalidade de exportação/importação de registros conforme descrito no documento de [Importação/Exportação de Registros] .
 
 ### <a name="what-is-the-notification-hubs-sla"></a>O que é o SLA dos Hubs de Notificação?
 
@@ -165,7 +165,7 @@ Para enviar cargas confidenciais, é recomendável usar um padrão Push seguro. 
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Qual suporte é fornecido para a recuperação de desastre?
 
-Fornecemos uma cobertura de recuperação de desastre de metadados em nosso lado (o nome de Hubs de Notificação, a cadeia de conexão e outras informações fundamentais). Quando um cenário de recuperação de desastre é disparado, os dados de registro são o *único segmento* da infraestrutura de Hubs de Notificação for perdida. Você precisará implementar uma solução para preencher esses dados novamente em seu novo hub após a recuperação:
+Fornecemos uma cobertura de recuperação de desastre de metadados em nosso lado (o nome de Hubs de Notificação, a cadeia de conexão e outras informações fundamentais). Quando um cenário de recuperação de desastre é disparado, os dados de registro são o *único segmento* da infraestrutura de Hubs de Notificação for perdida. Você deve implementar uma solução para repopular esses dados em seu novo hub após a recuperação:
 
 1. Crie um hub de notificações secundário em um datacenter diferente. É recomendável criar um desde o início para proteger você de um evento de recuperação de desastre que possa afetar sua capacidade de gerenciamento. Você também pode criar um no momento do evento de recuperação de desastre.
 
@@ -183,6 +183,10 @@ Se você não tem um back-end, quando o aplicativo inicia nos dispositivos de de
 
 Haverá um período de tempo quando os dispositivos com aplicativos não abertos não recebem notificações.
 
+### <a name="is-all-of-my-data-stored-in-encrypted-form"></a>Todos os meus dados são armazenados em formato criptografado?
+
+Os hubs de notificação do Azure criptografam todos os dados do cliente em repouso com exceção das marcas de registro. Por esse motivo, você não deve armazenar dados pessoais ou confidenciais usando marcas.
+
 ### <a name="is-there-audit-log-capability"></a>Há recursos de log de auditoria?
 
 Sim. Todas as operações de Gerenciamento de Hubs de Notificação atualizam o Log de Atividades do Azure para o qual está exposto no [portal do Azure]. O Log de Atividades do Azure fornece análises das operações executadas nos recursos em sua assinatura. Usando o Log de Atividades, você pode determinar o quê, quem e quando de qualquer operação de gravação (PUT, POST, DELETE) feita para os recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. No entanto, o Log de Atividades não inclui as operações de leitura (GET).
@@ -197,7 +201,7 @@ Os Hubs de Notificação do Azure fornecem vários recursos para a solução de 
 
 Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria no [portal do Azure]. Os detalhes das métricas estão disponíveis na página [Métricas de Hubs de Notificação].
 
-Você também pode acessar métricas programaticamente. Para obter mais informações, confira os seguintes artigos:
+Você também pode acessar métricas programaticamente. Para obter mais informações, consulte os seguintes artigos:
 
 - [Recuperar métricas de Azure monitor com .net](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Este exemplo usa o nome de usuário e a senha. Para usar um certificado, sobrecarregar o método FromServicePrincipal para fornecer um certificado, conforme mostrado neste [exemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Obtendo métricas e logs de atividade para um recurso](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
@@ -223,4 +227,4 @@ Você também pode acessar métricas programaticamente. Para obter mais informa�
 [Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Aplicativos Móveis]: https://azure.microsoft.com/services/app-service/mobile/
-[Preços do serviço de aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
+[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/

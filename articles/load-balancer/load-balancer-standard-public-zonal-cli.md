@@ -1,6 +1,6 @@
 ---
-title: Criar um Standard Load Balancer com front-end de zona usando a CLI do Azure
-titlesuffix: Azure Load Balancer
+title: Standard Load Balancer com front-end zonal-CLI do Azure
+titleSuffix: Azure Load Balancer
 description: Saiba como criar um Standard Load Balancer público com front-end de endereço IP público de zona usando a CLI do Azure
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 7da41456a4f4bb88d402d27b42b31f6d4adfa7f6
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 5e6dd06cf43b0eb5389597dcedbc323f4c035333
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274309"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048336"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Criar um Standard Load Balancer com front-end de zona usando a CLI do Azure
 
@@ -62,7 +62,7 @@ az network public-ip create \
 ```
 
 ## <a name="create-azure-standard-load-balancer"></a>Criar o Azure Standard Load Balancer
-Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
+Esta seção fornece detalhes sobre como criar e configurar os componentes a seguir do balanceador de carga:
 - um pool de IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
 - um pool de IP de back-end no qual o pool de front-end envia o tráfego de rede com a carga balanceada.
 - uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
