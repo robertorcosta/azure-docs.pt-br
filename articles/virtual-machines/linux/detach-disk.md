@@ -1,5 +1,5 @@
 ---
-title: Desanexar um disco de dados de uma VM Linux – Azure | Microsoft Docs
+title: Desanexar um disco de dados de uma VM do Linux-Azure
 description: Saiba como desanexar um disco de dados de uma máquina virtual no Azure usando a CLI do Azure ou o portal do Azure.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e026617db4da58c12a454000f6d97f8b6843e95d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695873"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036378"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Linux
 
@@ -100,7 +100,7 @@ az vm disk detach \
     -n myDataDisk
 ```
 
-O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
+O disco permanece no armazenamento, mas não está mais conectado a uma máquina virtual.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados usando o portal
@@ -113,7 +113,7 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 5. Depois que o disco for removido, clique em Salvar na parte superior do painel.
 6. No painel da máquina virtual, clique em **Visão Geral** e, em seguida, clique no botão **Iniciar** na parte superior do painel para reiniciar a VM.
 
-O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
+O disco permanece no armazenamento, mas não está mais conectado a uma máquina virtual.
 
 
 

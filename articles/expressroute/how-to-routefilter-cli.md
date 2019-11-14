@@ -1,5 +1,5 @@
 ---
-title: 'Configurar filtros de rota para emparelhamento da Microsoft - ExpressRoute: CLI do Azure | Microsoft Docs'
+title: 'ExpressRoute: filtros de rota-emparelhamento da Microsoft: CLI do Azure'
 description: Este artigo descreve como configurar filtros de rota para o Emparelhamento da Microsoft usando a CLI do Azure
 services: expressroute
 author: anzaman
@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: f60bf8de33cd9552bf7c903f4c8921d50e911643
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c3c50a005e119890fb17fcf7b3114a747bbe34bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123344"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033407"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurar filtros de rota para emparelhamento da Microsoft: CLI do Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](how-to-routefilter-portal.md)
-> * [PowerShell do Azure](how-to-routefilter-powershell.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [CLI do Azure](how-to-routefilter-cli.md)
 > 
 
@@ -66,7 +66,7 @@ Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou po
 
 * Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
-* Você deve ter um circuito do ExpressRoute ativo. Antes de continuar, siga as instruções para [criar um circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito de ExpressRoute deve estar em um estado habilitado e provisionado.
+* Você deve ter um circuito da ExpressRoute ativo. Antes de continuar, siga as instruções para [criar um circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito de ExpressRoute deve estar em um estado habilitado e provisionado.
 
 * Você deve ter um emparelhamento da Microsoft ativo. Siga as instruções em [Criar e modificar a configuração de emparelhamento](howto-routing-cli.md)
 
@@ -90,24 +90,24 @@ Selecione a assinatura para a qual você deseja criar um circuito do ExpressRout
 az account set --subscription "<subscription ID>"
 ```
 
-## <a name="prefixes"></a>Etapa 1: Obter uma lista de prefixos e valores de comunidade BGP
+## <a name="prefixes"></a>Etapa 1: obter uma lista de prefixos e valores de comunidade BGP
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obter uma lista de valores de comunidade BGP
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. obter uma lista de valores de comunidade BGP
 
 Use o cmdlet a seguir para obter a lista de valores de comunidade BGP associados aos serviços acessíveis por meio do emparelhamento da Microsoft, junto com a lista de prefixos associados a eles:
 
 ```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Faça uma lista dos valores que você deseja usar
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. faça uma lista dos valores que você deseja usar
 
 Faça uma lista de valores de comunidade BGP que você deseja usar no filtro de rota.
 
-## <a name="filter"></a>Etapa 2: Criar um filtro de rota e uma regra de filtro
+## <a name="filter"></a>Etapa 2: criar um filtro de rota e uma regra de filtro
 
 Um filtro de rota pode ter apenas uma regra, que deve ser do tipo 'Permitir'. Essa regra pode ter uma lista de valores de comunidade BGP associados a ela.
 
-### <a name="1-create-a-route-filter"></a>1. Criar um filtro de rota
+### <a name="1-create-a-route-filter"></a>1. criar um filtro de rota
 
 Primeiro, crie o filtro de rota. O comando `az network route-filter create` cria apenas um recurso de filtro de rota. Depois de criar o recurso, você deve criar uma regra e anexá-la ao objeto de filtro de rota. Execute o comando a seguir para criar um recurso de filtro de rota:
 
@@ -115,7 +115,7 @@ Primeiro, crie o filtro de rota. O comando `az network route-filter create` cria
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
-### <a name="2-create-a-filter-rule"></a>2. Criar uma regra de filtro
+### <a name="2-create-a-filter-rule"></a>2. criar uma regra de filtro
 
 Execute o comando a seguir para criar uma nova regra:
  
@@ -123,7 +123,7 @@ Execute o comando a seguir para criar uma nova regra:
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>Etapa 3: Anexar o filtro de rota a um circuito de ExpressRoute
+## <a name="attach"></a>Etapa 3: anexar o filtro de rota a um circuito de ExpressRoute
 
 Execute o comando a seguir para anexar o filtro de rota ao circuito de ExpressRoute:
 
@@ -165,6 +165,6 @@ Você só pode excluir um filtro de rota se ele não está anexado a nenhum circ
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
-Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).
+Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre o ExpressRoute](expressroute-faqs.md).

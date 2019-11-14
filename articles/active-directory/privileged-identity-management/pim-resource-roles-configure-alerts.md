@@ -4,23 +4,23 @@ description: Saiba como configurar alertas de segurança para funções de recur
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f191eac841bd9f79844a09cd25725de7ea8b154
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f0b938dc808d9b02ad4105d85a5b3125135c51d6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895785"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023079"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Configurar alertas de segurança para funções de recurso do Azure no Privileged Identity Management
 
@@ -36,13 +36,13 @@ Selecione um alerta para ver um relatório que lista os usuários ou funções q
 
 ## <a name="alerts"></a>Alertas
 
-| Alerta | Gravidade | Gatilho | Recomendações |
+| Alerta | Severity | Gatilho | Recomendações |
 | --- | --- | --- | --- |
 | **Muitos proprietários atribuídos a um recurso** |Média |Muitos usuários têm a função de proprietário. |Examine os usuários na lista e reatribua alguns a funções menos privilegiadas. |
 | **Muitos proprietários permanentes atribuídos a um recurso** |Média |Muitos usuários são permanentemente atribuídos a uma função. |Revise os usuários na lista e reatribua alguns para exigir ativação para o uso da função. |
 | **Duplicar função criada** |Média |Várias funções têm os mesmos critérios. |Use apenas uma dessas funções. |
 
-### <a name="severity"></a>Gravidade
+### <a name="severity"></a>Severity
 
 - **Alta**: exige ação imediata devido a uma violação da política. 
 - **Média**: não exige ação imediata, mas sinaliza uma possível violação da política.
@@ -58,6 +58,6 @@ Personalize configurações nos diferentes alertas para trabalhar com seu ambien
 
 ![Página de configuração de um alerta para habilitar e definir configurações](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Definir configurações de função de recurso do Azure no Privileged Identity Management](pim-resource-roles-configure-role-settings.md)

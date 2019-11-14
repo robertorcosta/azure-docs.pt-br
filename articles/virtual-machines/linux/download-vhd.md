@@ -1,5 +1,5 @@
 ---
-title: Baixar um VHD do Linux por meio do Azure | Microsoft Docs
+title: Baixar um VHD do Linux por meio do Azure
 description: Baixe um VHD do Linux usando a CLI do Azure e o portal do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: ed79df03a42c1558b975cd1c21c79716d50d4616
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 257f3f723fc8a971b8253699f4beb002cf46ce52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083498"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036283"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Baixar um VHD do Linux por meio do Azure
 
@@ -71,13 +71,13 @@ Para baixar o arquivo VHD, você precisa gerar uma URL de [SAS (assinatura de ac
 2.  Selecione o disco do sistema operacional para a VM e, em seguida, selecione **exportação de disco**.
 3.  Selecione **gerar URL**.
 
-    ![Gerar URL](./media/download-vhd/export-generate.png)
+    ![Gerar a URL](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>Baixar o VHD
 
 1.  Na URL que foi gerada, selecione **baixar o arquivo VHD**.
 **
-    ![Baixar VHD](./media/download-vhd/export-download.png)
+    ![baixar VHD](./media/download-vhd/export-download.png)
 
 2.  Talvez seja necessário selecionar **salvar** no navegador para iniciar o download. O nome padrão do arquivo VHD é *abcd*.
 

@@ -1,18 +1,14 @@
 ---
 title: Exemplo de mapeamento de controle do PCI-DSS v 3.2.1 Blueprint
 description: Controle o mapeamento do exemplo de planejamento de plano de segurança de dados do setor de cartão de pagamento Standard v 3.2.1 para Azure Policy e RBAC.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: c1e04cb2bfd5ae532b556ed53d585aae90c312e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d3e72f923ea3d752d829731d1f741bda090ae9fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163053"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037277"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controle do exemplo de especificação técnica PCI-DSS v 3.2.1
 
@@ -48,9 +44,9 @@ Este projeto ajuda a reforçar a política com o uso de controles de cryptograph
 
 ## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5,1, 6,2, 6,6 e 11.2.1 de verificação de vulnerabilidade e atualizações do sistema
 
-Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo [Azure Policy](../../../policy/overview.md) definições que monitoram atualizações de sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual no Azure Central de segurança. A Central de Segurança do Azure fornece funcionalidades de relatórios que permitem ter insights em tempo real sobre o estado de segurança de recursos implantados do Azure.
+Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo [Azure Policy](../../../policy/overview.md) definições que monitoram atualizações de sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual na central de segurança do Azure. A Central de Segurança do Azure fornece funcionalidades de relatórios que permitem ter insights em tempo real sobre o estado de segurança de recursos implantados do Azure.
 
-- Monitorar o Endpoint Protection ausente na Central de Segurança do Azure
+- monitora o Endpoint Protection ausente na Central de Segurança do Azure
 - Implantar a extensão padrão antimalware de IaaS da Microsoft para Windows Server
 - Implantar a detecção de ameaças em servidores SQL
 - As atualizações do sistema devem ser instaladas em suas máquinas
@@ -67,11 +63,11 @@ Ter apenas um proprietário de assinatura do Azure não permite a redundância a
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3,2, 7.2.1, 8.3.1. a e 8.3.1. b gerenciamento de direitos de acesso privilegiado
 
-Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário, gravação e/ou leitura e contas de funcionário com permissões de proprietário e/ou gravação que não têm autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos no Azure. Entender o local em que as regras RBAC personalizadas são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras RBAC personalizadas estão sujeitas a erros. Esse projeto também atribui definições de [Azure Policy](../../../policy/overview.md) para auditar o uso da autenticação Azure Active Directory para servidores SQL. Usar Azure Active Directory autenticação simplifica o gerenciamento de permissões e centraliza o gerenciamento de identidades de usuários de banco de dados e outras  
+Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário, gravação e/ou leitura e contas de funcionário com permissões de proprietário e/ou gravação que não têm a autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos no Azure. Entender o local em que as regras RBAC personalizadas são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras RBAC personalizadas estão sujeitas a erros. Esse projeto também atribui definições de [Azure Policy](../../../policy/overview.md) para auditar o uso da autenticação Azure Active Directory para servidores SQL. Usar Azure Active Directory autenticação simplifica o gerenciamento de permissões e centraliza o gerenciamento de identidades de usuários de banco de dados e outras  
 serviços.
  
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
-- As contas externas com permissões de gravação do proprietário devem ser removidas da sua assinatura
+- As contas externas com permissões de gravação devem ser removidas de sua assinatura
 - As contas externas com permissões de leitura devem ser removidas de sua assinatura
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - A MFA deve ser habilitada para contas com permissões de gravação em sua assinatura
@@ -86,7 +82,7 @@ O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-l
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
-- As contas externas com permissões de gravação do proprietário devem ser removidas da sua assinatura
+- As contas externas com permissões de gravação devem ser removidas de sua assinatura
 - As contas externas com permissões de leitura devem ser removidas de sua assinatura
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>remoção ou ajuste de 8.1.3 de direitos de acesso
@@ -126,7 +122,7 @@ Este projeto ajuda você a gerenciar e controlar sua rede atribuindo definiçõe
 - Locais permitidos
 - Locais permitidos para grupos de recursos
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você analisou o mapeamento de controle do plano gráfico PCI-DSS v 3.2.1, visite os seguintes artigos para saber mais sobre a visão geral e como implantar este exemplo:
 
@@ -134,7 +130,7 @@ Agora que você analisou o mapeamento de controle do plano gráfico PCI-DSS v 3.
 > [PCI-DSS v 3.2.1 Blueprint-visão geral](./index.md)
 > [PCI-DSS v 3.2.1 Blueprint – implantar etapas](./deploy.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Outros artigos sobre blueprints e como usá-los:
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

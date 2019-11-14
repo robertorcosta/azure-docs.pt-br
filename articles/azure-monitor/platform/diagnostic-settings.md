@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c1b7f81c62217d9e113f3293a8f351d908a6a576
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b90e5ccf38e95d33c4b5b6f3b8da0e91a4facb5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887264"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023736"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure
 [Os logs de plataforma](resource-logs-overview.md) no Azure fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para coletar logs de plataforma para destinos diferentes.
@@ -42,7 +42,8 @@ Os logs de plataforma podem ser enviados para os destinos na tabela a seguir. A 
 | [Conta de armazenamento do Azure](resource-logs-collect-storage.md) | O arquivamento de logs em uma conta de armazenamento do Azure é útil para auditoria, análise estática ou backup. |
 
 
-
+> [!IMPORTANT]
+> Atualmente, não há suporte para contas de Azure Data Lake Storage Gen2 como destino para configurações de diagnóstico, embora elas possam estar listadas como uma opção válida na portal do Azure.
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Criar configurações de diagnóstico no portal do Azure
 Você pode definir as configurações de diagnóstico no portal do Azure no menu Azure Monitor ou no menu do recurso.

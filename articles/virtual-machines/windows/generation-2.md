@@ -1,5 +1,5 @@
 ---
-title: Suporte do Azure para VMs de geração 2 | Microsoft Docs
+title: Suporte do Azure para VMs de geração 2
 description: Visão geral do suporte do Azure para VMs de geração 2
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 4cb6d684171ac6e7e9e1cb7da556250f857cf2af
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f17ec7179413bebb8260089abc46856412b78ab5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891476"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038646"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -122,7 +122,7 @@ Quando você seleciona uma SKU do Windows Server como a oferta, na guia **avanç
 
 Você também pode usar o PowerShell para criar uma VM referenciando diretamente a SKU de geração 1 ou geração 2.
 
-Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na oferta `WindowsServer`.
+Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na oferta de `WindowsServer`.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer

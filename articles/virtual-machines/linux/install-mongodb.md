@@ -1,5 +1,5 @@
 ---
-title: Instalar o MongoDB em uma VM Linux com a CLI do Azure | Microsoft Docs
+title: Instalar o MongoDB em uma VM Linux com o CLI do Azure
 description: Aprenda a instalar e configurar o MongoDB em uma máquina virtual Linux usando a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d75b00acac75b3b9680f862952e5c224336ca57a
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7f5fdd625eb49bfcac0bd58bca7a8415ac877517
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671370"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036000"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB em uma VM Linux
 

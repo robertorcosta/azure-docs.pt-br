@@ -1,5 +1,5 @@
 ---
-title: Pontuações de parâmetro de comparação de computação de Azure VMs do Linux | Microsoft Docs
+title: Calcular pontuações de parâmetro de comparação para VMs Linux do Azure
 description: Compare as pontuações de parâmetro de comparação de computação do CoreMark de VMs do Linux que executam o Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: d91535c6f0daeac58a3005d94e19cbba3e781ebf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 234c4b0493a4f03ed89162318090d57621740cb0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083844"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036700"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Linux
 As pontuações de parâmetro de comparação CoreMark a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Ubuntu. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -65,7 +65,7 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 | Standard_B2ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 2 | 1 | 7.8 | 27.432 | 771 | 2,81% | 672 |
 | Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 2 | 1 | 3.9 | 27.488 | 822 | 2,99% | 28 |
 | Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 2 | 1 | 3.9 | 27.548 | 864 | 3,14% | 672 |
-| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 4 | 1 | 15,7 | 54.951 | 1\.868 | 3.40% | 28 |
+| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 4 | 1 | 15,7 | 54.951 | 1\.868 | 3,40% | 28 |
 | Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 4 | 1 | 15,7 | 54.051 | 1\.260 | 2,33% | 672 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 8 | 1 | 31,4 | 111.929 | 1\.562 | 1,40% | 35 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 8 | 1 | 31,4 | 109.537 | 1\.354 | 1,24% | 665 |
@@ -167,7 +167,7 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 | Standard_D13_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 8 | 1 | 55,0 | 117.218 | 1\.514 | 1,29% | 329 |
 | Standard_D13_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 8 | 1 | 55,0 | 114.344 | 3\.307 | 2,89% | 378 |
 | Standard_D14_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 16 | 2 | 110,2 | 224.348 | 5\.477 | 2,44% | 280 |
-| Standard_D14_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 16 | 1 | 110,2 | 228.221 | 2\.733 | 1.20% | 427 |
+| Standard_D14_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 16 | 1 | 110,2 | 228.221 | 2\.733 | 1,20% | 427 |
 | Standard_D15_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 20 | 2 | 137,7 | 281.494 | 7\.976 | 2,83% | 672 |
 
 ## <a name="esv3---memory-optimized--premium-storage"></a>Esv3 - Otimizado para Memória + Armazenamento Premium
@@ -408,7 +408,7 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 
 
 ## <a name="about-coremark"></a>Sobre o CoreMark
-Os números do Linux foram calculados com a execução do [CoreMark](https://www.eembc.org/coremark/faq.php) no Ubuntu. O CoreMark foi configurado com o número de threads definidos como o número de CPUs virtuais e a simultaneidade definida como PThreads. O número de iterações de destino foi ajustado com base no desempenho esperado para fornecer um tempo de execução de pelo menos 20 segundos (normalmente muito mais). A pontuação final representa o número de iterações concluídas dividido pelo número de segundos necessário para executar o teste. Cada teste foi executado, no mínimo, sete vezes em cada VM. Datas de execuções de teste mostradas acima. Execução de teste em várias VMs em regiões públicas do Azure tinham suporte na execução da data. Séries básicas A e B (expansíveis) não mostradas porque o desempenho é variável. Séries N não mostrada, pois elas centralizadas em GPU e a Coremark não mede o desempenho de GPU.
+Os números do Linux foram calculados com a execução do [CoreMark](https://www.eembc.org/coremark/faq.php) no Ubuntu. O CoreMark foi configurado com o número de threads definidos como o número de CPUs virtuais e a simultaneidade definida como PThreads. O número de iterações de destino foi ajustado com base no desempenho esperado para fornecer um runtime de pelo menos 20 segundos (normalmente muito mais). A pontuação final representa o número de iterações concluídas dividido pelo número de segundos necessário para executar o teste. Cada teste foi executado, no mínimo, sete vezes em cada VM. Datas de execuções de teste mostradas acima. Execução de teste em várias VMs em regiões públicas do Azure tinham suporte na execução da data. Séries básicas A e B (expansíveis) não mostradas porque o desempenho é variável. Séries N não mostrada, pois elas centralizadas em GPU e a Coremark não mede o desempenho de GPU.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter capacidades de armazenamento, detalhes do disco e considerações adicionais sobre como escolher um dos diferentes tamanhos de VM, veja [Tamanhos das máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do suporte de cloud-init para máquinas virtuais Linux no Azure | Microsoft Docs
+title: Visão geral do suporte de Cloud-init para máquinas virtuais Linux no Azure
 description: Visão geral dos recursos de cloud-init no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: b0300dd91876b651015ae78c53dbc1e72bf8dd68
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d372b94ac0df4cef3c43fab10686e9bf20633bfe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285698"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034242"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init para máquinas virtuais no Azure
-Este artigo explica o suporte que existe para [Cloud-init](https://cloudinit.readthedocs.io) para configurar uma VM (máquina virtual) ou conjuntos de dimensionamento de máquinas virtuais no tempo de provisionamento no Azure. Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure.  
+Este artigo explica o suporte que existe para [Cloud-init](https://cloudinit.readthedocs.io) para configurar uma VM (máquina virtual) ou conjuntos de dimensionamento de máquinas virtuais no tempo de provisionamento no Azure. Esses scripts cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure.  
 
 ## <a name="cloud-init-overview"></a>Visão geral da inicialização de nuvem
 [Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como o cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config` são arquivos de texto codificados em base64.
@@ -32,20 +32,20 @@ A inicialização de nuvem também funciona em distribuições. Por exemplo, voc
 
 Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que suas implantações e configurações de Cloud-init funcionem de forma integrada com VMs e conjuntos de dimensionamento de máquinas virtuais. A tabela a seguir descreve a disponibilidade de imagens habilitadas de cloud-init na plataforma do Azure:
 
-| Publicador | Oferta | SKU | Versão | Cloud-init pronto |
+| Publicador | Oferta | Sku | Versão | Cloud-init pronto |
 |:--- |:--- |:--- |:--- |:--- |
-|Canônico |UbuntuServer |18.04-LTS |latest |Sim | 
-|Canônico |UbuntuServer |16.04-LTS |latest |Sim | 
-|Canônico |UbuntuServer |14.04.5-LTS |latest |Sim |
-|CoreOS |CoreOS |Estável |latest |Sim |
+|Canonical |UbuntuServer |18.04-LTS |mais recente |sim | 
+|Canonical |UbuntuServer |16.04-LTS |mais recente |sim | 
+|Canonical |UbuntuServer |14.04.5-LTS |mais recente |sim |
+|CoreOS |CoreOS |Estável |mais recente |sim |
 |OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |preview |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Sim |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sim |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
     
 Atualmente Azure Stack não oferece suporte ao provisionamento do RHEL 7. x e do CentOS 7. x usando Cloud-init.
 
-* Para o RHEL 7,6, pacote Cloud-init, o pacote com suporte é: *18.2-1. EL7 _ 6.2* 
-* Para o RHEL 7,7 (versão prévia), o pacote Cloud-init, o pacote de visualização é: *18.5-3.el7*
+* Para o RHEL 7,6, pacote Cloud-init, o pacote com suporte é: *18.2-1. el7_6.2* 
+* Para o RHEL 7,7 (versão prévia), o pacote Cloud-init, o pacote de visualização é: *18.5 -3. EL7*
 * Para o CentOS 7,7 (versão prévia), o pacote Cloud-init, o pacote de visualização é: *18.5 -3. EL7. centos*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Qual é a diferença entre cloud-init e o Agente do Linux (WALA)?
@@ -65,7 +65,7 @@ O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-A próxima etapa é criar um arquivo no shell atual, chamado *cloud-init.txt*, e colar a configuração a seguir. Para este exemplo, crie o arquivo no Cloud Shell, não no seu computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor cloud-init.txt` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Certifique-se de que o arquivo de inicialização de nuvem inteiro seja copiado corretamente, especialmente a primeira linha:
+A próxima etapa é criar um arquivo no shell atual, chamado *cloud-init.txt*, e colar a configuração a seguir. Para este exemplo, crie o arquivo no Cloud Shell, não no computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor cloud-init.txt` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Certifique-se de que o arquivo de inicialização de nuvem inteiro seja copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -101,7 +101,7 @@ Para obter mais detalhes de registro do cloud-init, consulte a [documentação d
 ## <a name="next-steps"></a>Próximas etapas
 Para obter exemplos de alterações de configuração do cloud-init, consulte os seguintes documentos:
  
-- [Add an additional Linux user to a VM](cloudinit-add-user.md) (Adicionar um usuário adicional do Linux a uma VM)
+- [Adicionar um usuário do Linux adicional a uma VM](cloudinit-add-user.md)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md) (Executar um gerenciador de pacotes para atualizar os pacotes existentes na primeira inicialização)
 - [Change VM local hostname](cloudinit-update-vm-hostname.md) (Alterar o nome do host local da VM) 
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md) (Instalar um pacote de aplicativo, atualizar os arquivos de configuração e injetar chaves)

@@ -1,5 +1,5 @@
 ---
-title: Fazer logon em uma VM do Linux com as credenciais do Azure Active Directory | Microsoft Docs
+title: Fazer logon em uma VM do Linux com credenciais de Azure Active Directory
 description: Saiba como criar e configurar uma VM do Linux para entrar usando Azure Active Directory autenticação.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327087"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035936"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Visualização: Faça logon em uma máquina virtual Linux no Azure usando a autenticação Azure Active Directory
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
 Para melhorar a segurança das VMs (máquinas virtuais) do Linux no Azure, você pode fazer a integração com a autenticação do AD (Azure Active Directory). Ao usar a autenticação do Azure AD para VMs do Linux, você controla e impõe de forma central as políticas que permitem ou negam acesso às VMs. Este artigo mostra como criar e configurar uma VM do Linux para usar a autenticação do Azure AD.
 
@@ -42,7 +42,7 @@ Há muitos benefícios de usar a autenticação do Azure AD para fazer logon em 
   - Para proteger ainda mais o logon nas máquinas virtuais do Azure, você pode configurar a autenticação multifator.
   - A capacidade de fazer logon em VMs do Linux com Azure Active Directory também funciona para clientes que usam os [Serviços de Federação](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Colaboração contínua:** Com RBAC (controle de acesso baseado em função), você pode especificar quem pode entrar em uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os usuários entram na equipe ou saem dela, você pode atualizar a política RBAC da VM para conceder acesso conforme o necessário. Essa experiência é muito mais simples do que ter que limpar as VMs para remover as chaves públicas SSH desnecessárias. Quando os funcionários saem da organização e a conta de usuário é desabilitada ou removida do Azure AD, eles deixam de ter acesso aos recursos.
+- **Colaboração contínua:** com RBAC (controle de acesso baseado em função), você pode especificar quem pode entrar em uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os usuários entram na equipe ou saem dela, você pode atualizar a política RBAC da VM para conceder acesso conforme o necessário. Essa experiência é muito mais simples do que ter que limpar as VMs para remover as chaves públicas SSH desnecessárias. Quando os funcionários saem da organização e a conta de usuário é desabilitada ou removida do Azure AD, eles deixam de ter acesso aos recursos.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Regiões do Azure e distribuições do Linux com suporte
 
@@ -66,7 +66,7 @@ No momento, há suporte para as seguintes regiões do Azure durante a versão pr
 > Para usar esse recurso de versão prévia, somente implante uma distribuição do Linux com suporte em uma região do Azure com suporte. Não há suporte para o recurso no Azure Governamental nem nas nuvens soberanas.
 
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que a CLI do Azure versão 2.0.31 ou posterior esteja em execução. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual Linux
 
@@ -106,8 +106,8 @@ O *provisioningState* de *Succeeded* é mostrado depois que a extensão é insta
 
 A política de RBAC (controle de acesso baseado em função) do Azure determina quem pode fazer logon na VM. Duas funções RBAC são usadas para autorizar o logon na VM:
 
-- **Logon de administrador da Máquina Virtual**: Os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de usuário de administrador do Windows ou raiz do Linux.
-- **Logon de usuário da Máquina Virtual**: Os usuários com essa função atribuída podem fazer logon uma máquina virtual do Azure com privilégios de usuários regulares.
+- **Logon de administrador da máquina virtual**: os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de usuário de administrador do Windows ou raiz do Linux.
+- **Logon de usuário da máquina virtual**: os usuários com essa função atribuído podem fazer logon uma máquina virtual do Azure com privilégios de usuários regulares.
 
 > [!NOTE]
 > Para permitir que um usuário faça logon na VM por SSH, você precisa atribuir a função *Logon de Administrador da Máquina Virtual* ou *Logon de Usuário da Máquina Virtual*. Um usuário do Azure com a função *Proprietário* ou *Colaborador* atribuída para uma VM não tem automaticamente privilégios para fazer logon na VM por SSH.
@@ -149,11 +149,11 @@ Você precisará entrar no Azure AD com um código de uso avulso em [https://mic
 
 Quando solicitado, insira suas credenciais de logon do Azure AD na página de logon. 
 
-A seguinte mensagem é mostrada no navegador da Web quando você se autenticou com êxito:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+A seguinte mensagem é mostrada no navegador da Web quando você se autenticou com êxito: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Feche a janela do navegador, retorne para o prompt do SSH e pressione a tecla **Enter**. 
 
-Agora, você está conectado à máquina virtual do Linux no Azure com as permissões de função atribuídas, como *Usuário da VM* ou *Administrador da VM*. Se sua conta de usuário for atribuída à função de *logon de administrador da máquina virtual* , você poderá usar `sudo` o para executar comandos que exigem privilégios de raiz.
+Agora, você está conectado à máquina virtual do Linux no Azure com as permissões de função atribuídas, como *Usuário da VM* ou *Administrador da VM*. Se sua conta de usuário for atribuída à função de *logon de administrador de máquina virtual* , você poderá usar `sudo` para executar comandos que exigem privilégios de raiz.
 
 ## <a name="sudo-and-aad-login"></a>Logon do AAD e Sudo
 
@@ -173,7 +173,7 @@ Por esta linha:
 
 Alguns erros comuns ao tentar usar SSH com as credenciais do Azure AD incluem a ausência de uma função RBAC atribuída e prompts repetidos para entrar. Use as seções a seguir para corrigir esses problemas.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: Função RBAC não atribuída
+### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: função RBAC não atribuída
 
 Se o erro a seguir aparecer no prompt do SSH, verifique se você configurou políticas de RBAC para a VM que concedem ao usuário a função *Logon de Administrador da Máquina Virtual* ou *Logon de Usuário da Máquina Virtual*:
 

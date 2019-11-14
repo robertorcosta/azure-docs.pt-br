@@ -1,5 +1,5 @@
 ---
-title: Implantar a oferta de Marketplace autogerenciado da plataforma de contêiner OpenShift 3,11 no Azure | Microsoft Docs
+title: Implantar a oferta de Marketplace autogerenciado da plataforma de contêiner OpenShift 3,11 no Azure
 description: Implante a oferta do Marketplace automanaged do OpenShift contêiner Platform 3,11 no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791625"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035517"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
@@ -67,9 +67,9 @@ Insira valores para os parâmetros de entrada e clique em **OK**.
 |-----------------------|-----------------|
 | Nome de usuário do administrador da VM | O usuário administrador a ser criado em todas as instâncias de VM |
 | Chave pública SSH para usuário administrador | Chave pública SSH usada para fazer logon na VM-não deve ter uma frase secreta |
-| Subscription | Assinatura do Azure na qual implantar o cluster |
-| Grupo de recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazio existente para recursos de cluster |
-| Location | Região do Azure na qual implantar o cluster |
+| Assinatura | Assinatura do Azure na qual implantar o cluster |
+| grupo de recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazio existente para recursos de cluster |
+| Local padrão | Região do Azure na qual implantar o cluster |
 
    ![Folha noções básicas da oferta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -203,7 +203,7 @@ Quando não for mais necessário, você pode usar o comando [az group delete](/c
 az group delete --name openshiftrg
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Tarefas de pós-implantação](./openshift-container-platform-3x-post-deployment.md)
 - [Solução de problemas de implantação do OpenShift no Azure](./openshift-container-platform-3x-troubleshooting.md)

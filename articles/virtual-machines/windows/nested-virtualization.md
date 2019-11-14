@@ -1,5 +1,5 @@
 ---
-title: Como habilitar a virtualização aninhada em Máquinas Virtuais do Azure | Microsoft Docs
+title: Como habilitar a virtualização aninhada em Máquinas Virtuais do Azure
 description: Como habilitar a virtualização aninhada em Máquinas Virtuais do Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720220"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033131"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
 
@@ -26,7 +26,7 @@ Este artigo demonstra como habilitar o Hyper-V em uma VM do Azure e configurar a
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Criar uma VM do Azure com capacidade de aninhamento
 
-Crie uma nova VM do Windows Server 2016 do Azure.  Para referência rápida, todas as máquinas virtuais de v3 dão suporte a virtualização aninhada. Para obter uma lista completa dos tamanhos de máquinas virtuais que dão suporte para aninhamento, confira o [artigo da Unidade de Computação do Azure](acu.md).
+Crie uma nova VM do Windows Server 2016 do Azure.  Para referência rápida, todas as máquinas virtuais v3 dão suporte à virtualização aninhada. Para obter uma lista completa dos tamanhos de máquinas virtuais que dão suporte para aninhamento, confira o [artigo da Unidade de Computação do Azure](acu.md).
 
 Escolha um tamanho de VM grande o suficiente para dar suporte às demandas de uma máquina virtual convidada. Neste exemplo, estamos usando uma VM do Azure com um tamanho D3_v3. 
 
@@ -52,7 +52,7 @@ Inicie uma conexão da área de trabalho remota para a máquina virtual.
 Defina essas configurações manualmente ou use um script do PowerShell que fornecemos para automatizar a configuração.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opção 1: Usar um script do PowerShell para configurar a virtualização aninhada
-Um script do PowerShell para habilitar a virtualização aninhada em um host do Windows Server 2016 está disponível no [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). O script verifica os pré-requisitos e, em seguida, configura a virtualização aninhada na VM do Azure. Uma reinicialização da VM do Azure é necessária para concluir a configuração. Esse script pode funcionar em outros ambientes, mas não há garantia disso. Confira a postagem no blog do Azure com uma demonstração de vídeo ao vivo sobre a virtualização aninhada em execução no Azure! [https://aka.ms/AzureNVblog](https://aka.ms/AzureNVblog ).
+Um script do PowerShell para habilitar a virtualização aninhada em um host do Windows Server 2016 está disponível no [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). O script verifica os pré-requisitos e, em seguida, configura a virtualização aninhada na VM do Azure. Uma reinicialização da VM do Azure é necessária para concluir a configuração. Esse script pode funcionar em outros ambientes, mas não há garantia disso. Confira a postagem no blog do Azure com uma demonstração de vídeo ao vivo sobre a virtualização aninhada em execução no Azure! https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Opção 2: Configurar a virtualização aninhada manualmente
 
@@ -122,7 +122,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 >[!IMPORTANT] 
 >
->O agente convidado do Azure não tem suporte em VMs aninhadas e pode causar problemas no host e VMs aninhadas. Não instale o agente do Azure em VMs aninhadas e não use uma imagem para a criação de VMs aninhadas que já tenha o agente convidado do Azure instalado.
+>O agente convidado do Azure não tem suporte em VMs aninhadas e pode causar problemas no host e nas VMs aninhadas. Não instale o agente do Azure em VMs aninhadas e não use uma imagem para criar as VMs aninhadas que já têm o agente convidado do Azure instalado.
 
 1. Abra o Gerenciador do Hyper-V e crie uma nova máquina virtual. Configure a máquina virtual para usar a nova rede Interna criada.
     
@@ -138,7 +138,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 Atribua um endereço IP à máquina virtual convidada definindo um endereço IP estático na máquina virtual convidada manualmente ou configurando o DHCP na VM do Azure para atribuir o endereço IP dinamicamente.
 
-###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opção 1: Configurar o DHCP para atribuir dinamicamente um endereço IP à máquina virtual convidada
+###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opção 1: configurar o DHCP para atribuir dinamicamente um endereço IP à máquina virtual convidada
 Siga as etapas abaixo para configurar o DHCP na máquina virtual host para a atribuição de endereço dinâmico.
 
 #### <a name="install-dchp-server-on-the-azure-vm"></a>Instalar o Servidor DHCP na VM do Azure
@@ -165,14 +165,14 @@ Siga as etapas abaixo para configurar o DHCP na máquina virtual host para a atr
   
 6. Clique em **Avançar** até a conclusão do assistente, deixando todos os valores padrão e, em seguida, clique em **Concluir**.
     
-### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Opção 2: Definir um endereço IP estático manualmente na máquina virtual convidada
+### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Opção 2: definir um endereço IP estático manualmente na máquina virtual convidada
 Se você não configurou o DHCP para atribuir dinamicamente um endereço IP à máquina virtual convidada, siga estas etapas para configurar um endereço IP estático.
 
 1. Na VM do Azure, abra o PowerShell como Administrador.
 
 2. Clique com o botão direito do mouse na máquina virtual convidada e clique em Conectar.
 
-3. Entrar para a máquina virtual convidada.
+3. Entre na máquina virtual convidada.
 
 4. Na máquina virtual convidada, abra a Central de Rede e Compartilhamento.
 

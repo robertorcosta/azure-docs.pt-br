@@ -1,5 +1,5 @@
 ---
-title: Instalar e configurar o Terraform para provisionar recursos do Azure | Microsoft Docs
+title: Instalar e configurar o Terraform para provisionar recursos do Azure
 description: Saiba como instalar e configurar o Terraform para criar recursos do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: efba440448ac912b7656eeab017eef947ab25e95
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168741"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034695"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Instalar e configurar o Terraform para provisionar recursos do Azure
  

@@ -1,5 +1,5 @@
 ---
-title: Console Serial do Azure para chamadas SysRq e NMI | Microsoft Docs
+title: Console serial do Azure para chamadas SysRq e NMI
 description: Usando o Console Serial para chamadas SysRq e NMI em máquinas virtuais do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 81fb9f99f4f7e4f77b39855445639369f65f0966
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5eba50e7cfc00c081622972ca09f305b34c19c47
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091305"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034991"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Use o Console Serial para chamadas SysRq e NMI
 
@@ -62,7 +62,7 @@ No Guia do Administrador do SysRq acima:
 |``h``  |   Exibirá a ajuda (qualquer outra chave diferente daquelas listadas aqui também exibirá a ajuda, mas ``h`` é fácil de lembrar :-)
 |``i``  |    Envie um SIGKILL para todos os processos, exceto para init.
 |``j``  |    Forçar "Apenas descongelá-lo" - sistemas de arquivos congelados por FIFREEZE ioctl.
-|``k``  |    A Chave de Acesso Seguro (SAK) encerra todos os programas no console do virtual atual. OBSERVAÇÃO:  confira os comentários importantes a seguir, na seção SAK.
+|``k``  |    A Chave de Acesso Seguro (SAK) encerra todos os programas no console do virtual atual. OBSERVAÇÃO: consulte os comentários importantes abaixo na seção SAK.
 |``l``  |    Mostra um backtrace de pilha para todas as CPUs ativas.
 |``m``  |    Despejará as informações da memória atual no console.
 |``n``  |    Usado para facilitar as tarefas de RT
@@ -110,7 +110,7 @@ Para sistemas Linux que dão suporte a sysctl para configurar parâmetros de ker
 1. Reinicializar ou atualizar sysctl executando <br>
     `sysctl -p`
 
-Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, confira: [Documentação para /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição em NMI e as etapas para configurar o Linux para criar um despejo de memória no recebimento de uma NMI, consulte os links abaixo:
+Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consulte: [Documentação para /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição em NMI e as etapas para configurar o Linux para criar um despejo de memória no recebimento de uma NMI, consulte os links abaixo:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Despejo de Memória do Kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

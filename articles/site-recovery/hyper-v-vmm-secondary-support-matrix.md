@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 76b34e11bba00105792ac5163c5163184c185e09
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686175"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039615"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastres de VMs do Hyper-V para um site secundário
 
@@ -22,7 +22,7 @@ Este artigo resume o que tem suporte quando você usa o serviço de [Azure site 
 > Só é possível replicar para um site secundário quando os hosts do Hyper-V são gerenciados em nuvens VMM.
 
 > [!WARNING]
-> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](site-to-site-deprecation.md) antes de continuar.
 
 
 ## <a name="host-servers"></a>Servidores de host
@@ -49,22 +49,22 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 - Sistema de arquivos (EXT3, ETX4, ReiserFS, XFS).
 - Software Multipath – Mapeador de dispositivos.
 - Gerenciador de volumes (LVM2).
-- Não há suporte a servidores físicos com o armazenamento de controlador HP CCISS.
+- Não há suporte para servidores físicos com o armazenamento do controlador HP CCISS.
 - O sistema de arquivos ReiserFS só tem suporte no SUSE Linux Enterprise Server 11 SP3.
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - VM Host/Convidada
 
 **Configuração** | **Com suporte**  
 --- | --- 
-Host - Agrupamento NIC | Sim 
-Host - VLAN | Sim 
-Host - IPv4 | Sim 
+Host - Agrupamento NIC | sim 
+Host - VLAN | sim 
+Host - IPv4 | sim 
 Host - IPv6 | Não 
 VM Convidada - Agrupamento NIC | Não
-VM Convidada - IPv4 | Sim
+VM Convidada - IPv4 | sim
 VM Convidada - IPv6 | Não
-VM convidada – Windows/Linux – Endereço IP estático | Sim
-VM Convidada - Multi-NIC | Sim
+VM convidada – Windows/Linux – Endereço IP estático | sim
+VM Convidada - Multi-NIC | sim
 
 
 ## <a name="storage"></a>Armazenamento
@@ -74,9 +74,9 @@ VM Convidada - Multi-NIC | Sim
 **Armazenamento (host)** | **Com suporte**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  Sim
-SAN (ISCSI) | Sim
-Múltiplos caminhos (MPIO) | Sim
+SMB 3.0 |  sim
+SAN (ISCSI) | sim
+Múltiplos caminhos (MPIO) | sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
@@ -84,19 +84,19 @@ Múltiplos caminhos (MPIO) | Sim
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
-VM ger 2 | Sim
+VM ger 2 | sim
 Disco de cluster compartilhado | Não
 Disco criptografado | Não
 UEFI| N/D
 NFS | Não
 SMB 3.0 | Não
 RDM | N/D
-Disco > 1 TB | Sim
-Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim
-Espaços de Armazenamento | Sim
+Disco > 1 TB | sim
+Volume com discos distribuídos > 1 TB<br/><br/> LVM | sim
+Espaços de Armazenamento | sim
 Adição/remoção de disco a quente | Não
-Exclusão de disco | Sim
-Múltiplos caminhos (MPIO) | Sim
+Exclusão de disco | sim
+Múltiplos caminhos (MPIO) | sim
 
 ## <a name="vaults"></a>Cofres
 

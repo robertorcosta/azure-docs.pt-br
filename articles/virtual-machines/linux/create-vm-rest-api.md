@@ -1,5 +1,5 @@
 ---
-title: Criar uma máquina virtual do Linux com a API REST do Azure | Microsoft Docs
+title: Criar uma máquina virtual Linux com a API REST do Azure
 description: Saiba como criar uma máquina virtual do Linux no Azure que use Managed Disks e autenticação SSH com a API REST do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 9851305bdaa2f214e0d00eda3235068cac2ea980
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c1010bf4bde01920449e9252de563d79bfc61997
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083469"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036440"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que usa autenticação SSH com a API REST
 
@@ -51,10 +51,10 @@ Além dos parâmetros `{subscription-id}` e `{resourceGroupName}`, você precisa
 
 Os cabeçalhos a seguir são necessários:
 
-| Cabeçalho da solicitação   | Descrição |
+| Cabeçalho da solicitação   | DESCRIÇÃO |
 |------------------|-----------------|
-| *Content-Type:*  | Obrigatório. Defina como `application/json`. |
-| *Authorization:* | Obrigatório. Defina como um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
+| *Tipo de Conteúdo:*  | Obrigatório. Defina como `application/json`. |
+| *Autorização:* | Obrigatório. Defina como um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
 Para obter informações gerais sobre como trabalhar com solicitações da API REST, confira [Componentes de uma solicitação/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -62,9 +62,9 @@ Para obter informações gerais sobre como trabalhar com solicitações da API R
 
 As definições comuns a seguir são usadas para criar um corpo de solicitação:
 
-| Nome                       | Necessário | Tipo                                                                                | Descrição  |
+| NOME                       | obrigatórios | Digite                                                                                | DESCRIÇÃO  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| localização                   | verdadeiro     | cadeia de caracteres                                                                              | Local do recurso. |
+| location                   | verdadeiro     | cadeia de caracteres                                                                              | Local do recurso. |
 | name                       |          | cadeia de caracteres                                                                              | Nome da máquina virtual. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as configurações de hardware da máquina virtual. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as configurações de armazenamento dos discos da máquina virtual. |
@@ -132,14 +132,14 @@ Para obter uma lista completa das definições disponíveis no corpo da solicita
 
 É possível usar o cliente de sua preferência para enviar essa solicitação HTTP. Você também pode usar uma [ferramenta no navegador](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) clicando no botão **Experimentar**.
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Respostas
 
 Há duas respostas bem-sucedidas para a operação criar ou atualizar uma máquina virtual:
 
-| Nome        | Tipo                                                                              | Descrição |
+| NOME        | Digite                                                                              | DESCRIÇÃO |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
-| 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado em     |
+| 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |
 
 Uma resposta *201 Criado* condensada do exemplo anterior de corpo da solicitação que cria uma VM mostra que uma *vmId* foi atribuída e o *provisioningState* como *Criando*:
 

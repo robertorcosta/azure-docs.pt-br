@@ -1,25 +1,25 @@
 ---
-title: Crie um grupo dinâmico e verifique o status - Azure Active Directory | Microsoft Docs
+title: Criar um grupo dinâmico e verificar o status-Azure AD | Microsoft Docs
 description: Como criar uma regra de associação de grupo no portal do Azure, verifique o status.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343acce228c38e38152fc2ea9d8fe0a59d8254d4
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193937"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027235"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Criar um grupo dinâmico e verificar o status
 
@@ -34,8 +34,8 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 
 - Regra com mais de cinco expressões
 - A regra de relatórios diretos
-- Definindo a precedência de [operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
+- Definindo a [precedência de operador](groups-dynamic-membership.md#operator-precedence)
+- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de forma alguma.
@@ -76,17 +76,17 @@ Veja o status do processamento de associação e a data da última atualização
 
 As seguintes mensagens de status podem ser mostradas para o status **Processamento de associação**:
 
-- **Avaliando**:  a alteração do grupo foi recebida e as atualizações estão sendo avaliadas.
+- **Avaliando**: a alteração do grupo foi recebida e as atualizações estão sendo avaliadas.
 - **Processando**: as atualizações estão sendo processadas.
 - **Atualização concluída**: o processamento foi concluído e todas as atualizações aplicáveis foram feitas.
-- **Erro de processamento**:  O processamento não pôde ser concluído devido a um erro ao avaliar a regra de associação.
-- **Atualização em pausa**: as atualizações dinâmicas da regra de associação foram pausadas pelo administrador. MembershipRuleProcessingState é definido como "Em pausa".
+- **Erro de processamento**: não foi possível concluir o processamento devido a um erro ao avaliar a regra de associação.
+- **Atualização em pausa**: as atualizações da regra de associação dinâmica foram pausadas pelo administrador. MembershipRuleProcessingState é definido como "Em pausa".
 
 As seguintes mensagens de status podem ser mostradas para o status da **Última atualização da associação**:
 
 - &lt;**Data e hora**&gt;: a última vez em que a associação foi atualizada.
-- **Em andamento**: as atualizações estão em andamento no momento.
-- **Desconhecido**: A hora da última atualização não pode ser recuperada. O grupo pode ser novo.
+- **Em Andamento**: as atualizações estão em andamento no momento.
+- **Desconhecido**: a hora da última atualização não pode ser recuperada. O grupo pode ser novo.
 
 Se ocorrer um erro ao processar a regra de associação de um grupo específico, um alerta será mostrado na parte superior da **página Visão Geral** do grupo. Se nenhuma atualização de associação dinâmica pendente puder ser processada de nenhum dos grupos do locatário por mais de 24 horas, um alerta será mostrado na parte superior da **Todos os grupos**.
 

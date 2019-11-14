@@ -1,25 +1,25 @@
 ---
-title: Conceder acesso a outros administradores para gerenciar o PIM-Azure Active Directory | Microsoft Docs
+title: Conceder acesso para gerenciar PIM-Azure Active Directory | Microsoft Docs
 description: Saiba como permitir acesso a outros administradores para gerenciar o Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60c0e1bfd457137ddfb8f3ae81fc9044098c1f8d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7424e92f8520d13137b6ac8787523095058a005f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809064"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022123"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Conceder acesso a outros administradores para gerenciar Privileged Identity Management
 
@@ -32,7 +32,7 @@ Certifique-se de que haja sempre pelo menos dois usuários em uma função de Ad
 
 ## <a name="grant-access-to-manage-pim"></a>Conceder acesso para gerenciar PIM
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. No Azure AD, abra **Privileged Identity Management**.
 
@@ -70,7 +70,7 @@ Certifique-se de que haja sempre pelo menos dois usuários em uma função de Ad
 
 Antes de remover alguém da função Administrador com Função com Privilégios, sempre verifique se ainda haverá pelo menos dois usuários atribuídos a ela.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
@@ -86,6 +86,6 @@ Antes de remover alguém da função Administrador com Função com Privilégios
 
 1. Quando for solicitado que você confirme que deseja remover o membro da função, selecione **Sim**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Começar a usar o Privileged Identity Management](pim-getting-started.md)

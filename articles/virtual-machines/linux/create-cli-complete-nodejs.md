@@ -1,5 +1,5 @@
 ---
-title: Crie um ambiente Linux completo com o CLI do Azure Classic | Microsoft Docs
+title: Crie um ambiente Linux completo com a CLI Clássica do Azure
 description: Crie armazenamento, uma VM Linux, uma rede virtual e sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo a partir do zero usando a CLI Clássica do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: aaf91aa81be5fc4c5944dde804798a61ceffc5a6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1ee89ce18600685f3f82bfb49d4d8ecbaf192b04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083710"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036522"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Crie um ambiente Linux completo com a CLI Clássica do Azure
 Neste artigo, vamos criar uma rede simples com um balanceador de carga e com um par de VMs úteis para desenvolvimento e computação simples. Percorreremos o processo, comando por comando, até que você tenha duas VMs do Linux funcionais e seguras às quais possa se conectar de qualquer lugar na Internet. Em seguida, você poderá passar para redes e ambientes mais complexos.
@@ -39,7 +39,7 @@ Para criar esse ambiente personalizado, você precisa da [Azure Classic CLI ](..
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI do Azure Classic](#quick-commands) - nossa CLI para os modelos de implantação de gerenciamento clássico e de recursos (este artigo)
-- [CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
@@ -182,7 +182,7 @@ azure network nic show myResourceGroup myNic1 --json | jq '.'
 azure network nic show myResourceGroup myNic2 --json | jq '.'
 ```
 
-Crie o grupo de segurança de rede. O seguinte exemplo cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
+Crie o grupo de segurança de rede. O exemplo a seguir cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create -g myResourceGroup -l westeurope \
@@ -1053,7 +1053,7 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
 ```
 
 ## <a name="create-a-network-security-group-and-rules"></a>Criar um grupo de segurança de rede e suas regras
-Agora, criamos um grupo de segurança de rede e as regras de entrada que regem o acesso à NIC. Um grupo de segurança de rede pode ser aplicado a uma NIC ou sub-rede. Defina regras para controlar o fluxo de tráfego dentro e fora de suas VMs. O seguinte exemplo cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
+Agora, criamos um grupo de segurança de rede e as regras de entrada que regem o acesso à NIC. Um grupo de segurança de rede pode ser aplicado a uma NIC ou sub-rede. Defina regras para controlar o fluxo de tráfego dentro e fora de suas VMs. O exemplo a seguir cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location westeurope \

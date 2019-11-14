@@ -1,5 +1,5 @@
 ---
-title: Extensão de Diagnóstico do Azure para Windows | Microsoft Docs
+title: Extensão de Diagnóstico do Azure para Windows
 description: Monitorar VMs do Windows no Azure usando a Extensão de Diagnóstico do Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 4230e2aac8d386c759a403b9008029d68049569c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 3fcdcd4565ed0512b3efcf9b23ca349a3bbf3a6c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749397"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033490"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensão de Diagnóstico do Azure para Windows
 
@@ -25,7 +25,7 @@ ms.locfileid: "73749397"
 
 A extensão de VM de Diagnóstico do Azure permite coletar dados de monitoramento, como contadores de desempenho e logs de eventos, da VM do Windows. Você pode especificar gradualmente quais dados deseja coletar e onde você deseja que os dados vão, como uma conta de Armazenamento do Azure ou um Hub de Eventos do Azure. Você também pode usar esses dados para criar gráficos no Portal do Azure ou criar alertas de métrica.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -90,6 +90,6 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 * [Saiba mais sobre a Extensão de Diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md)
 * [Examine o esquema e as versões de extensão](../../azure-monitor/platform/diagnostics-extension-schema.md)

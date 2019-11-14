@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure | Microsoft Docs
+title: Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure
 description: Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 4301d81a4d14c36c34d29a54bc146bc8985dfc00
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392755"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035483"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure
 
@@ -96,7 +96,7 @@ Você verá um erro de que a permissão foi negada para SSH. SSH para o host do 
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>O segredo do cofre da chave com chave privada não foi criado corretamente
 
-A chave privada é copiada no host do guia estratégico Ansible-~/.ssh/id_rsa. Confirme se este arquivo está correto. Teste abrindo uma sessão SSH em um dos nós do cluster a partir do ansible host do manual.
+A chave privada é copiada para o host do guia estratégico Ansible-~/.ssh/id_rsa. Confirme se este arquivo está correto. Teste abrindo uma sessão SSH em um dos nós do cluster a partir do ansible host do manual.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>As credenciais do principal de serviço foram inseridas incorretamente
 
@@ -118,5 +118,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Para alguns erros, você também pode usar os seguintes comandos para obter mais informações:
 
-1. systemctl status \<service >
+1. status do systemctl \<serviço >
 2. journalctl -xe

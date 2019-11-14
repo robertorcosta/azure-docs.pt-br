@@ -1,5 +1,5 @@
 ---
-title: Implantação de máquina virtual do Azure com o Chef | Microsoft Docs
+title: Implantação de máquina virtual do Azure com chefe
 description: Saiba como usar o Chef para realizar implantação e configuração automatizadas da máquina virtual no Microsoft Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 5cbf53da5a0af0a511350b9f30153e2fefe72dcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58642cdbf164523390d5e4925290b43f6c05549b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080057"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039556"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizando a implantação de máquina virtual do Azure com o Chef
 
@@ -36,7 +36,7 @@ O diagrama a seguir ilustra a arquitetura de alto nível do Chef.
 
 ![][2]
 
-O Chef tem três componentes de arquitetura principais: O Chef Server, o Chef Client (nó) e o Chef Workstation.
+O Chef tem três componentes principais de arquitetura: Chef Server, Chef Client (nó) e Chef Workstation.
 
 O Chef Server é o ponto de gerenciamento e há duas opções para o Chef Server: uma solução hospedada ou uma solução local.
 
@@ -193,7 +193,7 @@ knife[:azure_client_secret] = "#1234p$wdchef19"
 Em seguida, [baixe e instale](https://downloads.chef.io/chef-workstation/) o Chef Workstation.
 Instale o Chef Workstation na localização padrão. Essa instalação poderá levar alguns minutos.
 
-Na área de trabalho, você verá um "CW PowerShell", que é um ambiente carregado com a ferramenta que você precisará para interagir com os produtos do Chef. O PowerShell em PV disponibiliza novos comandos ad hoc, `chef-run` como também comandos tradicionais da CLI do chefe, `chef`como. Confira sua versão instalada do Chef Workstation e das ferramentas do Chef com `chef -v`. Você também pode verificar a versão do Workstation selecionando "Sobre o Chef Workstation" no aplicativo Chef Workstation.
+Na área de trabalho, você verá um "CW PowerShell", que é um ambiente carregado com a ferramenta que você precisará para interagir com os produtos do Chef. O PowerShell de PV disponibiliza novos comandos ad hoc, como `chef-run`, bem como comandos tradicionais da CLI do chefe, como `chef`. Confira sua versão instalada do Chef Workstation e das ferramentas do Chef com `chef -v`. Você também pode verificar a versão do Workstation selecionando "Sobre o Chef Workstation" no aplicativo Chef Workstation.
 
 `chef --version` deve retornar algo como:
 
@@ -219,7 +219,7 @@ Este tutorial confira que você esteja usando o Azure Resource Manager para inte
 
 Instale a extensão Knife Azure. Isso fornece Knife com o "plug-in Azure".
 
-Execute o seguinte comando.
+Execute o comando a seguir.
 
     chef gem install knife-azure ––pre
 
@@ -309,7 +309,7 @@ Um exemplo do comando aparece a seguir.
     -r "recipe[webserver]"
 
 
-O exemplo acima criará uma máquina virtual Standard_DS2_v2 com o Windows Server 2016 instalado na região oeste dos EUA. Substitua variáveis específicas e executar.
+O exemplo acima criará um Standard_DS2_v2 máquina virtual com o Windows Server 2016 instalado na região oeste dos EUA. Substitua variáveis específicas e executar.
 
 > [!NOTE]
 > Por meio da linha de comando, também estou automatizando minhas regras de filtro de rede do ponto de extremidade usando o parâmetro –tcp-endpoints. Abri as portas 80 e 3389 para fornecer acesso à página da Web e à sessão RDP.

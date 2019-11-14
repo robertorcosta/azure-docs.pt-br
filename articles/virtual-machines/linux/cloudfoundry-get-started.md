@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Cloud Foundry no Microsoft Azure | Microsoft Docs
+title: Introdução com Cloud Foundry no Microsoft Azure
 description: Executar OSS ou Pivotal Cloud Foundry no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: d91ad0bea7f79dd67edd4f0bb9e06a37a0f86bea
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 447550d2f6bca570869c9fa93724e4dbaba02132
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091931"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036814"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
 
@@ -28,7 +28,7 @@ O Cloud Foundry é um PaaS (plataforma como serviço) de software livre para cri
 
 ## <a name="cloud-foundry-offerings"></a>Ofertas do Cloud Foundry
 
-Há duas opções do Cloud Foundry disponíveis para execução no Azure: CF OSS (Cloud Foundry de software livre) e PCF (Pivotal Cloud Foundry). O CF OSS é uma versão do Cloud Foundry totalmente de [software livre](https://github.com/cloudfoundry) gerenciada pela Cloud Foundry Foundation. A Cloud Foundry dinâmica é uma distribuição empresarial de Cloud Foundry da Pivotal Software Inc. Vamos examinar algumas das diferenças entre as duas ofertas.
+Há duas opções do Cloud Foundry disponíveis para execução no Azure: CF OSS (Cloud Foundry de software livre) e PCF (Pivotal Cloud Foundry). O CF OSS é uma versão do Cloud Foundry totalmente de [software livre](https://github.com/cloudfoundry) gerenciada pela Cloud Foundry Foundation. O Pivotal Cloud Foundry é uma distribuição corporativa do Cloud Foundry da Pivotal Software Inc. Vamos examinar algumas diferenças entre as duas ofertas.
 
 ### <a name="open-source-cloud-foundry"></a>Cloud Foundry de software livre
 

@@ -1,5 +1,5 @@
 ---
-title: Como criar imagens de VM do Windows com o Packer no Azure | Microsoft Docs
+title: Como criar imagens de VM do Windows com o Packer no Azure
 description: Saiba como usar o Packer para criar imagens de máquinas virtuais Windows no Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f330af7052b7d39058b5d84fb51a70311248d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: b2ff9869b0de7a0285644bea462101cd1dc80b99
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719329"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039231"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquina virtual Windows no Azure
 Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define a distribuição do Windows e a versão do sistema operacional. As imagens podem incluir configurações e aplicativos pré-instalados. O Azure Marketplace fornece várias imagens internas e de terceiros para os ambientes de sistema operacional e de aplicativo mais comuns ou você pode criar suas próprias imagens personalizadas adequadas às suas necessidades. Este artigo fornece detalhes sobre como usar a ferramenta de software livre [Packer](https://www.packer.io/) para definir e compilar imagens personalizadas no Azure.
 
-Este artigo foi testado pela última vez em 21/2/2019 usando o [módulo do PowerShell Az](https://docs.microsoft.com/powershell/azure/install-az-ps) versão 1.3.0 e [Packer](https://www.packer.io/docs/install/index.html) versão 1.3.4.
+Este artigo foi testado pela última vez em 2/21/2019 usando o [módulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) versão 1.3.0 e o [Packer](https://www.packer.io/docs/install/index.html) versão 1.3.4.
 
 > [!NOTE]
-> Agora, o Azure tem um serviço, o construtor de imagens do Azure (visualização), para definir e criar suas próprias imagens personalizadas. Construtor de imagens do Azure é criado em Packer, portanto, você pode até usar seus scripts existentes do Packer shell provisionador com ele. Para se familiarizar com o construtor de imagens do Azure, consulte [criar uma VM do Windows com o construtor de imagens do Azure](image-builder.md).
+> Agora, o Azure tem um serviço, Construtor de imagens do Azure (visualização), para definir e criar suas próprias imagens personalizadas. O construtor de imagem do Azure é compilado no empacotador, portanto, você pode até mesmo usar seus scripts de provisionamento do shell do Pack. Para começar a usar o construtor de imagens do Azure, confira [criar uma VM do Windows com o construtor de imagens do Azure](image-builder.md).
 
 ## <a name="create-azure-resource-group"></a>Criar um grupo de recursos do Azure
 Durante o processo de build, o Packer cria recursos temporários do Azure conforme cria a VM de origem. Para capturar essa VM de origem para uso como uma imagem, você precisa definir um grupo de recursos. A saída do processo de build do Packer é armazenada nesse grupo de recursos.
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Criar as credenciais do Azure
 O Packer se autentica no Azure usando uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o Packer. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure.
 
-Crie uma entidade de serviço com [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) e atribua permissões para a entidade de serviço criar e gerenciar recursos com [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). O valor para `-DisplayName` precisa ser exclusivo; substitua seu próprio valor conforme necessário.  
+Crie uma entidade de serviço com [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) e atribua permissões para a entidade de serviço criar e gerenciar recursos com [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). O valor de `-DisplayName` precisa ser exclusivo; Substitua pelo seu próprio valor, conforme necessário.  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
@@ -52,7 +52,7 @@ $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR
 New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Saída, em seguida, a ID do aplicativo e senha.
+Em seguida, gere a senha e a ID do aplicativo.
 
 ```powershell
 $plainPassword
@@ -72,7 +72,7 @@ Para criar imagens, você cria um modelo como um arquivo JSON. No modelo, você 
 
 Crie um arquivo chamado *windows.json* e cole o conteúdo a seguir. Insira seus próprios valores para o seguinte:
 
-| Parâmetro                           | Onde obter |
+| .                           | Onde obter |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Exiba a ID da entidade de serviço com `$sp.applicationId` |
 | *client_secret*                     | Exibir a senha gerada automaticamente com `$plainPassword` |
@@ -130,7 +130,7 @@ Este modelo cria uma VM Windows Server 2016, instala o IIS e generaliza a VM com
 ## <a name="build-packer-image"></a>Criar uma imagem do Packer
 Se você ainda não tiver o Packer instalado no computador local, [siga as instruções de instalação do Packer](https://www.packer.io/docs/install/index.html).
 
-Crie a imagem abrindo um prompt de comando e especificando seu Packer arquivo de modelo da seguinte maneira:
+Crie a imagem abrindo um prompt de comando e especificando o arquivo de modelo do empacotador da seguinte maneira:
 
 ```
 ./packer build windows.json
@@ -249,4 +249,4 @@ Para ver sua VM, que inclui a instalação do IIS do provisionador do Packer, em
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Você também pode usar scripts existentes de provisionador do Packer com [Azure Image Builder](image-builder.md).
+Você também pode usar scripts de provisionamento do Packer com o [Construtor de imagens do Azure](image-builder.md).
