@@ -1,5 +1,5 @@
 ---
-title: Tamanhos de VM do Windows no Azure - gerações anteriores | Microsoft Docs
+title: Tamanhos de VM Windows do Azure-gerações anteriores
 description: Lista as gerações anteriores de tamanhos disponíveis para máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 43fecfcdbb381588f0c717b7ca771c23c19f367d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b5d1483082b319c5668fba41a7adfec8ba45d25c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088469"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066148"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 

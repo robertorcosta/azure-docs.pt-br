@@ -1,5 +1,5 @@
 ---
-title: Extensão do Chef para VMs do Azure | Microsoft Docs
+title: Extensão do chefe para VMs do Azure
 description: Implante o cliente do Chef em uma máquina virtual usando a extensão para VM do Chef.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169136"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073196"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão para VM do Chef para Linux e Windows
 
 O Chef Software fornece uma plataforma de automação DevOps para Linux e Windows que permite o gerenciamento das configurações físicas e virtuais do servidor. A extensão para VM do Chef é uma extensão que habilita o Chef em máquinas virtuais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -67,16 +67,16 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 
 ### <a name="core-property-values"></a>Valores de propriedades principais
 
-| Nome | Valor/Exemplo | Tipo de dados
+| NOME | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | cadeia de caracteres |
+| publicador | `Chef.Bootstrap.WindowsAzure` | cadeia de caracteres |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | cadeia de caracteres |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Configurações
 
-| Nome | Valor/Exemplo | Tipo de dados | Obrigatório?
+| NOME | Valor/Exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | cadeia de caracteres | S |
@@ -84,7 +84,7 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
-| Nome | Exemplo | Tipo de dados | Obrigatório?
+| NOME | Exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | cadeia de caracteres | S |
 
@@ -146,7 +146,7 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 
 ### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
 
-| Código de Erro | Significado | Ação possível |
+| Código do Erro | Significado | Ação possível |
 | :---: | --- | --- |
 | 51 | Não há suporte para essa extensão no sistema operacional da VM | |
 

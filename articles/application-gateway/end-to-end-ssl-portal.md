@@ -1,19 +1,20 @@
 ---
-title: Início rápido-configurar a criptografia SSL de ponta a ponta com Aplicativo Azure gateway-portal do Azure | Microsoft Docs
+title: Configurar a criptografia SSL de ponta a ponta usando o portal
+titleSuffix: Azure Application Gateway
 description: Saiba como usar o portal do Azure para criar um gateway de aplicativo com criptografia SSL de ponta a ponta.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: ba31b5ebf83edcd08060a2acc3b5639a521e2729
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a878b966266bdd326db35d266bc14b2f81161e92
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243662"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075133"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurar o SSL de ponta a ponta usando o gateway de aplicativo com o portal
 
@@ -60,13 +61,13 @@ Para saber mais, confira [habilitar terminação SSL ao criar um novo gateway de
 
    ![Adicionar certificado](./media/end-to-end-ssl-portal/addcert.png)
 
-   Para os gateways de aplicativo Standard_v2 e WAF_v2, você deve carregar o certificado raiz do certificado de servidor back-end no formato. cer. Se o certificado de back-end for emitido por uma autoridade de certificação (CA) conhecida, você poderá marcar a caixa de seleção **usar certificado de autoridade de certificação conhecido** e, em seguida, não precisará carregar um certificado.
+   Para Standard_v2 e WAF_v2 gateways de aplicativo, você deve carregar o certificado raiz do certificado de servidor back-end no formato. cer. Se o certificado de back-end for emitido por uma autoridade de certificação (CA) conhecida, você poderá marcar a caixa de seleção **usar certificado de autoridade de certificação conhecido** e, em seguida, não precisará carregar um certificado.
 
    ![Adicionar certificado raiz confiável](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
    ![Certificado raiz](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
-8. Clique em **Salvar**.
+8. Selecione **Salvar**.
 
 ## <a name="enable-end-to-end-ssl-for-an-existing-application-gateway"></a>Habilitar o SSL de ponta a ponta para um gateway de aplicativo existente
 
@@ -114,11 +115,11 @@ Se você escolher a última opção, aplique as etapas no procedimento a seguir.
 
    ![Adicionar certificado](./media/end-to-end-ssl-portal/addcert.png)
 
-   Para os gateways de aplicativo Standard_v2 e WAF_v2, você deve carregar o certificado raiz do certificado de servidor back-end no formato. cer. Se o certificado de back-end for emitido por uma autoridade de certificação conhecida, você poderá marcar a caixa de seleção **usar certificado de autoridade de certificação conhecido** e, em seguida, não precisará carregar um certificado.
+   Para Standard_v2 e WAF_v2 gateways de aplicativo, você deve carregar o certificado raiz do certificado de servidor back-end no formato. cer. Se o certificado de back-end for emitido por uma autoridade de certificação conhecida, você poderá marcar a caixa de seleção **usar certificado de autoridade de certificação conhecido** e, em seguida, não precisará carregar um certificado.
 
    ![Adicionar certificado raiz confiável](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
-8. Clique em **Salvar**.
+8. Selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

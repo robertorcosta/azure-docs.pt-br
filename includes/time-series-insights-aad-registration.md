@@ -9,24 +9,16 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 09/24/2019
-ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1ed57e30273c9ba3feb110e0e5acbd3bcc7ffd40
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990190"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062847"
 ---
-> [!IMPORTANT]
-> * A nova folha **Azure Active Directory** > **Registros do aplicativo** substitui a folha herdada **Azure Active Directory** > **Registros de aplicativo (Herdado)** de maio de 2019.
-> * Registros de aplicativo criados ou exibidos na folha herdada serão exibidos automaticamente na nova folha.
-> * Para obter informações abrangentes sobre como migrar para a nova experiência de Registro de Aplicativo do Azure, leia o [Guia de treinamento de registros de aplicativo do Azure](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) e [Início Rápido do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
-
 1. No [portal do Azure](https://ms.portal.azure.com/), selecione **Azure Active Directory** > **Registros de aplicativo** > **Novo registro**.
 
    [![Novo registro do aplicativo no Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
-
-   > [!TIP]
-   > O novo painel de Registro de aplicativo do Azure Active Directory permite que você filtre os aplicativos exibidos selecionando os **Aplicativos próprios**.
 
     Seu aplicativo aparecerá aqui depois que você registrá-lo.
 
@@ -51,7 +43,7 @@ ms.locfileid: "72990190"
 
    [![Criar um novo segredo do cliente](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-   Clique em **Save** (Salvar).
+   Clique em **Salvar**.
 
 1. Selecione **Certificados e segredos** e, em seguida, **Novo segredo do cliente** para criar uma senha de aplicativo que o cliente possa usar para provar sua identidade.
 

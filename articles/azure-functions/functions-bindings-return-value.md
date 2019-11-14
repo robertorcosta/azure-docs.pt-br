@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086418"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074397"
 ---
 # <a name="using-the-azure-function-return-value"></a>Usando o valor de retorno da função do Azure
 
@@ -29,15 +29,7 @@ Se houver várias associações de saída, use o valor de retorno de apenas um d
 
 No C# e script C#, formas alternativas de enviar os dados para uma associação de saída são parâmetros `out` e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
 
-Veja o exemplo específico de uma linguagem que mostra o uso do valor de retorno:
-
-* [C#](#c-example)
-* [Script do C# (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-## <a name="c-example"></a>Exemplo de C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Aqui está o código C# que usa o valor de retorno para uma associação de saída, seguido por um exemplo de assíncrono:
 
@@ -63,7 +55,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-## <a name="c-script-example"></a>Exemplo 2 de C# script
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 Aqui está a associação de saída no arquivo *function.json*:
 
@@ -96,7 +88,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## <a name="f-example"></a>Exemplo de F#
+# <a name="ftabfsharp"></a>[F#](#tab/fsharp)
 
 Aqui está a associação de saída no arquivo *function.json*:
 
@@ -118,7 +110,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-## <a name="javascript-example"></a>Exemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Aqui está a associação de saída no arquivo *function.json*:
 
@@ -141,7 +133,7 @@ module.exports = function (context, input) {
 }
 ```
 
-## <a name="python-example"></a>Exemplo de Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Aqui está a associação de saída no arquivo *function.json*:
 
@@ -153,7 +145,7 @@ Aqui está a associação de saída no arquivo *function.json*:
     "path": "output-container/{id}"
 }
 ```
-Aqui está o código Python:
+Confira o código Python:
 
 ```python
 def main(input: azure.functions.InputStream) -> str:
@@ -163,6 +155,8 @@ def main(input: azure.functions.InputStream) -> str:
         'content': input.read().decode('utf-8')
     })
 ```
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

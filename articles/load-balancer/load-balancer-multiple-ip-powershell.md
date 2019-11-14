@@ -1,10 +1,10 @@
 ---
 title: Balanceamento de carga em várias configurações de IP na CLI do Azure
-titlesuffix: Azure Load Balancer
-description: Balanceamento de carga entre as configurações de IP primárias e secundárias.
+titleSuffix: Azure Load Balancer
+description: Neste artigo, saiba mais sobre o balanceamento de carga nas configurações de IP primário e secundário usando CLI do Azure.
 services: load-balancer
 documentationcenter: na
-author: anavinahar
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: anavin
-ms.openlocfilehash: bbd21ffeffeaf036909b5ab89f1a07909a03c3f0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: allensu
+ms.openlocfilehash: 6ac9e362314cc45e6adbdcf1390f70cbe6b05de8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621721"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075972"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Balanceamento de carga em várias configurações de IP usando o PowerShell
 
@@ -143,4 +143,4 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre como combinar os serviços de balanceamento de carga no Azure em [Usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Saiba como você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas do balanceador de carga no [logs do Azure Monitor para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Saiba como você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas do balanceador de carga nos [logs de Azure monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

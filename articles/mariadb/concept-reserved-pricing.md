@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: e7aa951634dffcafc20f198f85c15f5ac954fe58
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 61736d4f7e6b17c6037837bfdfe6d9cb8a00c5f6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609054"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076859"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para recursos de computação MariaDB com capacidade reservada
 
@@ -32,7 +32,7 @@ Para saber detalhes sobre como clientes empresariais e clientes do método de pa
 
 O tamanho da reserva deve ser baseado na quantidade total de computação usada pela instância de bancos de dados existente ou em breve para ser implantada em uma região específica e usando o mesmo nível de desempenho e geração de hardware.</br>
 
-Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 – 32 vCore MariaDB Database e dois bancos de dados com otimização de memória, Gen5 – 16 vCore MariaDB. Além disso, digamos que você planeja implantar no próximo mês uma finalidade geral adicional, Gen5 – pool elástico de 32 vCore e um servidor de banco de dados com otimização de memória, Gen5 – 16 vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de 1 ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) reserva de 1 ano para a memória de banco de dados individual otimizada-Gen5
+Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 – 32 vCore MariaDB Database e dois bancos de dados com otimização de memória, Gen5 – 16 vCore MariaDB. Além disso, digamos que você planeja implantar no próximo mês uma finalidade geral adicional, Gen5 – servidor de banco de dados vCore de 32 e um servidor de banco de dados com otimização de memória, Gen5 – 16 vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de 1 ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) reserva de 1 ano para a memória de banco de dados individual otimizada-Gen5
 
 
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Comprar o banco de dados do Azure para capacidade reservada do MariaDB
@@ -60,7 +60,7 @@ A tabela a seguir descreve os campos obrigatórios.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Você pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidade de tamanho do vCore
 
@@ -75,11 +75,11 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 O desconto de reserva vCore é aplicado automaticamente ao número do banco de dados do Azure para servidores MariaDB que correspondem ao banco de dados do Azure para atributos e escopo de reserva de capacidade reservada do MariaDB. Você pode atualizar o escopo do banco de dados do Azure para MariaDB reserva de capacidade reservada por meio de portal do Azure, PowerShell, CLI ou por meio da API. </br></br>
 Para saber como gerenciar o banco de dados do Azure para capacidade reservada do MariaDB, consulte Gerenciar o banco de dados do Azure para capacidade reservada do MariaDB.
 
-Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
+Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 
 * [O que são as reservas do Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)?
 * [Gerenciar Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 * [Compreender o desconto de Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
 * [Entender o uso de reserva para a sua assinatura paga conforme o uso](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mariadb)
 * [Entenda o uso de reservas para o seu registro Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center.](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)

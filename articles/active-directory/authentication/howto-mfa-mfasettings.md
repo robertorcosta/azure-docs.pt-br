@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ea89af780df72b97fef553cf79b84c4b28da05
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4932089b7315f2756f3760b252c7257868f640fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569868"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066017"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
 Este artigo ajuda a gerenciar as configurações de Autenticação Multifator do Azure no portal do Azure. Ele aborda diversos tópicos que ajudarão você a aproveitar ao máximo a Autenticação Multifator do Azure. Nem todos os recursos estão disponíveis em todas as versões da autenticação multifator do Azure.
 
-Você pode acessar as configurações relacionadas à autenticação multifator do Azure no portal do Azure navegando até **Azure Active Directory** > **MFA**.
+Você pode acessar as configurações relacionadas à autenticação multifator do Azure da portal do Azure navegando até **Azure Active Directory** > **Security** > **MFA**.
 
 ![Portal do Azure - Definir as configurações de Autenticação Multifator do Microsoft Azure Active Directory](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -62,7 +62,7 @@ Use o recurso _bloquear e desbloquear usuários_ para impedir que os usuários r
 ### <a name="block-a-user"></a>Bloquear um usuário
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Navegue até **Azure Active Directory** > **MFA** > **Bloquear/desbloquear usuários**.
+2. Navegue até **Azure Active Directory** > **Security** > **MFA** > **bloquear/desbloquear usuários**.
 3. Selecione **Adicionar** para bloquear um usuário.
 4. Selecione o **Grupo de Replicação**. Insira o nome de usuário para a usuária bloqueada como **username\@Domain.com**. Insira um comentário no campo **Motivo**.
 5. Selecione **Adicionar** para concluir o bloqueio do usuário.
@@ -70,7 +70,7 @@ Use o recurso _bloquear e desbloquear usuários_ para impedir que os usuários r
 ### <a name="unblock-a-user"></a>Desbloquear um usuário
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Navegue até **Azure Active Directory** > **MFA** > **Bloquear/desbloquear usuários**.
+2. Navegue até **Azure Active Directory** > **Security** > **MFA** > **bloquear/desbloquear usuários**.
 3. Selecione **Desbloquear** na coluna **Ação** ao lado do usuário a ser desbloqueado.
 4. Insira um comentário no campo **Motivo do desbloqueio**.
 5. Selecione **Desbloquear** para concluir o desbloqueio do usuário.
@@ -82,7 +82,7 @@ Configure o recurso de _alerta de fraude_ para que os usuários possam relatar t
 ### <a name="turn-on-fraud-alerts"></a>Ativar alertas de fraude
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Navegue até **Azure Active Directory** > **MFA** > **Alerta de fraude**.
+2. Navegue até **Azure Active Directory** > **segurança** > **MFA** > **alerta de fraude**.
 3. Defina a configuração **Permitir que os usuários enviem alertas de fraude** como **Ativada**.
 4. Selecione **Salvar**.
 
@@ -124,7 +124,7 @@ Você pode usar suas próprias gravações ou saudações para a verificação e
 Antes de começar, esteja ciente das seguintes restrições:
 
 * Os formatos de arquivo compatíveis são .wav e .mp3.
-* O limite de tamanho de arquivo é de 5 MB.
+* O limite de tamanho do arquivo é 1 MB.
 * As mensagens de autenticação devem ter menos de 20 segundos. As mensagens que têm mais de 20 segundos podem causar falha na verificação. O usuário poderá não responder antes da conclusão da mensagem e a verificação atingirá o tempo limite.
 
 ### <a name="custom-message-language-behavior"></a>Comportamento de idioma de mensagem personalizada
@@ -145,7 +145,7 @@ Por exemplo, se houver apenas uma mensagem personalizada, com um idioma alemão:
 ### <a name="set-up-a-custom-message"></a>Configurar uma mensagem personalizada
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-1. Navegue até **Azure Active Directory** > **MFA** > **Configurações de ligação telefônica**.
+1. Navegue até **Azure Active Directory** > **Security** > **MFA** > **configurações de chamada telefônica**.
 1. Selecione **Adicionar saudação**.
 1. Escolha o tipo de saudação.
 1. Escolha o idioma.
@@ -184,7 +184,7 @@ O recurso _bypass avulso_ permite que um usuário se autentique uma única vez s
 ### <a name="create-a-one-time-bypass"></a>Criar um bypass avulso
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Navegue até **Azure Active Directory** > **MFA** > **bypass avulso**.
+2. Navegue até **Azure Active Directory** > **Security** > **MFA** > **bypass único**.
 3. Selecione **Adicionar**.
 4. Se necessário, selecione o grupo de replicação para o bypass.
 5. Insira o nome de usuário como **nome de usuário\@Domain.com**. Insira o número de segundos que o bypass deve durar. Insira o motivo do bypass.
@@ -193,7 +193,7 @@ O recurso _bypass avulso_ permite que um usuário se autentique uma única vez s
 ### <a name="view-the-one-time-bypass-report"></a>Para exibir o relatório de bypass avulso
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Navegue até **Azure Active Directory** > **MFA** > **bypass avulso**.
+2. Navegue até **Azure Active Directory** > **Security** > **MFA** > **bypass único**.
 
 ## <a name="caching-rules"></a>Regras de cache
 
@@ -205,7 +205,7 @@ Você pode definir um período de tempo para permitir tentativas de autenticaç�
 ### <a name="set-up-caching"></a>Configurar o cache
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Navegue até **Azure Active Directory** > **MFA** > **regras de cache**.
+2. Navegue até **Azure Active Directory** > **segurança** > **MFA** > **regras de cache**.
 3. Selecione **Adicionar**.
 4. Selecione o **tipo de cache** na lista suspensa. Insira o número máximo de **segundos de cache**.
 5. Se necessário, selecione um tipo de autenticação e especifique um aplicativo.
@@ -213,9 +213,11 @@ Você pode definir um período de tempo para permitir tentativas de autenticaç�
 
 ## <a name="mfa-service-settings"></a>Configurações de serviço MFA
 
-As configurações para senhas de aplicativo, IPs, opções de verificação, confiáveis e lembrar da autenticação multifator para Autenticação Multifator do Azure pode ser encontrada nas configurações de serviço. Configurações de serviço podem ser acessadas no portal do Azure, navegando até **Azure Active Directory** > **MFA** > **Introdução**  >  **Configurar** > **Configurações adicionais de MFA baseado em nuvem**.
+As configurações para senhas de aplicativo, IPs, opções de verificação, confiáveis e lembrar da autenticação multifator para Autenticação Multifator do Azure pode ser encontrada nas configurações de serviço. As configurações de serviço podem ser acessadas no portal do Azure navegando até **Azure Active Directory** > **segurança** > **MFA** > **introdução** > **Configurar** > **configurações adicionais de MFA baseadas em nuvem**.
 
 ![Configurações de Serviço de Autenticação Multifator do Azure](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
+
+Os intervalos de endereços IP confiáveis podem ser privados ou públicos.
 
 ## <a name="app-passwords"></a>Senhas de aplicativo
 
@@ -287,7 +289,7 @@ Os usuários podem criar senhas de aplicativo durante o registro inicial. O usu�
 
 Os usuários também podem criar senhas de aplicativo após o registro. Para obter mais informações e etapas detalhadas para os usuários, consulte [O que são senhas de aplicativo na Autenticação Multifator do Azure?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
-## <a name="trusted-ips"></a>IPs confiáveis
+## <a name="trusted-ips"></a>IPs Confiáveis
 
 O recurso _IPs confiáveis_ da Autenticação Multifator do Azure é usado por administradores de um locatário gerenciado ou federado. O recurso ignora a verificação em duas etapas para os usuários que se conectam pela intranet da empresa. O recurso está disponível na versão completa da Autenticação Multifator do Azure e não na versão gratuita para administradores. Para saber como obter a versão completa da Autenticação Multifator do Azure, consulte [Autenticação Multifator do Azure](multi-factor-authentication.md).
 
