@@ -1,20 +1,20 @@
 ---
-title: Segurança de instância gerenciada do Banco de Dados SQL do Azure usando entidades de servidor (logons) do Azure AD | Microsoft Docs
+title: Segurança da instância gerenciada com entidades de segurança do servidor (logons) do Azure AD
 description: Saiba mais sobre técnicas e recursos para proteger uma instância gerenciada no Banco de Dados SQL do Azure e usar entidades de servidor (logons) do Azure AD
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: tutorial
-author: VanMSFT
-ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 02/20/2019
-ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+author: GitHubMirek
+ms.author: mireks
+ms.reviewer: vanto
+ms.date: 11/06/2019
+ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231009"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822800"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerenciada no Banco de Dados SQL do Azure usando entidades de servidor (logons) do Azure AD
 
@@ -35,9 +35,6 @@ Neste tutorial, você aprenderá como:
 > - Usar representação com usuários do Azure AD
 > - Usar consultas entre bancos de dados com usuários do Azure AD
 > - Aprender sobre recursos de segurança, como proteção contra ameaças, auditoria, máscara de dados e criptografia
-
-> [!NOTE]
-> As entidades de servidor (logons) do Azure AD para instâncias gerenciadas estão em **versão prévia pública**.
 
 Para saber mais, confira os artigos [Visão geral](sql-database-managed-instance-index.yml) e [Recursos de Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
 
@@ -64,15 +61,14 @@ Também é possível configurar um ponto de extremidade de serviço na instânci
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Criar uma entidade de servidor (logon) do Azure AD para uma instância gerenciada usando SSMS
 
-A primeira entidade de servidor (logon) do Azure AD deve ser criado pela conta do SQL Server (não Azure AD) padrão que é um `sysadmin`. Leia os seguintes artigos para obter exemplos de como conectar-se à sua instância gerenciada:
+A primeira entidade de segurança do servidor (logon) do Azure AD pode ser criada pela conta padrão do SQL Server (não Azure AD) que seja um `sysadmin` ou o administrador do Azure AD para a instância gerenciada criada durante o processo de provisionamento. Para obter mais informações, confira [Provisionar um administrador do Azure Active Directory para a instância gerenciada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Essa funcionalidade foi alterada desde o [GA das entidades de segurança do servidor do Azure AD](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+
+Leia os seguintes artigos para obter exemplos de como conectar-se à sua instância gerenciada:
 
 - [Início Rápido: Configurar a VM do Azure para conectar-se a uma instância gerenciada](sql-database-managed-instance-configure-vm.md)
 - [Início Rápido: Configurar uma conexão ponto a site com uma instância gerenciada do local](sql-database-managed-instance-configure-p2s.md)
 
-> [!IMPORTANT]
-> O administrador do Azure AD usado para configurar a instância gerenciada não pode ser usado para criar uma entidade de servidor (logon) do Azure AD dentro da instância gerenciada. Você deve criar a primeira entidade de servidor (logon) do Azure AD usando uma conta do SQL Server que é um `sysadmin`. Essa é uma limitação temporária que será removida depois que as entidades de servidor (logons) do Azure AD se tornarem GA. Se você tentar usar uma conta do administrador do Azure AD para criar o logon, verá o seguinte erro: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-
-1. Faça logon na sua instância gerenciada usando uma conta do SQL Server padrão (não Azure AD) que é um `sysadmin` usando o [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Faça logon na instância gerenciada usando uma conta padrão do SQL Server (não Azure AD) que seja um `sysadmin` ou um administrador do Azure AD para MI usando o [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
 
@@ -125,7 +121,7 @@ Para criar outras entidades de servidor (logons) do Azure AD, permissões ou fun
 
 Para adicionar o logon à função de servidor `sysadmin`:
 
-1. Faça logon novamente na instância gerenciada ou use a conexão existente com a Entidade de Segurança SQL que é um `sysadmin`.
+1. Faça logon novamente na instância gerenciada ou use a conexão existente com o administrador do Azure AD ou a entidade de segurança SQL que seja um `sysadmin`.
 
 1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
 
@@ -218,7 +214,7 @@ Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebi
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login-and-give-permissions"></a>Criar um usuário do Azure AD da entidade de servidor (logon) do Azure AD e conceder permissões
 
-Autorização para bancos de dados individuais funciona de maneira muito similar a como a instância gerenciada funciona com o SQL Server local. Um usuário pode ser criado usando um logon existente em um banco de dados e receber permissões no banco de dados ou ser adicionado a uma função de banco de dados.
+A autorização para bancos de dados individuais funciona de maneira muito similar a como a instância gerenciada funciona com o SQL Server local. Um usuário pode ser criado usando um logon existente em um banco de dados e receber permissões no banco de dados ou ser adicionado a uma função de banco de dados.
 
 Agora que criamos um banco de dados chamado **MyMITestDB** e um logon que tem somente permissões padrão, a próxima etapa é criar um usuário com base nesse logon. No momento, o logon pode se conectar à instância gerenciada e ver todos os bancos de dados, mas não pode interagir com os bancos de dados. Se você entrar com a conta do Azure AD que tem permissões padrão e tentar expandir o banco de dados recém-criado, verá o seguinte erro:
 
@@ -425,7 +421,7 @@ Consultas entre bancos de dados são compatíveis com contas do Azure AD com ent
 
     Você deve ver os resultados da tabela de **TestTable2**.
 
-## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Cenários adicionais compatíveis com entidades de servidor (logons) do Azure AD (versão prévia pública) 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins"></a>Cenários adicionais compatíveis com entidades de segurança do servidor (logons) do Azure AD
 
 - Execuções de trabalho e gerenciamento do SQL Agent são compatíveis com entidades de servidor (logons) do Azure AD.
 - Operações de restauração e backup de banco de dados podem ser executadas por entidades de servidor (logons) do Azure AD.

@@ -1,5 +1,5 @@
 ---
-title: Criar seu primeiro data factory (PowerShell) | Microsoft Docs
+title: Criar seu primeiro data factory (PowerShell)
 description: Neste tutorial, você cria um pipeline de exemplo do Azure Data Factory usando o Azure PowerShell.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e60e31f62d74a22a87c60f70e62bd5148906607
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 0209b004ba54417a26cd41716687d328ec1431cf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140411"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682990"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar seu primeiro Azure data factory usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -137,7 +137,7 @@ Nesta etapa, você vincula a conta do Armazenamento do Azure ao data factory. Vo
     Se você fechar o Azure PowerShell no meio do tutorial, precisará executar o cmdlet **Get-AzDataFactory** na próxima vez que iniciar o Azure PowerShell para concluir o tutorial.
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Criar o serviço vinculado do Azure HDInsight
-Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data factory. O cluster do HDInsight é automaticamente criado no tempo de execução e excluído após a conclusão do processamento, ficando ocioso durante o período especificado. Você pode usar seu próprio cluster do HDInsight em vez de usar um cluster do HDInsight sob demanda. Veja [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
+Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data factory. O cluster do HDInsight é automaticamente criado no runtime e excluído após a conclusão do processamento, ficando ocioso durante o período especificado. Você pode usar seu próprio cluster do HDInsight em vez de usar um cluster do HDInsight sob demanda. Veja [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
 
 1. Crie um arquivo JSON chamado **HDInsightOnDemandLinkedService**.json na pasta **C:\ADFGetStarted** com o conteúdo a seguir.
 
@@ -317,7 +317,7 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade **HDInsightHive** 
 
     O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService chamado **StorageLinkedService**) e na pasta **script** no contêiner **adfgetstarted**.
 
-    A seção **defines** é usada para especificar as configurações de tempo de execução passadas para o script do hive como valores de configuração do Hive (por exemplo, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+    A seção **defines** é usada para especificar as configurações de runtime passadas para o script do hive como valores de configuração do Hive (por exemplo, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
     As propriedades **start** e **end** do pipeline especificam o período ativo do pipeline.
 

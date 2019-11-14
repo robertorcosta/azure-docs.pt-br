@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 9b70a9c364768322a3eae6ef5b92c87b6839c540
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 11/04/2019
+ms.openlocfilehash: b0839cf418cd30f62623e046960c32d41537609a
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242082"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614371"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Tutorial: Configurar clusters do Serviço de Kubernetes do Azure (AKS) no Azure usando o Ansible
 
@@ -54,7 +54,8 @@ Salve o guia estratégico a seguir como `azure_create_aks.yml`:
     ssh_key: "your_ssh_key"
     client_id: "your_client_id"
     client_secret: "your_client_secret"
-  tasks:
+    aks_version: aks_version
+tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -65,6 +66,7 @@ Salve o guia estratégico a seguir como `azure_create_aks.yml`:
       location: "{{ location }}"
       resource_group: "{{ resource_group }}"
       dns_prefix: "{{ aks_name }}"
+      kubernetes_version: "{{aks_version}}"
       linux_profile:
         admin_username: "{{ username }}"
         ssh_key: "{{ ssh_key }}"
@@ -84,6 +86,7 @@ Antes de executar o guia estratégico, confira as observações a seguir:
 - A primeira seção dentro de `tasks` define um grupo de recursos chamado `myResourceGroup` dentro no local `eastus`.
 - A segunda seção dentro de `tasks` define um cluster do AKS chamado `myAKSCluster` dentro do grupo de recursos `myResourceGroup`.
 - Para o espaço reservado `your_ssh_key`, insira a chave pública RSA no formato de linha única – começando com "ssh-rsa" (sem as aspas).
+- Para o espaço reservado `aks_version`, use o comando [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions).
 
 Execute o guia estratégico usando o comando `ansible-playbook`:
 

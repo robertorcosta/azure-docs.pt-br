@@ -1,26 +1,25 @@
 ---
 title: 'Início Rápido: Criar um aplicativo no portal do LUIS'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você cria um aplicativo no portal do LUIS. Crie as partes básicas de um aplicativo, intenções e entidades. Teste o aplicativo fornecendo um enunciado de usuário de exemplo no painel de teste interativo para obter a intenção prevista. Criar um aplicativo é gratuito e não requer uma assinatura do Azure.
+description: Neste início rápido, você criará as partes básicas de um aplicativo, intenções e entidades, bem como um teste com enunciado de exemplo no portal do LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 6888c53122e649d6a0e91f8ece30101f051c08e8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488783"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669674"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início Rápido: Criar um aplicativo no portal do LUIS
 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Neste início rápido, você criará um aplicativo no [portal do LUIS](https://www.luis.ai). Primeiro, você criará as partes básicas de um aplicativo, **intenções** e **entidades**. Em seguida, você testará o aplicativo fornecendo um enunciado de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
 
@@ -32,7 +31,7 @@ A criação de um aplicativo é gratuita e não exige uma assinatura do Azure. Q
 
 1. Selecione **+Criar** na barra de ferramentas de contexto.
 
-   [![Criar aplicativo no portal do LUIS](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![Criar aplicativo no portal do LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. Na janela pop-up, configure o aplicativo com as configurações a seguir e, em seguida, selecione **Concluído**.
 
@@ -40,8 +39,8 @@ A criação de um aplicativo é gratuita e não exige uma assinatura do Azure. Q
    |--|--|--|
    |NOME|`myEnglishApp`|Nome exclusivo de aplicativo LUIS<br>obrigatório|
    |Cultura|**Inglês**|Linguagem de enunciados de usuários, **pt-br**<br>obrigatório|
-   |DESCRIÇÃO|`App made with LUIS Portal`|Descrição do aplicativo<br>opcional|
-   | | | |
+   |Descrição (opcional)|`App made with LUIS Portal`|Descrição do aplicativo<br>opcional|
+   |Recurso de previsão (opcional) |-  |Não selecione. O LUIS fornece uma chave de início para ser usada gratuitamente com a finalidade de criação e 1.000 solicitações de ponto de extremidade de previsão. |
 
    ![Inserir configurações do novo aplicativo](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -61,13 +60,11 @@ As duas diferentes _intenções_ do aplicativo se alinham com as seguintes inten
 
 Para criar intenções, conclua as seguintes etapas:
 
-1. Depois que o aplicativo é criado, você está na página **Intenções** da seção **Build**. Selecione **Criar nova intenção**.
+1. Depois que o aplicativo é criado, você está na página **Intenções** da seção **Build**. Selecione **Criar**.
 
-   [![Selecione o botão Criar nova intenção](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![Selecione Criar para criar uma intenção](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. Insira o nome da intenção, `FindForm`, e, em seguida, selecione **Concluído**.
-
-   ![Insira o nome da intenção do FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## <a name="add-an-example-utterance"></a>Adicionar uma expressão de exemplo
 
@@ -113,13 +110,16 @@ Para retornar o número de formulário na resposta de previsão do runtime, o fo
 
 1. Selecione **Entidades** no menu à esquerda.
 
-1. Selecione **Criar entidade** na página **Entidades**.
+1. Selecione **Criar** na página **Entidades**.
 
-1. Insira o nome `Human Resources Form Number`, selecione o tipo de entidade **Regex** e insira a expressão regular, `hrf-[0-9]{6}`. Essa entrada corresponde aos caracteres de literal, `hrf-`, e permite exatamente seis dígitos.
+1. Insira o nome `Human Resources Form Number`, selecione o tipo de entidade **Regex** e, em seguida, selecione **Próximo**.
 
-   ![Insira as informações de entidade da entidade de expressão regular](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![Criar entidade de expressão regular](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. Selecione **Concluído**.
+1. Insira a expressão da **RegEx** (expressão regular), `hrf-[0-9]{6}`. Essa entrada corresponde aos caracteres do literal – `hrf-` – e permite exatamente seis dígitos, depois selecione **Criar**.
+
+   ![Inserir expressão regular para entidade](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar enunciados de exemplo à intenção None
 
@@ -137,11 +137,11 @@ Os exemplos de enunciado da intenção **Nenhum** devem ficar fora do seu domín
    |Peça uma pizza para mim|
    |Pinguins no oceano|
 
-   Para este aplicativo de recursos humanos, esses exemplos de enunciado estão fora do domínio. Se o domínio de recursos humanos incluir animais, alimentos ou o oceano, você deverá usar outros enunciados de exemplo para a intenção **Nenhum**.
+   Para este aplicativo, esses exemplos de enunciado estão fora do domínio. Se o domínio incluir animais, alimentos ou o oceano, você deverá usar outros exemplos de enunciado para a intenção **Nenhum**.
 
 ## <a name="train-the-app"></a>Treinar o aplicativo
 
-No menu do canto superior direito, selecione **Treinar** para aplicar as alterações do modelo de entidade e de intenção à versão atual do aplicativo.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Examinar a entidade de expressão regular nos exemplos de enunciado
 
@@ -168,8 +168,6 @@ Use o painel **Teste** interativo no portal do LUIS para validar se a entidade �
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você concluir este início rápido e não estiver passando para o próximo, selecione **Meus aplicativos** no menu de navegação superior. Em seguida, marque a caixa de seleção à esquerda do aplicativo na lista e selecione **Excluir** na barra de ferramentas de contexto acima da lista.
-
-[![Excluir aplicativo da lista Meus aplicativos](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 

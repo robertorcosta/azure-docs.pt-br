@@ -1,36 +1,33 @@
 ---
-title: Associar um Azure Cosmos DB ao seu aplicativo Azure Spring Cloud | Microsoft Docs
-description: Saiba como associar Azure Cosmos DB ao seu aplicativo Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+title: Associar um Azure Cosmos DB ao aplicativo Azure Spring Cloud | Microsoft Docs
+description: Aprenda a associar um Azure Cosmos DB ao aplicativo Azure Spring Cloud
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: d051fd431180e9cb86f1df4642fb5e947103c007
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
-ms.translationtype: MT
+ms.author: jeconnoc
+ms.openlocfilehash: 76a2b9f305f041a19b8d7ace8234a804825f6a0e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038724"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607126"
 ---
-# <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Tutorial: Associar um Azure Cosmos DB ao seu aplicativo Azure Spring Cloud
+# <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Tutorial: Associar um Azure Cosmos DB ao aplicativo Azure Spring Cloud
 
-O Azure Spring Cloud permite associar os serviços do Azure selecionados aos seus aplicativos automaticamente, em vez de configurar manualmente o aplicativo Spring boot. Este artigo demonstra como associar seu aplicativo a um Azure Cosmos DB.
+O Azure Spring Cloud permite que você associe serviços do Azure selecionados aos seus aplicativos automaticamente, em vez de configurar manualmente seu aplicativo Spring Boot. Este artigo demonstra como associar o aplicativo a um Azure Cosmos DB.
 
 Pré-requisitos:
-* Uma instância do Azure Spring Cloud implantada.  Siga nosso [início rápido](spring-cloud-quickstart-launch-app-cli.md) para começar.
-* Uma conta de Azure Cosmos DB com um nível mínimo de permissões de colaborador.
+* Uma instância do Azure Spring Cloud implantada.  Siga nosso [início rápido](spring-cloud-quickstart-launch-app-cli.md) para começar a usar.
+* Uma conta do Azure Cosmos DB com um nível mínimo de permissões de colaborador.
 
-## <a name="bind-azure-cosmos-db"></a>Associar Azure Cosmos DB
+## <a name="bind-azure-cosmos-db"></a>Associar o Azure Cosmos DB
 
-Azure Cosmos DB tem cinco tipos de API diferentes que dão suporte à associação:
+Azure Cosmos DB tem cinco tipos de API diferentes que oferecem suporte a associação:
 
-1. Crie um banco de dados do Azure Cosmos DB. [Consulte este artigo](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) para obter ajuda com a criação do banco de dados. Registre o nome do seu banco de dados. Nosso nome é `testdb`.
+1. Crie um banco de dados do Azure Cosmos DB. [Veja este artigo](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) para obter ajuda com a criação do banco de dados. Anote o nome do banco de dados. O nosso se chama `testdb`.
 
-1. Adicione uma das seguintes dependências em seu aplicativo Spring Cloud `pom.xml` de acordo com seu tipo de API.
+1. Adicione uma das seguintes dependências no `pom.xml` do seu aplicativo Spring Cloud de acordo com o tipo de API.
     
     #### <a name="api-type-core-sql"></a>Tipo de API: Núcleo (SQL)
 
@@ -80,16 +77,16 @@ Azure Cosmos DB tem cinco tipos de API diferentes que dão suporte à associaç�
     </dependency>
     ```
 
-1. Atualize a implantação atual usando `az spring-cloud app update` ou crie uma nova implantação para essa alteração usando `az spring-cloud app deployment create`.  Esses comandos atualizarão ou criarão o aplicativo com a nova dependência.
+1. Atualize a implantação atual usando `az spring-cloud app update` ou crie uma implantação para essa alteração usando `az spring-cloud app deployment create`.  Esses comandos atualizarão ou criarão o aplicativo com a nova dependência.
 
-1. Acesse sua página de serviço de nuvem do Azure Spring no portal do Azure. Esse é o mesmo aplicativo que você atualizou ou implantou na etapa anterior. Localize o **painel do aplicativo** e selecione o aplicativo a ser associado ao cosmos DB. Em seguida, selecione `Service binding` e selecione o botão `Create service binding`. Preencha o formulário, selecionando o **tipo de associação** `Azure Cosmos DB`, o tipo de API, o nome do banco de dados e a conta de Azure Cosmos DB.
+1. Acesse sua página de serviços do Azure Spring Cloud no portal do Azure. Esse é o mesmo aplicativo que você atualizou ou implantou na etapa anterior. Localize o **Painel do Aplicativo** e selecione o aplicativo a ser associado ao Cosmos DB. Em seguida, selecione `Service binding` e o botão `Create service binding`. Preencha o formulário, selecionando o **Tipo de associação** `Azure Cosmos DB`, o tipo de API, o nome do banco de dados e a conta do Azure Cosmos DB.
 
     > [!NOTE]
-    > Use um espaço de chave para o nome do banco de dados se você estiver usando Cassandra.
+    > Use um espaço de chave para o nome do banco de dados se você estiver usando o Cassandra.
 
-1. Reinicie o aplicativo selecionando o botão **reiniciar** na página do aplicativo.
+1. Reinicie o aplicativo selecionando o botão **Reiniciar** na página do aplicativo.
 
-1. Para garantir que o serviço esteja associado corretamente, selecione o nome da associação e verifique seus detalhes. O campo `property` deve ser semelhante a este:
+1. Para assegurar que o serviço esteja associado corretamente, selecione o nome da associação e verifique seus detalhes. O campo `property` deve ter esta aparência:
 
     ```
     azure.cosmosdb.uri=https:/<some account>.documents.azure.com:443
@@ -99,7 +96,7 @@ Azure Cosmos DB tem cinco tipos de API diferentes que dão suporte à associaç�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a associar seu aplicativo de nuvem Spring do Azure a um CosmosDB.  Para saber como associar seu aplicativo a um cache Redis do Azure, prossiga para o próximo tutorial.
+Neste tutorial, você aprendeu a associar seu aplicativo do Azure Spring Cloud a um banco de dados CosmosDB.  Para saber como associar seu aplicativo a um Cache do Azure para Redis, prossiga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Associar um aplicativo de nuvem Spring do Azure a um cache Redis do Azure](spring-cloud-tutorial-bind-redis.md).
+> [Associar um aplicativo Azure Spring Cloud a um Cache do Azure para Redis](spring-cloud-tutorial-bind-redis.md).

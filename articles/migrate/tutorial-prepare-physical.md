@@ -5,19 +5,23 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/07/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bf1b9859bf3dc4b8ac14d01b2bb6c8cf9c9899ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: df425f723aa6a5e261ed6dcd15abfe87b367ad68
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520863"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747964"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para a avaliação e a migração de servidores físicos para o Azure
 
 Este artigo descreve como preparar a avaliação dos servidores físicos locais para o Azure usando as [Migrações para Azure](migrate-services-overview.md).
+
+
+> [!NOTE]
+> Se você ainda não vir alguns desses recursos no portal das Migrações para Azure, aguarde. Eles aparecerão na semana seguinte ou em breve.
 
 As [Migrações para Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas das Migrações para Azure e ofertas de ISV (fornecedor independente de software) de terceiros. 
 

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do SQL Server para o Armazenamento de Blobs usando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados de um armazenamento de dados local para a nuvem usando o tempo de execução integrado e auto-hospedado no Azure Data Factory.
+title: Copiar dados do SQL Server para o Armazenamento de Blobs usando o Azure Data Factory
+description: Saiba como copiar dados de um armazenamento de dados local para a nuvem usando o runtime de integração auto-hospedada no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: abnarain
-ms.openlocfilehash: c86f5f053c285b099b7c3575c890b108f2de8742
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 09768e3b9bd1c2e6c9d4a5dbe95bb270b07266c0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140665"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683526"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
-Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual movimenta os dados entre armazenamentos de dados locais e da nuvem.
+Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um runtime de integração auto-hospedada, o qual move dados entre locais e armazenamentos de dados da nuvem.
 
 > [!NOTE]
 > Este artigo não fornece uma introdução detalhada ao Data Factory. Para saber mais, confira [Introdução ao Data Factory](introduction.md). 
@@ -28,7 +28,7 @@ Neste tutorial, você executa as seguintes etapas:
 
 > [!div class="checklist"]
 > * Criar um data factory.
-> * Criar um tempo de execução de integração auto-hospedado.
+> * Criar um runtime de integração auto-hospedada.
 > * Criar serviços vinculados do SQL Server e do Armazenamento do Azure. 
 > * Criar conjuntos de dados do SQL Server e de Blobs do Azure.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.
@@ -153,17 +153,17 @@ Nesta etapa, você cria um data factory e inicia a interface do usuário do Data
 
 1. Na caixa de diálogo **Definir Propriedades**, em **Nome**, insira **SqlServerDataset**. Em **Serviço vinculado**, selecione **+ Novo**. Você pode criar uma conexão com o repositório de dados de origem (banco de dados do SQL Server) nesta etapa. 
 
-1. Na caixa de diálogo **Novo Serviço Vinculado**, adicione **Nome** como **SqlServerLinkedService**. Em **Conectar por meio do tempo de execução de integração**, selecione **+Novo**.  Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um computador local com o banco de dados do SQL Server. O tempo de execução de integração auto-hospedado é o componente que copia dados do banco de dados do SQL Server em seu computador para o armazenamento de Blobs. 
+1. Na caixa de diálogo **Novo Serviço Vinculado**, adicione **Nome** como **SqlServerLinkedService**. Em **Conectar por meio do runtime de integração**, selecione **+Novo**.  Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um computador local com o banco de dados do SQL Server. O runtime de integração auto-hospedada é o componente que copia dados do banco de dados do SQL Server em seu computador para o armazenamento de Blobs. 
 
 1. Na caixa de diálogo **Instalação do Integration Runtime**, selecione **Auto-hospedado** e clique em **Avançar**. 
 
 1. Em nome, insira **TutorialIntegrationRuntime**. Em seguida, selecione **Avançar**.
 
-1. Para Configurações, selecione **Clique aqui para iniciar a instalação expressa para este computador**. Essa ação instala o tempo de execução de integração no computador e registra-o com o Data Factory. Como alternativa, você pode usar a opção de baixar o arquivo de instalação manual, executá-lo e usar a chave para registrar a integração em tempo de execução. 
+1. Para Configurações, selecione **Clique aqui para iniciar a instalação expressa para este computador**. Essa ação instala o runtime de integração no computador e registra-o com o Data Factory. Como alternativa, você pode usar a opção de baixar o arquivo de instalação manual, executá-lo e usar a chave para registrar o runtime de integração. 
 
-1. Na janela **Instalação Expressa do Tempo de Execução de Integração (auto-hospedado)** , selecione **Fechar**. 
+1. Na janela **Instalação Expressa do Integration Runtime (auto-hospedado)** , selecione **Fechar**. 
 
-    ![Instalação expressa do tempo de execução de integração (auto-hospedado)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
+    ![Instalação expressa do runtime de integração (auto-hospedado)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
 
 1. Na caixa de diálogo **Novo Serviço Vinculado**, verifique se **TutorialIntegrationRuntime** está selecionado em **Conectar por meio do tempo de execução de integração**. Em seguida, execute as etapas a seguir:
 
@@ -177,7 +177,7 @@ Nesta etapa, você cria um data factory e inicia a interface do usuário do Data
 
     e. Em **Nome de usuário** e **Senha**, digite o nome de usuário e a senha. Se precisar usar um caractere de barra invertida (\\) em sua conta de usuário e nome de servidor, use o caractere de escape à frente (\\). Por exemplo, use *mydomain\\\\myuser*.
 
-    f. Selecione **Testar conexão**. Esta etapa serve para confirmar que o Data Factory pode se conectar ao banco de dados do SQL Server usando o tempo de execução de integração auto-hospedado criado por você.
+    f. Selecione **Testar conexão**. Esta etapa serve para confirmar que o Data Factory pode se conectar ao banco de dados do SQL Server usando o runtime de integração auto-hospedada criado por você.
 
     g. Para salvar o serviço vinculado, selecione **Concluir**.
 
@@ -241,7 +241,7 @@ O pipeline neste exemplo copia dados de um local para outro no Armazenamento de 
 
 > [!div class="checklist"]
 > * Criar um data factory.
-> * Criar um tempo de execução de integração auto-hospedado.
+> * Criar um runtime de integração auto-hospedada.
 > * Criar serviços vinculados de armazenamento e do SQL Server. 
 > * Criar conjuntos de dados do SQL Server e de armazenamento de blobs.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.

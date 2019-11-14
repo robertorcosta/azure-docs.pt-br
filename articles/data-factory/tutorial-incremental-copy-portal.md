@@ -1,5 +1,5 @@
 ---
-title: Copiar uma tabela incrementalmente usando o Azure Data Factory | Microsoft Docs
+title: 'Copiar uma tabela incrementalmente usando o Azure Data Factory '
 description: Neste tutorial, você cria um pipeline do Azure Data Factory que copia dados incrementalmente de um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 3626e68c8cedfdd2d22f47cd92d6e7c4b8b5d180
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: a446574f0a6b2b18959f1a3c3e9a02a0a97e9f6b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806405"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683385"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 

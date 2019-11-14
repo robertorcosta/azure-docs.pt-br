@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 91d8ddf7d8051baeb42ceb58673c93555908f03a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ddade9472517d080d01b04c853db9dd1848fe0f3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488172"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668456"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Início Rápido: Conectar computadores ao Azure usando o Azure Arc para servidores – PowerShell
 
@@ -198,6 +198,29 @@ Para desconectar um computador do Azure Arc para servidores, você precisa execu
 
 1. Selecione o computador no [portal](https://aka.ms/hybridmachineportal), clique no botão de reticências (`...`) e selecione **Excluir**.
 1. Desinstale o agente do computador.
+
+   No Windows, você pode usar o painel de controle "Aplicativos e Recursos" para desinstalar o agente.
+  
+  ![Aplicativos e Recursos](./media/quickstart-onboard/apps-and-features.png)
+
+   Se você quiser criar um script para a desinstalação, será possível usar o exemplo a seguir, que recupera o **PackageID** e desinstalar o agente usando `msiexec /X`.
+
+   Examine a chave do registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` e localize o **PackageID**. Em seguida, você poderá desinstalar o agente usando `msiexec`.
+
+   O exemplo a seguir demonstra a desinstalação do agente.
+
+   ```powershell
+   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+   Get-ItemProperty | `
+   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+   ```
+
+   No Linux, execute o comando a seguir para desinstalar o agente.
+
+   ```bash
+   sudo apt purge hybridagent
+   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

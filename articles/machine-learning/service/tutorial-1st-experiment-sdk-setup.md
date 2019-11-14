@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 891615ea301348b83124823b10403964d394c224
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 59844c5989abb03bbe5134c83c9653290c17d0a9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475993"
+ms.locfileid: "73582489"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Introdução à criação de seu primeiro experimento de ML com o SDK de Python
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Neste tutorial, você irá:
 > [!div class="checklist"]
 > * Criar um [Workspace do Azure Machine Learning](concept-workspace.md) para usar no próximo tutorial.
 > * Clonar o notebook de tutoriais em sua pasta no workspace.
-> * Criar uma instância de computação baseada em nuvem com o SDK do Python do Azure Machine Learning instalado e pré-configurado.
+> * Criar uma VM de Notebook baseada em nuvem com o SDK do Python do Azure Machine Learning instalado e pré-configurado.
 
 
 Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
@@ -79,7 +79,7 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
     
 1. Selecione o arquivo **tutorial-1st-experiment-sdk-train.ipynb** na pasta **tutorials**.
 
-1. Na barra superior, selecione uma instância de computação a ser usada para executar o notebook. Essas VMs são pré-configuradas com [tudo o que você precisa para executar Azure Machine Learning](concept-compute-instance.md#contents). Você pode selecionar uma VM criada por qualquer usuário do seu workspace. 
+1. Na barra superior, selecione uma VM de notebook a ser usada para executar o notebook. Essas VMs são pré-configuradas com tudo o que você precisa para executar Azure Machine Learning. Você pode selecionar uma VM criada por qualquer usuário do seu workspace. 
 
 1. Se nenhuma VM for encontrada, selecione **+ Adicionar computação** para criar a VM.
 
@@ -89,9 +89,6 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
 
 1. Depois que a VM estiver disponível, ela será exibida na barra de ferramentas superior.  Agora você pode executar o notebook usando **Executar tudo** na barra de ferramentas ou usando **Shift + Enter** nas células de código do notebook.
 
-> [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **centro-Norte dos EUA** ou **Sul do Reino Unido**.
->Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do Notebook](concept-compute-instance.md#notebookvm) em vez disso.  Você pode usar uma VM do Notebook ou uma instância de computação para executar o bloco de anotações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

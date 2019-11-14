@@ -1,20 +1,21 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes do Content Moderator para Java | Microsoft Docs'
-description: Introdução à biblioteca de clientes do Content Moderator para Java.
+title: 'Início Rápido: Biblioteca de clientes do Content Moderator para Java'
+titleSuffix: Azure Cognitive Services
+description: Saiba como começar a usar a biblioteca de clientes do Content Moderator dos Serviços Cognitivos do Azure para Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d1575818ac35c45af8a7df59c0853389d01031c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: edc51be93ba209a1c60970e6fa1b47fca75048c6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698541"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744445"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>Início Rápido: Biblioteca de clientes do Content Moderator para Java
 
@@ -24,7 +25,7 @@ Use a biblioteca de clientes do Content Moderator para Java para:
 
 * Imagens moderadas para conteúdo para adulto ou erótico, texto ou rostos humanos.
 
-[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Artefato (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator&sort=0)
+[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Artefato (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Amostras](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +51,7 @@ Em uma janela de console (como cmd, PowerShell ou Bash), crie um novo diretório
 ```console
 mkdir myapp && cd myapp
 ```
-Execute `gradle init`. Esse comando criará arquivos de build essenciais para o Gradle, incluindo o *build.gradle.kts*, que é usado no tempo de execução para criar e configurar seu aplicativo. Execute este comando no diretório de trabalho:
+Execute `gradle init`. Esse comando criará arquivos de build essenciais para o Gradle, incluindo o *build.gradle.kts*, que é usado no runtime para criar e configurar seu aplicativo. Execute este comando no diretório de trabalho:
 
 ```console
 gradle init --type basic
@@ -125,14 +126,14 @@ No método do `main` aplicativo, crie um objeto [ContentModeratorClient](https:/
 
 ### <a name="get-images"></a>Obter imagens
 
-Na pasta **src/main/** do seu projeto, crie uma pasta **recursos** e navegue até ela. Em seguida, crie um novo arquivo de texto, *ImageFiles.txt*. Nesse arquivo, você adiciona as URLs de imagens para analisar&mdash;uma URL em cada linha. Você pode usar o seguinte conteúdo de exemplo:
+Na pasta **src/main/** do seu projeto, crie uma pasta **recursos** e navegue até ela. Em seguida, crie um novo arquivo de texto, *ImageFiles.txt*. Nesse arquivo, você adiciona as URLs de imagens para analisar&mdash;uma URL em cada linha. Use as seguintes imagens de exemplo:
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
-### <a name="use-helper-class"></a>Usar a classe auxiliar
+### <a name="define-helper-class"></a>Definir a classe auxiliar
 
 Em seguida, no seu arquivo *ContentModeratorQuickstart.java*, adicione a seguinte definição de classe dentro da classe **ContentModeratorQuickstart**. Essa classe interna será usada posteriormente no processo de moderação da imagem.
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um data factory do Azure usando modelo do Resource Manager | Microsoft Docs
+title: Criar um data factory do Azure usando o modelo do Resource Manager
 description: Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando um modelo do Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 8766ff461227a749a432771dfe7dbe96a291109a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6bba764060c243417711205083bf02f84a68fed1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008695"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684515"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar um Azure data factory usando um modelo do Azure Resource Manager
 
@@ -396,7 +396,7 @@ O gatilho implantado está no estado interrompido. Uma das maneiras de iniciar o
     RuntimeState      : Stopped
     ```
     
-    Observe que o estado do tempo de execução do gatilho é **Parado**.
+    Observe que o estado do runtime do gatilho é **Parado**.
 5. **Iniciar o gatilho**. O gatilho executa o pipeline definido no modelo na hora. Ou seja, se você executou esse comando às 14h25, o gatilho executará o pipeline às 15h pela primeira vez. Em seguida, ele executa o pipeline a cada hora até a hora de término especificada para o gatilho.
 
     ```powershell

@@ -1,5 +1,5 @@
 ---
-title: Preparar o Azure para a recuperação de desastre de computadores locais com o Azure Site Recovery
+title: Preparar o Azure para a recuperação de desastre local com o Azure Site Recovery
 description: Saiba como preparar o Azure para a recuperação de desastre de computadores locais usando o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1b8bdde64ee003d93ad15df8f1d4d8b1e3a2b5f9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814357"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620588"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar recursos do Azure para recuperação de desastre de computadores locais
+# <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparar o Azure para a recuperação de desastre local no Azure
 
 Este artigo descreve como preparar componentes e recursos do Azure para que você possa configurar a recuperação de desastre de VMs VMware locais, VMs do Hyper-V ou servidores físicos do Windows/Linux para o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
 
@@ -54,16 +54,17 @@ Para concluir essas tarefas, sua conta deve receber a função interna de Colabo
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-1. No portal do Azure, clique em **+Criar um recurso** e pesquise **Recuperação** no Marketplace.
-2. Clique em **Backup e Site Recovery** e, na página de Backup e Site Recovery, clique em **Criar**. 
-1. No **cofre dos Serviços de Recuperação** > **Nome**, insira um nome amigável para identificar o cofre. Para este conjunto de tutoriais estamos usando **ContosoVMVault**.
-2. No **Grupo de recursos**, selecione um grupo de recursos existente ou crie um. Para este tutorial, estamos usando **contosoRG**.
-3. Em **Local**, selecione a região na qual o cofre deve estar localizado. Estamos usando **Europa Ocidental**.
-4. Para acessar rapidamente o cofre do painel, selecione **Fixar no painel** > **Criar**.
+1. No portal do Azure, selecione **Criar um recurso** e pesquise no Marketplace por **Recuperação**.
+2. Selecione **Backup e Site Recovery** e, nos resultados da pesquisa e na página de Backup e Site Recovery, clique em **Criar**. 
+3. Na página **Criar cofre dos Serviços de Recuperação**, selecione a **Assinatura**. Estamos usando uma **assinatura da Contoso**.
+4. No **Grupo de recursos**, selecione um grupo de recursos existente ou crie um. Para este tutorial, estamos usando **contosoRG**.
+5. Em **Nome do cofre**, digite um nome amigável para identificar o cofre. Para este conjunto de tutoriais estamos usando **ContosoVMVault**.
+6. Em **Região**, selecione a região na qual o cofre deve estar localizado. Estamos usando **Europa Ocidental**.
+7. Selecione **Examinar + criar**.
 
    ![Criar um novo cofre](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   O novo cofre é exibido em **Painel** > **Todos os recursos** e na página principal **Cofres dos Serviços de Recuperação**.
+   O novo cofre estará listado agora no **Painel** > **Todos os recursos** e na página **Cofres de Serviços de Recuperação** principal.
 
 ## <a name="set-up-an-azure-network"></a>Configure uma rede do Azure
 
@@ -72,16 +73,17 @@ Os computadores locais são replicados para discos gerenciados do Azure. Quando 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Rede** > **Rede virtual**.
 2. Mantenha **Resource Manager** selecionado como o modelo de implantação.
 3. Em **Nome**, insira um nome de rede. O nome deve ser exclusivo dentro do grupo de recursos do Azure. Estamos usando **ContosoASRnet** neste tutorial.
-4. Especifique o grupo de recursos no qual a rede será criada. Estamos usando o grupo de recursos existente **contosoRG**.
-5. Em **Intervalo de endereços**, insira o intervalo para a rede. Estamos usando **10.1.0.0/24** e não uma sub-rede.
-6. Em **Assinatura**, selecione a assinatura na qual deseja criar a rede.
+4. Em **Espaço de endereço**, insira o intervalo de endereços da rede virtual na notação CDR. Estamos usando **10.1.0.0/24**.
+5. Em **Assinatura**, selecione a assinatura na qual deseja criar a rede.
+6. Especifique o **Grupo de recursos** no qual a rede será criada. Estamos usando o grupo de recursos existente **contosoRG**.
 7. Em **Local**, selecione a mesma região em que o cofre dos Serviços de Recuperação foi criado. Em nosso tutorial, é **Europa Ocidental**. A rede deve estar na mesma região do que o cofre.
-8. Estamos deixando as opções padrão de proteção contra DDoS básica, sem nenhum ponto de extremidade de serviço na rede.
-9. Clique em **Criar**.
+8. Em **Intervalo de endereços**, insira o intervalo para a rede. Estamos usando **10.1.0.0/24** e não uma sub-rede.
+9. Estamos deixando as opções padrão de proteção contra DDoS básica, sem nenhum ponto de extremidade de serviço nem firewall na rede.
+9. Selecione **Criar**.
 
    ![Criar uma rede virtual](media/tutorial-prepare-azure/create-network.png)
 
-A rede virtual leva alguns segundos para ser criada. Depois de ser criada, ela será exibida no painel do Portal do Azure.
+A rede virtual leva alguns segundos para ser criada. Depois de ser criada, ela será exibida no painel do portal do Azure.
 
 
 

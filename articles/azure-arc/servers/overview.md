@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0178f27c39c065399208e7fc5afe7352ba4f8e30
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488212"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606096"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>O que é o Azure Arc para servidores?
 
@@ -34,7 +34,7 @@ Os computadores terão um status de **Conectado** ou **Desconectado** de acordo 
 
 Na versão prévia pública, oferecemos suporte a:
 
-- Windows Server 2012 R2 e acima
+- Windows Server 2012 R2 e mais recente
 - Ubuntu 16.04 e 18.04
 
 A versão prévia pública foi projetada para fins de avaliação e não deve ser usada para gerenciar recursos de produção críticos.
@@ -83,7 +83,7 @@ Consulte a seção [Configuração do servidor proxy](quickstart-onboard-powersh
 
 ## <a name="register-the-required-resource-providers"></a>Registrar os provedores de recursos necessários
 
-Depois que o registro de 'sinalizador de recurso' tiver sido aprovado, você precisará registrar os provedores de recursos necessários.
+Para usar o Azure Arc para Servidores, você deve registrar os Provedores de Recursos necessários.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**

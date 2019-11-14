@@ -1,6 +1,6 @@
 ---
-title: Provisionar o tempo de execução de integração do Azure-SSIS com PowerShell | Microsoft Docs
-description: Saiba como provisionar o tempo de execução de integração do Azure SSIS no Azure Data Factory com PowerShell para que você possa implantar e executar pacotes SSIS no Azure.
+title: Provisionar o Azure-SSIS Integration Runtime com o PowerShell
+description: Saiba como provisionar o runtime de integração do Azure SSIS no Azure Data Factory com PowerShell para que você possa implantar e executar pacotes SSIS no Azure.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 7a4ae2198653ea8adab136caef0f812019efd998
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 594cdd848a3712d2164616e38f7b75a01a21b7f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326101"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683577"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Provisionar um Integration Runtime do Azure-SSIS no Azure Data Factory com PowerShell
 
@@ -169,7 +169,7 @@ Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 ## <a name="create-an-integration-runtime"></a>Criar um Integration Runtime
 
-Execute os seguintes comandos para criar um tempo de execução de integração do Azure-SSIS que executa pacotes do SSIS no Azure.
+Execute os seguintes comandos para criar um runtime de integração do Azure-SSIS que executa pacotes do SSIS no Azure.
 
 Se você não usar o SSISDB, poderá omitir os parâmetros CatalogServerEndpoint, CatalogPricingTier e CatalogAdminCredential.
 
@@ -389,7 +389,7 @@ Neste tutorial, você aprendeu como:
 > * Examinar o script completo
 > * Implantar pacotes do SSIS
 
-Para saber mais sobre como personalizar o tempo de execução de integração do Azure-SSIS, avance para o artigo a seguir:
+Para saber mais sobre como personalizar o runtime de integração do Azure-SSIS, avance para o artigo a seguir:
 
 > [!div class="nextstepaction"]
 >[Personalizar o Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)

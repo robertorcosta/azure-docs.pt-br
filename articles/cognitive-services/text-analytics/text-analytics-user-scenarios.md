@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8d2aed16b5af60c44501e6d72332783a164ff91
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 19421788eea59ea250efbaa656266da49dc3b42f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478386"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742738"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplos de cenário do usuário para a API de Análise de Texto
 
@@ -48,4 +48,4 @@ Monitore comentários do usuário sobre o produto no Twitter ou na página do Fa
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a API de Análise de Texto?](overview.md)
-* [Enviar uma solicitação à API de Análise de Texto usando C#](quickstarts/csharp.md)
+* [Enviar uma solicitação à API de Análise de Texto usando a biblioteca de clientes](quickstarts/text-analytics-sdk.md)

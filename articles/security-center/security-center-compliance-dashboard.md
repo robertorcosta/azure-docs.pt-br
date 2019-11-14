@@ -1,5 +1,5 @@
 ---
-title: Melhorar a conformidade regulatória usando a Central de Segurança do Azure | Microsoft Docs
+title: Verificações de conformidade regulatória – Central de Segurança do Azure
 description: 'Tutorial: Saiba como melhorar a conformidade regulatória usando a Central de Segurança do Azure.'
 services: security-center
 documentationcenter: na
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/30/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 20842997c5df81835024a6f458cd863b4e4d78b0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c448697339948b30d73e88c183211e7a1154fe77
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202436"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686430"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar sua conformidade regulatória
 ---
 
-A Central de Segurança do Azure ajuda a simplificar o processo para atender aos requisitos de conformidade regulatória, usando o painel Conformidade regulatória. No painel, a Central de Segurança fornece insights sobre sua postura de conformidade, com base em avaliações contínuas de seu ambiente do Azure. As avaliações realizadas pela Central de Segurança analisam os fatores de risco em seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Essas avaliações são mapeadas para controles de conformidade de um conjunto compatível de padrões. No painel Conformidade regulatória, você tem uma visão clara do status de todas essas avaliações em seu ambiente, no contexto de um padrão ou um regulamento específico. Conforme você tomar decisões com base nas recomendações e reduzir os fatores de risco em seu ambiente, poderá ver uma melhoria em sua postura de conformidade.
+A Central de Segurança do Azure ajuda a simplificar o processo para atender aos requisitos de conformidade regulatória, usando o **painel de conformidade regulatória**. No painel, a Central de Segurança fornece insights sobre sua postura de conformidade, com base em avaliações contínuas de seu ambiente do Azure. A Central de Segurança analisa fatores de risco em seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Essas avaliações são mapeadas para controles de conformidade de um conjunto compatível de padrões. No Painel de conformidade regulatória, você pode ver o status de todas as avaliações em seu ambiente no contexto de um padrão ou regulamento específico. Conforme você tomar decisões com base nas recomendações e reduzir os fatores de risco em seu ambiente, sua postura de conformidade melhorará.
 
 Neste tutorial, você aprenderá a:
 
@@ -45,20 +45,18 @@ A Central de Segurança avalia a configuração de seus recursos continuamente p
 A exibição do painel Conformidade regulatória pode ajudar você a concentrar sua atenção nas lacunas de conformidade com um padrão ou um regulamento importante para você. Essa exibição concentrada também possibilita que você monitore continuamente sua pontuação de conformidade ao longo do tempo em ambientes dinâmicos híbridos e de nuvem.
 
 >[!NOTE]
-> No momento, os padrões regulatórios compatíveis são: Azure CIS, PCI DSS 3.2, ISO 27001 e SOC TSP. Padrões adicionais serão refletidos no painel durante seu desenvolvimento.
+> Por padrão, a Central de Segurança dá suporte aos seguintes padrões regulatórios: Azure CIS, PCI DSS 3.2, ISO 27001 e SOC TSP. 
+>
+> O recurso de [pacotes de conformidade dinâmica (versão prévia)](update-regulatory-compliance-packages.md) permite que você atualize os padrões mostrados em seu painel de conformidade regulatória para os novos pacotes *dinâmicos*. Você também pode usar a mesma versão prévia do recurso para adicionar novos pacotes de conformidade e monitorar a conformidade com padrões adicionais. 
+
 1.  No menu principal da Central de Segurança, em **POLÍTICA E CONFORMIDADE**, escolha **Conformidade regulatória**. <br>
 Na parte superior da tela, você verá um painel com uma visão geral de seu status de conformidade com o conjunto de regulamentos de conformidade compatíveis. Você poderá ver sua pontuação geral de conformidade e o número de avaliações aprovadas vs. reprovadas associadas a cada padrão.
 
     ![alta confiança da descrição do computador](./media/security-center-compliance-dashboard/compliance-dashboard.png)
 
-
-2.  Selecione uma guia para um padrão de conformidade relevante para você. Você verá a lista de todos os controles para esse padrão. Para os controles aplicáveis, você poderá exibir os detalhes das avaliações aprovadas e reprovadas associadas a esse controle. Alguns controles estão esmaecidos. Esses controles não têm nenhuma avaliação da Central de Segurança associada a eles. Você precisa analisar os requisitos deles e avaliá-los em seu ambiente por conta própria. Alguns deles podem ser relacionados ao processo e não técnicos.
+2.  Selecione uma guia para um padrão de conformidade relevante para você. Você verá a lista de todos os controles para esse padrão. Para os controles aplicáveis, você poderá exibir os detalhes das avaliações aprovadas e reprovadas associadas a esse controle. Alguns controles estão esmaecidos. Esses controles não têm nenhuma avaliação da Central de Segurança associada a eles. Verifique os requisitos deles e avalie-os em seu ambiente por conta própria. Alguns deles podem ser relacionados ao processo e não técnicos.
 
     ![guia Conformidade](./media/security-center-compliance-dashboard/compliance-pci.png)
-
-3. Selecione a guia **Todos** para ver uma exibição de todas as recomendações da Central de Segurança relevantes e seus padrões associados. Essa exibição pode ser útil para identificar todos os diferentes padrões afetados por uma recomendação específica. <br> Potencialmente, você poderá usar essa exibição para priorizar as recomendações que precisa resolver. Por exemplo, se você observar que a recomendação **Habilitar o MFA para contas com permissões de proprietário em sua assinatura** estiver sendo reprovada em vários recursos e estiver associada a vários padrões, a resolução dessa recomendação terá um grande impacto sobre sua pontuação geral de conformidade.
-
-    ![impacto sobre a pontuação de conformidade](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
 1. Para gerar e fazer o download de um relatório em PDF que resuma seu status de conformidade atual para um padrão específico, clique em **Baixar o relatório**.
 
@@ -72,15 +70,17 @@ Considerando as informações do painel Conformidade regulatória, você poderá
 
 1.  Clique em uma das avaliações reprovadas mostradas no painel para exibir os detalhes dessa recomendação. Cada recomendação inclui um conjunto de etapas de correção que devem ser seguidas para resolver o problema.
 
-2.  Selecione um recurso específico para exibir mais detalhes e resolva a recomendação para esse recurso. <br>Por exemplo, na guia **Padrão do Azure CIS**, você poderá clicar na recomendação **Exigir transferência segura para a conta de armazenamento**.
+1.  Selecione um recurso específico para exibir mais detalhes e resolva a recomendação para esse recurso. <br>Por exemplo, na guia **Padrão do Azure CIS**, você poderá clicar na recomendação **Exigir transferência segura para a conta de armazenamento**.
 
     ![recomendação sobre conformidade](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
-3. Quando você clicar nas informações de recomendação e selecionar um recurso não íntegro, isso levará você diretamente para a experiência de habilitação da **transferência de armazenamento segura** no portal do Azure.<br>Para obter mais informações sobre como aplicar recomendações, confira [Implementando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
+1. Quando você clicar nas informações de recomendação e selecionar um recurso não íntegro, isso levará você diretamente para a experiência de habilitação da **transferência de armazenamento segura** no portal do Azure.
+
+    Para obter mais informações sobre como aplicar recomendações, confira [Implementando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
 
     ![recomendação sobre conformidade](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
-4.  Depois de tomar medidas para resolver as recomendações, você verá o impacto no relatório do painel de conformidade, devido à melhoria de sua pontuação de conformidade.
+1.  Depois de tomar medidas para resolver as recomendações, você verá o impacto no relatório do painel de conformidade, devido à melhoria de sua pontuação de conformidade.
 
     > [!NOTE]
     > As avaliações são executadas aproximadamente a cada 12 horas e, portanto, você verá o impacto sobre seus dados de conformidade somente após a execução das avaliações.
@@ -95,12 +95,14 @@ Neste tutorial, você aprendeu a usar o painel Conformidade regulatória da Cent
 
 O painel Conformidade regulatória pode simplificar muito o processo de conformidade e reduzir significativamente o tempo necessário para a coleta de evidências de conformidade para o Azure e o ambiente híbrido.
 
-Para saber mais sobre a Central de Segurança, confira:
+Para saber mais, confira:
 
--   [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md)– saiba como monitorar a integridade dos recursos do Azure.
+-   [Atualizar para pacotes de conformidade dinâmica em seu Painel de conformidade regulatória (Versão prévia)](update-regulatory-compliance-packages.md) – saiba mais sobre esta versão prévia do recurso que permite atualizar os padrões mostrados em seu painel de conformidade regulatória para os novos pacotes *dinâmicos*. Você também pode usar a mesma versão prévia do recurso para adicionar novos pacotes de conformidade e monitorar a conformidade com padrões adicionais. 
 
--   [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como usar as recomendações da Central de Segurança do Azure para ajudar a proteger seus recursos do Azure.
+-   [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+
+-   [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como usar as recomendações da Central de Segurança do Azure para ajudar a proteger seus recursos do Azure.
 
 -   [Melhorar sua classificação de segurança na Central de Segurança do Azure](security-center-secure-score.md) – saiba como priorizar as vulnerabilidades e as recomendações de segurança para oferecer melhoria máxima para sua postura de segurança.
 
--   [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
+-   [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.

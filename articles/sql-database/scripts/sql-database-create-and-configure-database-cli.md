@@ -1,5 +1,5 @@
 ---
-title: Exemplo da CLI para criar um banco de dados SQL do Azure | Microsoft Docs
+title: Exemplo da CLI para criar um Banco de Dados SQL do Azure
 description: Use este script de exemplo da CLI do Azure para criar um banco de dados SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: f6051c5c83f43f20e453b5f87aabb1a80d7a0487
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa13e5f245a34387eee5fae48c896163cc2f7c4a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569993"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691710"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Use a CLI para criar um banco de dados SQL do Azure individual e configurar uma regra de firewall
 

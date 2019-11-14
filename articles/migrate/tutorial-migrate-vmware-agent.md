@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: aecbaab1ed29a1acfdcb4eec53b88fc266bbab09
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309418"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720179"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs VMware para o Azure (com base em agente)
 
@@ -424,7 +424,19 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 
 ## <a name="post-migration-best-practices"></a>Melhores práticas pós-migração
 
-- Para aumentar a resiliência:
+- Configuração local
+    - Mova o tráfego do aplicativo para o aplicativo em execução na instância migrada da VM do Azure.
+    - Remova as VMs locais do inventário local de VMs.
+    - Remova as VMs locais dos backups locais.
+    - Atualize todas as documentações internas para mostrar o novo local e o endereço IP das VMs do Azure.
+- Ajuste as configurações da VM do Azure após a migração:
+    - O [agente de VM do Azure](../virtual-machines/extensions/agent-windows.md) gerencia a interação entre uma VM do Azure e o controlador de malha do Azure. É necessário para alguns serviços do Azure, como o Backup do Azure, Site Recovery e Segurança do Azure. Ao migrar VMs de VMare com migração baseada em agente, o instalador do Serviço de Mobilidade instala o agente de VM do Azure em computadores Windows. Em VMs do Linux, é recomendável instalar o agente após a migração.
+    - Desinstale manualmente o Serviço de Mobilidade da VM do Azure após a migração.
+    - Desinstale manualmente as ferramentas de VMware após a migração.
+- No Azure:
+    - Execute todos os ajustes no aplicativo após a migração, como atualizar as cadeias de conexão de banco de dados e as configurações do servidor Web.
+    - Execute o aplicativo final e o teste de aceitação da migração no aplicativo migrado que está sendo executado no Azure.
+- Continuidade de negócios/recuperação de desastre
     - Proteja os dados fazendo backup das VMs do Azure por meio do serviço Backup do Azure. [Saiba mais](../backup/quick-backup-vm-portal.md).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar as VMs do Azure em uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para aumentar a segurança:
@@ -433,9 +445,11 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
     - Implante o [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para manter os discos em segurança e proteger os dados contra roubo e acesso não autorizado.
     - Leia mais sobre [como proteger recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e acesse a [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitoramento e gerenciamento:
--  Considere implantar o [Gerenciamento de Custos do Azure](https://docs.microsoft.com/azure/cost-management/overview) para monitorar o uso de recursos e os gastos.
+    - Considere implantar o [Gerenciamento de Custos do Azure](https://docs.microsoft.com/azure/cost-management/overview) para monitorar o uso de recursos e os gastos.
 
 
-## <a name="next-steps"></a>Próximas etapas
+
+
+ ## <a name="next-steps"></a>Próximas etapas
 
 Investigue a [jornada de migração na nuvem](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) no Cloud Adoption Framework do Azure.

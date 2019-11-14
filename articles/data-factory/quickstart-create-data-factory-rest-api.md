@@ -1,5 +1,5 @@
 ---
-title: Criar um Azure Data Factory usando a API REST | Microsoft Docs
+title: Criar um Azure Data Factory usando a API REST
 description: Crie um Azure Data Factory para copiar dados de um local em um Armazenamento de Blobs do Azure para outro local.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 4668a9a012b2e379d532091deec832d5f99dd1fc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1145490ba5e48216e25a094cbbced3da7b07c701
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990635"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684475"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Início Rápido: Crie um pipeline e um Azure Data Factory usando a API REST
 

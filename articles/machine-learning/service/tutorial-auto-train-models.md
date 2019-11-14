@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: a7bd735a808532ed0e61cf42dca2d7a797092487
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493695"
+ms.locfileid: "73582447"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Usar aprendizado de máquina automatizado para prever tarifas de táxi
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -1062,7 +1062,7 @@ O processo de desenvolvimento do modelo de machine learning tradicional é altam
 
 Não conclua esta seção se você planeja executar outros tutoriais do Azure Machine Learning.
 
-### <a name="stop-the-compute-instance"></a>Parar a instância de computação
+### <a name="stop-the-notebook-vm"></a>Interromper a VM do notebook
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

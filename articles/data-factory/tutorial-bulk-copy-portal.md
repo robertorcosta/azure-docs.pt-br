@@ -1,5 +1,5 @@
 ---
-title: Copiar dados em massa usando o Azure Data Factory | Microsoft Docs
+title: 'Copiar dados em massa usando o Azure Data Factory '
 description: Saiba como usar o Azure Data Factory e atividade de cópia para copiar dados em massa de um armazenamento de dados de origem para um armazenamento de dados de destino.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d7f97eec4e0dc6e88d89e845e086b9e5242caa7b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9feb9be5e76f91ab55ec1b3e60eb79ab5e246f4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616593"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683742"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
@@ -97,7 +97,7 @@ Para verificar e ativar essa configuração, vá até seu servidor SQL do Azure 
      ![Página Introdução](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
-Você cria os serviços vinculados para vincular seus armazenamentos de dados e serviços de computação ao data factory. Um serviço vinculado possui as informações de conexão que o serviço do Data Factory usa para conectar-se ao armazenamento de dados no tempo de execução. 
+Você cria os serviços vinculados para vincular seus armazenamentos de dados e serviços de computação ao data factory. Um serviço vinculado possui as informações de conexão que o serviço do Data Factory usa para conectar-se ao armazenamento de dados no runtime. 
 
 Neste tutorial, você vincula seu Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e os armazenamentos de dados do Armazenamento de Blobs do Azure para o seu data factory. O Banco de Dados SQL do Azure é o armazenamento de dados de origem. O SQL Data Warehouse do Azure é o armazenamento de dados do coletor/destino. O Armazenamento de BLOBs do Azure serve para preparar os dados antes dos dados serem carregados no SQL Data Warehouse usando PolyBase. 
 
@@ -166,7 +166,7 @@ O conjunto de dados de entrada **AzureSqlDatabaseDataset** refere-se a **AzureSq
 
 O conjunto de dados de saída **AzureSqlDWDataset** refere-se a **AzureSqlDWLinkedService**. O serviço vinculado especifica a cadeia de conexão para se conectar ao data warehouse. O conjunto de dados especifica o banco de dados e a tabela para a qual os dados são copiados. 
 
-Neste tutorial, as tabelas SQL de origem e de destino não são embutidas nas definições de conjunto de dados. Em vez disso, a atividade ForEach passa o nome da tabela em tempo de execução para a atividade de Cópia. 
+Neste tutorial, as tabelas SQL de origem e de destino não são embutidas nas definições de conjunto de dados. Em vez disso, a atividade ForEach passa o nome da tabela em runtime para a atividade de Cópia. 
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>Criar um conjunto de dados para o Banco de Dados SQL de origem
 

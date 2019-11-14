@@ -1,5 +1,5 @@
 ---
-title: Exemplos de script da CLI do Azure para o Banco de Dados SQL | Microsoft Docs
+title: Exemplos de script da CLI do Azure
 description: Exemplos de script da CLI do Azure para criar e gerenciar servidores do Banco de Dados SQL do Azure, pools elásticos, bancos de dados e firewalls.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 5366fb1d32020bfbcfaba36c60c0eb5441e92070
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 023651d61f891c5a73eee234a14306add838bf98
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71055197"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821836"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Amostras da CLI do Azure para o Banco de Dados SQL do Azure
 

@@ -7,13 +7,13 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 10/22/2019
-ms.openlocfilehash: 5a66212122745d0f4426e48e9487e9d674cec53f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/06/2019
+ms.openlocfilehash: 66f5c72fcabb62e21f0110cb981b7271244c0648
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489919"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799630"
 ---
 >[!IMPORTANT]
 >Você pode usar os recursos que criou como pré-requisitos em outros tutoriais e artigos de instruções do Serviço do Azure Machine Learning.
@@ -28,32 +28,22 @@ Se você não pretende usar os recursos criados, exclua todo o grupo de recursos
 
 1. Na lista, selecione o grupo de recursos que você criou.
 
-1. No lado direito da janela, selecione o botão de reticências ( **...** ).
-
 1. Selecione **Excluir grupo de recursos**.
 
 A exclusão de um grupo de recursos também exclui todos os recursos criados no designer.  
 
-### <a name="delete-only-the-compute-target"></a>Excluir apenas o destino de computação
-
-O destino de computação que você criou aqui é *dimensionado automaticamente* para zero nós quando não estiver sendo usado. Isso serve para minimizar os encargos. Se você quiser excluir o destino de computação, siga estas etapas:
-
-1. No [portal do Azure](https://portal.azure.com), abra o workspace.
-
-    ![Excluir o destino de computação](./media/aml-ui-cleanup/delete-compute-target.png)
-
-1. Na seção **Computação** do seu workspace, selecione o recurso.
-
-1. Selecione **Excluir**.
-
 ### <a name="delete-individual-assets"></a>Excluir recursos individuais
 
 No designer em que você criou seu experimento, exclua ativos individuais selecionando-os e, em seguida, selecionando o botão **Excluir**.
+
+O destino de computação que você criou aqui é *dimensionado automaticamente* para zero nós quando não estiver sendo usado. Isso serve para minimizar os encargos. Se você quiser excluir o destino de computação, siga estas etapas:
 
 ![Excluir ativos](./media/aml-ui-cleanup/delete-asset.png)
 
 Os conjuntos de dados podem ter o registro cancelado do seu workspace. Para isso, selecione cada conjunto de dados e, em seguida, selecione **Cancelar registro**.
 
 ![Cancelar registro do conjunto de registros](./media/aml-ui-cleanup/unregister-dataset.png)
+
+Para excluir um conjunto de dados, navegue até a conta de armazenamento usando o portal do Azure ou o Gerenciador de Armazenamento e exclua manualmente esses ativos.
 
 

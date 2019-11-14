@@ -1,5 +1,5 @@
 ---
-title: Criar um Azure Data Factory usando a interface do usuário do Azure Data Factory | Microsoft Docs
+title: Criar um data factory do Azure usando a interface do usuário do Azure Data Factory
 description: Crie um data factory com um pipeline que copia dados de uma localização no Armazenamento de Blobs do Azure para outro local.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 3dee054f6c382a00a55e4acf07e2a188c5cc6a07
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 642039e99df19939def5ac850f1abccca0e67222
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490664"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684487"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início Rápido: Criar um data factory usando a interface do usuário do Azure Data Factory
 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750262"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685117"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST
 
@@ -258,34 +258,36 @@ Confira [Códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#jo
 
 ### <a name="create-a-streaming-locator"></a>Criar um localizador de streaming
 
-Após a conclusão da tarefa de codificação, a próxima etapa é disponibilizar o vídeo no **Ativo** de saída aos clientes para reprodução. Você pode fazer isso em duas etapas: primeiro, crie um [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e, em seguida, crie as URLs de streaming que os clientes podem usar. 
+Após a conclusão da tarefa de codificação, a próxima etapa é disponibilizar o vídeo no **Ativo** de saída aos clientes para reprodução. Você pode fazer isso em duas etapas: primeiro, crie um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)e em seguida, crie as URLs de streaming que os clientes podem usar. 
 
-O processo de criação de um **Localizador de Streaming** é chamado de publicação. Por padrão, o **Localizador de Streaming** é válido imediatamente após você fazer as chamadas à API e dura até ser excluído, a menos que você configure os horários de início e término opcionais. 
+O processo de criação de um localizador de streaming é chamado de publicação. Por padrão, o localizador de streaming é válido imediatamente após você fazer as chamadas à API e dura até ser excluído, a menos que você configure os horários de início e término opcionais. 
 
-Ao criar um [Localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisará especificar o **StreamingPolicyName** desejado. Neste exemplo, você fará o streaming de conteúdo limpo (ou não criptografado), de modo que a política de streaming clara predefinida "Predefined_ClearStreamingOnly" seja utilizada.
+Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisará especificar o **StreamingPolicyName** desejado. Neste exemplo, você fará o streaming de conteúdo limpo (ou não criptografado), de modo que a política de streaming clara predefinida "Predefined_ClearStreamingOnly" seja utilizada.
 
 > [!IMPORTANT]
 > Ao usar a [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, você deve criar um conjunto limitado de tais políticas para sua conta de serviço de mídia e reutilizá-los para o seu StreamingLocators, sempre que a mesmo opção de criptografia e protocolos sejam necessários. 
 
-A conta de Serviço de Mídia tem uma cota para o número de entradas de **Política de Streaming**. Você não deve criar uma nova **Política de Streaming** para cada **Localizador de Streaming**.
+A conta de Serviço de Mídia tem uma cota para o número de entradas de **Política de Streaming**. Você não deve criar uma nova **Política de Streaming** para cada localizador de streaming.
 
-1. Na janela esquerda do aplicativo Postman, selecione "Políticas de Streaming".
-2. Em seguida, selecione "Criar um Localizador de Streaming".
+1. Na janela esquerda do aplicativo Postman, selecione "Políticas e Localizadores de Streaming".
+2. Em seguida, selecione "Criar um Localizador de Streaming (limpo)".
 3. Pressione **Enviar**.
 
     * A operação **PUT** a seguir é enviada.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * A operação tem o seguinte corpo:
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 

@@ -1,18 +1,18 @@
 ---
-title: Tutorial – adicionar um modelo de exemplo a um servidor do Azure Analysis Services | Microsoft Docs
+title: Tutorial – adicionar um modelo de exemplo – Azure Analysis Services | Microsoft Docs
 description: Saiba como adicionar um modelo de exemplo no Azure Analysis Services neste tutorial.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6679e8075afd2f25e4baf73c79c35907ded4e2b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: f76ec20da73c778d024feea9df113de9e4aa0fe9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512877"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573079"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo do portal
 

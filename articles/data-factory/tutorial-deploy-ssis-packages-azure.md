@@ -1,6 +1,6 @@
 ---
-title: Provisionar o Azure-SSIS Integration Runtime | Microsoft Docs
-description: Saiba como provisionar o tempo de execução de integração do Azure SSIS no Azure Data Factory para que você possa implantar e executar pacotes SSIS no Azure.
+title: Provisionar o Azure-SSIS Integration Runtime
+description: Saiba como provisionar o runtime de integração do Azure SSIS no Azure Data Factory para que você possa implantar e executar pacotes SSIS no Azure.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 62b11fbf19c803d54c699d3a59454677ac3423f1
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 14871aa790bd94dbd23dea30c8a229eac7945c75
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326071"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683572"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Provisionar o Azure-SSIS Integration Runtime no Azure Data Factory
 
@@ -35,7 +35,7 @@ Neste tutorial, você completa as seguintes etapas:
 
 > [!div class="checklist"]
 > * Criar um data factory.
-> * Provisionar um tempo de execução de integração do Azure-SSIS.
+> * Provisionar um runtime de integração do Azure-SSIS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,7 +74,7 @@ Depois que o data factory for criado, abra a respectiva página de visão geral 
 
    ![Bloco "Configurar o bloco do Integration Runtime SSIS"](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
-1. Consulte a seção [Provisionar um tempo de execução de integração do Azure SSIS](#provision-an-azure-ssis-integration-runtime) para conferir o restante das etapas de configuração de um IR do Azure-SSIS. 
+1. Consulte a seção [Provisionar um runtime de integração do Azure-SSIS](#provision-an-azure-ssis-integration-runtime) para conferir o restante das etapas de configuração de um IR do Azure-SSIS. 
 
 ### <a name="from-the-authoring-ui"></a>Da interface do usuário de criação
 
@@ -84,29 +84,29 @@ Depois que o data factory for criado, abra a respectiva página de visão geral 
 
 1. Selecione **Novo** para criar um novo IR do Azure SSIS. 
 
-   ![Tempo de execução de integração por meio do menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
+   ![runtime de integração por meio do menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
 1. Na janela **Instalação do Integration Runtime**, selecione **Pacotes SSIS existentes de lift-and-shift para execução no Azure** e, em seguida, selecione **Avançar**. 
 
-   ![Especificar o tipo de tempo de execução de integração](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
+   ![Especificar o tipo de runtime de integração](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 
-1. Consulte a seção [Provisionar um tempo de execução de integração do Azure SSIS](#provision-an-azure-ssis-integration-runtime) para conferir o restante das etapas de configuração de um IR do Azure-SSIS. 
+1. Consulte a seção [Provisionar um runtime de integração do Azure-SSIS](#provision-an-azure-ssis-integration-runtime) para conferir o restante das etapas de configuração de um IR do Azure-SSIS. 
 
-## <a name="provision-an-azure-ssis-integration-runtime"></a>Provisionar um tempo de execução de integração do Azure-SSIS
+## <a name="provision-an-azure-ssis-integration-runtime"></a>Provisionar um runtime de integração do Azure-SSIS
 
 1. Na página **Configurações Gerais** da **Instalação do Integration Runtime**, conclua as etapas a seguir. 
 
    ![Configurações gerais](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
-   a. Para **Name**, insira o nome do seu tempo de execução de integração. 
+   a. Para o **Nome**, insira o nome do seu runtime de integração. 
 
-   b. Para **Descrição**, insira a descrição do seu tempo de execução de integração. 
+   b. Para **Descrição**, insira a descrição do seu runtime de integração. 
 
-   c. Para **Local**, selecione o local do seu tempo de execução de integração. Somente os locais com suporte são exibidos. Recomendamos que você selecione o mesmo local do seu servidor de banco de dados para hospedar o SSISDB. 
+   c. Para **Local**, selecione o local do seu runtime de integração. Somente os locais com suporte são exibidos. Recomendamos que você selecione o mesmo local do seu servidor de banco de dados para hospedar o SSISDB. 
 
-   d. Para **Tamanho do Nó**, selecione o tamanho do nó no cluster de tempo de execução de integração. Apenas tamanhos de nós suportados são exibidos. Selecione um tamanho de nó grande (escalonamento vertical) se você quiser executar muitos pacotes com uso intensivo de computação ou de memória. 
+   d. Para **Tamanho do Nó**, selecione o tamanho do nó no cluster de runtime de integração. Apenas tamanhos de nós suportados são exibidos. Selecione um tamanho de nó grande (escalonamento vertical) se você quiser executar muitos pacotes com uso intensivo de computação ou de memória. 
 
-   e. Para **Número do Nó**, selecione o número de nós em seu cluster de tempo de execução de integração. Somente os números de nós com suporte são exibidos. Selecione um cluster grande com muitos nós (escalonamento horizontal) se você deseja executar muitos pacotes em paralelo. 
+   e. Para **Número do Nó**, selecione o número de nós em seu cluster de runtime de integração. Somente os números de nós com suporte são exibidos. Selecione um cluster grande com muitos nós (escalonamento horizontal) se você deseja executar muitos pacotes em paralelo. 
 
    f. Para **Edição/Licença**, selecione a edição do SQL Server para seu runtime de integração: Standard ou Enterprise. Selecione Enterprise se você quiser usar os recursos avançados/premium em seu runtime de integração. 
 
@@ -124,7 +124,7 @@ Depois que o data factory for criado, abra a respectiva página de visão geral 
    
    b. Para **Assinatura**, selecione a assinatura do Azure que tem o servidor de banco de dados para hospedar o SSISDB. 
 
-   c. Para **Local**, selecione o local do seu servidor de banco de dados para hospedar o SSISDB. É recomendável que você selecione o mesmo local do seu tempo de execução de integração.
+   c. Para **Local**, selecione o local do seu servidor de banco de dados para hospedar o SSISDB. É recomendável que você selecione o mesmo local do seu runtime de integração.
 
    d. Para **Ponto de extremidade de servidor de banco de dados de catálogo**, selecione o ponto de extremidade do seu servidor de banco de dados para hospedar o SSISDB. 
    
@@ -169,11 +169,11 @@ Depois que o data factory for criado, abra a respectiva página de visão geral 
    > 
    > Quando você provisiona o Azure-SSIS IR, o Azure Feature Pack para SSIS e o Access Redistribuível também são instalados. Esses componentes fornecem conectividade para arquivos do Excel, arquivos do Access e para várias fontes de dados do Azure, além das fontes de dados que já são compatíveis com os componentes internos. Para obter informações sobre outros componentes que você pode instalar, confira [Instalação personalizada de um Azure-SSIS IR](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-1. Na guia **Conexões**, alterne para **Tempos de Execução de Integração**, se necessário. Selecione **Atualizar** para atualizar o status. 
+1. Na guia **Conexões**, alterne para **Runtimes de integração**, se necessário. Selecione **Atualizar** para atualizar o status. 
 
    ![Status de criação, com o botão "Atualizar"](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
 
-1. Use os links na coluna **Ações** para parar/iniciar, editar ou excluir o tempo de execução de integração. Use o último link para exibir o código JSON para o tempo de execução de integração. Os botões editar e excluir são habilitados somente quando o IR é interrompido. 
+1. Use os links na coluna **Ações** para parar/iniciar, editar ou excluir o runtime de integração. Use o último link para exibir o código JSON para o runtime de integração. Os botões editar e excluir são habilitados somente quando o IR é interrompido. 
 
    ![Links na coluna "Ações"](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png) 
 
@@ -198,7 +198,7 @@ Confira também a documentação do SSIS a seguir:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como personalizar o tempo de execução de integração do Azure-SSIS, avance para o artigo a seguir: 
+Para saber mais sobre como personalizar o runtime de integração do Azure-SSIS, avance para o artigo a seguir: 
 
 > [!div class="nextstepaction"]
 > [Personalizar um Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)

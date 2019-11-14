@@ -1,5 +1,5 @@
 ---
-title: Criar seu primeiro data factory (Visual Studio) | Microsoft Docs
+title: Criar seu primeiro data factory (Visual Studio)
 description: Neste tutorial, você cria um pipeline de exemplo do Azure Data Factory usando o Visual Studio.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 39b640a64cf93a7a9cbb0565084b238891e880c1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 888f3b1a53ba2e31195e3b9d577a475df441e972
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140558"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682997"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Criar um data factory usando o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -46,7 +46,7 @@ Eis as etapas executadas como parte deste tutorial:
 
 1. Criar dois serviços vinculados: **AzureStorageLinkedService1** e **HDInsightOnDemandLinkedService1**. 
    
-    Neste tutorial, os dados de entrada e saída da atividade de hive estão no mesmo armazenamento de Blobs do Azure. Você pode usar um cluster do HDInsight sob demanda para processar dados de entrada existentes para gerar dados de saída. O cluster do HDInsight sob demanda é criado automaticamente para você pela Azure Data Factory em tempo de execução quando os dados de entrada estão prontos para serem processados. Você deve vincular seus armazenamentos de dados ou computadores à data factory para que o serviço Data Factory possa se conectar com eles durante tempo de execução. Ou seja, vincule sua conta de armazenamento do Azure à data factory usando o AzureStorageLinkedService1, e um cluster do HDInsight sob demanda com o HDInsightOnDemandLinkedService1. Ao publicar, especifique o nome da data factory a ser criado ou existente.  
+    Neste tutorial, os dados de entrada e saída da atividade de hive estão no mesmo armazenamento de Blobs do Azure. Você pode usar um cluster do HDInsight sob demanda para processar dados de entrada existentes para gerar dados de saída. O cluster do HDInsight sob demanda é criado automaticamente para você pela Azure Data Factory em tempo de execução quando os dados de entrada estão prontos para serem processados. Você deve vincular seus armazenamentos de dados ou computadores à data factory para que o serviço Data Factory possa se conectar com eles durante runtime. Ou seja, vincule sua conta de armazenamento do Azure à data factory usando o AzureStorageLinkedService1, e um cluster do HDInsight sob demanda com o HDInsightOnDemandLinkedService1. Ao publicar, especifique o nome da data factory a ser criado ou existente.  
 2. Crie dois conjuntos de dados: **InputDataset** e **OutputDataset**, que representam os dados de entrada/saída armazenados no Armazenamento de Blobs do Azure. 
    
     Essas definições de conjunto de dados se referem ao serviço vinculado do armazenamento do Azure que você criou na etapa anterior. Para o InputDataset, você pode especificar o contêiner de blobs (adfgetstarted) e a pasta (inptutdata) que contém um blob com os dados de entrada. Para o OutputDataset, você pode especificar o contêiner de blobs (adfgetstarted) e a pasta (partitioneddata) que contém os dados de saída. Você também pode especificar outras propriedades, como estrutura, disponibilidade e política.
@@ -81,9 +81,9 @@ Agora, vamos usar o Visual Studio para criar um data factory do Azure.
 ### <a name="create-linked-services"></a>Criar serviços vinculados
 Nesta etapa, você criará dois serviços vinculados: **Armazenamento do Azure** e **HDInsight sob demanda**. 
 
-O serviço vinculado ao armazenamento do Azure vincula sua conta de armazenamento do Azure à data factory, fornecendo as informações de conexão. O serviço Data Factory usa a cadeia de conexão da configuração de serviço vinculado para se conectar ao armazenamento do Azure em tempo de execução. Esse armazenamento possui dados de entrada e saída para o pipeline e o arquivo de script do hive usado pela atividade de hive. 
+O serviço vinculado ao armazenamento do Azure vincula sua conta de armazenamento do Azure à data factory, fornecendo as informações de conexão. O serviço Data Factory usa a cadeia de conexão da configuração de serviço vinculado para se conectar ao armazenamento do Azure em runtime. Esse armazenamento possui dados de entrada e saída para o pipeline e o arquivo de script do hive usado pela atividade de hive. 
 
-Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado automaticamente em tempo de execução quando os dados de entrada estão prontos para serem processados. O cluster é excluído após a conclusão do processamento e se mantém ocioso durante o período especificado. 
+Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado automaticamente em runtime quando os dados de entrada estão prontos para serem processados. O cluster é excluído após a conclusão do processamento e se mantém ocioso durante o período especificado. 
 
 > [!NOTE]
 > Você pode criar um data factory, especificando seu nome e as configurações no momento da publicação da solução da sua Data Factory.
@@ -277,7 +277,7 @@ Até o momento, você criou o serviço vinculado do armazenamento do Azure e con
 
     O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService) e na pasta `script` no contêiner `adfgetstarted`.
 
-    A seção `defines` é usada para especificar as configurações de tempo de execução passadas para o script do hive como valores de configuração de Hive (por exemplo, `${hiveconf:inputtable}`, `${hiveconf:partitionedtable})`).
+    A seção `defines` é usada para especificar as configurações de runtime passadas para o script do hive como valores de configuração de Hive (por exemplo, `${hiveconf:inputtable}`, `${hiveconf:partitionedtable})`).
 
     As propriedades **start** e **end** do pipeline especificam o período ativo do pipeline. Você configurou o conjunto de dados a ser produzido mensalmente, portanto, apenas uma fatia será produzida pelo pipeline (porque o mês é o mesmo nas datas de início e término).
 

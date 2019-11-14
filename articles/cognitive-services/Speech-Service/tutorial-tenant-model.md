@@ -1,7 +1,7 @@
 ---
 title: Crie um Modelo de Locatário (Versão Prévia) – Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Gere automaticamente um modelo de fala personalizada que aproveita seus dados do Office 365 para oferecer um reconhecimento de fala ideal para termos específicos da organização que sejam seguros e compatíveis.
+description: Gere automaticamente um Modelo de Locatário (Fala Personalizada com dados do Office 365) que aproveite seus dado do Office 365 a fim de entregar um reconhecimento de fala ideal para termos específicos da organização que proporcione segurança e conformidade.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 85b9291ee24c024ebc8ce81ddba46d04f7744081
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504592"
+ms.locfileid: "73578227"
 ---
 # <a name="create-a-tenant-model-preview"></a>Crie um Modelo de Locatário (Versão Prévia)
 
-O Modelo de Locatário é um serviço de aceitação para clientes do Office 365 Enterprise que gera automaticamente um modelo de reconhecimento de fala personalizada dos dados do Office365 de sua organização. O modelo criado é otimizado para termos técnicos, jargões e nomes de pessoas, tudo de maneira segura e em conformidade.
+O Modelo de Locatário (Fala Personalizada com dados do Office 365) é um serviço de aceitação para clientes do Office 365 Enterprise que gera automaticamente um modelo de reconhecimento de fala personalizada dos dados do Office 365 da sua organização. O modelo criado é otimizado para termos técnicos, jargões e nomes de pessoas, tudo de maneira segura e em conformidade.
 
 > [!IMPORTANT]
-> Caso sua organização se inscreva com o Modelo de Locatário, o serviço de Fala poderá acessar o modelo de linguagem de sua organização, que é gerado pelos recursos do Office 365, como emails e documentos. O administrador do Office 365 de sua organização pode ativar/desativar o uso do modelo de linguagem em toda a organização usando o Portal de Administração do Office 365.
+> Caso a organização se inscreva com o Modelo de Locatário, o serviço de Fala poderá acessar o modelo de linguagem da organização, que será gerado pelos emails e documentos de grupo públicos do Office 365, que poderão ser vistos por qualquer um da organização. O administrador do Office 365 da sua organização poderá ativar/desativar o uso do modelo de linguagem no âmbito de toda a organização por meio do Portal do Administrador do Office 365.
 
 Neste tutorial, você aprenderá como:
 
@@ -33,8 +33,6 @@ Neste tutorial, você aprenderá como:
 > * Implante um Modelo de Locatário
 > * Use um Modelo de Locatário com o SDK de Fala
 
-![Diagrama do Modelo de Locatário](media/tenant-language-model/tenant-language-model-diagram.png)
-
 ## <a name="enroll-using-the-microsoft-365-admin-center"></a>Registre-se usando o Centro de Administração do Microsoft 365
 
 Antes de implantar seu Modelo de Locatário, primeiro é necessário registrá-lo usando o Centro de Administração do Microsoft 365. Essa tarefa poderá ser concluída somente pelo Administrador do Microsoft 365.
@@ -42,11 +40,11 @@ Antes de implantar seu Modelo de Locatário, primeiro é necessário registrá-l
 1. Entre no [Centro de Administração do Microsoft 365](https://admin.microsoft.com ).
 2. No painel esquerdo, selecione **Configurações** e, em seguida, **Aplicativos**.
 
-   ![Diagrama do Modelo de Locatário](media/tenant-language-model/tenant-language-model-enrollment.png)
+   ![Registro do Modelo de Locatário](media/tenant-language-model/tenant-language-model-enrollment.png)
 
 3. Localize e selecione os **Serviços de Fala do Azure**.
 
-   ![Diagrama do Modelo de Locatário](media/tenant-language-model/tenant-language-model-enrollment-2.png)
+   ![Registro do Modelo de Locatário 2](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
 4. Clique na caixa de seleção e salve.
 
@@ -77,9 +75,10 @@ Depois que o administrador tiver habilitado o Modelo de Locatário para sua orga
 
 3. Neste momento, você verá uma mensagem informando se está qualificado para criar um Modelo de Locatário.
    > [!NOTE]
-   > Os clientes do Office 365 Enterprise na América do Norte estão qualificados para criar um Modelo de Locatário (inglês). Caso seja um cliente do CLB (Sistema de Proteção de Dados do Cliente) ou da CK (Chave de Cliente), esse recurso não estará disponível. Para determinar se você é um cliente do Sistema de Proteção de Dados do Cliente ou da Chave de Cliente, siga estas instruções:
+   > Os clientes do Office 365 Enterprise na América do Norte estão qualificados para criar um Modelo de Locatário (inglês). Se você for um cliente do CLB (Sistema de Proteção de Dados do Cliente), da CK (Chave de Cliente) ou do Office 365 Government, esse recurso não estará disponível. Para determinar se você é um cliente do Sistema de Proteção de Dados do Cliente ou da Chave de Cliente, siga estas instruções:
    > * [Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Chave de Cliente](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
 4. Em seguida, selecione **Aceitar**. Você receberá um email com instruções quando seu Modelo de Locatário estiver pronto.
 

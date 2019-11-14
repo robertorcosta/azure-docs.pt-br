@@ -1,22 +1,22 @@
 ---
-title: Exemplo do PowerShell – criar uma instância gerenciada no Banco de Dados SQL do Azure | Microsoft Docs
+title: Exemplo de modelo – criar uma instância gerenciada no Banco de Dados SQL do Azure
 description: Script de exemplo do Azure PowerShell para criar uma instância gerenciada no Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: seo-dt-2019
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 5a60e8efad41c94deeedd545e6e0c1c96ff04e25
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be6aa73fe72568e9762e5b7249bedc2e8c7d3bf7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569724"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691427"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Use o PowerShell com o modelo do Azure Resource Manager para criar uma instância gerenciada do Banco de Dados SQL do Azure
 

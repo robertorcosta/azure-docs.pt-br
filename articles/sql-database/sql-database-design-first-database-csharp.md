@@ -1,20 +1,21 @@
 ---
-title: Criar seu primeiro banco de dados relacional – C# – Banco de Dados SQL do Azure | Microsoft Docs
+title: Criar seu primeiro banco de dados relacional C#
 description: Aprenda a criar seu primeiro banco de dados relacional em um banco de dados individual no Banco de Dados SQL do Azure com o C# usando o ADO.NET.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 3359c39b21edad72ce0b9d7feb35d442c842f002
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 201f90ae1ee7309f0271d046f341729c79749421
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640104"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825195"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Criar um banco de dados relacionam em um banco de dados individual dentro de C&#x23; e ADO.NET do Banco de Dados SQL do Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do SQL Server para o Armazenamento de Blobs usando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados de um armazenamento de dados local para a nuvem do Azure usando o tempo de execução integrado e auto-hospedado no Azure Data Factory.
+title: Copiar dados do SQL Server para o Armazenamento de Blobs usando o Azure Data Factory
+description: Saiba como copiar dados de um armazenamento de dados local para a nuvem do Azure usando o runtime de integração auto-hospedada no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: 1d779c44faabc30ddfa624e7b2d8e5d5de8b6cc7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: d2f59e7e8e86100a2a667634c0e99e6c1d5976da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091909"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683496"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
-Neste tutorial, você usa o Azure PowerShell para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual movimenta os dados entre armazenamentos de dados locais e da nuvem. 
+Neste tutorial, você usa o Azure PowerShell para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um runtime de integração auto-hospedada, o qual move dados entre locais e armazenamentos de dados da nuvem. 
 
 > [!NOTE]
 > Este artigo não fornece uma introdução detalhada do serviço de Data Factory. Para obter mais informações, consulte [Introdução ao Azure Data Factory](introduction.md). 
@@ -28,7 +28,7 @@ Neste tutorial, você executa as seguintes etapas:
 
 > [!div class="checklist"]
 > * Criar um data factory.
-> * Criar um tempo de execução de integração auto-hospedado.
+> * Criar um runtime de integração auto-hospedada.
 > * Criar serviços vinculados do SQL Server e do Armazenamento do Azure. 
 > * Criar conjuntos de dados do SQL Server e de Blobs do Azure.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.
@@ -190,7 +190,7 @@ Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um
    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
-1. Criar um tempo de execução de integração auto-hospedado. 
+1. Criar um runtime de integração auto-hospedada. 
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -298,7 +298,7 @@ Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um
 
     g. Insira a senha associada ao nome de usuário.
 
-    h. Para confirmar que esse tempo de execução de integração pode se conectar ao SQL Server, selecione **Testar**.  
+    h. Para confirmar que esse runtime de integração pode se conectar ao SQL Server, selecione **Testar**.  
     ![Conectividade bem-sucedida](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png) 
   
     Se a conexão tiver êxito, uma marca de seleção verde será exibida. Caso contrário, você receberá uma mensagem de erro associada à falha. Corrija quaisquer problemas e verifique se o Integration Runtime pode se conectar ao seu SQL Server.
@@ -306,7 +306,7 @@ Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um
     Anote todos os valores anteriores para uso posterior neste tutorial.
     
 ## <a name="create-linked-services"></a>Criar serviços vinculados
-Para vincular seus armazenamentos de dados e serviços de computação ao data factory, crie serviços vinculados no data factory. Neste tutorial, você vincula sua conta de armazenamento do Azure e instância do SQL Server local para o armazenamento de dados. Os serviços vinculados têm as informações de conexão que o serviço do Data Factory usa no tempo de execução para se conectar a eles. 
+Para vincular seus armazenamentos de dados e serviços de computação ao data factory, crie serviços vinculados no data factory. Neste tutorial, você vincula sua conta de armazenamento do Azure e instância do SQL Server local para o armazenamento de dados. Os serviços vinculados têm as informações de conexão que o serviço do Data Factory usa no runtime para se conectar a eles. 
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Criar um serviço vinculado do Armazenamento do Azure (destino/coletor)
 Nesta etapa, você vincula a conta de armazenamento do Azure ao data factory.
@@ -415,7 +415,7 @@ Nesta etapa, você vincula sua instância do SQL Server local ao data factory.
     > - Se precisar usar um caractere de barra invertida (\\) em sua conta de usuário e nome de servidor, use o caractere de escape à frente (\\). Por exemplo, use *mydomain\\\\myuser*. 
 
 1. Para criptografar os dados confidenciais (nome de usuário, senha e assim por diante), execute o cmdlet `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  
-    Essa criptografia garante que as credenciais sejam criptografadas usando a API de Proteção de Dados (DPAPI). As credenciais criptografadas são armazenadas localmente no nó do tempo de execução de integração auto-hospedado (computador local). O conteúdo de saída pode ser redirecionado para outro arquivo JSON (nesse caso, *encryptedLinkedService.json*) que contém credenciais criptografadas.
+    Essa criptografia garante que as credenciais sejam criptografadas usando a API de Proteção de Dados (DPAPI). As credenciais criptografadas são armazenadas localmente no nó do runtime de integração auto-hospedada (computador local). O conteúdo de saída pode ser redirecionado para outro arquivo JSON (nesse caso, *encryptedLinkedService.json*) que contém credenciais criptografadas.
     
    ```powershell
    New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
@@ -432,7 +432,7 @@ Nesta etapa, você vincula sua instância do SQL Server local ao data factory.
 Nesta etapa, você cria conjuntos de dados de entrada e saída. Eles representam dados de entrada e saída da operação de cópia, a qual copia dados do banco de dados SQL Server local para o armazenamento de blobs do Azure.
 
 ### <a name="create-a-dataset-for-the-source-sql-server-database"></a>Criar um conjunto de dados para o banco de dados SQL Server fonte
-Nesta etapa, você define um conjunto de dados que representa os dados na instância do banco de dados do SQL Server. O conjunto de dados é do tipo SqlServerTable. Ele se refere ao serviço vinculado do SQL Server criado na etapa anterior. O serviço vinculado tem as informações de conexão que o serviço do Data Factory usa para se conectar à sua instância do SQL Server no tempo de execução. Esse conjunto de dados especifica a tabela SQL no banco de dados que contém os dados. Neste tutorial, a tabela **emp** contém os dados de origem. 
+Nesta etapa, você define um conjunto de dados que representa os dados na instância do banco de dados do SQL Server. O conjunto de dados é do tipo SqlServerTable. Ele se refere ao serviço vinculado do SQL Server criado na etapa anterior. O serviço vinculado tem as informações de conexão que o serviço do Data Factory usa para se conectar à sua instância do SQL Server no runtime. Esse conjunto de dados especifica a tabela SQL no banco de dados que contém os dados. Neste tutorial, a tabela **emp** contém os dados de origem. 
 
 1. Crie um arquivo JSON denominado *SqlServerDataset.json* na pasta *C:\ADFv2Tutorial* com o seguinte código:  
     ```json
@@ -477,7 +477,7 @@ Nesta etapa, você define um conjunto de dados que representa os dados na instâ
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Criar um conjunto de dados para o Armazenamento de Blobs do Azure (coletor)
 Nesta etapa, você define um conjunto de dados que representa os dados que serão copiados para o Armazenamento de Blobs do Azure. O conjunto de dados é do tipo AzureBlob. Ele se refere ao serviço vinculado do Armazenamento do Azure criado anteriormente neste tutorial. 
 
-O serviço vinculado tem as informações de conexão que o serviço do data factory usa no tempo de execução para se conectar à sua conta de Armazenamento do Azure. Esse conjunto de dados especifica a pasta no armazenamento do Azure para a qual os dados são copiados do banco de dados do SQL Server. Neste tutorial, a pasta é *adftutorial/fromonprem*, em que `adftutorial` é o contêiner de blob e `fromonprem` é a pasta. 
+O serviço vinculado tem as informações de conexão que o serviço do data factory usa no runtime para se conectar à sua conta de Armazenamento do Azure. Esse conjunto de dados especifica a pasta no armazenamento do Azure para a qual os dados são copiados do banco de dados do SQL Server. Neste tutorial, a pasta é *adftutorial/fromonprem*, em que `adftutorial` é o contêiner de blob e `fromonprem` é a pasta. 
 
 1. Crie um arquivo JSON denominado *AzureBlobDataset.json* na pasta *C:\ADFv2Tutorial* com o seguinte código:
 
@@ -718,7 +718,7 @@ O pipeline nesse exemplo copia dados de uma localização para outra no Armazena
 
 > [!div class="checklist"]
 > * Criar um data factory.
-> * Criar um tempo de execução de integração auto-hospedado.
+> * Criar um runtime de integração auto-hospedada.
 > * Criar serviços vinculados do SQL Server e do Armazenamento do Azure. 
 > * Criar conjuntos de dados do SQL Server e de Blobs do Azure.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.

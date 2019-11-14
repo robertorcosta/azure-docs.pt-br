@@ -10,12 +10,12 @@ keywords: automação do azure, DSC, powershell, configuração de estado deseja
 ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: b014f6015b3e13a603cf3893062bd0463eb110ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ae7c8545286baebc83077276e356cd2e41f0dc3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488192"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668671"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---portal"></a>Início Rápido: Conectar computadores ao Azure usando o Azure Arc para servidores – Portal
 
@@ -27,7 +27,7 @@ Examine os clientes compatíveis e a configuração de rede necessária na [Vis�
 
 ## <a name="generate-the-agent-install-script-using-the-azure-portal"></a>Gere o script de instalação do agente usando o portal do Azure
 
-1. Inicie [https://aka.ms/hybridmachineportal ][aka_hybridmachineportal]
+1. Iniciar [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal)
 1. Clique em **+Adicionar**
 1. Siga o assistente até o final
 1. A última página tem um script gerado que você pode copiar (ou baixar).
@@ -64,6 +64,29 @@ Para desconectar um computador do Azure Arc para servidores, você precisa execu
 
 1. Selecione o computador no [portal](https://aka.ms/hybridmachineportal), clique no botão de reticências (`...`) e selecione **Excluir**.
 1. Desinstale o agente do computador.
+
+   No Windows, você pode usar o painel de controle "Aplicativos e Recursos" para desinstalar o agente.
+  
+  ![Aplicativos e Recursos](./media/quickstart-onboard/apps-and-features.png)
+
+   Se você quiser criar um script para a desinstalação, será possível usar o exemplo a seguir, que recupera o **PackageID** e desinstalar o agente usando `msiexec /X`.
+
+   Examine a chave do registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` e localize o **PackageID**. Em seguida, você poderá desinstalar o agente usando `msiexec`.
+
+   O exemplo a seguir demonstra a desinstalação do agente.
+
+   ```powershell
+   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+   Get-ItemProperty | `
+   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+   ```
+
+   No Linux, execute o comando a seguir para desinstalar o agente.
+
+   ```bash
+   sudo apt purge hybridagent
+   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

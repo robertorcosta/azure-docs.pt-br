@@ -1,5 +1,5 @@
 ---
-title: Copiar várias tabelas incrementalmente usando o Azure Data Factory | Microsoft Docs
+title: 'Copiar várias tabelas incrementalmente usando o Azure Data Factory '
 description: Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: a93b9249bde19c9ac902adbb7fc2b5469942f366
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3129a0629c4de69e6e3d65f2f74da97e8d39a467
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595944"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683406"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
@@ -26,7 +26,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 > [!div class="checklist"]
 > * Preparará os armazenamentos de dados de origem e destino.
 > * Criar um data factory.
-> * Criar um tempo de execução de integração auto-hospedado.
+> * Criar um runtime de integração auto-hospedada.
 > * Instalar o Integration Runtime. 
 > * Criar serviços vinculados. 
 > * Criar os conjuntos de dados de origem, de coletor e de marca-d'água.
@@ -255,7 +255,7 @@ END
 10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Criar um Integration Runtime auto-hospedado
-Conforme você move dados de um armazenamento de dados em uma rede privada (local) para um armazenamento de dados do Azure, instale um RI (tempo de execução de integração) auto-hospedado em seu ambiente local. O IR auto-hospedado move dados entre sua rede privada e o Azure. 
+Conforme você move dados de um armazenamento de dados em uma rede privada (local) para um armazenamento de dados do Azure, instale um RI (runtime de integração) auto-hospedado em seu ambiente local. O IR auto-hospedado move dados entre sua rede privada e o Azure. 
 
 1. Clique em **Conexões** na parte inferior do painel esquerdo e alterne para **Integration Runtimes** na janela **Conexões**. 
 
@@ -271,11 +271,11 @@ Conforme você move dados de um armazenamento de dados em uma rede privada (loca
    ![Clique no link de instalação Expressa](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Na janela **Instalação Expressa do Microsoft Integration Runtime (auto-hospedado)** , clique em **Fechar**. 
 
-   ![Instalação do tempo de execução de integração - êxito](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
-1. No navegador da Web, na janela **Configuração de Tempo de Execução de Integração**, clique em **Concluir**. 
+   ![Instalação do runtime de integração - êxito](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
+1. No navegador da Web, na janela **Configuração do Integration Runtime**, clique em **Concluir**. 
 
  
-1. Confirme que você vê **MySelfHostedIR** na lista de tempos de execução de integração.
+1. Confirme que você vê **MySelfHostedIR** na lista de runtimes de integração.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você cria serviços vinculados para seu banco de dados SQL Server local e o banco de dados SQL do Azure. 
@@ -290,7 +290,7 @@ Nesta etapa, você vincula seu banco de dados do SQL Server local ao data factor
 1. Na janela **Novo Serviço Vinculado**, execute estas etapas:
 
     1. Insira **SqlServerLinkedService** como **Nome**. 
-    1. Selecione **MySelfHostedIR** para **Conectar por meio do tempo de execução de integração**. Esta é uma etapa **importante**. O tempo de execução de integração padrão não pode se conectar a um armazenamento de dados local. Use o tempo de execução de integração auto-hospedado criado anteriormente. 
+    1. Selecione **MySelfHostedIR** para **Conectar por meio do runtime de integração**. Esta é uma etapa **importante**. O runtime de integração padrão não pode se conectar a um armazenamento de dados local. Use o runtime de integração auto-hospedada criado anteriormente. 
     1. Como **Nome do servidor**, digite o nome do computador que tem o banco de dados do SQL Server.
     1. Como **Nome do banco de dados**, digite o nome do banco de dados no SQL Server que contém os dados de origem. Você criou uma tabela e dados inseridos neste banco de dados como parte dos pré-requisitos. 
     1. Como **Tipo de autenticação**, selecione o **tipo de autenticação** que você deseja usar para se conectar ao banco de dados. 
@@ -344,7 +344,7 @@ Nesta etapa, você cria conjuntos de dados para representar a fonte de dados, o 
 1. Alterne para a guia **Parâmetros** na janela Propriedades e execute as seguintes etapas: 
 
     1. Clique em **Novo** na seção **Criar/atualizar parâmetros**. 
-    1. Digite **SinkTableName** como **nome** e **Cadeia de Caracteres** como **tipo**. Este conjunto de dados usa **SinkTableName** como um parâmetro. O parâmetro SinkTableName é definido pelo pipeline dinamicamente no tempo de execução. A atividade ForEach no pipeline itera por meio de uma lista de nomes de tabela e passa o nome da tabela para esse conjunto de dados em cada iteração.
+    1. Digite **SinkTableName** como **nome** e **Cadeia de Caracteres** como **tipo**. Este conjunto de dados usa **SinkTableName** como um parâmetro. O parâmetro SinkTableName é definido pelo pipeline dinamicamente no runtime. A atividade ForEach no pipeline itera por meio de uma lista de nomes de tabela e passa o nome da tabela para esse conjunto de dados em cada iteração.
    
     ![Conjunto de Dados do Coletor - propriedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
 1. Alterne para a guia **Conexão** na janela Propriedades e selecione **AzureSqlDatabaseLinkedService** em **Serviço vinculado**. Para a propriedade **Tabela**, clique em **Adicionar conteúdo dinâmico**.   

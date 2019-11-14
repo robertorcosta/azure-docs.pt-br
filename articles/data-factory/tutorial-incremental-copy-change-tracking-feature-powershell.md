@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de maneira incremental usando o Controle de Alterações e o Azure Data Factory | Microsoft Docs
+title: 'Copiar dados de maneira incremental usando o Controle de Alterações e o Azure Data Factory '
 description: 'Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure. '
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 36a160ad3c6b925931c6274a44cfb5492d6a562a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: feab54128a00d587ea9b68d8db5df59bd3615ee2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140633"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683488"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -234,7 +234,7 @@ Nesta etapa, você vincula a Conta de Armazenamento do Azure ao data factory.
 ### <a name="create-azure-sql-database-linked-service"></a>Crie um serviço vinculado do Banco de Dados SQL do Azure.
 Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory.
 
-1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService.json** na pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** usando o conteúdo a seguir: Substitua servidor, nome do banco de dados **, &lt;id do usuário&gt; e &lt;senha&gt;** pelo nome do seu servidor SQL, nome do seu banco de dados, ID do usuário e senha do Azure antes de salvar o arquivo. 
+1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService.json** na pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** usando o conteúdo a seguir: Substitua **&lt;servidor&gt;, &lt;nome do banco de dados **, &lt;id do usuário&gt; e &lt;senha&gt;** pelo nome do seu servidor SQL, nome do seu banco de dados, ID do usuário e senha do Azure antes de salvar o arquivo. 
 
     ```json
     {

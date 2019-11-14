@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando o Hive na Rede Virtual do Azure | Microsoft Docs
+title: 'Transformar dados usando o Hive na Rede Virtual do Azure '
 description: Este tutorial fornece instruções passo a passo para transformar dados usando a Atividade Hive no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 73a43bdb859d39bd0cb8e3d4a3ed3f114fb2c156
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277471"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683435"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure usando a Atividade Hive no Azure Data Factory
 Neste tutorial, você pode usar o portal do Azure para criar um pipeline do Data Factory que transforma dados usando a atividade Hive em um cluster HDInsight que está em uma Rede Virtual (VNet) do Azure. Neste tutorial, você realizará os seguintes procedimentos:
@@ -105,11 +105,11 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     ![Guia Editar](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um Integration Runtime auto-hospedado
-Como o cluster Hadoop está em uma rede virtual, você precisa instalar um tempo de execução de integração auto-hospedado (IR) na mesma rede virtual. Nesta seção, crie uma nova VM, associe-a à mesma rede virtual e instale o IR auto-hospedado nela. O IR auto-hospedado permite que o serviço Data Factory distribua as solicitações de processamento para um serviço de computação como o HDInsight em uma rede virtual. Ele também permite mover dados para/de armazenamentos de dados de uma rede virtual para o Azure. Você usa um IR auto-hospedado quando a computação ou o armazenamento de dados estão em um ambiente local também. 
+Como o cluster Hadoop está em uma rede virtual, você precisa instalar um runtime de integração auto-hospedada (IR) na mesma rede virtual. Nesta seção, crie uma nova VM, associe-a à mesma rede virtual e instale o IR auto-hospedado nela. O IR auto-hospedado permite que o serviço Data Factory distribua as solicitações de processamento para um serviço de computação como o HDInsight em uma rede virtual. Ele também permite mover dados para/de armazenamentos de dados de uma rede virtual para o Azure. Você usa um IR auto-hospedado quando a computação ou o armazenamento de dados estão em um ambiente local também. 
 
-1. Na interface do usuário do Azure Data Factory, clique em **Conexões** na parte inferior da janela, alterne para a guia **Tempos de Execução de Integração** e, em seguida, clique em **+ Novo** na barra de ferramentas. 
+1. Na interface do usuário do Azure Data Factory, clique em **Conexões** na parte inferior da janela, alterne para a guia **Runtimes de integração** e, em seguida, clique em **+ Novo** na barra de ferramentas. 
 
-   ![Menu Novo tempo de execução de integração](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-integration-runtime-menu.png)
+   ![Menu Novo runtime de integração](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-integration-runtime-menu.png)
 2. Na janela **Instalação do Integration Runtime**, selecione a opção **Executar atividades de movimentação e distribuição de dados para cálculos externos** e clique em **Avançar**. 
 
    ![Selecione executar a opção de atividades de movimentação e a distribuição de dados](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
@@ -118,18 +118,18 @@ Como o cluster Hadoop está em uma rede virtual, você precisa instalar um tempo
    ![Selecionar rede privada](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Insira **MySelfHostedIR** como **Nome** e clique em **Avançar**. 
 
-   ![Especificar nome do tempo de execução de integração](./media/tutorial-transform-data-using-hive-in-vnet-portal/integration-runtime-name.png) 
-5. Copie a **chave de autenticação** do tempo de execução de integração clicando no botão de cópia e salve-a. Mantenha a janela aberta. Você pode usar essa chave para registrar o IR instalado em uma máquina virtual. 
+   ![Especificar nome do runtime de integração](./media/tutorial-transform-data-using-hive-in-vnet-portal/integration-runtime-name.png) 
+5. Copie a **chave de autenticação** do runtime de integração clicando no botão de cópia e salve-a. Mantenha a janela aberta. Você pode usar essa chave para registrar o IR instalado em uma máquina virtual. 
 
    ![Copiar chave de autenticação](./media/tutorial-transform-data-using-hive-in-vnet-portal/copy-key.png)
 
 ### <a name="install-ir-on-a-virtual-machine"></a>Instalar o IR em uma máquina virtual
 
-1. Na VM do Azure, baixe o [Integration Runtime auto-hospedado](https://www.microsoft.com/download/details.aspx?id=39717). Use a **chave de autenticação** obtida na etapa anterior para registrar manualmente o tempo de execução de integração auto-hospedado. 
+1. Na VM do Azure, baixe o [Integration Runtime auto-hospedado](https://www.microsoft.com/download/details.aspx?id=39717). Use a **chave de autenticação** obtida na etapa anterior para registrar manualmente o runtime de integração auto-hospedada. 
 
     ![Registrar Integration Runtime](media/tutorial-transform-data-using-hive-in-vnet-portal/register-integration-runtime.png)
 
-2. Você verá a seguinte mensagem quando o tempo de execução de integração auto-hospedado for registrado com êxito. 
+2. Você verá a seguinte mensagem quando o runtime de integração auto-hospedada for registrado com êxito. 
    
     ![Registrado com êxito](media/tutorial-transform-data-using-hive-in-vnet-portal/registered-successfully.png)
 3. Clique em **Iniciar Configuration Manager**. Você verá a página a seguir quando o nó estiver conectado ao serviço de nuvem: 
@@ -141,7 +141,7 @@ Como o cluster Hadoop está em uma rede virtual, você precisa instalar um tempo
 1. Na **interface do usuário do Azure Data Factory**, você deverá ver o nome do nome da VM auto-hospedada e seu status.
 
    ![Nós auto-hospedados existentes](./media/tutorial-transform-data-using-hive-in-vnet-portal/existing-self-hosted-nodes.png)
-2. Clique em **Concluir** para fechar a janela **Configuração do Tempo de Execução de Integração**. Você vê o IR auto-hospedado na lista de tempos de execução de integração.
+2. Clique em **Concluir** para fechar a janela **Configuração do Integration Runtime**. Você vê o IR auto-hospedado na lista de runtimes de integração.
 
    ![IR auto-hospedado na lista](./media/tutorial-transform-data-using-hive-in-vnet-portal/self-hosted-ir-in-list.png)
 
@@ -163,7 +163,7 @@ Você cria e implanta dois serviços vinculados nesta seção:
 3. Na janela **Novo serviço vinculado** execute as seguintes etapas:
 
     1. Insira **AzureStorageLinkedService** como o **Nome**.
-    2. Selecione **MySelfHostedIR** para **Conectar por meio do tempo de execução de integração**.
+    2. Selecione **MySelfHostedIR** para **Conectar por meio do runtime de integração**.
     3. Selecione sua conta de armazenamento do Azure como o **Nome da conta de armazenamento**. 
     4. Clique em **Testar conectividade** para testar a conexão à Conta do Armazenamento do Azure.
     5. Clique em **Save** (Salvar).
@@ -191,7 +191,7 @@ Você cria e implanta dois serviços vinculados nesta seção:
 Este artigo pressupõe que você tenha acesso ao cluster via Internet. Por exemplo, que você possa se conectar ao cluster em `https://clustername.azurehdinsight.net`. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs (Grupos de Segurança de Rede) ou UDRs (rotas definidas pelo usuário) para restringir o acesso da Internet. Para que o Data Factory possa enviar trabalhos para o cluster HDInsight na Rede Virtual do Azure, você precisa configurar sua Rede Virtual do Azure de modo que a URL possa ser resolvida para o endereço IP do gateway usado pelo HDInsight.
 
 1. No Portal do Azure, abra a Rede Virtual que contém o HDInsight. Abra o adaptador de rede cujo nome começa com `nic-gateway-0`. Anote o endereço IP privado dela. Por exemplo, 10.6.0.15. 
-2. Se sua Rede Virtual do Azure tem um servidor DNS, atualize o registro DNS de modo que a URL do cluster do HDInsight `https://<clustername>.azurehdinsight.net` possa ser resolvida para `10.6.0.15`. Se você não tiver um servidor DNS em sua Rede Virtual do Azure, você poderá usar uma solução alternativa temporária para isso editando o arquivo de hosts (C:\Windows\System32\drivers\etc.) de todas as VMs registradas como nós de tempo de execução auto-hospedado, adicionando uma entrada semelhante a esta: 
+2. Se sua Rede Virtual do Azure tem um servidor DNS, atualize o registro DNS de modo que a URL do cluster do HDInsight `https://<clustername>.azurehdinsight.net` possa ser resolvida para `10.6.0.15`. Se você não tiver um servidor DNS em sua Rede Virtual do Azure, você poderá usar uma solução alternativa temporária para isso editando o arquivo de hosts (C:\Windows\System32\drivers\etc.) de todas as VMs registradas como nós de runtime de integração auto-hospedada, adicionando uma entrada semelhante a esta: 
 
     `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 

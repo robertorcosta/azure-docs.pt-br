@@ -10,16 +10,18 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057734"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604650"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Pesquisa Visual Computacional para gerar metadados de imagem no Armazenamento do Azure
 
-Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens carregadas. Um guia de aplicativo completo pode ser encontrado no [Laboratório do Armazenamento do Azure e dos Serviços Cognitivos](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) no GitHub; este tutorial aborda essencialmente o Exercício 5 do laboratório. Talvez você queira criar o aplicativo de ponta a ponta seguindo todas as etapas, mas, se desejar ver como a Pesquisa Visual Computacional pode ser integrada a um aplicativo Web existente, continue lendo aqui.
+Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens carregadas. Isso é útil para cenários de [DAM (gerenciamento de ativos digitais)](../Home.md#computer-vision-for-digital-asset-management), assim como quando uma empresa deseja gerar rapidamente legendas descritivas ou palavras-chave pesquisáveis para todas as suas imagens.
+
+Um guia de aplicativo completo pode ser encontrado no [Laboratório do Armazenamento do Azure e dos Serviços Cognitivos](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) no GitHub; este tutorial aborda essencialmente o Exercício 5 do laboratório. Talvez você queira criar o aplicativo de ponta a ponta seguindo todas as etapas, mas, se desejar ver como a Pesquisa Visual Computacional pode ser integrada a um aplicativo Web existente, continue lendo aqui.
 
 Este tutorial mostra como:
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522202"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796275"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -33,7 +33,7 @@ Os discos gerenciados são integrados a conjuntos de disponibilidade para garant
 
 ### <a name="integration-with-availability-zones"></a>Integração com as Zonas de Disponibilidade
 
-Os discos gerenciados dão suporte às [Zonas de Disponibilidade](../articles/availability-zones/az-overview.md), que são uma oferta de alta disponibilidade que protege os aplicativos contra falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor.
+Os discos gerenciados são compatíveis com as [Zonas de Disponibilidade](../articles/availability-zones/az-overview.md), que são uma oferta de alta disponibilidade capaz de proteger seus aplicativos contra falhas no datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor.
 
 ### <a name="azure-backup-support"></a>Suporte de Backup do Azure
 
@@ -55,7 +55,7 @@ Os discos gerenciados oferecem dois tipos diferentes de criptografia. O primeiro
 
 ### <a name="server-side-encryption"></a>Criptografia no servidor
 
-A [Criptografia no Servidor do Azure](../articles/storage/common/storage-service-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. A criptografia no servidor está habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões nas quais os discos gerenciados estão disponíveis. Visite o [página de Perguntas frequentes do Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
+A [Criptografia no Servidor do Azure](../articles/virtual-machines/windows/disk-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. A criptografia no servidor está habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões nas quais os discos gerenciados estão disponíveis. Você poderá permitir que o Azure gerencie as chaves para você (essas são chaves gerenciadas pela plataforma) ou você poderá gerenciar as chaves por conta própria (essas são chaves gerenciadas pelo cliente [versão prévia]). Visite o [página de Perguntas frequentes do Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -85,7 +85,7 @@ Cada VM contém um disco temporário, que não é um disco gerenciado. O disco t
 
 Um instantâneo de disco gerenciado é uma cópia completa consistente com falhas e somente leitura de um disco gerenciado que, por padrão, é armazenada como um disco gerenciado padrão. Com os instantâneos, você pode fazer backup de seus discos gerenciados a qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos gerenciados. 
 
-Os instantâneos são cobrados com base no tamanho utilizado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado apenas pelo tamanho de dados usados de 10 GiB. Você poderá ver o tamanho utilizado dos instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados de um snapshot usado for 10 GiB, o relatório de uso **diário** mostrará 10 GiB/(31 dias) = 0,3226 como a quantidade consumida.
+Os instantâneos são cobrados com base no tamanho utilizado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado apenas pelo tamanho de dados usados de 10 GiB. Você poderá ver o tamanho utilizado dos instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados de um snapshot usado for 10 GiB, o relatório de uso **diário** mostrará 10 GiB/(31 dias) = 0,3226 como a quantidade consumida.
 
 Para saber mais sobre como criar instantâneos para discos gerenciados, confira os seguintes recursos:
 

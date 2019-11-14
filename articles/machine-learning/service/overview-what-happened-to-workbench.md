@@ -1,7 +1,7 @@
 ---
-title: O que aconteceu com o Machine Learning Workbench?
+title: O que aconteceu com o Workbench?
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre o que aconteceu com o aplicativo Machine Learning Workbench, o que mudou no Azure Machine Learning e qual é a linha do tempo de suporte.
+description: Saiba mais sobre o que é possível sem o aplicativo Workbench e qual é a linha do tempo de suporte.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c98da50d0c50a7fdb94f579444f3c09c1096d18
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 835024f7c8d77d67a2f6321df658c2f5c2007e62
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476409"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647111"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu com o Workbench de aprendizado de máquina do Azure?
 
@@ -64,12 +64,6 @@ Painel de workspace do portal é compatível apenas com os navegadores Microsoft
 
 Comece treinando seus modelos e acompanhando os históricos de execução usando o novo CLI e SDK. Saiba como fazer isso com o [Tutorial: treinar modelos com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-## <a name="can-i-still-prep-data"></a>Pode eu ainda de preparação de dados?
-
-Seus arquivos de preparação de dados preexistentes não são portáteis para a versão mais recente, porque não temos mais o Machine Learning Workbench. Mas você ainda pode preparar qualquer tamanho de conjunto de dados para modelagem.
-
-Com conjuntos de dados de qualquer tamanho, é possível usar o [pacote de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk) para preparar rapidamente seus dados antes da modelagem escrevendo código Python.
-
 ## <a name="will-projects-persist"></a>Projetos persistirá?
 
 Você não perderá nenhum código ou trabalho. Na versão mais antiga, os projetos são entidades na nuvem com um diretório local. Na última versão, você anexa diretórios locais ao Workspace do Azure Machine Learning usando um arquivo de configuração local. Confira um [diagrama da arquitetura mais recente](concept-azure-machine-learning-architecture.md).
@@ -97,22 +91,6 @@ Na versão mais recente, os modelos são implantados como serviços Web para clu
 Saiba mais nestes artigos:
 + [Onde e como implantar modelos](how-to-deploy-and-where.md)
 + [Tutorial: Implantar modelos com o Azure Machine Learning](tutorial-deploy-models-with-aml.md)
-
-## <a name="what-about-the-old-sdk-and-cli"></a>E quanto ao SDK e à CLI antigos?
-
-Confira a [linha do tempo](#timeline) anterior. Recomendamos que você comece a criar seus novos experimentos e modelos com o SDK ou CLI mais recente.
-
-Usando o novo SDK do Python na última versão, você pode interagir com o Azure Machine Learning em qualquer ambiente do Python. Saiba como instalar o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK mais recente</a>. Você também pode usar a [extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md) atualizada com o conjunto avançado de comandos `az ml` para interagir com o serviço em qualquer ambiente de linha de comando, incluindo o Azure Cloud Shell.
-
-## <a name="what-about-visual-studio-code-tools-for-ai"></a>E as Visual Studio Code Tools for AI?
-
-Nesta última versão, a extensão foi renomeada para Azure Machine Learning para Visual Studio Code e foi expandida e aprimorada para trabalhar com os novos recursos acima.
-
-[![Azure Machine Learning para Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
-
-## <a name="what-about-domain-packages"></a>E os pacotes de domínio?
-
-Os pacotes de domínio para a Pesquisa Visual Computacional, a análise de texto e a previsão não podem ser usados com a versão mais recente do Azure Machine Learning. No entanto, você ainda pode criar e treinar modelos de pesquisa visual computacional, de texto e de previsão com o mais recente <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> do Python do Azure Machine Learning.
 
 ## <a name="next-steps"></a>Próximas etapas
 

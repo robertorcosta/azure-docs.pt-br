@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando o Hive na Rede Virtual do Azure | Microsoft Docs
+title: 'Transformar dados usando o Hive na Rede Virtual do Azure '
 description: Este tutorial fornece instruções passo a passo para transformar dados usando a Atividade Hive no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 667835605cfaf4fced10b07f05028bcfa11f64da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 263eb243ea45963757c50aa031cc17e318d70d98
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336046"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683313"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure usando a Atividade Hive no Azure Data Factory
 Neste tutorial, você pode usar o Azure PowerShell para criar um pipeline do Data Factory que transforma dados usando a atividade Hive em um cluster HDInsight que está em uma Rede Virtual (VNet) do Azure. Neste tutorial, você realizará os seguintes procedimentos:
@@ -87,7 +87,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     ```powershell
     $pipelineName = "MyHivePipeline" # 
     ```
-4. Especifique um nome para o tempo de execução de integração auto-hospedado. Você precisará de um tempo de execução de integração auto-hospedado quando o Data Factory precisar acessar recursos (como o Banco de Dados SQL do Azure) dentro de uma rede virtual. 
+4. Especifique um nome para o runtime de integração auto-hospedada. Você precisará de um runtime de integração auto-hospedada quando o Data Factory precisar acessar recursos (como o Banco de Dados SQL do Azure) dentro de uma rede virtual. 
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```

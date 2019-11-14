@@ -1,44 +1,49 @@
 ---
 title: Fazer backup de compartilhamentos de Arquivos do Azure com o serviço de Backup do Azure
-description: Este tutorial explica como fazer backup dos compartilhamentos de arquivos do Azure.
+description: Neste tutorial, saiba como usar o portal do Azure para configurar um cofre dos Serviços de Recuperação e fazer backup de compartilhamentos de arquivo do Azure.
 author: dcurwin
 ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: e63ad75effb03cf9dd5eb5c66b142cce629ea290
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a8b08f87441f9b4c67f718dfe9f0c894d0730a5f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736243"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747057"
 ---
-# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Fazer backup de compartilhamentos de arquivos do Azure no portal do Azure
+# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Fazer backup de compartilhamentos de arquivo do Azure no portal do Azure
+
 Este tutorial explica como usar o portal do Azure para fazer backup de [compartilhamentos de arquivos do Azure](../storage/files/storage-files-introduction.md).
 
 Neste guia, você aprenderá a:
 > [!div class="checklist"]
+>
 > * Configurar um cofre de Serviços de Recuperação para fazer backup de Arquivos do Azure
 > * Executar um trabalho de backup sob demanda para criar um ponto de restauração
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Antes de fazer backup de um compartilhamento de arquivos do Azure, verifique se ele está presente em um dos [tipos de Conta de Armazenamento com suporte](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Depois fazer essa verificação, é possível proteger o compartilhamento dos arquivos.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações de backup do compartilhamento de arquivos do Azure durante a versão prévia
+
 A cópia de segurança para compartilhamentos de arquivos do Azure está em versão prévia. Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento de uso geral v1 e de uso geral v2. Não há suporte para os cenários de backup a seguir para compartilhamentos de arquivos do Azure:
-- Não é possível proteger compartilhamentos de arquivos no Azure em contas de armazenamento que têm redes virtuais ou firewall habilitados.
-- Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
-- A quantidade máxima de backups agendados por dia é de um.
-- A quantidade máxima de backups sob demanda por dia é de quatro.
-- Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para impedir a exclusão acidental de backups em seu cofre dos Serviços de Recuperação.
-- Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração.
-- Não exclua os compartilhamentos de arquivos protegidos pelo Backup do Azure. A solução atual excluirá todos os instantâneos tirados pelo Backup do Azure após a exclusão do compartilhamento de arquivos e, portanto, perderá todos os pontos de restauração
+
+* Não é possível proteger compartilhamentos de arquivos no Azure em contas de armazenamento que têm redes virtuais ou firewall habilitados.
+* Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
+* A quantidade máxima de backups agendados por dia é de um.
+* A quantidade máxima de backups sob demanda por dia é de quatro.
+* Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para impedir a exclusão acidental de backups em seu cofre dos Serviços de Recuperação.
+* Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração.
+* Não exclua os compartilhamentos de arquivos protegidos pelo Backup do Azure. A solução atual excluirá todos os instantâneos tirados pelo Backup do Azure após a exclusão do compartilhamento de arquivos e, portanto, perderá todos os pontos de restauração
 
 O backup para Compartilhamentos de Arquivos do Azure nas contas de armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está disponível apenas no Centro dos EUA (CUS), Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Europa Setentrional (NE), Sudeste Asiático (SEA), Europa Ocidental (WE) e Oeste dos EUA 2 (WUS2).
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configurar o backup para um compartilhamento de arquivos do Azure
+
 Este tutorial presume que você já estabeleceu um compartilhamento de arquivos do Azure. Para fazer o backup do compartilhamento de arquivos do Azure:
 
 1. Crie um cofre de Serviços de Recuperação na mesma região que o compartilhamento de arquivos. Caso já tenha um cofre, abra a página de Visão geral do cofre e clique em **Backup**.
@@ -70,8 +75,8 @@ Este tutorial presume que você já estabeleceu um compartilhamento de arquivos 
     Depois de estabelecer uma política de backup, um instantâneo dos Compartilhamentos de Arquivos será executado no horário agendado, e o ponto de recuperação fica retido para o período escolhido.
 
 ## <a name="create-an-on-demand-backup"></a>Criar um backup sob demanda
-Depois de configurar a política de backup, você desejará criar um backup sob demanda para garantir que seus dados estarão protegidos até o próximo backup agendado.
 
+Depois de configurar a política de backup, você desejará criar um backup sob demanda para garantir que seus dados estarão protegidos até o próximo backup agendado.
 
 ### <a name="to-create-an-on-demand-backup"></a>Para criar um backup sob demanda
 
@@ -91,12 +96,12 @@ Depois de configurar a política de backup, você desejará criar um backup sob 
 
    ![Escolha a data de retenção do ponto de recuperação](./media/backup-file-shares/backup-now-menu.png)
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você usou o portal do Azure para:
 
 > [!div class="checklist"]
+>
 > * Configurar um cofre de Serviços de Recuperação para fazer backup de Arquivos do Azure
 > * Executar um trabalho de backup sob demanda para criar um ponto de restauração
 
@@ -104,4 +109,3 @@ Continue para o próximo artigo a fim de restaurar um backup de um compartilhame
 
 > [!div class="nextstepaction"]
 > [Restaurar a partir do backup do compartilhamento de arquivos do Azure](./backup-azure-files.md#restore-from-backup-of-azure-file-share)
- 

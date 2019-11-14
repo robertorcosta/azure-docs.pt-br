@@ -1,22 +1,22 @@
 ---
-title: Migrar dados de evento para o SQL Data Warehouse – Hubs de Eventos do Azure | Microsoft Docs
-description: Este tutorial mostra como capturar dados do hub de eventos em um SQL data warehouse usando uma função do Azure disparada por uma grade de eventos.
+title: 'Tutorial: Migrar dados de evento para o SQL Data Warehouse – Hubs de Eventos do Azure'
+description: 'Tutorial: Este tutorial mostra como capturar dados do hub de eventos em um SQL data warehouse usando uma função do Azure disparada por uma grade de eventos.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604299"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718879"
 ---
-# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrar dados dos Hubs de Eventos capturados para um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migrar dados dos Hubs de Eventos capturados para um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions
 
 A [captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) dos Hubs de Eventos é a maneira mais fácil de enviar dados transmitidos nos Hubs de Eventos automaticamente para um Armazenamento de Blobs do Azure ou para um Azure Data Lake Store. Posteriormente, você pode processar e enviar os dados para outros destinos de armazenamento de sua escolha, como o SQL Data Warehouse ou o Cosmos DB. Neste tutorial, você aprenderá a capturar dados do hub de eventos em um SQL data warehouse usando uma função do Azure disparada por uma [grade de eventos](https://docs.microsoft.com/azure/event-grid/overview).
 

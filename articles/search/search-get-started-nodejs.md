@@ -2,19 +2,19 @@
 title: 'Início Rápido: Criar um índice de pesquisa em Node.js usando APIs REST'
 titleSuffix: Azure Cognitive Search
 description: Exemplo de Node.js para a Pesquisa Cognitiva do Azure, que demonstra como criar, carregar dados e consultar no JavaScript.
-author: lobrien
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 20a5af5ac7163c182ea01a9a9442d3c99614442d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8b7308b5289ba747dba90716b495ca1ba6afb209
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787437"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719995"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Node.js usando APIs REST
 > [!div class="op_single_selector"]
@@ -680,7 +680,7 @@ Execute o programa com `node index.js`. Agora, além das etapas anteriores, as c
 
 O exemplo usa uma pequena quantidade de dados de hotel, o suficiente para demonstrar as noções básicas de criar e consultar um índice da Pesquisa Cognitiva do Azure.
 
-A classe **AzureSearchClient** encapsula a configuração, as URLs e as solicitações HTTP básicas para o serviço de pesquisa. O arquivo **index.js** carrega os dados de configuração para o serviço da Pesquisa Cognitiva do Azure, os dados de hotel que serão carregados para indexação e, em sua função `run`, ordena e executa as várias operações.
+A classe **AzureSearchClient** encapsula a configuração, as URLs e as solicitações HTTP básicas para o serviço de pesquisa. O arquivo **index.js** carrega os dados de configuração para o serviço do Azure Cognitive Search, os dados de hotel que serão carregados para indexação e, em sua função `run`, ordena e executa as diversas operações.
 
 O comportamento geral da função `run` é excluir o índice da Pesquisa Cognitiva do Azure, se ele existir, criar o índice, adicionar alguns dados e executar algumas consultas.  
 

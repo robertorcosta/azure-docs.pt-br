@@ -1,5 +1,5 @@
 ---
-title: Tutorial da Central de segurança do Azure - Proteger seus recursos com a Central de Segurança do Azure | Microsoft Docs
+title: Tutorial de controles de aplicativo e de acesso – Central de Segurança do Azure
 description: Este tutorial mostra como configurar uma política de acesso Just-In-Time de VM e uma política de controle de aplicativo.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996327"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686339"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger seus recursos com a Central de Segurança do Azure
 A Central de Segurança limita a exposição a ameaças por meio de controles de acesso e de aplicativo a fim de bloquear atividades mal-intencionadas. O acesso de VM (máquina virtual) JIT (Just-In-Time) reduz a exposição a ataques permitindo que você negue o acesso persistente às VMs. Em vez disso, você fornece acesso controlado e auditado às VMs somente quando for necessário. Controles de aplicativo adaptáveis ajudam a proteger VMs contra malware, controlando quais aplicativos podem ser executados em suas VMs. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
@@ -29,8 +29,6 @@ Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
 > * Configurar uma política de acesso de VM Just-In-Time
 > * Configurar uma política de controle de aplicativo
-
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para percorrer os recursos abordados neste tutorial, você deve estar em um tipo de preço da Central de Segurança Padrão. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.
@@ -96,7 +94,7 @@ Os controles de aplicativo adaptáveis ajudam você a definir um conjunto de apl
 4. Após concluir suas seleções, selecione **Criar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
+Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se planejar continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando o nível Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
 
 1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.
 2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.

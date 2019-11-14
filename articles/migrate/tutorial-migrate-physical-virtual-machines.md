@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9b1944cdad67f9f1b74c8dae95bc9d8409e56f54
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ffa072f593a06a38e6e3d121fb76806e41bf568e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309464"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605544"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrar servidores físicos ou virtualizados para o Azure 
 
@@ -135,7 +135,7 @@ A Migração de Servidor de Migrações para Azure usa um dispositivo de replica
 - **Servidor de configuração**: O servidor de configuração coordena a comunicação entre o ambiente local e o Azure e gerencia a replicação de dados.
 - **Servidor de processo**: O servidor de processo atua como um gateway de replicação. Ele recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para uma conta de armazenamento em cache no Azure. 
 
-Antes de começar, você precisa preparar um computador com Windows Server 2016 para hospedar o dispositivo de replicação. O computador deve estar em conformidade com [estes requisitos](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements).
+Antes de começar, você precisa preparar um computador com Windows Server 2016 para hospedar o dispositivo de replicação. O computador deve estar em conformidade com [estes requisitos](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements). O dispositivo não deve ser instalado em um computador de origem que você deseja proteger.
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Adicionar a ferramenta Migração de Servidor das Migrações para Azure

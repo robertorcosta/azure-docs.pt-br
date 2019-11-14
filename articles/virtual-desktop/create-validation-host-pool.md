@@ -1,5 +1,5 @@
 ---
-title: Criar um pool de hosts da Área de Trabalho Virtual do Windows para validar atualizações de serviço – Azure
+title: Atualizações de serviço de pool de hosts da Área de Trabalho Virtual do Windows – Azure
 description: Como criar um pool de host de validação para monitorar atualizações de serviço antes de distribuir atualizações para a produção.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fd8be170f0f4388ee711881dde16923b9547f21f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676670"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606925"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um pool de hosts para validar as atualizações de serviço
 

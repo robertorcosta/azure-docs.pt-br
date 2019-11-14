@@ -1,5 +1,5 @@
 ---
-title: Copiar dados no Armazenamento de Blobs com o Azure Data Factory | Microsoft Docs
+title: Copiar dados no Armazenamento de Blobs usando o Azure Data Factory
 description: Crie um Azure Data Factory para copiar dados de um local em um Armazenamento de Blobs do Azure para outro local.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 06171dbedb55b4a80e2b27b9314247331d65ed97
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 564076a0df8ab993796dde3d134a9461ab03e050
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286485"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684509"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Início Rápido: Criar um Azure Data Factory usando o PowerShell
 
@@ -110,7 +110,7 @@ Observe os seguintes pontos:
 
 ## <a name="create-a-linked-service"></a>Criar um serviço vinculado
 
-Crie serviços vinculados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste guia de início rápido, você cria um serviço vinculado do Armazenamento do Azure que é usado como armazenamento de origem e do coletor. O serviço vinculado tem as informações de conexão que o serviço do Data Factory usa no tempo de execução para se conectar a ele.
+Crie serviços vinculados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste guia de início rápido, você cria um serviço vinculado do Armazenamento do Azure que é usado como armazenamento de origem e do coletor. O serviço vinculado tem as informações de conexão que o serviço do Data Factory usa no runtime para se conectar a ele.
 
 1. Crie um arquivo JSON chamado **AzureStorageLinkedService.json** na pasta **C:\ADFv2QuickStartPSH** com o seguinte conteúdo: (Crie a pasta ADFv2QuickStartPSH se ela ainda não existir.).
 

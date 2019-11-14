@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL | Microsoft Docs
+title: 'Copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL '
 description: Este tutorial fornece instruções passo a passo para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 49b5b03356790bd45b2ad29897a57b746af1abe1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 96b1e5a9633ee141fd4aa369468a8866d87f27f2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140695"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683659"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure usando o Azure Data Factory
 

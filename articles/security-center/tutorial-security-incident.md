@@ -1,5 +1,5 @@
 ---
-title: Tutorial da Central de Segurança do Azure - Responder a incidentes de segurança | Microsoft Docs
+title: Tutorial de resposta a incidentes – Central de Segurança do Azure
 description: Tutorial da Central de Segurança do Azure - responder a incidentes de segurança
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cd3f99fe82c9a8e5e760aa3be3bed1ad5d9bd5e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200616"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663636"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para lhe avisar a existência de atividades mal-intencionadas. Além disso, você pode integrar à Central de Segurança alertas de outros produtos e serviços de segurança, bem como criar alertas personalizados com base em indicadores próprios ou fontes de inteligência. Após a geração de um alerta, é necessária uma ação rápida para investigação e correção da questão. Neste tutorial, você aprenderá a:
@@ -66,7 +66,7 @@ A Central de Segurança fornece uma visualização unificada de todos os alertas
 
 1. No menu principal da Central de Segurança, em **DETECÇÃO**, selecione **Alertas de segurança**:
 
-   ![Alertas de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Alertas de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
 2. Na lista de alertas, clique em um incidente de segurança, que é uma coleção de alertas, para saber mais sobre o incidente. A tela **Incidente de segurança detectado** abre.
 

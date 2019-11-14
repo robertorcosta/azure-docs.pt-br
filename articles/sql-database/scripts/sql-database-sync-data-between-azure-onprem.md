@@ -1,5 +1,5 @@
 ---
-title: Exemplo do PowerShell – Sincronização entre o Banco de Dados SQL e o SQL Server local | Microsoft Docs
+title: Exemplo do PowerShell – Sincronização entre o Banco de Dados SQL e o SQL Server local
 description: Script de exemplo do Azure PowerShell para sincronização entre um Banco de Dados SQL do Azure e um banco de dados SQL Server local
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 54e459d1dbb4102cbd57f4e42572b4710d9899b2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 74821911994f189ae77d84468d75ccc134ba8db6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569802"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691510"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Use o PowerShell para sincronizar entre um Banco de Dados SQL e um banco de dados local do SQL Server
 

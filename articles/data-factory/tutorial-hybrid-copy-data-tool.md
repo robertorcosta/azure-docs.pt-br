@@ -1,5 +1,5 @@
 ---
-title: Copiar dados locais usando a ferramenta Copy Data do Azure | Microsoft Docs
+title: Copiar dados locais usando a ferramenta de Copiar Dados do Azure
 description: Crie um Azure Data Factory e, em seguida, use a ferramenta Copy Data para copiar dados de um banco de dados do SQL Server local para o armazenamento de Blobs do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 04/09/2018
 ms.author: abnarain
-ms.openlocfilehash: cbefc274e4ebb65f61769a7931dbed305acffe2f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3b9c9371d947b0193f93b8084fbaaf66e3253997
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617471"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683553"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure usando a ferramenta Copy Data
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -147,17 +147,17 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 1. Em **Novo serviço vinculado**, procure **SQL Server** e, em seguida, selecione **Continuar**. 
 
-1. Na caixa de diálogo **Novo serviço vinculado (SQL Server)** , em **Nome**, insira **SqlServerLinkedService**. Selecione **+Novo** em **Conectar por meio do tempo de execução de integração**. Você deve criar um tempo de execução de integração auto-hospedado, baixá-lo para seu computador e registrá-lo com o Data Factory. O tempo de execução de integração auto-hospedado copia dados entre seu ambiente local e a nuvem.
+1. Na caixa de diálogo **Novo serviço vinculado (SQL Server)** , em **Nome**, insira **SqlServerLinkedService**. Selecione **+Novo** em **Conectar por meio do runtime de integração**. Você deve criar um runtime de integração auto-hospedada, baixá-lo para seu computador e registrá-lo com o Data Factory. O runtime de integração auto-hospedada copia dados entre seu ambiente local e a nuvem.
 
 
 1. Na caixa de diálogo **Instalação do Integration Runtime**, selecione **Auto-hospedado**. Em seguida, selecione **Avançar**. 
 
-   ![Criar tempo de execução de integração](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
+   ![Criar runtime de integração](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
 
 1. Na caixa de diálogo **Instalação do Integration Runtime**, em **Nome**, insira **TutorialIntegrationRuntime**. Em seguida, selecione **Avançar**. 
 
 
-1. Na caixa de diálogo **Instalação do Integration Runtime**, selecione **Clique aqui para iniciar a instalação expressa para este computador**. Essa ação instala o Integration Runtime em seu computador e o registra com o Data Factory. Como alternativa, você pode usar a opção de baixar o arquivo de instalação manual, executá-lo e usar a chave para registrar a integração em tempo de execução. 
+1. Na caixa de diálogo **Instalação do Integration Runtime**, selecione **Clique aqui para iniciar a instalação expressa para este computador**. Essa ação instala o Integration Runtime em seu computador e o registra com o Data Factory. Como alternativa, você pode usar a opção de baixar o arquivo de instalação manual, executá-lo e usar a chave para registrar o runtime de integração. 
 
 1. Execute o aplicativo baixado. Você verá o status da instalação rápida na janela. 
 
@@ -179,7 +179,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
     g. Teste a conexão e selecione **Concluir**.
 
-      ![Integração em tempo de execução selecionada](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
+      ![runtime de integração selecionado](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
 
 1. Na página **Armazenamento de dados de origem**, selecione **Avançar**.
 

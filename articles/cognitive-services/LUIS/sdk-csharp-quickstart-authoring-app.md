@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento Vocal) para .NET'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de clientes do LUIS (Reconhecimento Vocal) para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.  O Reconhecimento Vocal (LUIS) permite aplicar inteligência de aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário para prever o significado geral e extrair informações detalhadas relevantes.
+description: Introdução à biblioteca de clientes do LUIS para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: d7668f49df1caca6b4261424b0d2c025a640d572
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 6af076f585e7fc9afe870acada744ead2d2e9118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258779"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672087"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento Vocal) para .NET
 

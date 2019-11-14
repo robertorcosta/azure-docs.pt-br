@@ -1,24 +1,24 @@
 ---
-title: 'Início Rápido: sintetizar a fala – Serviço de Fala'
+title: 'Início Rápido: Sintetizar a fala em um alto-falante – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Neste início rápido, você usará o SDK de Fala para converter texto em fala sintetizada e reproduzir a saída em um alto falante.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 760150da1ec1e72f7875ec9abb9d4ee910ef54d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 960e87860f004d8f9f2002b8125ecf26ee55237d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504960"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826853"
 ---
-# <a name="quickstart-synthesize-speech-by-using-the-speech-sdk"></a>Início Rápido: sintetizar a fala usando o SDK de Fala
+# <a name="quickstart-synthesize-speech-to-a-speaker"></a>Início Rápido: Sintetizar uma fala em um alto-falante
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts/header.md)]

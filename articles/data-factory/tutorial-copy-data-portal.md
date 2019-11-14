@@ -1,5 +1,5 @@
 ---
-title: Usar o portal do Azure para criar um pipeline do Data Factory | Microsoft Docs
+title: Usar o portal do Azure para criar um pipeline do data factory
 description: Este tutorial fornece instruções passo a passo para usar o portal do Azure a fim de criar um data factory com um pipeline. O pipeline usa a atividade de cópia para copiar dados do Armazenamento de blobs do Azure para um banco de dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 9a2ad8070c0406446f53c1bcaa6d341cdca0bb2a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ba348cdd478b1d66d7b7286ba0a54adfd98137e2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140723"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683610"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de Blobs do Azure para um banco de dados SQL usando o Azure Data Factory
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para um banco de dados SQL. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -146,7 +146,7 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
 
 1. Na caixa de diálogo **Novo conjunto de dados**, insira "SQL" na caixa de pesquisa para filtrar os conectores, selecione **Banco de Dados SQL do Azure** e, em seguida, selecione **Continuar**. Neste tutorial, você copia dados para um banco de dados SQL. 
 
-1. Na caixa de diálogo **Definir propriedades**, insira **OutputSqlDataset** como o nome. Selecione **+ Novo** ao lado da caixa de texto **Serviço vinculado**. Um conjunto de dados deve ser associado um serviço vinculado. O serviço vinculado tem a cadeia de conexão que o Data Factory usa para se conectar ao banco de dados SQL no tempo de execução. O conjunto de dados especifica o contêiner, pasta e arquivo (opcional) para o qual os dados são copiados. 
+1. Na caixa de diálogo **Definir propriedades**, insira **OutputSqlDataset** como o nome. Selecione **+ Novo** ao lado da caixa de texto **Serviço vinculado**. Um conjunto de dados deve ser associado um serviço vinculado. O serviço vinculado tem a cadeia de conexão que o Data Factory usa para se conectar ao banco de dados SQL no runtime. O conjunto de dados especifica o contêiner, pasta e arquivo (opcional) para o qual os dados são copiados. 
       
 1. Na caixa de diálogo **Novo serviço vinculado (Banco de Dados SQL do Azure)** , execute as etapas a seguir: 
 

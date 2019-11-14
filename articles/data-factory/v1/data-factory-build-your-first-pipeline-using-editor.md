@@ -1,5 +1,5 @@
 ---
-title: Criar seu primeiro data factory (portal do Azure) | Microsoft Docs
+title: Criar seu primeiro data factory (portal do Azure)
 description: Neste tutorial, crie um pipeline de exemplo do Azure Data Factory usando o Data Factory Editor no portal do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: b60f6adf6c13bc86fb4c4604dda7d4b92963b7ca
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 012b13c440b8d0873e387c7d185803dc07852bf7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140567"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683030"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Nesta etapa, você vincula sua conta de armazenamento ao data factory. Neste tut
     ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
 ### <a name="create-an-hdinsight-linked-service"></a>Como criar um serviço vinculado do HDInsight
-Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data factory. O cluster do HDInsight é criado automaticamente no tempo de execução. O cluster é excluído após a conclusão do processamento e se mantém ocioso durante o período especificado.
+Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data factory. O cluster do HDInsight é criado automaticamente no runtime. O cluster é excluído após a conclusão do processamento e se mantém ocioso durante o período especificado.
 
 1. No Data Factory Editor, selecione **Mais** > **Nova computação** > **Cluster do HDInsight sob demanda**.
 
@@ -321,7 +321,7 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade de Hive do HDInsig
 
     O arquivo de script de Hive, **partitionweblogs.hql**, armazenado na conta de armazenamento, é especificada pelo scriptLinkedService que é denominado **AzureStorageLinkedService**. Você pode encontrá-lo na pasta **script** no contêiner **adfgetstarted**.
 
-    A seção **defines** é usada para especificar as configurações em tempo de execução passadas para o script de Hive como valores de configuração de Hive. Os exemplos são ${hiveconf: inputtable} e ${hiveconf:partitionedtable}.
+    A seção **defines** é usada para especificar as configurações em runtime passadas para o script de Hive como valores de configuração de Hive. Os exemplos são ${hiveconf: inputtable} e ${hiveconf:partitionedtable}.
 
     As propriedades **start** e **end** do pipeline especificam o período ativo do pipeline.
 

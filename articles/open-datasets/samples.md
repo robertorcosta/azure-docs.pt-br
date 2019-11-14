@@ -1,5 +1,5 @@
 ---
-title: Exemplo com notebooks Jupyter usando um conjunto de dados abertos da NOAA
+title: Exemplo de notebooks Jupyter usando dados da NOAA
 titleSuffix: Azure Open Datasets
 description: Use notebooks Jupyter como exemplo para abrir Conjuntos de Dados do Abertos do Azure para aprender como carregar conjuntos de dados abertos e usá-los para aprimorar os dados de demonstração. As técnicas incluem o uso do Spark e Pandas para processar dados.
 ms.service: open-datasets
@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
-ms.openlocfilehash: 2ccdb7adcae40d22a36fbfb47fba6e4c87b3349a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496577"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606136"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exemplo com notebooks Jupyter mostra como aprimorar os dados com conjuntos de dados abertos 
 O exemplo com notebooks Jupyter para Conjunto de Dados Abertos do Azure mostra como carregar conjuntos de dados abertos e usá-los para aprimorar dados de demonstração. As técnicas incluem o uso do Apache Spark e Pandas para processar dados.
@@ -40,6 +40,6 @@ O exemplo com notebooks Jupyter para Conjunto de Dados Abertos do Azure mostra c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: modelagem de regressão com aprendizado de máquina automatizado e um conjunto de dados abertos](tutorial-opendatasets-automl.md)
+* [Tutorial: modelagem de regressão com aprendizado de máquina automatizado e um conjunto de dados abertos](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [SDK do Python para conjuntos de dados abertos](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Catálogo de conjuntos de dados abertos do Azure](https://azure.microsoft.com/services/open-datasets/catalog/)

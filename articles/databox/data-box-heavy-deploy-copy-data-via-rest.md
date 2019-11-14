@@ -1,6 +1,6 @@
 ---
-title: Tutorial para copiar dados para o armazenamento de blobs do Azure Data Box por meio de APIs REST | Microsoft Docs
-description: Saiba como copiar dados para o Armazenamento de Blobs do Azure Data Box por meio de APIs REST
+title: Tutorial para copiar dados para o Armazenamento de Blobs do Azure Data Box Heavy por meio de APIs REST | Microsoft Docs
+description: Saiba como copiar dados para o Armazenamento de Blobs do Azure Data Box Heavy por meio de APIs REST
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 2c66b94cbcfa4688d9dc45d99688abe76fa55d17
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: adc48acbadaef56958587dc79be377b76a21fdc0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595795"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606291"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o Armazenamento de Blobs do Azure Data Box por meio de APIs REST  
 
@@ -203,7 +203,7 @@ Use o AzCopy para carregar todos os arquivos de uma pasta no Armazenamento de Bl
         --dest-key <key> \
         --recursive
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
@@ -228,7 +228,7 @@ Se você quiser copiar apenas os recursos de origem que não existem no destino,
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 

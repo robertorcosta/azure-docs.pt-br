@@ -1,5 +1,5 @@
 ---
-title: Criar um pool de hosts da Área de Trabalho Virtual do Windows usando o Azure Marketplace – Azure
+title: Pool de hosts da Área de Trabalho Virtual do Windows no Azure Marketplace – Azure
 description: Como criar um pool de hosts da Área de Trabalho Virtual do Windows usando o Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757515"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605576"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar um pool de host usando o Azure Marketplace
 
@@ -40,7 +40,7 @@ Entre no [Portal do Azure](https://portal.azure.com).
 
 Para executar a oferta do Azure Marketplace para provisionar um novo pool de hosts:
 
-1. Selecione **+** ou **+ Criar um recurso**.
+1. No portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 2. Insira **Área de Trabalho Virtual do Windows** na janela de pesquisa do Marketplace.
 3. Selecione **Área de Trabalho Virtual do Windows – Provisionar um pool de hosts** e selecione **Criar**.
 
@@ -73,7 +73,9 @@ Para a folha **Configurar máquinas virtuais**:
 Para a folha de **configurações da máquina virtual**:
 
 >[!NOTE]
-> Se você estiver unindo suas VMs em um ambiente do Azure Active Directory Domain Services (Azure AD DS), verifique se o usuário de ingresso no domínio também é um membro do [grupo de Administradores do AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+> Se você estiver unindo suas VMs a um ambiente do Azure AD DS (Azure Active Directory Domain Services), verifique se o usuário de ingresso no domínio é membro do [Grupo de administradores do AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+>
+> A conta também deve fazer parte do domínio gerenciado do Azure AD DS ou do locatário do Azure AD – contas de diretórios externos associadas ao seu locatário do Azure AD não podem ser autenticadas corretamente durante o processo de ingresso no domínio. 
 
 1. Para **Origem da imagem**, selecione a origem e insira as informações apropriadas para saber como encontrá-las e como armazená-las. Se você optar por não usar discos gerenciados, selecione a conta de armazenamento que contém o arquivo .vhd.
 2. Insira o nome UPN e a senha para a conta de domínio que ingressará as VMs ao domínio do Azure Directory. Esse mesmo nome de usuário e senha será criado nas máquinas virtuais como uma conta local. É possível redefinir essas contas locais mais tarde.

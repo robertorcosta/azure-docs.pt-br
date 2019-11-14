@@ -1,5 +1,5 @@
 ---
-title: Como copiar dados usando a ferramenta Copy Data do Azure | Microsoft Docs
+title: Copiar dados usando a ferramenta de Copiar Dados do Azure
 description: Crie um Azure Data Factory e use a ferramenta Copy Data para copiar dados de Armazenamento de blobs do Azure para o banco de dados SQL.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a99f319c25613f811b48923c734b77b135b677bc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827956"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683592"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie dados do Armazenamento de blobs do Azure para um banco de dados SQL usando a ferramenta Copy Data
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -37,8 +37,8 @@ Neste tutorial, você executa as seguintes etapas:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento do Azure**: Use o armazenamento de Blobs como um armazenamento de dados de _origem_ . Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
-* **Banco de Dados SQL do Azure**: Use um banco de dados SQL como o armazenamento de dados do _coletor_ . Se você não tiver um banco de dados SQL, confira as instruções em [Criar um banco de dados SQL](../sql-database/sql-database-get-started-portal.md).
+* **Conta de Armazenamento do Azure**: Use o armazenamento de Blobs como um armazenamento de dados de _origem_. Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+* **Banco de Dados SQL do Azure**: Use um banco de dados SQL como o armazenamento de dados do _coletor_. Se você não tiver um banco de dados SQL, confira as instruções em [Criar um banco de dados SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -80,7 +80,7 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
     ![Criação do novo data factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**.
 
-    O nome do seu data factory deve ser _globalmente exclusivo_ . Você deve ver a seguinte mensagem de erro:
+    O nome do seu data factory deve ser _globalmente exclusivo_. Você deve ver a seguinte mensagem de erro:
     
     ![Mensagem de erro do novo data factory](./media/doc-common-process/name-not-available-error.png)
 

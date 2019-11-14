@@ -1,18 +1,18 @@
 ---
-title: Tutorial – Configurar funções de usuário e administrador do Azure Analysis Services | Microsoft Docs
-description: Saiba como configurar as funções do Azure Analysis Services.
+title: Tutorial – Configurar funções do Azure Analysis Services | Microsoft Docs
+description: Saiba como configurar as funções de administrador e usuário do Azure Analysis Services usuário usando o portal do Azure ou o SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: b70d1502985a1ffc0ebdf6fcb487cda3992d1c19
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294425"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572367"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de administrador do servidor e usuário
 

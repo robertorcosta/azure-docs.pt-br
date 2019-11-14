@@ -1,5 +1,5 @@
 ---
-title: Exemplo do PowerShell para replicação geográfica ativa em pools do Banco de Dados SQL do Azure | Microsoft Docs
+title: Exemplo do PowerShell para replicação geográfica ativa em pools do Banco de Dados SQL do Azure
 description: Script de exemplo do Azure PowerShell para configurar uma replicação geográfica ativa para um banco de dados em pool no Banco de Dados SQL do Azure e fazer failover.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 940262c7235b61023adf547ea6ee4db9be1ee28c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ff5d41c8d37745cbb06dbb98b5ce6e9b6a19ed4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569772"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691491"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Use o PowerShell para configurar a replicação geográfica ativa de um banco de dados em pool no Banco de Dados SQL do Azure
 

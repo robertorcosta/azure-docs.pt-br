@@ -1,5 +1,5 @@
 ---
-title: Como copiar dados usando a ferramenta Copy Data do Azure | Microsoft Docs
+title: Copiar dados usando a ferramenta de Copiar Dados do Azure
 description: Crie um Azure Data Factory e, em seguida, use a ferramenta Copy Data para copiar um local no armazenamento de Blobs do Azure para outro local.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: yexu
-ms.openlocfilehash: b330c6010ddb5401dbf9753c2ea91bfeedf35c3b
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 64f2c989d6ccb4b3ade96065836e1b1f2439e6f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020043"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684559"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início Rápido: Use a ferramenta Copy Data para copiar dados
 
@@ -35,9 +35,14 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Vá para o [Portal do Azure](https://portal.azure.com). 
-1. Selecione **Criar recurso** no menu à esquerda, depois **Análise** e, por fim, **Data Factory**. 
-   
-   ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. No menu do portal do Azure, selecione **Criar um recurso**.
+
+    ![Criar um recurso no menu do portal do Azure](./media/quickstart-create-data-factory-copy-data-tool/create-data-factory-resource.png)
+
+1. Selecione **Análise** e, em seguida, **Data Factory**.
+
+   ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
+
 1. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **Nome**. 
  
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você visualizar o seguinte erro, altere o nome de data factory (por exemplo, **&lt;yourname&gt;ADFTutorialDataFactory**) e tente criar novamente. Para ver as regras de nomenclatura para artefatos do Data Factory consulte o artigo [Data Factory - regras de nomenclatura](naming-rules.md).

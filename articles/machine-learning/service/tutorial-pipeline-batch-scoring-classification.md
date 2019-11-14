@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
-ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.date: 11/04/2019
+ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695625"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796706"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Criar e usar um pipeline do Azure Machine Learning para pontuação de lote
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste tutorial, você usa um pipeline no Azure Machine Learning para executar um trabalho de pontuação do lote. O exemplo usa o modelo do Tensorflow de rede neural convolucional [Inception-V3](https://arxiv.org/abs/1512.00567) pré-treinado para classificar imagens sem rótulo. Depois de criar e publicar um pipeline, você configurará um ponto de extremidade REST que poderá ser usado para disparar o pipeline por meio de qualquer biblioteca HTTP em qualquer plataforma.
 
@@ -463,7 +465,7 @@ df.head(10)
 
 ## <a name="publish-and-run-from-a-rest-endpoint"></a>Publicar e executar em um ponto de extremidade REST
 
-Execute o código a seguir para publicar o pipeline no workspace. No workspace, no portal do Azure, é possível ver os metadados do pipeline, incluindo o histórico de execuções e as durações. Você também pode executar o pipeline manualmente no portal.
+Execute o código a seguir para publicar o pipeline no workspace. No workspace do estúdio do Azure Machine Learning é possível ver os metadados do pipeline, incluindo o histórico de execuções e as durações. Você também pode executar o pipeline manualmente no estúdio.
 
 A publicação do pipeline habilita que um ponto de extremidade REST que pode ser usado para executar o pipeline de qualquer biblioteca HTTP em qualquer plataforma.
 
@@ -478,7 +480,7 @@ Para executar o pipeline no ponto de extremidade REST, é necessário um cabeça
 
 A autenticação de entidade de serviço envolve a criação de um *Registro de Aplicativo* no *Azure Active Directory*. Primeiro, gere um segredo do cliente e, em seguida, conceda à sua entidade de serviço *acesso de função* ao Workspace do Machine Learning. Use a classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) para gerenciar o fluxo de autenticação. 
 
-`InteractiveLoginAuthentication` e `ServicePrincipalAuthentication` são herdados de `AbstractAuthentication`. Em ambos os casos, você usa a função `get_authentication_header()` da mesma maneira para efetuar fetch do cabeçalho:
+Ambos [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) e `ServicePrincipalAuthentication` são herdados de `AbstractAuthentication`. Em ambos os casos, você usa a função [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) da mesma maneira para buscar o cabeçalho:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -487,7 +489,7 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Obtenha a URL REST da propriedade `endpoint` do objeto de pipeline publicado. Encontre também a URL REST no workspace no portal do Azure. 
+Obtenha a URL REST da propriedade `endpoint` do objeto de pipeline publicado. Encontre também a URL REST no workspace do estúdio do Azure Machine Learning. 
 
 Crie uma solicitação HTTP POST para o ponto de extremidade. Especifique o cabeçalho de autenticação na solicitação. Adicione um objeto de conteúdo JSON com o nome do experimento e o parâmetro do tamanho do lote. Como observado anteriormente no tutorial, o `param_batch_size` é passado para o script `batch_scoring.py` porque você o definiu como um objeto `PipelineParameter` na configuração da etapa.
 
@@ -520,14 +522,9 @@ RunDetails(published_pipeline_run).show()
 
 Não conclua esta seção se desejar executar outros tutoriais do Azure Machine Learning.
 
-### <a name="stop-the-notebook-vm"></a>Interromper a VM de notebook
+### <a name="stop-the-notebook-vm"></a>Interromper a VM do notebook
 
-Se você usou um servidor de notebook de nuvem, para reduzir custos, interrompa a VM quando não a estiver usando:
-
-1. Em seu workspace, selecione **VMs de Notebook**.
-1. Na lista de VMs, selecione a VM que você deseja interromper.
-1. Selecione **Interromper**.
-1. Quando estiver pronto para usar o servidor novamente, selecione **Iniciar**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Excluir tudo
 

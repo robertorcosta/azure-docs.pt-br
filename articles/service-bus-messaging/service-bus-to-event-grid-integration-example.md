@@ -1,6 +1,6 @@
 ---
-title: Barramento de Serviço do Azure para exemplos de integração da Grade de Eventos | Microsoft Docs
-description: Este artigo oferece exemplos do sistema de mensagens do Barramento de Serviço e integração da Grade de Eventos.
+title: 'Tutorial: Exemplos de integração do Barramento de Serviço do Azure com a Grade de Eventos'
+description: 'Tutorial: Este artigo oferece exemplos do sistema de mensagens do Barramento de Serviço e integração da Grade de Eventos.'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304232"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719014"
 ---
-# <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Responder a eventos do Barramento de Serviço do Azure recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure
+# <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder a eventos do Barramento de Serviço do Azure recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure
 Neste tutorial, você aprenderá a responder a eventos do Barramento de Serviço do Azure que são recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure. Siga as seguintes etapas:
  
 - Crie um teste de função do Azure para depurar e ver o fluxo inicial de eventos na Grade de Eventos.
@@ -128,7 +128,7 @@ Depois, execute as etapas a seguir:
     1. Selecione seu aplicativo de funções no modo de exibição de árvore e selecione **Configurações do aplicativo de funções**. 
 
         ![Configurações do aplicativo de funções]()./media/service-bus-to-event-grid-integration-example/function-app-settings.png)
-    2. Selecione **~1** para **Versão de tempo de execução**. 
+    2. Selecione **~1** para **Versão de runtime**. 
 2. Expanda as **Funções** no modo de exibição de árvore e selecione sua função. Substitua o código da função pelo código a seguir: 
 
     ```CSharp
