@@ -114,6 +114,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: Rotear notificações de Key Vault com a Grade de Eventos
       href: event-grid-tutorial.md
+    - name: Integrar ao Azure Policy
+      href: azure-policy.md
     - name: Log do Azure Key Vault
       href: key-vault-logging.md
     - name: Acesso por trás de firewalls

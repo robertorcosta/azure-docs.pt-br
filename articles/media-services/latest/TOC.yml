@@ -138,6 +138,8 @@
         - name: Mudança de tempo e de ao vivo para VoD
           displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
+        - name: Transcrição ao vivo
+          href: live-transcription.md
         - name: Comparação de recursos
           href: live-event-types-comparison.md
         - name: Estados e cobrança
