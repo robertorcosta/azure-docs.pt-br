@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastre - máquinas virtuais do Azure - grupos de disponibilidade do SQL Server | Microsoft Docs
+title: Configurar o grupo de disponibilidade entre regiões diferentes
 description: Este artigo explica como configurar um grupo de disponibilidade do SQL Server em máquinas virtuais do Azure com uma réplica em uma região diferente.
 services: virtual-machines
 documentationCenter: na
@@ -9,20 +9,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96b7c3cf59f947d1476ad840ae81695356d869b6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159732"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037548"
 ---
-# <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um Grupo de Disponibilidade Always On em máquinas virtuais do Azure em diferentes regiões
+# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Configurar um grupo de disponibilidade no Azure SQL Server máquinas virtuais em regiões diferentes
 
 Este artigo explica como configurar uma réplica do SQL Server sempre no grupo de disponibilidade em máquinas virtuais do Azure em uma localização remota do Azure. Use essa configuração para dar suporte à recuperação de desastre.
 
@@ -30,7 +30,7 @@ Este artigo se aplica às máquinas virtuais do Azure no modo do Resource Manage
 
 A imagem a seguir mostra uma implementação comum de um grupo de disponibilidade em máquinas virtuais do Azure:
 
-   ![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
+   ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
 
 Nessa implantação, todas as máquinas virtuais estão em uma região do Azure. As réplicas do grupo de disponibilidade podem ter de confirmação síncrona com failover automático no SQL-1 e SQL-2. Para criar essa arquitetura, veja [Modelo ou tutorial de Grupo de Disponibilidade](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
@@ -52,7 +52,7 @@ Quando as réplicas de grupo de disponibilidade em máquinas virtuais do Azure e
 
 O diagrama a seguir mostra como as redes se comunicam entre data centers.
 
-   ![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
+   ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >Essa arquitetura incorre em encargos de dados de saída para os dados replicados entre regiões do Azure. Veja [Preços de Largura de Banda](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -118,12 +118,12 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
 
    Captura de tela a seguir mostra um recurso de cluster de endereço IP configurado corretamente:
 
-   ![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
+   ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
 
    >[!IMPORTANT]
    >O grupo de recursos de cluster inclui os dois endereços IP. Os dois endereços IP são dependências para o ponto de acesso de cliente do ouvinte. Use o **ou** operador na configuração de dependência do cluster.
 
-1. [Defina os parâmetros de cluster no PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
+1. [Definir os parâmetros do cluster no PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
 Execute o script do PowerShell com o nome de rede do cluster, o endereço IP e a porta de investigação configurado no balanceador de carga na nova região.
 
@@ -164,7 +164,7 @@ Para testar a conectividade do ouvinte para a região remota, é possível reali
 
 Depois de testar a conectividade, mova a réplica primária de volta para seu data center principal e definir o modo de disponibilidade para suas configurações operacionais normais. A tabela a seguir mostra as configurações operacionais normais para a arquitetura descrita neste documento:
 
-| Location | Instância do servidor | Função | Modo de Disponibilidade | Modo de failover
+| Local padrão | Instância do servidor | Função | Modo de Disponibilidade | Modo de failover
 | ----- | ----- | ----- | ----- | -----
 | Data center principal | SQL-1 | Primário | Síncrono | Automático
 | Data center principal | SQL-2 | Secundário | Síncrono | Automático

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: ecec237eab42cf434ab8627ebdf9b1e34f3ab3f1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838126"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039121"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas dos Aplicativos Lógicos do Azure
 
@@ -200,13 +200,13 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 }
 ```
 
-| Propriedade | Obrigatório | DESCRIÇÃO | 
+| Propriedade | obrigatórios | DESCRIÇÃO | 
 | -------- | -------- | ----------- | 
-| locatário | Sim | O GUID para o locatário do Azure AD | 
-| audiência | Sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
-| clientId | Sim | O GUID do cliente que solicita o acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
-| segredo | Sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
-| Tipo | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| locatário | sim | O GUID para o locatário do Azure AD | 
+| audiência | sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
+| clientId | sim | O GUID do cliente que solicita o acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
+| segredo | sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
+| type | sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
 Por exemplo:
@@ -251,12 +251,12 @@ Na seção **autorização** , inclua estas propriedades:
 } 
 ```
 
-| Propriedade | Obrigatório | DESCRIÇÃO | 
-| -------- | -------- | ----------- | 
-| Tipo | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. | 
-| Senha | Sim | A senha para acessar o certificado do cliente (arquivo PFX) | 
-| pfx | Sim | O conteúdo codificado por base64 do certificado do cliente (arquivo PFX) | 
-|||| 
+| Propriedade | obrigatórios | DESCRIÇÃO |
+| -------- | -------- | ----------- |
+| `type` | sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
+| `password` | Não | A senha para acessar o certificado do cliente (arquivo PFX) |
+| `pfx` | sim | O conteúdo codificado por base64 do certificado do cliente (arquivo PFX) |
+||||
 
 <a name="basic"></a>
 
@@ -274,11 +274,11 @@ Na seção **autorização** , inclua estas propriedades:
 }
 ```
 
-| Propriedade | Obrigatório | DESCRIÇÃO | 
+| Propriedade | obrigatórios | DESCRIÇÃO | 
 | -------- | -------- | ----------- | 
-| Tipo | Sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
-| Nome de Usuário | Sim | O nome de usuário que você deseja usar para autenticação | 
-| Senha | Sim | A senha que você deseja usar para autenticação | 
+| type | sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
+| Nome de Usuário | sim | O nome de usuário que você deseja usar para autenticação | 
+| password | sim | A senha que você deseja usar para autenticação | 
 |||| 
 
 <a name="azure-ad-code"></a>

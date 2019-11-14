@@ -1,5 +1,5 @@
 ---
-title: Obter dados de uso da Máquina Virtual do Azure usando a API REST | Microsoft Docs
+title: Obter dados de uso da máquina virtual do Azure usando a API REST
 description: Use as APIs REST do Azure para coletar métricas de utilização para uma Máquina Virtual.
 services: virtual-machines
 author: rloutlaw
@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 53e93d20f4a8c4877374d8242521ca97d481e15d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 523b81e53f2b0622b237993dbd88fb9492079c86
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667447"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035817"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obter métricas de uso da Máquina Virtual usando a API REST
 
@@ -37,19 +37,19 @@ Os cabeçalhos a seguir são necessários:
 
 |Cabeçalho da solicitação|DESCRIÇÃO|  
 |--------------------|-----------------|  
-|*Content-Type:*|Obrigatório. Defina como `application/json`.|  
-|*Authorization:*|Obrigatório. Defina como um `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
+|*Tipo de Conteúdo:*|Obrigatório. Defina como `application/json`.|  
+|*Autorização:*|Obrigatório. Defina como um `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros de URI
 
-| Nome | DESCRIÇÃO |
+| NOME | DESCRIÇÃO |
 | :--- | :---------- |
 | subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos do Azure associado ao recurso. É possível obter esse valor na API do Azure Resource Manager, na CLI ou no portal. |
 | vmname | O nome da Máquina Virtual do Azure. |
 | metricnames | Lista separada por vírgulas de [métricas válidas do Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | A versão da API a ser usada para a solicitação.<br /><br /> Este documento abrange a versão da API `2018-01-01`, incluída na URL acima.  |
-| TimeSpan | Cadeia de caracteres com o seguinte formato `startDateTime_ISO/endDateTime_ISO` que define o intervalo de tempo das métricas retornadas. Este parâmetro opcional está configurado para retornar dados de um dia no exemplo. |
+| timespan | Cadeia de caracteres com o seguinte formato `startDateTime_ISO/endDateTime_ISO` que define o intervalo de tempo das métricas retornadas. Este parâmetro opcional está configurado para retornar dados de um dia no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo da solicitação

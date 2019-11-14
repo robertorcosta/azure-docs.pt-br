@@ -1,5 +1,5 @@
 ---
-title: Implantar seu primeiro aplicativo no Cloud Foundry no Microsoft Azure | Microsoft Docs
+title: Implantar seu primeiro aplicativo no Cloud Foundry no Microsoft Azure
 description: Implantar um aplicativo no Cloud Foundry no Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: c4088e593ca7d48a3e7a5c1a6699f316b57fff31
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b1f9ab5289a41aacb5514e954f1ca01f6ad66152
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083952"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036839"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implantar seu primeiro aplicativo no Cloud Foundry no Microsoft Azure
 
@@ -31,7 +31,7 @@ O [Cloud Foundry](https://cloudfoundry.org) é uma plataforma de aplicativos pop
 Há várias opções para a criação de um ambiente do Cloud Foundry no Azure:
 
 - Use a [oferta de Cloud Foundry dinâmica][pcf-azuremarketplace] no Azure Marketplace para criar um ambiente padrão que inclui o PCF Ops Manager e o Service Broker do Azure. Você pode encontrar [instruções completas][pcf-azuremarketplace-pivotaldocs] para implantar a oferta do Marketplace na documentação do Pivotal.
-- Crie um ambiente personalizado implantando a [Cloud Foundry dinâmica manualmente][pcf-custom].
+- Crie um ambiente personalizado [implantando a Cloud Foundry dinâmica manualmente][pcf-custom].
 - [Implante os pacotes de Cloud Foundry de código-fonte aberto diretamente][oss-cf-bosh] Configurando um diretor de [Bosh](https://bosh.io) , uma VM que coordena a implantação do ambiente de Cloud Foundry.
 
 > [!IMPORTANT] 
@@ -112,7 +112,7 @@ Para ver o aplicativo hello-spring-cloud, abra a URL fornecida no navegador:
 ![Interface do usuário padrão do Hello Spring Cloud][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Para saber mais sobre o que acontece `cf push`durante, consulte [como os aplicativos são preparados][cf-push-docs] na documentação do Cloud Foundry.
+> Para saber mais sobre o que acontece durante a `cf push`, consulte [como os aplicativos são preparados][cf-push-docs] na documentação do Cloud Foundry.
 
 ## <a name="view-application-logs"></a>Exibir logs do aplicativo
 

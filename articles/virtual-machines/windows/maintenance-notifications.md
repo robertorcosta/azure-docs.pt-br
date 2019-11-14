@@ -1,5 +1,5 @@
 ---
-title: Manipulação de notificações de manutenção para VMs do Windows no Azure | Microsoft Docs
+title: Tratamento de notificações de manutenção para VMs do Windows no Azure
 description: Exiba notificações de manutenção para máquinas virtuais do Windows em execução no Azure e inicie a manutenção de autoatendimento.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 2e7f51ecb948764f6ac4c3e7a52dc14ef5d00741
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6e269e9b21fe16a1d77b4e1f714517f91fa531d4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749362"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039189"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Administração de notificações de manutenção planejada para máquinas virtuais do Windows
 
@@ -94,7 +94,7 @@ As propriedades a seguir são retornadas em MaintenanceRedeployStatus:
 | PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar a manutenção na sua VM |
 | PreMaintenanceWindowEndTime           | O fim da janela de autoatendimento de manutenção quando você pode iniciar manutenção na sua VM |
 | MaintenanceWindowStartTime            | O início da manutenção agendada na qual o Azure inicia a manutenção na sua VM |
-| MaintenanceWindowEndTime              | O término da janela de manutenção agendada na qual o Azure inicia a manutenção na sua VM |
+| MaintenanceWindowEndTime              | O término da janela de manutenção agendada quando na qual o Azure inicia a manutenção na sua VM |
 | LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM |
 
 
@@ -158,7 +158,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>FAQ
 
 
 **P: por que você precisa reinicializar minhas máquinas virtuais agora?**

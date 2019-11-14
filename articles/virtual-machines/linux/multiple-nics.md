@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Linux no Azure com várias NICs | Microsoft Docs
+title: Criar uma VM do Linux no Azure com várias NICs
 description: Saiba como criar uma VM Linux com várias NICs anexadas usando a CLI do Azure ou modelos do Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 04aaa1da304657ac3cc305b8939ac4fcce126145
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b4ab46a59bd83bf2d1c08e3a238df3c59797f3e7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671178"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035603"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com várias placas de adaptador de rede
 
@@ -27,7 +27,7 @@ ms.locfileid: "67671178"
 Este artigo fornece detalhes sobre como criar uma VM com várias NICs com a CLI do Azure.
 
 ## <a name="create-supporting-resources"></a>Criar recursos de suporte
-Instale a [CLI do Azure](/cli/azure/install-az-cli2) mais recente do Azure e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index).
+Instale o [Azure CLI](/cli/azure/install-az-cli2) mais recente do Azure e faça login em uma conta do Azure usando [az login](/cli/azure/reference-index).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *mystorageaccount* e *myVM*.
 
@@ -175,7 +175,7 @@ Os modelos do Azure Resource Manager usam arquivos JSON declarativos para defini
 
 Leia mais sobre a [criação de várias instâncias usando *copiar*](../../resource-group-create-multiple.md). 
 
-Você também pode usar um `copyIndex()` para acrescentar um número a um nome de recurso, o que lhe permite criar `myNic1`, `myNic2` etc. Veja a seguir um exemplo de como acrescentar o valor de índice:
+Você também pode usar um `copyIndex()` para, em seguida, acrescentar um número a um nome de recurso, que permite criar `myNic1`, `myNic2`, etc. Veja a seguir um exemplo de acréscimo do valor de índice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 

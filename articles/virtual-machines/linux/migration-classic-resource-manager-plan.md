@@ -1,5 +1,5 @@
 ---
-title: Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager | Microsoft Docs
+title: Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 description: Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 3cf262f2c2f14ea66a40facfd5b32139fc648e47
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 8dc1ee85b9d17824898de80562ea5bfb251a2c41
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165318"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035710"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração. 
@@ -31,7 +31,7 @@ Há quatro fases gerais da jornada de migração:
 
 ![Fases da migração](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Planejamento
+## <a name="plan"></a>Plano
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considerações técnicas e compensações
 
@@ -87,14 +87,14 @@ Os clientes de sucesso têm planos detalhados para quando as perguntas anteriore
 
 Veja a seguir os problemas descobertos em muitas das migrações de maior porte. Esta não é uma lista completa; consulte os [recursos e as configurações sem suporte](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations) para obter mais detalhes. Você poderá ou não ter estes problemas técnicos, mas se tiver, resolvê-los antes de tentar realizar a migração garantirá uma experiência mais tranquila.
 
-- **Fazer uma Simulação Validar/Preparar/Anular** – essa é provavelmente a etapa mais importante para garantir o sucesso da migração do Clássico para o Azure Resource Manager. A API de migração apresenta três etapas principais: Valide, Prepare e Confirme. A etapa Validar lerá o estado do ambiente clássico e retornará um resultado de todos os problemas. No entanto, como talvez existam alguns problemas na pilha do Azure Resource Manager, a etapa Validar não capturará tudo. A próxima etapa no processo de migração, Preparar, ajudará a expor esses problemas. A etapa Preparar moverá os metadados do Clássico para o Azure Resource Manager, mas não confirmará a movimentação e não removerá nem alterará nada do lado do Clássico. A simulação envolve a preparação da migração e, em seguida, a anulação (**não confirmação**) da preparação da migração. O objetivo da simulação Validar/Preparar/Anular é ver todos os metadados da pilha do Azure Resource Manager, examiná-los (*de forma programática ou no Portal*), verificar se tudo é migrado corretamente e resolver os problemas técnicos.  Ela também lhe dará uma ideia da duração da migração, de forma que você possa planejar o tempo de inatividade de acordo.  Uma validação/preparação/anulação não causa nenhum tempo de inatividade para o usuário; portanto, ela é não interruptiva para o uso do aplicativo.
+- **Fazer uma Simulação Validar/Preparar/Anular** – essa é provavelmente a etapa mais importante para garantir o sucesso da migração do Clássico para o Azure Resource Manager. A API de migração apresenta três etapas principais: Validar, Preparar e Confirmar. A etapa Validar lerá o estado do ambiente clássico e retornará um resultado de todos os problemas. No entanto, como talvez existam alguns problemas na pilha do Azure Resource Manager, a etapa Validar não capturará tudo. A próxima etapa no processo de migração, Preparar, ajudará a expor esses problemas. A etapa Preparar moverá os metadados do Clássico para o Azure Resource Manager, mas não confirmará a movimentação e não removerá nem alterará nada do lado do Clássico. A simulação envolve a preparação da migração e, em seguida, a anulação (**não confirmação**) da preparação da migração. O objetivo da simulação Validar/Preparar/Anular é ver todos os metadados da pilha do Azure Resource Manager, examiná-los (*de forma programática ou no Portal*), verificar se tudo é migrado corretamente e resolver os problemas técnicos.  Ela também lhe dará uma ideia da duração da migração, de forma que você possa planejar o tempo de inatividade de acordo.  Uma validação/preparação/anulação não causa nenhum tempo de inatividade para o usuário; portanto, ela é não interruptiva para o uso do aplicativo.
   - Os itens abaixo precisarão ser resolvidos antes da simulação, mas uma simulação liberará com segurança essas etapas de preparação caso elas não sejam executadas. Durante a migração corporativa, descobrimos que a simulação é uma maneira segura e inestimável para garantir a prontidão da migração.
   - Quando a etapa Preparar estiver em execução, o plano de controle (operações de gerenciamento do Azure) será bloqueado para toda a rede virtual e, portanto, nenhuma alteração poderá ser feita nos metadados da VM durante as etapas Validar/Preparar/Anular.  Mas, de outro modo, a função de qualquer aplicativo (RD, uso da VM, etc.) não será afetada.  Os usuários das VMs não saberão que a simulação está sendo executada.
 
 - **Circuitos do ExpressRoute e VPN**. Atualmente, os Gateways do ExpressRoute com links de autorização não podem ser migrados sem tempo de inatividade. Para obter a solução desse problema, consulte [Migrar circuitos do ExpressRoute e as redes virtuais associadas do clássico para o modelo de implantação do Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 - **Extensões de VM** – as extensões de Máquina Virtual são possivelmente um dos maiores obstáculos para a migração de VMs em execução. A correção das Extensões de VM pode levar mais de 1 a 2 dias; portanto, planeje de forma adequada.  Um agente do Azure funcional é necessário para relatar novamente o status da Extensão de VM das VMs em execução. Se o status for retornado inválido para uma VM em execução, isso interromperá a migração. O próprio agente não precisa estar na ordem de trabalho para permitir a migração, mas se existirem extensões na VM, um agente funcional E uma conectividade de saída com a Internet (com DNS) serão necessários para continuar a migração.
-  - Se a conexão a um servidor DNS for perdida durante a migração, todas as extensões de VM (exceto BGInfo v1.\*) deverão ser removidas primeira de cada VM antes da preparação da migração e subsequentemente adicionadas de volta à VM após a migração do Azure Resource Manager.  **Isso se refere apenas às VMs em execução.**  Se as VMs forem interrompidas desalocadas, as Extensões de VM não precisarão ser removidas. **Observação:** Várias extensões como o diagnóstico do Azure e o monitoramento da central de segurança serão reinstalados automaticamente após a migração e, portanto, removê-las não será um problema.
+  - Se a conexão a um servidor DNS for perdida durante a migração, todas as extensões de VM (exceto BGInfo v1.\*) deverão ser removidas primeira de cada VM antes da preparação da migração e subsequentemente adicionadas de volta à VM após a migração do Azure Resource Manager.  **Isso se refere apenas às VMs em execução.**  Se as VMs forem interrompidas desalocadas, as Extensões de VM não precisarão ser removidas. **Observação:** várias extensões como o diagnóstico do Azure e o monitoramento da central de segurança serão reinstalados automaticamente após a migração e, portanto, removê-las não será um problema.
   - Além disso, verifique se os Grupos de Segurança de Rede não estão restringindo o acesso de saída à Internet. Isso pode acontecer com as configurações de alguns Grupos de Segurança de Rede. O acesso de saída à Internet (e o DNS) é necessário para que as Extensões de VM sejam migradas para o Azure Resource Manager. 
   - Há duas versões da extensão BGInfo: v1 e v2.  Se a VM foi criada usando o portal do Azure ou o PowerShell, provavelmente, ela terá a extensão v1. Essa extensão não precisa ser removida e será ignorada (não migrada) pela API de migração. No entanto, se a VM Clássica foi criada com o novo portal do Azure, provavelmente, ela terá a versão v2 baseada em JSON de BGInfo, que poderá ser migrada para o Azure Resource Manager, desde que o agente esteja funcionando e tenha acesso de saída à Internet (e DNS). 
   - **Opção de correção 1**. Se você souber que as VMs não terão acesso de saída à Internet, um serviço DNS funcional e agentes funcionais do Azure nas VMs, desinstale todas as extensões de VM como parte da migração antes da etapa Preparar e, depois, reinstale-as após a migração. 

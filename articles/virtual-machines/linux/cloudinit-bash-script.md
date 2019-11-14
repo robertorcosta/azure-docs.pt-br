@@ -1,5 +1,5 @@
 ---
-title: Usar cloud-init para executar um script de bash em uma VM Linux no Azure | Microsoft Docs
+title: Usar Cloud-init para executar um script de bash em uma VM do Linux no Azure
 description: Como usar o cloud-init para executar um script de bash em uma VM do Linux durante a criação com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 7a7d771023fabf8746ecb771e71a563daa5cb130
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 0e18b740b9b656236bd1958dd191bc9b02283d67
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668300"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036792"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Usar cloud-init para executar um script de bash em uma VM Linux no Azure
 Este artigo mostra como usar [cloud-init](https://cloudinit.readthedocs.io) para executar um script de bash existente em uma VM (máquina virtual) Linux ou VMSS (conjuntos de dimensionamento de máquinas virtuais) no tempo de provisionamento no Azure. Esses scripts cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure. Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
@@ -29,7 +29,7 @@ Com a cloud-init você não precisa converter seus scripts existentes em uma clo
 
 Se você estiver usando a Extensão do Azure de Script Personalizado do Linux para executar seus scripts, poderá migrá-las para usar a cloud-init. No entanto, as Extensões do Azure integraram os relatórios para alertar para falhas de script, uma implantação de imagem de cloud-init NÃO falhará se o script falhar.
 
-Para ver essa funcionalidade em ação, crie um script de bash simples para teste. Como o arquivo `#cloud-config` de cloud-init, esse script deve ser local para onde você executará os comandos de AzureCLI para provisionar sua máquina virtual.  Para este exemplo, crie o arquivo no Cloud Shell, não no seu computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor simple_bash.sh` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  
+Para ver essa funcionalidade em ação, crie um script de bash simples para teste. Como o arquivo `#cloud-config` de cloud-init, esse script deve ser local para onde você executará os comandos de AzureCLI para provisionar sua máquina virtual.  Para este exemplo, crie o arquivo no Cloud Shell, não no computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor simple_bash.sh` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  
 
 ```bash
 #!/bin/sh
