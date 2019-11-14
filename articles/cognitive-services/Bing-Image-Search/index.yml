@@ -5,7 +5,7 @@ metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
   title: 'Documentação da API da Pesquisa de Imagem do Bing – Tutoriais, guias de início rápido e referências de API'
   titleSuffix: Azure Cognitive Services
-  description: Saiba como usar a API de Pesquisa de Imagem do Bing para pesquisar imagens na Web.
+  description: A API de Pesquisa de Imagem do Bing permite integrar as funcionalidades de pesquisa de imagem do Bing aos seus aplicativos.
   services: cognitive-services
   author: nitinme
   manager: nitinme

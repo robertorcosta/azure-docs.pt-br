@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17499fad64c8ae313f7a544015a04cc20e8bbabe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495698"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075451"
 ---
 |**Geração do<br>gateway de<br>VPN** |**SKU**   | **S2S/VNet para VNet<br>Túneis** | **P2S<br> Conexões SSTP** | **P2S<br> Conexões IKEv2/OpenVPN** | **Parâmetro de comparação<br>de taxa de transferência total** | **BGP** | **Com redundância de zona** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -46,7 +46,7 @@ ms.locfileid: "73495698"
 
 * Em um único túnel, uma taxa de transferência máxima de 1 Gbps pode ser alcançada. O parâmetro de comparação da taxa de transferência total na tabela acima se baseia nas medidas de vários túneis agregados por meio de um único gateway. O Benchmark Agregado de Taxa de Transferência para um Gateway de VPN é uma combinação de S2S + P2S. **Se você tiver muitas conexões P2S, isso poderá afetar negativamente uma conexão S2S devido a limitações de taxa de transferência.** O Parâmetro de Comparação de Taxa de Transferência Agregada não é uma taxa de transferência garantida devido às condições de tráfego de Internet e seus comportamentos de aplicativo.
 
-* Para ajudar nossos clientes a entender o desempenho relativo dos SKUs que usam algoritmos diferentes, usamos ferramentas iPerf e CTSTraffic disponíveis publicamente para medir o desempenho. A tabela abaixo lista os resultados dos testes de desempenho para os SKUs VpnGw de Geração 1. Como você pode ver, o melhor desempenho foi obtido quando usamos o algoritmo GCMAES256 para Criptografia e Integridade de IPsec. Obtivemos o desempenho médio quando usamos AES256 para Criptografia de IPsec e SHA256 para Integridade. Quando usamos DES3 para Criptografia de IPsec e SHA256 para Integridade, o desempenho foi menor.
+Para ajudar nossos clientes a entender o desempenho relativo dos SKUs que usam algoritmos diferentes, usamos ferramentas iPerf e CTSTraffic disponíveis publicamente para medir o desempenho. A tabela abaixo lista os resultados dos testes de desempenho para os SKUs VpnGw de Geração 1. Como você pode ver, o melhor desempenho foi obtido quando usamos o algoritmo GCMAES256 para Criptografia e Integridade de IPsec. Obtivemos o desempenho médio quando usamos AES256 para Criptografia de IPsec e SHA256 para Integridade. Quando usamos DES3 para Criptografia de IPsec e SHA256 para Integridade, o desempenho foi menor.
 
 |**Geração**|**SKU**   | **Algoritmos<br>usados** | **Taxa de transferência<br>observada** | **Pacotes por segundo<br>observados** |
 |---           |---       | ---                 | ---            | ---                    |
