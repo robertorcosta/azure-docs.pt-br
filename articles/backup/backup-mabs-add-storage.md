@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 15bf955d6055ed91b486d34cf9d805de34e9f8f5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 92717e704fb3f9e79b364fcf47bbcc096c5dd1d0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074819"
+ms.locfileid: "74090750"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Servidor de Backup do Azure
 
@@ -22,6 +22,8 @@ O Servidor de Backup do Azure V2 (ou posterior) é compatível com o Armazenamen
 > [!NOTE]
 > Para usar o Armazenamento de Backup Moderno, você deve executar o Servidor de Backup V2 ou V3 no Windows Server 2016 ou V3 no Windows Server 2019.
 > Se você executar o Backup Server V2 em uma versão anterior do Windows Server, o Servidor de Backup do Azure não poderá aproveitar o Armazenamento de Backup Moderno. Em vez disso, ele protege as cargas de trabalho como acontece com o Backup Server V1. Para obter mais informações, consulte a versão do servidor de Backup [matriz proteção](backup-mabs-protection-matrix.md).
+>
+> Para obter desempenho de backup aprimorado, recomendamos implantar o MABS v3 com armazenamento em camadas no Windows Server 2019. Veja o artigo do DPM "[Configurar MBS com armazenamento em camadas](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter as etapas para configurar o armazenamento em camadas.
 
 ## <a name="volumes-in-backup-server"></a>Volumes no servidor de Backup
 
@@ -64,6 +66,11 @@ Usar o Backup Server V2 ou posterior com volumes como armazenamento em disco pod
     ![Selecione o servidor e disco](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
 ## <a name="add-volumes-to-backup-server-disk-storage"></a>Adicione volumes de armazenamento do servidor de Backup em disco
+
+> [!NOTE]
+>
+> - Adicione apenas um disco ao pool para manter a contagem de colunas como 1. Em seguida, você pode adicionar discos conforme necessário posteriormente.
+> - Se você adicionar vários discos ao pool de armazenamento em um lugar, o número de discos será armazenado como o número de colunas. Quando mais discos são adicionados, eles só podem ser um múltiplo do número de colunas.
 
 Para adicionar um volume ao servidor de Backup, no painel **Gerenciamento**, examinar novamente o armazenamento e, em seguida, selecione **Adicionar**. É exibida uma lista de todos os volumes disponíveis para serem adicionados para o armazenamento de servidor de Backup. Depois dos volumes disponíveis serem adicionados à lista de volumes selecionados, você pode dar-lhes um nome amigável para te ajudar a gerenciá-los. Para formatar esses volumes para ReFS para que o servidor de Backup possa usar os benefícios do armazenamento de Backup moderna, selecione **Ok**.
 

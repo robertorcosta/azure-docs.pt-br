@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70673dc7d42a0c7d9b60f3c3f877c1985dac3c98
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 238afdf9e50eaccba51d996ce6e9cfd06ea36899
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097805"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091990"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 O [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de fácil utilização da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
@@ -22,9 +22,9 @@ A maneira recomendada para montar um compartilhamento de arquivos do Azure no Li
 | | SMB 2.1 <br>(Montagens em VMs na mesma região do Azure) | SMB 3.0 <br>(Montagens de região cruzada e locais) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04+ | 16.04+ |
-| RHEL (Red Hat Enterprise Linux) | 7+ | 7.5+ |
+| Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ | mais de 10 |
+| Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
 
@@ -34,7 +34,7 @@ Se você estiver usando uma distribuição do Linux não listada na tabela acima
 uname -r
 ```
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Verifique se o pacote CIFS-utils está instalado.**  
@@ -53,7 +53,7 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    Em versões mais antigas do **Red Hat Enterprise Linux** e do **CentOS**, use o gerenciador de pacotes do `dnf`:
+    Em versões mais antigas do **Red Hat Enterprise Linux** e do **CentOS**, use o gerenciador de pacotes do `yum`:
 
     ```bash
     sudo yum install cifs-utils 
@@ -173,7 +173,7 @@ Quando tiver terminado de usar o compartilhamento de arquivos do Azure, você po
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Use o comando a seguir para acrescentar a seguinte linha a `/etc/fstab`** : no exemplo abaixo, as permissões de pasta e arquivo Linux local padrão 0755, que significa ler, gravar e executar para o proprietário (com base no proprietário do Linux de arquivo/diretório), ler e Execute para usuários no grupo proprietário e leia e execute para outras pessoas no sistema. Você pode usar as opções de montagem `uid` e `gid` para definir a ID de usuário e a ID de grupo para a montagem. Você também pode usar `dir_mode` e `file_mode` para definir permissões personalizadas conforme desejado. Para obter mais informações sobre como definir permissões, consulte [notação numérica do UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) na Wikipédia.
+1. **Use o comando a seguir para acrescentar a seguinte linha a `/etc/fstab`** : no exemplo abaixo, as permissões de pasta e arquivo Linux local padrão 0755, que significa leitura, gravação e execução para o proprietário (com base no proprietário do Linux de arquivo/diretório), leitura e execução para usuários no grupo proprietário e leitura e execução para outras pessoas no sistema. Você pode usar as opções de montagem `uid` e `gid` para definir a ID de usuário e a ID de grupo para a montagem. Você também pode usar `dir_mode` e `file_mode` para definir permissões personalizadas conforme desejado. Para obter mais informações sobre como definir permissões, consulte [notação numérica do UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) na Wikipédia.
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -202,18 +202,18 @@ A partir do kernel do Linux 4,18, o módulo kernel SMB, chamado `cifs` por motiv
 | Distribuição | Pode desabilitar o SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04 – 16.04 | Não |
-| Ubuntu 18.04 | SIM |
-| Ubuntu 19.04 + | SIM |
+| Ubuntu 18.04 | sim |
+| Ubuntu 19.04 + | sim |
 | Debian 8-9 | Não |
-| Debian 10 + | SIM |
-| Fedora 29 + | SIM |
+| Debian 10 + | sim |
+| Fedora 29 + | sim |
 | CentOS 7 | Não | 
-| CentOS 8 + | SIM |
+| CentOS 8 + | sim |
 | Red Hat Enterprise Linux 6. x-7. x | Não |
-| Red Hat Enterprise Linux 8 + | SIM |
+| Red Hat Enterprise Linux 8 + | sim |
 | openSUSE Leap 15,0 | Não |
-| openSUSE Leap 15.1 + | SIM |
-| openSUSE Tumbleweed | SIM |
+| openSUSE Leap 15.1 + | sim |
+| openSUSE Tumbleweed | sim |
 | SUSE Linux Enterprise 11. x-12. x | Não |
 | SUSE Linux Enterprise 15 | Não |
 | SUSE Linux Enterprise 15,1 | Não |
@@ -278,9 +278,9 @@ Usuários do Linux, queremos ouvir sua opinião!
 
 O grupo do Arquivos do Azure para usuários do Linux oferece um fórum para que você possa compartilhar comentários à medida que você avalia e adota o Armazenamento de Arquivos no Linux. Envie um email para [Usuários do Linux do Arquivos do Azure](mailto:azurefileslinuxusers@microsoft.com) para ingressar no grupo de usuários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Veja estes links para obter mais informações sobre o Arquivos do Azure:
 
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-* [PERGUNTAS FREQUENTES](../storage-files-faq.md)
+* [Perguntas frequentes](../storage-files-faq.md)
 * [Solução de problemas](storage-troubleshoot-linux-file-connection-problems.md)

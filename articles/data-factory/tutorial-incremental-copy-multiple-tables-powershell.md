@@ -1,5 +1,5 @@
 ---
-title: Copiar várias tabelas incrementalmente usando o Azure Data Factory | Microsoft Docs
+title: 'Copiar várias tabelas incrementalmente usando o Azure Data Factory '
 description: Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: b7de8b164fcd818fba1f999ea7b67f11de646ccd
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b841acf45c20320fada895f20dfc4065837d5add
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533296"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683393"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
@@ -26,7 +26,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 > [!div class="checklist"]
 > * Preparará os armazenamentos de dados de origem e destino.
 > * Criar um data factory.
-> * Criar um tempo de execução de integração auto-hospedado.
+> * Criar um runtime de integração auto-hospedada.
 > * Instalar o Integration Runtime. 
 > * Criar serviços vinculados. 
 > * Criar os conjuntos de dados de origem, de coletor e de marca-d'água.
@@ -438,7 +438,7 @@ Nesta etapa, você cria conjuntos de dados para representar a fonte de dados, o 
 
 ### <a name="create-a-sink-dataset"></a>Criar um conjunto de dados de coletor
 
-1. Crie um arquivo JSON chamado **SinkDataset.json** na mesma pasta com o conteúdo a seguir. O elemento de tableName é definido pelo pipeline dinamicamente em tempo de execução. A atividade ForEach no pipeline itera por meio de uma lista de nomes de tabela e passa o nome da tabela para esse conjunto de dados em cada iteração. 
+1. Crie um arquivo JSON chamado **SinkDataset.json** na mesma pasta com o conteúdo a seguir. O elemento de tableName é definido pelo pipeline dinamicamente em runtime. A atividade ForEach no pipeline itera por meio de uma lista de nomes de tabela e passa o nome da tabela para esse conjunto de dados em cada iteração. 
 
     ```json
     {  

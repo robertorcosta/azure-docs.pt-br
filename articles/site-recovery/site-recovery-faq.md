@@ -1,27 +1,26 @@
 ---
-title: Azure Site Recovery-perguntas frequentes
-description: Este artigo aborda dúvidas comuns sobre o Azure Site Recovery.
-services: site-recovery
+title: Perguntas gerais sobre o serviço de Azure Site Recovery
+description: Este artigo discute perguntas gerais populares sobre Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 9ab2466a201662cfde4655aedd12f9fd1b21c964
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053720"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078531"
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: perguntas frequentes
-Este artigo resume as perguntas frequentes sobre Azure Site Recovery.</br>
-Para consultas específicas em cenários de ASR diferentes, consulte perguntas frequentes específicas do cenário.<br>
+# <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre Azure Site Recovery
 
-- [Recuperação de desastre da VM do Azure para o Azure](azure-to-azure-common-questions.md)
-- [Recuperação de desastre de VM VMware no Azure](vmware-azure-common-questions.md)
-- [Recuperação de desastre de VM do Hyper-V no Azure](hyper-v-azure-common-questions.md)
+Este artigo resume as perguntas frequentes sobre Azure Site Recovery. Para cenários específicos, examine estes artigos
+
+- [Perguntas sobre a recuperação de desastre de VM do Azure para o Azure](azure-to-azure-common-questions.md)
+- [Perguntas sobre a recuperação de desastre de VM do VMware para o Azure](vmware-azure-common-questions.md)
+- [Perguntas sobre a recuperação de desastre de VM do Hyper-V para o Azure](hyper-v-azure-common-questions.md)
  
 ## <a name="general"></a>Geral
 
@@ -83,7 +82,7 @@ Sim. Nenhuma instância protegida gera cobranças do Azure Site Recovery durante
 
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, serei cobrado por outras tarifas do Azure?
 
-Sim, mesmo que Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá incorrer em encargos pelo armazenamento do Azure, transações de armazenamento e transferência de dados. Uma máquina virtual recuperada também poderá gerar tarifas de computação do Azure.
+Sim, mesmo que Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá incorrer em encargos pelo armazenamento do Azure, transações de armazenamento e transferência de dados. Uma máquina virtual recuperada também poderá gerar encargos de computação do Azure.
 
 
 ### <a name="is-there-a-cost-associated-to-perform-disaster-recovery-drillstest-failover"></a>Há um custo associado para executar testes de recuperação de desastres/failover de teste?
@@ -168,7 +167,7 @@ Sim, o [ExpressRoute pode ser usado](concepts-expressroute-with-site-recovery.md
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Se eu replicar para o Azure, que tipo de conta de armazenamento ou disco gerenciado eu preciso?
 
-Você precisa de um armazenamento LRS ou GRS. É recomendável usar GRS para que os dados sejam resilientes caso ocorra uma interrupção regional, ou se a região principal não puder ser recuperada. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação. O Armazenamento Premium tem suporte para VM do VMware, VM do Hyper-V e replicação de servidores físicos, quando você implantar o Site Recovery no Portal do Azure. O Managed disks dá suporte apenas a LRS.
+Você precisa de um armazenamento LRS ou GRS. É recomendável usar GRS para que os dados sejam resilientes caso ocorra uma interrupção regional, ou se a região principal não puder ser recuperada. A conta deve estar na mesma região do que o cofre dos Serviços de Recuperação. O Armazenamento Premium tem suporte para VM do VMware, VM do Hyper-V e replicação de servidores físicos, quando você implantar o Site Recovery no Portal do Azure. O Managed disks dá suporte apenas a LRS.
 
 ### <a name="how-often-can-i-replicate-data"></a>Com que frequência posso replicar dados?
 * **Hyper-V:** As VMs do Hyper-V podem ser replicadas a cada 30 segundos (exceto para armazenamento Premium), cinco minutos ou 15 minutos.
@@ -237,6 +236,6 @@ Sim. Você pode automatizar fluxos de trabalho do Site Recovery usando a API Res
 
 [Saiba mais](site-recovery-whats-new.md) sobre novas atualizações e [Obtenha informações de rollup](service-updates-how-to.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Leia a [visão geral do Site Recovery](site-recovery-overview.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Migrar redes virtuais associadas do clássico para o Resource Manager - ExpressRoute: Azure: PowerShell | Microsoft Docs'
+title: 'Azure ExpressRoute: migrar VNets clássicas para o Gerenciador de recursos'
 description: Esta página descreve como migrar redes virtuais associadas ao ExpressRoute para o Resource Manager depois de mudar o circuito.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: f73ab7b68e56f5303e84d86a2711b53ffc894276
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 2b74523f42a1f57805388aa8c60cf1ad5b1d1331
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718178"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080075"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrar redes virtuais associadas ao ExpressRoute do clássico para o Resource Manager
 
@@ -23,8 +22,8 @@ Este artigo explica como migrar redes virtuais associadas ao ExpressRoute do mod
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Verifique se você tem as versões mais recentes dos módulos do PowerShell do Azure. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Para instalar o módulo de gerenciamento de serviços do PowerShell (que é necessário para o modelo de implantação clássico), consulte [instalando o módulo de gerenciamento de serviço do Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps).
-* Leia os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+* Verifique se você tem as versões mais recentes dos módulos de Azure PowerShell. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview): Para instalar o módulo de gerenciamento de serviços do PowerShell (que é necessário para o modelo de implantação clássico), consulte [instalando o módulo gerenciamento de serviços Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps).
+* Certifique-se de que você leu os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 * Examine as informações fornecidas em [Como mover um circuito de ExpressRoute do clássico para o Resource Manager](expressroute-move.md). Certifique-se de entender completamente os limites e limitações.
 * Verifique se o circuito está totalmente operacional no modelo de implantação clássico.
 * Verifique se você tem um grupo de recursos que foi criado no modelo de implantação do Gerenciador de Recursos.
@@ -32,7 +31,7 @@ Este artigo explica como migrar redes virtuais associadas ao ExpressRoute do mod
 
     * [Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
     * [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-    * [Perguntas frequentes: Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+    * [Perguntas frequentes: migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
     * [Confira os erros mais comuns de migração e as mitigações](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>Cenários com e sem suporte
@@ -41,7 +40,7 @@ Este artigo explica como migrar redes virtuais associadas ao ExpressRoute do mod
 * Redes virtuais, gateways e implantações associadas dentro da rede virtual que estão anexadas a um circuito de ExpressRoute na mesma assinatura podem ser migradas para o ambiente do Resource Manager sem nenhum tempo de inatividade. Você pode seguir as etapas descritas posteriormente para migrar recursos como redes virtuais, gateways e máquinas virtuais implantadas na rede virtual. Certifique-se de que as redes virtuais estão configuradas corretamente antes de elas serem migradas. 
 * Redes virtuais, gateways e implantações associadas dentro da rede virtual que não estão na mesma assinatura que o circuito de ExpressRoute requerem algum tempo de inatividade para que a migração seja concluída. A última seção do documento descreve as etapas a serem seguidas para migrar os recursos.
 * Uma rede virtual com o Gateway de ExpressRoute e Gateway VPN não pode ser migrada.
-* Não há suporte para a migração entre assinaturas do circuito do ExpressRoute. Para obter mais informações, consulte [Network mover suporte](../azure-resource-manager/move-support-resources.md#microsoftnetwork).
+* Não há suporte para a migração entre assinaturas do circuito do ExpressRoute. Para obter mais informações, consulte [suporte à movimentação do Microsoft. Network](../azure-resource-manager/move-support-resources.md#microsoftnetwork).
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Mover um circuito de ExpressRoute de clássico para Resource Manager
 Você deve mover um circuito de ExpressRoute do ambiente clássico para o do Resource Manager antes de tentar migrar os recursos que estão anexados ao circuito de ExpressRoute. Para realizar essa tarefa, consulte os artigos a seguir:
@@ -85,5 +84,5 @@ Esta seção descreve as etapas a serem seguidas para migrar de uma rede virtual
 ## <a name="next-steps"></a>Próximas etapas
 * [Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 * [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-* [Perguntas frequentes: Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+* [Perguntas frequentes: migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 * [Confira os erros mais comuns de migração e as mitigações](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

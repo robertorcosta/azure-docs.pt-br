@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 6fa2495ee580bb8e74a0d026533fa90f20743510
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: b6cbca454d1463ffe6e73d7021ea563e7121b7be
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881761"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084630"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detectar a face e a emoção com o Azure Media Analytics
 
-> [!IMPORTANT]
-> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
+## <a name="overview"></a>Visão geral
 
-## <a name="overview"></a>Visão Geral
 O MP (processador de mídia) **Azure Media Face Detector** permite que você conte e acompanhe movimentos, e até mesmo meça a participação e a reação do público por meio de expressões faciais. Este serviço contém dois recursos: 
 
 * **Detecção facial**
@@ -80,9 +78,9 @@ Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especifi
 ```
 
 #### <a name="attribute-descriptions"></a>Descrições de atributos
-| Nome do atributo | Descrição |
+| Nome do atributo | DESCRIÇÃO |
 | --- | --- |
-| Mode |Mais rápido: maior velocidade de processamento, mas menos precisão (padrão).|
+| Modo |Mais rápido: maior velocidade de processamento, mas menos precisão (padrão).|
 
 ### <a name="json-output"></a>Saída em JSON
 O exemplo de saída JSON a seguir foi truncado.
@@ -155,9 +153,9 @@ Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especifi
 
 
 #### <a name="attribute-descriptions"></a>Descrições de atributos
-| Nome do atributo | Descrição |
+| Nome do atributo | DESCRIÇÃO |
 | --- | --- |
-| Mode |Faces: somente detecção facial.<br/>PerFaceEmotion: retornar emoção independentemente de cada detecção facial.<br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro. |
+| Modo |Faces: somente detecção facial.<br/>PerFaceEmotion: retornar emoção independentemente de cada detecção facial.<br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro. |
 | AggregateEmotionWindowMs |Use se o modo AggregateEmotion for selecionado. Especifica a duração do vídeo usado para produzir cada resultado da agregação, em milissegundos. |
 | AggregateEmotionIntervalMs |Use se o modo AggregateEmotion for selecionado. Especifica com que frequência deve-se produzir resultados agregados. |
 

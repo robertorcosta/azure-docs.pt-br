@@ -1,5 +1,5 @@
 ---
-title: Configurar o ExpressRoute Direct – Azure | Microsoft Docs
+title: 'Azure ExpressRoute: configurar o ExpressRoute direto'
 description: Esta página ajuda a configurar o ExpressRoute Direct.
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 9dcefb2d47b6862466b64b3568e1a530a2fdb8cb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ba7bddb2f11732f7de5f1dfa68b66be1204722cc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161589"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083481"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
@@ -270,6 +269,6 @@ Crie um circuito no recurso ExpressRoute Direct.
   GatewayManagerEtag     
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o ExpressRoute Direct, confira [Visão geral](expressroute-erdirect-about.md).

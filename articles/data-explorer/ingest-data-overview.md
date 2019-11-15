@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285922"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091792"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -22,17 +22,17 @@ A ingestão de dados é o processo usado para carregar os registros de dados de 
 
 O serviço de gerenciamento de dados do Azure Data Explorer, que é responsável pela ingestão de dados, fornece a seguinte funcionalidade:
 
-1. **Pull de dados**: Efetue pull de dados de fontes externas (Hubs de Eventos) ou de solicitações de ingestão de leitura de uma Fila do Azure.
+1. **Pull de dados**: extrai dados de fontes externas (Hubs de Eventos) ou de solicitações de ingestão de leitura de uma Fila do Azure.
 
-1. **Envio em lote**: Envie dados em lote fluindo para o mesmo banco de dados e tabela para otimizar a produtividade da ingestão do lote.
+1. **Envio em lote**: dados em lote que fluem para o mesmo banco de dados e tabela para otimizar a produtividade da ingestão do lote.
 
-1. **Validação**: Validação preliminar e conversão de formato se necessário.
+1. **Validação**: validação preliminar e conversão de formato, se necessário.
 
-1. **Manipulação de dados**: Correspondência de esquema, organização, indexação, codificação e compactação dos dados.
+1. **Manipulação de dados**: correspondência de esquema, organização, indexação, codificação e compactação dos dados.
 
-1. **Ponto de persistência no fluxo de ingestão**: Gerencie a carga de ingestão no mecanismo e lide com novas tentativas após falhas transitórias.
+1. **Ponto de persistência no fluxo de ingestão**: gerenciar a carga de ingestão no mecanismo e lidar com novas tentativas após falhas transitórias.
 
-1. **Confirmar a ingestão de dados**: Torna os dados disponíveis para consulta.
+1. **Confirmar a ingestão de dados**: disponibiliza os dados para consulta.
 
 ## <a name="ingestion-methods"></a>Métodos de ingestão
 
@@ -88,7 +88,7 @@ O Kusto oferece um SDK cliente que pode ser usado para ingerir e consultar dados
 
 **Latência de métodos diferentes**:
 
-| Método | Latency |
+| Método | Latência |
 | --- | --- |
 | **Ingestão embutida** | Imediata |
 | **Ingestão de consulta** | Tempo de consulta + tempo de processamento |
@@ -117,11 +117,9 @@ Para organizações com uma infraestrutura existente baseada em um serviço de m
 
 ## <a name="supported-data-formats"></a>Formatos de dados com suporte
 
-Para todos os métodos de ingestão diferentes da ingestão de consulta, formate os dados de modo que o Azure Data Explorer possa analisá-los. Os formatos de dados compatíveis são:
-
-* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
-* JSON (multilinha, separado por linha), Avro
-* ZIP e GZIP 
+Para todos os métodos de ingestão diferentes da ingestão de consulta, formate os dados de modo que o Azure Data Explorer possa analisá-los. 
+* Os formatos de dados com suporte são: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separados por linha, várias linhas), Avro e parquet. 
+* Dá suporte à compactação ZIP e GZIP.
 
 > [!NOTE]
 > Quando os dados estão sendo ingeridos, os tipos de dados são inferidos com base nas colunas da tabela de destino. Se um registro estiver incompleto ou um campo não puder ser analisado como o tipo de dados necessário, as colunas da tabela correspondentes serão preenchidas com valores nulos.
