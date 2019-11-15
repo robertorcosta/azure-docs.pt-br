@@ -1,5 +1,5 @@
 ---
-title: Habilitar a replicação de um disco adicionado a uma VM do Azure replicada por Azure Site Recovery | Microsoft Docs
+title: Habilitar a replicação para um disco de VM do Azure adicionado no Azure Site Recovery
 description: Este artigo descreve como habilitar a replicação para um disco adicionado a uma VM do Azure que está habilitada para recuperação de desastre com o Azure Site Recovery
 services: site-recovery
 author: asgang
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: asgang
-ms.openlocfilehash: 068464b8a3919d833418c8f3916ccf5c54835c6f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6cbe71d67417ce817d317b65f27d0e6ceabec983
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934537"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084995"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Habilitar a replicação para um disco adicionado a uma VM do Azure
 
@@ -32,7 +32,7 @@ Quando você adiciona um novo disco a uma VM do Azure que está replicando para 
 
 
 
-## <a name="before-you-start"></a>Antes de iniciar
+## <a name="before-you-start"></a>Antes de começar
 
 Este artigo pressupõe que você já configurou a recuperação de desastre para a VM à qual você está adicionando o disco. Se você ainda não fez isso, siga o [tutorial de recuperação de desastre do Azure para o Azure](azure-to-azure-tutorial-enable-replication.md). 
 

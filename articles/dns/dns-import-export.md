@@ -1,18 +1,19 @@
 ---
-title: Importar e exportar um arquivo de zona de domínio para DNS do Azure usando CLI do Azure | Microsoft Docs
+title: Importar e exportar um arquivo de zona de domínio-CLI do Azure
+titleSuffix: Azure DNS
 description: Saiba como importar e exportar um arquivo de zona DNS para o DNS do Azure usando a CLI do Azure
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.date: 4/3/2019
-ms.author: victorh
+ms.author: allensu
 ms.topic: conceptual
-ms.openlocfilehash: b65b70e7a994d7d49b2282d7e193fe6e7b84cfca
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 036486ed15c9d6502b5e1655bdab4643128bca4b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612762"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082910"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um arquivo de zona DNS usando a CLI do Azure
 
@@ -53,7 +54,7 @@ As observações a seguir fornecem detalhes técnicos adicionais sobre o process
 * A diretiva `$TTL` é opcional e tem suporte. Quando nenhuma diretiva `$TTL` for especificada, registros sem um TTL explícito são importados definidos com um TTL padrão de 3600 segundos. Quando dois registros no mesmo conjunto de registros especificarem TTLs diferentes, o menor valor será usado.
 * A diretiva `$ORIGIN` é opcional e tem suporte. Quando nenhuma `$ORIGIN` for definida, o valor padrão usado será o nome da zona, conforme especificado na linha de comando (além do "." de terminação).
 * As diretivas `$INCLUDE` e `$GENERATE` não têm suporte.
-* Estes tipos de registro são permitidos: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV e TXT.
+* Esses tipos de registro têm suporte: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV e TXT.
 * O registro SOA é criado automaticamente pelo DNS do Azure quando uma zona é criada. Quando você importa um arquivo de zona, todos os parâmetros SOA são extraídos do arquivo de zona, *exceto* o parâmetro `host`. Esse parâmetro usa o valor fornecido pelo DNS do Azure. Isso ocorre porque esse parâmetro deve referir-se ao servidor de nomes primário fornecido pelo DNS do Azure.
 * O registro de nome do servidor definido no ápice da zona também é criado automaticamente pelo DNS do Azure quando a zona é criada. Apenas o TTL desse conjunto de registros é importado. Esses registros contêm os nomes de servidor de nome fornecidos pelo DNS do Azure. Os dados de registro não são substituídos pelos valores contidos no arquivo de zona importado.
 * Durante a visualização pública, o DNS do Azure suporta apenas os registros TXT de cadeia de caracteres única. Registros TXT de cadeia de caracteres múltiplas são concatenados e truncados para 255 caracteres.
@@ -154,7 +155,7 @@ Após verificar se a zona foi importada corretamente, você precisará atualizar
 
 ## <a name="export-a-dns-zone-file-from-azure-dns"></a>Como exportar um arquivo de zona DNS do DNS do Azure
 
-O formato do comando da CLI do Azure para exportar uma zona DNS é:
+O formato do comando de CLI do Azure para exportar uma zona DNS é:
 
 ```azurecli
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>

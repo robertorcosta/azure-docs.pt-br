@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastres para uma implantação do Citrix XenDesktop e XenApp de várias camadas usando o Azure Site Recovery | Microsoft Docs
+title: Configurar a recuperação de desastre do Citrix XenDesktop/XenApp com o Azure Site Recovery
 description: Este artigo descreve como configurar a recuperação de desastres para implantações do Citrix XenDesktop e do XenApp usando o Azure Site Recovery.
 author: ponatara
 manager: abhemraj
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038161"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084548"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>configurar a recuperação de desastres para uma implantação do Citrix XenApp e XenDesktop multicamada
 
@@ -26,7 +26,7 @@ Uma boa solução de recuperação de desastres deve permitir a modelagem de pla
 Este documento fornece orientações passo a passo para criar uma solução de recuperação de desastre para suas implantações do Citrix XenApp no local nas plataformas Hyper-V e VMware vSphere. Este documento também descreve como executar um failover de teste (análise de recuperação de desastre) e o failover não planejado para o Azure usando planos de recuperação, as configurações com suporte e os pré-requisitos.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, você precisa entender o seguinte:
 
@@ -56,9 +56,9 @@ Com a finalidade deste artigo, as implantações do Citrix em máquinas virtuais
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | Não está no escopo | Sim
-**VMware** | Não está no escopo | Sim
-**Servidor físico** | Não está no escopo | Sim
+**Hyper-V** | Não está no escopo | sim
+**VMware** | Não está no escopo | sim
+**Servidor físico** | Não está no escopo | sim
 
 ### <a name="versions"></a>Versões
 Os clientes podem implantar componentes do XenApp como máquinas virtuais em execução no Hyper-V ou VMware, ou como servidores físicos. O Azure Site Recovery pode proteger as implantações físicas e virtuais no Azure.
@@ -130,17 +130,17 @@ Uma plano de recuperação agrupa as máquinas virtuais com requisitos semelhant
 
 1. Adicione máquinas virtuais de componente do XenApp no Plano de recuperação.
 2. Clique em Planos de Recuperação -> + Plano de Recuperação. Forneça um nome intuitivo para o plano de recuperação.
-3. Para máquinas virtuais do VMware: Selecione a origem como o servidor de processo do VMware, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens.
-4. Para máquinas virtuais do Hyper-V: Selecione a origem como o servidor do VMM, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens e, em seguida, selecione as VMs de implantação do XenApp.
+3. Para máquinas virtuais do VMware: selecione a origem como o servidor de processo do VMware, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens.
+4. Para máquinas virtuais do Hyper-V: selecione a origem como o servidor do VMM, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens e, em seguida, selecione as VMs de implantação do XenApp.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Adicionar máquinas virtuais aos grupos de failover
 
 Os planos de recuperação podem ser personalizados para adicionar grupos de failover para a ordem de inicialização específica, scripts ou ações manuais. Os grupos a seguir precisam ser adicionados ao plano de recuperação.
 
-1. Grupo de failover 1: DNS do AD
+1. Grupo de failover 1: DNS AD
 2. Grupo de failover 2: VMs do SQL Server
 2. Grupo de failover 3: VM de imagem do VDA Master
-3. Grupo de failover 4: Controlador de entrega e VMs do servidor StoreFront
+3. Grupo de failover 4: controlador de entrega e VMs do servidor StoreFront
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Adicionar scripts ao plano de recuperação
@@ -149,17 +149,17 @@ Os scripts podem ser executados antes ou depois de um grupo específico em um pl
 
 O plano de recuperação personalizado parece com o seguinte:
 
-1. Grupo de failover 1: DNS do AD
+1. Grupo de failover 1: DNS AD
 2. Grupo de failover 2: VMs do SQL Server
 3. Grupo de failover 3: VM de imagem do VDA Master
 
    >[!NOTE]     
    >As etapas 4, 6 e 7, que contém ações manuais ou de script, são aplicáveis apenas a um XenApp local > ambiente com catálogos MCS/PVS.
 
-4. Ação de script ou manual do grupo 3: Desligar a VM do VDA Master.
+4. Ação manual do grupo 3 ou script: desligar a VM VDA mestra.
 A VM do VDA Master estará em um estado de execução quando houver failover. Para criar novos catálogos do MCS usando a hospedagem do Azure, é necessário que a VM mestre do VDA esteja no estado Parado (de alocado). Desligue a VM do portal do Azure.
 
-5. Grupo de failover 4: Controlador de entrega e VMs do servidor StoreFront
+5. Grupo de failover 4: controlador de entrega e VMs do servidor StoreFront
 6. Ação manual ou de script do grupo 3 1:
 
     ***Adicionar conexão do host do Azure RM***

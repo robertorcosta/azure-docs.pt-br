@@ -1,17 +1,17 @@
 ---
-title: Reter endereços IP durante o failover de VMs do Azure com o Azure Site Recovery | Microsoft Docs
+title: Manter os endereços IP após o failover de VM do Azure com Azure Site Recovery
 description: Descreve como reter endereços IP ao falhar nas VMs do Azure para recuperação de desastres em uma região secundária com o Azure Site Recovery
 ms.service: site-recovery
 ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479950"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083686"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante o failover
 
@@ -37,7 +37,7 @@ A Empresa A tem todos os aplicativos em execução no Azure.
 Esta é a arquitetura antes do failover.
 
 - A Empresa A tem redes e sub-redes idênticas nas regiões de origem e de destino do Azure.
-- Para reduzir o RTO (objetivo de tempo de recuperação), a empresa usa nós de réplica para o SQL Server Always On, para os controladores de domínio etc. Esses nós de réplica ficam em uma rede virtual diferente na região de destino, para que possam estabelecer a conectividade site a site por VPN entre as regiões de origem e de destino. Isso não é possível quando o mesmo espaço de endereços IP é usado na origem e no destino.  
+- Para reduzir o RTO (objetivo de tempo de recuperação), a empresa usa nós de réplica para SQL Server Always On, controladores de domínio, etc. Esses nós de réplica estão em uma VNet diferente na região de destino, para que eles possam estabelecer a conectividade VPN site a site entre as regiões de origem e de destino. Isso não é possível quando o mesmo espaço de endereços IP é usado na origem e no destino.  
 - Antes do failover, a arquitetura de rede é a seguinte:
     - A região primária é o Azure na Ásia Oriental
         - A Ásia Oriental tem uma VNet (**VNet de Origem**) com o espaço de endereço 10.1.0.0/16.
@@ -49,7 +49,7 @@ Esta é a arquitetura antes do failover.
         - O Sudeste Asiático tem uma VNet de recuperação (**VNet de Recuperação**) idêntica à **VNet de Origem**.
         - O Sudeste Asiático tem uma VNet adicional (**VNet do Azure**) com o espaço de endereço 10.2.0.0/16.
         - A **VNet do Azure** contém uma sub-rede (**Sub-rede 4**) com o espaço de endereço 10.2.4.0/24.
-        - Nós de réplica para o SQL Server Always On, controlador de domínio etc. estão localizados em **subrede 4**.
+        - Os nós de réplica para SQL Server Always On, controlador de domínio etc. estão localizados na **sub-rede 4**.
     - A **VNet de origem** e a **VNet do Azure** estão conectadas por meio de uma conexão site a site via VPN.
     - A **VNet de recuperação** não é conectada a nenhuma outra rede virtual.
     - A **Empresa A** atribui/verifica os endereços IP de destino para itens replicados. O IP de destino é o mesmo que o IP de origem para cada VM.
@@ -92,7 +92,7 @@ Antes do failover, a arquitetura é a seguinte:
 - A região secundária (de destino) é o Azure no Sudeste Asiático, que conta com VNets de recuperação (**VNet de Recuperação 1** e **VNet de Recuperação 1**) idênticas à **VNet de Origem 1** e à **VNet2 de Origem 2**.
         A - **VNet de Recuperação 1** e a **VNet de Recuperação 2** têm duas sub-redes que correspondem às sub-redes na **VNet de Origem 1** e na **VNet de Origem 2** – no Sudeste Asiático, há uma VNet adicional (**VNet do Azure**) com o espaço de endereço 10.3.0.0/16.
         A - **VNet do Azure** contém uma sub-rede (**Sub-rede 4**) com o espaço de endereço 10.3.4.0/24.
-        -Nós de réplica para o SQL Server Always On, controlador de domínio etc. estão localizados em **subrede 4**.
+        -Os nós de réplica para SQL Server Always On, controlador de domínio etc. estão localizados na **sub-rede 4**.
 - Há um número de conexões de VPN site a site: 
     - **VNet de Origem 1** e **VNet do Azure**
     - **VNet de Origem 2** e **VNet do Azure**
@@ -132,10 +132,10 @@ A arquitetura de rede tem a seguinte aparência antes do failover.
   - A Ásia Oriental tem cargas de trabalho divididas entre três sub-redes na **VNet de Origem**:
     - **Sub-rede 1**: 10.1.1.0/24
     - **Sub-rede 2**: 10.1.2.0/24
-    - **Sub-rede 3**: 10.1.3.0/24, usando uma rede virtual do Azure com o endereço espaço 10.1.0.0/16. Essa rede virtual é chamada de **VNet de Origem**
+    - **Sub-rede 3**: 10.1.3.0/24, utilizando uma rede virtual do Azure com espaço de endereço 10.1.0.0/16. Essa rede virtual é chamada de **VNet de Origem**
       - A região secundária (de destino) é o Azure no Sudeste Asiático:
   - O Sudeste Asiático tem uma VNet de recuperação (**VNet de Recuperação**) idêntica à **VNet de Origem**.
-- As VMs na Ásia Oriental são conectadas a um datacenter local com o Azure ExpressRoute ou VPN site a site.
+- As VMs no Ásia Oriental estão conectadas a um datacenter local com o Azure ExpressRoute ou VPN site a site.
 - Para reduzir o RTO, a Empresa B provisiona gateways na VNet de Recuperação no Azure do Sudeste Asiático antes do failover.
 - A Empresa B atribui/verifica os endereços IP de destino para VMs replicadas. O endereço IP de destino é o mesmo que o endereço IP de origem para cada VM.
 

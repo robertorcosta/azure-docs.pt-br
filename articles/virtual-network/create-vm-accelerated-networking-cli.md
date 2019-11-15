@@ -1,5 +1,5 @@
 ---
-title: Criar uma máquina virtual do Azure com Rede Acelerada | Microsoft Docs
+title: Criar uma VM do Azure com rede acelerada usando o CLI do Azure
 description: Saiba como criar uma máquina virtual Linux com Rede Acelerada habilitada.
 services: virtual-network
 documentationcenter: na
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29014674cee4d6498ca7b56582313265da886122
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873429"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083664"
 ---
-# <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com Rede Acelerada
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual Linux com rede acelerada usando o CLI do Azure
 
 Neste tutorial, você aprenderá a criar uma VM (máquina virtual) do Linux com Rede Acelerada. Para criar uma VM Windows com Rede Acelerada, consulte [Criar uma VM Windows com Rede Acelerada](create-vm-accelerated-networking-powershell.md). Rede acelerada permite SR-IOV (virtualização de E/S de raiz única) para uma VM, melhorando muito seu desempenho de rede. Esse caminho de alto desempenho ignora o host do caminho de dados, reduzindo a latência, a tremulação e a utilização da CPU para uso com as cargas de trabalho de rede mais exigentes nos tipos de VM compatíveis. A figura abaixo mostra a comunicação entre duas VMs com e sem rede acelerada:
 
@@ -37,28 +37,28 @@ Os benefícios da rede acelerada aplicam-se somente à VM em que ela está habil
 
 ## <a name="benefits"></a>Benefícios
 * **Latência menor/mais pps (pacotes por segundo):** remover o comutador virtual do caminho de dados elimina o tempo que os pacotes gastam no host para processamento da política e aumenta o número de pacotes que podem ser processados dentro da VM.
-* **Tremulação reduzida:** o processamento de comutador virtual depende da quantidade de política que precisa ser aplicada e da carga de trabalho da CPU que está fazendo o processamento. O descarregamento da imposição de política para o hardware remove essa variabilidade ao entregar pacotes diretamente à VM, removendo a comunicação do host para a VM e todas as interrupções e mudanças de contexto de software.
-* **Utilização de CPU reduzida:** ignorar o comutador virtual no host resulta em menor utilização da CPU para processar o tráfego de rede.
+* **Tremulação reduzida:** processamento de comutador virtual depende da quantidade de política que precisa ser aplicada e da carga de trabalho da CPU que está fazendo o processamento. O descarregamento da imposição de política para o hardware remove essa variabilidade ao entregar pacotes diretamente à VM, removendo a comunicação do host para a VM e todas as interrupções e mudanças de contexto de software.
+* **Menor utilização da CPU:** ignorar o comutador virtual no host resulta em menor utilização da CPU para processar o tráfego de rede.
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 As seguintes distribuições têm suporte imediato da Galeria do Azure: 
-* **Ubuntu 14.04 com o kernel do linux azure**
-* **Ubuntu 16.04 ou posterior** 
+* **Ubuntu 14, 4 com o kernel Linux-Azure**
+* **Ubuntu 16, 4 ou posterior** 
 * **SLES12 SP3 ou posterior** 
-* **RHEL 7.4 ou posterior**
-* **CentOS 7.4 ou posteriores**
+* **RHEL 7,4 ou posterior**
+* **CentOS 7,4 ou posterior**
 * **CoreOS Linux**
 * **Debian "Stretch" com kernel de portas traseiras**
-* **Oracle Linux 7.4 e posterior com o Red Hat compatível com Kernel (rhck c)**
-* **Oracle Linux 7.5 e versões posterior com UEK versão 5**
-* **FreeBSD 10.4, 11.1 & 12.0**
+* **Oracle Linux 7,4 e posterior com kernel compatível com Red Hat (RHCK)**
+* **Oracle Linux 7,5 e posterior com UEK versão 5**
+* **FreeBSD 10,4, 11,1 & 12,0**
 
 ## <a name="limitations-and-constraints"></a>Limitações e Restrições
 
 ### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
 A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/Fs
 
-Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. Essas séries com suporte são: D/DSV3, e/esv3, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
+Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. As séries com suporte são: D/Dsv3, E/Esv3, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
 Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM do Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -75,16 +75,16 @@ Máquinas virtuais (clássicas) não podem ser implantadas com Rede Acelerada.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Criar uma VM do Linux com Rede Acelerada do Azure
 ## <a name="portal-creation"></a>Criação de portal
-Embora este artigo forneça etapas para criar uma máquina virtual com a rede acelerada usando a CLI do Azure, você também pode [criar uma máquina virtual com a rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, nos **criar uma máquina virtual** folha, escolha o **Networking** guia.  Nessa guia, há uma opção para **rede acelerada**.  Se você tiver escolhido um [sistema operacional com suporte](#supported-operating-systems) e [tamanho da VM](#supported-vm-instances), essa opção será preenchido automaticamente para "Ativado".  Caso contrário, ele irá preencher a opção "Desativado" para a rede acelerada e dar ao usuário um motivo por que ele não ainda ser habilitado.   
+Embora este artigo forneça etapas para criar uma máquina virtual com a rede acelerada usando a CLI do Azure, você também pode [criar uma máquina virtual com a rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, na folha **criar uma máquina virtual** , escolha a guia **rede** .  Nessa guia, há uma opção para **rede acelerada**.  Se você tiver escolhido um [sistema operacional com suporte](#supported-operating-systems) e um [tamanho de VM](#supported-vm-instances), essa opção será preenchida automaticamente como "ativada".  Caso contrário, ele preencherá a opção "desativado" para rede acelerada e dará ao usuário um motivo pelo qual ele não está habilitado.   
 
-* *Observação:* Apenas sistemas operacionais com suporte pode ser habilitados por meio do portal.  Se você estiver usando uma imagem personalizada e sua imagem oferece suporte a rede acelerada, crie sua VM usando a CLI ou Powershell. 
+* *Observação:* Somente sistemas operacionais com suporte podem ser habilitados por meio do Portal.  Se você estiver usando uma imagem personalizada e sua imagem der suporte à rede acelerada, crie sua VM usando a CLI ou o PowerShell. 
 
-Depois que a máquina virtual é criada, você pode confirmar a rede acelerada está habilitada, seguindo as instruções de [confirme se a rede acelerada está habilitada](#confirm-that-accelerated-networking-is-enabled).
+Depois que a máquina virtual for criada, você poderá confirmar se a rede acelerada está habilitada seguindo as instruções em [confirmar se a rede acelerada está habilitada](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="cli-creation"></a>Criação de CLI
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Instale a [CLI do Azure](/cli/azure/install-azure-cli) mais recente do Azure e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNic* e *myVm*.
+Instale o [Azure CLI](/cli/azure/install-azure-cli) mais recente do Azure e faça login em uma conta do Azure usando [az login](/cli/azure/reference-index). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNic* e *myVm*.
 
 Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *centralus*:
 
@@ -225,9 +225,9 @@ vf_tx_dropped: 0
 ```
 A Rede Acelerada agora está habilitada para sua VM.
 
-## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Lidar com a associação dinâmica e a revogação de função virtual 
-Aplicativos devem ser executados ao longo da NIC sintética que é exposta na VM. Se o aplicativo é executado diretamente sobre a NIC de FV, ele não recebe **todos os** pacotes que são destinados à VM, já que alguns pacotes aparecem na interface sintético.
-Se você executar um aplicativo sobre a placa de rede sintética, ela garante que o aplicativo recebe **todos os** pacotes que são destinados a ele. Ele também torna-se de que o aplicativo continua em execução, mesmo se o FV é revogado quando o host está em manutenção. Aplicativos de associação para a NIC sintética são uma **obrigatórios** requisito para todos os aplicativos, aproveitando **rede acelerada**.
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Manipular associação dinâmica e revogação da função virtual 
+Os aplicativos devem ser executados sobre a NIC sintética que é exposta na VM. Se o aplicativo for executado diretamente pela NIC VF, ele não receberá **todos os** pacotes destinados à VM, já que alguns pacotes aparecem na interface sintética.
+Se você executar um aplicativo na NIC sintética, ele garante que o aplicativo receba **todos os** pacotes destinados a ele. Ele também garante que o aplicativo continue em execução, mesmo que o FV seja revogado quando o host estiver sendo atendido. A associação de aplicativos à NIC sintética é um requisito **obrigatório** para todos os aplicativos que aproveitam a **rede acelerada**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Habilitar Rede Acelerada em VMs existentes
 Se você tiver criado uma VM sem Rede Acelerada, será possível habilitar esse recurso em uma VM existente.  A VM deve dar suporte à Rede Acelerada atendendo aos pré-requisitos a seguir que também estão descritos acima:

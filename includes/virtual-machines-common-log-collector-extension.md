@@ -4,21 +4,21 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171946"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085218"
 ---
 O diagnóstico de problemas com um serviço de nuvem do Microsoft Azure exige a coleta dos arquivos de log do serviço em máquinas virtuais à medida que os problemas ocorrem. É possível usar a extensão AzureLogCollector sob demanda para executar uma coleta avulsa de logs de uma ou mais VMs do Serviço de Nuvem (de funções Web e funções de trabalho) e transferir os arquivos coletados para uma conta de armazenamento do Azure – tudo sem precisar fazer logon remotamente em qualquer uma das VMs.
 
 > [!NOTE]
-> As descrições da maioria das informações registradas podem ser encontradas em http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> As descrições para a maioria das informações registradas podem ser encontradas em https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 
-Há dois modos de coleta, dependendo dos tipos de arquivos a serem coletados.
+Há dois modos de coleta, dependendo dos tipos de arquivos a ser coletados.
 
 * **Somente Logs de GA (Agente Convidado) do Azure**. Esse modo de coleta inclui todos os logs relacionados a agentes convidados do Azure e a outros componentes do Azure.
 * **Todos os Logs (Completo)** . Esse modo de coleta obtém todos os arquivos do modo GA e:
@@ -32,16 +32,16 @@ Há dois modos de coleta, dependendo dos tipos de arquivos a serem coletados.
 Em ambos os modos de coleta, é possível especificar pastas de coleta de dados adicionais usando uma coleta da seguinte estrutura:
 
 * **Nome**: o nome da coleta, usado como o nome da subpasta dentro do arquivo zip com os arquivos coletados.
-* **Localização**: o caminho para a pasta na máquina virtual na qual os arquivos a serem coletados ficam localizados.
+* **Local**: o caminho para a pasta na máquina virtual na qual os arquivos a serem coletados ficam localizados.
 * **SearchPattern**: o padrão dos nomes de arquivos a serem coletados. O padrão é "\*"
 * **Recursivo**: se os arquivos a serem coletados estiverem localizados recursivamente no local especificado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 * Ter uma conta de armazenamento para a extensão salvar os arquivos zip gerados.
-* PowerShell do Azure. Ver [instalar o Azure PowerShell](/powershell/azure/install-az-ps)] para obter instruções de instalação.
+* PowerShell do Azure. Consulte [instalar Azure PowerShell](/powershell/azure/install-az-ps)] para obter instruções de instalação.
 
 ## <a name="add-the-extension"></a>Adicionar a extensão
 Você pode usar cmdlets do [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) ou [APIs REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/ee460799.aspx) para adicionar a extensão AzureLogCollector.
@@ -177,14 +177,14 @@ param (
 )
 ```
 
-* **ServiceName**: nome do serviço de nuvem.
-* **Funções**: uma lista de funções, como “FunçãoWeb1” ou “FunçãoDeTrabalho1”.
-* **Instâncias**: uma lista de nomes de instâncias de função separados por vírgula, use a cadeia de caracteres curinga (“*2) para todas as instâncias de função.
+* **ServiceName**: o nome do serviço de nuvem.
+* **Roles**: uma lista de funções, como "FunçãoWeb1" ou "FunçãoDeTrabalho1".
+* **Instances**: uma lista de nomes de instâncias de função separados por vírgula -- use a cadeia de caracteres curinga ("*") para todas as instâncias de função.
 * **Slot**: nome do slot. “Produção” ou “Preparo”.
-* **Modo**: Modo de coleta. "Completo" ou "GA".
+* **Mode**: modo de coleta. "Completo" ou "GA".
 * **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
 * **StorageAccountKey**: nome da chave de conta de armazenamento do Azure.
-* **AdditionalDataLocationList**: Uma lista da seguinte estrutura:
+* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
 
   ```powershell
   {
@@ -259,12 +259,12 @@ param (
 )
 ```
 
-* **ServiceName**: nome do serviço de nuvem.
-* **VMName**: O nome da VM.
-* **Modo**: Modo de coleta. "Completo" ou "GA".
+* **ServiceName**: o nome do serviço de nuvem.
+* **VMName**: o nome da VM.
+* **Mode**: modo de coleta. "Completo" ou "GA".
 * **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
 * **StorageAccountKey**: nome da chave de conta de armazenamento do Azure.
-* **AdditionalDataLocationList**: Uma lista da seguinte estrutura:
+* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
 
   ```
   {
@@ -526,6 +526,6 @@ else
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 Agora, você pode examinar ou copiar os logs de um local muito simples.
 

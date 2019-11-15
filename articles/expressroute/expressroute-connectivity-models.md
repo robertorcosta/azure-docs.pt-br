@@ -1,5 +1,5 @@
 ---
-title: 'Modelos de conectividade do ExpressRoute: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: modelos de conectividade'
 description: Este artigo descreve os diferentes modos de conectividade entre a rede do cliente e Microsoft Azure e os serviços do Office 365. Os clientes podem usar provedores de MPLS, trocas de nuvem e provedores de Ethernet.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: c9cfe089cd486a822af192353b2a01a08f57d9e2
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 375d2f9d3b455c0495c69f2b23d62b1ab6522710
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123458"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080704"
 ---
 # <a name="expressroute-connectivity-models"></a>Modelos de conectividade do ExpressRoute
 Você pode criar uma conexão entre sua rede local e a nuvem da Microsoft de três maneiras diferentes, [Colocalização do CloudExchange](#CloudExchange), [Conexão de Ethernet Ponto a Ponto](#Ethernet) e [Conexão Qualquer para Qualquer (IPVPN)](#IPVPN). Os provedores de conectividade podem oferecer um ou mais modelos de conectividade. Converse com seu provedor de conectividade a fim de escolher o modelo mais adequado a você.
@@ -36,7 +35,7 @@ Você pode conectar seus data centers/escritórios locais à nuvem da Microsoft 
 * Encontrar um provedor de serviços. Consulte [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md).
 * Verifique se todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 * Consulte os requisitos para [Roteamento](expressroute-routing.md), [NAT](expressroute-nat.md) e [QoS](expressroute-qos.md).
-* Configurar sua conexão do ExpressRoute.
+* Configurar sua conexão da Rota Expressa.
   * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurar o roteamento](expressroute-howto-routing-portal-resource-manager.md)
   * [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)

@@ -1,5 +1,5 @@
 ---
-title: Configurar recuperação de desastre de VMs do Hyper-V em nuvens do VMM para um site secundário com o Azure Site Recovery e o PowerShell | Microsoft Docs
+title: Configurar a recuperação de desastre do Hyper-V (com VMM) em um site secundário com Azure Site Recovery/PowerShell
 description: Descreve como configurar a recuperação de desastre de VMs Hyper-V em nuvens do VMM para um site secundário do VMM usando o Azure Site Recovery e o PowerShell.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362349"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084897"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
 
@@ -21,7 +21,7 @@ Este artigo mostra como automatizar as etapas para a replicação de VMs do Hype
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Examine os [componentes e a arquitetura do cenário](hyper-v-vmm-architecture.md).
 - Examine os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
@@ -29,7 +29,7 @@ Este artigo mostra como automatizar as etapas para a replicação de VMs do Hype
 - Verifique se as VMs que você deseja replicar estão em conformidade com o [suporte ao computador replicado](site-recovery-support-matrix-to-sec-site.md).
 
 
-## <a name="prepare-for-network-mapping"></a>Prepare-se para o mapeamento de rede
+## <a name="prepare-for-network-mapping"></a>Preparar para mapeamento de rede
 
 O [mapeamento de rede](hyper-v-vmm-network-mapping.md) mapeia entre as redes de VM do Virtual Machine Manager locais de origem e as nuvens de destino. Mapeamento faz o seguinte:
 
@@ -77,7 +77,7 @@ Verifique se você tem o PowerShell do Azure pronto para uso:
 
         $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
-    Você pode recuperar o objeto de cofre após criá-lo usando o cmdlet Get-AzRecoveryServicesVault.
+    Você pode recuperar o objeto de cofre depois de criá-lo usando o cmdlet Get-AzRecoveryServicesVault.
 
 ## <a name="set-the-vault-context"></a>Definir o contexto do cofre
 1. Recupere um cofre existente.

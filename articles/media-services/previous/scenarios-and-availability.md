@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5841826e1d8fcfd96ff5bf91b518df3b856d3ce5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991443"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083204"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Mídia do Microsoft Azure (AMS) permitem que você carregue com segurança, armazene, codifique e empacote o conteúdo de áudio ou vídeo para a entrega de streaming sob demanda e ao vivo para vários clientes (por exemplo, TV, PCs e dispositivos móveis).
 
@@ -33,11 +33,11 @@ Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_
 
 ## <a name="overview"></a>Visão geral
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 
-* Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
+* Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-portal-create-account.md).
 * O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**.
 
@@ -99,7 +99,7 @@ Para obter informações sobre a disponibilidade nos datacenters, consulte a se�
 
 1. Carregue um arquivo de mídia de alta qualidade em um ativo.
 2. Codificar em um único arquivo MP4.
-3. Publicar o ativo criando um localizador OnDemand ou SAS.
+3. Publicar o ativo criando um localizador OnDemand ou SAS
 
     Se você estiver usando o localizador de SAS, o conteúdo será baixado do armazenamento de blobs do Azure. Nesse caso, não é necessário ter pontos de extremidade de streaming em estado iniciado.
 4. Download progressivo de conteúdo.
@@ -123,7 +123,7 @@ O diagrama a seguir mostra as partes principais da plataforma AMS que estão env
 
 ![Fluxo de trabalho ao vivo](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
-Para obter mais informações, consulte [Trabalhando com Canais que Recebem a Transmissão ao Vivo de Múltiplas Taxas de Bits de Codificadores Locais](media-services-live-streaming-with-onprem-encoders.md).
+Para obter mais informações, veja [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md)(Trabalhando com canais que recebem a transmissão ao vivo de taxa de bits múltipla de codificadores locais).
 
 ### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
 
@@ -149,9 +149,9 @@ Os clientes AMS podem dimensionar os pontos de extremidade do streaming, process
 
 * Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**. Um ponto de extremidade de streaming **Standard** é adequado para a maior parte das cargas de trabalho do streaming. Isso inclui os mesmos recursos dos pontos de extremidade do streaming **Premium** e dimensiona a largura de banda de saída automaticamente. 
 
-    Os pontos de extremidade do streaming **Premium** são adequados para as cargas de trabalho avançadas, fornecendo uma capacidade de largura de banda dimensionável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma US (Unidade de Streaming). O ponto de extremidade de streaming pode ser dimensionado adicionando USs. Cada US fornece uma capacidade de largura de banda adicional para o aplicativo. Para obter mais informações sobre como dimensionar os pontos de extremidade do streaming **Premium**, consulte o tópico [Dimensionando os pontos de extremidade do streaming](media-services-portal-scale-streaming-endpoints.md).
+    Os pontos de extremidade de streaming **Premium** são adequados para cargas de trabalho avançadas, fornecendo capacidade de largura de banda escalonável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma US (Unidade de Streaming). O ponto de extremidade de streaming pode ser dimensionado adicionando USs. Cada SU fornece uma capacidade de largura de banda adicional para o aplicativo. Para obter mais informações sobre como dimensionar os pontos de extremidade do streaming **Premium**, consulte o tópico [Dimensionando os pontos de extremidade do streaming](media-services-portal-scale-streaming-endpoints.md).
 
-* Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Escolha um entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
+* Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
 
     Além de especificar o tipo de unidade reservada, você pode especificar o provisionamento de sua conta com as **URs** (Unidades Reservadas). O número de URs provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em determinada conta.
 
@@ -186,7 +186,7 @@ Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de st
 
 #### <a name="availability"></a>Disponibilidade
 
-Disponível em todos os datacenters, exceto: Alemanha, Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. 
+Disponível em todos os datacenters, exceto: Alemanha, sul do Brasil, Índia Ocidental, sul da Índia e Índia Central. 
 
 ### <a name="encoding-media-processors"></a>Codificando processadores de mídia
 
@@ -212,7 +212,6 @@ A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual q
 |Detector de Movimento em Mídias do Azure|Visualização|Todos|
 |OCR de Mídia do Azure|Visualização|Todos|
 |Azure Media Redactor|Visualização|Todos|
-|Azure Media Stabilizer|Visualização|Todos|
 |Miniaturas de Vídeo de Mídia do Azure|Visualização|Todos|
 |Azure Media Indexer 2|Visualização|Todos, exceto regiões da China e do Governo Federal|
 
@@ -242,7 +241,7 @@ Disponível em todos os datacenters.
 
 ### <a name="reserved-unit-ru-type"></a>Tipo de unidade reservada (UR)
 
-Uma conta dos Serviços de Mídia está associada a um tipo de Unidade reservada, que determina a velocidade com a qual suas tarefas de processamento de mídia são processadas. Escolha um entre os seguintes tipos de unidade reservada: S1, S2 ou S3.
+Uma conta dos Serviços de Mídia está associada a um tipo de Unidade reservada, que determina a velocidade com a qual suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: S1, S2 ou S3.
 
 Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
 
@@ -256,7 +255,7 @@ Para obter mais informações, consulte a seção sobre [dimensionamento](#scali
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine os roteiros de aprendizagem dos Serviços de Mídia.
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

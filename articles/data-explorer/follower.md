@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: a46cf78d902ec8391d7dc3667a6d66daa78927ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2306b6cbdd347e3be9921b196ae06385ef5ca90a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828559"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083183"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usar o banco de dados de acompanhamento para anexar bancos de dados no Azure Data Explorer
 
@@ -26,7 +26,7 @@ A anexação de um banco de dados a um cluster diferente usando a funcionalidade
 * Um único cluster pode seguir os bancos de dados de vários clusters de líder. 
 * Um cluster pode conter bancos de dados de acompanhamento e bancos de dados de preenchimento
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 1. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 1. [Crie cluster e BD](/azure/data-explorer/create-cluster-database-portal) para o líder e o acompanhamento.
@@ -160,7 +160,7 @@ Nesta seção, você aprenderá a anexar um banco de dados usando um [modelo de 
 
 Você pode implantar o modelo de Azure Resource Manager [usando o portal do Azure](https://portal.azure.com) ou usando o PowerShell.
 
-   ![Implantação de modelo](media/follower/template-deployment.png)
+   ![implantação de modelo](media/follower/template-deployment.png)
 
 
 |**Configuração**  |**Descrição**  |
@@ -170,7 +170,7 @@ Você pode implantar o modelo de Azure Resource Manager [usando o portal do Azur
 |Nome do Banco de Dados     |      O nome do banco de dados a ser seguido. Se você quiser seguir todos os bancos de dados do líder, use ' * '.   |
 |ID de recurso de cluster de líder    |   A ID de recurso do cluster de líder.      |
 |Tipo de modificação de entidades de segurança padrão    |   O tipo de modificação principal padrão. Pode ser `Union`, `Replace` ou `None`. Para obter mais informações sobre o tipo de modificação principal padrão, consulte o [comando de controle do tipo de modificação principal](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|Local   |   O local de todos os recursos. O líder e o seguidor devem estar no mesmo local.       |
+|Local padrão   |   O local de todos os recursos. O líder e o seguidor devem estar no mesmo local.       |
  
 ### <a name="verify-that-the-database-was-successfully-attached"></a>Verifique se o banco de dados foi anexado com êxito
 
@@ -242,7 +242,7 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="manage-principals"></a>Gerenciar entidades de segurança
 
-Ao anexar um banco de dados, especifique o **tipo de modificação de entidades de segurança padrão "** . O padrão é manter a coleção de banco de dados de líder de [entidades autorizadas](/azure/kusto/management/access-control/index.md#authorization)
+Ao anexar um banco de dados, especifique o **tipo de modificação de entidades de segurança padrão "** . O padrão é manter a coleção de banco de dados de líder de [entidades autorizadas](/azure/kusto/management/access-control/index#authorization)
 
 |**Tipo** |**Descrição**  |
 |---------|---------|
@@ -250,7 +250,7 @@ Ao anexar um banco de dados, especifique o **tipo de modificação de entidades 
 |**Substitua**   |    Nenhuma herança de entidades de segurança do banco de dados original. Novas entidades de segurança devem ser criadas para o banco de dados anexado. Pelo menos uma entidade de segurança precisa ser adicionada para bloquear a herança de entidade.     |
 |**Nenhum**   |   As entidades de banco de dados anexadas incluem apenas as entidades do banco de dados original sem entidades adicionais.      |
 
-Para obter mais informações sobre como usar comandos de controle para configurar as entidades de segurança autorizadas, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower.md).
+Para obter mais informações sobre como usar comandos de controle para configurar as entidades de segurança autorizadas, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower).
 
 ### <a name="manage-permissions"></a>Gerenciar permissões
 
@@ -258,7 +258,7 @@ O gerenciamento da permissão de banco de dados somente leitura é o mesmo que p
 
 ### <a name="configure-caching-policy"></a>Configurar política de cache
 
-O administrador de banco de dados de acompanhamento pode modificar a [política de cache](/azure/kusto/management/cache-policy) do banco de dados anexado ou qualquer uma de suas tabelas no cluster de hospedagem. O padrão é manter a coleção de banco de dados líder de políticas de cache de banco de dados e nível de tabela. Você pode, por exemplo, ter uma política de cache de 30 dias no banco de dados de líder para executar relatórios mensais e uma política de cache de três dias no banco de dados de acompanhamento para consultar somente os dados recentes para solução de problemas. Para obter mais informações sobre como usar comandos de controle para configurar a política de cache no banco de dados ou tabela de acompanhamento, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower.md).
+O administrador de banco de dados de acompanhamento pode modificar a [política de cache](/azure/kusto/management/cache-policy) do banco de dados anexado ou qualquer uma de suas tabelas no cluster de hospedagem. O padrão é manter a coleção de banco de dados líder de políticas de cache de banco de dados e nível de tabela. Você pode, por exemplo, ter uma política de cache de 30 dias no banco de dados de líder para executar relatórios mensais e uma política de cache de três dias no banco de dados de acompanhamento para consultar somente os dados recentes para solução de problemas. Para obter mais informações sobre como usar comandos de controle para configurar a política de cache no banco de dados ou tabela de acompanhamento, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower).
 
 ## <a name="limitations"></a>Limitações
 
@@ -270,4 +270,4 @@ O administrador de banco de dados de acompanhamento pode modificar a [política 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter informações sobre a configuração do cluster de acompanhamento, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower.md).
+* Para obter informações sobre a configuração do cluster de acompanhamento, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower).

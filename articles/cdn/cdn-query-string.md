@@ -1,5 +1,5 @@
 ---
-title: Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres consulta - camada Standard | Microsoft Docs
+title: Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres consulta - camada Standard
 description: O cache da cadeia de caracteres de consulta da CDN do Azure controla como os arquivos são armazenados em cache quando uma solicitação da Web contém uma cadeia de caracteres de consulta. Este artigo descreve o cache da cadeia de caracteres de consulta em produtos Standard da CDN do Azure.
 services: cdn
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
-ms.openlocfilehash: 2b9e56f8a0a023c8423426fee081a5a48ebda330
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 6471241527dd9b594eaaca20ebc75cacb27f8f72
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593453"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083039"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres consulta - camada Standard
 > [!div class="op_single_selector"]
@@ -35,11 +35,11 @@ Com a Rede de Distribuição de Conteúdo do Azure (CDN), você pode controlar c
 
 Estão disponíveis três modos de cadeia de caracteres de consulta:
 
-- **Ignorar as cadeias de caracteres de consulta**: Modo padrão. Nesse modo, o nó POP (ponto de presença) da CDN transmite as cadeias de caracteres de consulta do solicitante para o servidor de origem na primeira solicitação e armazena em cache o ativo. Todas as solicitações subsequentes para esse ativo que forem atendidas a partir do POP ignoram a cadeia de caracteres de consulta até que o ativo em cache expire.
+- **Ignorar cadeias de caracteres de consulta**: modo padrão. Nesse modo, o nó POP (ponto de presença) da CDN transmite as cadeias de caracteres de consulta do solicitante para o servidor de origem na primeira solicitação e armazena em cache o ativo. Todas as solicitações subsequentes para esse ativo que forem atendidas a partir do POP ignoram a cadeia de caracteres de consulta até que o ativo em cache expire.
 
-- **Ignorar o cache para cadeias de caracteres de consulta**: Nesse modo, as solicitações com cadeias de caracteres de consulta não estão em cache no nó POP da CDN. O nó POP recupera o ativo diretamente da origem e passa-o para o solicitante com cada solicitação.
+- **Ignorar o cache para cadeias de consulta**: nesse modo, as solicitações com cadeias de caracteres de consulta não são armazenadas em cache no nó POP da CDN. O nó POP recupera o ativo diretamente da origem e passa-o para o solicitante com cada solicitação.
 
-- **Armazenar em cache todas as URLs exclusivas**: Nesse modo, cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de origem para uma solicitação para example.ashx?q=test1 é armazenada em cache no nó POP e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação para example.ashx?q=test2 é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
+- **Armazenar em cada cache URL exclusiva**: nesse modo, cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de origem para uma solicitação para example.ashx?q=test1 é armazenada em cache no nó POP e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação para example.ashx?q=test2 é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
    
     >[!IMPORTANT] 
     > Não use este modo quando a cadeia de caracteres de consulta contiver parâmetros que serão alterados em cada solicitação, como uma ID da sessão ou um nome de usuário, porque isso resultará em baixo índice de ocorrências no cache.

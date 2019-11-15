@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: iainfou
-ms.openlocfilehash: e8e6eb9be65b038780fa6e21cf20f4c5dda27a31
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 61c9d887f1b193258161cd96ccfa3618e8371890
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991448"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081014"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (FAQs)
 
@@ -62,7 +62,7 @@ O serviço em si não dá suporte direto a esse cenário. Seu domínio gerenciad
 Sim. Para obter mais informações, consulte [como habilitar o Azure AD Domain Services usando o PowerShell](powershell-create-instance.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Posso habilitar os Azure AD Domain Services usando um modelo do Resource Manager?
-Não, atualmente, não é possível habilitar Azure AD Domain Services usando um modelo. Para obter uma abordagem com script, consulte [como habilitar Azure AD Domain Services usando o PowerShell](powershell-create-instance.md).
+Sim, você pode criar um Azure AD Domain Services domínio gerenciado usando um modelo do Resource Manager. Uma entidade de serviço e um grupo do Azure AD para administração devem ser criados usando o portal do Azure ou Azure PowerShell antes de o modelo ser implantado. Quando você cria um Azure AD Domain Services domínio gerenciado no portal do Azure, há uma opção para exportar o modelo para uso com implantações adicionais. Há também um [modelo de exemplo no repositório de exemplo de modelos do GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-AAD-DomainServices).
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Posso adicionar controladores de domínio a um domínio gerenciado dos Serviços de Domínio do AD do Azure?
 Não. O domínio fornecido pelo Azure AD Domain Services é um domínio gerenciado. Você não precisa provisionar, configurar ou gerenciar controladores de domínio para esse domínio. Essas atividades de gerenciamento são fornecidas como um serviço pela Microsoft. Portanto, você não pode adicionar mais controladores de domínio (leitura/gravação ou somente leitura) para o domínio gerenciado.
@@ -139,11 +139,11 @@ Não. Azure AD Domain Services é um serviço pago conforme o uso do Azure e nã
 ### <a name="what-azure-regions-is-the-service-available-in"></a>Em quais regiões do Azure o serviço está disponível?
 Consulte a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para conhecer as regiões do Azure nas quais os Serviços de Domínio do Azure AD estão disponíveis.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 Confira o [Guia de solução de problemas](troubleshoot.md) a fim de obter soluções para os problemas comuns encontrados ao configurar ou administrar os Azure AD Domain Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre Azure AD Domain Services, confira [o que é Azure Active Directory Domain Services?](overview.md).
 

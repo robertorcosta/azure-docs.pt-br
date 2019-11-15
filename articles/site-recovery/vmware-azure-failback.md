@@ -1,5 +1,5 @@
 ---
-title: Fazer failback do Azure durante a recuperação de desastre de VMs VMware para o Azure com o Azure Site Recovery | Microsoft Docs
+title: Fazer failback de VMs VMware/servidores físicos do Azure com Azure Site Recovery
 description: Saiba como fazer o failback para o site local após o failover para o Azure durante a recuperação de desastre de VMs e servidores físicos VMware para o Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 7773a2f43eb076075be484d92fde31094a2b584b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2ec2a4a91f4de0761f631bec393bb90c3feb82b9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318114"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084050"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Executar failback de VMs e servidores físicos VMware do Azure para um site local
 
 Este artigo descreve como realizar o failback de máquinas virtuais das Máquinas Virtuais do Azure para um ambiente VMware local. Siga as instruções neste artigo para realizar o failback de suas máquinas virtuais VMware ou de servidores físicos Windows/Linux após a realização do failover do site local para o Azure usando o tutorial [Failover no Azure Site Recovery](site-recovery-failover.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 - Certifique-se de que você tenha lido os detalhes sobre os [tipos diferentes de failback](concepts-types-of-failback.md) e as perdas correspondentes.
 
 > [!WARNING]

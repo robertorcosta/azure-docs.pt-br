@@ -1,5 +1,5 @@
 ---
-title: Sobre criptografia-Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: sobre criptografia'
 description: Saiba mais sobre a criptografia do ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: b452fccf2ae0915592420bdda3a47fef43eba9a8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b8e9748360b22cd1c693b2c601024c0824ffb483
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72788688"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083614"
 ---
 # <a name="expressroute-encryption"></a>Criptografia do ExpressRoute
  
@@ -44,7 +44,7 @@ Não. Você precisa implantar um gateway de VPN de terceiros em sua rede virtual
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>Qual será a taxa de transferência que receberei depois de habilitar o IPsec em minha conexão do ExpressRoute?
 Se o gateway de VPN do Azure for usado, verifique os [números de desempenho aqui](../vpn-gateway/vpn-gateway-about-vpngateways.md). Se um gateway de VPN de terceiros for usado, verifique com o fornecedor os números de desempenho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte [Configurar MACsec](expressroute-howto-macsec.md) para obter mais informações sobre a configuração do MACsec.
 
 Consulte [Configurar IPSec](site-to-site-vpn-over-microsoft-peering.md) para obter mais informações sobre a configuração de IPSec.

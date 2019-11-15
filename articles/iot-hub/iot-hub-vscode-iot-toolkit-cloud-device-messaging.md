@@ -1,5 +1,5 @@
 ---
-title: Gerenciar mensagens de dispositivo de nuvem do Hub IoT com as Ferramentas do Azure IoT para Visual Studio Code | Microsoft Docs
+title: Usar as ferramentas do Azure IoT para VSCode para gerente mensagens do hub de ti
 description: Saiba como usar as Ferramentas do Azure IoT para Visual Studio Code para monitorar mensagens de dispositivo para a nuvem e enviar mensagens da nuvem para o dispositivo no Hub IoT do Azure.
 author: formulahendry
 ms.service: iot-hub
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 1289e9c8f8cfc9360c9b2325507b43bab3a69028
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 785c6f2b36396558cc21ce6c025be59c456ff32d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838503"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083265"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Use as Ferramentas do Azure IoT para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o Hub IoT
 
 ![Diagrama de ponta a ponta](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
-As [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) são uma extensão do Visual Studio Code útil que facilita o gerenciamento do Hub IoT e o desenvolvimento de aplicativos do IoT. Este artigo se concentra em como usar as Ferramentas do Azure IoT para Visual Studio Code para enviar e receber mensagens entre o dispositivo e o Hub IoT.
+As [Ferramentas IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) são uma extensão útil do Visual Studio Code que facilitam o gerenciamento do Hub IoT e o desenvolvimento de aplicativos para IoT. Este artigo se concentra em como usar as Ferramentas do Azure IoT para Visual Studio Code para enviar e receber mensagens entre o dispositivo e o Hub IoT.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -37,11 +37,11 @@ Você aprende a usar as Ferramentas do Azure IoT para Visual Studio Code para mo
 
 * Uma assinatura ativa do Azure.
 
-* Um hub IoT do Azure em sua assinatura.
+* Um Hub IoT do Azure em sua assinatura.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Ferramentas IoT do Azure para VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [abrir este link no Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Ferramentas do Azure IOT para vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [abrir este link no Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o Hub IoT
 
@@ -56,17 +56,17 @@ Você aprende a usar as Ferramentas do Azure IoT para Visual Studio Code para mo
 5. A lista de dispositivos será mostrada na guia **Dispositivos do Hub IoT do Azure** em poucos segundos.
 
    > [!Note]
-   > Você também pode concluir a configuração escolhendo **Definir cadeia de conexão do Hub IoT**. Insira o **iothubowner** cadeia de conexão da política do hub IoT que seu dispositivo IoT se conecta na janela pop-up.
+   > Você também pode concluir a configuração escolhendo **Definir cadeia de conexão do Hub IoT**. Insira a cadeia de conexão da política **iothubowner** para o Hub IOT ao qual seu dispositivo IOT se conecta na janela pop-up.
 
 ## <a name="monitor-device-to-cloud-messages"></a>Monitorar mensagens do dispositivo para a nuvem
 
 Para monitorar as mensagens enviadas do seu dispositivo ao seu Hub IoT, siga estas etapas:
 
-1. Seu dispositivo com o botão direito e selecione **Iniciar monitoramento de evento de ponto de extremidade interno**.
+1. Clique com o botão direito do mouse no dispositivo e selecione **Iniciar Monitoramento do ponto de extremidade do evento interno**.
 
 2. As mensagens monitoradas serão mostradas na exibição **SAÍDA** > **Kit de Ferramentas do Hub IoT do Azure**.
 
-3. Para interromper o monitoramento, clique com botão direito do **saída** exibir e selecione **parar monitoramento de evento de ponto de extremidade interno**.
+3. Para interromper o monitoramento, clique com o botão direito do mouse na exibição de **saída** e selecione **parar monitoramento de ponto de extremidade de evento interno**.
 
 ## <a name="send-cloud-to-device-messages"></a>Envie mensagens da nuvem para o dispositivo
 

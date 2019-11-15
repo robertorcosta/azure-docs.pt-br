@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-ms.date: 02/07/2019
-ms.openlocfilehash: af657d28bc3052ebefe25ea54891b8d3555692c9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825828"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082445"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos de Banco de Dados SQL
 
@@ -48,7 +48,7 @@ Evite transações de longa execução, pois qualquer falha de infraestrutura ou
 
 ## <a name="resiliency"></a>Resiliência
 
-O Banco de Dados SQL do Azure é um serviço de nuvem, no qual é possível esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem. Embora o Banco de Dados SQL do Azure seja resiliente em falhas de infraestrutura transitórias, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo. A lógica de repetição depende das [mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md).
+O Banco de Dados SQL do Azure é um serviço de nuvem, no qual é possível esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem. Embora o Banco de Dados SQL do Azure seja resiliente em falhas de infraestrutura transitórias, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo. A lógica de repetição depende das [mensagens de erro para programas cliente do Banco de Dados SQL](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
 
 Para obter mais informações sobre como se preparar para eventos de manutenção planejada em seu banco de dados SQL do Azure, consulte [planejamento de eventos de manutenção do Azure no Banco de Dados SQL do Azure](sql-database-planned-maintenance.md).
 

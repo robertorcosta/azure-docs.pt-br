@@ -1,5 +1,5 @@
 ---
-title: Sobre o ExpressRoute Direct – Azure | Microsoft Docs
+title: Sobre o Azure ExpressRoute Direct
 description: Esta página fornece uma visão geral do ExpressRoute Direct
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 916175401cd993392094b2bb16f8fc8746a4d2a8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123394"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083600"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
@@ -22,7 +21,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
 Os principais recursos que o ExpressRoute Direct fornece incluem, mas não estão limitados a:
 
 * Ingestão de dados em massa em serviços como Armazenamento e o Cosmos DB
-* Isolamento físico para setores regulamentados e que requerem conectividade dedicada e isolada, como: bancos, governo e varejo
+* Isolamento físico para indústrias que são regulamentadas e exigem conectividade dedicada e isolada, como: bancos, governo e varejo
 * Controle granular de distribuição de circuito com base em unidade de negócios
 
 ## <a name="onboard-to-expressroute-direct"></a>Integração ao ExpressRoute Direct
@@ -73,8 +72,8 @@ O ExpressRoute Direct dá suporte a cenários de ingestão de dados em massa no 
     * EtherType = 0x8100
     * É necessário adicionar a tag VLAN externa (STAG) com base na ID de VLAN especificada pela Microsoft- *aplicável somente em QinQ*
     * Deve oferecer suporte a várias sessões BGP (VLANs) por porta e dispositivo
-    * Conectividade IPv4 e IPv6. *Para IPv6, nenhuma subinterface adicional será criada. O endereço IPv6 será adicionado à subinterface*existente. 
-    * Opcional: Suporte a [BFD (detecção de encaminhamento bidirecional)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , que é configurado por padrão em todos os emparelhamentos privados em circuitos do ExpressRoute
+    * Conectividade IPv4 e IPv6. *Para IPv6, nenhuma subinterface adicional será criada. O endereço IPv6 será adicionado à subinterface existente*. 
+    * Opcional: suporte a [BFD (detecção de encaminhamento bidirecional)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , que é configurado por padrão em todos os emparelhamentos privados em circuitos do ExpressRoute
 
 ## <a name="vlan-tagging"></a>Marcação de VLAN
 
@@ -84,11 +83,11 @@ O ExpressRoute Direct dá suporte à marcação de VLAN QinQ e Dot1Q.
 
 * **Marcação de VLAN Dot1Q** permite a marcação de uma única VLAN com base no par de portas do ExpressRoute Direct. Uma marca C usada em um emparelhamento precisa ser exclusiva em todos os circuitos e emparelhamentos do par de portas do ExpressRoute Direct.
 
-## <a name="workflow"></a>Fluxo de Trabalho
+## <a name="workflow"></a>Fluxo de trabalho
 
-[![modelo](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[fluxo de trabalho ![](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
-## <a name="sla"></a>SLA
+## <a name="sla"></a>Contrato de Nível de Serviço
 
 O ExpressRoute Direct fornece o mesmo SLA de nível empresarial com conexões redundantes ativas/ativas à rede global da Microsoft. A infraestrutura do ExpressRoute é redundante e a conectividade com a rede global da Microsoft é redundante, diversificada e pode ser dimensionada de acordo com os requisitos do cliente. 
 

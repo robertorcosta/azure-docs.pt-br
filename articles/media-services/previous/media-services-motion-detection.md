@@ -14,19 +14,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: c319b3e53f550e56fbf4f655cb9cfa43326f9c72
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: fd31528325ddbe913333bc228fc3847242abcd24
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882419"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083748"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detectar movimentos com o Azure Media Analytics
+ 
+## <a name="overview"></a>Visão geral
 
-> [!IMPORTANT]
-> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
-
-## <a name="overview"></a>Visão Geral
 O MP (processador de mídia) **Azure Media Motion Detector** permite a identificação eficiente de seções de interesse em um vídeo longo e rotineiro. A detecção de movimento pode ser usada em sequências de imagens estáticas para identificar seções do vídeo onde ocorrem movimentos. Ela gera um arquivo JSON contendo metadados com carimbos de hora e a região delimitadora onde o evento ocorreu.
 
 Essa tecnologia, destinada à segurança de feeds de vídeo, é capaz de categorizar o movimento em eventos relevantes e falsos positivos, como mudanças de iluminação e sombras. Isso permite a geração de alertas de segurança por meio de feeds da câmera, sem gerar incontáveis eventos irrelevantes, além de permitir a extração de momentos de interesse dos vídeos de vigilância longos.
@@ -41,10 +39,10 @@ Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV
 ## <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Quando você criar uma tarefa com o **Azure Media Motion Detector**, deverá especificar uma predefinição de configuração. 
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 Você pode usar os seguintes parâmetros:
 
-| name | Opções | Descrição | Padrão |
+| NOME | Opções | DESCRIÇÃO | Padrão |
 | --- | --- | --- | --- |
 | sensitivityLevel |Cadeia de caracteres: 'low', 'medium', 'high' |Define o nível de sensibilidade ao qual os movimentos são relatados. Ajuste para ajustar o número de falsos positivos. |'medium' |
 | frameSamplingValue |Número inteiro positivo |Define a frequência na qual o algoritmo é executado. 1 é igual a cada quadro, 2 significa cada segundo quadro, e assim por diante. |1 |
@@ -97,7 +95,7 @@ A API do Motion Detector fornecerá indicadores quando houver objetos em movimen
 
 A tabela a seguir descreve os elementos do arquivo JSON de saída:
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | --- | --- |
 | version |Refere-se à versão da API de Vídeo. A versão atual é 2. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
@@ -110,10 +108,10 @@ A tabela a seguir descreve os elementos do arquivo JSON de saída:
 | events |Cada fragmento de evento contém o movimento detectado dentro dessa duração. |
 | type |Na versão atual, essa opção sempre será “2” para movimentos genéricos. Esse rótulo dá a flexibilidade às APIs de Vídeo para categorizar o movimento em futuras versões. |
 | regionId |Conforme explicado acima, isso sempre será 0 nesta versão. Esse rótulo oferece à API de Vídeo a flexibilidade de encontrar o movimento em várias regiões em versões futuras. |
-| regiões |Refere-se à área no vídeo onde você se preocupa com movimento. <br/><br/>-"id" representa a área de região – nesta versão há apenas uma, ID 0. <br/>-"type" representa a forma da região em que você se preocupa com o movimento. Atualmente, "retângulo" e "polígono" têm suporte.<br/> Se você tiver especificado "retângulo", a região terá dimensões em X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY do lado superior esquerdo da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixos em 0, 0 e 1, 1. <br/>Se você tiver especificado "polígono", a região terá dimensões em pontos. <br/> |
+| regions |Refere-se à área no vídeo onde você se preocupa com movimento. <br/><br/>-"id" representa a área de região – nesta versão há apenas uma, ID 0. <br/>-"type" representa a forma da região em que você se preocupa com o movimento. Atualmente, "retângulo" e "polígono" têm suporte.<br/> Se você tiver especificado "retângulo", a região terá dimensões em X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY do lado superior esquerdo da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixos em 0, 0 e 1, 1. <br/>Se você tiver especificado "polígono", a região terá dimensões em pontos. <br/> |
 | fragmentos |Os metadados são agrupados em segmentos diferentes, chamados fragmentos. Cada fragmento contém um início, uma duração, um número de intervalo e evento(s). Um fragmento sem eventos significa que nenhum movimento foi detectado durante essa hora de início e duração. |
 | colchetes [] |Cada colchete representa um intervalo no evento. Colchetes vazios para esse intervalo significam que nenhum movimento foi detectado. |
-| Locais |Essa nova entrada em eventos lista o local onde ocorreu o movimento. Isso é mais específico do que as zonas de detecção. |
+| locais |Essa nova entrada em eventos lista o local onde ocorreu o movimento. Isso é mais específico do que as zonas de detecção. |
 
 O seguinte exemplo JSON mostra a saída:
 

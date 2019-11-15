@@ -1,20 +1,18 @@
 ---
-title: Configurar a recuperação de desastre para implantação de aplicativos do SAP NetWeaver de várias camada com o Azure Site Recovery | Microsoft Docs
+title: Configurar a recuperação de desastre do SAP NetWeaver com o Azure Site Recovery
 description: Este artigo descreve como configurar a recuperação de desastre para implantações de aplicativos SAP NetWeaver usando o Azure Site Recovery.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65793683"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083781"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo do SAP NetWeaver de várias camadas
 
@@ -28,7 +26,7 @@ Com o Site Recovery, você pode:
 
 Este artigo descreve como proteger as implantações de aplicativos SAP NetWeaver usando o [Azure Site Recovery](site-recovery-overview.md). O artigo aborda as melhores práticas para proteger uma implantação do SAP NetWeaver de três camadas no Azure por meio da replicação para outro datacenter do Azure usando o Site Recovery. Ele descreve os cenário e as configurações com suporte, e como executar failovers de teste (simulações de recuperação de desastre) e failovers reais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar, certifique-se de que você sabe fazer as tarefas a seguir:
 
 * [Replicar uma máquina virtual no Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -80,7 +78,7 @@ Para dar suporte ao ambiente de cluster de failover, a [SIOS DataKeeper Cluster 
 
 Outra maneira de lidar com o clustering é implementando um cluster de compartilhamento de arquivos. Recentemente, a [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) modificou o padrão de implantação do Central Services para acessar os diretórios globais /sapmnt por meio de um caminho UNC. No entanto, ainda é recomendável garantir que o compartilhamento UNC /sapmnt seja altamente disponível. Isso pode ser feito na instância do Central Services usando um Cluster de Failover do Windows Server com SOFS (Servidor de Arquivos de Escalabilidade Horizontal) e o recurso S2D (Espaços de Armazenamento Diretos) no Windows Server 2016. 
  > [!NOTE]
- > No momento, o suporte à recuperação de Site do Azure falhar apenas ponto consistente com a replicação de máquinas virtuais usando o nó de passivo e direta de espaços de armazenamento do SIOS Datakeeper
+ > Atualmente Azure Site Recovery suporte apenas à replicação de ponto consistente de falha de máquinas virtuais usando espaços de armazenamento diretos e o nó passivo do SIOS datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>Considerações de recuperação de desastres
@@ -132,7 +130,7 @@ Um plano de recuperação dá suporte à sequência de várias camadas em um apl
 
 
 ### <a name="add-scripts-to-the-recovery-plan"></a>Adicionar scripts ao plano de recuperação
-Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover ou durante o teste de failover para que seus aplicativos funcionem corretamente. Você pode automatizar algumas operações após o failover. Por exemplo, você pode atualizar a entrada DNS e alterar associações e conexões adicionando scripts correspondentes ao plano de recuperação.
+Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover ou durante o teste de failover para que seus aplicativos funcionem corretamente. É possível automatizar algumas operações pós-failover. Por exemplo, você pode atualizar a entrada DNS e alterar associações e conexões adicionando scripts correspondentes ao plano de recuperação.
 
 
 Você pode implantar os scripts do Azure Site Recovery mais comumente usados em sua conta de automação clicando no botão 'Implantar no Azure' abaixo. Quando você estiver usando qualquer script publicado, verifique se seguiu as diretrizes no script.
@@ -166,5 +164,5 @@ Para obter mais informações, consulte [Failover de teste para Azure no Site Re
 Para obter mais informações, consulte [Failover no Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre como criar uma solução de recuperação de desastre para implantações do SAP NetWeaver usando o Site Recovery, confira o white paper para download [SAP NetWeaver: Criando uma solução de recuperação de desastre com o Azure Site Recovery](https://aka.ms/asr_sap). O white paper aborda as recomendações para várias arquiteturas do SAP, lista de aplicativos com suporte e tipos de VM para SAP no Azure e descreve opções de planos de teste para a solução de recuperação de desastre.
+* Para saber mais sobre como criar uma solução de recuperação de desastre para implantações do SAP NetWeaver usando o Site Recovery, confira o white paper para download [SAP NetWeaver: criando uma solução de recuperação de desastre com o Azure Site Recovery](https://aka.ms/asr_sap). O white paper aborda as recomendações para várias arquiteturas do SAP, lista de aplicativos com suporte e tipos de VM para SAP no Azure e descreve opções de planos de teste para a solução de recuperação de desastre.
 * Saiba mais sobre [como replicar outras cargas de trabalho](site-recovery-workload.md) usando o Site Recovery.

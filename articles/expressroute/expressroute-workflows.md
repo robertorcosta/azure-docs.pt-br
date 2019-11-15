@@ -1,5 +1,5 @@
 ---
-title: 'Fluxos de trabalho de configuração do circuito - ExpressRoute: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: fluxos de trabalho de configuração de circuito'
 description: Esta página mostra os fluxos de trabalho para configurar o circuito do ExpressRoute e os emparelhamentos
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ae6c2b7257ee6a8184f3a5bb002f24cb75a86d67
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123374"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083335"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para provisionamento e estados do circuito
 Esta página fornece uma orientação de alto nível pelos fluxos de trabalho de provisionamento do serviço e de configuração do roteamento.
@@ -105,9 +104,9 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Configurar sua conexão do ExpressRoute.
+* Configurar sua conexão da Rota Expressa.
   
   * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Configurar o roteamento](expressroute-howto-routing-arm.md)
-  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
+  * [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
 

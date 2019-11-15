@@ -1,5 +1,5 @@
 ---
-title: Implantar o servidor de configuração para a recuperação após desastres do VMware com o Azure Site Recovery | Microsoft Docs
+title: Implantar o servidor de configuração no Azure Site Recovery
 description: Este artigo descreve como implantar um servidor de configuração para a recuperação após desastres do VMware com o Azure Site Recovery
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 92b51b3955833bac6f87457a19e4d6359600a25a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f2e9387af3c5922ec5eb0dded3d0d1d4bcee6a01
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747847"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084135"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
@@ -26,7 +26,7 @@ Você implanta um servidor de configuração local quando você usa o [Azure Sit
 
 O servidor de configuração deve ser configurado como uma VM VMware altamente disponível com determinados requisitos mínimos de hardware e de dimensionamento. Para uma implantação conveniente e fácil, o Site Recovery fornece um modelo de OVA (aplicativo de virtualização aberta) para download para configurar o servidor de configuração que está em conformidade com todos os requisitos obrigatórios listados aqui.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os requisitos mínimos de hardware para um servidor de configuração são resumidos nas seções a seguir.
 

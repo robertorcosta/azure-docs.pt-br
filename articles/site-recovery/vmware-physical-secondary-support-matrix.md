@@ -1,19 +1,19 @@
 ---
-title: Matriz de suporte para recuperação de desastre de VMs VMware ou servidores físicos em um site VMware secundário com o Azure Site Recovery | Microsoft Docs
+title: Suporte para recuperação de desastres do VMware/físico em um site secundário com Azure Site Recovery
 description: Resume o suporte para recuperação de desastres de VMs VMware e servidores físicos para um site secundário com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255194"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082184"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para um site secundário
 
@@ -33,8 +33,8 @@ O cenário de Site Recovery para replicação entre data centers físicos ou VMw
 Parceiros existentes podem integrar o cenário de novos clientes até o término do suporte.
 - Durante a 2018 e 2019, duas atualizações serão lançadas:
 
-    - Atualização 7: Corrige problemas de configuração e conformidade de rede e dá suporte a TLS 1.2.
-    - Atualização 8: Adiciona suporte para sistemas operacionais Linux RHEL/CentOS 7.3/7.4/7.5 e para SUSE 12
+    - Atualização 7: Corrige problemas de configuração e a conformidade de rede e fornece suporte a TLS 1.2.
+    - Atualização 8: Adiciona o suporte para os sistemas operacionais Linux RHEL/CentOS 7.3/7.4/7.5 e para o SUSE 12
     - Após a Atualização 8, nenhuma outra atualização será lançada. Haverá suporte de hotfix limitado para os sistemas operacionais adicionados na Atualização 8 e correções de bugs com base no melhor esforço.
 
 ## <a name="host-servers"></a>Servidores de host
@@ -61,22 +61,22 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 - Sistema de arquivos (EXT3, ETX4, ReiserFS, XFS).
 - Software Multipath – Mapeador de dispositivos.
 - Gerenciador de volumes (LVM2).
-- Não há suporte a servidores físicos com o armazenamento de controlador HP CCISS.
+- Não há suporte para servidores físicos com o armazenamento do controlador HP CCISS.
 - O sistema de arquivos ReiserFS só tem suporte no SUSE Linux Enterprise Server 11 SP3.
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - VM Host/Convidada
 
 **Configuração** | **Com suporte**  
 --- | --- 
-Host - Agrupamento NIC | Sim 
-Host - VLAN | Sim 
-Host - IPv4 | Sim 
+Host - Agrupamento NIC | sim 
+Host - VLAN | sim 
+Host - IPv4 | sim 
 Host - IPv6 | Não 
 VM Convidada - Agrupamento NIC | Não
-VM Convidada - IPv4 | Sim
+VM Convidada - IPv4 | sim
 VM Convidada - IPv6 | Não
-VM convidada – Windows/Linux – Endereço IP estático | Sim
-VM Convidada - Multi-NIC | Sim
+VM convidada – Windows/Linux – Endereço IP estático | sim
+VM Convidada - Multi-NIC | sim
 
 
 ## <a name="storage"></a>Armazenamento
@@ -85,29 +85,29 @@ VM Convidada - Multi-NIC | Sim
 
 **Armazenamento (host)** | **Com suporte** 
 --- | --- 
-NFS | Sim 
+NFS | sim 
 SMB 3.0 | N/D 
-SAN (ISCSI) | Sim 
-Múltiplos caminhos (MPIO) | Sim 
+SAN (ISCSI) | sim 
+Múltiplos caminhos (MPIO) | sim 
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
 **Configuração** | **Com suporte** 
 --- | --- 
-VMDK | Sim 
+VMDK | sim 
 VHD/VHDX | N/D 
 VM ger 2 | N/D 
-Disco de cluster compartilhado | Sim 
+Disco de cluster compartilhado | sim 
 Disco criptografado | Não 
-UEFI| Sim 
+UEFI| sim 
 NFS | Não 
 SMB 3.0 | Não 
-RDM | Sim 
-Disco > 1 TB | Sim 
-Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim 
+RDM | sim 
+Disco > 1 TB | sim 
+Volume com discos distribuídos > 1 TB<br/><br/> LVM | sim 
 Espaços de Armazenamento | Não 
-Adição/remoção de disco a quente | Sim 
-Exclusão de disco | Sim 
+Adição/remoção de disco a quente | sim 
+Exclusão de disco | sim 
 Múltiplos caminhos (MPIO) | N/D 
 
 ## <a name="vaults"></a>Cofres

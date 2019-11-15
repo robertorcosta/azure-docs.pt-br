@@ -1,5 +1,5 @@
 ---
-title: Adicionar um script a um plano de recuperação para recuperação de desastre com o Azure Site Recovery | Microsoft Docs
+title: Adicionar um script a um plano de recuperação no Azure Site Recovery
 description: Saiba como adicionar um script do VMM a um plano de recuperação para recuperação de desastre de VMs do Hyper-V em nuvens do VMM.
 author: rajani-janaki-ram
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64700454"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084869"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicionar um script a um plano de recuperação
 
@@ -20,7 +20,7 @@ Este artigo descreve como criar um script do System Center VMM (Virtual Machine 
 
 Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Você pode usar scripts do PowerShell em seus planos de recuperação. Para poder ser acessado no plano de recuperação, você deve criar o script e colocá-lo na biblioteca do VMM. Leve em conta o seguinte enquanto você escreve o script:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Requisitos de NAT para circuitos - ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: requisitos de NAT para circuitos'
 description: Esta página fornece os requisitos detalhados para a configuração e o gerenciamento de NAT para circuitos do ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: d2879b6830a5c793358cc2200485ed971c5f3c48
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123319"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083373"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar NATs. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de NAT como um serviço gerenciado. Verifique se seu provedor de conectividade oferece esse serviço. Caso contrário, você deverá atender aos requisitos descritos abaixo. 
@@ -69,7 +68,7 @@ Não há restrições com relação ao tamanho do prefixo IP de NAT anunciado po
 ## <a name="next-steps"></a>Próximas etapas
 * Consulte os requisitos para o [Roteamento](expressroute-routing.md) e [QoS](expressroute-qos.md).
 * Para obter informações sobre o fluxo de trabalho, consulte [Fluxos de trabalho de provisionamento e estados do circuito do ExpressRoute](expressroute-workflows.md).
-* Configurar sua conexão do ExpressRoute.
+* Configurar sua conexão da Rota Expressa.
   
   * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurar o roteamento](expressroute-howto-routing-portal-resource-manager.md)

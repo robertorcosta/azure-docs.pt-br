@@ -1,18 +1,18 @@
 ---
-title: Sobre o mapeamento de rede para a recuperação de desastres da VM do Hyper-V (com VMM) no Azure com Site Recovery
+title: Sobre o mapeamento de rede do Hyper-V (com VMM) com Site Recovery
 description: Descreve como preparar o mapeamento de rede para recuperação de desastre de VMs do Hyper-V (gerenciadas em nuvens de VMM) no Azure com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 637f327b40341ac04f37baf9e43f136a0315b17f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813662"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082568"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparar o mapeamento da rede para recuperação de desastre da VM do Hyper-V no Azure
 
@@ -55,10 +55,10 @@ A seguir, um exemplo para ilustrar esse mecanismo. Vamos usar uma organização 
 
 **Localidade** | **Servidor VMM** | **Redes VM** | **Mapeado para**
 ---|---|---|---
-Nova York | VMM-NewYork| VMNetwork1-NewYork | Mapeado para VMNetwork1-Chicago
- |  | VMNetwork2-NewYork | Sem mapeamento
+Nova Iorque | VMM-NewYork| VMNetwork1-NewYork | Mapeado para VMNetwork1-Chicago
+ |  | VMNetwork2-NewYork | Não mapeado
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapeado para VMNetwork1-NewYork
- | | VMNetwork2-Chicago | Sem mapeamento
+ | | VMNetwork2-Chicago | Não mapeado
 
 Neste exemplo:
 
@@ -73,14 +73,14 @@ Veja como as nuvens do VMM são configuradas em nosso exemplo de organização e
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>N/A</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
-SilverCloud2 | <p>N/A</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+GoldCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 ### <a name="logical-and-vm-network-settings"></a>Configurações de rede lógica e de VM
 
 **Localidade** | **Rede lógica** | **Rede VM associada**
 ---|---|---
-Nova York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+Nova Iorque | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
  | LogicalNetwork2Chicago | VMNetwork2-Chicago
 
@@ -88,7 +88,7 @@ Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
 
 Com base nessas configurações, ao selecionar a rede VM de destino, a tabela a seguir mostra as opções disponíveis.
 
-**Seleção** | **Nuvem protegida** | **Protegendo a nuvem** | **Rede de destino disponível**
+**Selecionar** | **Nuvem protegida** | **Protegendo a nuvem** | **Rede de destino disponível**
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Disponível
  | GoldCloud1 | GoldCloud2 | Disponível

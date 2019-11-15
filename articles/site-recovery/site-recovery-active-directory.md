@@ -1,20 +1,18 @@
 ---
-title: Configurar a recuperação de desastres para o Active Directory e o DNS com o Azure Site Recovery | Microsoft Docs
+title: Configurar a recuperação de desastre do DNS/Active Directory com Azure Site Recovery
 description: Este artigo descreve como implementar uma solução de recuperação de desastre para o Active Directory e DNS usando o Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038645"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084595"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres para Active Directory e DNS
 
@@ -24,7 +22,7 @@ Aplicativos empresariais como o SharePoint, o Dynamics AX e o SAP dependem do Ac
 
 Este artigo explica como criar uma solução de recuperação de desastre para o Active Directory. Ele inclui os pré-requisitos e as instruções de failover. Antes de iniciar, é necessários que você esteja familiarizado com o Active Directory e o Azure Site Recovery.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Se você estiver replicando para o Azure, [prepare os recursos do Azure](tutorial-prepare-azure.md), incluindo uma assinatura, uma Rede Virtual do Microsoft Azure, uma conta de armazenamento e um cofre dos Serviços de Recuperação.
 * Examine os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) de todos os componentes.
@@ -106,9 +104,9 @@ Ao iniciar um failover de teste, não inclua todos os controladores de domínio 
 Começando com o Windows Server 2012, [defesas adicionais foram inseridas no Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Essas defesas ajudam a proteger os controladores de domínio virtualizados contra reversões de USN, caso a plataforma do hipervisor subjacente ofereça suporte a **VM-GenerationID**. O Azure dá suporte a **VM-GenerationID**. Por isso, os controladores de domínio que executam o Windows Server 2012 ou posterior nas máquinas virtuais do Azure têm essas proteções adicionais.
 
 
-Quando **VM-GenerationID** é redefinido, o valor **InvocationID** do banco de dados AD DS também é redefinido. Além disso, o pool RID é descartado e a pasta sysvol é marcada como não autoritativo. Para saber mais, confira [Introdução à virtualização do Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [Virtualização segura do DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+Quando **VM-GenerationID** é redefinido, o valor **InvocationID** do banco de dados AD DS também é redefinido. Além disso, o pool RID é Descartado e a pasta SYSVOL é marcada como não autoritativa. Para saber mais, confira [Introdução à virtualização do Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [Virtualização segura do DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-O failover do Azure pode causar a redefinição de **VM-GenerationID**. A redefinição de **VM-GenerationID** dispara garantias adicionais quando a máquina virtual do controlador de domínio é iniciada no Azure. Isso pode resultar em uma *atraso significativo* no que está sendo capaz de entrar máquina virtual do controlador de domínio.
+O failover do Azure pode causar a redefinição de **VM-GenerationID**. A redefinição de **VM-GenerationID** dispara garantias adicionais quando a máquina virtual do controlador de domínio é iniciada no Azure. Isso pode resultar em um *atraso significativo* na capacidade de entrar na máquina virtual do controlador de domínio.
 
 Como esse controlador de domínio é usado apenas um failover de teste, as defesas da virtualização não são necessárias. Para garantir que o valor **VM-GenerationID** da máquina virtual do controlador de domínio não mude, você pode alterar o valor DWORD a seguir para **4** no controlador de domínio local:
 
@@ -128,11 +126,11 @@ Se as defesas da virtualização forem disparadas após um failover de teste, vo
 
     ![Alteração da ID de Invocação](./media/site-recovery-active-directory/Event1109.png)
 
-* Pasta SYSVOL e Netlogon não está disponíveis.
+* A pasta SYSVOL e os compartilhamentos NETLOGON não estão disponíveis.
 
-    ![Compartilhamento da pasta SYSVOL](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Compartilhamento de pasta SYSVOL](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![Pasta do NtFrs sysvol](./media/site-recovery-active-directory/Event13565.png)
+    ![Pasta do SYSVOL do NtFrs](./media/site-recovery-active-directory/Event13565.png)
 
 * Os bancos de dados DFSR são excluídos.
 
@@ -146,7 +144,7 @@ Se as defesas da virtualização forem disparadas após um failover de teste, vo
 >
 >
 
-1. No prompt de comando, execute o seguinte comando para verificar se as pastas sysvol e NETLOGON estão compartilhadas:
+1. No prompt de comando, execute o seguinte comando para verificar se a pasta SYSVOL e a pasta NETLOGON estão compartilhadas:
 
     `NET SHARE`
 
@@ -165,8 +163,8 @@ Se as condições anteriores forem atendidas, é provável que o controlador de 
 1. Faça uma restauração autoritativa do controlador de domínio. Lembre-se das informações a seguir:
     * Embora não recomendemos a [replicação FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), se você usar a replicação FRS, siga as etapas para uma restauração autoritativa. O processo é descrito em [Como usar a chave do Registro BurFlags para reinicializar o serviço de replicação de arquivos](https://support.microsoft.com/kb/290762).
 
-        Para obter mais informações sobre BurFlags, consulte a postagem no blog [D2 e D4: Para que serve?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Se você usar a replicação DFSR, conclua as etapas de uma restauração autoritativa. O processo é descrito em [forçar uma sincronização autoritativa e não autoritativa para a pasta sysvol replicado por DFSR (como "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
+        Para obter mais informações sobre BurFlags, consulte a postagem no blog [D2 e D4: para que servem?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+    * Se você usar a replicação DFSR, conclua as etapas de uma restauração autoritativa. O processo é descrito em [forçar uma sincronização autoritativa e não autoritativa para a pasta SYSVOL replicada pelo DFSR (como "D4/D2" para o FRS)](https://support.microsoft.com/kb/2218556).
 
         Você também pode usar as funções do PowerShell. Para obter mais informações, consulte [Funções do PowerShell de restauração autoritativa/não autoritativa de DFSR-SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
@@ -174,7 +172,7 @@ Se as condições anteriores forem atendidas, é provável que o controlador de 
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
-    Para obter mais informações, consulte [Solução de problemas de ID do Evento DNS 4013: O servidor DNS não pôde carregar as zonas DNS integradas ao AD](https://support.microsoft.com/kb/2001093).
+    Para obter mais informações, consulte [Solucionar problemas da ID do evento 4013 do DNS: O servidor DNS não conseguiu carregar zonas DNS integradas ao AD](https://support.microsoft.com/kb/2001093).
 
 3. Desabilite o requisito de ter um servidor de catálogo global disponível para validar o logon do usuário. Para isso, no controlador de domínio local, defina a seguinte chave do Registro como **1**. Se esse DWORD não existir, você poderá criá-lo no nó **Lsa**.
 

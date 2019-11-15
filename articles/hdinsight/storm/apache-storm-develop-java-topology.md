@@ -2,19 +2,18 @@
 title: Exemplo de topologia Java do Apache Storm – Azure HDInsight
 description: Aprenda a criar topologias Apache Storm em Java criando um exemplo de topologia de contagem de palavras.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-keywords: apache storm, exemplo de apache storm, storm java, exemplo de topologia storm
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 41ed51fc0cec9843525275613cca211d2e1bf409
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 75100b47ddf8f36ed9a22ff3073c439f8ad9040b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018631"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083287"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia Apache Storm em Java
 
@@ -25,13 +24,14 @@ Depois de concluir as etapas neste documento, você pode implantar a topologia p
 > [!NOTE]  
 > Uma versão completa dos exemplos de topologia do Storm criados neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks)
 
 * [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) de acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
 
 ## <a name="test-environment"></a>Ambiente de teste
+
 O ambiente usado para este artigo foi um computador que executa o Windows 10.  Os comandos foram executados em um prompt de comando e os vários arquivos foram editados com o bloco de notas.
 
 Em um prompt de comando, insira os comandos abaixo para criar um ambiente de trabalho:
@@ -41,7 +41,7 @@ mkdir C:\HDI
 cd C:\HDI
 ```
 
-## <a name="create-a-maven-project"></a>Criar um projeto Maven
+## <a name="create-a-maven-project"></a>Criar um projeto do Maven
 
 Digite o seguinte comando para criar um projeto Maven chamado **WordCount**:
 
@@ -52,15 +52,15 @@ cd WordCount
 mkdir resources
 ```
 
-Esse comando cria um diretório chamado `WordCount` no local atual, que contém um projeto básico do Maven. O segundo comando altera o diretório de trabalho atual `WordCount`para. O terceiro comando cria um novo diretório, `resources`, que será usado posteriormente.  O diretório `WordCount` contém os seguintes itens:
+Esse comando cria um diretório chamado `WordCount` no local atual, que contém um projeto básico do Maven. O segundo comando altera o diretório de trabalho atual para `WordCount`. O terceiro comando cria um novo diretório, `resources`, que será usado posteriormente.  O diretório `WordCount` contém os seguintes itens:
 
-* `pom.xml`: Contém configurações para o projeto Maven.
-* `src\main\java\com\microsoft\example`: Contém o código do aplicativo.
-* `src\test\java\com\microsoft\example`: Contém testes para o aplicativo.  
+* `pom.xml`: contém configurações para o projeto Maven.
+* `src\main\java\com\microsoft\example`: contém o código do aplicativo.
+* `src\test\java\com\microsoft\example`: contém testes para o seu aplicativo.  
 
 ### <a name="remove-the-generated-example-code"></a>Remover o exemplo de código gerado
 
-Exclua os arquivos `AppTest.java`de teste e de aplicativo `App.java` gerados e insira os comandos abaixo:
+Exclua os arquivos de teste e de aplicativo gerados `AppTest.java`e `App.java` inserindo os comandos abaixo:
 
 ```cmd
 DEL src\main\java\com\microsoft\example\App.java
@@ -71,13 +71,13 @@ DEL src\test\java\com\microsoft\example\AppTest.java
 
 Como o HDInsight tem base no HDP (Hortonworks Data Platform), recomendamos o uso do repositório Hortonworks para baixar dependências de seus projetos do Apache Storm.  
 
-Abra `pom.xml` inserindo o comando a seguir:
+Abra `pom.xml` inserindo o comando abaixo:
 
 ```cmd
 notepad pom.xml
 ```
 
-Em seguida, adicione o seguinte XML `<url> https://maven.apache.org</url>` após a linha:
+Em seguida, adicione o seguinte XML após a linha de `<url> https://maven.apache.org</url>`:
 
 ```xml
 <repositories>
@@ -118,7 +118,7 @@ Em seguida, adicione o seguinte XML `<url> https://maven.apache.org</url>` após
 
 ## <a name="add-properties"></a>Adicionar propriedades
 
-O Maven permite que você defina valores de nível de projeto chamados propriedades. No `pom.xml`, adicione o seguinte texto após a `</repositories>` linha:
+O Maven permite que você defina valores de nível de projeto chamados propriedades. Em `pom.xml`, adicione o seguinte texto após a linha de `</repositories>`:
 
 ```xml
 <properties>
@@ -134,7 +134,7 @@ Agora você pode usar esse valor em outras seções do `pom.xml`. Por exemplo, a
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-Adicione uma dependência para componentes do Storm. No `pom.xml`, adicione o seguinte texto `<dependencies>` na seção:
+Adicione uma dependência para componentes do Storm. Em `pom.xml`, adicione o seguinte texto na seção `<dependencies>`:
 
 ```xml
 <dependency>
@@ -153,7 +153,7 @@ No momento da compilação, o Maven usa essas informações para pesquisar `stor
 
 ## <a name="build-configuration"></a>Configuração de compilação
 
-Plug-ins do Maven permitem que você personalize os estágios de compilação do projeto. Por exemplo, como o projeto é compilado ou como compactá-lo em um arquivo JAR. No `pom.xml`, adicione o texto a seguir diretamente acima `</project>` da linha.
+Plug-ins do Maven permitem que você personalize os estágios de compilação do projeto. Por exemplo, como o projeto é compilado ou como compactá-lo em um arquivo JAR. Em `pom.xml`, adicione o texto a seguir diretamente acima da linha de `</project>`.
 
 ```xml
 <build>
@@ -164,14 +164,14 @@ Plug-ins do Maven permitem que você personalize os estágios de compilação do
 </build>
 ```
 
-Esta seção será usada para adicionar plug-ins, recursos e outras opções de configuração de compilação. Para obter uma referência completa do `pom.xml` arquivo, consulte [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html).
+Esta seção será usada para adicionar plug-ins, recursos e outras opções de configuração de compilação. Para obter uma referência completa do arquivo de `pom.xml`, consulte [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html).
 
 ### <a name="add-plug-ins"></a>Adicionar plug-ins
 
 * **Plug-in exec Maven**
 
     Para topologias Apache Storm implementadas em Java, o [plug-in Maven Exec](https://www.mojohaus.org/exec-maven-plugin/) é útil porque permite que você execute com facilidade a topologia localmente em seu ambiente de desenvolvimento. Adicione o seguinte à seção `<plugins>` do arquivo `pom.xml` para incluir o plug-in Exec Maven:
-    
+
     ```xml
     <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -179,9 +179,9 @@ Esta seção será usada para adicionar plug-ins, recursos e outras opções de 
         <version>1.6.0</version>
         <executions>
             <execution>
-            <goals>
-                <goal>exec</goal>
-            </goals>
+                <goals>
+                    <goal>exec</goal>
+                </goals>
             </execution>
         </executions>
         <configuration>
@@ -190,7 +190,7 @@ Esta seção será usada para adicionar plug-ins, recursos e outras opções de 
             <includePluginDependencies>false</includePluginDependencies>
             <classpathScope>compile</classpathScope>
             <mainClass>${storm.topology}</mainClass>
-            <cleanupDaemonThreads>false</cleanupDaemonThreads> 
+            <cleanupDaemonThreads>false</cleanupDaemonThreads>
         </configuration>
     </plugin>
     ```
@@ -198,35 +198,35 @@ Esta seção será usada para adicionar plug-ins, recursos e outras opções de 
 * **Plug-in do compilador Apache Maven**
 
     Outro plug-in útil é o [Plug-in do compilador Apache Maven](https://maven.apache.org/plugins/maven-compiler-plugin/), que é usado para alterar opções de compilação. Altere a versão Java que o Maven usa para a origem e o destino do seu aplicativo.
-    
+
   * Para HDInsight __3.4 ou anterior__, defina a versão Java de origem e de destino como __1.7__.
-    
+
   * Para HDInsight __3.5__, defina a versão Java de origem e de destino como __1.8__.
-    
-    Adicione o seguinte texto à seção `<plugins>` do arquivo `pom.xml` para incluir o plug-in Compilador do Apache Maven. Este exemplo especifica a versão 1.8. Portanto, a versão do HDInsight de destino será a 3.5.
-    
-    ```xml
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-compiler-plugin</artifactId>
-      <version>3.3</version>
-      <configuration>
-      <source>1.8</source>
-      <target>1.8</target>
-      </configuration>
-    </plugin>
-    ```
+
+  Adicione o seguinte texto à seção `<plugins>` do arquivo `pom.xml` para incluir o plug-in Compilador do Apache Maven. Este exemplo especifica a versão 1.8. Portanto, a versão do HDInsight de destino será a 3.5.
+
+  ```xml
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
+    <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+    </configuration>
+  </plugin>
+  ```
 
 ### <a name="configure-resources"></a>Configurar recursos
 
-A seção de recursos permite que você inclua recursos que não são código, por exemplo, arquivos de configuração necessários aos componentes na topologia. Para este exemplo, adicione o texto a seguir na `<resources>` seção `pom.xml` do arquivo.
+A seção de recursos permite que você inclua recursos que não são código, por exemplo, arquivos de configuração necessários aos componentes na topologia. Para este exemplo, adicione o texto a seguir na seção `<resources>` do arquivo `pom.xml`. Em seguida, salve e feche o arquivo.
 
 ```xml
 <resource>
     <directory>${basedir}/resources</directory>
     <filtering>false</filtering>
     <includes>
-        <include>log4j2.xml</include>
+            <include>log4j2.xml</include>
     </includes>
 </resource>
 ```
@@ -237,17 +237,17 @@ Esse exemplo adiciona o diretório de recursos na raiz do projeto (`${basedir}`)
 
 Uma topologia Apache Storm baseada em Java consiste em três componentes que você deve criar (ou referenciar) como uma dependência.
 
-* **Spouts**: Lê dados de fontes externas e emite fluxos de dados para a topologia.
+* **Spouts**: lê dados de fontes externas e a emite fluxos de dados para a topologia.
 
-* **Bolts**: Executa o processamento em fluxos emitidos por spouts ou outros bolts e emite um ou mais fluxos.
+* **Bolts**: executa processamento em fluxos emitidos por spouts ou outros bolts e emite um ou mais fluxos.
 
-* **Topologia**: Define como os spouts e bolts são organizados e fornece o ponto de entrada para a topologia.
+* **Topologia**: define como os spouts e bolts são organizados e fornece o ponto de entrada para a topologia.
 
 ### <a name="create-the-spout"></a>Criar o spout
 
-Para reduzir os requisitos para configurar fontes de dados externas, o seguinte spout simplesmente emite sentenças aleatórias. É uma versão modificada de um spout fornecido com os [exemplos Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Embora essa topologia use apenas um spout, outras pessoas poderão ter vários que alimentam dados de origens diferentes na topologia.
+Para reduzir os requisitos para configurar fontes de dados externas, o seguinte spout simplesmente emite sentenças aleatórias. É uma versão modificada de um Spout que é fornecido com os [exemplos do Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Embora essa topologia use apenas um spout, outras pessoas poderão ter vários que alimentam dados de origens diferentes na topologia.
 
-Digite o comando a seguir para criar e abrir um novo `RandomSentenceSpout.java`arquivo:
+Digite o comando a seguir para criar e abrir um novo arquivo `RandomSentenceSpout.java`:
 
 ```cmd
 notepad src\main\java\com\microsoft\example\RandomSentenceSpout.java
@@ -320,22 +320,20 @@ public class RandomSentenceSpout extends BaseRichSpout {
 > [!NOTE]  
 > Para obter um exemplo de um spout que lê de uma fonte de dados externa, consulte um dos exemplos a seguir:
 >
-> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Um spout de exemplo que lê do Twitter.
-> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): Um spout que lê do Kafka.
-
+> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): um exemplo de Spout que lê do Twitter.
+> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): um Spout que lê de Kafka.
 
 ### <a name="create-the-bolts"></a>Criar os bolts
 
 Bolts manipulam o processamento de dados. Os bolts podem fazer qualquer coisa, por exemplo, computação, persistência ou conversar com componentes externos. Essa topologia usa dois bolts:
 
-* **SplitSentence**: Divide as sentenças emitidas pelo **RandomSentenceSpout** em palavras individuais.
+* **SplitSentence**: divide as sentenças emitidas por **RandomSentenceSpout** em palavras individuais.
 
-* **WordCount**: Conta quantas vezes cada palavra ocorreu.
-
+* **WordCount**: conta quantas vezes cada palavra ocorreu.
 
 #### <a name="splitsentence"></a>SplitSentence
 
-Digite o comando a seguir para criar e abrir um novo `SplitSentence.java`arquivo:
+Digite o comando a seguir para criar e abrir um novo arquivo `SplitSentence.java`:
 
 ```cmd
 notepad src\main\java\com\microsoft\example\SplitSentence.java
@@ -392,7 +390,7 @@ public class SplitSentence extends BaseBasicBolt {
 
 #### <a name="wordcount"></a>WordCount
 
-Digite o comando a seguir para criar e abrir um novo `WordCount.java`arquivo:
+Digite o comando a seguir para criar e abrir um novo arquivo `WordCount.java`:
 
 ```cmd
 notepad src\main\java\com\microsoft\example\WordCount.java
@@ -489,7 +487,7 @@ A imagem a seguir é um diagrama básico do grafo de componentes para esta topol
 
 ![diagrama mostrando a organização de spouts e bolts](./media/apache-storm-develop-java-topology/word-count-topology1.png)
 
-Para implementar a topologia, digite o comando a seguir para criar e abrir um novo `WordCountTopology.java`arquivo:
+Para implementar a topologia, digite o comando a seguir para criar e abrir um novo arquivo `WordCountTopology.java`:
 
 ```cmd
 notepad src\main\java\com\microsoft\example\WordCountTopology.java
@@ -561,7 +559,7 @@ public class WordCountTopology {
 
 ### <a name="configure-logging"></a>Configurar o registro em log
 
-O Storm usa o [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) para registrar informações em log. Se você não configurar o log, a topologia emitirá informações de diagnóstico. Para controlar o que é registrado `log4j2.xml` `resources` em log, crie um arquivo chamado no diretório digitando o comando a seguir:
+O Storm usa o [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) para registrar informações em log. Se você não configurar o registro em log, a topologia emitirá informações de diagnóstico. Para controlar o que é registrado em log, crie um arquivo chamado `log4j2.xml` no diretório `resources` digitando o comando a seguir:
 
 ```cmd
 notepad resources\log4j2.xml
@@ -572,19 +570,19 @@ Em seguida, copie e cole o texto XML abaixo no novo arquivo.  Em seguida, feche 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
-<Appenders>
-    <Console name="STDOUT" target="SYSTEM_OUT">
-        <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
-    </Console>
-</Appenders>
-<Loggers>
-    <Logger name="com.microsoft.example" level="trace" additivity="false">
-        <AppenderRef ref="STDOUT"/>
-    </Logger>
-    <Root level="error">
-        <Appender-Ref ref="STDOUT"/>
-    </Root>
-</Loggers>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.microsoft.example" level="trace" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Root level="error">
+            <Appender-Ref ref="STDOUT"/>
+        </Root>
+    </Loggers>
 </Configuration>
 ```
 
@@ -617,7 +615,7 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 Esse log de exemplo indica que a palavra 'and' foi emitida 113 vezes. A contagem continuará a crescer enquanto a topologia for executada, uma vez que o spout emite continuamente as mesmas sentenças.
 
-Há um intervalo de cinco segundos entre a emissão de palavras e as contagens. O componente **WordCount** está configurado para emitir informações somente quando chega uma tupla de escala. Ele solicita que as tuplas de escala sejam entregues somente a cada cinco segundos.
+Há um intervalo de 5 segundos entre a emissão de palavras e contagens. O componente **WordCount** está configurado para emitir informações somente quando chega uma tupla de escala. Ele solicita que as tuplas de escala sejam entregues somente a cada cinco segundos.
 
 ## <a name="convert-the-topology-to-flux"></a>Converter a topologia para Flux
 
@@ -630,13 +628,13 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
 > [!WARNING]  
 > Devido a um [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) com o Storm 1.0.1, será necessário instalar um [ambiente de desenvolvimento Storm](https://storm.apache.org/releases/current/Setting-up-development-environment.html) para executar topologias do Flux localmente.
 
-1. Anteriormente, `WordCountTopology.java` defini a topologia, mas não é necessária com o fluxo. Exclua o arquivo com o seguinte comando:
+1. Anteriormente, `WordCountTopology.java` definia a topologia, mas não é necessária com o fluxo. Exclua o arquivo com o seguinte comando:
 
     ```cmd
     DEL src\main\java\com\microsoft\example\WordCountTopology.java
     ```
 
-2. Digite o comando a seguir para criar e abrir um novo `topology.yaml`arquivo:
+1. Digite o comando a seguir para criar e abrir um novo arquivo `topology.yaml`:
 
     ```cmd
     notepad resources\topology.yaml
@@ -648,46 +646,46 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
     name: "wordcount"       # friendly name for the topology
 
     config:                 # Topology configuration
-      topology.workers: 1     # Hint for the number of workers to create
-
+           topology.workers: 1     # Hint for the number of workers to create
+  
     spouts:                 # Spout definitions
     - id: "sentence-spout"
-      className: "com.microsoft.example.RandomSentenceSpout"
-      parallelism: 1      # parallelism hint
+           className: "com.microsoft.example.RandomSentenceSpout"
+           parallelism: 1      # parallelism hint
 
     bolts:                  # Bolt definitions
     - id: "splitter-bolt"
-      className: "com.microsoft.example.SplitSentence"
-      parallelism: 1
-        
+           className: "com.microsoft.example.SplitSentence"
+           parallelism: 1
+
     - id: "counter-bolt"
-      className: "com.microsoft.example.WordCount"
-      constructorArgs:
-        - 10
-      parallelism: 1
+           className: "com.microsoft.example.WordCount"
+           constructorArgs:
+             - 10
+           parallelism: 1
 
     streams:                # Stream definitions
     - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-      from: "sentence-spout"       # The stream emitter
-      to: "splitter-bolt"          # The stream consumer
-      grouping:                    # Grouping type
-        type: SHUFFLE
-    
+           from: "sentence-spout"       # The stream emitter
+           to: "splitter-bolt"          # The stream consumer
+           grouping:                    # Grouping type
+             type: SHUFFLE
+
     - name: "Splitter -> Counter"
-      from: "splitter-bolt"
-      to: "counter-bolt"
-      grouping:
-        type: FIELDS
-        args: ["word"]           # field(s) to group on
+           from: "splitter-bolt"
+           to: "counter-bolt"
+           grouping:
+             type: FIELDS
+             args: ["word"]           # field(s) to group on
     ```
 
-3. Digite o comando a seguir para `pom.xml` abrir para fazer as revisões descritas abaixo:
+1. Insira o comando a seguir para abrir `pom.xml` para fazer as revisões descritas abaixo:
 
     ```cmd
     notepad pom.xml
     ```
 
-   * Adicione a nova dependência a seguir à seção `<dependencies>` :
+   1. Adicione a nova dependência a seguir à seção `<dependencies>` :
 
         ```xml
         <!-- Add a dependency on the Flux framework -->
@@ -698,7 +696,7 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
         </dependency>
         ```
 
-   * Adicione o plug-in a seguir à seção `<plugins>` . Este plug-in cuida da criação de um pacote (arquivo jar) para o projeto e aplica algumas transformações específicas ao Flux durante a criação do pacote.
+   1. Adicione o plug-in a seguir à seção `<plugins>` . Este plug-in cuida da criação de um pacote (arquivo jar) para o projeto e aplica algumas transformações específicas ao Flux durante a criação do pacote.
 
         ```xml
         <!-- build an uber jar -->
@@ -739,9 +737,9 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
         </plugin>
         ```
 
-   * Na seção **exec-Maven-plugin** `<configuration>` , `<mainClass>` altere o valor de de `${storm.topology}` para `org.apache.storm.flux.Flux`. Essa configuração permite que o Flux cuide da execução da topologia localmente no desenvolvimento.
+   1. Para a seção plug-in exec Maven, navegue até `<configuration>` > `<mainClass>` e altere `${storm.topology}` para `org.apache.storm.flux.Flux`. Essa configuração permite que o Flux cuide da execução da topologia localmente no desenvolvimento.
 
-   * Na seção, adicione o seguinte a `<includes>`. `<resources>` Esse XML inclui o arquivo YAML que define a topologia como parte do projeto.
+   1. Na seção `<resources>`, adicione o seguinte a `<includes>`. Esse XML inclui o arquivo YAML que define a topologia como parte do projeto.
 
         ```xml
         <include>topology.yaml</include>
@@ -769,34 +767,36 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
 
     À medida que for executada, a topologia exibirá informações de inicialização. O texto a seguir é um exemplo de saída:
 
-        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
-        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
-        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
-        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
-        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
-        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    ```
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    ```
 
-    Há um atraso de 10 segundos entre os lotes das informações registradas em log.
+    Há um atraso de 10 segundos entre os lotes de informações registradas.
 
 2. Crie um novo YAML de topologia do projeto.
- 
-    a. Digite o comando a seguir para `topology.xml`abrir:
+
+    1. Digite o comando a seguir para abrir `topology.xml`:
 
     ```cmd
     notepad resources\topology.yaml
     ```
 
-    b. Localize a seção a seguir e altere o valor `10` de `5`para. Essa modificação altera o intervalo entre as emissões de lotes de contagens de palavras de 10 segundos para 5.  
+    1. Localize a seção a seguir e altere o valor de `10` para `5`. Essa modificação altera o intervalo entre as emissões de lotes de contagens de palavras de 10 segundos para 5.  
 
     ```yaml
     - id: "counter-bolt"
-      className: "com.microsoft.example.WordCount"
-      constructorArgs:
-        - 5
-      parallelism: 1  
-    ```  
+           className: "com.microsoft.example.WordCount"
+           constructorArgs:
+             - 5
+           parallelism: 1  
+    ```
 
-    c. Salvar arquivo como `newtopology.yaml`.
+    1. Salve o arquivo como `newtopology.yaml`.
 
 3. Para executar a topologia, digite o seguinte comando:
 
@@ -810,9 +810,9 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
     storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local resources/newtopology.yaml
     ```
 
-     Esse comando usa o `newtopology.yaml` como a definição de topologia. Como não incluímos o parâmetro `compile`, o Maven usará a versão do projeto criado nas etapas anteriores.
+    Esse comando usa o `newtopology.yaml` como a definição de topologia. Como não incluímos o parâmetro `compile`, o Maven usará a versão do projeto criado nas etapas anteriores.
 
-    Depois que a topologia for iniciada, você deverá observar que o tempo entre os lotes emitidos foi alterado para refletir `newtopology.yaml`o valor em. Veja então que você pode alterar sua configuração por meio de um arquivo YAML sem ter que recompilar a topologia.
+    Depois que a topologia for iniciada, você deverá observar que o tempo entre os lotes emitidos foi alterado para refletir o valor em `newtopology.yaml`. Veja então que você pode alterar sua configuração por meio de um arquivo YAML sem ter que recompilar a topologia.
 
 Para obter mais informações sobre esses e outros recursos da estrutura do Flux, consulte [Flux (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html).
 
@@ -820,13 +820,13 @@ Para obter mais informações sobre esses e outros recursos da estrutura do Flux
 
 O [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) é uma abstração de alto nível fornecida pelo Storm. Ele dá suporte ao processamento com monitoramento de estado. A principal vantagem do Trident é que ele pode garantir que todas as mensagens que entrarem na topologia sejam processadas somente uma vez. Sem usar o Trident, sua topologia só pode garantir que as mensagens sejam processadas pelo menos uma vez. Também existem outras diferenças, como componentes internos que podem ser usados em vez da criação de bolts. Na verdade, os bolts são substituídos por componentes menos genéricos, como filtros, projeções e funções.
 
-Os aplicativos Trident podem ser criados usando projetos Maven. Use as mesmas etapas básicas como apresentado anteriormente neste artigo — somente o código é diferente. O Trident também (atualmente) não pode ser usado com a estrutura do Flux.
+Os aplicativos Trident podem ser criados usando projetos Maven. Use as mesmas etapas básicas como apresentado anteriormente neste artigo — somente o código é diferente. O Trident também não pode ser usado (atualmente) com a estrutura de fluxo.
 
 Para obter mais informações sobre o Trident, consulte a [Visão geral da API do Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
-Você aprendeu a criar uma topologia do Apache Storm usando Java. Agora saiba como:
+Você aprendeu como criar uma topologia de Apache Storm usando Java. Agora saiba como:
 
 * [Implantar e gerenciar topologias Apache Storm no HDInsight](apache-storm-deploy-monitor-topology-linux.md)
 

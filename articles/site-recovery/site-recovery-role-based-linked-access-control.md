@@ -1,17 +1,17 @@
 ---
-title: Gerenciar o acesso ao Azure Site Recovery com o controle de acesso baseado em função (RBAC) | Microsoft Docs
+title: Gerenciar o controle de acesso baseado em função do Azure no Azure Site Recovery
 description: Este artigo descreve como aplicar o RBAC (controle de acesso baseado em função) para gerenciar o acesso ao Azure Site Recovery.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929213"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083769"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerenciar o acesso de recuperação do site com controle de acesso baseado em função (RBAC)
 
@@ -43,7 +43,7 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 
 | **Tipo de recurso** | **Modelo de implantação** | **Permissão** |
 | --- | --- | --- |
-| Computação | Resource Manager | Microsoft.Compute/availabilitySets/read |
+| Computação | Gerenciador de Recursos | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -53,7 +53,7 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 |  |  | Microsoft.ClassicCompute/virtualMachines/read |
 |  |  | Microsoft.ClassicCompute/virtualMachines/write |
 |  |  | Microsoft.ClassicCompute/virtualMachines/delete |
-| Rede | Resource Manager | Microsoft.Network/networkInterfaces/read |
+| Rede | Gerenciador de Recursos | Microsoft.Network/networkInterfaces/read |
 |  |  | Microsoft.Network/networkInterfaces/write |
 |  |  | Microsoft.Network/networkInterfaces/delete |
 |  |  | Microsoft.Network/networkInterfaces/join/action |
@@ -62,19 +62,19 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Clássico | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Armazenamento | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| Armazenamento | Gerenciador de Recursos | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Clássico | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| Grupo de recursos | Resource Manager | Microsoft.Resources/deployments/* |
+| grupo de recursos | Gerenciador de Recursos | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 Considere usar as [funções internas](../role-based-access-control/built-in-roles.md) 'Colaborador de Máquina Virtual' e ‘Colaborador de Máquina Virtual Clássica’ para os modelos de implantação do Resource Manager e do Clássico respectivamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC no portal do Azure.
 * Saiba como gerenciar o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
-  * [REST API](../role-based-access-control/role-assignments-rest.md)
+  * [API REST](../role-based-access-control/role-assignments-rest.md)
 * [Solução de problemas de Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): obtenha sugestões para corrigir problemas comuns.

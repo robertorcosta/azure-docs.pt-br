@@ -1,19 +1,19 @@
 ---
-title: Failover e failback VMs do Hyper-V replicadas para um data center secundário durante a recuperação de desastre com o Azure Site Recovery | Microsoft Docs
+title: Configurar failover/failback para um site secundário do Hyper-V com Azure Site Recovery
 description: Saiba como fazer o failover de VMs do Hyper-V em seu site local secundário e fazer failback para o site primário, durante a recuperação de desastre com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f93c9bd679272f76665a6c8e4a0c611327699839
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813707"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082597"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Executar failover e failback em VMs do Hyper-V replicadas para o site local secundário
 
@@ -30,12 +30,12 @@ Este artigo descreve como executar failover de uma VM do Hyper-V gerenciada em u
 
 O failover e o failback têm três estágios:
 
-1. **Executar failover para um site secundário**: Failover de máquinas do site primário para o secundário.
-2. **Failback do site secundário**: Replicar as VMs do secundário para o primário e executar um failover planejado para failback.
+1. **Failover para o site secundário**: executar failover de máquinas do site primário para o secundário.
+2. **Failback do site secundário**: replicar as VMs do secundário para o primário e executar um failover planejado para failback.
 3. Após o failover planejado, se desejar inicie a replicação do site primário para o secundário novamente.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Verifique se você concluiu uma [simulação de recuperação de desastre](hyper-v-vmm-test-failover.md) para verificar se tudo está funcionando conforme o esperado.
 - Para concluir o failback, verifique se os servidores VMM primário e secundário estão conectados ao Site Recovery.
@@ -53,12 +53,12 @@ Você pode executar um failover planejado ou regular para VMs do Hyper-V.
 
 
 1. Em **Configurações** > **Itens replicados** clique em VM > **Failover**.
-1. Selecione **Desligar o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das VMs de origem antes de disparar o failover. O Site Recovery também tenta sincronizar os dados locais que ainda não foram enviados para o site secundário antes de disparar o failover. Observe que o failover continuará mesmo se o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
+1. Selecione **Desligar o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das VMs de origem antes de disparar o failover. O Site Recovery também tenta sincronizar os dados locais que ainda não foram enviados para o site secundário antes de disparar o failover. Observe que o failover continuará mesmo se o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos**.
 2. Agora a VM deve ser exibida na nuvem do VMM secundária.
 3. Depois de verificar se VM, **Confirme** o failover. Essa ação exclui todos os pontos de recuperação disponíveis.
 
 > [!WARNING]
-> **Não cancele um failover em andamento**: Antes de iniciar o failover, a replicação de VM será interrompida. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.  
+> **Não cancelar um failover em andamento**: antes de iniciar o failover, a replicação da VM é interrompida. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Replicação inversa e failover

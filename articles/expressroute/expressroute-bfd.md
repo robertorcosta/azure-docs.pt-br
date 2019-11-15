@@ -1,5 +1,5 @@
 ---
-title: Configurar a BFD no ExpressRoute – Azure | Microsoft Docs
+title: 'Azure ExpressRoute: configurar o BFD'
 description: Este artigo fornece instruções sobre como configurar a BFD (Detecção de Encaminhamento Bidirecional) no emparelhamento privado de um circuito do ExpressRoute.
 services: expressroute
 author: rambk
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: rambala
-ms.custom: seodec18
-ms.openlocfilehash: a24e021c34fe1ad315ca7f75f9bfdb29d94b253a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 608b5e0011d4ed656ff61fec84a23f2fb22373b3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494997"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080789"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurar BFD no ExpressRoute
 
@@ -67,7 +66,7 @@ Entre pares de BFD, o mais lento dos dois pares determina a taxa de transmissão
 >Se você tiver configurado circuitos do ExpressRoute com redundância geográfica ou usar a conectividade VPN IPSec de site a site como backup; a habilitação de BFD ajudará o failover mais rápido após uma falha de conectividade do ExpressRoute. 
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Para obter mais informações ou ajuda, confira os seguintes links:
 

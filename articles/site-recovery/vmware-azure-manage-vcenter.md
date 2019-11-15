@@ -1,17 +1,17 @@
 ---
-title: Gerencie servidores VMware vCenter para recuperação de desastres de VMs VMware para o Azure usando o Azure Site Recovery | Microsoft Docs
+title: Gerenciar servidores VMware vCenter no Azure Site Recovery
 description: Este artigo descreve como adicionar e gerenciar o VMware vCenter para recuperação de desastres de VMs do VMware para o Azure com o Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 59088d8351bf89c859312774e3e9e396be8dd532
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8f339103f67f37d10999ef43fa57a6eb27b60f37
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904245"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083968"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gerenciar o servidor VMware vCenter
 
@@ -35,8 +35,8 @@ Demora cerca de 15 minutos para que as informações de conta sejam sincronizada
 
 |**Tarefa** | **Conta** | **Permissões** | **Detalhes**|
 |--- | --- | --- | ---|
-|**Descoberta automática/migrar (sem failback)** | Você precisa de pelo menos um usuário somente leitura | Objeto de data center –> Propagar para o objeto filho, função = somente leitura | Usuário atribuído no nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Se desejar restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para objeto filho** aos objetos filho (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).|
-|**Replicação/failover** | Você precisa de pelo menos um usuário somente leitura| Objeto de data center –> Propagar para o objeto filho, função = somente leitura | Usuário atribuído no nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Se desejar restringir o acesso, atribua a função **Sem acesso** com o objeto **Propagar para filho** aos objetos filho (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).<br/><br/> É útil para fins de migração, mas não para replicação completa, failover ou failback.|
+|**Descoberta automática/migrar (sem failback)** | Você precisa de pelo menos um usuário somente leitura | Objeto de data center –> Propagar para o objeto filho, função = somente leitura | Usuário atribuído ao nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Se desejar restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para objeto filho** aos objetos filho (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).|
+|**Replicação/failover** | Você precisa de pelo menos um usuário somente leitura| Objeto de data center –> Propagar para o objeto filho, função = somente leitura | Usuário atribuído ao nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Se desejar restringir o acesso, atribua a função **Sem acesso** com o objeto **Propagar para filho** aos objetos filho (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).<br/><br/> É útil para fins de migração, mas não para replicação completa, failover ou failback.|
 |**Replicação/failover/failback** | Sugerimos que você crie uma função (AzureSiteRecoveryRole) com as permissões necessárias e atribua a função a um usuário ou grupo do VMware | Objeto de Data Center –> Propagar para o Objeto Filho, role=AzureSiteRecoveryRole<br/><br/> Armazenamento de dados -> alocar espaço, procurar armazenamento de dados, operações de arquivo de baixo nível, remover arquivo, atualizar arquivos de máquina virtual<br/><br/> Rede -> Atribuição de rede<br/><br/> Recurso -> Atribuir VM ao pool de recursos, migrar VM desligada, migrar VM ligada<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder à pergunta, conexão de dispositivo, configurar mídia de CD, configurar mídia de disquete, desligar, ligar, instalação de ferramentas VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registrar, cancelar registro<br/><br/> Máquina virtual -> Provisionamento -> Permitir download de máquina virtual, permitir upload de arquivos de máquina virtual<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Usuário atribuído ao nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Se desejar restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para objeto filho** aos objetos filho (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).|
 
 
@@ -74,7 +74,7 @@ Modifique as credenciais usadas para se conectar ao servidor vCenter ou ao host 
 ## <a name="modify-the-vcenter-ip-address-and-port"></a>Modificar o endereço IP e a porta do vCenter
 
 1. Entre no Portal do Azure.
-2. Navegue > até **cofre dos serviços de recuperação** **site Recovery** > **servidores de configuração**de infraestrutura.
+2. Navegue até o **cofre dos serviços de recuperação** > **site Recovery infraestrutura** > **servidores de configuração**.
 3. Clique no servidor de configuração ao qual o vCenter está atribuído.
 4. Na seção **servidores do vCenter** , clique no vCenter que você deseja modificar.
 5. Na página Resumo do vCenter, atualize o endereço IP e a porta do vCenter nos respectivos campos e salve as alterações.
@@ -88,10 +88,10 @@ Modifique as credenciais usadas para se conectar ao servidor vCenter ou ao host 
 Para migrar todas as máquinas virtuais para o novo vCenter, não adicione outra conta do vCenter. Isso pode levar a entradas duplicadas. Basta atualizar o endereço IP do novo vCenter:
 
 1. Entre no Portal do Azure.
-2. Navegue > até **cofre dos serviços de recuperação** **site Recovery** > **servidores de configuração**de infraestrutura.
+2. Navegue até o **cofre dos serviços de recuperação** > **site Recovery infraestrutura** > **servidores de configuração**.
 3. Clique no servidor de configuração ao qual o vCenter antigo está atribuído.
 4. Na seção **servidores vCenter** , clique no vCenter do qual você está planejando migrar.
-5. Na página Resumo do vCenter, atualize o endereço IP do novo vCenter no campo **vCenter Server/vSphere nome do host ou endereço IP**. Salve as alterações.
+5. Na página Resumo do vCenter, atualize o endereço IP do novo vCenter no campo **vCenter Server/vSphere nome do host ou endereço IP**. Salve suas alterações.
 
 Assim que o endereço IP for atualizado, Site Recovery componentes começarão a receber informações de descoberta de máquinas virtuais do novo vCenter. Isso não afetará as atividades de replicação em andamento.
 
@@ -108,7 +108,7 @@ Para mover algumas máquinas virtuais para um novo vCenter:
 4. Agora, proteja as máquinas virtuais migradas [selecionando o novo vCenter ao habilitar a proteção](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> Se o número de máquinas virtuais que estão sendo migradas for **maior** que o número de máquinas virtuais retidas no vCenter antigo, atualize o endereço IP do novo vCenter usando as instruções fornecidas aqui. Para as poucas máquinas virtuais que são mantidas no vCenter antigo, desabilite a [replicação](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [Adicione novos detalhes do vCenter ao servidor de configuração](#add-vmware-server-to-the-vault)e comece a **[habilitar a proteção](vmware-azure-tutorial.md#enable-replication)** .
+> Se o número de máquinas virtuais que estão sendo migradas for **maior** que o número de máquinas virtuais retidas no vCenter antigo, atualize o endereço IP do novo vCenter usando as instruções fornecidas aqui. Para as poucas máquinas virtuais que são mantidas no vCenter antigo, [desabilite a replicação](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [Adicione novos detalhes do vCenter ao servidor de configuração](#add-vmware-server-to-the-vault)e comece a **[habilitar a proteção](vmware-azure-tutorial.md#enable-replication)** .
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

@@ -1,19 +1,18 @@
 ---
-title: Perguntas comuns sobre a recuperação de desastre do VMware para o Azure com o Azure Site Recovery
+title: Perguntas comuns sobre a recuperação de desastres do VMware com o Azure Site Recovery
 description: Obtenha respostas para perguntas comuns sobre a recuperação de desastre de VMs VMware locais para o Azure usando Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
-ms.date: 10/29/2019
+ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: f09acb0110f436e7af936d79da9db1bab4ea23a9
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 508fa7e33cd8572d70b7ebf261edba67fd40dd93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053691"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084155"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
 
@@ -104,7 +103,7 @@ Em cada VM que você deseja replicar, instale o serviço por um dos vários mét
 - [Instalação manual](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) da interface do usuário ou do PowerShell
 - Implantação usando uma ferramenta de implantação como o [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Discos gerenciados
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Para onde Site Recovery replicar dados?
 
@@ -361,7 +360,7 @@ Sim. Você pode automatizar fluxos de trabalho de Site Recovery usando a API RES
 
 Sim. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Analisar](vmware-physical-azure-support-matrix.md) os requisitos de suporte.
 - [Configurar](vmware-azure-tutorial.md) replicação de VMware para o Azure.

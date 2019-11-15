@@ -1,18 +1,19 @@
 ---
-title: Executar failover e failback de servidores físicos para recuperação de desastre para o Azure com o Site Recovery | Microsoft Docs
+title: Configurar failover e failback para servidores físicos com Site Recovery
 description: Saiba como executar failover de servidores físicos para o Azure e failback para o site local para recuperação de desastre com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 49b61423b33282be7f0ace52c2a164d52ba20314
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 2c0d2e57a34286f65be45a95403a32de42c51908
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814420"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084561"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Executar failover e failback de servidores físicos replicados para Azure
 
@@ -24,10 +25,10 @@ Servidores físicos replicados no Azure usando o Site Recovery só podem falhar 
 
 O failover e o failback têm quatro fases:
 
-1. **Fazer failover para o Azure**: Faz failover de computadores do site local para o Azure.
-2. **Proteger novamente as VMs do Azure**: Proteja as VMs do Azure novamente, para que elas comecem a replicação para as VMs VMware locais.
-3. **Executar failover para o local**: Execute um failover, para executar failback do Azure.
-4. **Proteger novamente as VMs locais**: Após realizar o failback dos dados, você protege novamente as VMs VMware locais para as quais realizou o failback, para que comecem a ser replicadas no Azure.
+1. **Failover para o Azure**: faz failover de computadores do site local para o Azure.
+2. **Proteger novamente as VMs do Azure**: proteja as VMs do Azure novamente, para que elas comecem a replicação para as VMs VMware locais.
+3. **Executar failover para o local**: execute um failover, para executar failback do Azure.
+4. **Proteger novamente as VMs locais**: após o failback do dados, proteja as VMs VMware locais para as quais o failback foi executado, para que elas iniciem a replicação para o Azure.
 
 ## <a name="verify-server-properties"></a>Verificar as propriedades do servidor
 
@@ -44,10 +45,10 @@ Confira as propriedades do servidor e verifique se ele está em conformidade com
 
 1. Em **Configurações** > **Itens replicados** clique no computador > **Failover**.
 2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Você pode usar uma das seguintes opções:
-   - **Mais recente**: Essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
-   - **Mais recente processado**: Essa opção executa failover do computador para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
-   - **Consistente com o aplicativo mais recente**: Essa opção executa failover do computador para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery.
-   - **Personalizado**: Especifica um ponto de recuperação.
+   - **Mais recente**: essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
+   - **Últimos processados**: essa opção executa failover do computador para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
+   - **Consistente com o aplicativo mais recente**: essa opção executa failover do computador para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery.
+   - **Personalizado**: especifica um ponto de recuperação.
 
 3. Selecione **Desligar o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento o computador de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos**.
 4. Se você preparou a conexão com a VM do Azure, conecte-se para validá-la após o failover.
@@ -61,7 +62,7 @@ Confira as propriedades do servidor e verifique se ele está em conformidade com
 
 Se você quiser se conectar às VMs do Azure usando RDP/SSH após o failover, siga os requisitos resumidos na tabela mostrada [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
-Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar quaisquer problemas de conectividade após o failover.
+Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar problemas de conectividade após o failover.
 
 ## <a name="create-a-process-server-in-azure"></a>Criar um servidor de processo no Azure
 
@@ -76,7 +77,7 @@ O servidor de processo recebe dados da VM do Azure e envia-os para o site local.
 Por padrão, o servidor de destino mestre recebe dados de failback. Ele é executado no servidor de configuração local.
 
 - Se a VM VMware para as quais o failback foi executado estiver em um host ESXi gerenciado por um VMware vCenter Server, o servidor de destino mestre deve ter acesso ao armazenamento de dados da VM (VMDK), para gravar os dados replicados nos discos da VM. Verifique se o armazenamento de dados da VM está montado no host de destino mestre com acesso de leitura/gravação.
-- Se o host ESXi não for gerenciado por um vCenter Server, o serviço Site Recovery criará uma nova VM durante o processo de nova proteção. A VM é criada no host ESX na qual você cria a VM destino mestre. O disco rígido da VM precisa estar em um armazenamento de dados acessível para o host no qual o servidor de destino mestre está em execução.
+- Se o host ESXi não for gerenciado por um vCenter Server, o serviço Site Recovery criará uma nova VM durante o processo de nova proteção. A VM é criada no host ESX na qual você cria a VM destino mestre. O disco rígido da VM deve estar em um armazenamento de dados acessível para o host no qual o servidor de destino mestre está em execução.
 - Em computadores locais para os quais o failback foi executado, você deverá concluir a descoberta do host no qual o servidor de destino mestre está em execução para que seja possível proteger o computador novamente.
 - Outra opção, se a VM local já existir para failback, ela deverá ser excluída antes da execução de um failback. O failback vai criar uma nova VM no mesmo host que o host ESX de destino mestre. Ao realizar o failback para um local alternativo, os dados são recuperados no mesmo armazenamento de dados e no mesmo host ESX usados pelo servidor de destino mestre local.
 - Você não pode usar o Storage vMotion no servidor de destino mestre. Se você fizer isso, o failback não funcionará, porque os discos não estarão disponíveis para ele. Exclua os servidores de destino mestres de sua lista do vMotion.
@@ -91,7 +92,7 @@ Este procedimento considera que a VM local não está disponível e que você es
 
 4. Em **Armazenamento de dado**, selecione o armazenamento de dados de destino mestre para o qual deseja recuperar os discos locais. Use esta opção quando a VM local tiver sido excluída e você precisar criar novos discos. Essa configuração será ignorada se os discos já existirem, mas você precisa especificar um valor.
 5. Selecione a unidade de retenção de destino mestre. A politica de failback é selecionada automaticamente.
-6. Clique em **OK** para iniciar a nova proteção. Um trabalho começará a replicar a máquina virtual do Azure para o site local. Você pode acompanhar o andamento na guia **Trabalhos**.
+6. Clique em **OK** para iniciar a nova proteção. Um trabalho começará a replicar a máquina virtual do Azure para o site local. Você pode acompanhar o andamento na guia **Trabalhos** .
 
 > [!NOTE]
 > Se você deseja recuperar a VM do Azure para uma VM local existente, monte o armazenamento de dados da máquina virtual local com acesso de leitura/gravação no host ESXi do servidor de destino mestre.

@@ -1,5 +1,5 @@
 ---
-title: Circuitos e emparelhamento do Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: circuitos e emparelhamento'
 description: Esta página apresenta uma visão geral dos circuitos e dos domínios de roteamento/emparelhamento do ExpressRoute.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: 864b834fcc6810b52f067d8e67b4a48febd0f787
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6673e114c249cb86c648155b889e925554e9458
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123487"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083631"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuitos e emparelhamento do ExpressRoute
 
@@ -31,7 +30,7 @@ Um circuito do ExpressRoute representa uma conexão lógica entre a infraestrutu
 
 Os circuitos do ExpressRoute não são mapeados para entidades físicas. Um circuito é identificado exclusivamente por um GUID padrão chamado de chave de serviço (s-key). A chave de serviço é a única informação trocada entre a Microsoft, o provedor de conectividade e você. A chave-s não é um segredo para fins de segurança. Há um mapeamento de 1:1 entre um circuito do ExpressRoute e a chave-s.
 
-Os novos circuitos do ExpressRoute podem incluir dois emparelhamentos independentes: Emparelhamento privado e emparelhamento da Microsoft. Enquanto que os circuitos do ExpressRoute existentes podem conter três emparelhamentos: Público do Azure, Privado do Azure e Microsoft. Cada emparelhamento é um par de sessões BGP independentes, cada uma delas configurada de modo redundante para alta disponibilidade. Há um mapeamento de 1:N (1 <= N <= 3) entre um circuito do ExpressRoute e os domínios de roteamento. Um circuito do ExpressRoute pode ter qualquer tipo de emparelhamento (um, dois ou os três) habilitado por circuito do ExpressRoute.
+Os novos circuitos do ExpressRoute podem incluir dois emparelhamentos independentes: o emparelhamento privado e o emparelhamento da Microsoft. Entretanto, os circuitos do ExpressRoute existentes podem conter três emparelhamentos: Azure Público, Azure Privado e Microsoft. Cada emparelhamento é um par de sessões BGP independentes, cada uma delas configurada de modo redundante para alta disponibilidade. Há um mapeamento de 1:N (1 <= N <= 3) entre um circuito do ExpressRoute e os domínios de roteamento. Um circuito do ExpressRoute pode ter qualquer tipo de emparelhamento (um, dois ou os três) habilitado por circuito do ExpressRoute.
 
 Cada circuito tem uma largura de banda fixa (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) e é mapeado para um provedor de conectividade e um local de emparelhamento. A largura de banda selecionada é compartilhada entre todos os emparelhamentos para o circuito
 
@@ -41,7 +40,7 @@ Cotas e limites padrão aplicam-se a todos os circuitos do ExpressRoute. Consult
 
 ## <a name="routingdomains"></a>Emparelhamento do ExpressRoute
 
-Um circuito do ExpressRoute tem vários domínios de roteamento/emparelhamento associados a ele: Público do Azure, privado do Azure e Microsoft. Cada emparelhamento é configurado de modo idêntico em um par de roteadores (na configuração ativo-ativo ou de compartilhamento de carga) para alta disponibilidade. Os serviços do Azure estão categorizados como *público do Azure* e *privado do Azure* para representar os esquemas de endereçamento IP.
+Um circuito do ExpressRoute tem vários domínios/emparelhamentos de roteamento associados a ele: Azure público, privado do Azure e Microsoft. Cada emparelhamento é configurado de modo idêntico em um par de roteadores (na configuração ativo-ativo ou de compartilhamento de carga) para alta disponibilidade. Os serviços do Azure estão categorizados como *público do Azure* e *privado do Azure* para representar os esquemas de endereçamento IP.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
@@ -84,7 +83,7 @@ A tabela a seguir compara os três emparelhamentos:
 | **Requisitos do número do AS** |Números públicos e privados do AS. Você deve possuir número público do AS, se você optar por usar um. |Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos. |Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos. |
 | **Protocolos IP com suporte**| IPv4 |  IPv4, IPv6 | IPv4 |
 | **Roteando endereços IP de interface** |RFC1918 e endereços IP públicos |Endereços IP públicos registrados para você em registros de roteamento. |Endereços IP públicos registrados para você em registros de roteamento. |
-| **Suporte a Hash MD5** |Sim |Sim |Sim |
+| **Suporte a Hash MD5** |sim |sim |sim |
 
 Você pode habilitar um ou mais domínios de roteamento como parte do seu circuito ExpressRoute. Também é possível optar por ter todos os domínios de roteamento na mesma VPN se você desejar combiná-los em um único domínio de roteamento. Você também pode colocá-los em diferentes domínios de roteamento, da mesma forma que no diagrama. A configuração recomendada é conectar o emparelhamento privado diretamente à rede principal, enquanto os vínculos de emparelhamento público e da Microsoft são conectados à sua DMZ.
 
@@ -99,7 +98,7 @@ O NPM monitora a integridade do peering privado do Azure e do peering da Microso
 ## <a name="next-steps"></a>Próximas etapas
 
 * Encontrar um provedor de serviços. Consulte [Locais e provedores de serviços do ExpressRoute](expressroute-locations.md).
-* Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
-* Configurar sua conexão do ExpressRoute.
+* Verifique se todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
+* Configurar sua conexão da Rota Expressa.
   * [Criar e gerenciar circuitos de ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurar o roteamento (emparelhamento) para circuitos ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)

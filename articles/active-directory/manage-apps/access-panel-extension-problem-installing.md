@@ -16,20 +16,20 @@ ms.date: 05/04/2018
 ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598a69593046354e83fe35b7b2ecfb0745e8b637
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 580207bb10680e84cfda7d4b1874f2b460602973
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388329"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082178"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
 
-O painel de acesso é um portal baseado na Web. Se você tiver uma conta de estudante ou corporativa no Azure Active Directory (Azure AD), você pode usar o painel de acesso para exibir e iniciar aplicativos baseados em nuvem para os quais um administrador do Azure AD tenha concedido acesso. 
+O painel de acesso é um portal baseado na Web. Caso você tenha uma conta corporativa ou de estudante no Azure Active Directory (Azure AD), pode usar o painel de acesso para exibir e iniciar aplicativos baseados em nuvem para os quais um administrador do Azure AD concedeu acesso. 
 
 Se você estiver usando as edições do Azure AD, você também pode usar grupos de autoatendimento e recursos de gerenciamento de aplicativo por meio do painel de acesso. 
 
-O painel de acesso é separado do portal do Azure. Ele não requer que você tenha uma assinatura do Azure.
+O painel de acesso é separado do portal do Azure. Não é preciso ter uma assinatura do Azure.
 
 ## <a name="web-browser-requirements"></a>Requisitos de navegador da Web
 
@@ -63,7 +63,7 @@ Para instalar a extensão do navegador do painel de acesso, faça o seguinte:
 Você também pode baixar a extensão para o Chrome e para o Microsoft Edge diretamente dos seguintes sites:
 
 - [Extensão do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Extensão do Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Extensão do Microsoft Edge](https://www.microsoft.com/en-us/p/my-apps-secure-sign-in-extension/9pc9sckkzk84)
 - [Extensão do Firefox](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Use a extensão Conexão segura do Meus aplicativos
@@ -71,7 +71,7 @@ Você também pode baixar a extensão para o Chrome e para o Microsoft Edge dire
    1. Enquanto você *não* estiver conectado à extensão, clique com o botão direito do mouse no ícone de extensão.
    2. No menu, selecione **URL dos Meus aplicativos**.
    3. Selecione a URL padrão.
-   4. Selecione o ícone de extensão.
+   4. Selecione o ícone da extensão.
    5. Para conectar-se à extensão, selecione **Conectar-se para começar**.
 
 * Para conectar-se diretamente a um aplicativo no navegador, faça o seguinte:
@@ -121,7 +121,7 @@ Para acessar uma ferramenta de diagnóstico e informações sobre como configura
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
 -   ID de erro de correlação
--   UPN (endereço de email de usuário)
+-   UPN (endereço de email do usuário)
 -   TenantID
 -   Tipo de navegador
 -   Fuso horário e a hora ou o período de tempo durante o qual o erro ocorreu

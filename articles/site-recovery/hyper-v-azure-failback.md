@@ -1,5 +1,5 @@
 ---
-title: Executar um failback durante desastres de VMs do Hyper-v do Azure para o local | Microsoft Docs
+title: Fazer failback de VMs do Hyper-v do Azure com Azure Site Recovery
 description: Saiba como executar failback de VMs do Hyper-V para um site local durante a recuperação de desastre para o Azure com o serviço Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
-ms.openlocfilehash: 07ecc8547ab155600bccfd1ad8f1ecbb58a18fa3
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b924c1424a309fb61f690c21e5665a70356c7a62
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931838"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084221"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar um failback de VMs Hyper-V
 
 Este artigo descreve como executar o failback para máquinas virtuais do Hyper-V protegidas pelo Site Recovery.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Certifique-se de que você tenha lido os detalhes sobre os [tipos diferentes de failback](concepts-types-of-failback.md) e as perdas correspondentes.
 - Verifique se o servidor VMM do site primário ou o servidor Hyper-V está conectado.
@@ -32,7 +32,7 @@ Depois do failover do local primário no secundário, as máquinas virtuais repl
 2. Na página **Confirmar Failover Planejado**, escolha os locais de origem e de destino. Observe a direção do failover. Se o failover do local primário funcionar conforme esperado e todas as máquinas virtuais estiverem no local secundário, isso servirá apenas para fins informativos.
 3. Se estiver fazendo failback do Azure, selecione as configurações em **Sincronização de Dados**:
     - **Sincronizar os dados antes do failover (sincronizar apenas alterações delta)** : essa opção minimiza o tempo de inatividade das máquinas virtuais, pois elas não são desligadas durante a sincronização. Ela segue as seguintes etapas:
-        - Fase 1: Tire instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
+        - Fase 1: tira instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
         - Fase 2: Desliga a máquina virtual no Azure para que nenhuma alteração seja feita lá. O conjunto final de alterações delta é transferido para o servidor local e a máquina virtual local é inicializada.
 
     - **Sincronizar os dados apenas durante o failover (download completo)** : esta opção é mais rápida.
@@ -56,16 +56,16 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 
 1. Se você estiver definindo um novo hardware, instale o Windows Server 2012 R2 e a função do Hyper-V no servidor.
 2. Crie um comutador de rede virtual com o mesmo nome que você tinha no servidor original.
-3. Selecione **itens** -> protegidos grupo \< -> deproteçãoProtectionGroupName>->VirtualMachineName>vocêdesejafazerfailbackeselecionefailoverplanejado.\<
+3. Selecione **itens protegidos** -> **grupo de proteção** -> \<ProtectionGroupName >-> \<VirtualMachineName > você deseja fazer failback e selecione **failover planejado**.
 4. Em **Confirmar Failover Planejado** select **Criar máquina virtual local se ela não existir**.
 5. Em Nome do Host,** selecione o novo servidor host do Hyper-V no qual deseja colocar a máquina virtual.
 6. Em Sincronização de Dados, é recomendável selecionar a opção para sincronizar os dados antes do failover. Essa opção minimiza o tempo de inatividade das máquinas virtuais, uma vez que faz a sincronização sem desligá-las. Ele faz o seguinte:
 
-    - Fase 1: Tire instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
+    - Fase 1: tira instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
     - Fase 2: Desliga a máquina virtual no Azure para que nenhuma alteração seja feita lá. O conjunto final de alterações é transferido para o servidor local e a máquina virtual local é inicializada.
     
 7. Clique na marca de seleção para iniciar o failover (failback).
-8. Depois que a sincronização inicial for concluída e você estiver pronto para desligar a máquina virtual no Azure, clique em **trabalhos** > \<trabalho de failover planejado > > **concluir failover**. Isso desliga a máquina do Azure, transfere as alterações mais recentes para a máquina virtual local e a inicia.
+8. Depois que a sincronização inicial for concluída e você estiver pronto para desligar a máquina virtual no Azure, clique em **trabalhos** > \<trabalho de failover planejado > > **concluir o failover**. Isso desliga a máquina do Azure, transfere as alterações mais recentes para a máquina virtual local e a inicia.
 9. Você pode fazer logon na máquina virtual local para verificar se tudo está funcionando conforme o esperado. Em seguida, clique em **Confirmar** para concluir o failover. A confirmação exclui a máquina virtual do Azure e seus discos e prepara a VM para ser protegida novamente.
 10. Clique em **Replicação Inversa** para iniciar a proteção da máquina virtual local.
 
@@ -93,6 +93,6 @@ A sincronização de dados tira um instantâneo dos discos da máquina virtual e
 Para acelerar o download dos dados, configure o agente MARS para usar mais threads a fim de paralisar o download. Consulte [este documento](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) sobre como alterar os threads de download no agente.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Depois de **Confirmar**, você poderá iniciar a *Replicação Inversa*. Isso inicia a proteção da máquina virtual desde local para o Azure. Isso só replicará as alterações, pois a VM foi desativada no Azure e, assim, enviará somente alterações diferenciais.

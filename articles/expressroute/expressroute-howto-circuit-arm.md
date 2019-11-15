@@ -1,20 +1,18 @@
 ---
-title: 'Criar e modificar um circuito do ExpressRoute – PowerShell: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: modificar um circuito: PowerShell'
 description: Criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.reviewer: ganesr
-ms.custom: seodec18
-ms.openlocfilehash: 9d0df2d9eda861a06e2952ff1623fb4ad5160e81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 3ce1096129d7fb45901d80b0173035dcca47c3ee
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748319"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080370"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito do ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +42,7 @@ Antes de começar a configuração, examine os [pré-requisitos](expressroute-pr
 [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. obter a lista de provedores, locais e larguras de banda com suporte
-Antes de criar um circuito de ExpressRoute você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
+Antes de criar um circuito do ExpressRoute você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
 
 O cmdlet **Get-AzExpressRouteServiceProvider** do PowerShell retorna essas informações, que você usará em etapas posteriores:
 
@@ -54,7 +52,7 @@ Get-AzExpressRouteServiceProvider
 
 Verifique se o provedor de conectividade está listado. Anote as informações a seguir, pois você precisará delas mais tarde quando criar um circuito:
 
-* Nome
+* NOME
 * PeeringLocations
 * BandwidthsOffered
 
@@ -75,8 +73,8 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Especifique a camada da SKU e a família de SKUs corretas:
 
-* A camada da SKU determina se um complemento padrão ou premium do ExpressRoute está habilitado. Você pode especificar *Standard* para obter o SKU padrão ou *Premium* para o complemento premium.
-* A família da SKU determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*.
+* A camada de SKU determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você pode especificar *local*, *Standard* ou *Premium*.
+* A família da SKU determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é sempre *Unlimiteddata*.
 
 > [!IMPORTANT]
 > O circuito do ExpressRoute será cobrado a partir do momento em que uma chave de serviço for emitida. Execute esta operação quando o provedor de conectividade estiver pronto para provisionar o circuito.

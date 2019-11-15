@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o servidor de configuração para a recuperação de desastre dos servidores físicos locais no Azure com o Azure Site Recovery | Microsoft Docs
+title: Gerenciar o servidor de configuração para servidores físicos no Azure Site Recovery
 description: Este artigo descreve como gerenciar o servidor de configuração do Azure Site Recovery para recuperação de desastres do servidor físico no Azure.
 services: site-recovery
 author: mayurigupta13
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: f87210cd14570687eebae88896830bb3ee00b74e
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242985"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084609"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -20,7 +20,7 @@ Você configura um servidor de configuração local quando você usa o serviço 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 A tabela resume os pré-requisitos para implantação do computador do servidor de configuração local.
 
@@ -32,13 +32,13 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | Espaço livre em disco (cache do servidor de processo) | 600 GB
 | Espaço livre em disco (disco de retenção) | 600 GB|
 | Sistema operacional  | Windows Server 2012 R2 <br> Windows Server 2016 |
-| Localidade do sistema operacional | English (US)|
-| Versão do VMware vSphere PowerCLI | Não obrigatório|
+| Localidade do sistema operacional | Inglês (EUA)|
+| Versão do VMware vSphere PowerCLI | Não requerido|
 | Funções do Windows Server | Não habilite essas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V |
 | Políticas de grupo| Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando <br> - Impedir o acesso às ferramentas de edição do registro <br> - Lógica de confiança para anexos de arquivo <br> - Ativar a execução do script <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | – Nenhum site da Web padrão já existente <br> - Habilitar [Autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
 | Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware) |
-| Tipo de endereço IP | estático |
+| Tipo de endereço IP | Estático |
 | Acesso à Internet | O servidor precisa de acesso a estas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não obrigatório para servidores de processo de expansão) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (orquestração do canal de controle)<br>9443 (transporte de dados)|
 
@@ -71,14 +71,14 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. Em **Verificação de Pré-requisitos**, a configuração executa uma verificação para garantir que a instalação pode ser executada. Se aparecer um aviso sobre a **Verificação de sincronização de tempo global**, verifique se a hora no relógio do sistema (configurações de **Data e Hora**) é a mesma que a do fuso horário.
 
-    ![Pré-requisitos](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![pré-requisitos](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. Em **Configuração do MySQL**, crie credenciais para fazer logon na instância do servidor MySQL instalada.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
 8. Em **Detalhes do Ambiente**, selecione se você replicará as VMs VMware. Se a resposta for positiva, a Instalação verificará se o PowerCLI 6.0 está instalado.
 9. Em **Localização de Instalação**, selecione a localização em que você deseja instalar os binários e armazenar o cache. A unidade selecionado deve ter ao menos 5 GB de espaço em disco disponível, mas é recomendável uma unidade de cache com ao menos 600 GB de espaço livre.
 
-    ![Local de instalação](./media/physical-manage-configuration-server/combined-wiz8.png)
+    ![Localização de Instalação](./media/physical-manage-configuration-server/combined-wiz8.png)
 10. Em **Seleção da Rede**, primeiro selecione a NIC usada pelo servidor de processo interno para descoberta e instalação por push do serviço de mobilidade em computadores de origem. Em seguida, selecione a NIC que o servidor de configuração usa para conectividade com o Azure. A porta 9443 é a porta padrão usada para enviar e receber o tráfego de replicação, mas você pode modificar esse número de porta para atender aos requisitos do seu ambiente. Além da porta 9443, também podemos abrir a porta 443, usada por um servidor Web para coordenar operações de replicação. Não use a porta 443 para enviar ou receber tráfego de replicação.
 
     ![Seleção da Rede](./media/physical-manage-configuration-server/combined-wiz9.png)
@@ -106,9 +106,9 @@ Execute o arquivo de instalação da seguinte maneira:
   ```
 
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-|Nome do parâmetro| Type | Descrição| Valores|
+|Nome do Parâmetro| Digite | DESCRIÇÃO| Valores|
 |-|-|-|-|
 | /ServerMode|obrigatórios|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
 |/InstallLocation|obrigatórios|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
@@ -158,7 +158,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os detalhes do novo proxy e clique no botão **Registrar**.
 6. Abra uma janela de comando do PowerShell do Administrador.
-7. Execute o comando a seguir:
+7. Execute o seguinte comando:
 
    ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -313,7 +313,7 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 ## <a name="common-issues"></a>Problemas comuns
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Analisar os tutoriais para configurar a recuperação após desastres de [servidores físicos](tutorial-physical-to-azure.md) no Azure.
 

@@ -1,5 +1,5 @@
 ---
-title: Conectar-se a VMs do Azure após o failover do local para o Azure com Azure Site Recovery
+title: Conectar-se ao failover local de VMs do Azure com o Azure Site Recovery
 description: Descreve como se conectar a VMs do Azure após o failover do local para o Azure usando o Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333041"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084257"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conectar-se a VMs do Azure após o failover do local 
 
@@ -35,24 +35,24 @@ Para garantir a conectividade com as VMs do Azure, prepare seus computadores loc
 
 ### <a name="prepare-windows-machines"></a>Preparar computadores Windows
 
-Em máquinas locais do Windows, faça o seguinte:
+Em computadores Windows locais, faça o seguinte:
 
 1. Defina as configurações do Windows. Isso inclui remover todas as rotas persistentes estáticas ou o proxy WinHTTP e definir a política SAN de disco como **OnlineAll**. [Siga](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) estas instruções.
 
 2. Verifique se [esses serviços](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) estão em execução.
 
-3. Habilite a área de trabalho remota (RDP) para permitir conexões remotas com o computador local. [Saiba como habilitar o](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) RDP com o PowerShell.
+3. Habilite a RDP (Área de Trabalho Remota) para permitir conexões remotas com o computador local. [Saiba como](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) habilitar o RDP com o PowerShell.
 
 4. Para acessar uma VM do Azure pela Internet após o failover, no firewall do Windows no computador local, permita TCP e UDP no perfil público e defina o RDP como um aplicativo permitido para todos os perfis.
 
-5. Se você quiser acessar uma VM do Azure em uma VPN site a site após o failover, no firewall do Windows no computador local, permita o RDP para o domínio e os perfis particulares. [Saiba](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) como permitir o tráfego RDP.
+5. Se você quiser acessar uma VM do Azure em uma VPN site a site após o failover, no firewall do Windows no computador local, permita o RDP para o domínio e os perfis particulares. [Saiba](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) como dar permissão ao tráfego RDP.
 6. Certifique-se de que não haja nenhuma atualização do Windows pendente na VM local quando você disparar um failover. Se houver, as atualizações poderão iniciar a instalação na VM do Azure após o failover e você não poderá entrar na VM até que as atualizações sejam concluídas.
 
 ### <a name="prepare-linux-machines"></a>Preparar computadores Linux
 
 Em computadores Linux locais, faça o seguinte:
 
-1. Verifique se o serviço de Secure Shell está definido para iniciar automaticamente na inicialização do sistema.
+1. Verifique se o serviço Secure Shell está definido para iniciar automaticamente na inicialização do sistema.
 2. Verifique se as regras de firewall permitem uma conexão SSH.
 
 
@@ -61,12 +61,12 @@ Em computadores Linux locais, faça o seguinte:
 Após o failover, faça o seguinte nas VMs do Azure que são criadas.
 
 1. Para se conectar à VM pela Internet, atribua um endereço IP público à VM. Você não pode usar o mesmo endereço IP público para a VM do Azure que você usou para seu computador local. [Saiba mais](../virtual-network/virtual-network-public-ip-address.md)
-2. Verifique se as regras do NSG (grupo de segurança de rede) na VM permitem conexões de entrada para a porta RDP ou SSH.
-3. Verifique o [diagnóstico de inicialização](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para exibir a VM.
+2. Verifique se as regras do NSG (grupo de segurança de rede) na VM permitem conexões de entrada à porta RDP ou SSH.
+3. Confira [Diagnóstico de inicialização](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para exibir a VM.
 
 
 > [!NOTE]
-> O serviço de bastiões do Azure oferece acesso RDP privado e SSH para VMs do Azure. [Saiba mais](../bastion/bastion-overview.md) sobre este serviço.
+> O serviço Azure Bastion oferece o acesso privado RDP e SSH a VMs do Azure. [Saiba mais](../bastion/bastion-overview.md) sobre este serviço.
 
 ## <a name="set-a-public-ip-address"></a>Definir um endereço IP público
 
@@ -153,7 +153,7 @@ Nesse cenário, a VM do Azure Obtém um novo endereço IP após o failover. Uma 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre como](site-recovery-active-directory.md) replicar o Active Directory local e o DNS para o Azure.
 
 

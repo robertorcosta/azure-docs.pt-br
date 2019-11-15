@@ -1,5 +1,5 @@
 ---
-title: Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres de consulta - camada Premium | Microsoft Docs
+title: Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres de consulta - camada Premium
 description: O cache da cadeia de caracteres de consulta da CDN do Azure controla como os arquivos são armazenados em cache quando uma solicitação da Web contém uma cadeia de caracteres de consulta. Este artigo descreve o cache da cadeia de caracteres de consulta na CDN Premium do Azure do produto Verizon.
 services: cdn
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
-ms.openlocfilehash: 2bea8aa06daef5d119b4cbfc4853a2d6ab07ddb7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 365c52840d281c0f48d17aacc358e4cce513e3b4
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593511"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083083"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres de consulta - camada Premium
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Estão disponíveis três modos de cadeia de caracteres de consulta:
     >[!IMPORTANT] 
     > Se a autorização de token estiver ativada para qualquer caminho nesta conta, o modo de cache padrão é o único modo que poderá ser usado. 
 
-- **no-cache**: Nesse modo, as solicitações com cadeias de caracteres de consulta não estão em cache no nó POP da CDN. O nó POP recupera o ativo diretamente da origem e passa-o para o solicitante com cada solicitação.
+- **no-cache**: nesse modo, as solicitações com cadeias de consulta não estão em cache no nó POP da CDN. O nó POP recupera o ativo diretamente da origem e passa-o para o solicitante com cada solicitação.
 
 - **unique-cache**: Nesse modo, cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de origem para uma solicitação para example.ashx?q=test1 é armazenada em cache no nó POP e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação para example.ashx?q=test2 é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
    

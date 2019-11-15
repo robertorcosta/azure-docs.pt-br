@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 08/27/2019
-ms.openlocfilehash: f171181aa56287561aba3159f5039f70165dc8ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: faf3573178693ec806000eb89ce7a975955d61b9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807505"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084129"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Use os pontos de extremidade e regras de serviço de rede virtual para os servidores do banco de dados
 
@@ -112,7 +112,7 @@ O Armazenamento do Azure implementou o mesmo recurso que permite que você limit
 
 O PolyBase é comumente usado para carregar dados no SQL Data Warehouse do Azure de contas do Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase com a conta será interrompida. Para habilitar cenários de importação e exportação do PolyBase com o SQL Data Warehouse do Azure que se conectam ao Armazenamento do Azure protegido para VNet, siga as etapas indicadas abaixo:
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -203,8 +203,6 @@ O erro de conexão 40914 está relacionado a *regras da rede virtual*, conforme 
 
 *Resolução de erro:* digite o endereço IP do cliente como uma regra de IP. Faça isso usando o painel Firewall no Portal do Azure.
 
-Uma lista de várias mensagens de erro do banco de dados SQL está documentada [aqui][sql-database-develop-error-messages-419g].
-
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>O Portal pode criar uma regra da rede virtual
@@ -226,7 +224,7 @@ Internamente, os cmdlets do PowerShell para ações de VNet do SQL chamam APIs R
 
 - [Regras de rede virtual: operações][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de serviço de rede virtual específico *nome do tipo* relevante para o banco de dados SQL do Azure.
 
@@ -302,8 +300,6 @@ O recurso da regra da rede virtual para o Banco de Dados SQL do Azure se tornou 
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
-
-[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
 
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 

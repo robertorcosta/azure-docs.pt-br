@@ -1,5 +1,5 @@
 ---
-title: Configurar um servidor em processo no Azure para o failback de servidor físico e da VM do VMware com o Azure Site Recovery | Microsoft Docs
+title: Configurar um servidor de processo VMware/failback físico no Azure Site Recovery
 description: Este artigo descreve como configurar um servidor em processo no Azure para fazer failback de VMs do Azure para o VMware.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 080edfc86848bb6c6579c177c72d3fbd3214a06a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968849"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083964"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor em processo no Azure para failback
 
@@ -26,7 +26,7 @@ Saiba mais sobre o processo de [nova proteção](vmware-azure-reprotect.md) e [f
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
 
-## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor em processo no Azure
+## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor de processo no Azure
 
 1. No cofre > **Infraestrutura do Site Recovery**> **Gerenciar** > **Servidores de Configuração**, selecione o servidor de configuração.
 2. Na página do servidor, clique em **+ Servidor em processo**
@@ -37,7 +37,7 @@ Saiba mais sobre o processo de [nova proteção](vmware-azure-reprotect.md) e [f
 
 4. Em **Nome do servidor**, **Nome de usuário** e **Senha**, especifique um nome para o servidor em processo e as credenciais que receberão permissões de Administrador no servidor.
 5. Especifique uma conta de armazenamento a ser usada para os discos de VM do servidor, a sub-rede na qual a VM do servidor em processo estará localizada e o endereço IP do servidor que será atribuído quando a VM for iniciada.
-6. Clique no botão **OK** para começar a implantar a VM do servidor em processo. O servidor de processo será implantado no SKU do Standard_A8_v2. Verifique se esse SKU de VM está disponível para sua assinatura.
+6. Clique no botão **OK** para começar a implantar a VM do servidor em processo. O servidor de processo será implantado em Standard_A8_v2 SKU. Verifique se esse SKU de VM está disponível para sua assinatura.
 
 >
 

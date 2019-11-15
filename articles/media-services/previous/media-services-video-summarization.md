@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: a546df73f316b4eb6c215a6f52d68f87ad09c1a2
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: da397c180b6ccaf91084a0ec22210c7bcc88a5dc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881702"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084809"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo  
+ 
+## <a name="overview"></a>Visão geral
 
-> [!IMPORTANT]
-> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
-
-## <a name="overview"></a>Visão Geral
 O MP (processador de mídia) das **Miniaturas de Vídeo de Mídia do Azure** permite criar o resumo de um vídeo que é grande utilidade para clientes que desejam apenas visualizar um resumo de um vídeo de longa duração. Por exemplo, os clientes talvez queiram ver um breve “vídeo resumido” ao focalizar uma miniatura. Ao ajustar os parâmetros das **Miniaturas de Vídeo de Mídia do Azure** por meio de uma predefinição de configuração, é possível usar a avançada tecnologia de detecção de captura e concatenação do MP para gerar de forma algorítmica um subclipe descritivo.  
 
 No momento, o MP da **Miniatura de Vídeo de Mídia do Azure** está em Preview.
@@ -58,7 +56,7 @@ Ao criar uma tarefa de miniatura de vídeo com as **Miniaturas de Vídeo de Míd
 
 No momento, é possível alterar os seguintes parâmetros:
 
-| Param | Descrição |
+| Param | DESCRIÇÃO |
 | --- | --- |
 | outputAudio |Especifica se o vídeo resultante conterá áudio. <br/>Valores permitidos: True ou False. Padrão: True. |
 | fadeInFadeOut |Especifica se as transições de esmaecimento serão usadas entre as miniaturas de movimento separadas.  <br/>Valores permitidos: True ou False.  Padrão: True. |
