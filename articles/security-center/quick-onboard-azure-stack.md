@@ -1,5 +1,5 @@
 ---
-title: Início Rápido da Central de Segurança do Azure – integrar as máquinas virtuais do Azure Stack à Central de Segurança | Microsoft Docs
+title: Integrar as máquinas virtuais do Azure Stack à Central de Segurança do Azure
 description: Este início rápido mostra como provisionar a extensão da máquina virtual Gerenciamento de Configuração, de Atualização e do Azure Monitor em máquinas virtuais do Azure Stack.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
-ms.openlocfilehash: 1772fd34a2d79b725b2b5ccaa66adb0b251b7e1d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202858"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686514"
 ---
-# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Início Rápido:  Integrar suas máquinas virtuais do Azure Stack à Central de Segurança
+# <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Início Rápido: Integrar suas máquinas virtuais do Azure Stack à Central de Segurança
 Após integrar sua assinatura do Azure, será possível permitir que a Central de Segurança proteja suas máquinas virtuais em execução no Azure Stack adicionando a extensão da máquina virtual **Gerenciamento de Configuração, de Atualização e do Azure Monitor** no marketplace do Azure Stack.
 
 Este início rápido mostra como adicionar a extensão da máquina virtual **Gerenciamento de Configuração, de Atualização e do Azure Monitor** em uma máquina virtual (há suporte para Linux e Windows) em execução no Azure Stack.
@@ -69,7 +69,7 @@ Agora é necessário adicionar a extensão da máquina virtual **Gerenciamento d
 > Caso você não veja a extensão **Gerenciamento de Configuração, de Atualização e do Azure Monitor** listada no marketplace, contate seu operador do Azure Stack para disponibilizá-lo.
 
 6. Na folha de configuração **Instalar extensão**, cole a **ID do Workspace** e a **Chave do Workspace (Chave Primária)** que você copiou para o Bloco de Notas no procedimento anterior.
-7.  Quando terminar de fornecer as definições de configuração necessárias, clique em **OK**.
+7. Quando terminar de fornecer as definições de configuração necessárias, clique em **OK**.
 8. Depois que a instalação da extensão for concluída, seu status será mostrado como **Provisionamento bem-sucedido**. Pode levar até uma hora para que a máquina virtual seja exibida no portal da Central de Segurança.
 
 Para saber mais sobre como instalar e configurar o agente para Windows, confira [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) (Conectar computadores com Windows).

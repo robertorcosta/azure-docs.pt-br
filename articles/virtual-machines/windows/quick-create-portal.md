@@ -1,5 +1,5 @@
 ---
-title: Início Rápido - Criar uma VM Windows no Portal do Azure | Microsoft Docs
+title: Início Rápido – Criar uma VM Windows no portal do Azure
 description: Neste início rápido, você aprende a usar o portal do Azure para criar uma máquina virtual Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -7,24 +7,23 @@ author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/02/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 60f74de308938ee155cf61f3360f73d92feaa67c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 002d374f5be606688121ef4a3952383567c43e85
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102502"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685183"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows no Portal do Azure
 
-As máquinas virtuais (VM) do Azure podem ser criadas por meio do Portal do Azure. Esse método fornece uma interface de usuário baseada em navegador para criar as VMS seus recursos relacionados. Este início rápido mostra como usar portal do Azure para implantar uma VM (máquina virtual) no Azure que executa o Windows Server 2016. Para ver a VM em ação, você habilita o protocolo RDP na VM e instala o servidor Web do IIS.
+As máquinas virtuais (VM) do Azure podem ser criadas por meio do Portal do Azure. Esse método fornece uma interface de usuário baseada em navegador para criar as VMS seus recursos relacionados. Este início rápido mostra como usar portal do Azure para implantar uma VM (máquina virtual) no Azure que executa o Windows Server 2019. Para ver a VM em ação, você habilita o protocolo RDP na VM e instala o servidor Web do IIS.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -34,15 +33,14 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. Escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
-
-1. Na página **Novo**, em **Popular**, selecione **Datacenter do Windows Server 2016**.
-
+1. Digite **máquinas virtuais** na pesquisa.
+1. Em **Serviços**, selecione **Máquinas virtuais**.
+1. Na página **Máquinas Virtuais**, selecione **Adicionar**. 
 1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, escolha **Criar** grupo de recursos. Digite *myResourceGroup* para o nome. 
 
     ![Criar um grupo de recursos para sua VM](./media/quick-create-portal/project-details.png)
 
-1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual** e escolha *Leste dos EUA* para **Localização**. Deixe os outros padrões.
+1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual** e escolha *Leste dos EUA* para a **Região** e, em seguida, escolha *Windows Server 2019 Datacenter* para **Imagem**. Deixe os outros padrões.
 
     ![Seção de detalhes da instância](./media/quick-create-portal/instance-details.png)
 
@@ -50,7 +48,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
     ![Insira seu nome de usuário e sua senha](./media/quick-create-portal/administrator-account.png)
 
-1. Em **Regras de porta de entrada**, escolha **Permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** e **HTTP** na lista suspensa.
+1. Em **Regras de porta de entrada**, escolha **Permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** e **HTTP (80)** na lista suspensa.
 
     ![Abrir portas para RDP e HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -63,11 +61,11 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 Inicie uma conexão da área de trabalho remota para a máquina virtual. Estas instruções ensinam a se conectar aàsua VM de um computador com Windows. Em um Mac, você precisa de um cliente RDP, como este [Cliente de Área de Trabalho Remota](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) da Mac App Store.
 
-1. Clique no botão **Conectar** na página de propriedades da máquina virtual. 
+1. Clique no botão **Conectar** na página de visão geral de sua máquina virtual. 
 
     ![Conecte-se a uma VM do Azure no portal](./media/quick-create-portal/portal-quick-start-9.png)
     
-2. Na página **Conectar-se à máquina virtual**, mantenha as opções padrão para conectar-se ao nome DNS na porta 3389 e clique em **Realizar o download do arquivo RDP**.
+2. Na página **Conectar-se à máquina virtual**, mantenha as opções padrão para se conectar por endereço IP pela porta 3389 e clique em **Baixar arquivo RDP**.
 
 2. Abra o arquivo RDP baixado e clique em **Conectar** quando solicitado. 
 
@@ -94,7 +92,9 @@ No portal, selecione a VM e na visão geral da VM, use o botão **Clique para co
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Selecione o grupo de recursos da máquina virtual e, em seguida, selecione **Excluir**. Confirme o nome do grupo de recursos terminar de excluir os recursos.
+Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. 
+
+Selecione o grupo de recursos da máquina virtual e, em seguida, selecione **Excluir**. Confirme o nome do grupo de recursos terminar de excluir os recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

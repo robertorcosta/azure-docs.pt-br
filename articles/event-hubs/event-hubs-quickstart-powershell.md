@@ -1,5 +1,5 @@
 ---
-title: Criar um hub de eventos usando o PowerShell – Hubs de Eventos do Azure | Microsoft Docs
+title: 'Início Rápido: Criar um hub de eventos usando o PowerShell – Hubs de Eventos do Azure'
 description: Este início rápido descreve como criar um hub de eventos usando o Azure PowerShell e, em seguida, enviar e receber eventos usando o SDK do .NET Standard.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: b3847f798fde8702d6d95450c68fbfbca4c97f9d
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 2a88fe340037c31a71cb34181682095f31400c36
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604462"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720600"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Início Rápido: Criar um hub de eventos usando o Azure PowerShell
 

@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento Vocal) para Python'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de clientes do LUIS (Reconhecimento Vocal) para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.  O Reconhecimento Vocal (LUIS) permite aplicar inteligência de aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário para prever o significado geral e extrair informações detalhadas relevantes.
+description: Introdução à biblioteca de clientes do LUIS para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b586af569a9406d7fe9fa3d05c198f62f32744f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258757"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672012"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento Vocal) para Python
 

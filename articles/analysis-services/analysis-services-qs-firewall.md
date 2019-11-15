@@ -1,18 +1,18 @@
 ---
-title: Início Rápido - Configurar um firewall para um servidor do Analysis Services no Azure | Microsoft Docs
-description: Saiba como configurar um firewall do servidor do Analysis Services no Azure.
+title: Início Rápido – Configurar o firewall para servidor do Azure Analysis Services | Microsoft Docs
+description: Este início rápido ajuda você a configurar um firewall para o servidor do Azure Analysis Services usando o portal do Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/02/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c3c8de80f90fe203029b38171502e3d4a9b9dd46
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 8a1f774aae071a561bdda2d8c349861d640cb287
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298521"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572467"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar firewall do servidor – Portal
 

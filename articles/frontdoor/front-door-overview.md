@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 11/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 96dae96e16ce033ce15a8f1e9386e5252562654a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330829"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796221"
 ---
 # <a name="what-is-azure-front-door-service"></a>O que é o Azure Front Door Service?
 O Azure Front Door Service permite que você defina, gerencie e monitore o roteamento global para seu tráfego da Web otimizando para melhor desempenho e failover global instantâneo para ter alta disponibilidade. Com o Front Door, é possível transformar seus aplicativos consumidores e empresariais globais (de várias regiões) em modernos aplicativos robustos altamente personalizados e com alto desempenho, APIs e conteúdo que alcançam um público global com o Azure.
@@ -57,7 +57,7 @@ Quando você usa o Front Door para distribuir conteúdo, será necessário um do
 O Front Door também é compatível com HTTPS para nomes de domínio personalizados. Use esse recurso escolhendo certificados gerenciados pelo Front Door para seu tráfego ou carregando seu próprio certificado SSL personalizado.
 
 ## <a name="application-layer-security"></a>Segurança da camada de aplicativo
-O Azure Front Door permite que você crie regras WAF (firewall do aplicativo Web) personalizadas para obter controle de acesso a fim de proteger sua carga de trabalho HTTP/HTTPS contra exploração com base em endereços IP do cliente, o código do país e parâmetros http. Além disso, o Front Door também permite que você crie regras de limitação de taxa para combater o tráfego de bot mal-intencionado. 
+O Azure Front Door permite que você crie regras WAF (Firewall do Aplicativo Web) personalizadas para obter controle de acesso a fim de proteger sua carga de trabalho HTTP/HTTPS contra exploração com base em endereços IP do cliente, o código do país e parâmetros http. Além disso, o Front Door também permite que você crie regras de limitação de taxa para combater o tráfego de bot mal-intencionado. Para saber mais sobre o Firewall do Aplicativo Web, confira [O que é o Firewall do Aplicativo Web do Azure?](../web-application-firewall/overview.md)
 
 A plataforma do Front Door é protegida pela [Proteção contra DDoS do Azure](../virtual-network/ddos-protection-overview.md) Básica. Para aumentar a proteção, a Proteção contra DDoS do Azure Standard pode ser habilitada em suas VNETs e proteger recursos contra ataques de camada de rede (TCP/UDP) por meio do ajuste automático e atenuação. O Front Door é um proxy reverso de camada 7; ele apenas permite que o tráfego da Web seja passado para back-ends e bloqueie outros tipos de tráfego por padrão.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: criar um blob no Armazenamento de Blobs do Azure com Python'
-description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Python a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
+title: 'Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v2.1 para Python'
+description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento v2.1 para Python a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/11/2019
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 606c7d1fd012052a22afeef906bbe9df4c63a76b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609686"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825292"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>Início Rápido: Fazer upload, baixar e listar blobs no Armazenamento de Blobs do Azure com Python
+# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v2.1 para Python
 
 Neste artigo, você verá como usar o Python para fazer upload, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. Os blobs são apenas objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Os blobs no Armazenamento do Azure são diferentes de compartilhamentos de arquivos, tabelas sem esquema e filas de mensagens.  Para obter mais informações, confira [Introdução ao Armazenamento do Azure](/azure/storage/common/storage-introduction).
 

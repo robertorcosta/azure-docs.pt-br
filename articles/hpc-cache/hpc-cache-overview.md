@@ -1,19 +1,19 @@
 ---
-title: Visão geral da versão prévia do Azure HPC Cache
+title: Visão geral do Azure HPC Cache
 description: Descreve o Azure HPC Cache, uma solução de acelerador de acesso a arquivos para computação de alto desempenho
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: bfbbcd2d7d1bb44e260bedda54ca38ed6860ea67
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254491"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582140"
 ---
-# <a name="what-is-azure-hpc-cache-preview"></a>O que é o Azure HPC Cache? (Visualização)
+# <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
 
 O Azure HPC Cache acelera o acesso a suas tarefas de HPC (computação de alto desempenho). Ao armazenar arquivos em cache no Azure, o Azure HPC Cache traz a escalabilidade da computação em nuvem para seu fluxo de trabalho existente. Esse serviço pode ser usado até mesmo para fluxos de trabalho em que seus dados são armazenados em links WAN, como no ambiente de NAS do datacenter local.
 
@@ -54,13 +54,17 @@ O Azure HPC Cache está disponível nessas regiões do Azure:
 * Norte da Europa
 * Europa Ocidental
 * Sudeste Asiático
+* Sydney
 * Oeste dos EUA 2
+* Coreia Central
 
 Verifique a [página do produto do Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para obter as informações de disponibilidade mais recentes.
 
-## <a name="preview-availability"></a>Disponibilidade da versão prévia
+## <a name="service-availability"></a>Disponibilidade do serviço
 
-A versão prévia pública do Azure HPC Cache é restrita para garantir a qualidade do serviço. Solicite acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois que sua assinatura for adicionada à lista de acesso, será possível criar caches de teste.
+Você deve solicitar acesso para cada assinatura que usará com o Azure HPC Cache. Essa restrição ajuda a garantir a qualidade do serviço nos meses iniciais de disponibilidade geral.
+
+Solicite acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois que sua assinatura for adicionada à lista de acesso, você poderá criar caches.
 
 ## <a name="next-steps"></a>Próximas etapas
 

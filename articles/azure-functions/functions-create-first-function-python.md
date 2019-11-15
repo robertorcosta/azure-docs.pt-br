@@ -1,5 +1,5 @@
 ---
-title: Criar uma função disparada por HTTP no Azure
+title: Criar uma função Python disparada por HTTP no Azure
 description: Aprenda a criar sua primeira função Python no Azure usando o Azure Functions Core Tools e a CLI do Azure.
 author: ggailey777
 ms.author: glenga
@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 791348088d909785b36934c3b9a2ae00fc0acbb7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693345"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622043"
 ---
-# <a name="create-an-http-triggered-function-in-azure"></a>Criar uma função disparada por HTTP no Azure
+# <a name="create-an-http-triggered-python-function-in-azure"></a>Criar uma função Python disparada por HTTP no Azure
 
 Este artigo mostra como usar ferramentas de linha de comando para criar um projeto do Python executado no Azure Functions. Também é possível criar uma função disparada por uma solicitação HTTP. Por fim, você publicará seu projeto para ser executado como uma [função sem servidor](functions-scale.md#consumption-plan) no Azure.
 
@@ -151,7 +151,7 @@ A função é executada localmente usando o Azure Functions Runtime.
     [8/27/2018 10:38:27 PM] Job host started
     ```
 
-1. Copie a URL da função `HttpTrigger` da saída do tempo de execução de função e cole-a na barra de endereços do navegador.
+1. Copie a URL da função `HttpTrigger` da saída do runtime de função e cole-a na barra de endereços do navegador.
 
 1. Acrescente o valor de cadeia de consulta `?name=<yourname>` a essa URL e execute a solicitação. A captura de tela a seguir mostra a resposta no navegador à solicitação GET retornada pela função local:
 

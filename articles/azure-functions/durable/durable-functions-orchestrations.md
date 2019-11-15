@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 82c4a27ac2491e668c1d99e2a14b870e82ec5665
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 4e11070f4e766f83b0e7ead7757c675de3fef33f
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935414"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614765"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duráveis
 
@@ -64,7 +64,7 @@ O comportamento de fornecimento de eventos da Estrutura de Tarefas Duráveis est
 ```csharp
 [FunctionName("E1_HelloSequence")]
 public static async Task<List<string>> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var outputs = new List<string>();
 
@@ -133,7 +133,7 @@ Algumas observações sobre os valores das colunas:
 
 * **PartitionKey**: Contém a ID de instância da orquestração.
 * **EventType**: Representa o tipo do evento. Pode ser um dos seguintes tipos:
-  * **OrchestrationStarted**: A função de orquestrador retomada após um período de espera ou executada pela primeira vez. A coluna `Timestamp` é usada para popular o valor determinístico para a API [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime).
+  * **OrchestrationStarted**: A função de orquestrador retomada após um período de espera ou executada pela primeira vez. A coluna `Timestamp` é usada para preencher o valor determinístico das APIs `CurrentUtcDateTime` (.NET) e `currentUtcDateTime` (JavaScript).
   * **ExecutionStarted**: A função de orquestrador que começou a ser executada pela primeira vez. Esse evento também contém a entrada da função na coluna `Input`.
   * **TaskScheduled**: Uma função de atividade foi agendada. O nome da função de atividade é capturado na coluna `Name`.
   * **TaskCompleted**: Uma função de atividade foi concluída. O resultado da função está na coluna `Result`.
@@ -186,7 +186,7 @@ As funções de orquestrador também podem adicionar políticas de repetição �
 
 Para obter mais informações e exemplos, confira o artigo [Tratamento de erro](durable-functions-error-handling.md).
 
-### <a name="critical-sections"></a>Seções críticas
+### <a name="critical-sections-durable-functions-2x"></a>Seções críticas (Durable Functions 2.x)
 
 As instâncias de orquestração têm thread único para que não seja preciso se preocupar com condições de corrida *dentro* de uma orquestração. No entanto, as condição de corrida são possíveis quando as orquestrações interagem com sistemas externos. Para atenuar as condições de corrida ao interagir com sistemas externos, as funções de orquestrador podem definir *seções críticas* usando um método `LockAsync` no .NET.
 
@@ -212,7 +212,7 @@ O recurso de seção crítica também é útil para coordenar alterações em en
 > [!NOTE]
 > As seções críticas estão disponíveis nas Durable Functions 2.0 e superiores. No momento, apenas orquestrações do .NET implementam esse recurso.
 
-### <a name="calling-http-endpoints"></a>Chamar pontos de extremidade HTTP
+### <a name="calling-http-endpoints-durable-functions-2x"></a>Chamar pontos de extremidade HTTP (Durable Functions 2.x)
 
 As funções de orquestrador não têm permissão para realizar E/S conforme descrito nas [restrições de código da função funções de orquestrador](durable-functions-code-constraints.md). A alternativa típica para essa limitação é encapsular o código que precisa realizar E/S em uma função de atividade. As orquestrações que interagem com sistemas externos frequentemente usam funções de atividade para realizar chamadas HTTP e retornar o resultado à orquestração.
 
@@ -236,10 +236,22 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const url = context.df.getInput();
+    var res = yield context.df.callHttp("GET", url);
+    if (res.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
 Para obter mais informações e exemplos detalhados, confira o artigo [Recursos HTTP](durable-functions-http-features.md).
 
 > [!NOTE]
-> Chamar pontos de extremidade HTTP diretamente de funções de orquestrador está disponível nas Durable Functions 2.0 e superiores. No momento, apenas orquestrações do .NET implementam esse recurso.
+> Chamar pontos de extremidade HTTP diretamente de funções de orquestrador está disponível nas Durable Functions 2.0 e superiores.
 
 ### <a name="passing-multiple-parameters"></a>Passando vários parâmetros
 
@@ -250,7 +262,7 @@ O exemplo a seguir usa os novos recursos de [ValueTuples](https://docs.microsoft
 ```csharp
 [FunctionName("GetCourseRecommendations")]
 public static async Task<object> RunOrchestrator(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string major = "ComputerScience";
     int universityYear = context.GetInput<int>();
@@ -262,7 +274,7 @@ public static async Task<object> RunOrchestrator(
 }
 
 [FunctionName("CourseRecommendations")]
-public static async Task<object> Mapper([ActivityTrigger] DurableActivityContext inputs)
+public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContext inputs)
 {
     // parse input for student's major and year in university
     (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();

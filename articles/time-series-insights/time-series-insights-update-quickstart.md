@@ -3,20 +3,19 @@ title: 'Início Rápido: Explore o ambiente de demonstração do Azure Time Seri
 description: Início Rápido para compreender o ambiente de demonstração do Azure Time Series Insights Preview.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 09/23/2019
-ms.openlocfilehash: 633eb00b479c6d2e2bf233b42aff7d393b110fd2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 10/24/2019
+ms.openlocfilehash: 25d6d1aa1cf7db0f448ec22ed7b5c84d840af3f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258426"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579645"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início Rápido: Explorar o ambiente de demonstração do Azure Time Series Insights Preview
 
@@ -31,7 +30,7 @@ Neste início rápido, você aprenderá a usar o Time Series Insights para desco
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Explore o Time Series Insights Explorer em um ambiente de demonstração
 
-O Gerenciador da Versão Prévia do Time Series Insights demonstra a análise de causas raiz e dados históricos. Introdução:
+O Gerenciador da Versão Prévia do Time Series Insights demonstra a análise da causa raiz e dados históricos. Introdução:
 
 1. Acesse o ambiente de  [demonstração da Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples).  
 
@@ -72,22 +71,22 @@ O Gerenciador da Versão Prévia do Time Series Insights demonstra a análise de
 
       [![Procurar padrões históricos](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Usando o Time Series Insights e a telemetria de sensor, descobrimos uma tendência de longo prazo problemática ocultada nos dados históricos. Com esses novos insights, podemos:
+Ao usar o Time Series Insights e a telemetria de sensor, descobrimos uma tendência de longo prazo ocultada nos dados históricos. Com esses novos insights, podemos:
 
 * Explicar o que realmente ocorreu.
 * Corrigir o problema.
-* Implementar sistemas superiores de notificação de alerta.
+* Instale melhores sistemas de notificação de alerta.
 
 ## <a name="root-cause-analysis"></a>Análise da causa raiz
 
-1. Alguns cenários exigem uma análise sofisticada para revelar indicações sutis nos dados. Selecione o moinho de vento **W6** na data **25/6**.
+1. Alguns cenários exigem uma análise sofisticada para revelar indicações nos dados. Selecione o moinho de vento **W6** na data **25/6**.
 
     1. Altere o intervalo de exibição para **1/6/17 20h a 1/7/17 20h (UTC)** .
     1. Selecione o **Usina 1 da Contoso** > **W6** > **Sistema de Segurança** > **VoltageActuatorSwitchWarning**.
 
        [![Alterar o intervalo de exibição e selecionar W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. O aviso indica um problema com a tensão de saída do gerador. A saída de energia geral do gerador está operando dentro dos parâmetros normais no intervalo atual. Aumentando nosso intervalo, outro padrão surge. Há uma queda definida evidente.
+1. O aviso indica um problema com a tensão do gerador. A saída de energia geral do gerador está dentro dos parâmetros normais no intervalo atual. Aumentando nosso intervalo, vemos outro padrão surgir. Uma queda é evidente.
 
     1. Remova o sensor **VoltageActuatorSwitchWarning**.
     1. Selecione **Sistema de Gerador** > **ActivePower**.
@@ -118,7 +117,7 @@ Usando o Time Series Insights e a telemetria de sensor, descobrimos uma tendênc
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Agora que concluiu o tutorial, limpe os recursos que você criou:
+Agora que concluiu o início rápido, limpe os recursos que você criou:
 
 1. No menu à esquerda no [portal do Azure](https://portal.azure.com), selecione **Todos os recursos** e localize o grupo de recursos do Azure Time Series Insights.
 1. Exclua todo o grupo de recursos (e todos os recursos contidos nele) selecionando **Excluir** ou remova cada recurso individualmente.
@@ -130,7 +129,7 @@ Você está pronto para criar seu próprio ambiente do Time Series Insights Prev
 > [!div class="nextstepaction"]
 > [Planejar o ambiente do Time Series Insights Preview](time-series-insights-update-plan.md)
 
-Saiba como navegar pela demonstração e por seus recursos:
+Saiba como usar a demonstração e seus recursos:
 
 > [!div class="nextstepaction"]
 > [O Gerenciador da Versão Prévia do Time Series Insights](time-series-insights-update-explorer.md)

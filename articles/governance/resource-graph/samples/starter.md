@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: c2a8c60502aeb75173371d40475b5d2875417791
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7eef353f45d0387a45fbf8180bc49cae7975dfa9
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808627"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622500"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas do Microsoft Azure Active Directory Graph
 
@@ -534,6 +534,6 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [linguagem de consulta](../concepts/query-language.md)
-- Saiba [explorar recursos](../concepts/explore-resources.md)
-- Veja exemplos de [Consultas avançadas](advanced.md)
+- Saiba mais sobre a [linguagem de consulta](../concepts/query-language.md).
+- Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).
+- Veja exemplos de [consultas avançadas](advanced.md).

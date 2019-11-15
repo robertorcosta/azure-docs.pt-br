@@ -1,20 +1,20 @@
 ---
-title: Carregar, baixar, listar e excluir blobs usando o SDK do Armazenamento do Azure v10 para JavaScript
-description: Criar, carregar e excluir blobs e contêineres no Node.js com o Armazenamento do Azure
+title: 'Início Rápido: biblioteca de clientes do Armazenamento de Blobs do Azure v10 para JavaScript'
+description: Crie, carregue e exclua blobs e contêineres no Node.js com a biblioteca de clientes do Armazenamento do Azure v10 para JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/24/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f8c7de63f2bd4b7329e8ae6a53123c9c1ea035af
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: b909da5da0d7352d4086222fe0411ac37668bd92
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240437"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825332"
 ---
-# <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Início Rápido: Carregar, baixar, listar e excluir blobs usando o SDK do Armazenamento do Azure v10 para JavaScript
+# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>Início Rápido: biblioteca de clientes do Armazenamento de Blobs do Azure v10 para JavaScript
 
 Neste início rápido, você aprenderá a usar o [SDK do Armazenamento do Azure v10 para JavaScript](https://github.com/Azure/azure-sdk-for-js) no Node.js para carregar, baixar, listar e excluir blobs e gerenciar contêineres.
 

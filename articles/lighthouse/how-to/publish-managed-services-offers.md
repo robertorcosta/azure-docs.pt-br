@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 10105d06e48a727e71ea5cb03f2ffceb589df50a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4b2ce1253fd4421b36105fdbae68c6e89173a3c6
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595269"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615473"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicar uma oferta de serviços gerenciados no Azure Marketplace
 
@@ -52,9 +52,11 @@ Quando terminar, selecione **Salvar**. Agora você está pronto para passar para
 
 Cada oferta deve ter um ou mais planos (às vezes chamados de SKUs). Você pode adicionar vários planos para dar suporte a diferentes conjuntos de recursos com preços diferentes ou para personalizar um plano específico para um público seleto de clientes específicos. Os clientes podem ver os planos disponíveis para eles na oferta pai.
 
-Na seção Planos, selecione **Novo Plano** para cada plano que quiser criar. Em seguida, insira uma **ID de Plano**. Essa ID pode conter apenas caracteres alfanuméricos em minúsculas, traços e sublinhados, com no máximo 50 caracteres. A ID do plano pode ficar visível para clientes em locais como URLs de produtos e relatórios de cobrança. Depois de publicar a oferta, você não poderá alterar esse valor.
+Na seção Planos, selecione **Novo plano**. Em seguida, insira uma **ID de Plano**. Essa ID pode conter apenas caracteres alfanuméricos em minúsculas, traços e sublinhados, com no máximo 50 caracteres. A ID do plano pode ficar visível para clientes em locais como URLs de produtos e relatórios de cobrança. Depois de publicar a oferta, você não poderá alterar esse valor.
 
-Em seguida, preencha as seções na seguinte seção **Detalhes do Plano**:
+### <a name="plan-details"></a>Detalhes do plano
+
+Preencha as seguintes seções em **Detalhes do plano**:
 
 |Campo  |DESCRIÇÃO  |
 |---------|---------|
@@ -64,34 +66,43 @@ Em seguida, preencha as seções na seguinte seção **Detalhes do Plano**:
 |**Modelo de cobrança**     | Há dois modelos de cobrança mostrados aqui, mas você deve escolher **Traga sua própria licença** para ofertas de serviços gerenciados. Isso significa que você cobrará de seus clientes diretamente os custos relacionados a essa oferta, e a Microsoft não cobrará nenhum valor por você.   |
 |**Trata-se de um plano privado?**     | Indica se a SKU é pública ou privada. O padrão é **Não** (público). Se você deixar essa seleção, seu plano não será restrito a clientes específicos (ou a determinado número de clientes); depois de publicar um plano público, você não poderá alterá-lo posteriormente para privado. Para disponibilizar esse plano somente para clientes específicos, selecione **Sim**. Ao fazer isso, você precisará identificar os clientes fornecendo suas IDs de assinatura. Elas podem ser inseridas uma a uma (até 10 assinaturas) ou pelo upload de um arquivo .csv (até 20.000 assinaturas). Inclua suas próprias assinaturas aqui para que você possa testar e validar a oferta. Para saber mais, confira [SKUs Privados e Planos](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
 
-Por fim, preencha a seção **Detalhes do Manifesto**. Isso criará um manifesto com informações de autorização para gerenciar recursos do cliente. As informações fornecidas aqui são necessárias para integrar seus clientes no gerenciamento de recursos delegados do Azure. Conforme observado acima, essas permissões serão aplicadas a todos os clientes que comprarem o plano e, portanto, se você quiser limitar o acesso a um cliente específico, precisará publicar um plano privado para seu uso exclusivo.
+### <a name="manifest-details"></a>Detalhes do manifesto
 
-- Primeiro, forneça uma **Versão** para o manifesto. Use o formato *n.n.n* (por exemplo, 1.2.5).
-- Em seguida, insira sua **ID de Locatário**. Ela é um GUID associado à ID de locatário do Azure Active Directory da sua organização (ou seja, o locatário no qual você trabalhará para gerenciar os recursos de seus clientes). Se você não tiver isso à mão, poderá encontrá-lo passando o mouse sobre o nome da conta no lado superior direito do portal do Azure ou selecionando o **Mudar diretório**. 
-- Por fim, adicione uma ou mais entradas de **Autorização** ao plano. As autorizações definem as entidades que podem acessar recursos e assinaturas de clientes que compram o plano. Você deve fornecer essas informações para acessar recursos em nome do cliente usando o gerenciamento de recursos delegados do Azure.
-  Para cada autorização, forneça o que é pedido a seguir. Em seguida, você pode selecionar **Nova autorização** quantas vezes forem necessárias para adicionar mais definições de usuários/funções.
+Preencha a seção **Detalhes do Manifesto** do seu plano. Isso criará um manifesto com informações de autorização para gerenciar recursos do cliente. Essas informações são necessárias para habilitar o gerenciamento de recursos delegados do Azure.
+
+> [!NOTE]
+> Como observado acima, os usuários e as funções em sua entradas **autorização** serão aplicadas a todos os clientes que comprarem o plano. Se você quiser limitar o acesso a um cliente específico, será necessário publicar um plano privado para uso exclusivo.
+
+Primeiro, forneça uma **Versão** para o manifesto. Use o formato *n.n.n* (por exemplo, 1.2.5).
+
+Em seguida, insira sua **ID de Locatário**. Ela é um GUID associado à ID de locatário do Azure Active Directory da sua organização (ou seja, o locatário no qual você trabalhará para gerenciar os recursos de seus clientes). Se você não tiver isso à mão, poderá encontrá-lo passando o mouse sobre o nome da conta no lado superior direito do portal do Azure ou selecionando o **Mudar diretório**.
+
+Por fim, adicione uma ou mais entradas de **Autorização** ao plano. As autorizações definem as entidades que podem acessar recursos e assinaturas para clientes que adquirem o plano e atribuem funções que concedem níveis específicos de acesso. Para obter detalhes sobre as funções com suporte, confira [Locatários, funções e usuários em cenários do Azure Lighthouse](../concepts/tenants-users-roles.md).
+
+Para cada **Autorização**, você precisará fornecer o seguinte. Em seguida, você pode selecionar **Nova autorização** quantas vezes forem necessárias para adicionar mais definições de usuários e funções.
+
   - **ID do Objeto do Azure AD**: o identificador Azure AD de um usuário, grupo de usuários ou aplicativo que receberá determinadas permissões (conforme descrito pela definição de função) relativas aos recursos dos clientes.
   - **Nome de exibição do objeto do Azure AD**: um nome amigável para ajudar o cliente a entender a finalidade da autorização. O cliente verá esse nome ao delegar recursos.
-  - **Definição de Função**: Selecione uma das funções internas do Azure AD disponíveis na lista. Essa função determinará as permissões que o usuário no campo **ID do Objeto do Azure AD** terá nos recursos dos clientes. Para saber mais sobre essas funções, confira [Funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-  - **Funções atribuíveis**: Isso será necessário apenas se você tiver selecionado Administrador de Acesso do Usuário na **Definição de Função** para essa autorização. Nesse caso, você deve adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de Objeto do Azure AD** poderá atribuir essas **Funções Atribuíveis** a [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Observe que nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário. Se você não selecionar uma ou mais funções aqui, seu envio não será aprovado na certificação. (Se você não selecionou Administrador de Acesso do Usuário para a Definição de Função desse usuário, o campo não terá efeito.)
+  - **Definição de Função**: Selecione uma das funções internas do Azure AD disponíveis na lista. Essa função determinará as permissões que o usuário no campo **ID do Objeto do Azure AD** terá nos recursos dos clientes. Para obter descrições dessas funções, confira [Funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) e [Suporte de função para o gerenciamento de recursos delegados do Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
+  - **Funções atribuíveis**: Isso será necessário apenas se você tiver selecionado Administrador de Acesso do Usuário na **Definição de Função** para essa autorização. Nesse caso, você deve adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de objeto do Azure AD** poderá atribuir essas **Funções atribuíveis** às [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), necessárias para [implantar políticas que possam ser corrigidas](deploy-policy-remediation.md). Observe que nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário. Se você não selecionar uma ou mais funções aqui, seu envio não será aprovado na certificação. (Se você não selecionou Administrador de Acesso do Usuário para a Definição de Função desse usuário, o campo não terá efeito.)
 
 > [!TIP]
-> Na maioria dos casos, é melhor atribuir permissões a um grupo de usuários ou entidade de serviço do Azure AD, em vez de a uma série de contas de usuário individuais. Assim você pode adicionar ou remover o acesso de usuários individuais sem precisar atualizar e publicar o plano novamente quando os requisitos de acesso forem alterados.
+> Na maioria dos casos, é melhor atribuir permissões a um grupo de usuários ou entidade de serviço do Azure AD, em vez de a uma série de contas de usuário individuais. Assim você pode adicionar ou remover o acesso de usuários individuais sem precisar atualizar e publicar o plano novamente quando os requisitos de acesso forem alterados. Para obter recomendações adicionais, confira [Locatários, funções e usuários em cenários do Azure Lighthouse](../concepts/tenants-users-roles.md).
 
-Quando terminar de adicionar planos, selecione **Salvar** e continue na seção **Marketplace**.
+Depois de concluir as informações, você poderá selecionar o **Novo plano** quantas vezes precisar para criar planos adicionais. Ao terminar, selecione **Salvar** e continue na seção **Marketplace**.
 
 ## <a name="provide-marketplace-text-and-images"></a>Fornecer texto e imagens ao Marketplace
 
 A seção **Marketplace** é onde você fornece o texto e as imagens que os clientes verão no Azure Marketplace e no portal do Azure.
 
-Forneça informações para os seguintes campos na seção **Visão geral**:
+Preencha os seguintes campos na seção **Visão geral**:
 
 |Campo  |DESCRIÇÃO  |
 |---------|---------|
 |**Título**     |  Título da oferta, geralmente o nome longo e formal. Este título será exibido com destaque no mercado. Comprimento máximo de 50 caracteres. Na maioria dos casos, ele deve ser igual ao **Nome** inserido na seção **Configurações da Oferta**.       |
 |**Resumo**     | Breve propósito ou função da solução. Isso geralmente é exibido abaixo do título. Comprimento máximo de 100 caracteres.        |
 |**Resumo longo**     | Um resumo mais longo da finalidade ou da função da oferta. Comprimento máximo de 256 caracteres.        |
-|**Descrição**     | Mais informações sobre a oferta. É um campo com tamanho máximo de 3000 caracteres e dá suporte à formatação HTML simples. Você deve incluir as palavras "serviço gerenciado" ou "serviços gerenciados" em algum lugar na sua descrição.       |
+|**Descrição**     | Mais informações sobre sua oferta. É um campo com tamanho máximo de 3000 caracteres e dá suporte à formatação HTML simples. Você deve incluir as palavras "serviço gerenciado" ou "serviços gerenciados" em algum lugar na sua descrição.       |
 |**Identificador de marketing**     | Um identificador amigável de URL exclusivo. Ele será usado nas URLs do Marketplace para essa oferta. Por exemplo, se a ID do editor for *contoso* e o identificador de marketing for *sampleApp*, a URL da oferta no Azure Marketplace será *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* .        |
 |**Visualizar códigos de inscrição**     | Adicione 1 a 100 identificadores de assinatura. Os clientes associados a essas assinaturas poderão exibir a oferta no Azure Marketplace antes de ser ativada. Sugerimos incluir suas próprias assinaturas aqui para que você possa visualizar como a oferta aparece no Azure Marketplace antes de disponibilizá-la para os clientes.  (As equipes de suporte e engenharia da Microsoft também poderão exibir a oferta durante esse período de versão prévia.)   |
 |**Links úteis**     | URLs relacionadas à oferta, como documentação, notas de versão, perguntas frequentes, etc.        |
@@ -128,7 +139,7 @@ Depois de adicionar essas informações, selecione **Salvar.**
 
 ## <a name="publish-your-offer"></a>Publicar sua oferta
 
-Quando estiver satisfeito com todas as informações fornecidas, a próxima etapa será publicar a oferta no Azure Marketplace. Selecione o botão **Publicar** para iniciar o processo de ativação da oferta. Para saber mais sobre esse processo, confira [Publicar ofertas do Azure Marketplace e do AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+Depois de concluir todas as seções, a próxima etapa é publicar a oferta no Azure Marketplace. Selecione o botão **Publicar** para iniciar o processo de ativação da oferta. Para saber mais sobre esse processo, confira [Publicar ofertas do Azure Marketplace e do AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
 
 ## <a name="the-customer-onboarding-process"></a>O processo de integração do cliente
 

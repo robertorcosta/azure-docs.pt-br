@@ -1,5 +1,5 @@
 ---
-title: Usar o Visual Studio com o .NET e o C# para consultar o Banco de Dados SQL do Azure | Microsoft Docs
+title: Usar o Visual Studio com .NET e C# em consultas
 description: Use o Visual Studio para criar um aplicativo C# que se conecta a um Banco de Dados SQL do Azure e o consulta com instruções Transact-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 3ed11d2b1628cecc0696e4c37135cfc7d2190de5
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b9bc7d077acd3e6e3716cf0a012205e6de54a4b7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597915"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827067"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Início Rápido: Use .NET e C# com o Visual Studio para se conectar e consultar um Banco de Dados SQL do Azure
 

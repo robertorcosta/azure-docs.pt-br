@@ -1,83 +1,83 @@
 ---
-title: Visão geral de Blockchain Service do Azure
-description: Visão geral dos serviços de Blockchain do Azure
+title: Visão geral do Azure Blockchain Service
+description: Visão geral do Azure Blockchain Service
 services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 9fcf75a07d1caf7b411c315d11ce984cbe35df75
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544712"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577193"
 ---
-# <a name="what-is-azure-blockchain-service"></a>O que é o serviço do Azure Blockchain?
+# <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
-Azure Blockchain Service é um serviço de razão totalmente gerenciado que permite aos usuários a capacidade de crescimento e operar redes de blockchain em grande escala no Azure. Ao fornecer controle unificada para gerenciamento de infraestrutura, bem como controle de rede de blockchain, Blockchain o serviço do Azure fornece:
+O Azure Blockchain Service é um serviço contábil totalmente gerenciado que permite aos usuários ampliar e operar redes de blockchain em escala no Azure. Ao fornecer controle unificado para gerenciamento de infraestrutura e governança de rede de blockchain, o Azure Blockchain Service fornece:
 
-* Implantação de rede simples e operações
+* Implantação e operações de rede simples
 * Gerenciamento do consórcio interno
-* Desenvolver contratos inteligentes com ferramentas de desenvolvimento familiar
+* Desenvolva contratos inteligentes com ferramentas de desenvolvimento conhecidas
 
-Azure Blockchain Service foi projetado para dar suporte a vários protocolos de razão. Atualmente, ele oferece suporte para o Ethereum [Quorum](https://www.jpmorgan.com/Quorum) razão usando o [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) mecanismo de consenso.
+O Azure Blockchain Service foi projetado para oferecer suporte a vários protocolos razão. Atualmente, ele fornece suporte ao razão Ethereum [Quorum](https://www.jpmorgan.com/Quorum) usando o mecanismo de consenso [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 
-Esses recursos não precisam de quase nenhuma administração e todos são fornecidos sem nenhum custo adicional. Você pode se concentrar no desenvolvimento de aplicativos e lógica de negócios em vez de alocar tempo e recursos para gerenciamento de infraestrutura e máquinas virtuais. Além disso, você pode continuar a desenvolver seu aplicativo com a plataforma de sua escolha para entregar suas soluções sem precisar aprender novas habilidades e ferramentas de código-fonte aberto.
+Esses recursos não precisam de quase nenhuma administração e todos são fornecidos sem nenhum custo adicional. Você pode se concentrar no desenvolvimento de aplicativos e na lógica comercial, em vez de alocar tempo e recursos para gerenciar máquinas virtuais e infraestrutura. Além disso, você pode continuar desenvolvendo seu aplicativo com as ferramentas de código aberto e a plataforma de sua escolha para fornecer suas soluções sem precisar aprender novas habilidades.
 
-## <a name="network-deployment-and-operations"></a>Operações e a implantação de rede
+## <a name="network-deployment-and-operations"></a>Implantação e operações de rede
 
-Implantar o serviço de Blockchain do Azure pode ser feito por meio do portal do Azure, CLI do Azure, bem como por meio de código do Visual Studio usando a extensão de Blockchain do Azure.  Implantação é simplificada, incluindo a transação e o validador de nós, redes virtuais do Azure para isolamento de segurança, bem como armazenamento gerenciado pelo serviço de provisionamento.  Além disso, ao implantar um novo membro de blockchain, os usuários também criar ou ingressar um consórcio.  Consórcio permitem que várias partes em diferentes assinaturas do Azure ser capaz de se comunicar com segurança uma da outra em um blockchain compartilhado.  Essa implantação simplificada reduz a implantação de rede de blockchain de dias para minutos.
+A implantação do Azure Blockchain Service pode ser feita por meio do portal do Azure, da CLI do Azure e do código do Visual Studio usando a extensão do Azure Blockchain.  A implantação é simplificada, incluindo provisionamento de nós de transação e de validador, Redes Virtuais do Azure, para isolamento de segurança, e armazenamento gerenciado por serviços.  Ao implantar um novo membro do blockchain, os usuários também criam ou ingressam em um consórcio.  Os consórcios permitem que vários grupos em diferentes assinaturas do Azure possam se comunicar com segurança uns com os outros em um blockchain compartilhado.  Essa implantação simplificada reduz a implantação da rede de blockchain de dias para minutos.
 
-### <a name="performance-and-service-tiers"></a>Camadas de serviço e desempenho
+### <a name="performance-and-service-tiers"></a>Níveis de desempenho e serviço
 
-O serviço de Blockchain do Azure oferece duas camadas de serviço: *Básico* e *Standard*. Cada camada oferece diferentes de desempenho e recursos para dar suporte ao desenvolvimento leve e testar cargas de trabalho até altamente dimensionados implantações de blockchain de produção. Ambas as camadas incluem o nó de pelo menos uma transação e um nó de validador (Basic) ou dois nós de validador (padrão).
+O Azure Blockchain Service oferece duas camadas de serviço: planos *Básico* e *Standard*. Cada camada oferece desempenho e recursos diferentes para oferecer suporte a cargas de trabalho leves de desenvolvimento e teste até implantações de blockchain de produção em escala maciça. Ambas as camadas incluem pelo menos um nó de transação e um de validador (Básico) ou dois nós de validação (Standard).
 
 ![Tipos de preço](./media/overview/pricing-tiers.png)
 
-Além de oferecer dois nós de validador, o *Standard* camada fornece 2 *vCores* para cada nó de transação e validador, enquanto a camada básica oferece uma configuração de 1 vCore.  Oferecendo 2 núcleos virtuais para nós de transação e validador, 1 vCore pode ser dedicado a razão de Quorum, enquanto o 1 vCore restante pode ser usado para outros serviços relacionados à infra-estrutura, garantindo um desempenho ideal para a produção cargas de trabalho do blockchain. Para obter mais informações sobre os detalhes de preços, consulte [preços do serviço do Azure Blockchain](https://azure.microsoft.com/pricing/details/blockchain-service).
+Além de oferecer dois nós de validador, a camada *Standard* fornece 2 *vCores* para cada transação e nó validador, enquanto a camada Básica oferece configuração de 1 vCore.  Ao oferecer 2 vCores para nós de transação e de validador, 1 vCore pode ser dedicado ao razão do Quorum, enquanto o 1 vCore restante pode ser usado para outros serviços relacionados à infraestrutura, garantindo desempenho ideal para cargas de trabalho de blockchain de produção. Para saber mais sobre detalhes de preços, confira [Preços do Azure Blockchain Service](https://azure.microsoft.com/pricing/details/blockchain-service).
 
 ### <a name="security-and-maintenance"></a>Segurança e manutenção
 
-Depois de provisionar seu primeiro membro de blockchain, você tem a capacidade de adicionar nós de transações adicionais para o membro.  Por padrão, nós de transação são protegidos por meio de regras de firewall e precisarão ser configurado para acesso.  Além disso, todos os nós de transação criptografam dados em movimento via TLS.  Existem várias opções para proteger o acesso do nó de transação, incluindo as regras de firewall, autenticação básica, as chaves de acesso, bem como integração do Active Directory do Azure. Para obter mais informações, consulte [configurar nós de transação](configure-transaction-nodes.md) e [configurar o acesso do Azure Active Directory](configure-aad.md).
+Depois de provisionar seu primeiro membro do blockchain, você poderá adicionar nós de transação adicionais ao seu membro.  Por padrão, os nós de transação são protegidos por regras de firewall e precisam ser configurados para acesso.  Além disso, todos os nós de transação criptografam dados em movimento via TLS.  Existem várias opções para proteger o acesso ao nó de transação, incluindo regras de firewall, autenticação básica, chaves de acesso e integração do Azure Active Directory. Para saber mais, confira [configurar nós de transação](configure-transaction-nodes.md) e [configurar o acesso ao Azure Active Directory](configure-aad.md).
 
-Como um serviço gerenciado, o serviço de Blockchain do Azure garante que nós do membro seu blockchain são corrigidas com o host mais recente atualizações de pilha de software de sistema e a razão de operando, configurado para alta disponibilidade (somente na camada Standard), eliminando grande parte das operações de desenvolvimento necessário para nós de blockchain IaaS tradicionais.  Para obter mais informações sobre a aplicação de patches e atualizações, consulte [suporte para versões de razão do serviço do Azure Blockchain](ledger-versions.md).
+Como serviço gerenciado, o Azure Blockchain Service garante que os nós de seus membros do blockchain sejam corrigidos com as atualizações mais recentes da pilha do sistema operacional e do software do razão, configuradas para alta disponibilidade (somente na camada Standard), eliminando grande parte dos DevOps necessários para os nós de blockchain de IaaS tradicionais.  Para saber mais sobre patches e atualizações, confira [versões do razão do Azure Blockchain Service com suporte](ledger-versions.md).
 
 ### <a name="monitoring-and-logging"></a>Monitoramento e registro em log
 
-Além disso, o serviço de Blockchain do Azure fornece métricas avançadas por meio do serviço do Azure Monitor fornecendo percepções de nós de CPU, memória e utilização de armazenamento, bem como informações úteis sobre atividade de rede de blockchain como transações e os blocos podem ser extraídos, profundidade da fila de transações, bem como as conexões ativas.  As métricas podem ser personalizadas para fornecer modos de exibição para as informações que são importantes para seu aplicativo de blockchain.  Além disso, os limites podem ser definidos por meio de alertas, permitindo que os usuários disparar ações como enviar uma mensagem de email ou texto, executando um aplicativo lógico, a função do Azure ou o envio para um webhook personalizado.
+Além disso, o Azure Blockchain Service fornece métricas avançadas por meio do Azure Monitor Service, fornecendo informações sobre a CPU, memória e uso de armazenamento dos nós, além de informações úteis sobre a atividade de rede de blockchain, como transações e blocos extraídos, profundidade da fila de transações e conexões ativas.  As métricas podem ser personalizadas para fornecer visualizações de informações importantes para seu aplicativo blockchain.  Além disso, os limites podem ser definidos por meio de alertas, permitindo que os usuários disparem ações de envio de email ou mensagem de texto, executem um Aplicativo Lógico ou uma Função do Azure ou façam envios para um webhook definido de forma personalizada.
 
-![metrics](./media/overview/metrics.png)
+![Métricas](./media/overview/metrics.png)
 
-Por meio do Azure Log Analytics, os usuários podem exibir logs relacionados a razão de Quorum ou outras conexões de informações importantes, como tentativas para os nós de transação.
+Por meio da análise de logs do Azure, os usuários podem exibir logs relacionados ao razão do Quorum ou outras informações importantes, como tentativas de conexão com os nós de transação.
 
 ## <a name="built-in-consortium-management"></a>Gerenciamento do consórcio interno
 
-Ao implantar seu primeiro membro de blockchain, você ingressar ou cria um novo consortium.  Um consórcio é um grupo lógico usado para gerenciar a governança e a conectividade entre os membros de blockchain que transact em um processo de várias parte.  Azure Blockchain Service fornece controles de governança internas por meio de predefinidos contratos inteligentes, que determinam quais membros de ações em consórcio podem executar.  Esses controles de governança podem ser personalizados conforme necessário pelo administrador do consórcio. Quando você cria um novo consortium, o membro de blockchain é o administrador padrão do consórcio, permitindo a capacidade de convidar outros participantes para ingressar seu consortium.  Você pode associar um consórcio somente se você foi convidado anteriormente.  Ao unir um consórcio, seu membro de blockchain é sujeitos a controles de governança colocados em vigor pelo administrador do consórcio.
+Quando implanta seu primeiro membro ao blockchain, você pode ingressar ou criar um novo consórcio.  Um consórcio é um grupo lógico usado para gerenciar a governança e a conectividade entre os membros do blockchain que realizam transações em um processo com múltiplos usuários.  O Azure Blockchain Service fornece controles de governança internos por meio de contratos inteligentes predefinidos, que determinam quais ações os membros do consórcio podem adotar.  Esses controles de governança podem ser personalizados conforme necessário pelo administrador do consórcio. Quando você cria um novo consórcio, o membro do blockchain é o administrador padrão do consórcio, permitindo que ele convide outros usuários a ingressar no consórcio.  Você só poderá ingressar em um consórcio se tiver sido convidado anteriormente.  Ao ingressar em um consórcio, um membro do blockchain está sujeito aos controles de governança implementados pelo administrador do consórcio.
 
-![Gerenciamento de Consortium](./media/overview/consortium.png)
+![Gerenciamento de consórcio](./media/overview/consortium.png)
 
-Ações de gerenciamento, como adição e remoção de membros de um consórcio de Consortium podem ser acessadas por meio do PowerShell e uma API REST. Você pode gerenciar programaticamente um consórcio através de interfaces comuns em vez de modificar e enviando contratos inteligentes com base em solidez. Para obter mais informações, consulte [gerenciamento consortium](consortium.md).
+A ações de gerenciamento de consórcio, como adição e remoção de membros, podem ser acessadas por meio do PowerShell e de uma API REST. Você pode gerenciar um consórcio programaticamente usando interfaces comuns, em vez de modificar e enviar contratos inteligentes com base em solidez. Para saber mais, confira [gerenciamento de consórcio](consortium.md).
 
-## <a name="develop-using-familiar-development-tools"></a>Desenvolver usando ferramentas de desenvolvimento familiar
+## <a name="develop-using-familiar-development-tools"></a>Desenvolvimento com ferramentas conhecidas
 
-Com base na razão de Quorum Ethereum de software livre, você pode desenvolver aplicativos para o serviço de Blockchain do Azure da mesma maneira como faria para os aplicativos existentes do Ethereum. Trabalhando com parceiros líderes do setor, a extensão do Azure Blockchain Development Kit Visual Studio Code permite aos desenvolvedores aproveitar ferramentas familiares como o Suite Truffle criar contratos inteligentes. Usando a extensão do Kit de desenvolvimento de Blockchain do Azure, os desenvolvedores podem criar ou se conectar a e consortium existente para que você pode criar e implantar seu inteligente contratos todos partir de um IDE. Usando a extensão do Azure Blockchain Visual Studio Code, você pode criar ou conectar-se a um consórcio existente para que você pode criar e implantar contratos inteligentes tudo a partir de um IDE. Para obter mais informações, consulte [Kit de desenvolvimento de Blockchain do Azure no marketplace do VS Code](https://aka.ms/vscodebcextension) e o [guia de usuário do Kit de desenvolvimento do Azure Blockchain](https://aka.ms/vscodebcextensionwiki ).
+Com base no razão Quorum Ethereum de código aberto, você pode desenvolver aplicativos para o Azure Blockchain Service da mesma maneira que para aplicativos Ethereum existentes. Trabalhando com os principais parceiros do setor, a extensão Kit de Desenvolvimento do Azure Blockchain do Visual Studio Code permite que os desenvolvedores aproveitem ferramentas conhecidas, como o Truffle Suite, para criar contratos inteligentes. Usando a extensão Kit de Desenvolvimento do Azure Blockchain, os desenvolvedores podem criar ou conectar-se a um consórcio existente para criar e implantar seus contratos inteligentes, tudo a partir de um IDE. Usando a extensão Visual Studio Code para Azure Blockchain, você pode criar ou conectar-se a um consórcio existente para criar e implantar seus contratos inteligentes, tudo a partir de um IDE. Para saber mais, confira [Azure Blockchain development kit no marketplace do VS Code](https://aka.ms/vscodebcextension) e o [Guia do usuário do Azure Blockchain development kit](https://aka.ms/vscodebcextensionwiki ).
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 
-Precisa de Ajuda ou tiver comentários?
+Precisa de ajuda ou deseja enviar comentários?
 
-* Visite o [blog do Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/), [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain), e [Fórum do Azure Blockchain](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain).
+* Visite o [Blog do Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/), a [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain) e o [Fórum do Azure Blockchain](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain).
 * Para fornecer comentários ou solicitar novos recursos, crie uma entrada por meio do [UserVoice](https://feedback.azure.com/forums/921130-azure-blockchain-service).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, experimente um início rápido ou descobrir mais detalhes desses recursos.
-* [Criar um membro de blockchain usando o portal do Azure](create-member.md) ou [criar um membro de blockchain usando a CLI do Azure](create-member-cli.md)
-* Para comparações de custo e calculadoras, consulte o [página de preços](https://azure.microsoft.com/pricing/details/blockchain-service).
-* Criar seu primeiro aplicativo usando o [Kit de desenvolvimento de Blockchain do Azure](https://github.com/Azure-Samples/blockchain-devkit)
-* Extensão do Azure Blockchain VSCode [guia do usuário](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)
+Para começar, experimente o início rápido ou descubra mais detalhes desses recursos.
+* [Criar um membro de blockchain usando o portal do Azure](create-member.md) ou [Criar um membro de blockchain usando a CLI do Azure](create-member-cli.md)
+* Confira a [página de preços](https://azure.microsoft.com/pricing/details/blockchain-service) para ver comparações de custo e calculadoras.
+* Crie seu primeiro aplicativo usando o [Azure Blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
+* [Guia do usuário](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki) da extensão VSCode do Azure Blockchain

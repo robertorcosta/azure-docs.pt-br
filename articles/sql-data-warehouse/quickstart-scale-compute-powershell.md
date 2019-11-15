@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Aumentar a computação no SQL Data Warehouse do Azure – PowerShell | Microsoft Docs'
+title: 'Início Rápido: computação de escala – PowerShell '
 description: Dimensionar a computação no SQL Data Warehouse do Azure no PowerShell. Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: sql-data-warehouse
 author: Antvgski
@@ -10,12 +10,13 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 37b5f0a989bb76a9a40529cd11944de40a164156
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f4c2087052e4c3b4fac4d27bb4ecdc2ebf8a42f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306221"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692971"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>Início Rápido: Dimensionar a computação no SQL Data Warehouse do Azure no Azure PowerShell
 

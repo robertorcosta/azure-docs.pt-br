@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: d7a9f365c9e2b6039451375f4ad50a7ce04cdd5b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1a3d917775f6ba5b0b7f62d19de2b970a8b36838
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029737"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571213"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início Rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 
@@ -32,7 +32,7 @@ As bibliotecas do Gerenciamento de Recursos do .NET Core estendem a estrutura co
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [SDK do .Net Core](https://dotnet.microsoft.com/download).
 
-## <a name="create-an-app-configuration-store"></a>Criar um repositório de Configuração de Aplicativos
+## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -79,7 +79,7 @@ Adicione a [ferramenta Gerenciador de Segredos](https://docs.microsoft.com/aspne
 
 1. Salve o arquivo.
 
-## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de Configuração de Aplicativos
+## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de configurações de aplicativo
 
 1. Adicione uma referência aos pacotes NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` e `Microsoft.FeatureManagement.AspNetCore` executando os seguintes comandos:
 
@@ -115,6 +115,11 @@ Adicione a [ferramenta Gerenciador de Segredos](https://docs.microsoft.com/aspne
     ```
 
 1. Atualize o método `CreateWebHostBuilder` para usar a Configuração de Aplicativos chamando o método `config.AddAzureAppConfiguration()`.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3.0.  Selecione a sintaxe correta com base em seu ambiente.
+
+    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>Atualizar `CreateWebHostBuilder` para .NET Core 2.x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -124,11 +129,27 @@ Adicione a [ferramenta Gerenciador de Segredos](https://docs.microsoft.com/aspne
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .UseFeatureFlags();
+                            .UseFeatureFlags();
                 });
             })
             .UseStartup<Startup>();
     ```
+
+    ### <a name="update-createhostbuilder-for-net-core-3x"></a>Atualizar `CreateHostBuilder` para .NET Core 3.x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"])
+                .UseFeatureFlags();
+        })
+        .UseStartup<Startup>());
+    ```
+
 
 1. Abra *Startup.cs* e adicione referências ao gerenciador de recursos do .NET Core:
 
@@ -267,7 +288,7 @@ Adicione a [ferramenta Gerenciador de Segredos](https://docs.microsoft.com/aspne
     |---|---|
     | Beta | Por |
 
-1. Reinicie o aplicativo alternando novamente para o prompt de comando e pressionando `Ctrl-C` para cancelar o processo `dotnet` em execução e, em seguida, executando novamente `dotnet run`.
+1. Reinicie o aplicativo alternando novamente para o prompt de comando e pressionando `Ctrl-C` para cancelar o processo `dotnet` em execução e, em seguida, executando `dotnet run` novamente.
 
 1. Atualize a página do navegador para ver as novas definições de configuração.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 52f682f7c7f06056be122b33d27592a55a01be94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: fbde3c939a23e4023c0403c27433717a11762b08
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70744065"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622049"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Criar sua primeira função usando o Visual Studio Code
 
@@ -26,7 +26,7 @@ Neste artigo, você aprenderá a usar a [extensão Azure Functions para Visual S
 
 ![Código do Azure Functions em um projeto do Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-A extensão atualmente dá suporte a funções C#, JavaScript, Java e Python. As etapas neste artigo e no artigo seguinte são compatíveis somente com as funções JavaScript e C#. Para saber como usar o Visual Studio Code para criar e publicar funções do Python, veja [Implantar Python no Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Para saber como usar o Visual Studio Code para criar e publicar funções do PowerShell, veja [Criar sua primeira função do PowerShell no Azure](functions-create-first-function-powershell.md). 
+A extensão atualmente dá suporte a funções C#, JavaScript, Java e Python. As etapas neste artigo e no artigo seguinte são compatíveis somente com as funções JavaScript e C#. Para saber como usar o Visual Studio Code para criar e publicar funções Python, confira [Criar e implantar Azure Functions sem servidor em Python com o Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01). Para saber como usar o Visual Studio Code para criar e publicar funções do PowerShell, veja [Criar sua primeira função do PowerShell no Azure](functions-create-first-function-powershell.md). 
 
 Atualmente, a extensão está em versão prévia. Para obter mais informações, consulte a página da extensão [Extensão Azure Functions para Visual Studio Code].
 

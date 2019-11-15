@@ -1,6 +1,6 @@
 ---
 title: Executar o Publicador OPC – Azure | Microsoft Docs
-description: Executar o OPC Publisher
+description: Este artigo descreve como executar e depurar o OPC Publisher. Ele também aborda considerações de desempenho e memória.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3b386171afc7916e5e803c39a9c7b3520752e6fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 66e2cb30dcd58b7ad0c6cedbb547f75c8039bc58
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603743"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824130"
 ---
 # <a name="run-opc-publisher"></a>Executar o OPC Publisher
 
@@ -512,7 +512,7 @@ Todas essas opções permitem que você passe parâmetros usando arquivos ou cad
 
 O tipo de armazenamento padrão para todos os repositórios de certificado é o sistema de arquivos, que pode ser alterado usando as opções de linha de comando. Como o contêiner não fornece armazenamento persistente em seu sistema de arquivos, você deve escolher um tipo de repositório diferente. Usar a opção `-v` do Docker para manter os repositórios de certificados no sistema de arquivos de host ou em um volume do Docker. Se você usar um volume do Docker, poderá passar certificados usando cadeias de caracteres codificadas em base64.
 
-O ambiente de tempo de execução afeta a persistência dos certificados. Evite criar novos repositórios de certificados sempre que executar o aplicativo:
+O ambiente de runtime afeta a persistência dos certificados. Evite criar novos repositórios de certificados sempre que executar o aplicativo:
 
 - Executando nativamente no Windows, você não pode usar um repositório de certificados de aplicativo do tipo `Directory` porque o acesso à chave privada falha. Nesse caso, use a opção `--at X509Store`.
 - Em execução como um contêiner do Docker do Linux, você pode mapear os repositórios de certificados para o sistema de arquivos de host com a opção de execução do Docker `-v <hostdirectory>:/appdata`. Essa opção faz o certificado persistir entre as execuções do aplicativo.

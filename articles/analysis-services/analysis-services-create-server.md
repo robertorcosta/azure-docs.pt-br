@@ -1,18 +1,18 @@
 ---
-title: Início Rápido - Criar um servidor do Analysis Services usando o Portal do Azure | Microsoft Docs
-description: Saiba como criar uma instância do servidor do Analysis Services no Azure.
+title: Início Rápido – Criar um servidor do Analysis Services no portal do Azure | Microsoft Docs
+description: Saiba como criar rapidamente uma instância do servidor do Azure Analysis Services no portal do Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/02/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e6973ee311f1d3f5ba19714695f67bd321d953b7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: cfd624ce49add0f8fd04bfccca9d6b7c3f1f71bd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295043"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573077"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor – Portal
 
@@ -45,7 +45,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
    * **Configuração de Armazenamento de Backup**: Opcional. Se você já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), você pode especificá-la como o padrão para o backup do banco de dados de modelo. Você também pode especificar a configuração de [backup e restauração](analysis-services-backup.md) mais tarde.
    * **Término da chave armazenamento**: Opcional. Especifique um período de expiração para a chave de armazenamento.
 
-A criação do servidor geralmente demora menos de um minuto. Se você tiver selecionado **Adicionar ao Portal**, navegue até o portal para ver o novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto. Servidores oferecem suporte a modelos tabulares nos níveis de compatibilidade 1200 e superior. O nível de compatibilidade do modelo é especificado em SSDT ou SSMS.
+A criação do servidor geralmente demora menos de um minuto. Se você tiver selecionado **Adicionar ao Portal**, navegue até o portal para ver o novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto. Servidores oferecem suporte a modelos tabulares nos níveis de compatibilidade 1200 e superior. O nível de compatibilidade do modelo é especificado no Visual Studio ou no SSMS.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

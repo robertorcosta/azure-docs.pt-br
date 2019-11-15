@@ -1,6 +1,6 @@
 ---
-title: Visão geral de como adicionar contas ao aplicativo Microsoft Authenticator – Azure Active Directory | Microsoft Docs
-description: Visão geral de como adicionar suas contas de trabalho e pessoal ao aplicativo Microsoft Authenticator para verificação de dois fatores.
+title: Visão geral de como adicionar contas ao aplicativo autenticador – Azure AD
+description: Links para o conteúdo de como adicionar suas contas de trabalho e pessoal ao aplicativo Microsoft Authenticator para verificação de dois fatores.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 16244be7dee9faaa15105f9dc0ac6c074230d243
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382640"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820273"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Visão geral de como adicionar contas ao aplicativo Microsoft Authenticator
 
@@ -43,7 +43,7 @@ Você pode ativar a verificação de dois fatores para muitas contas que usa dia
 | Contas corporativas ou de estudante | A conta que corporativa ou de estudante que sua organização deu a você, por exemplo, alain@contoso.com. |
 | Contas pessoais | Contas que são da Microsoft ou não e que você abriu pessoalmente, por exemplo, para o Outlook.com, Xbox LIVE, Google, Facebook e muito mais. |
 
-## <a name="in-this-section"></a>Nesta seção
+## <a name="articles-about-how-to-add-different-accounts"></a>Artigos sobre como adicionar diferentes contas
 
 | Artigo |DESCRIÇÃO |
 | ------|------------|

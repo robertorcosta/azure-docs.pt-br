@@ -1,26 +1,25 @@
 ---
 title: Início Rápido - Criar uma VM do Linux no Portal do Azure | Microsoft Docs
-description: Neste início rápido, você aprende a usar o portal do Azure para criar uma máquina virtual Linux
+description: Neste início rápido, você aprende a usar o portal do Azure para criar uma máquina virtual Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 8/20/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c05eb59c42700394f755f226405f16a47edc73c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dbe8e43122fb7fa00129dec0d9961bd70e5a784
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091544"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693360"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
@@ -50,15 +49,14 @@ Entre no [portal do Azure](https://portal.azure.com), se você ainda não fez is
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. Escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
-
-1. Em **Popular**, selecione **Ubuntu Server 18.04 LTS**.
-
-1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, escolha **Criar** em **Grupo de recursos**. Digite *myResourceGroup* no nome do grupo de recursos e, em seguida, escolha **OK**. 
+1. Digite **máquinas virtuais** na pesquisa.
+1. Em **Serviços**, selecione **Máquinas virtuais**.
+1. Na página **Máquinas Virtuais**, selecione **Adicionar**. A página **Criar uma máquina virtual** é aberta.
+1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, escolha **Criar** grupo de recursos. Digite *myResourceGroup* no nome*. 
 
     ![Criar um grupo de recursos para sua VM](./media/quick-create-portal/project-details.png)
 
-1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual** e escolha *Leste dos EUA* para **Região**. Deixe os outros padrões.
+1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual**, escolha *Leste dos EUA* para **Região** e escolha *Ubuntu 18.04 LTS* para sua **Imagem**. Deixe os outros padrões.
 
     ![Seção de detalhes da instância](./media/quick-create-portal/instance-details.png)
 

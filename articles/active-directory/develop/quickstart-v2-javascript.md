@@ -1,5 +1,6 @@
 ---
-title: Início rápido do JavaScript na plataforma de identidade da Microsoft – Azure
+title: Conectar usuários e obter um token de acesso em um JavaScript SPA | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como aplicativos JavaScript podem chamar uma API que exige tokens de acesso pela plataforma de identidade da Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
@@ -8,7 +9,7 @@ manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +17,14 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41dedf6b4fe52ba3250ada14b0cca6bbeb636af
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5ca9a8b87713508a581a833f60fbe863fd93919a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827125"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795604"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Início Rápido: Conectar usuários e adquirir um token de acesso de um aplicativo de página única do JavaScript
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Início Rápido: Conectar usuários e obter um token de acesso em um JavaScript SPA
 
 Neste início rápido, você usará um exemplo de código para aprender como um SPA (aplicativo de página única) do JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante. Um SPA JavaScript também pode obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
 
@@ -79,12 +80,11 @@ Selecione a opção mais adequada ao seu ambiente de desenvolvimento:
 
 * (Opcional) [Baixe o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip) para executar o projeto com o servidor IIS. Extraia o arquivo zip para uma pasta local (por exemplo, *C:\Azure-Samples*).
 
-#### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: Configurar o aplicativo JavaScript
-
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: Configurar o aplicativo JavaScript
 > Na pasta *JavaScriptSPA*, edite *index.html* e defina os valores `clientID` e `authority` em `msalConfig`.
 
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div renderon="docs"]
 > Na pasta *JavaScriptSPA*, edite *index.html* e substitua `msalConfig` pelo seguinte código:
 
 ```javascript
@@ -101,10 +101,6 @@ var msalConfig = {
 };
 
 ```
-> [!div renderon="portal"]
-> > [!NOTE]
-> > Este início rápido é compatível com Insira_Informações_da_Conta_com_Suporte_Aqui.
-
 
 > [!div renderon="docs"]
 >
@@ -119,7 +115,12 @@ var msalConfig = {
 > > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
 >
 
-#### <a name="step-4-run-the-project"></a>Etapa 4: Executar o projeto
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
+> Configuramos seu projeto com os valores das propriedades do seu aplicativo. 
+
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-project"></a>Etapa 4: Executar o projeto
 
 * Se você estiver usando [Node.js](https://nodejs.org/en/download/):
 

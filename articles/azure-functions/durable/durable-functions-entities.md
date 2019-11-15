@@ -7,22 +7,22 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: overview
-ms.date: 08/31/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e3a83730e47686e9d4757f057d2e8da4629fdd7a
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 62ca71e1b42e000f7528a2963793f9bf40663bf3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312146"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818513"
 ---
-# <a name="entity-functions-preview"></a>Funções de entidade (versão prévia)
+# <a name="entity-functions"></a>Funções de entidade
 
 As funções de entidade definem operações para leitura e atualização de pequenas partes de estado, conhecidas como *entidades duráveis*. Como as funções de orquestrador, as funções de entidade são funções com um tipo de gatilho especial, o *gatilho de entidade*. Ao contrário das funções de orquestrador, as funções de entidade gerenciam o estado de uma entidade explicitamente, em vez de representar implicitamente o estado por meio do fluxo de controle.
 As entidades fornecem um meio para escalar horizontalmente os aplicativos, distribuindo o trabalho entre várias entidades, cada uma com um estado de tamanho modesto.
 
 > [!NOTE]
-> As funções de entidade e a funcionalidade relacionada estão disponíveis apenas nas Durable Functions 2.0 e superior. As funções de entidade estão em versão prévia pública no momento.
+> As funções de entidade e a funcionalidade relacionada estão disponíveis apenas nas Durable Functions 2.0 e superior.
 
 ## <a name="general-concepts"></a>Conceitos gerais
 
@@ -58,7 +58,7 @@ Uma **sintaxe baseada em função** em que as entidades são representadas como 
 
 Uma **sintaxe baseada em classe** em que as entidades e operações são representadas por classes e métodos. Essa sintaxe produz um código mais fácil de ler e permite que as operações sejam invocadas de modo fortemente tipado. A sintaxe baseada em classe é apenas uma camada fina sobre a sintaxe baseada em função, então essas duas variantes podem ser usadas de maneira intercambiável no mesmo aplicativo.
 
-### <a name="example-function-based-syntax"></a>Exemplo: Sintaxe baseada em função
+### <a name="example-function-based-syntax---c"></a>Exemplo: Sintaxe baseada em função – C#
 
 O código a seguir é um exemplo de uma entidade *Counter* simples implementada como uma função durável. Essa função define três operações, `add`, `reset` e `get`, cada uma delas opera em um valor de estado inteiro.
 
@@ -75,7 +75,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
             ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(ctx.GetState<int>()));
+            ctx.Return(ctx.GetState<int>());
             break;
     }
 }
@@ -83,7 +83,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 Para obter mais informações sobre a sintaxe baseada em função e como usá-la, confira [Sintaxe baseada em função](durable-functions-dotnet-entities.md#function-based-syntax).
 
-### <a name="example-class-based-syntax"></a>Exemplo: Sintaxe baseada em classe
+### <a name="example-class-based-syntax---c"></a>Exemplo: Sintaxe baseada em classe – C#
 
 O exemplo a seguir é uma implementação equivalente da entidade `Counter` usando métodos e classes.
 
@@ -109,6 +109,45 @@ public class Counter
 O estado dessa entidade é um objeto do tipo `Counter`, que contém um campo que armazena o valor atual do contador. Para persistir esse objeto no armazenamento, ele é serializado e desserializado pela biblioteca [Json.NET](https://www.newtonsoft.com/json). 
 
 Para obter mais informações sobre a sintaxe baseada em classe e como usá-la, confira [Definir classes de entidade](durable-functions-dotnet-entities.md#defining-entity-classes).
+
+### <a name="example-javascript-entity"></a>Exemplo: entidade do JavaScript
+
+As entidades duráveis estão disponíveis em JavaScript a partir da versão **1.3.0** do pacote npm `durable-functions`. O código a seguir é uma entidade *Counter* implementada como uma função durável escrita em JavaScript.
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index.js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
 
 ## <a name="accessing-entities"></a>Acessar entidades
 
@@ -145,6 +184,16 @@ public static Task Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
 O termo *sinal* significa que a invocação de API de entidade é unidirecional e assíncrona. Não é possível que uma *função do cliente* saiba quando a entidade processou a operação. Além disso, a função do cliente não pode observar nenhum valor de resultado ou exceções. 
 
 ### <a name="example-client-reads-an-entity-state"></a>Exemplo: o cliente lê um estado de entidade
@@ -163,6 +212,16 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    return context.df.readEntityState(entityId);
+};
+```
+
 As consultas de estado de entidade são enviadas para o armazenamento de acompanhamento durável e retornam o estado *persistido* mais recentemente da entidade. Esse estado é sempre um estado "confirmado", ou seja, ele nunca é um estado intermediário temporário assumido no meio da execução de uma operação. No entanto, é possível que esse estado seja obsoleto se comparado com o estado na memória da entidade. Somente orquestrações podem ler o estado na memória de uma entidade, conforme descrito na seção a seguir.
 
 ### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exemplo: a orquestração sinaliza a uma entidade e a chama
@@ -176,7 +235,7 @@ public static async Task Run(
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
 
-   // Two-way call to the entity which returns a value - awaits the response
+    // Two-way call to the entity which returns a value - awaits the response
     int currentValue = await context.CallEntityAsync<int>(entityId, "Get");
     if (currentValue < 10)
     {
@@ -184,6 +243,21 @@ public static async Task Run(
         context.SignalEntity(entityId, "Add", 1);
     }
 }
+```
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const entityId = new df.EntityId("Counter", "myCounter");
+
+    // Two-way call to the entity which returns a value - awaits the response
+    currentValue = yield context.df.callEntity(entityId, "get");
+    if (currentValue < 10) {
+        // One-way signal to the entity which updates the value - does not await a response
+        yield context.df.signalEntity(entityId, "add", 1);
+    }
+});
 ```
 
 Somente orquestrações são capazes de chamar entidades e obter uma resposta, que poderia ser um valor retornado ou uma exceção. As funções de cliente que usam a [associação de cliente](durable-functions-bindings.md#entity-client) só podem *sinalizar* entidades.
@@ -198,82 +272,33 @@ Por exemplo, podemos modificar o exemplo de entidade de contador acima para que 
 
 ```csharp
    case "add":
+        var currentValue = ctx.GetState<int>();
         var amount = ctx.GetInput<int>();
         if (currentValue < 100 && currentValue + amount >= 100)
         {
             ctx.SignalEntity(new EntityId("MonitorEntity", ""), "milestone-reached", ctx.EntityKey);
         }
-        currentValue += amount;
+
+        ctx.SetState(currentValue + amount);
         break;
 ```
 
-O snippet a seguir demonstra como incorporar o serviço injetado à sua classe de entidade.
-
-```csharp
-public class HttpEntity
-{
-    private readonly HttpClient client;
-
-    public HttpEntity(IHttpClientFactory factory)
-    {
-        this.client = factory.CreateClient();
-    }
-
-    public async Task<int> GetAsync(string url)
-    {
-        using (var response = await this.client.GetAsync(url))
-        {
-            return (int)response.StatusCode;
+```javascript
+    case "add":
+        const amount = context.df.getInput();
+        if (currentValue < 100 && currentValue + amount >= 100) {
+            const entityId = new df.EntityId("MonitorEntity", "");
+            context.df.signalEntity(entityId, "milestone-reached", context.df.instanceId);
         }
-    }
-
-    // The function entry point must be declared static
-    [FunctionName(nameof(HttpEntity))]
-    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
-        => ctx.DispatchAsync<HttpEntity>();
-}
+        context.df.setState(currentValue + amount);
+        break;
 ```
-
-> [!NOTE]
-> Diferentemente do que ocorre ao usar uma injeção de construtor no Azure Functions do .NET regular, o método de ponto de entrada de funções para entidades baseadas em classe *deve* ser declarado `static`. Declarar um ponto de entrada de função não estática pode causar conflitos entre o inicializador de objeto normal do Azure Functions e o inicializador de objeto de Entidades Duráveis.
-
-### <a name="bindings-in-entity-classes-net"></a>Associações em classes de entidade (.NET)
-
-Diferentemente das funções regulares, os métodos de classe de entidade não têm acesso direto a associações de entrada e saída. Em vez disso, os dados de associação devem ser capturados na declaração da função de ponto de entrada e passados para o método `DispatchAsync<T>`. Os objetos passados para `DispatchAsync<T>` serão passados automaticamente para o construtor da classe de entidade como um argumento.
-
-O exemplo a seguir mostra como uma referência de `CloudBlobContainer` da [associação de entrada de blobs](../functions-bindings-storage-blob.md#input) pode ser disponibilizada em uma entidade baseada em classe.
-
-```csharp
-public class BlobBackedEntity
-{
-    private readonly CloudBlobContainer container;
-
-    public BlobBackedEntity(CloudBlobContainer container)
-    {
-        this.container = container;
-    }
-
-    // ... entity methods can use this.container in their implementations ...
-    
-    [FunctionName(nameof(BlobBackedEntity))]
-    public static Task Run(
-        [EntityTrigger] IDurableEntityContext context,
-        [Blob("my-container", FileAccess.Read)] CloudBlobContainer container)
-    {
-        // passing the binding object as a parameter makes it available to the
-        // entity class constructor
-        return context.DispatchAsync<BlobBackedEntity>(container);
-    }
-}
-```
-
-Para obter mais informações sobre associações no Azure Functions, confira a documentação [Gatilhos e Associações do Azure Functions](../functions-triggers-bindings.md).
 
 ## <a name="entity-coordination"></a>Coordenação de entidades
 
 Pode haver ocasiões em que você precisa coordenar operações em várias entidades. Por exemplo, em um aplicativo bancário, você pode ter entidades que representam contas bancárias individuais. Ao transferir fundos de uma conta para outra, é necessário verificar se a conta de _origem_ tem fundos suficientes e se as atualizações nas contas de _origem_ e _destino_ são realizadas de maneira consistente transacionalmente.
 
-### <a name="example-transfer-funds"></a>Exemplo: Transferir fundos
+### <a name="example-transfer-funds-c"></a>Exemplo: Transferir fundos (C#)
 
 O código de exemplo a seguir transfere fundos entre duas entidades de _conta_ usando uma função funções de orquestrador. A coordenação de atualizações de entidade requer o uso do método `LockAsync` para criar uma _seção crítica_ na orquestração:
 
@@ -322,7 +347,7 @@ public static async Task<bool> TransferFundsAsync(
 
 No .NET, `LockAsync` retorna um `IDisposable` que encerra a seção crítica quando descartado. Esse resultado `IDisposable` pode ser usado junto com um bloco `using` para obter uma representação sintática da seção crítica.
 
-No exemplo anterior, uma função funções de orquestrador transferiu fundos de uma entidade de _origem_ para uma entidade de _destino_. O método `LockAsync` bloqueou as entidades de conta de _origem_ e de _destino_. Com esse bloqueio, nenhum outro cliente pôde consultar ou modificar o estado de qualquer conta até que a lógica da orquestração saísse da _seção crítica_ no fim da instrução `using`. Isso efetivamente evitou a possibilidade de a conta _de origem_ entrar no cheque especial.
+No exemplo anterior, uma função funções de orquestrador transferiu fundos de uma entidade de _origem_ para uma entidade de _destino_. O método `LockAsync` bloqueou as entidades de conta de _origem_ e de _destino_. Com esse bloqueio, nenhum outro cliente pôde consultar ou modificar o estado de qualquer conta até que a lógica da orquestração saísse da _seção crítica_ no fim da instrução `using`. Esse comportamento evita a possibilidade de que a conta de _origem_ efetue saque a descoberto.
 
 > [!NOTE] 
 > Quando uma orquestração é encerrada (normalmente ou com um erro), todas as seções críticas em andamento são encerradas implicitamente e todos os bloqueios são liberados.

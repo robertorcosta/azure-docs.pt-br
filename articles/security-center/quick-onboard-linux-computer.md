@@ -1,5 +1,5 @@
 ---
-title: Início rápido da Central de Segurança do Azure – integrar seus computadores Linux à Central de Segurança | Microsoft Docs
+title: Integrar computadores Linux à Central de Segurança do Azure | Microsoft Docs
 description: Este guia de início rápido mostra como integrar seus computadores Linux à Central de Segurança.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202894"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664489"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início Rápido: Integrar computadores Linux à Central de Segurança do Azure
 Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos Linux que estão sendo executados fora do Azure, por exemplo, localmente ou em outras nuvens, por meio do provisionamento de um agente. O agente é chamado de MMA (Microsoft Monitoring Agent), mas também é conhecido como agente do OMS.

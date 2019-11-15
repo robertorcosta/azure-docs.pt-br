@@ -4,19 +4,19 @@ description: O gerenciamento de recursos delegados do Azure permite uma experiê
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/18/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8d7b1f24d5dcf3d66ffd04704c79a284c4810365
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 182970cc39d200c37264a93d5e1b70c8839e5ef7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598447"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825813"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
-Este artigo descreve os cenários que você, como provedor de serviços, pode usar com o [Gerenciamento de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md) para gerenciar recursos do Azure para vários clientes de dentro de seu próprio locatário no [portal do Azure](https://portal.azure.com).
+Como provedor de serviços, você pode usar o [Gerenciamento de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md) para gerenciar recursos do Azure para vários clientes de dentro de seu próprio locatário no [portal do Azure](https://portal.azure.com). A maioria das tarefas e serviços pode ser realizada em recursos delegados do Azure em locatários gerenciados. Este artigo descreve alguns dos cenários otimizados em que o gerenciamento do recurso delegado do Azure pode ser efetivo.
 
 > [!NOTE]
 > O gerenciamento de recursos delegados do Azure também pode ser usado dentro de uma empresa que tem vários locatários próprios para simplificar a administração entre locatários.
@@ -37,9 +37,20 @@ Usando o gerenciamento de recursos delegado do Azure, os usuários autorizados p
 
 ![Recursos do cliente gerenciados por meio de um locatário do provedor de serviços](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
-## <a name="supported-services-and-scenarios"></a>Serviços e cenários com suporte
+## <a name="apis-and-management-tool-support"></a>Suporte às ferramentas de gerenciamento e APIs
 
-No momento, a experiência de gerenciamento entre locatários dá suporte aos seguintes cenários com recursos de cliente delegado:
+Você pode executar tarefas de gerenciamento em recursos delegados diretamente no portal ou usando APIs e ferramentas de gerenciamento (como a CLI do Azure e o Azure PowerShell). Todas as APIs existentes podem ser usadas ao trabalhar com recursos delegados, desde que a funcionalidade seja compatível com o gerenciamento entre diferentes locatários e que o usuário tenha as permissões apropriadas.
+
+Também fornecemos APIs para realizar tarefas de gerenciamento de recursos delegados do Azure. Para saber mais, confira a seção **Referência**.
+
+## <a name="enhanced-services-and-scenarios"></a>Serviços e cenários com aprimorados
+
+A maioria das tarefas e serviços pode ser realizada em recursos delegados em locatários gerenciados. Abaixo estão alguns dos principais cenários em que o gerenciamento entre diferentes locatários pode ser eficaz.
+
+[Azure Arc para servidores (versão prévia)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+
+- [Conecte os computadores ao Windows Server ou ao Linux fora do Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) para delegar assinaturas e/ou grupos de recursos no Azure
+- Gerenciar computadores conectados usando constructos do Azure, como o Azure Policy e a marcação
 
 [Automação do Azure](https://docs.microsoft.com/azure/automation/):
 
@@ -55,7 +66,7 @@ No momento, a experiência de gerenciamento entre locatários dá suporte aos se
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/):
 
-- Exiba alertas para assinaturas delegadas no portal do Azure ou programaticamente por meio de chamadas à API REST com a capacidade de exibir alertas em todas as assinaturas
+- Exibir alertas para assinaturas delegadas, com a possibilidade de exibir alertas em todas as assinaturas
 - Exibir detalhes do log de atividades para assinaturas delegadas
 - Análise de logs: consulte dados de workspaces de cliente remotos em vários locatários
 - Crie alertas em locatários do cliente que disparam a automação, tais como os runbooks de Automação do Azure ou o Azure Functions, no locatário do provedor de serviços por meio de webhooks
@@ -121,16 +132,9 @@ Solicitações de suporte:
 Com todos os cenários, esteja ciente das seguintes limitações atuais:
 
 - Solicitações manipuladas pelo Azure Resource Manager podem ser realizadas usando o gerenciamento de recursos delegados do Azure. Os URIs de operação para essas solicitações começam com `https://management.azure.com`. No entanto, não há suporte para as solicitações manipuladas por uma instância de um tipo de recurso (como acesso aos segredos ou acesso a dados de armazenamento do Key Vault) com o gerenciamento de recursos delegados do Azure. Os URIs de operação para essas solicitações normalmente começam com um endereço exclusivo de sua instância, como `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. A última opção também são normalmente operações de dados em vez de operações de gerenciamento. 
-- As atribuições de função devem usar funções internas de [RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (controle de acesso baseado em função). No momento, todas as funções internas têm suporte com o gerenciamento de recursos delegados do Azure, exceto para funções do Proprietário, Administrador de Acesso do Usuário ou funções internas com a permissão [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). As funções personalizadas e as [funções de administrador de assinatura clássica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) também não têm suporte.
+- As atribuições de função devem usar funções internas de [RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegados do Azure, exceto para a função Proprietário ou quaisquer funções internas com a permissão [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). A função de Administrador de Acesso do Usuário tem suporte apenas para uso limitado na [atribuição de funções a identidades gerenciadas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e as [funções de administrador de assinatura clássica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) não têm suporte.
 - No momento não será possível integrar uma assinatura (ou grupo de recursos em uma assinatura) no gerenciamento de recursos delegados do Azure se a assinatura usar o Azure Databricks. Da mesma forma, se uma assinatura tiver sido registrada para integração com o provedor de recursos **Microsoft.ManagedServices**, não será possível criar um workspace no Databricks para essa assinatura neste momento.
 - Embora você possa integrar assinaturas e grupos de recursos para o gerenciamento de recursos delegados do Azure que tenham bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas por usuários no locatário de gerenciamento. As [atribuições de negação](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) que protegem recursos gerenciados pelo sistema, como aqueles criados pelos Aplicativos Gerenciados do Azure ou pelo Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem que os usuários do locatário de gerenciamento executem ações nesses recursos; no entanto, atualmente, os usuários do locatário do cliente não podem criar suas próprias atribuições de negação (atribuições de negação atribuídas ao usuário).
-
-## <a name="using-apis-and-management-tools-with-cross-tenant-management"></a>Usar APIs e ferramentas de gerenciamento com gerenciamento entre locatários
-
-Para os serviços e cenários com suporte listados acima, é possível executar tarefas de gerenciamento diretamente no portal ou usando APIs e ferramentas de gerenciamento (como a CLI do Azure e o Azure PowerShell). Todas as APIs existentes podem ser usadas ao trabalhar com recursos delegados (para serviços com suporte).
-
-Também há APIs específicas para realizar a tarefas de gerenciamento de recursos delegados do Azure. Para saber mais, confira a seção **Referência**.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

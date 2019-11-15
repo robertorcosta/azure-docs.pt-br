@@ -8,18 +8,20 @@ manager: jeconnoc
 keywords: azure functions, funções, processamento de eventos, computação, arquitetura sem servidor
 ms.service: azure-functions
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1579a4dfbab1ec9d9aa6bb3995bd88d948d6d5e2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 563412fbc5e8d9af3c399b1f75696053549143c4
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933964"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615004"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
 *Durable Functions* são uma extensão do [Azure Functions](../functions-overview.md) que permitem que você escreva funções com estado em um ambiente sem servidor. A extensão gerencia estado, pontos de verificação e reinicializações para você.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 Neste artigo, você aprenderá a usar o Visual Studio 2019 para criar e testar localmente uma função durável "olá, mundo".  Essa função orquestrará e encadeará chamadas para outras funções. Em seguida, você publicará o código de função no Azure. Essas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2019.
 
@@ -53,7 +55,7 @@ O modelo do Azure Functions cria um projeto que pode ser publicado em um aplicat
 
     | Configuração      | Valor sugerido  | DESCRIÇÃO                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Versão** | Azure Functions 2.x <br />(.NET Core) | Cria um projeto de função que usa o tempo de execução versão 2.x do Azure Functions, que dá suporte ao .NET Core. O Azure Functions 1.x dá suporte ao .NET Framework. Para obter mais informações, consulte [Como direcionar para versões de tempo de execução do Azure Functions](../functions-versions.md).   |
+    | **Versão** | Azure Functions 2.0 <br />(.NET Core) | Cria um projeto de função que usa o tempo de execução versão 2.0 do Azure Functions, que oferece suporte ao .NET Core. O Azure Functions 1.0 é compatível com o .NET Framework. Para obter mais informações, consulte [Como direcionar para versões do Azure Functions runtime](../functions-versions.md).   |
     | **Modelo** | Vazio | Cria um aplicativo de funções vazio. |
     | **Conta de armazenamento**  | Emulador de Armazenamento | Uma conta de armazenamento é necessária para o gerenciamento de estado de uma função durável. |
 
@@ -73,12 +75,15 @@ As etapas a seguir usam um modelo para criar o código da durable function no pr
 
     ![Escolher o modelo durável](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
+> [!NOTE]
+> Atualmente, este modelo cria uma função durável usando uma versão 1. x mais antiga da extensão. Confira o artigo [Versões do Durable Functions](durable-functions-versions.md) para saber mais sobre como atualizar para as versões 2.x mais recentes do Durable Functions.
+
 Uma nova durable function será adicionada ao aplicativo.  Abra o novo arquivo .cs para exibir o conteúdo. Essa durable function é um exemplo simples de encadeamento de funções com os seguintes métodos:  
 
 | Método | FunctionName | DESCRIÇÃO |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Gerencia a orquestração durável. Nesse caso, a orquestração é iniciada, cria uma lista e adiciona o resultado de três chamadas de função à lista.  Quando as três chamadas de função são concluídas, ela retorna a lista. |
-| **`SayHello`** | `<file-name>_Hello` | A função retorna uma saudação. Essa é a função que contém a lógica de negócios que está sendo orquestrada. |
+| **`SayHello`** | `<file-name>_Hello` | A função retorna uma saudação. É a função que contém a lógica de negócios que está sendo orquestrada. |
 | **`HttpStart`** | `<file-name>_HttpStart` | Uma [função disparada por HTTP](../functions-bindings-http-webhook.md) que inicia uma instância da orquestração e retorna uma resposta de status de verificação. |
 
 Agora que você criou seu projeto de função e uma função durável, poderá testá-la em seu computador local.
@@ -89,9 +94,9 @@ As Ferramentas Principais do Azure Functions permitem executar um projeto do Azu
 
 1. Para testar sua função, pressione F5. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas principais (CLI) do Azure Functions. Você também precisará habilitar a exceção de firewall de forma que as ferramentas possam lidar com solicitações HTTP.
 
-2. Copie a URL da sua função da saída de tempo de execução do Azure Functions.
+2. Copie a URL da sua função da saída do Azure Functions runtime.
 
-    ![Tempo de execução local do Azure](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
+    ![runtime local do Azure](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
 3. Cole a URL da solicitação HTTP na barra de endereços do navegador e execute a solicitação. O exemplo a seguir mostra a resposta no navegador à solicitação GET local retornada pela função:
 
@@ -101,7 +106,7 @@ As Ferramentas Principais do Azure Functions permitem executar um projeto do Azu
 
 4. Copie o valor da URL para `statusQueryGetUri`, cole-o na barra de endereços do navegador e execute a solicitação.
 
-    A solicitação consultará a instância de orquestração do status. Uma resposta eventual deverá ser exibida e será semelhante ao seguinte.  Isso mostra que a instância foi concluída e inclui os resultados ou saídas da função durável.
+    A solicitação consultará a instância de orquestração do status. Uma resposta eventual deverá ser exibida e será semelhante ao seguinte.  Esse resultado mostra que a instância foi concluída e inclui os resultados ou saídas da função durável.
 
     ```json
     {
@@ -114,8 +119,8 @@ As Ferramentas Principais do Azure Functions permitem executar um projeto do Azu
             "Hello Seattle!",
             "Hello London!"
         ],
-        "createdTime": "2018-11-08T07:07:40Z",
-        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+        "createdTime": "2019-11-02T07:07:40Z",
+        "lastUpdatedTime": "2019-11-02T07:07:52Z"
     }
     ```
 
