@@ -24,6 +24,8 @@
 - name: Conceitos
   expanded: true
   items:
+    - name: Melhores práticas para o gerenciamento de aplicativos
+      href: application-management-fundamentals.md
     - name: Aplicativos de nuvem e logon único
       items:
         - name: Como planejar uma integração de aplicativos de nuvem

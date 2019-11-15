@@ -75,6 +75,8 @@
           href: key-vault-access.md
         - name: Implantar com identidade gerenciada
           href: publish-managed-identity.md
+        - name: Implantar com Notificações
+          href: publish-notifications.md
     - name: Consumidores
       items:
         - name: Monitorar aplicativo gerenciado
