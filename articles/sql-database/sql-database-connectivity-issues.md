@@ -12,13 +12,13 @@ author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/14/2019
-ms.openlocfilehash: a943ade4bfc46083fe84274640d979928357a492
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826805"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082487"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de conexão do Banco de Dados SQL do Azure e erros transitórios
 
@@ -30,7 +30,7 @@ Este artigo descreve como impedir, solucionar, diagnosticar e reduzir erros de c
 
 Um erro transitório, também chamado de falha transitória, tem uma causa subjacente que será resolvida em breve. Uma causa ocasional de erros transitórios é quando o sistema do Azure rapidamente alterna os recursos de hardware para melhor balanceamento de diversas cargas de trabalho. A maioria desses eventos de reconfiguração termina em menos de 60 segundos. Durante esse período de reconfiguração, você pode enfrentar problemas de conectividade com o Banco de Dados SQL. Aplicativos que se conectam ao Banco de Dados SQL devem ser criados para esperar esses erros transitórios. Para lidar com eles, implemente a lógica de repetição no código, em vez de mostrá-los aos usuários como erros de aplicativo.
 
-Se o programa cliente estiver usando ADO.NET, o programa será informado do erro transitório pelo lançamento de **SqlException**. Compare a propriedade **Number** com a lista de erros transitórios encontrada na parte superior do artigo: [Códigos de erro SQL para aplicativos cliente do Banco de Dados SQL](sql-database-develop-error-messages.md).
+Se o programa cliente estiver usando ADO.NET, o programa será informado do erro transitório pelo lançamento de **SqlException**. 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -95,7 +95,7 @@ Uma forma de testar sua lógica de repetição é desconectar seu computador cli
 
 Como parte da primeira tentativa de repetição, você pode reconectar o computador cliente à rede e, em seguida, tentar se conectar.
 
-Para tornar esse teste prático, desconecte o computador da rede antes de iniciar o programa. Em seguida, o programa reconhece um parâmetro de tempo de execução que faz com que o programa:
+Para tornar esse teste prático, desconecte o computador da rede antes de iniciar o programa. Em seguida, o programa reconhece um parâmetro de runtime que faz com que o programa:
 
 - Adicione temporariamente 11001 à sua lista de erros a serem considerados como transitórios.
 - Tente fazer sua primeira conexão como de costume.
@@ -113,7 +113,7 @@ Seu programa pode errar intencionalmente o nome de usuário antes da primeira te
 
 Como parte da primeira tentativa de repetição, o programa pode corrigir a ortografia e tentar se conectar.
 
-Para tornar esse teste prático, o programa reconhece um parâmetro de tempo de execução que faz com que o programa:
+Para tornar esse teste prático, o programa reconhece um parâmetro de runtime que faz com que o programa:
 
 - Adicione temporariamente 18456 à sua lista de erros a serem considerados como transitórios.
 - Adicione propositadamente 'WRONG_' ao nome de usuário.
@@ -215,7 +215,7 @@ Se você estiver usando o ADO.NET 4.0 ou anterior, recomendaremos fazer upgrade 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## <a name="diagnostics"></a>Diagnósticos
+## <a name="diagnostics"></a>Diagnóstico
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
