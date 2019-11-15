@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/01/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c386343ff8f5608931aca4a6f46ae09a92082a35
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8ab49b27d383cd50463d08a8fa2081234a97108f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929569"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889007"
 ---
 > [!NOTE]
-> No momento está sendo exibida a documentação de *versão prévia dos recursos* do IoT Central. Para exibir a documentação original vá para [O que é o Azure IoT Central?](../articles/iot-central/core/overview-iot-central.md).
+> No momento, você está exibindo a documentação do IoT Central dos [modelos de aplicativos que usam versão prévia dos recursos](../articles/iot-central/core/concepts-app-templates.md#preview-templates). Para exibir a documentação dos [modelos de aplicativo que usam recursos geralmente disponíveis](../articles/iot-central/core/concepts-app-templates.md#preview-templates), vá para [O que é o Azure IoT Central (versão prévia dos recursos)?](../articles/iot-central/preview/overview-iot-central.md).

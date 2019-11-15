@@ -1,6 +1,6 @@
 ---
 title: Início Rápido do Azure – Fazer backup de uma VM com o PowerShell
-description: Saiba como fazer backup de máquinas virtuais com o Azure PowerShell
+description: Neste guia de Início Rápido, saiba como fazer backup de suas máquinas virtuais do Azure com o módulo Azure PowerShell.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: ea4f982409f339487cd570230ebbb75682f409ec
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874608"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747091"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer backup de uma máquina virtual no Azure com o PowerShell
 
-O módulo de [AZ do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) é usado para criar e gerenciar recursos do Azure a partir da linha de comando ou em scripts. 
+O módulo de [AZ do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) é usado para criar e gerenciar recursos do Azure a partir da linha de comando ou em scripts.
 
 O [Backup do Azure](backup-overview.md) faz backup de aplicativos e computadores locais e VMs do Azure. Este artigo mostra como fazer backup de uma VM do Azure com o módulo de AZ. Como alternativa, é possível fazer backup de uma VM usando a [CLI do Azure](quick-backup-vm-cli.md) ou no [portal do Azure](quick-backup-vm-portal.md).
 
@@ -30,17 +30,17 @@ Este início rápido requer o módulo de AZ do Azure PowerShell versão 1.0.0 ou
 
 ## <a name="sign-in-and-register"></a>Entrar e registrar
 
-1. Faça logon na sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela.
+1. Entre na sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela.
 
     ```powershell
     Connect-AzAccount
     ```
+
 2. Na primeira vez em que você usar o Backup do Azure, registre o provedor do Serviço de Recuperação do Azure na assinatura com [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider), conforme a seguir:
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -53,7 +53,6 @@ Ao criar o cofre:
 - O Backup do Azure manipula automaticamente o armazenamento para os dados de backup. Por padrão, o cofre usa [GRS (Armazenamento com Redundância Geográfica)](../storage/common/storage-redundancy-grs.md). A redundância geográfica garante que os dados de backup sejam replicados para uma região do Azure secundária, a centenas de quilômetros de distância da região primária.
 
 Agora, crie um cofre:
-
 
 1. Use o [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) para criar o cofre:
 
@@ -72,11 +71,12 @@ Agora, crie um cofre:
     ```
 
 3. Altere a configuração de redundância de armazenamento (LRS/GRS) do cofre com [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty), da seguinte maneira:
-    
+
     ```powershell
     Get-AzRecoveryServicesVault `
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
+
     > [!NOTE]
     > A Redundância do Armazenamento só poderá ser modificada se não houver itens de backup protegidos no cofre.
 
@@ -85,7 +85,7 @@ Agora, crie um cofre:
 Você habilita o backup de uma VM do Azure e especifica uma política de backup.
 
 - A política define quando os backups serão executados e por quanto tempo os pontos de recuperação criados pelos backups deverão ser retidos.
-- A política de proteção padrão executa um backup uma vez por dia para a VM e mantém por 30 dias os pontos de recuperação criados. É possível usar essa política padrão para proteger rapidamente a VM. 
+- A política de proteção padrão executa um backup uma vez por dia para a VM e mantém por 30 dias os pontos de recuperação criados. É possível usar essa política padrão para proteger rapidamente a VM.
 
 Habilite o backup conforme a seguir:
 
@@ -112,7 +112,8 @@ Os backups são executados de acordo com o agendamento especificado na política
 - Após o backup inicial, cada trabalho de backup criará pontos de recuperação incrementais.
 - Os pontos de recuperação incrementais são eficientes em termos de armazenamento e de tempo, já que eles transferem somente as alterações feitas desde o último backup.
 
-Para executar um backup ad hoc, use o [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+Para executar um backup ad hoc, use o [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+
 - Você especifica um contêiner no cofre que contém os dados de backup com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Cada máquina virtual a ter o backup feito é tratada como um item. Para iniciar um trabalho de backup, você obtém informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
@@ -134,7 +135,6 @@ Execute um trabalho de backup ad hoc da seguinte maneira:
 
 2. Talvez seja necessário aguardar até 20 minutos, pois o primeiro trabalho de backup criará um ponto de recuperação completo. Monitore o trabalho, conforme descrito no próximo procedimento.
 
-
 ## <a name="monitor-the-backup-job"></a>Monitorar o trabalho de backup
 
 1. Execute [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) para monitorar o status do trabalho.
@@ -142,6 +142,7 @@ Execute um trabalho de backup ad hoc da seguinte maneira:
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
+
     A saída é semelhante ao exemplo a seguir, que mostra o trabalho como **InProgress**:
 
     ```output
@@ -153,10 +154,10 @@ Execute um trabalho de backup ad hoc da seguinte maneira:
 
 2. Quando o status do trabalho estiver **Concluído**, a VM estará protegida e terá um ponto de recuperação completo armazenado.
 
-
 ## <a name="clean-up-the-deployment"></a>Limpar a implantação
 
 Se você não precisar mais fazer backup da VM, poderá limpá-la.
+
 - Se você quiser experimentar a restauração da VM, ignore a limpeza.
 - Se você usou uma VM existente, poderá ignorar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) final para deixar o grupo de recursos e a VM implementados.
 
@@ -169,10 +170,9 @@ Remove-AzRecoveryServicesVault -Vault $vault
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um cofre dos Serviços de Recuperação, habilitou a proteção em uma VM e criou o ponto de recuperação inicial. 
+Neste início rápido, você criou um cofre dos Serviços de Recuperação, habilitou a proteção em uma VM e criou o ponto de recuperação inicial.
 
 - [Saiba como](tutorial-backup-vm-at-scale.md) fazer backup de VMs no portal do Azure.
 - [Saiba como](tutorial-restore-disk.md) restaurar rapidamente uma VM

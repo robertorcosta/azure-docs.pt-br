@@ -4,16 +4,16 @@ description: Este artigo explica como os clientes de EA do Azure usam o Portal d
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 11/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 1882b283f376a1bb8706132263c83e1a24ec0705
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 567beb9de0c0a8039d774270bdf61a7db437091e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900923"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888362"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Introdução ao Portal do EA do Azure
 
@@ -205,7 +205,8 @@ Você pode adicionar outra conta clicando em **Adicionar Outra Conta** ou pode c
 Para confirmar a propriedade da conta:
 
 1. Entre no Portal do EA do Azure.
-2. Confirme a propriedade da conta exibindo o status. O status deve mudar de **Pendente** para **Data de Início/Término**. A Data de Início/Término é a data em que o usuário se conectou pela primeira vez e a data de término do contrato.
+1. Confirme a propriedade da conta exibindo o status. O status deve mudar de **Pendente** para **Data de Início/Término**. A Data de Início/Término é a data em que o usuário se conectou pela primeira vez e a data de término do contrato.
+1. Quando a mensagem 'Aviso' aparecer, um proprietário de conta precisará clicar em **Continuar** para ativar a conta na primeira vez que entrar no Portal do EA do Azure.
 
 
 ## <a name="change-account-owner"></a>Alterar proprietário da conta
@@ -220,7 +221,7 @@ Pontos importantes sobre a transferência de informações de conta de usuário:
 - A transferência de uma conta Microsoft para outra é uma ação compatível. A conta de destino deve ser uma conta válida do Azure Commerce para ser um destino válido para transferências. Para novas contas, você será solicitado a criar uma conta do Azure Commerce ao entrar no Portal do EA do Azure. Para contas existentes, você deve primeiro criar uma nova assinatura do Azure antes que a conta seja considerada qualificada.
 - Quando você conclui uma transferência de assinatura, a Microsoft atualiza o proprietário da conta.
 
-Políticas de RBAC:
+Políticas de controle de acesso baseado em função:
 
 - Somente as transferências de assinatura do Azure entre duas IDs organizacionais no mesmo locatário preservam as políticas de RBAC (controle de acesso baseado em função) do Azure, atribuições de função de administrador de serviços e atribuições de função de coadministrador. Outras transferências de assinatura resultam na perda de suas políticas de RBAC e das atribuições de função de coadministrador de administrador de serviços. Políticas e funções de administrador não são transferidas entre diretórios diferentes. Os administradores de serviços são atualizados para o proprietário da conta de destino.
 - Quando você executa transferências de assinatura entre duas IDs organizacionais no mesmo locatário, as políticas de RBAC e as funções de administrador de serviços e de coadministrador existentes são preservadas.
@@ -284,28 +285,76 @@ Novas assinaturas podem levar até 24 horas para aparecer na lista de assinatura
 - [Editar detalhes da assinatura](https://account.azure.com/Subscriptions)
 - [Gerenciar chaves de assinatura](https://portal.azure.com/#home)
 
-## <a name="transfer-pay-as-you-go-subscription-to-ea-subscription"></a>Transferir uma assinatura paga conforme o uso para assinatura de EA
+## <a name="transfer-ea-subscription-to-pay-as-you-go-subscription"></a>Transferir uma assinatura do EA para paga conforme o uso
 
-Para transferir uma assinatura individual com as tarifas pagas conforme o uso para uma assinatura de EA, você precisa criar uma solicitação de suporte no portal do Azure. Para criar uma solicitação de suporte, clique em **+ Nova solicitação de suporte** na área Ajuda e Suporte.
+Para transferir uma assinatura do EA para uma assinatura individual com as tarifas pré-pagas, você precisa criar uma nova solicitação de suporte no portal do EA do Azure. Para criar uma solicitação de suporte, clique em **+ Nova solicitação de suporte** na área Ajuda e Suporte.
 
+## <a name="associate-an-existing-account-with-your-pay-as-you-go-subscription"></a>Associar uma conta existente à sua assinatura de pagamento conforme o uso
+
+Se você já tiver uma conta Microsoft Azure existente no portal do Microsoft Azure, insira o conta Microsoft associada ou a conta corporativa ou de estudante para associá-la ao seu registro do Enterprise Agreement.
+
+### <a name="associate-an-existing-account"></a>Associar uma conta existente
+
+1. No Enterprise Portal, clique em **Gerenciar**.
+1. Clique na guia **Conta**.
+1. Clique em **+Adicionar uma conta**.
+1. Insira a conta Microsoft ou a conta corporativa ou de estudante associada à conta existente.
+1. Confirme a conta Microsoft ou a conta corporativa ou de estudante associada à conta existente.
+1. Forneça um nome que você gostaria de usar para identificar esta conta nos relatórios.
+1. Clique em **Adicionar**.
+1. Você pode adicionar outra conta marcando novamente a opção **+Adicionar uma Conta** ou pode retornar à página inicial escolhendo o botão **Administrador**.
+1. Se você clicar para exibir a página **Conta**, a conta recém-adicionada será exibida com o status **Pendente**.
+
+### <a name="confirm-account-ownership"></a>Confirmar a propriedade da conta
+
+1. Faça logon na conta de email associada à conta Microsoft ou à conta corporativa ou de estudante que você forneceu.
+1. Abra a notificação de email intitulada _"Convite para ativar a conta no serviço do Microsoft Azure de licenciamento por volume da Microsoft"_ .
+1. No convite, clique no link **Entrar no Microsoft Azure Enterprise Portal**.
+1. Clique em **Entrar**.
+1. Insira seu conta Microsoft, ou a conta corporativa ou de estudante, e senha para entrar e confirmar a propriedade da conta.
+
+### <a name="azure-marketplace"></a>Azure Marketplace
+
+Embora a maioria das assinaturas converta do ambiente Pré-pago para o Azure Enterprise, os serviços do Azure Marketplace não fazem isso. Para ter um modo de exibição único de todas as assinaturas e preços, recomendamos adicionar os serviços do Azure Marketplace ao Enterprise Portal:
+
+1. Clique em **Gerenciar** na área de navegação à esquerda.
+1. Clique em **EnrollmentTab**.
+1. Exiba a seção Detalhes do Registro.
+1. À direita do campo Azure Marketplace, clique no ícone de lápis para habilitar e pressione **Salvar**.
+
+O proprietário da conta agora pode comprar assinaturas do Azure Marketplace que antes pertenciam ao ambiente pré-pago.
+
+Depois que as novas assinaturas do Azure Marketplace forem ativadas no registro, cancele as assinaturas do Marketplace criadas no ambiente pré-pago. Esta etapa é essencial para que suas assinaturas do Marketplace não entrem em um estado inadequado quando seu meio de pagamento do ambiente pré-pago expirar.
+
+### <a name="msdn"></a>MSDN
+
+As assinaturas do MSDN são automaticamente convertidas em Desenvolvimento/Teste do MSDN e a oferta do EA perderá os créditos monetários existentes.
+
+### <a name="azure-in-open"></a>Azure via Open
+
+A associação de uma assinatura do Azure via Open com um EA fará com que qualquer crédito não consumido do Azure via Open seja perdido. Para evitar qualquer perda potencial de crédito, recomendamos que os clientes consumam todo o crédito em uma assinatura do Azure via Open antes de adicionar a conta ao EA.  
+
+### <a name="accounts-with-support-subscriptions"></a>Contas com assinaturas de suporte
+
+Quando adicionar contas existentes ao Enterprise Portal que têm uma assinatura de suporte (mas ainda não têm uma assinatura de suporte do EA), observe que a assinatura de suporte do MOSA não transfere o suporte automaticamente e ele precisará ser readquirido no EA. Um período de carência para a cobertura do suporte será fornecido até o final do mês subsequente para dar tempo para a reordenação do suporte.
 
 ## <a name="view-usage-summary-and-download-reports"></a>Exibir resumo de uso e baixar relatórios
 
 Os administradores corporativos podem exibir um resumo dos dados de uso, do compromisso monetário consumido e das cobranças associadas com o uso adicional no portal do Azure EA. As cobranças são apresentadas no nível do resumo em todas as contas e assinaturas.
 
-Para exibir o uso detalhado de contas específicas
+Para exibir o uso detalhado de contas específicas:
 
 Baixe o relatório de detalhes de uso. Clique em **Relatórios** e, em seguida, clique na guia **Uso de Download**. Na lista de relatórios, clique em **Baixar** para o relatório mensal que deseja obter.
 
 O relatório não inclui as taxas aplicáveis. Talvez haja uma latência de até oito horas do momento em que o uso foi incorrido até ser refletido no relatório.
 
-Para exibir os relatórios e os grafos de Resumo de Uso:
+Para exibir os relatórios e os grafos de resumo de uso:
 
 1. No Portal do EA do Azure, na área de navegação à esquerda, clique em **Relatórios** e exiba a guia **Resumo de Uso**.  
-  ![](./media/billing-ea-portal-get-started/create-ea-view usage-summary-and-download-reports.png)
+  ![Criar e exibir o resumo de uso e baixar relatórios](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports.png)
 2. Selecione um período de compromisso.
 3. Alterne entre **M** (Mensal) e **P** (Personalizado) no canto superior direito da página para exibir o **Resumo de Uso** com datas de início e de término personalizadas.  
-  ![](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+  ![Criar e exibir o resumo de uso e baixar relatórios no modo de exibição personalizado](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 4. Selecione um período ou mês no grafo para exibir detalhes adicionais.
 5. O grafo mostra o uso mês a mês com um detalhamento do uso utilizado, os encargos adicionais de serviço, os encargos cobrados separadamente e os encargos do Marketplace.
 6. Para o mês selecionado, filtre por departamentos, contas e assinaturas abaixo do grafo.
@@ -346,10 +395,151 @@ Aqui está um vídeo que mostra como baixar informações de uso:
 
 >[!VIDEO https://www.youtube.com/embed/eY797htT1qg]
 
-## <a name="schedule-an-onboarding-call"></a>Agendar uma chamada de integração
+### <a name="advanced-report-download"></a>Download do relatório avançado
 
-Se você quiser agendar uma sessão presencial de integração de cliente, crie uma solicitação de suporte no [Suporte ao Portal do EA do Azure](https://support.microsoft.com/supportrequestform/e114582c-4e51-af46-10b1-1f0cc141e133). Selecione **Integração** como a **Categoria do Problema**.
+Para relatórios sobre contas ou intervalos de datas específicos, é possível usar o download do relatório avançado. Desde 30 de agosto de 2016, o formato do arquivo de saída foi alterado de .xlsx para .csv para acomodar conjuntos de registros maiores.
+
+1. Escolha **Download do relatório avançado**.
+1. Escolha **Intervalo de datas apropriado**.
+1. Escolha **Contas apropriadas**.
+1. Escolha **Solicitar dados de uso**.
+1. Escolha o botão **Atualizar** até que o status do relatório seja atualizado para **Download**.
+1. Baixe o relatório.
+
+## <a name="ea-term-glossary"></a>Glossário de termos do EA
+
+- **Conta**: uma unidade organizacional no Portal do EA do Azure que é usada para administrar assinaturas e para fazer relatórios.
+- **Proprietário da conta**: a pessoa identificada para gerenciar assinaturas e administradores de serviço no Microsoft Azure. Ela pode exibir dados de uso nessa conta e suas assinaturas associadas.
+- **Assinatura de aditamento**: um único ano ou uma assinatura coincidente sob o aditamento do registro.
+- **Compromisso**: compromisso de um valor monetário anual para serviços do Microsoft Azure a uma tarifa de compromisso reduzida para uso em relação a esse pagamento antecipado.
+- **Administrador de departamento**: a pessoa identificada para gerenciar departamentos, criar novas contas e proprietários de contas, exibir detalhes de uso dos departamentos que ela gerencia e exibir custos quando permissões forem concedidas.
+- **Número de registro**: um identificador exclusivo fornecido pela Microsoft para identificar o registro específico associado a um contrato Enterprise.
+- **Administrador corporativo**: a pessoa identificada para gerenciar departamentos e proprietários de departamentos, além de contas e proprietários de contas no Microsoft Azure. Ela tem a capacidade de gerenciar administradores corporativos e exibir dados de uso, quantidades cobradas e encargos não cobrados em todas as contas e assinaturas associadas ao registro corporativo.
+- **Contrato Enterprise**: um contrato de licenciamento da Microsoft para clientes com compras centralizadas que desejam padronizar toda a organização com a tecnologia da Microsoft e manter uma infraestrutura de tecnologia da informação com um padrão de software da Microsoft.
+- **Registro do contrato Enterprise**: um registro no programa de contrato Enterprise que fornece produtos da Microsoft em volume com tarifas reduzidas.
+- **Conta Microsoft**: um serviço baseado na Web que permite que sites participantes autentiquem um usuário com um único conjunto de credenciais.
+- **Aditamento do registro do Enterprise do Microsoft Azure (aditamento do registro)** : um aditamento assinado por uma empresa que fornece acesso ao Microsoft Azure como parte de seu registro Enterprise.
+- **Portal do EA do Azure**: o portal usado por nossos clientes empresariais para gerenciar suas contas do Microsoft Azure e assinaturas relacionadas.
+- **Quantidade de recursos consumidos**: a quantidade de um serviço individual do Microsoft Azure utilizado em um mês.
+- **Administrador de serviços**: a pessoa identificada para acessar e gerenciar assinaturas e projetos de desenvolvimento no Portal do EA do Azure.
+- **Assinatura**: representa uma assinatura do Portal do EA do Azure e é um contêiner de serviços gerenciados do Microsoft Azure pelo mesmo administrador de serviços.
+- **Conta corporativa ou de estudante**: para organizações que configuraram o Active Directory com Federação para a nuvem e todas as contas estão em um único locatário.
+
+### <a name="enrollment-statuses"></a>Status do registro:
+
+- **Pendente**: o administrador do registro precisa entrar no Portal do EA do Azure. Depois de conectado, o registro mudará para o status Ativo.
+- **Ativo**: o registro está Ativo e as contas e assinaturas podem ser criadas no Portal do EA do Azure. O registro permanecerá ativo até a data de término do contrato Enterprise.
+- **Termo estendido indefinido**: o status de termo estendido indefinido ocorre após a data de término do contrato Enterprise. Ele permite que os clientes do EA que optaram pelo período estendido continuem a usar o Azure indefinidamente no final do contrato Enterprise. Antes que o registro do EA atinja a data de término do contrato corporativo, o administrador do registro deve decidir se renovará o registro adicionando mais compromisso monetário, o transferirá para um novo registro, migrará para o Microsoft Online Subscription Program (MOSP) ou confirmará a desativação de todos serviços associados ao registro.
+- **Expirado**: o cliente do EA é recusado do prazo estendido e o registro do EA atingiu a data de término do contrato corporativo, a inscrição expirará e todos os serviços associados serão desativados.
+- **Transferidos**: registros em que todos os serviços e contas associados foram transferidos para um novo registro serão exibidos com o status Transferidos. Observe que os registros não são transferidos automaticamente se um novo número de registro é gerado durante a renovação. O número de registro anterior deve ser incluído na documentação de renovação do cliente para facilitar uma transferência automática.
+
+## <a name="get-started-on-azure-ea-faq"></a>Introdução às perguntas frequentes do EA do Azure
+
+Este documento fornece detalhes sobre as perguntas típicas feitas pelos clientes durante o processo de integração.  
+
+### <a name="can-i-associate-my-existing-azure-account-to-enterprise-enrollment"></a>Posso associar minha Conta do Azure existente ao Registro Enterprise?
+
+Sim, pode. É importante observar que todas as assinaturas do Azure das quais você é o proprietário da conta serão convertidas para o Registro Enterprise. Isso inclui assinaturas que utilizam crédito mensal (por exemplo, Visual Studio, AzurePass, MPN, BizSpark, etc.) e isso significa que você perderá o crédito mensal fazendo isso.
+
+### <a name="i-accidentally-associated-my-existing-azure-account-with-enterprise-enrollment-as-a-result-i-lost-my-monthly-credit-is-it-possible-to-get-my-monthly-credit-back"></a>Associei acidentalmente minha conta do Azure existente ao registro Enterprise. Como resultado, perdi meu crédito mensal. É possível ter meu crédito mensal de volta?
+
+Para recuperar seu benefício individual do Azure da assinatura do Visual Studio depois de autenticar como um proprietário da conta do EA, depois de ter usado o mesmo logon para o EA como sua assinatura do Visual Studio, você deve:
+1. excluir esse proprietário de conta do Portal do EA, depois de remover ou mover as assinaturas do Azure que ele possui, e fazer com que ele se inscreva nos benefícios individuais do Visual Studio Azure.
+ OU
+1. excluir o assinante do Visual Studio no site de administração no VLSC e reatribuir a assinatura, fazendo com que ele use um logon diferente. Posteriormente, ele pode se inscrever nos benefícios individuais do Visual Studio Azure.
+
+### <a name="what-type-of-subscription-should-i-create"></a>Que tipo de assinatura devo criar?
+
+O Portal do EA oferece dois tipos de assinaturas para clientes empresariais:
+
+- Microsoft Azure Enterprise – ideal para:
+  - Utilização em qualquer tipo de produção
+  - Melhores preços com base no gasto da infraestrutura
+  - Encontre mais detalhes no endereço https://azure.microsoft.com/pricing/enterprise-agreement/
+- Desenvolvimento/Teste Enterprise – ideal para:
+  - Todas as cargas de trabalho de desenvolvimento/teste da equipe
+  - Cargas de trabalho de desenvolvimento/teste individual, de média a pesada
+  - Acesso a imagens especiais do MSDN e taxas de serviço preferenciais
+  - Encontre mais detalhes no endereço https://azure.microsoft.com/offers/ms-azr-0148p/
+
+### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>É possível transferir a propriedade de assinatura para outra conta?
+
+Sim, é possível transferir a propriedade de assinatura para uma conta diferente. Por exemplo, se uma Conta A tiver três assinaturas, o administrador corporativo poderá transferir uma assinatura para a Conta B, uma para a Conta C e outra para a Conta D ou todas para a Conta E.
+
+Você pode acessar o EA e clicar em Gerenciar > Conta, passar o cursor do mouse sobre **Conta** (extremidade direita) e verá a opção Transferir Propriedade (ícone de foto) e Transferir Assinatura (ícone de lista).
+
+Esta opção só estará visível para contas ativas.
+
+### <a name="i-see-subscription-name-defaults-to-offer-name-should-i-change-the-subscription-name-to-something-meaningful-to-my-organization"></a>Eu vejo os padrões de nome de assinatura como nome da oferta, devo alterar o nome da assinatura para algo significativo para minha organização?
+
+Qualquer assinatura criada será padronizada com o tipo de oferta que você escolher. Recomendamos alterar o nome da assinatura para algo que facilite o rastreamento da assinatura.
+
+**Para alterar o nome:**
+1. Entre em [https://account.windowsazure.com](https://account.windowsazure.com).
+1. Clique na lista Assinatura.
+1. Escolha Assinatura.
+1. Clique no ícone **Gerenciar assinatura**.
+1. Edite os detalhes da assinatura.
+
+### <a name="how-can-i-track-cost-incurred-by-cost-center"></a>Como faço para acompanhar os custos incorridos pelo Centro de Custo?
+
+Para acompanhar o custo pelo Centro de custo, você precisa definir o Centro de custo em qualquer um dos níveis a seguir:
+- department
+- Conta
+- Subscription
+
+Dependendo daquilo que precisa, você poderá usar o mesmo Centro de Custo para acompanhar o uso e o custo associados a um Centro de Custo específico.
+
+Por exemplo, para acompanhar o custo de um projeto especial em que vários departamentos estão envolvidos, talvez você queira usar o Centro de Custo no nível de uma assinatura para controlar o uso e o custo.
+
+Não é possível definir o Centro de Custo no nível de serviço e, caso você queira controlar o uso no nível de serviço, você pode usar o recurso "Marcação" disponível no nível de serviço.
+
+### <a name="how-do-i-track-usage-and-spend-by-different-departments-in-my-organization"></a>Como faço para acompanhar o uso e o gasto pelos diversos departamentos da organização?
+
+Você pode criar quantos departamentos forem necessários em seu registro do EA. Para acompanhar o uso corretamente, você precisa garantir que as assinaturas não sejam compartilhadas entre os departamentos.
+
+Depois de criar o departamento e a assinatura, você poderá ver as informações que fluem no relatório de uso e que ajudarão a controlar o uso e o gerenciamento de custos/gastos no nível do departamento.
+
+Você também pode acessar o uso por meio da API e de informações detalhadas. O código de exemplo está disponível em [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
+
+### <a name="can-i-set-the-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Posso definir a cota de gastos e receber alertas à medida que me aproximar do meu limite?
+
+Você pode definir a cota de gastos no nível do departamento e o sistema o notificará automaticamente quando seus limites de gastos atingirem 50%, 75%, 90% e 100% da cota definida.
+
+Para definir sua cota de gastos, clique no departamento ao qual você deseja adicionar um limite de gastos e clique no ícone de edição. Clique em **Salvar** para salvar os detalhes.
+
+### <a name="i-used-resource-groups-rgs-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Usei GRs (Grupos de Recursos) para implementar o RBAC e acompanhar o uso, como posso exibir os detalhes de uso associados?
+
+Se informações como "Grupos de Recursos" e "Marcação"forem usadas, elas serão rastreadas no nível de serviço e as informações estarão disponíveis no arquivo de download (CSV) de uso detalhado, que pode ser baixado no Portal do EA do Azure [https://ea.azure.com/report/downloadusage](https://ea.azure.com/report/downloadusage).
+
+Você também pode acessar o uso por meio da API e de informações detalhadas. O código de exemplo está disponível em [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
+
+Observe que você só pode aplicar marcações a recursos que dão suporte às operações do Resource Manager. Se você tiver criado uma máquina virtual, uma rede virtual ou um armazenamento por meio do modelo de implantação clássica (como por meio do portal clássico), não poderá aplicar uma marcação a esse recurso. Para dar suporte à marcação, implante esses recursos novamente por meio do Resource Manager. Todos os outros recursos oferecem suporte à marcação.
+
+### <a name="can-i-perform-analyses-using-power-bi"></a>Posso executar análises usando o Power BI?
+
+Sim. Com o pacote de conteúdo do Microsoft Azure Enterprise para Power BI, você pode importar e analisar rapidamente o consumo do Azure em seu registro Enterprise. Descubra qual departamento, conta ou assinatura consumiu mais uso, que serviço foi mais usado pela organização, ou rastreie tendências de gasto e uso.
+
+**Navegue até o site do Power BI:**
+
+ 1. Entre com uma conta corporativa ou de estudante válida.
+    - A conta corporativa ou de estudante pode ser a mesma ou uma diferente da usada para acessar o registro pelo Portal do EA do Azure.
+ 1. No painel de serviços, escolha:
+    - Bloco do Microsoft Azure Enterprise.
+    - Clique em **Conectar**.
+ 1. Na tela "Conectar-se ao Azure Enterprise", escolha:
+    - URL do ambiente do Azure: [https://ea.azure.com](https://ea.azure.com).
+    - Número de meses: escolha entre 1 e 36.
+    - Número do registro: insira o número do registro.
+    - Clique em **Próximo**.
+ 1. Insira a Chave de API na caixa da Chave de Autenticação. Acesse a chave de API no portal do EA do Azure na guia "uso do download", clique em **Chave de Acesso à API**.
+    - Copie e cole a chave na caixa "Chave de Conta".
+    - Os dados levarão cerca de 5-30 minutos para serem carregados no Power BI, dependendo do tamanho do conjunto de dados.
+
+O Power BI Reporting está disponível para clientes diretos, indiretos e parceiros do EA que podem exibir informações de cobrança.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Os administradores do Portal do EA do Azure devem ler [Administração do Portal do EA do Azure](billing-ea-portal-administration.md) para aprender sobre tarefas administrativas comuns.
 - Se você precisar de ajuda para solucionar problemas do Portal do EA do Azure, confira [Solucionar problemas de acesso ao Portal do EA do Azure](billing-ea-portal-troubleshoot.md).
+- Para obter um guia de integração do EA do Azure, confira [Guia de integração do EA do Azure](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).

@@ -5,18 +5,18 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499248"
+ms.locfileid: "73580084"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
-As Reservas do Azure ajudam você a economizar comprometendo-se com um ano ou três anos de máquinas virtuais, de capacidade de computação do Banco de Dados SQL, de produtividade do Azure Cosmos DB ou de outros recursos do Azure. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente os custos com máquinas virtuais, computação do Banco de Dados SQL, Azure Cosmos DB ou outros recursos em até 72% nos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de runtime dos recursos.
+As Reservas do Azure o ajudam a economizar ao se comprometer com um plano de um ano ou de três anos de máquinas virtuais, armazenamento de blobs do Azure ou Azure Data Lake Storage Gen2, capacidade de computação do Banco de Dados SQL, taxa de transferência do Azure Cosmos DB ou de outros recursos do Azure. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente os custos de recursos em até 72% nos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de runtime dos recursos.
 
 Você pode pagar por uma reserva de forma antecipada ou mensal. O custo total das reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente. O pagamento mensal está disponível para reservas do Azure, e não para produtos de terceiros.
 
@@ -24,13 +24,14 @@ Você pode comprar uma instância reservada no [portal do Azure](https://ms.port
 
 ## <a name="why-buy-a-reservation"></a>Por que comprar uma reserva?
 
-Se você tem máquinas virtuais, o Azure Cosmos DB ou bancos de dados SQL executados por períodos longos, a compra de uma reserva oferece a opção mais econômica. Por exemplo, quando executa continuamente quatro instâncias de um serviço sem a reserva, você é cobrado com base em taxas pagas conforme o uso. Quando compra uma reserva para esses recursos, você obtém imediatamente o desconto de reserva. Os recursos não serão mais cobrados com base nas taxas pagas conforme o uso.
+Se você tem máquinas virtuais, dados de armazenamento de blobs, o Azure Cosmos DB ou bancos de dados SQL que usem uma capacidade ou taxa de transferência significativas ou que sejam executados por períodos longos, a compra de uma reserva oferece a opção mais econômica. Por exemplo, quando executa continuamente quatro instâncias de um serviço sem a reserva, você é cobrado com base em taxas pagas conforme o uso. Quando compra uma reserva para esses recursos, você obtém imediatamente o desconto de reserva. Os recursos não serão mais cobrados com base nas taxas pagas conforme o uso.
 
 ## <a name="charges-covered-by-reservation"></a>Preços cobertos pela reserva
 
 Planos de serviço:
 
 - **Instância de Máquina Virtual Reservada** – uma reserva apenas abrange os custos de computação de máquina virtual. Não cobre encargos adicionais de software, rede e armazenamento.
+- **Capacidade reservada de Armazenamento do Azure**: uma reserva abrange a capacidade de contas de armazenamento padrão para armazenamento de blobs ou do Azure Data Lake Storage Gen2. A reserva não abrange a largura de banda ou as taxas de transação.
 - **Capacidade reservada do Azure Cosmos DB** – cobre a taxa de transferência provisionada para seus recursos. Ela não cobre encargos de armazenamento e rede.
 - **vCore reservado do Banco de Dados SQL** – apenas os custos de computação são incluídos com uma reserva. A licença é cobrada separadamente.
 - **SQL Data Warehouse** – uma reserva cobre o uso de cDWU. Ela não cobre encargos de armazenamento ou rede associados ao uso do SQL Data Warehouse.
@@ -134,6 +135,7 @@ Quando você compra uma reserva, o desconto pode ser aplicado a outras instânci
 Planos de serviço:
 
 - Instâncias de VM reservadas: Ao comprar a reserva, se você selecionar **Otimizado para flexibilidade de tamanho da instância**, a cobertura de desconto dependerá do tamanho da VM que você selecionar. A reserva pode ser aplicada aos tamanhos de VMs (máquinas virtuais) no mesmo grupo de série de tamanho. Para obter mais informações, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Capacidade reservada do Armazenamento do Azure: você pode comprar capacidade reservada para contas de armazenamento padrão do Azure em unidades de 100 TiB ou 1 PiB por mês. A capacidade reservada do armazenamento do Azure está disponível em todas as regiões para qualquer camada de acesso (quente, fria ou arquivo) e para qualquer opção de replicação (LRS, GRS ou ZRS).
 - Capacidade reservada do Banco de Dados SQL: A cobertura de desconto depende do nível de desempenho escolhido. Para obter mais informações, confira [Entender como um desconto de reserva do Azure é aplicado](billing-understand-reservation-charges.md).
 - Capacidade reservada do Azure Cosmos DB: A cobertura de desconto depende da taxa de transferência provisionada. Para obter mais informações, confira [Entender como um desconto de reserva do Azure Cosmos DB é aplicado](billing-understand-cosmosdb-reservation-charges.md).
 
