@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 43ad6558b685d3959562be720f7494b3d2a7334e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c118a74e273e153746240465692b1c712bd25f47
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499435"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953617"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extrair dados de forma livre com a entidade Pattern.any
 
@@ -138,7 +138,7 @@ A entidade Pattern.any extrai entidades de comprimento variável. Isso só funci
 
 ## <a name="using-an-explicit-list"></a>Uso de uma lista explícita
 
-Se você achar que seu padrão, quando ele incluir um Pattern.any, extrai as entidades incorretamente, use uma [lista explícita](luis-concept-patterns.md#explicit-lists) para corrigir esse problema.
+Se você achar que seu padrão, quando ele incluir um Pattern.any, extrai as entidades incorretamente, use uma [lista explícita](reference-pattern-syntax.md#explicit-lists) para corrigir esse problema.
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

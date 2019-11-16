@@ -1,7 +1,7 @@
 ---
 title: Início Rápido – Enviar uma consulta para a API da Pesquisa de Negócios Locais do Bing no C#
 titleSuffix: Azure Cognitive Services
-description: Use este artigo para começar a usar a API de Pesquisa de Empresas Locais do Bing em C#.
+description: Use este início rápido para começar a enviar solicitações para a API de Pesquisa do Bing Local Business, que é um Serviço Cognitivo do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 163a85a7fb7521054ebec58fb9ac86373963f2b9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: d14e9dd8d02db7ca0131927682804fe81b750d97
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906303"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072339"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Início Rápido: Enviar uma consulta para a API de Pesquisa de Empresas Locais do Bing em C#
 

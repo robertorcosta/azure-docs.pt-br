@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Obtenha notícias usando a API de REST de Pesquisa de Notícias do Bing e Go'
 titleSuffix: Azure Cognitive Services
-description: Saiba como obter os resultados de notícias da API de Pesquisa de Notícias do Bing.
+description: Este início rápido usa a linguagem Go para chamar a API de Pesquisa de Notícias do Bing. Os resultados incluem os nomes e as URLs de fontes de notícias identificados pela cadeia de caracteres de consulta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 2/21/2019
 ms.author: aahi
-ms.openlocfilehash: 79e93e3ba0bbf9ac71a01bad0502b84dfee85297
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c3d18852086e202d9f818f2cac2c90fa4f464211
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798496"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110814"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Início Rápido: Obtenha resultados de notícias usando a API de REST de Pesquisa de Notícias do Bing e Go
 

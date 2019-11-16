@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 3af9c5e728bd119ce6c5546c8dc6556967cd1eda
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 83dc18424bc8606eff9a735b76cdaa09e381d588
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606115"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129360"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: Executar um trabalho do Spark no Azure Databricks usando o modelo do Azure Resource Manager
 
@@ -81,7 +81,7 @@ Nesta seção, você criará um workspace do Azure Databricks usando o modelo do
 
    Selecione **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
 
-Para obter mais informações sobre como criar clusters, consulte [Criar um cluster Spark no Azure Databricks](/azure/databricks/user-guide/clusters/create).
+Para obter mais informações sobre como criar clusters, consulte [Criar um cluster Spark no Azure Databricks](/azure/databricks/clusters/create).
 
 ## <a name="run-a-spark-sql-job"></a>Executar um trabalho SQL do Spark
 
@@ -126,7 +126,7 @@ Execute as seguintes tarefas para criar um bloco de notas em Databricks, configu
      Para obter instruções sobre como recuperar sua chave da conta de armazenamento, confira [Gerenciar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys).
 
    > [!NOTE]
-   > Você também pode usar o Azure Data Lake Store com um cluster Spark no Azure Databricks. Para obter instruções, consulte [Usar Data Lake Store com Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html).
+   > Você também pode usar o Azure Data Lake Store com um cluster Spark no Azure Databricks. Para obter instruções, consulte [Usar Data Lake Store com Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2).
 
 4. Execute uma instrução SQL para criar uma tabela temporária usando dados do arquivo de dados JSON de exemplo, **small_radio_json.json**. No snippet de código a seguir, substitua os valores de espaço reservado pelo nome do seu contêiner e o nome da conta de armazenamento. Cole o snippet de código em uma célula de código no bloco de notas e pressione SHIFT + ENTER. No snippet de código, `path` indica o local do arquivo JSON de exemplo que você carregou na sua Conta de armazenamento do Azure.
 
@@ -186,7 +186,7 @@ Se você não encerrar o cluster manualmente, ele será interrompido automaticam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou um cluster Spark no Azure Databricks e executou um trabalho do Spark usando os dados no armazenamento do Azure. Você também pode examinar [Fontes de dados do Spark](/azure/databricks/data/data-sources/index.html) para saber como importar dados de outras fontes de dados para o Azure Databricks. Você também pode examinar o modelo do Resource Manager para [Criar um workspace do Azure Databricks com o endereço VNET personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, confira a referência de modelo [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
+Neste artigo, você criou um cluster Spark no Azure Databricks e executou um trabalho do Spark usando os dados no armazenamento do Azure. Você também pode examinar [Fontes de dados do Spark](/azure/databricks/data/data-sources/index) para saber como importar dados de outras fontes de dados para o Azure Databricks. Você também pode examinar o modelo do Resource Manager para [Criar um workspace do Azure Databricks com o endereço VNET personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, confira a referência de modelo [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
 
 Siga até o próximo artigo para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) usando o Azure Databricks.
 

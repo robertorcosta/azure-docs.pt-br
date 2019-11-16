@@ -1,7 +1,7 @@
 ---
 title: Início Rápido – Enviar uma consulta para a API da Pesquisa de Negócios Locais do Bing usando o Node.js
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API de pesquisa do Bing Local Business no Node.
+description: Use este início rápido para começar a enviar solicitações para a API de Pesquisa do Bing Local Business, que é um Serviço Cognitivo do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 02513d0596588b4e6ba05edf5342769e78c24242
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 925e3bfb4a89832d5cde7e35d5ce5e3be3a5bcbb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996652"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075620"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Início Rápido: envie uma consulta para a API de Pesquisa do Bing Local Business usando o Node.js
 

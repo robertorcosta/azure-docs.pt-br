@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 28a75158b161e680f857b986bcb754f1f99e8fab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e5a5f2a4de4e01d2e4fa66f819e55839959afd0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825313"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130698"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v12 para JavaScript
 
@@ -205,7 +205,7 @@ Escolha um nome para o novo contêiner. O código abaixo anexa um valor de UUID 
 > [!IMPORTANT]
 > Os nomes de contêiner devem estar em minúsculas. Para saber mais sobre como nomear contêineres e blobs, veja [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Crie uma instância da classe [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) chamando o método [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--newpipelineoptions-). Em seguida, chame o método [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) para obter uma referência a um contêiner. Por fim, chame [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) para realmente criar o contêiner em sua conta de armazenamento.
+Crie uma instância da classe [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) chamando o método [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-). Em seguida, chame o método [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) para obter uma referência a um contêiner. Por fim, chame [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) para realmente criar o contêiner em sua conta de armazenamento.
 
 Adicione este código ao final da função `main`:
 
@@ -351,7 +351,7 @@ Neste início rápido você aprendeu a carregar, baixar e listar blobs usando Ja
 Para ver os aplicativos de exemplo de armazenamento de blobs, acesse:
 
 > [!div class="nextstepaction"]
-> [Exemplos do SDK do Armazenamento de Blobs do Azure v12 JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Exemplos do SDK do Armazenamento de Blobs do Azure v12 JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 * Para saber mais, confira o [SDK do Azure para JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md).
 * Para obter tutoriais, exemplos, inícios rápidos e outras documentações, visite [Documentação do SDK do Azure para JavaScript](/azure/javascript/).

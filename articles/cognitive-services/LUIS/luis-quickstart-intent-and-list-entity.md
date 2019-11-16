@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a8021885bf51ab6d44bc8576b9fdd69f1bdd270a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492707"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953692"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obter dados de correspondência de texto exata de uma expressão
 
@@ -49,7 +49,7 @@ Uma entidade de lista é uma boa escolha para esse tipo de dados quando:
 
 * Os valores de dados são um conjunto conhecido.
 * O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para esse tipo de entidade.
-* O texto no enunciado corresponde exatamente a um sinônimo ou ao nome canônico. O LUIS não usa a lista além de correspondências exatas do texto. Lematização, plurais e outras variações não são resolvidas com apenas uma entidade de lista. Para gerenciar variações, considere a possibilidade de usar um [padrão](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional. 
+* O texto no enunciado corresponde exatamente a um sinônimo ou ao nome canônico. O LUIS não usa a lista além de correspondências exatas do texto. Lematização, plurais e outras variações não são resolvidas com apenas uma entidade de lista. Para gerenciar variações, considere a possibilidade de usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional. 
 
 ## <a name="create-a-new-app"></a>Criar um novo aplicativo
 

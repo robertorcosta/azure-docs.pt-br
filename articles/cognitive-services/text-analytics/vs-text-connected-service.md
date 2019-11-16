@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Conectar o serviço de Análise de Texto com os Serviços Conectados no Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Saiba como conectar a Análise de Texto de um aplicativo Web do ASP.NET Core.
+description: Este artigo e os artigos complementares fornecem detalhes sobre como usar o recurso de Serviço Conectado do Visual Studio para Serviço de Análise de Texto.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: ff4c703070d6a7ebd545de3043e5f59b764fe4c9
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478469"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837199"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Conectar o serviço de Análise de Texto com os Serviços Conectados no Visual Studio
 
