@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 1cdc4420758b67dc3a578b9530fb7039ed53ee66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcd12b0c47dc587153df51d4d30eb2abe4cc2657
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092792"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Azure Active Directory com Reward Gateway
 
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure AD com o Reward Gateway, execute as segu
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`|
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Para obter esses valores, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Detalhes podem ser localizados em https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Para obter esses valores, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Detalhes podem ser localizados em https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o Reward Gateway, execute as segu
 
 ### <a name="configure-reward-gateway-single-sign-on"></a>Configurar o logon único do Reward Gateway
 
-Para configurar o logon único do **Gateway de Prêmio**, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Use os metadados baixados para obter o Certificado de Autenticação e carregá-lo durante a configuração. Detalhes podem ser localizados em https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
+Para configurar o logon único do **Gateway de Prêmio**, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Use os metadados baixados para obter o Certificado de Autenticação e carregá-lo durante a configuração. Detalhes podem ser localizados em https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

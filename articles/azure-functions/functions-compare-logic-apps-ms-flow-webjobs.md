@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b131a6fd5bb39ee5ec672a8ffb75cb22087a38af
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597450"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082743"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>O que são o Microsoft Flow, os Aplicativos Lógicos, o Functions e o WebJobs?
 
@@ -123,12 +123,12 @@ Obtenha mais informações sobre os serviços de integração usando os seguinte
 * [Aproveitando o Azure Functions e o Serviço de Aplicativo do Azure em cenários de integração, por Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integração simplificada, por Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webcast ao vivo sobre os Aplicativos Lógicos](https://aka.ms/logicappslive)
-* [Perguntas frequentes sobre o Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Perguntas frequentes sobre o Microsoft Flow](/power-automate/frequently-asked-questions)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Comece criando seu primeiro fluxo, aplicativo lógico ou aplicativo de funções. Selecione um dos seguintes links:
 
-* [Introdução ao Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [Introdução ao Microsoft Flow](/power-automate/getting-started)
 * [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Como criar a sua primeira função do Azure](functions-create-first-azure-function.md)

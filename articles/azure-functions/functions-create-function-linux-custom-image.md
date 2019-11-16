@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: d4a72edbe762afd2a94962c1440357ce3ad46862
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b8d82868788d831d4db68a35c032d3f81b545417
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329564"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082839"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Crie uma função no Linux usando uma imagem personalizada
 
-O Azure Functions permite hospedar suas funções no Linux em seu próprio contêiner personalizado. Você também pode [hospedar em um contêiner padrão do Serviço de Aplicativo do Azure](functions-create-first-azure-function-azure-cli-linux.md). Essa funcionalidade requer [o tempo de execução do Functions 2.x](functions-versions.md).
+O Azure Functions permite hospedar suas funções no Linux em seu próprio contêiner personalizado. Você também pode [hospedar em um contêiner padrão do Serviço de Aplicativo do Azure](functions-create-first-azure-function-azure-cli-linux.md). Essa funcionalidade requer [o runtime do Functions 2.x](functions-versions.md).
 
 Neste tutorial, você aprenderá a implantar suas funções no Azure como uma imagem personalizada do Docker. Esse padrão será útil quando você precisar personalizar a imagem de contêiner interna. Convém usar uma imagem personalizada quando suas funções precisarem de uma versão de idioma específico, ou exigirem uma configuração ou dependência específica que não é fornecida na imagem interna. Imagens base com suporte para Azure Functions encontram-se no [repositório de imagens de base do Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base). 
 
@@ -57,15 +57,15 @@ Você também pode usar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## <a name="create-the-local-project"></a>Criar o projeto local
 
-Execute o comando a seguir na linha de comando para criar um projeto de aplicativo de funções na pasta `MyFunctionProj` do diretório local atual. Para um projeto Python, você [precisa estar executando em um ambiente virtual](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
+Execute o comando a seguir na linha de comando para criar um projeto de aplicativo de funções na pasta `MyFunctionProj` do diretório local atual. Para um projeto Python, você [precisa estar executando em um ambiente virtual](functions-create-first-function-python.md#create-and-activate-a-virtual-environment).
 
 ```bash
 func init MyFunctionProj --docker
 ```
 
-Quando você inclui a opção `--docker`, um dockerfile é gerada para o projeto. Esse arquivo é usado para criar um contêiner personalizado no qual executar o projeto. A imagem base usada depende da linguagem do tempo de execução do trabalho escolhida.  
+Quando você inclui a opção `--docker`, um dockerfile é gerada para o projeto. Esse arquivo é usado para criar um contêiner personalizado no qual executar o projeto. A imagem base usada depende da linguagem do runtime do trabalho escolhida.  
 
-Quando solicitado, escolha um tempo de execução do trabalho com as seguintes linguagens:
+Quando solicitado, escolha um runtime do trabalho com as seguintes linguagens:
 
 * `dotnet`: cria um projeto de biblioteca de classes do .NET Core (.csproj).
 * `node`: cria um projeto de JavaScript.
@@ -83,7 +83,7 @@ cd MyFunctionProj
 
 ## <a name="build-from-the-docker-file"></a>Compilar do arquivo do Docker
 
-Examine o _Dockerfile_ na pasta raiz do projeto. Este arquivo descreve o ambiente necessário para executar o aplicativo de funções no Linux. O exemplo a seguir é um Dockerfile que cria um contêiner que executa um aplicativo de funções no tempo de execução do trabalho em JavaScript (Node.js): 
+Examine o _Dockerfile_ na pasta raiz do projeto. Este arquivo descreve o ambiente necessário para executar o aplicativo de funções no Linux. O exemplo a seguir é um Dockerfile que cria um contêiner que executa um aplicativo de funções no runtime do trabalho em JavaScript (Node.js): 
 
 ```Dockerfile
 FROM mcr.microsoft.com/azure-functions/node:2.0
@@ -331,7 +331,7 @@ No Functions, cada tipo de associação requer que um `direction`, `type` e um `
 
 ### <a name="add-code-that-uses-the-output-binding"></a>Adicionar o código que usa a associação de saída
 
-Depois que a associação é definida, você pode usar o `name` da associação para acessá-la como um atributo na assinatura de função. Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O tempo de execução do Functions e a associação de saída da fila fazem essas tarefas para você.
+Depois que a associação é definida, você pode usar o `name` da associação para acessá-la como um atributo na assinatura de função. Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O runtime do Functions e a associação de saída da fila fazem essas tarefas para você.
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 

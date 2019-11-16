@@ -8,23 +8,23 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 00a2268442f94822064f86d95b14160d67e1516c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716684"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084754"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Em que o Azure Machine Learning é diferente do ML Studio (clássico)
 
 Este artigo compara os recursos, as funcionalidades e a interface de Azure Machine Learning com os do ML Studio (clássico). 
 
 ## <a name="about-ml-studio-classic"></a>Sobre o ML Studio (clássico)
-O [ML Studio (clássico)](/studio/what-is-ml-studio.md) é um workspace visual do tipo "arrastar e soltar" colaborativo em que é possível criar, testar e implantar soluções de aprendizado de máquina sem precisar escrever código. Ele usa algoritmos de aprendizado de máquina predefinidos e pré-configurados e módulos de manipulação de dados, assim como uma plataforma de computação proprietária.
+O [ML Studio (clássico)](studio/what-is-ml-studio.md) é um workspace visual do tipo "arrastar e soltar" colaborativo em que é possível criar, testar e implantar soluções de aprendizado de máquina sem precisar escrever código. Ele usa algoritmos de aprendizado de máquina predefinidos e pré-configurados e módulos de manipulação de dados, assim como uma plataforma de computação proprietária.
 
 ## <a name="about-azure-machine-learning"></a>Sobre o Azure Machine Learning
 
-Enquanto isso, o [Azure Machine Learning](/service/overview-what-is-azure-ml.md) fornece uma interface Web chamada de designer (versão prévia) **e** vários SDKs e uma CLI para preparar dados rapidamente e treinar e implantar modelos de machine learning. Com o Azure Machine Learning você obtém escala, suporte a vários frameworks, funcionalidades avançadas de ML, tais como o machine learning automatizado e o suporte a pipeline.
+Enquanto isso, o [Azure Machine Learning](service/overview-what-is-azure-ml.md) fornece uma interface Web chamada de designer (versão prévia) **e** vários SDKs e uma CLI para preparar dados rapidamente e treinar e implantar modelos de machine learning. Com o Azure Machine Learning você obtém escala, suporte a vários frameworks, funcionalidades avançadas de ML, tais como o machine learning automatizado e o suporte a pipeline.
 
 O designer do Azure Machine Learning oferece uma experiência do tipo "arrastar e soltar" semelhante para o Studio (clássico). No entanto, ao contrário da plataforma de computação proprietária do Studio, o designer (clássico) usa seus próprios recursos de computação, é escalonável e é totalmente integrado ao Azure Machine Learning.  
 

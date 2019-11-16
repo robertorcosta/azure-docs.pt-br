@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Criar um experimento de ciência de dados'
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Este início rápido de aprendizado de máquina percorre um teste de ciência de dados. Vamos prever o preço de um carro usando um algoritmo de regressão.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 99cc453387ed32c4d7cbba31c1fec2ff24a8255f
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621885"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839954"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Início Rápido: Crie seu primeiro experimento no de ciência de dados no Azure Machine Learning Studio (clássico)
 

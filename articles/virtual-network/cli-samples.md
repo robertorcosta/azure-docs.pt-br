@@ -1,5 +1,5 @@
 ---
-title: Exemplos de CLI do Azure para Rede Virtual | Microsoft Docs
+title: Exemplos de CLI do Azure para rede virtual
 description: Exemplos de CLI do Azure para rede virtual.
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 4caa19ad22faa0a921fb6397e5b376b65a29e519
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: ff1017c8a6bc3c2806da6ea2a53b931aaf28644f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249062"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092091"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Exemplos de CLI do Azure para rede virtual
 

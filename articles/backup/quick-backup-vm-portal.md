@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 09154c68ab5cb0c3db3cd3325a4bf37fa33c1144
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2d740c8d078770267669a0be749ca8d5d210bb72
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747074"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083176"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer backup de uma máquina virtual no Azure
 
@@ -26,7 +26,7 @@ Este início rápido habilita o backup em uma VM do Azure existente. Se você pr
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Microsoft Azure em <https://portal.azure.com.>
+Entre no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Selecionar uma máquina virtual para fazer backup
 

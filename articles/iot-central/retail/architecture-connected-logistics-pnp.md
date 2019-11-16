@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 1940f02fdf9badcf99ef85a2ab02ac9099cc1775
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 797488632f04af9a170f05590154e50310570b28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615389"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890713"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Arquitetura do modelo de aplicativo de logística conectada para IoT Central
 
@@ -47,4 +47,4 @@ A plataforma IoT Central fornece opções avançadas de extensibilidade por meio
 ## <a name="next-steps"></a>Próximas etapas
 * Aprenda a implantar um [modelo de solução de logística conectada](./tutorial-iot-central-connected-logistics-pnp.md).
 * Saiba mais sobre [modelos comerciais do IoT Central](./overview-iot-central-retail-pnp.md)
-* Para saber mais sobre o IoT Central, confira [Visão geral do IoT Central](../core/overview-iot-central-pnp.md)
+* Para saber mais sobre o IoT Central, confira [Visão geral do IoT Central](../preview/overview-iot-central.md)

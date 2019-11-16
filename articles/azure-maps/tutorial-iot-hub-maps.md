@@ -1,22 +1,22 @@
 ---
-title: Implementar análise espacial de IoT usando o Azure Mapas | Microsoft Docs
-description: Integre o Hub IoT às APIs de serviço do Azure Mapas.
+title: 'Tutorial: Implementar análise espacial de IoT usando o Azure Mapas'
+description: 'Tutorial: Integre o Hub IoT às APIs de serviço do Azure Mapas.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933198"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107048"
 ---
-# <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementar análise espacial de IoT usando o Azure Mapas
+# <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análise espacial de IoT usando o Azure Mapas
 
 Acompanhar e capturar eventos relevantes que ocorrem em espaço e no tempo é um cenário comum de IoT. Por exemplo, em aplicativos de gerenciamento de frota, acompanhamento de ativos, mobilidade e cidade inteligente. Este tutorial orienta você em um padrão de solução para usar APIs do Azure Mapas em relação a eventos relevantes capturados pelo Hub IoT usando o modelo de assinatura de evento fornecido pela Grade de Eventos.
 
@@ -207,7 +207,7 @@ O Azure Functions é um serviço de computação sem servidor que permite execut
 
     ![create-resource](./media/tutorial-iot-hub-maps/create-resource.png)
 
-2. Na página criação do Aplicativo de funções, dê um nome a seu aplicativo de funções em **Grupo de Recursos**, selecione **Usar existente** e selecione "ContosoRental" na lista suspensa. Selecione ".NET Core" como a Pilha de Tempo de Execução, em **Armazenamento**, selecione **Usar existente**, selecione "contosorentaldata" na lista suspensa e clique em **Criar**.
+2. Na página criação do Aplicativo de funções, dê um nome a seu aplicativo de funções em **Grupo de Recursos**, selecione **Usar existente** e selecione "ContosoRental" na lista suspensa. Selecione ".NET Core" como a Pilha de Runtime, em **Armazenamento**, selecione **Usar existente**, selecione "contosorentaldata" na lista suspensa e clique em **Criar**.
     
     ![create-app](./media/tutorial-iot-hub-maps/rental-app.png)
 
