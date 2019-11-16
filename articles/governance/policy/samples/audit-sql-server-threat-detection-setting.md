@@ -1,17 +1,14 @@
 ---
 title: Exemplo – Auditar detecção de ameaças no nível do servidor
 description: Esta definição de política de exemplo audita as políticas de alerta de segurança do SQL Server se elas não estão definidas com o estado especificado.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 0c5cfe2d30668102a356224b5efd141746ab0866
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 8eeb557426ef2eaca855c30f1bce14ee2b7681f4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254757"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74071221"
 ---
 # <a name="sample---audit-server-level-threat-detection-setting"></a>Exemplo – Auditar configuração de detecção de ameaças no nível do servidor
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 57965b0326171f37d33aeae02080c8887c3acf23
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072074"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108400"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar um aplicativo lógico como uma API
 
@@ -59,7 +59,7 @@ Neste artigo, você aprenderá a:
 
 7. Selecione **Criar**.
 
-## <a name="test-the-imported-api-in-the-azure-portal"></a>Testar a API importada no portal do Azure
+## <a name="test-the-api-in-the-azure-portal"></a>Testar a API no Portal do Azure
 
 As operações podem ser chamadas diretamente do portal do Azure, o que oferece uma maneira fácil de exibir e testar as operações de uma API.
 
@@ -72,22 +72,6 @@ As operações podem ser chamadas diretamente do portal do Azure, o que oferece 
 4. Pressione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
-
-## <a name="call-operation"> </a>Chamar uma operação no portal do desenvolvedor
-
-As operações também podem ser chamadas do **Portal do desenvolvedor** para testar APIs.
-
-1. Selecione a API que você criou na etapa "Importar e publicar uma API de back-end".
-2. Pressione **Portal do desenvolvedor**.
-
-    O site "Portal do desenvolvedor" é aberto.
-
-3. Selecione a **API** que você criou.
-4. Clique na operação que deseja testar.
-5. Pressione **Experimentar**.
-6. Pressione **Enviar**.
-
-    Após invocar uma operação, o portal do desenvolvedor exibe o **Status de resposta**, os **Cabeçalhos de resposta** e o **Conteúdo de resposta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
