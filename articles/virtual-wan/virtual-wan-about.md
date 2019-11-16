@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 10/14/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 76a82696986f4957e7a5a96a3b93497ed461f0c4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3b33015b3a69372f6783d59b28a111ec279dd860
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491706"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048485"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre a WAN Virtual do Azure
 
@@ -81,7 +81,7 @@ Para obter uma lista dos parceiros e localizações disponíveis, consulte o art
 
 ### <a name="uservpn"></a>Conexões (ponto a site) de VPN do usuário
 
-Você pode conectar seus recursos no Azure por meio de uma conexão de IPsec/IKE (IKEv2) ou OpenVPN. Esse tipo de conexão exige que um cliente VPN seja configurado no computador cliente. Para obter mais informações, consulte [Criar uma conexão ponto a site](virtual-wan-site-to-site-portal.md).
+Você pode conectar seus recursos no Azure por meio de uma conexão de IPsec/IKE (IKEv2) ou OpenVPN. Esse tipo de conexão exige que um cliente VPN seja configurado no computador cliente. Para obter mais informações, consulte [Criar uma conexão ponto a site](virtual-wan-point-to-site-portal.md).
 
 ### <a name="er"></a>Conexões do ExpressRoute
 O ExpressRoute permite conectar a rede local ao Azure em uma conexão privada. Para criar a conexão, consulte [Criar uma conexão ExpressRoute usando WAN Virtual](virtual-wan-expressroute-portal.md).

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: dbf2b4b5113598fee742c3864bede782a624773c
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 491adb2719dc7c05a2943634e83027376c9327c3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817450"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082738"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de machine learning no Azure Functions com o Python e o TensorFlow
 
@@ -100,7 +100,7 @@ Um aplicativo de funções pode conter uma ou mais Azure Functions. Abra a pasta
 
 - [*local.settings.json*](functions-run-local.md#local-settings-file): contém as configurações de aplicativo usadas para desenvolvimento local
 - [*host.json*](functions-host-json.md): contém configurações para o host e as extensões do Azure Functions
-- [*requirements.txt*](functions-reference-python.md#python-version-and-package-management): contém os pacotes do Python exigidos por este aplicativo
+- [*requirements.txt*](functions-reference-python.md#package-management): contém os pacotes do Python exigidos por este aplicativo
 
 ## <a name="create-an-http-function"></a>Criar uma função HTTP
 

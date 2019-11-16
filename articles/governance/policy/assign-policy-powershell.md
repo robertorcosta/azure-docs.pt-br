@@ -1,17 +1,14 @@
 ---
 title: Criar política para auditar recursos com o PowerShell
 description: Use o Azure PowerShell para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
-ms.service: azure-policy
-ms.openlocfilehash: 55b7d8509fcf681438b377aa43f5f8aa9bac158d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 796606e1e34e753e49a9083fca5a441cacf6d03c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255922"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960121"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando o Azure PowerShell
 

@@ -1,17 +1,14 @@
 ---
 title: Amostra – Blueprint SWIFT CSP-CSCF v2020 – mapeamento de controle
 description: Mapeamento de controle da amostra de blueprint da SWIFT CSP-CSCF v2020. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/24/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 8ef32a2cf385c052437c5e5cbd7c95077a262e83
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0e5b45ec86acbe7c55aed0aa1611f499316e9118
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162997"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037833"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint SWIFT CSP-CSCF v2020
 

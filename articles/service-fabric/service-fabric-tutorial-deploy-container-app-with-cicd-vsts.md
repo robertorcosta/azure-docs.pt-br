@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68598901"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832734"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo de contêiner com CI/CD em um cluster do Service Fabric
 
@@ -147,7 +147,7 @@ Habilite um gatilho de implantação contínua para que uma versão seja criada 
 
 Selecione **+ Versão** -> **Criar uma Versão** -> **Criar** para criar manualmente uma versão. Você pode monitorar o andamento da versão na guia **Versões**.
 
-Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e navegue até [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170616.3".
+Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e acesse `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170616.3".
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Confirmar e enviar alterações por push, disparar uma versão
 
@@ -167,7 +167,7 @@ O push das alterações para o Azure DevOps dispara um build automaticamente.  Q
 
 Para verificar o progresso do build, alterne para a guia **Builds** no **Team Explorer** no Visual Studio.  Assim que verificar que o build é executado com êxito, configure uma definição de versão que implante seu aplicativo em um cluster.
 
-Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e navegue até [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170815.3".
+Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e acesse `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 

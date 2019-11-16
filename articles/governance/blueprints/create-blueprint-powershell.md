@@ -1,17 +1,14 @@
 ---
 title: Criar um blueprint com o PowerShell
 description: Use o Azure Blueprints para criar, definir e implantar artefatos usando o PowerShell.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: quickstart
-ms.service: blueprints
-ms.openlocfilehash: 6a1ef5aece030ac359e9c5811c815bec5ed57d27
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 4cc181a7e0b07448d6dd538cfb1621d1efa43a80
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978508"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960419"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início Rápido: Definir e atribuir um Azure Blueprint com o PowerShell
 

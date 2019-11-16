@@ -1,17 +1,14 @@
 ---
 title: Exemplo – usar uma VNet listada para adaptadores de rede de VMs
 description: Esta definição de política de exemplo exige que os adaptadores de rede usem uma rede virtual aprovada.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 8ab21677c99150770339a5d34e00b692ca3cfc48
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 64414f3c52da0c1368898abb5d032b3a728b2bda
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255687"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076137"
 ---
 # <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>Exemplo – usar uma VNet aprovada para adaptadores de rede de VMs
 

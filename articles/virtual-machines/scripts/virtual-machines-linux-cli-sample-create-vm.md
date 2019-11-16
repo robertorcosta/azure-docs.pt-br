@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux | Microsoft Docs
+title: Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux
 description: Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6720aaf5e5ea037630e32ade29772b7f843e0c44
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e36f1ab4389600d45ce0bdc9f8a764c2fdc4ad29
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709454"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037608"
 ---
 # <a name="create-a-fully-configured-virtual-machine"></a>Criar uma máquina virtual totalmente configurada
 

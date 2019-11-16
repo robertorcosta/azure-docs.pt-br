@@ -1,17 +1,14 @@
 ---
 title: Exemplo – SKUs de conta de armazenamento permitidas
 description: Esta definição de política de exemplo exige que as contas de armazenamento usem um SKU aprovado.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: b1da45176384474ed7ff138d2bdca8de3d336beb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 34f6e15bb89a74855462ce9426cd05cd78340f9e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977678"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74071646"
 ---
 # <a name="sample---allowed-storage-account-skus"></a>Exemplo – SKUs de conta de armazenamento permitidas
 

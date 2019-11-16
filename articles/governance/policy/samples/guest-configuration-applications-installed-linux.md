@@ -1,17 +1,14 @@
 ---
 title: Exemplo – Auditoria de aplicativos ausentes em VMs Linux
 description: Essa iniciativa de Configuração de Convidado da Política de amostra e auditoria de definições se os aplicativos especificados não estiverem instalados dentro das máquinas virtuais do Linux.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 05/02/2019
-ms.author: dacoulte
-ms.openlocfilehash: 5f4d4f4c1102c4409d891bb20b54788dc8ed40ee
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 0789b7f408c1f3eea000bfb2fc21ddf5feff790c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255750"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076222"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exemplo – auditar se os aplicativos especificados não estão instalados nas VMs do Linux
 

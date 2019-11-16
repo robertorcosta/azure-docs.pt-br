@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial 1: Prever risco de crédito'
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito na versão clássica do Azure Machine Learning Studio. Este tutorial é a primeira parte de uma série com três partes.  Ele mostra como criar um workspace, carregar os dados e criar um experimento.
 keywords: risco de crédito, solução de análise preditiva, avaliação de riscos
 author: sdgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 78092bd4ad4da896cd2fd36768f181764335ee85
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e8c1eea097fc3ea2704acfae198eb493943b6ccf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619192"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838861"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Prever risco de crédito – Azure Machine Learning Studio (clássico)
 
@@ -25,7 +25,7 @@ Neste tutorial, você analisará de maneira aprofundada o processo de desenvolvi
 
 Suponha que você precisa prever o risco de crédito de uma pessoa com base nas informações dadas em um aplicativo de crédito.  
 
-A avaliação de risco de crédito é um problema complexo, mas este tutorial simplificará um pouco esse tópico. Você usará isso como exemplo de como criar uma solução de análise preditiva usando o Microsoft Azure Machine Learning Studio (clássico). Você usará a versão clássica do Azure Machine Learning Studio e um serviço Web do Machine Learning para esta solução.  
+A avaliação de risco de crédito é um problema complexo, mas este tutorial simplificará um pouco esse tópico. Você usará isso como exemplo da forma de criar uma solução de análise preditiva usando o Microsoft Azure Machine Learning Studio (clássico). Você usará a versão clássica do Azure Machine Learning Studio e um serviço Web do Machine Learning para esta solução.  
 
 Neste tutorial de três partes, você começará com os dados de risco de crédito disponíveis publicamente.  Em seguida, você desenvolverá e treinará um modelo preditivo.  Por fim, você implantará o modelo como um serviço Web.
 

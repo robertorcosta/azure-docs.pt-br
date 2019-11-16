@@ -1,17 +1,14 @@
 ---
 title: Exemplo – NSG x em cada NIC
 description: Esta definição de política de exemplo exige o uso de um Grupo de Segurança de Rede específico em cada sub-rede virtual.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 977deba4ee083fae5cbf24905cee84a3a0d020c4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 5e86bb60490fa6f32d3313e7c3fcf751057b3a52
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981344"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069854"
 ---
 # <a name="sample---network-security-group-x-on-every-subnet"></a>Exemplo – Grupo de Segurança de Rede x em cada sub-rede
 

@@ -1,17 +1,14 @@
 ---
 title: Exemplo – não auditar nenhum administrador do Azure AD
 description: Esta definição de política de exemplo audita quando não há nenhum administrador do Azure Active Directory atribuído ao SQL Server.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 35f4497b3797b65aa7d4eff232e43d6af52dedae
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: fa4a9b5512f0f10a801cf8566febddea0fc4df99
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977387"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076385"
 ---
 # <a name="sample---audit-no-azure-active-directory-administrator"></a>Amostra – Auditar quando não houver nenhum administrador do Azure Active Directory
 

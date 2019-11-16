@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0f3a486edb0c650a4a14e5e60b4459f758a64d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 88b4df909e2c56f1a60e0f3c737b05ae4c27ca4a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499932"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123247"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Criar um painel do provedor do Power BI
 
@@ -91,7 +91,7 @@ No final desta etapa, o Designer de Aplicativo Lógico deve se parecer com isto:
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Transmitir dados para o Power BI de seu Aplicativo Lógico
 A próxima etapa será analisar os dados provenientes do seu Hub de Eventos para transmiti-los para os conjuntos de dados do Power BI criados anteriormente.
 
-1. Antes de fazer isso, você precisará entender o conteúdo JSON que está sendo enviado de seu dispositivo para o Hub de Eventos. Você pode fazer isso examinando este [esquema de exemplo](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp#telemetry) e modificando-o para corresponder a seu esquema ou usando o [gerenciador do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer) para inspecionar as mensagens. Se você estiver usando os aplicativos de monitoramento contínuo do paciente, suas mensagens serão assim:
+1. Antes de fazer isso, você precisará entender o conteúdo JSON que está sendo enviado de seu dispositivo para o Hub de Eventos. Você pode fazer isso examinando este [esquema de exemplo](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry) e modificando-o para corresponder a seu esquema ou usando o [gerenciador do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer) para inspecionar as mensagens. Se você estiver usando os aplicativos de monitoramento contínuo do paciente, suas mensagens serão assim:
 
 **Telemetria de Patch de Sinais Vitais Inteligente**
 

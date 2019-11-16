@@ -1,5 +1,5 @@
 ---
-title: Exemplo de Script do Azure PowerShell – Logs do Azure Monitor | Microsoft Docs
+title: Exemplo de Script do Azure PowerShell – Logs do Azure Monitor
 description: Exemplo de Script do Azure PowerShell – Logs do Azure Monitor
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c71201cda56c29301aab04f6dd3da28cc999062e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 00c5342db2f714f0397641e79d35fdf19c1b57cb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749898"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033729"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>Criar um VM do Azure Monitor com o PowerShell
 

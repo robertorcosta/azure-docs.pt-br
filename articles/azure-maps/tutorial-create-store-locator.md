@@ -1,22 +1,22 @@
 ---
-title: Criar um localizador de lojas usando o Azure Mapas | Microsoft Docs
-description: Crie um localizador de lojas usando o Azure Mapas.
+title: 'Tutorial: Criar um localizador de lojas usando o Azure Mapas'
+description: 'Tutorial: Crie um localizador de lojas usando o Azure Mapas.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/15/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933060"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107075"
 ---
-# <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de lojas usando o Azure Mapas
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de lojas usando o Azure Mapas
 
 Este tutorial orienta você pelo processo de criação de um localizador de lojas simples usando o Azure Mapas. Localizadores de lojas são comuns. Muitos dos conceitos usados nesse tipo de aplicativo também são usados por muitos outros tipos de aplicativos. Oferecer um localizador de lojas para os clientes é uma necessidade para a maioria das empresas que fazem vendas diretamente aos consumidores. Neste tutorial, você aprenderá como:
     

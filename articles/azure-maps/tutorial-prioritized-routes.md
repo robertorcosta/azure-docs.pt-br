@@ -1,22 +1,22 @@
 ---
-title: Várias rotas com os Mapas do Azure | Microsoft Docs
-description: Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
+title: 'Tutorial: Várias rotas com o Azure Mapas'
+description: 'Tutorial: Encontre rotas para diferentes modos de viagem usando os Mapas do Azure'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 664a2a77203ae1bebd95391fa6a4ae906121465a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 07391633436931a8f7cc46c430387f5877d10674
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916316"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106715"
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
+# <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
 
 Este tutorial mostra como usar sua conta dos Mapas do Azure e o serviço de roteiro para encontrar a rota para seu ponto de interesse, priorizado por seu modo de viagem. Você exibe duas rotas diferentes em seu mapa, uma para carros e outra para caminhões que podem ter restrições de rota devido a altura, peso ou carga perigosa. Neste tutorial, você aprenderá como:
 

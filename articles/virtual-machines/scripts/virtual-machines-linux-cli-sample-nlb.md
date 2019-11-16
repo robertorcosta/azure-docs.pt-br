@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux com o NLB | Microsoft Docs
+title: Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux com o NLB
 description: Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux com o NLB
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2e9b536ae6c7056348ac964a2c85ccd698a80ae4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 858151a0803ba86aeca91f35e3e6f30394bf8ea8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709360"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040267"
 ---
 # <a name="create-a-highly-available-vm"></a>Criar uma máquina virtual altamente disponível
 

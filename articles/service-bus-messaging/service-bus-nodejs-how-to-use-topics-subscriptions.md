@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 40543f55dc0cb56f6bc575f926456faf2d0ae5a3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c82edde98242ffe130c2022c428c86de80e3b034
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719215"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111770"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure-sb
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote do Node.js"]
@@ -150,7 +150,7 @@ As assinaturas do tópico também são criadas com o objeto **ServiceBusService*
 > [!NOTE]
 > Por padrão, as assinaturas são persistentes até que elas ou o tópico ao qual estão associadas sejam excluídos. Se o aplicativo contiver lógica para criar uma assinatura, ele deverá primeiro verificar se a assinatura existe usando o método `getSubscription`.
 >
-> Exclua as assinaturas automaticamente definindo a [propriedade AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> Exclua as assinaturas automaticamente definindo a [propriedade AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 O filtro **MatchAll** é o filtro padrão usado quando uma assinatura é criada. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada AllMessages e usa o filtro padrão **MatchAll**.
@@ -314,7 +314,7 @@ Há também um tempo limite associado a uma mensagem bloqueada na assinatura. Se
 Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `deleteMessage` seja chamado, a mensagem será reenviada ao aplicativo quando for reiniciado. Esse comportamento geralmente é chamado de *Processamento Pelo menos uma Vez*. Ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não puder tolerar o processamento duplicado, será necessário adicionar lógica ao aplicativo para tratar a entrega de mensagens duplicadas. É possível usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-Os tópicos e as assinaturas são persistentes, a menos que a [propriedade autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) seja definida, e precisam ser explicitamente excluídos por meio do [portal do Azure][Azure portal] ou de maneira programática.
+Os tópicos e as assinaturas são persistentes, a menos que a [propriedade autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) seja definida, e precisam ser explicitamente excluídos por meio do [portal do Azure][Azure portal] ou de maneira programática.
 O exemplo a seguir demonstra como excluir o tópico denominado `MyTopic`:
 
 ```javascript

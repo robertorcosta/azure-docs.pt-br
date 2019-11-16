@@ -3,16 +3,16 @@ title: O que é o Azure Lighthouse?
 description: O Azure Lighthouse permite que os provedores de serviços forneçam serviços gerenciados para seus clientes com maior automação e eficiência em escala.
 author: JnHs
 ms.author: jenhayes
-ms.date: 08/22/2019
+ms.date: 11/11/2019
 ms.topic: overview
 ms.service: lighthouse
 manager: carmonm
-ms.openlocfilehash: 05fa16504e25a6bf0f6aa1c0a348284abba6e1ed
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: ae8194e6d5764769019ac803a52cd54497a618c1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011904"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929579"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
@@ -39,9 +39,6 @@ O Azure Lighthouse inclui várias maneiras de ajudar a simplificar a participaç
 - **Modelos do Azure Resource Manager**: execute tarefas de gerenciamento com mais facilidade, incluindo a integração de clientes para o gerenciamento de recursos delegados do Azure. Para saber mais, confira nosso [repositório de exemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) e [Integrar um cliente ao gerenciamento de recursos delegados do Azure](how-to/onboard-customer.md).
 - **Ofertas de serviços gerenciados no Azure Marketplace**: ofereça seus serviços aos clientes por meio de ofertas privadas ou públicas e faça com que eles sejam automaticamente integrados ao gerenciamento de recursos delegados do Azure como uma alternativa à integração usando modelos do Azure Resource Manager. Para saber mais, confira [Ofertas de serviços gerenciados no Azure Marketplace](./concepts/managed-services-offers.md).
 - **Aplicativos gerenciados do Azure**: empacote e envie aplicativos fáceis para seus clientes implantarem e usarem em suas próprias assinaturas. O aplicativo é implantado em um grupo de recursos que você acessa de seu locatário, permitindo que você gerencie o serviço como parte da experiência geral do Azure Lighthouse. Para saber mais, confira [Visão geral de aplicativos gerenciados do Azure](https://docs.microsoft.com/azure/managed-applications/overview).
-
-> [!NOTE]
-> Os recursos descritos acima estão disponíveis atualmente em nuvens públicas. Para disponibilidade de serviços individuais, confira [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

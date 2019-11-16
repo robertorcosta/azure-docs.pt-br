@@ -8,39 +8,41 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: b150dc8e0688b27fdc677bf23a75389c493f1325
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 8d23eb5c177464642ffcafec8877fd2649c0d4f7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210201"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073989"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar arquivos para uma máquina virtual no Azure
+
 O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Ao restaurar de um ponto de recuperação, você pode restaurar a VM inteira ou arquivos individuais. Este artigo fornece detalhes de como restaurar arquivos individuais. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Liste e selecione os pontos de recuperação
 > * Conecte um ponto de recuperação a uma VM
 > * Restaurar arquivos de um ponto de recuperação
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.18 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
-
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.18 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Este tutorial requer uma VM do Linux que tenha sido protegida com o Backup do Azure. Para simular um processo de exclusão acidental e recuperação de arquivo, você exclui uma página de um servidor Web. Se você precisar de uma VM do Linux que execute um servidor Web e tenha sido protegida com o Backup do Azure, consulte [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md) (Fazer backup de uma máquina virtual no Azure com a CLI).
 
-
 ## <a name="backup-overview"></a>Visão geral do backup
+
 Quando o Azure inicia um backup, a extensão de backup na VM cria um instantâneo pontual. A extensão de backup é instalada na VM quando o primeiro backup é solicitado. O Backup do Azure também poderá criar um instantâneo do armazenamento subjacente se a VM não estiver em execução quando o backup ocorrer.
 
 Por padrão, o Backup do Azure usa um backup consistente com o sistema de arquivos. Depois que o Backup do Azure cria o instantâneo, os dados são transferidos para o cofre dos Serviços de Recuperação. Para maximizar a eficiência, o Backup do Azure identifica e transfere apenas os blocos de dados que foram alterados desde o backup anterior.
 
 Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado.
 
-
 ## <a name="delete-a-file-from-a-vm"></a>Excluir um arquivo de uma VM
+
 Se você excluir ou fizer alterações em um arquivo acidentalmente, será possível restaurar os arquivos individuais de um ponto de recuperação. Esse processo permite procurar os arquivos de backup em um ponto de recuperação e restaurar apenas os arquivos necessários. Neste exemplo, vamos excluir um arquivo de um servidor Web para demonstrar o processo de recuperação em nível de arquivo.
 
 1. Para conectar-se à VM, obter o endereço IP da VM com [az vm show](/cli/azure/vm?view=azure-cli-latest#az-vm-show):
@@ -75,8 +77,8 @@ Se você excluir ou fizer alterações em um arquivo acidentalmente, será poss�
     exit
     ```
 
-
 ## <a name="generate-file-recovery-script"></a>Gerar script de recuperação de arquivo
+
 Para restaurar os arquivos, o Backup do Azure fornece um script para ser executado na VM que conecta o ponto de recuperação a uma unidade local. Você pode procurar essa unidade local, restaurar arquivos para a própria VM e desconectar o ponto de recuperação. O Backup do Azure continua a fazer backup dos dados com base na política atribuída para agendamento e retenção.
 
 1. Para listar os pontos de recuperação da VM, use [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Neste exemplo, selecionamos o ponto de recuperação mais recente da VM denominada *myVM* que está protegido em *myRecoveryServicesVault*:
@@ -116,8 +118,8 @@ Para restaurar os arquivos, o Backup do Azure fornece um script para ser executa
     scp myVM_we_1571974050985163527.sh 52.174.241.110:
     ```
 
-
 ## <a name="restore-file-to-your-vm"></a>Restaurar arquivos na VM
+
 Com o script de recuperação copiado para a VM, você pode conectar o ponto de recuperação e restaurar arquivos.
 
 1. Conecte-se à VM com SSH. Substitua *publicIpAddress* pelo endereço IP público da VM da seguinte maneira:
@@ -146,19 +148,19 @@ Com o script de recuperação copiado para a VM, você pode conectar o ponto de 
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     Please enter the password as shown on the portal to securely connect to the recovery point. : c068a041ce12465
-    
+
     Connecting to recovery point using ISCSI service...
-    
+
     Connection succeeded!
-    
+
     Please wait while we attach volumes of the recovery point to this machine...
-    
+
     ************ Volumes of the recovery point and their mount paths on this machine ************
-    
+
     Sr.No.  |  Disk  |  Volume  |  MountPath
-    
+
     1)  | /dev/sdc  |  /dev/sdc1  |  /home/azureuser/myVM-20170919213536/Volume1
-    
+
     ************ Open File Explorer to browse for files. ************
     ```
 
@@ -168,20 +170,20 @@ Com o script de recuperação copiado para a VM, você pode conectar o ponto de 
     sudo cp /home/azureuser/myVM-20170919213536/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
 
-6. No navegador da Web, atualize a página da Web. O site agora é carregado corretamente novamente, conforme é mostrado no exemplo a seguir:
+5. No navegador da Web, atualize a página da Web. O site agora é carregado corretamente novamente, conforme é mostrado no exemplo a seguir:
 
     ![O site NGINX agora é carregado corretamente](./media/tutorial-restore-files/nginx-restored.png)
 
-7. Feche a sessão SSH da VM da seguinte maneira:
+6. Feche a sessão SSH da VM da seguinte maneira:
 
     ```bash
     exit
     ```
 
-8. Desmonte o ponto de recuperação da VM com [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). O exemplo a seguir desmonta o ponto de recuperação da VM denominada *myVM* em *myRecoveryServicesVault*.
+7. Desmonte o ponto de recuperação da VM com [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). O exemplo a seguir desmonta o ponto de recuperação da VM denominada *myVM* em *myRecoveryServicesVault*.
 
     Substitua *myRecoveryPointName* pelo nome do ponto de recuperação que você obteve nos comandos anteriores:
-    
+
     ```azurecli-interactive
     az backup restore files unmount-rp \
         --resource-group myResourceGroup \
@@ -192,9 +194,11 @@ Com o script de recuperação copiado para a VM, você pode conectar o ponto de 
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste tutorial, você conectou um ponto de recuperação a uma VM e restaurou arquivos para um servidor Web. Você aprendeu como:
 
 > [!div class="checklist"]
+>
 > * Liste e selecione os pontos de recuperação
 > * Conecte um ponto de recuperação a uma VM
 > * Restaurar arquivos de um ponto de recuperação
@@ -203,4 +207,3 @@ Avance para o próximo tutorial para saber mais sobre como fazer backup do Windo
 
 > [!div class="nextstepaction"]
 > [Fazer backup do Windows Server para o Azure](tutorial-backup-windows-server-to-azure.md)
-

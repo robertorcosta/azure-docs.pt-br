@@ -1,22 +1,22 @@
 ---
-title: Configurar dispositivo para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
-description: Configurar o dispositivo para provisionar por meio do Serviço de Provisionamento de Dispositivos no Hub IoT durante o processo de fabricação do dispositivo
+title: 'Tutorial: Configurar dispositivo para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure'
+description: 'Tutorial: Configurar o dispositivo para provisionar por meio do Serviço de Provisionamento de Dispositivos no Hub IoT durante o processo de fabricação do dispositivo'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e7f6151968fb14d44f1e330fb6ddc06fabad3ee6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65911689"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112764"
 ---
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
+# <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
 No tutorial anterior, você aprendeu como configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para provisionar automaticamente os dispositivos para o Hub IoT. Este tutorial mostra como configurar seu dispositivo durante o processo de fabricação, permitindo que ele seja provisionado automaticamente com o Hub IoT. Seu dispositivo é provisionado com base no [mecanismo de atestado](concepts-device.md#attestation-mechanism) após a primeira inicialização e conexão com o serviço de provisionamento. Este tutorial cobre as seguintes tarefas:
 
@@ -36,7 +36,7 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com a carga de trabalho ['Desenvolvimento de área de trabalho com C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com a carga de trabalho ["Desenvolvimento para desktop com C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
 

@@ -3,16 +3,16 @@ title: 'Tutorial: Visualizar dados do Azure Data Explorer no Power BI'
 description: Neste tutorial, você aprenderá como se conectar ao Azure Data Explorer com o Power BI e visualizar seus dados.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec1579792a6e247bf49946bb8609a626154fbd46
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049873"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037350"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Tutorial: Visualizar dados do Azure Data Explorer no Power BI
 
@@ -219,7 +219,7 @@ Se você não quiser manter o relatório que você criou, basta excluir o arquiv
 
 1. Sob **Meu workspace**, role para baixo até **RELATÓRIOS** e localize **storm-events**.
 
-1. Selecione as reticências (**...**) ao lado **storm-events**, em seguida, selecione **REMOVER**.
+1. Selecione as reticências ( **...** ) ao lado **storm-events**, em seguida, selecione **REMOVER**.
 
     ![Remover relatório](media/visualize-power-bi/remove-report.png)
 

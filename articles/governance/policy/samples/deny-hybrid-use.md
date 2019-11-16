@@ -1,17 +1,14 @@
 ---
 title: Exemplo – negar benefício de uso híbrido
 description: Esta definição de política de exemplo proíbe o uso do AHUB (Benefício de Uso Híbrido do Azure).
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 4c573a0c5ef7dd5328379dc9e3dffb029d24f619
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 441f3bc75dc066684f201deabe34b2dfd962e0ca
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980543"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74070917"
 ---
 # <a name="sample---deny-hybrid-use-benefit"></a>Exemplo – negar benefício de uso híbrido
 

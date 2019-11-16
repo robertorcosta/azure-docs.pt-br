@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 1c16368990148406fbacdde2981c10fab0b2d405
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969654"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888898"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implantar aplicativos Node.js da plataforma Azure Cosmos DB com o DevOps Projects
 
@@ -53,7 +53,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível cri
 
    ![Painel do DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project.png)
 
-1. Selecione **Node.js** como tempo de execução e, em seguida, selecione **Avançar**. Em **Escolher uma estrutura do aplicativo**, selecione **Express.js**.
+1. Selecione **Node.js** como runtime e, em seguida, selecione **Avançar**. Em **Escolher uma estrutura do aplicativo**, selecione **Express.js**.
 
 1. Habilite a seção **Adicionar um banco de dados** para o **Cosmos DB** e selecione **Avançar**.
 
@@ -169,6 +169,6 @@ Você pode modificar esses pipelines de build e de lançamento para atender às 
 > * Confirmar alterações no Git e implantá-las automaticamente no Azure
 > * Limpar recursos
 
-Confira [Definir seu pipeline de CD (implantação contínua) de várias fases](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximas etapas.
+Confira [Definir seu pipeline de CD (implantação contínua) de várias fases](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximas etapas.
 
 
