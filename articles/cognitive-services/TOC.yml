@@ -17,6 +17,8 @@
   items:
     - name: Suporte a contêiner
       href: cognitive-services-container-support.md
+    - name: Marcas de imagem de contêiner
+      href: ./containers/container-image-tags.md
     - name: Perguntas frequentes sobre o contêiner
       href: ./containers/container-faq.md
     - name: Receitas de contêiner

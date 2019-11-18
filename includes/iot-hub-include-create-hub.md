@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e01bb13b904aaf8671512daa3ef3cbad182f01e3
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 1bcab7c0d23aab6a21e845d1402daa001dcb63a1
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161949"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151273"
 ---
 Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://portal.azure.com).
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-1. Escolha **Criar um recurso** e, em seguida, insira *Hub IoT* no campo **Pesquisar** no Marketplace.
+1. Na página inicial do Azure, selecione o botão **Criar um recurso** e, em seguida, insira *Hub IoT* no campo **Pesquisar no Marketplace**.
 
 1. Selecione **Hub IoT** nos resultados da pesquisa e, em seguida, selecione **Criar**.
 
@@ -43,7 +43,7 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
 
     Esta tela permite que você defina os seguintes valores:
 
-    - **Tipo e escala de preço**: Seu nível selecionado. É possível escolher entre várias camadas, dependendo de quantos recursos você quer e quantas mensagens você envia por dia usando sua solução. A camada gratuita destina-se a testes e avaliação. Ela permite que 500 dispositivos sejam conectados ao hub e até 8 mil mensagens por dia. Cada assinatura do Azure pode criar um Hub IoT na camada gratuita.
+    - **Tipo e escala de preço**: Seu nível selecionado. É possível escolher entre várias camadas, dependendo de quantos recursos você quer e quantas mensagens você envia por dia usando sua solução. A camada gratuita destina-se a testes e avaliação. Ela permite que 500 dispositivos sejam conectados ao hub e até 8 mil mensagens por dia. Cada assinatura do Azure pode criar um hub IoT na Camada gratuita.
 
     - **Unidades do Hub IoT**: O número de mensagens permitidas por unidade ao dia depende do tipo de preço do seu hub. Por exemplo, se você quiser que o hub dê suporte à entrada de 700 mil mensagens, escolha duas unidades do nível S1.
     Para obter detalhes sobre as outras opções da camada, consulte [Escolher a camada certa do Hub IoT](../articles/iot-hub/iot-hub-scaling.md).

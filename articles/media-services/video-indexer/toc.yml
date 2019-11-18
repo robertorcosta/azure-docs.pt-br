@@ -25,6 +25,8 @@
       href: manage-multiple-tenants.md
     - name: Modelo de identificação de idioma
       href: language-identification-model.md
+    - name: Análise de transmissão ao vivo
+      href: live-stream-analysis.md
     - name: Personalizando modelos de conteúdo
       items:
         - name: Visão geral

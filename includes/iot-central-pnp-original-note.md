@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/01/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8ab49b27d383cd50463d08a8fa2081234a97108f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8341ae81937d5714fbbfa4f90ac3a8ee15480fbf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889007"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005847"
 ---
 > [!NOTE]
-> No momento, você está exibindo a documentação do IoT Central dos [modelos de aplicativos que usam versão prévia dos recursos](../articles/iot-central/core/concepts-app-templates.md#preview-templates). Para exibir a documentação dos [modelos de aplicativo que usam recursos geralmente disponíveis](../articles/iot-central/core/concepts-app-templates.md#preview-templates), vá para [O que é o Azure IoT Central (versão prévia dos recursos)?](../articles/iot-central/preview/overview-iot-central.md).
+> No momento, você está exibindo a documentação do IoT Central dos [modelos de aplicativos](../articles/iot-central/core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) que usam a versão prévia dos recursos. Para exibir a documentação dos [modelos de aplicativo](../articles/iot-central/core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) que usam os recursos em disponibilidade geral, vá para [O que é o Azure IoT Central?](../articles/iot-central/core/overview-iot-central.md).

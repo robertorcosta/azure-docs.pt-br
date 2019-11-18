@@ -171,6 +171,8 @@
           displayName: 'roles, import'
         - name: Usar modelos predefinidos
           href: howto-add-prebuilt-models.md
+        - name: Entidade de rótulo no enunciado
+          href: label-entity-example-utterance.md
         - name: Com APIs REST
           items:
             - name: Compilar aplicativo programaticamente usando o Node.js
@@ -188,8 +190,8 @@
         - name: Usando o dashboard
           displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
           href: luis-how-to-use-dashboard.md
-        - name: Adicionar lista de frase
-          displayName: 'synonym, interchange'
+        - name: Adicionar descritor
+          displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
         - name: Examinar declarações de ponto de extremidade
           displayName: active learning

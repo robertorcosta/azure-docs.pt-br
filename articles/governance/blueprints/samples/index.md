@@ -1,14 +1,14 @@
 ---
 title: Índice de exemplos de blueprint
-description: Índice de exemplos de conformidade e de ambiente padrão para a implantação do Azure Blueprints.
+description: Índice de exemplos padrão e de conformidade para implantar ambientes, políticas e fundamentos do Cloud Adoptions Framework com o Azure Blueprints.
 ms.date: 09/24/2019
 ms.topic: sample
-ms.openlocfilehash: c32ab4b6b3cc7c16c5198a943ddc2c71ff0d918c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1f3650fe85ac554db5988892cee35ffaa2a47144
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032400"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128743"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 

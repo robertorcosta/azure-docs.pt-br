@@ -5,7 +5,7 @@ metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
   title: 'Documentação da API da Pesquisa Visual do Bing – Tutoriais, guias de início rápido e referências da API'
   titleSuffix: Azure Cognitive Services
-  description: Saiba como usar a API da Pesquisa Visual do Bing para obter insights sobre uma imagem.
+  description: 'Carregue uma imagem ou forneça uma URL de imagem e a API poderá identificar uma variedade de detalhes sobre ela, incluindo imagens visualmente semelhantes, fontes de compras e páginas da Web.'
   services: cognitive-services
   author: swhite-msft
   manager: nitinme

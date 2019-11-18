@@ -300,9 +300,19 @@
     - name: Corrigir recursos sem conformidade
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
-    - name: Habilitar o Azure Monitor para VMs (versão prévia)
-      displayName: 'insights, log analytics, builtin'
-      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
+    - name: Integração com o Azure Lighthouse
+      items:
+        - name: Implantar uma política em escala
+          displayName: 'lighthouse, scale, deploy'
+          href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+        - name: Implantar uma política que possa ser corrigida
+          displayName: 'lighthouse, scale, remediate'
+          href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Integração com o Azure Monitor
+      items:
+        - name: Habilitar o Azure Monitor para VMs (versão prévia)
+          displayName: 'monitor, insights, log analytics, builtin'
+          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Referência
   items:
     - name: CLI do Azure
