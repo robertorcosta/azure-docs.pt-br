@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 4a1b5f804986d2bda85980d01cdaaa130d86b50d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039746"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132947"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação de desastres para as VMs do Hyper-V em um site secundário
 
@@ -20,10 +20,6 @@ ms.locfileid: "74039746"
 Este artigo descreve como realizar uma simulação de recuperação de desastres (DR) para VMs do Hyper-V gerenciadas em nuvens do System Center VMM (Virtual Machine Manager) para um site secundário local usando o [Azure Site Recovery](site-recovery-overview.md).
 
 Execute um failover de teste para validar sua estratégia de replicação e realize uma simulação de DR sem nenhuma perda de dados ou tempo de inatividade. Um failover de teste não afeta a replicação em andamento nem o ambiente de produção. 
-
-> [!WARNING]
-> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](site-to-site-deprecation.md) antes de continuar.
-
 
 ## <a name="how-do-test-failovers-work"></a>Como failovers de teste funcionam?
 

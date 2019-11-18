@@ -1,21 +1,21 @@
 ---
-title: Tutorial de C# para chamar APIs de Serviços Cognitivos em um pipeline de enriquecimento de IA
+title: 'Tutorial: criar um conconhecimento em C# usando o .net'
 titleSuffix: Azure Cognitive Search
-description: Percorra um exemplo de extração de dados, linguagem natural e processamento de imagem por IA no pipeline de indexação de enriquecimento da Pesquisa Cognitiva do Azure.
+description: Percorrer código de exemplo mostrando extração de dados, linguagem natural e processamento de ia de imagem em um pipeline de indexação de enriquecimento de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7a8146f524a6e6f9abed2440c98a83aa3878f0c7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790219"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111740"
 ---
-# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-indexing-pipeline"></a>Tutorial do C#: Chamar APIs de Serviços Cognitivos em um pipeline de indexação da Pesquisa Cognitiva do Azure
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Tutorial: criar um pipeline de enriquecimento de ia usando C# o e o SDK do .net
 
 Neste tutorial, você aprenderá a mecânica de programação de enriquecimento de dados na Pesquisa Cognitiva do Azure usando *habilidades cognitivas*. As habilidades são apoiadas pelos recursos de processamento de linguagem natural (PLN) e análise de imagem nos Serviços Cognitivos. Por meio da composição do conjunto de qualificações e configuração, você pode extrair texto e representações de texto de um arquivo de imagem ou documento digitalizado. Você também pode detectar a linguagem, entidades, frases-chave e muito mais. O resultado final é rico conteúdo adicional em um índice de pesquisa, criado por um pipeline de indexação com Inteligência Artificial.
 
@@ -39,7 +39,7 @@ Este tutorial é executado no serviço gratuito, mas o número de transações g
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os serviços, as ferramentas e os dados a seguir são usados neste tutorial. 
 
@@ -49,7 +49,7 @@ Os serviços, as ferramentas e os dados a seguir são usados neste tutorial.
 
 + [Instalar o Visual Studio](https://visualstudio.microsoft.com/) para usar como o IDE.
 
-+ [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
++ [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este tutorial.
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
@@ -97,7 +97,7 @@ Para este projeto, você precisará instalar a versão 9 do pacote `Microsoft.Az
 
 Instale o pacote `Microsoft.Azure.Search` NuGet usando o console do Gerenciador de Pacotes no Visual Studio. Para abrir o console do Gerenciador de Pacotes, selecione **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**. Para obter o comando a ser executado, navegue até a [página do pacote Microsoft.Azure.Search NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search), selecione a versão 9 e copie o comando do Gerenciador de Pacotes. No console do Gerenciador de Pacotes, execute este comando.
 
-Para instalar o pacote `Microsoft.Extensions.Configuration.Json` NuGet no Visual Studio, selecione **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Gerenciar Pacotes NuGet para a solução...** . Selecione Procurar e procure o pacote `Microsoft.Extensions.Configuration.Json` NuGet. Depois de encontrá-lo, selecione o pacote, selecione seu projeto, confirme se a versão é a versão estável mais recente e selecione Instalar.
+Para instalar o `Microsoft.Extensions.Configuration.Json` pacote NuGet no Visual Studio, selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **gerenciar pacotes NuGet para solução...** . Selecione procurar e pesquise o `Microsoft.Extensions.Configuration.Json` pacote NuGet. Depois de encontrá-lo, selecione o pacote, selecione seu projeto, confirme se a versão é a versão estável mais recente e selecione Instalar.
 
 ## <a name="add-azure-cognitive-search-service-information"></a>Adicionar informações de serviço da Pesquisa Cognitiva do Azure
 
@@ -677,7 +677,7 @@ Este tutorial abordou a verificação de indexadores e índices existentes e sua
 
 Você também pode usar o portal para excluir índices, indexadores e conjuntos de qualificações.
 
-Como seu código amadurece, talvez queira refinar uma estratégia de reconstrução. Para saber mais, confira [Como recompilar um índice](search-howto-reindex.md).
+Como seu código amadurece, talvez queira refinar uma estratégia de reconstrução. Para obter mais informações, confira [Como recompilar um índice](search-howto-reindex.md).
 
 ## <a name="takeaways"></a>Observações
 
@@ -696,4 +696,4 @@ A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o g
 Personalizar ou estender o pipeline com qualificações personalizadas. Criando uma habilidade personalizada e adicionando-a a um conjunto de qualificações permite que você carregue texto ou análise de imagem que você escreve por conta própria.
 
 > [!div class="nextstepaction"]
-> [Exemplo: Como criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md)
+> [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)

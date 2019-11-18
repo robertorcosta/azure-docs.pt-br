@@ -1,17 +1,14 @@
 ---
-title: Local do recurso do modelo de Azure Resource Manager
+title: Local do recurso de modelo
 description: Descreve como definir o local do recurso em um modelo de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 6af5d82766533ef7bbacab04381db9a37502923e
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1e711b2cfeb42c33dbfa68b1fbdabd42cbd46d10
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294198"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150628"
 ---
 # <a name="set-resource-location-in-resource-manager-template"></a>Definir local do recurso no modelo do Resource Manager
 
@@ -98,5 +95,5 @@ O exemplo a seguir mostra uma conta de armazenamento implantada a um local espec
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter a lista completa das funções de modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md).
+* Para obter a lista completa das funções de modelo, veja [Funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Para obter mais informações sobre arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).

@@ -1,18 +1,15 @@
 ---
-title: Limites de solicitação - Azure Resource Manager
+title: Limitação e limites de solicitação
 description: Descreve como usar a limitação com solicitações Azure Resource Manager quando os limites de assinatura tiverem sido atingidos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/26/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 7d53e5749385499113d0dc5261398561d82347a0
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b47943d69d209f5a0406c293b5a24c6ac0ad0c10
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965559"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150478"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
 
@@ -28,11 +25,11 @@ Todas as operações de nível de assinatura e de locatário estão sujeitas a l
 
 Os limites de limitação padrão por hora são mostrados na tabela a seguir.
 
-| Escopo | Operations | Limite |
+| Escopo | Operações | Limite |
 | ----- | ---------- | ------- |
-| Subscription | pareça | 12000 |
-| Subscription | excluído | 15000 |
-| Subscription | registra | 1\.200 |
+| Assinatura | pareça | 12000 |
+| Assinatura | excluído | 15000 |
+| Assinatura | registra | 1\.200 |
 | Locatário | pareça | 12000 |
 | Locatário | registra | 1\.200 |
 
@@ -87,7 +84,7 @@ Alguns provedores de recursos retornam 429 para relatar um problema temporário.
 
 Você pode determinar o número de solicitações restantes ao examinar cabeçalhos de resposta. As solicitações de leitura retornam um valor no cabeçalho para o número de solicitações de leitura restantes. As solicitações de gravação incluem um valor para o número de solicitações de gravação restantes. A tabela a seguir descreve os cabeçalhos de resposta que você pode examinar em busca desses valores:
 
-| Cabeçalho de resposta | Descrição |
+| Cabeçalho de resposta | DESCRIÇÃO |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Leituras no escopo da assinatura restantes. Esse valor é retornado em operações de leitura. |
 | x-ms-ratelimit-remaining-subscription-writes |Gravações no escopo da assinatura restantes. Esse valor é retornado em operações de gravação. |
@@ -196,7 +193,7 @@ msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para um exemplo completo do PowerShell, consulte [Verificar os limites do gerenciador de recursos para uma assinatura](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Para obter mais informações sobre limites e cotas, confira [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md).

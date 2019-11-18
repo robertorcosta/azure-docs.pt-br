@@ -1,22 +1,19 @@
 ---
-title: Histórico de implantação com o Azure Resource Manager | Microsoft Docs
+title: Histórico de implantações
 description: Descreve como exibir as operações de implantação do Azure Resource Manager com o portal, o PowerShell, a CLI do Azure e a API REST.
 tags: top-support-issue
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8daf7191bb22f7c7057f6ef6b220a18868872cc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605916"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149575"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>Exibir histórico de implantação com o Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Exibir histórico de implantação com Azure Resource Manager
 
-O Azure Resource Manager permite que você exibir seu histórico de implantação e examinar as operações específicas em implantações anteriores. Você pode ver os recursos que foram implantados e obter informações sobre os erros.
+Azure Resource Manager permite que você exiba seu histórico de implantação e examine operações específicas em implantações anteriores. Você pode ver os recursos que foram implantados e obter informações sobre quaisquer erros.
 
 Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
@@ -26,15 +23,15 @@ Para obter detalhes sobre uma implantação do histórico de implantação.
 
 1. Selecione o grupo de recursos que você deseja examinar.
 
-1. Selecione o link sob **implantações**.
+1. Selecione o link em **implantações**.
 
-   ![Selecione o histórico de implantação](./media/resource-manager-deployment-operations/select-deployment-history.png)
+   ![Selecionar histórico de implantação](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
 1. Selecione uma das implantações do histórico de implantação.
 
-   ![Selecione a implantação](./media/resource-manager-deployment-operations/select-details.png)
+   ![Selecionar a implantação](./media/resource-manager-deployment-operations/select-details.png)
 
-1. Um resumo da implantação é exibido, incluindo uma lista de recursos que foram implantados.
+1. Um resumo da implantação é exibido, incluindo uma lista dos recursos que foram implantados.
 
     ![Resumo da implantação](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
@@ -44,21 +41,21 @@ Para obter detalhes sobre uma implantação do histórico de implantação.
 
 1. Se sua implantação falhou, você verá uma mensagem de erro. Selecione a mensagem de erro para obter mais detalhes.
 
-    ![Exibir implantação com falha](./media/resource-manager-deployment-operations/show-error.png)
+    ![Exibir falha na implantação](./media/resource-manager-deployment-operations/show-error.png)
 
 1. A mensagem de erro detalhada é exibida.
 
     ![Exibir detalhes do erro](./media/resource-manager-deployment-operations/show-details.png)
 
-1. A ID de correlação é usada para acompanhar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para solucionar problemas de uma implantação.
+1. A ID de correlação é usada para rastrear eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para solucionar problemas de implantação.
 
-    ![Obter a ID de correlação](./media/resource-manager-deployment-operations/get-correlation-id.png)
+    ![Obter ID de correlação](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
 1. Para saber mais sobre a etapa que falhou, selecione **detalhes da operação**.
 
     ![Selecionar operações de implantação](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
-1. Você verá os detalhes para essa etapa da implantação.
+1. Você verá os detalhes dessa etapa da implantação.
 
     ![Mostrar detalhes da operação](./media/resource-manager-deployment-operations/show-operation-details.png)
 
@@ -78,7 +75,7 @@ Ou você pode filtrar os resultados para mostrar somente as implantações que f
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-A ID de correlação é usada para acompanhar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para solucionar problemas de uma implantação. Para obter a ID de correlação, use:
+A ID de correlação é usada para rastrear eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para solucionar problemas de implantação. Para obter a ID de correlação, use:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
@@ -124,7 +121,7 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-Observe serviceRequestId e trackingId para a operação. serviceRequestId pode ser útil ao trabalhar com o suporte técnico para solucionar um problema de implantação. Você usará trackingId na próxima etapa para focar em uma determinada operação.
+Observe serviceRequestId e trackingId para a operação. serviceRequestId pode ser útil ao trabalhar com o suporte técnico para solucionar um problema de implantação. Você usará o TrackingID na próxima etapa para se concentrar em uma operação específica.
 
 Para obter a mensagem de status de uma determinada operação com falha, use o seguinte comando:
 
@@ -140,7 +137,7 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Cada operação de implantação no Azure inclui conteúdo da solicitação e resposta. Durante a implantação, você pode usar **DeploymentDebugLogLevel** parâmetro para especificar que a solicitação de e/ou resposta é registrada.
+Cada operação de implantação no Azure inclui conteúdo da solicitação e resposta. Durante a implantação, você pode usar o parâmetro **DeploymentDebugLogLevel** para especificar que a solicitação e/ou a resposta são registradas.
 
 Você obtém informações do log e salva-as localmente usando os seguintes comandos do PowerShell:
 
@@ -152,13 +149,13 @@ Você obtém informações do log e salva-as localmente usando os seguintes coma
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Para obter o status geral de uma implantação, use o **show de implantação de grupo do azure** comando.
+Para obter o status geral de uma implantação, use o comando **Azure Group Deployment show** .
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-A ID de correlação é usada para acompanhar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para solucionar problemas de uma implantação.
+A ID de correlação é usada para rastrear eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para solucionar problemas de implantação.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
@@ -172,7 +169,7 @@ az group deployment operation list -g ExampleGroup -n ExampleDeployment
 
 ## <a name="rest"></a>REST
 
-Para obter informações sobre uma implantação, use o [obter informações sobre uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments) operação.
+Para obter informações sobre uma implantação, use a operação [obter informações sobre uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments) .
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}

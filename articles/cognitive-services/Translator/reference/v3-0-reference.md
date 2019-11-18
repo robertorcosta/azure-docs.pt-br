@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 11/14/2019
 ms.author: swmachan
-ms.openlocfilehash: c07673e7b170170de4723a1232d2e7281feaaf99
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888087"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123049"
 ---
 # <a name="translator-text-api-v30"></a>API de Tradução de Texto v3.0
 
@@ -165,3 +165,21 @@ O código de erro é um número de 6 dígitos que combina o código de status HT
 | 500000| Erro inesperado. Se o erro persistir, informe-o com data / hora do erro, solicite o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
 | 503000| O serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, informe-o com data / hora do erro, solicite o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
 
+## <a name="metrics"></a>Métricas 
+As métricas permitem que você exiba as informações de uso e disponibilidade do tradutor em portal do Azure, na seção métricas, conforme mostrado na captura de tela abaixo. Para obter mais informações, consulte [métricas de dados e plataforma](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+![Métricas do Tradutor](../media/translatormetrics.png)
+
+Esta tabela lista as métricas disponíveis com a descrição de como elas são usadas para monitorar chamadas à API de tradução.
+
+| Métricas | DESCRIÇÃO |
+|:----|:-----|
+| TotalCalls| Número total de chamadas de API.|
+| TotalTokenCalls| Número total de chamadas à API por meio do serviço de token usando o token de autenticação.|
+| SuccessfulCalls| Número de chamadas com êxito.|
+| TotalErrors| Número de chamadas com resposta de erro.|
+| BlockedCalls| Número de chamadas que excederam a taxa ou o limite de cota.|
+| ServerErrors| Número de chamadas com erro interno do servidor (5XX).|
+| ClientErrors| Número de chamadas com erro do lado do cliente (4XX).|
+| Latência| Duração para concluir a solicitação em milissegundos.|
+| CharactersTranslated| Número total de caracteres na solicitação de texto de entrada.|

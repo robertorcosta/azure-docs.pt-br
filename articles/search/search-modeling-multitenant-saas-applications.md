@@ -1,5 +1,5 @@
 ---
-title: Modelando multilocação para isolamento de conteúdo em um serviço
+title: Multilocação e isolamento de conteúdo
 titleSuffix: Azure Cognitive Search
 description: Saiba mais sobre os padrões de design comuns para aplicativos SaaS multilocatários ao usar o Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0332443997fbc58781f99e3b4e6d9776dd23926b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793523"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113263"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicativos SaaS multilocatários e Pesquisa Cognitiva do Azure
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatários para aplicativos multilocatários criados com o Azure Pesquisa Cognitiva.
@@ -37,7 +37,7 @@ Adicionar e remover partições e réplicas permitirá que a capacidade do servi
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limites de serviço e índice no Azure Pesquisa Cognitiva
 Há alguns [tipos de preço](https://azure.microsoft.com/pricing/details/search/) diferentes no pesquisa cognitiva do Azure, cada uma das camadas tem [limites e cotas](search-limits-quotas-capacity.md)diferentes. Alguns desses limites estão no nível de serviço, alguns estão no nível do índice e alguns estão no nível da partição.
 
-|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Básica | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Máximo de réplicas por serviço |3 |12 |12 |12 |12 |
 | Máximo de partições por serviço |1 |12 |12 |12 |3 |
@@ -124,8 +124,8 @@ Esse método pode ser usado para obter uma funcionalidade de contas de usuário 
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
-O Azure Pesquisa Cognitiva é uma opção atraente para muitos aplicativos. Ao avaliar os vários padrões de design para aplicativos multilocatários, considere os [vários tipos de preço](https://azure.microsoft.com/pricing/details/search/) e os respectivos [limites de serviço](search-limits-quotas-capacity.md) para melhor adaptar os pesquisa cognitiva do Azure para ajustar as cargas de trabalho e arquiteturas de todos os tamanhos do aplicativo .
+## <a name="next-steps"></a>Próximas etapas
+O Azure Pesquisa Cognitiva é uma opção atraente para muitos aplicativos. Ao avaliar os vários padrões de design para aplicativos multilocatários, considere os [vários tipos de preço](https://azure.microsoft.com/pricing/details/search/) e os respectivos [limites de serviço](search-limits-quotas-capacity.md) para melhor adaptar os pesquisa cognitiva do Azure para ajustar as cargas de trabalho e arquiteturas de todos os tamanhos do aplicativo.
 
 Todas as perguntas sobre os cenários do Azure Pesquisa Cognitiva e multilocatário podem ser direcionadas para azuresearch_contact@microsoft.com.
 

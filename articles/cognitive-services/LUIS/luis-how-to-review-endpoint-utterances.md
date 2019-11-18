@@ -9,88 +9,48 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 4a77ac26076fc1b1e4e94ee24dafb28a0e88c858
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 67953f552b5b2bcdd7d13253548227e57dab8548
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669372"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132655"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Como examinar o ponto de extremidade declarações no LUIS portal for active Learning
+# <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar o aplicativo LUIS examinando o ponto de extremidade declarações
 
-O [aprendizado ativo](luis-concept-review-endpoint-utterances.md) captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações de leitura do mundo. Aceite essas alterações em seu exemplo declarações, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
+O processo de revisão do ponto de extremidade declarações para previsões corretas é chamado de [aprendizado ativo](luis-concept-review-endpoint-utterances.md). O aprendizado ativo captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações de leitura do mundo. Aceite essas alterações em seu exemplo declarações, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+Se você tiver muitas pessoas contribuindo para um aplicativo LUIS, 
+
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
 
-Para habilitar o aprendizado ativo, faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) com o `log=true` parâmetro e valor de QueryString.
+Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro e valor `log=true` QueryString.
 
-## <a name="disable-active-learning"></a>Desabilitar o aprendizado ativo
-
-Para desabilitar o aprendizado ativo, não faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) com o `log=false` parâmetro e valor de QueryString.
-
-## <a name="filter-utterances"></a>Filtrar declarações
-
-1. Abra o aplicativo (por exemplo, TravelAgent) selecionando o nome na página **Meus Aplicativos** e selecione **Compilar** na barra superior.
-
-1. Em **Melhorar o desempenho do aplicativo**, selecione **Examinar declarações de ponto de extremidade**.
-
-1. Na página **Examinar declarações de ponto de extremidade**, clique na caixa de texto **Filtrar lista por intenção ou entidade**. Essa lista suspensa inclui todas as intenções em **INTENÇÕES** e todas as entidades em **ENTIDADES**.
-
-    ![Filtro de declarações](./media/label-suggested-utterances/filter.png)
-
-1. Selecione uma categoria (intenções ou entidades) na lista suspensa e examine as declarações.
-
-    ![Declarações de intenção](./media/label-suggested-utterances/intent-utterances.png)
-
-## <a name="label-entities"></a>Rotular entidades
-O LUIS substitui tokens de entidade (palavras) por nomes de entidade realçados em azul. Se uma declaração tem entidades sem rótulo, rotule-as na declaração. 
-
-1. Selecione as palavras na declaração. 
-
-1. Selecione uma entidade na lista.
-
-    ![Rotular entidade](./media/label-suggested-utterances/label-entity.png)
-
-## <a name="align-single-utterance"></a>Alinhar declaração única
+## <a name="correct-intent-predictions-to-align-utterances"></a>Corrigir previsões de intenção para alinhar declarações
 
 Cada declaração tem uma intenção sugerida exibida na coluna **Intenção alinhada**. 
 
-1. Se você concordar com essa sugestão, selecione-a na marca de seleção.
+> [!div class="mx-imgBorder"]
+> [![revisar ponto de extremidade declarações que LUIS não tem certeza de](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-    ![Manter intenção alinhada](./media/label-suggested-utterances/align-intent-check.png)
+Se você concordar com essa intenção, selecione a marca de seleção. Se você não concordar com a sugestão, selecione a intenção correta na lista suspensa de intenções alinhadas, e marque a caixa de seleção à direita da intenção alinhada. Depois de selecionar na marca de seleção, o expressão é movido para a intenção e removido da lista **examinar ponto de extremidade declarações** . 
 
-1. Se você não concordar com a sugestão, selecione a intenção correta na lista suspensa de intenções alinhadas, e marque a caixa de seleção à direita da intenção alinhada. 
-
-    ![Alinhar intenção](./media/label-suggested-utterances/align-intent.png)
-
-1. Depois de marcar a caixa de seleção, a declaração é removida da lista. 
-
-## <a name="align-several-utterances"></a>Alinhar várias declarações
-
-Para alinhar várias declarações, marque a caixa à esquerda das declarações e selecione o botão **Adicionar selecionados**. 
-
-![Alinhar vários](./media/label-suggested-utterances/add-selected.png)
-
-## <a name="verify-aligned-intent"></a>Verificar intenção alinhada
-
-Você pode verificar se a declaração foi alinhado com a intenção correta na página **Intenções**, selecione o nome da intenção e revise as declarações. A declaração **Examinar declarações de ponto de extremidade** está na lista.
+> [!TIP]
+> É importante ir até a página de detalhes da intenção para revisar e corrigir as previsões de entidade de todos os exemplos declarações da lista **examinar ponto de extremidade declarações** .
 
 ## <a name="delete-utterance"></a>Excluir a declaração
 
 Cada declaração pode ser excluída da lista de revisão. Depois de excluída, ela não aparecerá na lista novamente. Isso será verdadeiro mesmo se o usuário inserir a mesma declaração do ponto de extremidade. 
 
-Se você não tiver certeza se deve excluir a declaração, mova-a para a intenção None ou crie uma nova intenção, como "diversos" e mova a declaração para essa intenção. 
+Se você não tiver certeza se deve excluir o expressão, mova-o para a intenção nenhum ou crie uma nova intenção, como `miscellaneous` e mova o expressão para essa intenção. 
 
-## <a name="delete-several-utterances"></a>Excluir várias declarações
+## <a name="disable-active-learning"></a>Desabilitar o aprendizado ativo
 
-Para excluir várias declarações, selecione cada item e selecione a lixeira à direita do botão **Adicionar selecionados**.
-
-![Excluir vários](./media/label-suggested-utterances/delete-several.png)
-
+Para desabilitar o aprendizado ativo, não faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) com o `log=false` parâmetro e o valor de QueryString ou não usando o valor de QueryString porque o valor padrão é false.
 
 ## <a name="next-steps"></a>Próximas etapas
 

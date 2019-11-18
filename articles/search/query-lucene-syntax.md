@@ -1,7 +1,7 @@
 ---
 title: Sintaxe de consulta Lucene
 titleSuffix: Azure Cognitive Search
-description: Referência para a sintaxe Lucene completa, conforme usado com o Azure Pesquisa Cognitiva.
+description: Referência para a sintaxe de consulta Lucene completa, conforme usada no Azure Pesquisa Cognitiva para curinga, pesquisa difusa, RegEx e outras construções de consulta avançadas.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0bb8474b30c05e21a62ded1fa2cb8a6df8e4e321
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786279"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112176"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta Lucene no Azure Pesquisa Cognitiva
 
@@ -169,7 +169,7 @@ O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontu
 >  Não é possível usar um símbolo * ou ? como o primeiro caractere de uma pesquisa.  
 >  Nenhuma análise de texto é executada em consultas de pesquisa curinga. No momento da consulta, os termos da consulta curinga são comparados com os termos analisados no índice de pesquisa e expandidos.
 
-## <a name="see-also"></a>Consulte  
+## <a name="see-also"></a>Consulte também  
 
 + [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Sintaxe de expressão OData para filtros e classificação](query-odata-filter-orderby-syntax.md)   

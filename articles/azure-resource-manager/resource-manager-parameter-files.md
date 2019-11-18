@@ -1,17 +1,14 @@
 ---
-title: Criar Azure Resource Manager arquivo de parâmetro
+title: Criar arquivo de parâmetros
 description: Criar arquivo de parâmetro para passar valores durante a implantação de um modelo de Azure Resource Manager
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: tomfitz
-ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7333e33af90ff7883b53a24bacdc63b42bf107ee
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983942"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149459"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar arquivo de parâmetro do Resource Manager
 
@@ -185,7 +182,7 @@ O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
 }
 ```
 
-## <a name="file-name"></a>Nome do Arquivo
+## <a name="file-name"></a>Nome do arquivo
 
 A Convenção geral para nomear o arquivo de parâmetro é adicionar **. Parameters** ao nome do modelo. Por exemplo, se seu modelo for denominado **azuredeploy. JSON**, o arquivo de parâmetro será chamado **azuredeploy. Parameters. JSON**. Essa convenção de nomenclatura ajuda a ver a conexão entre o modelo e os parâmetros.
 

@@ -1,5 +1,5 @@
 ---
-title: Escalar verticalmente partições e réplicas para adicionar capacidade para cargas de trabalho de consulta e índice
+title: Capacidade de escala para cargas de trabalho de consulta e índice
 titleSuffix: Azure Cognitive Search
 description: Ajuste os recursos de computador da partição e da réplica no Azure Pesquisa Cognitiva, em que cada recurso é cobrado nas unidades de pesquisa cobráveis.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792496"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112137"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Escalar verticalmente partições e réplicas para adicionar capacidade para cargas de trabalho de consulta e índice no Azure Pesquisa Cognitiva
 
@@ -29,7 +29,7 @@ Usar menos SUs resulta em uma lista menor proporcionalmente. A cobrança fica em
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e partições
 Réplicas e partições são os recursos principais que retornam um serviço de pesquisa.
 
-| Grupos | Definição |
+| Recurso | Definição |
 |----------|------------|
 |*Partições* | Fornecem armazenamento de índice e E/S para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice).|
 |*Réplicas* | Instâncias do serviço de pesquisa, usadas principalmente para equilibrar a carga das operações de consulta. Cada réplica sempre hospeda uma cópia de um índice. Se você tiver 12 réplicas, terá 12 cópias de cada índice carregadas no serviço.|
@@ -103,7 +103,7 @@ SUs, preço e capacidade são explicados detalhadamente no site do Azure. Para o
 
 <a id="HA"></a>
 
-## <a name="high-availability"></a>Alta disponibilidade
+## <a name="high-availability"></a>alta disponibilidade
 Uma vez que é relativamente fácil e rápido escalar verticalmente, recomendamos começar com uma partição e uma ou duas réplicas e então escalar verticalmente conforme os volumes de consulta se acumulam. As cargas de trabalho de consulta são executadas principalmente em réplicas. Se precisar de mais taxa de transferência ou alta disponibilidade, provavelmente, você precisará de mais réplicas.
 
 Recomendações gerais para alta disponibilidade são:
@@ -141,6 +141,6 @@ Aplicativos de pesquisa que exigem atualização de dados quase em tempo real pr
 Índices maiores levam mais tempo para consultar. Assim, você poderá perceber que cada aumento incremental em partições requer um aumento proporcional, mas menor, em réplicas. A complexidade de suas consultas e seu volume influenciarão a rapidez com que a execução da consulta é retornada.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Escolha um tipo de preço para o Azure Pesquisa Cognitiva](search-sku-tier.md)

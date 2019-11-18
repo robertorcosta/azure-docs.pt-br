@@ -1,7 +1,7 @@
 ---
 title: Referência da função search.in do OData
 titleSuffix: Azure Cognitive Search
-description: Função search.in do OData no Azure Pesquisa Cognitiva consultas.
+description: Sintaxe e documentação de referência para usar a função search.in no Azure Pesquisa Cognitiva consultas.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f641e50554e720d273735fd20032e60444cb198a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793293"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113111"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>Função `search.in` OData no Azure Pesquisa Cognitiva
 
@@ -70,7 +70,7 @@ Há duas sobrecargas da função `search.in`:
 
 Os parâmetros são definidos na tabela a seguir:
 
-| Nome do parâmetro | Type | Descrição |
+| Nome do parâmetro | Digite | DESCRIÇÃO |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Uma referência de campo de cadeia de caracteres (ou uma variável de intervalo em um campo de coleção de cadeia de caracteres no caso em que `search.in` é usada dentro de uma expressão de `any` ou `all`). |
 | `valueList` | `Edm.String` | Uma cadeia de caracteres que contém uma lista delimitada de valores para corresponder ao parâmetro `variable`. Se o parâmetro `delimiters` não for especificado, os delimitadores padrão serão espaço e vírgula. |
@@ -104,7 +104,7 @@ Localize todos os hotéis sem a marca ' motel ' ou ' cabin':
 
     Tags/all(tag: not search.in(tag, 'motel, cabin'))
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)

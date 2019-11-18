@@ -8,25 +8,25 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575564"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132214"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar Azure Monitor para seu aplicativo Python (versão prévia)
 
 O Azure Monitor dá suporte ao rastreamento distribuído, à coleta de métrica e ao registro em log de aplicativos Python por meio da integração com o [OpenCensus](https://opencensus.io). Este artigo explicará o processo de configuração do OpenCensus para Python e o envio dos dados de monitoramento para Azure Monitor.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Instalação do Python. Este artigo usa o [Python 3.7.0](https://www.python.org/downloads/), embora as versões anteriores provavelmente funcionem com pequenas alterações.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Criar um recurso de Application Insights no Azure Monitor
 
@@ -109,7 +109,6 @@ O SDK usa três Azure Monitor exportadores para enviar tipos diferentes de telem
     tracer = Tracer(
         exporter=AzureExporter(
             connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
-        ),
         sampler=ProbabilitySampler(1.0),
     )
 
@@ -215,7 +214,7 @@ O SDK usa três Azure Monitor exportadores para enviar tipos diferentes de telem
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+
     view_manager.register_exporter(exporter)
 
     def prompt():
@@ -297,30 +296,6 @@ O SDK usa três Azure Monitor exportadores para enviar tipos diferentes de telem
 4. O exportador enviará dados de log para Azure Monitor. Você pode encontrar os dados em `traces`.
 
 5. Para obter detalhes sobre como enriquecer seus logs com dados de contexto de rastreamento, consulte integração do OpenCensus Python [logs](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
-
-## <a name="start-monitoring-in-the-azure-portal"></a>Iniciar o monitoramento no Portal do Azure
-
-1. Agora você pode reabrir o painel de **visão geral** Application Insights no portal do Azure para exibir detalhes sobre o aplicativo em execução no momento. Selecione **Live Metrics Stream**.
-
-   ![Captura de tela do painel Visão geral com "Live Metrics Stream" selecionado em uma caixa vermelha](./media/opencensus-python/0005-overview-live-metrics-stream.png)
-
-2. Volte para o painel **visão geral** . Selecione **mapa do aplicativo** para obter um layout visual das relações de dependência e o tempo de chamada entre os componentes do aplicativo.
-
-   ![Captura de tela de um mapa de aplicativo básico](./media/opencensus-python/0007-application-map.png)
-
-   Como estamos rastreando apenas uma chamada de método, nosso mapa de aplicativos não é interessante. Mas um mapa de aplicativos pode ser dimensionado para visualizar muito mais aplicativos distribuídos:
-
-   ![Mapa do aplicativo](media/opencensus-python/application-map.png)
-
-3. Selecione **investigar desempenho** para analisar o desempenho em detalhes e determinar a causa raiz do desempenho lento.
-
-   ![Captura de tela de detalhes de desempenho](./media/opencensus-python/0008-performance.png)
-
-4. Para abrir a experiência de ponta a ponta para os detalhes da transação, selecione **exemplos**e, em seguida, selecione qualquer um dos exemplos que aparecem no painel direito. 
-
-   Embora nosso aplicativo de exemplo mostre apenas um único evento, um aplicativo mais complexo permitiria explorar a transação de ponta a ponta até o nível da pilha de chamadas de um evento individual.
-
-   ![Captura de tela da interface de transação de ponta a ponta](./media/opencensus-python/0009-end-to-end-transaction.png)
 
 ## <a name="view-your-data-with-queries"></a>Exibir seus dados com consultas
 

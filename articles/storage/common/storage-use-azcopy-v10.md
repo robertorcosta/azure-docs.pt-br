@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882488"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111762"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -98,8 +98,8 @@ Essas funções podem ser atribuídas à entidade de segurança em qualquer um d
 
 - Contêiner (sistema de arquivos)
 - Conta de armazenamento
-- Resource group
-- Subscription
+- Grupo de recursos
+- Assinatura
 
 Para saber como verificar e atribuir funções, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -278,7 +278,7 @@ Para evitar esses problemas, obtenha um link estático (sem alteração) para a 
 
 Para obter o link, execute este comando:
 
-| Sistema operacional  | Command |
+| Sistema operacional  | Comando |
 |--------|-----------|
 | **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
@@ -288,7 +288,7 @@ Para obter o link, execute este comando:
 
 A URL aparece na saída deste comando. O script pode então baixar o AzCopy usando essa URL.
 
-| Sistema operacional  | Command |
+| Sistema operacional  | Comando |
 |--------|-----------|
 | **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
@@ -305,16 +305,9 @@ Se você planeja usar o [Jenkins](https://jenkins.io/) para executar scripts, ce
 /usr/bin/keyctl new_session
 ```
 
-## <a name="use-azcopy-in-storage-explorer"></a>Usar AzCopy no Gerenciador de Armazenamento
+## <a name="use-azcopy-in-azure-storage-explorer"></a>Usar AzCopy no Gerenciador de Armazenamento do Azure
 
-Se você quiser aproveitar as vantagens de desempenho do AzCopy, mas preferir usar Gerenciador de Armazenamento em vez da linha de comando para interagir com seus arquivos, habilite AzCopy no Gerenciador de Armazenamento.
-
-Em Gerenciador de Armazenamento, escolha **visualização** ->**usar AzCopy para upload e download de blob aprimorados**.
-
-![Habilitar o AzCopy como um mecanismo de transferência no Gerenciador de Armazenamento do Azure](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> Você não precisará habilitar essa configuração se tiver habilitado um namespace hierárquico em sua conta de armazenamento. Isso ocorre porque Gerenciador de Armazenamento usa automaticamente AzCopy em contas de armazenamento que têm um namespace hierárquico.  
+[Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) usa AzCopy para executar todas as operações de transferência de dados. Você pode usar [Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) se quiser aproveitar as vantagens de desempenho do AzCopy, mas preferir usar uma interface gráfica do usuário em vez da linha de comando para interagir com seus arquivos.
 
 Gerenciador de Armazenamento usa sua chave de conta para executar operações, portanto, depois de entrar no Gerenciador de Armazenamento, você não precisará fornecer credenciais de autorização adicionais.
 
@@ -332,6 +325,6 @@ Se você precisar usar a versão anterior do AzCopy (AzCopy v 8.1), consulte um 
 
 Consulte [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você tiver dúvidas, problemas ou comentários gerais, envie-os [na página do GitHub](https://github.com/Azure/azure-storage-azcopy) .
