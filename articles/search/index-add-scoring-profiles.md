@@ -1,5 +1,5 @@
 ---
-title: Adicionar perfis de Pontuação para melhorar documentos relevantes nos resultados da pesquisa
+title: Aumentar a classificação de pesquisa usando perfis de Pontuação
 titleSuffix: Azure Cognitive Search
 description: Aumente as pontuações de classificação de pesquisa para resultados de Pesquisa Cognitiva do Azure adicionando perfis de pontuação.
 manager: nitinme
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2b92f8031a0d35696447f8ab796d24c504d57457
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790118"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113611"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de Pontuação a um índice de Pesquisa Cognitiva do Azure
 
@@ -169,7 +169,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 |||  
 |-|-|  
 |**Pesos**|Especificar pares de nome-valor que atribuem um peso relativo a um campo. No [Exemplo](#bkmk_ex), os campos albumTitle, genre e artistName recebem 1,5, 5 e 2, respectivamente. Por que o campo gênero aumentou muito mais do que os outros? Se a pesquisa for conduzida sobre dados relativamente homogêneos (como é o caso de 'gênero' em `musicstoreindex`), uma variação maior nos pesos relativos poderá ser necessária. Por exemplo, em `musicstoreindex`, 'rock' é exibido como um gênero e em descrições de gênero escritas de forma idêntica. Se você quiser que gênero tenha um peso maior do que a descrição do gênero, o campo gênero precisará ter um peso relativo muito mais alto.|  
-|**Funções**|Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos são `freshness`, `magnitude`, `distance` e `tag`. Cada função tem parâmetros que são exclusivos.<br /><br /> -   `freshness` devem ser usados quando você deseja aumentar de acordo com a indicação de que um item é novo ou antigo. Essa função somente pode ser usada com campos `datetime` (edm.DataTimeOffset). Observe que o atributo `boostingDuration` é usado somente com a função `freshness`.<br />-   `magnitude` devem ser usados quando você deseja aumentar de acordo com a indicação de que um valor numérico é alto ou baixo. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro.<br />     Para a função `magnitude`, é possível inverter o intervalo, do maior para o menor, se você quiser o padrão inverso (por exemplo, para dar mais destaque aos itens com preços mais baixos, do que aos itens com preços mais altos). Com um intervalo de preços de $100 a $1, você definiria `boostingRangeStart` como 100 e `boostingRangeEnd` como 1 para aumentar os itens com preço inferior.<br />-   `distance` devem ser usados quando você deseja aumentar de acordo com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos `Edm.GeographyPoint` .<br />-   `tag` devem ser usados quando você deseja aumentar de acordo com marcas em comum entre documentos e consultas de pesquisa. Essa função só pode ser usada com campos `Edm.String` e `Collection(Edm.String)`.<br /><br /> **Regras para usar funções**<br /><br /> O tipo de função (`freshness`, `magnitude`, `distance`), `tag` deve ser em minúsculas.<br /><br /> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo.<br /><br /> As funções só podem ser aplicadas a campos filtráveis. Consulte [criar índice &#40;Azure pesquisa cognitiva&#41; API REST](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter mais informações sobre campos filtráveis.<br /><br /> As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice.|  
+|**Funções**|Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos são `freshness`, `magnitude`, `distance` e `tag`. Cada função tem parâmetros exclusivos para ela.<br /><br /> -   `freshness` devem ser usados quando você deseja aumentar de acordo com a indicação de que um item é novo ou antigo. Essa função somente pode ser usada com campos `datetime` (edm.DataTimeOffset). Observe que o atributo `boostingDuration` é usado somente com a função `freshness`.<br />-   `magnitude` devem ser usados quando você deseja aumentar de acordo com a indicação de que um valor numérico é alto ou baixo. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro.<br />     Para a função `magnitude`, é possível inverter o intervalo, do maior para o menor, se você quiser o padrão inverso (por exemplo, para dar mais destaque aos itens com preços mais baixos, do que aos itens com preços mais altos). Com um intervalo de preços de $100 a $1, você definiria `boostingRangeStart` como 100 e `boostingRangeEnd` como 1 para aumentar os itens com preço inferior.<br />-   `distance` devem ser usados quando você deseja aumentar de acordo com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos `Edm.GeographyPoint` .<br />-   `tag` devem ser usados quando você deseja aumentar de acordo com marcas em comum entre documentos e consultas de pesquisa. Essa função só pode ser usada com campos `Edm.String` e `Collection(Edm.String)`.<br /><br /> **Regras para usar funções**<br /><br /> O tipo de função (`freshness`, `magnitude`, `distance`), `tag` deve ser em minúsculas.<br /><br /> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo.<br /><br /> As funções só podem ser aplicadas a campos filtráveis. Consulte [criar índice &#40;Azure pesquisa cognitiva&#41; API REST](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter mais informações sobre campos filtráveis.<br /><br /> As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice.|  
 
  Depois que o índice for definido, crie o índice carregando o esquema de índice, seguido de documentos. Consulte [criar índice &#40;Azure pesquisa cognitiva API&#41; REST](https://docs.microsoft.com/rest/api/searchservice/create-index) e [Adicionar, atualizar ou excluir documentos &#40;Azure pesquisa cognitiva API&#41; REST](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para obter instruções sobre essas operações. Depois que o índice for criado, você deverá ter um perfil de pontuação funcional que funciona com seus dados de pesquisa.  
 
@@ -232,7 +232,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 > [!NOTE]  
 >  Uma função de pontuação somente pode ser aplicada a campos filtráveis.  
 
-|Atributo|Descrição|  
+|Atributo|DESCRIÇÃO|  
 |---------------|-----------------|  
 |`Name`|Obrigatório. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. O nome deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @ e não pode iniciar com a frase "azureSearch" (diferencia maiúsculas de minúsculas).|  
 |`Text`|Contém a propriedade Pesos.|  
@@ -242,7 +242,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 |`Boost`|Necessário para funções de pontuação. Um número positivo usado como multiplicador para pontuação bruta. Não pode ser igual a 1.|  
 |`Fieldname`|Necessário para funções de pontuação. Uma função de pontuação só pode ser aplicada a campos que fazem parte da coleção de campos do índice e que são filtráveis. Além disso, cada tipo de função introduz restrições adicionais (a atualização é usada com campos datetime, a magnitude com campos de inteiro ou duplo, a distância com campos de local e a marca com campos de cadeia de caracteres ou coleção de cadeias de caracteres). Você só pode especificar um único campo por definição de função. Por exemplo, para usar a magnitude duas vezes no mesmo perfil, você precisaria incluir duas definições de magnitude, uma para cada campo.|  
 |`Interpolation`|Necessário para funções de pontuação. Define a inclinação para a qual o aumento de pontuação ocorre, do início ao fim do intervalo. Os valores válidos incluem Linear (padrão), Constante, Quadrática e Logarítmica. Confira [Set interpolations](#bkmk_interpolation) (Definir interpolações) para obter detalhes.|  
-|`magnitude`|A função de pontuação magnitude é usada para alterar a classificação com base no intervalo de valores de um campo numérico. Alguns dos exemplos de uso mais comuns disso são:<br /><br /> -   **classificações de estrelas:** altere a pontuação com base no valor do campo "classificação por estrelas". Quando dois itens forem relevantes, o item com a classificação mais alta será exibido primeiro.<br />Margem de -    **:** quando dois documentos são relevantes, um varejista pode desejar aumentar os documentos que têm margens mais altas primeiro.<br />-   **contagens de cliques:** para aplicativos que acompanham ações de cliques em produtos ou páginas, você pode usar a magnitude para impulsionar itens que tendem a obter o máximo de tráfego.<br />-   **contagens de download:** para aplicativos que acompanham downloads, a função de magnitude permite que você aumente os itens que têm mais downloads.|  
+|`magnitude`|A função de pontuação magnitude é usada para alterar a classificação com base no intervalo de valores de um campo numérico. Alguns dos exemplos de uso mais comuns disso são:<br /><br /> -   **classificações de estrelas:** altere a pontuação com base no valor do campo "classificação por estrelas". Quando dois itens são relevantes, o item com a classificação mais alta é exibido primeiro.<br />Margem de -    **:** quando dois documentos são relevantes, um varejista pode desejar aumentar os documentos que têm margens mais altas primeiro.<br />-   **contagens de cliques:** para aplicativos que acompanham ações de cliques em produtos ou páginas, você pode usar a magnitude para impulsionar itens que tendem a obter o máximo de tráfego.<br />-   **contagens de download:** para aplicativos que acompanham downloads, a função de magnitude permite que você aumente os itens que têm mais downloads.|  
 |`magnitude` &#124; `boostingRangeStart`|Define o valor inicial do intervalo em que a magnitude é pontuada. O valor deve ser um inteiro ou um número de ponto flutuante. Para classificações por estrelas de 1 a 4, isso seria 1. Para mais acima de 50% de margens, isso seria 50.|  
 |`magnitude` &#124; `boostingRangeEnd`|Define o valor final do intervalo em que a magnitude é pontuada. O valor deve ser um inteiro ou um número de ponto flutuante. Para classificações por estrelas de 1 a 4, isso seria 4.|  
 |`magnitude` &#124; `constantBoostBeyondRange`|Os valores válidos são true ou false (padrão). Quando definido como true, o aumento completo continuará a ser aplicado a documentos que tenham um valor para o campo de destino maior do que a extremidade superior do intervalo. Se for false, o aumento dessa função não será aplicado a documentos com um valor para o campo de destino que esteja fora do intervalo.|  
@@ -275,7 +275,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  A tabela a seguir fornece vários exemplos.  
 
-|Duration|boostingDuration|  
+|Duração|boostingDuration|  
 |--------------|----------------------|  
 |1 dia|"P1D"|  
 |2 dias e 12 horas|"P2DT12H"|  
@@ -284,7 +284,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Consulte  
+## <a name="see-also"></a>Consulte também  
    [REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/)  
  [Criar índice &#40;pesquisa cognitiva API&#41; REST do Azure](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [SDK do .NET Pesquisa Cognitiva do Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

@@ -1,7 +1,7 @@
 ---
 title: Ponto de extremidade da Pesquisa de Notícias do Bing
 titleSuffix: Azure Cognitive Services
-description: Resumo do ponto de extremidade da API de Pesquisa de Notícias.
+description: Este artigo fornece um resumo dos pontos de extremidade da API de pesquisa de notícias; Notícias, principais notícias e notícias de tendências.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: 82e37e8fa47b467e7c2fe98f801482675809a266
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: dc7d16fe809e3e324f384b0d9e088dd7e6ab261c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423771"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111491"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Pontos de extremidade da API de Pesquisa de Notícias do Bing
 
 A **API de Pesquisa de Notícias** retorna artigos de notícias, páginas da Web, imagens, vídeos e [entidades](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). As entidades contêm informações de resumo sobre uma pessoa, lugar ou tópico.
 
-## <a name="endpoints"></a>Pontos de extremidade
+## <a name="endpoints"></a>Pontos de Extremidade
 
 Para obter resultados da pesquisa de notícias usando a API de Pesquisa de Notícias do Bing, envie uma solicitação `GET` para um dos seguintes pontos de extremidade. Os cabeçalhos e parâmetros de URL definem mais especificações.
 
@@ -53,5 +53,5 @@ Retorna tópicos de notícias que são populares atualmente em redes sociais. Qu
 
 Para obter detalhes sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a referência [API de Pesquisa de Notícias do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
-Para obter informações completas sobre os parâmetros compatíveis com cada ponto de extremidade, confira as páginas de referência de cada tipo.
+Para obter informações completas sobre os parâmetros com suporte para cada ponto de extremidade, consulte as páginas de referência para cada tipo.
 Para obter exemplos de solicitações básicas usando a API de Pesquisa de Notícias, consulte [Início rápido sobre pesquisa de notícias do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search).

@@ -4,15 +4,15 @@ description: Descreve as fontes de dados e conectores com suporte para os modelo
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572954"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120009"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -22,20 +22,20 @@ Fontes de dados e conectores mostrados no Get Data ou no Assistente de Importaç
 
 |Fonte de dados  |Na memória  |DirectQuery  |
 |---------|---------|---------|
-|Banco de Dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
-|SQL Data Warehouse do Azure     |   Sim      |   Sim       |
-|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não      |
-|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   Sim       |    Não      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sim        |  Não        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sim       |    Não      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sim     |   Não       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sim       |   Não       |
+|Banco de Dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   sim      |    sim      |
+|SQL Data Warehouse do Azure     |   sim      |   sim       |
+|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   sim       |    Não      |
+|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   sim       |    Não      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  sim        |  Não        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   sim       |    Não      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     sim     |   Não       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   sim       |   Não       |
 ||||
 
 <a name="tab1400a">1</a> - Tabular 1.400 e modelos superiores somente.   
 <a name="azsqlmanaged">2</a> - Há suporte para a Instância Gerenciada do Banco de Dados SQL do Azure. Como a instância gerenciada é executada na VNet do Azure com um endereço IP privado, o ponto de extremidade público deve ser habilitado na instância. Se não estiver habilitado, um gateway de dados local será necessário.    
 <a name="databricks">3</a> - No momento, não há suporte para o Azure Databricks usando o conector do Spark.   
-<a name="gen2">4</a> - No momento, não há suporte para o ADLS Gen2.
+no momento, não há suporte para o conector de <a name="gen2">4</a> ADLS Gen2, no entanto, o conector de armazenamento de blob pode ser usado com uma fonte de dados de ADLS Gen2.
 
 
 **Provedor**   
@@ -43,14 +43,14 @@ Modelos na memória e DirectQuery que se conectam a fontes de dados do Azure usa
 
 ## <a name="other-data-sources"></a>Outras fontes de dados
 
-Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway local. Ao usar um gateway, serão necessários provedores de 64 bits.
+Conectar-se a fontes de dados locais de um servidor Azure Analysis Services requer um gateway local. Ao usar um gateway, serão necessários provedores de 64 bits.
 
 ### <a name="in-memory-and-directquery"></a>Na memória e DirectQuery
 
 |Fonte de dados | Provedor na memória | Provedor do DirectQuery |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, Provedor Microsoft OLE DB para SQL Server, Provedor de Dados .NET Framework para SQL Server | Provedor de Dados .NET Framework para SQL Server |
-| SQL Server Data Warehouse |SQL Server Native Client 11.0, Provedor Microsoft OLE DB para SQL Server, Provedor de Dados .NET Framework para SQL Server | Provedor de Dados .NET Framework para SQL Server |
+| SQL Server |Microsoft OLE DB driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11,0, .NET Framework Provedor de Dados para SQL Server | Provedor de Dados .NET Framework para SQL Server |
+| SQL Server Data Warehouse |Microsoft OLE DB driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11,0, .NET Framework Provedor de Dados para SQL Server | Provedor de Dados .NET Framework para SQL Server |
 | Oracle | Provedor de OLE DB para Oracle, Oracle Provedor de Dados para .NET |Provedor de Dados Oracle para .NET |
 | Teradata |Provedor OLE DB para Teradata, Provedor de Dados Teradata para .NET |Provedor de Dados Teradata para .NET |
 | | | |
@@ -80,7 +80,7 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |Relatórios do Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|Lista do SharePoint<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
+|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Banco de dados Sybase     |  
 |Arquivo TXT  |
 |Tabela XML<sup>[1](#tab1400b)</sup>    |  

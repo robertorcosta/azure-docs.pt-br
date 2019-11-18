@@ -1,5 +1,5 @@
 ---
-title: Como usar o Azure Pesquisa Cognitiva de um aplicativo .NET
+title: Usar o Pesquisa Cognitiva do Azure no .NET
 titleSuffix: Azure Cognitive Search
 description: Saiba como usar o Azure Pesquisa Cognitiva em um aplicativo .NET usando C# o e o SDK do .net. As tarefas baseadas em códigos incluem a conexão com o serviço, conteúdo de índice e consulta a um índice.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e1903b3b33e1dde5178fadbc37feee191a2eaacd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792130"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112585"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Como usar o Azure Pesquisa Cognitiva de um aplicativo .NET
 
@@ -61,7 +61,7 @@ Há várias coisas que você precisará fazer em seu aplicativo de pesquisa. Nes
 
 O código de exemplo a seguir ilustra cada um desses cenários. Fique à vontade para usar os snippets de código em seu próprio aplicativo.
 
-### <a name="overview"></a>Visão Geral
+### <a name="overview"></a>Visão geral
 O exemplo de aplicativo que vamos explorar cria um novo índice chamado "hotéis", preenche-o com alguns documentos e, em seguida, executa algumas consultas de pesquisa. Este é o programa principal, mostrando o fluxo geral:
 
 ```csharp
@@ -752,7 +752,7 @@ Estes são os resultados, que incluem todos os campos uma vez que não especific
 
 Essa etapa conclui o tutorial, mas não pare aqui. \* * As próximas etapas fornecem recursos adicionais para aprender mais sobre o Azure Pesquisa Cognitiva.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Procure as referências para o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e a [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 * Revise as [convenções de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) para saber as regras de nomeação de vários objetos.
 * Examine [os tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) no pesquisa cognitiva do Azure.

@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: gerenciar, implantar & monitorar modelos de ML'
+title: 'MLOps: gerenciamento de modelos de ML'
 titleSuffix: Azure Machine Learning
-description: 'Saiba como usar o Azure Machine Learning para MLOps: implantar, gerenciar e monitorar seus modelos para melhorá-los continuamente. Você pode implantar os modelos que treinou com o Azure Machine Learning em seu computador local ou de outras fontes.'
+description: 'Saiba mais sobre o gerenciamento de modelos com o Azure Machine Learning (MLOps). Implante, gerencie e monitore seus modelos para melhorá-los continuamente. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e567198fd25243b89245d54bbed5a658cc663
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c77e36b5fbeb1ecacd42352c8c52cfd4b617d0e6
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716608"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123608"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: gerenciar, implantar e monitorar modelos com Azure Machine Learning
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
 Neste artigo, saiba mais sobre como usar Azure Machine Learning para gerenciar o ciclo de vida de seus modelos. O Azure Machine Learning usa uma abordagem de MLOps (operações de Machine Learning), que melhora a qualidade e a consistência de suas soluções de aprendizado de máquina. 
 

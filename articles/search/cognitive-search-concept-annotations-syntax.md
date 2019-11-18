@@ -1,5 +1,5 @@
 ---
-title: Referenciar entradas e saídas em um pipeline de enriquecimento de ia
+title: Referenciar entradas e saídas em habilidades
 titleSuffix: Azure Cognitive Search
 description: Explica a sintaxe da anotação e como fazer referência a uma anotação nas entradas e saídas de um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787771"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113861"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Como fazer referência a anotações em um Azure Pesquisa Cognitiva skillset
 
@@ -25,7 +25,7 @@ Os exemplos neste artigo são baseados campo *content* gerado automaticamente pe
 
 Antes de examinarmos a sintaxe, vamos rever alguns conceitos importantes para entender melhor os exemplos fornecidos mais adiante neste artigo.
 
-| Prazo | Descrição |
+| Termo | DESCRIÇÃO |
 |------|-------------|
 | Documento enriquecido | Um documento enriquecido é uma estrutura interna criada e usada pelo pipeline para reter todas as anotações relacionadas a um documento. Pense em um documento enriquecido como uma árvore de anotações. Em geral, uma anotação criada de uma anotação anterior se torna seu filho.<p/>Documentos enriquecidos existem somente pela duração da execução do conjunto de habilidades. Após o conteúdo ser mapeado para o índice de pesquisa, o documento enriquecido deixará de ser necessário. Embora você não interaja diretamente com documentos enriquecidos, é útil ter um modelo mental dos documentos ao criar um conjunto de habilidades. |
 | Contexto de enriquecimento | O contexto em que o enriquecimento ocorre, em termos de qual elemento é enriquecido. Por padrão, o contexto de enriquecimento está no nível do `"/document"` e seu escopo são documentos individuais. Quando uma habilidade é executada, suas saídas se tornam [propriedades do contexto definido](#example-2).|
@@ -120,8 +120,8 @@ Observe que a cardinalidade de `"/document/people/*/lastname"` é maior do que a
 
 
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 + [Como integrar uma habilidade personalizada a um pipeline de enriquecimento](cognitive-search-custom-skill-interface.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar conjunto de habilidades (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md) (Como mapear campos enriquecidos para um índice)

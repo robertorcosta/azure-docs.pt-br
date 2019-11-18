@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: e19ba55e48c537974ad4136d40505514b92d387d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/14/2019
+ms.openlocfilehash: 5fd5295e52f0fef5e1432fdb2f81d2ba0e1717e8
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162283"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109771"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Entender a integridade de suas máquinas virtuais do Azure
 
@@ -26,11 +26,15 @@ Este artigo mostra como avaliar, investigar e resolver rapidamente problemas de 
 
 Para obter informações sobre como configurar o Azure Monitor para VMs, confira [Habilitar o Azure Monitor para VMs](vminsights-enable-overview.md).
 
+>[!NOTE]
+>Recentemente, [anunciamos alterações](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
+) que estamos fazendo no recurso de integridade com base nos comentários que recebemos de nossos clientes de demonstração pública. Considerando o número de alterações que iremos fazer, vamos parar de oferecer o recurso de integridade para novos clientes. Os clientes existentes podem continuar a usar o recurso de integridade. Para obter mais detalhes, consulte nossas [perguntas frequentes sobre disponibilidade geral](vminsights-ga-release-faq.md). 
+
 ## <a name="monitoring-configuration-details"></a>Detalhes de configuração de monitoramento
 
 Esta seção descreve os critérios de integridade padrão para monitorar as VMs do Windows e Linux do Azure. Todos os critérios de integridade são pré-configurados para enviar um alerta quando detectam uma condição não íntegra.
 
-| Nome do monitor | Frequência (min) | Duração de Lookback (min) | operador | Limite | Alertar no estado | Gravidade | Categoria da carga de trabalho | 
+| Nome do monitor | Frequência (min) | Duração de Lookback (min) | Operador | Limite | Alertar no estado | Severity | Categoria da carga de trabalho | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
 | Disco lógico online | 5 | 15 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
 | Espaço livre em disco lógico | 5 | 15 | < | 200 MB (aviso)<br> 100 MB (crítico) | Aviso | Sev1<br> Sev2 | Linux | 
@@ -75,7 +79,7 @@ Esta seção descreve os critérios de integridade padrão para monitorar as VMs
 >A duração de Lookback representa a frequência com que a janela olhar de volta verifica os valores de métrica, como nos últimos cinco minutos.  
 
 >[!NOTE]
->A frequência representa a frequência com que o alerta de métrica verifica se as condições são atendidas, como a cada um minuto.  É a taxa na qual o critério de integridade é executado e lookback é a duração em que o critério de integridade é avaliado. Por exemplo, o critério de integridade está avaliando se a **utilização da CPU da** condição é maior do que 95% com uma frequência de 5 minutos e permanece maior que 95% por 15 minutos (3 ciclos de avaliação consecutivos) e, em seguida, o estado é atualizado para crítico gravidade se ela ainda não estava.
+>A frequência representa a frequência com que o alerta de métrica verifica se as condições são atendidas, como a cada um minuto.  É a taxa na qual o critério de integridade é executado e lookback é a duração em que o critério de integridade é avaliado. Por exemplo, o critério de integridade está avaliando se a **utilização da CPU da** condição é maior do que 95% com uma frequência de 5 minutos e permanece maior que 95% por 15 minutos (3 ciclos de avaliação consecutivos), então, o estado será atualizado para gravidade crítica se ainda não tiver sido.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -101,7 +105,7 @@ Os estados de integridade definidos para uma VM estão descritos na seguinte tab
 
 |ícone |Estado de integridade |Significado |
 |-----|-------------|---------------|
-| |Integridade |A VM está dentro das condições de integridade definidas. Esse estado indica que não há nenhum problema detectado e a VM está funcionando normalmente. Com um monitor de rollup pai, a integridade acumula e reflete o estado de melhor caso ou o pior caso do filho.|
+| |Healthy |A VM está dentro das condições de integridade definidas. Esse estado indica que não há nenhum problema detectado e a VM está funcionando normalmente. Com um monitor de rollup pai, a integridade acumula e reflete o estado de melhor caso ou o pior caso do filho.|
 | |Crítico |O estado não está dentro da condição de integridade definida, indicando que um ou mais problemas críticos foram detectados. Esses problemas devem ser resolvidos para restaurar a funcionalidade normal. Com um monitor de rollup pai, o estado de integridade acumula e reflete o estado de melhor caso ou pior caso do filho.|
 | |Aviso |O estado está entre dois limites para a condição de integridade definida, em que um indica um estado de aviso e o outro indica um estado crítico (três limites de estado de integridade podem ser configurados) ou quando um problema não crítico pode causar problemas críticos se não resolvidos. Com um monitor de rollup pai, se um ou mais filhos estiverem em um estado de aviso, o pai refletirá um estado de aviso. Se um filho estiver em um estado crítico e outro filho em um estado de aviso, o rollup pai mostrará o estado de integridade como crítico.|
 | |Desconhecido |O estado não pode ser computado por vários motivos. A seção a seguir fornece detalhes adicionais e possíveis soluções. |
@@ -111,7 +115,7 @@ Um estado de integridade desconhecido pode ser causado pelos seguintes problemas
 - O agente foi reconfigurado e não fornece mais relatórios para o espaço de trabalho especificado quando Azure Monitor para VMs foi habilitado. Para configurar o agente para relatar ao espaço de trabalho, consulte [adicionando ou removendo um espaço de trabalho](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - A VM foi excluída.
 - O espaço de trabalho associado a Azure Monitor para VMs foi excluído. Você pode recuperar o espaço de trabalho se tiver benefícios de suporte Premier. Vá para [Premier](https://premier.microsoft.com/) e abra uma solicitação de suporte.
-- As dependências da solução foram excluídas. Para reabilitar as soluções ServiceMap e InfrastructureInsights em seu espaço de trabalho Log Analytics, reinstale a solução ServiceMap usando o [modelo Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). Para reinstalar a solução InfastructureInsights, vminsights@microsoft.com de email. 
+- As dependências da solução foram excluídas. Para reabilitar as soluções ServiceMap e InfrastructureInsights em seu espaço de trabalho Log Analytics, reinstale a solução ServiceMap usando o [modelo Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). Para reinstalar a solução InfastructureInsights, vminsights@microsoft.comde email. 
 - A VM foi desligada.
 - O serviço de VM do Azure está indisponível ou a manutenção está sendo executada.
 - O [limite de retenção ou dados diário](../platform/manage-cost-storage.md) do espaço de trabalho foi atingido.
@@ -213,7 +217,7 @@ O estado de um critério de integridade é definido por um dos quatro tipos: **c
 A página **diagnóstico de integridade** tem três seções principais:
 
 * Modelo de componente
-* Critérios de Integridade
+* Critérios de integridade
 * Alterações de estado
 
 ![Seções da página de diagnóstico de integridade](./media/vminsights-health/health-diagnostics-page-02.png)
@@ -296,13 +300,13 @@ Os alertas de outros tipos de recursos ou serviços não devem ser incluídos ne
 
 Você pode filtrar essa exibição selecionando valores nos menus suspensos na parte superior da página.
 
-|Column |Descrição |
+|Coluna |DESCRIÇÃO |
 |-------|------------|
-|Subscription |Selecione uma assinatura do Azure. Apenas alertas na assinatura selecionada são incluídos na exibição. |
-|Grupo de recursos |Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
+|Assinatura |Selecione uma assinatura do Azure. Apenas alertas na assinatura selecionada são incluídos na exibição. |
+|grupo de recursos |Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 |Tipo de recurso |Selecione um ou mais tipos de recurso. Por padrão, somente os alertas de destino **Máquinas virtuais** estão selecionados e incluídos nessa exibição. Essa coluna somente estará disponível depois que um grupo de recursos for especificado. |
-|Grupos |Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
-|Gravidade |Selecione a gravidade do alerta ou selecione **Tudo** para incluir alertas de todas as gravidades. |
+|Recurso |Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
+|Severity |Selecione a gravidade do alerta ou selecione **Tudo** para incluir alertas de todas as gravidades. |
 |Monitorar condição |Selecione uma condição de monitor para filtrar alertas se eles tiverem sido acionados ou resolvidos pelo sistema se a condição não estiver mais ativa. Ou selecione **todos** para incluir alertas de todas as condições. |
 |Estado de alerta |Selecione um estado de alerta, **novo**, **reconhecer**, **fechado**ou **todos** para incluir alertas de todos os Estados. |
 |Monitorar serviço |Selecione um serviço ou selecione **Tudo** para incluir todos os serviços. Somente os alertas do VM insights têm suporte para esse recurso.|
@@ -321,7 +325,7 @@ Para saber mais sobre como gerenciar alertas, confira [Criar, exibir e gerenciar
 Você pode alterar um estado de alerta para um ou vários alertas selecionando-os e, em seguida, selecionando **alterar estado** na página **todos os alertas** no canto superior esquerdo. Selecione um dos Estados no painel **alterar estado do alerta** , adicione uma descrição da alteração no campo **Comentário** e, em seguida, selecione **OK** para confirmar suas alterações. Quando as informações são verificadas e as alterações são aplicadas, acompanhe o progresso em **notificações** no menu.
 
 ### <a name="configure-alerts"></a>Configurar alertas
-Você não pode gerenciar determinadas tarefas de gerenciamento de alertas do portal do Azure. Essas tarefas devem ser executadas usando a [API REST do Azure monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Mais especificamente:
+Você não pode gerenciar determinadas tarefas de gerenciamento de alertas do portal do Azure. Essas tarefas devem ser executadas usando a [API REST do Azure monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Especificamente:
 
 - Habilitando ou desabilitando um alerta para critérios de integridade
 - Configurando notificações para alertas de critérios de integridade
@@ -432,7 +436,7 @@ O Azure Monitor para VMs Health dá suporte a notificações de SMS e email quan
     }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para identificar as limitações e o desempenho geral da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
 

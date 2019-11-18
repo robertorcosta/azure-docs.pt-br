@@ -1,7 +1,7 @@
 ---
 title: Como filtrar os resultados da pesquisa - API de pesquisa do Bing na Web
 titleSuffix: Azure Cognitive Services
-description: Saiba como filtrar e exibir resultados da pesquisa da API de pesquisa da Web do Bing.
+description: Você pode filtrar os tipos de respostas que o Bing inclui na resposta (por exemplo, imagens, vídeos e notícias) usando o parâmetro de consulta ' responseFilter '.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626015"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111421"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrar as respostas que a resposta da pesquisa inclui  
 
@@ -47,13 +47,13 @@ Quando você realiza uma consulta na Web, o Bing retorna todo o conteúdo releva
 
 ## <a name="query-parameters"></a>Parâmetros de consulta
 
-Para filtrar as respostas retornadas pelo Bing, use os parâmetros de consulta ao chamar a API abaixo.  
+Para filtrar as respostas retornadas pelo Bing, use os parâmetros de consulta abaixo ao chamar a API.  
 
 ### <a name="responsefilter"></a>ResponseFilter
 
-Você pode filtrar os tipos de respostas Bing inclui na resposta (por exemplo, imagens, vídeos e notícias) usando o [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) parâmetro de consulta, que é uma lista delimitada por vírgulas de respostas. Uma resposta será incluída na resposta se Bing localiza conteúdo relevante para ele. 
+Você pode filtrar os tipos de respostas que o Bing inclui na resposta (por exemplo, imagens, vídeos e notícias) usando o parâmetro de consulta [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) , que é uma lista delimitada por vírgulas de respostas. Uma resposta será incluída na resposta se o Bing encontrar o conteúdo relevante para ele. 
 
-Para excluir as respostas específicas da resposta, como imagens, preceda uma `-` caractere para o tipo de resposta. Por exemplo:
+Para excluir respostas específicas da resposta, como imagens, preceda um caractere `-` ao tipo de resposta. Por exemplo:
 
 ```
 &responseFilter=-images,-videos
@@ -102,7 +102,7 @@ Não é recomendável usar `responseFilter` para obter os resultados de uma úni
 
 ### <a name="site"></a>Site
 
-Para obter os resultados da pesquisa de um domínio específico, inclua o `site:` parâmetro na cadeia de caracteres de consulta de consulta.  
+Para obter os resultados da pesquisa de um domínio específico, inclua o parâmetro de consulta `site:` na cadeia de caracteres de consulta.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -113,25 +113,25 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 
 ### <a name="freshness"></a>Novidades
 
-Para limitar os resultados da resposta web para páginas da Web que Bing descoberto durante um período específico, defina as [atualização](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) parâmetro para um dos seguintes valores não diferencia maiusculas de consulta:
+Para limitar os resultados da resposta da Web a páginas da Webque o Bing descobriu durante um período específico, defina o parâmetro de consulta de [atualização](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) para um dos seguintes valores que não diferenciam maiúsculas de minúsculas:
 
-* `Day` — Páginas da Web retorno que Bing descoberto nas últimas 24 horas
-* `Week` — Retornar páginas da Web que Bing descoberto nos últimos 7 dias
-* `Month` — Páginas da Web retorno que descobriu dentro dos últimos 30 dias
+* `Day` — retornar páginas da Web que o Bing descobriu nas últimas 24 horas
+* `Week` — retornar páginas da Web que o Bing descobriu nos últimos 7 dias
+* `Month` — retornar páginas da Web que foram descobertas nos últimos 30 dias
 
-Você também pode definir esse parâmetro para um intervalo de datas personalizado no formulário, `YYYY-MM-DD..YYYY-MM-DD`. 
+Você também pode definir esse parâmetro para um intervalo de datas personalizado no formulário `YYYY-MM-DD..YYYY-MM-DD`. 
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
 
-Para limitar os resultados em uma única data, defina o parâmetro de atualização para uma data específica:
+Para limitar os resultados a uma única data, defina o parâmetro de atualização para uma data específica:
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
 
-Os resultados podem incluir páginas da Web que se encontram fora do período especificado, se o número de páginas da Web que corresponde ao Bing para seus critérios de filtro é menor que o número de páginas da Web solicitada (ou o número padrão que o Bing retorna).
+Os resultados podem incluir páginas da Web que se enquadram fora do período especificado se o número de páginas da Web que o Bing corresponde aos seus critérios de filtro for menor que o número de páginas da Web solicitadas (ou o número padrão que o Bing retorna).
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limite o número de itens na resposta
 
-Bing pode retornar vários tipos de resposta na resposta JSON. Por exemplo, se você consultar *velejando + dinghies*, o Bing poderá retornar `webpages`, `images`, `videos`, e `relatedSearches`.
+O Bing pode retornar vários tipos de resposta na resposta JSON. Por exemplo, se você consultar *velejando + Dinghies*, o Bing poderá retornar `webpages`, `images`, `videos`e `relatedSearches`.
 
 ```json
 {

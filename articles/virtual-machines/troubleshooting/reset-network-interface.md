@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: afb8335d3206a76b8f9bc47733e9816126e80af0
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058456"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111732"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir o adaptador de rede de uma VM Windows do Azure 
 
@@ -68,7 +68,7 @@ Este artigo mostra como redefinir o adaptador de rede para uma VM do Windows no 
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
+    Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. Tente executar o RDP no computador.  Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo.
 
@@ -84,7 +84,7 @@ Para redefinir o adaptador de rede, siga estas etapas:
 4.  Selecione **Endereços IP**.
 5.  Se a **Atribuição de IP privado** não for **Estática**, altere-a para **Estática**.
 6.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
-7.  Clique em **Salvar**.
+7.  Selecione **Salvar**.
 8.  A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
 9.  Tente executar o RDP no computador. Se for bem-sucedido, você poderá optar por reverter o Endereço IP privado para o original.  
 
@@ -109,7 +109,7 @@ Para redefinir o adaptador de rede, siga estas etapas:
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
     
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    Get-AzureVM -ResourceGroupName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
 3. Tente executar o RDP no computador. Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
 
@@ -120,7 +120,7 @@ Depois que você conseguir conectar a área de trabalho remota ao computador, de
 2.  Selecione **Exibir** > **Mostrar dispositivos ocultos**.
 3.  Selecione **Adaptadores de Rede**. 
 4.  Verifique os adaptadores nomeados como “Adaptador de Rede do Microsoft Hyper-V”.
-5.  Talvez você veja um adaptador não disponível que está esmaecido. Clique com o botão direito do mouse no adaptador e, em seguida, selecione Desinstalar.
+5.  Você pode ver um adaptador indisponível que está esmaecido. Clique com o botão direito do mouse no adaptador e selecione Desinstalar.
 
     ![a imagem da NIC](media/reset-network-interface/nicpage.png)
 

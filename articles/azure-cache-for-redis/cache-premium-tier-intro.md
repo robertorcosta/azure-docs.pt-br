@@ -1,25 +1,17 @@
 ---
-title: Introdução à camada Premium do Cache do Azure para Redis| Microsoft Docs
+title: Introdução à camada Premium do Cache do Azure para Redis
 description: Saiba como criar e gerenciar a Persistência do Redis, clustering do Redis e o suporte VNET para as instâncias da camada Premium do Cache do Azure para Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aadcc13d2397f10ea40f06d1259c86b9a179c38b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786071"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121659"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introdução à camada Premium do Cache do Azure para Redis
 O Cache do Azure para Redis é um cache distribuído e gerenciado que ajuda você a criar aplicativos altamente escalonáveis e responsivos, fornecendo acesso extremamente rápido aos seus dados. 
@@ -59,13 +51,13 @@ A exportação permite exportar os dados armazenados no Cache do Azure para Redi
 
 Para obter mais informações, consulte [Como importar dados e exportar dados do Cache do Azure para Redis](cache-how-to-import-export-data.md).
 
-## <a name="reboot"></a>Reboot
+## <a name="reboot"></a>Reinicializar
 A camada premium permite a reinicialização de um ou mais nós de seu cache sob demanda. Isso permite que você teste seu aplicativo para garantir a resiliência em caso de falhas. Você pode reinicializar os seguintes nós.
 
 * Nó mestre do cache
-* Nó secundário do cache
+* Nó secundário do seu cache
 * Nós primários e secundários do cache
-* Ao usar um cache premium com clustering, você pode reinicializar o primário, secundário ou ambos os nós para fragmentos individuais no cache
+* Ao usar um cache Premium com clustering, você pode reinicializar os nós primário, secundário ou ambos para fragmentos individuais no cache
 
 Para obter mais informações, consulte [Reinicializar](cache-administration.md#reboot) e [Perguntas frequentes sobre reinicialização](cache-administration.md#reboot-faq).
 
@@ -80,7 +72,7 @@ O recurso de atualizações agendadas permite designar uma janela de manutençã
 Para obter mais informações, consulte [Agendar atualizações](cache-administration.md#schedule-updates) e [Perguntas frequentes sobre agendamento de atualizações](cache-administration.md#schedule-updates-faq).
 
 > [!NOTE]
-> Apenas as atualizações do servidor Redis são realizadas durante a janela de manutenção agendada. A janela de manutenção se aplica a atualizações do Azure ou do sistema operacional da VM.
+> Apenas as atualizações do servidor Redis são realizadas durante a janela de manutenção programada. A janela de manutenção se aplica a atualizações do Azure ou do sistema operacional da VM.
 > 
 > 
 

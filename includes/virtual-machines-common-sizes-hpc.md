@@ -8,47 +8,62 @@ ms.topic: include
 ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
-ms.openlocfilehash: c0383fd2ca348cd69f07ed61a7935e4fec7999b9
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 489ac7fa37c10a27de971151f0be35c647d2186f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538022"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116594"
 ---
-Série H máquinas virtuais (VMs) são projetadas para oferecer desempenho de classe de liderança, escalabilidade MPI e economia para uma variedade de cargas de trabalho HPC reais.
+As VMs (máquinas virtuais) otimizadas para HPC do Azure foram projetadas para fornecer desempenho de nível de liderança, escalabilidade MPI e eficiência de custo para uma variedade de aplicativos do mundo real.
+ 
+## <a name="infiniband-networking-for-large-scale-hpc"></a>Rede InfiniBand para HPC de grande escala
+As VMs HBv2 apresentam 200 GB/s Mellanox HDR InfiniBand, enquanto as VMs HB e HC apresentam 100 GB/s Mellanox EDR InfiniBand. Cada um desses tipos de VM é conectado em uma árvore Fat sem bloqueio para desempenho de RDMA otimizado e consistente.
 
-As VMs de série HB são otimizadas para aplicativos orientados por largura de banda de memória, tais como dinâmica de fluidos, análise explícita de elementos limitados e modelagem de clima. As VMs HB contam com 60 núcleos do processador AMD EPYC 7551, 4 GB de RAM por núcleo de CPU e nenhum hyperthreading. A plataforma AMD EPYC oferece mais de 260 GB/s de largura de banda de memória.
+As VMs HBv2 dão suporte ao roteamento adaptável e ao transporte conectado dinâmico (DCT, em outros transportes Standard RC e UD). Esses recursos aprimoram o desempenho, a escalabilidade e a consistência do aplicativo e o uso deles é altamente recomendável.  
 
-As VMs da série HC são otimizadas para aplicativos orientados pela computação densa, como análise de elemento finito implícita, molecular dynamics e química computacional. As VMs HC contam com 44 núcleos do processador Intel Xeon Platinum 8168, 8 GB de RAM por núcleo de CPU e nenhum hyperthreading. A plataforma Intel Xeon Platinum dá suporte a rico ecossistema de ferramentas de software, como o Intel Math Kernel Library da Intel.
+As VMs HBv2, HB e HC dão suporte a drivers Mellanox/OFED padrão. Assim, todos os verbos RDMA e tipos MPI têm suporte. Cada um desses tipos de VM também dá suporte ao descarregamento baseado em hardware de MPI coletivas para aumentar o desempenho do aplicativo.
+ 
+As VMs da série H original apresentam 56 GB/s Mellanox FDR InfiniBand. Para aproveitar a interface InfiniBand na série H, os clientes devem implantar usando imagens oficialmente suportadas específicas para esse tipo de VM do Azure Marketplace. 
 
-100 Gb/s de recurso HB e VMs HC Mellanox EDR InfiniBand em uma fat sem bloqueio de configuração para um desempenho consistente RDMA árvore. HB e HC VMs oferece suporte a drivers de Mellanox/OFED padrão, de modo que todos os tipos MPI e versões, bem como verbos RDMA, também têm suporte.
 
-VMs da série H são otimizadas para aplicativos orientados pela alta frequências de CPU ou memória grande por requisitos básicos. Série H VMs recurso 8 ou 16 2667 do Intel Xeon E5 v3 processador núcleos, 7 ou 14 GB de RAM por núcleo da CPU e nenhum hyperthreading. Recursos de série H 56 Gb/s Mellanox FDR InfiniBand em uma fat sem bloqueio de configuração para um desempenho consistente RDMA árvore. Suportam a VMs da série H Intel MPI 5.x e MS-MPI.
+## <a name="hbv2-series"></a>Série HBv2
+As VMs da série HBv2 são otimizadas para aplicativos orientados por largura de banda de memória, como dinâmica de fluidos, análise de elemento finito e simulação de reservatório. HBv2 VMs Feature 120 AMD EPYC 7742 núcleos de processador, 4 GB de RAM por núcleo de CPU e nenhum multithread simultâneo. Cada VM HBv2 fornece até 340 GB/s de largura de banda de memória e até 4 teraFLOPS de computação FP64. 
+
+Armazenamento Premium: com suporte
+
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GB) | Discos de dados máximos | Máximo de NICs Ethernet |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_HB120rs | 120 | AMD EPYC 7742 | 480 | 350 | 2.45 | 2.45 | 3.4 | 200 | Todos | 480 + 960 | 8 | 1 |
+
+<br>
 
 ## <a name="hb-series"></a>Série HB
+As VMs de série HB são otimizadas para aplicativos orientados por largura de banda de memória, tais como dinâmica de fluidos, análise explícita de elementos limitados e modelagem de clima. HB VMs Feature 60 AMD EPYC 7551 núcleos de processador, 4 GB de RAM por núcleo de CPU e nenhum multithread simultâneo. Uma VM HB fornece até 260 GB/s de largura de banda de memória.  
 
 ACU: 199-216
 
-Armazenamento Premium: Com suporte
+Armazenamento Premium: com suporte
 
-Cache de Armazenamento Premium: Com suporte
+Cache de Armazenamento Premium: com suporte
 
-| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de base da CPU (GHz) | Frequência de todos os núcleos (GHz, horário de pico) | Frequência de núcleo único (GHz, horário de pico) | Desempenho de RDMA (Gb/s) | Suporte do MPI | Armazenamento temporário (GB) | Discos de dados máximos | Placas de rede Ethernet máx |
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GB) | Discos de dados máximos | Máximo de NICs Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2,0 | 2.55 | 2.55 | 100 | Todos | 700 | 4 | 1 |
 
 <br>
 
 ## <a name="hc-series"></a>Série HC
+As VMs da série HC são otimizadas para aplicativos orientados por computação densa, como análise implícita de elemento finito, Molecular Dynamics e química computacional. As VMs HC contam com 44 núcleos do processador Intel Xeon Platinum 8168, 8 GB de RAM por núcleo de CPU e nenhum hyperthreading. A plataforma Intel Xeon Platinum dá suporte ao ecossistema avançado da Intel de ferramentas de software, como a Intel Math Kernel Library. 
 
 ACU: 297-315
 
-Armazenamento Premium: Com suporte
+Armazenamento Premium: com suporte
 
-Cache de Armazenamento Premium: Com suporte
+Cache de Armazenamento Premium: com suporte
 
 
-| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de base da CPU (GHz) | Frequência de todos os núcleos (GHz, horário de pico) | Frequência de núcleo único (GHz, horário de pico) | Desempenho de RDMA (Gb/s) | Suporte do MPI | Armazenamento temporário (GB) | Discos de dados máximos | Placas de rede Ethernet máx |
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GB) | Discos de dados máximos | Máximo de NICs Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Todos | 700 | 4 | 1 |
 
@@ -56,14 +71,15 @@ Cache de Armazenamento Premium: Com suporte
 <br>
 
 ## <a name="h-series"></a>Série H
+As VMs da série H são otimizadas para aplicativos orientados por altas frequências de CPU ou grandes requisitos de memória por núcleo. As VMs da série H apresentam 8 ou 16 núcleos de processador Intel Xeon E5 2667 v3, até 14 GB de RAM por núcleo de CPU e sem hyperthreading. Uma VM da série H fornece até 80 GB/s de largura de banda de memória.
 
 ACU: 290-300
 
-Armazenamento Premium:  Sem suporte
+Armazenamento Premium: sem suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de Armazenamento Premium: sem suporte
 
-| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de base da CPU (GHz) | Frequência de todos os núcleos (GHz, horário de pico) | Frequência de núcleo único (GHz, horário de pico) | Desempenho de RDMA (Gb/s) | Suporte do MPI | Armazenamento temporário (GB) | Discos de dados máximos | Placas de rede Ethernet máx |
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GB) | Discos de dados máximos | Máximo de NICs Ethernet |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 | 8 | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
 | Standard_H16 | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 |  - | Intel 5.x, MS-MPI | 2000 | 64 | 4 |

@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com habilidades
+title: Conceitos e fluxo de trabalho do Skills
 titleSuffix: Azure Cognitive Search
 description: Habilidades são onde você cria um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva. Aprenda conceitos e detalhes importantes sobre a composição do contorno de habilidades.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890157"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113651"
 ---
-# <a name="working-with-skillsets-in-azure-cognitive-search"></a>Trabalhando com habilidades no Azure Pesquisa Cognitiva
+# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceitos e composição do Skills no Azure Pesquisa Cognitiva
 
 Este artigo é para os desenvolvedores que precisam de uma compreensão mais profunda de como o pipeline de enriquecimento funciona e pressupõe que você tenha um entendimento conceitual do processo de enriquecimento de ia. Se você for novo neste conceito, comece com:
 + [Enriquecimento de ia no Azure Pesquisa Cognitiva](cognitive-search-concept-intro.md)

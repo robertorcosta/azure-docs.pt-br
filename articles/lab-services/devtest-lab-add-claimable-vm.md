@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: fdffa3862f45b99c2c3f2ed41934e09247808ca7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ad10a1763b4882aa3bb6aec7447f57ebaf07369
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311741"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123706"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerenciar VMs requisitáveis no Azure DevTest Labs
 Você adiciona uma VM declarável a um laboratório de maneira semelhante a como [adiciona uma VM padrão](devtest-lab-add-vm.md) – de uma *base* que é uma [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica como usar o Portal do Azure para adicionar uma VM requisitável a um laboratório no DevTest Labs e mostra o processo que um usuário segue para declarar a VM e cancelar sua declaração.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Etapas para adicionar uma VM declarável a um laboratório no Azure DevTest Labs
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** na seção **DEVOPS**. Se você selecionar * (estrela) próximo a **DevTest Labs** na seção **DEVOPS**. Essa ação adicionará **DevTest Labs** ao menu de navegação esquerdo para que você possa acessá-lo facilmente na próxima vez. Em seguida, será possível selecionar **DevTest Labs** no menu de navegação esquerdo.
 
     ![Todos os serviços - selecionar DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -42,7 +42,7 @@ Você adiciona uma VM declarável a um laboratório de maneira semelhante a como
         Você também pode salvar segredos no cofre de chaves primeiro e, em seguida, usá-lo ao criar uma VM no laboratório. Para obter mais informações, veja [Armazenar segredos em um cofre de chaves](devtest-lab-store-secrets-in-key-vault.md). Para usar uma senha armazenada em um cofre de chaves, selecione **Usar um segredo salvo** e especifique um valor de chave que corresponda ao seu segredo (senha).
     4. Na seção **Mais opções**, selecione **Alterar tamanho**. Selecione um dos itens predefinidos que especificam os núcleos do processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
     5. Selecione **Adicionar ou Remover Artefatos**. Selecione e configure os artefatos que você quer adicionar à imagem base.
-    **Observação:** Se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, veja a seção [Adicionar um artefato existente a uma VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
+    **Observação:** se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, veja a seção [Adicionar um artefato existente a uma VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
 2. Alterne para a guia **Configurações Avançadas** na parte superior e execute as seguintes ações:
     1. Para alterar a rede virtual na qual está a VM, selecione **Alterar VNet**.
     2. Para alterar a sub-rede, selecione **Alterar sub-rede**.
@@ -72,7 +72,7 @@ Um usuário pode declarar qualquer VM na lista de “Máquinas virtuais declará
   ![Solicite uma VM declarável.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-Depois que um usuário declara uma VM, ela é movida para cima em sua lista de “Minhas máquinas virtuais” e não é mais declarável por nenhum outro usuário.
+Depois que um usuário alegar uma VM, o DevTest Labs iniciará o computador e o moverá para a lista de "minhas máquinas virtuais" do usuário do laboratório. Isso significa que o usuário do laboratório agora terá o proprietário privilegdes neste mahcine. O tempo necessário para esta etapa pode variar dependendo dos horários de inicialização, bem como quaisquer outras ações personalizadas sendo executadas durante o evento de declaração. Depois de reivindicado, o computador não está mais disponível no pool de declaração.  
 
 ## <a name="unclaim-a-vm"></a>Cancelar a declaração de uma VM
 
@@ -86,7 +86,7 @@ Quando um usuário termina de usar uma VM declarada e deseja disponibilizá-la p
 
   ![Cancele a declaração de uma VM no painel de gerenciamento da VM.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-Quando um usuário cancela a declaração de uma VM, ele não tem mais nenhuma permissão para essa VM de laboratório específica.
+Quando um usuário não alega uma VM, ele não tem mais permissões de proprietário para essa VM de laboratório específica e está disponível para ser reivindicado por qualquer outro usuário de laboratório no estado em que foi retured ao pool. 
 
 ### <a name="transferring-the-data-disk"></a>Transferindo o disco de dados
 Se uma VM requisitável tiver um disco de dados anexado a ela e um usuário cancelar a sua requisição, o disco de dados permanecerá com a VM. Quando outro usuário, então, requisitar essa VM, esse novo usuário requisitará o disco de dados assim como a VM.

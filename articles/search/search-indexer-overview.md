@@ -1,5 +1,5 @@
 ---
-title: Indexadores para rastreamento de fontes de dados durante a indexação
+title: Indexadores para rastreamento de dados durante a importação
 titleSuffix: Azure Cognitive Search
 description: Rastreie o banco de dados SQL do Azure, o Azure Cosmos DB ou o armazenamento do Azure para extrair e popular um índice de Pesquisa Cognitiva do Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5e5d43909dc0e65c12c053515ba534ce5cfa121f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1fd667e14501355f2567712d13b10dd7fbc7ee19
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793656"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112698"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores no Azure Pesquisa Cognitiva
 
@@ -35,7 +35,7 @@ Você pode criar e gerenciar indexadores usando estas abordagens:
 
 Inicialmente, um novo indexador é anunciado como uma versão prévia do recurso. As versões prévias do recurso são introduzidas em APIs (REST e .NET) e então integradas ao portal após a graduação para a disponibilidade geral. Se você estiver avaliando um novo indexador, deverá planejar escrever código.
 
-## <a name="permissions"></a>Permissões
+## <a name="permissions"></a>permissões
 
 Todas as operações relacionadas a indexadores, incluindo solicitações GET para status ou definições, exigem uma [chave de API de administração](search-security-api-keys.md). 
 
@@ -123,7 +123,7 @@ A resposta contém o status geral do indexador, a última invocação (ou em and
 
 O histórico de execução contém até as 50 execuções mais recentes, que são classificadas em ordem cronológica inversa (de modo que a execução mais recente fique em primeiro lugar).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Agora que você tem as noções básicas, a próxima etapa é examinar os requisitos e as tarefas específicas para cada tipo de fonte de dados.
 
 * [Banco de Dados SQL do Azure ou SQL Server em uma máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 881c41ea7a28e64d2840f4a92bd64fab5dbd12ba
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 267177dcdec25b8561b219ae79e40ce61af994df
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961519"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123835"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para a recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -73,7 +73,7 @@ Esta tabela resume o suporte para a conta de armazenamento em cache usada pelo S
 --- | --- | ---
 Contas de armazenamento do uso geral V2 (quente e a camada fria) | Suportado | O uso de GPv2 não é recomendado porque os custos de transação para v2 são consideravelmente maiores que as contas de armazenamento v1.
 Armazenamento Premium | Sem suporte | As contas de armazenamento standard são usadas para o armazenamento em cache, para ajudar a otimizar os custos.
-Firewalls de Armazenamento do Azure para redes virtuais  | Suportado | Caso esteja usando a conta de armazenamento de destino ou a conta de armazenamento de cache habilitada para firewall, escolha ['Permitir serviços confiáveis da Microsoft'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Firewalls de Armazenamento do Azure para redes virtuais  | Suportado | Caso esteja usando a conta de armazenamento de destino ou a conta de armazenamento de cache habilitada para firewall, escolha ['Permitir serviços confiáveis da Microsoft'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).<br></br>Além disso, certifique-se de permitir o acesso a pelo menos uma sub-rede da vnet de origem.
 
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas Operacionais Replicados de Máquinas

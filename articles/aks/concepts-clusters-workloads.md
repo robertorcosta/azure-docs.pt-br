@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: da84f72c1ccf85e1f3d0f003a5aca961118c0a0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472887"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120633"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
 À medida que o desenvolvimento de aplicativos se move para uma abordagem baseada em contêiner, a necessidade de orquestrar e gerenciar recursos é importante. O Kubernetes é a plataforma líder que fornece a capacidade de fornecer agendamento confiável de cargas de trabalho de aplicativos tolerantes a falhas. O Azure Kubernetes Service (AKS) é uma oferta gerenciada da Kubernetes que simplifica ainda mais a implantação e o gerenciamento de aplicativos baseados em contêiner.
 
-Este artigo apresenta os principais componentes da infraestrutura do Kubernetes, como os *conjuntos mestre de clusters*, *nós* e *conjuntos de nós*. Recursos de carga de trabalho, como *pods*, *implantações* e *conjuntos*, também são apresentados, além de como agrupar recursos em *namespaces*.
+Este artigo apresenta os principais componentes da infraestrutura kubernetes, como o *plano de controle*, *nós*e *pools de nós*. Recursos de carga de trabalho, como *pods*, *implantações* e *conjuntos*, também são apresentados, além de como agrupar recursos em *namespaces*.
 
 ## <a name="what-is-kubernetes"></a>O que é Kubernetes?
 
@@ -28,43 +28,43 @@ Você pode criar e executar aplicativos modernos, portáteis e baseados em micro
 
 Como uma plataforma aberta, o Kubernetes permite que você construa seus aplicativos com sua linguagem de programação, sistema operacional, bibliotecas ou barramento de mensagens preferido. As ferramentas existentes de integração contínua e entrega contínua (CI/CD) podem ser integradas ao Kubernetes para agendar e implantar versões.
 
-O Serviço de Kubernetes do Azure (AKS) fornece um serviço de Kubernetes gerenciado que reduz a complexidade das tarefas de implantação e gerenciamento principal, incluindo a coordenação de atualizações. Os mestres de cluster do AKS são gerenciados pela plataforma do Azure e você paga apenas pelos nós do AKS que executam seus aplicativos. O AKS é criado sobre o mecanismo de serviço de kubernetes do Azure de software livre ([AKs-Engine][aks-engine]).
+O Serviço de Kubernetes do Azure (AKS) fornece um serviço de Kubernetes gerenciado que reduz a complexidade das tarefas de implantação e gerenciamento principal, incluindo a coordenação de atualizações. O plano de controle AKS é gerenciado pela plataforma do Azure e você paga apenas pelos nós AKS que executam seus aplicativos. O AKS é criado sobre o mecanismo de serviço de kubernetes do Azure de software livre ([AKs-Engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Arquitetura de cluster do Kubernetes
 
 Um cluster Kubernetes é dividido em dois componentes:
 
-- *Nós do mestre de cluster* fornecem os serviços centrais do Kubernetes e a orquestração de cargas de trabalho de aplicativos.
+- Nós de *plano de controle* fornecem os principais serviços Kubernetess e a orquestração de cargas de trabalho de aplicativo.
 - *Nós* executar suas cargas de trabalho do aplicativo.
 
-![Componentes mestre e nó do cluster do Kubernetes](media/concepts-clusters-workloads/cluster-master-and-nodes.png)
+![Componentes de plano e nó de controle de kubernetes](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="cluster-master"></a>Mestre do cluster
+## <a name="control-plane"></a>Painel de controle
 
-Quando você cria um cluster AKS, um mestre de cluster é criado e configurado automaticamente. Esse mestre de cluster é fornecido como um recurso gerenciado do Azure abstraído do usuário. Não há custo para o mestre de cluster, somente os nós que fazem parte do cluster AKS.
+Quando você cria um cluster AKS, um plano de controle é criado e configurado automaticamente. Este plano de controle é fornecido como um recurso gerenciado do Azure extraído do usuário. Não há custo para o plano de controle, somente os nós que fazem parte do cluster AKS.
 
-O mestre do cluster inclui os seguintes componentes principais do Kubernetes:
+O plano de controle inclui os seguintes componentes principais do kubernetes:
 
 - *kube-apiserver* -servidor a API é como as APIs do Kubernetes subjacentes são expostas. Esse componente fornece a interação para ferramentas de gerenciamento, tais como `kubectl` ou o painel do Kubernetes.
 - *etcd* - Para manter o estado do seu cluster e configuração do Kubernetes, o altamente disponível *etcd* é um armazenamento de valores chave dentro do Kubernetes.
 - *kube-scheduler* - Quando você cria ou dimensiona aplicativos, o Scheduler determina quais nós podem executar a carga de trabalho e iniciá-los.
 - *Gerenciador do controlador de kube* -o Gerenciador do controlador supervisiona um número de controladores de menores do que executar ações como replicar pods e lidar com operações de nó.
 
-O AKS fornece um mestre de cluster de locatário único, com um servidor de API dedicado, o Agendador, etc. Você define o número e o tamanho dos nós e a plataforma Azure configura a comunicação segura entre o mestre de cluster e os nós. A interação com o mestre do cluster ocorre por meio das APIs do Kubernetes, como `kubectl` ou o painel do Kubernetes.
+O AKS fornece um plano de controle de locatário único, com um servidor de API dedicado, um Agendador, etc. Você define o número e o tamanho dos nós e a plataforma Azure configura a comunicação segura entre o plano de controle e os nós. A interação com o plano de controle ocorre por meio de APIs kubernetes, como `kubectl` ou o painel kubernetes.
 
-Esse mestre de cluster gerenciado significa que você não precisa configurar componentes como um repositório *etcd* altamente disponível, mas também significa que você não pode acessar o mestre de cluster diretamente. Os upgrades para o Kubernetes são orquestrados por meio do CLI do Azure ou do portal do Azure, que atualiza o mestre do cluster e, em seguida, os nós. Para solucionar possíveis problemas, você pode examinar os logs de mestre do cluster por meio do Logs do Azure Monitor.
+Esse plano de controle gerenciado significa que você não precisa configurar componentes como um repositório *etcd* altamente disponível, mas também significa que você não pode acessar o plano de controle diretamente. Atualizações para kubernetes são orquestradas por meio do CLI do Azure ou portal do Azure, que atualiza o plano de controle e, em seguida, os nós. Para solucionar possíveis problemas, você pode examinar os logs do plano de controle por meio de logs de Azure Monitor.
 
-Se precisar configurar o mestre de cluster de forma específica ou precisar de acesso direto a eles, você poderá implantar seu próprio cluster kubernetes usando o [AKs-Engine][aks-engine].
+Se precisar configurar o plano de controle de forma específica ou precisar de acesso direto a ele, você poderá implantar seu próprio cluster kubernetes usando o [AKs-Engine][aks-engine].
 
 Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para segurança e atualizações de cluster no AKs][operator-best-practices-cluster-security].
 
 ## <a name="nodes-and-node-pools"></a>Nós e pools de nós
 
-Para executar seus aplicativos e serviços de suporte, é necessário um Kubernetes *nó*. Um cluster AKS tem um ou mais nós, que é uma máquina virtual (VM) do Azure que executa os componentes do nó e o tempo de execução do contêiner do Kubernetes:
+Para executar seus aplicativos e serviços de suporte, é necessário um Kubernetes *nó*. Um cluster AKS tem um ou mais nós, que é uma máquina virtual (VM) do Azure que executa os componentes do nó e o runtime do contêiner do Kubernetes:
 
-- O `kubelet` é o agente do Kubernetes que processa as solicitações de orquestração do mestre do cluster e o agendamento da execução dos contêineres solicitados.
+- O `kubelet` é o agente kubernetes que processa as solicitações de orquestração do plano de controle e o agendamento da execução dos contêineres solicitados.
 - A rede virtual é tratada pelos *kube-proxy* em cada nó. As rotas de proxy o tráfego de rede e gerencia o endereçamento IP para os serviços e os pods.
-- O *tempo de execução do contêiner* é o componente que permite que aplicativos em contêiner sejam executados e interajam com recursos adicionais, como a rede virtual e o armazenamento. Em AKS, Moby é usado como o tempo de execução do contêiner.
+- O *runtime do contêiner* é o componente que permite que aplicativos em contêiner sejam executados e interajam com recursos adicionais, como a rede virtual e o armazenamento. Em AKS, Moby é usado como o tempo de execução do contêiner.
 
 ![Máquina virtual do Azure e recursos de suporte para um nó do Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -87,7 +87,7 @@ kubectl describe node [NODE_NAME]
 Para manter o desempenho e a funcionalidade do nó, os recursos são reservados em cada nó por AKS. À medida que um nó cresce mais em recursos, a reserva de recursos aumenta devido a uma quantidade maior de pods implantados pelo usuário que precisam de gerenciamento.
 
 >[!NOTE]
-> O uso de Complementos, como OMS, consumirá recursos de nó adicionais.
+> O uso de Complementos do AKS, como o OMS (insights de contêiner), consumirá recursos de nó adicionais.
 
 - A CPU reservada para **CPU** depende do tipo de nó e da configuração de cluster, o que pode causar menos inlocalizável de CPU devido à execução de recursos adicionais
 
@@ -95,16 +95,24 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
 |---|---|---|---|---|---|---|---|
 |Kube-reservado (milicores)|60|100|140|180|260|420|740|
 
-- A reserva de **memória** da memória segue uma taxa progressiva
-  - 25% dos primeiros 4 GB de memória
-  - 20% dos próximos 4 GB de memória (até 8 GB)
-  - 10% dos próximos 8 GB de memória (até 16 GB)
-  - 6% dos próximos 112 GB de memória (até 128 GB)
-  - 2% de qualquer memória acima de 128 GB
+- A memória reservada para **memória** inclui a soma de dois valores
 
-Essas reservas significam que a quantidade de CPU e memória disponíveis para seus aplicativos pode parecer menor do que o próprio nó contém. Se houver restrições de recursos devido ao número de aplicativos que você executa, essas reservas garantem que a CPU e a memória permaneçam disponíveis para os componentes principais do Kubernetes. As reservas de recursos não podem ser alteradas.
+1. O daemon do kubelet é instalado em todos os nós de agente do kubernetes para gerenciar a criação e o encerramento do contêiner. Por padrão, em AKS, esse daemon tem a seguinte regra de remoção: memória. disponível < 750Mi, o que significa que um nó sempre deve ter pelo menos 750 de a $ locais de mi.  Quando um host está abaixo desse limite de memória disponível, o kubelet encerrará um dos pods em execução para liberar memória no computador host e protegê-lo.
 
-O SO do nó subjacente também requer uma certa quantidade de recursos de CPU e memória para concluir suas próprias funções principais.
+2. O segundo valor é uma taxa progressiva de memória reservada para o daemon kubelet funcionar adequadamente (Kube).
+    - 25% dos primeiros 4 GB de memória
+    - 20% dos próximos 4 GB de memória (até 8 GB)
+    - 10% dos próximos 8 GB de memória (até 16 GB)
+    - 6% dos próximos 112 GB de memória (até 128 GB)
+    - 2% de qualquer memória acima de 128 GB
+
+Como resultado dessas duas regras definidas impostas para manter os nós kubernetes e Agent íntegros, a quantidade de CPU e memória de allocáveis aparecerá menos do que o nó em si pode oferecer. As reservas de recursos definidas acima não podem ser alteradas.
+
+Por exemplo, se um nó oferecer 7 GB, ele relatará 34% de memória não alocável:
+
+`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+
+Além das reservas para kubernetes, o sistema operacional de nó subjacente também reserva uma quantidade de recursos de CPU e memória para manter as funções do sistema operacional.
 
 Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para recursos básicos do Agendador no AKs][operator-best-practices-scheduler].
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: conectar a um aplicativo de comandos personalizados com o SDK de fala (versão prévia)'
+title: 'Início rápido: conectar a um aplicativo de comandos personalizados com o SDK de fala-serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você criará um aplicativo cliente do SDK de fala com comandos personalizados.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 5f395d37e0133a081a6fcb2e03821a97e4012316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 890d2200a8047bc12c99eed97277e11776806def
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507490"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111164"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Início rápido: conectar a um aplicativo de comandos personalizados com o SDK de fala (versão prévia)
 
@@ -26,7 +26,7 @@ Neste artigo, você vai:
 - Publicar um aplicativo de comandos personalizados e obter um identificador de aplicativo (ID do aplicativo)
 - Criar um aplicativo cliente usando o SDK de fala para permitir que você se comunique com seu aplicativo de comandos personalizados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Um aplicativo de comandos personalizados é necessário para concluir este artigo. Se você ainda não criou um aplicativo de comandos personalizados, poderá fazer isso nestes guias de início rápido anteriores:
 
@@ -46,7 +46,7 @@ Este guia de início rápido descreve, passo a passo, como fazer com que um apli
 
 1. Abra o [aplicativo de comandos personalizados criado anteriormente](./quickstart-custom-speech-commands-create-new.md) e selecione **publicar**
 
-   > [!div class="mx-imgBorder"]
+   > [!div class="mx-imgBorder"] 
    > ](media/custom-speech-commands/fulfill-sdk-publish-application.png) ![publicar aplicativo
 
 1. Copiar a ID do aplicativo da notificação de publicação para uso posterior
@@ -65,7 +65,7 @@ Crie a interface do usuário do aplicativo adicionando o código XAML.
 
 1. Em **Gerenciador de soluções**, abra `MainPage.xaml`
 
-1. Na exibição XAML do designer, substitua todo o conteúdo pelo seguinte trecho de código:
+1. Na exibição XAML do designer, substitua todo o conteúdo pelo seguinte snippet de código:
 
    ```xml
    <Page
@@ -114,9 +114,9 @@ Crie a interface do usuário do aplicativo adicionando o código XAML.
 
 O modo de exibição de Design é atualizado para mostrar a interface do usuário do aplicativo.
 
-### <a name="c-code-behind-source"></a>C#origem code-behind
+### <a name="c-code-behind-source"></a>Origem code-behind em C#
 
-Adicione a fonte code-behind para que o aplicativo funcione conforme o esperado. A fonte code-behind inclui:
+Adicione a fonte code-behind para que o aplicativo funcione conforme o esperado. A origem code-behind inclui:
 
 - Instruções `using` necessárias para os namespaces de `Speech` e `Speech.Dialog`
 - Uma implementação simples para garantir o acesso ao microfone, conectado a um manipulador de botão
@@ -320,7 +320,7 @@ Adicione a fonte code-behind da seguinte maneira:
 
    ```csharp
    //
-   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities,
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
@@ -377,7 +377,7 @@ Adicione a fonte code-behind da seguinte maneira:
 1. Adicione o seguinte trecho de código ao corpo do método `ListenButton_ButtonClicked` na classe `MainPage`
 
    ```csharp
-   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
    // registered the event handlers.
    if (connector == null)
    {
@@ -402,20 +402,20 @@ Adicione a fonte code-behind da seguinte maneira:
 
 ## <a name="build-and-run-the-application"></a>Compile e execute o aplicativo
 
-1. Na barra de menus, escolha **compilar** > **Compilar solução** para compilar o aplicativo. O código deve compilar sem erros.
+1. Na barra de menus, escolha **Compilar** > **Compilar Solução** para compilar o aplicativo. O código deve compilar sem erros.
 
-1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo. A janela **HelloWorld** é exibida.
+1. Escolha **Depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo. A janela **helloworld** é exibida.
 
-   ![Aplicativo de assistente virtual UWP de C# exemplo em-início rápido](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Exemplo de aplicativo de assistente virtual UWP em C# – Início rápido](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. Selecione **habilitar microfone**. Se a solicitação de permissão de acesso for exibida, selecione **Sim**.
+1. Selecione **Habilitar Microfone**. Se a solicitação de permissão de acesso for exibida, selecione **Sim**.
 
    ![Solicitação de permissão de acesso ao microfone](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
 1. Selecione **falar**e fale uma frase ou sentença em inglês no microfone do seu dispositivo. Sua fala será transmitida para o canal de Fala do Direct Line e transcrita em texto, que será exibida na janela.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 > [!div class="nextstepaction"]
 > [Como: preencher comandos no cliente com o SDK de fala (versão prévia)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [como: Adicionar validações a parâmetros de comando personalizados (versão prévia)](./how-to-custom-speech-commands-validations.md)
-

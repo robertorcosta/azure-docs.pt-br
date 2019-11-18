@@ -1,30 +1,22 @@
 ---
 title: Como configurar a persistência de dados de um Cache Redis do Azure Premium
 description: Saiba como configurar e gerenciar a persistência de dados para as instâncias da camada Premium do Cache Redis do Azure
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: yegu
-ms.openlocfilehash: de0b2e3ef7b0268540ef4896ade132a297ee88ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b74a16735b44d081a79b17716bdbc72357a36013
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543291"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122730"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados de um Cache Redis do Azure Premium
 O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos da camada Premium como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar a persistência em uma instância Premium do Cache Redis do Azure.
 
-Para saber mais sobre outros recursos Premium de cache, consulte [Introdução à camada Premium do Cache Redis do Azure](cache-premium-tier-intro.md).
+Para obter informações sobre outros recursos de Cache Premium, consulte [Introdução à camada Premium do Cache do Azure para Redis](cache-premium-tier-intro.md).
 
 ## <a name="what-is-data-persistence"></a>O que é a persistência de dados?
 A [persistência do Redis](https://redis.io/topics/persistence) permite persistir os dados armazenados no Redis. Você também pode tirar instantâneos e fazer backup dos dados, que podem ser carregados em caso de falha de hardware. Essa é uma enorme vantagem em relação às camadas Básica ou Standard, em que todos os dados são armazenados na memória e pode haver uma possível perda de dados em caso de falha quando os nós do Cache estiverem inativos. 
@@ -129,7 +121,7 @@ Para saber mais sobre o desempenho ao usar a persistência de AOF, veja [A persi
 Para a persistência de RDB e AOF:
 
 * Se você tiver dimensionado para um tamanho maior, não haverá nenhum impacto.
-* Se você tiver dimensionado para um tamanho menor e tem uma configuração personalizada dos [bancos de dados](cache-configure.md#databases) maior que o [limite dos bancos de dados](cache-configure.md#databases) para o novo tamanho, os dados nesses bancos de dados não serão restaurados. Para obter mais informações, consulte [A configuração dos meus bancos de dados personalizados é afetada durante o dimensionamento?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
+* Se você tiver dimensionado para um tamanho menor e tem uma configuração personalizada dos [bancos de dados](cache-configure.md#databases) maior que o [limite dos bancos de dados](cache-configure.md#databases) para o novo tamanho, os dados nesses bancos de dados não serão restaurados. Para obter mais informações, consulte [A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * Se você tiver dimensionado para um tamanho menor e não houver espaço suficiente no menor tamanho para conter todos os dados do último backup, as chaves serão removidas durante o processo de restauração, normalmente usando a política de remoção [allkeys-lru](https://redis.io/topics/lru-cache) .
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Posso alterar a frequência de backup de RDB depois de criar o cache?

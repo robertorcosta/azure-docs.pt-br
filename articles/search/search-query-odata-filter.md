@@ -1,7 +1,7 @@
 ---
 title: Referência de filtro OData
 titleSuffix: Azure Cognitive Search
-description: Referência de linguagem OData para a sintaxe de filtro em consultas de Pesquisa Cognitiva do Azure.
+description: Referência de linguagem OData e sintaxe completa usada para criar expressões de filtro em consultas de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ba1f5e8f2369d3222b3c31738e252a20b6de8906
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793367"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113205"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintaxe de $filter OData no Azure Pesquisa Cognitiva
 
@@ -194,7 +194,7 @@ Encontre Hotéis em que os termos "Hotel" e "aeroporto" não têm mais do que ci
 
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)

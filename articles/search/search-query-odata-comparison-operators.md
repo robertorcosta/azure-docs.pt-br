@@ -1,7 +1,7 @@
 ---
 title: Referência do operador de comparação de OData
 titleSuffix: Azure Cognitive Search
-description: Operadores de comparação OData, EQ, ne, gt, lt, GE e Le, no Azure Pesquisa Cognitiva consultas.
+description: Sintaxe e documentação de referência para usar operadores de comparação OData (EQ, ne, gt, lt, GE e Le) no Azure Pesquisa Cognitiva consultas.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 068e2ec822f0a292ac83b3e48049830eb77b49f6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793381"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113214"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData no Azure Pesquisa Cognitiva-`eq`, `ne`, `gt`, `lt`, `ge`e `le`
 
@@ -81,13 +81,13 @@ Os tipos de dados em ambos os lados de um operador de comparação devem ser com
 | --- | --- | --- |
 | `Edm.Double` | `Edm.Double` | A comparação está sujeita a [regras especiais para `NaN`](#special-case-nan) |
 | `Edm.Double` | `Edm.Int64` | A constante é convertida em `Edm.Double`, resultando em uma perda de precisão para valores de grande magnitude |
-| `Edm.Double` | `Edm.Int32` | N/D |
+| `Edm.Double` | `Edm.Int32` | n/d |
 | `Edm.Int64` | `Edm.Double` | Comparações com `NaN`, `-INF`ou `INF` não são permitidas |
-| `Edm.Int64` | `Edm.Int64` | N/D |
+| `Edm.Int64` | `Edm.Int64` | n/d |
 | `Edm.Int64` | `Edm.Int32` | A constante é convertida em `Edm.Int64` antes da comparação |
 | `Edm.Int32` | `Edm.Double` | Comparações com `NaN`, `-INF`ou `INF` não são permitidas |
-| `Edm.Int32` | `Edm.Int64` | N/D |
-| `Edm.Int32` | `Edm.Int32` | N/D |
+| `Edm.Int32` | `Edm.Int64` | n/d |
+| `Edm.Int32` | `Edm.Int32` | n/d |
 
 Para comparações que não são permitidas, como comparar um campo do tipo `Edm.Int64` como `NaN`, a API REST do Azure Pesquisa Cognitiva retornará um erro "HTTP 400: solicitação inválida".
 
@@ -100,7 +100,7 @@ Para comparações que não são permitidas, como comparar um campo do tipo `Edm
 
 Ao usar operadores de comparação, é importante lembrar que todos os campos que não são de coleção no Azure Pesquisa Cognitiva potencialmente podem ser `null`. A tabela a seguir mostra todos os resultados possíveis para uma expressão de comparação em que um dos lados pode ser `null`:
 
-| operador | Resultado quando apenas o campo ou variável é `null` | Resultado quando apenas a constante for `null` | Resultado quando o campo ou a variável e a constante são `null` |
+| Operador | Resultado quando apenas o campo ou variável é `null` | Resultado quando apenas a constante for `null` | Resultado quando o campo ou a variável e a constante são `null` |
 | --- | --- | --- | --- |
 | `gt` | `false` | HTTP 400: erro de solicitação inadequado | HTTP 400: erro de solicitação inadequado |
 | `lt` | `false` | HTTP 400: erro de solicitação inadequado | HTTP 400: erro de solicitação inadequado |
@@ -113,7 +113,7 @@ Em resumo, `null` é igual apenas a si mesmo e não é menor ou maior que qualqu
 
 Se o índice tiver campos do tipo `Edm.Double` e você carregar valores de `NaN` para esses campos, será necessário considerar isso ao gravar filtros. O Azure Pesquisa Cognitiva implementa o padrão IEEE 754 para lidar com valores de `NaN` e as comparações com esses valores produzem resultados não óbvios, conforme mostrado na tabela a seguir.
 
-| operador | Resultado quando pelo menos um operando for `NaN` |
+| Operador | Resultado quando pelo menos um operando for `NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |
@@ -154,7 +154,7 @@ Corresponder documentos para hotéis em que pelo menos uma sala tem o tipo "sala
 
     Rooms/any(room: room/Type eq 'Deluxe Room')
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)

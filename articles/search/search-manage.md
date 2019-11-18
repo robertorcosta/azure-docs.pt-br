@@ -1,5 +1,5 @@
 ---
-title: Administração de serviços para o Azure Pesquisa Cognitiva no portal
+title: Administração de serviço no portal
 titleSuffix: Azure Cognitive Search
 description: Gerenciar um serviço de Pesquisa Cognitiva do Azure, um serviço de pesquisa de nuvem hospedado no Microsoft Azure, usando o portal do Azure.
 manager: nitinme
@@ -9,17 +9,17 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793513"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113296"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviço do Azure Pesquisa Cognitiva no portal do Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
@@ -83,7 +83,7 @@ Caso contrário, o código do aplicativo usado para criar e popular um índice �
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>Escalar ou reduzir verticalmente
+## <a name="scale-up-or-down"></a>Expandir ou reduzir
 Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se você se inscreveu um [camada que fornece recursos dedicados](search-limits-quotas-capacity.md), clique no bloco **ESCALA** no painel de serviço para ajustar o uso de recursos.
 
 Quando você adiciona capacidade por meio de qualquer recurso, o serviço as utiliza automaticamente. Não será necessária nenhuma outra medida de sua parte, mas haverá um breve atraso antes que ocorra o impacto do novo serviço. Pode levar 15 minutos ou mais para provisionar recursos adicionais.
@@ -114,7 +114,7 @@ Para se planejar para o futuro, talvez você queira conferir o armazenamento (us
 
 <a id="next-steps"></a>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Depois de compreender os conceitos por trás de administração do serviço, considere o uso do [PowerShell](search-manage-powershell.md) para automatizar tarefas.
 
 Também é recomendável examinar o [artigo de desempenho e otimização](search-performance-optimization.md).

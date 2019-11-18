@@ -1,5 +1,5 @@
 ---
-title: Habilidade de pesquisa cognitiva de extração de documentos (versão prévia)
+title: Habilidade cognitiva de extração de documentos (visualização)
 titleSuffix: Azure Cognitive Search
 description: Extrai o conteúdo de um arquivo dentro do pipeline de enriquecimento. Esta habilidade está atualmente em visualização pública.
 manager: nitinme
@@ -8,17 +8,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a79b0476fccbd2e2b9d3cf47ecfdc99c17c2862d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720131"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113342"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de documentos
 
 > [!IMPORTANT] 
-> Esta habilidade está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. No momento, não há suporte para Portal ou SDK do .NET.
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de versão prévia. No momento, não há suporte para Portal ou SDK do .NET.
 
 A habilidade de **extração de documentos** extrai o conteúdo de um arquivo dentro do pipeline de enriquecimento. Isso permite que você aproveite a etapa de extração de documentos que normalmente ocorre antes da execução do Configurador de habilidades com arquivos que podem ser gerados por outras habilidades.
 
@@ -145,7 +145,7 @@ Esse objeto de referência de arquivo pode ser gerado de uma das três maneiras:
 }
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)

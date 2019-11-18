@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar um comando personalizado (versão prévia)'
+title: 'Início rápido: criar um comando personalizado (versão prévia) – serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você cria e testa um aplicativo de comandos personalizados hospedado.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: bfe871ce6f7cd2fbd6ada4b825e41ebdf5ac3f12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507556"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111374"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Início rápido: criar um comando personalizado (versão prévia)
 
 Neste artigo, você aprenderá a criar e testar um aplicativo de comandos personalizados hospedado.
 O aplicativo reconhecerá um expressão como "ligar a TV" e responderá com uma mensagem simples "Ok, ligando a TV".
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Uma assinatura de fala. [Experimente o serviço de fala gratuitamente](~/articles/cognitive-services/speech-service/get-started.md).
 
@@ -31,7 +31,7 @@ O aplicativo reconhecerá um expressão como "ligar a TV" e responderá com uma 
 
 - Uma chave de criação de [reconhecimento vocal](https://www.luis.ai/home) (Luis):
   1. Abra um navegador da Web e navegue até a [portal do Azure](https://portal.azure.com)
-  1. Selecione criar um recurso
+  1. Selecione Criar um recurso
   1. Procure e selecione [reconhecimento vocal](https://aka.ms/sc-luis-all)
   1. Selecione criação em opções de criação
   1. Depois que o recurso for implantado, vá para o recurso e copie a chave da seção início rápido ou chaves
@@ -58,7 +58,7 @@ O modo de exibição padrão é uma lista dos aplicativos de comandos personaliz
 1. Selecione **novo projeto** para criar um novo projeto
 
    > [!div class="mx-imgBorder"]
-   > ![criar novo projeto](media/custom-speech-commands/create-new-project.png)
+   > ![Criar projeto](media/custom-speech-commands/create-new-project.png)
 
 1. Insira o nome do projeto e o idioma e, em seguida, selecione **Avançar** para continuar
 1. Insira sua chave de criação do LUIS
@@ -81,7 +81,7 @@ Um comando é um conjunto de:
 | Agrupar            | DESCRIÇÃO                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Frases de exemplo | Exemplo declarações o usuário pode dizer para disparar esse comando                                                                 |
-| parâmetros       | Informações necessárias para concluir o comando                                                                                |
+| Parâmetros       | Informações necessárias para concluir o comando                                                                                |
 | Regras de conclusão | As ações a serem executadas para atender ao comando. Por exemplo, para responder ao usuário ou comunicar-se com outro serviço Web |
 | Regras avançadas   | Regras adicionais para lidar com situações mais específicas ou complexas                                                              |
 
@@ -105,7 +105,7 @@ Agora, adicione uma regra de conclusão para responder ao usuário indicando que
 | Configuração    | Valor sugerido                        | DESCRIÇÃO                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | Nome da Regra  | "ConfirmationResponse"                 | Um nome que descreve a finalidade da regra          |
-| Condições | Nenhum                                   | Condições que determinam quando a regra pode ser executada    |
+| Conditions | nenhum                                   | Condições que determinam quando a regra pode ser executada    |
 | Ações    | SpeechResponse "Ok, ligando a TV" | A ação a ser tomada quando a condição da regra for verdadeira |
 
 ## <a name="try-it-out"></a>Experimentar

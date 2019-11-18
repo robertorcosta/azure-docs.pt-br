@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7475d660fd2fa64ce69e7c23e0bad518fffddd26
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2b90d95d41bb30226d870a74a47327d6492bbd1e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681504"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122934"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
-O IR (tempo de execução de integração) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
+O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
 
 - **Fluxo de dados**: execute um [fluxo de dados](concepts-data-flow-overview.md) no ambiente de computação gerenciado do Azure.  
 - **Movimentação de dados**: copiar dados entre armazenamentos de dados em rede pública e armazenamentos de dados na rede privada (rede virtual privada ou local). Ele fornece suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados de alto desempenho e escalonáveis.
@@ -32,7 +32,7 @@ No Data Factory, uma atividade define a ação a ser realizada. Um serviço vinc
 ## <a name="integration-runtime-types"></a>Tipos de Integration Runtime
 O Data Factory oferece três tipos de Integration Runtime e você deve escolher o tipo que melhor atende as funcionalidades de integração de dados e as necessidades de ambiente de rede pelas quais você está procurando.  Esses três tipos são:
 
-- As tabelas
+- Azure
 - Auto-hospedado
 - Azure-SSIS
 
@@ -40,13 +40,13 @@ A tabela a seguir descreve as funcionalidades e o suporte de rede para cada um d
 
 Tipo de IR | Rede pública | Rede privada
 ------- | -------------- | ---------------
-As tabelas | Fluxo de Dados<br/>Movimentação de dados<br/>Expedição de atividade | &nbsp;
+Azure | Fluxo de Dados<br/>Movimentação de dados<br/>Expedição de atividade | &nbsp;
 Auto-hospedado | Movimentação de dados<br/>Expedição de atividade | Movimentação de dados<br/>Expedição de atividade
 Azure-SSIS | Execução de pacote SSIS | Execução de pacote SSIS
 
-O diagrama a seguir mostra como os diferentes tempos de execução de integração podem ser usados em combinação para oferecer funcionalidades de integração de dados e suporte de rede avançados:
+O diagrama a seguir mostra como os diferentes runtimes de integração podem ser usados em combinação para oferecer funcionalidades de integração de dados e suporte de rede avançados:
 
-![Tipos diferentes de tempos de execução de integração](media/concepts-integration-runtime/different-integration-runtimes.png)
+![Tipos diferentes de runtimes de integração](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Integration Runtime do Azure
 Um Integration Runtime do Azure é capaz de:
@@ -79,6 +79,9 @@ Um IR auto-hospedado é capaz de:
 > [!NOTE] 
 > Use o tempo de execução de integração auto-hospedado para dar suporte a armazenamentos de dados que exigem o seu próprio Driver, como SAP Hana, MySQL etc.  Para obter mais informações, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
+> [!NOTE] 
+> O Java Runtime Environment (JRE) é uma dependência do IR hospedado internamente. Certifique-se de que o JRE está instalado no mesmo host.
+
 ### <a name="self-hosted-ir-network-environment"></a>Ambiente de rede do IR auto-hospedado
 Se você deseja realizar a integração de dados com segurança em um ambiente de rede privada, que não tem uma linha de visão direta do ambiente de nuvem pública, você pode instalar um IR auto-hospedado no ambiente local por trás de seu firewall corporativo ou então em uma rede virtual privada.  O Integration Runtime auto-hospedado só faz conexões de saída com base em HTTP com a Internet aberta.
 
@@ -98,10 +101,10 @@ O IR do SSIS do Azure é um cluster totalmente gerenciado das VMs do Azure dedic
 
 Para saber mais, veja o artigo sobre como criar e configurar IR do Azure-SSIS, encontrado nos guias de instruções.  Depois de criado, você pode implantar e gerenciar seus pacotes SSIS existentes com pouca ou nenhuma alteração usando ferramentas familiares, como o SSDT (SQL Server Data Tools) e o SSMS (SQL Server Management Studio), assim como usando o SSIS localmente.
 
-Confira estes artigos para obter mais informações sobre o tempo de execução do Azure-SSIS: 
+Confira estes artigos para obter mais informações sobre o runtime do Azure-SSIS: 
 
 - [Tutorial: implantar pacotes do SSIS para o Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um IR do Azure-SSIS e usa um banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
-- [Como: Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do Banco de Dados SQL do Azure e unir o IR a uma rede virtual. 
+- [Como: Criar um runtime de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do Banco de Dados SQL do Azure e unir o IR a uma rede virtual. 
 - [Monitore um IR do Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como recuperar informações sobre um IR do Azure-SSIS e descrições de status nas informações retornadas. 
 - [Gerencie um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md). Este artigo mostra como parar, iniciar ou remover um IR do Azure-SSIS. Ele também mostra como expandir o IR do Azure-SSIS adicionando mais nós ao IR. 
 - [Unir um IR do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece informações conceituais sobre como unir um IR do Azure-SSIS a uma rede virtual do Azure. Ele também apresenta as etapas para usar o portal do Azure para configurar a rede virtual para que o IR do Azure-SSIS possa unir-se à rede virtual. 
@@ -152,13 +155,13 @@ O diagrama a seguir mostra as configurações de localização de Data Factory e
 
 Para a atividade de cópia, ela requer que serviços vinculados de origem e de coletor definam a direção do fluxo de dados. A lógica a seguir é usada para determinar qual instância do Integration Runtime é usada para realizar a cópia: 
 
-- **Copiando entre duas fontes de dados de nuvem**: quando os serviços vinculados de origem e o de coletor estiverem usando o IR do Azure, o ADF usará o IR do Azure regional, se especificado, ou determinará automaticamente um local do IR do Azure se você escolher a resolução automática do IR (padrão), conforme descrito na seção [Local de tempo de execução de integração](#integration-runtime-location).
+- **Copiando entre duas fontes de dados de nuvem**: quando os serviços vinculados de origem e o de coletor estiverem usando o IR do Azure, o ADF usará o IR do Azure regional, se especificado, ou determinará automaticamente um local do IR do Azure se você escolher a resolução automática do IR (padrão), conforme descrito na seção [Local de runtime de integração](#integration-runtime-location).
 - **Copiando entre uma fonte de dados de nuvem e uma fonte de dados na rede privada**: se o serviço vinculado de origem ou de coletor aponta para um IR auto-hospedado, a atividade de cópia é executada nesse Integration Runtime auto-hospedado.
-- **Copiando entre duas fontes de dados na rede privada**: o serviço vinculado de origem e o de coletor devem apontar para a mesma instância de tempo de execução de integração, e esse tempo de execução de integração é usado para executar a Atividade de cópia.
+- **Copiando entre duas fontes de dados na rede privada**: o serviço vinculado de origem e o de coletor devem apontar para a mesma instância de runtime de integração, e esse runtime de integração é usado para executar a Atividade de cópia.
 
 ### <a name="lookup-and-getmetadata-activity"></a>Atividade de pesquisa e GetMetadata
 
-A atividade de pesquisa e GetMetadata é executada no tempo de execução de integração associado ao serviço vinculado de armazenamento de dados.
+A atividade de pesquisa e GetMetadata é executada no runtime de integração associado ao serviço vinculado de armazenamento de dados.
 
 ### <a name="transformation-activity"></a>Atividade de transformação
 

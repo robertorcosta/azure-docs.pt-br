@@ -1,5 +1,5 @@
 ---
-title: Conexão de VM de máquina virtual do Azure SQL para indexação de pesquisa
+title: Conexão de VM do Azure SQL para indexação de pesquisa
 titleSuffix: Azure Cognitive Search
 description: Habilite conexões criptografadas e configure o firewall para permitir conexões a SQL Server em uma VM (máquina virtual) do Azure de um indexador no Pesquisa Cognitiva do Azure.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 57bea41d95b8859af55be777b17189861a445a12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 426ec57b3dbce884e55ef7a11ccca32ed295d70d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792139"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111899"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador Pesquisa Cognitiva do Azure para SQL Server em uma VM do Azure
 
-Conforme observado na [conexão do banco de dados SQL do Azure ao azure pesquisa cognitiva usando indexadores, a](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)criação de indexadores em relação a **SQL Server em VMs do azure** (ou **SQL Azure VMs** para curto) é suportada pelo Azure pesquisa cognitiva, mas há algumas pré-requisitos relacionados à segurança para cuidar do primeiro. 
+Conforme observado na [conexão do banco de dados SQL do Azure ao azure pesquisa cognitiva usando indexadores, a](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)criação de indexadores em relação a **SQL Server em VMs do azure** (ou **SQL Azure VMs** para curto) é suportada pelo Azure pesquisa cognitiva, mas há alguns pré-requisitos relacionados à segurança que devem ser considerados primeiro. 
 
 As conexões do Pesquisa Cognitiva do Azure para SQL Server em uma VM são uma conexão de Internet pública. Todas as medidas de segurança que você normalmente seguiria para essas conexões se aplicam aqui também:
 
@@ -87,6 +87,6 @@ Uma terceira abordagem viável (mas não particularmente segura) é especificar 
 #### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Incluir os endereços IP do portal de Pesquisa Cognitiva do Azure
 Se você estiver usando o portal do Azure para criar um indexador, a lógica do portal de Pesquisa Cognitiva do Azure também precisará acessar a VM do SQL Azure durante a criação. Os endereços IP do portal de Pesquisa Cognitiva do Azure podem ser encontrados por meio do ping `stamp2.search.ext.azure.com`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Com a configuração fora do caminho, agora você pode especificar um SQL Server na VM do Azure como a fonte de dados para um indexador de Pesquisa Cognitiva do Azure. Consulte [conectando o banco de dados SQL do Azure ao azure pesquisa cognitiva usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
 

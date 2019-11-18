@@ -1,5 +1,5 @@
 ---
-title: Habilidades da API Web personalizada em um pipeline de enriquecimento
+title: Habilidade personalizada da API Web no habilidades
 titleSuffix: Azure Cognitive Search
 description: Estenda os recursos do Azure Pesquisa Cognitiva habilidades chamando as APIs da Web. Use a habilidade personalizada da API Web para integrar seu código personalizado.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b0d0caa9deb43bc198b3c09836ac94777cf154
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: defe6711049e191ada1a2f6e46d6643debdca86e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466725"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113804"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidades da API Web personalizada em um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
 
@@ -36,7 +36,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | DESCRIÇÃO |
 |--------------------|-------------|
-| uri | O URI da API Web para a qual o conteúdo _JSON_ será enviado. Somente o esquema do URI **https** é permitido |
+| Uri | O URI da API Web para a qual o conteúdo _JSON_ será enviado. Somente o esquema do URI **https** é permitido |
 | httpMethod | O método a ser usado ao enviar o conteúdo. Os métodos permitidos são `PUT` ou `POST` |
 | httpHeaders | Uma coleção de pares chave-valor em que as chaves representam os nomes de cabeçalho e os valores representam valores de cabeçalho que serão enviados para sua API Web, juntamente com o conteúdo. Os seguintes cabeçalhos são proibidos de estarem nesta coleção: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | Tempo limite | (Opcional) Quando especificado, indica o tempo limite para o cliente http que fez a chamada à API. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por exemplo, `PT60S` por 60 segundos. Se não for definido, um valor padrão de 30 segundos será escolhido. O tempo limite pode ser definido como um máximo de 230 segundos e um mínimo de 1 segundo. |
@@ -201,7 +201,7 @@ Além de sua API Web não estar disponível ou enviar códigos de status sem êx
 
 Para casos em que a API Web não está disponível ou retorna um erro HTTP, um erro amigável com todos os detalhes disponíveis sobre o erro de HTTP será adicionado ao histórico de execução do indexador.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)

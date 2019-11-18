@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 031482fc0b87e095fcb19046564e15642050f261
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0ed0bd3544fff89c8230267e3d6d8826c5ae3c7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820812"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114609"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorar Sincronização de Dados SQL com logs de Azure Monitor 
 
@@ -27,7 +27,7 @@ Para verificar o log de atividades da Sincronização de Dados SQL e detectar er
 Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Atualmente, a Sincronização de Dados SQL **não** dá suporte para Instância Gerenciada do Banco de Dados SQL do Azure.
+> No momento, a Sincronização de Dados SQL do Azure **não** dá suporte à Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Painel de Monitoramento para todos os Grupos de Sincronização 
 
@@ -61,7 +61,7 @@ Baixe os dois seguintes exemplos:
 
 -   [Exibição de Azure Monitor de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 Verifique se você configurou o seguinte:
 
@@ -137,7 +137,7 @@ Para criar um alerta que usa logs de Azure Monitor, faça o seguinte. Como pré-
 
 2.  Crie uma consulta para selecionar os erros e avisos por grupo de sincronização dentro do intervalo selecionado. Por exemplo:
 
-    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
+    `DataSyncLog_CL | where LogLevel_s != "Success" | summarize AggregatedValue = count() by bin(TimeGenerated,60m),SyncGroupName_s`
 
 3.  Depois de executar a consulta, selecione o sino que indica **Alerta**.
 
@@ -210,7 +210,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 -   Práticas recomendadas - [Práticas recomendadas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
 -   Solucionar problemas - [Solucionar problemas com o SQL Data Sync do Azure](sql-database-troubleshoot-data-sync.md)
 -   Atualizar o esquema de sincronização
-    -   Com Transact-SQL - [Automatize a replicação de alterações de esquema no Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   Com o Transact-SQL - [Automatizar a replicação das alterações de esquema na Sincronização de Dados SQL do Azure](sql-database-update-sync-schema.md)
     -   Com o PowerShell - [usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente](scripts/sql-database-sync-update-schema.md)
 
 Para saber mais sobre o Banco de Dados SQL, veja:

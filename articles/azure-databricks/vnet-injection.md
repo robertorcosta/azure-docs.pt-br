@@ -1,5 +1,5 @@
 ---
-title: Implantar Azure Databricks em sua rede virtual
+title: Implantar o Azure Databricks em sua rede virtual
 description: Este artigo descreve como implantar Azure Databricks em sua rede virtual, também conhecida como injeção de VNet.
 services: azure-databricks
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3894904575d545aed0dbfce470247afb145b7590
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605661"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129298"
 ---
-# <a name="deploy-azure-databricks-in-your-virtual-network"></a>Implantar Azure Databricks em sua rede virtual
+# <a name="deploy-azure-databricks-in-your-virtual-network"></a>Implantar o Azure Databricks em sua rede virtual
 
 A implantação padrão do Azure Databricks é um serviço totalmente gerenciado no Azure: todos os recursos do plano de dados, incluindo uma rede virtual (VNet), são implantados em um grupo de recursos bloqueado. No entanto, se você precisar de personalização de rede, poderá implantar Azure Databricks recursos em sua própria rede virtual (também chamada de injeção de VNet) quando o permitir:
 
@@ -37,11 +37,11 @@ Você pode usar a interface de implantação do espaço de trabalho Azure Databr
 
 A rede virtual na qual você implanta seu espaço de trabalho Azure Databricks deve atender aos seguintes requisitos:
 
-### <a name="location"></a>Local
+### <a name="location"></a>Local padrão
 
 A rede virtual deve residir no mesmo local que o espaço de trabalho Azure Databricks.
 
-### <a name="subnets"></a>Sub-redes
+### <a name="subnets"></a>sub-redes
 
 A rede virtual deve incluir duas sub-redes dedicadas a Azure Databricks:
 
@@ -61,7 +61,7 @@ Todo o tráfego de entrada e saída entre as sub-redes e o plano de controle de 
 
 Esta seção descreve como criar um espaço de trabalho do Azure Databricks no portal do Azure e implantá-lo em sua própria rede virtual existente. Azure Databricks atualiza a rede virtual com duas novas sub-redes e grupos de segurança de rede usando os intervalos de CIDR fornecidos por você, as listas de permissões de entrada e saída do tráfego de sub-rede e implanta o espaço de trabalho na rede virtual atualizada.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Você deve ter uma rede virtual na qual implantará o espaço de trabalho Azure Databricks. Você pode usar uma rede virtual existente ou criar uma nova, mas a rede virtual deve estar na mesma região que o espaço de trabalho Azure Databricks que você planeja criar. Um intervalo CIDR entre/16-/24 é necessário para a rede virtual.
 
@@ -105,7 +105,7 @@ Para criar grupos de segurança de rede com as regras necessárias para uma rede
 
 Ao usar esse modelo, você não precisa fazer nenhuma lista branca manual de tráfego de sub-rede.
 
-### <a name="virtual-network"></a>Rede virtual
+### <a name="virtual-network"></a>rede virtual
 
 Para criar uma rede virtual com as sub-redes públicas e privadas apropriadas, use o [modelo de rede virtual para injeção de VNet do databricks](https://azure.microsoft.com/resources/templates/101-databricks-vnet-for-vnet-injection).
 
@@ -119,7 +119,7 @@ Se você usar esse modelo sem usar também o modelo de grupos de segurança de r
 
 ## <a name="whitelisting-subnet-traffic"></a>Tráfego de sub-rede de lista de permissões
 
-Se você não usar os modelos de [portal do Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) ou [Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para criar os grupos de segurança de rede, deverá colocar a lista de permissões manualmente no tráfego a seguir em suas sub-redes.
+Se você não usar os modelos de [portal do Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) ou [Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-advanced) para criar os grupos de segurança de rede, deverá colocar a lista de permissões manualmente no tráfego a seguir em suas sub-redes.
 
 |Direção|Protocolo|Fonte|Porta de origem|Destino|Porta de destino|
 |---------|--------|------|-----------|-----------|----------------|
@@ -160,7 +160,7 @@ O tráfego de sub-rede da lista de permissões usando os seguintes endereços IP
 |Leste do Japão|NAT do plano de controle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 |Oeste do Japão|NAT do plano de controle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 ### <a name="workspace-launch-errors"></a>Erros de inicialização do espaço de trabalho
 

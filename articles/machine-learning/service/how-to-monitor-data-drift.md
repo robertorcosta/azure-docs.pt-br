@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bf82714011754ba516fa38444b1019b9cc1aa732
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824248"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111870"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -37,15 +37,15 @@ Com Azure Machine Learning, você pode monitorar as entradas para um modelo impl
 + Enviar alertas para descompasso de dados por email.
 
 > [!Note]
-> Esse serviço está em (versão prévia) e limitado nas opções de configuração. Consulte nossa [documentação de API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) e [notas de versão](azure-machine-learning-release-notes.md) para obter detalhes e atualizações. 
+> Esse serviço está em (versão prévia) e limitado nas opções de configuração. Consulte nossa [documentação de API](https://docs.microsoft.com/python/api/azureml-datadrift/) e [notas de versão](azure-machine-learning-release-notes.md) para obter detalhes e atualizações. 
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Como a descompasso de dados é monitorada no Azure Machine Learning
 
 Usando Azure Machine Learning, a descompasso de dados é monitorada por meio de conjuntos ou implantações. Para monitorar a descompasso de dados, é um DataSet de linha de base – geralmente o conjunto de dado de treinamento para um modelo-é especificado. Um segundo conjunto de dados-geralmente modelar os dados de entrada coletados de uma implantação-é testado no conjunto de dado de linha de base. Os dois conjuntos de dados são de perfil e são inseridos para o serviço de monitoramento de descompasso. Um modelo de aprendizado de máquina é treinado para detectar diferenças entre os dois conjuntos de valores. O desempenho do modelo é convertido para o coeficiente de descompasso, que mede a magnitude do descompasso entre os dois conjuntos de valores. Usando a [interpretação de modelo](how-to-machine-learning-interpretability.md), os recursos que contribuem para o coeficiente de descompasso são calculados. No perfil do conjunto de dados, as informações estatísticas sobre cada recurso são rastreadas. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Uma assinatura do Azure. Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
+- Uma assinatura do Azure. Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 - O SDK do Azure Machine Learning para Python instalado. Use as instruções em [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para fazer o seguinte:
 
@@ -98,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Enviar uma execução do DataDriftDetector
 
-Com o objeto `DataDriftDetector` configurado, você pode enviar uma [execução de descompasso de dados](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) em uma determinada data para o modelo. Como parte da execução, habilite alertas do DataDriftDetector definindo o parâmetro `drift_threshold`. Se o [datadrift_coefficient](#metrics) estiver acima da `drift_threshold`especificada, um email será enviado.
+Com o objeto `DataDriftDetector` configurado, você pode enviar uma [execução de descompasso de dados](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) em uma determinada data para o modelo. Como parte da execução, habilite alertas do DataDriftDetector definindo o parâmetro `drift_threshold`. Se o [datadrift_coefficient](#visualize-drift-metrics) estiver acima da `drift_threshold`especificada, um email será enviado.
 
 ```python
 # adhoc run today

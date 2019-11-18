@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f53bf023346c4f494de5ab50e8beb185d9f97c91
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882649"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113736"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Exclusão reversível para blobs do Armazenamento do Azure
 
@@ -41,7 +41,7 @@ Você pode alterar o período de retenção de exclusão reversível a qualquer 
 
 A exclusão reversível preserva os dados em muitos casos em que blobs ou instantâneos de blob são excluídos ou substituídos.
 
-Quando um blob é substituído usando **Colocar Blob**, **Colocar Bloco**, **Colocar Lista de Blocos** ou **Copiar Blob**, um instantâneo do estado do blob anterior à operação de gravação é gerado automaticamente. Esse instantâneo é um instantâneo com exclusão reversível; é invisível, a menos que os objetos com exclusão reversível estejam listados explicitamente. Consulte a seção [Recuperação](#recovery) para saber como listar os objetos com exclusão reversível.
+Quando um blob é substituído usando **Put Blob**, **Put bloquear**, **Put bloquear List**ou **Copy blob** , um instantâneo do estado do blob antes da operação de gravação é gerado automaticamente. Esse instantâneo é um instantâneo com exclusão reversível; é invisível, a menos que os objetos com exclusão reversível estejam listados explicitamente. Consulte a seção [Recuperação](#recovery) para saber como listar os objetos com exclusão reversível.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
@@ -72,16 +72,16 @@ A exclusão reversível não salve seus dados nos casos de exclusões de contêi
 
 A tabela a seguir detalha o comportamento esperado quando a exclusão reversível é ativada:
 
-| Operação de API REST | Tipo de recurso | Descrição | Alteração no comportamento |
+| Operação de API REST | Tipo de recurso | DESCRIÇÃO | Alteração no comportamento |
 |--------------------|---------------|-------------|--------------------|
 | [Excluir](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Exclui a conta de armazenamento, incluindo todos os contêineres e blobs que ela contém.                           | Sem alteração. Contêineres e blobs na conta excluída não são recuperáveis. |
 | [Excluir Contêiner](/rest/api/storageservices/delete-container) | Contêiner | Exclui o contêiner, incluindo todos os blobs que ele contém. | Sem alteração. Os blobs no contêiner excluído não são recuperáveis. |
-| [Colocar Blob](/rest/api/storageservices/put-blob) | Blobs de bloco, acréscimo e página | Cria um novo blob ou substitui um blob existente dentro de um contêiner | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anterior se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
+| [Colocar Blob](/rest/api/storageservices/put-blob) | Blobs de bloco, acréscimo e página | Cria um novo blob ou substitui um blob existente dentro de um contêiner | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
 | [Excluir Blob](/rest/api/storageservices/delete-blob) | Blobs de bloco, acréscimo e página | Marca um blob ou instantâneo de blob para exclusão. O blob ou o instantâneo é excluído depois durante a coleta de lixo | Se usado para excluir que um instantâneo de blob, esse instantâneo será marcado como com exclusão reversível. Se usado para excluir um blob, esse blob será marcado como com exclusão reversível. |
-| [Copiar Blob](/rest/api/storageservices/copy-blob) | Blobs de bloco, acréscimo e página | Copia um blob de origem para um blob de destino na mesma conta de armazenamento ou em outra conta de armazenamento. | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anterior se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
-| [Colocar Bloco](/rest/api/storageservices/put-block) | Bloquear blobs | Cria um novo bloco a ser confirmado como parte de um blob de bloco. | Se usado para confirmar um bloco para um blob que está ativo, não haverá nenhuma alteração. Se usado para confirmar um bloco para um blob com exclusão reversível, um novo blob será criado, e um instantâneo, gerado automaticamente para capturar o estado do blob com exclusão reversível. |
-| [Colocar lista de blocos](/rest/api/storageservices/put-block-list) | Bloquear blobs | Confirma um blob especificando o conjunto de IDs de bloco que compõem o blob de bloco. | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplicará a um blob com exclusão reversível anterior se e somente se ele for um blob de blocos. Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
-| [Colocar Página](/rest/api/storageservices/put-page) | Blobs de Página | Grava um intervalo de páginas em um blob de páginas. | Sem alteração. Os dados de blob de páginas substituídos ou limpos com o uso dessa operação não são salvos nem recuperáveis. |
+| [Copiar Blob](/rest/api/storageservices/copy-blob) | Blobs de bloco, acréscimo e página | Copia um blob de origem para um blob de destino na mesma conta de armazenamento ou em outra conta de armazenamento. | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
+| [Colocar Bloco](/rest/api/storageservices/put-block) | Blobs de blocos | Cria um novo bloco a ser confirmado como parte de um blob de bloco. | Se for usado para confirmar um bloco em um blob que está ativo, não haverá alteração. Se usado para confirmar um bloco para um blob com exclusão reversível, um novo blob será criado, e um instantâneo, gerado automaticamente para capturar o estado do blob com exclusão reversível. |
+| [Colocar lista de blocos](/rest/api/storageservices/put-block-list) | Blobs de blocos | Confirma um blob especificando o conjunto de IDs de bloco que compõem o blob de bloco. | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplicará a um blob com exclusão reversível anterior se e somente se ele for um blob de blocos. Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
+| [Colocar Página](/rest/api/storageservices/put-page) | Blobs de Páginas | Grava um intervalo de páginas em um blob de páginas. | Sem alteração. Os dados de blob de páginas substituídos ou limpos com o uso dessa operação não são salvos nem recuperáveis. |
 | [Acrescentar Bloco](/rest/api/storageservices/append-block) | Blob de acréscimo | Grava um bloco de dados no final de um blob de acréscimo | Sem alteração. |
 | [Definir propriedades de Blob](/rest/api/storageservices/set-blob-properties) | Blobs de bloco, acréscimo e página | Define valores para propriedades do sistema definidas para um blob. | Sem alteração. As propriedades do blob substituído não são recuperáveis. |
 | [Definir Metadados de Blob](/rest/api/storageservices/set-blob-metadata) | Blobs de bloco, acréscimo e página | Define metadados definidos pelo usuário para o blob especificado como um ou mais pares de nome-valor. | Sem alteração. Os metadados de blob substituídos não são recuperáveis. |
@@ -146,7 +146,7 @@ Para obter mais detalhes sobre preços para Armazenamento de Blob do Azure em ge
 
 Quando você inicialmente ativa a exclusão reversível, é recomendável usar um período de retenção pequeno para entender melhor como o recurso afetará sua fatura.
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 As etapas a seguir mostram como começar a usar a exclusão reversível.
 
@@ -293,11 +293,11 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Há alguma consideração especial para usar a exclusão reversível?
+## <a name="special-considerations"></a>Considerações especiais
 
-Se houver uma chance de que seus dados sejam acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, é recomendável ativar a exclusão reversível. Habilitar a exclusão reversível para dados frequentemente substituídos pode resultar em encargos de capacidade de armazenamento maiores e maior latência ao listar BLOBs. Você pode reduzir esse custo adicional armazenando os dados substituídos frequentemente em uma conta de armazenamento separada na qual a exclusão reversível está desabilitada. 
+Se houver uma chance de que seus dados sejam acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, é recomendável ativar a exclusão reversível. Habilitar a exclusão reversível para dados frequentemente substituídos pode resultar em encargos de capacidade de armazenamento maiores e maior latência ao listar BLOBs. Você pode reduzir esse custo e latência adicionais armazenando os dados frequentemente substituídos em uma conta de armazenamento separada em que a exclusão reversível está desabilitada. 
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 ### <a name="for-which-storage-services-can-i-use-soft-delete"></a>Para quais serviços de armazenamento posso usar a exclusão reversível?
 
@@ -309,7 +309,7 @@ Sim, a exclusão reversível está disponível para contas de armazenamento de B
 
 ### <a name="is-soft-delete-available-for-all-storage-tiers"></a>A exclusão reversível está disponível para todas as camadas de armazenamento?
 
-Sim, a exclusão reversível está disponível para todas as camadas de armazenamento, incluindo frequente, esporádico e arquivos. Contudo, a exclusão reversível não permite substituir a proteção para blobs na camada de arquivos.
+Sim, a exclusão reversível está disponível para todas as camadas de armazenamento, incluindo quente, frio e arquivo. Contudo, a exclusão reversível não permite substituir a proteção para blobs na camada de arquivos.
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Posso usar a API de camada de blob de conjunto para BLOBs de camada com instantâneos com exclusão reversível?
 
@@ -353,7 +353,7 @@ Uma máquina virtual do Azure grava em um disco não gerenciado usando chamadas 
 
 É possível aproveitar a exclusão reversível, independentemente da versão de API que você está usando. No entanto, para listar e recuperar blobs com exclusão reversível e instantâneos de blob, você precisará usar a versão de 29-07-2017 da [API REST dos Serviços de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) ou superior. A Microsoft recomenda sempre usar a versão mais recente da API de armazenamento do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 * [API REST do serviço Blob](/rest/api/storageservices/blob-service-rest-api)

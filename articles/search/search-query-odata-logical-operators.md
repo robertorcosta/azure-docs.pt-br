@@ -1,7 +1,7 @@
 ---
 title: Referência de operador lógico do OData
 titleSuffix: Azure Cognitive Search
-description: Os operadores lógicos do OData e, ou, e não, no Azure Pesquisa Cognitiva consultas.
+description: Documentação de sintaxe e referência para usar operadores lógicos do OData e, ou, e não, no Azure Pesquisa Cognitiva consultas.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 4e016047d66e49f17c08d4b92a1c865f4b63e39b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793318"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113194"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos OData no Azure Pesquisa Cognitiva-`and`, `or``not`
 
@@ -72,7 +72,7 @@ Há duas formas de expressões lógicas: Binary (`and`/`or`), em que há duas su
 
 A maioria das expressões boolianas, como funções e comparações, não pode produzir `null` valores, e os operadores lógicos não podem ser aplicados diretamente ao literal de `null` (por exemplo, `x and null` não é permitido). No entanto, os campos Boolianos podem ser `null`, portanto, você precisa estar ciente de como os operadores `and`, `or`e `not` se comportam na presença de NULL. Isso é resumido na tabela a seguir, em que `b` é um campo do tipo `Edm.Boolean`:
 
-| Expression | Resultado quando `b` é `null` |
+| Expressão | Resultado quando `b` é `null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -107,7 +107,7 @@ Corresponder documentos para hotéis em Vancouver, Canadá em que há uma sala d
 
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)

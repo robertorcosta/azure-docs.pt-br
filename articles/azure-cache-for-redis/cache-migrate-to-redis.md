@@ -1,25 +1,17 @@
 ---
-title: Migrar aplicativos do Serviço de Cache Gerenciado para o Redis - Azure | Microsoft Docs
+title: Migrar aplicativos do serviço de cache gerenciado para o Redis-Azure
 description: Saiba como migrar aplicativos do Serviço de Cache Gerenciado e aplicativos de Cache na Função para o Cache do Azure para Redis
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 05638e17c2f41806a5c8aa3e0c3020eae82bdb60
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315964"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122690"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrar do Serviço de Cache Gerenciado para o Cache do Azure para Redis
 A migração de seus aplicativos que usam o Serviço de Cache Gerenciado do Azure para o Cache do Azure para Redis pode ser feita com alterações mínimas no aplicativo, dependendo dos recursos do Serviço de Cache Gerenciado usados pelo seu aplicativo de cache. Apesar das APIs não serem exatamente a mesmo coisa elas são semelhantes e grande parte do seu código existente que usa o Serviço de Cache Gerenciado para acessar um cache pode ser reutilizado com alterações mínimas. Este artigo mostra como fazer as alterações de aplicativo e configuração necessárias para migrar seus aplicativos do Serviço de Cache Gerenciado para usar o Cache do Azure para Redis, além de mostrar como alguns dos recursos do Cache do Azure para Redis podem ser usados para implementar a funcionalidade de um cache do Serviço de Cache Gerenciado.
@@ -130,7 +122,7 @@ Adicione o seguinte usando a instrução na parte superior de qualquer arquivo d
 using StackExchange.Redis
 ```
 
-Se esse namespace não resolver, certifique-se de ter adicionado o pacote NuGet StackExchange.Redis conforme descrito em [Início Rápido: Usar o Cache do Azure para Redis com um aplicativo .NET](cache-dotnet-how-to-use-azure-redis-cache.md).
+Se esse namespace não resolver, certifique-se de ter adicionado o pacote NuGet StackExchange. Redis conforme descrito em [início rápido: usar o cache do Azure para Redis com um aplicativo .net](cache-dotnet-how-to-use-azure-redis-cache.md).
 
 > [!NOTE]
 > Observe que o cliente StackExchange.Redis requer o .NET Framework 4 ou superior.

@@ -1,5 +1,5 @@
 ---
-title: Use a ferramenta Search Explorer para consultar dados no portal do Azure
+title: Ferramenta de consulta do Gerenciador de pesquisa no portal do Azure
 titleSuffix: Azure Cognitive Search
 description: O Search Explorer é integrado ao portal do Azure, útil para explorar conteúdo e validar consultas no Pesquisa Cognitiva do Azure. Insira cadeias de caracteres para pesquisa de termo ou frase ou expressões de pesquisa totalmente qualificadas com sintaxe avançada.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff2986c4e90cb997df250d647bdfbd068d70e51f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792960"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112101"
 ---
 # <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Usar o Gerenciador de pesquisa no portal do Azure para consultar documentos no Azure Pesquisa Cognitiva 
 
@@ -145,7 +145,7 @@ Dicas para pesquisar no **Gerenciador de pesquisa**:
 + Expressões de filtro e consulta devem ser articuladas em uma sintaxe com suporte pelo Pesquisa Cognitiva do Azure. O padrão é uma [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mas você pode opcionalmente usar uma [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para consultas mais poderosas. [Expressões de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) são uma sintaxe de OData.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Os recursos a seguir fornecem exemplos e informações de sintaxe de consulta adicionais.
 

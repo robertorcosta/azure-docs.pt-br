@@ -1,7 +1,7 @@
 ---
 title: Estrutura de resposta da API do Bing Web Search e tipos de resposta
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre os tipos de resposta e as respostas fornecidas pela API de Pesquisa na Web do Bing.
+description: Quando você envia Pesquisa na Web do Bing uma solicitação de pesquisa, ela retorna um objeto `SearchResponse` no corpo da resposta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854720"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110622"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Estrutura de resposta da API do Bing Web Search e tipos de resposta  
 
@@ -290,7 +290,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 Uma expressão matemática pode conter os seguintes símbolos:
 
-|Símbolo|Descrição|
+|Símbolo|DESCRIÇÃO|
 |------------|-----------------|
 |+|Adição|
 |-|Subtração|
@@ -298,13 +298,13 @@ Uma expressão matemática pode conter os seguintes símbolos:
 |*|Multiplicação|
 |^|Potência|
 |!|Fatorial|
-|.|Decimal|
+|.|DECIMAL|
 |()|Agrupamento de precedência|
 |[]|Função|
 
 Uma expressão matemática pode conter as seguintes constantes:
 
-|Símbolo|Descrição|
+|Símbolo|DESCRIÇÃO|
 |------------|-----------------|
 |Pi|3,14159...|
 |Grau|Grau|
@@ -314,7 +314,7 @@ Uma expressão matemática pode conter as seguintes constantes:
 
 Uma expressão matemática pode conter as seguintes funções:
 
-|Símbolo|Descrição|
+|Símbolo|DESCRIÇÃO|
 |------------|-----------------|
 |Classificar|Raiz quadrada|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funções trigonométricas (com argumentos em radianos)|
@@ -332,7 +332,7 @@ Se o usuário inserir uma consulta de data ou hora, a resposta poderá conter um
 
 A resposta `timeZone` fornece o nome do local, a data e a hora UTC atual no local especificado, e a diferença UTC. Se o limite do local estiver dentro de vários fusos horários, a resposta conterá a data e a hora UTC atual de todos os fusos horários dentro dos limites. Por exemplo, como o estado da Flórida está dentro de dois fusos horários, a resposta conteria a data e hora local em ambos os fusos horários.  
 
-Se a consulta solicitar a hora de um Estado ou país/região, o Bing determinará a cidade principal dentro do limite geográfico do local e a `primaryCityTime` retornará no campo. Se o limite contiver vários fusos horários, os fusos horários restantes serão retornados no campo `otherCityTimes`.
+Se a consulta solicitar a hora de um Estado ou país/região, o Bing determinará a cidade principal dentro do limite geográfico do local e a retornará no campo `primaryCityTime`. Se o limite contiver vários fusos horários, os fusos horários restantes serão retornados no campo `otherCityTimes`.
 
 O exemplo a seguir mostra consultas de exemplo que retornam a resposta `timeZone`.
 
@@ -445,9 +445,9 @@ As respostas da API de Pesquisa na Web do Bing podem conter os seguintes cabeça
 
 No entanto, quando você chama a API de Pesquisa na Web do Bing a partir do JavaScript, os recursos de segurança incorporados do navegador (CORS) podem impedi-lo de acessar os valores desses cabeçalhos.
 
-Para obter acesso aos cabeçalhos, é possível fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
+Para obter acesso aos cabeçalhos, é possível fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy possui um cabeçalho `Access-Control-Expose-Headers` que coloca na lista de permissões cabeçalhos de resposta e os disponibiliza para JavaScript.
 
-É fácil instalar um proxy CORS para permitir que nosso [aplicativo de tutorial](tutorial-bing-web-search-single-page-app.md) acesse os cabeçalhos opcionais do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, insira o comando a seguir em um prompt de comando.
+É fácil instalar um proxy CORS para permitir que nosso [aplicativo de tutorial](tutorial-bing-web-search-single-page-app.md) acesse os cabeçalhos opcionais do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, digite o comando a seguir em um prompt de comando.
 
     npm install -g cors-proxy-server
 
@@ -455,11 +455,11 @@ Depois, altere o ponto de extremidade da API da Pesquisa na Web do Bing no arqui
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Por fim, inicie o proxy CORS com o seguinte comando:
+Finalmente, inicie o proxy CORS com o comando a seguir:
 
     cors-proxy-server
 
-Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
+Deixe a janela de comando aberta enquanto você usa o aplicativo de tutorial, já que se fechar a janela irá parar o proxy. Na seção expansível Cabeçalhos HTTP abaixo dos resultados da pesquisa, agora você pode ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 
 ## <a name="response-headers-in-production"></a>Cabeçalhos de resposta na produção
 

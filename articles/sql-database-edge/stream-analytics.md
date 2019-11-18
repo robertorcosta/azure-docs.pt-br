@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 1b6b3f4e4be9d056bc53fac2eb2f1f3fcd768085
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3ed84e06f693925ed8b484070616e223929e401
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514986"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108754"
 ---
 # <a name="using-sql-database-dac-package-and-stream-analytics-job-with-sql-database-edge"></a>Usando o pacote de DAC do banco de dados SQL e Stream Analytics trabalho com borda do banco de dados SQL
 
@@ -37,7 +37,7 @@ A borda do banco de dados SQL do Azure expõe dois parâmetros opcionais por mei
 |Campo | DESCRIÇÃO |
 |------|-------------|
 | SQLPackage | URI do armazenamento de BLOBs do Azure para o arquivo *. zip que contém o pacote de DAC do banco de dados SQL.
-| ASAJobInfo | URI do armazenamento de BLOBs do Azure para o trabalho do ASA Edge. Para obter mais informações sobre como publicar o trabalho do ASA Edge, consulte [publicando um trabalho do asa Edge para a borda do banco de dados SQL]().
+| ASAJobInfo | URI do armazenamento de BLOBs do Azure para o trabalho do ASA Edge. Para obter mais informações sobre como publicar o trabalho do ASA Edge, consulte [publicando um trabalho do asa Edge para a borda do banco de dados SQL](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
 ## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>Usando pacotes de DAC do banco de dados SQL com borda do banco de dados SQL
 
@@ -104,7 +104,7 @@ A borda do banco de dados SQL do Azure tem uma implementação nativa do tempo d
     |Nome do servidor | Nome (ou endereço IP) e detalhes do número da porta para a instância do SQL. Para uma implantação de borda de banco de dados SQL, você pode usar **TCP:., 1433** como o nome do servidor.|
     |Nome de Usuário | Conta de logon do SQL que tem o leitor de dados e o acesso do gravador de dados ao banco de dado mencionado acima.|
     |Senha | Senha para a conta de logon do SQL mencionada acima.|
-    |Tabela | Nome da tabela que será saída para o trabalho de streaming.|
+    |tabela | Nome da tabela que será saída para o trabalho de streaming.|
     |Herdar particionamento| Essa opção de configuração de saída do SQL permite herdar o esquema de particionamento da entrada ou etapa anterior da consulta. Com isso habilitado, gravando em uma tabela baseada em disco e tendo uma topologia totalmente paralela para seu trabalho, espere ver uma melhor taxa de transferência.|
     |Tamanho do lote| Tamanho do lote é o número máximo de registros que é enviado com cada transação de inserção em massa.|
 

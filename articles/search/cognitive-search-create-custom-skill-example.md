@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: criando uma habilidade cognitiva personalizada com o API de Pesquisa de Entidade do Bing'
+title: Exemplo de habilidade personalizada usando API de Pesquisa de Entidade do Bing
 titleSuffix: Azure Cognitive Search
 description: Demonstra o uso do serviço Pesquisa de Entidade do Bing em uma habilidade personalizada mapeada para um pipeline de indexação aprimorado do ia no Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466821"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113807"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: criar uma habilidade personalizada usando o API de Pesquisa de Entidade do Bing
 
 Neste exemplo, saiba como criar uma habilidade personalizada da API Web. Essa habilidade aceitará locais, figuras públicas e organizações e retornará descrições para eles. O exemplo usa uma [função do Azure](https://azure.microsoft.com/services/functions/) para encapsular o [API de pesquisa de entidade do Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) para que ele implemente a interface de habilidade personalizada.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Leia sobre o artigo sobre a [interface de habilidades personalizadas](cognitive-search-custom-skill-interface.md) se você não estiver familiarizado com a interface de entrada/saída que deve ser implementada por uma habilidade personalizada.
 
@@ -347,7 +347,7 @@ POST https://localhost:7071/api/EntitySearch
 }
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>resposta
 Você deverá ver uma resposta semelhante ao exemplo a seguir:
 
 ```json

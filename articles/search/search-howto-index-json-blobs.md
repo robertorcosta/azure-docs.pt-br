@@ -1,5 +1,5 @@
 ---
-title: Indexar BLOBs JSON do indexador de blob do Azure para pesquisa de texto completo
+title: Pesquisar em BLOBs JSON
 titleSuffix: Azure Cognitive Search
 description: Rastreie BLOBs JSON do Azure para conteúdo de texto usando o indexador de blob Pesquisa Cognitiva do Azure. Os indexadores automatizam a ingestão de dados para fontes de dados selecionadas, como o armazenamento de blobs do Azure.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889862"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112733"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar BLOBs JSON usando um indexador de blob no Azure Pesquisa Cognitiva
 
@@ -112,7 +112,7 @@ Para a indexação JSON baseada em código, use o [postmaster](search-get-starte
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 A ordem das operações requer que você crie e chame objetos nesta ordem. Em contraste com o fluxo de trabalho do portal, uma abordagem de código requer um índice disponível para aceitar os documentos JSON enviados por meio da solicitação **criar indexador** .
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um conconhecimento em um pipeline de enriquecimento
+title: Criar um conjunto de habilidades
 titleSuffix: Azure Cognitive Search
 description: Defina as etapas de extração de dados, processamento de idioma natural ou análise de imagem para enriquecer e extrair informações estruturadas de seus dados para uso no Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787461"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114542"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva 
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as hab
 Pontos principais a serem lembrados:
 
 + Você pode ter apenas um conjunto de habilidades por indexador.
-+ Um conjunto de qualificações precisa ter pelo menos uma habilidade.
++ O conjunto de habilidades precisa ter pelo menos uma habilidade.
 + É possível criar várias habilidades do mesmo tipo (por exemplo, variantes de uma habilidade de análise de imagem).
 
 ## <a name="begin-with-the-end-in-mind"></a>Comece pensando no fim
@@ -163,7 +163,7 @@ Vamos examinar a primeira habilidade, que é a habilidade interna de reconhecime
     }
 ```
 
-* Todas as habilidades internas têm `odata.type`, `input` e `output` Propriedades. Propriedades específicas da habilidade fornecem informações adicionais aplicáveis a ela. Para o reconhecimento de entidade, `categories` é uma entidade em um conjunto fixo de tipos de entidade que o modelo pré-treinado pode reconhecer.
+* Todas as habilidades internas têm `odata.type`, `input`e `output` Propriedades. Propriedades específicas da habilidade fornecem informações adicionais aplicáveis a ela. Para o reconhecimento de entidade, `categories` é uma entidade em um conjunto fixo de tipos de entidade que o modelo pré-treinado pode reconhecer.
 
 * Cada habilidade deve ter um ```"context"```. O contexto representa o nível no qual as operações ocorrem. Na habilidade acima, o contexto é o documento inteiro, o que significa que a habilidade de reconhecimento de entidade é chamada uma vez por documento. As saídas também são produzidas nesse nível. Mais especificamente, ```"organizations"``` são gerados como um membro de ```"/document"```. Nas habilidades downstream, você pode se referir a essas informações recém-criadas como ```"/document/organizations"```.  Se o campo ```"context"``` não for definido explicitamente, o contexto padrão será o documento.
 
@@ -275,6 +275,6 @@ Você pode optar por salvar os documentos aprimorados como tabelas com relaçõe
 
 <a name="next-step"></a>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você está familiarizado com o pipeline de enriquecimento e com os conjuntos de habilidades, continue com [Como referenciar anotações em um conjunto de habilidades](cognitive-search-concept-annotations-syntax.md) ou [Como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md). 

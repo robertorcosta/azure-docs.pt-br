@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 360fa750da054f9b126a8694f3dd2ce4b0b417b7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240313"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129842"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
 
@@ -54,7 +54,7 @@ Os requisitos mínimos para um Hybrid Runbook Worker do Linux são:
 |Python-ctypes | O Python 2. x é obrigatório |
 |PAM | Módulos de autenticação conectáveis|
 | **Pacotes opcionais** | **Descrição** | **Versão mínima**|
-| PowerShell Core | Para executar runbooks do PowerShell é necessário instalar o PowerShell, consulte [Instalar o PowerShell Core no Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) para saber como instalá-lo.  | 6.0.0 |
+| PowerShell Core | Para executar runbooks do PowerShell é necessário instalar o PowerShell, consulte [Instalar o PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para saber como instalá-lo.  | 6.0.0 |
 
 ### <a name="installation"></a>Instalação
 
@@ -86,7 +86,7 @@ Antes de prosseguir, observe o espaço de trabalho do Log Analytics ao qual sua 
 1. Depois que o comando for concluído, a página **Grupos do Hybrid Worker** no portal do Azure mostrará o novo grupo e o número de membros. Se este for um grupo existente, o número de membros será incrementado. Você pode selecionar o grupo da lista na página **Grupos do Hybrid Worker** e no bloco **Hybrid Workers**. Na página **Hybrid Workers**, você verá cada membro do grupo listado.
 
 > [!NOTE]
-> Se você estiver usando a extensão de máquina virtual Azure monitor para Linux para uma VM do Azure, `autoUpgradeMinorVersion` é recomendável definir como false, pois as versões de atualização automática podem causar problemas na Hybrid runbook Worker. Para saber como atualizar a extensão manualmente, consulte [CLI do Azure implantação ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> Se você estiver usando a extensão de máquina virtual Azure Monitor para Linux para uma VM do Azure, é recomendável definir `autoUpgradeMinorVersion` como false, pois as versões de atualização automática podem causar problemas ao Hybrid Runbook Worker. Para saber como atualizar a extensão manualmente, consulte [CLI do Azure implantação ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Desativar a validação de assinatura
 
@@ -106,7 +106,7 @@ Os seguintes tipos de runbooks funcionam em um Hybrid Worker do Linux:
 * PowerShell
 
   > [!NOTE]
-  > Runbooks do PowerShell exigem que o PowerShell Core seja instalado no computador Linux. Consulte [Instalar PowerShell Core no Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) para saber como instalá-lo.
+  > Runbooks do PowerShell exigem que o PowerShell Core seja instalado no computador Linux. Consulte [Instalar PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para saber como instalá-lo.
 
 Os seguintes tipos de runbook não funcionam em um Linux Hybrid Worker:
 

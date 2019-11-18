@@ -1,5 +1,5 @@
 ---
-title: Importação de dados para ingestão de dados para um índice de pesquisa
+title: Importação e ingestão de dados em índices de pesquisa
 titleSuffix: Azure Cognitive Search
 description: Popular e carregar dados em um índice no Azure Pesquisa Cognitiva de fontes de dados externas.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a05291012bcf44b1a07d9b451eef1302862b2fce
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794152"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113784"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral de importação de dados-Azure Pesquisa Cognitiva
 
@@ -48,7 +48,7 @@ Na API REST, emita solicitações HTTP POST com corpos de solicitação JSON par
 No SDK do .NET, empacote seus dados em um objeto `IndexBatch`. Um `IndexBatch` encapsula uma coleção de objetos `IndexAction`, cada um contendo um documento e uma propriedade que informa ao Azure Pesquisa Cognitiva qual ação executar nesse documento. Para obter um exemplo de código, consulte o guia de [ C# início rápido](search-get-started-dotnet.md).
 
 
-| @search.action | Descrição | Campos necessários para cada documento | Notas |
+| @search.action | DESCRIÇÃO | Campos necessários para cada documento | Observações |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. |chave, além de quaisquer outros campos que você quiser definir |Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo. |
 | `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. |chave, além de quaisquer outros campos que você quiser definir |Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. No SDK do .NET, isso inclui campos do tipo `DataType.Collection(DataType.String)`. Na API REST, isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`. |
@@ -73,7 +73,7 @@ O formato para POST é o mesmo, mas apenas com api-version nos parâmetros da ca
 O modelo de pull rastreia uma fonte de dados com suporte e carrega automaticamente os dados no índice. No Azure Pesquisa Cognitiva, esse recurso é implementado por meio de *indexadores*, atualmente disponíveis para essas plataformas:
 
 + [Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md)
-+ [Armazenamento de tabelas](search-howto-indexing-azure-tables.md)
++ [Armazenamento de tabela](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Banco de Dados SQL do Azure e SQL Server em VMs do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -93,7 +93,7 @@ Uma maneira rápida de executar uma verificação preliminar sobre o upload do d
 > [!TIP]
 > Vários [exemplos de código do Azure pesquisa cognitiva](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de valores inseridos ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também fornece um indexador de exemplo e uma fonte de dados que consiste em um conjunto de dados de imóveis pequeno (denominado "realestate-us-sample"). Quando você executa o indexador pré-configurado na fonte de dados de exemplo, um índice é criado e carregado com documentos que podem ser consultados no Search Explorer ou pelo código que você escreve.
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 + [Visão geral do indexador](search-indexer-overview.md)
 + [Passo a passo do portal: criar, carregar, consultar um índice](search-get-started-portal.md)

@@ -1,5 +1,5 @@
 ---
-title: Criptografia em repouso usando chaves gerenciadas pelo cliente no Azure Key Vault (versão prévia)
+title: Criptografia em repouso usando chaves gerenciadas pelo cliente (visualização)
 titleSuffix: Azure Cognitive Search
 description: Complemente a criptografia do lado do servidor sobre índices e mapas de sinônimos no Azure Pesquisa Cognitiva por meio de chaves que você cria e gerencia no Azure Key Vault. Esse recurso está atualmente em visualização pública.
 manager: nitinme
@@ -8,17 +8,17 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721760"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112927"
 ---
-# <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia de conteúdo do Azure Pesquisa Cognitiva usando chaves gerenciadas pelo cliente no Azure Key Vault
+# <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia em repouso de conteúdo no Azure Pesquisa Cognitiva usando chaves gerenciadas pelo cliente no Azure Key Vault
 
 > [!IMPORTANT] 
-> O suporte para criptografia em repouso está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) e o [SDK do .NET versão 8,0-Preview](search-dotnet-sdk-migration-version-9.md) fornece esse recurso. No momento, não há suporte ao Portal.
+> O suporte para criptografia em repouso está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) e o [SDK do .NET versão 8,0-Preview](search-dotnet-sdk-migration-version-9.md) fornece esse recurso. No momento, não há suporte ao Portal.
 
 Por padrão, o Azure Pesquisa Cognitiva criptografa o conteúdo do usuário em repouso com [chaves gerenciadas pelo serviço](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Você pode complementar a criptografia padrão com uma camada de criptografia adicional usando as chaves que você cria e gerencia no Azure Key Vault. Este artigo orienta você pelas etapas.
 
@@ -28,11 +28,11 @@ A criptografia com chaves gerenciadas pelo cliente é configurada no nível de m
 
 Você pode usar chaves diferentes de diferentes cofres de chaves. Isso significa que um único serviço de pesquisa pode hospedar vários mapas indexes\synonym criptografados, cada um criptografado potencialmente usando uma chave gerenciada pelo cliente diferente, juntamente com os mapas do indexes\synonym que não são criptografados usando chaves gerenciadas pelo cliente. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os serviços a seguir são usados neste exemplo. 
 
-+ [Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este tutorial.
++ [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este tutorial.
 
 + [Crie um recurso Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou localize um cofre existente em sua assinatura.
 

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/29/2019
-ms.openlocfilehash: 7e3dad5405289ee2d1f4ec8f7a586da70db9d56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/14/2019
+ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162248"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109187"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
 
@@ -25,7 +25,7 @@ Para configurar Azure Monitor para VMs:
 * Habilite duas ou mais VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais em uma assinatura ou um grupo de recursos especificado usando o PowerShell.
 * Habilite Azure Monitor para VMs para monitorar VMs ou computadores físicos hospedados em sua rede corporativa ou em outro ambiente de nuvem.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, verifique se você compreende as informações descritas nas seções a seguir. 
 
@@ -37,25 +37,23 @@ Antes de começar, verifique se você compreende as informações descritas nas 
 O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics nas seguintes regiões:
 
 - Centro-Oeste dos EUA
-- Oeste dos EUA<sup>1</sup>
-- Oeste dos EUA 2<sup>1</sup>
-- EUA Central do Sul<sup>1</sup>
+- Oeste dos EUA
+- Oeste dos EUA 2
+- Centro-Sul dos Estados Unidos
 - Leste dos EUA
-- Leste dos EUA 2<sup>1</sup>
-- EUA Central<sup>1</sup>
-- EUA Central norte<sup>1</sup>
+- Leste dos EUA 2
+- Centro dos EUA
+- Centro-Norte dos EUA
 - Canadá Central
 - Sul do Reino Unido
-- Europa Setentrional<sup>1</sup>
-- Oeste da Europa
-- Ásia Oriental<sup>1</sup>
+- Norte da Europa
+- Europa Ocidental
+- Ásia Oriental
 - Sudeste Asiático
-- Índia central<sup>1</sup>
-- Leste do Japão<sup>1</sup>
-- Leste da Austrália<sup>1</sup>
-- Sudeste da Austrália<sup>1</sup>
-
-<sup>1</sup> Atualmente, essa região não dá suporte ao recurso Integridade do Azure Monitor para VMs.
+- Índia Central
+- Leste do Japão
+- Leste da Austrália
+- Sudeste da Austrália
 
 >[!NOTE]
 >Você pode implantar VMs do Azure de qualquer região. Essas VMs não são limitadas às regiões com suporte no espaço de trabalho Log Analytics.
@@ -83,29 +81,25 @@ Para configurar seu espaço de trabalho para o cenário em escala, use um dos se
 
 A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure Monitor para VMs dá suporte. Mais adiante nesta seção, você encontrará uma lista completa que detalha a versão principal e secundária do sistema operacional Linux e as versões de kernel com suporte.
 
-|Versão do SO |Performance |Mapas |Saúde |
-|-----------|------------|-----|-------|
-|Windows Server 2019 | X | X | X |
-|Windows Server 2016 1803 | X | X | X |
-|Windows Server 2016 | X | X | X |
-|Windows Server 2012 R2 | X | X | X |
-|Windows Server 2012 | X | X | |
-|Windows Server 2008 R2 | X | X|  |
-|Windows 10 1803 | X | X | |
-|Windows 8.1 | X | X | |
-|Windows 8 | X | X | |
-|Windows 7 SP1 | X | X | |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 18, 4, 16, 4 | X | X | X |
-|CentOS Linux 7, 6 | X | X | X |
-|SLES (SUSE Linux Enterprise Server) 12 | X | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | | X |
+|Versão do SO |Desempenho |Mapas |
+|-----------|------------|-----|
+|Windows Server 2019 | X | X |
+|Windows Server 2016 1803 | X | X |
+|Windows Server 2016 | X | X |
+|Windows Server 2012 R2 | X | X |
+|Windows Server 2012 | X | X |
+|Windows Server 2008 R2 | X | X|
+|Windows 10 1803 | X | X |
+|Windows 8.1 | X | X |
+|Windows 8 | X | X |
+|Windows 7 SP1 | X | X |
+|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
+|Ubuntu 18, 4, 16, 4 | X | X |
+|CentOS Linux 7, 6 | X | X |
+|SLES (SUSE Linux Enterprise Server) 12 | X | X |
+|Debian 9.4, 8 | X<sup>1</sup> | |
 
 <sup>1</sup> O recurso Desempenho do Azure Monitor para VMs está disponível somente no Azure Monitor. Ele não está disponível diretamente no painel esquerdo da VM do Azure.
-
->[!NOTE]
->O recurso de integridade do Azure Monitor para VMs não oferece suporte à [virtualização aninhada](../../virtual-machines/windows/nested-virtualization.md) em uma VM do Azure.
->
 
 >[!NOTE]
 >No sistema operacional Linux:
@@ -141,7 +135,7 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| 18.04 | 5,0 (inclui kernel ajustado pelo Azure)<br>4,18 *<br>4.15* |
+| 18.04 | 5,0 (inclui kernel ajustado pelo Azure)<br>4,18 *<br>4,15* |
 | 16.04.3 | 4,15. * |
 | 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
@@ -172,20 +166,20 @@ Em um ambiente híbrido, você pode baixar e instalar o agente de dependência m
 
 A tabela a seguir descreve as fontes conectadas para as quais o recurso Mapa dá suporte em um ambiente híbrido.
 
-| Fonte conectada | Com suporte | Descrição |
+| Fonte conectada | Suportado | DESCRIÇÃO |
 |:--|:--|:--|
-| Agentes do Windows | SIM | Junto com o [agente do log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Windows precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
-| Agentes do Linux | SIM | Junto com o [agente de log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
+| Agentes do Windows | sim | Junto com o [agente do log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Windows precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
+| Agentes do Linux | sim | Junto com o [agente de log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
 | Grupo de gerenciamento do System Center Operations Manager | Não | |
 
 Você pode baixar o Dependency Agent nestes locais:
 
-| Arquivo | SISTEMA OPERACIONAL | Versão | SHA-256 |
+| Arquivo | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
+## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
 Para habilitar e acessar os recursos no Azure Monitor para VMs, você deve ter a função de *colaborador de log Analytics* . Para exibir o desempenho, a integridade e os dados do mapa, você deve ter a função *leitor de monitoramento* para a VM do Azure. O espaço de trabalho do Log Analytics precisa ser configurado para o Azure Monitor para VMs.
 
@@ -195,7 +189,7 @@ Para obter mais informações sobre como controlar o acesso a um espaço de trab
 
 Habilite Azure Monitor para VMs usando um dos métodos descritos nesta tabela:
 
-| Estado da implantação | Método | Descrição |
+| Estado da implantação | Método | DESCRIÇÃO |
 |------------------|--------|-------------|
 | Uma única VM do Azure ou conjunto de dimensionamento de máquinas virtuais | [Habilitar da VM](vminsights-enable-single-vm.md) | Você pode habilitar uma única VM do Azure selecionando **insights (versão prévia)** diretamente do conjunto de dimensionamento de máquinas virtuais ou VM. |
 | Várias VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais | [Habilitar por meio de Azure Policy](vminsights-enable-at-scale-policy.md) | Você pode habilitar várias VMs do Azure usando Azure Policy e definições de política disponíveis. |
@@ -264,6 +258,6 @@ Para obter mais informações sobre a coleta e uso de dados, consulte a [Políti
 
 Agora que você habilitou o monitoramento para sua VM, as informações de monitoramento estão disponíveis para análise no Azure Monitor para VMs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para saber como usar o recurso Integridade, confira [Exibir a Integridade do Azure Monitor para VMs](vminsights-health.md). Para exibir as dependências de aplicativos descobertas, confira [Exibir o Mapa do Azure Monitor para VMs](vminsights-maps.md).
+Para saber como usar o recurso de monitoramento de desempenho, consulte [exibir Azure monitor para VMs desempenho](vminsights-performance.md). Para exibir as dependências de aplicativos descobertas, confira [Exibir o Mapa do Azure Monitor para VMs](vminsights-maps.md).

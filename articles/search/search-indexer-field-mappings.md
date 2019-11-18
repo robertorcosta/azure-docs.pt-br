@@ -1,5 +1,5 @@
 ---
-title: Mapeamentos de campo para indexação automatizada usando indexadores
+title: Mapeamentos de campo em indexadores
 titleSuffix: Azure Cognitive Search
 description: Configure mapeamentos de campo em um indexador para considerar as diferenças em nomes de campo e representações de dados.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cc863ee3dc7f2dc8049fcd22189acac94a855352
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72623787cdb27c568fe2b4ec075010674a3996ef
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786967"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123999"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos de campo e transformações usando indexadores do Azure Pesquisa Cognitiva
 
@@ -175,11 +175,14 @@ O Azure Pesquisa Cognitiva dá suporte a duas codificações Base64 diferentes. 
 
 #### <a name="base64-encoding-options"></a>opções de codificação Base64
 
-O Azure Pesquisa Cognitiva dá suporte a duas codificações Base64 diferentes: **token de URL HttpServerUtility**e **codificação Base64 segura para URL sem preenchimento**. Uma cadeia de caracteres codificada em base64 durante a indexação deve ser decodificada posteriormente com as mesmas opções de codificação, caso contrário, o resultado não corresponderá ao original.
+O Azure Pesquisa Cognitiva dá suporte à codificação Base64 de URL segura e à codificação Base64 normal. Uma cadeia de caracteres codificada em base64 durante a indexação deve ser decodificada posteriormente com as mesmas opções de codificação, caso contrário, o resultado não corresponderá ao original.
 
 Se os parâmetros `useHttpServerUtilityUrlTokenEncode` ou `useHttpServerUtilityUrlTokenDecode` para codificação e decodificação respectivamente forem definidos como `true`, `base64Encode` se comporta como [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) e `base64Decode` se comporta como [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Se você não estiver usando o .NET Framework completo (ou seja, estiver usando o .NET Core ou outra estrutura) para produzir os valores de chave para emular o comportamento de Pesquisa Cognitiva do Azure, defina `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` como `false`. Dependendo da biblioteca usada, as funções codificação Base64 e decodificação podem ser diferentes das usadas pelo Pesquisa Cognitiva do Azure.
+> [!WARNING]
+> Se `base64Encode` for usado para produzir valores de chave, `useHttpServerUtilityUrlTokenEncode` deverá ser definido como true. Somente a codificação Base64 segura para URL pode ser usada para valores de chave. Consulte [regras &#40;de nomenclatura pesquisa cognitiva&#41; do Azure](https://docs.microsoft.com/rest/api/searchservice/naming-rules) para obter o conjunto completo de restrições em caracteres em valores de chave.
+
+As bibliotecas do .NET no Azure Pesquisa Cognitiva assumem o .NET Framework completo, que fornece codificação interna. As opções de `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` aproveitam esse funcionalidade interno. Se você estiver usando o .NET Core ou outra estrutura, é recomendável definir essas opções para `false` e chamar as funções de codificação e decodificação da estrutura diretamente.
 
 A tabela a seguir compara codificações diferentes de base64 da cadeia de caracteres `00>00?00`. Para determinar o processamento adicional necessário (se houver) para suas funções de base64, aplique sua função de codificação de biblioteca na cadeia de caracteres `00>00?00` e compare a saída com a saída esperada `MDA-MDA_MDA`.
 
@@ -188,7 +191,7 @@ A tabela a seguir compara codificações diferentes de base64 da cadeia de carac
 | Base64 com preenchimento | `MDA+MDA/MDA=` | Use caracteres com URL segura e remova o preenchimento | Use caracteres base64 padrão e adicione o preenchimento |
 | Base64 sem preenchimento | `MDA+MDA/MDA` | Use caracteres com URL segura | Use caracteres base64 padrão |
 | Base64 com preenchimento e URL segura | `MDA-MDA_MDA=` | Remover preenchimento | Adicionar preenchimento |
-| Base64 sem preenchimento e URL segura | `MDA-MDA_MDA` | Nenhum | Nenhum |
+| Base64 sem preenchimento e URL segura | `MDA-MDA_MDA` | nenhum | nenhum |
 
 <a name="extractTokenAtPositionFunction"></a>
 
