@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810179"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151424"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights usando IA para monitorar e solucionar problemas de desempenho de banco de dados
 
@@ -65,6 +65,17 @@ Para uma visão geral prática sobre o uso do Intelligent Insights com o a Anál
 >
 
 O Intelligent Insights brilha na detecção e na solução de problemas de desempenho do banco de dados SQL. Para usar o Intelligent Insights para solucionar problemas de desempenho do Banco de dados SQL e de Instância Gerenciada, consulte [Solucionar problemas de desempenho do Banco de dados SQL do Azure com Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="intelligent-insights-options"></a>Opções de Intelligent Insights
+
+Intelligent Insights opções disponíveis no banco de dados SQL do Azure são:
+
+| Opção Intelligent Insights | Suporte a banco de dados individual e banco de dados em pool | Suporte a banco de dados de instância |
+| :----------------------------- | ----- | ----- |
+| **Configurar Intelligent insights** -configurar a análise de Intelligent insights para seus bancos de dados. | sim | sim | 
+| **Transmita informações para análise de SQL do Azure** --Stream insights para análise de SQL do Azure solução de monitoramento para o banco de dados SQL do Azure. | sim | sim | 
+| **Transmita informações para o Hub de eventos** -Transmita informações para os hubs de eventos para obter mais integrações personalizadas. | sim | sim | 
+| **Transmita informações para o armazenamento do Azure** -Stream insights para o armazenamento do Azure para análise adicional e arquivamento de longo prazo. | sim | sim |
 
 ## <a name="configure-intelligent-insights"></a>Configurar Intelligent Insights
 

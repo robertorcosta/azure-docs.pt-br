@@ -1,5 +1,5 @@
 ---
-title: Conectar e indexar conteúdo do banco de dados SQL do Azure usando indexadores
+title: Pesquisar em dados SQL do Azure
 titleSuffix: Azure Cognitive Search
 description: Importe dados do banco de dados SQL do Azure usando indexadores, para pesquisa de texto completo no Azure Pesquisa Cognitiva. Este artigo aborda conexões, configuração do indexador e ingestão de dados.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 012f555f3837086946eb4581dadc74011a3acc09
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792202"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113312"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-azure-cognitive-search-indexers"></a>Conectar e indexar conteúdo do banco de dados SQL do Azure usando indexadores do Azure Pesquisa Cognitiva
+# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Conectar e indexar conteúdo do banco de dados SQL do Azure usando um indexador Pesquisa Cognitiva do Azure
 
 Antes de poder consultar um [índice de pesquisa cognitiva do Azure](search-what-is-an-index.md), você deve preenchê-lo com seus dados. Se os dados residirem em um Azure SQL Database, um **indexador pesquisa cognitiva do Azure para o banco de dados SQL do Azure** (ou o **indexador SQL do Azure** para curto) pode automatizar o processo de indexação, o que significa menos código para escrever e menos infraestrutura para se preocupar.
 
@@ -269,7 +269,7 @@ O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use a represen
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mapeamento entre o SQL e o Azure Pesquisa Cognitiva tipos de dados
-| Tipo de dados SQL | Tipos de campos de índice de destino permitidos | Notas |
+| Tipo de dados SQL | Tipos de campos de índice de destino permitidos | Observações |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
@@ -288,8 +288,8 @@ O indexador do SQL expõe várias definições de configuração:
 
 | Configuração | Tipo de dados | Finalidade | Valor padrão |
 | --- | --- | --- | --- |
-| queryTimeout |string |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
-| disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL usada pela política de marca d'água alta omita a cláusula ORDER BY. Consulte [Política de marca d'água alta](#HighWaterMarkPolicy) |falso |
+| queryTimeout |cadeia de caracteres |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
+| disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL usada pela política de marca d'água alta omita a cláusula ORDER BY. Consulte [Política de marca d'água alta](#HighWaterMarkPolicy) |false |
 
 Essas configurações são usadas no objeto `parameters.configuration` na definição do indexador. Por exemplo, para definir o tempo limite da consulta para 10 minutos, crie ou atualize o indexador com a seguinte configuração:
 
@@ -299,7 +299,7 @@ Essas configurações são usadas no objeto `parameters.configuration` na defini
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 **P: Posso usar o indexador SQL do Azure com bancos de dados SQL em execução em VMs IaaS no Azure?**
 
@@ -323,7 +323,7 @@ Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e os r
 
 **P: Posso usar uma réplica secundária em um [cluster de failover](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) como fonte de dados?**
 
-Depende. Para a indexação completa de uma tabela ou exibição, você pode usar uma réplica secundária. 
+Isso depende. Para a indexação completa de uma tabela ou exibição, você pode usar uma réplica secundária. 
 
 Para indexação incremental, o Azure Pesquisa Cognitiva dá suporte a duas políticas de detecção de alteração: controle integrado de alterações do SQL e marca d' água alta.
 

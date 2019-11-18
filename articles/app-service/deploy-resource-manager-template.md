@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 196aeb69a1948a44afb8170fa5f48d42b978854d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070450"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130595"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Diretrizes sobre a implantação de aplicativos Web usando modelos do Azure Resource Manager
 
@@ -46,7 +46,7 @@ Os recursos são implantados na seguinte ordem:
 **Camada 3**
 * Controle do código-fonte - depende do aplicativo Web.
 * Extensão de site do MSDeploy - depende do aplicativo Web.
-* Instância do Application Insights que direciona o farm de servidores - depende do aplicativo Web.
+* Aplicativo Azure instância do insights que se destina ao aplicativo Web – depende do aplicativo Web.
 
 **Camada 4**
 * Certificado do Serviço de Aplicativo - depende do controle do código-fonte ou MSDeploy se qualquer um estiver presente. Caso contrário, ele depende do aplicativo web.
@@ -87,7 +87,7 @@ O exemplo a seguir mostra parte de um modelo. O valor de configuração da cadei
 }
 ```
 
-Para um exemplo pronto para execução que usa o código acima, confira [Modelo: compilar um aplicativo Web Umbraco simples](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+Para um exemplo pronto para execução que usa o código acima, consulte [Modelo: Compilar um aplicativo Web Umbraco simples](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Localizar informações sobre erros do MSDeploy
 

@@ -1,17 +1,14 @@
 ---
-title: Criar recursos no grupo de gerenciamento-modelo de Azure Resource Manager
+title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.author: tomfitz
-ms.openlocfilehash: 82990ab7baa8ea9f2dfc3c2d2b346e348e6bd490
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ed8ae20192599ff7cda691429230d8c2a104fc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73840152"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149912"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos no nível do grupo de gerenciamento
 
@@ -30,7 +27,7 @@ Você pode implantar os seguintes tipos de recursos no nível do grupo de gerenc
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>Esquema
+### <a name="schema"></a>ESQUEMA
 
 O esquema usado para implantações de grupo de gerenciamento é diferente do esquema para implantações de grupo de recursos.
 

@@ -1,17 +1,14 @@
 ---
-title: Segredo do Cofre de Chaves com o modelo do Azure Resource Manager | Microsoft Docs
+title: Key Vault segredo com o modelo
 description: Mostra como transmitir um segredo de um cofre da chave como um parâmetro durante a implantação.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 489b09d2523393ae67668ed13c651c9b7b0217b4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 37d21e295eca2b40e91f92d65d6e927ee6857d0e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998897"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149480"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
@@ -19,7 +16,7 @@ Em vez de colocar um valor seguro (como uma senha) diretamente no seu arquivo de
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Implantar Key Vaults e segredos
 
-Para acessar um cofre de chaves durante a implantação do `enabledForTemplateDeployment` modelo, defina no cofre `true`de chaves como.
+Para acessar um cofre de chaves durante a implantação do modelo, defina `enabledForTemplateDeployment` no cofre de chaves para `true`.
 
 Os exemplos de CLI do Azure e Azure PowerShell a seguir mostram como criar o cofre de chaves e adicionar um segredo.
 
@@ -72,7 +69,7 @@ Para obter mais informações sobre como criar cofres de chaves e adicionar segr
 
 ## <a name="grant-access-to-the-secrets"></a>Permitir acesso aos segredos
 
-O usuário que implanta o modelo deve ter a `Microsoft.KeyVault/vaults/deploy/action` permissão para o escopo do grupo de recursos e do cofre de chaves. Ambas as funções [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Colaborador](../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso. Se você criou o cofre de chaves, você é o proprietário para que tenha a permissão.
+O usuário que implanta o modelo deve ter a permissão `Microsoft.KeyVault/vaults/deploy/action` para o escopo do grupo de recursos e do cofre de chaves. Ambas as funções [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Colaborador](../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso. Se você criou o cofre de chaves, você é o proprietário para que tenha a permissão.
 
 O procedimento a seguir mostra como criar uma função com a permissão mínima e como atribuir o usuário
 
@@ -124,7 +121,7 @@ Com esta abordagem, você faz referência ao Key Vault no arquivo de parâmetro,
 
 ![Diagrama de ID estática de integração do Key Vault do Resource Manager](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[Tutorial: Integrar o Azure Key Vault à implantação de modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md) usa este método.
+[Tutorial: integrar Azure Key Vault no Gerenciador de recursos implantação de modelo](./resource-manager-tutorial-use-key-vault.md) usa esse método.
 
 O modelo a seguir implanta um SQL Server que inclui uma senha de administrador. O parâmetro de senha é definido como uma cadeia de caracteres segura. No entanto, o modelo não especifica de onde vem esse valor.
 

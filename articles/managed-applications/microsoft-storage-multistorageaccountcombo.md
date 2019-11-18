@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08b65770414e9ee1cb5e478427fe7654b2bb9a78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3fb6f474bfe56f54e6dc621a3893e184ebc71d9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725434"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151446"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento de interface do usuário Microsoft.Storage.MultiStorageAccountCombo
+
 Um grupo de controles para criar várias contas de armazenamento com nomes que começam com um prefixo comum.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
+
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
 
-## <a name="schema"></a>Esquema
+## <a name="schema"></a>ESQUEMA
+
 ```json
 {
   "name": "element1",
@@ -52,13 +55,6 @@ Um grupo de controles para criar várias contas de armazenamento com nomes que c
 }
 ```
 
-## <a name="remarks"></a>Comentários
-- O valor de `defaultValue.prefix` é concatenado com um ou mais números inteiros para gerar a sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` é **sa** e `count` é **2**, os nomes de conta de armazenamento **sa1** e **sa2** são gerados. Os nomes de conta de armazenamento gerados são validados por exclusividade automaticamente.
-- Os nomes de conta de armazenamento são gerados lexicograficamente com base em `count`. Por exemplo, se `count` for 10, os nomes de conta de armazenamento terminarão com números inteiros de 2 dígitos (01, 02, 03).
-- O valor padrão de `defaultValue.prefix` é **null**e `defaultValue.type` é **Premium_LRS**.
-- Os tipos não especificados em `constraints.allowedTypes` ficam ocultos e os tipos não especificados em `constraints.excludedTypes` são mostrados. `constraints.allowedTypes` e `constraints.excludedTypes` são opcionais, mas não podem ser usados simultaneamente.
-- Além de gerar nomes de conta de armazenamento, `count` é usado para definir o multiplicador apropriado para o elemento. Ele dá suporte a um valor estático, como **2**, ou a um valor dinâmico de outro elemento, como `[steps('step1').storageAccountCount]`. O valor padrão é **1**.
-
 ## <a name="sample-output"></a>Saída de exemplo
 
 ```json
@@ -70,6 +66,15 @@ Um grupo de controles para criar várias contas de armazenamento com nomes que c
 }
 ```
 
+## <a name="remarks"></a>Comentários
+
+- O valor de `defaultValue.prefix` é concatenado com um ou mais números inteiros para gerar a sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` é **sa** e `count` é **2**, os nomes de conta de armazenamento **sa1** e **sa2** são gerados. Os nomes de conta de armazenamento gerados são validados por exclusividade automaticamente.
+- Os nomes de conta de armazenamento são gerados lexicograficamente com base em `count`. Por exemplo, se `count` for 10, os nomes de conta de armazenamento terminarão com números inteiros de 2 dígitos (01, 02, 03).
+- O valor padrão de `defaultValue.prefix` é **null**e `defaultValue.type` é **Premium_LRS**.
+- Os tipos não especificados em `constraints.allowedTypes` ficam ocultos e os tipos não especificados em `constraints.excludedTypes` são mostrados. `constraints.allowedTypes` e `constraints.excludedTypes` são opcionais, mas não podem ser usados simultaneamente.
+- Além de gerar nomes de conta de armazenamento, `count` é usado para definir o multiplicador apropriado para o elemento. Ele dá suporte a um valor estático, como **2**, ou a um valor dinâmico de outro elemento, como `[steps('step1').storageAccountCount]`. O valor padrão é **1**.
+
 ## <a name="next-steps"></a>Próximas etapas
+
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

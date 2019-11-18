@@ -1,17 +1,14 @@
 ---
-title: Variáveis em modelos de Azure Resource Manager
+title: Variáveis em modelos
 description: Descreve como definir variáveis em um modelo de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 5ed6bb58f2f45de557f2127fdc8abd5cdf2ef965
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 5bd7acd759c553e629febdb141aefd63cfa4dd4b
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384028"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149077"
 ---
 # <a name="variables-in-azure-resource-manager-template"></a>Variáveis no modelo Azure Resource Manager
 
@@ -31,7 +28,7 @@ O seguinte exemplo mostra uma definição de variável. Ele cria um valor de cad
 
 Você não pode usar a função de [referência](resource-group-template-functions-resource.md#reference) ou qualquer uma das funções de [lista](resource-group-template-functions-resource.md#list) na seção de variáveis. Essas funções obtêm o estado de tempo de execução de um recurso e não podem ser executadas antes da implantação quando as variáveis são resolvidas.
 
-## <a name="use-variable"></a>Usar variável
+## <a name="use-variable"></a>Usar uma variável
 
 No modelo, você faz referência ao valor do parâmetro usando a função [Variables](resource-group-template-functions-deployment.md#variables) . O exemplo a seguir mostra como usar a variável para uma propriedade de recurso.
 
@@ -88,7 +85,7 @@ Para recuperar as configurações do ambiente especificado, use a variável e o 
 
 Os exemplos a seguir demonstram cenários para usar variáveis.
 
-|Modelo  |Descrição  |
+|Modelo  |DESCRIÇÃO  |
 |---------|---------|
 | [definições disponíveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstra os diferentes tipos de variáveis. O modelo não implanta todos os recursos. Ele cria valores de variável e retorna os valores. |
 | [variável de configuração](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstra o uso de uma variável que define os valores de configuração. O modelo não implanta todos os recursos. Ele cria valores de variável e retorna os valores. |

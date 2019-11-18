@@ -1,5 +1,6 @@
 ---
-title: 'Criar e instalar arquivos de configuração de cliente VPN P2S para autenticação de certificado do Azure: Azure'
+title: 'Criar & instalar arquivos de configuração de cliente VPN P2S: autenticação de certificado'
+titleSuffix: Azure VPN Gateway
 description: Crie e instale arquivos de configuração do cliente VPN do Windows, Linux (strongSwan) e Mac OS X para autenticação de certificado P2S.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: fb6c484e234b4641a521bd876acdfeb4df562260
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ad6e912f976095ae7d8fd5276b0f1365566c181a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063111"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143788"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações P2S da autenticação de certificado nativa do Azure
 
@@ -27,7 +28,7 @@ Os arquivos de configuração do cliente são específicos para a configuração
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="generate"></a>Gerar os arquvios de configuração de cliente VPN
+## <a name="generate"></a>Gerar os arquivos de configuração de cliente VPN
 
 Antes de começar, verifique se todos os usuários conectados têm um certificado válido instalado no dispositivo do usuário. Para saber mais sobre como instalar um certificado de cliente, confira [Instalar um certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
@@ -199,7 +200,7 @@ Se você ainda não gerou certificados, use as seguintes etapas:
    # ipsec up azure
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Retornar para o artigo [concluir a configuração de P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 

@@ -1,17 +1,14 @@
 ---
-title: Tipos de recursos de extensão do Azure
+title: Tipos de recursos de extensão
 description: Lista os tipos de recursos do Azure são usados para estender os recursos de outros tipos de recursos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 00e8efaaa81ec0ce189d8cfe8a78285ded445c68
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 16dcd4cccea4445b6839ac639094d18e29ed49a9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901918"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147024"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que estendem funcionalidades de outros recursos
 
@@ -74,7 +71,7 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. CostManagement/Reports
 - Microsoft. CostManagement/views
 - Microsoft. CostManagement/showbackRules
-- Microsoft. CustomProviders/Associations
+- Microsoft.CustomProviders/associations
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
 - Microsoft. GuestConfiguration/configurationProfileAssignments
@@ -151,7 +148,7 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. WorkloadMonitor/monitores
 - Microsoft. WorkloadMonitor/notificationSettings
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter a ID de recurso para um recurso de extensão em um modelo de Azure Resource Manager, use o [extensionResourceId](resource-group-template-functions-resource.md#extensionresourceid).
 - Para obter um exemplo de como criar um recurso de extensão em um modelo, consulte [assinaturas de evento de grade de eventos](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions).

@@ -1,6 +1,6 @@
 ---
 title: Exemplos de modelo do Azure Resource Manager – Instâncias de Contêiner do Azure
-description: Exemplos de modelo do Azure Resource Manager para Instâncias de Contêiner do Azure
+description: Localizar exemplos de modelo de Azure Resource Manager para implantar instâncias de contêiner do Azure em diferentes configurações
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: 2089f024e1de2e92f6e401549c5876e26db17ebb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7dead5cc83717a011120ef6c17b9268bd78ed171
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325691"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150145"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos do Azure Resource Manager para Instâncias de Contêiner do Azure
 
@@ -31,7 +31,7 @@ Para opções de implantação, consulte a [Implantação](#deployment). Se voc�
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Implanta dois contêineres do Linux que compartilham um volume emptyDir. |
 | [gitRepo][vol-gitrepo] | Implanta um contêiner do Linux que clona um repositório GitHub e monta-o como um volume. |
-| [secret][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume de segredo. |
+| [segredo][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume de segredo. |
 | **Rede** ||
 | [Contêiner de UDP exposto][net-udp] | Implanta um contêiner do Windows ou Linux que expõe uma porta UDP. |
 | [Contêiner do Linux com IP público][net-publicip] | Implanta um único contêiner do Linux acessível por meio de um IP público. |
@@ -45,7 +45,7 @@ Você tem várias opções para a implantação de recursos com os modelos do Ge
 
 [CLI do Azure][deploy-cli]
 
-[PowerShell do Azure][deploy-powershell]
+[Azure PowerShell][deploy-powershell]
 
 [Portal do Azure][deploy-portal]
 

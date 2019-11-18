@@ -1,19 +1,16 @@
 ---
-title: Gerenciar recursos do Azure usando o portal do Azure | Microsoft Docs
+title: Gerenciar recursos-portal do Azure
 description: Use o portal do Azure e Azure Resource Manager para gerenciar seus recursos. Mostra como implantar e excluir recursos.
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: c52d54ca02436f7224346a65048244a5ec8d104c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 5c0e09930ee53733b36e987356cef2963416006f
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390390"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149829"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gerenciar recursos do Azure usando o portal do Azure
 
@@ -93,7 +90,7 @@ O bloqueio impede que outros usuários em sua organização excluam ou modifique
     ![bloquear recurso do Azure](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
 3. Selecione **Adicionar**e, em seguida, especifique as propriedades do bloqueio.
 
-Para saber mais, confira [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
+Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
 ## <a name="tag-resources"></a>Recursos de marca
 
@@ -117,9 +114,9 @@ Você pode selecionar o ícone de pino no canto superior direito dos grafos para
 
 ## <a name="manage-access-to-resources"></a>Gerenciar acesso aos recursos
 
-O [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../role-based-access-control/role-assignments-portal.md).
+O [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) é a maneira como você gerencia o acesso aos recursos no Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](./resource-group-overview.md).
 - Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](./resource-group-authoring-templates.md).

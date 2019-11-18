@@ -1,7 +1,7 @@
 ---
 title: Referência do OData Select
 titleSuffix: Azure Cognitive Search
-description: Referência de linguagem OData para a sintaxe SELECT nas consultas do Azure Pesquisa Cognitiva.
+description: Sintaxe e referência de linguagem para a seleção explícita de campos a serem retornados nos resultados da pesquisa das consultas de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793257"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113106"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxe de $select OData no Azure Pesquisa Cognitiva
 
@@ -108,7 +108,7 @@ Um resultado de exemplo pode ser assim:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 - [Como trabalhar com os resultados da pesquisa no Azure Pesquisa Cognitiva](search-pagination-page-layout.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)

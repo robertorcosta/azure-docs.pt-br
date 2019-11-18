@@ -1,19 +1,16 @@
 ---
-title: Gerenciar recursos do Azure usando o CLI do Azure | Microsoft Docs
+title: Gerenciar recursos-CLI do Azure
 description: Use CLI do Azure e Azure Resource Manager para gerenciar seus recursos. Mostra como implantar e excluir recursos.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: d3c3ca4a95cff8b9a81be8e75b011ca83799dcaa
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a9148ada37886d8d9ee6d8e314b36f9b259082d8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390374"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146785"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gerenciar recursos do Azure usando o CLI do Azure
 
@@ -131,7 +128,7 @@ lockId=$(az lock show --name LockSite --resource-group $resourceGroupName --reso
 az lock delete --ids $lockId
 ```
 
-Para saber mais, confira [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
+Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
 ## <a name="tag-resources"></a>Recursos de marca
 
@@ -139,9 +136,9 @@ A marcação ajuda a organizar o grupo de recursos e os recursos logicamente. Pa
 
 ## <a name="manage-access-to-resources"></a>Gerenciar acesso aos recursos
 
-O [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Para obter mais informações, consulte [gerenciar o acesso usando RBAC e CLI do Azure](../role-based-access-control/role-assignments-cli.md).
+O [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) é a maneira como você gerencia o acesso aos recursos no Azure. Para obter mais informações, consulte [gerenciar o acesso usando RBAC e CLI do Azure](../role-based-access-control/role-assignments-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](./resource-group-overview.md).
 - Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](./resource-group-authoring-templates.md).

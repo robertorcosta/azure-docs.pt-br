@@ -1,37 +1,31 @@
 ---
 title: Visão geral de redirecionamento do Gateway de Aplicativo do Azure
-description: Saiba mais sobre a capacidade de redirecionamento do Gateway de Aplicativo do Azure
+description: Saiba mais sobre o recurso de redirecionamento no Aplicativo Azure gateway para redirecionar o tráfego recebido em um ouvinte para outro ouvinte ou para um site externo.
 services: application-gateway
-documentationcenter: na
 author: amsriva
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/19/2018
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5943d8aad4d5dd0d981fae9b2325dd3fc75b31e8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715786"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129875"
 ---
 # <a name="application-gateway-redirect-overview"></a>Visão geral do redirecionamento do Gateway de Aplicativo
 
 Você pode usar o gateway de aplicativo para redirecionar o tráfego.  Contém um mecanismo de redirecionamento genérico, que permite o redirecionamento do tráfego recebido em um ouvinte para outro ouvinte ou para um site externo. Isso simplifica a configuração do aplicativo, otimiza o uso de recursos e dá suporte a novos cenários de redirecionamento, incluindo redirecionamento global e baseado no caminho.
 
-É um cenário comum de redirecionamento para muitos aplicativos web dar suporte automático de HTTP para redirecionamento a HTTPS para garantir que toda a comunicação entre o aplicativo e seus usuários ocorre em um caminho criptografado. No passado, os clientes usaram técnicas como a criação de um pool de back-end dedicado cujo único propósito é redirecionar as solicitações recebidas de HTTP para HTTPS. Com o suporte de redirecionamento no Gateway de aplicativo, você pode fazer isso, basta adicionar uma nova configuração de redirecionamento para uma regra de roteamento e especificando outro ouvinte com o protocolo HTTPS como o ouvinte de destino.
+Um cenário de redirecionamento comum para muitos aplicativos Web é dar suporte ao redirecionamento automático de HTTP para HTTPS para garantir que toda a comunicação entre o aplicativo e seus usuários ocorra em um caminho criptografado. No passado, os clientes usaram técnicas como a criação de um pool de back-end dedicado cujo único propósito é redirecionar as solicitações recebidas de HTTP para HTTPS. Com o suporte ao redirecionamento no gateway de aplicativo, você pode fazer isso simplesmente adicionando uma nova configuração de redirecionamento a uma regra de roteamento e especificando outro ouvinte com o protocolo HTTPS como o ouvinte de destino.
 
 Há suporte para os seguintes tipos de redirecionamento:
 
-- 301 Permanent Redirect
+- redirecionamento permanente 301
 - 302 Encontrado
 - 303 ver outros
-- 307 Temporary Redirect
+- redirecionamento temporário 307
 
 O suporte a redirecionamento do Gateway de Aplicativo oferece os seguintes recursos:
 

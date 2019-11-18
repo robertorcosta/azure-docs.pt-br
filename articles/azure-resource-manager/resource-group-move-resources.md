@@ -1,25 +1,22 @@
 ---
-title: Mover recursos do Azure para uma nova assinatura ou grupo de recursos | Microsoft Docs
+title: Mover recursos para uma nova assinatura ou grupo de recursos
 description: Use o Azure Resource Manager para mover recursos para um novo grupo de recursos ou uma nova assinatura.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: tomfitz
-ms.openlocfilehash: 69cd6031111c72d54cb87975c2040078a9965821
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 11/08/2019
+ms.openlocfilehash: f106de7fd35bdbe91033af173b1f338dd251f4e8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035548"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149695"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou assinatura
 
 Este artigo mostra como mover recursos do Azure para outra assinatura do Azure ou outro grupo de recursos na mesma assinatura. Você pode usar o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST para mover recursos.
 
-O grupo de origem e o grupo de destino ficam bloqueados durante a operação de movimentação. As operações de gravação e exclusão são bloqueadas nos grupos de recursos até que a migração seja concluída. Esse bloqueio significa que você não pode adicionar, atualizar nem excluir os recursos nos grupos de recursos, mas isso não significa que os recursos estão congelados. Por exemplo, se você mover um SQL Server e seu banco de dados para um novo grupo de recursos, um aplicativo que usa o banco de dados não terá nenhuma inatividade. Ele ainda poderá ler e gravar no banco de dados.
+O grupo de origem e o grupo de destino ficam bloqueados durante a operação de movimentação. As operações de gravação e exclusão são bloqueadas nos grupos de recursos até que a migração seja concluída. Esse bloqueio significa que você não pode adicionar, atualizar ou excluir recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se você mover um SQL Server e seu banco de dados para um novo grupo de recursos, um aplicativo que usa o banco de dados não terá nenhuma inatividade. Ele ainda poderá ler e gravar no banco de dados. O bloqueio pode durar por um máximo de quatro horas, mas a maioria das mudanças é concluída em muito menos tempo.
 
-Mover um recurso apenas o move para um novo grupo de recursos ou assinatura. Ele não altera o local do recurso.
+Mover um recurso só o move para um novo grupo de recursos ou assinatura. Não altera o local do recurso.
 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
 
@@ -108,9 +105,9 @@ Mover recursos de uma assinatura para outra é um processo de três etapas:
 
 Para fins de ilustração, temos apenas um recurso dependente.
 
-* Etapa 1: Se os recursos dependentes forem distribuídos entre grupos de recursos diferentes, primeiro mova-os para um grupo de recursos.
+* Etapa 1: se os recursos dependentes forem distribuídos em grupos de recursos diferentes, primeiro mova-os para um grupo de recursos.
 * Etapa 2: Mova o recurso e os recursos dependentes da assinatura de origem para a assinatura de destino.
-* Etapa 3: Opcionalmente, redistribua os recursos dependentes para grupos de recursos diferentes na assinatura de destino. 
+* Etapa 3: opcionalmente, redistribua os recursos dependentes para grupos de recursos diferentes na assinatura de destino. 
 
 ## <a name="validate-move"></a>Validar movimentação
 
@@ -233,6 +230,51 @@ No corpo da solicitação, especifique o grupo de recursos de destino e os recur
 ```
 
 Se você receber um erro, consulte [solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura](troubleshoot-move.md).
+
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+**Pergunta: minha operação de movimentação de recursos, que geralmente leva alguns minutos, está em execução por quase uma hora. Há algo errado?**
+
+Mover um recurso é uma operação complexa que tem diferentes fases. Ele pode envolver mais do que apenas o provedor de recursos do recurso que você está tentando mover. Devido às dependências entre os provedores de recursos, Azure Resource Manager permite que a operação seja concluída por 4 horas. Esse período de tempo dá aos provedores de recursos uma chance de se recuperar de problemas transitórios. Se sua solicitação de movimentação estiver dentro do período de 4 horas, a operação continuará tentando ser concluída e ainda poderá ser bem sucedido. Os grupos de recursos de origem e de destino são bloqueados durante esse tempo para evitar problemas de consistência.
+
+**Pergunta: por que meu grupo de recursos está bloqueado por 4 horas durante a movimentação de recursos?**
+
+A janela de 4 horas é o tempo máximo permitido para movimentação de recursos. Para evitar modificações nos recursos que estão sendo movidos, os grupos de recursos de origem e de destino são bloqueados durante a movimentação do recurso.
+
+Há duas fases em uma solicitação de movimentação. Na primeira fase, o recurso é movido. Na segunda fase, as notificações são enviadas para outros provedores de recursos que dependem do recurso que está sendo movido. Um grupo de recursos pode ser bloqueado para toda a janela de 4 horas quando um provedor de recursos falha em qualquer fase. Durante o tempo permitido, o Gerenciador de recursos repete a etapa com falha.
+
+Se um recurso não puder ser movido dentro da janela de 4 horas, o Resource Manager desbloqueará os dois grupos de recursos. Os recursos que foram movidos com êxito estão no grupo de recursos de destino. Os recursos que não foram movidos são deixados no grupo de recursos de origem.
+
+**Pergunta: quais são as implicações dos grupos de recursos de origem e de destino bloqueados durante a movimentação de recursos?**
+
+O bloqueio impede que você exclua um dos grupos de recursos, criando um novo recurso em qualquer grupo de recursos ou excluindo qualquer um dos recursos envolvidos na movimentação.
+
+A imagem a seguir mostra uma mensagem de erro do portal do Azure quando um usuário tenta excluir um grupo de recursos que faz parte de uma movimentação em andamento.
+
+![Mover mensagem de erro ao tentar excluir](./media/resource-group-move-resources/move-error-delete.png)
+
+**Pergunta: o que significa o código de erro "MissingMoveDependentResources"?**
+
+Ao mover um recurso, seus recursos dependentes devem existir no grupo de recursos de destino ou na assinatura ou ser incluídos na solicitação de movimentação. Você Obtém o código de erro MissingMoveDependentResources quando um recurso dependente não atende a esse requisito. A mensagem de erro tem detalhes sobre o recurso dependente que precisa ser incluído na solicitação de movimentação.
+
+Por exemplo, mover uma máquina virtual pode exigir a movimentação de sete tipos de recursos com três provedores de recursos diferentes. Esses tipos e provedores de recursos são:
+
+* Microsoft.Compute
+   * virtualMachines
+   * disks
+* Microsoft.Network
+  * networkInterfaces
+  * publicIPAddresses
+  * networkSecurityGroups
+  * virtualNetworks
+* Microsoft.Storage
+  * storageAccounts
+
+Outro exemplo comum envolve a movimentação de uma rede virtual. Talvez seja necessário mover vários outros recursos associados a essa rede virtual. A solicitação de movimentação pode exigir a movimentação de endereços IP públicos, tabelas de rotas, gateways de rede virtual, grupos de segurança de rede e outros.
+
+**Pergunta: por que não posso mover alguns recursos no Azure?**
+
+No momento, nem todos os recursos no Azure dão suporte à movimentação. Para obter uma lista de recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](move-support-resources.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

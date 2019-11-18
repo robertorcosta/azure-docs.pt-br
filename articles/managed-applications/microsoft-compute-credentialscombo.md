@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3036e5882e236dbbb9cf4f9aae17617822422a82
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: c1b4791f2ec80eba25a00e22cb4298b4c97da4de
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742101"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151090"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.CredentialsCombo
+
 Um grupo de controles com validação interna para chaves públicas SSH e senhas Windows e Linux.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
@@ -37,7 +38,8 @@ Para o Linux com a chave pública de SSH selecionado, os usuários veem:
 
 ![Chave Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
-## <a name="schema"></a>Esquema
+## <a name="schema"></a>ESQUEMA
+
 Para Windows, use o esquema a seguir:
 
 ```json
@@ -95,14 +97,8 @@ Para **Linux**, use o esquema a seguir:
 }
 ```
 
-## <a name="remarks"></a>Comentários
-- `osPlatform` deve ser especificada e pode ser **Windows** ou **Linux**.
-- Se `constraints.required` é definido como **true**, as caixas de texto da chave pública SSH ou senha devem conter valores para serem validados com êxito. O valor padrão é **true**.
-- Se `options.hideConfirmation` for definido como **true**, a segunda caixa de texto para confirmar a senha do usuário ficará oculta. O valor padrão é **false**.
-- Se `options.hidePassword` é definido como **true**, a opção para usar a autenticação de senha fica oculta. Ele pode ser usado apenas quando `osPlatform` é **Linux**. O valor padrão é **false**.
-- Outras restrições sobre as senhas permitidas podem ser implementadas usando a propriedade `customPasswordRegex`. A cadeia de caracteres em `customValidationMessage` é exibida quando uma senha falha a validação personalizada. O valor padrão para ambas as propriedades é **null**.
-
 ## <a name="sample-output"></a>Saída de exemplo
+
 Se `osPlatform` é **Windows**, ou `osPlatform` é **Linux** e o usuário forneceu uma senha em vez de uma chave pública SSH, o controle retorna a seguinte saída:
 
 ```json
@@ -121,6 +117,15 @@ Se `osPlatform` é **Linux**, e o usuário forneceuuma chave pública SSH, o con
 }
 ```
 
+## <a name="remarks"></a>Comentários
+
+- `osPlatform` deve ser especificada e pode ser **Windows** ou **Linux**.
+- Se `constraints.required` é definido como **true**, as caixas de texto da chave pública SSH ou senha devem conter valores para serem validados com êxito. O valor padrão é **true**.
+- Se `options.hideConfirmation` for definido como **true**, a segunda caixa de texto para confirmar a senha do usuário ficará oculta. O valor padrão é **false**.
+- Se `options.hidePassword` é definido como **true**, a opção para usar a autenticação de senha fica oculta. Ele pode ser usado apenas quando `osPlatform` é **Linux**. O valor padrão é **false**.
+- Outras restrições sobre as senhas permitidas podem ser implementadas usando a propriedade `customPasswordRegex`. A cadeia de caracteres em `customValidationMessage` é exibida quando uma senha falha a validação personalizada. O valor padrão para ambas as propriedades é **null**.
+
 ## <a name="next-steps"></a>Próximas etapas
+
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

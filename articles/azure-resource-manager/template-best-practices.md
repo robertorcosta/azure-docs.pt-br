@@ -1,23 +1,20 @@
 ---
-title: Práticas recomendadas para modelos do Azure Resource Manager
+title: Práticas recomendadas para modelos
 description: Descreve as abordagens recomendadas para a criação de modelos do Azure Resource Manager. Oferece sugestões para evitar problemas comuns ao usar os modelos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: tomfitz
-ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983815"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150307"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas para modelos do Azure Resource Manager
 
 Este artigo fornece recomendações sobre como criar o modelo do Resource Manager. Essas recomendações ajudam você a evitar problemas comuns ao usar um modelo para implantar uma solução.
 
-Para obter recomendações sobre como controlar suas assinaturas do Azure, consulte [Azure enterprise scaffold: Governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Para obter recomendações sobre como controlar suas assinaturas do Azure, consulte [Azure Enterprise Scaffold: governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [Desenvolver modelos do Azure Resource Manager para manter a consistência nuvem](templates-cloud-consistency.md).
 
@@ -155,7 +152,7 @@ As seguintes informações podem ser úteis quando você trabalha com [variávei
 
 * Não use variáveis para `apiVersion` em um recurso. A versão da API determina o esquema do recurso. Muitas vezes, é possível alterar a versão sem alterar as propriedades do recurso.
 
-* Não é possível usar a função [reference](resource-group-template-functions-resource.md#reference) na seção de **variáveis** do modelo. A função **reference** deriva seu valor do estado de tempo de execução do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que precisam da função **reference** diretamente na seção **resources** ou **outputs** do modelo.
+* Não é possível usar a função [reference](resource-group-template-functions-resource.md#reference) na seção de **variáveis** do modelo. A função **reference** deriva seu valor do estado de runtime do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que precisam da função **reference** diretamente na seção **resources** ou **outputs** do modelo.
 
 * Inclua variáveis em nomes de recurso que devem ser exclusivos.
 

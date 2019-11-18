@@ -1,17 +1,14 @@
 ---
-title: CI/CD com modelos Azure Pipelines e Resource Manager
+title: CI/CD com Azure Pipelines e modelos
 description: Descreve como configurar a integração contínua no Azure Pipelines usando projetos de implantação do grupo de recursos do Azure no Visual Studio para implantar modelos do Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: tomfitz
-ms.openlocfilehash: 9306ff8787a4e2b873cb11458a4cf9a10589bf6b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 51122e314ebd0a97647fc4026b1f49619950c351
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597511"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143760"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Integrar modelos do Resource Manager com o Azure Pipelines
 
@@ -127,7 +124,7 @@ Agora que você entende como criar a tarefa, vamos percorrer as etapas para edit
 
 1. Selecione **Salvar**.
 
-   ![Salvar pipeline](./media/vs-resource-groups-project-devops-pipelines/save-pipeline.png)
+   ![Salve o pipeline](./media/vs-resource-groups-project-devops-pipelines/save-pipeline.png)
 
 1. Forneça uma mensagem para a confirmação e confirme diretamente no **mestre**.
 
@@ -197,7 +194,7 @@ O YAML a seguir mostra a [tarefa de implantação de modelo de Azure Resource Ma
 
 Há várias partes dessa tarefa a serem revisadas para o seu ambiente.
 
-- `deploymentScope`: selecione o escopo de implantação nas opções: `Management Group`, `Subscription` e `Resource Group`. Use o **grupo de recursos** nesta passagem. Para saber mais sobre os escopos, consulte [escopos de implantação](./resource-group-template-deploy-rest.md#deployment-scope).
+- `deploymentScope`: selecione o escopo de implantação nas opções: `Management Group`, `Subscription` e `Resource Group`. Use o **grupo de recursos** nesta passagem. Para saber mais sobre os escopos, confira [Escopos de implantação](./resource-group-template-deploy-rest.md#deployment-scope).
 
 - `ConnectedServiceName`: forneça o nome da conexão de serviço que você criou.
 
@@ -262,6 +259,6 @@ Agora que você entende como criar as tarefas, vamos percorrer as etapas para ed
 
 Você pode selecionar o pipeline em execução no momento para ver detalhes sobre as tarefas. Quando ele for concluído, você verá os resultados de cada etapa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter um processo passo a passo sobre como usar Azure Pipelines com modelos do Resource Manager, consulte [tutorial: integração contínua de modelos de Azure Resource Manager com o Azure pipelines](resource-manager-tutorial-use-azure-pipelines.md).

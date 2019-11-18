@@ -1,6 +1,6 @@
 ---
 title: Usar as Instâncias de Contêiner do Azure como um agente de build Jenkins
-description: Saiba como usar as Instâncias de Contêiner do Azure como um agente de build Jenkins.
+description: Saiba como configurar um servidor Jenkins para executar trabalhos de compilação sob demanda em instâncias de contêiner do Azure
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: ed000779940d9af7b1384873bf9fddd1cde79c71
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7e93457a182598a2e8d739f4d626b49ff57b30fb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326026"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150223"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usar as Instâncias de Contêiner do Azure como um agente de build Jenkins
 
@@ -27,24 +27,24 @@ Para obter mais informações sobre as instâncias de contêiner do Azure, consu
 
 2. Insira as informações a seguir no formulário **Básico**, e em seguida, selecione **OK**.
 
-   - **Nome**: Insira um nome para a implantação do Jenkins.
-   - **Nome de usuário**: Insira um nome para o usuário administrador da máquina virtual do Jenkins.
-   - **Tipo de autenticação**: Recomendamos uma chave pública de SSH para autenticação. Se você selecionar essa opção, cole uma chave pública SSH a ser usada para fazer logon na máquina virtual do Jenkins.
-   - **Assinatura**: Selecione uma assinatura do Azure.
-   - **Grupo de recursos**: Crie um grupo de recursos ou selecione um existente.
-   - **Localização**: Selecione uma localização para o servidor Jenkins.
+   - **Nome** - insira um ome para a implantação do Jenkins.
+   - **Nome de usuário**: insira um nome para o usuário administrador da máquina virtual Jenkins.
+   - **Tipo de autenticação**: Nós recomendamos uma chave pública de SSH para autenticação. Se você selecionar essa opção, cole uma chave pública SSH a ser usada para fazer logon na máquina virtual do Jenkins.
+   - **Assinatura**: selecione uma assinatura do Azure.
+   - No **Grupo de recursos**: crie um grupo de recursos ou selecione um existente.
+   - **Local**: selecione um local para o servidor Jenkins.
 
    ![Configurações básicas da implantação do Portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-01.png)
 
 3. No formulário de **Configurações Adicionis** preencha os itens a seguir:
 
-   - **Tamanho**: Selecione a opção de tamanho apropriada para sua máquina virtual do Jenkins.
-   - **Tipo de disco da VM**: Especifique **HD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
-   - **Rede virtual**: Selecione a seta se desejar modificar as configurações padrão.
-   - **sub-redes**: Selecione sub-redes, verifique as informações e selecione **OK**.
-   - **Endereço IP público**: Selecione a seta para fornecer ao endereço IP público um nome personalizado, configure o SKU e defina o método de atribuição.
-   - **Rótulo do nome de domínio**: Especifique o valor para a URL totalmente qualificada para a máquina virtual do Jenkins.
-   - **Tipo de versão do Jenkins**: Selecione o tipo de versão desejado entre as opções: **LTS**, **Build semanal**, ou **Verificado Pelo Azure**.
+   - **Tamanho** - Selecione a opção de tamanho apropriado para sua máquina virtual de Jenkins.
+   - **Tipo de disco de VM** - Especifique **HDD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
+   - **Rede virtual**: selecione a seta se desejar modificar as configurações padrão.
+   - **Sub-redes**: Selecione sub-redes, verifique as informações e selecione **OK**.
+   - **Endereço IP público**: selecione a seta para fornecer ao endereço IP público um nome personalizado, configure o SKU e defina o método de atribuição.
+   - **Rótulo do nome de domínio** - Especifique o valor para a URL totalmente qualificada para a máquina virtual do Jenkins.
+   - **Tipo de versão do Jenkins** - Selecione o tipo de versão desejada nas opções: **LTS**, **Construção semana**, ou **Azure Verified**.
 
    ![Configurações adicionais de implantação do portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
@@ -106,7 +106,7 @@ Agora, um trabalho de build do Jenkins é criado para demonstrar builds dos Jenk
 
    ![Guia "Criar" com as seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 ## <a name="run-the-build-job"></a>Executar o trabalho de build
 
@@ -128,7 +128,7 @@ Para testar o trabalho de build e observar as Instâncias de Contêiner do Azure
 
    ![Grupo de recursos com instâncias de contêiner removido](./media/container-instances-jenkins/jenkins-aci-none.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de solução de problemas
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solução de problemas do plug-in do Jenkins
 
 Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 

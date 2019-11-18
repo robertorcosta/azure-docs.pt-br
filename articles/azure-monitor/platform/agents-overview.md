@@ -2,77 +2,98 @@
 title: Visão geral agentes de monitoramento do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral detalhada dos agentes do Azure disponíveis que oferecem suporte ao monitoramento de máquinas virtuais hospedadas no Azure ou no ambiente híbrido.
 services: azure-monitor
-documentationcenter: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: magoedte
-ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: bwren
+ms.author: bwren
+ms.date: 11/15/2019
+ms.openlocfilehash: a01258799efa81c8d3ddba398facaa90c24c2513
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977580"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150033"
 ---
-# <a name="overview-of-the-azure-monitoring-agents"></a>Visão geral dos agentes de monitoramento do Azure 
-O Microsoft Azure fornece várias maneiras de coletar diferentes tipos de dados de máquinas virtuais que executam o Microsoft Windows e o Linux hospedados no Azure, no seu datacenter ou em outros provedores de nuvem. Os três tipos de agentes disponíveis para monitorar uma VM são:
+# <a name="overview-of-the-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor 
+Os recursos de computação, como máquinas virtuais, geram dados para monitorar o desempenho e a disponibilidade, assim como [outros recursos de nuvem](../insights/monitor-azure-resource.md). No entanto, os recursos de computação também têm um sistema operacional convidado e as cargas de trabalho que precisam ser monitoradas. Coletar esses dados de monitoramento de dentro do recurso requer um agente. Este artigo descreve os agentes usados pelo Azure Monitor e ajuda a determinar qual é necessário para atender aos requisitos para seu ambiente específico.
 
-* Extensões de diagnóstico do Azure
-* Agente do log Analytics para Linux e Windows
-* Agente de dependência
+## <a name="summary-of-agents"></a>Resumo dos agentes
 
-Este artigo descreve as diferenças entre eles e seus recursos para determinar qual deles oferecerá suporte ao gerenciamento de serviços de TI ou aos requisitos gerais de monitoramento.  
+> [!NOTE]
+> Atualmente, Azure Monitor tem vários agentes devido a uma consolidação recente de Azure Monitor e Log Analytics. Ambos os agentes compartilham alguns recursos, enquanto outros recursos são exclusivos de um agente específico. Dependendo de seus requisitos, talvez seja necessário um dos agentes ou ambos. 
 
-## <a name="azure-diagnostic-extension"></a>Extensão de diagnóstico do Azure
-A [extensão do Diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md) (comumente chamada de extensão Diagnostic do Windows Azure (WAD) ou Linux Azure Diagnostic (LAD)), que foi fornecida para os Serviços de Nuvem do Azure desde que se tornou disponível em 2010, é uma agente que fornece uma coleta simples de dados de diagnóstico de um recurso de computação do Azure, como uma VM, e os mantém no armazenamento do Azure. Depois que o armazenamento, você optar por exibir com uma das várias ferramentas disponíveis, como [Gerenciador de servidores no Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) e [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+Azure Monitor tem três agentes que fornecem uma funcionalidade específica. Dependendo dos seus requisitos, você pode instalar um único agente ou vários em suas máquinas virtuais e outros recursos de computação.
 
-Você pode optar por coletar:
+* [Extensão de Diagnóstico do Azure](#azure-diagnostic-extension)
+* [Agente de Log Analytics](#log-analytics-agent)
+* [Agente de dependência](#dependency-agent)
 
-* Um conjunto predefinido de contadores de desempenho do sistema operacional e logs de eventos ou pode especificar qual deseja coletar. 
-* Todas as solicitações de e/ou solicitações com falha para um servidor Web IIS
-* Logs de saída de rastreamento de aplicativos .NET
-* Eventos de ETW (Rastreamento de Eventos para Windows) 
-* Coletar eventos de log do syslog  
-* Despejos de falhas 
+A tabela a seguir fornece uma comparação rápida dos diferentes agentes. Consulte o restante deste artigo para obter detalhes sobre cada um.
 
-O agente do Azure Diagnostics deve ser usado quando você quiser:
+| | Extensão de diagnóstico do Azure | Agente do Log Analytics | Agente de dependência |
+|:---|:---|:---|:---|
+| Ambientes com suporte | Azure | Azure<br>Outra nuvem<br>Configuração local | Azure<br>Outra nuvem<br>Configuração local |
+| Sistemas operacionais | Windows<br>Linux | Windows<br>Linux | Windows<br>Linux
+| Dependências de agente  | nenhum | nenhum | Requer agente de Log Analytics |
+| Dados coletados | Logs de Eventos<br>Eventos ETW<br>Syslog<br>Desempenho<br>Logs IIS<br>Logs de saída de rastreamento de aplicativos .NET<br>Despejos de falhas | Logs de Eventos<br>Syslog<br>Desempenho<br>Logs IIS<br>Logs personalizados<br>Dados de soluções | Detalhes e dependências do processo<br>Métricas de conexão de rede |
+| Dados enviados para | Armazenamento do Azure<br>Métricas de Azure Monitor<br>Hub de evento | Logs do Azure Monitor | Logs do Azure Monitor |
 
-* Arquivar logs e métricas para o armazenamento do Azure
-* Integre dados de monitoramento com ferramentas de terceiros. Essas ferramentas usam uma variedade de métodos, incluindo a consulta à conta de armazenamento, encaminhados para [Hubs de Eventos](../../event-hubs/event-hubs-about.md) ou consultando com a [API REST do Azure Monitoring](../../azure-monitor/platform/rest-api-walkthrough.md)
-* Carregar dados no Azure Monitor para criar gráficos de métricas no portal do Azure ou criar [alertas de métrica](../../azure-monitor/platform/alerts-metric-overview.md) quase em tempo real. 
-* Conjuntos de dimensionamento de máquina virtual de escala automática e Serviços de nuvem clássicos com base em métricas de sistema operacional convidado.
+
+
+## <a name="azure-diagnostic-extension"></a>Extensão de Diagnóstico do Azure
+A [extensão diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md) coleta dados de monitoramento do sistema operacional convidado e das cargas de trabalho dos recursos de computação do Azure. Ele coleta principalmente dados no armazenamento do Azure. Você pode configurar Azure Monitor para copiar os dados do armazenamento para um espaço de trabalho do Log Analytics. Você também pode coletar dados de desempenho de convidado em métricas de Azure Monitor.
+
+A extensão de diagnóstico do Azure é geralmente conhecida como a extensão WAD (diagnóstico do Windows Azure) ou LAD (diagnóstico do Azure do Linux).
+
+
+### <a name="scenarios-supported"></a>Cenários com suporte
+
+Os cenários com suporte pela extensão de Diagnóstico do Azure incluem o seguinte:
+
+* Colete logs e dados de desempenho dos recursos de computação do Azure.
+* Arquive logs e dados de desempenho do sistema operacional convidado para o armazenamento do Azure.
+* Exibir dados de monitoramento no armazenamento usando uma ferramenta como o [Gerenciador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+* Coletar dados de desempenho em um banco de dado de métricas para aproveitar os recursos com suporte pelas [métricas de Azure monitor](data-platform-metrics.md) , como [alertas de métrica](../../azure-monitor/platform/alerts-metric-overview.md) quase em tempo real e [dimensionamento automático](autoscale-overview.md). 
+* Colete dados de monitoramento do [armazenamento para um espaço de trabalho log Analytics](azure-storage-iis-table.md) para aproveitar os recursos com suporte dos [logs de Azure monitor](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) , como consultas de [log](../log-query/log-query-overview.md).
+* Envie dados de monitoramento para ferramentas de terceiros usando os [hubs de eventos do Azure](diagnostics-extension-stream-event-hubs.md).
 * Investigue os problemas de inicialização da VM com o [ Boot Diagnostics ](../../virtual-machines/troubleshooting/boot-diagnostics.md).
-* Entenda o desempenho de seus aplicativos e identifique proativamente os problemas que os afetam com [Application Insights](../../azure-monitor/overview.md).
-* Configurar o Azure Monitor para importar as métricas e log de dados coletados de serviços de nuvem, VMs clássicas, e nós do Service Fabric são armazenados em uma conta de armazenamento do Azure.
+* Copie dados de aplicativos em execução em sua VM [para Application insights](diagnostics-extension-to-application-insights.md) para integrar com outro monitoramento de aplicativo.
 
-## <a name="log-analytics-agent"></a>Agente do log Analytics
-Para o monitoramento avançado em que você precisa coletar mais de um subconjunto de logs e métricas, o agente do Log Analytics para Windows (também conhecido como o agente MMA (Microsoft Monitoring)) e o Linux é necessário. O agente Log Analytics foi desenvolvido para gerenciamento abrangente em máquinas físicas e virtuais no local, computadores monitorados pelo System Center Operations Manager e VMs hospedados em outras nuvens. Os agentes do Windows e Linux se conectar a um espaço de trabalho do Log Analytics no Azure Monitor para coletar dados baseados em soluções de monitoramento, bem como fontes de dados personalizadas que você configurar.
+## <a name="log-analytics-agent"></a>Agente do Log Analytics
+O [agente de log Analytics](log-analytics-agent.md) coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais no Azure, outros provedores de nuvem e locais. Ele coleta dados em um espaço de trabalho Log Analytics.
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+O agente de Log Analytics é o mesmo agente usado pelo System Center Operations Manager e os computadores de agente multihome para se comunicarem com o grupo de gerenciamento e Azure Monitor simultaneamente. Esse agente também é exigido por determinadas soluções no Azure Monitor.
 
-O agente do Log Analytics deve ser usado quando você quiser:
+O agente de Log Analytics para Windows é geralmente chamado de MMA (agente de gerenciamento da Microsoft). O agente de Log Analytics para Linux é geralmente conhecido como agente do OMS.
 
-* Colete dados de várias origens no Azure, em outros provedores de nuvem e em recursos locais. 
-* Use uma das soluções de monitoramento, como o Azure Monitor [do Azure Monitor para VMs](../insights/vminsights-overview.md), [do Azure Monitor para contêineres](../insights/container-insights-overview.md), etc.  
-* Use um dos serviços de gerenciamento do Azure, como [Central de segurança do Azure](../../security-center/security-center-intro.md), [automação do Azure](../../automation/automation-intro.md), etc.
 
-Anteriormente, os vários serviços do Azure foram agrupados como o *Operations Management Suite*, e assim o agente do Log Analytics é compartilhado entre serviços, incluindo a Central de segurança do Azure e automação do Azure.  Isso inclui o conjunto completo de recursos que eles oferecem, oferecendo gerenciamento abrangente de suas VMs do Azure por meio de seu ciclo de vida.  Alguns exemplos disso são:
+### <a name="scenarios-supported"></a>Cenários com suporte
 
-* [Gerenciamento de atualização de automação do Azure](../../automation/automation-update-management.md) de atualizações do sistema operacional.
-* [Configuração de estado desejado do Automação do Azure](../../automation/automation-dsc-overview.md) para manter o estado de configuração consistente.
-* Rastreie as alterações de configuração com [Rastreamento de alterações e inventário de automação do Azure](../../automation/change-tracking.md).
-* Serviços do Azure, como [Application Insights](https://docs.microsoft.com/azure/application-insights/) e [Azure Security Center](https://docs.microsoft.com/azure/security-center/), que armazenam de forma nativa seus dados diretamente no Log Analytics.  
+Os cenários com suporte pelo agente de Log Analytics incluem o seguinte:
+
+* Colete logs e dados de desempenho de máquinas virtuais no Azure, outros provedores de nuvem e locais. 
+* Colete dados de monitoramento para um espaço de trabalho Log Analytics para aproveitar os recursos com suporte dos [logs de Azure monitor](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) , como [consultas de log](../log-query/log-query-overview.md).
+* Use Azure Monitor soluções de monitoramento, como [Azure monitor para VMs](../insights/vminsights-overview.md), [Azure monitor para contêineres](../insights/container-insights-overview.md), etc.  
+* Gerencie a segurança de suas máquinas virtuais usando o [Azure Sentinel](../../sentinel/overview.md) , que requer o agente de log Analytics.
+* Gerencie a segurança de suas máquinas virtuais usando a [central de segurança do Azure](../../security-center/security-center-intro.md) , que requer o agente de log Analytics.
+* Use os recursos da [automação do Azure](../../automation/automation-intro.md) para fornecer gerenciamento abrangente de suas VMs do Azure por meio de seu ciclo de vida.  Exemplos desses recursos que exigem o agente de Log Analytics incluem:
+  * [Gerenciamento de atualização de automação do Azure](../../automation/automation-update-management.md) de atualizações do sistema operacional.
+  * [Configuração de estado da automação do Azure](../../automation/automation-dsc-overview.md) para manter o estado de configuração consistente.
+  * Rastreie as alterações de configuração com [Rastreamento de alterações e inventário de automação do Azure](../../automation/change-tracking.md).
 
 ## <a name="dependency-agent"></a>Agente de dependência
-O agente de dependência foi desenvolvido como parte da solução Mapa do serviço, que não foi originalmente desenvolvida pela Microsoft. [O mapa do serviço](../insights/service-map.md) e [do Azure Monitor para VMs](../insights/vminsights-overview.md) exige um agente de dependência no Windows e Linux máquinas virtuais e ele se integra com o agente do Log Analytics para coletar dados de descobertas sobre processos em execução no virtual máquina e as dependências de processo externo. Ele armazena esses dados em um espaço de trabalho do Log Analytics e visualiza os componentes interconectados descobertos.
+O agente de dependência coleta dados descobertos sobre processos em execução na máquina virtual e dependências de processo externo. Esse agente é necessário para [mapa do serviço](../insights/service-map.md) e o recurso de mapa [Azure monitor para VMs](../insights/vminsights-overview.md). O agente de dependência requer o agente de Log Analytics e grava dados em um espaço de trabalho Log Analytics no Azure Monitor.
 
-Você pode precisar de alguma combinação desses agentes para monitorar sua VM. Os agentes podem ser instalados lado a lado como extensões do Azure, no entanto, no Linux, o agente do Log Analytics *deve* ser instalado primeiro ou a instalação falhará. 
+
+## <a name="using-multiple-agents"></a>Usando vários agentes
+Você pode ter requisitos específicos para usar a extensão de diagnóstico do Azure ou o agente de Log Analytics para uma determinada máquina virtual. Por exemplo, talvez você queira usar alertas de métrica que exijam a extensão de diagnóstico do Azure. Mas talvez você também queira usar o recurso de mapa de Azure Monitor para VMs que exige o agente de dependência e o agente de Log Analytics. Nesse caso, você pode usar vários agentes, e esse é um cenário comum para clientes que exigem funcionalidade de cada um.
+
+### <a name="considerations"></a>Considerações
+
+- O agente de dependência requer que o agente de Log Analytics seja instalado na mesma máquina virtual.
+- Em VMs do Linux, o agente de Log Analytics deve ser instalado antes da extensão de diagnóstico do Azure.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

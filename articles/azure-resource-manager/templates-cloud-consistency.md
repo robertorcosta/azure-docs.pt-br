@@ -1,23 +1,17 @@
 ---
-title: Reutilizar modelos em nuvens – Azure Resource Manager
+title: Reutilizar modelos entre nuvens
 description: Desenvolva modelos do Azure Resource Manager que funcionam de maneira uniforme para diferentes ambientes de nuvem. Crie modelos ou atualize modelos existentes para o Azure Stack.
-services: azure-resource-manager
-documentationcenter: na
 author: marcvaneijk
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 2964bb4365a2c153e7bc82c3292545ad4de985eb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164760"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143781"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolva modelos do Azure Resource Manager para consistência de nuvem
 
@@ -75,7 +69,7 @@ O script implanta vários modelos minimizados, cada um contendo apenas funções
 
 ## <a name="working-with-linked-artifacts"></a>Trabalhando com artefatos vinculados
 
-Um modelo pode conter referências a artefatos vinculados e conter um recurso de implantação que é vinculado a outro modelo. Os modelos vinculados (também conhecidos como modelos aninhados) são recuperados pelo Resource Manager em tempo de execução. Um modelo também pode conter referências a artefatos para extensões de VM (máquina virtual). Esses artefatos são recuperados pela extensão de VM em execução na VM para configuração da extensão de VM durante a implantação de modelo. 
+Um modelo pode conter referências a artefatos vinculados e conter um recurso de implantação que é vinculado a outro modelo. Os modelos vinculados (também conhecidos como modelos aninhados) são recuperados pelo Resource Manager em runtime. Um modelo também pode conter referências a artefatos para extensões de VM (máquina virtual). Esses artefatos são recuperados pela extensão de VM em execução na VM para configuração da extensão de VM durante a implantação de modelo. 
 
 As seções a seguir descrevem considerações para consistência de nuvem durante o desenvolvimento de modelos que incluem artefatos que são externos ao modelo de implantação principal.
 
@@ -102,11 +96,11 @@ O seguinte código mostra como o parâmetro templateLink refere-se a um modelo a
 ]
 ```
 
-O Azure Resource Manager avalia o modelo principal em tempo de execução e recupera e avalia cada modelo aninhado. Depois que todos os modelos aninhados são recuperados, o modelo é nivelado e o processamento adicional é iniciado.
+O Azure Resource Manager avalia o modelo principal em runtime e recupera e avalia cada modelo aninhado. Depois que todos os modelos aninhados são recuperados, o modelo é nivelado e o processamento adicional é iniciado.
 
 ### <a name="make-linked-templates-accessible-across-clouds"></a>Tornar os modelos vinculados acessíveis entre nuvens
 
-Considere o local e a forma de armazenamento dos modelos vinculados usados. Em tempo de execução, o Azure Resource Manager busca os modelos vinculados e, portanto, exige o acesso direto a eles. Uma prática comum é usar o GitHub para armazenar os modelos aninhados. Um repositório GitHub pode conter arquivos que são acessíveis publicamente por meio de uma URL. Embora essa técnica funcione bem para a nuvem pública e as nuvens soberanas, um ambiente do Azure Stack pode estar localizado em uma rede corporativa ou em um local remoto desconectado, sem nenhum acesso de saída à Internet. Nesses casos, o Azure Resource Manager não consegue recuperar os modelos aninhados. 
+Considere o local e a forma de armazenamento dos modelos vinculados usados. Em runtime, o Azure Resource Manager busca os modelos vinculados e, portanto, exige o acesso direto a eles. Uma prática comum é usar o GitHub para armazenar os modelos aninhados. Um repositório GitHub pode conter arquivos que são acessíveis publicamente por meio de uma URL. Embora essa técnica funcione bem para a nuvem pública e as nuvens soberanas, um ambiente do Azure Stack pode estar localizado em uma rede corporativa ou em um local remoto desconectado, sem nenhum acesso de saída à Internet. Nesses casos, o Azure Resource Manager não consegue recuperar os modelos aninhados. 
 
 Uma melhor prática para implantações entre nuvens é armazenar os modelos vinculados em um local acessível para a nuvem de destino. O ideal é que todos os artefatos de implantação sejam mantidos em um pipeline de CI/CD (integração contínua/desenvolvimento contínuo) e implantados por meio dele. Como alternativa, você pode armazenar os modelos aninhados em um contêiner de armazenamento de blobs, do qual o Azure Resource Manager possa recuperá-los. 
 
@@ -174,7 +168,7 @@ Além de ser usada para modelos aninhados, a URL no parâmetro `_artifactsLocati
 
 A codificação em código dos vínculos para o script potencialmente impede que o modelo seja implantado com êxito em outro local. Durante a configuração do recurso de VM, o agente de VM em execução dentro da VM inicia um download de todos os scripts vinculados na extensão de VM e, em seguida, armazena os scripts no disco local da VM. Essa abordagem funciona como os vínculos de modelo aninhado explicados anteriormente na seção "Usar modelos aninhados entre regiões".
 
-O Resource Manager recupera modelos aninhados em tempo de execução. Para extensões de VM, a recuperação de artefatos externos é executada pelo agente de VM. Além do iniciador diferente da recuperação de artefato, a solução na definição do modelo é a mesma. Use o parâmetro _artifactsLocation com um valor padrão do caminho base, no qual todos os artefatos são armazenados (incluindo os scripts de extensão de VM) e o parâmetro `_artifactsLocationSasToken` para a entrada do sasToken.
+O Resource Manager recupera modelos aninhados em runtime. Para extensões de VM, a recuperação de artefatos externos é executada pelo agente de VM. Além do iniciador diferente da recuperação de artefato, a solução na definição do modelo é a mesma. Use o parâmetro _artifactsLocation com um valor padrão do caminho base, no qual todos os artefatos são armazenados (incluindo os scripts de extensão de VM) e o parâmetro `_artifactsLocationSasToken` para a entrada do sasToken.
 
 ```json
 "parameters": {
@@ -221,7 +215,7 @@ Sabendo que as nuvens e as regiões do Azure podem ser diferentes em seus servi�
 
 Um modelo implanta e configura recursos. Um tipo de recurso é fornecido por um provedor de recursos. Por exemplo, o provedor de recursos de computação (Microsoft.Compute) fornece vários tipos de recurso, como virtualMachines e availabilitySets. Cada provedor de recursos fornece uma API ao Azure Resource Manager definida por um contrato comum, permitindo uma experiência de criação consistente e unificada em todos os provedores de recursos. No entanto, um provedor de recursos disponível no Azure global pode não estar disponível em uma nuvem soberana ou uma região do Azure Stack.
 
-![Provedores de recurso](./media/templates-cloud-consistency/resource-providers.png) 
+![Provedores de recursos](./media/templates-cloud-consistency/resource-providers.png) 
 
 Para verificar se os provedores de recursos disponíveis em determinada nuvem, execute o seguinte script na CLI ([interface de linha de comando](/cli/azure/install-azure-cli)) do Azure:
 
@@ -276,7 +270,7 @@ A função de modelo `[resourceGroup()]` retorna um objeto que contém os seguin
 }
 ```
 
-Referenciando a chave do local do objeto no defaultValue do parâmetro de entrada, em tempo de execução, o Azure Resource Manager substituirá a função de modelo `[resourceGroup().location]` pelo nome do local do grupo de recursos no qual o modelo é implantado.
+Referenciando a chave do local do objeto no defaultValue do parâmetro de entrada, em runtime, o Azure Resource Manager substituirá a função de modelo `[resourceGroup().location]` pelo nome do local do grupo de recursos no qual o modelo é implantado.
 
 ```json
 "parameters": {
@@ -429,7 +423,7 @@ O perfil de API não é um elemento necessário em um modelo. Mesmo se você adi
 
 ## <a name="check-endpoint-references"></a>Verificar referências de ponto de extremidade
 
-Os recursos podem ter referências a outros serviços na plataforma. Por exemplo, um IP público pode ter um nome DNS público atribuído a ele. A nuvem pública, as nuvens soberanas e as soluções do Azure Stack têm seus próprios namespaces de ponto de extremidade distintos. Na maioria dos casos, um recurso exige somente um prefixo como entrada no modelo. Durante o tempo de execução, o Azure Resource Manager acrescenta o valor de ponto de extremidade a ele. Alguns valores de ponto de extremidade precisam ser especificados explicitamente no modelo. 
+Os recursos podem ter referências a outros serviços na plataforma. Por exemplo, um IP público pode ter um nome DNS público atribuído a ele. A nuvem pública, as nuvens soberanas e as soluções do Azure Stack têm seus próprios namespaces de ponto de extremidade distintos. Na maioria dos casos, um recurso exige somente um prefixo como entrada no modelo. Durante o runtime, o Azure Resource Manager acrescenta o valor de ponto de extremidade a ele. Alguns valores de ponto de extremidade precisam ser especificados explicitamente no modelo. 
 
 > [!NOTE]
 > Para desenvolver modelos para consistência de nuvem, não embuta em código namespaces de ponto de extremidade.
@@ -445,7 +439,7 @@ Namespaces de ponto de extremidade também pode ser usados na saída de um model
 * Cadeias de conexão (MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Gerenciador de Tráfego
 * domainNameLabel de um endereço IP público
-* Serviços de nuvem
+* Serviços de Nuvem
 
 Em geral, evite pontos de extremidade embutidos em código em um modelo. A melhor prática é usar a função de modelo de referência para recuperar os pontos de extremidade dinamicamente. Por exemplo, o ponto de extremidade mais geralmente embutido em código é o namespace de ponto de extremidade para contas de armazenamento. Cada conta de armazenamento tem um FQDN exclusivo que é construído pela concatenação do nome da conta de armazenamento com o namespace de ponto de extremidade. Uma conta de Armazenamento de Blobs chamada mystorageaccount1 resulta em FQDNs diferentes, dependendo da nuvem:
 
@@ -473,7 +467,7 @@ Você também pode se referir a um recurso existente do mesmo ou de outro grupo 
 }
 ```
 
-Em seguida, você pode usar a função `resourceId` dentro da função de modelo `reference` para recuperar as propriedades de um banco de dados. O objeto de retorno contém a propriedade `fullyQualifiedDomainName` que contém o valor de ponto de extremidade completo. Esse valor é recuperado em tempo de execução e fornece o namespace de ponto de extremidade específico do ambiente de nuvem. Para definir a cadeia de conexão sem embutir em código o namespace de ponto de extremidade, refira-se à propriedade do objeto de retorno diretamente na cadeia de conexão, conforme mostrado:
+Em seguida, você pode usar a função `resourceId` dentro da função de modelo `reference` para recuperar as propriedades de um banco de dados. O objeto de retorno contém a propriedade `fullyQualifiedDomainName` que contém o valor de ponto de extremidade completo. Esse valor é recuperado em runtime e fornece o namespace de ponto de extremidade específico do ambiente de nuvem. Para definir a cadeia de conexão sem embutir em código o namespace de ponto de extremidade, refira-se à propriedade do objeto de retorno diretamente na cadeia de conexão, conforme mostrado:
 
 ```json
 "[concat('Server=tcp:', reference(resourceId('sql', 'Microsoft.Sql/servers', parameters('test')), '2015-05-01-preview').fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('database'),';User ID=', parameters('username'), ';Password=', parameters('pass'), ';Encrypt=True;')]"

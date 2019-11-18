@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 259ea23c05f0c0a138ad54b6efd11aad2061cf7a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1da8ab3015730c6b3e1962301a34b1ad43b1aad6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500229"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143683"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Treinar sua versão ativa do aplicativo LUIS 
 
@@ -26,22 +26,15 @@ Treinar e [testar](luis-concept-test.md) um aplicativo é um processo iterativo.
 
 O treinamento é aplicado para a versão ativa no portal do LUIS. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 ## <a name="how-to-train-interactively"></a>Como treinar interativamente
 
 Para iniciar o processo iterativo no [portal LUIS](https://www.luis.ai), primeiro você precisa treinar seu aplicativo LUIS pelo menos uma vez. Verifique se que cada intenção tem pelo menos um enunciado antes do treinamento.
 
 1. Acesse seu aplicativo selecionando seu nome na página **Meus Aplicativos**. 
 
-2. Em seu aplicativo, selecione **Treinar** no painel superior. 
+1. Em seu aplicativo, selecione **Treinar** no painel superior. 
 
-3. Quando o treinamento estiver concluído, uma barra verde de notificação aparecerá na parte superior do navegador.
-
-<!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
-
->[!NOTE]
->Se você tiver uma ou mais intenções no seu aplicativo que não contenham enunciados de exemplo, você não poderá treinar seu aplicativo. Adicione enunciados para todas as suas intenções. Para obter mais informações, veja [Adicionar enunciados de exemplo](luis-how-to-add-example-utterances.md).
+1. Quando o treinamento for concluído, uma notificação aparecerá na parte superior do navegador.
 
 ## <a name="training-date-and-time"></a>Data e hora de treinamento
 
@@ -49,20 +42,7 @@ A data e a hora de treinamento são GMT + 2.
 
 ## <a name="train-with-all-data"></a>Treinar com todos os dados
 
-O treinamento usa um pequeno percentual de amostragem negativa. 
-
-Se você quiser usar todos os dados em vez da pequena amostragem negativa, use a [API](#version-settings-api-use-of-usealltrainingdata).
-
-<!--
-
- or the [LUIS portal setting](#luis-portal-setting-to-use-all-training-data)
-
-### LUIS portal setting to use all training data
-
-!!!IGNITE
-
-
--->
+O treinamento usa um pequeno percentual de amostragem negativa. Se você quiser usar todos os dados em vez da pequena amostragem negativa, use a [API](#version-settings-api-use-of-usealltrainingdata).
 
 ### <a name="version-settings-api-use-of-usealltrainingdata"></a>Configurações de versão uso da API de UseAllTrainingData
 
@@ -80,5 +60,5 @@ Para saber quando o treinamento está concluído, você precisa sondar o status 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Declarações sugeridas de rótulo com o LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usar recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 
+* [Testes interativos](luis-interactive-test.md)
+* [Teste em lote](luis-how-to-batch-test.md)

@@ -2,18 +2,18 @@
 title: Apache Ambari para otimizar as configurações de cluster – Azure HDInsight
 description: Use a interface do usuário da Web do Apache amAmbari para configurar e otimizar clusters do Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e0d94a41febdba1bea6818309e05d287bef6d3a1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492511"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150122"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use o Apache Ambari para otimizar as configurações de cluster do HDInsight
 
@@ -143,7 +143,7 @@ O Hive processa dados linha por linha. A vetorização instrui o Hive a processa
 
 Por padrão, o Hive segue um conjunto de regras para encontrar um plano de execução de consulta ideal. A CBO (otimização baseada em custo) avalia vários planos para executar uma consulta, atribui um custo a cada plano e determina o plano mais barato para executar uma consulta.
 
-Para habilitar a CBO, navegue até a guia **Configurações** do Hive, pesquise por `parameter hive.cbo.enable` e, em seguida, mude o botão de alternância para **Ativado**.
+Para habilitar o CBO, navegue até **Hive** > **configs** > **configurações** e localize **habilitar otimizador baseado em custo**e, em seguida, alterne o botão de alternância para **ativado**.
 
 ![Otimizador baseado em custo do HDInsight](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
@@ -178,7 +178,7 @@ Os tipos de compactação disponíveis são:
 | Formatar | Ferramenta | Algoritmo | Extensão de arquivo | Divisível? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | .gz | Não |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | Sim |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | sim |
 | LZO | Lzop | LZO | .lzo | Sim, se indexado |
 | Snappy | N/D | Snappy | Snappy | Não |
 
@@ -195,15 +195,13 @@ Como regra geral, é importante que o método de compactação seja divisível. 
 
 1. Para adicionar uma configuração personalizada:
 
-    a. Navegue até a guia **Configurações** do Hive e selecione a guia **Avançado**.
+    a. Navegue até **hive** > **configurações** > **avançado** > **Hive personalizado-site**.
 
-    b. Na guia **Avançado**, localize e expanda o painel **hive-site personalizado**.
+    b. Selecione **Adicionar Propriedade...** na parte inferior do painel Hive-site personalizado.
 
-    c. Clique no link **Adicionar Propriedade** na parte inferior do painel hive-site personalizado.
+    c. Na janela Adicionar Propriedade, digite `mapred.map.output.compression.codec` como a chave e `org.apache.hadoop.io.compress.SnappyCodec` como o valor.
 
-    d. Na janela Adicionar Propriedade, digite `mapred.map.output.compression.codec` como a chave e `org.apache.hadoop.io.compress.SnappyCodec` como o valor.
-
-    e. Clique em **Adicionar**.
+    d. Selecione **Adicionar**.
 
     ![Adicionar Apache Hive propriedade personalizada](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -281,7 +279,7 @@ Recomendações adicionais para otimizar o mecanismo de execução do Hive:
 | Configuração | Recomendadas | Padrão do HDInsight |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = mais seguro, mais lento; false = mais rápido | false |
-| `tez.am.resource.memory.mb` | limite superior de 4 GB para a maioria dos | Ajustado automaticamente |
+| `tez.am.resource.memory.mb` | Limite superior de 4 GB para a maioria | Ajustado automaticamente |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -319,7 +317,7 @@ De forma semelhante ao Hive, o modo local é usado para acelerar trabalhos com q
 
 ### <a name="copy-user-jar-cache"></a>Copiar o cache de jar do usuário
 
-O Pig copia os arquivos JAR exigidos pelo UDFs para um cache distribuído para torná-los disponíveis para nós de tarefa. Esses jars não mudam com frequência. Se habilitada, a configuração `pig.user.cache.enabled` permite que os jars sejam colocados em um cache para reutilizá-los para trabalhos executados pelo mesmo usuário. Isso resulta em uma pequena melhoria no desempenho do trabalho.
+O Pig copia os arquivos JAR exigidos pelo UDFs para um cache distribuído para torná-los disponíveis para nós de tarefa. Esses jars não são alterados com frequência. Se habilitada, a configuração `pig.user.cache.enabled` permite que os jars sejam colocados em um cache para reutilizá-los para trabalhos executados pelo mesmo usuário. Isso resulta em uma pequena melhoria no desempenho do trabalho.
 
 1. Para habilitar, defina `pig.user.cache.enabled` como true. O padrão é false.
 
@@ -329,7 +327,7 @@ O Pig copia os arquivos JAR exigidos pelo UDFs para um cache distribuído para t
 
 As seguintes configurações de memória podem ajudar a otimizar o desempenho de script do Pig.
 
-* `pig.cachedbag.memusage`: a quantidade de memória alocada a um recipiente. Um recipiente é um conjunto de tuplas. Uma tupla é um conjunto ordenado de campos e um campo é uma parte dos dados. Se estiverem além da memória alocada, os dados em um recipiente serão despejados para o disco. O valor padrão é 0.2, que representa 20 por cento da memória disponível. Essa memória é compartilhada entre todos os recipientes em um aplicativo.
+* `pig.cachedbag.memusage`: a quantidade de memória alocada a um recipiente. Um recipiente é um conjunto de tuplas. Uma tupla é um conjunto ordenado de campos e um campo é uma parte dos dados. Se os dados em um recipiente estiverem além da memória alocada, eles serão despejados no disco. O valor padrão é 0.2, que representa 20 por cento da memória disponível. Essa memória é compartilhada entre todos os recipientes em um aplicativo.
 
 * `pig.spill.size.threshold`: recipientes maiores que esse limite de tamanho de despejo (em bytes) são despejados para o disco. O valor padrão é 5 MB.
 
@@ -416,7 +414,7 @@ Quanto maior o tamanho do arquivo de região, menor o número de divisões. É p
 
 * A propriedade `hbase.hregion.memstore.flush.size` define o tamanho no qual o Memstore é liberado para o disco. O tamanho padrão é 128 MB.
 
-* O multiplicador de bloco de região do Hbase é definido por `hbase.hregion.memstore.block.multiplier`. O valor padrão é 4. O máximo permitido é 8.
+* O multiplicador de bloco de região do HBase é definido por `hbase.hregion.memstore.block.multiplier`. O valor padrão é 4. O máximo permitido é 8.
 
 * O HBase bloqueará atualizações se o Memstore tiver (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) bytes.
 

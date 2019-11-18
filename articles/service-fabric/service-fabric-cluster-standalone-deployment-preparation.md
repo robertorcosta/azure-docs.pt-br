@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 96956e1ad935933572b1f2d31b70ef64f8b92501
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 8b9f659098e563a3dc0692530ad798a5c763551f
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175866"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133409"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planejar e preparar a implantação de cluster Autônomo do Service Fabric
 
@@ -67,7 +67,7 @@ Veja algumas especificações recomendadas para cada computador que você deseja
 * Conectividade com uma rede segura para todos os computadores
 * Sistema operacional Windows Server instalado (versões válidas: 2012 R2, 2016, 1709 ou 1803). Service Fabric versão 6.4.654.9590 e posterior também dá suporte ao servidor 2019 e 1809.
 * [.NET Framework 4.5.1 ou posterior](https://www.microsoft.com/download/details.aspx?id=40773), instalação completa
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
 * O [serviço RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve estar em execução em todos os computadores
 * Service Fabric unidade de instalação deve ser um sistema de arquivos NTFS
 
@@ -93,17 +93,18 @@ Depois que a configuração do cluster tiver todas as configurações definidas 
 
 <a id="environmentsetup"></a>
 
-## <a name="environment-setup"></a>Configuração de ambiente
+## <a name="environment-setup"></a>Configuração do ambiente
 
 Quando um administrador de cluster configura um cluster autônomo do Service Fabric, o ambiente precisa ser configurado com os seguintes critérios: <br>
 1. O usuário que está criando o cluster deve ter privilégios de segurança de nível de administrador para todos os computadores listados como nós no arquivo de configuração do cluster.
 2. No computador do qual o cluster é criado, bem como em cada computador do nó de cluster, é necessário:
    * Desinstalar o SDK do Service Fabric
-   * Desinstalar o runtime do Service Fabric 
+   * Desinstalar o runtime do Service Fabric
    * Habilitar o serviço de Firewall do Windows (mpssvc)
    * Ter o Serviço de Registro Remoto (registro remoto) habilitado
+   * Habilitar o compartilhamento de arquivos (SMB)
    * Abrir as portas necessárias, com base nas portas de configuração de cluster
-   * Ter as portas necessárias abertas para o serviço de registro remoto: 135, 137, 138 e 139
+   * Abrir as portas necessárias para o Serviço de Registro Remoto e o SMB do Windows: 135, 137, 138, 139 e 445
    * Ter conectividade de rede com os outros computadores
 3. Nenhum dos computadores de nó de cluster deve ser um controlador de domínio.
 4. Se o cluster a ser implantado é um cluster seguro, valide que os pré-requisitos de segurança necessários estão em vigor e configurados corretamente em relação à configuração.
@@ -136,7 +137,7 @@ Quando um administrador de cluster configura um cluster autônomo do Service Fab
 | FileStoreService.exe |
 
 ## <a name="validate-environment-using-testconfiguration-script"></a>Validar o ambiente usando o script TestConfiguration
-O script TestConfiguration.ps1 pode ser encontrado no pacote autônomo. Ele é usado como um Analisador de Práticas Recomendadas para validar alguns dos critérios acima e deve ser usado como uma verificação de integridade para validar se um cluster pode ser implantado em um ambiente específico. Se houver alguma falha, consulte a lista em [Configuração do Ambiente](service-fabric-cluster-standalone-deployment-preparation.md) para solução de problemas. 
+O script TestConfiguration.ps1 pode ser encontrado no pacote autônomo. Ele é usado como um Analisador de Práticas Recomendadas para validar alguns dos critérios acima e deve ser usado como uma verificação de integridade para validar se um cluster pode ser implantado em um ambiente específico. Se houver alguma falha, consulte a lista em [Configuração do Ambiente](service-fabric-cluster-standalone-deployment-preparation.md) para solução de problemas.
 
 Esse script pode ser executado em qualquer computador que tenha o acesso de administrador para todos os computadores listados como nós no arquivo de configuração do cluster. O computador no qual este script é executado não precisa fazer parte do cluster.
 
@@ -159,12 +160,12 @@ FabricInstallable          : True
 Passed                     : True
 ```
 
-No momento, este módulo de teste de configuração não valida a configuração de segurança, por isso deve ser feito de forma independente.  
+No momento, este módulo de teste de configuração não valida a configuração de segurança, por isso deve ser feito de forma independente.
 
 > [!NOTE]
-> Estamos continuamente fazendo aprimoramentos para tornar esse módulo mais robusto, então, se há um caso com falha ou ausente que você acredita não ter sido detectado até o momento pelo TestConfiguration, informe-nos pelos nossos [canais de suporte](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
-> 
-> 
+> Estamos continuamente fazendo aprimoramentos para tornar esse módulo mais robusto, então, se há um caso com falha ou ausente que você acredita não ter sido detectado até o momento pelo TestConfiguration, informe-nos pelos nossos [canais de suporte](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+>
+>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Criar um cluster autônomo em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md)

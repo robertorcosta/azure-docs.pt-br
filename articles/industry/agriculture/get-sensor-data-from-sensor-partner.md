@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 424df8ac7145129dd70a9a5791648730189b528b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 33fd2221d3f3a0562abf83f014a7b84df972eebc
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889664"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128852"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -86,7 +86,7 @@ Use a seção a seguir para exibir os dispositivos e sensores em seu farm.
 Atualmente, o FarmBeats dá suporte aos seguintes dispositivos:
 
 - **Nó**: um dispositivo ao qual um ou mais sensores estão anexados.
-- **Gateway**: um dispositivo ao qual um ou mais sensores estão anexados.
+- **Gateway**: um dispositivo ao qual um ou mais nós estão anexados.
 
 Use as seguintes etapas:
 

@@ -1,6 +1,6 @@
 ---
 title: Implantar instâncias do contêiner do Azure habilitada no GPU
-description: Saiba como implantar instâncias de contêiner do Azure para executar nos recursos GPU.
+description: Saiba como implantar instâncias de contêiner do Azure para executar aplicativos de contêiner de uso intensivo de computação usando recursos de GPU.
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: 300e9b82d578663a4d2ada3889a07d8b03051cc5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 08a3cd8841b6b867a2dd22078fca3543d2067830
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325943"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147884"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implantar instâncias de contêiner que usam recursos GPU
 
@@ -32,9 +32,9 @@ Na visualização, as seguintes limitações se aplicam ao usar recursos GPU em 
 
 O suporte será adicionado para regiões adicionais ao longo do tempo.
 
-**Tipos de sistema operacional com suporte**: Apenas Linux
+**Tipos de so com suporte**: somente Linux
 
-**Limitações adicionais**: Recursos GPU não podem ser usados durante a implantação de um grupo de contêineres em uma [rede virtual](container-instances-vnet.md).
+**Limitações adicionais**: os recursos de GPU não podem ser usados ao implantar um grupo de contêineres em uma [rede virtual](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Sobre os recursos de GPU
 
@@ -42,10 +42,10 @@ O suporte será adicionado para regiões adicionais ao longo do tempo.
 
 Para usar GPUs em uma instância de contêiner, especifique um *recurso GPU* com as seguintes informações:
 
-* **Contagem** -o número de GPUs: **1**, **2**, ou **4**.
-* **SKU** - SKU de GPU: **K80**, **P100** ou **V100**. Cada SKU é mapeado para o GPU de NVIDIA Tesla em uma das seguintes famílias VM habilitada para GPU do Azure:
+* **Contagem** – o número de GPUs: **1**, **2**ou **4**.
+* **SKU** -a SKU de GPU: **K80**, **P100**ou **V100**. Cada SKU é mapeado para o GPU de NVIDIA Tesla em uma das seguintes famílias VM habilitada para GPU do Azure:
 
-  | SKU | Família da VM |
+  | Sku | Família da VM |
   | --- | --- |
   | K80 | [NC](../virtual-machines/linux/sizes-gpu.md#nc-series) |
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
@@ -63,11 +63,11 @@ Ao implantar recursos de GPU, defina os recursos de CPU e memória apropriados p
 
   Consulte [detalhes de preço](https://azure.microsoft.com/pricing/details/container-instances/).
 
-* **Drivers CUDA** - instâncias de contêiner com os recursos GPU são previamente provisionadas com drivers NVIDIA CUDA e tempos de execução do contêiner, portanto, você pode usar imagens de contêiner desenvolvido para cargas de trabalho do CUDA.
+* **Drivers CUDA** - instâncias de contêiner com os recursos GPU são previamente provisionadas com drivers NVIDIA CUDA e runtimes do contêiner, portanto, você pode usar imagens de contêiner desenvolvido para cargas de trabalho do CUDA.
 
   Damos suporte ao CUDA 9,0 neste estágio. Por exemplo, você pode usar as seguintes imagens base para o arquivo do Docker:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
-  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+  * [tensorflow/tensorflow: 1.12.0-GPU-PY3](https://hub.docker.com/r/tensorflow/tensorflow)
     
 ## <a name="yaml-example"></a>Exemplo YAML
 
@@ -93,7 +93,7 @@ properties:
   restartPolicy: OnFailure
 ```
 
-Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome do arquivo `--file` YAML para o parâmetro. Você precisa fornecer o nome de um grupo de recursos e um local para o grupo de contêineres, como *eastus* que dá suporte a recursos GPU.  
+Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome do arquivo YAML para o parâmetro `--file`. Você precisa fornecer o nome de um grupo de recursos e um local para o grupo de contêineres, como *eastus* que dá suporte a recursos GPU.  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus

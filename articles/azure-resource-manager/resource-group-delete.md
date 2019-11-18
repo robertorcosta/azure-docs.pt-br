@@ -1,18 +1,15 @@
 ---
-title: Excluir grupo de recursos e recursos - Azure Resource Manager
+title: Excluir o grupo de recursos e os recursos
 description: Descreve como excluir recursos e grupos de recursos. Ele descreve como o Azure Resource Manager ordena a exclusão de recursos quando uma exclusão de um grupo de recursos. Descreve os códigos de resposta e como o Resource Manager os manipula para determinar se a exclusão teve êxito.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 30a394fd33ed5d928175fc27e003661c2b53de9a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c84dcf64555f40f45dbdaeedb05d4cc461f2cbb7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275080"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150818"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager o grupo de recursos e a exclusão de recursos
 
@@ -85,7 +82,7 @@ az group delete --name ExampleResourceGroup
 
 ---
 
-## <a name="delete-resource"></a>Excluir Recurso
+## <a name="delete-resource"></a>Excluir recurso
 
 Use um dos métodos a seguir para excluir um recurso.
 
@@ -113,7 +110,7 @@ az resource delete \
 
 1. Selecione **Excluir**. A captura de tela a seguir mostra as opções de gerenciamento para uma máquina virtual.
 
-   ![Excluir Recurso](./media/resource-group-delete/delete-resource.png)
+   ![Excluir recurso](./media/resource-group-delete/delete-resource.png)
 
 1. Quando receber a solicitação, confirme a exclusão.
 

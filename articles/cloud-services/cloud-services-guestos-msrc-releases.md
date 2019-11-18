@@ -10,17 +10,57 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/1/2019
+ms.date: 11/15/2019
 ms.author: raiye
-ms.openlocfilehash: 22e833a1d555057c7e6a2ce46e7a1bb136260851
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fd4936357035d8163130064bd6f0600c9d2b08bb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888300"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150001"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.
+
+## <a name="november-2019-guest-os"></a>SO convidado de novembro de 2019
+
+>[!NOTE]
+>O sistema operacional convidado de novembro está sendo implantado nas VMs do Cloud Service que estão configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no sistema operacional novembro Guest. Esta lista está sujeita a alterações.
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  2,92  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525233]  |  Segurança do Windows   |  2,92  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  3,79  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525253]  |  Segurança do Windows   |  3,79  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  4,72  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525250]  |  Segurança do Windows   |  4,72  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4525236]  |  Atualização cumulativa mais recente   |  5,37  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4523205]  |  Atualização cumulativa mais recente   |  6,13  |  12 de novembro de 2019  |
+|  Rel 19-11   |  [4519976]  |  Não segurança   |  2,92  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4520007]  |  Não segurança   |  3,79  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  3,79  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4520005]  |  Não segurança   |  4,72  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  4,72  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  5,37  |  8 de outubro de 2019  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  6,13  |  8 de outubro de 2019  |
+
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525233]: https://support.microsoft.com/kb/4525233
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525253]: https://support.microsoft.com/kb/4525253
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525250]: https://support.microsoft.com/kb/4525250
+[4525236]: https://support.microsoft.com/kb/4525236
+[4523205]: https://support.microsoft.com/kb/4523205
+[4519976]: https://support.microsoft.com/kb/4519976
+[4520007]: https://support.microsoft.com/kb/4520007
+[4521857]: https://support.microsoft.com/kb/4521857
+[4520005]: https://support.microsoft.com/kb/4520005
+[4521864]: https://support.microsoft.com/kb/4521864
+[4521858]: https://support.microsoft.com/kb/4521858
+[4521862]: https://support.microsoft.com/kb/4521862
+
 
 ## <a name="october-2019-guest-os"></a>SO convidado de outubro de 2019
 
@@ -320,7 +360,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Rel 19-04 | [4493467] | Segurança do Windows | 4,65 | 9 de abril de 2019 |
 | Rel 19-04 | [4493450] | Segurança do Windows | 3,72 | 9 de abril de 2019 |
 | Rel 19-04 | [4493448] | Segurança do Windows | 2,85 | 9 de abril de 2019 |
-| Rel 19-04 | [4493478] | Piscando | 3,72, 4,65, 5,30, 6,6 | 9 de abril de 2019 |
+| Rel 19-04 | [4493478] | Piscando | 3.72, 4.65, 5.30, 6.6 | 9 de abril de 2019 |
 | Rel 19-04 | [4493435] | Internet Explorer | 2,85, 3,72, 4,65 | 9 de abril de 2019 |
 | Rel 19-04 | [4490628] | Atualização da Pilha de Manutenção | 2,85 | 12 de março de 2019 |
 | Rel 19-04 | [4474419] | Suporte do SHA2 | 2,85 | 12 de março de 2019 |

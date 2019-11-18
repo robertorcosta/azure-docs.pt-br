@@ -1,19 +1,16 @@
 ---
-title: Marcar recursos do Azure para organização lógica | Microsoft Docs
+title: Marcar recursos para a organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.author: tomfitz
-ms.openlocfilehash: e7763889ecf69231b7a4daf31e6899b33f3e2b36
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b332ae86e714d4b642f921d217d80e802fa60572
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199162"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149594"
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>Use marcações para organizar seus recursos do Azure
+# <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
@@ -92,7 +89,7 @@ $tags.Add("Status", "Approved")
 Set-AzResourceGroup -Tag $tags -Name examplegroup
 ```
 
-Para adicionar marcas a um *recurso sem marcas existentes*, use:
+Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
 
 ```azurepowershell-interactive
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
@@ -151,7 +148,7 @@ Para remover todas as marcas, passe uma tabela de hash vazio:
 Set-AzResourceGroup -Tag @{} -Name examplegroup
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 
 Para conferir as marcas existentes para um *grupo de recursos*, use:
 
@@ -200,7 +197,7 @@ Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
 az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-Para adicionar marcas a um *recurso sem marcas existentes*, use:
+Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
 
 ```azurecli
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
@@ -409,7 +406,7 @@ Você pode recuperar as informações sobre as marcações por meio das [APIs Ra
 
 Para operações de API REST, confira [Referência da API REST de cobrança do Azure](/rest/api/billing/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se você pode aplicar uma tag a um tipo de recurso, consulte [Suporte a tags para recursos do Azure](tag-support.md).
 * Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](manage-resource-groups-portal.md).  

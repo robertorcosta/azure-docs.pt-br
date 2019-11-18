@@ -1,21 +1,18 @@
 ---
-title: Sintaxe e expressões do modelo de Azure Resource Manager
+title: Sintaxe e expressões de modelo
 description: Descreve a sintaxe JSON declarativa para modelos de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.author: tomfitz
-ms.openlocfilehash: 1e7288da19e2e81d609b952e03d5143b03a65c63
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 046f7f4866e9b5933c55bc5a9d0ee96c945bff0e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259477"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149202"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos de Azure Resource Manager
 
-A sintaxe básica do modelo é JSON. No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com colchetes `]`: `[` e, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode retornar uma cadeia de caracteres, um inteiro, um booliano, uma matriz ou um objeto.
+A sintaxe básica do modelo é JSON. No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com colchetes: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode retornar uma cadeia de caracteres, um inteiro, um booliano, uma matriz ou um objeto.
 
 Uma expressão de modelo não pode exceder 24.576 caracteres.
 
@@ -44,7 +41,7 @@ Para passar um valor de cadeia de caracteres como um parâmetro para uma funçã
 
 ## <a name="escape-characters"></a>Caracteres de escape
 
-Para que uma cadeia de caracteres literal comece com um `[` colchete esquerdo e termine com um `]`colchete direito, mas não a tenha interpretada como uma expressão, adicione um colchete extra para `[[`iniciar a cadeia de caracteres com. Por exemplo, a variável:
+Para que uma cadeia de caracteres literal comece com um colchete esquerdo `[` e termine com um colchete direito `]`, mas não o tenha interpretado como uma expressão, adicione um colchete extra para iniciar a cadeia de caracteres com `[[`. Por exemplo, a variável:
 
 ```json
 "demoVar1": "[[test value]"
@@ -70,5 +67,5 @@ Para escapar aspas duplas em uma expressão, como adicionar um objeto JSON no mo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter a lista completa das funções de modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md).
+* Para obter a lista completa das funções de modelo, veja [Funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Para obter mais informações sobre arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
