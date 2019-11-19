@@ -173,6 +173,9 @@
           href: howto-add-prebuilt-models.md
         - name: Entidade de rótulo no enunciado
           href: label-entity-example-utterance.md
+        - name: Adicionar descritor
+          displayName: 'synonym, interchange, phrase list, descriptor'
+          href: luis-how-to-add-features.md
         - name: Com APIs REST
           items:
             - name: Compilar aplicativo programaticamente usando o Node.js
@@ -190,9 +193,6 @@
         - name: Usando o dashboard
           displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
           href: luis-how-to-use-dashboard.md
-        - name: Adicionar descritor
-          displayName: 'synonym, interchange, phrase list, descriptor'
-          href: luis-how-to-add-features.md
         - name: Examinar declarações de ponto de extremidade
           displayName: active learning
           href: luis-how-to-review-endpoint-utterances.md
