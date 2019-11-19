@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: 6ad71cecfd088a92bdd41ae13cb530c286ebea4c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 11/17/2019
+ms.openlocfilehash: 66864870f29729e54ad06aef1208641f673c0612
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970391"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158319"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -36,7 +36,7 @@ Você pode criar uma réplica de leitura em uma região diferente do servidor me
 
 Você pode ter um servidor mestre em qualquer [região do banco de dados do Azure para MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo de sua região mestra.
 
-[regiões de réplica ![Read](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre está localizado. As regiões de réplica universal com suporte incluem:
@@ -51,9 +51,9 @@ Se você estiver usando réplicas entre regiões para planejamento de recuperaç
 
 No entanto, há limitações a serem consideradas: 
 
-* Disponibilidade regional: O banco de dados do Azure para MySQL está disponível no oeste dos EUA 2, França central, Norte dos EAU e Alemanha central. No entanto, suas regiões emparelhadas não estão disponíveis.
+* Disponibilidade regional: o banco de dados do Azure para MySQL está disponível no oeste dos EUA 2, França central, Norte dos EAU e Alemanha central. No entanto, suas regiões emparelhadas não estão disponíveis.
     
-* Pares unidirecionais: Algumas regiões do Azure são emparelhadas somente em uma direção. Essas regiões incluem Índia ocidental, sul do Brasil e US Gov-Virgínia. 
+* Pares unidirecionais: algumas regiões do Azure são emparelhadas apenas em uma direção. Essas regiões incluem Índia ocidental, sul do Brasil e US Gov-Virgínia. 
    Isso significa que um servidor mestre na Índia ocidental pode criar uma réplica na Índia Sul. No entanto, um servidor mestre na Índia Sul não pode criar uma réplica na Índia ocidental. Isso ocorre porque a região secundária da Índia ocidental é sul da Índia, mas a região secundária do Sul da Índia não é oeste da Índia.
 
 
@@ -69,7 +69,7 @@ Saiba como [criar uma réplica de leitura no portal do Azure](howto-read-replica
 
 ## <a name="connect-to-a-replica"></a>Conectar-se a uma réplica
 
-Quando você cria uma réplica, ela não herda as regras de firewall nem o ponto de extremidade de serviço de rede virtual do servidor mestre. Essas regras precisam ser configuradas independentemente da réplica.
+Na criação, uma réplica herda as regras de firewall ou o ponto de extremidade de serviço VNet do servidor mestre. Posteriormente, essas regras são independentes do servidor mestre.
 
 A réplica herda a conta do administrador do servidor mestre. Todas as contas de usuário no servidor mestre são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário disponíveis no servidor mestre.
 
@@ -85,11 +85,11 @@ No prompt, insira a senha da conta de usuário.
 
 O banco de dados do Azure para MySQL fornece a métrica **atraso de replicação em segundos** no Azure monitor. Essa métrica está disponível apenas para réplicas.
 
-Essa métrica é calculada usando a métrica `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL.
+Essa métrica é calculada usando a métrica de `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL.
 
 Defina um alerta para informá-lo quando o retardo de replicação atingir um valor que não é aceitável para sua carga de trabalho.
 
-## <a name="stop-replication"></a>Parar a replicação
+## <a name="stop-replication"></a>Parar replicação
 
 Você pode interromper a replicação entre um mestre e uma réplica. Após a replicação ser interrompida entre um servidor mestre e uma réplica de leitura, a réplica se torna um servidor autônomo. Os dados no servidor autônomo são os dados que estavam disponíveis na réplica no momento em que o comando de parar a replicação foi iniciado. O servidor autônomo não alcança o servidor mestre.
 
@@ -122,6 +122,8 @@ Uma réplica é criada usando a mesma configuração de servidor que o mestre. D
 > [!IMPORTANT]
 > Antes de uma configuração de servidor mestre ser atualizada com novos valores, atualize a configuração de réplica para valores iguais ou maiores. Esta ação garante que a réplica pode acompanhar as alterações feitas ao mestre.
 
+As regras de firewall, as regras de rede virtual e as configurações de parâmetros são herdadas do servidor mestre para a réplica quando a réplica é criada. Posteriormente, as regras da réplica são independentes.
+
 ### <a name="stopped-replicas"></a>Réplicas paradas
 
 Se você parar a replicação entre um servidor mestre e uma réplica de leitura, a réplica parada se tornará um servidor autônomo que aceita leituras e gravações. O servidor autônomo não pode se tornar uma réplica novamente.
@@ -134,7 +136,7 @@ Quando um servidor mestre é excluído, a replicação é interrompida para toda
 
 Os usuários no servidor mestre são replicados para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário disponíveis no servidor mestre.
 
-### <a name="server-parameters"></a>Parâmetros do servidor
+### <a name="server-parameters"></a>Parâmetros do Servidor
 
 Para impedir que os dados fiquem fora de sincronia e evitar possíveis perdas de dados ou danos, alguns parâmetros de servidor estão bloqueados para serem atualizados ao usar réplicas de leitura.
 
@@ -144,11 +146,11 @@ Os seguintes parâmetros de servidor estão bloqueados nos servidores mestre e d
 
 O parâmetro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) está bloqueado nos servidores de réplica. 
 
-### <a name="other"></a>Outros
+### <a name="other"></a>outro
 
 - O GTID (identificadores de transação globais) não são compatíveis.
 - A criação de uma réplica de uma réplica não é suportada.
-- Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Esta é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações.
+- Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Essa é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações.
 - Verifique se as tabelas de servidor mestre contêm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre o mestre e as réplicas.
 - Analise a lista completa das limitações de replicação do MySQL no [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 

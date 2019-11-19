@@ -1,25 +1,21 @@
 ---
-title: Fazer backup do Exchange Server para o backup do Azure com o Servidor de Backup do Azure
+title: Fazer backup do Exchange Server com o Servidor de Backup do Azure
 description: Saiba como fazer backup de um servidor do Exchange no Backup do Azure usando o Servidor de Backup do Azure
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: dacurwin
-ms.openlocfilehash: ed88f069c110795c2c5561196c41d3d75640bd53
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 73dcc190446a71498dee3f12a5225a56c9f4ddc7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968475"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173120"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Fazer backup de um servidor do Exchange no Azure com o Servidor de Backup do Azure
 
 Este artigo descreve como configurar o Servidor de Backup do Microsoft Azure (MABS) para fazer backup de um servidor do Microsoft Exchange no Azure.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de continuar, verifique se o Servidor de Backup do Azure está [instalado e preparado](backup-azure-microsoft-azure-backup.md).
 
@@ -51,7 +47,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
 
    * Desejo a proteção de curto prazo usando Disco.
    * Desejo a proteção online.
-6. Clique em \\**Próximo**.
+6. Clique em **Avançar**.
 7. Escolha a opção **Executar Eseutil para verificar a integridade dos dados** se você quiser verificar a integridade dos bancos de dados do Exchange Server.
 
     Depois de escolher essa opção, a verificação de consistência do backup será executada no MABS a fim de evitar o tráfego de E/S gerado pela execução do comando **eseutil** no servidor Exchange.
@@ -61,7 +57,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
    > ![erro de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Clique em \\**Próximo**.
+8. Clique em **Avançar**.
 9. Escolha o banco de dados para **Copiar o Backup** e clique em **Próximo**.
 
    > [!NOTE]
@@ -83,7 +79,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
     > Observe que os Pontos de recuperação online têm base nos pontos de recuperação completos expressos. Portanto, você deve agendar o ponto de recuperação online após o período especificado para o ponto de recuperação completo expresso.
     >
     >
-16. Configure a política de retenção para o **Backup do Azure** e clique em **Próximo**.
+16. Configurar a política de retenção para o **Backup do Azure** e clique em **Próximo**.
 17. Escolha uma opção de replicação online e clique em **Próximo**.
 
     Se você tiver um banco de dados de grande porte, talvez a criação do backup inicial na rede demore bastante. Para evitar esse problema, crie um backup offline.  
@@ -109,6 +105,6 @@ Há cinco tipos de recuperação para os pontos de recuperação online:
 
     ![Escolher a replicação online](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)

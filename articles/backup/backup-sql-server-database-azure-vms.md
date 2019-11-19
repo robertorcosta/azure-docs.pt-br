@@ -1,19 +1,15 @@
 ---
-title: Fazer backup de bancos de dados SQL Server em VMs do Azure | Microsoft Docs
+title: Fazer backup de bancos de dados do SQL Server nas VMs do Azure
 description: Neste artigo, saiba como fazer backup de bancos de dados SQL Server em máquinas virtuais do Azure com o backup do Azure.
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: a6752ffcf434b81c3013a2bd43c784bc92a8c1fe
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747165"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172111"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SQL Server nas VMs do Azure
 
@@ -29,7 +25,7 @@ Neste artigo, você aprenderá a:
 > * Descubra bancos de dados e configure backups.
 > * Configurar a proteção automática para bancos de dados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de fazer backup de um banco de dados SQL Server, verifique os seguintes critérios:
 

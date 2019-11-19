@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: a5632f4b7ca264f6fdeb88dc7f7cf843c73ddf54
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 598f423bdb15b1d4975633db19c28b399fde484b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123406"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166793"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões do Apache Hadoop disponíveis com o HDInsight?
 
@@ -29,27 +29,27 @@ As versões do componente associadas às versões do cluster HDInsight são list
 > [!NOTE]  
 > A versão padrão para o serviço HDInsight pode ser alterada sem aviso prévio. Se você tiver uma dependência de versão, especifique a versão do HDInsight ao criar clusters com o SDK do .NET com o Azure PowerShell e a CLI Clássica do Azure.
 
-| Componente | HDInsight 4.0 | HDInsight 3.6 (Padrão) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 |
-|---------------------------|---------------|-----------------------------|---------------|---------------|---------------|----------------------|
-| Apache Hadoop e YARN | 3.1.1 | 2.7.3 | 2.7.3 | 2.7.1 | 2.7.1 | 2.6.0 |
-| Apache Tez | 0.9.1 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 | 0.5.2 |
-| Apache Pig | 0.16.0 | 0.16.0 | 0.16.0 | 0.15.0 | 0.15.0 | 0.14.0 |
-| Apache Hive | 3.1.0 | 2.1.0, 1.2.1 | - | - | - | - |
-| Apache Tez Hive2 | - | 0.8.4 | - | - | - | - |
-| Apache Ranger | 1.1.0 | 0.7.0 | 0.6.0 | - | - | - |
-| HBase no Apache | 2.0.1 | 1.1.2 | 1.1.2 | 1.1.2 | 1.1.1 | 0.98.4 |
-| Apache Sqoop | 1.4.7 | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.5 |
-| Apache Oozie | 4.3.1 | 4.2.0 | 4.2.0 | 4.2.0 | 4.2.0 | 4.1.0 |
-| O Apache Zookeeper | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 |
-| Apache Storm | - | 1.1.0 | 1.0.1 | 0.10.0 | 0.10.0 | 0.9.3 |
-| O Apache Mahout | - | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0 |
-| Apache Phoenix | 5 | 4.7.0 | 4.7.0 | 4.4.0 | 4.4.0 | 4.2.0 |
-| Apache Spark | 2.3.1, 2.4 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2, 2.0 | 1.6.0 | 1.5.2 | 1.3.1 (somente Windows) |
-| Apache Livy | 0,5 | 0,4, 0,4, 0,3 | 0.3 | 0.3 | 0,2 | - |
-| Apache Kafka | 1.1.1, 2.1 | 1.1, 1.0 * (Veja a Observação abaixo) | 0.10.0 | 0.9.0 | - | - |
-| Apache Ambari | 2.7.0 | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 | - |
-| Apache Zeppelin | 0.8.0 | 0.7.0 | - | - | - | - |
-| Mono | 4.2.1 | 4.2.1 | 4.2.1 | 3.2.8 | - | - |
+| Componente              | HDInsight 4.0 | HDInsight 3.6 (Padrão)     |
+|------------------------|---------------|-----------------------------|
+| Apache Hadoop e YARN | 3.1.1         | 2.7.3                       |
+| Apache Tez             | 0.9.1         | 0.7.0                       |
+| Apache Pig             | 0.16.0        | 0.16.0                      |
+| Apache Hive            | 3.1.0         | 2.1.0, 1.2.1                |
+| Apache Tez Hive2       | -             | 0.8.4                       |
+| Apache Ranger          | 1.1.0         | 0.7.0                       |
+| HBase no Apache           | 2.0.1         | 1.1.2                       |
+| Apache Sqoop           | 1.4.7         | 1.4.6                       |
+| Apache Oozie           | 4.3.1         | 4.2.0                       |
+| O Apache Zookeeper       | 3.4.6         | 3.4.6                       |
+| Apache Storm           | -             | 1.1.0                       |
+| O Apache Mahout          | -             | 0.9.0+                      |
+| Apache Phoenix         | 5             | 4.7.0                       |
+| Apache Spark           | 2.3.1, 2.4    | 2.3.0, 2.2.0, 2.1.0         |
+| Apache Livy            | 0,5           | 0,4, 0,4, 0,3               |
+| Apache Kafka           | 1.1.1, 2.1    | 1.1, 1.0 * (Veja a Observação abaixo) |
+| Apache Ambari          | 2.7.0         | 2.6.0                       |
+| Apache Zeppelin        | 0.8.0         | 0.7.0                       |
+| Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]
 > Devido às considerações de desempenho do sistema, o suporte ao Kafka versão 0.10 expirou em março de 2019.

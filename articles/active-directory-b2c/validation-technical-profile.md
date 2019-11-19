@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511904"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167569"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de validação em uma política personalizada do Azure Active Directory B2C
 
@@ -39,6 +39,9 @@ Um perfil técnico de validaçaõ pode ser executado condicionalmente com base e
 
 Um perfil técnico autodeclarado pode definir um perfil técnico de validação a ser usado para validar algumas ou todas as suas declarações de saída. Todas as declarações de entrada do perfil técnico referenciado precisam aparecer nas declarações de saída do perfil técnico de referência.
 
+> [!NOTE]
+> Somente perfis técnicos autodeclarados podem usar perfis técnicos de validação. Se você precisar validar as declarações de saída de perfis técnicos não autodeclarados, considere o uso de uma etapa de orquestração adicional no percurso do usuário para acomodar o perfil técnico responsável pela validação.    
+
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
 O elemento **ValidationTechnicalProfiles** contém os seguintes elementos:
@@ -49,11 +52,11 @@ O elemento **ValidationTechnicalProfiles** contém os seguintes elementos:
 
 O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | obrigatórios | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de um perfil técnico já definido na política ou política pai. |
-|ContinueOnError|Não| Que indica se a validação de perfis de técnicos qualquer validação subsequente deve continuar se esse perfil técnico de validação gerará um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de perfis de validação adicional será interrompido e retornará um erro). |
-|ContinueOnSuccess | Não | Indica se a validação de qualquer perfil de validação subsequente deve continuar se esse perfil técnico de validação for bem-sucedio. Valores possíveis: `true` ou `false`. O padrão é `true`, significando que continuará o processamento dos perfis de validação adicional. |
+| ReferenceId | sim | Um identificador de um perfil técnico já definido na política ou política pai. |
+|ContinueOnError|Não| Indicando se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se esse perfil técnico de validação gerar um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de perfis de validação adicional será interrompido e retornará um erro). |
+|ContinueOnSuccess | Não | Indica se a validação de qualquer perfil de validação subsequente deve continuar se esse perfil técnico de validação for bem-sucedio. Os valores possíveis são `true` ou `false`. O padrão é `true`, significando que continuará o processamento dos perfis de validação adicional. |
 
 O elemento **ValidationTechnicalProfile** contém o seguinte elemento:
 
@@ -63,17 +66,17 @@ O elemento **ValidationTechnicalProfile** contém o seguinte elemento:
 
 O elemento **Precondition** contém os seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | obrigatórios | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| `Type` | Sim | O tipo de verificação ou consulta ser executada para a pré-condição. Qualquer um dos `ClaimsExist` é especificado para garantir que as ações devem ser realizadas se as declarações especificadas existem no atual conjunto de declarações do usuário, ou `ClaimEquals` for especificado que as ações devem ser executadas se a declaração especificada existe e seu valor é igual ao valor especificado. |
-| `ExecuteActionsIf` | Sim | Indica se as ações na pré-condição devem ser executadas se o teste for true ou false. |
+| `Type` | sim | O tipo de verificação ou consulta ser executada para a pré-condição. Qualquer um dos `ClaimsExist` é especificado para garantir que as ações devem ser realizadas se as declarações especificadas existem no atual conjunto de declarações do usuário, ou `ClaimEquals` for especificado que as ações devem ser executadas se a declaração especificada existe e seu valor é igual ao valor especificado. |
+| `ExecuteActionsIf` | sim | Indica se as ações na pré-condição devem ser executadas se o teste for verdadeiro ou falso. |
 
 O elemento **Precondition** contém os seguintes elementos:
 
 | Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
-| Value | 1:n | Os dados que são usados pela verificação. Se o tipo dessa verificação for `ClaimsExist`, este campo especifica um ClaimTypeReferenceId para consultar. Se o tipo dessa verificação for `ClaimEquals`, este campo especifica um ClaimTypeReferenceId para consultar. Enquanto outro elemento de valor contém o valor a ser verificado.|
-| Action | 1:1 | A ação que deverá ser executada se a verificação de pré-condição dentro de uma etapa de orquestração for true. O valor da **Action** é definido como `SkipThisValidationTechnicalProfile`. Especifica que o perfil técnico de validação associada não deve ser executado. |
+| Valor | 1:n | Os dados que são usados pela verificação. Se o tipo dessa verificação for `ClaimsExist`, este campo especifica um ClaimTypeReferenceId para consultar. Se o tipo dessa verificação for `ClaimEquals`, este campo especifica um ClaimTypeReferenceId para consultar. Enquanto outro elemento de valor contém o valor a ser verificado.|
+| Ação | 1:1 | A ação que deverá ser executada se a verificação de pré-condição dentro de uma etapa de orquestração for verdadeira. O valor da **Ação** é definido como `SkipThisValidationTechnicalProfile`. Especifica que o perfil técnico de validação associada não deve ser executado. |
 
 ### <a name="example"></a>Exemplo
 

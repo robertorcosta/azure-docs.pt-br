@@ -1,19 +1,15 @@
 ---
-title: Propagar o backup offline com o serviço de importação/exportação do backup do Azure
+title: Propagar o backup offline com o serviço de importação/exportação
 description: Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: dacurwin
-ms.openlocfilehash: 15a5a67209552134969c01220e8412d0c9dace15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968515"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173296"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 
@@ -40,13 +36,13 @@ Os seguintes recursos ou cargas de trabalho do Backup do Azure são compatíveis
 > * O backup de arquivos e pastas com o agente do MARS (Serviços de Recuperação do Microsoft Azure), também conhecido como agente de Backup do Azure.
 > * Backup de todas as cargas de trabalho e arquivos com o System Center Data Protection Manager (SC DPM)
 > * Backup de todas as cargas de trabalho e arquivos com o Servidor de Backup do Azure
-
+ 
    > [!NOTE]
    > Não há suporte para Backup Offline para backups de Estado do Sistema realizados usando o agente de Backup do Azure.
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
   > [!NOTE]
   > Os seguintes pré-requisitos e fluxo de trabalho aplicam-se somente ao backup offline de arquivos e pastas usando o [agente mais recente do MARS](https://aka.ms/azurebackup_agent). Para executar backups offline para cargas de trabalho que usam o DPM do System Center ou Servidor de Backup do Azure, confira [este artigo](backup-azure-backup-server-import-export-.md).
@@ -109,7 +105,7 @@ Esta seção descreve o fluxo de trabalho de backup offline para que os dados po
 
 O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são enviadas para o datacenter do Azure mais próximo. Esse utilitário está disponível no diretório de instalação do agente de Backup do Azure (no caminho a seguir):
 
-   *\Microsoft Azure Recovery Services Agent\Utils\\*
+    *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. Acesse o diretório e copie o diretório **AzureOfflineBackupDiskPrep** para outro computador no qual as unidades SATA estão conectadas. No computador com as unidades SATA conectadas, verifique se:
 
@@ -126,7 +122,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | . | Descrição |
+    | . | DESCRIÇÃO |
     | --- | --- |
     | s:&lt;*Caminho do Local de Preparo*&gt; |A entrada obrigatória usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho de **Iniciar backup offline**. |
     | p:&lt;*Caminho para PublishSettingsFile*&gt; |A entrada opcional usada para fornecer o caminho para o arquivo **Configurações de Publicação do Azure** inserido no fluxo de trabalho de **Iniciar o backup offline**. |
@@ -207,7 +203,7 @@ No horário do próximo backup agendado, o Backup do Azure executará um backup 
 
 Depois que o backup inicial for concluído, você poderá excluir com segurança os dados importados para o Contêiner de Armazenamento do Azure e os dados de backup no local de preparo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para qualquer dúvida sobre o fluxo de trabalho de Importação/Exportação do Azure, veja [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de Blobs](../storage/common/storage-import-export-service.md).
 * Consulte a seção sobre o backup offline das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho.

@@ -8,28 +8,26 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: glenga
-ms.openlocfilehash: 0d398e9848559e70883c07498057d1807651a867
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3b8294c7bd91bcd6a2e0e533f5903f44e8aaea
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515659"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173670"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do Azure Functions PowerShell
 
 Este artigo fornece detalhes sobre como você escreve Azure Functions usando o PowerShell.
 
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
-
 Uma função do PowerShell do Azure (função) é representada como um script do PowerShell que é executado quando disparado. Cada script de função tem um arquivo de `function.json` relacionado que define como a função se comporta, como a forma como ela é disparada e seus parâmetros de entrada e saída. Para saber mais, confira o [artigo gatilhos e Associação](functions-triggers-bindings.md). 
 
 Assim como outros tipos de funções, as funções de script do PowerShell assumem parâmetros que correspondem aos nomes de todas as associações de entrada definidas no arquivo `function.json`. Um parâmetro `TriggerMetadata` também é passado que contém informações adicionais sobre o gatilho que iniciou a função.
 
-Este artigo pressupõe que você já tenha lido o [Azure Functions referência do desenvolvedor](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](functions-create-first-function-powershell.md) para criar sua primeira função do PowerShell.
+Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](functions-create-first-function-powershell.md) para criar sua primeira função do PowerShell.
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
-A estrutura de pastas necessária para um projeto do PowerShell é semelhante ao seguinte. Esse padrão pode ser alterado. Para obter mais informações, consulte a seção [scriptfile](#configure-function-scriptfile) abaixo.
+A estrutura de pastas necessária para um projeto do PowerShell é semelhante ao seguinte. Este padrão pode ser alterado. Para mais informações, consulte a seção [scriptArquivo](#configure-function-scriptfile) abaixo.
 
 ```
 PSFunctionApp
@@ -56,13 +54,13 @@ PSFunctionApp
 
 Na raiz do projeto, há um arquivo de [`host.json`](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função tem uma pasta com seu próprio arquivo de código (. ps1) e arquivo de configuração de associação (`function.json`). O nome do diretório pai do arquivo function. JSON é sempre o nome da sua função.
 
-Determinadas associações exigem a presença de um arquivo de `extensions.csproj`. As extensões de associação, necessárias na [versão 2. x](functions-versions.md) do tempo de execução do functions, são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deve [registrar extensões de associação](functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+Determinadas associações exigem a presença de um arquivo de `extensions.csproj`. As extensões de associação, necessárias na [versão 2. x](functions-versions.md) do tempo de execução do functions, são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 Em aplicativos de funções do PowerShell, você pode, opcionalmente, ter um `profile.ps1` que é executado quando um aplicativo de funções começa a ser executado (caso contrário, é conhecido como um *[início frio](#cold-start)* . Para obter mais informações, consulte [perfil do PowerShell](#powershell-profile).
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Definindo um script do PowerShell como uma função
 
-Por padrão, o tempo de execução do Functions procura sua função em `run.ps1`, em que `run.ps1` compartilha o mesmo diretório pai que seu `function.json` correspondente.
+Por padrão, o runtime de Funções procura sua função em `run.ps1`, onde `run.ps1` compartilha o mesmo diretório pai que o `function.json` correspondente.
 
 Seu script é passado por vários argumentos na execução. Para lidar com esses parâmetros, adicione um bloco de `param` na parte superior do seu script, como no exemplo a seguir:
 
@@ -79,7 +77,7 @@ O parâmetro `TriggerMetadata` é usado para fornecer informações adicionais s
 $TriggerMetadata.sys
 ```
 
-| Propriedade   | Descrição                                     | Tipo     |
+| Propriedade   | DESCRIÇÃO                                     | Digite     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, em UTC, a função foi disparada        | DateTime |
 | MethodName | O nome da função que foi disparada     | cadeia de caracteres   |
@@ -89,9 +87,9 @@ Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$Tr
 
 ## <a name="bindings"></a>Associações
 
-No PowerShell, as [associações](functions-triggers-bindings.md) são configuradas e definidas no function. JSON de uma função. As funções interagem com associações de várias maneiras.
+No PowerShell, as [associações](functions-triggers-bindings.md) são configuradas e definidas no function. JSON de uma função. As funções interagem com as ligações de várias maneiras.
 
-### <a name="reading-trigger-and-input-data"></a>Lendo dados de gatilho e de entrada
+### <a name="reading-trigger-and-input-data"></a>Gatilho de leitura e dados de entrada
 
 As associações de entrada e gatilho são lidas como parâmetros passados para sua função. As associações de entrada têm um `direction` definido como `in` em function. JSON. A propriedade `name` definida em `function.json` é o nome do parâmetro, no bloco de `param`. Como o PowerShell usa parâmetros nomeados para associação, a ordem dos parâmetros não importa. No entanto, é uma prática recomendada seguir a ordem das associações definidas no `function.json`.
 
@@ -131,9 +129,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Veja a seguir os parâmetros válidos para chamar `Push-OutputBinding`:
 
-| NaME | Tipo | Position | Descrição |
+| NOME | Digite | Position | DESCRIÇÃO |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Cadeia de caracteres | 1 | O nome da Associação de saída que você deseja definir. |
+| **`-Name`** | String | 1 | O nome da Associação de saída que você deseja definir. |
 | **`-Value`** | Objeto | 2 | O valor da Associação de saída que você deseja definir, que é aceita do pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | nomeado | Adicional Quando especificado, força o valor a ser definido para uma associação de saída especificada. | 
 
@@ -241,7 +239,7 @@ O registro em log nas funções do PowerShell funciona como log normal do PowerS
 | Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informações | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informações | Grava no log do nível de _informações_ . |
-| Depuração | **`Write-Debug`** |
+| Depurar | **`Write-Debug`** |
 | Rastreamento | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Além desses cmdlets, qualquer coisa gravada no pipeline é redirecionada para o nível de log `Information` e exibido com a formatação padrão do PowerShell.
@@ -251,7 +249,7 @@ Além desses cmdlets, qualquer coisa gravada no pipeline é redirecionada para o
 
 ### <a name="configure-the-function-app-log-level"></a>Configurar o nível de log do aplicativo de funções
 
-Azure Functions permite que você defina o nível de limite para facilitar o controle da maneira como as funções são gravadas nos logs. Para definir o limite para todos os rastreamentos gravados no console, use a propriedade `logging.logLevel.default` na[referência de host. JSON]do [arquivo `host.json`]. Essa configuração se aplica a todas as funções em seu aplicativo de funções.
+Azure Functions permite que você defina o nível de limite para facilitar o controle da maneira como as funções são gravadas nos logs. Para definir o limite para todos os rastreamentos gravados no console, use a propriedade `logging.logLevel.default` na[referência de host. JSON]do [arquivo`host.json`]. Essa configuração se aplica a todas as funções em seu aplicativo de função.
 
 O exemplo a seguir define o limite para habilitar o log detalhado para todas as funções, mas define o limite para habilitar o log de depuração para uma função chamada `MyFunction`:
 
@@ -266,11 +264,11 @@ O exemplo a seguir define o limite para habilitar o log detalhado para todas as 
 }  
 ```
 
-Para obter mais informações, consulte [referência de host. JSON].
+Para obter mais informações, consulte a [referência de host. JSON].
 
 ### <a name="viewing-the-logs"></a>Exibindo os logs
 
-Se o Aplicativo de funções estiver em execução no Azure, você poderá usar Application Insights para monitorá-lo. Leia [Azure Functions de monitoramento](functions-monitoring.md) para saber mais sobre como exibir e consultar logs de função.
+Se o Aplicativo de funções estiver em execução no Azure, você poderá usar Application Insights para monitorá-lo. Leia [Monitorado o Azure Functions](functions-monitoring.md) para saber mais sobre como exibir e consultar logs de função.
 
 Se você estiver executando o Aplicativo de funções localmente para desenvolvimento, os logs serão padrão para o sistema de arquivos. Para ver os logs no console, defina a variável de ambiente `AZURE_FUNCTIONS_ENVIRONMENT` como `Development` antes de iniciar a Aplicativo de funções.
 
@@ -282,9 +280,9 @@ Todos os gatilhos e associações são representados no código como alguns tipo
 
 * Tabela
 * cadeia de caracteres
-* Byte []
+* byte[]
 * int
-* Clique
+* Duplo
 * HttpRequestContext
 * HttpResponseContext
 
@@ -294,19 +292,19 @@ Cada parâmetro de associação em suas funções deve ser um desses tipos.
 
 ### <a name="http-triggers-and-bindings"></a>Gatilhos e associações HTTP
 
-Os gatilhos HTTP e webhook e as associações de saída HTTP usam objetos Request e Response para representar as mensagens HTTP.
+HTTP e gatilhos de webhook e associações de saída HTTP usam objetos de solicitação e resposta para representar as mensagens HTTP.
 
-#### <a name="request-object"></a>Objeto de solicitação
+#### <a name="request-object"></a>Objeto da solicitação
 
 O objeto de solicitação que é passado para o script é do tipo `HttpRequestContext`, que tem as seguintes propriedades:
 
-| Propriedade  | Descrição                                                    | Tipo                      |
+| Propriedade  | DESCRIÇÃO                                                    | Digite                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
-| **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup> *</sup> |
+| **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
 | **`Method`** | O método HTTP da solicitação.                                | cadeia de caracteres                    |
-| **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup> *</sup> |
-| **`Query`** | Um objeto que contém os parâmetros de consulta.                  | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup> *</sup> |
+| **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
+| **`Query`** | Um objeto que contém os parâmetros da consulta.                  | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
 | **`Url`** | A URL da solicitação.                                        | cadeia de caracteres                    |
 
 <sup>*</sup> Todas as chaves de `Dictionary<string,string>` não diferenciam maiúsculas de minúsculas.
@@ -315,14 +313,14 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 
 O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseContext`, que tem as seguintes propriedades:
 
-| Propriedade      | Descrição                                                 | Tipo                      |
+| Propriedade      | DESCRIÇÃO                                                 | Digite                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
 | **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | cadeia de caracteres                    |
-| **`Headers`** | Um objeto que contém os cabeçalhos de resposta.               | Dicionário ou Hashtable   |
-| **`StatusCode`**  | O código de status HTTP da resposta.                       | Cadeia de caracteres ou int             |
+| **`Headers`** | Um objeto que contém os cabeçalhos da resposta.               | Dicionário ou Hashtable   |
+| **`StatusCode`**  | O código de status HTTP da resposta.                       | string ou int             |
 
-#### <a name="accessing-the-request-and-response"></a>Acessando a solicitação e a resposta
+#### <a name="accessing-the-request-and-response"></a>Acessar a solicitação e a resposta
 
 Ao trabalhar com gatilhos HTTP, você pode acessar a solicitação HTTP da mesma maneira que faria com qualquer outra associação de entrada. Está no bloco de `param`.
 
@@ -391,14 +389,14 @@ Quando você cria um aplicativo de funções usando ferramentas, como Visual Stu
 
 A tabela a seguir mostra a versão do PowerShell usada por cada versão principal do tempo de execução do Functions:
 
-| Versão das funções | Versão do PowerShell                             |
+| Versão do Functions | Versão do PowerShell                             |
 |-------------------|------------------------------------------------|
 | 1.x               | Windows PowerShell 5,1 (bloqueado pelo tempo de execução) |
 | 2. x               | PowerShell Core 6                              |
 
 Você pode ver a versão atual imprimindo `$PSVersionTable` de qualquer função.
 
-## <a name="dependency-management"></a>Gerenciamento de dependência
+## <a name="dependency-management"></a>Gerenciamento de dependências
 
 O Functions permite aproveitar a [Galeria do PowerShell](https://www.powershellgallery.com) para gerenciar dependências. Com o gerenciamento de dependência habilitado, o arquivo Requirements. psd1 é usado para baixar automaticamente os módulos necessários. Você habilita esse comportamento definindo a propriedade `managedDependency` como `true` na raiz do [arquivo host. JSON](functions-host-json.md), como no exemplo a seguir:
 
@@ -410,7 +408,7 @@ O Functions permite aproveitar a [Galeria do PowerShell](https://www.powershellg
 }
 ```
 
-Quando você cria um novo projeto de funções do PowerShell, o gerenciamento de dependência é habilitado por padrão, com o [módulo de `Az`](/powershell/azure/new-azureps-module-az) do Azure incluído. O número máximo de módulos com suporte no momento é 10. A sintaxe com suporte é _`MajorNumber`_ `.*` ou versão exata do módulo, conforme mostrado nos seguintes requisitos. psd1 exemplo:
+Quando você cria um novo projeto de funções do PowerShell, o gerenciamento de dependência é habilitado por padrão, com o [módulo de`Az`](/powershell/azure/new-azureps-module-az) do Azure incluído. O número máximo de módulos com suporte no momento é 10. A sintaxe com suporte é _`MajorNumber`_ `.*` ou versão exata do módulo, conforme mostrado nos seguintes requisitos. psd1 exemplo:
 
 ```powershell
 @{
@@ -424,9 +422,9 @@ Quando você atualiza o arquivo Requirements. psd1, os módulos atualizados são
 > [!NOTE]
 > As dependências gerenciadas exigem acesso ao www.powershellgallery.com para baixar módulos. Ao executar localmente, verifique se o tempo de execução pode acessar essa URL adicionando as regras de firewall necessárias. 
 
-As configurações de aplicativo a seguir podem ser usadas para alterar a forma como as dependências gerenciadas são baixadas e instaladas. A atualização do aplicativo é iniciada no `MDMaxBackgroundUpgradePeriod` e o processo de atualização é concluído em aproximadamente o `MDNewSnapshotCheckPeriod`.
+As configurações de aplicativo a seguir podem ser usadas para alterar a forma como as dependências gerenciadas são baixadas e instaladas. A atualização do aplicativo é iniciada no `MDMaxBackgroundUpgradePeriod`e o processo de atualização é concluído em aproximadamente o `MDNewSnapshotCheckPeriod`.
 
-| Aplicativo de funções configuração              | Valor padrão             | Descrição                                         |
+| Aplicativo de funções configuração              | Valor padrão             | DESCRIÇÃO                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dias)     | Cada processo de trabalho do PowerShell inicia a verificação de atualizações de módulo no Galeria do PowerShell no início do processo e a cada `MDMaxBackgroundUpgradePeriod` depois disso. Quando uma nova versão de módulo está disponível no Galeria do PowerShell, ela é instalada no sistema de arquivos e disponibilizada para trabalhadores do PowerShell. Diminuir esse valor permite que seu aplicativo de funções obtenha versões mais recentes do módulo mais cedo, mas também aumenta o uso de recursos do aplicativo (e/s de rede, CPU, armazenamento). Aumentar esse valor diminui o uso de recursos do aplicativo, mas também pode atrasar a entrega de novas versões de módulo ao seu aplicativo. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hora)       | Depois que novas versões de módulo são instaladas no sistema de arquivos, todos os processos de trabalho do PowerShell devem ser reiniciados. Reiniciar os trabalhadores do PowerShell afeta a disponibilidade do aplicativo, pois ele pode interromper a execução da função atual. Até que todos os processos de trabalho do PowerShell sejam reiniciados, as invocações de função podem usar as versões de módulo antiga ou nova. A reinicialização de todos os trabalhadores do PowerShell é concluída dentro do `MDNewSnapshotCheckPeriod`. Aumentar esse valor diminui a frequência de interrupções, mas também pode aumentar o período de tempo em que as invocações de função usam as versões de módulo antigo ou novo de forma não determinística. |
@@ -479,14 +477,14 @@ Vários módulos são geralmente usados pelo operador de linguagem do PowerShell
 
 A lista atual de módulos é a seguinte:
 
-* [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo usado para trabalhar com arquivos mortos, como `.zip`, `.nupkg` e outros.
+* [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo usado para trabalhar com arquivos mortos, como `.zip`, `.nupkg`e outros.
 * **ThreadJob**: uma implementação baseada em thread das APIs de trabalho do PowerShell.
 
 Por padrão, o Functions usa a versão mais recente desses módulos. Para usar uma versão de módulo específica, coloque essa versão específica na pasta `Modules` do seu aplicativo de funções.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em funções, [as configurações de aplicativo](functions-app-settings.md), como cadeias de conexão de serviço, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações usando `$env:NAME_OF_ENV_VAR`, conforme mostrado no exemplo a seguir:
+Em funções, [configurações do aplicativo](functions-app-settings.md), como conexão de serviço cadeias de caracteres, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações usando `$env:NAME_OF_ENV_VAR`, conforme mostrado no exemplo a seguir:
 
 ```powershell
 param($myTimer)
@@ -498,7 +496,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Ao executar localmente, as configurações do aplicativo são lidas no arquivo de projeto [local. Settings. JSON](functions-run-local.md#local-settings-file) .
+Ao executar localmente, as configurações do aplicativo são lidos a partir de [Settings](functions-run-local.md#local-settings-file) arquivo de projeto.
 
 ## <a name="concurrency"></a>Simultaneidade
 
@@ -525,7 +523,7 @@ Há um grande valor em simultaneidade com Azure PowerShell, já que algumas oper
 
 ## <a name="configure-function-scriptfile"></a>Configurar `scriptFile` de função
 
-Por padrão, uma função do PowerShell é executada a partir de `run.ps1`, um arquivo que compartilha o mesmo diretório pai que seu `function.json` correspondente.
+Por padrão, uma função do PowerShell é executada a partir de `run.ps1`, um arquivo que compartilha o mesmo diretório pai que seu `function.json`correspondente.
 
 A propriedade `scriptFile` na `function.json` pode ser usada para obter uma estrutura de pastas parecida com o exemplo a seguir:
 
@@ -597,7 +595,7 @@ Com essa configuração, a `Invoke-PSTestFunc` é executada exatamente como uma 
 
 Ao trabalhar com as funções do PowerShell, esteja ciente das considerações nas seções a seguir.
 
-### <a name="cold-start"></a>Início frio
+### <a name="cold-start"></a>Inicialização a frio
 
 Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](functions-scale.md#consumption-plan), inícios frios são uma realidade. *Início frio* refere-se ao período de tempo que leva para seu aplicativo de funções iniciar a execução para processar uma solicitação. A inicialização a frio acontece com mais frequência no plano de consumo porque seu aplicativo de funções é desligado durante períodos de inatividade.
 
@@ -605,9 +603,9 @@ Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](functions-
 
 O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes da publicação para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) definido como *Always on* ou em um [plano Premium](functions-scale.md#premium-plan).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte os seguintes recursos:
+Para saber mais, consulte os recursos a seguir:
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)

@@ -1,19 +1,14 @@
 ---
-title: Fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação no Backup do Azure
+title: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 description: Descreve como fazer backup de VMs do Azure em um cofre de serviços de recuperação usando o backup do Azure
-service: backup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 2ef8e7e77481c0df6e85545d16c3859949184d2f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968530"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173351"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -34,7 +29,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="before-you-start"></a>Antes de começar
 
-* [Examine](backup-architecture.md#architecture-direct-backup-of-azure-vms) a arquitetura de backup da VM do Azure.
+* [Examine](backup-architecture.md#architecture-built-in-azure-vm-backup) a arquitetura de backup da VM do Azure.
 * [Saiba mais sobre](backup-azure-vms-introduction.md) backup de VM do Azure e a extensão de backup.
 * [Examine a matriz de suporte antes de configurar o](backup-support-matrix-iaas.md) backup.
 
@@ -47,7 +42,7 @@ Além disso, há algumas coisas que você pode precisar fazer em algumas circuns
 
  Um cofre armazena backups e pontos de recuperação criados ao longo do tempo e armazena as políticas de backup associadas às máquinas submetidas a backup. Crie um cofre da seguinte maneira:
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Em pesquisa, digite **serviços de recuperação**. Em **Serviços**, clique em **cofres dos serviços de recuperação**.
 
      ![Pesquisar cofres dos serviços de recuperação](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
@@ -57,7 +52,7 @@ Além disso, há algumas coisas que você pode precisar fazer em algumas circuns
      ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
 4. Em **cofre dos serviços de recuperação**, digite um nome amigável para identificar o cofre.
-    * O nome deve ser exclusivo para a assinatura do Azure.
+    * O nome precisa ser exclusivo para a assinatura do Azure.
     * Ele pode conter caracteres de 2 a 50.
     * Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
 5. Selecione a assinatura do Azure, o grupo de recursos e a região geográfica na qual o cofre deve ser criado. Em seguida, clique em **Criar**.
@@ -177,8 +172,8 @@ O status do trabalho pode variar dependendo dos seguintes cenários:
 Concluído | Em andamento | Em andamento
 Concluído | Ignorado | Concluído
 Concluído | Concluído | Concluído
-Concluído | Com falha | Concluído com aviso
-Com falha | Com falha | Com falha
+Concluído | Falha | Concluído com aviso
+Falha | Falha | Falha
 
 Agora, com esse recurso, para a mesma VM, dois backups podem ser executados em paralelo, mas, em qualquer fase (instantâneo, transferir dados para o cofre), apenas uma subtarefa pode ser executada. Assim, em cenários, um trabalho de backup em andamento resultou na falha do backup do dia seguinte, com essa funcionalidade de desacoplamento. Os backups do dia seguinte podem ter o instantâneo concluído ao **transferir dados para o cofre** ignorados se o trabalho de backup de um dia anterior estiver em estado de andamento.
 O ponto de recuperação incremental criado no cofre irá capturar toda a rotatividade do último ponto de recuperação criado no cofre. Não há impacto no custo do usuário.
@@ -199,7 +194,7 @@ O Backup do Azure faz backup de VMs do Azure instalando uma extensão para o age
 A extensão de backup em execução na VM precisa de acesso de saída para endereços IP públicos do Azure.
 
 * Em geral, você não precisa permitir explicitamente o acesso de rede de saída para uma VM do Azure para que ela se comunique com o backup do Azure.
-* Se você tiver dificuldades com as VMs conectadas ou se vir o erro **ExtensionSnapshotFailedNoNetwork** ao tentar se conectar, você deverá permitir o acesso explicitamente para que a extensão de backup possa se comunicar com os endereços IP públicos do Azure para backup tráfico. Os métodos de acesso são resumidos na tabela a seguir.
+* Se você tiver dificuldades com as VMs conectadas ou se vir o erro **ExtensionSnapshotFailedNoNetwork** ao tentar se conectar, você deverá permitir o acesso explicitamente para que a extensão de backup possa se comunicar com os endereços IP públicos do Azure para o tráfego de backup. Os métodos de acesso são resumidos na tabela a seguir.
 
 **Opção** | **Ação** | **Detalhes**
 --- | --- | ---
@@ -252,7 +247,7 @@ Se você não tiver um proxy de conta do sistema, configure um da seguinte manei
 4. Defina as configurações de proxy.
    * Em máquinas do Linux:
      * Adicione esta linha ao arquivo **/etc/environment**:
-       * **http_proxy = http:\/endereço IP do/proxy nomedearquivo: porta do proxy**
+       * **http_proxy = http:\/endereço IP/proxy nomedearquivo: porta proxy**
      * Adicione estas linhas ao arquivo **/etc/waagent.conf**:
          * **Endereço IP HttpProxy.Host=proxy**
          * **Porta HttpProxy.Port=proxy**
@@ -302,7 +297,7 @@ Você pode configurar o Firewall do Azure para permitir o acesso de saída para 
 * [Saiba como](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) implantar o Firewall do Azure.
 * [Leia sobre](https://docs.microsoft.com/azure/firewall/fqdn-tags) as marcas de FQDN.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Solucione quaisquer problemas com [agentes de VM do Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [backup de VM do Azure](backup-azure-vms-troubleshoot.md).
 * [Restaurar](backup-azure-arm-restore-vms.md) VMs do Azure.

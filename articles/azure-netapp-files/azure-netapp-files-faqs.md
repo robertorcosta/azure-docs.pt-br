@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298479"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173599"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -29,7 +29,7 @@ Este artigo responde às perguntas frequentes sobre Azure NetApp Files.
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>O caminho de dados do NFS passa pela Internet?  
 
-Nº O caminho de dados do NFS não passa pela Internet. Azure NetApp Files é um serviço nativo do Azure que é implantado na VNet (rede virtual) do Azure onde o serviço está disponível. Azure NetApp Files usa uma sub-rede delegada e provisiona uma interface de rede diretamente na VNet. 
+Não. O caminho de dados do NFS não passa pela Internet. Azure NetApp Files é um serviço nativo do Azure que é implantado na VNet (rede virtual) do Azure onde o serviço está disponível. Azure NetApp Files usa uma sub-rede delegada e provisiona uma interface de rede diretamente na VNet. 
 
 Consulte as [diretrizes para Azure NetApp files planejamento de rede](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) para obter detalhes.  
 
@@ -103,16 +103,9 @@ Azure NetApp Files fornece métricas de desempenho de volume. Você também pode
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Quero ter um volume montado automaticamente quando uma VM do Azure é iniciada ou reinicializada.  Como fazer configurar meu host para volumes NFS persistentes?
 
-Para que um volume NFS seja montado automaticamente na inicialização ou na reinicialização da VM, adicione uma entrada ao arquivo `/etc/fstab` no host. 
+Para que um volume de NFS seja montado automaticamente na inicialização ou na reinicialização da VM, adicione uma entrada ao arquivo de `/etc/fstab` no host. 
 
-Por exemplo: `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    O endereço IP do volume de Azure NetApp Files encontrado na folha de propriedades do volume
-- $FILEPATH  
-    O caminho de exportação do volume de Azure NetApp Files
-- $MOUNTPOINT  
-    O diretório criado no host do Linux usado para montar a exportação de NFS
+Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) para obter detalhes.  
 
 ### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>Por que o comando DF no cliente NFS não mostra o tamanho do volume provisionado?
 
@@ -123,7 +116,7 @@ O tamanho do volume relatado em DF é o tamanho máximo para o qual o volume de 
 Azure NetApp Files dá suporte a NFSv3 e NFSv 4.1. Você pode criar um volume usando a versão do NFS. 
 
 > [!IMPORTANT] 
-> O acesso ao recurso NFSv 4.1 requer a lista de permissões.  Para solicitar a lista de permissões, envie uma solicitação para <anffeedback@microsoft.com>. 
+> O acesso ao recurso NFSv4.1 requer o uso de listas de permissões.  Para solicitar inclusão na lista de permissões, envie uma solicitação para <anffeedback@microsoft.com>. 
 
 
 ### <a name="how-do-i-enable-root-squashing"></a>Como fazer habilitar o desativação de raiz?
@@ -158,7 +151,7 @@ Azure NetApp Files fornece métricas de uso de volume e pool de capacidade. Voc�
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Posso gerenciar Azure NetApp Files por meio de Gerenciador de Armazenamento do Azure?
 
-Nº O Gerenciador de Armazenamento do Azure não dá suporte a Azure NetApp Files.
+Não. O Gerenciador de Armazenamento do Azure não dá suporte a Azure NetApp Files.
 
 ## <a name="data-migration-and-protection-faqs"></a>Perguntas frequentes sobre migração de dados e proteção
 
@@ -192,11 +185,11 @@ Os requisitos para replicar um volume de Azure NetApp Files para outra região d
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>Há suporte para migração com Azure Data Box?
 
-Nº Azure Data Box não oferece suporte a Azure NetApp Files no momento. 
+Não. Azure Data Box não oferece suporte a Azure NetApp Files no momento. 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Há suporte para a migração com o serviço de importação/exportação do Azure?
 
-Nº O serviço de importação/exportação do Azure não oferece suporte a Azure NetApp Files no momento.
+Não. O serviço de importação/exportação do Azure não oferece suporte a Azure NetApp Files no momento.
 
 ## <a name="next-steps"></a>Próximas etapas  
 

@@ -1,18 +1,18 @@
 ---
 title: Visão geral das marcas de serviço do Firewall do Azure
-description: Este artigo é uma visão geral das marcas de serviço do Firewall do Azure.
+description: Uma marca de serviço representa um grupo de prefixos de endereço IP para ajudar a minimizar a complexidade da criação de regra de segurança.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 6/27/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: d0ac36e415c056dffc9c75d00968ff74c2156e63
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ec9fb3c9b27d21ac65888379f59d51ecc8042eb0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450165"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168680"
 ---
 # <a name="azure-firewall-service-tags"></a>Marcas de serviço do Firewall do Azure
 
@@ -22,7 +22,7 @@ As marcas de serviço de Firewall do Azure podem ser usadas no campo de destino 
 
 ## <a name="supported-service-tags"></a>Marcas de serviço com suporte
 
-Ver [grupos de segurança](../virtual-network/security-overview.md#service-tags) para obter uma lista de marcas de serviço que estão disponíveis para uso em regras de rede do firewall do Azure.
+Consulte [grupos de segurança](../virtual-network/security-overview.md#service-tags) para obter uma lista de marcas de serviço que estão disponíveis para uso em regras de rede do firewall do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

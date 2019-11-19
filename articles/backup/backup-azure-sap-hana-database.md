@@ -1,18 +1,14 @@
 ---
-title: Fazer backup de um banco de dados SAP HANA no Azure com o backup do Azure | Microsoft Docs
+title: Fazer backup de um banco de dados SAP HANA no Azure
 description: Este tutorial explica como fazer backup de um banco de dados SAP HANA no Azure com o serviço de backup do Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: dacurwin
-ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 519e47c6b6793c638e64c4e4bcc4fafdb678c9fb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931810"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172734"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Fazer backup de um banco de dados SAP HANA no Azure
 
@@ -43,7 +39,7 @@ O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados
   - Para criar uma nova política, no cofre, clique em **políticas** > **políticas de backup** >  **+ Adicionar** > **SAP Hana na VM do Azure**e especifique as configurações de política.
   - Para atribuir uma política diferente, nas propriedades da VM que executa o banco de dados, clique no nome da política atual. Em seguida, na página **política de backup** , você pode selecionar uma política diferente a ser usada para o backup.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Certifique-se de fazer o seguinte antes de configurar os backups:
 
@@ -190,7 +186,7 @@ Se você estiver protegendo bancos de SAP HANA 1,0 e quiser atualizar para o 2,0
 - Clique em redescobrir bancos de os para a mesma VM. Isso deve mostrar o novo banco de bancos na etapa 2 com detalhes corretos (SYSTEMDB e DB de locatário, não SDC). 
 - Proteja esses novos bancos de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais sobre](backup-azure-sap-hana-database-troubleshoot.md) como solucionar erros comuns ao usar o backup SAP Hana em VMs do Azure.
 [Saiba mais sobre como](backup-azure-arm-vms-prepare.md) fazer backup de VMs do Azure.

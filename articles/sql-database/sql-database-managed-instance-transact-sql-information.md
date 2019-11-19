@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3518404b76625e2557aaefdc6ab5ad7353683984
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 3283cfe9455ba29679d7c741941aa8863c47b1c0
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823315"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158303"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -88,14 +88,14 @@ As principais diferenças entre a auditoria em bancos de dados no Banco de Dados
 - Com as opções de implantação de banco de dados individual e pool elástico no Banco de Dados SQL do Azure, a auditoria funciona no nível do banco de dados.
 - Em SQL Server máquinas virtuais ou locais, a auditoria funciona no nível do servidor. Os eventos são armazenados no sistema de arquivos ou nos logs de eventos do Windows.
  
-A auditoria XEvent na Instância Gerenciada oferece suporte a destinos de armazenamento de blobs do Azure. Não há suporte para logs de arquivo e do Windows.
+A auditoria XEvent na instância gerenciada dá suporte aos destinos do armazenamento de Blobs do Azure. Não há suporte para logs de arquivo e do Windows.
 
 As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazenamento de Blobs do Azure são:
 
 - É fornecida uma nova sintaxe `TO URL` que você pode usar para especificar a URL do contêiner de armazenamento de BLOBs do Azure em que os arquivos de `.xel` são colocados.
 - Não há suporte para a sintaxe `TO FILE` porque uma instância gerenciada não pode acessar compartilhamentos de arquivos do Windows.
 
-Para obter mais informações, consulte: 
+Para obter mais informações, veja: 
 
 - [CRIAR AUDITORIA DE SERVIDOR](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTERAR AUDITORIA DE SERVIDOR](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -564,16 +564,6 @@ SQL Server/Instância Gerenciada [não permitir que o usuário descarte um arqui
 A instrução de `RESTORE` contínua, o processo de migração do serviço de migração de dados e a restauração pontual interna bloquearão a atualização da camada de serviço ou o redimensionamento da instância existente e a criação de novas instâncias até que o processo de restauração seja concluído. O processo de restauração bloqueará essas operações nas instâncias gerenciadas e nos pools de instância na mesma sub-rede em que o processo de restauração está em execução. As instâncias em pools de instâncias não são afetadas. Criar ou alterar as operações da camada de serviço não falharão ou tempo limite-eles continuarão quando o processo de restauração for concluído ou cancelado.
 
 **Solução alternativa**: Aguarde até que o processo de restauração seja concluído ou cancele o processo de restauração se a operação de criação ou atualização da camada de serviço tiver prioridade mais alta.
-
-### <a name="missing-validations-in-restore-process"></a>Validações ausentes no processo de restauração
-
-**Data:** Setembro de 2019
-
-a instrução `RESTORE` e a restauração pontual interna não executam algumas verificações de nessecary no banco de dados restaurado:
-- A instrução **DBCC CHECKDB** - `RESTORE` não executa `DBCC CHECKDB` no banco de dados restaurado. Se um banco de dados original estiver corrompido ou o arquivo de backup estiver corrompido enquanto é copiado para o armazenamento de BLOBs do Azure, os backups automáticos não serão feitos e o suporte do Azure entrará em contato com o cliente 
-- O processo de restauração pontual interno não verifica se o backup automatizado de Comercialmente Crítico instância contém os [objetos OLTP na memória](sql-database-in-memory.md#in-memory-oltp). 
-
-**Solução alternativa**: Verifique se você está executando `DBCC CHECKDB` no banco de dados de origem antes de fazer um backup e usando a opção `WITH CHECKSUM` no backup para evitar possíveis corrupções que poderiam ser restauradas na instância gerenciada. Verifique se o banco de dados de origem não contém [objetos OLTP na memória](sql-database-in-memory.md#in-memory-oltp) se você o estiver restaurando na camada uso geral.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor na camada de serviço Comercialmente Crítico talvez precise ser reconfigurada após o failover
 

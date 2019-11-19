@@ -1,21 +1,15 @@
 ---
-title: 'Backup do Azure: fazer backup de VMs do Azure usando a API REST'
+title: Fazer backup de VMs do Azure usando a API REST
 description: Neste artigo, saiba como configurar, iniciar e gerenciar operações de backup do backup de VM do Azure usando a API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API DE REST; Backup VM do Azure; Restauração de VM do Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 6f64f45aca6948665c088279002d3d8054ef8d80
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c929f820862f5d041b4a63a1ca9c083abf1a1e4c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929164"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173455"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o Backup do Azure por meio da API REST
 

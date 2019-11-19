@@ -1,19 +1,14 @@
 ---
-title: Preparar o servidor de DPM para fazer backup das cargas de trabalho no Azure
+title: Preparar o servidor DPM para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar os backups do System Center Data Protection Manager (DPM) para o Azure usando o serviço de backup do Azure.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5c89dc8b5c8ee420c94d61763770cd37e763f2df
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c7b662c07caecb7871ec9f8be89ffc76b8f7f5fb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747503"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173143"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -48,8 +43,8 @@ DPM em um servidor físico | System Center 2012 SP1 ou posterior; System Center 
 DPM em uma VM do Hyper-V | System Center 2012 SP1 ou posterior; System Center 2012 R2.
 DPM em uma VM do VMware | System Center 2012 R2 com o Pacote Cumulativo de Atualizações 5 ou posterior.
 Componentes | O servidor DPM deve ter o Windows PowerShell e o .NET Framework 4,5 instalados.
-Aplicativos com suporte | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode incluir no backup.
-Tipos de arquivo com suporte | É possível fazer o backup desses tipos de arquivo com o Backup do Azure: criptografado (somente backups completos); compactado (backups incrementais suportados); esparso (backups incrementais suportados); Compactado e esparso (tratado como esparso).
+Aplicativos com suporte | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) do que o DPM pode fazer backup.
+Tipos de arquivo com suporte | É possível fazer o backup desses tipos de arquivo com o Backup do Azure: Criptografado (somente backups completos); Compactado (backups incrementais suportados); Esparso (backups incrementais suportados); Compactado e esparso (tratado como esparso).
 Tipos de arquivo sem suporte | Servidores em sistemas de arquivos com diferenciação de maiúsculas e minúsculas; links rígidos (ignorados); pontos de nova análise (ignorados); criptografados e compactados (ignorados); criptografados e esparsos (ignorados); fluxo comprimido; fluxo de análise.
 Armazenamento local | Cada computador que você deseja fazer backup deve ter armazenamento local livre que tenha pelo menos 5% do tamanho dos dados que estão sendo submetidos a backup. Por exemplo, um backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização temporária.
 Armazenamento de cofre | Não há limite para a quantidade de dados que você pode fazer backup em um cofre de backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, uma máquina virtual ou banco de dado) não deve exceder 54.400 GB.

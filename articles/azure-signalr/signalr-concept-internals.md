@@ -1,17 +1,17 @@
 ---
 title: Componentes internos do Serviço do Azure SignalR
-description: Uma visão geral dos componentes internos do Serviço do Azure SignalR.
+description: Saiba mais sobre os elementos internos do serviço Signalr do Azure, a arquitetura, as conexões e como os dados são transmitidos.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: cbcdfccfdca1dbed3b766b3f50295b1d355b3478
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62afa5ee6993aa1bb3c7b5926e5320ab1fa510a2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401739"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157603"
 ---
 # <a name="azure-signalr-service-internals"></a>Componentes internos do Serviço do Azure SignalR
 
@@ -80,7 +80,7 @@ Saiba mais sobre os [protocolos de transporte](https://github.com/aspnet/SignalR
 
 ## <a name="data-transmit-between-client-and-server"></a>Transmissão de dados entre o cliente e servidor
 
-Quando um cliente estiver conectado ao Serviço do SignalR, o tempo de execução do serviço encontrará uma conexão de servidor para atender a esse cliente
+Quando um cliente estiver conectado ao Serviço do SignalR, o runtime do serviço encontrará uma conexão de servidor para atender a esse cliente
 - Esta etapa ocorre apenas uma vez e é um mapeamento de um para um entre as conexões de cliente e de servidor.
 - O mapeamento é mantido no Serviço do SignalR até que o cliente ou o servidor desconecte.
 

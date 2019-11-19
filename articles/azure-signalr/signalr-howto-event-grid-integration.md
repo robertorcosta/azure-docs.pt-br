@@ -5,14 +5,14 @@ services: signalr
 author: chenyl
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 100c7120889f88c1bab3418822835e8d4ece9826
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f89fcdd50d958269b5c79c41ebabd69331c905aa
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839289"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158204"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do serviço de sinalizador do Azure para a grade de eventos
 
@@ -26,7 +26,7 @@ Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash*
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de recursos chamado MyResource Group na região *eastus* . Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
+Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de recursos chamado *MyResource* Group na região *eastus* . Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -141,7 +141,7 @@ Quando a assinatura estiver concluída, você deverá ver uma saída semelhante 
 
 ## <a name="trigger-registry-events"></a>Disparar eventos de registro
 
-Alterne para o modo de serviço `Serverless Mode` para e configure uma conexão de cliente com o serviço signalr. Você pode escolher um [exemplo sem servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como uma referência.
+Alterne para o modo de serviço para `Serverless Mode` e configure uma conexão de cliente com o serviço Signalr. Você pode escolher um [exemplo sem servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como uma referência.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -162,7 +162,7 @@ dotnet run
 
 ## <a name="view-registry-events"></a>Exibir eventos do registro
 
-Agora você conectou um cliente ao serviço Signalr. Navegue até o aplicativo Web do Visualizador de grade de eventos e você verá `ClientConnectionConnected` um evento. Se você encerrar o cliente, também verá um `ClientConnectionDisconnected` evento.
+Agora você conectou um cliente ao serviço Signalr. Navegue até o aplicativo Web do Visualizador de grade de eventos e você verá um evento `ClientConnectionConnected`. Se você encerrar o cliente, você também verá um evento `ClientConnectionDisconnected`.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

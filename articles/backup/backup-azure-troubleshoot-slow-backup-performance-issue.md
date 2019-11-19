@@ -1,19 +1,15 @@
 ---
-title: Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
+title: Solucionar problemas de backup lento de arquivos e pastas
 description: Fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa dos problemas de desempenho de Backup do Azure
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: dacurwin
-ms.openlocfilehash: c56ddf04b98cc2b38e023714fcb0ffc5452236f2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2b7b8903da0d8dd83591b260bacb496b0c253ae3
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074905"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172575"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 

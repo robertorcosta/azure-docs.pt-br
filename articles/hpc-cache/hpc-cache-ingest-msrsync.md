@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 3e5937a036763fab57f9e37494ace33e8452b1f2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4f8863d706d623d613ac156cf202c3b7b12f2ae0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582264"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168431"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Ingestão de dados do cache HPC do Azure – método msrsync
 
 Este artigo fornece instruções detalhadas sobre como usar o utilitário ``msrsync`` para copiar dados para um contêiner de armazenamento de BLOBs do Azure para uso com o cache do HPC do Azure.
 
-Para saber mais sobre como mover dados para o armazenamento de BLOBs para o cache do Azure HPC, leia [mover dados para o armazenamento de BLOBs do Azure para o cache do Azure HPC](hpc-cache-ingest.md).
+Para saber mais sobre como mover dados para o armazenamento de BLOBs para o cache do Azure HPC, leia [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
 
 A ferramenta ``msrsync`` pode ser usada para mover dados para um destino de armazenamento de back-end para o cache do HPC do Azure. Essa ferramenta é projetada para otimizar o uso de largura de banda, executando vários processos ``rsync`` paralelos. Está disponível no GitHub em https://github.com/jbd/msrsync.
 
@@ -27,12 +27,12 @@ Testes preliminares usando uma VM de quatro núcleos mostraram a melhor eficiên
 
 Observe que ``msrsync`` pode gravar de e para volumes locais. A origem e o destino devem estar acessíveis como montagens locais na estação de trabalho usada para emitir o comando.
 
-Siga estas instruções para usar ``msrsync`` para popular o armazenamento de BLOBs do Azure com o cache do HPC do Azure:
+Siga estas instruções para usar ``msrsync`` para popular o armazenamento de BLOBs do Azure com o cache do Azure HPC:
 
 1. Instalar ``msrsync`` e seus pré-requisitos (``rsync`` e Python 2,6 ou posterior)
 1. Determine o número total de arquivos e diretórios a serem copiados.
 
-   Por exemplo, use o utilitário ``prime.py`` com argumentos ```prime.py --directory /path/to/some/directory``` (disponível baixando <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   Por exemplo, use o utilitário ``prime.py`` com argumentos ```prime.py --directory /path/to/some/directory``` (disponível ao baixar <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
 
    Se não estiver usando ``prime.py``, você poderá calcular o número de itens com a ferramenta GNU ``find`` da seguinte maneira:
 

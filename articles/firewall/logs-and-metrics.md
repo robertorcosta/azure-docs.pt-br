@@ -1,20 +1,20 @@
 ---
 title: Visão geral dos logs e das métricas do firewall do Azure
-description: Este artigo é uma visão geral dos logs e das métricas de diagnóstico do firewall do Azure.
+description: Você pode monitorar o Firewall do Azure usando os logs de firewall. Você também pode usar os logs de atividades para auditar operações nos recursos do Firewall do Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: fea00358fc21cf6f57673e14ebd0feafe532b620
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876554"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166991"
 ---
-# <a name="azure-firewall-logs-and-metrics"></a>Métricas e logs de firewall do Azure
+# <a name="azure-firewall-logs-and-metrics"></a>Logs e métricas do Firewall do Azure
 
 Você pode monitorar o Firewall do Azure usando os logs de firewall. Você também pode usar os logs de atividades para auditar operações nos recursos do Firewall do Azure.
 
@@ -75,9 +75,9 @@ As métricas são leves e podem dar suporte a cenários quase em tempo real, tor
 
 Você tem três opções para armazenar os logs:
 
-* **Conta de armazenamento**: As contas de armazenamento são mais adequadas para os logs quando eles são armazenados por mais tempo e examinados quando necessário.
-* **Hubs de Evento**: Os hubs de eventos são uma ótima opção para integração a outras ferramentas SEIM (informações de segurança e gerenciamento de evento) para receber alertas sobre os recursos.
-* **Logs do Azure Monitor**: Os logs do Azure Monitor são mais adequados para o monitoramento geral em tempo real do aplicativo ou para a observação de tendências.
+* **Conta de armazenamento**: as contas de armazenamento são mais adequadas para os logs quando eles são armazenados por mais tempo e examinados quando necessário.
+* **Hubs de eventos**: os hubs de eventos são uma ótima opção para integração a outras ferramentas SEIM (informações de segurança e gerenciamento de evento) para receber alertas sobre os recursos.
+* **Logs de Azure monitor**: os logs de Azure monitor são mais bem usados para o monitoramento geral em tempo real de seu aplicativo ou a análise de tendências.
 
 ## <a name="activity-logs"></a>Logs de atividade
 
@@ -85,17 +85,17 @@ Você tem três opções para armazenar os logs:
 
    Você pode usar [os logs de atividades do Azure](../azure-resource-manager/resource-group-audit.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações enviadas à sua assinatura do Azure.
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>Métricas
 
 As métricas em Azure Monitor são valores numéricos que descrevem algum aspecto de um sistema em um determinado momento. As métricas são coletadas a cada minuto e são úteis para alertas porque podem ser amostradas com frequência. Um alerta pode ser acionado rapidamente com lógica relativamente simples.
 
 As seguintes métricas estão disponíveis para o Firewall do Azure:
 
-- **Contagem** de ocorrências de regras de aplicativo-o número de vezes que uma regra de aplicativo foi atingida.
+- **Contagem de ocorrências de regras de aplicativo** -o número de vezes que uma regra de aplicativo foi atingida.
 
     Unidade: contagem
 
-- **Contagem** de ocorrências de regras de rede-o número de vezes que uma regra de rede foi atingida.
+- **Contagem de ocorrências de regras de rede** -o número de vezes que uma regra de rede foi atingida.
 
     Unidade: contagem
 
@@ -108,8 +108,8 @@ As seguintes métricas estão disponíveis para o Firewall do Azure:
     Unidade: porcentagem
 
    Essa métrica tem duas dimensões:
-  - **Status**: Os valores possíveis são *íntegro*, *degradado*, não *íntegro*.
-  - **Motivo**: Indica o motivo do status correspondente do firewall. Por exemplo, ele pode indicar *portas SNAT* se o status do firewall for degradado ou não íntegro.
+  - **Status**: os valores possíveis estão *íntegros*, *degradados*, não *íntegros*.
+  - **Motivo**: indica o motivo do status correspondente do firewall. Por exemplo, ele pode indicar *portas SNAT* se o status do firewall for degradado ou não íntegro.
 
 
 
@@ -124,6 +124,6 @@ As seguintes métricas estão disponíveis para o Firewall do Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber como monitorar os logs e as métricas do firewall do [Azure, consulte o tutorial: Monitorar os logs do Firewall do Azure](tutorial-diagnostics.md).
+- Para saber como monitorar as métricas e logs do Firewall do Azure, veja [Tutorial: Monitorar os logs de Firewall do Azure](tutorial-diagnostics.md).
 
 - Para saber mais sobre as métricas em Azure Monitor, consulte [métricas em Azure monitor](../azure-monitor/platform/data-platform-metrics.md).

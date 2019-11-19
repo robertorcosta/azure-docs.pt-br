@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 483b8251bf17eaa5fe7aa7cbd86299575535725d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812919"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170065"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
@@ -20,11 +20,22 @@ Este artigo descreve como a Grade de Eventos do Azure manipula eventos quando a 
 
 A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Cada mensagem é entregue pelo menos uma vez para cada assinatura. Os eventos são enviados para o ponto de extremidade registrado de cada assinatura imediatamente. Se um ponto de extremidade não confirmar o recebimento de um evento, a Grade de Eventos tentará entregá-lo novamente.
 
-Atualmente, a Grade de Eventos envia cada evento individualmente aos assinantes. O assinante recebe uma matriz com um único evento.
+## <a name="batched-event-delivery"></a>Entrega de eventos em lote
+
+A grade de eventos usa como padrão o envio de cada evento individualmente aos assinantes. O assinante recebe uma matriz com um único evento. Você pode configurar a grade de eventos para eventos em lote para entrega para melhorar o desempenho de HTTP em cenários de alta taxa de transferência.
+
+A entrega em lote tem duas configurações:
+
+* **Máximo de eventos por lote** é o número máximo de eventos que a grade de eventos fornecerá por lote. Esse número nunca será excedido, mas menos eventos poderão ser entregues se nenhum outro evento estiver disponível no momento da publicação. A grade de eventos não atrasa eventos para criar um lote se menos eventos estiverem disponíveis. Deve estar entre 1 e 5.000.
+* O **tamanho de lote preferencial em quilobytes** é o teto de destino para o tamanho do lote em kilobytes. Semelhante a Max Events, o tamanho do lote pode ser menor se mais eventos não estiverem disponíveis no momento da publicação. É possível que um lote seja maior do que o tamanho de lote preferencial *se* um único evento for maior do que o tamanho preferencial. Por exemplo, se o tamanho preferencial for de 4 KB e um evento de 10 KB for enviado para a grade de eventos, o evento de 10 KB ainda será entregue em seu próprio lote, em vez de ser Descartado.
+
+Entrega em lote em configurada por assinatura por evento por meio do portal, da CLI, do PowerShell ou de SDKs.
+
+![Configurações de entrega em lotes](./media/delivery-and-retry/batch-settings.png)
 
 ## <a name="retry-schedule-and-duration"></a>Agendamento de nova tentativa e duração
 
-Grade de eventos espera 30 segundos para uma resposta após fornecer uma mensagem. Após 30 segundos, se o ponto de extremidade não tiver respondido, a mensagem está na fila de repetição. A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. Grade de eventos repete a entrega na seguinte agenda em uma base de melhor esforço:
+A grade de eventos aguarda 30 segundos por uma resposta depois de entregar uma mensagem. Após 30 segundos, se o ponto de extremidade não tiver respondido, a mensagem será enfileirada para tentar novamente. A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. A grade de eventos repete a entrega na seguinte agenda com base no melhor esforço:
 
 - 10 segundos
 - 30 segundos
@@ -35,19 +46,19 @@ Grade de eventos espera 30 segundos para uma resposta após fornecer uma mensage
 - 1 hora
 - Por hora por até 24 horas
 
-Se o ponto de extremidade responde nos 3 minutos, a grade de eventos tentará remover o evento da fila de repetição em uma base de melhor esforço, mas ainda é possível receber duplicatas.
+Se o ponto de extremidade responder em 3 minutos, a grade de eventos tentará remover o evento da fila de repetição em uma base de melhor esforço, mas as duplicatas ainda poderão ser recebidas.
 
-Grade de eventos adiciona uma pequena aleatoriedade para todas as etapas de repetição e oportunamente pode ignorar determinadas tentativas se um ponto de extremidade não está íntegro consistentemente, inativo por um longo período ou parece estar sobrecarregado.
+A grade de eventos adiciona uma pequena aleatoriedade a todas as etapas de repetição e pode ignorar oportunamente determinadas tentativas se um ponto de extremidade estiver consistentemente não íntegro, inativo por um longo período ou parecer sobrecarregado.
 
-Para um comportamento determinístico, defina a hora do evento ao vivo e tentativas de entrega máximo do [políticas de repetição de assinatura](manage-event-delivery.md).
+Para comportamento determinístico, defina a vida útil do evento e as tentativas de entrega máxima nas [políticas de repetição de assinatura](manage-event-delivery.md).
 
 Por padrão, a Grade de Eventos expira todos os eventos que não são entregues em 24 horas. Você pode [personalizar a política de repetição](manage-event-delivery.md) ao criar uma assinatura de evento. Forneça o número máximo de tentativas de entrega (o padrão é 30) e a vida útil do evento (o padrão é 1440 minutos).
 
 ## <a name="delayed-delivery"></a>Entrega atrasada
 
-Como um ponto de extremidade experiências falhas de entrega, a grade de eventos será iniciado atrasar a entrega e repetição de eventos para esse ponto de extremidade. Por exemplo, se os dez primeiros eventos publicados em um ponto de extremidade falharem, a grade de eventos assumirá que o ponto de extremidade está com problemas e atrasará a todas as tentativas subsequentes *novos e* entregas por algum tempo – em alguns casos até algumas horas .
+Como um ponto de extremidade apresenta falhas de entrega, a grade de eventos começará a atrasar a entrega e a repetição de eventos para esse ponto de extremidade. Por exemplo, se os 10 primeiros eventos publicados em um ponto de extremidade falharem, a grade de eventos presumirá que o ponto de extremidade está apresentando problemas e atrasará todas as novas tentativas subsequentes *e novos* entregas por algum tempo, em alguns casos, até várias horas.
 
-A finalidade funcional de entrega atrasada é proteger os pontos de extremidade não íntegro, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegro, política de repetição da grade de eventos e recursos de volume podem facilmente sobrecarregar um sistema.
+A finalidade funcional da entrega atrasada é proteger pontos de extremidade não íntegros, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da grade de eventos e os recursos de volume podem facilmente sobrecarregar um sistema.
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
 
@@ -69,28 +80,28 @@ A Grade de Eventos usa códigos de resposta HTTP para confirmar o recebimento de
 
 ### <a name="success-codes"></a>Códigos de êxito
 
-Grade de eventos considera **apenas** os seguintes códigos de resposta HTTP como entregas bem-sucedidas. Todos os outros status códigos são considerados entregas com falha e serão repetidos ou morto conforme apropriado. Ao receber um código de status de êxito, a grade de eventos considera entrega concluída.
+A grade de eventos considera **apenas** os seguintes códigos de resposta http como entregas bem-sucedidas. Todos os outros códigos de status são considerados entregas com falha e serão repetidos ou mortodos conforme apropriado. Após receber um código de status bem-sucedido, a grade de eventos considera a entrega concluída.
 
 - 200 OK
 - 201 Criado
 - 202 Aceito
-- 203 informações não autorizadas
+- 203 informações não autoritativas
 - 204 Sem Conteúdo
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Todos os outros códigos não presentes no conjunto acima (200 204) são considerados falhas e serão repetidos. Alguns têm políticas de repetição específica vinculadas a eles descritas abaixo, todos os outros seguem o padrão exponencial retirada modelo. É importante ter em mente que, devido à natureza da arquitetura da grade de eventos altamente em paralelo, o comportamento de repetição é não determinística. 
+Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão repetidos. Alguns têm políticas de repetição específicas ligadas a eles descritos abaixo, todos os outros seguem o modelo de retirada exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura da grade de eventos, o comportamento de repetição é não determinístico. 
 
 | Código de status | Tentar comportamento novamente |
 | ------------|----------------|
-| 400 Solicitação Inválida | Tente novamente após cinco minutos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
-| 401 Não Autorizado | Tente novamente após cinco minutos ou mais |
-| 403 Proibido | Tente novamente após cinco minutos ou mais |
-| 404 Não Encontrado | Tente novamente após cinco minutos ou mais |
-| 408 Tempo Limite da Solicitação | Tente novamente após 2 minutos ou mais |
+| 400 Solicitação Inválida | Tente novamente após 5 minutos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
+| 401 Não Autorizado | Tente novamente após 5 minutos ou mais |
+| 403 Proibido | Tente novamente após 5 minutos ou mais |
+| 404 Não Encontrado | Tente novamente após 5 minutos ou mais |
+| 408 Tempo Limite da Solicitação | Tentar novamente após 2 minutos ou mais |
 | Solicitação 413 entidade muito grande | Tente novamente após 10 segundos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
-| 503 Serviço Indisponível | Tente novamente após 30 segundos ou mais |
-| Todos os outros | Tente novamente após 10 segundos ou mais |
+| 503 Serviço Indisponível | Tentar novamente após 30 segundos ou mais |
+| Todos os outros | Tentar novamente após 10 segundos ou mais |
 
 
 ## <a name="next-steps"></a>Próximas etapas

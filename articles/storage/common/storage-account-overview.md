@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f1b2bdcecac0aade21c6c770b2495a1e15ba9bc5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882578"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74174026"
 ---
 # <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
 
@@ -30,9 +30,10 @@ Para saber como criar uma conta de armazenamento do Azure, confira [Criar uma co
 As contas de armazenamento para uso geral v2 são compatíveis com os recursos mais recentes do Armazenamento do Azure e incorporam todas as funcionalidades das contas de armazenamento de blobs e para uso geral v1. As contas de armazenamento para uso geral v2 têm os menores preços de capacidade por gigabyte para o Armazenamento do Azure, bem como os preços de transação competitivos no setor. As contas de armazenamento para uso geral v2 são compatíveis com estes serviços do Armazenamento do Azure:
 
 - BLOBs (todos os tipos: bloco, acrescentar, página)
+- O Data Lake Gen2
 - Arquivos
 - Discos
-- Filas
+- Filas de
 - Tabelas
 
 > [!NOTE]
@@ -49,7 +50,7 @@ As contas de armazenamento v1 de uso geral fornecem acesso a todos os serviços 
 - Blobs (todos os tipos)
 - Arquivos
 - Discos
-- Filas
+- Filas de
 - Tabelas
 
 Embora as contas para uso geral v2 sejam recomendadas na maioria dos casos, as contas para uso geral v1 são mais adequadas para estes cenários:
@@ -144,7 +145,7 @@ Todas as solicitações feitas na conta de armazenamento precisam ser autorizada
 É possível permitir acesso aos dados da conta de armazenamento usando uma das seguintes abordagens:
 
 - **Azure Active Directory:** Use as credenciais do Azure Active Directory (AD do Azure) para autenticar um usuário, grupo ou outra identidade para acesso a dados de BLOB e de fila. Se a autenticação de uma identidade for bem-sucedida, o Azure AD retornará um token para usar ao autorizar a solicitação de acesso ao armazenamento de blobs ou de filas do Azure. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).
-- **Autorização de chave compartilhada:** use a chave de acesso da conta de armazenamento para criar uma cadeia de conexão para o aplicativo usar em tempo de execução para acessar o Armazenamento do Azure. Os valores na cadeia de conexão são usados para criar o cabeçalho de *autorização* passado para o Armazenamento do Azure. Para saber mais, confira [Configurar cadeias de conexão do Armazenamento do Azure](storage-configure-connection-string.md).
+- **Autorização de chave compartilhada:** use a chave de acesso da conta de armazenamento para criar uma cadeia de conexão para o aplicativo usar em runtime para acessar o Armazenamento do Azure. Os valores na cadeia de conexão são usados para criar o cabeçalho de *autorização* passado para o Armazenamento do Azure. Para saber mais, confira [Configurar cadeias de conexão do Armazenamento do Azure](storage-configure-connection-string.md).
 - **Assinatura de acesso compartilhado:** Use uma assinatura de acesso compartilhado para delegar acesso a recursos em sua conta de armazenamento, se você não estiver usando a autorização do Azure AD. Uma assinatura de acesso compartilhado é um token que encapsula todas as informações necessárias para autorizar uma solicitação para o Armazenamento do Azure na URL. É possível especificar o recurso de armazenamento, as permissões concedidas e o intervalo em que as permissões serão válidas como parte da assinatura de acesso compartilhado. Para saber mais, confira [Usar SAS (Assinaturas de Acesso Compartilhado)](storage-sas-overview.md) para saber mais.
 
 > [!NOTE]
@@ -185,7 +186,7 @@ Esse serviço também pode ser usado para transferir dados do armazenamento de B
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como criar uma conta de armazenamento do Azure de uso geral, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
 * Para saber como criar uma conta do BlockBlobStorage, consulte [criar uma conta de armazenamento de blob de blocos](../blobs/storage-blob-create-account-block-blob.md).

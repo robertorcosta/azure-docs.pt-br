@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 8fe85685a41e05b5132157453a6dcbc81c2399af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825760"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169570"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -91,7 +91,7 @@ Ou então, você pode validar a assinatura manualmente, enviando uma solicitaç�
 
 Para obter um exemplo de lidar com o handshake de validação de assinatura, consulte uma [ amostra C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
-### <a name="checklist"></a>Lista de verificação
+### <a name="checklist"></a>Lista de Verificação
 
 Durante a criação da assinatura do evento, se você estiver vendo uma mensagem de erro como "a tentativa de validar o ponto de extremidade fornecido https:\//Your-Endpoint-Here falhou. Para obter mais detalhes, visite https:\//aka.ms/esvalidation ", isso indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
 
@@ -102,6 +102,11 @@ Durante a criação da assinatura do evento, se você estiver vendo uma mensagem
 
 ### <a name="event-delivery-security"></a>Segurança de entrega de evento
 
+#### <a name="azure-ad"></a>AD do Azure
+
+Você pode proteger seu ponto de extremidade do webhook usando Azure Active Directory para autenticar e autorizar a grade de eventos a publicar eventos em seus pontos de extremidade. Você precisará criar um aplicativo Azure Active Directory, criar uma função e uma entidade de serviço em seu aplicativo autorizando a grade de eventos e configurar a assinatura de evento para usar o aplicativo do Azure AD. [Saiba como configurar o AAD com a grade de eventos](secure-webhook-delivery.md).
+
+#### <a name="query-parameters"></a>Parâmetros de consulta
 É possível proteger o ponto de extremidade do webhook adicionando parâmetros de consulta à URL do webhook ao criar uma Assinatura de Evento. Defina um desses parâmetros de consulta para ser um segredo, como um [token de acesso](https://en.wikipedia.org/wiki/Access_token). O webhook pode usar o segredo para reconhecer que o evento é proveniente da Grade de Eventos com permissões válidas. A Grade de Eventos inclui esses parâmetros de consulta em cada entrega de evento para o webhook.
 
 Ao editar a Assinatura de Evento, os parâmetros de consulta não serão exibidos nem retornados, a menos que o parâmetro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) seja usado na [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) do Azure.

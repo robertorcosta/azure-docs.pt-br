@@ -1,18 +1,18 @@
 ---
 title: Visão geral de marcas FQDN para o Firewall do Azure
-description: Saiba mais sobre as marcas FQDN no Firewall do Azure
+description: Uma tag FQDN representa um grupo de nomes de domínio totalmente qualificados (FQDNs) associados aos serviços Microsoft conhecidos.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/23/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: d78f67b96776fa3fb1d13fbf7b385e41ca3aa59a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665556"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169047"
 ---
 # <a name="fqdn-tags-overview"></a>Visão geral de marcas FQDN
 

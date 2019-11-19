@@ -4,14 +4,14 @@ description: Descreve como configurar um dispositivo para descoberta, avaliaçã
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 77bf9a0f73519aa979da49614475daf70f582a9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 086d5bf2e0e2bd1e4c1db5960d402a8e1b129e94
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467131"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158604"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um dispositivo para VMs VMware
 
@@ -48,18 +48,19 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo.
 2. Execute o comando a seguir para gerar o hash para o OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Para a versão do dispositivo 1.0.0.5, o hash gerado deve corresponder a essas configurações.
+3. Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas configurações.
 
   **Algoritmo** | **Valor de hash**
   --- | ---
-  MD5 | ddfdf21c64af02a222ed517ce300c977
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>Criar a VM do dispositivo
 
 Importe o arquivo baixado e crie uma VM.
 
-1. No console do cliente do vSphere, clique em **Arquivo** > **Implantar o modelo de OVF**.
+1. No console do cliente do vSphere, clique em **Arquivo** > **Implantar o Modelo de OVF**.
 2. No Assistente do Modelo de Implantação de OVF > **Origem**, especifique o local do arquivo OVA.
 3. Em **Nome** e **Local**, especifique um nome amigável para a VM. Selecione o objeto de inventário no qual a VM será hospedada.
 5. Em **Host/Cluster**, especifique o host ou o cluster no qual a VM será executada.
@@ -122,15 +123,15 @@ Para a descoberta de aplicativos, funções e recursos e visualização de depen
 > [!NOTE]
 > Essa entrada é opcional e é necessária para habilitar a descoberta de aplicativos e a visualização de dependência sem agente.
 
-1. Em **descobrir aplicativos e dependências em VMs**, clique em **Adicionar credenciais**.
-2. Selecione o **sistema operacional**.
-3. Forneça um nome amigável para a credencial.
-4. Em **nome de usuário** e **senha**, especifique uma conta que tenha pelo menos acesso de convidado nas VMs.
+1. Em **Descobrir aplicativos e dependências em VMs**, clique em **Adicionar credenciais**.
+2. Selecione o **Sistema operacional**.
+3. Informar um nome amigável para a credencial.
+4. Em **Nome de usuário** e **Senha**, especifique uma conta que tenha pelo menos acesso de convidado nas VMs.
 5. Clique em **Adicionar**.
 
-Depois de especificar o vCenter Server e as credenciais da VM (opcional), clique em **salvar e inicie a descoberta** para iniciar a descoberta do ambiente local.
+Depois de especificar o vCenter Server e as credenciais da VM (opcional), clique em **Salvar e iniciar a descoberta** para iniciar a descoberta do ambiente local.
 
-São necessários cerca de 15 minutos para que os metadados das VMs descobertas sejam exibidos no portal. A descoberta de aplicativos, funções e recursos instalados leva algum tempo, a duração depende do número de VMs que estão sendo descobertas. Para as VMs 500, leva aproximadamente 1 hora para o inventário de aplicativos aparecer no portal de migrações para Azure.
+São necessários cerca de 15 minutos para que os metadados das VMs descobertas sejam exibidos no portal. A descoberta de aplicativos, funções e recursos instalados leva algum tempo, a duração depende do número de VMs que estão sendo descobertas. Para as VMs 500, leva aproximadamente 1 hora para o inventário de aplicativos aparecer no portal de Migrações para Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

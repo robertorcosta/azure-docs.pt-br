@@ -1,23 +1,19 @@
 ---
-title: Recursos de segurança que protegem backups híbridos usando o backup do Azure
+title: Recursos de segurança que protegem backups híbridos
 description: Saiba como usar os recursos de segurança no Backup do Azure para tornar os backups mais seguros
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: dacurwin
-ms.openlocfilehash: a72e43d068f9fc6cf06a4786d511bbc6c25e85d4
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: c3c62f8ea7813c14fa6e19d825a5253de18f6639
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968429"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172691"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure
 
-As preocupações sobre problemas de segurança, como malware, ransomware e invasão, estão aumentando. Esses problemas de segurança podem ser dispendiosos em termos financeiros e de dados. Para se proteger contra esses ataques, o Backup do Azure agora fornece recursos de segurança para ajudar a proteger os backups híbridos. Este artigo aborda como habilitar e usar esses recursos, usando um agente dos Serviços de Recuperação do Azure e o Servidor de Backup do Azure. Esses recursos incluem:
+Preocupações sobre problemas de segurança, como malware, ransomware e invasão, estão aumentando. Esses problemas de segurança podem ser dispendiosos em termos de dinheiro e dados. Para se proteger contra esses ataques, o Backup do Azure agora fornece recursos de segurança para ajudar a proteger os backups híbridos. Este artigo aborda como habilitar e usar esses recursos, usando um agente dos Serviços de Recuperação do Azure e o Servidor de Backup do Azure. Esses recursos incluem:
 
 - **Prevenção**. Uma camada adicional de autenticação será adicionada sempre que uma operação crítica, como a alteração de senha, for executada. Essa validação é garantir que essas operações possam ser realizadas apenas por usuários com credenciais válidas do Azure.
 - **Alertas**. Uma notificação por email é enviada ao administrador da assinatura sempre que uma operação crítica, como excluir dados do backup, for executada. Este email garante que o usuário receba uma notificação rapidamente sobre tais ações.
@@ -120,7 +116,7 @@ Os recursos de Segurança mencionados neste artigo fornecem mecanismos de defesa
 | Alterar frase secreta |O PIN de Segurança inserido está incorreto. (ID: 100130) Forneça o PIN de Segurança correto para concluir esta operação. |**Causa:**<br/> Esse erro ocorre quando você insere um PIN de Segurança inválido ou expirado ao executar uma operação crítica (como alteração da frase secreta). <br/>**Ação recomendada:**<br/> Para concluir a operação, você deve inserir um PIN de Segurança válido. Para obter o PIN, entre no portal do Azure e navegue até o cofre dos serviços de recuperação > Configurações > Propriedades > gerar PIN de segurança. Use esse PIN para alterar a frase secreta. |
 | Alterar frase secreta |Falha na operação. ID: 120002 |**Causa:**<br/>Esse erro ocorre quando as configurações de segurança estão habilitadas. Tente alterar a frase secreta e verifique se você está usando uma versão sem suporte (as versões válidas são especificadas na primeira observação deste artigo).<br/>**Ação recomendada:**<br/> Para alterar a frase secreta, primeiro você deve atualizar o agente de backup para a versão mínima 2.0.9052, o servidor de Backup do Azure para a atualização mínima 1 e/ou o DPM para, no mínimo, DPM 2012 R2 UR12 ou DPM 2016 UR2 (links de download abaixo) e, em seguida, inserir um PIN de Segurança válido. Para obter o PIN, entre no portal do Azure e navegue até o cofre dos serviços de recuperação > Configurações > Propriedades > gerar PIN de segurança. Use esse PIN para alterar a frase secreta. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Introdução ao cofre dos Serviços de Recuperação do Azure](backup-azure-vms-first-look-arm.md) para habilitar esses recursos.
 - [Baixe o agente dos Serviços de Recuperação do Azure mais recente](https://aka.ms/azurebackup_agent) para ajudar a proteger computadores com Windows e proteger seus dados de backup contra ataques.

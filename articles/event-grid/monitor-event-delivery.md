@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: spelluru
-ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1035046cc3c3b6cd7bde895e2e779d1c966abe0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824048"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169997"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da Grade de Eventos 
 
@@ -29,16 +29,16 @@ O portal exibe a métrica do status de entrega das mensagens de evento.
 
 Para tópicos, as métricas são:
 
-* **Publicação Com Êxito**: evento enviado com êxito para o tópico e processado com uma resposta 2xx.
+* **Publicação bem-sucedida**: evento enviado com êxito para o tópico e processado com uma resposta 2xx.
 * **Falha na Publicação**: evento enviado para o tópico, mas rejeitado com um código de erro.
-* **Sem correspondência**: evento publicado com êxito para o tópico, mas não correspondeu a uma assinatura de evento. O evento foi cancelado.
+* **Sem correspondência**: evento publicado com êxito para o tópico, mas não corresponde a uma assinatura de evento. O evento foi cancelado.
 
 Para assinaturas, as métricas são:
 
-* **Entrega Com Êxito**: evento entregue com êxito ao ponto de extremidade da assinatura e que recebeu uma resposta 2xx.
-* **Entrega com Falha**: evento enviado ao ponto de extremidade da assinatura, mas que recebeu uma resposta 4xx ou 5xx.
+* **Entrega bem-sucedida**: evento entregue com êxito ao ponto de extremidade da assinatura e recebeu uma resposta de 2xx.
+* **Falha de entrega**: evento enviado ao ponto de extremidade da assinatura, mas recebeu uma resposta 4xx ou 5xx.
 * **Eventos Expirados**: evento não foi entregue e todas as tentativas de repetição foram enviadas. O evento foi cancelado.
-* **Eventos Correspondentes**: evento no tópico foi correspondido pela assinatura do evento.
+* **Eventos correspondidos**: evento no tópico foi correspondido pela assinatura do evento.
 
 ## <a name="event-subscription-status"></a>Status da assinatura do evento
 
@@ -75,6 +75,12 @@ Se tiver publicado um tópico personalizado, você poderá exibir as métricas d
 Exiba as métricas do tópico de evento personalizado.
 
 ![Exibir métricas de evento](./media/monitor-event-delivery/custom-topic-metrics.png)
+
+## <a name="set-alerts"></a>Definir alertas
+
+Você pode definir alertas sobre as métricas de nível de domínio e de tópico para tópicos personalizados e domínios de evento. Na folha visão geral do, selecione **alertas** no menu de recursos da esquerda para exibir, gerenciar e criar regras de alerta. [Saiba mais sobre alertas de Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+
+![Exibir métricas de evento](./media/monitor-event-delivery/select-alerts.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

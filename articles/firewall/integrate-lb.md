@@ -1,24 +1,24 @@
 ---
 title: Integrar o Firewall do Azure com o Azure Standard Load Balancer
-description: Saiba como integrar o Firewall do Azure com o Azure Standard Load Balancer
+description: Você pode integrar um Firewall do Azure em uma rede virtual com um Azure Standard Load Balancer (público ou interno).
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/1/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193742"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167065"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Firewall do Azure com o Azure Standard Load Balancer
 
 Você pode integrar um Firewall do Azure em uma rede virtual com um Azure Standard Load Balancer (público ou interno). 
 
-O design preferencial é integrar o balanceador de carga interno com o firewall do Azure, como este é um design muito mais simples. Se você já tiver um implantado e você quiser mantê-lo no lugar, você pode usar um balanceador de carga. No entanto, você precisa estar ciente de um problema de roteamento assimétrico que pode interromper a funcionalidade com o cenário de balanceador de carga público.
+O design preferencial é integrar um balanceador de carga interno com o Firewall do Azure, pois esse é um design muito mais simples. Você pode usar um balanceador de carga público se já tiver um implantado e desejar mantê-lo em vigor. No entanto, você precisa estar ciente de um problema de roteamento assimétrico que pode interromper a funcionalidade com o cenário de balanceador de carga público.
 
 Para obter mais informações sobre o Azure Load Balancer, confira [O que é o Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
@@ -32,7 +32,7 @@ O roteamento assimétrico ocorre quando um pacote usa um caminho para o destino 
 
 ### <a name="fix-the-routing-issue"></a>Corrigir o problema de roteamento
 
-Quando você implanta um Firewall do Azure em uma sub-rede, uma etapa é criar uma rota padrão para a sub-rede, direcionando os pacotes por meio do endereço IP privado do firewall localizado no AzureFirewallSubnet. Para obter mais informações, confira [Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md#create-a-default-route).
+Quando você implanta um Firewall do Azure em uma sub-rede, uma etapa é criar uma rota padrão para a sub-rede, direcionando os pacotes por meio do endereço IP privado do firewall localizado no AzureFirewallSubnet. Para obter mais informações, consulte [tutorial: implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md#create-a-default-route).
 
 Quando introduz o firewall em seu cenário de balanceador de carga, você deseja que o tráfego de Internet entre por meio do endereço IP público do firewall. Daí, o firewall aplica suas regras de firewall e NATs aos pacotes para o endereço IP público do balanceador de carga. E o problema ocorre aí. Os pacotes chegam no endereço IP público do firewall, mas retornam para o firewall por meio do endereço IP privado (usando a rota padrão).
 Para evitar esse problema, crie uma rota de host adicional para o endereço IP público do firewall. Pacotes que vão para o endereço IP público do firewall são roteadas pela Internet. Isso evita o uso da rota padrão para o endereço IP privado do firewall.
@@ -43,7 +43,7 @@ Por exemplo, as seguintes rotas são para um firewall no endereço IP público 1
 
 ![Tabela de rotas](media/integrate-lb/route-table.png)
 
-## <a name="internal-load-balancer"></a>Balanceador de carga interno
+## <a name="internal-load-balancer"></a>Balanceador de Carga Interno
 
 Com um balanceador de carga interno, o balanceador de carga é implantado com um endereço IP de front-end privado.
 

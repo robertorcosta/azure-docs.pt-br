@@ -2,18 +2,14 @@
 title: Como mover os cofres dos serviços de recuperação de backup do Azure
 description: Instruções sobre como mover o cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: dacurwin
-ms.openlocfilehash: fb98ba8c393d28e7cdfb0b53cdd9ba11c171726f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7d0a6c47fa08774161d3a2b7507cdfecaf8c7197
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969149"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172884"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure
 
@@ -48,7 +44,7 @@ A movimentação de recursos para o cofre dos serviços de recuperação é supo
 
 Para mover um cofre dos serviços de recuperação e seus recursos associados para um grupo de recursos diferentes
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Abra a lista de **Cofres dos Serviços de Recuperação** e selecione o cofre que você deseja mover. Quando o painel do cofre se abrir, ele aparecerá como mostrado na imagem a seguir.
 
    ![Abrir o Cofre do Serviço de Recuperação](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
@@ -77,7 +73,7 @@ Para mover um cofre dos serviços de recuperação e seus recursos associados pa
 
 Você pode mover um cofre dos Serviços de Recuperação e seus recursos associados para uma assinatura diferente
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Abra a lista de cofres dos Serviços de Recuperação e selecione o cofre que você deseja mover. Quando o painel do cofre se abrir, ele aparecerá como mostrado na imagem a seguir.
 
     ![Abrir o Cofre do Serviço de Recuperação](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
@@ -139,7 +135,7 @@ Para mover para uma nova assinatura, forneça o parâmetro `--destination-subscr
 1. Defina/Verifique os controles de acesso para os grupos de recursos.  
 2. O recurso de monitoramento e relatórios de Backup precisa ser configurado novamente para o cofre após a movimentação ser concluída. A configuração anterior será perdida durante a operação de movimentação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas.
 

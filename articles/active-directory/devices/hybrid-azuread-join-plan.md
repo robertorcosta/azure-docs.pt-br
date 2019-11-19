@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c016ce349acdfff6145286d9fc07e08db4ed9516
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a188349e15c5e4c486d37daed9f8b611a325dcf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882825"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167323"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção de Azure Active Directory híbrida
 
@@ -93,7 +93,8 @@ Se seus dispositivos ingressados no domínio do Windows 10 forem [registrados no
 - Você pode impedir que o dispositivo ingressado no domínio seja registrado no Azure AD adicionando essa chave do registro-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - No Windows 10 1803, se você tiver o Windows Hello para empresas configurado, o usuário precisará reinstalar o Windows Hello para empresas após a limpeza do estado duplo. Esse problema foi resolvido com o KB4512509
 
-
+> [!NOTE]
+> O dispositivo registrado do Azure AD não será removido automaticamente se for gerenciado pelo Intune.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Examinar a validação controlada do ingresso no Azure AD híbrido
 

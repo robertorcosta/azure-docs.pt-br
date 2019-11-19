@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 56830e20b190958c1c411f5daa1d2a7e928f0f3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821191"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166264"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -68,7 +68,7 @@ Este artigo lista os recursos do banco de dados SQL que estão atualmente em vis
 
 Os seguintes recursos estão habilitados no modelo de implantação de instância gerenciada em H1 2019:
   - Suporte para assinaturas com <a href="https://aka.ms/sql-mi-visual-studio-subscribers">crédito mensal do Azure para assinantes do Visual Studio</a> e [limites regionais](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)maiores.
-  - Suporte para <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">sharepoint 2016 e sharepoint 2019</a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business central</a>
+  - Suporte para <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Crie instâncias com <a href="https://aka.ms/managed-instance-collation">agrupamento de nível de servidor</a> e <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">zona de tempo</a> de sua escolha.
   - As instâncias gerenciadas agora são protegidas com o <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
   - Configure as instâncias para usar [pontos de extremidade públicos](sql-database-managed-instance-public-endpoint-configure.md), conexão de [substituição de proxy](sql-database-connectivity-architecture.md#connection-policy) para obter melhor desempenho de rede, <a href="https://aka.ms/four-cores-sql-mi-update">4 VCores na geração de hardware Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurar a retenção de backup de até 35 dias para a</a> restauração pontual. A retenção de backup de longo prazo (até 10 anos) ainda não está habilitada para que você possa usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backups somente cópia</a> como uma alternativa.
@@ -79,8 +79,10 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
 ## <a name="fixed-known-issues"></a>Correção de problemas conhecidos
 
 - Os bancos de dados independentes de **agosto de 2019** têm suporte total na instância gerenciada.
+- **Oct 2019** -a restauração de banco de dados pontual interna da camada de Comercialmente Crítico para uso geral não terá sucesso se o banco de dados de origem contiver objetos OLTP na memória.
+- **2019 de novembro** -a consistência do banco de dados é verificada usando `DBCC CHECKDB` após restaurar o banco de dados do armazenamento de blob do Azure
 
-## <a name="updates"></a>Atualizações
+## <a name="updates"></a>atualizações
 
 Para obter uma lista de atualizações e melhorias do banco de dados SQL, consulte [atualizações do serviço de banco de dados SQL](https://azure.microsoft.com/updates/?product=sql-database).
 

@@ -1,18 +1,18 @@
 ---
 title: FQDN de infraestrutura para o Firewall do Azure
-description: Saiba mais sobre FQDNs de infraestrutura no Firewall do Azure
+description: O Firewall do Azure inclui uma coleção de regras internas para FQDNs de infraestrutura que têm permissão por padrão.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 5b134058e1924bae030338411226a9a6aff46557
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: d4de81bad1ddda2f5b54f47c1be78925ad4cdbf3
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130197"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168972"
 ---
 # <a name="infrastructure-fqdns"></a>FQDNs de infraestrutura
 

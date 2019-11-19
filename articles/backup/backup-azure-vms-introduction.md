@@ -1,18 +1,14 @@
 ---
 title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: e22c4c24e83be0f89b306eed0eb1d80bdd9387e1
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f1c89b9ac7aeb51f43ef84267b20f83b408fd56c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747208"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172485"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -67,7 +63,7 @@ O backup do Azure faz instantâneos de acordo com o agendamento de backup.
   - Por padrão, o Backup do Azure usa backups completos de VSS. [Saiba mais](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
   - Para alterar a configuração de modo que o backup do Azure faça backups de cópia VSS, defina a seguinte chave do registro em um prompt de comando:
 
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
+    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
 
 - **VMs do Linux:** Para obter instantâneos consistentes com o aplicativo de VMs do Linux, use a estrutura de pré e pós-script do Linux para escrever seus próprios scripts personalizados para garantir a consistência.
 
@@ -122,7 +118,7 @@ VMs do Azure cujo backup foi feito com o Backup do Azure estão sujeitas aos [pr
 
 A cobrança não é iniciada até que o primeiro backup bem-sucedido seja concluído. Neste ponto, a cobrança de VMs protegidas e de armazenamento é iniciada. A cobrança continuará desde que os dados de backup da VM sejam armazenados em um cofre. Se você interromper a proteção para uma VM, mas os dados de backup para a VM existirem em um cofre, a cobrança continuará.
 
-A cobrança para uma VM especificada parará somente se a proteção for interrompida e os dados de backup forem excluídos. Quando a proteção for interrompida e não houver nenhum trabalho de backup ativo, o tamanho do último backup bem-sucedido de VM se tornará o tamanho da instância protegida usada para a fatura mensal.
+A cobrança para uma VM especificada parará somente se a proteção for interrompida e os dados de backup forem excluídos. Quando a proteção for interrompido e não houver nenhum trabalho de backup ativo, o tamanho do último backup bem-sucedido de VM torna-se o tamanho da instância protegida usada para a fatura mensal.
 
 O cálculo do tamanho da instância protegida é baseado no tamanho *real* da VM. O tamanho da VM é a soma de todos os dados na VM, excluindo o armazenamento temporário. O preço é baseado nos dados reais que são armazenados nos discos de dados, não no tamanho máximo com suporte para cada disco de dados anexado à VM.
 

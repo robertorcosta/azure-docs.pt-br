@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 9203f54989d010b8f1f10a7f90f00cc82fa41238
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7cce1c9ee6ca5e01b91afd5284ca9abf84d0b56f
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574612"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158093"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Gatilhos e associações HTTP do Azure Functions
 
@@ -226,7 +226,7 @@ Aqui está o arquivo *function.json*:
 
 A seção [configuração](#trigger---configuration) explica essas propriedades.
 
-Aqui está o código Python:
+Confira o código Python:
 
 ```python
 import logging
@@ -429,7 +429,7 @@ public class ToDoItem {
 
 ```
 
-Este exemplo lê o corpo de uma solicitação POST. O corpo da solicitação é desserializado automaticamente em um objeto ```ToDoItem``` e é retornado ao cliente, com o tipo de conteúdo ```application/json```. O parâmetro ```ToDoItem``` é serializado pelo tempo de execução do Functions quando é atribuído para a propriedade ```body``` da classe ```HttpMessageResponse.Builder```.
+Este exemplo lê o corpo de uma solicitação POST. O corpo da solicitação é desserializado automaticamente em um objeto ```ToDoItem``` e é retornado ao cliente, com o tipo de conteúdo ```application/json```. O parâmetro ```ToDoItem``` é serializado pelo runtime do Functions quando é atribuído para a propriedade ```body``` da classe ```HttpMessageResponse.Builder```.
 
 ```java
 @FunctionName("TriggerPojoPost")
@@ -528,11 +528,11 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais chaves, se houver, precisam estar presentes na solicitação para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Nenhuma chave API é obrigatória.</li><li><code>function</code>&mdash;Uma chave de API específica de função é obrigatória. Esse será o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave mestra é obrigatória.</li></ul> Para saber mais informações, veja a seção sobre [chaves de autorização](#authorization-keys). |
 | **methods** |**Métodos** | Uma matriz dos métodos HTTP para a qual a função responde. Se não for especificada, a função responderá a todos os métodos HTTP. Consulte [personalização do ponto de extremidade http](#customize-the-http-endpoint). |
 | **route** | **Route** | Define o modelo da rota, controlando para quais URLs de solicitação sua função responde. O valor padrão se nenhum for fornecido será `<functionname>`. Para saber mais informações, consulte [personalização do ponto de extremidade http](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** | _Com suporte apenas na versão 1.x do tempo de execução._<br/><br/>Configure o gatilho HTTP para atuar como um receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para o provedor especificado. Não defina a propriedade `methods` se você definir essa propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto de extremidade de webhook de finalidade geral sem lógica para um provedor específico. Essa configuração restringe as solicitações àquelas que usam HTTP POST e com o tipo de conteúdo `application/json`.</li><li><code>github</code>&mdash;A função responde a [webhooks do GitHub](https://developer.github.com/webhooks/). Não use a propriedade _authLevel_ com os webhooks do GitHub. Para saber mais informações, consulte a seção sobre webhooks do GitHub posteriormente neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks do Slack](https://api.slack.com/outgoing-webhooks). Não use a propriedade _authLevel_ com os webhooks do Slack. Para saber mais informações, consulte a seção sobre webhooks do Slack posteriormente neste artigo.</li></ul>|
+| **webHookType** | **WebHookType** | _Com suporte apenas na versão 1.x do runtime._<br/><br/>Configure o gatilho HTTP para atuar como um receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para o provedor especificado. Não defina a propriedade `methods` se você definir essa propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto de extremidade de webhook de finalidade geral sem lógica para um provedor específico. Essa configuração restringe as solicitações àquelas que usam HTTP POST e com o tipo de conteúdo `application/json`.</li><li><code>github</code>&mdash;A função responde a [webhooks do GitHub](https://developer.github.com/webhooks/). Não use a propriedade _authLevel_ com os webhooks do GitHub. Para saber mais informações, consulte a seção sobre webhooks do GitHub posteriormente neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks do Slack](https://api.slack.com/outgoing-webhooks). Não use a propriedade _authLevel_ com os webhooks do Slack. Para saber mais informações, consulte a seção sobre webhooks do Slack posteriormente neste artigo.</li></ul>|
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 
-O tipo de entrada do gatilho é declarado como `HttpRequest` ou um tipo personalizado. Ao escolher `HttpRequest`, você obterá acesso completo ao objeto de solicitação. Para um tipo personalizado, o tempo de execução tenta analisar o corpo da solicitação JSON para definir as propriedades do objeto.
+O tipo de entrada do gatilho é declarado como `HttpRequest` ou um tipo personalizado. Ao escolher `HttpRequest`, você obterá acesso completo ao objeto de solicitação. Para um tipo personalizado, o runtime tenta analisar o corpo da solicitação JSON para definir as propriedades do objeto.
 
 ### <a name="customize-the-http-endpoint"></a>Personalização do ponto de extremidade HTTP
 
@@ -689,7 +689,7 @@ Por padrão, todas as rotas de função são prefixadas com *api*. Você também
 
 Se seu aplicativo de função estiver usando [Serviço de Aplicativo de Autenticação / Autorização](../app-service/overview-authentication-authorization.md), você poderá visualizar informações sobre clientes autenticados a partir de seu código. Essas informações estão disponíveis como [headers de solicitação injetados pela plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
-Você também pode ler essas informações a partir de dados vinculados. Esse recurso está disponível apenas para o tempo de execução do Functions 2.x. Atualmente, também está disponível apenas para idiomas .NET.
+Você também pode ler essas informações a partir de dados vinculados. Esse recurso está disponível apenas para o runtime do Functions 2.x. Atualmente, também está disponível apenas para idiomas .NET.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -779,7 +779,7 @@ As funções permitem o uso de chaves para dificultar o acesso aos pontos de ext
 > Embora as chaves possam ajudar o ofuscar seus pontos de extremidade HTTP durante o desenvolvimento, elas não foram projetadas como uma maneira de proteger um gatilho HTTP em produção. Para obter mais informações, confira [Proteger um ponto de extremidade HTTP em produção](#secure-an-http-endpoint-in-production).
 
 > [!NOTE]
-> No tempo de execução 1.x do Functions, os provedores de webhook podem usar chaves para autorizar solicitações de várias maneiras, dependendo do suporte do provedor. Isso é abordado em [Webhooks e chaves](#webhooks-and-keys). A versão 2.x do tempo de execução não inclui suporte interno para provedores de webhook.
+> No runtime 1.x do Functions, os provedores de webhook podem usar chaves para autorizar solicitações de várias maneiras, dependendo do suporte do provedor. Isso é abordado em [Webhooks e chaves](#webhooks-and-keys). A versão 2.x do runtime não inclui suporte interno para provedores de webhook.
 
 Há dois tipos de chave:
 
@@ -788,7 +788,7 @@ Há dois tipos de chave:
 
 Cada chave é nomeada para referência e há uma chave padrão (chamada "default") no nível de função e de host. As chaves de função têm precedência sobre as chaves de host. Quando duas chaves forem definidas com o mesmo nome, a chave de função sempre será usada.
 
-Cada aplicativo de funções também tem uma **chave mestra** especial. Essa chave é uma chave de host chamada `_master`, que fornece acesso administrativo às APIs de tempo de execução. Não é possível revogar essa chave. Quando você define o nível de autorização como `admin`, as solicitações precisam usar a chave mestra. Nesse caso, o uso de outra chave resulta em falha na autorização.
+Cada aplicativo de funções também tem uma **chave mestra** especial. Essa chave é uma chave de host chamada `_master`, que fornece acesso administrativo às APIs de runtime. Não é possível revogar essa chave. Quando você define o nível de autorização como `admin`, as solicitações precisam usar a chave mestra. Nesse caso, o uso de outra chave resulta em falha na autorização.
 
 > [!CAUTION]  
 > Devido às permissões elevadas no aplicativo de funções concedidas pela chave mestra, você não deve compartilhar essa chave com terceiros nem distribuí-la em aplicativos cliente nativos. Tenha cuidado ao escolher o nível de autorização do administrador.
@@ -830,7 +830,7 @@ Ao usar um dos seguintes métodos de segurança no nível do aplicativo de funç
 ### <a name="webhooks"></a>Webhooks
 
 > [!NOTE]
-> O modo de webhook só está disponível para a versão 1.x do tempo de execução do Functions. Essa alteração foi feita para melhorar o desempenho de gatilhos HTTP na versão 2.x.
+> O modo de webhook só está disponível para a versão 1.x do runtime do Functions. Essa alteração foi feita para melhorar o desempenho de gatilhos HTTP na versão 2.x.
 
 Na versão 1.x, os modelos de webhook fornecem validação adicional para conteúdo de webhook. Na versão 2.x, o gatilho HTTP base ainda funciona e é a abordagem recomendada para webhooks. 
 
@@ -853,7 +853,7 @@ A autorização de webhook é tratada pelo componente receptor do webhook, parte
 
 ## <a name="trigger---limits"></a>Gatilho - limites
 
-O tamanho da solicitação HTTP é limitado a 100 MB (104.857.600 bytes) e o tamanho da URL é limitado a 4 KB (4.096 bytes). Esses limites são especificados pelo `httpRuntime` elemento do [arquivo Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) do tempo de execução.
+O tamanho da solicitação HTTP é limitado a 100 MB (104.857.600 bytes) e o tamanho da URL é limitado a 4 KB (4.096 bytes). Esses limites são especificados pelo `httpRuntime` elemento do [arquivo Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) do runtime.
 
 Se uma função que usa o gatilho HTTP não for concluída em aproximadamente 2,5 minutos, o gateway atingirá o tempo limite e retornará o erro de HTTP 502. A função continuará em execução, mas não poderá retornar uma resposta HTTP. Para funções de longa execução, é recomendável que você siga os padrões async e retorna um local onde você pode executar ping do status da solicitação. Para obter informações sobre o tempo que uma função pode executar, consulte [Dimensionamento e hospedagem - planejar o consumo](functions-scale.md#timeout).
 
@@ -882,7 +882,7 @@ Por ver exemplos de respostas, confira o [exemplo de gatilho](#trigger---example
 Esta seção descreve as definições de configuração globais disponíveis para esta associação na versão 2.x. O arquivo host.json de exemplo abaixo contém apenas as configurações da versão 2.x para essa associação. Para obter mais informações sobre as configurações globais na versão 2.x, confira a [referência de host.json para o Azure Functions versão 2.x](functions-host-json.md).
 
 > [!NOTE]
-> Para obter uma referência de host.json no Functions 1.x, confira [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md#http).
+> Para obter uma referência de host.json no Functions 1.x, consulte [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md#http).
 
 ```json
 {
@@ -906,9 +906,9 @@ Esta seção descreve as definições de configuração globais disponíveis par
 
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
-| customHeaders|Nenhum|Permite que você defina cabeçalhos personalizados na resposta HTTP. O exemplo anterior adiciona o cabeçalho `X-Content-Type-Options` à resposta para evitar a detecção de tipo de conteúdo. |
+| customHeaders|nenhum|Permite que você defina cabeçalhos personalizados na resposta HTTP. O exemplo anterior adiciona o cabeçalho `X-Content-Type-Options` à resposta para evitar a detecção de tipo de conteúdo. |
 |dynamicThrottlesEnabled|verdadeiro<sup>\*</sup>|Quando habilitada, essa configuração faz o pipeline de processamento de solicitação verificar periodicamente os contadores de desempenho do sistema como conexões/threads/processos/memória/cpu/etc. e, se algum desses contadores tiver excedido um alto limite interno (80%), as solicitações serão rejeitadas com a resposta 429 "Muito ocupado" até que os contadores retornem aos níveis normais.<br/><sup>\*</sup> O padrão em um plano de consumo é `true`. O padrão em um plano dedicado é `false`.|
-|hsts|não habilitado|Quando `isEnabled` é definido como `true`, o [comportamento de HSTS (segurança de transporte estrito http) do .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) é imposto, conforme definido na [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). O exemplo acima também define a propriedade [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) como 10 dias. |
+|hsts|não habilitado|Quando `isEnabled` é definido como `true`, o [comportamento de HSTS (segurança de transporte estrito http) do .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) é imposto, conforme definido na [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). O exemplo acima também define a propriedade [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) como 10 dias. As propriedades com suporte de `hsts` são: <table><tr><th>Propriedade</th><th>DESCRIÇÃO</th></tr><tr><td>excludedHosts</td><td>Uma matriz de cadeia de caracteres de nomes de host para a qual o cabeçalho HSTS não é adicionado.</td></tr><tr><td>includeSubDomains</td><td>Valor booliano que indica se o parâmetro includeSubDomain do cabeçalho Strict-Transport-Security está habilitado.</td></tr><tr><td>Período</td><td>Cadeia de caracteres que define o parâmetro Max-age do cabeçalho Strict-Transport-Security.</td></tr><tr><td>carregamento</td><td>Booliano que indica se o parâmetro PreLoad do cabeçalho Strict-Transport-Security está habilitado.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|O número máximo de funções http que são executadas em paralelo. Isso permite controlar a simultaneidade, o que pode ajudar a gerenciar a utilização de recursos. Por exemplo, talvez você tenha uma função http que use muitos recursos do sistema (memória/cpu/soquetes), de modo que ela causará problemas quando a simultaneidade for muito alta. Ou talvez você tenha uma função que faça solicitações de saída a um serviço de terceiro, e essas chamadas precisem ser limitadas por taxa. Nesses casos, aplicar uma limitação aqui pode ajudar. <br/><sup>*</sup> O padrão para um plano de consumo é 100. O padrão para um plano dedicado é não associado (`-1`).|
 |maxOutstandingRequests|200<sup>\*</sup>|O número máximo de solicitações pendentes mantidas em um dado momento. Esse limite inclui solicitações que estão na fila, mas não iniciaram a execução, bem como qualquer execução em andamento. Quaisquer solicitações recebidas acima desse limite são rejeitadas com uma resposta "Muito ocupado" 429. Isso permite que os chamadores empreguem estratégias de repetição com base em tempo e também ajuda você a controlar as latências máximas de solicitação. Isso controla apenas o enfileiramento que ocorre no caminho de execução do host de script. Outras filas, como a fila de solicitação ASP.NET, ainda estarão vigor e não serão afetadas por essa configuração. <br/><sup>\*</sup>padrão \The para um plano de consumo é 200. O padrão para um plano dedicado é não associado (`-1`).|
 |routePrefix|api|O prefixo da rota que se aplica a todas as rotas. Use uma cadeia de caracteres vazia para remover o prefixo padrão. |

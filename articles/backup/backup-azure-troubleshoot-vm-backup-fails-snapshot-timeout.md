@@ -1,20 +1,15 @@
 ---
-title: 'Solucionar problemas de falha de backup do Azure: problemas de agente e extensão'
+title: Solucionar problemas de agente e extensão
 description: Sintomas, causas e resoluções para falhas do Backup do Azure relacionados a agente, extensão e discos.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-keywords: Backup do Azure; agente da VM; conectividade de rede;
-ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: dacurwin
-ms.openlocfilehash: 50db82206bbc0b98dcc80bd504022799011697d4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4ee8cbeeec21c4af0cc3a7fd83844bc8c676add
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074130"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172596"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 

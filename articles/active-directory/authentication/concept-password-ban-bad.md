@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 27530b143e46acad4152e8333836cbe9c79fab17
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032888"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168087"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas incorretas na organização
 
@@ -39,7 +39,7 @@ Sempre que uma nova senha for alterada ou redefinida para qualquer usuário em q
 > [!NOTE]
 > Os criminosos virtuais também usam estratégias semelhantes em seus ataques. Portanto, a Microsoft não publica o conteúdo dessa lista publicamente.
 
-## <a name="custom-banned-password-list"></a>Lista de senhas proibidas personalizadas
+## <a name="custom-banned-password-list"></a>Lista personalizada de senhas banidas
 
 Algumas organizações talvez queiram melhorar ainda mais a segurança adicionando suas próprias personalizações sobre a lista de senhas globais banidas, em que a Microsoft chama a lista personalizada de senhas banidas. A Microsoft recomenda que os termos adicionados a essa lista se concentram principalmente em termos específicos da organização, como:
 
@@ -98,7 +98,7 @@ Sempre que um usuário altera ou redefine sua senha, a nova senha é verificada 
 
 Mesmo que a senha do usuário contenha uma senha proibida, ela ainda poderá ser aceita se a senha geral for forte o suficiente em outros aspectos. Uma senha configurada recentemente passará pelas etapas a seguir para avaliar a força geral e determinar se ela deverá ser aceita ou rejeitada.
 
-### <a name="step-1-normalization"></a>Etapa 1: Normalização
+### <a name="step-1-normalization"></a>Etapa 1: normalização
 
 Primeiro, uma nova senha passa por um processo de normalização. Essa técnica permite que um pequeno conjunto de senhas banidas seja mapeado para um conjunto muito maior de senhas potencialmente fracas.
 
@@ -113,7 +113,7 @@ A normalização tem duas partes.  Primeiros, todas as letras maiúsculas são a
 
 Exemplo: suponha que a senha "em branco" seja proibida e um usuário tente alterar a senha para “Bl@nK”. Mesmo que “Bl@nk” não seja especificamente proibida, o processo de normalização converterá essa senha como "em branco", que é uma senha banida.
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>Etapa 2: Verificar se a senha é considerada proibida
+### <a name="step-2-check-if-password-is-considered-banned"></a>Etapa 2: verificar se a senha é considerada banida
 
 #### <a name="fuzzy-matching-behavior"></a>Comportamento da correspondência difusa
 
@@ -160,11 +160,11 @@ Após a normalização, essa senha se torna “contosoblankf9!”. O processo de
 
 |   | Proteção por senha do AD do Azure com a lista de senhas banidas global | Proteção por senha do AD do Azure com a lista de senhas banidas personalizado|
 | --- | --- | --- |
-| Usuários somente na nuvem | Azure AD Gratuito | O Azure AD Premium P1 ou P2 |
+| Usuários somente na nuvem | AD do Azure Gratuito | O Azure AD Premium P1 ou P2 |
 | Os usuários sincronizados no local Windows Server Active Directory | O Azure AD Premium P1 ou P2 | O Azure AD Premium P1 ou P2 |
 
 > [!NOTE]
-> Os usuários locais do Windows Server Active Directory que não foram sincronizados com Azure Active Directory também têm os benefícios da proteção de senha do Azure AD com base no licenciamento existente para usuários sincronizados.
+> Os usuários locais do Windows Server Active Directory que não estão sincronizados com o Azure Active Directory também se beneficiam da proteção de senha do Azure AD com base no licenciamento existente para usuários sincronizados.
 
 Informações adicionais sobre licenciamento, incluindo custos, podem ser encontradas no [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

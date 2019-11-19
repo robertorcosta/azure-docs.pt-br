@@ -8,20 +8,20 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8925110511f6c63a42dd9b121429ac7264cd4aa4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61436589"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170240"
 ---
-# <a name="use-cloudevents-schema-with-event-grid"></a>Usar o esquema CloudEvents com a Grade de Eventos
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usar o esquema do CloudEvents v 1.0 com a grade de eventos
 
-Além do seu [esquema de evento padrão](event-schema.md), a Grade de Eventos do Azure oferece suporte nativo a eventos no [esquema JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/master/spec.md) para descrever dados de eventos.
+Além de seu [esquema de evento padrão](event-schema.md), a grade de eventos do Azure oferece suporte nativo a eventos na [implementação JSON do CloudEvents v 1.0 e da Associação de](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) [protocolo http](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
 
 O CloudEvents simplifica a interoperabilidade, fornecendo um esquema comum do evento para publicar e consumir eventos com base em nuvem. Esse esquema permite ferramentas uniforme, formas padrão de roteamento e manipulação de eventos e maneiras universais de desserializar o esquema de evento externo. Com um esquema comum, você pode integrar facilmente mais trabalho entre plataformas.
 
-O CloudEvents está sendo criado por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [Cloud Native Computing Foundation](https://www.cncf.io/). Ele está disponível como versão 0.1.
+O CloudEvents está sendo criado por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [Cloud Native Computing Foundation](https://www.cncf.io/). Ele está disponível atualmente como a versão 1,0.
 
 Este artigo descreve como usar o esquema de CloudEvents com a Grade de Eventos.
 
@@ -37,45 +37,31 @@ Aqui está um exemplo de um evento de Armazenamento de Blob do Azure no formato 
 
 ``` JSON
 {
-    "cloudEventsVersion" : "0.1",
-    "eventType" : "Microsoft.Storage.BlobCreated",
-    "eventTypeVersion" : "",
-    "source" : "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}#blobServices/default/containers/{storage-container}/blobs/{new-file}",
-    "eventID" : "173d9985-401e-0075-2497-de268c06ff25",
-    "eventTime" : "2018-04-28T02:18:47.1281675Z",
-    "data" : {
-      "api": "PutBlockList",
-      "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
-      "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-      "eTag": "0x8D4BCC2E4835CD0",
-      "contentType": "application/octet-stream",
-      "contentLength": 524288,
-      "blobType": "BlockBlob",
-      "url": "https://oc2d2817345i60006.blob.core.windows.net/oc2d2817345i200097container/oc2d2817345i20002296blob",
-      "sequencer": "00000000000004420000000000028963",
-      "storageDiagnostics": {
-        "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
-      }
+    "specversion": "1.0",
+    "type": "Microsoft.Storage.BlobCreated",  
+    "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}",
+    "id": "9aeb0fdf-c01e-0131-0922-9eb54906e209",
+    "time": "2019-11-18T15:13:39.4589254Z",
+    "subject": "blobServices/default/containers/{storage-container}/blobs/{new-file}",
+    "dataschema": "#",
+    "data": {
+        "api": "PutBlockList",
+        "clientRequestId": "4c5dd7fb-2c48-4a27-bb30-5361b5de920a",
+        "requestId": "9aeb0fdf-c01e-0131-0922-9eb549000000",
+        "eTag": "0x8D76C39E4407333",
+        "contentType": "image/png",
+        "contentLength": 30699,
+        "blobType": "BlockBlob",
+        "url": "https://gridtesting.blob.core.windows.net/testcontainer/{new-file}",
+        "sequencer": "000000000000000000000000000099240000000000c41c18",
+        "storageDiagnostics": {
+            "batchId": "681fe319-3006-00a8-0022-9e7cde000000"
+        }
     }
 }
 ```
 
-CloudEvents v0.1 tem as seguintes propriedades disponíveis:
-
-| CloudEvents        | Type     | Valor JSON de exemplo             | DESCRIÇÃO                                                        | Mapeamento de Grade de Eventos
-|--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| eventType          | Cadeia de caracteres   | "com.example.someevent"          | Tipo de ocorrência que ocorreram                                   | eventType
-| eventTypeVersion   | Cadeia de caracteres   | "1.0"                            | A versão do eventType (Opcional)                            | dataVersion
-| cloudEventsVersion | Cadeia de caracteres   | “0.1”                            | A versão da especificação CloudEvents que o evento usa        | *passed through*
-| source             | URI      | “/mycontext”                     | Descreve o produtor de evento                                       | topic#subject
-| eventID            | Cadeia de caracteres   | “1234-1234-1234”                 | ID do evento                                                    | id
-| eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | Carimbo de hora de quando ocorreu o evento (opcional)                    | eventTime
-| schemaURL          | URI      | "https:\//myschema.com"           | Um link para o esquema que cumpre o atributo de dados (opcional) | *não usado*
-| contentType        | Cadeia de caracteres   | “application/json”               | Descrever o formato de codificação de dados (opcional)                       | *não usado*
-| extensions         | Mapa      | { "extA": "vA", "extB", "vB" }  | Quaisquer metadados adicionais (opcional)                                 | *não usado*
-| data               | Object   | { "objA": "vA", "objB", "vB" }  | A carga do evento (opcional)                                       | data
-
-Para obter mais informações, confira a [especificação CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
+Uma descrição detalhada dos campos disponíveis, seus tipos e definições no CloudEvents v 0.1 está [disponível aqui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 Os valores dos cabeçalhos para eventos entregues no esquema CloudEvents e no esquema da Grade de Eventos são os mesmos, exceto para `content-type`. Para o esquema CloudEvents, esse valor de cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"`. Para o esquema Grade de Eventos, esse valor de cabeçalho é `"content-type":"application/json; charset=utf-8"`.
 
@@ -154,7 +140,7 @@ New-AzureRmEventGridSubscription `
   -DeliverySchema CloudEventV01Schema
 ```
 
-A versão atual do CloudEvents não dá suporte a envio em lote de eventos. Uma assinatura de evento que está configurada para o esquema de CloudEvent recebe cada evento individualmente. No momento, você não pode usar um gatilho de Grade de Eventos para um aplicativo do Azure Functions, quando o evento é entregue no esquema do CloudEvents. Use um gatilho HTTP. Para obter exemplos de implementação de um gatilho HTTP que recebe eventos no esquema CloudEvents, consulte [Use um gatilho HTTP como um gatilho de Grade de Eventos](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
+ No momento, você não pode usar um gatilho de Grade de Eventos para um aplicativo do Azure Functions, quando o evento é entregue no esquema do CloudEvents. Use um gatilho HTTP. Para obter exemplos de implementação de um gatilho HTTP que recebe eventos no esquema CloudEvents, consulte [Use um gatilho HTTP como um gatilho de Grade de Eventos](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Próximas etapas
 

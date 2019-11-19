@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: cd0ec07ebfffc839fedcdc76c9aff8e86556a7de
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70130062"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74174914"
 ---
 | Recurso | Limite máximo/padrão | Observação |
 | --- | --- | --- |
@@ -33,7 +33,8 @@ ms.locfileid: "70130062"
 | Regras com base em caminho máximo por mapa de URL|100||
 | Configurações de redirecionamento |100<sup>1</sup>| |
 | Conexões WebSocket Simultâneas |Gateways médios 20 mil<br> 50 mil de gateways grandes| |
-| Tamanho máximo da URL|8\.000||
+| Tamanho máximo da URL|32 KB| |
+| Tamanho máximo do cabeçalho para HTTP/2 |4| |
 | Tamanho máximo de carregamento de arquivo, padrão |2 GB | |
 | Tamanho de carregamento de arquivo máximo WAF |Gateways de WAF médios, 100 MB<br>Gateways de WAF de grande porte, 500 MB| |
 | Limite de tamanho de corpo de WAF, sem arquivos|128 KB||

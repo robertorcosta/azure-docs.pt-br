@@ -1,17 +1,17 @@
 ---
 title: Guia de desempenho do serviço de Signaler do Azure
-description: Uma visão geral do desempenho do serviço de Signaler do Azure.
+description: Uma visão geral do desempenho e do parâmetro de comparação do serviço de Signaler do Azure. Métricas-chave a considerar ao planejar a capacidade.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 027f9f99161a0e4f76a39a15780bc840380a61ba
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232539"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157675"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guia de desempenho do serviço de Signaler do Azure
 
@@ -21,15 +21,15 @@ Neste guia, apresentaremos os fatores que afetam o desempenho do aplicativo Sign
 
 ## <a name="term-definitions"></a>Definições de termos
 
-*Entrada*: A mensagem de entrada para o serviço de Signaler do Azure.
+*Entrada*: a mensagem de entrada para o serviço de Signaler do Azure.
 
-*Saída*: A mensagem de saída do serviço de Signaler do Azure.
+*Saída*: a mensagem de saída do serviço de signaler do Azure.
 
-*Largura de banda*: O tamanho total de todas as mensagens em 1 segundo.
+*Largura de banda*: o tamanho total de todas as mensagens em 1 segundo.
 
-*Modo padrão*: O modo de trabalho padrão quando uma instância do serviço de Signaler do Azure foi criada. O serviço de Signaler do Azure espera que o servidor de aplicativos estabeleça uma conexão com ele antes de aceitar qualquer conexão de cliente.
+*Modo padrão*: o modo de trabalho padrão quando uma instância do serviço de Signalr do Azure foi criada. O serviço de Signaler do Azure espera que o servidor de aplicativos estabeleça uma conexão com ele antes de aceitar qualquer conexão de cliente.
 
-*Modo sem servidor*: Um modo no qual o serviço de sinalizador do Azure aceita somente conexões de cliente. Nenhuma conexão com o servidor é permitida.
+*Modo sem servidor*: um modo no qual o serviço de Signaler do Azure aceita somente conexões de cliente. Nenhuma conexão com o servidor é permitida.
 
 ## <a name="overview"></a>Visão geral
 
@@ -66,7 +66,7 @@ No modo padrão do serviço de Signaler do Azure, as VMs do servidor de aplicati
 
 ### <a name="performance-factors"></a>Fatores de desempenho
 
-Teoricamente, a capacidade do serviço do Azure Signalr é limitada por recursos de computação: CPU, memória e rede. Por exemplo, mais conexões com o serviço de Signaler do Azure fazem com que o serviço use mais memória. Para tráfego de mensagens maior (por exemplo, cada mensagem tem mais de 2.048 bytes), o serviço do Azure Signalr precisa gastar mais ciclos de CPU para processar o tráfego. Enquanto isso, a largura de banda da rede do Azure também impõe um limite para o tráfego máximo.
+Teoricamente, a capacidade do serviço do Signalr do Azure é limitada por recursos de computação: CPU, memória e rede. Por exemplo, mais conexões com o serviço de Signaler do Azure fazem com que o serviço use mais memória. Para tráfego de mensagens maior (por exemplo, cada mensagem tem mais de 2.048 bytes), o serviço do Azure Signalr precisa gastar mais ciclos de CPU para processar o tráfego. Enquanto isso, a largura de banda da rede do Azure também impõe um limite para o tráfego máximo.
 
 O tipo de transporte é outro fator que afeta o desempenho. Os três tipos são [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [servidor-enviado-evento](https://en.wikipedia.org/wiki/Server-sent_events)e [sondagem longa](https://en.wikipedia.org/wiki/Push_technology). 
 
@@ -127,7 +127,7 @@ O **eco** fornece a largura de banda de entrada máxima porque tem o menor custo
 | Largura de banda de saída | 2 Mbps   | 4 Mbps   | 10 Mbps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
 
-|     Difundir             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|     Difusão             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Conexões               | 1\.000 | 2\.000 | 5\.000  | 10.000 | 20.000 | 50.000  | 100.000 |
 | Largura de banda de entrada  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps    |
@@ -139,15 +139,15 @@ A largura de *banda de entrada* e a largura de *banda de saída* são o tamanho 
   outboundBandwidth = outboundConnections * messageSize / sendInterval
 ```
 
-- *inboundConnections*: O número de conexões que enviam a mensagem.
+- *inboundConnections*: o número de conexões que enviam a mensagem.
 
-- *outboundConnections*: O número de conexões que recebem a mensagem.
+- *outboundConnections*: o número de conexões que recebem a mensagem.
 
-- *messageSize*: O tamanho de uma única mensagem (valor médio). Uma mensagem pequena com menos de 1.024 bytes tem um impacto de desempenho semelhante a uma mensagem de 1.024 bytes.
+- *messages*: o tamanho de uma única mensagem (valor médio). Uma mensagem pequena com menos de 1.024 bytes tem um impacto de desempenho semelhante a uma mensagem de 1.024 bytes.
 
-- *sendInterval*: O tempo de envio de uma mensagem. Normalmente, é de 1 segundo por mensagem, o que significa enviar uma mensagem a cada segundo. Um intervalo menor significa enviar mais mensagens em um período de tempo. Por exemplo, 0,5 segundos por mensagem significa enviar duas mensagens a cada segundo.
+- *sendInterval*: a hora de enviar uma mensagem. Normalmente, é de 1 segundo por mensagem, o que significa enviar uma mensagem a cada segundo. Um intervalo menor significa enviar mais mensagens em um período de tempo. Por exemplo, 0,5 segundos por mensagem significa enviar duas mensagens a cada segundo.
 
-- *Conexões*: O limite máximo comprometido do serviço de Signaler do Azure para cada camada. Se o número de conexão for mais elevado, ele será afetado da limitação de conexão.
+- *Conexões*: o limite máximo confirmado do serviço de Signaler do Azure para cada camada. Se o número de conexão for mais elevado, ele será afetado da limitação de conexão.
 
 #### <a name="evaluation-for-complex-use-cases"></a>Avaliação para casos de uso complexos
 
@@ -157,7 +157,7 @@ O caso de uso real é mais complicado. Ele pode enviar uma mensagem com mais de 
 
 A tabela a seguir mostra um caso de uso real da **difusão**. Mas o tamanho da mensagem, a contagem de conexões e a taxa de envio de mensagens são diferentes do que presumimos na seção anterior. A pergunta é como podemos deduzir qualquer um desses itens (tamanho da mensagem, contagem de conexões ou taxa de envio de mensagens) se soubermos apenas dois deles.
 
-| Difundir  | Tamanho da mensagem | Mensagens de entrada por segundo | Conexões | Intervalos de envio |
+| Difusão  | Tamanho da mensagem | Mensagens de entrada por segundo | Conexões | Intervalos de envio |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20 KB                | 1                        | 100.000     | 5 segundos                      |
 | 2 | 256 KB               | 1                        | 8\.000       | 5 segundos                      |
@@ -168,7 +168,7 @@ A fórmula a seguir é fácil de inferir com base na fórmula anterior:
 outboundConnections = outboundBandwidth * sendInterval / messageSize
 ```
 
-Para Unit100, a largura de banda de saída máxima é de 400 MB da tabela anterior. Para um tamanho de mensagem de 20 KB, o máximo de conexões de saída deve \* ser 400 MB 5/20 KB = 100.000, que corresponde ao valor real.
+Para Unit100, a largura de banda de saída máxima é de 400 MB da tabela anterior. Para um tamanho de mensagem de 20 KB, o máximo de conexões de saída deve ser 400 MB \* 5/20 KB = 100.000, que corresponde ao valor real.
 
 ##### <a name="mixed-use-cases"></a>Casos de uso misto
 
@@ -237,7 +237,7 @@ Mesmo para esse Hub simples, a pressão de tráfego no servidor de aplicativos �
 > [!NOTE]
 > O número de conexão do cliente, o tamanho da mensagem, a taxa de envio de mensagens, a camada de SKU e a CPU/memória do servidor de aplicativos afetam o desempenho geral do **eco**.
 
-#### <a name="broadcast"></a>Difundir
+#### <a name="broadcast"></a>Difusão
 
 Para **difusão**, quando o aplicativo Web recebe a mensagem, ele é transmitido para todos os clientes. Quanto mais clientes houver para difundir, mais tráfego de mensagens haverá para todos os clientes. Consulte o diagrama a seguir.
 
@@ -247,17 +247,17 @@ Um número pequeno de clientes está transmitindo. A largura de banda da mensage
 
 A tabela a seguir resume as conexões de cliente máximas, a contagem de mensagens de entrada/saída e a largura de banda.
 
-|     Difundir             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|     Difusão             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Conexões               | 1\.000 | 2\.000 | 5\.000  | 10.000 | 20.000 | 50.000  | 100.000 |
 | Mensagens de entrada por segundo  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Mensagens de saída por segundo | 2\.000 | 4\.000 | 10.000 | 20.000 | 40.000 | 100.000 | 200,000 |
+| Mensagens de saída por segundo | 2\.000 | 4\.000 | 10.000 | 20.000 | 40.000 | 100.000 | 200.000 |
 | Largura de banda de entrada  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps     |
 | Largura de banda de saída | 4 Mbps   | 8 Mbps   | 20 MBps   | 40 MBps   | 80 MBps   | 200 MBps   | 400 MBps   |
 
 Os clientes de difusão que postam mensagens não são mais do que quatro. Eles precisam de menos servidores de aplicativos em comparação com o **eco** porque o valor da mensagem de entrada é pequeno. Dois servidores de aplicativos são suficientes para considerações de desempenho e SLA. Mas você deve aumentar as conexões de servidor padrão para evitar desequilíbrio, especialmente para Unit50 e Unit100.
 
-|   Difundir      | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|   Difusão      | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Conexões      | 1\.000 | 2\.000 | 5\.000 | 10.000 | 20.000 | 50.000 | 100.000 |
 | Contagem do servidor de aplicativos | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
@@ -269,15 +269,15 @@ Os clientes de difusão que postam mensagens não são mais do que quatro. Eles 
 
 #### <a name="send-to-group"></a>Enviar para o grupo
 
-O caso de uso de **Enviar para grupo** tem um padrão detráfego semelhante para difundir. A diferença é que, depois que os clientes estabelecem conexões WebSocket com o serviço de Signaler do Azure, eles devem ingressar em grupos antes que possam enviar uma mensagem a um grupo específico. O diagrama a seguir ilustra o fluxo de tráfego.
+O caso de uso de **Enviar para grupo** tem um padrão de tráfego semelhante para **difundir**. A diferença é que, depois que os clientes estabelecem conexões WebSocket com o serviço de Signaler do Azure, eles devem ingressar em grupos antes que possam enviar uma mensagem a um grupo específico. O diagrama a seguir ilustra o fluxo de tráfego.
 
 ![Tráfego para o caso de uso de enviar para grupo](./media/signalr-concept-performance/sendtogroup.png)
 
 O membro do grupo e a contagem de grupos são dois fatores que afetam o desempenho. Para simplificar a análise, definimos dois tipos de grupos:
 
-- **Pequeno grupo**: Cada grupo tem 10 conexões. O número do grupo é igual a (contagem máxima de conexões)/10. Por exemplo, para Unit1, se houver 1.000 contagens de conexão, temos 1000/10 = 100 grupos.
+- **Pequeno grupo**: cada grupo tem 10 conexões. O número do grupo é igual a (contagem máxima de conexões)/10. Por exemplo, para Unit1, se houver 1.000 contagens de conexão, temos 1000/10 = 100 grupos.
 
-- **Grupo grande**: O número do grupo é sempre 10. A contagem de membros do grupo é igual a (contagem máxima de conexões)/10. Por exemplo, para Unit1, se houver 1.000 contagens de conexão, cada grupo terá 1000/10 = 100 membros.
+- **Big Group**: o número do grupo é sempre 10. A contagem de membros do grupo é igual a (contagem máxima de conexões)/10. Por exemplo, para Unit1, se houver 1.000 contagens de conexão, cada grupo terá 1000/10 = 100 membros.
 
 **Enviar para o grupo** traz um custo de roteamento para o serviço de Signaler do Azure porque ele precisa localizar as conexões de destino por meio de uma estrutura de dados distribuída. À medida que as conexões de envio aumentam, o custo aumenta.
 
@@ -316,7 +316,7 @@ Para **Enviar para o grupo grande**, a largura de banda de saída torna-se o afu
 | Contagem de grupos               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Mensagens de entrada por segundo  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
 | Largura de banda de entrada  | 80 KBps   | 40 KBps   | 40 KBps    | 20 KBps    | 40 KBps    | 40 KBps     | 40 KBps     |
-| Mensagens de saída por segundo | 2\.000 | 4\.000 | 10.000 | 20.000 | 40.000 | 100.000 | 200,000 |
+| Mensagens de saída por segundo | 2\.000 | 4\.000 | 10.000 | 20.000 | 40.000 | 100.000 | 200.000 |
 | Largura de banda de saída | 8 Mbps    | 8 Mbps    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
 
 A contagem de conexões de envio não é mais do que 40. A carga no servidor de aplicativos é pequena, portanto, o número sugerido de aplicativos Web é pequeno.
@@ -374,7 +374,7 @@ A tabela a seguir fornece a contagem de aplicativos Web sugeridos para **eco**do
 
 A tabela a seguir fornece a contagem de aplicativos Web sugeridos para **difusão**do signalr ASP.net.
 
-|  Difundir       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|  Difusão       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Conexões      | 1\.000 | 2\.000 | 5\.000 | 10.000 | 20.000 | 50.000 | 100.000 |
 | Contagem do servidor de aplicativos | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
@@ -399,7 +399,7 @@ Todos os clientes estabelecem conexões WebSocket com o serviço de Signaler do 
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Conexões               | 1\.000 | 2\.000 | 5\.000  | 10.000 | 20.000 | 50.000  | 100.000 |
 | Mensagens de entrada por segundo  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Mensagens de saída por segundo | 2\.000 | 4\.000 | 10.000 | 20.000 | 40.000 | 100.000 | 200,000 |
+| Mensagens de saída por segundo | 2\.000 | 4\.000 | 10.000 | 20.000 | 40.000 | 100.000 | 200.000 |
 | Largura de banda de entrada  | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps     | 4 KBps     | 4 KBps      | 4 KBps      |
 | Largura de banda de saída | 4 Mbps    | 8 Mbps    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
 
@@ -420,7 +420,7 @@ Para todos os casos de uso listados anteriormente, conduzimos os testes de desem
 
 - Tamanho da VM do cliente: StandardDS2V2 (2 vCPU, 7G Memory)
 
-- Tamanho da VM do servidor de aplicativos: StandardF4sV2 (4 vCPU, 8G Memory)
+- Tamanho da VM do servidor de aplicativos: StandardF4sV2 (4 vCPU, memória 8G)
 
 - Conexões do servidor do SDK do Azure Signalr: 15
 

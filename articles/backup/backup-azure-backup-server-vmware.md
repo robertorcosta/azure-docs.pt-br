@@ -1,18 +1,14 @@
 ---
 title: Faça backup de VMs VMware com o Servidor de Backup do Azure
 description: Neste artigo, saiba como usar Servidor de Backup do Azure para fazer backup de VMs VMware em execução em um servidor VMware vCenter/ESXi.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: dacurwin
-ms.openlocfilehash: df41907ee10b54ab3bfaeb548e085617f7d79084
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: d1c8ec249e010d75bbe96f5c70072f41b9738370
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903221"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173371"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Faça backup de VMs VMware com o Servidor de Backup do Azure
 
