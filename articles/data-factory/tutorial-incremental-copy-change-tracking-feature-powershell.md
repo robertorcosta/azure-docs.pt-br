@@ -234,7 +234,7 @@ Nesta etapa, você vincula a Conta de Armazenamento do Azure ao data factory.
 ### <a name="create-azure-sql-database-linked-service"></a>Crie um serviço vinculado do Banco de Dados SQL do Azure.
 Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory.
 
-1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService.json** na pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** usando o conteúdo a seguir: Substitua **&lt;servidor&gt;, &lt;nome do banco de dados **, &lt;id do usuário&gt; e &lt;senha&gt;** pelo nome do seu servidor SQL, nome do seu banco de dados, ID do usuário e senha do Azure antes de salvar o arquivo. 
+1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService.json** na pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** usando o conteúdo a seguir: Substitua **&lt;servidor&gt;, &lt;nome do banco de dados&gt;, &lt;id do usuário&gt; e &lt;senha&gt;** pelo nome do seu servidor SQL, nome do seu banco de dados, ID do usuário e senha do Azure antes de salvar o arquivo. 
 
     ```json
     {

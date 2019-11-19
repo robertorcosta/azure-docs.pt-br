@@ -1,18 +1,14 @@
 ---
 title: Perguntas frequentes sobre fazer backup de Arquivos do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivo do Azure com o serviço de Backup do Azure.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 9cb5d3ae02cb0d4a6e293207a736dced56ed8538
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747466"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173102"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 
@@ -109,7 +105,7 @@ Sim. Caso tenha escolhido **Reter Dados de Backup**, ao parar a proteção, voc�
 
 Se um trabalho de restauração em andamento for cancelado, o processo de restauração será interrompido e todos os arquivos restaurados antes do cancelamento permanecerão no destino configurado (local original ou alternativo) sem nenhuma reversão.
 
-## <a name="manage-backup"></a>Gerenciar backup
+## <a name="manage-backup"></a>Gerenciar backups
 
 ### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares"></a>Posso usar o PowerShell para configurar/gerenciar/restaurar backups de compartilhamentos de Arquivos do Azure?
 
@@ -127,9 +123,9 @@ O backup para compartilhamentos de arquivos do Azure oferece a capacidade de con
 
 Quando uma nova política for aplicada em compartilhamento de arquivos, a agenda e a retenção da nova política serão seguidas. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para mantê-los de acordo com a nova política. Se a retenção for reduzida, eles são marcados para remoção no próximo trabalho de limpeza e excluídos.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
-Essas informações são apenas sobre estar fazendo backup de Arquivos do Azure, para saber mais sobre outras áreas do Backup do Azure, consulte algumas dessas outras perguntas frequentes de backup:
+Para saber mais sobre outras áreas do Backup do Azure, confira algumas destas outras perguntas frequentes sobre backups:
 
 - [Perguntas Frequentes sobre o cofre dos Serviços de Recuperação](backup-azure-backup-faq.md)
 - [Perguntas frequentes sobre o backup de VM do Azure](backup-azure-vm-backup-faq.md)

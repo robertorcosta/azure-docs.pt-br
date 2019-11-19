@@ -1,8 +1,8 @@
-- name: Documentação da CDN
+- name: Documentação da Rede de Distribuição de Conteúdo
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é a CDN do Azure?
+    - name: O que é a CDN do Azure (Rede de Distribuição de Conteúdo do Azure)?
       href: cdn-overview.md
     - name: Comparar recursos do produto
       href: cdn-features.md
@@ -26,7 +26,7 @@
       href: cdn-custom-ssl.md
     - name: Definir regras de cache
       href: cdn-caching-rules-tutorial.md
-    - name: Impor HTTPS usando o Mecanismo de Regras Standard
+    - name: Impor HTTPS usando o mecanismo de regras Standard
       href: cdn-standard-rules-engine.md
 - name: Exemplos
   items:
@@ -40,7 +40,7 @@
       href: cdn-china-delivery.md
     - name: Suporte do HTTP/2
       href: cdn-http2.md
-    - name: Recuperar lista POP do Verizon
+    - name: Recuperar uma lista POP do Verizon
       href: cdn-pop-list-api.md
     - name: Migrar do Verizon Standard para o Verizon Premium
       href: cdn-migrate.md
@@ -61,7 +61,7 @@
       items:
         - name: Criar um ponto de extremidade
           href: cdn-create-endpoint-how-to.md
-        - name: Gerenciar com o Azure PowerShell
+        - name: Gerenciar usando o Azure PowerShell
           href: cdn-manage-powershell.md
         - name: Restringir o acesso por país ou região
           href: cdn-restrict-access-by-country.md
@@ -69,7 +69,7 @@
           href: cdn-improve-performance.md
         - name: Controlar o comportamento do cache
           items:
-            - name: Controlar o comportamento do cache com regras de cache
+            - name: Controlar o comportamento do cache usando regras de cache
               href: cdn-caching-rules.md
             - name: Armazenar o conteúdo em cache por cadeias de caracteres de consulta
               items:
@@ -81,7 +81,7 @@
               href: cdn-purge-endpoint.md
             - name: Pré-carregar ativos armazenados em cache
               href: cdn-preload-endpoint.md
-        - name: Configurar vida útil
+        - name: Configurar TTL (vida útil)
           items:
             - name: Conteúdo da Web do Azure
               href: cdn-manage-expiration-of-cloud-service-content.md
@@ -89,13 +89,13 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: Autenticação de token
           href: cdn-token-auth.md
-        - name: Suporte ao armazenamento de SAS
+        - name: Suporte ao armazenamento de assinatura de acesso compartilhado
           href: cdn-sas-storage-support.md
         - name: Compartilhamento de recursos entre origens
           href: cdn-cors.md
         - name: Monitorar recursos
           href: cdn-resource-health.md
-        - name: Substituir comportamento com regras
+        - name: Usar regras para substituir o comportamento
           href: cdn-verizon-premium-rules-engine.md
         - name: Usar Gerenciador de Tráfego
           href: cdn-traffic-manager.md
@@ -110,7 +110,7 @@
               href: cdn-analyze-usage-patterns.md
             - name: Relatórios personalizados da Verizon
               href: cdn-verizon-custom-reports.md
-        - name: Ferramentas de análise do CDN Premium do Azure da Verizon
+        - name: Ferramentas de análise do CDN do Azure Premium da Verizon
           items:
             - name: Gerar relatórios HTTP avançados
               href: cdn-advanced-http-reports.md
@@ -136,12 +136,12 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: Referência
   items:
-    - name: Referência do mecanismo de regras standard da Microsoft
+    - name: Referência do mecanismo de regras Standard
       href: cdn-standard-rules-engine-reference.md
       items:
-        - name: Condições de correspondência do mecanismo de regras standard
+        - name: Condições de correspondência do mecanismo de regras Standard
           href: cdn-standard-rules-engine-match-conditions.md
-        - name: Ações do mecanismo de regras standard
+        - name: Ações do mecanismo de regras Standard
           href: cdn-standard-rules-engine-actions.md
     - name: Referência do mecanismo de regras da Verizon Premium
       href: cdn-verizon-premium-rules-engine-reference.md
@@ -177,7 +177,7 @@
           href: cdn-pop-locations.md
         - name: Locais POP por abreviação
           href: cdn-pop-abbreviations.md
-    - name: Noções básicas sobre a cobrança da rede de distribuição de conteúdo do Azure
+    - name: Cobrança da Rede de Distribuição de Conteúdo do Azure
       href: cdn-billing.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'

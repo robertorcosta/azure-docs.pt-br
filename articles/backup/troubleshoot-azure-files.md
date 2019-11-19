@@ -1,24 +1,23 @@
 ---
 title: Solucionar problemas de Backup de compartilhamento de Arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
-ms.service: backup
-author: dcurwin
-ms.author: dacurwin
 ms.date: 08/20/2019
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 1182c7d4ac9a103e752a8cd0c392c5e57f1eebd0
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 62a4f83c93230c150a7c406d0614dbee3d125e9c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637575"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171760"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solucionar problemas do backup de Compartilhamentos de Arquivos do Azure
+
 É possível solucionar os problemas e os erros encontrados durante a utilização do backup de Compartilhamentos de Arquivos do Azure com as informações listadas nas tabelas a seguir.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações do backup do compartilhamento de arquivos do Azure durante a versão prévia
+
 O backup para compartilhamentos de Arquivos do Azure está em versão prévia. Há suporte para Compartilhamentos de Arquivos do Azure em contas de armazenamento de uso geral v2 e de uso geral v1. Não há suporte para os cenários de backup a seguir para compartilhamentos de arquivos do Azure:
+
 - Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
 - A quantidade máxima de backups agendados por dia é de um.
 - A quantidade máxima de backups sob demanda por dia é de quatro.
@@ -28,18 +27,18 @@ O backup para compartilhamentos de Arquivos do Azure está em versão prévia. H
 
 O backup para Compartilhamentos de Arquivos do Azure nas contas de armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está disponível apenas no Centro dos EUA (CUS), Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Europa Setentrional (NE), Sudeste Asiático (SEA), Europa Ocidental (WE) e Oeste dos EUA 2 (WUS2).
 
-## <a name="configuring-backup"></a>Configurando o backup
+## <a name="configuring-backup"></a>Configurar o backup
+
 A tabela abaixo serve para configurar o backup:
 
 | Mensagens de erro | Dicas de solução alternativa ou resolução |
 | ------------------ | ----------------------------- |
-| Não foi possível encontrar a minha Conta de Armazenamento para configurar o backup para o compartilhamento de arquivo do Azure | <ul><li>Aguarde até a descoberta ser concluída. <li>Verifique se algum compartilhamento de arquivos da conta de armazenamento já está protegido com outro cofre dos Serviços de Recuperação. **Observação**: Todos os compartilhamentos de arquivos em uma conta de armazenamento podem ser protegidos somente em um cofre dos Serviços de Recuperação. <li>Verifique se o compartilhamento de arquivos não está presente em nenhuma das Contas de Armazenamento sem suporte.|
+| Não foi possível encontrar a minha Conta de Armazenamento para configurar o backup para o compartilhamento de arquivo do Azure | <ul><li>Aguarde até a descoberta ser concluída. <li>Verifique se algum compartilhamento de arquivos da conta de armazenamento já está protegido com outro cofre dos Serviços de Recuperação. **Observação**: Todos os compartilhamentos de arquivos em uma conta de armazenamento podem ser protegidos somente em um cofre dos Serviços de Recuperação. <li>Verifique se o compartilhamento de arquivos não está presente em nenhuma das Contas de Armazenamento sem suporte.<li> Verifique se a caixa de seleção **Permitir que serviços da Microsoft confiáveis acessem essa conta de armazenamento** está marcada na conta de armazenamento.[Saiba mais.](../storage/common/storage-network-security.md)|
 | O erro no portal indica que a descoberta de contas de armazenamento falhou. | Se sua assinatura for de parceiro (habilitado para CSP), ignore o erro. Se sua assinatura não estiver habilitada para CSP e suas contas de armazenamento não puderem ser descobertas, entre em contato com o suporte.|
 | A validação ou o registro da Conta de Armazenamento selecionada falhou.| Repita a operação, e se o problema persistir, entre em contato com o suporte.|
 | Não foi possível listar ou localizar os compartilhamentos de arquivos na Conta de Armazenamento selecionada. | <ul><li> Verifique se a Conta de Armazenamento existe no Grupo de Recursos (e se não foi excluída ou movida após a última validação/registro no cofre).<li>Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído. <li>Verifique se a Conta de Armazenamento tem suporte para backup de compartilhamento de arquivos.<li>Verifique se o compartilhamento de arquivos já está protegido no mesmo cofre dos Serviços de Recuperação.|
 | A configuração de compartilhamento de arquivos de backup (ou a configuração de política de proteção) está falhando. | <ul><li>Repita a operação para ver se o problema persiste. <li> Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído. <li> Se estiver tentando proteger vários compartilhamentos de arquivos ao mesmo tempo e alguns deles estiverem falhando, repita a configuração de backup para os compartilhamentos de arquivos com falha. |
 | Não é possível excluir o cofre dos Serviços de Recuperação depois de desproteger um compartilhamento de arquivos. | No portal do Azure, abra o seu Cofre > **Infraestrutura de backup** > **Contas de armazenamento** e clique em **Cancelar o registro** para remover a conta de armazenamento do cofre dos Serviços de Recuperação.|
-
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensagens de erro para falhas de trabalho de backup ou restauração
 
@@ -59,15 +58,16 @@ A tabela abaixo serve para configurar o backup:
 | A operação de restauração falhou porque ocorreu um erro ao executar operações de pré-restauração em recursos do Serviço de Sincronização de Arquivos associados ao compartilhamento de arquivos de destino. | Tente novamente dentro de instantes. Se o problema persistir, entre em contato com o suporte da Microsoft. |
 | Um ou mais arquivos não puderam ser recuperados. Para obter mais informações, verifique a lista de arquivos com falha no caminho fornecido acima. | <ul> <li> Os motivos para falha na recuperação estão listados no arquivo (caminho fornecido nos detalhes do trabalho). Aborde os motivos e repita a operação de restauração apenas para os arquivos com falha. <li> Alguns motivos comuns para falhas na restauração de arquivo incluem: <br/> – verifique se os arquivos com falha não estão em uso no momento. <br/> – existe um diretório com o mesmo nome que o arquivo com falha no diretório pai. |
 
-
 ## <a name="modify-policy"></a>Modificar a política
+
 | Mensagens de erro | Dicas de solução alternativa ou resolução |
 | ------------------ | ----------------------------- |
 | Outra operação de configuração de proteção está em andamento para esse item. | Aguarde a conclusão da operação anterior de modificação da política e tente novamente após alguns instantes.|
 | Outra operação está em andamento no item selecionado. | Aguarde a conclusão da outra operação em andamento e tente novamente após alguns instantes |
 
+## <a name="next-steps"></a>Próximas etapas
 
-## <a name="see-also"></a>Veja também
-Para saber mais sobre o backup de compartilhamentos de arquivos do Azure, confira:
+Para obter mais informações sobre o backup de compartilhamentos de arquivos do Azure, confira:
+
 - [Backup de compartilhamentos de arquivos do Azure](backup-azure-files.md)
 - [Perguntas frequentes sobre backup de compartilhamentos de arquivos do Azure](backup-azure-files-faq.md)
