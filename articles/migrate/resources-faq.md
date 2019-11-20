@@ -1,17 +1,17 @@
 ---
 title: Perguntas comuns sobre as migrações para Azure
-description: Aborda perguntas comuns e frequentes sobre as migrações para Azure
+description: Obtenha respostas para perguntas comuns sobre o serviço migrações para Azure.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1663e1d418610bcfa2ada28770944bfc8cbf908f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a622a5793e817be2445e60d925354ab37bb8e331
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480073"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185771"
 ---
 # <a name="azure-migrate-common-questions"></a>Migrações para Azure: perguntas comuns
 
@@ -143,7 +143,7 @@ Com o dimensionamento local, as migrações para Azure não consideram os dados 
 
 ### <a name="does-performance-history-and-utilization-percentile-impact-size-recommendations"></a>O histórico de desempenho e a utilização afetam as recomendações de tamanho de impacto?
 
-Essas propriedades só são aplicáveis ao dimensionamento com base no desempenho.
+Essas propriedades só são aplicáveis para o dimensionamento com base no desempenho.
 
 - As migrações para Azure coletam o histórico de desempenho de máquinas locais e as usam para recomendar o tamanho da VM e o tipo de disco no Azure.
 - O dispositivo cria o perfil continuamente no ambiente local, para coletar dados de utilização em tempo real a cada 20 segundos.

@@ -1,19 +1,18 @@
 ---
-title: Matriz de suporte de migrações para Azure para avaliação e migração do VMware
-description: Resume as configurações de suporte e as limitações de avaliação e migração de VMs VMware para o Azure usando o serviço migrações para Azure.
-services: backup
+title: Suporte para avaliação e migração do VMware nas migrações para Azure
+description: Saiba mais sobre o suporte para avaliação/migração de VM do VMware nas migrações para Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 135680a9b0b6c8b5520958c884d99a83f1f87c88
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838909"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196269"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de suporte para avaliação e migração da VMware
 
@@ -36,11 +35,11 @@ A tabela resume os cenários com suporte para VMs VMware.
 --- | ---
 **Permissões do Azure** | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
 **Limitações da VMware**  | Avalie até 35.000 VMs VMware em um único projeto. Você pode criar vários projetos em uma assinatura do Azure. Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
-**Geografia** | [Examine](migrate-support-matrix.md#supported-geographies) as geografias com suporte.
+**Geografia** | [Analise](migrate-support-matrix.md#supported-geographies) as geografias com suporte.
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
-Azure Government | Gov. dos EUA – Virgínia
+Azure Government | US Gov Virginia
 Pacífico Asiático | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil
@@ -79,7 +78,13 @@ Esta tabela resume o suporte de avaliação e as limitações para servidores de
 
 ## <a name="assessment-vcenter-server-permissions"></a>VCenter Server de avaliação – permissões
 
-Para avaliação, você precisa de uma conta somente leitura para o vCenter Server.
+As Migrações para Azure precisam acessar o vCenter Server para descobrir VMs para avaliação e migração sem agente.
+
+- Se você planeja descobrir aplicativos ou Visualizar dependências de maneira sem agente, crie uma conta de vCenter Server com acesso somente leitura junto com os privilégios habilitados para **máquinas virtuais** > **operações de convidado**.
+
+  ![privilégios de conta de vCenter Server](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- Se você não estiver planejando fazer a descoberta de aplicativos e a visualização de dependência sem agente, configure uma conta somente leitura para o vCenter Server.
 
 ## <a name="assessment-appliance-requirements"></a>Avaliação – requisitos de dispositivo
 
@@ -138,7 +143,7 @@ A visualização de dependência ajuda a Visualizar dependências entre computad
     - Além disso, se você tiver máquinas sem conectividade com a Internet, será necessário fazer o download e instalar o gateway do Log Analytics nelas.
 
 ## <a name="migration---limitations"></a>Migração-limitações
-Você pode selecionar até 10 VMs de uma só vez para replicação. Se você quiser migrar mais máquinas, faça a replicação em grupos de 10. Para a migração sem agente do VMware, você pode executar até 100 replicações simultaneamente.
+Você pode selecionar até 10 VMs de uma só vez para replicação. Se você quiser migrar mais máquinas, faça a replicação em grupos de 10. Para migração sem agente de VMware, você pode executar até 100 replicações simultaneamente.
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>Migração sem agente-requisitos do servidor VMware
 
@@ -168,7 +173,7 @@ Máquina virtual. interação. desligar | Permitir que a VM seja desligada duran
 **Suporte** | **Detalhes**
 --- | ---
 **Sistemas operacionais com suporte** | Os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) com suporte do Azure podem ser migrados usando a migração sem agente.
-**Alterações necessárias para o Azure** | Algumas VMs podem exigir alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> - SUSE Linux Enterprise Server 12 SP1+<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso.
+**Alterações necessárias para o Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> - SUSE Linux Enterprise Server 12 SP1+<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso.
 **Inicialização do Linux** | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos.
 **Inicialização UEFI** | As VMs com inicialização UEFI não têm suporte para migração.
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 4 TB para discos de dados.
@@ -182,7 +187,7 @@ Máquina virtual. interação. desligar | Permitir que a VM seja desligada duran
 **E/s de vários caminhos** | Sem suporte.
 **VMotion de armazenamento** | Sem suporte. A replicação não funcionará se uma VM usar o Storage vMotion.
 **NICs agrupadas** | Sem suporte.
-**Protocolo** | Sem suporte.
+**IPv6** | Sem suporte.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Premium) no Azure.
 **Replicação simultânea** | 100 VMs por vCenter Server. Se você tiver mais, migre-os em lotes de 100.
 
@@ -324,11 +329,11 @@ Baixar e instalar em migrações para Azure | Quando você instalar o dispositiv
 **Discos independentes** | Com suporte.
 **Discos de passagem** | Com suporte.
 **NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
-destinos iSCSI | Não há suporte para VMs com destinos iSCSI para migração sem agente.
+**destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
 **E/s de vários caminhos** | Sem suporte.
 **VMotion de armazenamento** | Suportado
 **NICs agrupadas** | Sem suporte.
-**Protocolo** | Sem suporte.
+**IPv6** | Sem suporte.
 
 
 

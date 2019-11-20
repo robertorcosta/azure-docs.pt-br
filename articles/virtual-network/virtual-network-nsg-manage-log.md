@@ -1,11 +1,11 @@
 ---
-title: Evento de grupo de segurança de rede e contador de regras logs de diagnóstico do Azure
+title: Log de diagnóstico para um grupo de segurança de rede
 titlesuffix: Azure Virtual Network
 description: Saiba como ativar logs de diagnóstico de contador do evento e a regra para um grupo de segurança de rede do Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,42 +13,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 047c92f1c50409e6a1716f0ef2f774464bd12a0a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 55fc18a718d0c69ba90a86ff6aea00d32a8f465b
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972772"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196741"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Log de diagnóstico para um grupo de segurança de rede
 
 Um grupo de segurança de rede (NSG) contém regras que permitem ou negam o tráfego para uma sub-rede de rede virtual, a interface de rede ou ambos. Quando você habilita o log de diagnóstico para um NSG, você pode registrar as seguintes categorias de informações:
 
-* **Evento:** As entradas são registradas para aquelas regras de NSG que são aplicadas às VMs, com base no endereço MAC.
-* **Contador de regras:** Contém entradas de quantas vezes cada regra de NSG é aplicada para negar ou permitir tráfego. O status para essas regras é coletado a cada 60 segundos.
+* **Evento:** as entradas são registradas para qual NSG regras são aplicadas às VMs, com base no endereço MAC.
+* **Contador de regras:** contém entradas de quantas vezes cada regra NSG é aplicada para negar ou permitir tráfego. O status para essas regras é coletado a cada 60 segundos.
 
 Os logs de diagnóstico estão disponíveis apenas para NSGs implantados por meio do modelo de implantação do Azure Resource Manager. Você não pode habilitar o log de diagnóstico para NSGs implantados por meio do modelo de implantação clássico. Para reconhecimento melhor dos dois modelos, consulte [ Compreendendo os modelos de implantação do Azure ](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 O log de diagnóstico é ativado separadamente para *cada* NSG para o qual você deseja coletar dados de diagnóstico. Se você estiver interessado em operações ou logs de atividades, em vez disso, consulte Azure [o log de atividades](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="enable-logging"></a>Habilitar registro em log
+## <a name="enable-logging"></a>Habilitar o registro em log
 
 Você pode usar o [Portal do Azure](#azure-portal), ou [PowerShell](#powershell), ou a [CLI do Azure](#azure-cli) para habilitar o log de diagnóstico.
 
-### <a name="azure-portal"></a>Portal do Azure
+### <a name="azure-portal"></a>portal do Azure
 
 1. Entre no [portal](https://portal.azure.com).
 2. Selecione **Todos os serviços** e digite *grupos de segurança de rede*. Quando **grupos de segurança de rede** aparecer nos resultados da pesquisa, selecione esta opção.
 3. Escolha o NSG para o qual quer habilitar o log.
 4. Em **monitoramento**, selecione **logs de diagnóstico**e, em seguida, selecione **Ativar diagnóstico**, conforme mostrado na figura a seguir:
 
-   ![Ligar diagnósticos](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
+   ![Ativar diagnóstico](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
 
 5. Em **Configurações de diagnóstico**, insira ou selecione as seguintes informações e, em seguida, selecione **Salvar**:
 
     | Configuração                                                                                     | Valor                                                          |
     | ---------                                                                                   |---------                                                       |
-    | Nome                                                                                        | Um nome de sua escolha.  Por exemplo: *myNsgDiagnostics*      |
+    | NOME                                                                                        | Um nome de sua escolha.  Por exemplo: *myNsgDiagnostics*      |
     | **Arquivo para uma conta de armazenamento**, **fluxo para um hub de eventos**, e **enviar para análise de Log** | Você pode selecionar quantas destinos que escolher. Para saber mais sobre cada um, consulte [destinos de Log](#log-destinations).                                                                                                                                           |
     | LOG                                                                                         | Selecione uma ou ambas as categorias de log. Para saber mais sobre os dados registrados para cada categoria, consulte [categorias de Log](#log-categories).                                                                                                                                             |
 6. Exibir e analisar os logs. Para obter mais informações, consulte [Visualizar e analisar logs](#view-and-analyze-logs).
@@ -199,9 +199,9 @@ O log do contador de regras contém informações sobre cada regra aplicada aos 
 ## <a name="view-and-analyze-logs"></a>Exibir e analisar os logs
 
 Para saber como visualizar dados de log de diagnóstico, consulte [ Visão geral dos Logs de Diagnóstico do Azure ](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você enviar dados de diagnóstico para:
-- **Logs do Azure Monitor**: Você pode usar a solução de [análise de grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
-) para obter insights avançados. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego por endereço de MAC, a interface de rede em uma máquina virtual.
-- **Conta de Armazenamento do Azure**: Os dados são gravados em um arquivo PT1H.json. Você pode encontrar o:
+- **Logs de Azure monitor**: você pode usar a solução de [análise do grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
+) para obter informações avançadas. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego por endereço de MAC, a interface de rede em uma máquina virtual.
+- **Conta do Armazenamento do Azure**: os dados são gravados em um arquivo PT1H.json. Você pode encontrar o:
   - Log de eventos no seguinte caminho: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
   - Regra do contador de regras no seguinte caminho: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 

@@ -1,6 +1,6 @@
 ---
-title: Importar ou exportar dados com configuração de aplicativo do Azure | Microsoft Docs
-description: Saiba como importar ou exportar dados para ou de configuração de aplicativo do Azure
+title: Importar ou exportar dados com a configuração do Azure App | Microsoft Docs
+description: Saiba como importar ou exportar dados de ou para a configuração do Azure App
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -12,60 +12,60 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 377c5088d39821e87412c517540b3190b0a14a00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9780dc34aa6b146fe62b11586cbab46825e60535
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393280"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185164"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração
 
-Configuração de aplicativo dá suporte a dados do Azure operações importação e exportação. Usar essas operações para trabalhar com dados de configuração nos dados em massa e o exchange entre o repositório de configurações do aplicativo e código de projeto. Por exemplo, você pode configurar repositório de configuração de um aplicativo para teste e outro para produção. Em seguida, você pode copiar entre eles por meio de um arquivo de configurações do aplicativo para que você não precise inserir dados duas vezes.
+Azure App configuração dá suporte a operações de importação e exportação de dados. Use essas operações para trabalhar com dados de configuração em massa e trocar dados entre o repositório de configuração do aplicativo e o projeto de código. Por exemplo, você pode configurar um repositório de configuração de aplicativo para teste e outro para produção. Em seguida, você pode copiar as configurações do aplicativo entre elas por meio de um arquivo para não precisar inserir dados duas vezes.
 
-Este artigo fornece um guia para importar e exportar dados com a configuração de aplicativo.
+Este artigo fornece um guia para importar e exportar dados com a configuração do aplicativo.
 
 ## <a name="import-data"></a>Importar dados
 
-Importação traz a configuração de armazenamento de dados em uma configuração de aplicativo de uma fonte existente, em vez de inserir manualmente-lo. Use a função de importação para migrar dados para um repositório de configurações do aplicativo ou agregar dados de várias fontes. Configuração de aplicativo dá suporte à importação de um arquivo JSON, YAML ou propriedades.
+A importação traz dados de configuração para um repositório de configurações de aplicativo de uma fonte existente, em vez de inseri-lo manualmente. Use a função de importação para migrar dados para um repositório de configuração de aplicativo ou agregar dados de várias fontes. A configuração de aplicativo dá suporte à importação de um arquivo JSON, YAML ou Properties.
 
-Importar dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](./scripts/cli-import.md). No portal do Azure, siga estas etapas:
+Importe dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](./scripts/cli-import.md). No portal do Azure, siga estas etapas:
 
-1. Navegue até seu repositório de configurações do aplicativo e selecione **importação/exportação**.
+1. Navegue até o repositório de configuração do aplicativo e selecione **importar/exportar**.
 
-2. Sobre o **importação** guia, selecione **serviço de origem** > **arquivo de configuração**.
+2. Na guia **importar** , selecione **serviço de origem** > **arquivo de configuração**.
 
-3. Selecione **do idioma** > **tipo de arquivo**.
+3. Selecione **for language** > **tipo de arquivo**.
 
-4. Selecione o **pasta** ícone e navegue até o arquivo para importar.
+4. Selecione o ícone de **pasta** e navegue até o arquivo a ser importado.
 
-    ![Arquivo de importação](./media/import-file.png)
+    ![Importar arquivo](./media/import-file.png)
 
-5. Selecione uma **separador**e, opcionalmente, insira um **prefixo** a ser usado para nomes de chave importados.
+5. Selecione um **separador**e, opcionalmente, insira um **prefixo** a ser usado para nomes de chave importados.
 
-6. Opcionalmente, selecione uma **rótulo**.
+6. Opcionalmente, selecione um **rótulo**.
 
 7. Selecione **aplicar** para concluir a importação.
 
-    ![Arquivo de importação concluído](./media/import-file-complete.png)
+    ![Importação de arquivo concluída](./media/import-file-complete.png)
 
 ## <a name="export-data"></a>Exportar dados
 
-Exportação grava os dados de configuração armazenados na configuração de aplicativo para outro destino. Use a função de exportação, por exemplo, para salvar dados em um repositório de configuração de aplicativo para um arquivo que é inserido com o código do aplicativo durante a implantação.
+Exportar grava os dados de configuração armazenados na configuração do aplicativo para outro destino. Use a função de exportação, por exemplo, para salvar dados em um repositório de configuração de aplicativo em um arquivo que é inserido com o código do aplicativo durante a implantação.
 
-Exportar dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](./scripts/cli-export.md). No portal do Azure, siga estas etapas:
+Exporte dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](./scripts/cli-export.md). No portal do Azure, siga estas etapas:
 
-1. Navegue até seu repositório de configurações do aplicativo e selecione **importação/exportação**.
+1. Navegue até o repositório de configuração do aplicativo e selecione **importar/exportar**.
 
-2. Sobre o **exportar** guia, selecione **serviço de destino** > **arquivo de configuração**.
+2. Na guia **Exportar** , selecione **serviço de destino** > **arquivo de configuração**.
 
-3. Opcionalmente, insira um **prefixar** e selecione um **rótulo** e um point-in-time para chaves a serem exportados.
+3. Opcionalmente, insira um **prefixo** e selecione um **rótulo** e um ponto no tempo para que as chaves sejam exportadas.
 
-4. Selecione uma **tipo de arquivo** > **separador**.
+4. Selecione um **tipo de arquivo** > **separador**.
 
 5. Selecione **aplicar** para concluir a exportação.
 
-    ![Arquivo de exportação concluída](./media/export-file-complete.png)
+    ![Exportação de arquivo concluída](./media/export-file-complete.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

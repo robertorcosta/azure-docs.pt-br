@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016360"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186444"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar o computador de origem para a instalação por push do agente de mobilidade
 
-Quando você configura a recuperação de desastre para VMs VMware e servidores físicos usando [Azure Site Recovery](site-recovery-overview.md), instale o [Serviço Mobilidade de Recuperação do Site](vmware-physical-mobility-service-overview.md) em cada VM VMware local e servidor físico.  O serviço Mobility captura gravação de dados na máquina e as encaminha para o servidor do processo de Recuperação do Site.
+Quando você configura a recuperação de desastre para VMs VMware e servidores físicos usando [Azure Site Recovery](site-recovery-overview.md), instale o [serviço Mobilidade de Recuperação do Site](vmware-physical-mobility-service-overview.md) em cada VM VMware local e servidor físico.  O Serviço de mobilidade captura gravações de dados no computador e as encaminha para o servidor de processo do Site Recovery.
 
 ## <a name="install-on-windows-machine"></a>Instalar na máquina Windows
 
@@ -24,7 +24,7 @@ Em cada máquina Windows que você deseja proteger, faça o seguinte:
 1. Certifique-se de que haja conectividade de rede entre a máquina e o servidor de processo. Se você não tiver configurado um servidor de processos separado, por padrão, ele estará em execução no servidor de configuração.
 1. Crie uma conta que o servidor de processo possa usar para acessar o computador. A conta deve ter direitos de administrador, seja local ou do domínio. Use essa conta somente para a instalação por push e atualizações de agentes.
 2. Se você não usar uma conta de domínio, desative o controle de acesso de usuário remoto no computador local da seguinte maneira:
-    - Na chave do registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, adicione uma nova DWORD: **LocalAccountTokenFilterPolicy**. Defina o valor como **1**.
+    - Na chave do Registro HKEY_LOCAL_MACHINE \ SOFTWARE \ Microsoft \ Windows \ CurrentVersion \ Policies \ System, adicione um novo DWORD: **LocalAccountTokenFilterPolicy**. Defina o valor como **1**.
     -  Para fazer isso no prompt de comando, execute o seguinte comando:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
 3. No Firewall do Windows na máquina que você deseja proteger, selecione **Permitir um aplicativo ou recurso pelo Firewall**. Habilite **Compartilhamento de Arquivo e Impressora** e **Instrumentação de Gerenciamento do Windows (WMI)** . Em computadores pertencentes a um domínio, pode-se configurar o firewall com um objeto de Política de Grupo (GPO).
@@ -32,7 +32,7 @@ Em cada máquina Windows que você deseja proteger, faça o seguinte:
    ![Configurações de firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. Adicione a conta criada em CSPSConfigtool. Para fazer isso, entre servidor de configuração.
-5. Abra **cspsconfigtool.exe**. Ele está disponível como atalho na área de trabalho e na pasta %ProgramData%\home\svsystems\bin.
+5. Abra **cspsconfigtool.exe**. Ele está disponível como um atalho na área de trabalho e na pasta%ProgramData%\ASR\home\svsystems\bin.
 6. Na guia **Gerenciar Contas**, selecione **Adicionar Conta**.
 7. Adicione a conta que você criou.
 8. Insira as credenciais usadas quando você habilitar a replicação de um computador.

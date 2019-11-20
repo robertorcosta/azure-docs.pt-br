@@ -1,6 +1,6 @@
 ---
 title: Visualizar dados de monitoramento remoto usando o Power BI – Azure | Microsoft Docs
-description: Este tutorial usa o Power BI Desktop e o Cosmos DB para integrar dados de uma solução de Monitoramento Remoto em uma visualização personalizada. Desse modo, os usuários podem criar seus próprios painéis personalizados e compartilha-los para os usuários que não estão na solução.
+description: Este tutorial usa Power BI Desktop e Cosmos DB para integrar dados de uma solução de monitoramento remoto em uma visualização personalizada. Desse modo, os usuários podem criar seus próprios painéis personalizados e compartilha-los para os usuários que não estão na solução.
 author: dominicbetts
 manager: hegate
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 13b10aa4f40b7c4b62b35e8580c2826c10e6683f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: HT
+ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166288"
+ms.locfileid: "74184233"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitoramento remoto usando o Power BI
 
@@ -22,13 +22,13 @@ Este tutorial explicará como conectar seus dados de solução de Monitoramento 
 ## <a name="prerequisites"></a>pré-requisitos
 
 - Você deve ter uma solução de Monitoramento Remoto em execução
-- Você deve ter acesso ao [Portal do Azure](https://portal.azure.com) e à sua assinatura na qual o Hub IoT e a solução estão em execução
+- Você deve ter acesso ao [portal do Azure](https://portal.azure.com) e à sua assinatura na qual o Hub IOT e a solução estão em execução
 - Você deve ter qualquer versão do [Power BI Desktop](https://powerbi.microsoft.com) instalada
 
 
-## <a name="information-needed-from-azure-portal"></a>Informações necessárias do Portal do Azure
+## <a name="information-needed-from-azure-portal"></a>Informações necessárias do portal do Azure
 
-1. Navegue até o [Portal do Azure](https://portal.azure.com) e faça logon, se for necessário
+1. Navegue até [portal do Azure](https://portal.azure.com) e entre, se necessário
 
 2. No painel esquerdo, clique em Grupos de recursos
 

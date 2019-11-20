@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: b9de02bf0836727ac88b78194641238621e87a79
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1bdd14841fc1c537046ee8dc3d0d6dc63b88ea25
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821053"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196526"
 ---
 # <a name="vcore-model-overview"></a>Visão geral do modelo vCore
 
@@ -134,7 +134,7 @@ Siga as etapas para alterar a configuração e selecione a geração de hardware
 
 ### <a name="hardware-availability"></a>Disponibilidade de hardware
 
-#### <a name="gen4gen5"></a>Gen4/Gen5
+#### <a name="gen4gen5-1"></a>Gen4/Gen5
 
 Novos bancos de dados Gen4 não têm mais suporte nas regiões leste da Austrália ou sul do Brasil. 
 

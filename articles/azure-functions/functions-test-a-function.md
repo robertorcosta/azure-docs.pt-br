@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 250d470e2450820f57720e0e1a6d274291cf162c
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: MT
+ms.openlocfilehash: 3c826cd32b38676bcbfe1bec79f580e17a509145
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809634"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195964"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código no Azure Functions
 
@@ -35,7 +35,7 @@ O exemplo a seguir descreve como criar um aplicativo de funções C# no Visual S
 
 ![Testar o Azure Functions com C# no Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>Configuração
+### <a name="setup"></a>Instalação
 
 Para configurar o ambiente, crie uma função e teste o aplicativo. As etapas a seguir ajudam você a criar os aplicativos e as funções necessários para os testes:
 
@@ -220,7 +220,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -229,7 +229,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -250,7 +250,7 @@ Os membros implementados nesta classe são:
 
 - **Http_trigger_should_return_string_from_member_data**: esse teste usa atributos xUnit para fornecer dados de exemplo para a função http.
 
-- **Timer_should_log_message**: esse teste cria uma instância de `ListLogger` e passa-a para uma função de temporizador. Depois que a função é executada, o log é verificado para garantir que a mensagem esperada está presente.
+- **Timer_should_log_message**: esse teste cria uma instância de `ListLogger` e a passa para uma função de temporizador. Depois que a função é executada, o log é verificado para garantir que a mensagem esperada está presente.
 
 Se você quiser acessar as configurações do aplicativo em seus testes, você pode usar [System. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
@@ -270,7 +270,7 @@ O exemplo a seguir descreve como criar um aplicativo de funções JavaScript no 
 
 ![Testar o Azure Functions com JavaScript no VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>Configuração
+### <a name="setup"></a>Instalação
 
 Para configurar o ambiente, inicialize um novo aplicativo Node.js em uma pasta vazia executando `npm init`.
 
@@ -375,7 +375,7 @@ Para depurar seus testes, adicione a seguinte configuração ao arquivo *launch.
 
 Em seguida, defina um ponto de interrupção no teste e pressione **F5**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a gravar testes automatizados das funções, continue com estes recursos:
 - [Executar manualmente uma função não disparada por HTTP](./functions-manually-run-non-http.md)

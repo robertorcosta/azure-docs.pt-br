@@ -1,18 +1,18 @@
 ---
-title: Matriz de suporte para migrações para Azure para avaliação e migração do Hyper-V
-description: Resume as configurações e limitações de avaliação e migração do Hyper-V usando o serviço migrações para Azure.
+title: Suporte para avaliação/migração do Hyper-V em migrações para Azure
+description: Saiba mais sobre o suporte para avaliação/migração do Hyper-V com migrações para Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6562d3f15d080a3bbc54a9985c12eae5908a9980
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498706"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186649"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de suporte para avaliação e migração do Hyper-V
 
@@ -35,7 +35,7 @@ A tabela resume os cenários com suporte para VMs do Hyper-V.
 --- | ---
 Permissões do Azure | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
 VMs Hyper-V | Avalie até 35.000 VMs do Hyper-V em um único projeto. Você pode ter vários projetos em uma assinatura do Azure. Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
-painel Geografia do app&#39;s selecionado | [Examine](migrate-support-matrix.md#supported-geographies) as geografias com suporte.
+painel Geografia do app&#39;s selecionado | [Analise](migrate-support-matrix.md#supported-geographies) as geografias com suporte.
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>Avaliação – requisitos de host do Hyper-V
@@ -122,7 +122,7 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Sistema operacional** | Todos os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) com suporte no Azure. |
 | **Permissões**           | Você precisa de permissões de administrador em cada VM do Hyper-V que deseja avaliar. |
 | **Integration Services**       | Os [Integration Services do Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) devem estar em execução em VMs que você avaliar, a fim de capturar informações do sistema operacional. |
-| **Alterações necessárias para o Azure** | Algumas VMs podem exigir alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso. |
+| **Alterações necessárias para o Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> - SUSE Linux Enterprise Server 12 SP1+<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso. |
 | **Inicialização do Linux**                 | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos. |
 | **Inicialização UEFI**                  | A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS. A VM deve estar executando apenas o Windows Server 2012 e posterior. O disco do sistema operacional deve ter até cinco partições ou menos e o tamanho do disco do sistema operacional deve ser inferior a 300 GB.
   |
@@ -131,10 +131,10 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Discos/volumes criptografados**    | Sem suporte para migração. |
 | **Discos de RDM/PassThrough**      | Sem suporte para migração. |
 | **Disco compartilhado** | As VMs que usam discos compartilhados não têm suporte para migração.
-| **-**                        | Volumes NFS montados como volumes nas VMs não serão replicados. |
+| **NFS**                        | Volumes NFS montados como volumes nas VMs não serão replicados. |
 | **ISCSI**                      | As VMs com destinos iSCSI não têm suporte para migração.
 | **Disco de destino**                | Você pode migrar para VMs do Azure somente com o Managed disks. |
-| **Protocolo** | Sem suporte.
+| **IPv6** | Sem suporte.
 | **Agrupamento NIC** | Sem suporte.
 | **Azure Site Recovery** | Não é possível replicar usando a migração de servidor de migrações para Azure se a VM estiver habilitada para replicação com Azure Site Recovery.
 

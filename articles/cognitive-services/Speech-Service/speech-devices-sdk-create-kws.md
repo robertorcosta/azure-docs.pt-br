@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a5b5de71ee290b39603968cf4309171689e22e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490952"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184838"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Criar uma palavra-chave personalizada usando o serviço de fala
 
@@ -46,7 +46,7 @@ Considere as seguintes diretrizes ao escolher uma palavra-chave:
 
 ## <a name="create-your-keyword"></a>Criar sua palavra-chave
 
-Antes de usar uma palavra-chave personalizada com seu dispositivo, você precisará criar uma palavra-chave com o serviço de geração de palavras-chave personalizada da Microsoft. Depois de fornecer uma palavra-chave, o serviço produz um arquivo que você implanta em seu kit de desenvolvimento para habilitar a palavra-chave em seu dispositivo.
+Para poder usar uma palavra-chave personalizada, você precisará criar uma palavra-chave usando a página de [palavra-chave personalizada](https://aka.ms/sdsdk-wakewordportal) no [Speech Studio](https://aka.ms/sdsdk-speechportal). Depois de fornecer uma palavra-chave, ela produz um arquivo que você implanta em seu dispositivo.
 
 1. Vá para o [Speech Studio](https://aka.ms/sdsdk-speechportal) e **entre** ou, se você ainda não tiver uma assinatura de fala, escolha [**criar uma assinatura**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
@@ -62,7 +62,7 @@ Antes de usar uma palavra-chave personalizada com seu dispositivo, você precisa
 
     ![Baixe sua palavra-chave](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-1. Salve o arquivo .zip no computador. Você precisará desse arquivo para implantar sua palavra-chave personalizada no kit de desenvolvimento.
+1. Salve o arquivo .zip no computador. Você precisará desse arquivo para implantar sua palavra-chave personalizada em seu dispositivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

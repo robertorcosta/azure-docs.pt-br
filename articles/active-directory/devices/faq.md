@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7730dc1143586eb4c5c05fd475b8412546b7a6
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: MT
+ms.openlocfilehash: f593d5ea621ad450eb82388416534e40df36e2d5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809261"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184184"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -119,7 +119,7 @@ Veja abaixo como essas ações podem ser corrigidas.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>P: o registro de dispositivo do Windows 10 no Azure AD dá suporte a TPMs no modo FIPS?
 
-**R:** Não, atualmente o registro de dispositivo no Windows 10 para todos os Estados de dispositivo-ingresso no Azure AD híbrido, ingresso no Azure AD e Azure AD registrado – não oferece suporte a TPMs no modo FIPS. Para ingressar ou se registrar no Azure AD com êxito, o modo FIPS precisa ser desativado para o TPMs nesses dispositivos
+**R:** O registro de dispositivo do Windows 10 só tem suporte para TPM 2,0 compatível com FIPS e sem suporte para TPM 1,2. Se seus dispositivos tiverem o TPM 1,2 compatível com FIPS, você deverá desabilitá-los antes de prosseguir com o ingresso no Azure AD ou ingressar no Azure AD híbrido. Observe que a Microsoft não fornece nenhuma ferramenta para desabilitar o modo FIPS para TPMs, pois depende do fabricante do TPM. Entre em contato com o OEM de hardware para obter suporte. 
 
 ---
 
@@ -316,7 +316,7 @@ O ingresso do Azure AD híbrido tem precedência sobre o estado de registrado pe
 - Durante a primeira tentativa de acesso, os usuários são solicitados a registrar o dispositivo usando o portal da empresa.
 
 ---
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [dispositivos registrados no Azure AD](concept-azure-ad-register.md)
 - Saiba mais sobre [dispositivos ingressados no Azure AD](concept-azure-ad-join.md)

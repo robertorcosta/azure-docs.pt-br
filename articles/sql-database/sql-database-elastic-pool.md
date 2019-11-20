@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 1b3ee75d1b24cab8211337cf1cdbd053327e16b8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ba309b864056b10fe6540e85ffbc4c013af00455
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823825"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186462"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -117,10 +117,10 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
 1. Faça estimativa de eDTUs ou vCores necessários para o pool, conforme a seguir:
 
    Para o modelo de compra baseado em DTU: MAX(<*Número total de BDs* X *utilização média de DTU por BD* >,<br>  
-   <*Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados*)
+   < *Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados* )
 
-   Para o modelo de compra baseado em vCore: MAX(<*Número total de DBs* X *utilização média de vCore por BD*>,<br>  
-   <*Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD*)
+   Para o modelo de compra baseado em vCore: MAX(<*Número total de DBs* X *utilização média de vCore por BD* >,<br>  
+   < *Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD* )
 
 2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, obtenha as maiores estimativas de eDTU da Etapa 1 e Etapa 2. Para o modelo de compra baseado em vCore, obtenha a estimativa de vCore da Etapa 1.
@@ -204,7 +204,7 @@ Por padrão, o gráfico na folha **Utilização de Recursos de Banco de Dados** 
 
 Você também pode selecionar mais métricas para exibir lado a lado nessa tabela de banco de dados para obter uma exibição mais completa do desempenho dos bancos de dados.
 
-Para obter mais informações, consulte [Criar alertas do Banco de Dados SQL no portal do Azure](sql-database-insights-alerts-portal.md).
+Para obter mais informações, confira [criar alertas do Banco de Dados SQL no portal do Azure](sql-database-insights-alerts-portal.md).
 
 ## <a name="customer-case-studies"></a>Estudos de caso de cliente
 
@@ -226,3 +226,4 @@ Para obter mais informações, consulte [Criar alertas do Banco de Dados SQL no 
 - Para obter um vídeo, confira [Curso em vídeo da Microsoft Virtual Academy sobre os recursos elásticos do Banco de Dados SQL do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Para saber mais sobre padrões de design para aplicativos SaaS usando pools elásticos, confira [Padrões de design para aplicativos de SaaS multilocatários com o banco de dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Para ver um tutorial de SaaS usando pools elásticos, consulte [Introdução ao aplicativo Wingtip SaaS](sql-database-wtp-overview.md).
+- Para saber mais sobre o gerenciamento de recursos em pools elásticos com muitos bancos de dados, consulte [Gerenciamento de recursos em pools elásticos densos](sql-database-elastic-pool-resource-management.md).

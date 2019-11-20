@@ -1,5 +1,5 @@
 ---
-title: Configurar endereços IP privados para VMs - Portal do Azure | Microsoft Docs
+title: Configurar endereços IP privados para VMs-portal do Azure
 description: Saiba como configurar endereços IP para máquinas virtuais usando o Portal do Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: kumud
-ms.openlocfilehash: 31aeab946b9ad740e2f56eb1ecaafd3e76cc42b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd734f171f4e10c4227fbab77485a788f02848b3
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723798"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196626"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurar endereços IP particulares para uma máquina virtual usando o Portal do Azure
 
@@ -100,7 +100,7 @@ Para adicionar um IP privado estático à VM criada usando as etapas acima, siga
 
 É recomendável que você não atribua estaticamente o IP privado atribuído à máquina virtual do Azure no sistema operacional de uma VM, a menos que seja necessário, como quando [atribuímos vários endereços IP para uma VM do Windows](virtual-network-multiple-ip-addresses-portal.md). Se você definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído ao [adaptador de rede](virtual-network-network-interface-addresses.md#change-ip-address-settings) do Azure ou se é possível perder a conectividade com a máquina virtual. Saiba mais sobre as configurações de [endereço IP privado](virtual-network-network-interface-addresses.md#private). Nunca atribua manualmente o endereço IP público atribuído a uma máquina virtual do Azure no sistema operacional da máquina virtual.
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Como remover um endereço IP privado estático de uma VM
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Como remover o endereço IP privado estático de uma VM
 Para remover o endereço IP privado estático da VM criada acima, realize a seguinte etapa:
 
 No painel **Endereços IP** mostrado acima, clique em **Dinâmico** em **Atribuição** e, em seguida, clique em **Salvar**.
@@ -111,5 +111,5 @@ No painel **Endereços IP** mostrado acima, clique em **Dinâmico** em **Atribui
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as configurações de [endereço IP privado](virtual-network-network-interface-addresses.md).
+Saiba mais sobre como gerenciar [configurações de endereço IP](virtual-network-network-interface-addresses.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Como configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais
+title: Configurar identidades gerenciadas no Azure VMSS – Azure AD
 description: Instruções passo a passo para configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57f0ec91bd5c72b593d9b28f7d47f691181a6a0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 32d8944b55794412eb322697469933030e2fbb56
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290559"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184031"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure
 
@@ -30,7 +30,7 @@ As identidades gerenciadas dos recursos do Azure fornecem aos serviços do Azure
 
 Neste artigo, usando o PowerShell, você aprende como executar as seguintes identidades gerenciadas para operações de recursos do Azure em um conjunto de dimensionamento de máquinas virtuais:
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md).
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md).
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar as operações de gerenciamento deste artigo, a conta precisa das seguintes atribuições de controle de acesso baseado em função do Azure:
 
@@ -39,7 +39,7 @@ Neste artigo, usando o PowerShell, você aprende como executar as seguintes iden
 
     - [Colaborador de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para habilitar e remover identidade gerenciada atribuída ao sistema de um conjunto de dimensionamento de máquinas virtuais.
 
-## <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída ao sistema
+## <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo sistema
 
 Nesta seção, você aprenderá como habilitar e desabilitar a identidade gerenciada atribuída ao sistema usando o portal do Azure.
 

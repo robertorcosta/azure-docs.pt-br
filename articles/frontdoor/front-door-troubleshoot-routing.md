@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas – solucione problemas com a sua configuração do Azure Front Door Service | Microsoft Docs
+title: Solucionar problemas de configuração do serviço de porta frontal do Azure
 description: Neste tutorial, você aprenderá como solucionar você mesmo alguns dos problemas comuns que pode enfrentar com o Front Door.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c0d6303620b92368e422b54beab4f9c346d022a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335888"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184569"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solução de problemas comuns de roteamentos
 Este artigo descreve como solucionar alguns dos problemas comuns de roteamento que você pode enfrentar para a sua configuração do Azure Front Door Service. 
@@ -62,7 +62,7 @@ Há várias causas possíveis para esse sintoma:
 
 
 3. Verificar as configurações de regra de roteamento
-     - Navegue até a regra de roteamento que deve fazer o roteamento do nome do host do Front-end em questão para um pool de back-end. Verifique se os protocolos aceitos estão configurados corretamente; se não estiverem, verifique se o protocolo que o Front Door usará ao encaminhar a solicitação está configurado corretamente. Os _protocolos aceitos_ determinam quais solicitações a porta frontal deve aceitar e o _protocolo_ de encaminhamento determina qual porta frontal do protocolo deve usar para encaminhar a solicitação para o back-end.
+     - Navegue até a regra de roteamento que deve fazer o roteamento do nome do host do Front-end em questão para um pool de back-end. Verifique se os protocolos aceitos estão configurados corretamente; se não estiverem, verifique se o protocolo que o Front Door usará ao encaminhar a solicitação está configurado corretamente. Os _protocolos aceitos_ determinam quais solicitações a porta frontal deve aceitar e o _protocolo de encaminhamento_ determina qual porta frontal do protocolo deve usar para encaminhar a solicitação para o back-end.
           - Por exemplo, se o back-end só aceitar solicitações HTTP, as seguintes configurações serão válidas:
                - Os _Protocolos aceitos_ são HTTP e HTTPS. O _Protocolo de encaminhamento_ é HTTP. Solicitação de correspondência não funcionará, já que o HTTPS é um protocolo permitido e, se uma solicitação tiver chegado como HTTPS, o Front Door tentará encaminhá-la usando HTTPS.
 

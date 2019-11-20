@@ -1,11 +1,11 @@
 ---
-title: Implantar um aplicativo de pilha dupla IPv6 usando o Load Balancer básico no Azure-PowerShell
+title: Implantar aplicativo IPv6 dual stack-Load Balancer básico-PowerShell
 titlesuffix: Azure Virtual Network
 description: Este artigo mostra como implantar um aplicativo IPv6 dual stack na rede virtual do Azure usando o Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 0ce051892cde9cb50b43a6d4f66ed3d461e71285
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 0b7f7a9198664693819143c306eeb1a020d22b7c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011443"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185478"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell-preview"></a>Implantar um aplicativo de pilha dupla IPv6 usando o Load Balancer-PowerShell básico (versão prévia)
 
-Este artigo mostra como implantar um aplicativo de pilha dupla (IPv4 + IPv6) com Load Balancer básica usando CLI do Azure que inclui uma rede virtual de pilha dupla e uma sub-rede, um Load Balancer básico com configurações de front-end (IPv4 + IPv6) duplas, VMs com NICs que têm um configuração de IP duplo, grupo de segurança de rede e IPs públicos.
+Este artigo mostra como implantar um aplicativo de pilha dupla (IPv4 + IPv6) com Load Balancer básica usando Azure PowerShell que inclui uma rede virtual de pilha dupla e uma sub-rede, um Load Balancer básico com configurações de front-end (IPv4 + IPv6) duplas, VMs com NICs que ter uma configuração de IP duplo, um grupo de segurança de rede e IPs públicos.
 
 Para implantar um aplicativo de pilha dupla (IPV4 + IPv6) usando Standard Load Balancer, consulte [implantar um aplicativo de pilha dupla IPv6 com Standard Load Balancer usando Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
 
@@ -33,7 +33,7 @@ Para implantar um aplicativo de pilha dupla (IPV4 + IPv6) usando Standard Load B
 
 Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o Azure PowerShell módulo versão 6.9.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de implantar um aplicativo de pilha dupla no Azure, você deve configurar sua assinatura para esse recurso de visualização usando as seguintes Azure PowerShell:
 
 Registre-se da seguinte maneira:
@@ -64,7 +64,7 @@ Antes de criar sua rede virtual de pilha dupla, você deve criar um grupo de rec
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>Criar endereços IP públicos IPv4 e IPv6
-Para acessar suas máquinas virtuais da Internet, você precisa de endereços IP públicos IPv4 e IPv6 para o balanceador de carga. Crie endereços IP públicos com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). O exemplo a seguir cria o endereço IP público IPv4 e IPv6 denominado *dsPublicIP_v4* e *dsPublicIP_v6* no grupo de recursos *dsRG1* :
+Para acessar suas máquinas virtuais da Internet, você precisa de endereços IP públicos IPv4 e IPv6 para o balanceador de carga. Crie endereços IP públicos com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). O exemplo a seguir cria o endereço IP público IPv4 e IPv6 chamado *dsPublicIP_v4* e *dsPublicIP_v6* no grupo de recursos *dsRG1* :
 
 ```azurepowershell-interactive
 $PublicIP_v4 = New-AzPublicIpAddress `
@@ -154,7 +154,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Criar balanceador de carga
+### <a name="create-load-balancer"></a>Criar um balanceador de carga
 
 Crie o Balanceador de Carga Básico com [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo a seguir cria um Load Balancer básico público chamado *myLoadBalancer* usando as configurações de IP de front-end IPv4 e IPv6, os pools de back-ends e as regras de balanceamento de carga que você criou nas etapas anteriores:
 
@@ -187,7 +187,7 @@ $avset = New-AzAvailabilitySet `
   -Sku aligned
 ```
 
-### <a name="create-network-security-group"></a>Criar grupo de segurança de rede
+### <a name="create-network-security-group"></a>Criar um grupo de segurança de rede
 
 Crie um grupo de segurança de rede para as regras que irão controlar a comunicação de entrada e saída em sua VNET.
 
@@ -322,7 +322,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>Determinar os endereços IP dos pontos de extremidade IPv4 e IPv6
-Obtenha todos os objetos de interface de rede no grupo de recursos para resumir os IPs usados nesta `get-AzNetworkInterface`implantação com o. Além disso, obtenha os endereços front-end do Load Balancer dos pontos de extremidade IPv4 e `get-AzpublicIpAddress`IPv6 com.
+Obtenha todos os objetos de interface de rede no grupo de recursos para resumir os IPs usados nesta implantação com `get-AzNetworkInterface`. Além disso, obtenha os endereços front-end do Load Balancer dos pontos de extremidade IPv4 e IPv6 com `get-AzpublicIpAddress`.
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"

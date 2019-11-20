@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar VMs requisitáveis em um laboratório no Azure DevTest Labs | Microsoft Docs
+title: Criar e gerenciar VMs declaráveis no Azure DevTest Labs | Microsoft Docs
 description: Saiba como adicionar uma máquina virtual declarável a um laboratório no Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 7ad10a1763b4882aa3bb6aec7447f57ebaf07369
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a3b8085a4dd2ece384ece72578ffafbd0e2e0b9d
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123706"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184284"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerenciar VMs requisitáveis no Azure DevTest Labs
 Você adiciona uma VM declarável a um laboratório de maneira semelhante a como [adiciona uma VM padrão](devtest-lab-add-vm.md) – de uma *base* que é uma [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica como usar o Portal do Azure para adicionar uma VM requisitável a um laboratório no DevTest Labs e mostra o processo que um usuário segue para declarar a VM e cancelar sua declaração.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Etapas para adicionar uma VM declarável a um laboratório no Azure DevTest Labs
-1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** na seção **DEVOPS**. Se você selecionar * (estrela) próximo a **DevTest Labs** na seção **DEVOPS**. Essa ação adicionará **DevTest Labs** ao menu de navegação esquerdo para que você possa acessá-lo facilmente na próxima vez. Em seguida, será possível selecionar **DevTest Labs** no menu de navegação esquerdo.
 
     ![Todos os serviços - selecionar DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)

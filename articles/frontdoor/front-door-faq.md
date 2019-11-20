@@ -1,5 +1,5 @@
 ---
-title: Serviço de porta frontal do Azure-perguntas frequentes sobre a porta frontal | Microsoft Docs
+title: Serviço de porta frontal do Azure-perguntas frequentes
 description: Esta página fornece respostas para perguntas frequentes sobre o serviço de porta frontal do Azure
 services: frontdoor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 4001b3ed8d7a92d8a751486ab4fd3a097d032373
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809728"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184649"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Perguntas frequentes sobre o serviço de porta frontal do Azure
 
@@ -134,7 +134,7 @@ A porta frontal do Azure (AFD) requer um IP público ou um nome DNS que possa se
 
 Saiba mais sobre todos os [tempos limite e limites documentados para o serviço de porta frontal do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Desempenho
 
 ### <a name="how-does-azure-front-door-service-support-high-availability-and-scalability"></a>Como o serviço de porta frontal do Azure dá suporte à alta disponibilidade e escalabilidade?
 
@@ -211,7 +211,7 @@ Os logs de auditoria estão disponíveis para o serviço de porta frontal do Azu
 
 Sim, o serviço de porta frontal do Azure dá suporte a alertas. Os alertas são configurados nas métricas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como o Front Door funciona](front-door-routing-architecture.md).

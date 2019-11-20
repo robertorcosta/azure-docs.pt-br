@@ -1,5 +1,5 @@
 ---
-title: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
+title: Implantar & configurar o Firewall do Azure na rede híbrida usando o PowerShell
 description: Neste artigo, você aprenderá a implantar e configurar o Firewall do Azure usando o Azure PowerShell.
 services: firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a5a008a795b88dbcb72ed9fba869e5251fd93567
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163524"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195774"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
 
@@ -47,7 +47,7 @@ Se você quiser usar portal do Azure em vez de concluir este tutorial, consulte 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Este artigo requer que você execute o PowerShell localmente. Você deve ter os módulos do Azure PowerShell instalados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
@@ -493,7 +493,7 @@ Agora execute os testes novamente. Todos devem falhar nesse momento. Feche as á
 
 Você pode manter seus recursos de firewall para o próximo tutorial ou se não forem mais necessários, exclua o grupo de recursos **FW-Hybrid-Test** para excluir todos os recursos relacionados ao firewall.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Em seguida,você pode monitorar os logs do Firewall do Azure.
 

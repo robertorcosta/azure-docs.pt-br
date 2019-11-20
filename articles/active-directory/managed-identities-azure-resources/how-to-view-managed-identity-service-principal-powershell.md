@@ -1,5 +1,5 @@
 ---
-title: Como exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell
+title: Exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell-Azure AD
 description: Instruções passo a passo para exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aa5ab96ae85833e59ed40161cafcc1eb88379be
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ac2d1d4fc5e669f63bff49a7948db74ec1baa62
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441756"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184117"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell
 
@@ -30,9 +30,9 @@ Neste artigo, você aprende a exibir a entidade de serviço de uma identidade ge
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md).
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md).
 - Caso ainda não tenha uma conta do Azure, [inscreva-se para obter uma conta gratuita](https://azure.microsoft.com/free/).
 - Habilite a [identidade designada pelo sistema em uma máquina virtual](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) ou [aplicativo](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
 - Instale a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)

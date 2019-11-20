@@ -1,5 +1,5 @@
 ---
-title: Como configurar identidades gerenciadas atribuídas ao usuário e ao sistema em um VMSS do Azure usando REST
+title: Configurar identidades gerenciadas no Azure VMSS usando REST – Azure AD
 description: Instruções passo a passo para configurar identidades gerenciadas atribuídas ao usuário e ao sistema em um VMSS do Azure usando CURL para fazer chamadas à API REST.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5721879ee78a694c90e607d15f30f99394e49fc
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308259"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183606"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
 
@@ -33,9 +33,9 @@ Neste artigo, usando CURL para fazer chamadas ao ponto de extremidade de REST do
 - Habilitar e desabilitar a identidade gerenciada atribuída ao sistema em um conjunto de dimensionamento de máquinas virtuais do Azure
 - Adicionar e remover uma identidade gerenciada atribuída ao usuário em um conjunto de dimensionamento de máquinas virtuais do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-it-work)** .
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar as operações de gerenciamento deste artigo, a conta precisa das seguintes atribuições de controle de acesso baseado em função do Azure:
 
@@ -43,16 +43,16 @@ Neste artigo, usando CURL para fazer chamadas ao ponto de extremidade de REST do
     > Não são necessárias atribuições de função do diretório adicionais do Azure AD.
 
     - [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquinas virtuais e habilitar e remover identidade gerenciada atribuída ao usuário e/ou sistema de um conjunto de dimensionamento de máquinas virtuais.
-    - Função de [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída ao usuário.
+    - [Função de Contratada de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída pelo usuário.
     - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade atribuída ao usuário de e para um conjunto de dimensionamento de máquinas virtuais.
 - Se você estiver usando o Windows, instale o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou use o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal do Azure.
-- Se você usa o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [SO de distribuição do Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale o console local da CLI do Azure](/cli/azure/install-azure-cli).
+- Se você usa o [subsistema do Windows para Linux](/cli/azure/install-azure-cli) ou um [SO de distribuição do Linux](https://msdn.microsoft.com/commandline/wsl/about), [instale o console local da CLI do Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Se você estiver usando o console local do Azure CLI, faça logon no Azure usando `az login` com uma conta associada à assinatura do Azure que deseja gerenciar as identidades gerenciadas pelo sistema ou pelo usuário.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída ao sistema
+## <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo sistema
 
 Nesta seção, você aprenderá como habilitar e desabilitar a identidade gerenciada atribuída ao sistema em um conjunto de dimensionamento de máquinas virtuais usando CURL para fazer chamadas ao ponto de extremidade de REST do Azure Resource Manager.
 
@@ -337,7 +337,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    az account get-access-token
    ``` 
 
-4. Crie uma identidade gerenciada atribuída pelo usuário usando as instruções encontradas aqui: [Criar uma identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Crie uma identidade gerenciada atribuída pelo usuário usando as instruções encontradas aqui: [Crie uma identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 5. Crie um conjunto de dimensionamento de máquinas virtuais usando o CURL para chamar o ponto de extremidade REST do Azure Resource Manager. O exemplo a seguir cria um conjunto de dimensionamento de máquinas virtuais nomeado *myVMSS* no grupo de recursos *myResourceGroup* com uma identidade gerenciada atribuída ao usuário `ID1`, identificada no corpo da solicitação pelo valor `"identity":{"type":"UserAssigned"}`. Substitua `<ACCESS TOKEN>` pelo valor recebido na etapa anterior quando você solicitou um token de acesso de portador e o valor de `<SUBSCRIPTION ID>` apropriado para seu ambiente.
  

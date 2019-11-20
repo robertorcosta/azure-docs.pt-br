@@ -1,5 +1,5 @@
 ---
-title: Configuração de endereços IP privados para VMs – CLI do Azure | Microsoft Docs
+title: Configurar endereços IP privados para VMs-CLI do Azure
 description: Aprenda a configurar endereços IP privados para máquinas virtuais usando a interface de linha de comando (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1b39196c489927474c0912b316de5ff3b3dbb956
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5734b96466801efaa991a971bd87f60aafc9df32
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681403"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196621"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurar endereços IP privados para uma máquina virtual usando a CLI do Azure
 
@@ -35,7 +35,7 @@ Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você t
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Os seguintes exemplos de comandos de CLI do Azure esperam um ambiente simples existente. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma vnet](quick-create-cli.md).
+> Os seguintes exemplos de comandos de CLI do Azure esperam um ambiente simples existente. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma rede virtual](quick-create-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Especificar um endereço IP estático e privado ao criar uma VM
 
@@ -70,9 +70,9 @@ Para criar uma VM denominada *DNS01* na sub-rede *FrontEnd* de uma VNet chamada 
     }
     ```
 
-   * `--resource-group`: nome do grupo de recursos no qual criar o IP público.
-   * `--name`: Nome do IP público.
-   * `--location`: região do Azure na qual criar o IP público.
+   * `--resource-group`: o nome do grupo de recursos no qual criar o IP público.
+   * `--name`: nome do IP público.
+   * `--location`: região do Azure no qual criar o IP público.
 
 3. Execute o comando [az network nic create](/cli/azure/network/nic) para criar uma NIC com um endereço IP privado estático. A lista exibida após a saída explicar os parâmetros usados. 
    
@@ -122,9 +122,9 @@ Para criar uma VM denominada *DNS01* na sub-rede *FrontEnd* de uma VNet chamada 
     
     Parâmetros:
 
-    * `--private-ip-address`: Endereço IP privado estático para a NIC.
-    * `--vnet-name`: nome da VNet na qual criar a NIC.
-    * `--subnet`: nome da sub-rede na qual criar a NIC.
+    * `--private-ip-address`: endereço IP privado estático para a NIC.
+    * `--vnet-name`: o nome da VNet na qual criar a NIC.
+    * `--subnet`: o nome da subrede na qual criar a NIC.
 
 4. Execute o comando [azure vm create](/cli/azure/vm/nic) para criar a VM usando o IP público e a NIC criada anteriormente. A lista exibida após a saída explicar os parâmetros usados.
    
@@ -271,4 +271,4 @@ Para alterar a NIC da VM usada em comandos anteriores, conclua as seguintes etap
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as configurações de [endereço IP privado](virtual-network-network-interface-addresses.md).
+Saiba mais sobre como gerenciar [configurações de endereço IP](virtual-network-network-interface-addresses.md).

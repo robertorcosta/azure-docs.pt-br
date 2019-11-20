@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 11/18/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820e979c41ddc1c1cf14456ed77a4a55e353ab12
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 866f2e5e1ba9df9e8e63b77250d6c94635bbc009
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094271"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74194966"
 ---
 > [!NOTE] 
 > As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 
@@ -59,7 +59,7 @@ Para saber mais sobre como acessar arquivos e diretórios de uma tarefa, confira
 
 O nível de elevação da conta de usuário indica se uma tarefa é executada com acesso elevado. Tanto uma conta de usuário automático, quanto uma conta de usuário nomeado podem ser executadas com acesso elevado. As duas opções de nível de elevação são:
 
-- **Não administrador:** a tarefa é executada como um usuário padrão sem acesso elevado. O nível de elevação padrão de uma conta de usuário do Lote é sempre **Não Administrador**.
+- **Não Administrador:** a tarefa é executada como um usuário padrão sem acesso elevado. O nível de elevação padrão de uma conta de usuário do Lote é sempre **Não Administrador**.
 - **Administrador:** a tarefa é executada como um usuário com acesso elevado e opera com permissões completas de Administrador. 
 
 ## <a name="auto-user-accounts"></a>Contas de usuário automático
@@ -159,7 +159,7 @@ Uma conta de usuário nomeado é útil quando você deseja executar todas as tar
 
 Você também pode usar uma conta de usuário nomeado para executar uma tarefa que defina permissões em recursos externos, como compartilhamentos de arquivos. Com uma conta de usuário nomeado, você controla a identidade do usuário e pode usar a identidade do usuário para definir permissões.  
 
-As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para saber mais sobre tarefas de várias instâncias, confira [Usar tarefas de várias instâncias para executar aplicativos de MPI](batch-mpi.md).
+As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para saber mais sobre tarefas de várias instâncias, confira [Usar tarefas de várias instâncias para executar aplicativos de MPI\-.
 
 ### <a name="create-named-user-accounts"></a>Criar contas de usuário nomeado
 
@@ -280,7 +280,7 @@ users = [
     batchmodels.UserAccount(
         name='pool-nonadmin',
         password='******',
-        elevation_level=batchmodels.ElevationLevel.nonadmin)
+        elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(
     id=pool_id,
@@ -329,7 +329,7 @@ A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significat
 | Se seu código usar...                      | Atualize-o para...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, em que <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
-| `run_elevated=False`                      | `user_identity=user`, em que <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
+| `run_elevated=False`                      | `user_identity=user`, em que <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
 | `run_elevated` não especificado | Nenhuma atualização é necessária                                                                                                                                  |
 
 

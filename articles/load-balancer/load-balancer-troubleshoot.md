@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: b6647c1b850b7678944edbc899f0727f8e10db08
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076915"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184341"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
 
@@ -27,6 +27,8 @@ ms.locfileid: "74076915"
 Esta página fornece informações para solução de problemas comuns do Azure Load Balancer. Quando a conectividade do Load Balancer não estiver disponível, os sintomas mais comuns são os seguintes: 
 - VMs por trás do Load Balancer não estão respondendo às investigações de integridade 
 - VMs por trás do Load Balancer não estão respondendo ao tráfego na porta configurada
+
+Quando os clientes externos para as VMs de back-end passam pelo balanceador de carga, o endereço IP dos clientes será usado para a comunicação. Verifique se o endereço IP dos clientes foi adicionado à lista de permissões NSG. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintoma: As VMs por trás do Load Balancer não estão respondendo às investigações de integridade
 Para que os servidores back-end participem do conjunto de balanceadores de carga, eles devem passar na verificação de investigação. Para saber mais sobre investigações de integridade, confira [Noções básicas sobre investigações do Load Balancer](load-balancer-custom-probe-overview.md). 
@@ -96,18 +98,20 @@ Se uma VM não responder ao tráfego de dados, pode ser porque a porta de destin
 1. Faça logon na VM de back-end. 
 2. Abra um prompt de comando e execute o seguinte comando para verificar se existe um aplicativo escutando na porta de dados:   netstat -an 
 3. Se a porta não estiver listada com o estado "LISTENING", configure a porta de ouvinte apropriada 
-4. Se a porta estiver marcada como Listening, verifique se há algum problema no aplicativo de destino dessa porta. 
+4. Se a porta estiver marcada como Listening, verifique se há algum problema no aplicativo de destino dessa porta.
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: O grupo de segurança de rede está bloqueando a porta na VM do pool de back-end do Load Balancer  
 
 Se um ou mais grupos de segurança de rede configurados na sub-rede ou na VM estiverem bloqueando o IP de origem ou a porta, a VM não poderá responder.
 
-* Liste os grupos de segurança de rede configurados na VM de back-end. Para obter mais informações, consulte [Gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md).
-* Na lista de grupos de segurança de rede, verifique se:
+Para o Load Balancer público, o endereço IP dos clientes da Internet será usado para comunicação entre os clientes e as VMs de back-end do balanceador de carga. Verifique se o endereço IP dos clientes é permitido no grupo de segurança de rede da VM de back-end.
+
+1. Liste os grupos de segurança de rede configurados na VM de back-end. Para obter mais informações, consulte [gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md)
+1. Na lista de grupos de segurança de rede, verifique se:
     - O tráfego de entrada ou saída na porta de dados tem interferência. 
-    - Uma regra do grupo de segurança de rede **Negar Tudo** na NIC da VM ou na sub-rede tem uma prioridade mais alta do que a regra padrão que permite as investigações e o tráfego do Load Balancer (grupos de segurança de rede devem permitir o IP 168.63.129.16 do Load Balancer, que é a porta de investigação) 
-* Se qualquer uma dessas regras estiver bloqueando o tráfego, remova e reconfigure as regras para permitir o tráfego de dados.  
-* Agora, verifique se a VM começou a responder às investigações de integridade.
+    - Uma regra do grupo de segurança de rede **Negar Tudo** na NIC da VM ou na sub-rede tem uma prioridade mais alta do que a regra padrão que permite as investigações e o tráfego do Load Balancer (grupos de segurança de rede devem permitir o IP 168.63.129.16 do Load Balancer, que é a porta de investigação)
+1. Se qualquer uma dessas regras estiver bloqueando o tráfego, remova e reconfigure as regras para permitir o tráfego de dados.  
+1. Agora, verifique se a VM começou a responder às investigações de integridade.
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Causa 3: Acessando o Load Balancer da mesma VM e interface de rede 
 

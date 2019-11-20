@@ -1,10 +1,10 @@
 ---
-title: Adicionar ou remover interfaces de rede de máquinas virtuais do Azure | Microsoft Docs
+title: Adicionar ou remover interfaces de rede de VMs do Azure
 description: Saiba como adicionar adaptadores de rede ou remover adaptadores de rede de máquinas virtuais.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
-ms.openlocfilehash: 24f4b7435c2736527d033aa5ca7a65ad35a3a705
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: a55bf014a2da10069e4e6a5f6f4eb4b8cd9ff205
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73022175"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196748"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Adicionar adaptadores de rede ou remover adaptadores de rede de máquinas virtuais
 
@@ -47,7 +47,7 @@ Ao criar uma máquina virtual por meio do portal, o portal cria um adaptador de 
 
 Antes de criar a VM, crie um adaptador de rede usando as etapas em [Criar um adaptador de rede](virtual-network-network-interface.md#create-a-network-interface).
 
-|Ferramenta|Command|
+|Ferramenta|Comando|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |PowerShell|[New-AzVM](/powershell/module/az.compute/new-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -70,7 +70,7 @@ Antes de criar a VM, crie um adaptador de rede usando as etapas em [Criar um ada
 8. Configure o sistema operacional da VM para usar vários adaptadores de rede adequadamente. Aprenda como configurar [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) ou [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) para vários adaptadores de rede.
 
 ### <a name="commands"></a>Comandos
-|Ferramenta|Command|
+|Ferramenta|Comando|
 |---|---|
 |CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [etapas detalhadas](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
 |PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [etapas detalhadas](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
@@ -86,7 +86,7 @@ Você pode exibir os adaptadores de rede atualmente anexados a uma VM para saber
 
 ### <a name="commands"></a>Comandos
 
-|Ferramenta|Command|
+|Ferramenta|Comando|
 |---|---|
 |CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -105,7 +105,7 @@ Você pode exibir os adaptadores de rede atualmente anexados a uma VM para saber
 
 ### <a name="commands"></a>Comandos
 
-|Ferramenta|Command|
+|Ferramenta|Comando|
 |---|---|
 |CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [etapas detalhadas](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [etapas detalhadas](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
@@ -124,10 +124,10 @@ Você pode exibir os adaptadores de rede atualmente anexados a uma VM para saber
 - Excluir uma VM não exclui os adaptadores de rede anexados a ele. Quando você exclui uma VM, os adaptadores de rede são desanexados da VM. Você pode adicionar os adaptadores de rede a diferentes VMs ou excluí-los.
 - Assim como acontece com o IPv6, você não pode anexar um adaptador de rede com rede acelerada habilitada a uma VM após a criação dela. Além disso, para tirar proveito da rede rápida, você também deve concluir as etapas dentro do sistema operacional da VM. Saiba mais sobre a rede acelerada e outras restrições ao usá-la, para máquinas virtuais do [Windows](create-vm-accelerated-networking-powershell.md) ou do [Linux](create-vm-accelerated-networking-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para criar uma VM com vários adaptadores de rede ou endereços IP, consulte os seguintes artigos:
 
-|Tarefa|Ferramenta|
+|tarefa|Ferramenta|
 |---|---|
 |Criar uma VM com diversos NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Criar uma VM com um NIC com vários endereços IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

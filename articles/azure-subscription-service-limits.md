@@ -6,16 +6,16 @@ author: rothja
 manager: jeffreyg
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
-ms.service: billing
+ms.service: azure-policy
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: f9fe540611b1b773867e1f92439e13df91ad4bd3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: b6ce20196b6ffdcd6699611998260dc981cc4f44
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818338"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185035"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abranger mais serviços.
@@ -44,10 +44,10 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Active Directory](#active-directory-limits)
 * [Gerenciamento da API](#api-management-limits)
 * [Serviço de Aplicativo](#app-service-limits)
-* [Gateway de Aplicativo](#application-gateway-limits)
+* [Application Gateway](#application-gateway-limits)
 * [Automação](#automation-limits)
 * [Cache Redis do Azure](#azure-cache-for-redis-limits)
-* [Serviços de nuvem do Azure](#azure-cloud-services-limits)
+* [Serviços de Nuvem do Azure](#azure-cloud-services-limits)
 * [Pesquisa Cognitiva do Azure](#azure-cognitive-search-limits)
 * [Serviços Cognitivos do Azure](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
@@ -67,7 +67,7 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Serviços do BizTalk](#biztalk-services-limits)
 * [Instâncias de Contêiner](#container-instances-limits)
 * [Registro de Contêiner](#container-registry-limits)
-* [Rede de distribuição de conteúdo](#content-delivery-network-limits)
+* [Rede de Distribuição de Conteúdo](#content-delivery-network-limits)
 * [Fábrica de dados](#data-factory-limits)
 * [Análises Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -78,12 +78,12 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Gerenciador de identidades](#identity-manager-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Serviço de Provisionamento de Dispositivos no Hub IoT](#iot-hub-device-provisioning-service-limits)
-* [Cofre de Chaves](#key-vault-limits)
+* [Cofre da Chave](#key-vault-limits)
 * [Serviços de Mídia](#media-services-limits)
 * [Serviços Móveis](#mobile-services-limits)
 * [Autenticação Multifator](#multi-factor-authentication-limits)
 * [Rede](#networking-limits)
-  * [Gateway de Aplicativo](#application-gateway-limits)
+  * [Application Gateway](#application-gateway-limits)
   * [Bastiões do Azure](#azure-bastion-limits)
   * [DNS do Azure](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
@@ -108,7 +108,7 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Sistema StorSimple](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Assinatura](#subscription-limits)
-* [Máquinas virtuais](#virtual-machines-limits)
+* [Máquinas Virtuais](#virtual-machines-limits)
 * [Conjuntos de dimensionamento de máquinas virtuais](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>Limites de assinatura
@@ -402,7 +402,7 @@ Para os limites do banco de dados SQL, consulte [limites de recursos do banco de
 ### <a name="sql-data-warehouse-limits"></a>Limites do SQL Data Warehouse
 Para limites de SQL Data Warehouse, confira [SQL data warehouse limites de recursos](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 - [Entender os limites e as aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 - [Tamanhos de máquina virtual e serviço de nuvem para o Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Tamanhos dos serviços de nuvem do Azure](cloud-services/cloud-services-sizes-specs.md)

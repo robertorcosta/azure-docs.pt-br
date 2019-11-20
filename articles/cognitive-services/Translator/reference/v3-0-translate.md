@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 11/12/2019
 ms.author: swmachan
-ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835777"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184801"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: tradução
 
@@ -23,7 +23,7 @@ Traduz texto.
 
 ## <a name="request-url"></a>URL de Solicitação
 
-Envie uma solicitação `POST` para:
+Envia uma solicitação `POST` para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
@@ -33,21 +33,30 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
+### <a name="required-parameters"></a>Parâmetros obrigatórios
+
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
   <th>DESCRIÇÃO</th>
   <tr>
     <td>api-version</td>
-    <td><em>Parâmetro necessário</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser <code>3.0</code>.</td>
+    <td><em>Parâmetro necessário</em>.<br/>Versão da API solicitada pelo cliente. O valor deve ser <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>Da</td>
+    <td>Para</td>
+    <td><em>Parâmetro necessário</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas compatíveis</a> incluídos no escopo de <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
+  </tr>
+</table>
+
+### <a name="optional-parameters"></a>Parâmetros opcionais
+
+<table width="100%">
+  <th width="20%">Parâmetro de consulta</th>
+  <th>DESCRIÇÃO</th>
+  <tr>
+    <td>from</td>
     <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o parâmetro <code>from</code> em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
-  </tr>
-  <tr>
-    <td>para</td>
-    <td><em>Parâmetro necessário</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas com suporte</a> incluídos no escopo <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
-  </tr>
+  </tr>  
   <tr>
     <td>textType</td>
     <td><em>Parâmetro opcional</em>.<br/>Define se o texto que está sendo traduzido é texto sem formatação ou texto HTML. Qualquer HTML deve ser um elemento completo e bem formado. Os valores possíveis são: <code>plain</code> (padrão) ou <code>html</code>.</td>
@@ -91,10 +100,10 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
 </table> 
 
-Os cabeçalhos da solicitação incluem:
+Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
+  <th width="20%">headers</th>
   <th>DESCRIÇÃO</th>
   <tr>
     <td>Cabeçalho (s) de autenticação</td>
@@ -127,17 +136,17 @@ O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objet
 As seguintes limitações se aplicam:
 
 * A matriz pode ter no máximo 100 elementos.
-* Todo o texto incluído na solicitação não pode exceder 5.000 caracteres incluindo espaços.
+* Todo o texto incluído na solicitação não pode exceder cinco mil caracteres incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
   * `detectedLanguage`: um objeto que descreve o idioma detectado por meio das seguintes propriedades:
 
       * `language`: uma cadeia de caracteres que representa o código do idioma detectado.
 
-      * `score`: um valor flutuante indicando a confiança no resultado. A pontuação é entre zero e um, e uma pontuação baixa indica uma baixa confiança.
+      * `score`: um valor de float indicando a confiança no resultado. A pontuação é entre zero e um e uma pontuação baixa indica uma baixa confiança.
 
     A propriedade `detectedLanguage` somente está presente no objeto de resultado quando a detecção automática de idioma é solicitada.
 
@@ -159,9 +168,9 @@ Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia d
 
     * `sentLen`: um objeto retornando limites de sentença nos textos de entrada e saída.
 
-      * `srcSentLen`: uma matriz inteira representando os comprimentos das sentenças no texto de entrada. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença.
+      * `srcSentLen`: uma matriz inteira representando os comprimentos das sentenças no texto de entrada. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frase.
 
-      * `transSentLen`:  uma matriz inteira representando os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença.
+      * `transSentLen`:  uma matriz inteira representando os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frase.
 
     Limites de sentença serão incluídos somente quando o parâmetro de solicitação `includeSentenceLength` for `true`.
 
@@ -172,7 +181,7 @@ Exemplos de respostas JSON são fornecidos na seção [exemplos](#examples).
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
+  <th width="20%">headers</th>
   <th>DESCRIÇÃO</th>
     <tr>
     <td>X-RequestId</td>
@@ -348,7 +357,7 @@ O corpo da resposta é:
 
 ### <a name="handle-profanity"></a>Tratar conteúdo ofensivo
 
-Normalmente, o serviço do Translator reterá a linguagem vulgar presente no texto de origem da tradução. O grau de vulgaridade e o contexto que torna palavras vulgar diferem entre as culturas, assim, o grau de vulgaridade no idioma de destino pode ser amplificado ou reduzido.
+Normalmente o serviço de tradução reterá a linguagem vulgar presente no texto de origem da tradução. O grau de vulgaridade e o contexto que torna palavras vulgar diferem entre as culturas, assim, o grau de vulgaridade no idioma de destino pode ser amplificado ou reduzido.
 
 Se você quiser evitar conteúdo ofensivo na tradução, independentemente da presença de linguagem vulgar no texto de origem, poderá usar a opção de filtragem de linguagem vulgar. A opção permite escolher se você quer ver o conteúdo ofensivo excluído, se quer marcar conteúdos ofensivos com marcas apropriadas (dando a opção de adicionar seu próprio pós-processamento), ou se não quer executar nenhuma ação. Os valores aceitos de `ProfanityAction` são `Deleted`, `Marked` e `NoAction` (padrão).
 
@@ -364,7 +373,7 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
   </tr>
   <tr>
     <td><code>Deleted</code></td>
-    <td>Palavras ofensivas serão removidas da saída sem substituição.<br/><br/>
+    <td>Palavras vulgares serão removidas da saída sem substituição.<br/><br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
     <strong>Tradução de exemplo (inglês)</strong>: Ele é um.
     </td>
@@ -505,7 +514,7 @@ A resposta é:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Traduzir com dicionário dinâmico
 
-Se você já souber a tradução que deseja aplicar a uma palavra ou frase, poderá fornecê-la como marcação dentro da solicitação. O dicionário dinâmico é seguro somente para substantivos compostos como nomes próprios e nomes de produtos.
+Se você já souber a tradução que deseja aplicar a uma palavra ou frase, poderá fornecê-la como marcação dentro da solicitação. O dicionário dinâmico só é seguro para nomes compostos, como nomes próprios e nomes de produto.
 
 A marcação para fornecer usa a seguinte sintaxe.
 

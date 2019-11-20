@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 61cb6003549530f381b9cbbed74c1cb62c91431c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512893"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184264"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Perguntas frequentes do Azure Internet Analyzer (versão prévia)
 
@@ -41,19 +41,19 @@ Não, o Azure Internet Analyzer é gratuito para uso na versão prévia. Não h�
 
 ## <a name="what-scenarios-is-internet-analyzer-designed-to-address"></a>Quais cenários o Internet Analyzer foi projetado para abordar?
 
-O Internet Analyzer foi projetado para fornecer informações de desempenho de rede com base em sua população de usuário. Para ajudar a tomar as melhores decisões de desempenho para seus usuários, o Internet Analyzer compara o desempenho de dois pontos de extremidade de Internet usando sua população de usuário distinta. Embora o Internet Analyzer possa responder a uma infinidade de perguntas, algumas das mais comuns são:
+O Internet Analyzer foi projetado para fornecer informações de desempenho de rede com base em sua população de usuário. Para ajudar a tomar as melhores decisões de desempenho para seus usuários, o Internet Analyzer compara o desempenho de dois pontos de extremidade de Internet usando sua população de usuário distinta. Embora o Analisador de Internet possa responder a várias perguntas, algumas das mais comuns são:
 
-* Qual é o impacto no desempenho da migração para a nuvem? 
+* Qual é o impacto da migração para a nuvem no desempenho? 
     * *Teste sugerido: personalizado (sua infraestrutura local atual) versus Azure (qualquer ponto de extremidade pré-configurado)*
 * Qual é o valor de colocar meus dados na borda versus em um data center? 
     *  *Teste sugerido: Azure vs. Azure front door, Azure vs. CDN do Azure da Microsoft*
-* Qual é o benefício de desempenho da porta frontal do Azure?
+* Qual é o benefício de desempenho do Azure Front Door?
     *  *Teste sugerido: Custom/Azure/CDN versus Azure front door*
 * Qual é o benefício de desempenho da CDN do Azure da Microsoft? 
     *  *Teste sugerido: personalizado/Azure/AFD versus CDN do Azure da Microsoft*
-* Como a CDN do Azure da Microsoft se empilha? 
+* Como a CDN do Azure da Microsoft cresce? 
     *  *Teste sugerido: personalizado (outro ponto de extremidade da CDN) versus CDN do Azure da Microsoft*
-* Qual é a melhor nuvem para sua população de usuário final em cada região? 
+* Qual é a melhor nuvem para sua população de usuários finais em cada região? 
     *  *Teste sugerido: personalizado (outro serviço de nuvem) versus Azure (qualquer ponto de extremidade pré-configurado)*
 
 ## <a name="which-tests-can-i-run-in-preview"></a>Quais testes posso executar na visualização?
@@ -80,24 +80,28 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
     * Oeste dos EUA
     * Oeste dos EUA 2
 * **Várias combinações de regiões do Azure**
-    * Leste dos EUA, sul do Brasil
+    * Leste dos EUA, Sul do Brasil
     * Leste dos EUA, Ásia Oriental
-    * Europa Ocidental, sul do Brasil
-    * Europa Ocidental, Sudeste Asiático
-    * Europa Ocidental, Norte dos EAU
-    * Oeste dos EUA, leste dos EUA
-    * Oeste dos EUA, Europa Ocidental
+    * Oeste da Europa, Sul do Brasil
+    * Oeste da Europa, Sudeste Asiático
+    * Oeste da Europa, Norte dos EAU
+    * Oeste dos EUA, Leste dos EUA
+    * Oeste dos EUA, Oeste da Europa
     * Oeste dos EUA, Norte dos EAU
-    * Europa Ocidental, Norte dos EAU, Sudeste Asiático
-    * Oeste dos EUA, Europa Ocidental, Ásia Oriental
-    * Oeste dos EUA, Europa Setentrional, Sudeste Asiático, Norte dos EAU, norte da África do Sul 
-* **Azure + Azure front door** -implantado em qualquer uma ou várias combinações de regiões do Azure listadas acima
-* **Azure + CDN do Azure da Microsoft** -implantado em qualquer combinação de região única do Azure listada acima
-* **Azure + Azure Traffic Manager** -implantado em qualquer combinação de várias regiões do Azure listada acima
+    * Oeste da Europa, Norte dos EAU, Sudeste Asiático
+    * Oeste dos EUA, Oeste da Europa, Ásia Oriental
+    * Oeste dos EUA, Norte da Europa, Sudeste Asiático, Norte dos EAU, Norte da África do Sul 
+* **Azure + Azure Front Door**: implantação em qualquer combinação única ou múltipla de regiões do Azure listada acima
+* **Azure + CDN do Azure do Microsoft**: implantação em qualquer combinação de regiões única do Azure listada acima
+* **Azure + Gerenciador de Tráfego do Azure**: implantação em qualquer combinação de regiões múltiplas do Azure listada acima
 
 ## <a name="how-is-internet-analyzer-different-from-other-monitoring-services-provided-by-azure"></a>Como o Internet Analyzer é diferente dos outros serviços de monitoramento fornecidos pelo Azure?
 
 O Internet Analyzer ajuda você a entender o desempenho de seus usuários finais e ajuda a tomar decisões para melhorar seu desempenho. Enquanto outras ferramentas de monitoramento do Azure fornecem informações sobre seus serviços do Azure, o Internet Analyzer se concentra na medição do desempenho de ponta a ponta da Internet para seus usuários.
+
+## <a name="how-is-measurement-data-handled-by-internet-analyzer"></a>Como os dados de medição são manipulados pelo Internet Analyzer?
+
+O Azure tem [fortes processos de segurança e cumpre uma ampla gama de padrões de conformidade](https://azure.microsoft.com/support/trust-center/). Somente você e a sua equipe designada têm acesso aos seus dados. A equipe da Microsoft pode ter acesso restrito a eles apenas em circunstâncias limitadas específicas e com o seu conhecimento. Ele é criptografado em trânsito e em repouso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

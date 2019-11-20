@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: ac8ef620948048ae26ef6f408b4bc86b2a2bfbdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5fede76fbc97b31cbbcdaec1b17f838100d35511
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494580"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195828"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usar o Azure Toolkit for IntelliJ para depurar aplicativos Apache Spark remotamente no HDInsight por meio de VPN
 
@@ -27,7 +27,7 @@ Este artigo oferece diretrizes passo a passo sobre como usar as Ferramentas do H
 1. Crie um aplicativo Scala no IntelliJ IDEA e configure-o para a depuração remota.
 1. Execute e depure o aplicativo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Uma assinatura do Azure**. Para mais informações, consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Um cluster do Apache Spark no HDInsight**. Para obter instruções, confira [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
@@ -107,7 +107,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
     - Na lista suspensa **SDK do Projeto**, selecione **Java 1.8** para o cluster Spark 2.x ou selecione **Java 1.7** para o cluster Spark 1.x.
 
-    - Na lista suspensa **Versão do Spark**, o assistente de criação de projeto Scala integra a versão apropriada do SDK do Spark e do SDK do Scala. Se a versão do cluster do Spark for inferior a 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Esse exemplo usa o **Spark 2.0.2 (Scala 2.11.8)** .
+    - Na lista suspensa **Versão do Spark**, o assistente de criação de projeto Scala integra a versão apropriada do SDK do Spark e do SDK do Scala. Se a versão do cluster do Spark for inferior a 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark 2.x**. Esse exemplo usa o **Spark 2.0.2 (Scala 2.11.8)** .
   
    ![Selecione a versão do Spark e o SDK do projeto](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
@@ -203,9 +203,9 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
                             "wasb:///HVACOut")
         }
     }
-        ```
+    ```
 
-1. Repeat steps 8 and 9 to add a new Scala object called `*SparkSample`. Add the following code to this class. This code reads the data from the HVAC.csv (available in all HDInsight Spark clusters). It retrieves the rows that only have one digit in the seventh column in the CSV file, and then writes the output to **/HVACOut** under the default storage container for the cluster.
+1. Repita as etapas 8 e 9 para adicionar um novo objeto Scala chamado `*SparkSample`. Adicione o código a seguir a essa classe. Esse código lê os dados do HVAC.csv (disponível em todos os clusters do HDInsight Spark). Ele recupera as linhas com apenas um dígito na sétima coluna no arquivo CSV e grava a saída em **/HVACOut** no contêiner padrão de armazenamento do cluster.
 
     ```scala
     import org.apache.spark.SparkContext
@@ -289,7 +289,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
     ![IntelliJ executar o programa no modo de depuração](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
 
-    O que você vê na imagem anterior é que, em tempo de execução, você poderia consultar terabytes de dados e de depuração à medida que o aplicativo progride. Por exemplo, na saída mostrada na imagem anterior, você pode ver que a primeira linha da saída é um cabeçalho. Com base nessa saída, você pode modificar seu código do aplicativo para ignorar a linha de cabeçalho, se necessário.
+    O que você vê na imagem anterior é que, em runtime, você poderia consultar terabytes de dados e de depuração à medida que o aplicativo progride. Por exemplo, na saída mostrada na imagem anterior, você pode ver que a primeira linha da saída é um cabeçalho. Com base nessa saída, você pode modificar seu código do aplicativo para ignorar a linha de cabeçalho, se necessário.
 
 1. Agora você pode selecionar o ícone **Retomar Programa** para prosseguir com a execução do aplicativo.
 
@@ -310,7 +310,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
 ### <a name="scenarios"></a>Cenários
 
-* [ Apache Spark com BI: realize a análise interativa de dados usando o Spark no HDInsight com ferramentas de BI ](apache-spark-use-bi-tools.md)
+* [Apache Spark com BI: realize a análise interativa de dados usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
 * [Apache Spark com Machine Learning: use o Spark no HDInsight para analisar a temperatura do edifício usando dados de HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark com aprendizado de máquina: use o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de log do site usando o Apache Spark no HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
@@ -318,12 +318,12 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos
 
 * [Criar um aplicativo autônomo usando Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Execute trabalhos remotamente em um cluster do Apache Spark usando o Apache Livy](apache-spark-livy-rest-interface.md)
+* [Executar trabalhos remotamente em um cluster do Apache Spark usando o Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 
-* [Usar o Kit de Ferramentas do Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para um cluster do HDInsight](apache-spark-intellij-tool-plugin.md)
-* [Usar o kit de ferramentas do Azure Toolkit for IntelliJ a fim de depurar aplicativos do Apache Spark remotamente por meio do SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Use o Azure Toolkit for IntelliJ para criar aplicativos do Apache Spark para um cluster do HDInsight](apache-spark-intellij-tool-plugin.md)
+* [ Use o Azure Toolkit for IntelliJ para depurar os aplicativos do Apache Spark remotamente por meio do SSH ](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Use as ferramentas do HDInsight no Azure Toolkit for Eclipse para criar aplicativos do Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Usar notebooks Zeppelin do Apache com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o notebook do Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)

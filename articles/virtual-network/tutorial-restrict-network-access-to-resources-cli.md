@@ -1,10 +1,10 @@
 ---
-title: Restringir o acesso à rede para recursos PaaS - CLI do Azure | Microsoft Docs
+title: Restringir o acesso à rede para recursos de PaaS-CLI do Azure
 description: Neste artigo, você aprenderá a limitar e restringir o acesso à rede para recursos do Azure, como o Armazenamento do Microsoft Azure e o Banco de Dados SQL do Azure, com pontos de extremidade de serviço de rede virtual usando a CLI do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e52829723b41f9274251ebe7432aa659251c0da4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695114"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186397"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restrinja o acesso à rede a recursos de PaaS com pontos de extremidade de serviço de rede virtual usando a CLI do Azure
 
@@ -33,17 +33,17 @@ Os pontos de extremidade de serviço de rede virtual permitem limitar o acesso �
 * Criar um recurso do Azure e permitir o acesso à rede para ele apenas de uma sub-rede
 * Implantar uma VM (máquina virtual) para cada sub-rede
 * Confirmar o acesso a um recurso por meio de uma sub-rede
-* Confirmar se o acesso é negado para um recurso por meio de uma sub-rede e da Internet
+* A confirmação do acesso é negada para um recurso a partir de uma sub-rede e da internet
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Antes de criar uma rede virtual, será necessário criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+Antes de criar uma rede virtual, você precisa criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
 ```azurecli-interactive
 az group create \
@@ -83,7 +83,7 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso à rede de uma sub-rede
+## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso à rede para uma sub-rede
 
 Crie um grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg). O seguinte exemplo cria um grupo de segurança de rede chamado *myNsgPrivate*.
 
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Cada grupo de segurança de rede contém vários [regras de segurança padrão](security-overview.md#default-security-rules). A regra que segue substitui uma regra de segurança padrão que permite o acesso de saída para todos os endereços IP públicos. O `destination-address-prefix "Internet"` nega acesso de saída para todos os endereços de IP. A regra anterior substitui essa regra, devido à sua prioridade mais alta, o que permite acesso aos endereços IP públicos do Armazenamento do Microsoft Azure.
+Cada grupo de segurança de rede contém várias [regras de segurança padrão](security-overview.md#default-security-rules). A regra a seguir substitui uma regra de segurança padrão que permite o acesso de saída a todos os endereços IP públicos. A opção `destination-address-prefix "Internet"` nega o acesso de saída a todos os endereços IP públicos. A regra anterior substitui essa regra, devido à sua prioridade mais alta, o que permite acesso aos endereços IP públicos do Armazenamento do Microsoft Azure.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +137,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-A seguinte regra permite tráfego SSH de entrada para a sub-rede de qualquer lugar. A regra substitui uma regra de segurança padrão que nega todo o tráfego da Internet. SSH é permitido para a sub-rede para que a conectividade possa ser testada em uma etapa posterior.
+A regra a seguir permite o tráfego SSH de entrada para a sub-rede de qualquer lugar. A regra substitui uma regra de segurança padrão que nega todo o tráfego da Internet. O SSH é permitido para a sub-rede para que a conectividade possa ser testada em uma etapa posterior.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -154,9 +154,9 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-## <a name="restrict-network-access-to-a-resource"></a>Restringir o acesso à rede para um recurso
+## <a name="restrict-network-access-to-a-resource"></a>Restringir o acesso à rede a um recurso
 
-As etapas necessárias para restringir o acesso de rede a recursos criados por meio de serviços do Azure habilitados para pontos de extremidade do serviço variam de acordo com os serviços. Confira a documentação de serviços individuais para obter as etapas específicas para cada serviço. O restante deste artigo inclui etapas para restringir o acesso de rede para uma conta de Armazenamento do Microsoft Azure, como exemplo.
+As etapas necessárias para restringir o acesso de rede a recursos criados por meio de serviços do Azure habilitados para pontos de extremidade do serviço variam de acordo com os serviços. Confira a documentação de serviços individuais para obter as etapas específicas para cada serviço. O restante deste artigo inclui etapas para restringir o acesso à rede de uma conta de Armazenamento do Microsoft Azure como um exemplo.
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -256,7 +256,7 @@ A VM demora alguns minutos para criar. Quando a VM estiver criada, a CLI do Azur
 
 Anote o **publicIpAddress** na saída retornada. Esse endereço será usado para acessar a VM da internet em uma etapa posterior.
 
-### <a name="create-the-second-virtual-machine"></a>Criar a segunda máquina virtual
+### <a name="create-the-second-virtual-machine"></a>Criar uma segunda máquina virtual
 
 ```azurecli-interactive
 az vm create \
@@ -272,7 +272,7 @@ A VM demora alguns minutos para criar. Após a criação, anote o **publicIpAddr
 
 ## <a name="confirm-access-to-storage-account"></a>Confirmar acesso à conta de armazenamento
 
-SSH para a VM *myVmPrivate*. Substitua  *\<publicIpAddress >* com o endereço IP público do seu *myVmPrivate* VM.
+SSH para a VM *myVmPrivate*. Substitua *\<publicIpAddress >* pelo endereço IP público da VM *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>

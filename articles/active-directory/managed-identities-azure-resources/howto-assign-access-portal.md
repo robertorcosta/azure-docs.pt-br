@@ -1,5 +1,5 @@
 ---
-title: Como atribuir um acesso de identidade gerenciada a um recurso do Azure usando o portal do Azure
+title: Atribuir um acesso de identidade gerenciada a um recurso usando o portal do Azure-Azure AD
 description: Instruções passo a passo para atribuir uma identidade gerenciada em um acesso de recurso a outro recurso, usando o portal do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 958b3d72a3a8df4a3b67f62e7db788d7142ca667
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8660d5539d9cfc218667bc7bb077f9f6d1191eec
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112900"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184133"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir um acesso de identidade gerenciada a um recurso usando o portal do Azure
 
@@ -28,12 +28,12 @@ ms.locfileid: "66112900"
 
 Após configurar um recurso do Azure com uma identidade gerenciada, será possível conceder o acesso de identidade gerenciada a outro recurso, assim como qualquer entidade de segurança. Este artigo mostra como conceder acesso de identidade gerenciada de uma máquina virtual do Azure ou conjunto de dimensionamento de máquinas virtuais a uma conta de armazenamento do Azure, usando o portal do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-it-work)** .
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Use RBAC para atribuir um acesso de identidade gerenciada a outro recurso
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Usar o RBAC para atribuir um acesso de identidade gerenciada a outro recurso
 
 Após habilitar a identidade gerenciada em um recurso do Azure, como uma [VM do Azure](qs-configure-portal-windows-vm.md) ou [VMSS do Azure](qs-configure-portal-windows-vmss.md):
 

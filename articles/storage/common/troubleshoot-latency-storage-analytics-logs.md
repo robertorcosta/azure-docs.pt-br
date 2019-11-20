@@ -4,15 +4,18 @@ description: Identificar e solucionar problemas de latência usando logs analít
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
+manager: dcscontentpm
 ms.date: 10/21/2019
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: f8ec8e3f27e74f442f314d4c812908888598244c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+services: storage
+tags: ''
+ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180622"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196515"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Solucionar problemas de latência usando logs de Análise de Armazenamento
 
@@ -96,10 +99,10 @@ As etapas a seguir demonstram como identificar e solucionar problemas de latênc
 
    |   |RequestStatus =<br>Sucesso|RequestStatus =<br>RÍGIDO NetworkError|Recomendações|
    |---|---|---|---|
-   |GetBlob|SIM|Não|[**Operação getBlob:** RequestStatus = êxito](#getblob-operation-requeststatus--success)|
-   |GetBlob|Não|SIM|[**Operação getBlob:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|SIM|Não|[**Operação Put:** RequestStatus = êxito](#put-operation-requeststatus--success)|
-   |PutBlob|Não|SIM|[**Operação Put:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|sim|Não|[**Operação getBlob:** RequestStatus = êxito](#getblob-operation-requeststatus--success)|
+   |GetBlob|Não|sim|[**Operação getBlob:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|sim|Não|[**Operação Put:** RequestStatus = êxito](#put-operation-requeststatus--success)|
+   |PutBlob|Não|sim|[**Operação Put:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>Resultados de status
 

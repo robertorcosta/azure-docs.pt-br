@@ -1,5 +1,5 @@
 ---
-title: Como configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquina virtual usando o PowerShell
+title: Configurar identidades gerenciadas em conjuntos de dimensionamento de máquinas virtuais usando o PowerShell-Azure AD
 description: Instruções passo a passo para configurar um sistema e identidades gerenciadas atribuídas pelo usuário em um conjunto de dimensionamento de máquina virtual usando o PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fa3100cae9b1a2c9ca320776cc357f3720b3473
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: a09780ae117beb1a8d601b8fd88d43191321854f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309991"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183991"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurar identidades gerenciadas para recursos do Azure em conjuntos de escala de máquina virtual usando o PowerShell
 
@@ -34,9 +34,9 @@ Neste artigo, usando o PowerShell, você aprende como executar as identidades ge
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Lembre-se de revisar a [diferença entre uma identidade atribuída designada pelo sistema e gerenciada pelo usuário](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Lembre-se de revisar a [diferença entre uma identidade atribuída designada pelo sistema e gerenciada pelo usuário](overview.md#how-does-it-work)** .
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar as operações de gerenciamento deste artigo, a conta precisa das seguintes atribuições de controle de acesso baseado em função do Azure:
 
@@ -45,7 +45,7 @@ Neste artigo, usando o PowerShell, você aprende como executar as identidades ge
 
     - [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquina virtual e habilitar e remover a identidade gerenciada pelo usuário e / ou atribuída pelo usuário de um conjunto de dimensionamento de máquina virtual.
     - [Função de Contratada de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída pelo usuário.
-    - [Papel de Operador de Identidade Gerenciado](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade gerenciada atribuída pelo usuário de e para um conjunto de dimensionamento de máquina virtual.
+    - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade gerenciada atribuída ao usuário de e para um conjunto de dimensionamento de máquinas virtuais.
 - Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não o fez. 
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo sistema
@@ -146,7 +146,7 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "Sys
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Identidades gerenciadas para visão geral dos recursos do Azure ](overview.md)
+- [Identidades gerenciadas para visão geral de recursos do Azure](overview.md)
 - Para os guias de início rápido completos sobre VM do Azure, consulte:
   
   - [Crie uma máquina virtual Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 

@@ -1,17 +1,17 @@
 ---
-title: Arquitetura do dispositivo de migrações para Azure | Microsoft Docs
-description: Fornece uma visão geral do dispositivo de migrações para Azure
+title: Arquitetura do dispositivo de migrações para Azure
+description: Fornece uma visão geral do dispositivo de migrações para Azure usado em avaliação e migração de servidor.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: bdc81820b1ac9867d45fd26e26d24c65e20641e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685101"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185828"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -112,7 +112,7 @@ Endereços IPv6 | vm.Guest.Net
 Taxa de transferência de leitura (MB por segundo) | net.received.average
 Taxa de transferência de gravação (MB por segundo) | net.transmitted.average
 **Detalhes do caminho de inventário** | 
-Nome | container.GetType().Name
+NOME | container.GetType().Name
 Tipo de objeto filho | container.ChildType
 Detalhes de referência | container.MoRef
 Detalhes do pai | Container.Parent
@@ -162,7 +162,7 @@ Nome/versão/FQDN do sistema operacional | Msvm_KvpExchangeComponent | Dados do 
 Status de energia da VM | Msvm_ComputerSystem | Habilitadostate
 **Detalhes de por disco** | 
 Identificador de disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Tipo de disco rígido virtual | Msvm_VirtualHardDiskSettingData | Tipo
+Tipo de disco rígido virtual | Msvm_VirtualHardDiskSettingData | Digite
 Tamanho do disco rígido virtual | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Pai do disco rígido virtual | Msvm_VirtualHardDiskSettingData | ParentPath
 **Por detalhes da NIC** | 

@@ -1,5 +1,5 @@
 ---
-title: Controlar o roteamento em uma rede virtual do Azure - PowerShell - Clássico | Microsoft Docs
+title: Controlar o roteamento em uma VNet do Azure-PowerShell-clássico
 description: Aprenda a controlar o roteamento em VNets usando o PowerShell | Classico
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: f2f2c17740bd94629209c2bffb82689ecc931fc8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4170418b4f53277a8f4306fe2835286c8ac99dee
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058764"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186351"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controlar o roteamento e usar dispositivos virtuais (clássico) usando o PowerShell
 
@@ -33,7 +33,7 @@ ms.locfileid: "71058764"
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Antes de trabalhar com recursos do Azure, é importante entender que, no momento, o Azure tem dois modelos de implantação: Azure Resource Manager e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes selecionando uma opção na parte superior deste artigo. Este artigo aborda o modelo de implantação clássico.
+> Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Azure Resource Manager e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes selecionando uma opção na parte superior deste artigo. Este artigo aborda o modelo de implantação clássico.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
@@ -69,7 +69,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
     -RouteTableName UDR-FrontEnd
     ```
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>Criar o UDR para a sub-rede de back-end
+## <a name="create-the-udr-for-the-back-end-subnet"></a>Criar UDR para a sub-rede de back-end
 Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end com base no cenário, siga as seguintes etapas:
 
 1. Execute o comando a seguir para criar uma tabela de rota para a sub-rede de back-end:

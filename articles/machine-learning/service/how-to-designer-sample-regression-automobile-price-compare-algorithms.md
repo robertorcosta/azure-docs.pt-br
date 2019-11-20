@@ -1,7 +1,7 @@
 ---
-title: 'Designer: prever os preços do carro (regressão)'
+title: 'Designer: prever o exemplo de preços do carro (avançado)'
 titleSuffix: Azure Machine Learning
-description: Este artigo mostra como criar um pipeline de aprendizado de máquina complexo sem escrever uma única linha de código usando o designer (versão prévia). Saiba como treinar e comparar vários modelos de regressão para prever o preço de um carro com base nos recursos técnicos
+description: Crie & Compare vários modelos de regressão de ML para prever o preço de um automóvel com base em recursos técnicos com Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 5eb701af90125e2654d6f908b28512aba3ad37aa
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647947"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196073"
 ---
-# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemplo 2-regressão: prever o preço e comparar algoritmos
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Treine & comparar vários modelos de regressão para prever os preços de carros com o designer de Azure Machine Learning
+
+**Amostra 2 do designer (visualização)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Saiba como criar um pipeline de Machine Learning sem escrever uma única linha de código usando o designer (versão prévia). Este exemplo treina e compara vários modelos de regressão para prever o preço de um carro com base em seus recursos técnicos. Forneceremos a lógica para as escolhas feitas nesse pipeline para que você possa lidar com seus próprios problemas de aprendizado de máquina.
@@ -28,7 +31,7 @@ Este é o grafo concluído para este pipeline:
 
 [![grafo do pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

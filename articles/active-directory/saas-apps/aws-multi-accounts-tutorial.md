@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao AWS (Amazon Web Services) para conectar várias contas | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS) para conectar várias contas | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Azure AD e várias contas do Amazon Web Services (AWS).
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb528d71b94449b282947a487e4fc79b343df778
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65738375"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195896"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integração do Azure Active Directory a várias contas do AWS (Amazon Web Services)
+# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integração do Azure Active Directory com várias contas Amazon Web Services (AWS)
 
 Neste tutorial, você aprenderá a integrar o Azure Active Directory (Microsoft Azure AD) a várias contas do AWS (Amazon Web Services).
 
@@ -50,7 +50,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 * Todas as contas da AWS usarão o mesmo arquivo XML de Metadados da Federação e, no momento da substituição do certificado, você terá que realizar esse exercício gigantesco para atualizar o certificado em todas as contas da AWS ao mesmo tempo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o AWS (Amazon Web Services), você precisa dos seguintes itens:
 
@@ -117,7 +117,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 **Para configurar o logon único do Azure AD com o AWS (Amazon Web Services), execute as seguintes etapas:**
 
-1. 758405No [Portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Amazon Web Services (AWS)** , selecione **Logon único**.
+1. No [Portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Amazon Web Services (AWS)** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -129,13 +129,13 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
+4. Na seção **Configuração básica do SAML**, o usuário não precisa executar nenhuma etapa porque o aplicativo já está pré-integrado ao Azure.
 
-    ![image](common/preintegrated.png)
+    ![imagem](common/preintegrated.png)
 
-5. Aplicativo Amazon Web Services (AWS) espera as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **User Attributes & Claims**.
+5. O aplicativo Amazon Web Services (AWS) espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **User Attributes & Claims**.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
 6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
 
@@ -147,9 +147,9 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](common/new-save-attribute.png)
+    ![imagem](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![imagem](common/new-attribute-details.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -213,9 +213,9 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     c. Selecione **Permitir acesso do Console de Gerenciamento do AWS e programação**.
   
-    d. Clique em **Avançar: Permissões.**
+    d. Clique em **Próximo: Permissões**.
 
-9. Na caixa de diálogo **Anexar políticas de permissão**, anexe a política adequada conforme sua organização. Clique em **Avançar: Análise**.  
+9. Na caixa de diálogo **Anexar políticas de permissão**, anexe a política adequada conforme sua organização. Clique em **Próximo: Revisão**.  
 
     ![Configurar política de logon único][33]
 
@@ -359,10 +359,11 @@ Você também pode verificar a resposta SAML para ver as funções sendo passada
 
 ![Configurar logon único Add](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
 
-Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
+* [Como configurar o provisionamento usando APIs do MS Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 

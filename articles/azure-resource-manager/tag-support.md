@@ -3,12 +3,12 @@ title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.openlocfilehash: aa8736310a5c18a1f94d3920a4f88632212c7af4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: MT
+ms.openlocfilehash: 2799784ad449304a7790ad5f83d8ed1c94dd3547
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173545"
+ms.locfileid: "74194990"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group-using-tags.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo.
@@ -1818,7 +1818,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | sim | sim |
-> | managedInstances/databases | Sim (veja a [Observação abaixo](#sqlnote)) | sim |
+> | managedInstances/databases | Não | Não |
 > | managedInstances/databases/backupShortTermRetentionPolicies | Não | Não |
 > | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Não | Não |
 > | managedInstances/databases/vulnerabilityAssessments | Não | Não |
