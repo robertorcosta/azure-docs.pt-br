@@ -71,6 +71,9 @@
         - name: Mapeamento de controle
           displayName: 'standards, irs, 1075'
           href: ./samples/irs-1075/control-mapping.md
+        - name: Etapas de implantação
+          displayName: 'standards, irs, 1075'
+          href: ./samples/irs-1075/deploy.md
     - name: ISO 27001
       items:
         - name: Visão geral

@@ -298,8 +298,8 @@
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference
           href: how-to-run-batch-predictions.md
         - name: Usar o designer para previsões em lote
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference
-          href: how-to-run-batch-predictions-ui.md
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
     - name: Monitorar modelos
       items:
         - name: Coletar e avaliar dados de modelo

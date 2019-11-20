@@ -183,6 +183,8 @@
           href: storage-sync-files-troubleshoot.md
         - name: Solucionar problemas de exclusão de Arquivos do Azure
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+        - name: Recuperar uma conta de armazenamento excluída
+          href: storage-how-to-recover-deleted-account.md
 - name: Referência
   items:
     - name: Azure PowerShell
