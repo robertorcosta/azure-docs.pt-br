@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Criar um domínio gerenciado avançado
       href: tutorial-create-instance-advanced.md
+    - name: Criar uma relação de confiança de floresta (versão prévia)
+      href: tutorial-create-forest-trust.md
 - name: Exemplos
   items:
     - name: Criar um domínio gerenciado usando o Azure PowerShell
@@ -33,6 +35,12 @@
       href: administration-concepts.md
     - name: Cenários de implantação comuns
       href: scenarios.md
+    - name: Florestas e relações de confiança
+      items:
+        - name: Florestas de recursos
+          href: concepts-resource-forest.md
+        - name: Relações de confiança de floresta
+          href: concepts-forest-trust.md
     - name: Como funciona a sincronização do Azure AD DS
       href: synchronization.md
     - name: Como a sincronização de hash de senha funciona

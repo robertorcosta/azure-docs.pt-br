@@ -3,12 +3,12 @@ title: Exemplo de blueprint do IRS 1075 – Visão Geral
 description: Visão geral da amostra de blueprint IRS 1075. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do IRS 1075.
 ms.date: 11/19/2019
 ms.topic: sample
-ms.openlocfilehash: f713f6a59f439b2d5cb9df0860d16ff761304b4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1d2fdac47c590e663a51c11f54a3a135a7a0ed3d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210185"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267366"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Visão geral da amostra de blueprint IRS 1075
 
@@ -24,6 +24,7 @@ Você examinou a visão geral e a amostra do blueprint IRS 1075. Em seguida, vis
 
 > [!div class="nextstepaction"]
 > [Blueprint IRS 1075 – mapeamento de controle](./control-mapping.md)
+> [Blueprint IRS 1075 – etapas de implantação](./deploy.md)
 
 Outros artigos sobre blueprints e como usá-los:
 

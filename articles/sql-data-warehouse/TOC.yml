@@ -47,6 +47,10 @@
           href: quickstart-scale-compute-tsql.md
     - name: Gerenciamento de carga de trabalho
       items:
+        - name: Criar um classificador de carga de trabalho
+          items:
+            - name: T-SQL
+              href: quickstart-create-a-workload-classifier-tsql.md
         - name: Criar isolamento de carga de trabalho
           items:
             - name: T-SQL
