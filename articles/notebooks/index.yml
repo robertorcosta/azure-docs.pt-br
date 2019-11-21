@@ -4,14 +4,8 @@ title: Documentação do Azure Notebooks
 metadata:
   title: Documentação do Azure Notebooks
   description: 'Saiba como criar, executar e compartilhar notebooks do Jupyter por meio do serviço hospedado do Azure Notebooks.'
-  services: notebooks
-  author: kraigb
-  manager: barbkess
-  ms.service: azure-notebooks
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 12/04/2018
-  ms.author: kraigb
 abstract:
   description: 'O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação. Jupyter (anteriormente conhecido como IPython) é um projeto de código-fonte aberto que permite que você facilmente combine texto de markdown, código executável (Python, R e F#), dados persistentes, gráficos e visualizações em uma única tela compartilhável chamada de um notebook.'
 sections:

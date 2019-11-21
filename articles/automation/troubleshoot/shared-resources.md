@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b9b1be699190f6dc6f4771411c22f376d51637ec
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a2836f40b55a71e080288fce7e48275747962c16
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477462"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231528"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solucionar erros com recursos compartilhados
 
@@ -21,7 +21,7 @@ Este artigo discute soluções para resolver problemas que podem ser encontrados
 
 ## <a name="modules"></a>Módulos
 
-### <a name="module-stuck-importing"></a>Cenário: Um Módulo está paralisado importando
+### <a name="module-stuck-importing"></a>Cenário: Um módulo está paralisado importando
 
 #### <a name="issue"></a>Problema
 
@@ -29,7 +29,7 @@ Um módulo está paralisado no estado **Importando** quando você importa ou atu
 
 #### <a name="cause"></a>Causa
 
-A importação de módulos do PowerShell é um processo complexo de várias etapas. Este processo introduz a possibilidade de um módulo não importar corretamente. Se esse problema ocorrer, o módulo que você está importando pode estar paralisado em um estado transitório. Para saber mais sobre esse processo, consulte [importação de um módulo do PowerShell]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+A importação de módulos do PowerShell é um processo complexo de várias etapas. Este processo introduz a possibilidade de um módulo não importar corretamente. Se esse problema ocorrer, o módulo que você está importando pode estar paralisado em um estado transitório. Para saber mais sobre esse processo, consulte [importação de um módulo do PowerShell](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### <a name="resolution"></a>Resolução
 
@@ -39,11 +39,11 @@ Para resolver esse problema, você deve remover o módulo que está emperrado no
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>Cenário: Os módulos AzureRM presas importando depois de tentar atualizá-los
+### <a name="update-azure-modules-importing"></a>Scenario: AzureRM modules are stuck importing after trying to update them
 
 #### <a name="issue"></a>Problema
 
-Uma faixa com a seguinte mensagem permanece na sua conta depois de tentar atualizar seus módulos do AzureRM:
+A banner with the following message stays in your account after trying to update your AzureRM modules:
 
 ```error
 Azure modules are being updated
@@ -51,11 +51,11 @@ Azure modules are being updated
 
 #### <a name="cause"></a>Causa
 
-Há um problema conhecido com os módulos do AzureRM em uma conta de automação que está em um grupo de recursos com um nome numérico que começa com 0 de atualização.
+There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0.
 
 #### <a name="resolution"></a>Resolução
 
-Para atualizar os módulos do Azure em sua conta de automação, ele deve ser em um grupo de recursos que tem um nome alfanumérico. Grupos de recursos com nomes numéricos, começando com 0 são não é possível atualizar os módulos AzureRM neste momento.
+To update your Azure modules in your Automation Account, it must be in a resource group that has an alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
 ### <a name="module-fails-to-import"></a>Cenário: Falha de módulo importar ou cmdlets não pode ser executados após a importação
 
@@ -76,11 +76,11 @@ Algumas razões comuns para que um módulo não pode importar com êxito à auto
 
 Qualquer uma das soluções a seguir corrige o problema:
 
-* Certifique-se de que o módulo segue o formato a seguir: NomeMódulo.Zip **->** NomeMódulo ou Número de Versão **->** (NomeMódulo.psm1, NomeMódulo.psd1)
+* Verifique se o módulo segue o seguinte formato: ModuleName.Zip **->** ModuleName ou Número de versão **->** (ModuleName.psm1, ModuleName.psd1)
 * Abra o arquivo .psd1 e veja se o módulo tem dependências. Se tiver, carregue esses módulos para a conta de Automação.
 * Verifique se quaisquer .dlls referenciadas estão presentes na pasta do módulo.
 
-### <a name="all-modules-suspended"></a>Cenário: Update-AzureModule.ps1 é suspenso ao atualizar os módulos
+### <a name="all-modules-suspended"></a>Scenario: Update-AzureModule.ps1 suspends when updating modules
 
 #### <a name="issue"></a>Problema
 
@@ -118,7 +118,7 @@ Se o processo de atualização ficar suspenso, você precisará adicionar o par�
 
 ## <a name="run-as-accounts"></a>Contas Executar como
 
-### <a name="unable-create-update"></a>Cenário: Não é possível criar ou atualizar uma conta Executar como
+### <a name="unable-create-update"></a>Scenario: You're unable to create or update a Run As account
 
 #### <a name="issue"></a>Problema
 
@@ -138,11 +138,11 @@ Para criar ou atualizar uma conta Executar como, você deve ter permissões apro
 
 Se o problema for por causa de um bloqueio, verifique se é adequado removê-lo. Em seguida, navegue até o recurso que está bloqueado, clique com o botão direito do mouse no bloqueio e escolha **Excluir** para remover o bloqueio.
 
-### <a name="iphelper"></a>Cenário: Você receberá o erro "Não é possível localizar um ponto de entrada denominado GetPerAdapterInfo na DLL 'iplpapi.dll'" ao executar um runbook.
+### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook.
 
 #### <a name="issue"></a>Problema
 
-Ao executar um runbook, você receberá a seguinte exceção:
+When executing a runbook you receive the following exception:
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -150,11 +150,11 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Causa
 
-Esse erro provavelmente é causado por um configurado incorretamente [conta executar como](../manage-runas-account.md).
+This error is most likely caused by an incorrectly configured [Run As Account](../manage-runas-account.md).
 
 #### <a name="resolution"></a>Resolução
 
-Certifique-se de sua [conta executar como](../manage-runas-account.md) está configurado corretamente. Depois que ele está configurado corretamente, verifique se que você tiver o código apropriado em seu runbook para autenticar com o Azure. O exemplo a seguir mostra um trecho de código para se autenticar no Azure em um runbook usando uma conta executar como.
+Make sure your [Run As Account](../manage-runas-account.md) is properly configured. Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. The following example shows a snippet of code to authenticate to Azure in a runbook using a Run As Account.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection
@@ -162,7 +162,7 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar orçamentos do Cloudyn no Azure
+title: Manage Cloudyn budgets in Azure
 description: Este artigo ajuda você a criar orçamentos e começar a gerenciá-los rapidamente no Cloudyn.
 services: cost-management
 keywords: ''
@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: ad0566f0b93593140d217767f8d97f410dfcbb3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 9d7d0e049d3c35aab56145beb94c8e41e56c5785
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259230"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219093"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Gerenciar orçamentos do Azure com o Cloudyn
 
@@ -27,7 +27,7 @@ Com base nos orçamentos atribuídos, você pode definir os alertas de limite co
 
 Os relatórios de orçamento mostram o orçamento atribuído. Os usuários podem visualizar quando seu gasto acabar, abaixo, ou a par co seu consumo sobre o tempo. Ao selecionar **Exibir/Ocultar Campos** na parte superior de um relatório de orçamento, você pode visualizar o custo, orçamento, custo acumulado ou orçamento total.
 
-O Gerenciamento de Custos do Azure oferece uma funcionalidade semelhante ao Cloudyn. O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos nativa do Azure. Ele ajuda a analisar custos, criar e gerenciar orçamentos, exportar dados e examinar e agir de acordo com as recomendações de otimização que visam economizar dinheiro. Para obter mais informações sobre os orçamentos no Gerenciamento de Custos, confira [Criar e gerenciar orçamentos](tutorial-acm-create-budgets.md).
+O Gerenciamento de Custos do Azure oferece uma funcionalidade semelhante ao Cloudyn. O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos nativa do Azure. Ele ajuda você a analisar custos, criar e gerenciar orçamentos, exportar dados e rever e agir de acordo com recomendações de otimização para economizar dinheiro. Para obter mais informações sobre os orçamentos no Gerenciamento de Custos, confira [Criar e gerenciar orçamentos](tutorial-acm-create-budgets.md).
 
 ## <a name="create-budgets"></a>Criar orçamentos
 
@@ -54,7 +54,7 @@ Para exportar o orçamento concluído como arquivo CSV em **Ações**, selecione
 
 ## <a name="view-budget-in-reports"></a>Visualizar orçamento nos relatórios
 
-Ao concluir, seu orçamento será exibido na maioria dos relatórios de Custo em **Custos** &gt; **Análise de Custo** e no Custo vs. relatório de Custo ao Longo do Tempo Você também pode programar relatórios com base nos limites de orçamento usando **Ações**.
+When completed, your budget is shown in most Cost reports under **Costs** &gt; **Cost Analysis** and in the Cost vs. Budget Over Time report. Você também pode programar relatórios com base nos limites de orçamento usando **Ações**.
 
 Aqui está um exemplo do relatório de Análise de Custos. Mostra o orçamento total e o custo por tipo de carga de trabalho e uso desde o início do ano.
 
@@ -64,7 +64,7 @@ Neste exemplo, suponha que a data atual seja 22 de de junho. O custo para junho 
 
 Outra forma de visualizar o relatório é analisar o custo acumulado em relação ao seu orçamento. Para ver os custos acumulados, em **Exibir/Ocultar Campos**, selecione **Custo Acumulado** e **Orçamento Total**. Aqui está exemplo mostrando o custo acumulado desde o começo do ano.
 
-![Exemplo de custo acumulado e orçamento total mostrado no relatório de Custo vs. Orçamento ao Longo do Tempo](./media/manage-budgets/accumulated-budget.png)
+![Example accumulated cost and total budget shown in the Cost vs. Budget Over Time report](./media/manage-budgets/accumulated-budget.png)
 
 Em algum momento no futuro, o custo acumulado poderá exceder o orçamento. É possível ver com mais facilidade que, se alterar a visualização do gráfico para o _tipo_  de linha.
 
@@ -79,11 +79,11 @@ No exemplo anterior, você pode ver que o custo acumulado aproximou-se do orçam
 
 Vamos examinar um exemplo.
 
-No custo vs. relatório de Orçamento ao Longo do Tempo, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Na guia Limite, selecione uma métrica de limite. Por exemplo, **Porcentagem de custo vs orçamento**. Selecione um tipo de alerta e insira um valor percentual do orçamento. Se quiser ser notificado apenas uma vez, selecione **Número de alertas consecutivos** e, em seguida digite_1_. Clique em **Salvar**.
+In the Cost vs. Budget Over Time report, click **Actions** and then select **Schedule report**. Na guia Limite, selecione uma métrica de limite. Por exemplo, **Porcentagem de custo vs orçamento**. Selecione um tipo de alerta e insira um valor percentual do orçamento. Se quiser ser notificado apenas uma vez, selecione **Número de alertas consecutivos** e, em seguida digite_1_. Clique em **Save** (Salvar).
 
 ![Criando um alerta de orçamento na caixa Salvar ou Agendar este relatório](./media/manage-budgets/budget-alert.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Se você ainda não concluiu o primeiro tutorial do Cloudyn, leia-o em [Examinar o uso e os custos](tutorial-review-usage.md).
 - Saiba mais sobre os [relatórios disponíveis no Cloudyn](use-reports.md).

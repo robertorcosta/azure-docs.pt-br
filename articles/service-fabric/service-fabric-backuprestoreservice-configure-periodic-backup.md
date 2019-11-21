@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 47faeff22db4e4a2b3630104c9b492b43e29fd7b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e0c40c005c27130d422e0dacaae29461b65b7df7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819282"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232505"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de backup periódico no Azure Service Fabric
 
@@ -98,7 +98,7 @@ Uma política de backup é composta pelas seguintes configurações:
         }
         ```
 
-    2. **Compartilhamento de arquivos**: esse tipo de armazenamento deverá ser selecionado para os clusters _autônomos_ quando houver a necessidade de armazenar backup de dados localmente. Uma descrição desse tipo de armazenamento requer um caminho de compartilhamento de arquivos para o qual os backups precisam ser carregados. O acesso ao compartilhamento de arquivos pode ser configurado usando uma das seguintes opções
+    2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. Uma descrição desse tipo de armazenamento requer um caminho de compartilhamento de arquivos para o qual os backups precisam ser carregados. O acesso ao compartilhamento de arquivos pode ser configurado usando uma das seguintes opções
         1. _Autenticação Integrada do Windows_, em que o acesso ao compartilhamento de arquivos é fornecido a todos os computadores que pertencem ao cluster do Service Fabric. Nesse caso, defina os campos a seguir para configurar o armazenamento de backup baseado no _compartilhamento de arquivos_.
 
             ```json
@@ -127,8 +127,8 @@ Uma política de backup é composta pelas seguintes configurações:
 > Certifique-se de que a confiabilidade do armazenamento atenda aos requisitos de confiabilidade dos dados de backup ou os exceda.
 >
 
-* **Política de retenção**: especifica a política para reter backups no armazenamento configurado. Há suporte para a Política de Retenção Básica.
-    1. **Política de retenção básica**: essa política de retenção permite garantir a utilização de armazenamento ideal removendo arquivos de backup que não são mais necessários. `RetentionDuration` pode ser especificado para definir o período de tempo para os quais backups são necessários para ser mantidos no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para certificar-se de que o número especificado de backups é sempre retido independentemente de `RetentionDuration`. O exemplo abaixo ilustra a configuração para manter os backups para _10_ dias e não permite que o número de backups caia para baixo de _20_.
+* **Retention Policy**: Specifies the policy to retain backups in the configured storage. Há suporte para a Política de Retenção Básica.
+    1. **Basic Retention Policy**: This retention policy allows to ensure optimal storage utilization by removing backup files which are no more required. `RetentionDuration` pode ser especificado para definir o período de tempo para os quais backups são necessários para ser mantidos no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para certificar-se de que o número especificado de backups é sempre retido independentemente de `RetentionDuration`. O exemplo abaixo ilustra a configuração para manter os backups para _10_ dias e não permite que o número de backups caia para baixo de _20_.
 
         ```json
         {
@@ -248,7 +248,7 @@ A seguir, há informações breves sobre as variantes com suporte.
  
 - [Obter lista de backup da partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): retorna uma lista de backups disponíveis para a partição especificada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Referência da API REST de backup e restauração](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

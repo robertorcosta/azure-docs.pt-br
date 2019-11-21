@@ -1,7 +1,7 @@
 ---
 title: Criar zonas DNS e conjuntos de registros usando o SDK do .NET
 titleSuffix: Azure DNS
-description: Como criar zonas DNS e conjuntos de registros no DNS do Azure usando o SDK do .NET.
+description: In this learning path, get started creating DNS zones and record sets in Azure DNS by using the .NET SDK.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: allensu
-ms.openlocfilehash: b51dd4ea3b36a9d0420a60883ebc29276a7d6b8a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0dd57bb30a993baadac41552669a629aaaaff6df
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076715"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210950"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registros usando o SDK do .NET
 
@@ -146,7 +146,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>Listar zonas e conjuntos de registros
 
-Para listar zonas, use os métodos *DnsManagementClient. Zones. List...* , que dão suporte à listagem de todas as zonas em um determinado grupo de recursos ou todas as zonas em uma determinada assinatura do Azure (entre grupos de recursos.) Para listar conjuntos de registros, use os métodos *DnsManagementClient. Recordsets. List...* , que dão suporte à listagem de todos os conjuntos de registros em uma determinada zona ou apenas aos conjuntos de registros de um tipo específico.
+To list zones, use the *DnsManagementClient.Zones.List...* methods, which support listing either all zones in a given resource group or all zones in a given Azure subscription (across resource groups.) To list record sets, use *DnsManagementClient.RecordSets.List...* methods, which support either listing all record sets in a given zone or only those record sets of a specific type.
 
 Observe ao listar zonas e conjuntos de registros que os resultados poderão ser paginados.  O exemplo a seguir mostra como percorrer as páginas de resultados. (Um tamanho de página '2' artificialmente pequeno é usado para forçar a paginação; na prática, esse parâmetro deve ser omitido e o tamanho de página padrão usado.)
 
@@ -164,6 +164,6 @@ while (page.NextPageLink != null)
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Baixe o [projeto de exemplo SDK do .NET do DNS do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), que inclui mais exemplos de como usar o SDK do .NET do DNS do Azure, incluindo exemplos para outros tipos de registro DNS.

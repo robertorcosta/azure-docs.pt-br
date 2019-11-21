@@ -1,18 +1,18 @@
 ---
-title: Delegar um subdomínio do DNS do Azure usando o Azure PowerShell
-description: Saiba como delegar um subdomínio do DNS do Azure usando o Azure PowerShell.
+title: Delegate a subdomain - Azure PowerShell - Azure DNS
+description: With this learning path, get started delegating an Azure DNS subdomain using Azure PowerShell.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: victorh
-ms.openlocfilehash: 4ee4d9e6390c9a091096bb7c06160b76fd8af90f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: b6023adb65469dedeeba664a51917306e634146f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730282"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212499"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Delegar um subdomínio do DNS do Azure usando o Azure PowerShell
 
@@ -21,7 +21,7 @@ Você pode usar o Azure PowerShell para delegar um subdomínio de DNS. Por exemp
 Se preferir, você pode delegar um subdomínio usando o [Portal do Azure](delegate-subdomain.md).
 
 > [!NOTE]
-> Contoso.com é usado como exemplo ao longo deste artigo. Substitua seu próprio nome de domínio para contoso.com.
+> Contoso.com é usado como um exemplo ao longo deste artigo. Substitua seu próprio nome de domínio para contoso.com.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -39,7 +39,7 @@ Primeiro, crie a zona para o subdomínio **engineering**.
 
 ## <a name="note-the-name-servers"></a>Observe os servidores de nome
 
-Em seguida, observe os quatro servidores de nomes do subdomínio engineering.
+Em seguida, observe os quatro servidores de nomes para o subdomínio engineering.
 
 `Get-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -RecordType NS`
 
@@ -70,6 +70,6 @@ Use nslookup para testar a delegação.
 2. No prompt de comando, digite `nslookup www.engineering.contoso.com.`
 3. Você deve receber uma resposta não autoritativa mostrando o endereço **10.10.10.10**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [Configurar DNS reverso para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).

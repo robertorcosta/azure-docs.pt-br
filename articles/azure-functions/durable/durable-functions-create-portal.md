@@ -1,21 +1,15 @@
 ---
 title: Criar Durable Functions usando o portal do Azure
 description: Aprenda a instalar a extensão Durable Functions doa Azure Functions para o desenvolvimento do portal.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: glenga
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 238969b320608c08491c3d3e85870d57f41c1589
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: eaa241eff6e1c359045a0ea3d8871fde6c60a059
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614974"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231475"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Criar Durable Functions usando o portal do Azure
 
@@ -23,7 +17,7 @@ A extensão [Funções Duráveis](durable-functions-overview.md) do Azure Functi
 
 > [!NOTE]
 > 
-> * Se você estiver desenvolvendo funções duráveis no C#, considere o desenvolvimento do [Visual Studio 2019](durable-functions-create-first-csharp.md).
+> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-create-first-csharp.md).
 > * Se você estiver desenvolvendo funções duráveis em JavaScript, você deve considerar o [Desenvolvimento de código do Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
@@ -32,7 +26,7 @@ Você deve ter um aplicativo de função para hospedar a execução de qualquer 
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-Por padrão, o aplicativo de função criado usa a versão 2.x do Azure Functions Runtime. A extensão Durable Functions funciona nas duas versões 1.x e 2.x do Azure Functions Runtime em C# e versão 2.x no JavaScript. No entanto, os modelos só estão disponíveis ao segmentar a versão 2.x do tempo de execução independentemente da linguagem escolhida.
+Por padrão, o aplicativo de função criado usa a versão 2.x do Azure Functions Runtime. A extensão Durable Functions funciona nas duas versões 1.x e 2.x do Azure Functions Runtime em C# e versão 2.x no JavaScript. No entanto, os modelos só estão disponíveis ao segmentar a versão 2.x do runtime independentemente da linguagem escolhida.
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Instalar o pacote npm de Durable Functions (apenas JavaScript)
 
@@ -136,7 +130,7 @@ Se você estiver criando Durable Functions do JavaScript, precisará instalar o 
 
 A primeira função durável está agora em execução no Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre os padrões comuns de função durável](durable-functions-overview.md#application-patterns)

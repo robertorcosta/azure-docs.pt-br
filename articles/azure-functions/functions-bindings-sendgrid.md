@@ -1,20 +1,16 @@
 ---
 title: Associações do SendGrid no Azure Functions
 description: Referência de associações do SendGrid no Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: a0d12639ce074c3ed105513a3d90e323e30d1087
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 997c9427883e2a099c2c185b618701fb85cb96a6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155083"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231094"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
 
@@ -22,7 +18,7 @@ Este artigo explica como enviar emails usando as associações de [SendGrid](htt
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
+## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
 
 As associações SendGrid são fornecidas no Pacote NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), versão 2.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/).
 
@@ -33,7 +29,7 @@ As associações SendGrid são fornecidas no Pacote NuGet [Microsoft.Azure.WebJo
 As associações SendGrid são fornecidas no Pacote NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), versão 3.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/).
 
 > [!NOTE]
-> A versão 2. x não cria o tópico ou a assinatura configurada na `ServiceBusTrigger` instância. A versão 2. x é baseada em [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) e não lida com o gerenciamento de filas.
+> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -42,7 +38,7 @@ As associações SendGrid são fornecidas no Pacote NuGet [Microsoft.Azure.WebJo
 Consulte o exemplo específico a um idioma:
 
 * [C#](#c-example)
-* [Script do C# (.csx)](#c-script-example)
+* [Script do C# (. CSx)](#c-script-example)
 * [JavaScript](#javascript-example)
 * [Java](#java-example)
 
@@ -166,7 +162,7 @@ public class Message
 
 ### <a name="java-example"></a>Exemplo do Java
 
-O exemplo a seguir usa `@SendGridOutput` a anotação da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para enviar um email usando a associação de saída SendGrid.
+The following example uses the `@SendGridOutput` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to send an email using the SendGrid output binding.
 
 ```java
 @FunctionName("SendEmail")
@@ -253,18 +249,18 @@ Para ver um exemplo completo, consulte [Exemplo de C#](#c-example).
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `SendGrid`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `SendGrid` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type**|| Obrigatório – deve ser definido como `sendGrid`.|
+|**tipo**|| Obrigatório – deve ser definido como `sendGrid`.|
 |**direction**|| Obrigatório – deve ser definido como `out`.|
 |**name**|| Obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. Esse valor é ```$return``` quando há apenas um valor retornado. |
 |**apiKey**|**ApiKey**| O nome de uma configuração de aplicativo que contém sua chave de API. Se não configurado, o nome da configuração do aplicativo padrão é "AzureWebJobsSendGridApiKey".|
-|**to**|**To**| o endereço de email do destinatário. |
-|**from**|**From**| o endereço de email do remetente. |
-|**subject**|**Subject**| o assunto do email. |
-|**text**|**Text**| o conteúdo do email. |
+|**to**|**Para**| o endereço de email do destinatário. |
+|**from**|**De**| o endereço de email do remetente. |
+|**subject**|**Assunto**| o assunto do email. |
+|**text**|**Texto**| o conteúdo do email. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -275,7 +271,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 Esta seção descreve as definições de configuração globais disponíveis para esta associação na versão 2.x. O arquivo host.json de exemplo abaixo contém apenas as configurações da versão 2.x para essa associação. Para obter mais informações sobre as configurações globais na versão 2.x, confira a [referência de host.json para o Azure Functions versão 2.x](functions-host-json.md).
 
 > [!NOTE]
-> Para obter uma referência de host.json no Functions 1.x, confira [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
+> Para obter uma referência de host.json no Functions 1.x, consulte [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
 
 ```json
 {
@@ -290,10 +286,10 @@ Esta seção descreve as definições de configuração globais disponíveis par
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|from|n/d|Endereço de email do remetente em todas as funções.| 
+|Da|N/D|Endereço de email do remetente em todas as funções.| 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

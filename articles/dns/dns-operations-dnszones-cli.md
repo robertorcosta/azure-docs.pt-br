@@ -3,7 +3,7 @@ title: Gerenciar as zonas DNS no DNS do Azure - CLI do Azure | Microsoft Docs
 description: Você pode gerenciar zonas DNS usando a CLI do Azure. Este artigo mostra como atualizar, excluir e criar zonas DNS no DNS do Azure.
 services: dns
 documentationcenter: na
-author: vhorne
+author: asudbring
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: victorh
-ms.openlocfilehash: 14d0512a10329f36872d111825261ebc5ef71976
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.author: allensu
+ms.openlocfilehash: e1a3c401de32beb9757011ac306443334da8b867
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959377"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211916"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Como gerenciar Zonas DNS no DNS do Azure usando a CLI do Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "71959377"
 
 Este guia mostra como gerenciar as zonas DNS usando a CLI do Azure entre plataformas, que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando o [Azure PowerShell](dns-operations-dnszones.md) ou o Portal do Azure.
 
-Este guia trata especificamente das zonas DNS públicas. Para obter informações sobre como usar a CLI do Azure para gerenciar Zonas Privadas no DNS do Azure, consulte [Introdução às Zonas Privadas do DNS do Azure usando a CLI do Azure](private-dns-getstarted-cli.md).
+Especificamente, este guia lida com zonas DNS públicas. Para obter informações sobre como usar a CLI do Azure para gerenciar Zonas Privadas no DNS do Azure, consulte [Introdução às Zonas Privadas do DNS do Azure usando a CLI do Azure](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Introdução
 
@@ -68,13 +68,13 @@ Escolha quais das suas assinaturas do Azure deseja usar.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Opcional: Para instalar/usar Zonas Privadas do DNS do Azure recurso
-O recurso de zona privada do DNS do Azure está disponível por meio de uma extensão para o CLI do Azure. Instalar o “dns” da extensão da CLI do Azure 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Optional: To install/use Azure DNS Private Zones feature
+The Azure DNS Private Zone feature is available via an extension to the Azure CLI. Instalar o “dns” da extensão da CLI do Azure 
 ```
 az extension add --name dns
 ``` 
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupos de recursos
 
 O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de DNS são globais, não regionais, a escolha do local do grupo de recursos não afeta o DNS do Azure.
 
@@ -192,7 +192,7 @@ O exemplo a seguir mostra como excluir a zona *contoso.com* de grupo de recursos
 az network dns zone delete --resource-group myresourcegroup --name contoso.com
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [gerenciar conjuntos de registros e registros](dns-getstarted-create-recordset-cli.md) em sua zona DNS.
 

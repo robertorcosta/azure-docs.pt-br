@@ -1,5 +1,5 @@
 ---
-title: Como usar identidades gerenciadas para recursos do Azure em uma máquina virtual para adquirir um token de acesso
+title: Use managed identities on a virtual machine to acquire access token - Azure AD
 description: Instruções passo a passo e exemplos para usar identidades gerenciadas para recursos do Azure em máquinas virtuais para adquirir um token de acesso OAuth.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d14debff8baf4bdeb808b32e64b389ad0f9e2f38
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290776"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232206"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para adquirir um token de acesso 
 
@@ -43,7 +43,7 @@ Se você planeja usar os exemplos do Azure PowerShell neste artigo, instale a ve
 > [!IMPORTANT]
 > - O limite de segurança de identidades gerenciadas para recursos do Azure é o recurso em que está sendo usado. Todos os códigos/scripts em execução em uma máquina virtual podem solicitar e recuperar tokens para quaisquer identidades gerenciadas disponíveis neles. 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Um aplicativo cliente pode solicitar identidades gerenciadas para o [token de acesso somente de aplicativo](../develop/developer-glossary.md#access-token) dos recursos do Azure para acessar um determinado recurso. O token é [com base nas identidades gerenciadas para a entidade de serviço dos recursos do Azure](overview.md#how-does-it-work). Sendo assim, o cliente não precisa se registrar para obter um token de acesso em sua própria entidade de serviço. O token é adequado para uso como um token de portador em [chamadas de serviço a serviço que exigem credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
 
@@ -70,7 +70,7 @@ Exemplo de solicitação usando o ponto de extremidade do serviço de metadados 
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que você deseja recuperar os dados do ponto de extremidade. Neste caso, um token de acesso OAuth. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | As identidades gerenciadas do ponto de extremidade de recursos do Azure para o Serviço de Metadados de Instância. |
@@ -79,7 +79,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | Um campo de cabeçalho de solicitação HTTP, exigido por identidades gerenciadas para recursos do Azure como uma atenuação contra ataque SSRF (Server Side Request Forgery). Esse valor deve ser definido como "true", com todas as letras minúsculas. |
 | `object_id` | (Opcional) Um parâmetro de string de consulta, indicando o object_id da identidade gerenciada para a qual você deseja o token. Obrigatório, se a VM tiver várias identidades gerenciadas atribuídas ao usuário.|
 | `client_id` | (Opcional) Um parâmetro de cadeia de consulta, indicando o client_id da identidade gerenciada para a qual você deseja o token. Obrigatório, se a VM tiver várias identidades gerenciadas atribuídas ao usuário.|
-| `mi_res_id` | (Opcional) Um cadeia de caracteres parâmetro de consulta, que indica o mi_res_id (ID do recurso do Azure) de identidade gerenciada que você gostaria que o token para. Obrigatório, se a VM tiver várias identidades gerenciadas atribuídas ao usuário. |
+| `mi_res_id` | (Optional) A query string parameter, indicating the mi_res_id (Azure Resource ID) of the managed identity you would like the token for. Obrigatório, se a VM tiver várias identidades gerenciadas atribuídas ao usuário. |
 
 Solicitação de exemplo usando as identidades gerenciadas do Ponto de Extremidade de Extensão de VM dos recursos do Azure *(previsão de reprovação em janeiro de 2019)* :
 
@@ -88,7 +88,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que você deseja recuperar os dados do ponto de extremidade. Neste caso, um token de acesso OAuth. | 
 | `http://localhost:50342/oauth2/token` | As identidades gerenciadas do ponto de extremidade de recursos do Azure, em que 50342 é a porta padrão e é configurável. |
@@ -113,7 +113,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `access_token` | O token de acesso solicitado. Ao chamar uma API REST protegida, o token é inserido no campo de cabeçalho de solicitação `Authorization` como um token "portador", permitindo que a API autentique o chamador. | 
 | `refresh_token` | Não usado por identidades gerenciadas para recursos do Azure. |
@@ -358,14 +358,14 @@ As identidades gerenciadas do ponto de extremidade de recursos do Azure sinaliza
 | 429 Número excessivo de solicitações. |  Atingido o limite de restrição IMDS. | Tentar novamente com Retirada Exponencial. Consulte as diretrizes abaixo. |
 | o erro 4xx na solicitação. | Um ou mais parâmetros de solicitação estava incorreto. | Não tente novamente.  Examine os detalhes do erro para obter mais informações.  Os erros 4xx são erros de tempo de design.|
 | Erro 5xx transitório do serviço. | As identidades gerenciadas do subsistema de recursos do Azure ou do Azure Active Directory retornaram um erro transitório. | É seguro tentar novamente após aguardar pelo menos 1 segundo.  Se tentar novamente muito rápido ou com muita frequência, o IMDS e/ou o Microsoft Azure Active Directory poderá retornar um erro de limite de taxa (429).|
-| timeout | Ponto de extremidade IMDS está atualizando. | Tente novamente com Expontential retirada. Consulte as diretrizes abaixo. |
+| Tempo limite | Ponto de extremidade IMDS está atualizando. | Tente novamente com Expontential retirada. Consulte as diretrizes abaixo. |
 
 Se ocorrer um erro, o corpo da resposta HTTP correspondente conterá o JSON com os detalhes do erro:
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | ------- | ----------- |
 | error   | Identificador do erro. |
-| error_description | Descrição detalhada do erro. **Descrições de erro podem ser alteradas a qualquer momento. Não escreva código que se ramifique com base nos valores na descrição do erro.**|
+| error_description | Descrição detalhada do erro. **Error descriptions can change at any time. Do not write code that branches based on values in the error description.**|
 
 ### <a name="http-response-reference"></a>Referência de resposta HTTP
 
@@ -373,7 +373,7 @@ Esta seção documenta as possíveis respostas de erro. Um status "200 OK" é um
 
 | Código de status | Erro | Descrição do erro | Solução |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Solicitação Inválida | invalid_resource | AADSTS50001: O aplicativo chamado *\<URI\>* não foi encontrado no locatário chamado *\<TENANT-ID\>* . Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Talvez você tenha enviado a solicitação de autenticação ao locatário errado.\ | (Apenas Linux) |
+| 400 Solicitação Inválida | invalid_resource | AADSTS50001: o aplicativo chamado *\<URI\>* não foi encontrado no locatário chamado *\<TENANT-ID\>* . Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Talvez você tenha enviado a solicitação de autenticação ao locatário errado.\ | (Apenas Linux) |
 | 400 Solicitação Inválida | bad_request_102 | Cabeçalho de metadados necessário não especificado | O campo de cabeçalho de solicitação `Metadata` está ausente da solicitação ou está formatado incorretamente. O valor deve ser especificado como `true`, com todas as letras minúsculas. Consulte a "Solicitação de exemplo" na seção REST anterior para obter um exemplo.|
 | 401 Não Autorizado | unknown_source | *\<URI\>* de origem desconhecida | Verifique se o URI da solicitação HTTP GET está formatado corretamente. A parte `scheme:host/resource-path` deve ser especificada como `http://localhost:50342/oauth2/token`. Consulte a "Solicitação de exemplo" na seção REST anterior para obter um exemplo.|
 |           | invalid_request | A solicitação não tem um parâmetro obrigatório, inclui um valor de parâmetro inválido, inclui um parâmetro mais de uma vez ou está malformada. |  |
@@ -397,10 +397,10 @@ Para tentar novamente, é recomendável a estratégia a seguir:
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 
-Consulte [Serviços do Azure que dão suporte à autenticação do Azure AD](services-support-msi.md) para obter uma lista de recursos que dão suporte ao Azure AS e foram testados com identidades gerenciadas para recursos do Azure e as respectivas IDs do recurso.
+Consulte [Serviços do Azure que oferecem suporte à autenticação do Azure AD](services-support-msi.md) para obter uma lista de recursos que oferecem suporte ao Azure AD e que foram testados com identidades gerenciadas para recursos do Azure e seus respectivos IDs de recursos.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para habilitar identidades gerenciadas para recursos do Azure em uma VM do Azure, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure l](qs-configure-portal-windows-vm.md).
 

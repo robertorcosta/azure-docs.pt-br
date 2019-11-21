@@ -1,6 +1,6 @@
 ---
-title: Entrar usando a verificação de dois fatores-Azure AD
-description: Saiba como entrar em sua conta corporativa ou de estudante usando os vários métodos de verificação de dois fatores.
+title: Sign-in using authentication with a work or school account - Azure AD
+description: Learn how to sign in to your work or school account using the various two-factor verification methods.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,14 +14,14 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de080a613c69dd6f48f548c4ba89b2728e8c5e1d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 86c7be7f786a4fcecc39ea9af552a0dc03f2fcac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820438"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233226"
 ---
-# <a name="sign-in-to-your-work-or-school-account-using-two-factor-verification"></a>Entre em sua conta corporativa ou de estudante usando a verificação de dois fatores
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Sign in to your work or school account using your two-factor verification method
 
 > [!NOTE]
 > A finalidade deste artigo é examinar uma experiência de conexão típica. Para obter ajuda com a conexão ou resolver problemas, consulte [Problemas com a Autenticação Multifator do Microsoft Azure](multi-factor-authentication-end-user-troubleshoot.md).
@@ -83,7 +83,7 @@ Se você usar o aplicativo Microsoft Authenticator para obter códigos de verifi
 
    ![Usar método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Se você tiver problemas para entrar usando a verificação em duas etapas, consulte [Problemas com a Autenticação Multifator do Microsoft Azure](multi-factor-authentication-end-user-troubleshoot.md) para obter mais informações.
 
 - Aprenda a [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md).

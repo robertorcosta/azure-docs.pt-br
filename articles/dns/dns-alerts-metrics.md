@@ -1,32 +1,30 @@
 ---
-title: Métricas e alertas de DNS do Azure | Microsoft Docs
-description: Saiba mais sobre métricas e alertas de DNS do Azure.
+title: Metrics and alerts - Azure DNS
+description: With this learning path, get started with Azure DNS metrics and alerts.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jennoc
-editor: ''
-ms.assetid: ''
+author: asudbring
+manager: kumudD
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: victorh
-ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: dc4d7de3d235fcdaf4a7f681065ba6e2857eb2ce
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699147"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212393"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métricas e alertas DNS do Azure
 O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece a resolução de nomes usando a infraestrutura do Microsoft Azure. Este artigo descreve as métricas e alertas para o serviço DNS do Azure.
 
 ## <a name="azure-dns-metrics"></a>Métricas de DNS do Azure
 
-O DNS do Azure fornece métricas de clientes para permitir que monitorem aspectos específicos de suas zonas DNS hospedadas no serviço. Além disso, com as métricas de DNS do Azure, você pode configurar e receber alertas com base nas condições de interesse. As métricas são fornecidas por meio de [serviço do Azure Monitor](../azure-monitor/index.yml). O DNS do Azure fornece as seguintes métricas por meio do Azure Monitor para as zonas DNS:
+Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS zones hosted in the service. Além disso, com as métricas de DNS do Azure, você pode configurar e receber alertas com base nas condições de interesse. As métricas são fornecidas por meio de [serviço do Azure Monitor](../azure-monitor/index.yml). O DNS do Azure fornece as seguintes métricas por meio do Azure Monitor para as zonas DNS:
 
 -   QueryVolume
 -   RecordSetCount
@@ -36,7 +34,7 @@ Você também pode ver a [definição dessas métricas](../azure-monitor/platfor
 >[!NOTE]
 > Neste momento, essas métricas estão disponíveis somente para as zonas de DNS públicas hospedadas no DNS do Azure. Se você tiver zonas privadas hospedadas no DNS do Azure, essas métricas não fornecerão dados para essas zonas. Além disso, o recurso de métricas e alertas só tem suporte na nuvem pública do Azure. O suporte para nuvens soberanas seguirá em um momento posterior. 
 
-O elemento mais granular que você pode ver as métricas para é uma zona DNS. No momento, você não pode ver as métricas para os registros de recurso individual dentro de uma zona.
+The most granular element that you can see metrics for is a DNS zone. You cannot currently see metrics for individual resource records within a zone.
 
 ### <a name="query-volume"></a>Volume de consulta
 
@@ -46,7 +44,7 @@ Para exibir essa métrica, selecione a experiência do Metrics Explorer (versão
 
 ![Volume de consulta](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 
-*Figura: Métricas de volume de consulta DNS do Azure*
+*Figura: Métricas de volume de consultas de DNS do Azure*
 
 ### <a name="record-set-count"></a>Contagem de Conjuntos de Registros
 A métrica *Contagem de conjunto de registros* mostra o número de conjuntos de registros no DNS do Azure para a zona DNS. Todos os conjuntos de registros definidos na sua zona são contados. A unidade de medida é a contagem e a agregação é o número máximo de todos os conjuntos de registros. Para exibir essa métrica, selecione a experiência do **Metrics Explorer** (versão prévia) na guia **Monitor** no portal do Azure. Selecione a zona DNS da lista suspensa **Recurso**, selecione a métrica de **Contagem de conjunto de registros** e selecione **Max** como a **agregação**. Para obter mais informações sobre os gráficos e a experiência do Metrics Explorer, consulte [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
@@ -61,10 +59,10 @@ A métrica *Utilização da capacidade de definir registro* no DNS do Azure most
 
 ![Contagem de Conjuntos de Registros](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
-*Figura: Métricas de utilização da capacidade de conjunto de registros de DNS do Azure*
+*Figura: métricas de utilização da capacidade de conjunto de registros de DNS do Azure*
 
 ## <a name="alerts-in-azure-dns"></a>Alertas no DNS do Azure
 O Azure Monitor fornece a capacidade de alerta com base nos valores de métrica disponíveis. As métricas DNS estão disponíveis na nova experiência de configuração de alertas. Conforme descrito em detalhes na [documentação de alertas do Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), você pode selecionar a zona DNS como recurso, escolhes o tipo de sinal de métrica e configurar a lógica de alerta e outros parâmetros, como **período**e **frequência**. Você pode definir também um [grupo de ações](../azure-monitor/platform/action-groups.md) para quando ocorrer a condição de alerta, pelo qual o alerta será feito por meio de ações escolhidas. Para obter mais informações sobre como configurar alertas para métricas de Azure Monitor, consulte [Criar, exibir e gerenciar alertas usando o Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [DNS do Azure](dns-overview.md).

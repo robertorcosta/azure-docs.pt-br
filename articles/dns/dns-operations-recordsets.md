@@ -3,7 +3,7 @@ title: Gerenciar registros DNS na DNS do Azure usando o Azure PowerShell | Micro
 description: Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure. Todos os comandos do PowerShell para operações em conjuntos de registros e registros.
 services: dns
 documentationcenter: na
-author: vhorne
+author: asudbring
 manager: timlt
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: victorh
-ms.openlocfilehash: fedab8cc45fff6d7830f67e7a23786b5952f83a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: c11a5c4a3cfe18fbc203ad641ab1de866915bcc4
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170218"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211683"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando o Azure PowerShell
 
@@ -314,7 +314,7 @@ Set-AzDnsRecordSet -RecordSet $rs
 
 O registro NS definido no apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
 
-Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
+Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à coospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
 
 Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser modificados sem restrição.
 
@@ -349,7 +349,7 @@ Set-AzDnsRecordSet -RecordSet $rs
 
 ## <a name="delete-a-record-set"></a>Excluir um conjunto de registros
 
-Os conjuntos de registros podem ser excluídos usando o cmdlet `Remove-AzDnsRecordSet` . Excluir um conjunto de registros também exclui todos os registros no conjunto de registros.
+Conjuntos de registros podem ser excluídos com o cmdlet `Remove-AzDnsRecordSet` . Excluir um conjunto de registros também exclui todos os registros no conjunto de registros.
 
 > [!NOTE]
 > Não é possível excluir os conjuntos de registro SOA e NS no ápice da zona (`-Name '@'`).  O DNS do Azure foi criado automaticamente quando a zona foi criada e é excluído automaticamente quando a zona é excluída.
@@ -392,7 +392,7 @@ Você pode substituir a configuração `$ConfirmPreference` atual usando o parâ
 
 Para obter mais informações sobre `-Confirm` e `$ConfirmPreference`, consulte [Sobre as Variáveis de Preferência](/powershell/module/microsoft.powershell.core/about/about_preference_variables).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as [zonas e os registros no DNS do Azure](dns-zones-records.md).
 <br>

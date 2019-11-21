@@ -1,6 +1,6 @@
 ---
-title: Gerenciar suas organizações no portal minha conta – Azure AD
-description: Como exibir e deixar suas organizações na página organizações do portal minha conta.
+title: Manage your organizations from the My Account portal - Azure AD
+description: How to view and leave organizations connected to your work or school account from the Organizations page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b81ec4996ae91714b442dd2e62a0bc45c6bfd39
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820405"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231855"
 ---
-# <a name="manage-your-organizations-from-the-my-account-portal"></a>Gerenciar suas organizações no portal minha conta
+# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Manage organizations connected to your work or school account from the Organizations page
 
-Você pode gerenciar suas organizações na página **organizações** do portal **minha conta** .
+You can manage your organizations from the **Organizations** page of the **My Account** portal.
 
 Há dois tipos de organizações mostrados na página **Organizações**:
 
@@ -30,7 +30,7 @@ Há dois tipos de organizações mostrados na página **Organizações**:
 - **Outras organizações.** Outras organizações incluem qualquer grupo que você tenha entrado anteriormente usando sua conta corporativa ou de estudante. Você pode sair de tais organizações a qualquer momento.
 
     >[!NOTE]
-    > Se você não tiver uma organização inicial atribuída, verá apenas um único título que diz às organizações a lista de suas organizações associadas.
+    > If you don't have an assigned Home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.
 
 ## <a name="view-your-organizations"></a>Exibir suas organizações
 
@@ -38,7 +38,7 @@ Há dois tipos de organizações mostrados na página **Organizações**:
 
 2. Escolha **Organizações** no painel de navegação à esquerda ou escolha o link **Gerenciar organizações** no bloco **Organizações**.
 
-    ![Página minha conta, mostrando links para organizações realçadas](media/my-account-portal/my-account-portal-organizations.png)
+    ![My Account page, showing highlighted Organizations links](media/my-account-portal/my-account-portal-organizations.png)
 
 3. Examine as informações de sua **Organização inicial**.
 
@@ -51,20 +51,20 @@ Há dois tipos de organizações mostrados na página **Organizações**:
 Você pode sair de qualquer organização que não seja a organização inicial.
 
 >[!Important]
->Se você sair de uma organização por engano, não será possível desfazer a ação. Você precisará aguardar o administrador dessa organização para convidá-lo novamente.
+>Se você sair de uma organização por engano, não será possível desfazer a ação. You'll have to wait for the administrator of that organization to invite you again.
 
-1. Selecione **deixar organização** ao lado da organização que você deseja sair e selecione **deixar** para confirmar que deseja sair.
+1. Select **Leave organization** next to the organization you want to leave, and then select **Leave** to confirm you want to leave.
 
     ![Página Organizações, com link para sair da organização em destaque](media/my-account-portal/my-account-portal-organizations-leave.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Depois de exibir suas organizações, você pode:
+After viewing your organizations, you can:
 
-- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
+- View or manage your [security info](user-help-security-info-overview.md).
 
-- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
+- View or manage your connected [devices](my-account-portal-devices-page.md).
 
-- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).

@@ -1,20 +1,15 @@
 ---
 title: Cenários de fan-out/fan-in nas Funções Duráveis – Azure
 description: Saiba como implementar um cenário de fan-out/fan-in na extensão de Funções Duráveis do Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e2f1042fe1210fe51ae79b1152e51191e7fb066a
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: a87a4edd544c2f7d8ff9c6415df2f2dda125f2bf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615020"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232992"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-in nas Funções Duráveis – Exemplo de backup em nuvem
 
@@ -28,9 +23,9 @@ ms.locfileid: "73615020"
 
 Neste exemplo, as funções carregam todos os arquivos em um diretório especificado, recursivamente, no armazenamento de blobs. Elas também contam o número total de bytes que foram carregados.
 
-É possível escrever uma única função que cuida de tudo. O principal problema que você teria seria a **escalabilidade**. Uma única função só pode ser executada em uma única VM, de modo que a taxa de transferência seria limitada à taxa de transferência dessa VM. Outro problema é a **confiabilidade**. Se houver uma falha percorrendo ou se o processo inteiro levar mais de 5 minutos, o backup poderá falhar em um estado parcialmente concluído. Em seguida, ele precisaria ser reiniciado.
+É possível escrever uma única função que cuida de tudo. O principal problema que você teria seria a **escalabilidade**. Uma única função só pode ser executada em uma única VM, de modo que a taxa de transferência seria limitada à taxa de transferência dessa VM. Outro problema é a **confiabilidade**. If there's a failure midway through, or if the entire process takes more than 5 minutes, the backup could fail in a partially completed state. Em seguida, ele precisaria ser reiniciado.
 
-Uma abordagem mais robusta seria escrever duas funções regulares: um enumeraria os arquivos e adicionaria os nomes dos arquivo a uma fila e a outra leria da fila e carregaria os arquivos no armazenamento de blobs. Essa abordagem é melhor em termos de produtividade e confiabilidade, mas requer que você provisione e gerencie uma fila. E, mais importante, uma complexidade significativa é introduzida em termos de **gerenciamento de estado** e **coordenação** se você quiser fazer qualquer outra coisa, como relatar o número total de bytes carregados.
+Uma abordagem mais robusta seria escrever duas funções regulares: um enumeraria os arquivos e adicionaria os nomes dos arquivo a uma fila e a outra leria da fila e carregaria os arquivos no armazenamento de blobs. This approach is better in terms of throughput and reliability, but it requires you to provision and manage a queue. E, mais importante, uma complexidade significativa é introduzida em termos de **gerenciamento de estado** e **coordenação** se você quiser fazer qualquer outra coisa, como relatar o número total de bytes carregados.
 
 Uma abordagem com as Funções Duráveis fornece todos os benefícios mencionados, com pouquíssima sobrecarga.
 
@@ -42,7 +37,7 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-As seções a seguir explicam a configuração e o código que C# é usado para scripts. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
+The following sections explain the configuration and code that is used for C# scripting. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A orquestração de backup de nuvem (código de exemplo do Visual Studio Code e do portal do Azure)
 
@@ -56,7 +51,7 @@ Este é o código que implementa a função de orquestrador:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
+### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
@@ -68,7 +63,7 @@ Essa função de orquestrador faz, essencialmente, o seguinte:
 4. Aguarda que todos os uploads sejam concluídos.
 5. Retorna o total de bytes que foram carregados no Armazenamento de Blobs do Azure.
 
-Observe as linhas `await Task.WhenAll(tasks);` (C#) e `yield context.df.Task.all(tasks);` (JavaScript). Todas as chamadas individuais para a função `E2_CopyFileToBlob` *não* foram esperadas, o que permite que elas sejam executadas em paralelo. Quando passamos essa matriz de tarefas para `Task.WhenAll` (C#) ou `context.df.Task.all` (JavaScript), obtemos uma tarefa que não será concluída *até que todas as operações de cópia tenham sido concluídas*. Se você está familiarizado com a TPL (biblioteca de paralelismo de tarefas) no .NET ou [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) em JavaScript, isso não é novidade para você. A diferença é que essas tarefas poderiam ser executadas simultaneamente em várias VMs e a extensão Funções Duráveis assegura que a execução de ponta a ponta seja resiliente em caso de reciclagem do processo.
+Observe as linhas `await Task.WhenAll(tasks);` (C#) e `yield context.df.Task.all(tasks);` (JavaScript). All the individual calls to the `E2_CopyFileToBlob` function were *not* awaited, which allows them to run in parallel. Quando passamos essa matriz de tarefas para `Task.WhenAll` (C#) ou `context.df.Task.all` (JavaScript), obtemos uma tarefa que não será concluída *até que todas as operações de cópia tenham sido concluídas*. Se você está familiarizado com a TPL (biblioteca de paralelismo de tarefas) no .NET ou [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) em JavaScript, isso não é novidade para você. A diferença é que essas tarefas poderiam ser executadas simultaneamente em várias VMs e a extensão Funções Duráveis assegura que a execução de ponta a ponta seja resiliente em caso de reciclagem do processo.
 
 > [!NOTE]
 > Embora as tarefas sejam conceitualmente semelhantes a promessas JavaScript, funções de orquestrador devem usar `context.df.Task.all` e `context.df.Task.any` em vez de `Promise.all` e `Promise.race` para gerenciar a paralelização de tarefa.
@@ -87,7 +82,7 @@ E esta é a implementação:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
+### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
@@ -100,13 +95,13 @@ O arquivo *function.json* para `E2_CopyFileToBlob` também é simples:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-A C# implementação também é simples. Ela usa alguns recursos avançados das associações do Azure Functions (ou seja, o uso do parâmetro `Binder`), mas você não precisa se preocupar com esses detalhes no contexto deste passo a passo.
+The C# implementation is also straightforward. Ela usa alguns recursos avançados das associações do Azure Functions (ou seja, o uso do parâmetro `Binder`), mas você não precisa se preocupar com esses detalhes no contexto deste passo a passo.
 
 ### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
+### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
 
 A implementação de JavaScript não tem acesso ao recurso `Binder` do Azure Functions, assim a [SDK de Armazenamento do Azure para o Nó](https://github.com/Azure/azure-storage-node) entra em seu lugar.
 
@@ -175,11 +170,11 @@ Agora, você pode ver que a orquestração foi concluída e aproximadamente quan
 Esta é a orquestração como um único arquivo em C# em um projeto do Visual Studio:
 
 > [!NOTE]
-> Será necessário instalar o `Microsoft.Azure.WebJobs.Extensions.Storage` pacote NuGet para executar o código de exemplo abaixo.
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet package to run the sample code below.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este exemplo mostra como implementar o padrão de fan-out/fan-in. O próximo exemplo mostra como implementar o padrão de monitor usando [temporizadores variáveis](durable-functions-timers.md).
 

@@ -2,17 +2,17 @@
 title: Funções de modelo
 description: Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: a9501517672d3ea80a29979ce6b1439c4cc0010e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/19/2019
+ms.openlocfilehash: cf263bff72677778433d4ef2f3cee8135fe3ab06
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150665"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224175"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções do modelo do Gerenciador de Recursos do Azure
 
-Este artigo descreve todas as funções que você pode usar em um modelo do Azure Resource Manager. Para obter informações sobre como usar funções em seu modelo, consulte [sintaxe do modelo](template-expressions.md).
+Este artigo descreve todas as funções que você pode usar em um modelo do Azure Resource Manager. For information about using functions in your template, see [template syntax](template-expressions.md).
 
 Para criar suas próprias funções, consulte [Funções definidas pelo usuário](resource-group-authoring-templates.md#functions).
 
@@ -78,7 +78,8 @@ O Resource Manager fornece várias funções para fazer comparações em seus mo
 O Gerenciador de Recursos fornece as seguintes funções para obter os valores de seções do modelo e os valores relacionados à implantação:
 
 * [implantação](resource-group-template-functions-deployment.md#deployment)
-* [parameters](resource-group-template-functions-deployment.md#parameters)
+* [environment](resource-group-template-functions-deployment.md#environment)
+* [parâmetros](resource-group-template-functions-deployment.md#parameters)
 * [variáveis](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
@@ -90,11 +91,11 @@ O Gerenciador de Recursos fornece as seguintes funções para obter os valores d
 ## <a name="logical-functions"></a>Funções lógicas
 O Gerenciador de Recursos fornece as seguintes funções para trabalhar com condições lógicas:
 
-* [and](resource-group-template-functions-logical.md#and)
+* [e](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
 * [if](resource-group-template-functions-logical.md#if)
 * [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
+* [ou](resource-group-template-functions-logical.md#or)
 
 <a id="add" aria-hidden="true" />
 <a id="copyindex" aria-hidden="true" />
@@ -110,7 +111,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cond
 ## <a name="numeric-functions"></a>Funções numéricas
 O Gerenciador de Recursos fornece as seguintes funções para trabalhar com números inteiros:
 
-* [add](resource-group-template-functions-numeric.md#add)
+* [adicionar](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
 * [div](resource-group-template-functions-numeric.md#div)
 * [float](resource-group-template-functions-numeric.md#float)
@@ -216,9 +217,9 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 * [utcNow](resource-group-template-functions-string.md#utcnow)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja a seção [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md)
-* Para mesclar diversos modelos, confira a seção [Como usar modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
+* Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+* Para mesclar diversos modelos, confira a seção [Como usar modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md)
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md)
-* Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com Azure Resource Manager modelo](resource-group-template-deploy.md)
+* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)

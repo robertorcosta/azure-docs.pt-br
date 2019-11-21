@@ -1,24 +1,20 @@
 ---
 title: Recuperação de desastre e distribuição geográfica em Funções Duráveis - Azure
 description: Saiba mais sobre recuperação de desastre e distribuição geográfica em Funções Duráveis.
-services: functions
 author: MS-Santi
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f242a16bc89e6b229efa42b88ebd20ca174e2516
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ba459d2d2f3aaf595c1d834e2b29a231e3b2bb12
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098061"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232935"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Recuperação de desastres e distribuição geográfica
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Nas Durable Functions, todos os estados são persistentes no Armazenamento do Azure. Um [hub de tarefas](durable-functions-task-hubs.md) é um contêiner lógico dos recursos do Armazenamento do Azure usado para orquestrações. Funções de orquestrador e atividade só podem interagir entre si quando pertencem ao mesmo hub de tarefas.
 Os cenários descritos propõem opções de implantação para aumentar a disponibilidade e minimizar o tempo de inatividade durante as atividades de recuperação de desastre.
@@ -29,7 +25,7 @@ Os cenários descritos propõem opções de implantação para aumentar a dispon
 >
 > - A configuração ativa-passiva proposta garante que um cliente sempre possa disparar novas orquestrações por meio de HTTP. No entanto, como consequência de haver dois aplicativos de função compartilhando o mesmo armazenamento, o processamento em segundo plano será distribuído entre ambos, competindo por mensagens nas mesmas filas. Essa configuração incorre em custos de saída adicionais para o aplicativo de função secundário.
 > - O hub de tarefas e a conta de armazenamento subjacente são criados na região primária e são compartilhadas por ambos os aplicativos de função.
-> - Todos os aplicativos de função que são implantados de forma redundante devem compartilhar as mesmas chaves de acesso de função caso sejam ativados por meio de HTTP. O Tempo de Execução de Funções expõe uma [API de gerenciamento](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) que permite que os consumidores adicionem, excluam e atualizem as teclas de função programaticamente.
+> - Todos os aplicativos de função que são implantados de forma redundante devem compartilhar as mesmas chaves de acesso de função caso sejam ativados por meio de HTTP. O Runtime de Funções expõe uma [API de gerenciamento](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) que permite que os consumidores adicionem, excluam e atualizem as teclas de função programaticamente.
 
 ## <a name="scenario-1---load-balanced-compute-with-shared-storage"></a>Cenário 1 - Computação com balanceamento de carga com armazenamento compartilhado
 
@@ -87,6 +83,6 @@ Assim como acontece com os outros cenários, há considerações importantes:
 
 ![Diagrama mostrando o cenário 3.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode ler mais sobre [Projetar aplicativos altamente disponíveis usando RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)

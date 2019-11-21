@@ -1,20 +1,20 @@
 ---
-title: Cenários de Zonas Privadas do DNS do Azure
-description: Visão geral dos cenários comuns para usar Zonas Privadas do DNS do Azure.
+title: Scenarios for Private Zones - Azure DNS
+description: In this article, learn about common scenarios for using Azure DNS Private Zones.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
-ms.author: victorh
-ms.openlocfilehash: 3ac4db3a2d98e761183360c268d23efcc313cf09
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.author: allensu
+ms.openlocfilehash: 2eb7e9e4df5bdf0f8eb047cc8594bd862245770d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048493"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210467"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Cenários de zonas privadas do DNS do Azure
+# <a name="azure-dns-private-zones-scenarios"></a>Azure DNS Private zones scenarios
 
 As Zonas Privadas do DNS do Azure fornecem resolução de nomes em uma rede virtual, bem como entre redes virtuais. Neste artigo, vamos examinar alguns cenários comuns que podem ser obtidos usando esse recurso.
 
@@ -47,7 +47,7 @@ Agora, quando um cliente da internet emitir uma consulta DNS para pesquisar VNET
 
 ![Resolução de dupla personalidade](./media/private-dns-scenarios/split-brain-resolution.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre as zonas DNS privadas, consulte [Usar o Azure DNS para domínios privados](private-dns-overview.md).
 
 Saiba como [criar uma zona DNS privada](./private-dns-getstarted-powershell.md) no DNS do Azure.

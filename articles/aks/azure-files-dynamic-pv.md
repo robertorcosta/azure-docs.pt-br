@@ -7,40 +7,40 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: mlearned
-ms.openlocfilehash: 045fcb3286c89097459a4a8405d22ee70e44c205
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 999e106240a8a1d95c35d098062d474a0b57228d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018831"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231750"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Crie e use, dinamicamente, um volume persistente com Arquivos do Azure no AKS (Serviço de Kubernetes do Azure)
 
-Um volume persistente representa uma parte do armazenamento que foi provisionada para uso com pods do Kubernetes. Um volume persistente pode ser usado por um ou vários compartimentos e pode ser estática ou dinamicamente provisionado. Se vários pods precisarem de acesso simultâneo ao mesmo volume de armazenamento, você poderá usar os arquivos do Azure para se conectar usando o [protocolo SMB][smb-overview]. Este artigo mostra como criar dinamicamente um compartilhamento de Arquivos do Azure para uso por vários pods em um cluster do AKS (Serviço de Kubernetes do Azure).
+Um volume persistente representa uma parte do armazenamento que foi provisionada para uso com pods do Kubernetes. Um volume persistente pode ser usado por um ou vários compartimentos e pode ser estática ou dinamicamente provisionado. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. Este artigo mostra como criar dinamicamente um compartilhamento de Arquivos do Azure para uso por vários pods em um cluster do AKS (Serviço de Kubernetes do Azure).
 
-Para obter mais informações sobre volumes kubernetes, consulte [Opções de armazenamento para aplicativos em AKs][concepts-storage].
+For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+You also need the Azure CLI version 2.0.59 or later installed and configured. Execute  `az --version` para encontrar a versão. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Criar uma classe de armazenamento
 
-Uma classe de armazenamento é usada para definir como um compartilhamento de arquivos do Azure é criado. Uma conta de armazenamento é criada automaticamente no [grupo de recursos do nó][node-resource-group] para uso com a classe de armazenamento para manter os compartilhamentos de arquivos do Azure. Escolha a seguinte [redundância de armazenamento do Azure][storage-skus] para *skuName*:
+Uma classe de armazenamento é usada para definir como um compartilhamento de arquivos do Azure é criado. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] for *skuName*:
 
 * *Standard_LRS*: armazenamento com redundância local (LRS)
 * *Standard_GRS*: armazenamento com redundância geográfica (GRS)
 * *Standard_RAGRS*: armazenamento com redundância geográfica e acesso de leitura padrão (RA-GRS)
-* *Premium_LRS* -LRS (armazenamento com redundância local) Premium
+* *Premium_LRS* - premium locally redundant storage (LRS)
 
 > [!NOTE]
-> Os arquivos do Azure dão suporte ao armazenamento Premium em clusters AKS que executam o kubernetes 1,13 ou superior.
+> Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher.
 
-Para obter mais informações sobre classes de armazenamento kubernetes para arquivos do Azure, consulte [classes de armazenamento kubernetes][kubernetes-storage-classes].
+For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Crie um arquivo chamado `azure-file-sc.yaml` e copie-o manifesto de exemplo a seguir. Para obter mais informações sobre o *mountoptions*, consulte a seção [Opções de montagem][mount-options] .
+Crie um arquivo chamado `azure-file-sc.yaml` e copie-o manifesto de exemplo a seguir. For more information on *mountOptions*, see the [Mount options][mount-options] section.
 
 ```yaml
 kind: StorageClass
@@ -60,52 +60,15 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Crie a classe de armazenamento com o comando [kubectl Apply][kubectl-apply] :
+Create the storage class with the [kubectl apply][kubectl-apply] command:
 
 ```console
 kubectl apply -f azure-file-sc.yaml
 ```
 
-## <a name="create-a-cluster-role-and-binding"></a>Criar uma associação e função de cluster
-
-Os clusters AKS usam o controle de acesso baseado em função (RBAC) do Kubernetes para limitar as ações que podem ser executadas. *Funções* definem as permissões a serem concedidas e *ligações* as aplicam aos usuários desejados. Essas atribuições podem ser aplicadas a um determinado namespace ou em todo o cluster. Para obter mais informações, consulte [usando a autorização do RBAC][kubernetes-rbac].
-
-Para permitir que a plataforma do Azure crie os recursos de armazenamento necessários, crie um *ClusterRole* e *ClusterRoleBinding*. Crie um arquivo chamado `azure-pvc-roles.yaml` e o copie no YAML a seguir:
-
-```yaml
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: system:azure-cloud-provider
-rules:
-- apiGroups: ['']
-  resources: ['secrets']
-  verbs:     ['get','create']
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: system:azure-cloud-provider
-roleRef:
-  kind: ClusterRole
-  apiGroup: rbac.authorization.k8s.io
-  name: system:azure-cloud-provider
-subjects:
-- kind: ServiceAccount
-  name: persistent-volume-binder
-  namespace: kube-system
-```
-
-Atribua as permissões com o comando [kubectl Apply][kubectl-apply] :
-
-```console
-kubectl apply -f azure-pvc-roles.yaml
-```
-
 ## <a name="create-a-persistent-volume-claim"></a>Criar uma declaração de volume persistente
 
-Uma PVC (declaração de volume persistente) usa o objeto de classe de armazenamento para provisionar dinamicamente um compartilhamento de arquivos do Azure. O YAML a seguir pode ser usado para criar uma declaração de volume persistente de *5 GB* de tamanho com acesso *ReadWriteMany* . Para obter mais informações sobre modos de acesso, consulte a documentação de [volume persistente do kubernetes][access-modes] .
+Uma PVC (declaração de volume persistente) usa o objeto de classe de armazenamento para provisionar dinamicamente um compartilhamento de arquivos do Azure. The following YAML can be used to create a persistent volume claim *5 GB* in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
 
 Agora, crie um arquivo chamado `azure-file-pvc.yaml` e copie no YAML a seguir. Certifique-se de que o *storageClassName* corresponde à classe de armazenamento criada na última etapa:
 
@@ -124,15 +87,15 @@ spec:
 ```
 
 > [!NOTE]
-> Se estiver usando o SKU *Premium_LRS* para sua classe de armazenamento, o valor mínimo para *armazenamento* deve ser *100gi*.
+> If using the *Premium_LRS* sku for your storage class, the minimum value for *storage* must be *100Gi*.
 
-Crie a declaração de volume persistente com o comando [kubectl Apply][kubectl-apply] :
+Create the persistent volume claim with the [kubectl apply][kubectl-apply] command:
 
 ```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-Depois de concluído, o compartilhamento de arquivos será criado. Um segredo do Kubernetes que contém informações de conexão e credenciais também é criado. Você pode usar o comando [Get do kubectl][kubectl-get] para exibir o status do PVC:
+Depois de concluído, o compartilhamento de arquivos será criado. Um segredo do Kubernetes que contém informações de conexão e credenciais também é criado. You can use the [kubectl get][kubectl-get] command to view the status of the PVC:
 
 ```console
 $ kubectl get pvc azurefile
@@ -143,7 +106,7 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>Usar o volume persistente
 
-O YAML a seguir cria um pod que usa a declaração de volume persistente *azurefile* para montar o compartilhamento de arquivos do Azure no caminho */mnt/azure*. Para contêineres do Windows Server (atualmente em visualização em AKS), especifique um *mountPath* usando a Convenção de caminho do Windows, como *: '* .
+O YAML a seguir cria um pod que usa a declaração de volume persistente *azurefile* para montar o compartilhamento de arquivos do Azure no caminho */mnt/azure*. For Windows Server containers (currently in preview in AKS), specify a *mountPath* using the Windows path convention, such as *'D:'* .
 
 Crie um arquivo chamado `azure-pvc-files.yaml` e copie no YAML a seguir. Certifique-se de que *claimName* corresponda ao PVC criado na última etapa.
 
@@ -172,7 +135,7 @@ spec:
         claimName: azurefile
 ```
 
-Crie o Pod com o comando [kubectl Apply][kubectl-apply] .
+Create the pod with the [kubectl apply][kubectl-apply] command.
 
 ```console
 kubectl apply -f azure-pvc-files.yaml
@@ -203,7 +166,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Opções de montagem
 
-O valor padrão de *fileMode* e *dirMode* é *0755* para kubernetes versão 1.9.1 e superior. Se estiver usando um cluster com Kuberetes versão 1.8.5 ou superior e criando dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem poderão ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777*:
+The default value for *fileMode* and *dirMode* is *0755* for Kubernetes version 1.9.1 and above. If using a cluster with Kuberetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. O exemplo a seguir define *0777*:
 
 ```yaml
 kind: StorageClass
@@ -223,11 +186,11 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Se usar um cluster de versão 1.8.0 - 1.8.4, um contexto de segurança pode ser especificado com o *runAsUser* valor definido como *0*. Para obter mais informações sobre o contexto de segurança Pod, consulte [configurar um contexto de segurança][kubernetes-security-context].
+Se usar um cluster de versão 1.8.0 - 1.8.4, um contexto de segurança pode ser especificado com o *runAsUser* valor definido como *0*. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para armazenamento e backups em AKs][operator-best-practices-storage].
+For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
 Saiba mais sobre volumes persistentes Kubernetes usando os Arquivos do Azure.
 

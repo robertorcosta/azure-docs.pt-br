@@ -1,22 +1,17 @@
 ---
 title: Associação do Twilio e Azure Functions
 description: Entenda como usar associações Twilio com Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32f987caed915aff8c581b974dec7689fc90b007
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ee78234b43e94a5c537161556410ee6246e625ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114367"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230954"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associação de Twilio para o Azure Functions
 
@@ -24,7 +19,7 @@ Este artigo explica como enviar mensagens de texto usando-se as associações de
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
+## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
 
 As ligações do Twilio são fornecidas no pacote [ Microsoft.Azure.WebJobs.Extensions.Twilio ](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet, versão 1.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/).
 
@@ -41,7 +36,7 @@ As ligações do Twilio são fornecidas no pacote [ Microsoft.Azure.WebJobs.Exte
 Consulte o exemplo específico a um idioma:
 
 * [C#](#c-example)
-* [Script do C# (.csx)](#c-script-example)
+* [Script do C# (. CSx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Exemplo de C#
@@ -396,22 +391,22 @@ Para ver um exemplo completo, consulte [Exemplo de C#](#c-example).
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `TwilioSms`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `TwilioSms` atributo.
 
-| propriedade function.json v1 | propriedade function.json v2 | Propriedade de atributo |DESCRIÇÃO|
+| propriedade function.json v1 | propriedade function.json v2 | Propriedade de atributo |Descrição|
 |---------|---------|---------|----------------------|
-|**type**|**type**| deve ser definido como `twilioSms`.|
+|**tipo**|**tipo**| deve ser definido como `twilioSms`.|
 |**direction**|**direction**| deve ser definido como `out`.|
 |**name**|**name**| Nome da variável usada no código de função para a mensagem de texto SMS do Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Esse valor deve ser definido como o nome de uma Configuração de aplicativo que contém a SID da sua conta do Twilio, por exemplo, TwilioAccountSid. Se não configurado, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Esse valor deve ser definido como o nome de uma Configuração de aplicativo que contém seu token de autenticação do Twilio por exemplo, TwilioAccountAuthToken. Se não configurado, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAuthToken". |
-|**to**| N/D – especificar no código | **To**| Esse valor é definido como o número de telefone para o qual será enviada a mensagem de texto SMS.|
-|**from**|**from** | **From**| Esse valor é definido como o número de telefone com o qual será enviada a mensagem de texto SMS.|
+|**to**| N/D – especificar no código | **Para**| Esse valor é definido como o número de telefone para o qual será enviada a mensagem de texto SMS.|
+|**from**|**from** | **De**| Esse valor é definido como o número de telefone com o qual será enviada a mensagem de texto SMS.|
 |**body**|**body** | **Corpo**| Esse valor pode ser usado para fixar a mensagem de texto SMS no código se você não precisa defini-la dinamicamente no código de sua função. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

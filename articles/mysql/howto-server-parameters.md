@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2019
+ms.openlocfilehash: 6b5d48a1d198b62af853a6334de41bad01b3c98c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422077"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232545"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor no Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -35,30 +35,23 @@ A lista de parâmetros de servidor com suporte está em constante crescimento. U
 
 ## <a name="non-configurable-server-parameters"></a>Parâmetros do servidor não configuráveis
 
-Pool de buffers InnoDB e Máximo de Conexões não são configuráveis e são associados ao seu [tipo de preço](concepts-service-tiers.md).
+The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
 
-|**Tipo de preço**| **Geração de computação**|**vCore(s)**|**Pool de Buffers InnoDB (MB)**| **Máximo de conexões**|
-|---|---|---|---|--|
-|Basic| Gen 4| 1| 960| 50|
-|Basic| Gen 4| 2| 2560| 100|
-|Basic| Gen 5| 1| 960| 50|
-|Basic| Gen 5| 2| 2560| 100|
-|Uso geral| Gen 4| 2| 3584| 300|
-|Uso geral| Gen 4| 4| 7680| 625|
-|Uso geral| Gen 4| 8| 15360| 1250|
-|Uso geral| Gen 4| 16| 31232| 2500|
-|Uso geral| Gen 4| 32| 62976| 5\.000|
-|Uso geral| Gen 5| 2| 3584| 300|
-|Uso geral| Gen 5| 4| 7680| 625|
-|Uso geral| Gen 5| 8| 15360| 1250|
-|Uso geral| Gen 5| 16| 31232| 2500|
-|Uso geral| Gen 5| 32| 62976| 5\.000|
-|Uso geral| Gen 5| 64| 125952| 10000|
-|Otimizado para memória| Gen 5| 2| 7168| 600|
-|Otimizado para memória| Gen 5| 4| 15360| 1250|
-|Otimizado para memória| Gen 5| 8| 30720| 2500|
-|Otimizado para memória| Gen 5| 16| 62464| 5\.000|
-|Otimizado para memória| Gen 5| 32| 125952| 10000|
+|**Tipo de preço**|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
+|:---|---:|---:|---:|
+|Basic| 1| 960| |
+|Basic| 2| 2560| |
+|Propósito geral| 2| 3584| 7168|
+|Propósito geral| 4| 7680| 15360|
+|Propósito geral| 8| 15360| 30720|
+|Propósito geral| 16| 31232| 62464|
+|Propósito geral| 32| 62976| 125952|
+|Propósito geral| 64| 125952| 251904|
+|Memória Otimizada| 2| 7168| 14336|
+|Memória Otimizada| 4| 15360| 30720|
+|Memória Otimizada| 8| 30720| 61440|
+|Memória Otimizada| 16| 62464| 124928|
+|Memória Otimizada| 32| 125952| 251904|
 
 Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 
@@ -67,7 +60,7 @@ Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 |innodb_file_per_table na camada Básica|DESATIVADO|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512MB|
+|innodb_log_file_size|512 MB|
 
 Outros parâmetros de servidor que não estão listados aqui são configurados com seus valores padrão iniciais MySQL nas versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
@@ -106,6 +99,6 @@ SET time_zone = 'US/Pacific';
 
 Consulte a documentação do MySQL para [Funções de data e hora](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Bibliotecas de conexão para o Banco de Dados do Azure para MySQL](concepts-connection-libraries.md).

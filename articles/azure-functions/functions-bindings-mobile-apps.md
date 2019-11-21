@@ -1,21 +1,16 @@
 ---
 title: Associações de Aplicativos Móveis para o Azure Functions
 description: Entenda como usar associações dos Aplicativos Móveis do Azure no Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 37192a25bff794ac019fd29b47e0e8ad161790c9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097317"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231125"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associações de Aplicativos Móveis para o Azure Functions 
 
@@ -28,7 +23,7 @@ As associações dos Aplicativos Móveis permitem ler e atualizar tabelas de dad
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
+## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
 
 As ligações de aplicativos para dispositivos móveis são fornecidas no pacote [ do Microsoft.Azure.WebJobs.Extensions.MobileApps ](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet, versão 1.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/).
 
@@ -42,7 +37,7 @@ A associação de entrada dos Aplicativos Móveis carrega um registro de um pont
 
 Consulte o exemplo específico a um idioma:
 
-* [Script do C# (.csx)](#input---c-script-example)
+* [Script do C# (. CSx)](#input---c-script-example)
 * JavaScript
 
 ### <a name="input---c-script-example"></a>Entrada - exemplo de script C#
@@ -137,15 +132,15 @@ Para saber informações sobre propriedades de atributo que podem ser configurad
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `MobileTable` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `MobileTable` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **type**|| Deve ser definido como "mobileTable"|
+| **tipo**|| Deve ser definido como "mobileTable"|
 | **direction**||Deve ser definido como "in"|
 | **name**|| Nome do parâmetro de entrada na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados do aplicativo móvel|
-| **id**| **Id** | O identificador exclusivo do registro a ser recuperado. Pode ser estático ou se basear no gatilho que invoca a função. Por exemplo, se você usar um gatilho da fila para sua função, o `"id": "{queueTrigger}"` usará o valor de cadeia de caracteres da mensagem da fila como a ID de registro a ser recuperada.|
+| **ID**| **Id** | O identificador exclusivo do registro a ser recuperado. Pode ser estático ou se basear no gatilho que invoca a função. Por exemplo, se você usar um gatilho da fila para sua função, o `"id": "{queueTrigger}"` usará o valor de cadeia de caracteres da mensagem da fila como a ID de registro a ser recuperada.|
 |**conexão**|**Conexão**|O nome de uma configuração de aplicativo que tem a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias no aplicativo móvel. Crie uma configuração de aplicativo no aplicativo de funções que contenha a URL do aplicativo móvel e especifique o nome da configuração do aplicativo na propriedade `connection` na associação de entrada. A URL é semelhante a `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|O nome de uma configuração de aplicativo que tem a chave de API do seu aplicativo móvel. Forneça a chave de API se [implementar uma chave de API no aplicativo móvel do Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) ou se [implementar uma chave de API no aplicativo móvel do .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma configuração de aplicativo no aplicativo de funções que contém a chave de API e adicione a propriedade `apiKey` na associação de entrada ao nome da configuração do aplicativo. |
 
@@ -171,7 +166,7 @@ Use a associação de saída dos Aplicativos Móveis para gravar um novo registr
 Consulte o exemplo específico a um idioma:
 
 * [C#](#output---c-example)
-* [Script do C# (.csx)](#output---c-script-example)
+* [Script do C# (. CSx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Saída - exemplo C#
@@ -297,9 +292,9 @@ Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-ex
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `MobileTable` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **type**|| Deve ser definido como "mobileTable"|
+| **tipo**|| Deve ser definido como "mobileTable"|
 | **direction**||Deve ser definido como "out"|
 | **name**|| Nome do parâmetro de saída na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados do aplicativo móvel|
@@ -321,7 +316,7 @@ Nas funções do script C#, use um parâmetro de saída nomeado do tipo `out obj
 
 Nas funções do Node.js, use `context.bindings.<name>` para acessar o registro de saída.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

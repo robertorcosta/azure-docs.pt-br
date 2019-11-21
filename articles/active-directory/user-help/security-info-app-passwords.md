@@ -1,6 +1,6 @@
 ---
-title: Criar senhas de aplicativo em informações de segurança (versão prévia) – Azure AD
-description: Configure as senhas geradas automaticamente (senhas de aplicativos) para uso com qualquer aplicativo que não use navegador ou qualquer aplicativo que não dê suporte para verificação em duas etapas em sua organização. Essa senha de aplicativo é separada da senha normal e pode ser configurada na página de informações de segurança.
+title: Create app passwords from Security info (preview) page - Azure AD
+description: Create auto-generated passwords (app passwords) to use with any non-browser app, or any app that doesn't support two-factor verification, in your organization. Essa senha de aplicativo é separada da senha normal e pode ser configurada na página de informações de segurança.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb26d90772fc9e3e3e506946363c76cf02e6b2ef
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee9f6bc1986cb31b1e21a0678e59bf8269988426
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820334"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231802"
 ---
-# <a name="create-app-passwords-from-your-security-info-preview-page"></a>Criar senhas de aplicativo de sua página de informações de segurança (versão prévia)
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Create app passwords from the Security info (preview) page
 
 Alguns aplicativos, como o Outlook 2010, não dão suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas, o aplicativo não funcionará. Para contornar este problema, você pode criar uma senha gerada automaticamente para usar com cada aplicativo que não seja o navegador, separado da sua senha normal.
 
@@ -30,7 +30,7 @@ Alguns aplicativos, como o Outlook 2010, não dão suporte à verificação em d
 
 Ao usar senhas de aplicativos, é importante lembrar:
 
-- As senhas de aplicativo são geradas automaticamente e devem ser criadas e inseridas uma vez por aplicativo.
+- App passwords are auto-generated, and should be created and entered once per app.
 
 - Há um limite de 40 senhas por usuário. Se você tentar criar um após esse limite, será solicitado que você exclua uma senha existente antes de poder criar a nova.
 

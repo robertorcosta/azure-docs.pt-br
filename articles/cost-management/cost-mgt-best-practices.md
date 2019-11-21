@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 7c562e6f0a1358d16b9abef08a5e582e4ff84472
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8662de2195696c94f27e31289d5b5f7ea97b507d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002034"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219128"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 
@@ -96,7 +96,7 @@ Para saber mais sobre as diversas opções, visite [Como comprar o Azure](https:
 - Sem taxas mínimas ou compromissos
 - Preços competitivos
 - Pague apenas pelo que usar
-- Cancele a qualquer momento
+- Cancela quando quiser
 
 #### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
@@ -159,7 +159,7 @@ Adote as seguintes maneiras de otimizar os gastos.
 
 Depois de implantar sua infraestrutura no Azure, é importante garantir que ela esteja sendo usada. A maneira mais fácil de começar a economizar imediatamente é examinar seus recursos e remover os que não estão sendo usados. Neste ponto, você deve determinar se os recursos estão sendo usados da forma mais eficiente possível.
 
-#### <a name="azure-advisor"></a>Assistente do Azure
+#### <a name="azure-advisor"></a>Azure Advisor
 
 O Assistente do Azure é um serviço que, entre outras coisas, identifica as máquinas virtuais com baixa utilização do ponto de vista de uso da CPU ou de rede. Neste ponto, você pode decidir desligar ou redimensionar a máquina com base no custo estimado para continuar a executar as máquinas. O Assistente também fornece recomendações para compras de instância reservada. As recomendações baseiam-se em seus últimos 30 dias de uso das máquinas virtuais. Quando acionadas, as recomendações podem ajudar a reduzir seus gastos.
 
@@ -177,7 +177,7 @@ O Azure oferece vários descontos que sua organização pode aproveitar para eco
 
 #### <a name="azure-reservations"></a>Reservas do Azure
 
-As Reservas do Azure permitem que você pague antecipadamente por um ou três anos de máquina virtual ou pela capacidade de computação de Banco de Dados SQL. Pagar previamente permitirá obter um desconto nos recursos que você usar. As Reservas do Azure podem reduzir significativamente os custos de sua máquina virtual ou os custos de computação do Banco de Dados SQL em até 72% com base em preços pagos conforme o uso, com um compromisso antecipado de um ou três anos. As reservas fornecem um desconto de faturamento e não afetam o estado de tempo de execução de suas máquinas virtuais ou bancos de dados SQL.
+As Reservas do Azure permitem que você pague antecipadamente por um ou três anos de máquina virtual ou pela capacidade de computação de Banco de Dados SQL. Pagar previamente permitirá obter um desconto nos recursos que você usar. As Reservas do Azure podem reduzir significativamente os custos de sua máquina virtual ou os custos de computação do Banco de Dados SQL em até 72% com base em preços pagos conforme o uso, com um compromisso antecipado de um ou três anos. As reservas fornecem um desconto de faturamento e não afetam o estado de runtime de suas máquinas virtuais ou bancos de dados SQL.
 
 Para obter mais informações, confira [Quais são as Reservas do Azure?](../billing/billing-save-compute-costs-reservations.md).
 
@@ -191,5 +191,5 @@ Para obter mais informações, confira [Calculadora de economia do Benefício H�
 
 O Azure também tem um serviço que permite que você crie serviços que aproveitam a capacidade excedente no Azure com taxas reduzidas. Para obter mais informações, confira [Usar VMs de baixa prioridade com o Lote](../batch/batch-low-pri-vms.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Se você é novo no Gerenciamento de Custos, leia [O que é o Gerenciamento de Custos do Azure?](overview-cost-mgt.md) para saber como ele ajuda a monitorar e controlar os gastos do Azure e para otimizar o uso de recursos.

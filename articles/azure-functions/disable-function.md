@@ -1,39 +1,33 @@
 ---
 title: Como desabilitar funções no Azure Functions
 description: Saiba como desabilitar e habilitar funções no Azure Functions 1.x e 2.x.
-services: functions
-documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: glenga
-ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7968580fcaa40575571a41f067fa74fbdc0a3a34
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650489"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233036"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desabilitar funções no Azure Functions
 
-Este artigo explica como desabilitar uma função no Azure Functions. *Desabilitar* significa fazer com que o tempo de execução igore o gatilho automático que está definido para a função. A maneira de fazer isso depende da versão de tempo de execução e a linguagem de programação:
+Este artigo explica como desabilitar uma função no Azure Functions. *Desabilitar* significa fazer com que o runtime igore o gatilho automático que está definido para a função. A maneira de fazer isso depende da versão de runtime e a linguagem de programação:
 
-* Funções 2. x:
+* Functions 2.x:
   * Uma maneira para todos os idiomas
   * Modo opcional para bibliotecas de classes do C#
-* Funções 1. x:
+* Functions 1.x:
   * Linguagens de script
   * Biblioteca de Classes C#
 
 ## <a name="functions-2x---all-languages"></a>Funtions 2.x - todos os idiomas
 
-No functions 2. x, você desabilita uma função usando uma configuração de aplicativo no formato `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Você pode criar e modificar essa configuração de aplicativo de várias maneiras, incluindo usando o [CLI do Azure](/cli/azure/) e da guia **gerenciar** da função na [portal do Azure](https://portal.azure.com). 
+In Functions 2.x, you disable a function by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
-No CLI do Azure, você usa o [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando para criar e modificar a configuração do aplicativo. O comando a seguir desabilita uma função denominada `QueueTrigger` criando uma configuração de aplicativo chamada `AzureWebJobs.QueueTrigger.Disabled` set to `true`. 
+In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` set it to `true`. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -41,7 +35,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
-Para reabilitar a função, execute novamente o mesmo comando com um valor de `false`.
+To re-enable the function, rerun the same command with a value of `false`.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -51,7 +45,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ### <a name="portal"></a>Portal
 
-Você também pode usar o **Estado da Função** ativar a guia **Gerenciar** da função. A opção funciona criando e excluindo o `AzureWebJobs.<FUNCTION_NAME>.Disabled` configuração de aplicativo.
+You can also use the **Function State** switch on the function's **Manage** tab. The switch works by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
 
 ![Alternar o estado da Função](media/disable-function/function-state-switch.png)
 
@@ -61,7 +55,7 @@ Em uma biblioteca de classes do Functions 2.x, é recomendável que você use o 
 
 ## <a name="functions-1x---scripting-languages"></a>Functions 1.x - linguagens de script
 
-Para linguagens de script, como o script do C# e JavaScript, você deve usar a `disabled` propriedade do arquivo *Function. JSON* para informar para o tempo de execução não disparar uma função. Essa propriedade pode ser definida como `true` ou o nome de uma configuração de aplicativo:
+Para linguagens de script, como o script do C# e JavaScript, você deve usar a `disabled` propriedade do arquivo *Function. JSON* para informar para o runtime não disparar uma função. Essa propriedade pode ser definida como `true` ou o nome de uma configuração de aplicativo:
 
 ```json
 {
@@ -88,7 +82,7 @@ ou
 
 No segundo exemplo, a função está desabilitada quando há uma configuração de aplicativo chamada IS_DISABLED e é definida como `true` ou 1.
 
-Você pode editar o arquivo no portal do Azure ou usar o **Estado da Função** ative a função da guia **Gerenciar**. A opção portal funciona, alterando o arquivo *function.json*.
+You can edit the file in the Azure portal or use the **Function State** switch on the function's **Manage** tab. The portal switch works by changing the *function.json* file.
 
 ![Alternar o estado da Função](media/disable-function/function-state-switch.png)
 
@@ -135,6 +129,6 @@ Esse método permite habilitar e desabilitar a função, alterando a configuraç
 >
 > Além disso, observe que o portal pode indicar que a função está desabilitada quando não estiver.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo trata-se como desabilitar disparadores automáticos. Para obter mais informações, consulte [Gatilhos e associações de armazenamento de Blobs](functions-triggers-bindings.md).

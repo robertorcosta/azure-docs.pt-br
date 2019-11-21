@@ -1,21 +1,16 @@
 ---
 title: Associações de armazenamento do Blob do Azure para o Azure Functions
 description: Entenda como usar gatilhos e associações do Armazenamento de blob do Azure em Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: b565a48b56162d19a07f0f54bfe780b7dda04b96
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b2782ce39bbc2ca86c63b178535fc6b67b9dadfe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177394"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231033"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -30,7 +25,7 @@ Este artigo explica como trabalhar com associações de armazenamento de blob do
 > [!NOTE]
 > Use o gatilho de Grade de Eventos em vez do disparador do armazenamento de Blob apenas para contas de armazenamento de blob, para alta escala ou para reduzir a latência. Para saber mais, veja a seção [Gatilho](#trigger) a seguir.
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
+## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
 
 As associações de armazenamento de Blob são fornecidas no [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob).
 
@@ -44,7 +39,7 @@ As associações de armazenamento de Blobs são fornecidas no pacote NuGet [Micr
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="trigger"></a>Disparador
+## <a name="trigger"></a>Gatilho
 
 O gatilho de armazenamento de Blob inicia uma função quando é detectado um blob novo ou atualizado. O conteúdo do blob é fornecido como entrada para a função.
 
@@ -52,11 +47,11 @@ O [gatilho de Grade de Eventos](functions-bindings-event-grid.md) tem suporte in
 
 Use a Grade de Eventos em vez do disparador de armazenamento de Blobs para os seguintes cenários:
 
-* Contas de armazenamento de Blobs
+* Contas de Armazenamento de Blobs
 * Alta escala
 * Minimizando a latência
 
-### <a name="blob-storage-accounts"></a>Contas de armazenamento de Blobs
+### <a name="blob-storage-accounts"></a>Contas de Armazenamento de Blobs
 
 As [contas de Armazenamento de Blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts) são compatíveis para associações de entrada e saída de blobs, mas não para gatilhos de blob. Os gatilhos de armazenamento de Blobs requerem uma conta de armazenamento de uso geral.
 
@@ -90,9 +85,9 @@ A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workit
 
 Para obter mais informações sobre o atributo `BlobTrigger`, consulte [Gatilho - atributos](#trigger---attributes).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo a seguir mostra uma associação de gatilho de BLOB em um arquivo *Function. JSON* e um código que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no `samples-workitems` [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+The following example shows a blob trigger binding in a *function.json* file and code that uses the binding. A função grava um log quando um blob é adicionado ou atualizado no `samples-workitems` [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -197,7 +192,7 @@ A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workit
 
 Para obter mais informações sobre as propriedades do arquivo *function.json*, consulte a seção [Configuração](#trigger---configuration) que explica essas propriedades.
 
-Aqui está o código Python:
+Confira o código Python:
 
 ```python
 import logging
@@ -255,7 +250,7 @@ Em [bibliotecas de classe C#](functions-dotnet-class-library.md), use os seguint
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
-  O construtor do atributo usa uma cadeia de caracteres de caminho que indica o contêiner para inspecionar e, opcionalmente, um [padrão de nome de blob](#trigger---blob-name-patterns). Veja um exemplo:
+  O construtor do atributo usa uma cadeia de caracteres de caminho que indica o contêiner para inspecionar e, opcionalmente, um [padrão de nome de blob](#trigger---blob-name-patterns). Aqui está um exemplo:
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -279,7 +274,7 @@ Em [bibliotecas de classe C#](functions-dotnet-class-library.md), use os seguint
   }
    ```
 
-  Para obter um exemplo completo, consulte [exemplo de gatilho](#trigger---example).
+  For a complete example, see [Trigger example](#trigger---example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -305,35 +300,35 @@ A conta de armazenamento a ser usada é determinada na seguinte ordem:
 * O `StorageAccount` atributo aplicado à classe.
 * A conta de armazenamento padrão para a função de aplicativo (configuração de aplicativo "AzureWebJobsStorage").
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
-O script não dá suporte C# a atributos.
+Attributes are not supported by C# Script.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+Attributes are not supported by JavaScript.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+Attributes are not supported by Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O atributo `@BlobTrigger` é usado para fornecer acesso ao blob que disparou a função. Consulte o [exemplo de gatilho](#trigger---example) para obter detalhes.
+The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#trigger---example) for details.
 
 ---
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `BlobTrigger`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `BlobTrigger` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d | Deve ser definido como `blobTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direction** | n/d | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. As exceções são mencionadas na seção [uso](#trigger---usage). |
-|**name** | n/d | O nome da variável que representa o blob no código de função. |
+|**tipo** | N/D | Deve ser definido como `blobTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | N/D | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. As exceções são mencionadas na seção [uso](#trigger---usage). |
+|**name** | N/D | O nome da variável que representa o blob no código de função. |
 |**path** | **BlobPath** |O [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) para monitorar.  Pode ser um [padrão de nome de blob](#trigger---blob-name-patterns). |
-|**conexão** | **Conexão** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o tempo de execução do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o tempo de execução de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento para uso geral e não uma [conta de Armazenamento de Blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**conexão** | **Conexão** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento para uso geral e não uma [conta de Armazenamento de Blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -343,21 +338,21 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Acessar dados de BLOB usando `context.bindings.<name from function.json>`.
+Access blob data using `context.bindings.<name from function.json>`.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Acessar dados de blob por meio do parâmetro digitado como [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o [exemplo de gatilho](#trigger---example) para obter detalhes.
+Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [trigger example](#trigger---example) for details.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O atributo `@BlobTrigger` é usado para fornecer acesso ao blob que disparou a função. Consulte o [exemplo de gatilho](#trigger---example) para obter detalhes.
+The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#trigger---example) for details.
 
 ---
 
@@ -409,7 +404,7 @@ Se o blob é nomeado *{20140101}soundfile.mp3*, o valor da variável `name` no c
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
@@ -424,17 +419,17 @@ module.exports = function (context, myBlob) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Os metadados não estão disponíveis no Python.
+Metadata is not available in Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Os metadados não estão disponíveis em Java.
+Metadata is not available in Java.
 
 ---
 
 ## <a name="trigger---blob-receipts"></a>Gatilho - recebimentos de blob
 
-O tempo de execução do Azure Functions garante que nenhuma função de gatilho de blob seja chamada mais de uma vez para o mesmo blob novo ou atualizado. Para determinar se uma versão de determinado blob foi processada, ele mantém os *recebimentos de blob*.
+O Azure Functions runtime garante que nenhuma função de gatilho de blob seja chamada mais de uma vez para o mesmo blob novo ou atualizado. Para determinar se uma versão de determinado blob foi processada, ele mantém os *recebimentos de blob*.
 
 O Azure Functions armazena recibos do blob em um contêiner denominado *azure-webjobs-hosts* na conta de armazenamento do Azure do seu aplicativo de funções (definido na configuração do aplicativo `AzureWebJobsStorage`). Um recebimento de blob tem as seguintes informações:
 
@@ -444,7 +439,7 @@ O Azure Functions armazena recibos do blob em um contêiner denominado *azure-we
 * O nome do blob
 * O ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
 
-Para forçar o reprocessamento de um blob, exclua manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts*. Embora o reprocessamento possa não ocorrer imediatamente, é garantido que ocorra em um momento posterior.
+Para forçar o reprocessamento de um blob, exclua manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts*. While reprocessing might not occur immediately, it's guaranteed to occur at a later point in time.
 
 ## <a name="trigger---poison-blobs"></a>Gatilho - mensagens suspeitas
 
@@ -462,13 +457,13 @@ Se todas as cinco tentativas falharem, o Azure Functions adiciona uma mensagem p
 
 O gatilho de blob usa uma fila internamente, portanto, o número máximo de invocações de função concorrente é controlado pela [configuração de filas em host.json](functions-host-json.md#queues). As configurações padrão limitam a concorrência a 24 invocações. Esse limite aplica-se separadamente a cada função que usa um gatilho de blob.
 
-[O plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita um aplicativo de funções em uma VM (máquina virtual) a 1,5 GB de memória. A memória é usada por cada instância de execução de execução simultânea e pelo próprio tempo de execução de Funções. Se uma função disparada por blob carregar todo o blob na memória, a memória máxima usada por essa função apenas para blobs será tamanho máximo de blob 24 *. Por exemplo, um aplicativo de funções com três funções disparadas por blob e as configurações padrão teriam uma concorrência máxima por VM de 3*24 = 72 invocações de função.
+[O plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita um aplicativo de funções em uma VM (máquina virtual) a 1,5 GB de memória. A memória é usada por cada instância de execução de execução simultânea e pelo próprio runtime de Funções. Se uma função disparada por blob carregar todo o blob na memória, a memória máxima usada por essa função apenas para blobs será tamanho máximo de blob 24 *. Por exemplo, um aplicativo de funções com três funções disparadas por blob e as configurações padrão teriam uma concorrência máxima por VM de 3*24 = 72 invocações de função.
 
 As funções de JavaScript e Java carregam todo o blob na memória, e as funções C# fazem isso se você associar a `string`, `Byte[]` ou POCO.
 
 ## <a name="trigger---polling"></a>Disparar - sondagem
 
-Se o contêiner de BLOB que está sendo monitorado contiver mais de 10.000 BLOBs (em todos os contêineres), o tempo de execução do Functions examinará os arquivos de log para ver se há BLOBs novos ou alterados. Esse processo pode resultar em atrasos. Uma função não poderá ser disparada até que se passem vários minutos ou mais tempo depois da criação do blob.
+If the blob container being monitored contains more than 10,000 blobs (across all containers), the Functions runtime scans log files to watch for new or changed blobs. Esse processo pode resultar em atrasos. Uma função não poderá ser disparada até que se passem vários minutos ou mais tempo depois da criação do blob.
 
 > [!WARNING]
 > Além disso, [logs de armazenamento são criados da "melhor forma dentro do possível"](/rest/api/storageservices/About-Storage-Analytics-Logging). Não há nenhuma garantia de que todos os eventos são capturados. Sob algumas condições, logs poderão ser perdidos.
@@ -497,7 +492,7 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -635,7 +630,7 @@ No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada p
 
 A seção [configuração](#input---configuration) explica essas propriedades.
 
-Aqui está o código Python:
+Confira o código Python:
 
 ```python
 import logging
@@ -654,7 +649,7 @@ Esta seção contém os seguintes exemplos:
 * [Gatilho HTTP, o nome do blob da cadeia de caracteres de consulta](#http-trigger-look-up-blob-name-from-query-string)
 * [Gatilho de fila, receber o nome do blob da mensagem da fila](#queue-trigger-receive-blob-name-from-queue-message)
 
-#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>Gatilho HTTP, pesquisar o nome do blob da cadeia de caracteres de consulta
+#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>HTTP trigger, look up blob name from query string
 
  O exemplo a seguir mostra uma função de Java que usa a anotação `HttpTrigger` para receber um parâmetro que contém o nome de um arquivo em um contêiner de armazenamento de blob. Em seguida, a anotação `BlobInput` lê o arquivo e passa seu conteúdo para a função como um `byte[]`.
 
@@ -679,7 +674,7 @@ Esta seção contém os seguintes exemplos:
   }
 ```
 
-#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>Gatilho de fila, receber nome de BLOB da mensagem da fila
+#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>Queue trigger, receive blob name from queue message
 
  O exemplo a seguir mostra uma função de Java que usa a anotação `QueueTrigger` para receber uma mensagem que contém o nome de um arquivo em um contêiner de armazenamento de blob. Em seguida, a anotação `BlobInput` lê o arquivo e passa seu conteúdo para a função como um `byte[]`.
 
@@ -701,7 +696,7 @@ Esta seção contém os seguintes exemplos:
   }
 ```
 
-Na biblioteca de tempo de execução de funções [Java](/java/api/overview/azure/functions/runtime), use a anotação `@BlobInput` nos parâmetros cujo valor viria de um blob.  Essa anotação pode ser usada com tipos nativos do Java, POJOs ou valores que permitem valor nulos usando `Optional<T>`.
+Na biblioteca de runtime de funções [Java](/java/api/overview/azure/functions/runtime), use a anotação `@BlobInput` nos parâmetros cujo valor viria de um blob.  Essa anotação pode ser usada com tipos nativos do Java, POJOs ou valores que permitem valor nulos usando `Optional<T>`.
 
 ---
 
@@ -740,36 +735,36 @@ public static void Run(
 
 Você pode usar o `StorageAccount` atributo para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [Gatilho - atributos](#trigger---attributes).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
-O script não dá suporte C# a atributos.
+Attributes are not supported by C# Script.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+Attributes are not supported by JavaScript.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+Attributes are not supported by Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O atributo `@BlobInput` fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary`. Consulte o [exemplo de entrada](#input---example) para obter detalhes.
+The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#input---example) for details.
 
 ---
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `Blob` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `Blob` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d | Deve ser definido como `blob`. |
-|**direction** | n/d | Deve ser definido como `in`. As exceções são mencionadas na seção [uso](#input---usage). |
-|**name** | n/d | O nome da variável que representa o blob no código de função.|
+|**tipo** | N/D | Deve ser definido como `blob`. |
+|**direction** | N/D | Deve ser definido como `in`. As exceções são mencionadas na seção [uso](#input---usage). |
+|**name** | N/D | O nome da variável que representa o blob no código de função.|
 |**path** |**BlobPath** | O caminho para o blob. |
-|**conexão** |**Conexão**| O nome de uma configuração de aplicativo que contém uma cadeia de conexão de [Armazenamento para usar para essa associação](../storage/common/storage-configure-connection-string.md). Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o tempo de execução do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o tempo de execução de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|n/d | **Access** | Indica se você será leitura ou gravação. |
+|**conexão** |**Conexão**| O nome de uma configuração de aplicativo que contém uma cadeia de conexão de [Armazenamento para usar para essa associação](../storage/common/storage-configure-connection-string.md). Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|N/D | **Acessar** | Indica se você será leitura ou gravação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -779,21 +774,21 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Acesse os dados de BLOB usando `context.bindings.<name from function.json>`.
+Access the blob data using `context.bindings.<name from function.json>`.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Acessar dados de blob por meio do parâmetro digitado como [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o [exemplo de entrada](#input---example) para obter detalhes.
+Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [input example](#input---example) for details.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O atributo `@BlobInput` fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary`. Consulte o [exemplo de entrada](#input---example) para obter detalhes.
+The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#input---example) for details.
 
 ---
 
@@ -853,7 +848,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 };
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -991,7 +986,7 @@ No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada p
 
 A seção [configuração](#output---configuration) explica essas propriedades.
 
-Aqui está o código Python:
+Confira o código Python:
 
 ```python
 import logging
@@ -1045,7 +1040,7 @@ Esta seção contém os seguintes exemplos:
 
 #### <a name="queue-trigger-using-function-return-value-java"></a>Gatilho de fila, usando o valor de retorno de função (Java)
 
- O exemplo a seguir mostra uma função de Java que usa a anotação `QueueTrigger` para receber uma mensagem que contém o nome de um arquivo em um contêiner de armazenamento de blob. Em seguida, a anotação `BlobInput` lê o arquivo e passa seu conteúdo para a função como um `byte[]`. A anotação `BlobOutput` associa-se ao valor de retorno da função, que é usado pelo tempo de execução para gravar o conteúdo do blob de entrada para o contêiner de armazenamento configurado.
+ O exemplo a seguir mostra uma função de Java que usa a anotação `QueueTrigger` para receber uma mensagem que contém o nome de um arquivo em um contêiner de armazenamento de blob. Em seguida, a anotação `BlobInput` lê o arquivo e passa seu conteúdo para a função como um `byte[]`. A anotação `BlobOutput` associa-se ao valor de retorno da função, que é usado pelo runtime para gravar o conteúdo do blob de entrada para o contêiner de armazenamento configurado.
 
 ```java
   @FunctionName("copyBlobQueueTrigger")
@@ -1069,7 +1064,7 @@ Esta seção contém os seguintes exemplos:
   }
 ```
 
- Na [biblioteca de tempo de execução das funções Java](/java/api/overview/azure/functions/runtime) , use a anotação `@BlobOutput` nos parâmetros da função cujo valor seria gravado em um objeto no armazenamento de blobs.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo ou um POJO.
+ Na [biblioteca de runtime das funções Java](/java/api/overview/azure/functions/runtime) , use a anotação `@BlobOutput` nos parâmetros da função cujo valor seria gravado em um objeto no armazenamento de blobs.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo ou um POJO.
 
 ---
 
@@ -1103,25 +1098,25 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
-O script não dá suporte C# a atributos.
+Attributes are not supported by C# Script.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+Attributes are not supported by JavaScript.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+Attributes are not supported by Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O atributo `@BlobOutput` fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary`. Consulte o [exemplo de saída](#output---example) para obter detalhes.
+The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#output---example) for details.
 
 ---
 
-Para obter um exemplo completo, consulte [exemplo de saída](#output---example).
+For a complete example, see [Output example](#output---example).
 
 Você pode usar o `StorageAccount` atributo para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [Gatilho - atributos](#trigger---attributes).
 
@@ -1129,14 +1124,14 @@ Você pode usar o `StorageAccount` atributo para especificar a conta de armazena
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `Blob` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d | Deve ser definido como `blob`. |
-|**direction** | n/d | Deve ser definido como `out` para uma associação de saída. As exceções são mencionadas na seção [uso](#output---usage). |
-|**name** | n/d | O nome da variável que representa o blob no código de função.  Definido como `$return` para referenciar o valor de retorno da função.|
-|**path** |**BlobPath** | O caminho para o contêiner de BLOB. |
-|**conexão** |**Conexão**| O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o tempo de execução do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o tempo de execução de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|n/d | **Access** | Indica se você será leitura ou gravação. |
+|**tipo** | N/D | Deve ser definido como `blob`. |
+|**direction** | N/D | Deve ser definido como `out` para uma associação de saída. As exceções são mencionadas na seção [uso](#output---usage). |
+|**name** | N/D | O nome da variável que representa o blob no código de função.  Definido como `$return` para referenciar o valor de retorno da função.|
+|**path** |**BlobPath** | The path to the blob container. |
+|**conexão** |**Conexão**| O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|N/D | **Acessar** | Indica se você será leitura ou gravação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1146,7 +1141,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
@@ -1156,16 +1151,16 @@ Em JavaScript, acesse os dados do blob usando `context.bindings.<name from funct
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Você pode declarar parâmetros de função como os seguintes tipos para gravar no armazenamento de BLOBs:
+You can declare function parameters as the following types to write out to blob storage:
 
-* Cadeias de caracteres como `func.Out(str)`
-* Fluxos como `func.Out(func.InputStream)`
+* Strings as `func.Out(str)`
+* Streams as `func.Out(func.InputStream)`
 
-Consulte o [exemplo de saída](#output---example) para obter detalhes.
+Refer to the [output example](#output---example) for details.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O atributo `@BlobOutput` fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary`. Consulte o [exemplo de saída](#output---example) para obter detalhes.
+The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#output---example) for details.
 
 ---
 
@@ -1177,7 +1172,7 @@ O atributo `@BlobOutput` fornece acesso ao blob que disparou a função. Se voc�
 | Blob, tabela, fila |  [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, tabela, fila |  [Solução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 

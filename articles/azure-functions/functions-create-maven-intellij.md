@@ -1,25 +1,19 @@
 ---
-title: Criar uma função do Azure com Java e IntelliJ| Microsoft Docs
+title: Create an Azure function with Java and IntelliJ
 description: Saiba como criar e publicar um aplicativo sem servidor simples disparado por HTTP no Azure com Java e IntelliJ.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jpconnock
-keywords: azure functions, funções, processamento de eventos, computação, arquitetura sem servidor, java
-ms.service: azure-functions
 ms.topic: conceptual
-ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5aa0763206289305e98960b6e03ad903eb4547ae
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d3dd0f4f1da4d3815d4d879dd13ed5882f39e8f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70744025"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230723"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Criar sua primeira função do Azure com Java e IntelliJ
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Create your first Azure function with Java and IntelliJ
 
 Este artigo mostra:
 - Como criar um projeto de função [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) com IntelliJ IDEA e Apache Maven
@@ -52,8 +46,8 @@ Para desenvolver uma função com Java e IntelliJ, instale o software a seguir:
 1. Na janela **Adicionar Arquétipo**, preencha os campos da seguinte maneira:
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Versão_: Use a versão mais recente **1,22** do [repositório](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![central criar um projeto Maven do arquétipo em IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _Version_: Use the latest version **1.22** from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Create a Maven project from archetype in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Selecione **OK** e, em seguida, selecione **Avançar**.
 1. Insira os detalhes do projeto atual e selecione **Concluir**.
 
@@ -67,7 +61,7 @@ Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor
 1. Importe as alterações manualmente ou habilite a [importação automática](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html).
 1. Abra a barra de ferramentas **Projetos Maven**.
 1. Expanda **Ciclo de Vida** e, em seguida, abra o **pacote**. A solução é compilada e empacotada em um diretório de destino criado recentemente.
-1. Expanda **Plug-ins** > **azure-functions** e abra **azure-functions:run** para iniciar o tempo de execução local do Azure Functions.  
+1. Expanda **Plug-ins** > **azure-functions** e abra **azure-functions:run** para iniciar o runtime local do Azure Functions.  
   ![Barra de ferramentas Maven para Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. Feche a caixa de diálogo de execução quando terminar de testar a função. Apenas um host de função pode estar ativo e em execução localmente de cada vez.
@@ -93,7 +87,7 @@ Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor
 
 ## <a name="deploy-the-function-to-azure"></a>Implantar a função no Azure
 
-1. Para poder implantar sua função no Azure, você deve [entrar usando o CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Before you can deploy your function to Azure, you must [sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    ``` azurecli
    az login
@@ -115,7 +109,7 @@ Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor
    [INFO] ------------------------------------------------------------------------
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine o [Guia do desenvolvedor de funções Java](functions-reference-java.md) para saber mais sobre o desenvolvimento de funções Java.
 - Adicione outras funções com gatilhos diferentes ao seu projeto usando o destino do Maven `azure-functions:add`.

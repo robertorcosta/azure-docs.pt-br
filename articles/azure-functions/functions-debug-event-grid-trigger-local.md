@@ -1,21 +1,16 @@
 ---
 title: Depuração do Grade de Eventos do Azure Functions local
 description: Aprenda a depurar localmente as funções do Azure por meio de um evento de Grade de Eventos
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, funções, arquitetura sem servidor
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: e28abbe8d44094d8599545479f4611a84e9d9bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085681"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227079"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuração local do gatilho da Grade de Eventos do Azure Functions
 
@@ -110,7 +105,7 @@ Depois que a Grade de Eventos reconhece que um novo arquivo for carregado para o
 
 Para limpar os recursos criados neste artigo, exclua o contêiner **Testar** em sua conta de armazenamento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Gatilho de Grade de Eventos para o Azure Functions](./functions-bindings-event-grid.md)

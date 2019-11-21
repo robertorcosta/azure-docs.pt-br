@@ -1,22 +1,16 @@
 ---
 title: Como solucionar o problema em que o Azure Functions Runtime está inacessível.
 description: Saiba como solucionar o problema de uma conta de armazenamento inválida.
-services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
-ms.service: azure-functions
-ms.workload: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: d5959acc7719e2b02d529bca8261bc09d5b93634
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085322"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226770"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Como solucionar o problema "Functions Runtime inacessível"
 
@@ -29,7 +23,7 @@ Este documento é indicado para solucionar o erro a seguir quando exibido no por
 ### <a name="summary"></a>Resumo
 Esse problema ocorre quando o Azure Functions Runtime não pode ser iniciado. O motivo mais comum para que esse erro ocorra é quando o aplicativo de funções perde o acesso à sua conta de armazenamento. [Leia mais sobre os requisitos da conta de armazenamento aqui](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
-### <a name="troubleshooting"></a>Solução de problemas
+### <a name="troubleshooting"></a>Solução de Problemas
 Vamos percorrer os quatro casos de erro mais comuns e aprender como identificar e resolver cada caso.
 
 1. Conta de armazenamento excluída
@@ -54,7 +48,7 @@ Na etapa anterior, se não havia uma cadeia de conexão da conta de armazenament
 
 ### <a name="required-application-settings"></a>Configurações de aplicativo obrigatórias
 
-* Necessário
+* obrigatórios
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Obrigatório para funções de plano de consumo
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
@@ -62,10 +56,10 @@ Na etapa anterior, se não havia uma cadeia de conexão da conta de armazenament
 
 [Leia sobre essas configurações de aplicativo aqui](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>Diretrizes
+### <a name="guidance"></a>Diretriz
 
 * Não marque "configuração de slot" para nenhuma dessas configurações. Quando você trocar os slots de implantação, a função será interrompida.
-* Não modifique essas configurações como parte das implantações automatizadas.
+* Do not modify these settings as part of automated deployments.
 * Essas configurações precisam ser fornecidas e estarem válidas no momento da criação. Uma implantação automatizada que não contenha essas configurações resultará em um aplicativo não funcional, mesmo se as configurações forem adicionadas após o fato.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenciais da conta de armazenamento inválidas
@@ -91,10 +85,10 @@ Se uma cota de execução diária estiver configurada, seu Aplicativo de funçõ
 
 Agora que seu aplicativo de funções retornou e está operacional, confira nossos guias de início rápido e nossas referências para o desenvolvedor para colocá-lo em funcionamento novamente!
 
-* [Criar sua primeira Função do Azure](functions-create-first-azure-function.md)  
+* [Criar sua primeira função](functions-create-first-azure-function.md)  
   Crie diretamente sua primeira função usando o início rápido do Azure Functions. 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
-  Fornece informações mais técnicas sobre o tempo de execução do Azure Functions e uma referência para funções de codificação e definição de associações e gatilhos.
+  Fornece informações mais técnicas sobre o Azure Functions runtime e uma referência para funções de codificação e definição de associações e gatilhos.
 * [Testando o Azure Functions](functions-test-a-function.md)  
   Descreve várias ferramentas e técnicas para testar suas funções.
 * [Como escalar o Azure Functions](functions-scale.md)  
