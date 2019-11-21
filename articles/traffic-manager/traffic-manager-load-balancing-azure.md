@@ -3,21 +3,21 @@ title: Usando os serviços de balanceamento de carga no Azure | Microsoft Docs
 description: 'Este tutorial mostra como criar um cenário usando o portfólio de balanceamento de carga do Azure: Gerenciador de Tráfego, Gateway de Aplicativo e Balanceador de Carga.'
 services: traffic-manager
 documentationcenter: ''
-author: liumichelle
-manager: dkays
+author: asudbring
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: limichel
-ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60330384"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227784"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "60330384"
 
 O Microsoft Azure fornece vários serviços para gerenciar a forma como o tráfego de rede é distribuído e como sua carga é balanceada. Com base nas suas necessidades específicas, você pode usar esses serviços individualmente ou combinar seus métodos para criar a solução ideal.
 
-Neste tutorial, primeiro definiremos um caso de uso do cliente e veremos como ele pode se tornar mais robusto e ter um melhor desempenho usando o seguinte portfólio de balanceamento de carga do Azure: Gerenciador de Tráfego, Gateway de Aplicativo e Balanceador de Carga. Em seguida, fornecemos instruções passo a passo para criar uma implantação que seja geograficamente redundante, que distribua o tráfego para VMs e ajuda você a gerenciar diferentes tipos de solicitações.
+Neste tutorial, primeiro definimos um caso de uso do cliente e vemos como ele pode se tornar mais robusto e eficaz usando este portfólio de balanceamento de carga do Azure: Gerenciador de Tráfego, Gateway de Aplicativo e Balanceador de Carga. Em seguida, fornecemos instruções passo a passo para criar uma implantação que seja geograficamente redundante, que distribua o tráfego para VMs e ajuda você a gerenciar diferentes tipos de solicitações.
 
 Em um nível conceitual, cada um desses serviços desempenha uma função distinta na hierarquia de balanceamento de carga.
 
@@ -49,10 +49,10 @@ Além disso, o pool de VMs padrão que atende o conteúdo dinâmico precisa se c
 
 A utilização do Gerenciador de Tráfego, do Gateway de Aplicativo e do Balanceador de Carga permite que este site atinja essas metas de design:
 
-* **Redundância multigeográfica**: Se uma região fica inativa, o Gerenciador de Tráfego roteia o tráfego diretamente para a região mais próxima sem nenhuma intervenção do proprietário do aplicativo.
-* **Latência reduzida**: Como o Gerenciador de Tráfego direciona o cliente automaticamente para a região mais próxima, o cliente experimenta a menor latência ao solicitar o conteúdo da página da Web.
-* **Escalabilidade independente**: Como a carga de trabalho do aplicativo Web é separada por tipo de conteúdo, o proprietário do aplicativo pode dimensionar as cargas de trabalho de solicitação de forma independente entre si. O Gateway de Aplicativo garante que o tráfego seja roteado para os pools corretos com base nas regras especificadas e na integridade da integridade do aplicativo.
-* **Balanceamento de carga interno**: Como o Balanceador de Carga está na frente do cluster de alta disponibilidade, somente o ponto de extremidade íntegro e ativo de um banco de dados é exposto ao aplicativo. Além disso, um administrador de banco de dados pode otimizar a carga de trabalho distribuindo réplicas ativas e passivas no cluster, independentemente do aplicativo front-end. O balanceador de carga fornece conexões para o cluster de alta disponibilidade e garante que apenas bancos de dados íntegros recebam solicitações de conexão.
+* **Redundância de várias áreas geográficas**: se uma região ficar inativa, o Gerenciador de Tráfego roteia o tráfego para a melhor região próxima sem nenhuma intervenção do proprietário do aplicativo.
+* **Latência reduzida**: como o Gerenciador de Tráfego direciona o cliente automaticamente para a região mais próxima, o cliente experimenta menor latência ao solicitar o conteúdo da página da Web.
+* **Escalabilidade independente**: como a carga de trabalho de aplicativos Web separada por tipo de conteúdo, o proprietário do aplicativo pode dimensionar as cargas de trabalho de solicitação de forma independente. O Gateway de Aplicativo garante que o tráfego seja roteado para os pools corretos com base nas regras especificadas e na integridade da integridade do aplicativo.
+* **Balanceamento de carga interno**: como balanceador de carga a frente do cluster de alta disponibilidade, somente o ponto de extremidade íntegro e ativo para um banco de dados é exposto ao aplicativo. Além disso, um administrador de banco de dados pode otimizar a carga de trabalho distribuindo réplicas ativas e passivas no cluster, independentemente do aplicativo front-end. O balanceador de carga fornece conexões para o cluster de alta disponibilidade e garante que apenas bancos de dados íntegros recebam solicitações de conexão.
 
 O diagrama a seguir mostra a arquitetura desse cenário:
 
@@ -68,11 +68,11 @@ O diagrama a seguir mostra a arquitetura desse cenário:
 1. No portal do Azure, clique em **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
 2. Insira as seguintes informações básicas:
 
-   * **Nome**: Forneça um nome de prefixo DNS ao seu perfil do Gerenciador de Tráfego.
-   * **Método de roteamento**: Selecione a política do método de roteamento de tráfego. Para obter mais informações sobre os métodos, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
-   * **Assinatura**: Selecione a assinatura que contém o perfil.
-   * **Grupo de recursos**: Selecione o grupo de recursos que contém o perfil. Pode ser um grupo de recursos novo ou existente.
-   * **Localização do grupo de recursos**: O serviço Gerenciador de Tráfego é global e não está associado a uma localização. No entanto, você deve especificar uma região para o grupo onde residem os metadados associados com o perfil do Gerenciador de Tráfego. Essa localização não tem impacto sobre a disponibilidade de tempo de execução do perfil.
+   * **Nome**: forneça ao seu perfil de Gerenciador de Tráfego um nome de prefixo DNS.
+   * **Método de roteamento**: selecione a política de método de roteamento de tráfego. Para obter mais informações sobre os métodos, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
+   * **Assinatura**: selecione a assinatura que contém o perfil.
+   * **Grupo de recursos**: selecione o grupo de recursos que contém o perfil. Pode ser um grupo de recursos novo ou existente.
+   * **Local do grupo de recursos**: serviço do Gerenciador de Tráfego é global e não está associado a um local. No entanto, você deve especificar uma região para o grupo onde residem os metadados associados com o perfil do Gerenciador de Tráfego. Essa localização não tem impacto sobre a disponibilidade de runtime do perfil.
 
 3. Clique em **Criar** para gerar o perfil do Gerenciador de Tráfego.
 
@@ -83,11 +83,11 @@ O diagrama a seguir mostra a arquitetura desse cenário:
 1. No portal do Azure, no painel esquerdo, clique em **Criar um recurso** > **Rede** > **Gateway de Aplicativo**.
 2. Insira as seguintes informações básicas sobre o gateway de aplicativo:
 
-   * **Nome**: O nome do gateway de aplicativo.
-   * **Tamanho do SKU**: O tamanho do Gateway de Aplicativo, disponível como Pequeno, Médio ou Grande.
+   * **Name**: o nome do gateway de aplicativo.
+   * **Tamanho do SKU**: esse é o tamanho do gateway de aplicativo, as opções disponíveis são Pequeno, Médio e Grande.
    * **Contagem de instâncias**: O número de instâncias, um valor de 2 a 10.
-   * **Grupo de recursos**: O grupo de recursos que armazena o Gateway de Aplicativo. Pode ser um grupo de recursos existente ou um novo.
-   * **Localização**: A região do Gateway de Aplicativo, que é a mesma localização do grupo de recursos. O local é importante porque a rede virtual e o IP público devem estar na mesma localização do que o gateway.
+   * **Grupo de recursos**: o grupo de recursos que mantém o gateway de aplicativo. Pode ser um grupo de recursos existente ou um novo.
+   * **Localização**: a região do gateway de aplicativo, que é a mesma localização no grupo de recursos. O local é importante porque a rede virtual e o IP público devem estar na mesma localização do que o gateway.
 3. Clique em **OK**.
 4. Defina a rede virtual, a sub-rede, o IP de front-end e as configurações do ouvinte para o Gateway de Aplicativo. Nesse cenário, o endereço IP de front-end é **Público**, o que permite que ele seja adicionado, mais tarde, como um ponto de extremidade para o perfil do Gerenciador de Tráfego.
 5. Configure o ouvinte com uma das seguintes opções:
@@ -114,20 +114,20 @@ Quando você escolhe um pool de back-end, um Gateway de Aplicativo configurado c
 
    Configurações básicas:
 
-   + **Nome**: O nome amigável para a regra que está acessível no portal.
-   + **Ouvinte**: O ouvinte usado para a regra.
-   + **Pool de back-end padrão**: O pool de back-end a ser usado com a regra padrão.
-   + **Configurações de HTTP padrão**: As configurações de HTTP a serem usadas com a regra padrão.
+   + **Nome**: um nome amigável para a regra que está acessível no portal.
+   + **Ouvinte**: ouvinte usado para a regra.
+   + **Pool de back-end padrão**: pool de back-end a ser usado com a regra padrão.
+   + **Configurações HTTP padrão**: as configurações HTTP a serem usadas para a regra padrão.
 
    Regras com base no caminho:
 
-   + **Nome**: O nome amigável da regra baseada em caminho.
-   + **Caminhos**: A regra de caminho usada para encaminhar o tráfego.
-   + **Pool de back-end**: O pool de back-end a ser usado com essa regra.
-   + **Configuração de HTTP**: As configurações de HTTP a serem usadas com essa regra.
+   + **Nome**: um nome amigável da regra com base em caminho.
+   + **Caminhos**: a regra de caminho usada para encaminhar o tráfego.
+   + **Pool de back-end**: pool de back-end a ser usado com esta regra.
+   + **Configuração HTTP**: as configurações HTTP a serem usadas com esta regra.
 
    > [!IMPORTANT]
-   > Caminhos: Os caminhos válidos precisam começar com "/". O caractere curinga "\*" só é permitido no final. Exemplos válidos são /xyz, /xyz\* ou /xyz/\*.
+   > Caminhos: caminhos válidos devem começar com "/". O caractere curinga "\*" só é permitido no final. Exemplos válidos são /xyz, /xyz\* ou /xyz/\*.
 
    ![Folha "Adicionar regra com base no caminho" do Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
@@ -142,15 +142,15 @@ Nesse cenário, o Gerenciador de Tráfego está conectado a instâncias do gatew
 
 3. Crie um ponto de extremidade inserindo as seguintes informações:
 
-   * **Tipo**: Selecione o tipo de ponto de extremidade para o balanceamento de carga. Nesse cenário, selecione **ponto de extremidade do Azure**, já que estamos nos conectando com as instâncias de gateway de aplicativo que foram configuradas anteriormente.
-   * **Nome**: Insira o nome do ponto de extremidade.
-   * **Tipo de recurso de destino**: Selecione **Endereço IP público** e, em seguida, em **Recurso de destino**, selecione o IP público do Gateway de Aplicativo configurado anteriormente.
+   * **Tipo**: selecione o tipo de ponto de extremidade para o balanceamento de carga. Nesse cenário, selecione **ponto de extremidade do Azure**, já que estamos nos conectando com as instâncias de gateway de aplicativo que foram configuradas anteriormente.
+   * **Nome**: insira o nome do ponto de extremidade.
+   * **Tipo de recurso de destino**: selecione o **endereço IP público** e, na configuração do **Recurso de destino**, selecione o IP público do gateway de aplicativo configurado anteriormente.
 
    ![“Adicionar ponto de extremidade” do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
-4. Agora você pode testar a instalação acessando-a com o DNS do seu perfil do Gerenciador de Tráfego (neste exemplo: TrafficManagerScenario.trafficmanager.net). Você pode reenviar solicitações, colocar para cima/baixo servidores Web e VMs que foram criados em regiões diferentes e alterar as configurações do perfil de Gerenciador de Tráfego para testar sua instalação.
+4. Agora, você pode testar a instalação, acessando-a com o DNS do seu perfil de Gerenciador de Tráfego (neste exemplo: TrafficManagerScenario.trafficmanager.net). Você pode reenviar solicitações, colocar para cima/baixo servidores Web e VMs que foram criados em regiões diferentes e alterar as configurações do perfil de Gerenciador de Tráfego para testar sua instalação.
 
-### <a name="step-4-create-a-load-balancer"></a>Etapa 4: Criar um balanceador de carga
+### <a name="step-4-create-a-load-balancer"></a>Etapa 4: criar um balanceador de carga
 
 Neste cenário, o balanceador de carga distribui conexões entre a camada da Web e os bancos de dados em um cluster de alta disponibilidade.
 
@@ -207,7 +207,7 @@ Agora podemos configurar o endereço IP e a porta de front-end do balanceador de
 
 ![Painel de navegação de "Pool Frontend IP" do balanceador de carga](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
 * [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)

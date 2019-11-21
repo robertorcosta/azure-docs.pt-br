@@ -1,20 +1,16 @@
 ---
-title: Visão geral do Azure Functions Runtime | Microsoft Docs
+title: Visão geral do Azure Functions Runtime
 description: Visão geral da visualização do Azure Functions Runtime
-services: functions
 author: apwestgarth
-manager: stefsch
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: e67041ca78ba328fad132cc556b12d780eb9b318
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ab04aa4ca7f54e8de120d078a313c3096a350aa5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095968"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226623"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Visão geral do Azure Functions Runtime (versão prévia)
 
@@ -45,7 +41,7 @@ As funções de trabalho do Azure Functions são implantadas em contêineres do 
 
 ## <a name="minimum-requirements"></a>Requisitos mínimos
 
-Para começar a usar o tempo de execução do Azure Functions, você deve ter um computador com Windows Server 2016 ou com a Atualização do Windows 10 para Criadores com acesso a uma instância do SQL Server.
+Para começar a usar o Azure Functions Runtime, você deve ter um computador com Windows Server 2016 ou com a Atualização do Windows 10 para Criadores com acesso a uma instância do SQL Server.
 
 ## <a name="next-steps"></a>Próximas etapas
 

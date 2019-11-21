@@ -7,21 +7,21 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: f056515e87d01d0a30fec7f792fcb6e5e91c0c89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f838091f4b4cdcb0535f58926a724074ef080463
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969036"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218868"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal Cloudyn
 
 Este artigo descreve a finalidade dos relatórios Cloudyn que estão incluídos no portal do Cloudyn. Ele também descreve como você pode usar com eficiência os relatórios. A maioria dos relatórios é intuitiva e tem uma aparência uniforme. A maioria das ações que você pode fazer em um relatório, também poderá fazer em outros. Para obter uma visão geral sobre como usar os relatórios da Cloudyn, incluindo como personalizar e salvar ou agendar relatórios, consulte [Noções básicas sobre relatórios de custo](understanding-cost-reports.md).
 
-O Azure Cost Management oferece funcionalidade semelhante ao Cloudyn. O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos nativa do Azure. Ele ajuda você a analisar custos, criar e gerenciar orçamentos, exportar dados e rever e agir de acordo com recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [gerenciamento de custos do Azure](overview-cost-mgt.md).
+O Gerenciamento de Custos do Azure oferece uma funcionalidade semelhante ao Cloudyn. O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos nativa do Azure. Ele ajuda você a analisar custos, criar e gerenciar orçamentos, exportar dados e rever e agir de acordo com recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [ Gerenciamento de custos do Azure ](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Tipos de relatório
 
@@ -146,7 +146,7 @@ Esse conjunto de relatórios de custos amortizados mostram tarifas de serviço s
 
 - Taxas de suporte anual
 - Taxas anuais de componente de segurança
-- Taxas de compra de instâncias reservadas
+- Taxas de compra de Instâncias Reservadas
 - Alguns itens do Azure Marketplace
 
 No arquivo de cobrança, as tarifas avulsas são caracterizadas quando as datas de início e término do consumo do serviço (carimbo de data/hora) têm valores iguais. O serviço Cloudyn reconhece as tarifas como episódios únicos que estão amortizados. Não são amortizados outros serviços baseados em consumo com custos de uso sob demanda.
@@ -198,7 +198,7 @@ Para criar uma cobrança personalizada:
 7. Em **Datas**, se uma taxa única é selecionada, em **Data de Efetivação**, insira a data em que o encargo é pago. Se Taxa Recorrente estiver selecionada, insira o intervalo de datas, incluindo a data de início e a data de término para o encargo.
 8. Em **Árvore de Entidades**, selecione as entidades em que você deseja aplicar o encargo e selecione **Ativado**.
 
-_Quando os encargos são atribuídos a uma entidade, os usuários não podem alterá-los. Os encargos que são adicionados por um administrador a uma entidade pai são somente leitura._
+_When charges are assigned to an entity, users can't change them. Charges that are added by an administrator to a parent entity are read-only._
 
 Para exibir encargos personalizados:
 
@@ -208,11 +208,11 @@ Os encargos personalizados são mostrados em relatórios de custo. Por exemplo, 
 
 Você pode usar Alocação de custos 360 para criar modelos personalizados de alocação de custos para atribuir os custos a recursos de nuvem consumidos. Muitos relatórios mostram informações de modelos personalizados de custo que você criou com modelos personalizados de custo. E alguns relatórios mostram apenas as informações depois de você ter criado um modelo personalizado de custos com alocação de custos.
 
-Para obter mais informações sobre a criação de modelos de custo personalizados, consulte [Tutorial: Gerenciar custos usando Cloudyn](tutorial-manage-costs.md).
+Para obter mais informações sobre a criação de modelos de custo personalizados, consulte [Tutorial: gerenciar custos usando o Cloudyn](tutorial-manage-costs.md).
 
-### <a name="cost-vs-budget-over-time-report"></a>Relatório de Custos versus  Orçamento ao Longo do Tempo
+### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Budget Over Time report
 
-O Relatório de Custos versus Orçamento ao Longo do Tempo permite que você compare as principais causas de custo em relação ao seu orçamento. O orçamento atribuído aparece no relatório para que você possa exibir o consumo do orçamento (sobre/sob/igual) ao longo do tempo. Usando Exibir/Ocultar Campos na parte superior do relatório, você pode selecionar para visualizar o custo, orçamento, custo acumulado e orçamento total.
+The Cost vs. Budget Over Time report allows you to compare the main cost contributors against your budget. O orçamento atribuído aparece no relatório para que você possa exibir o consumo do orçamento (sobre/sob/igual) ao longo do tempo. Usando Exibir/Ocultar Campos na parte superior do relatório, você pode selecionar para visualizar o custo, orçamento, custo acumulado e orçamento total.
 
 ### <a name="current-month-projected-cost-report"></a>Relatório de custo projetado do mês atual
 
@@ -246,7 +246,7 @@ Para importar um arquivo para o orçamento anual:
 
 Para exportar o orçamento concluído como arquivo CSV em **Ações**, selecione **Exportar** para realizar o download do arquivo.
 
-Ao concluir, seu orçamento será exibido nos relatórios de análise de custo e no relatório de orçamento versus o relatório de Custo ao Longo do Tempo Você também pode programar relatórios com base nos limites de orçamento.
+When completed, your budget is shown in Cost Analysis reports and in the Cost vs. Budget Over Time report. Você também pode programar relatórios com base nos limites de orçamento.
 
 ### <a name="azure-resource-explorer-report"></a>Relatório do Azure Resource Explorer
 
@@ -287,7 +287,7 @@ Este relatório mostra uma análise do uso de CPU ou memória ao longo do tempo 
 
 ### <a name="compute-power-cost-over-time-report"></a>Relatório de custo da capacidade de computação ao longo do tempo
 
-O relatório da capacidade de computação ao longo do tempo fornece uma análise de capacidade de computação em um intervalo de datas especificado. Embora outros relatórios mostrem o número de máquinas em execução ou o tempo de execução, esse relatório mostra as horas principais, horas de unidade de computação ou horas de GB de RAM.
+O relatório da capacidade de computação ao longo do tempo fornece uma análise de capacidade de computação em um intervalo de datas especificado. Embora outros relatórios mostrem o número de máquinas em execução ou o runtime, esse relatório mostra as horas principais, horas de unidade de computação ou horas de GB de RAM.
 
 Use o relatório para:
 
@@ -409,7 +409,7 @@ Use o relatório de reservas ao longo do tempo do RDS para exibir uma análise d
 
 ### <a name="reserved-instance-purchase-impact-report"></a>Relatório de impacto de compra de instância reservada
 
-O relatório de impacto de compra de RI do EC2 permite que você simule o custo da instância reservada em relação ao custo sob demanda ao longo do tempo. Ele pode ajudá-lo a tomar decisões de compra melhores. Ajuste os filtros, como o tempo de execução médio, prazo, plataforma e outras opções para tomar decisões informadas ao considerar as compras de RI.
+O relatório de impacto de compra de RI do EC2 permite que você simule o custo da instância reservada em relação ao custo sob demanda ao longo do tempo. Ele pode ajudá-lo a tomar decisões de compra melhores. Ajuste os filtros, como o runtime médio, prazo, plataforma e outras opções para tomar decisões informadas ao considerar as compras de RI.
 
 ### <a name="cost-effective-sizing-recommendations-report"></a>Relatório de recomendações de dimensionamento econômico
 
@@ -448,7 +448,7 @@ A seção **Utilização da CPU** fornece a utilização da CPU para a instânci
 
 Clique no gráfico para fazer uma análise e abrir o relatório de instância da CPU ao longo tempo para ver um detalhamento das instâncias.
 
-- Use **Mostrar/ocultar campos** para adicionar ou remover campos: Carimbo de data/hora, Méd. de CPU, Mín. de CPU, Máx. de CPU.
+- Use **Mostrar/Ocultar Campos** para adicionar ou remover campos: Carimbo de Data e Hora, Média de CPU, Mínimo de CPU, Máximo de CPU.
 - Use **Intervalo de Datas** para inserir uma data ou intervalo de datas e detalhar uma InstanceID específica.
 - Use **Filtros Estendidos** para mostrar todos ou uma ID de instância específica
 - Clique em **Ampliar** para abrir o relatório de utilização de CPU
@@ -514,7 +514,7 @@ Use o relatório de tipos de instância para:
 
 Você pode usar **Pesquisar** para localizar itens de linha específicos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda a usar relatórios, incluindo como personalizar ou salvar e agendar relatórios, consulte [Noções básicas sobre relatórios de custo](understanding-cost-reports.md).
 - Saiba mais sobre os painéis incluídos no Cloudyn e sobre como criar seus próprios painéis personalizados. Consulte [Exibir as principais métricas de custo com painéis](dashboards.md).

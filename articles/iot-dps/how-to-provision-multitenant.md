@@ -1,5 +1,5 @@
 ---
-title: Como fornecer o provisionamento dos dispositivos para multilocação com o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
+title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
 description: Como fornecer o provisionamento dos dispositivos para multilocação com a Instância de Serviço de Provisionamento de Dispositivos
 author: wesmc7777
 ms.author: wesmc
@@ -7,21 +7,20 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116080"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228782"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
 As políticas de alocação definidas pelo serviço de provisionamento dão suporte a uma variedade de cenários de alocação. Os dois cenários mais comuns são:
 
-* **Localização geográfica / GeoLatency**: uma vez que um dispositivo se move entre locais, a latência de rede é aprimorada fazendo com que o dispositivo provisionasse para o Hub IoT mais perto de cada localização. Nesse cenário, um grupo de hubs de IoT, que se estendem entre regiões, são selecionados para os registros. A política de alocação de **menor latência** é selecionada para esses registros. Essa política faz com que o serviço de provisionamento de dispositivos avaliem a latência de dispositivo e determinar o hub IoT fora do grupo de hubs IoT armário. 
+* **Localização geográfica / GeoLatency**: uma vez que um dispositivo se move entre locais, a latência de rede é aprimorada fazendo com que o dispositivo provisionasse para o Hub do IoT mais perto de cada localização. Nesse cenário, um grupo de hubs de IoT, que se estendem entre regiões, são selecionados para os registros. A política de alocação de **menor latência** é selecionada para esses registros. Essa política faz com que o serviço de provisionamento de dispositivos avaliem a latência de dispositivo e determinar o hub IoT fora do grupo de hubs IoT armário. 
 
-* **Multilocação**: dispositivos usados dentro de uma solução de IoT precisam ser atribuídos a um hub IoT específico ou um grupo de hubs IoT. A solução pode exigir todos os dispositivos para um locatário específico para se comunicarem com um grupo específico de hubs IoT. Em alguns casos, um locatário pode possuir hubs IoT e exigir que os dispositivos sejam atribuídos a seus hubs IoT.
+* **A multilocação**: dispositivos usados dentro de uma solução de IoT precisam ser atribuídos a um hub IoT específico ou um grupo de hubs IoT. A solução pode exigir todos os dispositivos para um locatário específico para se comunicarem com um grupo específico de hubs IoT. Em alguns casos, um locatário pode possuir hubs IoT e exigir que os dispositivos sejam atribuídos a seus hubs IoT.
 
 É comum combinar esses dois cenários. Por exemplo, uma solução de IoT multilocatária comumente atribuirá os dispositivos de locatário usando um grupo de hubs IoT que estão espalhados entre regiões. Esses dispositivos de locatário podem ser atribuídos ao hub IoT no grupo, que tem a menor latência com base na localização geográfica.
 
@@ -39,7 +38,7 @@ Este artigo usa uma amostra de dispositivo simulado com o [SDK do Azure IoT C](h
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
+* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -90,15 +89,15 @@ Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symm
 
 2. Selecione a guia **Gerenciar registros** e clique no botão **Adicionar grupo de registros** na parte superior da página. 
 
-3. Em **Adicionar Grupo de Registros**, insira as informações a seguir e clique no botão **Salvar**.
+3. Em **Adicionar grupo de registros**, insira as informações a seguir e clique no botão **Salvar**.
 
-    **Nome do grupo**: insira **contoso-us-dispositivos**.
+    **Nome do grupo**: Insira **contoso-us-devices**.
 
-    **Tipo de Atestado**: selecione **Chave Simétrica**.
+    **Tipo de atestado**: selecione **Chave simétrica**.
 
-    **Gerar Chaves Automaticamente**: esta caixa de seleção já deve estar marcada.
+    **Gerar chaves automaticamente**: esta caixa de seleção já deve estar marcada.
 
-    **Selecione como deseja atribuir dispositivos aos hubs**: selecione **Menor latência**.
+    **Selecione como você deseja atribuir dispositivos a hubs**: selecione **Menor latência**.
 
     ![Adicionar grupo de registros de multilocação para atestado de chave simétrica](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
@@ -130,11 +129,11 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
 1. No Azure Cloud Shell, execute o seguinte comando para criar uma região **Leste dos EUA** de VM depois de fazer as seguintes alterações de parâmetro no comando:
 
-    **--name**: insira um nome exclusivo para seu dispositivo regional VM no **Leste dos EUA**. 
+    **--nome**: insira um nome exclusivo para seu dispositivo regional VM no **Leste dos EUA**. 
 
-    **--admin-username**: Use seu próprio nome de usuário administrador.
+    **nome de usuário-admin-** : usar seu próprio nome de usuário administrador.
 
-    **--admin-password**: Use sua própria senha de administrador.
+    **-- admin-password**: Use sua própria senha de administrador.
 
     ```azurecli-interactive
     az vm create \
@@ -151,11 +150,11 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
 1. No Azure Cloud Shell, execute o comando para criar uma região **Oeste dos EUA** de VM depois de fazer as seguintes alterações de parâmetro no comando:
 
-    **--name**: insira um nome exclusivo para seu dispositivo regional VM no **Oeste dos EUA**. 
+    **--nome**: insira um nome exclusivo para seu dispositivo regional VM no **Oeste dos EUA**. 
 
-    **--admin-username**: Use seu próprio nome de usuário administrador.
+    **nome de usuário-admin-** : usar seu próprio nome de usuário administrador.
 
-    **--admin-password**: Use sua própria senha de administrador.
+    **-- admin-password**: Use sua própria senha de administrador.
 
     ```azurecli-interactive
     az vm create \
@@ -418,10 +417,10 @@ Para excluir o grupo de recursos por nome:
 
 4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Para saber mais Reprovisioning, consulte [reprovisionamento conceitos de dispositivos no Hub IoT](concepts-device-reprovision.md) 
-- Para saber mais desprovisionamento, consulte [como desprovisionar dispositivos que foram anteriormente autoprovisionado](how-to-unprovision-devices.md) 
+- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
+- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

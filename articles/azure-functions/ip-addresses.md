@@ -1,20 +1,14 @@
 ---
 title: Endereços IP no Azure
 description: Saiba como encontrar endereços IP de entrada e saída para aplicativos de função e o que faz com que eles sejam alterados.
-services: functions
-documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: glenga
-ms.openlocfilehash: d8b6a342dd32d430f7a40a1e0a0a17a482a0816d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469061"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230335"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure
 
@@ -31,7 +25,7 @@ Os endereços IP estão associados a aplicativos de função, não a funções i
 
 Cada aplicativo de função possui um único endereço IP de entrada. Para encontrar esse endereço IP:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de função.
 3. Selecione **recursos da plataforma**.
 4. Selecione **Propriedades** e o endereço IP de entrada será exibido em **Endereço IP virtual**.
@@ -121,7 +115,7 @@ Se você precisar de endereços IP dedicados e estáticos, recomendamos [Ambient
 
 Para descobrir se seu aplicativo de função é executado em um Ambiente de Serviço de Aplicativo:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de função.
 3. Selecione o guia **Visão geral**.
 4. A camada do plano de Serviço de Aplicativo aparece em **Plano de serviço de aplicativo / camada de preço**. A camada de preços do Ambiente de Serviço de Aplicativo é **Isolado**.
@@ -134,6 +128,6 @@ az webapp show --resource-group <group_name> --name <app_name> --query sku --out
 
 O Ambiente do Serviço de Aplicativo `sku` é `Isolated`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Uma causa comum de alterações de IP é a função de escala de aplicativos. [Saiba mais sobre o dimensionamento do aplicativo de função](functions-scale.md).

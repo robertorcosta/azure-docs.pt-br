@@ -1,18 +1,18 @@
 ---
-title: Como fazer a prova de posse para certificados de AC X. 509 com o serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como fazer a prova de posse para certificados de AC X. 509 com o serviço de provisionamento de dispositivos no Hub IoT do Azure
+title: Verify X.509 CA certificates with Azure IoT Hub Device Provisioning Service
+description: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e762a1ab307bdc5ca9369c3f2e424cf6fd35f163
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b701b15b3dd4463b2d5adbb38ee23bf0c3bfdfe9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890640"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228694"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como fazer uma prova de posse para certificados de autoridade de certificação X.509 com o Serviço de Provisionamento de Dispositivos
 
@@ -69,7 +69,7 @@ Os scripts de PowerShell e Bash fornecidos na documentação e SDKs dependem do 
 
    ![Carregar verificação de certificado](./media/how-to-verify-certificates/upload-cert-verification.png)  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre como usar o portal para criar um grupo de registro, consulte [Gerenciando registros de dispositivos com o portal do Azure](how-to-manage-enrollments.md).
 - Para saber mais sobre como usar os SDKs do serviço para criar um grupo de registro, consulte [Gerenciando registros de dispositivos com os SDKs do serviço](how-to-manage-enrollments-sdks.md).

@@ -1,31 +1,25 @@
 ---
-title: Usar o Azure Functions para executar uma tarefa de limpeza de banco de dados | Microsoft Docs
+title: Use Azure Functions to perform a database clean up task
 description: Use o Azure Functions para agendar uma tarefa que se conecta ao banco de dados SQL do Azure para limpar linhas periodicamente.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: glenga
-ms.openlocfilehash: 469e0149a3b9dce22f0590240a053ee3b183c7b9
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815971"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230392"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
 
-Este artigo mostra como usar Azure Functions para criar um trabalho agendado que se conecta a um banco de dados SQL do Azure ou Instância Gerenciada SQL do Azure. O código de função limpa as linhas em uma tabela no banco de dados. A nova C# função é criada com base em um modelo de gatilho de temporizador predefinido no Visual Studio 2019. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração de aplicativo no aplicativo de funções. Para o Azure SQL Instância Gerenciada você precisa [habilitar o ponto de extremidade público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) para poder se conectar de Azure functions. Esse cenário usa uma operação em massa no banco de dados. 
+This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database or Azure SQL Managed Instance. O código de função limpa as linhas em uma tabela no banco de dados. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração de aplicativo no aplicativo de funções. For Azure SQL Managed Instance you need to [enable public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) to be able to connect from Azure Functions. Esse cenário usa uma operação em massa no banco de dados. 
 
 Se esta for sua primeira experiência trabalhando com funções C#, você deverá ler a [Referência do desenvolvedor de C# do Azure Functions](functions-dotnet-class-library.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Conclua as etapas no artigo [Criar sua primeira função usando o Visual Studio](functions-create-your-first-function-visual-studio.md) para criar um aplicativo de funções local destinado ao tempo de execução versão 2.x. Você também precisa ter publicado seu projeto em um aplicativo de funções no Azure.
++ Conclua as etapas no artigo [Criar sua primeira função usando o Visual Studio](functions-create-your-first-function-visual-studio.md) para criar um aplicativo de funções local destinado ao runtime versão 2.x. Você também precisa ter publicado seu projeto em um aplicativo de funções no Azure.
 
 + Este artigo demonstra um comando Transact-SQL que executa uma operação de limpeza em massa na tabela **SalesOrderHeader** no banco de dados de amostra AdventureWorksLT. Para criar o banco de dados de amostra AdventureWorksLT, conclua as etapas no artigo [Criar um Banco de Dados SQL do Azure no portal do Azure](../sql-database/sql-database-get-started-portal.md).
 
@@ -35,11 +29,11 @@ Se esta for sua primeira experiência trabalhando com funções C#, você dever�
 
 Você precisa obter a cadeia de conexão para o banco de dados que você criou quando concluiu [Criar um Banco de Dados SQL do Azure no Portal do Azure](../sql-database/sql-database-get-started-portal.md).
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Bancos de Dados SQL** no menu à esquerda e selecione seu banco de dados na página **Bancos de Dados SQL**.
 
-1. Selecione **Cadeias de conexão** em **Configurações** e copie a cadeia de conexão completa do **ADO.NET**. Para Azure SQL Instância Gerenciada copiar cadeia de conexão para o ponto de extremidade público.
+1. Selecione **Cadeias de conexão** em **Configurações** e copie a cadeia de conexão completa do **ADO.NET**. For Azure SQL Managed Instance copy connection string for public endpoint.
 
     ![Copie a cadeia de conexão ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -49,7 +43,7 @@ Um aplicativo de funções hospeda a execução de suas funções no Azure. Como
 
 Você precisa ter publicado o aplicativo anteriormente no Azure. Se você ainda não fez isso, [publique o aplicativo de funções no Azure](functions-develop-vs.md#publish-to-azure).
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **Publicar** > **Gerenciar configurações do aplicativo...** . Selecione **Adicionar configuração**, em **Novo nome de configuração do aplicativo**, digite `sqldb_connection` e selecione **OK**.
+1. In Solution Explorer, right-click the function app project and choose **Publish** > **Manage application settings...** . Select **Add setting**, in **New app setting name**, type `sqldb_connection`, and select **OK**.
 
     ![Configurações de aplicativo para o aplicativo de funções.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -63,7 +57,7 @@ Você precisa ter publicado o aplicativo anteriormente no Azure. Se você ainda 
 
 Você precisa adicionar o pacote do NuGet que contém a biblioteca do SqlClient. Essa biblioteca de acesso a dados é necessária para se conectar a um banco de dados SQL.
 
-1. Abra seu projeto de aplicativo de função local no Visual Studio 2019.
+1. Open your local function app project in Visual Studio 2019.
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **Gerenciar Pacotes NuGet**.
 
@@ -128,7 +122,7 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
 
 Se você planeja [publicar essa função](functions-develop-vs.md#publish-to-azure), lembre-se de alterar o atributo `TimerTrigger` para uma [agenda de Cron](functions-bindings-timer.md#ncrontab-expressions) mais razoável do que a cada 15 segundos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, aprenda como usar. Functions com Aplicativos Lógicos para integração com outros serviços.
 

@@ -1,5 +1,5 @@
 ---
-title: Início rápido do Fivetran
+title: Fivetran quickstart
 description: Comece rapidamente com Fivetran e Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 250df3e106ae65cafc84a412c155e3a27c535c79
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 715f891484458f3bf3febc6807c3490b88062d50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686110"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229100"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Comece rapidamente com Fivetran e Azure SQL Data Warehouse
 
@@ -71,7 +71,7 @@ Este início rápido descreve como configurar um novo usuário do Fivetran para 
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    Para obter mais informações, leia sobre [limites de memória e de simultaneidade] memória-Concurrency-limits.md) e [classes de recurso](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
+    Para obter mais informações, leia sobre [memória e limites de simultaneidade](memory-concurrency-limits.md) e [classes de recurso](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
 ## <a name="sign-in-to-fivetran"></a>Entrar para Fivetran
@@ -81,5 +81,5 @@ Para entrar no Fivetran, insira as credenciais que você usa para acessar o SQL 
 * Host (o nome do servidor).
 * Porta.
 * Banco de dados.
-* Usuário (o nome de usuário deve ser **fivetran\@_server_name_**  em que *server_name* faz parte do URI do host do Azure: ***server_name *. Database. Windows. net**).
+* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
 * Senha.

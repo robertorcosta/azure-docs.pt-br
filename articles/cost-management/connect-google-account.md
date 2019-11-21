@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 247d959abadc92d70bdd60555a090986743e9322
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 937d1b6e0bc9ece0507821538fafb0f5d8c0ef99
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002067"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230125"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Conectar uma conta do Google Cloud Platform
 
@@ -73,6 +73,6 @@ Sua conta do Google aparecerá na lista de contas e deverá indicar **Autenticad
 
 Dentro de algumas horas, os relatórios da Cloudyn mostram informações sobre custo e uso do Google.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Para saber mais sobre o Cloudyn, continue no tutorial [Revisar o uso e os custos](./tutorial-review-usage.md) do Cloudyn.
+- Para saber mais sobre Cloudyn, continue para [Examinar o uso e custos](./tutorial-review-usage.md) tutorial para o Cloudyn.

@@ -1,5 +1,5 @@
 ---
-title: Como gerenciar uma identidade gerenciada atribuída ao usuário usando o portal do Azure
+title: Manage a user-assigned managed identity in the Azure portal - Azure AD
 description: Instruções passo a passo de como criar, listar, excluir e atribuir uma função a uma identidade gerenciada atribuída pelo usuário.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18a15b8039322fc5e43a2b9dfed8a9bd3fc8b5fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06d25604ca1e8a59ca1da3c8e290d9052856b769
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441557"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224637"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a criar, listar, excluir ou atribuir uma função
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Não deixe de analisar a [diferença entre uma identidade gerenciada atribuída pelo sistema e atribuída pelo usuário](overview.md#how-does-it-work)** .
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário
@@ -42,10 +42,10 @@ Para criar uma identidade gerenciada atribuída pelo usuário, sua conta precisa
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure para criar a identidade gerenciada atribuída ao usuário.
 2. Na caixa de pesquisa, digite *Identidades Gerenciadas*e, em **Serviços**, clique em **Identidades Gerenciadas**.
 3. Clique em **Adicionar** e insira valores nos campos a seguir no painel **Criar identidade gerenciada atribuída ao usuário**:
-   - **Nome do Recurso**: Esse é o nome da identidade gerenciada atribuída ao usuário, por exemplo, UAI1.
-   - **Assinatura**: Escolha a assinatura para criar a identidade gerenciada atribuída ao usuário
-   - **Grupo de Recursos**: Crie um novo grupo de recursos para conter a identidade gerenciada atribuída ao usuário ou escolha **Usar existente** para criar a identidade gerenciada atribuída ao usuário em um grupo de recursos existente.
-   - **Localização**: Escolha um local para implantar a identidade gerenciada atribuída ao usuário, por exemplo **Oeste dos EUA**.
+   - **Nome do Recurso**: esse é o nome da identidade gerenciada atribuída ao usuário, por exemplo, UAI1.
+   - **Assinatura**: escolha a assinatura para criar a identidade gerenciada atribuída ao usuário
+   - **Grupo de Recursos**: crie um novo grupo de recursos para conter a identidade gerenciada atribuída ao usuário ou escolha **Usar existente** para criar a identidade gerenciada atribuída ao usuário em um grupo de recursos existente.
+   - **Local**: escolha um local para implantar a identidade gerenciada atribuída ao usuário, por exemplo **Oeste dos EUA**.
 4. Clique em **Criar**.
 
 ![Criar uma identidade gerenciada atribuída ao usuário](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)

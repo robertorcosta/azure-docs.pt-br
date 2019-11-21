@@ -1,28 +1,22 @@
 ---
-title: Diretrizes de tratamento de erro Azure Functions
-description: Saiba como tratar erros no Azure Functions com links para erros de associação específicos.
-services: functions
-cloud: ''
-documentationcenter: ''
+title: Azure Functions error handling guidance
+description: Learn to handle errors in Azure Functions with links to specific binding errors.
 author: craigshoemaker
-manager: gwallace
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: d301940998175adb6469e46cff2de918b5cae9df
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 06dc4c5c1713ee10f263e573a698e9ea36ca2662
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155275"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227332"
 ---
 # <a name="azure-functions-error-handling"></a>Tratamento de erros do Azure Functions
 
-O tratamento de erros no Azure Functions é importante para evitar perda de dados, eventos perdidos e para monitorar a integridade do aplicativo.
+Handling errors in Azure Functions is important to avoid lost data, missed events, and to monitor the health of your application.
 
-Este artigo descreve estratégias gerais para tratamento de erros junto com links para erros específicos de associação.
+This article describes general strategies for error handling along with links to binding-specific errors.
 
 ## <a name="handling-errors"></a>Tratamento de erros
 
@@ -30,13 +24,13 @@ Este artigo descreve estratégias gerais para tratamento de erros junto com link
 
 ## <a name="binding-error-codes"></a>Códigos de erro de associação
 
-Ao integrar com os serviços do Azure, os erros podem se originar das APIs dos serviços subjacentes. Informações relacionadas a erros específicos de associação estão disponíveis na seção **exceções e códigos de retorno** dos seguintes artigos:
+When integrating with Azure services, errors may originate from the APIs of the underlying services. Information relating to binding-specific errors is available in the **Exceptions and return codes** section of the following articles:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
 + [Armazenamento de Blobs](functions-bindings-storage-blob.md#exceptions-and-return-codes)
 
-+ [Hubs de Evento](functions-bindings-event-hubs.md#exceptions-and-return-codes)
++ [Hubs de Eventos](functions-bindings-event-hubs.md#exceptions-and-return-codes)
 
 + [Hubs de Notificação](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 

@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 91377c41699f01eaf57a085ea82e9d7289549990
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ac4442aa5a7e5e4367a03d33169412d37b3f1ea
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969149"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229921"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurar contas de armazenamento para Cloudyn
 
@@ -53,7 +53,7 @@ Você pode agora salvar relatórios no armazenamento do Azure. Ao exibir qualque
 
 ## <a name="configure-an-aws-storage-bucket"></a>Configurar uma bucket de armazenamento AWS
 
-O Cloudyn usa as credenciais do AWS existentes: Usuário ou Função, para salvar os relatórios no bucket. Para testar o acesso, Cloudyn tenta salvar um pequeno arquivo de texto para o bucket com o nome do arquivo _check-bucket-permission.txt_.
+O Cloudyn usa as credenciais existentes do AWS: usuário ou função, para salvar os relatórios para o bucket. Para testar o acesso, Cloudyn tenta salvar um pequeno arquivo de texto para o bucket com o nome do arquivo _check-bucket-permission.txt_.
 
 Forneça o Cloudyn função ou o usuário com a permissão PutObject para o bucket. Em seguida, use um bucket existente ou crie um novo para salvar relatórios. Finalmente, decida como gerenciar a classe de armazenamento, definir regras de ciclo de vida ou remova arquivos desnecessários.
 
@@ -65,7 +65,7 @@ Quando você cria uma nova política, você pode fornecer as permissões exatas 
 2. Na lista de serviços, selecione **IAM**.
 3. Selecione **Políticas** no lado esquerdo do console e, em seguida, clique **Criar política**.
 4. Clique na guia **JSON**.
-5. A seguinte política permite que você salve um relatório em um bucket S3. Copie e cole o seguinte exemplo de política para a guia **JSON**. Substitua &lt;bucketname&gt; com seu nome de bucket.
+5. A seguinte política permite que você salve um relatório em um bucket S3. Copy and paste the following policy example to the **JSON** tab. Replace &lt;bucketname&gt; with your bucket name.
 
    ```json
    {
@@ -109,12 +109,12 @@ Para anexar a nova política, você abre o console do AWS e edita função Cloud
 1. Selecione o usuário Cloudyn.
 2. Na guia **Permissões**, clique em **Adicionar permissões**.
 3. Na seção **Conceder Permissões**, selecione **Anexar políticas existentes diretamente**.
-4. Pesquise a política que você criou, selecione-a e, em seguida, clique em **Próximo: Análise**.
+4. Pesquise a política que você criou e selecione-a e, então clique em **Próximo: Revisar**.
 5. Em adicionar permissões à página de nome de função, clique em **adicionar permissões**.  
     ![Exemplo de política anexada ao usuário do Cloudyn](./media/storage-accounts/aws-attach-policy-user.png)
 
 
-### <a name="optional-set-permission-with-bucket-policy"></a>Opcional: Definir permissão com política de bucket
+### <a name="optional-set-permission-with-bucket-policy"></a>Opcional: Definir permissão com a política de bucket
 
 Você também pode definir permissão para criar relatórios sobre o bucket S3 usando uma política de bucket. No modo de exibição clássico da S3:
 
@@ -161,6 +161,6 @@ Você também pode definir permissão para criar relatórios sobre o bucket S3 u
 
 Você pode agora salvar relatórios no armazenamento do Azure. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e em seguida ou adicione sua própria URL ou use uma URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Selecione um formato de arquivo CSV ou JSON e, em seguida, salve o relatório.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine [Reconhecimento de relatórios do Cloudyn](understanding-cost-reports.md) para saber mais sobre a estrutura básica e as funções de relatórios do Cloudyn.

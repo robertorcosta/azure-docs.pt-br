@@ -1,58 +1,54 @@
 ---
 title: Gatilhos e associações no Azure Functions
-description: Aprenda a usar gatilhos e associações para conectar sua função do Azure a eventos online e serviços baseados em nuvem.
-services: functions
-documentationcenter: na
+description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 914158ba7cfcc7530120d427c62e69036b3bb156
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085082"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226557"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
-Neste artigo, você aprende os conceitos de alto nível em torno de gatilhos e associações de funções.
+In this article you learn the high-level concepts surrounding functions triggers and bindings.
 
-Os gatilhos são o que causa a execução de uma função. Um gatilho define como uma função é invocada e uma função deve ter exatamente um gatilho. Os gatilhos têm dados associados, que geralmente são fornecidos como a carga da função. 
+Triggers are what cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function. 
 
-A associação a uma função é uma maneira de conectar declarativamente outro recurso à função; as associações podem ser conectadas como *associações de entrada*, associações de *saída*ou ambas. Dados de associações são fornecidos à função como parâmetros.
+Binding to a function is a way of declaratively connecting another resource to the function; bindings may be connected as *input bindings*, *output bindings*, or both. Dados de associações são fornecidos à função como parâmetros.
 
-Você pode misturar e combinar associações diferentes para atender às suas necessidades. Associações são opcionais e uma função pode ter uma ou várias associações de entrada e/ou saída.
+You can mix and match different bindings to suit your needs. Bindings are optional and a function might have one or multiple input and/or output bindings.
 
-Gatilhos e associações permitem que você evite codificar o acesso a outros serviços. Sua função recebe dados (por exemplo, o conteúdo de uma mensagem da fila) em parâmetros de função. Você envia dados (por exemplo, para criar uma mensagem da fila) usando o valor retornado da função. 
+Triggers and bindings let you avoid hardcoding access to other services. Sua função recebe dados (por exemplo, o conteúdo de uma mensagem da fila) em parâmetros de função. Você envia dados (por exemplo, para criar uma mensagem da fila) usando o valor retornado da função. 
 
-Considere os exemplos a seguir de como você pode implementar funções diferentes.
+Consider the following examples of how you could implement different functions.
 
-| Cenário de exemplo | Disparador | Associação de entrada | Associação de saída |
+| Cenário de exemplo | Gatilho | Input binding | Output binding |
 |-------------|---------|---------------|----------------|
-| Uma nova mensagem de fila chega, que executa uma função para gravar em outra fila. | Espera<sup>*</sup> | *Nenhum* | Espera<sup>*</sup> |
-|Um trabalho agendado lê o conteúdo do armazenamento de BLOBs e cria um novo documento Cosmos DB. | Temporizador | Armazenamento de Blob | Cosmos DB |
-|A grade de eventos é usada para ler uma imagem do armazenamento de BLOBs e um documento do Cosmos DB para enviar um email. | Grade do Evento | Armazenamento de BLOBs e Cosmos DB | SendGrid |
-| Um webhook que usa Microsoft Graph para atualizar uma planilha do Excel. | HTTP | *Nenhum* | Microsoft Graph |
+| A new queue message arrives which runs a function to write to another queue. | Queue<sup>*</sup> | *Nenhum* | Queue<sup>*</sup> |
+|A scheduled job reads Blob Storage contents and creates a new Cosmos DB document. | Timer | Armazenamento de Blobs | Cosmos DB |
+|The Event Grid is used to read an image from Blob Storage and a document from Cosmos DB to send an email. | Grade de Eventos | Blob Storage and  Cosmos DB | SendGrid |
+| A webhook that uses Microsoft Graph to update an Excel sheet. | http | *Nenhum* | Microsoft Graph |
 
-<sup>\*</sup>Representa filas diferentes
+<sup>\*</sup> Represents different queues
 
-Esses exemplos não devem ser completos, mas são fornecidos para ilustrar como você pode usar gatilhos e associações juntos.
+These examples are not meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
 
-###  <a name="trigger-and-binding-definitions"></a>Definições de associação e gatilho
+###  <a name="trigger-and-binding-definitions"></a>Trigger and binding definitions
 
-Os gatilhos e as associações são definidos de forma diferente, dependendo da abordagem de desenvolvimento.
+Triggers and bindings are defined differently depending on the development approach.
 
-| Plataforma | Gatilhos e associações são configurados por... |
+| Plataforma | Triggers and bindings are configured by... |
 |-------------|--------------------------------------------|
-| C#biblioteca de classes | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decoração de métodos e parâmetros C# com atributos |
-| Todos os outros (incluindo portal do Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atualizando [Function. JSON](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
+| C# class library | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorating methods and parameters with C# attributes |
+| All others (including Azure portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updating [function.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
 
-O portal fornece uma interface do usuário para essa configuração, mas você pode editar o arquivo diretamente abrindo o **Editor avançado** disponível por meio da guia **integrar** da sua função.
+The portal provides a UI for this configuration, but you can edit the file directly by opening the **Advanced editor** available via the **Integrate** tab of your function.
 
-No .NET, o tipo de parâmetro define o tipo de dados para dados de entrada. Por exemplo, use `string` para associar ao texto de um gatilho de fila, uma matriz de bytes para ler como binário e um tipo personalizado para desserializar para um objeto.
+In .NET, the parameter type defines the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary and a custom type to de-serialize to an object.
 
 Para idiomas que são digitados dinamicamente como JavaScript, use a propriedade `dataType` no arquivo *function.json*. Por exemplo, para ler o conteúdo de uma solicitação HTTP em formato binário, defina `dataType` para `binary`:
 
@@ -73,7 +69,7 @@ Todos os disparadores e associações têm uma propriedade `direction` no arquiv
 
 - Para gatilhos, a direção sempre é `in`
 - Associações de entrada e saída usam `in` e `out`
-- Algumas associações dão suporte a uma direção especial `inout`. Se você usar `inout`, somente o **Editor avançado** estará disponível por meio da guia **integrar** no Portal.
+- Algumas associações dão suporte a uma direção especial `inout`. If you use `inout`, only the **Advanced editor** is available via the **Integrate** tab in the portal.
 
 Quando você usa [atributos em uma biblioteca de classes](functions-dotnet-class-library.md) para configurar associações e gatilhos, a direção é fornecida em um construtor de atributo ou inferida do tipo de parâmetro.
 
@@ -83,15 +79,15 @@ Quando você usa [atributos em uma biblioteca de classes](functions-dotnet-class
 
 Para obter informações sobre quais associações estão na visualização ou são aprovadas para o uso de produção, consulte [Idiomas com suporte](supported-languages.md).
 
-## <a name="resources"></a>Recursos
-- [Expressões e padrões de associação](./functions-bindings-expressions-patterns.md)
-- [Usando o valor de retorno da função do Azure](./functions-bindings-return-value.md)
-- [Como registrar uma expressão de associação](./functions-bindings-register.md)
+## <a name="resources"></a>Implante
+- [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)
+- [Using the Azure Function return value](./functions-bindings-return-value.md)
+- [How to register a binding expression](./functions-bindings-register.md)
 - Teste:
   - [Estratégias para testar seu código no Azure Functions](functions-test-a-function.md)
   - [Executar manualmente uma função não disparada por HTTP](functions-manually-run-non-http.md)
-- [Tratamento de erros de associação](./functions-bindings-errors.md)
+- [Handling binding errors](./functions-bindings-errors.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
-> [Registrar Azure Functions extensões de associação](./functions-bindings-register.md)
+> [Register Azure Functions binding extensions](./functions-bindings-register.md)

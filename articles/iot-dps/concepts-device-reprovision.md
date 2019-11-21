@@ -1,5 +1,5 @@
 ---
-title: Conceitos de dispositivo para reprovisionamento para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
+title: Azure IoT Hub Device Provisioning Service - Device concepts
 description: Descreve os conceitos de reprovisionamento de dispositivo para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 author: wesmc7777
 ms.author: wesmc
@@ -7,25 +7,24 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d6e5b5c7e8e8bf83646b417aa94658efd25b49e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729934"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228832"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Conceitos de reprovisionamento de dispositivos no Hub IoT
 
 Durante o ciclo de vida de uma solução IoT, é comum mover dispositivos entre os Hubs IoT. Os motivos para essa mudança podem incluir os seguintes cenários:
 
-* **Localização geográfica / GeoLatency**: Enquanto um dispositivo se movem entre locais, a latência de rede é aprimorada fazendo com que o dispositivo migrado para um hub IoT mais próximo.
+* **Localização geográfica / GeoLatency**: uma vez que um dispositivo se move entre locais, a latência de rede é aprimorada fazendo com que o dispositivo seja migrado para um Hub IoT mais próximo.
 
-* **Multilocação**: Um dispositivo pode ser usado dentro da mesma solução de IoT e reatribuído a um novo cliente ou site do cliente. Esse novo cliente pode ser atendido usando um Hub IoT diferente.
+* **Multilocação**: um dispositivo pode ser usado dentro da mesma solução de IoT e reatribuído a um novo cliente ou site do cliente. Esse novo cliente pode ser atendido usando um Hub IoT diferente.
 
-* **Alteração de solução**: Um dispositivo pode ser movido para uma solução de IoT nova ou atualizada. Essa reatribuição pode exigir que o dispositivo se comunique com um novo Hub IoT que está conectado a outros componentes de back-end.
+* **Alteração de solução**: um dispositivo pode ser movido para uma solução de IoT nova ou atualizada. Essa reatribuição pode exigir que o dispositivo se comunique com um novo Hub IoT que está conectado a outros componentes de back-end.
 
-* **Quarentena**: Semelhante a uma alteração de solução. Um dispositivo que está com defeito, comprometido ou desatualizado pode ser reatribuído a um Hub IoT em que tudo o que ele pode fazer é atualizar e voltar em conformidade. Depois que o dispositivo estiver funcionando corretamente, ele é migrado de volta a seu hub principal.
+* **Quarentena**: semelhante a uma alteração de solução. Um dispositivo que está com defeito, comprometido ou desatualizado pode ser reatribuído a um Hub IoT em que tudo o que ele pode fazer é atualizar e voltar em conformidade. Depois que o dispositivo estiver funcionando corretamente, ele é migrado de volta a seu hub principal.
 
 O reprovisionamento oferece suporte dentro dos endereços de Serviço de Provisionamento de Dispositivo a essas necessidades. Os dispositivos podem ser reatribuídos automaticamente para novos hubs IoT com base na política de reprovisionamento configurada na entrada de registro do dispositivo.
 
@@ -51,11 +50,11 @@ Dependendo do cenário, uma vez que um dispositivo se move entre hubs IoT, tamb�
 
 Dependendo do cenário, um dispositivo geralmente envia uma solicitação para uma instância de serviço de provisionamento na reinicialização. Ele também dá suporte a um método para disparar manualmente o provisionamento sob demanda. A política de reprovisionamento em uma entrada de registro determina como a instância de serviço de provisionamento de dispositivos lida com essas solicitações de provisionamento. A política também determina se os dados de estado do dispositivo devem ser migrados durante o reprovisionamento. As mesmas políticas estão disponíveis para os registros individuais e grupos de registro:
 
-* **Provisionar novamente e migrar dados**: Essa política é o padrão para novas entradas de registro. Essa política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação (1). Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo está mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. As informações atualizadas de estado do dispositivo do hub IoT inicial serão migradas para o novo hub IoT (2). Durante a migração, o status do dispositivo será relatado como **atribuindo**.
+* **Provisionar novamente e migrar dados**: essa política é o padrão para novas entradas de registro. Essa política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação (1). Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. As informações atualizadas de estado do dispositivo do hub IoT inicial serão migradas para o novo hub IoT (2). Durante a migração, o status do dispositivo será relatado como **Atribuindo**.
 
     ![Provisionar com o Serviço de Provisionamento de Dispositivos](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **Provisionar novamente e redefinir a configuração inicial**: Essa política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação de provisionamento (1). Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo está mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Os dados de configuração inicial que a instância de serviço de provisionamento recebeu quando o dispositivo foi provisionado são fornecidos ao novo hub IoT (2). Durante a migração, o status do dispositivo será relatado como **atribuindo**.
+* **Provisionar novamente e redefinir a configuração inicial**: Essa política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação de provisionamento (1). Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Os dados de configuração inicial que a instância de serviço de provisionamento recebeu quando o dispositivo foi provisionado são fornecidos ao novo hub IoT (2). Durante a migração, o status do dispositivo será relatado como **Atribuindo**.
 
     Essa política é geralmente usada para uma redefinição de fábrica sem alterar os hubs IoT.
 
@@ -81,13 +80,13 @@ O fluxograma a seguir ajuda a mostrar quando o comportamento está presente:
 
 A tabela a seguir mostra as versões de API antes da disponibilidade de suporte nativo de reprovisionamento no Serviço de Provisionamento de Dispositivos:
 
-| API REST | SDK C | SDK do Python |  SDK do Node | Java SDK | SDK .NET |
+| API REST | SDK C | SDK do Python |  SDK do Node | Java SDK | .NET SDK |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
 | [2018-04-01 e anterior](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 e anterior](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 e anterior](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 ou anterior](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 ou anterior](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 ou anterior](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
 
 > [!NOTE]
 > Esses valores e links provavelmente mudarão. Isso é apenas uma tentativa de marcação para determinar onde as versões podem ser determinadas por um cliente e quais serão as versões esperadas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Como reprovisionar dispositivos](how-to-reprovision.md)

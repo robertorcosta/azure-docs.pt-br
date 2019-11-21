@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fa0fe072fe98d565ad9d6f947540b7e1b039732
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 36f0b78f563bb4dda76f192259541d1c2b1fa060
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101150"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224681"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Implantação do SAP HANA (instâncias grandes) 
 
@@ -36,7 +36,7 @@ A Microsoft requer as seguintes informações para implantar unidades de instân
 - Para cada região de implantação do Azure:
     - Um intervalo de endereços IP /29 para conexões de ER-P2P que conectar redes virtuais do Azure para instâncias grandes HANA.
     - Um bloco CIDR /24 usado para o pool de IPs de servidores de instâncias grandes HANA.
-    - Opcional ao usar o [ExpressRoute alcance global](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para habilitar o roteamento direto do local para as unidades de instância grande do Hana ou o roteamento entre unidades de instância grande do Hana em diferentes regiões do Azure, você precisa reservar outro/29 intervalo de endereços IP. Esse intervalo específico não pode se sobrepor a nenhum dos outros intervalos de endereços IP definidos anteriormente.
+    - Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. This particular range may not overlap with any of the other IP address ranges you defined before.
 - Os valores de intervalo de endereços IP usados no atributo de espaço de endereço de rede virtual de cada rede virtual do Azure que se conecta às instâncias grandes do HANA.
 - Dados para cada sistema de instâncias grandes HANA:
   - Nome de host desejado - o ideal é usar o nome de domínio totalmente qualificado.

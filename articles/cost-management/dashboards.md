@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0651dd006585e4ed5b8b888d6e55974c5c45a1d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002061"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230083"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Exibir chave métricas com painéis de custo
 
@@ -296,5 +296,5 @@ Esse widget mostra seus custos atuais do Amazon EC2 e compara-as para o Azure. A
 Esse widget realça o mapeamento de melhor de unidades de computação elástica entre EC2 Amazon e o Azure.
 - Clique no widget para abrir o relatório Instances Over Time.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Leia o artigo [Usar relatórios do Cloudyn](use-reports.md) para saber mais sobre relatórios.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: d8925f1c31b7a0c8f45e65e783077e8f5e2b0add
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 707fc9f073e37d60c6c6fca8e9a8392b2550da9f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103236"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229299"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O Serviço DNS é um serviço do sistema opcional que pode ser habilitado no cluster para descobrir outros serviços usando o protocolo DNS. 
@@ -114,8 +114,10 @@ Depois de ter um modelo, habilite o serviço DNS com as seguintes etapas:
 3. Após atualizar o modelo de cluster com as alterações, aplique-as e permita a conclusão do upgrade. Quando a atualização for concluída, o serviço do sistema DNS começa a ser executado em seu cluster. O nome do serviço é `fabric:/System/DnsService` e você pode encontrar na seção do serviço **Sistema** no explorador do Microsoft Azure Service Fabric. 
 
 > [!NOTE]
-> Ao atualizar o DNS de desabilitado para habilitado, Service Fabric Explorer pode não refletir o novo estado. Para resolver, reinicie os nós modificando o UpgradePolicy em seu modelo de Azure Resource Manager. Consulte a [referência do modelo de Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) para obter mais informações.
+> When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
 
+> [!NOTE]
+> Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Configurando o nome DNS para o serviço
 É possível configurar um nome DNS para os serviços de forma declarativa para serviços padrão no arquivo ApplicationManifest.xml ou através de comandos do PowerShell.
@@ -179,10 +181,10 @@ Consultas DNS destinadas a uma partição são formatadas da seguinte maneira:
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-Sendo que:
+Onde:
 
 - *First-Label-Of-Partitioned-Service-DNSName* é a primeira parte do nome DNS do serviço.
-- *PartitionPrefix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão é "--". Para saber mais, consulte [Configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. The default value is "--". Para saber mais, consulte [Configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* é o nome da partição. 
 - *PartitionSuffix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão pode ser uma cadeia de caracteres vazia. Para saber mais, consulte [Configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Remaining-Partitioned-Service-DNSName* é a parte restante do nome DNS do serviço.
@@ -255,11 +257,11 @@ public class ValuesController : Controller
 }
 ```
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 * Para versões do Service Fabric 6.3 e superiores, há um problema com pesquisas de DNS para nomes de serviço que contenham um hífen no nome DNS. Para obter mais informações sobre esse problema, acompanhe o seguinte [Problema do GitHub](https://github.com/Azure/service-fabric-issues/issues/1197). Uma correção para isso será disponibilizada na próxima atualização 6.3. 
 
 * O serviço DNS para serviços do Service Fabric ainda não é suportado no Linux. O serviço DNS é suportado para contêineres no Linux. Resolução manual usando Fabric Client / ServicePartitionResolver é a alternativa disponível.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre a comunicação de serviço no cluster com [Conectar e comunicar-se com serviços](service-fabric-connect-and-communicate-with-services.md)
 

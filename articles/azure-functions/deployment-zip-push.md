@@ -1,20 +1,14 @@
 ---
-title: Implantação por push do zip para o Azure Functions | Microsoft Docs
+title: Implantação por push do zip para o Azure Functions
 description: Use os recursos de implantação de arquivo .zip do serviço de implantação do Kudu para publicar seu Azure Functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.author: glenga
-ms.openlocfilehash: c411ff6b3a7152adaaf29045f4c3b3a3deb22d09
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087583"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233054"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implantação de zip para o Azure Functions
 
@@ -87,13 +81,13 @@ Quando você estiver usando a CLI do Azure em seu computador local, `<zip_file_p
 
 ## <a name="run-functions-from-the-deployment-package"></a>Executar funções do pacote de implantação
 
-Você também pode optar por executar suas funções diretamente do arquivo do pacote de implantação. Este método ignora a etapa de implantação de copiar os arquivos do pacote para o diretório `wwwroot` de seu aplicativo de funções. Em vez disso, o arquivo de pacote é montado pelo tempo de execução do Azure Functions e o conteúdo do diretório `wwwroot` se torna somente leitura.  
+Você também pode optar por executar suas funções diretamente do arquivo do pacote de implantação. Este método ignora a etapa de implantação de copiar os arquivos do pacote para o diretório `wwwroot` de seu aplicativo de funções. Em vez disso, o arquivo de pacote é montado pelo runtime do Azure Functions e o conteúdo do diretório `wwwroot` se torna somente leitura.  
 
 A implantação de zip integra-se com esse recurso, que você pode habilitar definindo a configuração do aplicativo de funções `WEBSITE_RUN_FROM_PACKAGE` com um valor de `1`. Para obter mais informações, veja [Executar suas funções de um arquivo de pacote de implantação](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Implantação contínua para Azure Functions](functions-continuous-deployment.md)

@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d847b78ba9623f3543a3cb1e45b5187605deb550
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969069"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229775"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Noções básicas dos relatórios de gerenciamento de custos do Cloudyn
 
@@ -38,7 +38,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
       - Análise de Custo
       - Alocação
-      - Gerenciamento de Ativos
+      - Gerenciamento de ativos
       - Otimização
 
    Digite um nome de filtro e clique em **Salvar**.
@@ -66,14 +66,14 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
     ![Segunda lista de exemplo de marcas que você pode agrupar por](./media/understanding-cost-reports/groups-tags02.png)
 
     Nos relatórios de Alocação de Custo, os grupos em categorias de grupo baseadas em marcas podem incluir:
-      - tags
+      - Marcas
       - marcas do grupo de recursos
       - Marcas de entidade de custo do Cloudyn
       - Categorias de marca de assinatura para fins de alocação de custo
 
    Os exemplos podem incluir:
    - Centro de custo
-   - department
+   - Departamento
    - Aplicativo
    - Ambiente
    - Código de custo
@@ -111,7 +111,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - Todos os Pagamentos Antecipados
        - Sem Pagamentos Antecipados
        - Pagamentos Parciais Antecipados
-       - Sob demanda
+       - Sob Demanda
        - Reserva
        - À Vista
      - **Tipo de Encargo**
@@ -144,9 +144,9 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 8. **Resolução**
 
     Use Resolução para selecionar a resolução de tempo dentro do intervalo de datas selecionado. Sua resolução de tempo determina como as unidades são exibidas no relatório, e pode ser:
-    - Diariamente
-    - Semanalmente
-    - Mensalmente
+    - Diário
+    - Semanal
+    - Gasto mensal
     - Trimestral
     - Anual
 
@@ -191,7 +191,7 @@ Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Salvar um relatório no armazenamento do provedor de nuvem
 
-Para salvar um relatório no seu provedor de serviços de nuvem, você já deve ter configurado uma conta de armazenamento. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e, em seguida, adicione sua própria URL ou use a URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento ou adicione uma nova conta. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Selecione um formato de arquivo CSV ou JSON e, em seguida, salve o relatório.
+Para salvar um relatório no seu provedor de serviços de nuvem, você já deve ter configurado uma conta de armazenamento. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e, em seguida, adicione sua própria URL ou use a URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento ou adicione uma nova conta. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Select a CSV or JSON file format and then save the report.
 
 ### <a name="schedule-a-report"></a>Agendar um relatório
 
@@ -201,7 +201,7 @@ Você pode executar relatórios em intervalos agendados, e você pode enviá-los
 
 Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Exportar todos os dados do relatório**. Uma janela pop-up será exibida e um arquivo CSV é baixado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre os relatórios incluídos no Cloudyn em [Usar relatórios do Cloudyn](use-reports.md).
 - Saiba como usar relatórios para criar [painéis](dashboards.md).

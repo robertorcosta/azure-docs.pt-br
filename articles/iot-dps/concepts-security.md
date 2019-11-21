@@ -1,5 +1,5 @@
 ---
-title: Conceitos de segurança no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
+title: Azure IoT Hub Device Provisioning Service - Security concepts
 description: Descreve conceitos de provisionamento de segurança específicos para dispositivos com o Serviço de Provisionamento de Dispositivos e o Hub IoT
 author: nberdy
 ms.author: nberdy
@@ -7,13 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: briz
-ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad392d9d979986723c17b43f210959e2504a8fb8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775110"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228819"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do Serviço de Provisionamento de Dispositivos no Hub IoT 
 
@@ -79,7 +78,7 @@ Um certificado intermediário é um certificado X.509 que foi assinado pelo cert
 
 O certificado de folha, ou certificado de entidade final, identifica o proprietário do certificado. Ele tem o certificado raiz em sua cadeia de certificados, bem como zero ou mais certificados intermediários. O certificado de folha não é usado para assinar outros certificados. Ele identifica exclusivamente o dispositivo para o serviço de provisionamento e, às vezes, são referenciados como um certificado de dispositivo. Durante a autenticação, o dispositivo usa a chave privada associada ao certificado para responder a um desafio de comprovação de posse do serviço.
 
-Folha certificados usados com um [registro Individual](./concepts-service.md#individual-enrollment) entrada tem um requisito de que o **nome da entidade** deve ser definida como a ID do registro da entrada de registro Individual. Folha certificados usados com um [grupo de registros](./concepts-service.md#enrollment-group) entrada deve ter o **nome da entidade** definido como a ID do dispositivo desejada que será mostrada no **registros** para o dispositivo autenticado no grupo de registro.
+Leaf certificates used with an [Individual enrollment](./concepts-service.md#individual-enrollment) entry have a requirement that the **Subject Name** must be set to the registration ID of the Individual Enrollment entry. Leaf certificates used with an [Enrollment group](./concepts-service.md#enrollment-group) entry should have the **Subject Name** set to the desired device ID which will be shown in the **Registration Records** for the authenticated device in the enrollment group.
 
 Para saber mais, consulte [Autenticação de dispositivos assinados com certificados de AC X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 

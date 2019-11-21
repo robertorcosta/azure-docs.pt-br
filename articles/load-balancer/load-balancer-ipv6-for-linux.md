@@ -1,7 +1,7 @@
 ---
 title: Configurar DHCPv6 para VMs Linux
-titlesuffix: Azure Load Balancer
-description: Neste artigo, saiba como configurar o DHCPv6 para VMs Linux.
+titleSuffix: Azure Load Balancer
+description: In this article, learn how to configure DHCPv6 for Linux VMs.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
-ms.openlocfilehash: 1eea6d71b06bac47dcc4fdca9302ee937e0fd54d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6ea215b6aa826231e940f88c3687bb65591303f2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077044"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225312"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurar DHCPv6 para VMs Linux
 
@@ -54,9 +54,9 @@ Este documento descreve como habilitar o DHCPv6 para que a sua máquina virtual 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-A partir do Ubuntu 17,10, o mecanismo de configuração de rede padrão é [netplan]( https://netplan.io).  No momento da instalação/instanciação, o netplan lê a configuração de rede nos arquivos de configuração do YAML neste local:/{lib, etc, execute}/netplan/*. YAML.
+Beginning with Ubuntu 17.10, the default network configuration mechanism is [NETPLAN]( https://netplan.io).  At install/instantiation time, NETPLAN reads network configuration from YAML configuration files at this location: /{lib,etc,run}/netplan/*.yaml.
 
-Inclua uma instrução *dhcp6: true* para cada interface Ethernet em sua configuração.  Por exemplo:
+Please include a *dhcp6:true* statement for each ethernet interface in your configuration.  Por exemplo:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Inclua uma instrução *dhcp6: true* para cada interface Ethernet em sua configu
             eno1:
               dhcp6: true
 
-Durante a inicialização inicial, o "processador de rede" do netplan grava a configuração em/Run para entregar o controle de dispositivos ao daemon de rede especificado para obter informações de referência sobre o netplan, consulte https://netplan.io/reference.
+During early boot, the netplan “network renderer” writes configuration to /run to hand off control of devices to the specified networking daemon For reference information about NETPLAN, see https://netplan.io/reference.
  
 ## <a name="debian"></a>Debian
 

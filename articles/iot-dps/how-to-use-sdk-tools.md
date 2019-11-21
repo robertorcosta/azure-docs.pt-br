@@ -1,5 +1,5 @@
 ---
-title: Usar as ferramentas fornecidas nos SDKs do Serviço de Provisionamento de Dispositivos Hub IoT do Azure para simplificar o desenvolvimento
+title: Use Azure IoT Hub Device Provisioning Service SDKs tools
 description: Este documento examina as ferramentas fornecidas nos SDKs do Serviço de Provisionamento de Dispositivos Hub IoT do Azure para desenvolvimento
 author: robinsh
 ms.author: robinsh
@@ -7,12 +7,12 @@ ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 4fd4913776a7d21405f62a28d452bd50cd22f046
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f5bdf81dedfcf803b8c53a5b0a29cfb823989873
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882996"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229664"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Como usar as ferramentas fornecidas nos SDKs para simplificar o desenvolvimento para provisionamento
 O Serviço de Provisionamento de Dispositivos no Hub IoT simplifica o processo de [provisionamento automático](concepts-auto-provisioning.md) sem toque e Just-In-Time de uma maneira segura e escalonável.  Um atestado de segurança na forma de um certificado X.509 ou TPM (Trusted Platform Module) é necessário.  A Microsoft também faz parceria com [outros parceiros de hardware de segurança](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para aumentar a confiança na proteção da implantação de IoT. Entender os requisitos de segurança de hardware pode ser um grande desafio para os desenvolvedores. Um conjunto de SDKs do Serviço de Provisionamento do IoT do Azure são fornecidos, de modo que os desenvolvedores possam usar uma camada de conveniência para escrever clientes que se comunicam com o serviço de provisionamento. Os SDKs também fornecem amostras para cenários comuns, bem como um conjunto de ferramentas para simplificar o atestado de segurança em desenvolvimento.
@@ -33,11 +33,11 @@ As etapas para usar o simulador TPM são:
 Os [certificados X.509](https://docs.microsoft.com/azure/iot-dps/concepts-security#x509-certificates) podem ser usados como um mecanismo de atestado para escalar a produção e simplificar o provisionamento de dispositivos.  Há [várias maneiras](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) para obter um certificado X.509:
 * Para o ambiente de produção, recomendamos a compra de um certificado de autoridade de certificação X.509 de uma autoridade de certificação raiz pública.
 * Para o ambiente de teste, você pode gerar um certificado raiz X.509 ou uma cadeia de certificados X.509 usando:
-    * OpenSSL: É possível usar scripts para a geração de certificado:
+    * OpenSSL: é possível usar scripts para a geração de certificado:
         * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell ou Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
-    * Emulador do DICE (mecanismo de composição de identidade de dispositivo): O DICE pode ser usado para a identidade do dispositivo de criptografia e o atestado com base no protocolo TLS e nos certificados de cliente X.509.  [Saiba](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) mais sobre a identidade do dispositivo com o DICE.
+    * Emulador DICE (Device Identity Composition Engine): o DICE pode ser usado para a identidade do dispositivo de criptografia e o atestado com base no protocolo TLS e nos certificados de cliente X.509.  [Saiba](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) mais sobre a identidade do dispositivo com o DICE.
 
 ### <a name="using-x509-certificate-generator-with-dice-emulator"></a>Usando o gerador de certificado X.509 com o emulador do DICE
 Os SDKs fornecem um gerador de certificado X.509 com o emulador do DICE, localizado no [SDK do Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator).  Esse gerador funciona entre plataformas.  O certificado gerado pode ser usado para desenvolvimento em outras linguagens.
@@ -65,5 +65,5 @@ Para gerar um certificado X.509 usando esse gerador:
 
 O certificado raiz ou o intermediário podem ser usados para criar um grupo de registro ou um registro individual [de forma programática](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) ou usando o [portal](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Desenvolver usando o [SDK do IoT do Azure]( https://github.com/Azure/azure-iot-sdks) para o Hub IoT do Azure e o Serviço de Provisionamento de Dispositivos Hub IoT do Azure

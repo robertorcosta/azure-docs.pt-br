@@ -12,22 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 07/28/2019
+ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 07/28/2019
-ms.openlocfilehash: 8299725cf6977ca309d57b40f4792ff9b074a8cb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: 0cf593ce4ab9e0ba299d10b34422ee30661f38a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213218"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228162"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Notificações por push para dispositivos iOS específicos usando Hubs de Notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este tutorial mostra como usar os Hubs de Notificação do Azure para difundir notificações de últimas notícias a um aplicativo iOS. Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas, por exemplo, leitor de RSS, aplicativos para fãs de música, etc.
 
@@ -43,7 +43,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tópico se baseia no aplicativo criado no [Tutorial: Notificações por push para aplicativos iOS usando os hubs][get-started]de notificação do Azure. Antes de iniciar este tutorial, você já deve ter concluído o [Tutorial: Notificações por push para aplicativos iOS usando os hubs][get-started]de notificação do Azure.
+This topic builds on the app you created in [Tutorial: Push notifications to iOS apps using Azure Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Tutorial: Push notifications to iOS apps using Azure Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Adicionar a seleção de categorias ao aplicativo
 
@@ -61,6 +61,7 @@ A primeira etapa é adicionar os elementos da interface do usuário a seu storyb
      ![Interface Builder do Xcode][3]
 
 2. No editor do assistente, crie saídas para todos os comutadores e chame-os de "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
+
 3. Criar uma Ação para o botão chamado `subscribe`; seu `ViewController.h` deve conter o código a seguir:
 
     ```objc
@@ -176,7 +177,7 @@ A primeira etapa é adicionar os elementos da interface do usuário a seu storyb
 
     Neste ponto, não deve haver nenhum outro código no método `didRegisterForRemoteNotificationsWithDeviceToken`.
 
-10. Os métodos a seguir já devem estar presentes `AppDelegate.m` no concluindo o tutorial introdução [aos hubs de notificação][get-started] . Caso contrário, adicione-os.
+10. The following methods should already be present in `AppDelegate.m` from completing the [Get started with Notification Hubs][get-started] tutorial. Caso contrário, adicione-os.
 
     ```objc
     - (void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -242,17 +243,17 @@ A primeira etapa é adicionar os elementos da interface do usuário a seu storyb
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-Agora, o aplicativo pode armazenar um conjunto de categorias no armazenamento local do dispositivo usado para se registrar no hub de notificação sempre que o aplicativo é iniciado. O usuário pode alterar a seleção de categorias no tempo de execução e clicar no método `subscribe` para atualizar o registro do dispositivo. Em seguida, você atualiza o aplicativo para enviar as notificações de últimas notícias diretamente nele.
+Agora, o aplicativo pode armazenar um conjunto de categorias no armazenamento local do dispositivo usado para se registrar no hub de notificação sempre que o aplicativo é iniciado. O usuário pode alterar a seleção de categorias no runtime e clicar no método `subscribe` para atualizar o registro do dispositivo. Em seguida, você atualiza o aplicativo para enviar as notificações de últimas notícias diretamente nele.
 
 ## <a name="optional-send-tagged-notifications"></a>(opcional) Enviar notificações marcadas
 
-Se você não tiver acesso ao Visual Studio, você pode pular para a próxima seção e enviar notificações do próprio aplicativo. Você também pode enviar a notificação de modelo apropriada do [Portal do Azure] usando a guia depurar hub de notificação.
+Se você não tiver acesso ao Visual Studio, você pode pular para a próxima seção e enviar notificações do próprio aplicativo. Você também pode enviar a notificação de modelo apropriada do [Azure portal] usando a guia depurar hub de notificação.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(Opcional) Enviar notificações do dispositivo
 
-Normalmente, as notificações podem ser enviadas por um serviço de back-end, mas você pode enviar notificações de últimas notícias diretamente do aplicativo. Para fazer isso, atualize o `SendNotificationRESTAPI` método que você definiu no tutorial introdução [aos hubs de notificação][get-started] .
+Normalmente, as notificações podem ser enviadas por um serviço de back-end, mas você pode enviar notificações de últimas notícias diretamente do aplicativo. To do so, you update the `SendNotificationRESTAPI` method that you defined in the [Get started with Notification Hubs][get-started] tutorial.
 
 1. No `ViewController.m`, atualize o método `SendNotificationRESTAPI` como mostrado a seguir, para que ele aceite um parâmetro para a marca de categoria e envie a notificação de [modelo](notification-hubs-templates-cross-platform-push-messages.md) adequada.
 
@@ -350,7 +351,7 @@ Normalmente, as notificações podem ser enviadas por um serviço de back-end, m
 
 3. Cada dispositivo que assinou as últimas notícias recebe as notificações de últimas notícias que você acabou de enviar.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você enviou notificações de notícias a dispositivos iOS específicos que foram registrados para as categorias. Para saber como enviar notificações localizadas por push, avance para o seguinte tutorial:
 
@@ -370,4 +371,4 @@ Neste tutorial, você enviou notificações de notícias a dispositivos iOS espe
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: troubleshooting
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: faa7181ebc7b886fbe06e4ac01c704016d4b0c51
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002020"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230092"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Perguntas frequentes sobre o Cloudyn
 
@@ -62,7 +62,7 @@ Para ativar uma conta:
 1.  No portal da Cloudyn, clique em **Configurações** no canto superior direito e selecione **Contas de Nuvem**.
 2.  Na guia Contas do Microsoft Azure, procure as contas que têm uma assinatura **desativada**.
 3.  À direita de uma conta não ativada, clique no símbolo **editar** se parece com um lápis.
-4.  Sua ID de locatário e a ID da taxa são detectadas automaticamente. Clique em **Avançar**.
+4.  Sua ID de locatário e a ID da taxa são detectadas automaticamente. Clique em \\**Próximo**.
 5.  Você será redirecionado para o portal do Azure. Entre no portal e autorize o Coletor Cloudyn a acessar os dados do Azure.
 6.  Em seguida, você será redirecionado para a página de gerenciamento das Contas do Cloudyn e sua assinatura será atualizada com o status de conta **ativo**. Ela mostra um símbolo de marca de seleção verde.
 7.  Se você não vir um símbolo de marca de seleção verde para uma ou mais assinaturas, isso significa que você não tem permissões para criar um aplicativo de leitor (o CloudynCollector) para a assinatura. Um usuário com permissões mais altas para a assinatura precisa repetir as etapas 3 e 4.  
@@ -74,9 +74,9 @@ Depois de concluir as etapas anteriores, você pode exibir as recomendações do
 
 Primeiro, vamos analisar o cenário mais comum que faz com que as contas de usuário sejam *initiallySuspended*.
 
-> Admin1 pode ser um usuário de provedor de soluções de nuvem do Microsoft ou do Enterprise Agreement. Sua organização está pronta para começar a usar o Cloudyn.  Ele se registra por meio do portal do Azure e entra no portal do Cloudyn. Como a pessoa que registra o serviço do Cloudyn e sinais de dentro do portal do Cloudyn, Admin1 torna-se a *administrador principal*. O Admin1 não cria as contas de usuário. No entanto, usando o portal de Cloudyn, eles criar contas do Azure e configurar uma hierarquia de entidades. Admin1 informa Admin2, administrador de locatários, o que eles precisam para se registrar com Cloudyn e entrar no portal do Cloudyn.
+> Admin1 might be a Microsoft Cloud Solution Provider or Enterprise Agreement user. Their organization is ready to start using Cloudyn.  Ele se registra por meio do portal do Azure e entra no portal do Cloudyn. As the person who registers the Cloudyn service and signs into the Cloudyn portal, Admin1 becomes the *primary administrator*. O Admin1 não cria as contas de usuário. However, using the Cloudyn portal, they do create Azure accounts and set up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that they need to register with Cloudyn and sign in to the Cloudyn portal.
 >
-> O Admin2 se registra por meio do portal do Azure. No entanto quando eles tentarem entrar portal do Cloudyn, eles obtêm um erro informando que sua conta estiver **suspenso**. O administrador principal, Admin1, é notificado sobre a suspensão da conta. O Admin1 precisa ativar a conta do Admin2 e conceder *acesso de entidade de administrador* para as entidades apropriadas, permitir o acesso ao gerenciamento de usuários e ativar a conta de usuário.
+> O Admin2 se registra por meio do portal do Azure. However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. O administrador principal, Admin1, é notificado sobre a suspensão da conta. O Admin1 precisa ativar a conta do Admin2 e conceder *acesso de entidade de administrador* para as entidades apropriadas, permitir o acesso ao gerenciamento de usuários e ativar a conta de usuário.
 
 
 Se você receber um alerta solicitando para permitir o acesso de um usuário, precisará ativar a conta do usuário.
@@ -90,7 +90,7 @@ Para ativar a conta do usuário:
 
 As contas de usuário do Cloudyn se conectam usando o logon único do Azure. Se um usuário digitar incorretamente sua senha, ele poderá ficar bloqueado no Cloudyn mesmo que ainda possa acessar o Azure.
 
-Se você alterar seu endereço de email no Cloudyn do endereço padrão do Azure, sua conta poderá ser bloqueada. Ela pode mostrar “status initiallySuspended.” Se sua conta de usuário estiver bloqueada, contate um administrador alternativo para redefinir a sua conta.
+If you change your e-mail address in Cloudyn from the default address in Azure, your account can get locked out. It might show "status initiallySuspended." Se sua conta de usuário estiver bloqueada, contate um administrador alternativo para redefinir a sua conta.
 
 Recomendamos que você crie pelo menos duas contas de administrador do Cloudyn caso uma das contas fique bloqueada.
 
@@ -126,7 +126,7 @@ O Cloudyn detecta a moeda da assinatura do Contrato Enterprise e apresenta-a da 
 
 O Cloudyn tem os seguintes cronogramas de atualização de dados:
 
-- **Inicial**: pode levar até 24 horas para exibir dados de custo no Cloudyn após a configuração. Também pode levar até 10 dias para o Cloudyn coletar dados suficientes para exibir as recomendações de dimensionamento.
+- **Inicial**: pode levar até 24 horas para exibir dados de custo no Cloudyn depois de configurado. Também pode levar até 10 dias para o Cloudyn coletar dados suficientes para exibir as recomendações de dimensionamento.
 - **Diariamente**: do décimo dia ao final de cada mês, o Cloudyn deve mostrar os dados atualizados do dia anterior até aproximadamente UTC+3 no dia seguinte.
 - **Mensalmente**: do primeiro até o décimo dia de cada mês, o Cloudyn pode mostrar apenas os dados até o final do mês anterior.
 

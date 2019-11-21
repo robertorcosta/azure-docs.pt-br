@@ -1,5 +1,5 @@
 ---
-title: Como implantar certificados X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
+title: Roll X.509 certificates in Azure IoT Hub Device Provisioning Service
 description: Como distribuir certificados x. 509 com sua instância de serviço de provisionamento de dispositivos
 author: wesmc7777
 ms.author: wesmc
@@ -7,13 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 55ed99c434028b9761ef53fc09a01481bbd184e1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626870"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228748"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implantar certificados de dispositivo X.509
 
@@ -95,7 +94,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 1. Clique em **Registros Individuais**e clique na entrada da ID de registro na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
 
     ![Gerenciar registros individuais usando o certificado secundário](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -178,7 +177,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 1. Clique em **Grupos de Registro**e, em seguida, clique no nome de grupo na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
 
     Esse novo certificado intermediário deve ser assinado por um certificado de autoridade de certificação de raiz verificado que já foi adicionado ao serviço de provisionamento. Para saber mais, confira [Certificados X.509](concepts-security.md#x509-certificates).
 
@@ -207,7 +206,7 @@ Depois que um certificado é incluído como parte de uma entrada de registro des
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre os certificados x. 509 no serviço de provisionamento de dispositivos, consulte [Segurança](concepts-security.md) 
 - Para saber como fazer uma prova de posse para certificados de autoridade de certificação X.509 com o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure, consulte [Como verificar os certificados](how-to-verify-certificates.md)

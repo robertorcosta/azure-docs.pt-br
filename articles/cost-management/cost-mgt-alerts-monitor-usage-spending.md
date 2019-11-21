@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4be484cdff2014f11c872da9a246ef8406447712
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002085"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230111"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usar alertas de custo para monitorar o uso e os gastos
 
@@ -35,21 +35,21 @@ Alertas de crédito o notificam quando seus compromissos monetários do crédito
 
 Alertas de cota de gastos de departamento notificam quando o departamento de gastos atinge um limite fixo da cota. As cotas de gastos são configuradas no portal do EA. Sempre que um limite é atingido, ele gera um email aos proprietários do departamento e é mostrado em alertas de custo. Por exemplo, 50% ou 75% da cota.
 
-## <a name="supported-alert-features-by-offer-categories"></a>Suporte para os recursos de alerta por categorias de oferta
+## <a name="supported-alert-features-by-offer-categories"></a>Supported alert features by offer categories
 
-Suporte para tipos de alerta depende do tipo de conta do Azure que você tenha (Microsoft) oferecem. A tabela a seguir mostra os recursos de alerta que têm suporte por várias ofertas de Microsoft. Você pode exibir a lista completa de ofertas da Microsoft em [dados de compreender o gerenciamento de custos](understand-cost-mgt-data.md).
+Support for alert types depends on the type of Azure account that you have (Microsoft offer). The following table shows the alert features that are supported by various Microsoft offers. You can view the full list of Microsoft offers at [Understand Cost Management data](understand-cost-mgt-data.md).
 
-| Tipo de alerta | Contrato Enterprise | Contrato de Cliente da Microsoft | Web direct/pago conforme-You-prosseguir |
+| Tipo de alerta | Enterprise Agreement | Contrato de Cliente Microsoft | Web direct/Pay-As-You-Go |
 |---|---|---|---|
-| Orçamento | ✔ | ✔ | ✔ |
+| Budget | ✔ | ✔ | ✔ |
 | Crédito | ✔ |✘ | ✘ |
-| Cota de gastos do departamento | ✔ | ✘ | ✘ |
+| Department spending quota | ✔ | ✘ | ✘ |
 
 
 
 ## <a name="view-cost-alerts"></a>Exibir alertas de custo
 
-Para exibir alertas de custo, abra o escopo desejado no portal do Azure e selecione **orçamentos** no menu. Use o **escopo** com conteúdo malicioso para alternar para um escopo diferente. Selecione **custo alertas** no menu. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
+To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 ![Imagem de exemplo de alertas mostrados no Gerenciamento de Custos](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -67,6 +67,6 @@ Quando você exibe os detalhes de um alerta ignorado, pode reativá-lo se a aç�
 
 ![Imagem de exemplo mostrando as opções de ignorar e reativar](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 - Se você não tiver criado um orçamento nem definido condições de alerta para um orçamento, conclua o tutorial [Criar e gerenciar orçamentos](tutorial-acm-create-budgets.md).

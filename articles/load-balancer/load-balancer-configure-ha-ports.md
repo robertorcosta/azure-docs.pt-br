@@ -1,6 +1,6 @@
 ---
 title: Configure a alta disponibilidade de portas para o Azure Load Balancer
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Saiba como usar as portas de alta disponibilidade para o tráfego interno de balanceamento de carga em todas as portas
 services: load-balancer
 documentationcenter: na
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: allensu
-ms.openlocfilehash: c0cf1eb62c8e01988c9014478ff72816e45ea64c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c2e787a1f81d9f3d31b981c31a0249dd362b7bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275627"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225397"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurar a alta disponibilidade de portas para o balanceador de carga interno
 
 Este artigo fornece um exemplo de implantação de Portas de Alta Disponibilidade em um Load Balancer Interno. Para obter mais informações sobre configurações específicas de soluções de virtualização de rede (NVAs), consulte os sites do provedor correspondente.
 
 >[!NOTE]
->O Azure Load Balancer é compatível com dois tipos diferentes: Básico e Standard. Este artigo discute o Load Balancer Standard. Para obter mais informações sobre o Load Balancer Basic, veja [Visão geral do Load Balancer](load-balancer-overview.md).
+>O Azure Load Balancer oferece suporte a dois tipos diferentes: Basic e Standard. Este artigo discute o Load Balancer Standard. Para obter mais informações sobre o Load Balancer Basic, veja [Visão geral do Load Balancer](load-balancer-overview.md).
 
 A ilustração mostra a configuração a seguir do exemplo de implantação descrito neste artigo:
 
@@ -101,6 +101,6 @@ Na Etapa 4 de [Criar um conjunto de Load Balancer Interno](load-balancer-get-sta
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as [Portas de Alta Disponibilidade](load-balancer-ha-ports-overview.md).
