@@ -193,7 +193,7 @@
             - name: Prever atrasos nos voos
               displayName: 'classification, studio'
               href: how-to-designer-sample-classification-flight-delay.md
-            - name: Testar a classificação
+            - name: Classificação de texto
               displayName: 'classification, studio'
               href: how-to-designer-sample-text-classification.md
         - name: Estimadores de uso para o ML
