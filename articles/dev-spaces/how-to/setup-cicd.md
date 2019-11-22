@@ -1,8 +1,6 @@
 ---
 title: Usar CI/CD com o Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
@@ -10,22 +8,22 @@ ms.topic: conceptual
 manager: gwallace
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
-ms.openlocfilehash: 7058806e58dbc2d9a196062c129688e6a96c5f31
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 525e18cba48756e725cbc7d837c2352b0fec74fe
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264463"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280014"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usar CI/CD com o Azure Dev Spaces
 
 Este artigo orienta você pela configuração da integração contínua/implantação contínua (CI/CD) ao Serviço de Kubernetes do Azure (AKS) com o Dev Spaces habilitado. A CI/CD para o AKS permite que as atualizações de aplicativo sejam implantadas automaticamente sempre que o código confirmado é enviado para seu repositório de origem. Usar a CI/CD em conjunto com um cluster habilitado para o Dev Spaces é útil porque pode manter uma linha de base do aplicativo atualizada para o trabalho da equipe.
 
-![Exemplo de diagrama CI/CD](../media/common/ci-cd-simple.png)
+![Exemplo de diagrama de CI/CD](../media/common/ci-cd-simple.png)
 
 Embora este artigo oriente você com o Azure DevOps, os mesmos conceitos se aplicariam aos sistemas de CI/CD, como Jenkins, TeamCity, etc.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * [Cluster do Serviço de Kubernetes do Azure (AKS) com o Azure Dev Spaces habilitado](../get-started-netcore.md)
 * [CLI do Azure Dev Spaces instalado](upgrade-tools.md)
 * [Organização do Azure DevOps com um projeto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -79,7 +77,7 @@ Para criar um pipeline desse arquivo:
 1. Selecione a opção para criar um **novo** pipeline de compilação.
 1. Selecione **GitHub** como a origem, autorize com sua conta do GitHub, se necessário, e selecione a ramificação _azds_updates_ da sua versão bifurcada do repositório de aplicativos de exemplo _dev-Spaces_ .
 1. Selecione **configuração como código**ou **YAML**, como seu modelo.
-1. Você agora verá uma página de configuração para o pipeline de build. Conforme mencionado acima, navegue até o caminho específico do idioma para o **caminho do arquivo YAML** usando o botão **...** . Por exemplo: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Você agora verá uma página de configuração para o pipeline de build. Conforme mencionado acima, navegue até o caminho específico do idioma para o **caminho do arquivo YAML** usando o botão **...** . Por exemplo, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Vá para a guia **variáveis** .
 1. Adicione manualmente _dockerId_ como uma variável, que é o nome de usuário de sua [conta de administrador do Registro de Contêiner do Azure](../../container-registry/container-registry-authentication.md#admin-account). (Mencionado nos pré-requisitos do artigo)
 1. Adicione manualmente _dockerPassword_ como uma variável, que é a senha da sua conta do administrador do [Registro de Contêiner do Azure](../../container-registry/container-registry-authentication.md#admin-account). Certifique-se de especificar _dockerPassword_ como um Segredo (selecionando o ícone de bloqueio) para fins de segurança.
@@ -101,13 +99,13 @@ Agora você tem uma solução de IC que irá criar automaticamente os itens *myw
 1. Para a **versão padrão**, escolha **mais recente na ramificação padrão do pipeline de compilação com marcas**.
 1. Deixe **marcas** vazias.
 1. Defina o **Alias de Origem** como `drop`. O valor do **alias de origem** é usado pelas tarefas de liberação predefinidas para que ele deva ser definido.
-1. Clique em **Adicionar** .
+1. Clique em **Adicionar**.
 1. Agora clique no ícone de raio na origem de artefatos `drop` recém-criada, conforme mostrado abaixo:
 
     ![Configuração da implantação contínua de artefato de versão](../media/common/release-artifact-cd-setup.png)
 1. Habilite o **gatilho de implantação contínua**.
 1. Passe o mouse sobre a guia **tarefas** ao lado de **pipeline** e clique em _desenvolvimento_ para editar as tarefas do estágio de _desenvolvimento_ .
-1. Verifique se **Azure Resource Manager** está selecionado em **tipo de conexão.** e você verá os três controles suspensos realçados em vermelho: configuração de definição de @no__t 0Release @ no__t-1
+1. Verifique se **Azure Resource Manager** está selecionado em **tipo de conexão.** e você verá os três controles suspensos realçados em vermelho: configuração de definição de versão ![](../media/common/release-setup-tasks.png)
 1. Selecione a assinatura do Azure que você está usando com Azure Dev Spaces. Talvez você também precise clicar em **autorizar**.
 1. Selecione o grupo de recursos e o cluster que você está usando com Azure Dev Spaces.
 1. Clique em **trabalho do agente**.
@@ -133,7 +131,7 @@ Agora, um processo de versão automatizado será iniciado, implantando os gráfi
 A versão é feita quando todas as tarefas são concluídas.
 
 > [!TIP]
-> Se a sua versão falhar com uma mensagem de erro como *FALHA NO UPGRADE: expirou aguardando a condição*, tente inspecionar os pods em seu cluster [usando o painel do Kubernetes](../../aks/kubernetes-dashboard.md). Se você observar a falha de início dos pods, com mensagens de erro como *Falha ao efetuar pull da imagem "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Obter https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: não autorizado: autenticação necessária*, pode ser que seu cluster não tenha sido autorizado a efetuar pull do seu Registro de Contêiner do Azure. Certifique-se de ter concluído o pré-requisito [Autorizar o cluster do AKS a receber do seu Registro de Contêiner do Azure](../../aks/cluster-container-registry-integration.md).
+> Se a sua versão falhar com uma mensagem de erro como *FALHA NO UPGRADE: expirou aguardando a condição*, tente inspecionar os pods em seu cluster [usando o painel do Kubernetes](../../aks/kubernetes-dashboard.md). Se você vir que os pods estão falhando ao iniciar com mensagens de erro, como *falha ao efetuar pull da imagem "azdsexample.azurecr.Io/mywebapi:122": erro de RPC: código = desconhecido desc = resposta de erro do daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: não autorizado: autenticação necessária*, pode ser porque o cluster não foi autorizado a efetuar pull do seu registro de contêiner do Azure. Certifique-se de ter concluído o pré-requisito [Autorizar o cluster do AKS a receber do seu Registro de Contêiner do Azure](../../aks/cluster-container-registry-integration.md).
 
 Agora você tem um pipeline de CI/CD totalmente automatizado para sua bifurcação do GitHub dos aplicativos de amostra do Dev Spaces. Sempre que você confirmar e enviar um código, o pipeline de build criará e enviará as imagens *mywebapi* e *webfrontend* para sua instância de ACR personalizada. Em seguida, o pipeline de versão implantará o gráfico de Helm para cada aplicativo no espaço _dev_ em seu cluster habilitado para Dev Spaces.
 
@@ -155,7 +153,7 @@ Para promover manualmente uma versão específica para _prod_ usando o sistema C
 1. Clique no pipeline de lançamento para o aplicativo de exemplo.
 1. Clique no nome da versão mais recente.
 1. Passe o mouse sobre a caixa **prod** em **estágios** e clique em **implantar**.
-    ![Promote para produção @ no__t-1
+    ![promover para](../media/common/prod-promote.png) de produção
 1. Passe o mouse sobre a caixa de **produção** novamente em **estágios** e clique em **logs**.
 
 A versão é feita quando todas as tarefas são concluídas.

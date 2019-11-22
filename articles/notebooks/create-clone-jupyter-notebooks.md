@@ -1,23 +1,14 @@
 ---
 title: Criar e clonar os notebooks Jupyter no Azure
 description: Os projetos do Azure Notebooks gerencia uma coleção de notebooks e arquivos relacionados, que você pode cirar novo ou clone de outra fonte.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: kraigb
-ms.openlocfilehash: 3e0c49d1141d976558ece325baaa99fc9981275e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc5425312637710f0b9f94493b8cfb4a48582236
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496708"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277570"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
 
@@ -33,7 +24,7 @@ Seu painel **Meus Projetos** em `https://notebooks.azure.com/<userID>/projects` 
 
 O que você pode fazer no painel depende se você estiver conectado com a conta que possui a ID de usuário:
 
-| Command | Disponível para | DESCRIÇÃO |
+| Comando | Disponível para | DESCRIÇÃO |
 | --- | --- | --- |
 | **Run** | Proprietário | Inicia o servidor de projeto e abre a pasta do projeto no Jupyter. (mais comumente, você primeiro navegar em uma pasta de projeto e iniciar um notebook a partir daí.) |
 | **Baixar** | Qualquer pessoa | Baixa uma cópia do projeto selecionado como um arquivo ZIP. |
@@ -77,11 +68,11 @@ As palavras reservadas a seguir não podem ser usadas por si mesmas como IDs de 
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| sobre | conta | Administrar | api | bloga | turma |
-| conteúdo | painel Transações da Web | apresenta | Perguntas Freqüentes | ajuda | html |
+| sobre | conta | administração | api | bloga | turma |
+| conteúdo | painel Transações da Web | apresenta | faq | ajuda | html |
 | inicial | importar | biblioteca | gerenciamento | novo | D430 |
-| Notebooks | formato | preview | preços | Perfil | pequisa |
-| status | suporte | test | | | |
+| notebooks | pdf | preview | preços | Perfil | pequisa |
+| status | suporte | Testar | | | |
 
 Se você tentar usar uma dessas palavras como uma ID do projeto, os pop-up **criar novo projeto** e **configurações do projeto** indicarão "a ID da biblioteca é um identificador reservado".
 

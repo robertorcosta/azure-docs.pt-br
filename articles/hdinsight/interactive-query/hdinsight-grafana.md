@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: cea0e9709afb65caa23d28be093c28498f2b82d0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: dae9c47f535d87214c9e1583562b4c0419cd44cf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122991"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305444"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Acessar Grafana no Microsoft Azure HDInsight
 
 [Grafana](https://grafana.com/) é um popular construtor de gráficos e painéis de código aberto. O Grafana é rico; não apenas permite que os usuários criem painéis personalizáveis e compartilha´veis, mas também oferece painéis de amostra/com script, integração LDAP, fontes de dados múltiplas e muito mais.
 
-Atualmente, no Azure HDInsight, Grafana é compatível com os tipos de cluster Hbase e Consulta Interativa.
+Atualmente, no Azure HDInsight, o Grafana tem suporte com os tipos de cluster HBase, Kafka e consulta interativa. Não há suporte para clusters com o Enterprise Security Pack habilitado.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -37,7 +37,7 @@ Nesta seção, você criará um cluster do Interactive Query no HDInsight usando
     > 
     >
     
-    ![HDInsight para Linux - Introdução ao modelo do Resource Manager no portal](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "Implantar o cluster Hadoop no HDInsigut usando o Portal do Azure e um modelo do gerenciador de grupo de recursos")
+    ![Modelo de introdução ao Gerenciador de recursos do HDInsight Linux no portal](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "Implantar o cluster Hadoop no HDInsigut usando o portal do Azure e um modelo do Gerenciador de grupo de recursos")
 
     Digite ou selecione os valores a seguir:
     
@@ -48,18 +48,18 @@ Nesta seção, você criará um cluster do Interactive Query no HDInsight usando
     |**Localidade**     | Selecione um local do Azure no qual você deseja criar o cluster.  Escolha um local mais próximo a você para obter melhor desempenho. |
     |**Tipo de cluster**     | Selecione **hadoop**. |
     |**Nome do cluster**     | Insira um nome para o cluster do Apache Hadoop. Como todos os clusters no HDInsight compartilham o mesmo namespace DNS esse nome precisa ser exclusivo. O nome pode ter até 59 caracteres incluindo letras, números e hifens. O primeiro e último caracteres do nome não podem ser hifens. |
-    |**Nome e senha de logon do cluster**     | O nome padrão de logon é **admin**. A senha deve ter no mínimo 10 caracteres e deve conter pelo menos um dígito, uma letra maiúscula, uma minúscula e um caractere não alfanumérico (exceto os caracteres ' " ` \). **Não forneça** senhas comuns, como "Pass@word1".|
+    |**Nome e senha de logon do cluster**     | O nome de logon padrão é **admin**. A senha deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma letra maiúscula e uma letras minúsculas, um caractere não alfanumérico (exceto os caracteres ' "' \). **Não forneça** senhas comuns, como "Pass@word1".|
     |**Nome de usuário e senha SSH**     | O nome de usuário padrão é **sshuser**.  Você pode renomear o nome de usuário SSH.  A senha de usuário SSH tem os mesmos requisitos que a senha de logon do cluster.|
 
     Algumas propriedades foram inseridas no código do modelo.  Você pode configurar esses valores do modelo. Para obter mais explicações sobre essas propriedades, consulte [Criar clusters do Apache Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Selecione **Concordo com os termos e condições declarados acima** e **Fixar no painel**, depois selecione **Comprar**. Você verá um novo bloco chamado **Enviando a implantação** no painel do portal. Demora cerca de 20 minutos para criar um cluster.
 
-    ![Progresso do implantação de modelo do Azure](./media/hdinsight-grafana/deployment-progress-tile.png "Progresso do implantação de modelo do Azure")
+    ![Progresso do Implantação de modelo do Azure](./media/hdinsight-grafana/deployment-progress-tile.png "Progresso do Implantação de modelo do Azure")
 
 4. Depois que o cluster for criado, a legenda do bloco será alterada para o nome do grupo de recursos especificado. O bloco também lista o cluster HDInsight criado dentro do grupo de recursos.
 
-    ![Grupo de recursos de introdução ao HDInsight para Linux](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Grupo de recursos de cluster do Azure HDInsight")
+    ![Grupo de recursos de introdução ao Linux do HDInsight](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Grupo de recursos de cluster do Azure HDInsight")
 
 5. O bloco também lista o armazenamento padrão associado ao cluster. Cada cluster tem uma dependência na [conta de Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Ela é conhecida como a conta de armazenamento padrão. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocados na mesma região do Azure. A exclusão dos clusters não exclui a conta de armazenamento.
     
@@ -77,7 +77,7 @@ Nesta seção, você criará um cluster do Interactive Query no HDInsight usando
 
     ![Portal do painel do cluster HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "Painel do cluster HDInsight no portal")
 
-4. No painel, clique no bloco **Grafana**. Como alternativa, navegue até o caminho `/grafana/` da URL do cluster. Por exemplo: `https://<clustername>.azurehdinsight.net/grafana/`.
+4. No painel, clique no bloco **Grafana**. Como alternativa, navegue até o caminho `/grafana/` da URL do cluster. Por exemplo, `https://<clustername>.azurehdinsight.net/grafana/`.
 
 5. Insira as credenciais de usuário do cluster Hadoop.
 

@@ -1,5 +1,5 @@
 ---
-title: Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
+title: Coletar métricas de VM do Windows em Azure Monitor com modelo
 description: Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ac8d059c2bcad7aaa005b4afe1fb7814d49f9339
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6e66bea6dd86409866db1fee3564d21236ecbce
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844953"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286174"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
 
@@ -21,15 +21,15 @@ ms.locfileid: "70844953"
 
 Usando a [extensão de Diagnóstico](diagnostics-extension-overview.md) do Azure Monitor, você pode coletar logs e métricas do SO (sistema operacional) convidado executado como parte de uma máquina virtual, do serviço de nuvem ou do cluster do Service Fabric. A extensão pode enviar telemetria para [vários locais diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-Este artigo descreve o processo para enviar métricas de desempenho do SO convidado de uma máquina virtual do Windows para o armazenamento de dados do Azure Monitor. Começando com o Diagnóstico versão 1.11, você pode gravar as métricas diretamente no armazenamento de métricas do Azure Monitor, no qual as métricas da plataforma padrão já são coletadas.
+Este artigo descreve o processo para enviar métricas de desempenho do SO convidado de uma máquina virtual do Windows para o armazenamento de dados do Azure Monitor. A partir do Diagnóstico versão 1.11, você pode gravar as métricas diretamente no armazenamento de métricas do Azure Monitor, no qual as métricas da plataforma padrão já são coletadas.
 
 Armazená-las nessa localização permite que você acesse as mesmas ações para as métricas da plataforma. As ações incluem alertas quase em tempo real, criação de gráficos, roteamento, acesso por meio de uma API REST e muito mais. Anteriormente, a Extensão de diagnóstico gravava no Armazenamento do Azure, mas não no armazenamento de dados do Azure Monitor.
 
 Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações de modelos](../../azure-resource-manager/resource-group-overview.md) e sua estrutura e sintaxe.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- Sua assinatura precisará ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
 - Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
@@ -51,7 +51,7 @@ Baixe e salve os dois arquivos localmente.
 ### <a name="modify-azuredeployparametersjson"></a>Modificar azuredeploy.parameters.json
 Abra o arquivo *azuredeploy.parameters.json*
 
-1. Insira valores de **adminUsername** e **adminPassword** para a VM. Esses parâmetros são usados para acesso remoto à VM. Para evitar que sua VM seja sequestrada, NÃO use os valores fornecidos neste modelo. Os bots examinam a Internet em busca de nomes de usuário e senhas em repositórios GitHub públicos. É provável que eles testem as VMs com esses padrões.
+1. Insira valores de **adminUsername** e **adminPassword** para a VM. Esses parâmetros são usados para acesso remoto à VM. Para evitar que sua VM seja sequestrada, NÃO use os valores fornecidos neste modelo. Os bots examinam a Internet em busca de nomes de usuário e senhas em repositórios GitHub públicos. É provavelmente que eles testem VMs com esses padrões.
 
 1. Crie um dnsname exclusivo para a VM.
 
@@ -235,14 +235,14 @@ Salve e feche ambos os arquivos.
 ## <a name="deploy-the-resource-manager-template"></a>Implantar o modelo do Resource Manager
 
 > [!NOTE]
-> Você precisa ter a versão 1.5 ou posterior da extensão do Diagnóstico do Azure E precisa ter a propriedade **autoUpgradeMinorVersion**: definida para 'true' no modelo do Resource Manager. Então, o Azure carregará a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo.
+> Você precisa ter a versão 1.5 ou posterior da extensão do Diagnóstico do Azure E precisa ter a propriedade **autoUpgradeMinorVersion**: definida para 'true' no modelo do Resource Manager. O Azure, então, carrega a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo.
 
 
 Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
 
 1. Inicie o PowerShell.
 1. Faça logon no Azure usando `Login-AzAccount`.
-1. Obtenha sua lista de assinaturas usando `Get-AzSubscription`.
+1. Obtenha a lista de assinaturas usando `Get-AzSubscription`.
 1. Defina a assinatura que você está usando para criar/atualizar a máquina virtual em:
 
    ```powershell
@@ -269,7 +269,7 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
    > [!NOTE]
    > Você pode encontrar erros relacionados ao vmSkuSize selecionado. Se isso acontecer, volte para o arquivo azuredeploy.json e atualize o valor padrão do parâmetro vmSkuSize. Nesse caso, recomendamos que você tente "Standard_DS1_v2".
 
-## <a name="chart-your-metrics"></a>Fazer um gráfico das métricas
+## <a name="chart-your-metrics"></a>Traçar um gráfico das métricas
 
 1. Faça logon no Portal do Azure.
 
@@ -289,5 +289,5 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
+- Saiba mais sobre as [métricas personalizadas](metrics-custom-overview.md).
 

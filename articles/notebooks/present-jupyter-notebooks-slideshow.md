@@ -1,23 +1,14 @@
 ---
 title: Apresentar um Jupyter Notebook como uma apresentação de slides no Azure
 description: Como configurar as células para o modo de apresentação de slides em um notebook Jupyter e, em seguida, apresentar a apresentação de slides usando a extensão RISE.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 04612dc8892a544397251580b3494badc84e2ad5
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973107"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277587"
 ---
 # <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides de notebook
 
@@ -59,7 +50,7 @@ Se você pegar um notebook aleatório e usá-lo para uma apresentação de slide
     | Slide | A célula é um slide principal, navegada usando as setas à esquerda e direita do controle de navegação. |
     | Subslide | A célula esta “abaixo” do slide principal, navegado usando a seta para baixo do controle de navegação. A seta para cima retorna para o slide principal. Subslides são usados para o material secundário que você poderia ignorar no caminho principal de uma apresentação, mas está prontamente disponível, se necessário. |
     | Fragmento | Conteúdo da célula aparece no contexto do slide anterior ou subslide ao usar a seta para baixo de navegação (um fragmento é removido ao usar a seta para cima). Você pode usar um fragmento com uma célula de código para fazer com que esse código apareça dentro de um slide, ou você pode usar vários fragmentos para fazer os marcadores de texto aparecerem um por um (veja o exemplo na próxima seção). Uma vez que os fragmentos são construídos no slide atual, os fragmentos em excesso não ficarão visíveis na parte inferior da janela do navegador. |
-    | Pular | A célula não é mostrada na apresentação de slides. |
+    | Skip | A célula não é mostrada na apresentação de slides. |
     | Observações | A célula contém anotações do falante, que não são mostradas na apresentação de slides. |
 
 1. Inicialmente, é útil escolher **Slide** para cada célula. Você pode executar a apresentação de slides e fazer os ajustes apropriados.
@@ -101,7 +92,7 @@ Uma vez que a apresentação de slides processa fragmentos com espaçamento mais
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como: Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Instalar pacotes em um notebook](install-packages-jupyter-notebook.md)
-- [Como: Trabalhar com arquivo de dados](work-with-project-data-files.md)
-- [Como: Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [Como: configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
+- [Como instalar pacotes de dentro de um bloco de anotações](install-packages-jupyter-notebook.md)
+- [Como trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como acessar recursos de dados](access-data-resources-jupyter-notebooks.md)

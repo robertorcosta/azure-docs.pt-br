@@ -3,12 +3,12 @@ title: Detalhes da estrutura de atribuição de política
 description: Descreve a definição de atribuição de política usada por Azure Policy para relacionar definições de política e parâmetros a recursos para avaliação.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 500e40b8d3a5943c7f64f5b190223cb1dc7b4c92
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9301004fe05afa77f3e73c6ec97335a17c237ce9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960029"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279476"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -61,8 +61,8 @@ Essa propriedade tem os seguintes valores:
 
 |Modo |Valor JSON |Digite |Corrigir manualmente |Entrada do log de atividades |DESCRIÇÃO |
 |-|-|-|-|-|-|
-|Habilitado |Padrão |cadeia de caracteres |sim |sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
-|Desabilitado |DoNotEnforce |cadeia de caracteres |sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
+|Habilitado |Padrão |cadeia de caracteres |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
+|Desabilitado |DoNotEnforce |cadeia de caracteres |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
 
 Se **imposiçãomode** não for especificado em uma definição de política ou iniciativa, o valor _padrão_ será usado. [As tarefas de correção](../how-to/remediate-resources.md) podem ser iniciadas para políticas de [deployIfNotExists](./effects.md#deployifnotexists) , **mesmo quando** é definido como _DoNotEnforce_.
 
@@ -93,6 +93,6 @@ Neste exemplo, os parâmetros definidos anteriormente na definição de polític
 
 - Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
 - Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
-- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
+- Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

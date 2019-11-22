@@ -1,5 +1,5 @@
 ---
-title: Atribuir um usuário ou grupo a um aplicativo empresarial no Azure Active Directory | Microsoft Docs
+title: Atribuir um usuário ou grupo a um aplicativo empresarial no Azure AD
 description: Como selecionar um aplicativo empresarial par atribuir um usuário ou um grupo a ele no Azure Active Directory
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d28b9c31b8fbad8a565ff8cbdf717bfb3bc1309
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a5135f97ffb7d29c9fd928382ca4344beaa654d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896463"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274735"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
 
@@ -28,7 +28,7 @@ Para atribuir um usuário ou grupo a um aplicativo empresarial, você deve ter a
 
 ## <a name="assign-a-user-to-an-app---portal"></a>Atribuir um usuário a um aplicativo - portal
 
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório.
 1. Selecione **Todos os serviços**, insira Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
 1. Selecione **Aplicativos empresariais**.
 1. No painel **aplicativos empresariais – todos os aplicativos** , você vê uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.
@@ -44,7 +44,7 @@ Para atribuir um usuário ou grupo a um aplicativo empresarial, você deve ter a
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>Permitir que todos os usuários acessem um aplicativo - portal
 
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório.
 1. Selecione **Todos os serviços**, insira Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
 1. Selecione **Aplicativos empresariais**.
 1. No painel **Aplicativos empresariais**, selecione **Todos os aplicativos**. Lista os aplicativos que você pode gerenciar.
@@ -128,9 +128,9 @@ Este exemplo atribui a usuária Brenda Fernandes ao aplicativo [Microsoft Workpl
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Remover uma atribuição de usuário ou grupo de um aplicativo empresarial](remove-user-or-group-access-portal.md)
+- [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](remove-user-or-group-access-portal.md)
 - [Desabilitar as entradas de usuário em um aplicativo empresarial](disable-user-sign-in-portal.md)
 - [Alterar o nome ou logotipo de um aplicativo empresarial](change-name-or-logo-portal.md)

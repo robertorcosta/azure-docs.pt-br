@@ -1,6 +1,6 @@
 ---
-title: Register authentication info to reset your own password - Azure AD
-description: Register your authentication method information for Azure AD self-service password reset, so you can reset your own password without administrator help.
+title: Registrar informações de autenticação para redefinir sua própria senha-Azure AD
+description: Registre suas informações de método de verificação para redefinição de senha de autoatendimento do Azure AD, para que você possa redefinir sua própria senha sem a ajuda do administrador.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cae72ac4752d5d1f6135312d578eb1a277ccd9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231913"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279048"
 ---
-# <a name="register-your-authentication-method-info-to-reset-your-own-password"></a>Register your authentication method info to reset your own password
+# <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre suas informações do método de verificação para redefinir sua própria senha
 
 > [!IMPORTANT]
 > Você está aqui porque não consegue entrar? Se for o caso, confira [Redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
-Como um usuário final, você poderá redefinir sua senha ou desbloquear sua conta por conta própria se usar a SSPR (redefinição de senha de autoatendimento) do Azure AD (Azure Active Directory). Antes de usar essa funcionalidade, você precisa registrar os métodos de autenticação ou confirmar os métodos de autenticação predefinidos que o administrador preencheu.
+Como um usuário final, você poderá redefinir sua senha ou desbloquear sua conta por conta própria se usar a SSPR (redefinição de senha de autoatendimento) do Azure AD (Azure Active Directory). Antes de usar essa funcionalidade, você precisa registrar seus métodos de verificação ou confirmar os métodos de verificação predefinidos que o administrador preencheu.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registrar ou confirmar dados de autenticação com SSPR
 
@@ -38,13 +38,13 @@ Como um usuário final, você poderá redefinir sua senha ou desbloquear sua con
     * **Perguntas de segurança**: seu administrador aprovou a lista de perguntas a serem respondidas. Você não pode usar a mesma pergunta ou resposta mais de uma vez.
 4. Forneça e verifique as informações exigidas pelo seu administrador. Se houver mais de uma opção, sugerimos que você registre vários métodos. Isso dá flexibilidade quando um dos métodos não está disponível. Um exemplo é quando você está viajando e não consegue acessar seu telefone comercial.
 
-    ![Registre os métodos de autenticação e selecione Concluir][Register]
+    ![Registrar métodos de verificação e selecionar concluir][Register]
 
 5. Selecione **Concluir**. Agora você pode usar SSPR sempre que precisar.
 
 Se você inserir dados no **telefone** ou **email de autenticação**, eles não ficarão visíveis no diretório global. As únicas pessoas que podem ver esses dados são você e seus administradores. Só você pode ver as respostas para suas perguntas de segurança.
 
-Seus administradores podem exigir que você confirme os métodos de autenticação após um período de tempo para confirmar que os métodos apropriados estão registrados.
+Seus administradores podem exigir que você confirme seus métodos de verificação após um período de tempo para garantir que você ainda tenha os métodos apropriados registrados.
 
 ## <a name="common-problems-and-their-solutions"></a>problemas comuns e suas soluções
 
@@ -56,7 +56,7 @@ Seus administradores podem exigir que você confirme os métodos de autenticaç�
 | Recebo uma mensagem de erro "sua conta não está habilitada para redefinição de senha" depois de inserir a ID de usuário | Sua conta não está habilitada para redefinição de senha. <br> <br> A equipe de TI não configurou sua conta para usar esse serviço. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Essa mensagem aparece porque a equipe de TI não habilitou a redefinição de senha para a organização usando o link **Não é possível acessar sua conta** ou não licenciou você para usar o recurso. <br> <br> Para redefinir sua senha, selecione o link **Contate um administrador**. Um email será enviado para a equipe de TI da sua empresa. O email informa o desejo de redefinir sua senha no Office 365, para que eles possam habilitar o recurso para você. |
 | Recebo uma mensagem de erro "não foi possível verificar sua conta" depois de inserir a ID de usuário | Não foi possível verificar sua conta. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | A mensagem aparece porque a redefinição de senha está habilitada, mas você não se registrou para usar o serviço. Para se registrar na redefinição de senha, vá para a [página de registro de redefinição de senha](https://aka.ms/ssprsetup) depois de recuperar o acesso à sua conta. <br> <br> Para redefinir a senha, selecione o link **Contate um administrador** e envie um email à equipe de TI da empresa. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Alterar a senha usando a redefinição de senha de autoatendimento](active-directory-passwords-update-your-own-password.md)
 * [Página de registro de redefinição de senha](https://aka.ms/ssprsetup)

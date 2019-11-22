@@ -1,22 +1,22 @@
 ---
 title: Usar grupos dinâmicos com o Azure Gerenciamento de Atualizações
-description: Descreve como os grupos dinâmicos funcionam com Gerenciamento de Atualizações
+description: Este artigo descreve como os grupos dinâmicos funcionam com a automação do Azure Gerenciamento de Atualizações.
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 10/02/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc4384be0f1dc73f2e7e098114080d304d92ce8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 022c2061febb54666acee1cfed4ec595421660a3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377740"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278752"
 ---
-# <a name="use-dynamic-groups-with-update-management"></a>Usar grupos dinâmicos com Gerenciamento de Atualizações
+# <a name="use-dynamic-groups-with-update-management"></a>Usar grupos dinâmicos com o Gerenciamento de Atualizações
 
 Gerenciamento de Atualizações fornece a capacidade de direcionar um grupo dinâmico de VMs do Azure ou não Azure para implantações de atualização. Esses grupos são avaliados no momento da implantação para que você não precise editar sua implantação para adicionar computadores.
 
@@ -24,7 +24,7 @@ Gerenciamento de Atualizações fornece a capacidade de direcionar um grupo din�
 
 Esses grupos são definidos por uma consulta, quando uma implantação de atualização é iniciada, os membros desse grupo são avaliados. Grupos dinâmicos não funcionam com VMs clássicas. Ao definir sua consulta, os seguintes itens podem ser usados juntos para preencher o grupo dinâmico:
 
-* Subscription
+* Assinatura
 * Grupos de recursos
 * Locais
 * Marcas
@@ -37,10 +37,10 @@ Para visualizar os resultados de um grupo dinâmico, clique no botão **Visualiz
 
 ## <a name="non-azure-machines"></a>Computadores não Azure
 
-Para computadores não Azure, as pesquisas salvas também conhecidas como grupos de computadores são usadas para criar o grupo dinâmico. Para saber como criar uma pesquisa salva, consulte [criando um grupo de computadores](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Depois que o grupo for criado, você poderá selecioná-lo na lista de pesquisas salvas. Clique em **Visualizar** para visualizar os computadores na pesquisa salva naquele momento.
+Para computadores não Azure, as pesquisas salvas também conhecidas como grupos de computadores, são usadas para criar o grupo dinâmico. Para saber como criar uma pesquisa salva, consulte [criando um grupo de computadores](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Depois que o grupo for criado, você poderá selecioná-lo na lista de pesquisas salvas. Clique em **Visualizar** para visualizar os computadores na pesquisa salva naquele momento.
 
 ![Selecionar grupos](./media/automation-update-management/select-groups-2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de criar um grupo dinâmico, você pode [criar uma implantação de atualização](automation-tutorial-update-management.md)

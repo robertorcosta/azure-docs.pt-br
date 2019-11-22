@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: f6edbb54962ff11b5ed1497b6a202b9010c67aae
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: MT
+ms.openlocfilehash: 35d9be219d1473ac56ca501f80fca96a265e814f
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328836"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284843"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versão prévia do aplicativo do Azure Blockchain Workbench
 
@@ -23,7 +23,7 @@ Você pode criar e usar várias versões de um aplicativo de visualização do A
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma implantação do Blockchain Workbench. Para obter mais informações, consulte [implantação do Azure Blockchain Workbench](deploy.md) para obter detalhes sobre a implantação
 * Um aplicativo blockchain implantado no Blockchain Workbench. Consulte [Criar um aplicativo blockchain implantado no Azure Blockchain Workbench](create-app.md)
@@ -60,6 +60,6 @@ Por padrão, a versão mais recente habilitada do aplicativo habilitada é usada
 
     Você pode criar novos contratos ou executar ações em contratos de versão anterior. A versão do aplicativo é exibida após o nome do aplicativo e será exibido um aviso sobre a versão mais antiga.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Solução de problemas do Azure Blockchain Workbench](troubleshooting.md)

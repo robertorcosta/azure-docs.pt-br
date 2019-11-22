@@ -1,20 +1,16 @@
 ---
-title: " Conectar seu computador de desenvolvimento a um cluster do AKS"
-titleSuffix: Azure Dev Spaces
+title: Conectar seu computador de desenvolvimento a um cluster do AKS
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Saiba como conectar seu computador de desenvolvimento a um cluster AKS com Azure Dev Spaces
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
-ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1b65721b67ff63525adfe5d2061f22f359c02bde
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888918"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280130"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Conectar seu computador de desenvolvimento a um cluster do AKS (versão prévia)
 

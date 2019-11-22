@@ -1,5 +1,6 @@
 ---
-title: Gerenciar logs de fluxo do Grupo de Segurança de Rede com o Observador de Rede e o Grafana | Microsoft Docs
+title: Gerenciar logs de fluxo do NSG usando o Grafana
+titleSuffix: Azure Network Watcher
 description: Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede no Azure usando o Observador de Rede e o Grafana.
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e92f4db575e4b318af8dc7bf3ba2eb4b69a3a2d9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116231"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277952"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede usando o Observador de Rede e o Grafana
 
