@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o GitHub para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: provisionamento de usuário para GitHub-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o GitHub.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356af6567cea96efc7edbe8bc4932182d35ebc07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02bae60622ca8f0e660c8fafbd21189d8e368ba9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963948"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276600"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no GitHub e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o GitHub.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -35,7 +35,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 * Uma conta de usuário no GitHub com permissões de administrador para a organização
 
 > [!NOTE]
-> Integração de provisionamento do Azure AD se baseia na [API de SCIM do GitHub](https://developer.github.com/v3/scim/), que está disponível para [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) clientes sobre o [plano de cobrança do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
+> A integração de provisionamento do Azure AD depende da [API scim do GitHub](https://developer.github.com/v3/scim/), que está disponível para os clientes do [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) no [plano de cobrança do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## <a name="assigning-users-to-github"></a>Atribuindo usuários ao GitHub
 
@@ -76,7 +76,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
     ![Caixa de diálogo Autorização](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. No portal do Azure, insira a **URL de Locatário** e clique em **Testar Conectividade** para garantir que o Azure AD pode se conectar ao aplicativo GitHub. Se a conexão falhar, verifique se a conta do GitHub tem permissões de Administrador e se a **URI de Locatário** foi inserida corretamente. Em seguida, repita a etapa "Autorizar" (a **URL de Locatário** pode ser constituída pela regra: `https://api.github.com/scim/v2/organizations/<Organization_name>`. Encontre as organizações em sua conta do GitHub: **Configurações** > **Organizações**).
+7. No portal do Azure, insira a **URL de Locatário** e clique em **Testar Conectividade** para garantir que o Azure AD pode se conectar ao aplicativo GitHub. Se a conexão falhar, verifique se sua conta do GitHub tem permissões de Administrador e se a **URI de Locatário** foi inserida corretamente. Em seguida, repita a etapa "Autorizar" (a **URL de Locatário** pode ser constituída pela regra: `https://api.github.com/scim/v2/organizations/<Organization_name>`. Encontre as organizações em sua conta do GitHub: **Configurações** > **Organizações**).
 
     ![Caixa de diálogo Autorização](./media/github-provisioning-tutorial/GitHub3.png)
 
@@ -94,7 +94,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao GitHub na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento.
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

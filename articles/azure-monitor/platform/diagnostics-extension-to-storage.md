@@ -1,6 +1,6 @@
 ---
 title: Armazenar e Exibir Dados de Diagnóstico no Armazenamento do Azure
-description: Obter dados de diagnóstico do Azure no Armazenamento do Azure e exibi-los
+description: Saiba como coletar dados de diagnóstico do Azure em uma conta de armazenamento do Azure para que você possa exibi-los com uma das várias ferramentas disponíveis.
 services: azure-monitor
 author: jpconnock
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 35e852a36ebc52edff338ed640419afe32297b81
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395060"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304959"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e exibir dados de diagnóstico no Armazenamento do Azure
 Os dados de diagnóstico não são armazenados permanentemente, a menos que sejam transferidos para o emulador de armazenamento do Microsoft Azure ou para o armazenamento do Azure. Quando estiverem no armazenamento, eles poderão ser exibidos com uma das várias ferramentas disponíveis.
@@ -33,12 +33,12 @@ Dependendo do tipo de dados de diagnóstico que estejam sendo coletados, o diagn
 
 | Fonte de dados | Formato de armazenamento |
 | --- | --- |
-| Logs do Azure |Tabela |
+| Logs do Azure |tabela |
 | Logs do IIS 7.0 |Blob |
-| Logs de infraestrutura do Diagnóstico do Azure |Tabela |
+| Logs de infraestrutura do Diagnóstico do Azure |tabela |
 | Logs de Rastreamento de Solicitação com Falha |Blob |
-| Log de eventos do Windows |Tabela |
-| contadores de desempenho |Tabela |
+| Log de eventos do Windows |tabela |
+| contadores de desempenho |tabela |
 | Despejos de falhas |Blob |
 | Logs de erros personalizados |Blob |
 
@@ -77,7 +77,7 @@ Várias ferramentas estão disponíveis para exibir os dados depois de serem tra
 * [Gerenciamento de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite trabalhar facilmente com os dados de Armazenamento do Azure no Windows, OSX e Linux.
 * [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) inclui o Gerenciador de Diagnóstico do Azure que permite exibir, baixar e gerenciar os dados de diagnósticos coletados pelos aplicativos em execução no Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 [Rastrear o fluxo em um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: O alerta e monitoramento unificados no Monitor do Azure substituem o alerta e monitoramento clássicos
-description: Visão geral da desativação de serviços e funcionalidade de monitoramento clássicos, mostrada anteriormente no portal do Azure em Alertas (clássico). O alerta e monitoramento clássico inclui alertas métricos clássicos para recursos do Azure, alertas de métricas clássicas para Application Insights, alertas de webtest clássicos para Application Insights, alertas baseados em métricas personalizadas clássicas para Application Insights e alertas clássicos para o SmartDetection v1 do Application Insights
+title: Atualização do monitoramento clássico de & de alertas no Azure Monitor
+description: Descrição da desativação de serviços e funcionalidades de monitoramento clássicos, mostrada anteriormente em portal do Azure em alertas (clássico).
 author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: ea50a4f10aa1d794f875cb1eb9601774bec146cd
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676890"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307095"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>O alerta e monitoramento unificados no Monitor do Azure substituem o alerta e monitoramento clássicos
 
 O Azure Monitor se tornou um serviço unificado de monitoramento de pilha completa, que agora dá suporte a "Uma métrica" e "Um alerta" nos recursos. Para obter mais informações, confira nossa [postagem sobre o novo Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). As novas plataformas de monitoramento e alerta do Azure foram desenvolvidas para serem mais rápidas, mais inteligentes e extensíveis – acompanhando a crescente expansão da computação em nuvem e em linha com a filosofia de Nuvem Inteligente da Microsoft. 
 
-Com a nova plataforma de monitoramento e alerta do Azure em vigor, iremos desativá-la na seção "clássico" de monitoramento e alerta da plataforma de alertas na exibição de alerta *clássico* dos alertas do Azure, **será preterida em agosto de 2019 em nuvens públicas do Azure** . A [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md) e o [Azure China 21vianet](https://docs.azure.cn/) não serão afetados.
+Com a nova plataforma de monitoramento e alerta do Azure em vigor, desativaremos a seção "clássica" de monitoramento e alertas da plataforma de alertas hospedados na exibição de alerta *clássico* dos alertas do Azure, **serão preteridas em agosto de 2019 em nuvens públicas do Azure**. A [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md) e o [Azure China 21vianet](https://docs.azure.cn/) não serão afetados.
 
 > [!NOTE]
 > Devido ao atraso na distribuição da ferramenta de migração, a data de desativação da migração de alertas clássicos foi [prorrogada para 31 de agosto de 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) da data de lançamento original de 30 de junho de 2019.
@@ -80,7 +80,7 @@ Estamos implantando uma ferramenta de migração para ajudá-lo a migrar seus [a
 
 Os seguintes exemplos mostram casos em que você poderá incorrer em cobrança pela regra de alerta:
 
-- Qualquer nova regra de alerta (não migrada) criada além das unidades gratuitas na nova plataforma do Azure Monitor
+- Qualquer nova regra de alerta (não migrada) criada além das unidades gratuitas, na nova plataforma do Monitor do Azure
 - Qualquer dado ingerido e retido além das unidades gratuitas incluídas pelo Monitor do Azure
 - Qualquer teste da web de vários testes executado pelo Application Insights
 - Quaisquer métricas personalizadas armazenadas além das unidades gratuitas incluídas no Monitor do Azure

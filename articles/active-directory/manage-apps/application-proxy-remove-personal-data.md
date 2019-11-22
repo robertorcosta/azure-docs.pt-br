@@ -1,5 +1,5 @@
 ---
-title: Remover dados pessoais – Proxy de Aplicativo do Azure Active Directory | Microsoft Docs
+title: Remover dados pessoais-Proxy de Aplicativo do Azure Active Directory
 description: Remova dados pessoais de conectores instalados em dispositivos para o Proxy de Aplicativo do Azure Active Directory.
 documentationcenter: ''
 author: msmimart
@@ -15,12 +15,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebb2a38e520c988ee7ca9a234aadd6ae2de4f0cb
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: fe97956d99bd5c677e499b532ef85a1bb4d324ef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807743"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275420"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Remover dados pessoais para o Proxy de Aplicativo do Azure Active Directory
 
@@ -77,7 +77,7 @@ Para excluir dados específicos:
 
 Uma opção para garantir que os logs do conector não contenham dados pessoais é desativar a geração de logs. Para interromper a geração de logs do conector, remova a seguinte linha realçada de `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`.
 
-![Mostra um trecho de código com o código realçado ao remover](./media/application-proxy-remove-personal-data/01.png)
+![Mostra um trecho de código com o código realçado a ser removido](./media/application-proxy-remove-personal-data/01.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

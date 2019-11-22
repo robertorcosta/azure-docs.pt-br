@@ -1,5 +1,5 @@
 ---
-title: Considerações sobre topologia de rede para o Azure Proxy de Aplicativo do AD | Microsoft Docs
+title: Considerações sobre topologia de rede para o Azure Proxy de Aplicativo do AD
 description: Cobre as considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7320df63885f562b4724285a3ca5c3cf6ea2a52
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 075b2c92168afe0c366608266c38b14394b73cff
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381462"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275480"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory
 
@@ -90,7 +90,7 @@ Se seu conector precisar de uma linha de visão para o controlador de domínio, 
 
 Se tiver configurado o ExpressRoute com emparelhamento da Microsoft, você poderá usar a conexão do ExpressRoute mais rápida para o tráfego entre o Proxy de Aplicativo e o conector. O conector ainda está em sua rede, perto do aplicativo.
 
-### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Padrão 3: aproveitar o ExpressRoute com o emparelhamento privado
+### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Padrão 3: Aproveitar o ExpressRoute com o emparelhamento privado
 
 Se você tiver uma configuração de VPN ou ExpressRoute dedicada com emparelhamento privado entre o Azure e sua rede corporativa, terá outra opção. Nessa configuração, a rede virtual no Azure é geralmente considerada uma extensão da rede corporativa. Portanto, você pode instalar o conector no data center do Azure e ainda atender aos requisitos de baixa latência da conexão entre o aplicativo e o conector.
 
@@ -112,15 +112,15 @@ Nesta seção, veremos alguns cenários comuns. Suponha que o locatário do Azur
 
 Nesses cenários, chamamos cada conexão de um "salto" e os numeramos para uma discussão mais fácil:
 
-- **Salto 1**: usuário para o serviço de Proxy de Aplicativo
+- **Salto 1**: usuário para o serviço Proxy de Aplicativo
 - **Salto 2**: Serviço de Proxy de Aplicativo para o conector de Proxy de Aplicativo
-- **Salto 3**: conector de Proxy de Aplicativo para o aplicativo de destino 
+- **Salto 3**: Conector de Proxy de Aplicativo para o aplicativo de destino 
 
 ### <a name="use-case-1"></a>Caso de uso 1
 
-**Cenário:** O aplicativo está na rede da organização nos EUA, com usuários na mesma região. Não há um ExpressRoute ou uma VPN entre o data center do Azure e a rede corporativa.
+**Cenário:** o aplicativo está na rede da organização nos EUA, com usuários na mesma região. Não há um ExpressRoute ou uma VPN entre o data center do Azure e a rede corporativa.
 
-**Recomendação:** Siga o padrão 1, explicado na seção anterior. Para melhorar a latência, considere o uso do ExpressRoute, se necessário.
+**Recomendação:** siga o padrão 1, explicado na seção anterior. Para melhorar a latência, considere o uso do ExpressRoute, se necessário.
 
 Este é um padrão simples. Você otimiza o salto 3 colocando o conector perto do aplicativo. Essa também é uma opção natural, pois o conector normalmente é instalado com uma linha de visão para o aplicativo e com o data center para executar operações KCD.
 
@@ -128,9 +128,9 @@ Este é um padrão simples. Você otimiza o salto 3 colocando o conector perto d
 
 ### <a name="use-case-2"></a>Caso de uso 2
 
-**Cenário:** O aplicativo está na rede da organização nos EUA, com usuários distribuídos globalmente. Não há um ExpressRoute ou uma VPN entre o data center do Azure e a rede corporativa.
+**Cenário:** o aplicativo está na rede da organização nos EUA, com usuários distribuídos globalmente. Não há um ExpressRoute ou uma VPN entre o data center do Azure e a rede corporativa.
 
-**Recomendação:** Siga o padrão 1, explicado na seção anterior.
+**Recomendação:** siga o padrão 1, explicado na seção anterior.
 
 Novamente, o padrão mais comum é otimizar o salto 3, onde você coloca o conector perto do aplicativo. O salto 3 não costuma ser caro, se tudo estiver dentro da mesma região. No entanto, o salto 1 poderá ser mais caro dependendo de onde o usuário estiver, pois os usuários pelo mundo precisarão acessar a instância do Proxy de Aplicativo nos EUA. Vale a pena observar que qualquer solução de proxy tem características semelhantes sobre os usuários que estão sendo distribuídos globalmente.
 
@@ -138,7 +138,7 @@ Novamente, o padrão mais comum é otimizar o salto 3, onde você coloca o conec
 
 ### <a name="use-case-3"></a>Caso de uso 3
 
-**Cenário:** O aplicativo está na rede da organização nos EUA. Há a ExpressRoute com emparelhamento da Microsoft entre o Azure e a rede corporativa.
+**Cenário:** o aplicativo está na rede da organização nos EUA. Há a ExpressRoute com emparelhamento da Microsoft entre o Azure e a rede corporativa.
 
 **Recomendação:** siga os padrões 1 e 2, explicados na seção anterior.
 
@@ -150,9 +150,9 @@ Se o link de ExpressRoute estiver usando o emparelhamento da Microsoft, o tráfe
 
 ### <a name="use-case-4"></a>Caso de uso 4
 
-**Cenário:** O aplicativo está na rede da organização nos EUA. Há a ExpressRoute com emparelhamento privado entre o Azure e a rede corporativa.
+**Cenário:** o aplicativo está na rede da organização nos EUA. Há a ExpressRoute com emparelhamento privado entre o Azure e a rede corporativa.
 
-**Recomendação:** Siga o padrão 3, explicado na seção anterior.
+**Recomendação:** siga o padrão 3, explicado na seção anterior.
 
 Coloque o conector no data center do Azure que está conectado à rede corporativa por meio de emparelhamento privado do ExpressRoute.
 

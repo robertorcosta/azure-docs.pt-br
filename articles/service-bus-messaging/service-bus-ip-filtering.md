@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496330"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280932"
 ---
 # <a name="use-firewall-rules"></a>Usar regras de firewall
 
-Para cenários em que os Barramento de Serviço do Azure são acessíveis apenas de determinados sites bem conhecidos, as regras de Firewall permitem que você configure regras para aceitar tráfego originado de endereços IPv4 específicos. Por exemplo, esses endereços podem ser aqueles de um gateway NAT corporativo.
+Para cenários em que os Barramento de Serviço do Azure são acessíveis apenas de determinados sites bem conhecidos, as regras de Firewall permitem que você configure regras para aceitar tráfego originado de endereços IPv4 específicos. Por exemplo, esses endereços podem ser de um gateway corporativo de NAT.
 
 ## <a name="when-to-use"></a>Quando usar
 
@@ -46,7 +46,6 @@ As regras de filtro IP são aplicadas na ordem e a primeira regra que correspond
 > Não há suporte para serviços confiáveis da Microsoft para quando a Filtragem de IP (regras de Firewall) é implementada e serão disponibilizados em breve.
 >
 > Cenários comuns do Azure que não funcionam com a Filtragem de IP (observe que a lista **NÃO** é exaustiva):
-> - Azure Monitor
 > - Stream Analytics do Azure
 > - Integração com a Grade de Eventos do Azure
 > - Rotas do Hub IoT do Azure
@@ -63,7 +62,7 @@ As regras de filtro IP são aplicadas na ordem e a primeira regra que correspond
 
 O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual em um namespace de Barramento de Serviço existente.
 
-Parâmetros de modelo:
+Parâmetros do modelo:
 
 - A **ipMask** é um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24, representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, em que 24 indica o número de bits de prefixo significativos para o intervalo.
 
@@ -71,11 +70,11 @@ Parâmetros de modelo:
 > Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , o que não restringe as conexões.
 > Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
-> Da
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```
-> para
+> Para
 > ```json
 > "defaultAction": "Deny"
 > ```
