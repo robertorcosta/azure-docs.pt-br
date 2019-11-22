@@ -1,5 +1,5 @@
 ---
-title: Exemplo da CLI – Balancear a carga de vários sites com a CLI do Azure | Microsoft Docs
+title: Balancear a carga de vários sites – CLI do Azure – Azure Load Balancer
 description: Este exemplo de script da CLI do Azure mostra como balancear a carga de vários sites para a mesma máquina virtual
 services: load-balancer
 documentationcenter: load-balancer
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 63897da887230da74aaaddc464549e9c06ed9543
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 54258b5129e9804bfba4cc51f0d18770b8486280
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273876"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048928"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Exemplo de script da CLI do Azure: Balanceamento de carga de vários sites
 

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentação do Azure Data Factory
-summary: Azure Data Factory é o serviço ETL na nuvem do Azure para integração e transformação de dados sem servidor em expansão.  Ele oferece uma interface do usuário sem códigos para criação intuitiva, além de monitoramento e gerenciamento com um painel de controle individual. Também é possível migrar pacotes SSIS existentes por lift-and-shift para o Azure e executá-los com total compatibilidade no ADF (Azure Data Factory). O Azure-SSIS Integration Runtime oferece um serviço totalmente gerenciado, de modo que não é necessário se preocupar com o gerenciamento da infraestrutura.
+summary: Azure Data Factory é o serviço ETL na nuvem do Azure para integração e transformação de dados sem servidor em expansão.  Ele oferece uma interface do usuário livre de código para criação intuitiva e gerenciamento e monitoramento em painel único. Também é possível migrar pacotes SSIS existentes por lift-and-shift para o Azure e executá-los com total compatibilidade no ADF (Azure Data Factory). O Azure-SSIS Integration Runtime oferece um serviço totalmente gerenciado, de modo que não é necessário se preocupar com o gerenciamento da infraestrutura.
 metadata:
   title: Documentação do Azure Data Factory
   description: Saiba mais sobre como usar o Data Factory, um serviço de integração de dados na nuvem, para criar armazenamento de dados, serviços de processamento e de movimentação em pipelines de dados automatizados. Os tutoriais e outras documentações mostram como configurar e gerenciar pipelines de dados, bem como mover e transformar dados para análise.
@@ -12,12 +12,12 @@ metadata:
   ms.author: maghan
   ms.date: 10/02/2019
   monikerRange: ''
-  ms.openlocfilehash: 570a549bc132b1126d904d52af3066e152687e72
-  ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+  ms.openlocfilehash: fc85ae8cc6dcb2d5d04a6cbd7f79eb03470a58fb
+  ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/17/2019
-  ms.locfileid: "72554858"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74321746"
 landingContent:
 - title: Sobre o Azure Data Factory
   linkLists:

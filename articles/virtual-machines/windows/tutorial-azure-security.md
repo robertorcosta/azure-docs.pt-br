@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Usar a Central de Segurança do Azure para VMs Windows no Azure | Microsoft Docs
+title: Tutorial – Usar a Central de Segurança do Azure para VMs Windows no Azure
 description: Neste tutorial, você aprenderá sobre os recursos da Central de Segurança do Azure para ajudar a proteger as máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e65e9670facdfcbf9d1aac04fa25ee53996a9c4b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6b763d08dc898566bfe0d7a28bf6471d4edf4c59
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100301"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064949"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Usar a Central de Segurança do Azure para monitorar máquinas virtuais do Windows
 

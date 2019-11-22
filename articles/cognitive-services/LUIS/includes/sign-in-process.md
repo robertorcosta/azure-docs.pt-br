@@ -10,18 +10,19 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 1effd07cef439a6257028549b7b7114b742eb478
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5e7feac35ddd607d36cb0ddd3bae10cf1b9bc7a7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488747"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278589"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Entrar no portal do LUIS
 
 Um novo usuário do LUIS precisa seguir este procedimento:
 
-1. Entrar no [portal do LUIS](https://www.luis.ai), selecionar seu país e concordar com os termos de uso.
+1. Entre no [portal do LUIS (versão prévia)](https://preview.luis.ai), selecione seu país e aceite os Termos de Uso. Caso, em vez disso, você consulte **Meus aplicativos**, um recurso do LUIS já existirá e você deverá avançar e criar um aplicativo.
+
 1. Selecionar **Criar recurso do Azure** e, em seguida, selecionar **Criar um recurso de criação para o qual migrar seus aplicativos.**
 
     ![Escolher um tipo de recurso de criação de Reconhecimento Vocal](../media/luis-how-to-azure-subscription/sign-in-create-resource.png)

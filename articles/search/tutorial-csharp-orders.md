@@ -1,19 +1,19 @@
 ---
 title: Tutorial de C# sobre a ordenação de resultados
 titleSuffix: Azure Cognitive Search
-description: Este tutorial baseia-se no projeto "Paginação dos resultados da pesquisa – Pesquisa Cognitiva do Azure" para adicionar a ordenação dos resultados da pesquisa. Saiba como ordenar os resultados em uma propriedade primária e, para que os resultados tenham a mesma propriedade primária, como ordenar os resultados em uma propriedade secundária. Por fim, aprenda como ordenar os resultados conforme um perfil de pontuação.
+description: Este tutorial demostra como ordenar os resultados da pesquisa. Ele se baseia em um projeto de hotéis anterior, ordenando por propriedade primária, propriedade secundária, e inclui um perfil de pontuação para adicionar critérios de aumento.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9230e555f9ea56ca4cda3fcabe1f9719e36a8f62
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794046"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112674"
 ---
 # <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Tutorial do C#: Ordenar os resultados – Pesquisa Cognitiva do Azure
 

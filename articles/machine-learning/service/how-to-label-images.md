@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: af12361ed11d0a16e5a5d0cfe5989bb3918ce154
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cbebb905ba39dabaf905be2fa741702bd1a0088
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585582"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838953"
 ---
 # <a name="how-to-tag-images-in-a-labeling-project"></a>Como marcar imagens em um projeto de rotulagem
 
-Após o administrador de projeto criar um projeto de rotulagem no Azure Machine Learning Studio, você poderá usar a ferramenta de rotulagem para preparar rapidamente os dados para um projeto de aprendizado de máquina. 
+Após o administrador de projeto criar um projeto de rotulagem no Azure Machine Learning, você poderá usar a ferramenta de rotulagem para preparar rapidamente os dados para um projeto de aprendizado de máquina. 
 
 > [!div class="checklist"]
 > * Como acessar seus projetos de rotulagem

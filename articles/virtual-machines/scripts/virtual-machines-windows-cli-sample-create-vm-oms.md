@@ -1,5 +1,5 @@
 ---
-title: Exemplo da CLI do Azure – criar uma VM do Azure executando o Azure Monitor | Microsoft Docs
+title: Exemplo da CLI do Azure – criar uma VM do Azure executando o Azure Monitor
 description: Exemplo da CLI do Azure – criar uma VM do Azure executando uma VM do Windows Server 2016 e Azure Monitor.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: e5bee7a2b9d203909ccd11c4485ecc850688f4ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 77c5996a11b5223778bf0efbe33250f0db9f74f3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708228"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039900"
 ---
 # <a name="monitor-a-vm-with-azure-monitor-logs"></a>Monitorar uma VM com logs do Azure Monitor
 

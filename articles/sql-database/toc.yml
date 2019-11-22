@@ -112,14 +112,6 @@
               items:
                 - name: Introdução à auditoria do Banco de Dados SQL
                   href: sql-database-auditing.md
-        - name: Segurança de rede
-          items:
-            - name: Pontos de extremidade da rede virtual
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: Pontos de extremidade da rede virtual - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
-            - name: Link Privado
-              href: sql-database-private-endpoint-overview.md
         - name: Gerenciamento de segurança
           items:
             - name: Segurança de dados avançada
@@ -136,14 +128,22 @@
               href: sql-database-feature-restrictions.md
         - name: Segurança do banco de dados individual
           items:
+            - name: Controles de acesso à rede
+              href: sql-database-networkaccess-overview.md
+            - name: Firewall baseado em IP
+              href: sql-database-firewall-configure.md
+            - name: Regras de firewall de vNet
+              items:
+                - name: Pontos de extremidade de vNet
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: Pontos de extremidade de vNet – PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Link Privado
+              href: sql-database-private-endpoint-overview.md
             - name: Formato do log de auditoria
               href: sql-database-audit-log-format.md
             - name: Acesso Condicional
               href: sql-database-conditional-access.md
-            - name: Regras de firewall de IP no nível de servidor
-              items:
-                - name: Criar e gerenciar
-                  href: sql-database-firewall-configure.md
         - name: Segurança de instância gerenciada
           items:
             - name: Proteger pontos de extremidade públicos
@@ -526,7 +526,7 @@
               href: sql-database-elastic-pool-manage.md
         - name: Recursos do servidor de banco de dados
           items:
-            - name: Limites de recursos do servidor de banco de dados
+            - name: Limites de recursos de banco de dados
               href: sql-database-resource-limits-database-server.md
             - name: Arquitetura de conectividade
               href: sql-database-connectivity-architecture.md

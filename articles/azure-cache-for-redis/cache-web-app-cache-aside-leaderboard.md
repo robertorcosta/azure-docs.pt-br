@@ -1,26 +1,18 @@
 ---
-title: Tutorial para criação de um Aplicativo Web com o Cache do Azure para Redis que usa o padrão Cache-Aside | Microsoft Docs
+title: Tutorial para criação de um Aplicativo Web com o Cache do Azure para Redis que usa o padrão Cache-Aside
 description: Saiba como criar um Aplicativo Web com o Cache do Azure para Redis que usa o padrão Cache-Aside
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 8ca24e8556ee53e9d12eaea8fd9eddb07ebed490
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826403"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121521"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar um placar de líderes cache-aside no ASP.NET
 
@@ -671,7 +663,7 @@ Nesta seção, você provisionará um novo banco de dados SQL do Azure para que 
 
    | Configuração       | Valor sugerido | DESCRIÇÃO |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
+   | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
    | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Senha** | Qualquer senha válida | Sua senha deve ter, pelo menos, 8 caracteres e deve conter caracteres de três das seguintes categorias: caracteres com letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos. |
    | **Localidade** | *Leste dos EUA* | Selecione a mesma região onde você criou o cache e o Serviço de Aplicativo. |

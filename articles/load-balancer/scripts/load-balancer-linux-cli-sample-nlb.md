@@ -1,26 +1,22 @@
 ---
-title: Exemplo da CLI – Balancear a carga do tráfego para VMs para alta disponibilidade – Azure | Microsoft Docs
+title: Balancear o tráfego de VMs para HA - CLI do Azure - Azure Load Balancer
 description: Este exemplo de script da CLI do Azure mostra como balancear a carga do tráfego para VMs para alta disponibilidade
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
+manager: kumudD
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 7ed3f0899d6a378285c9799b57e2aad76348c45d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c0bfb5705989c99d3626d6e728b764e94f83fffe
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273823"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048919"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemplo de script da CLI do Azure: Balancear o tráfego de VMs para alta disponibilidade
 

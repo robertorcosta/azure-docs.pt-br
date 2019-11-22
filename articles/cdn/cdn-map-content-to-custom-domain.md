@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 81db1a7dc01b3d60ee6384f2026ed5ce692ff140
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666089"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837407"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure
 Este tutorial mostra como adicionar um domínio personalizado a um ponto de extremidade do Azure CDN (Rede de Distribuição de Conteúdo). Quando você usa um ponto de extremidade da CDN para distribuir conteúdo, é necessário ter um domínio personalizado se você deseja que seu próprio nome de domínio fique visível na URL da CDN. Ter um nome de domínio visível pode ser conveniente para os clientes e útil para fins de identidade visual. 
@@ -145,7 +145,7 @@ Depois de concluir o registro do seu domínio personalizado, verifique se o dom�
  
 1. Verifique se você tem conteúdo público armazenado em cache no ponto de extremidade. Por exemplo, se o ponto de extremidade da CDN estiver associado a uma conta de armazenamento, a CDN do Azure armazenará conteúdo em cache em um contêiner público. Para testar o domínio personalizado, verifique se o contêiner está definido para permitir acesso público e se contém pelo menos um arquivo.
 
-2. Em seu navegador, navegue até o endereço do arquivo usando o domínio personalizado. Por exemplo, se o domínio personalizado for www.contoso.com, a URL para o arquivo armazenado em cache deverá ser semelhante à seguinte URL: http:\//www.contoso.com/my-public-container/my-file.jpg. Verifique se o resultado é o mesmo de quando você acessa o ponto de extremidade da CDN diretamente no *&lt;nome de host do ponto de extremidade&gt;* .azureedge.net.
+2. Em seu navegador, navegue até o endereço do arquivo usando o domínio personalizado. Por exemplo, se o seu domínio personalizado for `www.contoso.com`, a URL para o arquivo armazenado em cache deverá ser semelhante à seguinte URL: `http://www.contoso.com/my-public-container/my-file.jpg`. Verifique se o resultado é o mesmo de quando você acessa o ponto de extremidade da CDN diretamente no *&lt;nome de host do ponto de extremidade&gt;* .azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mapear o domínio personalizado permanente

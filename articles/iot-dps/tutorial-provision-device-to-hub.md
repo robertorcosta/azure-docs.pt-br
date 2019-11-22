@@ -1,22 +1,22 @@
 ---
-title: Provisionar um dispositivo usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
-description: Provisionar o dispositivo para um único Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
+title: 'Tutorial: Provisionar um dispositivo usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure'
+description: 'Tutorial: Provisionar o dispositivo para um único Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/12/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9ff134b0747e78773c95fac7ceab4cddd61c601d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: be0b926b6beae2cb339ca232d2b792f50834d801
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227007"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112045"
 ---
-# <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Provisionar o dispositivo para um Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
+# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Provisionar o dispositivo para um Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
 No tutorial anterior, você aprendeu como configurar um dispositivo para se conectar ao seu Serviço de Provisionamento de Dispositivos. Neste tutorial, você aprenderá a usar este serviço para provisionar seu dispositivo para um único Hub IoT usando **_listas de registro_** e provisionamento automático. Este tutorial mostra como:
 

@@ -49,6 +49,8 @@
           href: routing-coverage.md
         - name: Cobertura de mobilidade
           href: mobility-coverage.md
+        - name: Cobertura do clima
+          href: weather-coverage.md
     - name: Suporte de Localização
       href: supported-languages.md
     - name: Estilos de mapa compatíveis
@@ -57,6 +59,8 @@
       href: zoom-levels-and-tile-grid.md
     - name: Estrutura de dados do Serviço de Mobilidade
       href: mobility-service-data-structure.md
+    - name: Conceitos de serviços de meteorologia
+      href: weather-services-concepts.md
 - name: Guias de instruções
   items:
     - name: Gerenciar contas do Azure Mapas
@@ -185,6 +189,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: Serviço de Renderização
           href: 'https://docs.microsoft.com/rest/api/maps/render'
+        - name: Serviço de renderização V2
+          href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
         - name: Serviço de Roteamento
           href: 'https://docs.microsoft.com/rest/api/maps/route'
         - name: Serviço Search
@@ -195,6 +201,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/timezone'
         - name: Serviço de Tráfego
           href: 'https://docs.microsoft.com/rest/api/maps/traffic'
+        - name: Serviço de meteorologia
+          href: 'https://docs.microsoft.com/rest/api/maps/weather'
         - name: Gerenciamento de contas de mapas
           href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript

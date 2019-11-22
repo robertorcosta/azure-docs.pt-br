@@ -1,22 +1,22 @@
 ---
-title: Rotear veículos elétricos usando o Azure Notebooks (Python) | Microsoft Docs
-description: Roteie veículos elétricos usando as APIs de roteamento dos Azure Mapas e do Azure Notebooks.
+title: 'Tutorial: Rotear veículos elétricos usando o Azure Notebooks (Python)'
+description: 'Tutorial: Roteie veículos elétricos usando as APIs de roteamento dos Azure Mapas e do Azure Notebooks.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/01/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9cc7fc1ba8c7f55700505ea8fca0dea4f836e333
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243293"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109608"
 ---
-# <a name="route-electric-vehicles-by-using-azure-notebooks-python"></a>Rotear veículos elétricos usando o Azure Notebooks (Python)
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Rotear veículos elétricos usando o Azure Notebooks (Python)
 
 Os Azure Mapas são um portfólio de APIs de serviço geoespacial que são nativamente integradas ao Azure. Com essas APIs, os desenvolvedores, as empresas e os ISVs podem criar aplicativos com reconhecimento de localização e soluções de IoT, mobilidade, logística e acompanhamento de ativos. 
 
@@ -41,7 +41,7 @@ Para concluir este tutorial, primeiro, é necessário criar uma conta dos Azure 
 
 Para criar uma assinatura da conta dos Azure Mapas no tipo de preço S1, siga as instruções em [Gerenciar sua conta dos Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
 
-Para obter a chave de assinatura primária para a sua conta, siga as instruções em [Pesquisar pontos de interesse próximos usando os Azure Mapas](./tutorial-search-location.md#getkey).
+Para obter a chave de assinatura primária para a sua conta, siga as instruções em [Criar uma conta e obter sua chave](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
 
 ## <a name="create-an-azure-notebook"></a>Criar um Azure Notebook
 
@@ -281,7 +281,7 @@ display(Image(poiRangeMap))
 
 Depois que você determinar todos os possíveis postos de recarga dentro do intervalo acessível, o ideal será saber a qual deles se pode chegar no menor período de tempo. 
 
-O script a seguir chama a [API de Roteamento de Matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) dos Azure Mapas, que retorna para a localização especificada do veículo o tempo de viagem e a distância para cada posto de recarga. O script na próxima célula analisa a resposta para localizar o posto de recarga acessível mais próximo com relação ao tempo.
+O script a seguir chama a [API de Roteamento de Matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrix) dos Azure Mapas, que retorna para a localização especificada do veículo o tempo de viagem e a distância para cada posto de recarga. O script na próxima célula analisa a resposta para localizar o posto de recarga acessível mais próximo com relação ao tempo.
 
 Para encontrar o posto de recarga acessível mais próximo ao qual se pode chegar no menor período de tempo, execute o script na seguinte célula:
 
@@ -395,7 +395,7 @@ Para explorar as APIs dos Azure Mapas que são usadas neste tutorial, confira:
 * [Pesquisa POST dentro da geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
 * [Upload de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 * [Renderizar – obter imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Matrix de rota POST](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)
+* [Matrix de rota POST](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Obter Trajeto de Rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
 Para obter uma lista completa das APIs REST dos Azure Mapas, confira [APIs REST dos Azure Mapas](https://docs.microsoft.com/azure/azure-maps/#reference).

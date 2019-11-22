@@ -7,18 +7,18 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 76f995901814c90ff9fd78585c98d56b3478e8b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ca3486610d6cf71ba315e407b58a2a2551ad6ee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612763"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837476"
 ---
 # <a name="get-labels-for-data"></a>Obter rótulos de dados
 
 Rotular grandes quantidades de dados costuma ser uma dor de cabeça nos projetos de aprendizado de máquina. Os projetos do ML com um componente da Pesquisa Visual Computacional, assim como classificação de imagem ou detecção de objetos, geralmente exige milhares de imagens e os rótulos correspondentes. 
  
-O Azure Machine Learning Studio oferece uma localização central para criar, gerenciar e monitorar projetos de rotulagem. Os projetos de rotulagem ajudam a coordenar os dados, os rótulos e os membros da equipe, permitindo que você gerencie com mais eficiência as tarefas de rotulagem. Atualmente, as tarefas compatíveis são a classificação de imagem (seja ela de vários rótulos ou de várias classes) e a identificação de objetos usando caixas delimitadas.
+O Azure Machine Learning oferece uma localização central para criar, gerenciar e monitorar projetos de rotulagem. Os projetos de rotulagem ajudam a coordenar os dados, os rótulos e os membros da equipe, permitindo que você gerencie com mais eficiência as tarefas de rotulagem. Atualmente, as tarefas compatíveis são a classificação de imagem (seja ela de vários rótulos ou de várias classes) e a identificação de objetos usando caixas delimitadas.
 
 O Azure rastreia o progresso e mantém a fila de tarefas de rotulagem incompletas. Rotuladores não precisam de uma conta do Azure para participar. Uma vez que tiverem autenticado com suas respectivas MSAs (contas Microsoft) ou com o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), eles poderão trabalhar com rotulagem à vontade, de acordo com o tempo que tiverem disponível para isso. Eles podem atribuir e alterar rótulos usando atalhos de teclado. 
 
@@ -43,7 +43,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
 
-Os projetos de rotulagem são administrados do [Azure Machine Learning Studio](https://ml.azure.com/). A página **Projetos de rotulagem** permite que você gerencie seus projetos, equipes e pessoas. Um projeto tem uma ou mais equipes atribuídas a ele e uma equipe tem uma ou mais pessoas atribuídas a ela. 
+Os projetos de rotulagem são administrados do [Azure Machine Learning](https://ml.azure.com/). A página **Projetos de rotulagem** permite que você gerencie seus projetos, equipes e pessoas. Um projeto tem uma ou mais equipes atribuídas a ele e uma equipe tem uma ou mais pessoas atribuídas a ela. 
 
 Se os dados já estiverem armazenados no Armazenamento de Blobs do Azure, você deverá disponibilizá-los como um armazenamento de dados antes de criar seu projeto de rotulagem. Para obter informações, confira [Criar e registrar armazenamentos de dados](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
 
@@ -149,7 +149,7 @@ Você pode rotular dados diretamente da página **Detalhes do projeto** selecion
 
 A qualquer momento, você pode exportar os dados de rótulo para experimentação em aprendizado de máquina. Os rótulos de imagem podem ser exportados no [formato COCO](http://cocodataset.org/#format-data) ou como um conjunto de dados do Azure ML. Você encontrará o botão **Exportar** na página **Detalhes do projeto** do seu projeto de rotulagem.
 
-O arquivo COCO é criado no repositório de blobs padrão do Workspace do Azure ML em uma pasta dentro de **export/coco**. Você pode acessar o conjunto de dados do Azure ML exportado na seção **Conjuntos de dados** do Studio. A página de detalhes do conjunto de dados também fornece um código de exemplo para acessar seus rótulos por meio do Python.
+O arquivo COCO é criado no repositório de blobs padrão do Workspace do Azure ML em uma pasta dentro de **export/coco**. Você pode acessar o conjunto de dados do Azure ML exportado na seção **Conjuntos de dados** do Azure Machine Learning. A página de detalhes do conjunto de dados também fornece um código de exemplo para acessar seus rótulos por meio do Python.
 
 ![Conjunto de dados exportado](media/how-to-create-labeling-projects/exported-dataset.png)
 

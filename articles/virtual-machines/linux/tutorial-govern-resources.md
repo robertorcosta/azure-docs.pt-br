@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Governar máquinas virtuais do Azure com a CLI do Azure | Microsoft Docs
+title: Tutorial - Governar máquinas virtuais do Azure com a CLI do Azure
 description: Neste tutorial, você aprenderá como usar a CLI do Azure para gerenciar máquinas virtuais do Azure aplicando RBAC, políticas, bloqueios e tags
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 5fa14ef30d45a9a28cc690761ec33b5bfaaac6a7
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e9475f4226a65ad06d45170e0ab802c6cdb79d8f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676511"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034537"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Aprender sobre a governança de máquina virtual do Linux com a CLI do Azure
 

@@ -62,6 +62,8 @@
       href: customize-rdp-properties.md
     - name: Implantar a ferramenta de diagnóstico
       href: deploy-diagnostics.md
+    - name: Configurar anexação de aplicativo MSIX
+      href: app-attach.md
 - name: Conceitos
   items:
     - name: Ambiente da Área de Trabalho Virtual do Windows
