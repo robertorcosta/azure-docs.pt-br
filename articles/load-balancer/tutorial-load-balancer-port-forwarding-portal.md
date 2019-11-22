@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o encaminhamento de porta no Azure Load Balancer usando o portal do Azure'
-titlesuffix: Azure Load Balancer
+title: 'Tutorial: Configurar o encaminhamento de porta – portal do Azure'
+titleSuffix: Azure Load Balancer
 description: Este tutorial mostra como configurar o encaminhamento de porta usando o Azure Load Balancer para criar conexões às VMs em uma rede virtual do Azure.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: aa4837ec1fd8ef19eb6d0c77f946ef358becd542
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6dda01543a6a7f447adefcc6cc3cfa3ea5da5492
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428232"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048857"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: configurar o encaminhamento de porta no Azure Load Balancer usando o portal
 

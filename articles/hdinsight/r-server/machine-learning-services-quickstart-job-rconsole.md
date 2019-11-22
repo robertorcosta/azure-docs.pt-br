@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Executar script R em serviços de ML usando o console de R – Azure HDInsight'
+title: 'Início Rápido: Script R em serviços de ML e o console de R – Azure HDInsight'
 description: No início rápido, você executa um script R em um cluster de serviços de ML no Azure HDInsight usando o console de R.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 44bc90a4c556108b4b6874a2d1297a6467413824
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: af41a7569dedc9a56f67be8ae791d7185e0c7489
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736355"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241605"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Início Rápido: Executar um script R em um cluster de serviços de ML no Azure HDInsight usando o console de R
 

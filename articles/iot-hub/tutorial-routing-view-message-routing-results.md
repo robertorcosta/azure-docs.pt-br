@@ -1,6 +1,6 @@
 ---
 title: Exibir resultados de roteamento de mensagens do Hub IoT do Azure (.NET) | Microsoft Docs
-description: Exibir resultados de roteamento de mensagens do Hub IoT do Azure
+description: Depois de configurar todos os recursos usando a Parte 1 do tutorial, adicione a capacidade de rotear mensagens para Azure Stream Analytics e exibir os resultados no PowerBI.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330553"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890400"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 – Exibir as mensagens roteadas
 
@@ -24,9 +24,9 @@ ms.locfileid: "67330553"
 
 ## <a name="rules-for-routing-the-messages"></a>Regras para roteamento de mensagens
 
-Estas são as regras para o roteamento de mensagens; elas foram configuradas na parte 1 deste tutorial e você as vê funcionar nesta segunda parte.
+Estas são as regras para o roteamento de mensagens; elas foram configuradas na Parte 1 deste tutorial e você as vê funcionar nesta segunda parte.
 
-|value |Result|
+|Valor |Result|
 |------|------|
 |level="storage" |Grave no Armazenamento do Azure.|
 |level="critical" |Grave em uma fila do Barramento de Serviço. Um aplicativo lógico recupera a mensagem da fila e usa o Office 365 para enviar a mensagem por e-mail.|
@@ -52,9 +52,11 @@ Agora você pode criar os recursos para os quais as mensagens serão roteadas, e
 
    ![A tela Criar Aplicativo Lógico](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Selecione **Criar**.
+   Selecione **Criar**. Pode levar alguns minutos para que o aplicativo seja implantado.
 
-2. Agora vá para o aplicativo lógico. A maneira mais fácil de obter o aplicativo lógico é selecionar **Grupos de recursos**, selecionar o grupo de recursos (este tutorial usa **ContosoResources**) e selecionar o Aplicativo Lógico da lista de recursos. É exibida a página do Designer de Aplicativos Lógicos (talvez seja necessário rolar para a direita para ver a página inteira). Na página Designer de Aplicativos Lógicos, role para baixo até ver o bloco que diz **Aplicativo Lógico em Branco +** e selecione-o. A guia padrão é "Para Você". Se esse painel estiver em branco, selecione **Todos** para ver todos os conectores e gatilhos disponíveis.
+2. Agora vá para o aplicativo lógico. A maneira mais fácil de obter o aplicativo lógico é selecionar **Grupos de recursos**, selecionar o grupo de recursos (este tutorial usa **ContosoResources**) e selecionar o Aplicativo Lógico da lista de recursos. 
+
+    É exibida a página do Designer de Aplicativos Lógicos (talvez seja necessário rolar para a direita para ver a página inteira). Na página Designer de Aplicativos Lógicos, role para baixo até ver o bloco que diz **Aplicativo Lógico em Branco +** e selecione-o. A guia padrão é "Para Você". Se esse painel estiver em branco, selecione **Todos** para ver todos os conectores e gatilhos disponíveis.
 
 3. Selecione **Barramento de Serviço** na lista de conectores.
 
@@ -76,7 +78,7 @@ Agora você pode criar os recursos para os quais as mensagens serão roteadas, e
 
    ![As opções de fila](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
-7. Configure agora a ação para enviar um e-mail quando uma mensagem é recebida na fila. No Designer de Aplicativos Lógicos, selecione **+ Nova Etapa** para adicionar uma etapa e, em seguida, selecione **Todos** para ver todas as opções disponíveis. No painel **Escolher uma ação**, localize e selecione **Office 365 Outlook**. Na tela de gatilhos, selecione **Enviar um email/Office 365 Outlook**.  
+7. Configure agora a ação para enviar um e-mail quando uma mensagem é recebida na fila. No Designer de Aplicativos Lógicos, selecione **+ Nova Etapa** para adicionar uma etapa e, em seguida, selecione **Todos** para ver todas as opções disponíveis. No painel **Escolher uma ação**, localize e selecione **Office 365 Outlook**. Na tela Ações, selecione **Enviar um email/Office 365 Outlook**.  
 
    ![As opções do Office365](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
@@ -108,13 +110,15 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    ![Criar o trabalho do Stream Analytics](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
-3. Selecione **Criar** para criar o trabalho. Para voltar ao trabalho, selecione **Grupos de recursos**. Este tutorial usa **ContosoResources**. Selecione o grupo de recursos, depois selecione o trabalho do Stream Analytics na lista de recursos.
+3. Selecione **Criar** para criar o trabalho. A implantação pode levar alguns minutos.
+
+    Para voltar ao trabalho, selecione **Grupos de recursos**. Este tutorial usa **ContosoResources**. Selecione o grupo de recursos, depois selecione o trabalho do Stream Analytics na lista de recursos.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada ao trabalho do Stream Analytics
 
-4. Em **Topologia do Trabalho**, selecione **Entradas**.
+1. Em **Topologia do Trabalho**, selecione **Entradas**.
 
-5. No painel **Entradas**, selecione **Adicionar entrada de fluxo** e selecione o Hub IoT. Na tela que aparece, preencha os seguintes campos:
+2. No painel **Entradas**, selecione **Adicionar entrada de fluxo** e selecione o Hub IoT. Na tela que aparece, preencha os seguintes campos:
 
    **Alias de entrada**: Este tutorial usa **contosoinputs**.
 
@@ -122,19 +126,19 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    **Assinatura**: Selecione a assinatura do Azure que você está usando para este tutorial.
 
-   **Hub IoT**: selecione o Hub IoT. Este tutorial usa **ContosoTestHub**.
+   **Hub IoT**: Selecione o Hub IoT. Este tutorial usa **ContosoTestHub**.
 
    **Ponto de extremidade**: selecione **Mensagens**. (Se você selecionar Monitoramento de Operações, você obtém dados de telemetria sobre o Hub IoT em lugar dos dados que você está enviando.) 
 
    **Nome da política de acesso compartilhado**: Selecione **serviço**. O portal preenche a chave de política de acesso compartilhado para você.
 
-   **Grupo de consumidores**: Selecione o grupo de consumidores configurado na etapa 1 deste tutorial. Este tutorial usa **contosoconsumers**.
+   **Grupo de consumidores**: Selecione o grupo de consumidores configurado na Parte 1 deste tutorial. Este tutorial usa **contosoconsumers**.
    
    Para o restante dos campos, aceite os padrões. 
 
    ![Configurar as entradas para o trabalho do Stream Analytics](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. Clique em **Salvar**.
+3. Clique em **Salvar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída ao trabalho do Stream Analytics
 
@@ -178,20 +182,20 @@ Para configurar o relatório do Power BI, você precisa de dados, portanto você
 
 ## <a name="run-simulated-device-app"></a>Executar aplicativo de dispositivo simulado
 
-Na parte 1 deste tutorial, você configurou um dispositivo para simular o uso de um dispositivo de IoT. Nesta seção, você baixa o aplicativo de console do .NET que simula aquele dispositivo enviando mensagens de dispositivo para nuvem para um hub IoT, supondo que você ainda não tenha baixado o aplicativo e os recursos na parte 1 deste tutorial.
+Na Parte 1 deste tutorial, você configurou um dispositivo para simular o uso de um dispositivo de IoT. Nesta seção, você baixa o aplicativo de console do .NET que simula aquele dispositivo enviando mensagens de dispositivo para nuvem para um hub IoT (supondo que você ainda não tenha baixado o aplicativo e os recursos na Parte 1).
 
 Este aplicativo envia mensagens para cada um dos diferentes métodos de roteamentos de mensagens. Há também uma pasta no download que contém o arquivo de parâmetros e o modelo completo do Azure Resource Manager, bem como os scripts do PowerShell e da CLI do Azure.
 
-Se você não baixou os arquivos do repositório na etapa 1 deste tutorial, vá em frente e baixe-os agora em [Simulação de Dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Selecionar este link baixa um repositório contendo vários aplicativos; a solução que você está procurando está em iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
+Se você não baixou os arquivos do repositório na Parte 1 deste tutorial, vá em frente e baixe-os agora em [Simulação de Dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Selecionar este link baixa um repositório contendo vários aplicativos; a solução que você está procurando está em iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
 
-Clique duas vezes no arquivo de solução (IoT_SimulatedDevice.sln) para abrir o código no Visual Studio, em seguida, abra o Program.cs. Substitua `{iot hub hostname}` pelo nome de host do Hub IoT. O formato de nome de host do hub IoT é **{iot-hub-name}.azure-devices.net**. Para este tutorial, o nome de host do hub é **ContosoTestHub.azure-devices.net**. Em seguida, substitua `{device key}` com a chave do dispositivo salvo anteriormente durante a configuração do dispositivo simulado. 
+Clique duas vezes no arquivo de solução (IoT_SimulatedDevice.sln) para abrir o código no Visual Studio, em seguida, abra o Program.cs. Substitua `{your hub name}` pelo nome de host do Hub IoT. O formato de nome de host do hub IoT é **{iot-hub-name}.azure-devices.net**. Para este tutorial, o nome de host do hub é **ContosoTestHub.azure-devices.net**. Em seguida, substitua `{your device key}` com a chave do dispositivo salvo anteriormente durante a configuração do dispositivo simulado. 
 
    ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHub.azure-devices.net";
+        static string s_myDeviceId = "Contoso-Test-Device";
+        static string s_iotHubUri = "ContosoTestHub.azure-devices.net";
         // This is the primary key for the device. This is in the portal. 
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        static string deviceKey = "{your device key here}";
+        static string s_deviceKey = "{your device key}";
    ```
 
 ## <a name="run-and-test"></a>Executar e testar
@@ -212,7 +216,9 @@ Se tudo estiver configurado corretamente, agora você verá os seguintes resulta
    * O Aplicativo Lógico recuperar a mensagem da fila de Barramento de Serviço está funcionando corretamente.
    * O conector de Aplicativo Lógico para o Outlook está funcionando corretamente. 
 
-2. No [portal do Azure](https://portal.azure.com), selecione **Grupos de recursos** e selecione seu Grupo de Recursos. Este tutorial usa **ContosoResources**. Selecione a conta de armazenamento, clique em **Blobs** e selecione o Contêiner. Este tutorial usa **contosoresults**. Você deve ver uma pasta, e você pode fazer drill down em diretórios até que você veja um ou mais arquivos. Abrir um desses arquivos; elas contêm as entradas roteadas para a conta de armazenamento. 
+2. No [portal do Azure](https://portal.azure.com), selecione **Grupos de recursos** e selecione seu Grupo de Recursos. Este tutorial usa **ContosoResources**. 
+
+    Selecione a conta de armazenamento, clique em **Contêineres** e selecione o Contêiner. Este tutorial usa **contosoresults**. Você deve ver uma pasta, e você pode fazer drill down em diretórios até que você veja um ou mais arquivos. Abrir um desses arquivos; elas contêm as entradas roteadas para a conta de armazenamento. 
 
    ![Os arquivos de resultados no armazenamento](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -250,11 +256,11 @@ Agora, com o aplicativo ainda em execução, configure a visualização do Power
 
    Um gráfico de linhas é criado. O eixo x exibe a data e a hora no fuso horário UTC. O eixo y mostra a temperatura do sensor.
 
-6. Crie outro gráfico de linhas para mostrar umidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga as mesmas etapas acima e coloque **EventEnqueuedUtcTime** no eixo x e **umidade** no eixo y.
+6. Crie outro gráfico de linhas para mostrar umidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga as mesmas etapas acima e coloque **EventEnqueuedUtcTime** no eixo x (**eixo**) e **umidade** no eixo y (**Valores**).
 
    ![O relatório final do Power BI com os dois gráficos](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
-7. Selecione **Salvar** para salvar o relatório.
+7. Para salvar o relatório, selecione **Salvar** e digite um nome para o relatório, se solicitado.
 
 Você deve ser capaz de visualizar dados em ambos os gráficos. Esse resultado significa que as instruções a seguir são verdadeiras:
 
@@ -266,7 +272,7 @@ Você pode atualizar os gráficos para ver os dados mais recentes, selecionando 
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
-Se você quiser remover todos os recursos criados por meio de ambas as partes deste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ele remove o Hub IoT, a fila e namespace do Barramento de Serviço, o aplicativo lógico, a conta de armazenamento e o próprio grupo de recursos. 
+Se você quiser remover todos os recursos do Azure criados por meio de ambas as partes deste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ele remove o Hub IoT, a fila e namespace do Barramento de Serviço, o aplicativo lógico, a conta de armazenamento e o próprio grupo de recursos. Você também pode remover os recursos de Power BI e limpar os emails enviados durante o tutorial.
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
@@ -287,6 +293,10 @@ Para remover o grupo de recursos, use o comando [Remove-AzResourceGroup](https:/
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
+
+### <a name="clean-up-test-emails"></a>Limpar emails de teste
+
+Talvez você também queira excluir a quantidade de emails em sua caixa de entrada que foram gerados por meio do aplicativo lógico, enquanto o aplicativo do dispositivo estava em execução.
 
 ## <a name="next-steps"></a>Próximas etapas
 

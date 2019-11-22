@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9e3c999de1804684e77a6224330b2d7077046964
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69543009"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052169"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 
@@ -44,7 +44,7 @@ Primeiro, a Microsoft cancela a reserva existente e reembolsa o valor proporcion
 
 ### <a name="enterprise-agreement-customers"></a>Clientes do Contrato Enterprise
 
-Adiciona-se dinheiro ao compromisso monetário para trocas e reembolsos caso a compra original tenha sido feita usando tal. Toda fatura excedente desde as compras originais será reaberta e reclassificada para garantir que o compromisso monetário seja usado. Se o termo de compromisso monetário que usa a reserva comprada não estiver mais ativo, o crédito será adicionado ao seu atual termo de compromisso monetário do Contrato Enterprise atual.
+Adiciona-se dinheiro ao compromisso monetário para trocas e reembolsos caso a compra original tenha sido feita usando tal. Toda fatura excedente desde as compras originais será reaberta e reclassificada para garantir que o compromisso monetário seja usado. Se o termo de compromisso monetário que usa a reserva comprada não estiver mais ativo, o crédito será adicionado ao seu atual termo de compromisso monetário do Contrato Enterprise atual. O crédito é válido por 90 dias a partir da data do reembolso. Créditos não utilizados expiram no final dos 90 dias.
 
 Se a compra original foi feita como um excedente, a Microsoft emite um memorando de crédito.
 

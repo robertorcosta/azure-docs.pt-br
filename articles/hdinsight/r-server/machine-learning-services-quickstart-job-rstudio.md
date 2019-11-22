@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Servidor RStudio para executar R em serviços de ML – Azure HDInsight'
+title: 'Início Rápido: RStudio Server e Serviços de ML Services para R – Azure HDInsight'
 description: No início rápido, você executa um script R em um cluster de serviços de ML no Azure HDInsight usando o RStudio Server.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: e2fcdeb91517b048766d59a9714346f76091a8c8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123118"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241891"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Início Rápido: Executar um script R em um cluster de serviços de ML no Azure HDInsight usando o RStudio Server
 

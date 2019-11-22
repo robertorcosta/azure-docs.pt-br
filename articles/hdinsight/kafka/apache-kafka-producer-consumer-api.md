@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Usar as APIs de produtor e consumidor do Apache Kafka – Azure HDInsight '
+title: 'Tutorial: As APIs de produtor e consumidor do Apache Kafka – Azure HDInsight'
 description: Saiba como utilizar as APIs de produtor e consumidor do Apache Kafka com o Kafka no HDInsight. Neste tutorial, você aprenderá como usar essas APIs com Kafka no HDInsight de um aplicativo Java.
 author: dhgoelmsft
 ms.author: dhgoel
@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: 7a23d30e940417a6191cf14ad5d60159bd11c3da
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 10/08/2019
+ms.openlocfilehash: ad810ac2f8751554aaf0afcd2b15e1da83f38fe1
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446408"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241999"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Usar as APIs de produtor e consumidor do Apache Kafka
 
@@ -59,9 +59,9 @@ As coisas importantes para entender no arquivo `pom.xml` são:
     ```xml
     <!-- Kafka client for producer/consumer operations -->
     <dependency>
-      <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka-clients</artifactId>
-      <version>${kafka.version}</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
     </dependency>
     ```
 
@@ -140,47 +140,48 @@ O arquivo [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-s
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Instale [jq](https://stedolan.github.io/jq/), um processador JSON de linha de comando. Na conexão SSH aberta, digite o seguinte comando para instalar o `jq`:
+1. Instale [jq](https://stedolan.github.io/jq/), um processador JSON de linha de comando. Na conexão SSH aberta, digite o seguinte comando para instalar o `jq`:
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Configurar variáveis de ambiente. Substitua `PASSWORD` e `CLUSTERNAME` pela senha de logon do cluster e pelo nome do cluster, respectivamente, e digite o comando:
+1. Configurar variável de senha. Substitua `PASSWORD` pela senha de logon do cluster e insira o comando:
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Extraia o nome do cluster com grafia correta de maiúsculas e minúsculas. A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá a grafia de maiúsculas e minúsculas real, a armazenará em uma variável e, em seguida, exibirá o nome com grafia correta de maiúsculas e minúsculas e o nome fornecido anteriormente. Digite o seguinte comando:
+1. Extraia o nome do cluster com grafia correta de maiúsculas e minúsculas. A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá a grafia de maiúsculas e minúsculas real e a armazenará em uma variável. Digite o seguinte comando:
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
-  	| jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > Se você estiver realizando esse processo de fora do cluster, haverá um procedimento diferente para armazenar o nome do cluster. Obtenha o nome do cluster em letras minúsculas do portal do Azure. Em seguida, substitua o nome do cluster por `<clustername>` no comando a seguir e execute-o: `export clusterName='<clustername>'`.  
 
-5. Para obter os hosts do agente do Kafka e os hosts do Apache ZooKeeper, use os comandos a seguir:
+1. Para obter os hots de agente do Kafka, use o comando a seguir:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-6. Crie o tópico Kafka, `myTest`, inserindo o comando a seguir:
+    > [!Note]  
+    > Este comando requer acesso do Ambari. Se o cluster estiver atrás de um NSG, execute esse comando em um computador que possa acessar o Ambari.
+
+1. Crie o tópico Kafka, `myTest`, inserindo o comando a seguir:
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
     ```
 
-7. Para executar o produtor e fazer gravação de dados para o tópico, utilize o seguinte comando:
+1. Para executar o produtor e fazer gravação de dados para o tópico, utilize o seguinte comando:
 
     ```bash
     java -jar kafka-producer-consumer.jar producer myTest $KAFKABROKERS
     ```
 
-8. Quando produtor concluir, use o seguinte comando para a leitura do tópico:
+1. Quando produtor concluir, use o seguinte comando para a leitura do tópico:
 
     ```bash
     java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
@@ -188,7 +189,7 @@ O arquivo [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-s
 
     São exibidos os registros lidos, juntamente com uma contagem de registros.
 
-9. Use __Ctrl + C__ para sair do consumidor.
+1. Use __Ctrl + C__ para sair do consumidor.
 
 ### <a name="multiple-consumers"></a>Vários consumidores
 

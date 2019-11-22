@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Analisar eventos de configuração de Gêmeos Digitais do Azure | Microsoft Docs'
+title: 'Tutorial: Analisar eventos de configuração dos Gêmeos Digitais do Azure'
 description: Saiba como visualizar e analisar eventos dos espaços dos Gêmeos Digitais do Azure, com o Azure Time Series Insights, usando as etapas neste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,15 +8,15 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: af776372026bf9affcda03fa9188b854ebedfc73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949814"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107670"
 ---
-# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos de espaços dos Gêmeos Digitais do Azure usando o Time Series Insights
+# <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos dos Gêmeos Digitais do Azure usando o Time Series Insights
 
 Depois de implantar a instância de Gêmeos Digitais do Azure, provisionar seus espaços e implementar a função personalizada para monitorar condições específicas, você pode visualizar os eventos e os dados provenientes de seus espaços em busca de tendências e anomalias.
 

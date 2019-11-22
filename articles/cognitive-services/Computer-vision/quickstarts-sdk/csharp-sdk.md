@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 27884d83b9ca828a81922d27fe958334665e664a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 45cf376d54ef9f2e77acb2ece9529af640938853
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719527"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931769"
 ---
 # <a name="quickstart-computer-vision-client-library-for-net"></a>Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para .NET
 
@@ -108,7 +108,7 @@ Estes snippets de código mostram como realizar as seguintes tarefas com a bibli
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE]
-> Este guia de início rápido pressupõe que você já [criou uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave da Pesquisa Visual Computacional, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY`.
+> Este início rápido pressupõe que você já [criou variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade da Pesquisa Visual Computacional, denominadas `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 
 Em um novo método, instancie um cliente com o ponto de extremidade e a chave. Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com sua chave e use-o com o ponto de extremidade para criar um objeto [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet).
 
@@ -199,7 +199,7 @@ O código a seguir imprime os atributos de cor detectados na imagem, como as cor
 
 ### <a name="get-domain-specific-content"></a>Obter conteúdo específico do domínio
 
-A Pesquisa Visual Computacional pode usar o modelo especializado para realizar análise adicional em imagens. Confira [Conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes. 
+A Pesquisa Visual Computacional pode usar modelos especializados para realizar análise adicional em imagens. Confira [Conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes. 
 
 O código a seguir analisa dados sobre celebridades detectados na imagem.
 
@@ -211,7 +211,7 @@ O código a seguir analisa dados sobre pontos de referência detectados na image
 
 ### <a name="get-the-image-type"></a>Obter o tipo de imagem
 
-O código a seguir imprime informações sobre o tipo de imagem – seja clip-art ou desenho de linha.
+O código a seguir imprime informações sobre o tipo de imagem &mdash;, seja clip-art ou desenho de uma linha.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_type)]
 

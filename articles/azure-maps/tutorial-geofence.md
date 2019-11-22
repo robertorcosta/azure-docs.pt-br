@@ -1,22 +1,22 @@
 ---
-title: Criar um limite geográfico usando o Azure Mapas | Microsoft Docs
-description: Configure um limite geográfico usando o Azure Mapas.
+title: 'Tutorial: Criar uma cerca geográfica usando o Azure Mapas'
+description: 'Tutorial: Configure um limite geográfico usando o Azure Mapas.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694920"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107105"
 ---
-# <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurar um limite geográfico usando o Azure Mapas
+# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configurar um limite geográfico usando o Azure Mapas
 
 Este tutorial orienta você pelas etapas básicas para configurar um limite geográfico usando o Azure Mapas. O cenário abordado neste tutorial é o de ajudar gerentes de locais de construção a monitorar a movimentação de equipamentos potencialmente perigosos para além das áreas de construção designadas. Um local de construção envolve normas e equipamentos caros. Normalmente, ele exige que o equipamento permaneça dentro do local de construção e não saia sem permissão.
 

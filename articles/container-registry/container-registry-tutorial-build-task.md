@@ -1,5 +1,5 @@
 ---
-title: Tutorial – automatizar builds de imagem de contêiner – Tarefas do Registro de Contêiner do Azure
+title: Tutorial – Criar imagem no commit de código – Tarefas do Registro de Contêiner do Azure
 description: Neste tutorial, você aprenderá a configurar uma Tarefa de Registro de Contêiner do Azure para disparar builds de imagem de contêiner automaticamente na nuvem quando você confirmar o código-fonte em um repositório Git.
 services: container-registry
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 25a0ef528d67deb5ea71720d2ff8e4d62b3b98a5
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d01863979f4cf74d544ef2b1ff121022abb8d4f6
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744561"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931424"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar builds de imagem de contêiner na nuvem ao confirmar o código-fonte
 

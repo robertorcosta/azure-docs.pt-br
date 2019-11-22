@@ -1,5 +1,5 @@
 ---
-title: Configurar o Apache Kafka no HDInsight com o portal do Azure – Início Rápido
+title: 'Início Rápido: Configurar o Apache Kafka no HDInsight com o portal do Azure'
 description: Neste início rápido, você aprenderá a criar um cluster Apache Kafka no Azure HDInsight usando o Portal do Azure. Você também aprenderá sobre tópicos, assinantes e consumidores de Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 06/12/2019
-ms.openlocfilehash: f11cbdab59548906f751116a2ca7b9c545b25d91
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 10/01/2019
+ms.openlocfilehash: e253d168fadd5aff46e70ba00a4021415c0ea6f7
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677876"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242046"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Início Rápido: Criar cluster do Apache Kafka no Azure HDInsight usando o portal do Azure
 
@@ -72,7 +72,7 @@ Para criar um Apache Kafka no cluster do HDInsight, use as seguintes etapas:
     |Conta de armazenamento primária|Use a lista suspensa para selecionar uma conta de armazenamento existente ou selecione **Criar**. Se você criar uma conta, o nome deverá ter entre 3 e 24 caracteres e poderá incluir apenas números e letras minúsculas|
     |Contêiner|Use o valor preenchido automaticamente.|
 
-    ![HDInsight para Linux - Introdução ao fornecimento de valores de armazenamento de cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Fornecer valores de armazenamento para a criação de um cluster HDInsight")
+    ![Introdução ao HDInsight Linux, fornecer valores de armazenamento de cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Fornecer valores de armazenamento para criar um cluster do HDInsight")
 
     Selecione a guia **Segurança + rede**.
 
@@ -111,24 +111,24 @@ Para criar um Apache Kafka no cluster do HDInsight, use as seguintes etapas:
 3. Quando solicitado, insira a senha do usuário SSH.
 
     Após a conexão, você verá informações semelhantes ao seguinte texto:
-    
+
     ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     83 packages can be updated.
     37 updates are security updates.
 
 
     Welcome to Apache Kafka on HDInsight.
-    
+
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
     ```
 
@@ -144,29 +144,31 @@ Nesta seção, você obtém as informações do host da API REST do Apache Ambar
     sudo apt -y install jq
     ```
 
-2. Configurar variáveis de ambiente. Substitua `PASSWORD` e `CLUSTERNAME` pela senha de logon do cluster e pelo nome do cluster, respectivamente, e digite o comando:
+1. Configurar variável de senha. Substitua `PASSWORD` pela senha de logon do cluster e insira o comando:
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-3. Extraia o nome do cluster com grafia correta de maiúsculas e minúsculas. A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá a grafia de maiúsculas e minúsculas real, a armazenará em uma variável e, em seguida, exibirá o nome com grafia correta de maiúsculas e minúsculas e o nome fornecido anteriormente. Digite o seguinte comando:
+1. Extraia o nome do cluster com grafia correta de maiúsculas e minúsculas. A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá a grafia de maiúsculas e minúsculas real e a armazenará em uma variável. Digite o seguinte comando:
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > Se você estiver realizando esse processo de fora do cluster, haverá um procedimento diferente para armazenar o nome do cluster. Obtenha o nome do cluster em letras minúsculas do portal do Azure. Em seguida, substitua o nome do cluster por `<clustername>` no comando a seguir e execute-o: `export clusterName='<clustername>'`.
 
-4. Para definir uma variável de ambiente com informações de host Zookeeper, use o comando especificado abaixo. O comando recupera todos os hosts Zookeeper e retorna apenas as duas primeiras entradas. Isso ocorre porque você deseja certa redundância no caso de um host ficar inacessível.
+
+1. Para definir uma variável de ambiente com informações de host Zookeeper, use o comando especificado abaixo. O comando recupera todos os hosts Zookeeper e retorna apenas as duas primeiras entradas. Isso ocorre porque você deseja certa redundância no caso de um host ficar inacessível.
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
     ```
 
-    Este comando consulta diretamente o serviço do Ambari no nó de cabeçalho do cluster. Também é possível acessar o Ambari usando o endereço público de `https://$CLUSTERNAME.azurehdinsight.net:80/`. Algumas configurações de rede podem impedir o acesso ao endereço público. Por exemplo, usar NSG (Grupos de Segurança de Rede) para restringir o acesso ao HDInsight em uma rede virtual.
+    > [!Note]  
+    > Este comando requer acesso do Ambari. Se o cluster estiver atrás de um NSG, execute esse comando em um computador que possa acessar o Ambari. 
 
-5. Para verificar se a variável de ambiente é definida corretamente, use o seguinte comando:
+1. Para verificar se a variável de ambiente é definida corretamente, use o seguinte comando:
 
     ```bash
     echo $KAFKAZKHOSTS
@@ -176,15 +178,18 @@ Nesta seção, você obtém as informações do host da API REST do Apache Ambar
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-6. Para definir uma variável de ambiente com informações de host agente do Apache Kafka, use o seguinte comando:
+1. Para definir uma variável de ambiente com informações de host agente do Apache Kafka, use o seguinte comando:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-7. Para verificar se a variável de ambiente é definida corretamente, use o seguinte comando:
+    > [!Note]  
+    > Este comando requer acesso do Ambari. Se o cluster estiver atrás de um NSG, execute esse comando em um computador que possa acessar o Ambari. 
 
-    ```bash   
+1. Para verificar se a variável de ambiente é definida corretamente, use o seguinte comando:
+
+    ```bash
     echo $KAFKABROKERS
     ```
 

@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 489b5e62-85c2-45c9-8766-326632d48114
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 25e223fc9e8222441e70fefb3c21f951b0ba06c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f1aca75045f674fa45f5ad00c14a37c1abe7aea
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096626"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Active Directory do Azure ao Mozy Enterprise
 
@@ -129,11 +130,11 @@ Para configurar o logon único do Azure AD com o Mozy Enterprise, realize as seg
 
 2. Na seção **Configuração**, clique em **Política de Autenticação**.
    
-    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777314.png "Política de autenticação")
+    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777314.png "Política de Autenticação")
 
 3. Na seção **Política de Autenticação** , realize as seguintes etapas:
    
-    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777315.png "Política de autenticação")
+    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777315.png "Política de Autenticação")
    
     a. Selecione **Serviço de Diretório** como **Provedor**.
    
@@ -251,5 +252,5 @@ Ao clicar no bloco do Mozy Enterprise no Painel de Acesso, você deverá ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

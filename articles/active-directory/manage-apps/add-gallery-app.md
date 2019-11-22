@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdf275bbafa9c46cfc4577ac2843da0be74c7ef
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477276"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062659"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Adicionar um aplicativo da galeria à sua organização do Azure AD
 
@@ -34,27 +34,30 @@ O Azure AD (Azure Active Directory) tem uma galeria que contém milhares de apli
 
 1. No painel do **Azure Active Directory**, selecione **Aplicativos empresariais**.
 
-    ![Abrir aplicativos empresariais](media/add-application-portal/open-enterprise-apps.png)
+    ![Abrir aplicativos empresariais](media/add-gallery-app/open-enterprise-apps.png)
 
-1. Selecione **Novo aplicativo**.
 
-    ![Novo aplicativo](media/add-application-portal/new-application.png)
+3. Para adicionar um aplicativo da galeria ao seu locatário, selecione **Novo aplicativo**.
 
-1. Em **Adicionar por meio da galeria**, na caixa de pesquisa, insira o nome do aplicativo que deseja adicionar. 
+    ![Selecione Novo aplicativo para adicionar um aplicativo da galeria ao seu locatário](media/add-gallery-app/new-application.png)
 
-    ![Pesquisar por nome ou categoria](media/add-application-portal/categories.png)
+ 4. Mude para a nova experiência de versão prévia da galeria: Na faixa na parte superior da **página Adicionar um aplicativo**, selecione o link que diz **Clique aqui para experimentar a galeria de aplicativos nova e aprimorada**.
 
-1. Selecione o aplicativo nos resultados.
+5. O painel **Procurar na Galeria do Azure AD** é aberto e exibe blocos de aplicativos para plataformas de nuvem, aplicativos locais e aplicativos em destaque. Observe que os aplicativos listados na seção **Aplicativos em destaque** têm ícones que indicam se eles dão suporte ao SSO (logon único) federado e ao provisionamento.
 
-1. (Opcional) No formulário específico do aplicativo, você pode editar o nome do aplicativo de acordo com as necessidades de sua organização.
+    ![Pesquisar por um aplicativo por nome ou categoria](media/add-gallery-app/browse-gallery.png)
 
-1. Selecione **Adicionar**. A página **Visão Geral** do aplicativo será aberta.
+6. Procure na galeria pelo aplicativo que você deseja adicionar ou pesquise-o inserindo seu nome na caixa de pesquisa. Em seguida, selecione o aplicativo entre os resultados. (Opcional) No formulário, você pode editar o nome do aplicativo para atender às necessidades de sua organização.
+
+    ![Mostra como adicionar um aplicativo da galeria](media/add-gallery-app/create-application.png)
+
+7. Selecione **Criar**. Uma página de introdução é exibida com as opções para configurar o aplicativo para a organização.
 
 ## <a name="configure-user-sign-in-properties"></a>Configurar propriedades de logon do usuário
 
 1. Selecione **Propriedades** para abrir o painel de propriedades para edição.
 
-    ![Editar painel de propriedades](media/add-application-portal/edit-properties.png)
+    ![Editar painel de propriedades](media/add-gallery-app/edit-properties.png)
 
 1. Defina as opções a seguir para determinar como os usuários atribuídos ou não atribuídos ao aplicativo podem entrar no aplicativo e se um usuário pode ver o aplicativo no Painel de Acesso.
 
@@ -94,7 +97,7 @@ O Azure AD (Azure Active Directory) tem uma galeria que contém milhares de apli
 
 1. Para usar um logotipo personalizado, crie um logotipo de 215 x 215 pixels e salve-o no formato PNG. Em seguida, procure o logotipo e carregue-o.
 
-    ![Alterar o logotipo](media/add-application-portal/change-logo.png)
+    ![Alterar o logotipo](media/add-gallery-app/change-logo.png)
 
 1. Quando terminar, selecione **Salvar**.
 

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8b61bc01e729472c140253f8f936b6ec0dd1b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0b52a56f51e4dcf5f27eddcd68ff17973df21c0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104243"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159228"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Azure Active Directory com o Deputy
 
@@ -258,11 +259,11 @@ Para permitir que os usuários do Azure AD façam logon no Deputy, eles devem se
 
 3. Clique no botão **Adicionar Pessoas** e em **Adicionar uma única pessoa**.
    
-    ![Adicionar Pessoas](./media/deputy-tutorial/tutorial_deputy_002.png "Adicionar Pessoas")
+    ![Adicionar Pessoas](./media/deputy-tutorial/tutorial_deputy_002.png "Adicionar pessoas")
 
 4. Execute as etapas a seguir e clique em **Salvar e Convidar**.
    
-    ![Novo Usuário](./media/deputy-tutorial/tutorial_deputy_003.png "Novo Usuário")
+    ![Novo usuário](./media/deputy-tutorial/tutorial_deputy_003.png "Novo Usuário")
 
     a. Na caixa de texto **Nome**, digite o nome do usuário como **BrendaFernandes**.
    
@@ -286,5 +287,5 @@ Ao clicar no bloco do Deputy no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

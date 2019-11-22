@@ -1,22 +1,19 @@
 ---
-title: Criar um dispositivo de rede virtual de hub com Terraform no Azure
+title: Tutorial – Criar um dispositivo de rede virtual de hub no Azure usando o Terraform
 description: O tutorial implementa a criação da VNet do hub que atua como um ponto de conexão comum entre todas as outras redes
-services: terraform
-ms.service: azure
-keywords: terraform, hub e spoke, redes, redes híbridas, devops, máquina virtual, azure, emparelhamento VNet, hub-spoke, hub.
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 1fae21e9a60f533533607e74609853ef68348daf
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 5696ee20f6f306d45c5d7ba04552b9206f2a5429
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173406"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969366"
 ---
-# <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>Tutorial: Criar um dispositivo de rede virtual de hub com Terraform no Azure
+# <a name="tutorial-create-a-hub-virtual-network-appliance-in-azure-using-terraform"></a>Tutorial: Criar um dispositivo de rede virtual de hub no Azure usando o Terraform
 
 Um **dispositivo VPN** é um dispositivo que fornece conectividade externa a uma rede local. O dispositivo VPN pode ser um dispositivo de hardware ou uma solução de software. Um exemplo de uma solução de software é o RRAS (serviço de roteamento e acesso remoto) no Windows Server 2012. Para obter mais informações sobre dispositivos VPN, consulte [Sobre dispositivos VPN para conexões de Gateway de VPN site a site](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
@@ -58,7 +55,7 @@ Este tutorial cobre as seguintes tarefas:
 
 ## <a name="declare-the-hub-network-appliance"></a>Declarar o dispositivo de rede do hub
 
-Crie o arquivo de configuração do Terraform que declara a Rede Virtual Local.
+Crie o arquivo de configuração do Terraform que declara uma rede virtual local.
 
 1. No Cloud Shell, crie um novo arquivo nomeado `hub-nva.tf`.
 
@@ -77,37 +74,37 @@ Crie o arquivo de configuração do Terraform que declara a Rede Virtual Local.
 
     resource "azurerm_resource_group" "hub-nva-rg" {
       name     = "${local.prefix-hub-nva}-rg"
-      location = "${local.hub-nva-location}"
+      location = local.hub-nva-location
 
       tags {
-        environment = "${local.prefix-hub-nva}"
+        environment = local.prefix-hub-nva
       }
     }
 
     resource "azurerm_network_interface" "hub-nva-nic" {
       name                 = "${local.prefix-hub-nva}-nic"
-      location             = "${azurerm_resource_group.hub-nva-rg.location}"
-      resource_group_name  = "${azurerm_resource_group.hub-nva-rg.name}"
+      location             = azurerm_resource_group.hub-nva-rg.location
+      resource_group_name  = azurerm_resource_group.hub-nva-rg.name
       enable_ip_forwarding = true
 
       ip_configuration {
-        name                          = "${local.prefix-hub-nva}"
-        subnet_id                     = "${azurerm_subnet.hub-dmz.id}"
+        name                          = local.prefix-hub-nva
+        subnet_id                     = azurerm_subnet.hub-dmz.id
         private_ip_address_allocation = "Static"
         private_ip_address            = "10.0.0.36"
       }
 
       tags {
-        environment = "${local.prefix-hub-nva}"
+        environment = local.prefix-hub-nva
       }
     }
 
     resource "azurerm_virtual_machine" "hub-nva-vm" {
       name                  = "${local.prefix-hub-nva}-vm"
-      location              = "${azurerm_resource_group.hub-nva-rg.location}"
-      resource_group_name   = "${azurerm_resource_group.hub-nva-rg.name}"
-      network_interface_ids = ["${azurerm_network_interface.hub-nva-nic.id}"]
-      vm_size               = "${var.vmsize}"
+      location              = azurerm_resource_group.hub-nva-rg.location
+      resource_group_name   = azurerm_resource_group.hub-nva-rg.name
+      network_interface_ids = [azurerm_network_interface.hub-nva-nic.id]
+      vm_size               = var.vmsize
 
       storage_image_reference {
         publisher = "Canonical"
@@ -125,8 +122,8 @@ Crie o arquivo de configuração do Terraform que declara a Rede Virtual Local.
 
       os_profile {
         computer_name  = "${local.prefix-hub-nva}-vm"
-        admin_username = "${var.username}"
-        admin_password = "${var.password}"
+        admin_username = var.username
+        admin_password = var.password
       }
 
       os_profile_linux_config {
@@ -134,15 +131,15 @@ Crie o arquivo de configuração do Terraform que declara a Rede Virtual Local.
       }
 
       tags {
-        environment = "${local.prefix-hub-nva}"
+        environment = local.prefix-hub-nva
       }
     }
 
     resource "azurerm_virtual_machine_extension" "enable-routes" {
       name                 = "enable-iptables-routes"
-      location             = "${azurerm_resource_group.hub-nva-rg.location}"
-      resource_group_name  = "${azurerm_resource_group.hub-nva-rg.name}"
-      virtual_machine_name = "${azurerm_virtual_machine.hub-nva-vm.name}"
+      location             = azurerm_resource_group.hub-nva-rg.location
+      resource_group_name  = azurerm_resource_group.hub-nva-rg.name
+      virtual_machine_name = azurerm_virtual_machine.hub-nva-vm.name
       publisher            = "Microsoft.Azure.Extensions"
       type                 = "CustomScript"
       type_handler_version = "2.0"
@@ -157,14 +154,14 @@ Crie o arquivo de configuração do Terraform que declara a Rede Virtual Local.
     SETTINGS
 
       tags {
-        environment = "${local.prefix-hub-nva}"
+        environment = local.prefix-hub-nva
       }
     }
 
     resource "azurerm_route_table" "hub-gateway-rt" {
       name                          = "hub-gateway-rt"
-      location                      = "${azurerm_resource_group.hub-nva-rg.location}"
-      resource_group_name           = "${azurerm_resource_group.hub-nva-rg.name}"
+      location                      = azurerm_resource_group.hub-nva-rg.location
+      resource_group_name           = azurerm_resource_group.hub-nva-rg.name
       disable_bgp_route_propagation = false
 
       route {
@@ -188,20 +185,20 @@ Crie o arquivo de configuração do Terraform que declara a Rede Virtual Local.
       }
 
       tags {
-        environment = "${local.prefix-hub-nva}"
+        environment = local.prefix-hub-nva
       }
     }
 
     resource "azurerm_subnet_route_table_association" "hub-gateway-rt-hub-vnet-gateway-subnet" {
-      subnet_id      = "${azurerm_subnet.hub-gateway-subnet.id}"
-      route_table_id = "${azurerm_route_table.hub-gateway-rt.id}"
+      subnet_id      = azurerm_subnet.hub-gateway-subnet.id
+      route_table_id = azurerm_route_table.hub-gateway-rt.id
       depends_on = ["azurerm_subnet.hub-gateway-subnet"]
     }
 
     resource "azurerm_route_table" "spoke1-rt" {
       name                          = "spoke1-rt"
-      location                      = "${azurerm_resource_group.hub-nva-rg.location}"
-      resource_group_name           = "${azurerm_resource_group.hub-nva-rg.name}"
+      location                      = azurerm_resource_group.hub-nva-rg.location
+      resource_group_name           = azurerm_resource_group.hub-nva-rg.name
       disable_bgp_route_propagation = false
 
       route {
@@ -218,26 +215,26 @@ Crie o arquivo de configuração do Terraform que declara a Rede Virtual Local.
       }
 
       tags {
-        environment = "${local.prefix-hub-nva}"
+        environment = local.prefix-hub-nva
       }
     }
 
     resource "azurerm_subnet_route_table_association" "spoke1-rt-spoke1-vnet-mgmt" {
-      subnet_id      = "${azurerm_subnet.spoke1-mgmt.id}"
-      route_table_id = "${azurerm_route_table.spoke1-rt.id}"
+      subnet_id      = azurerm_subnet.spoke1-mgmt.id
+      route_table_id = azurerm_route_table.spoke1-rt.id
       depends_on = ["azurerm_subnet.spoke1-mgmt"]
     }
 
     resource "azurerm_subnet_route_table_association" "spoke1-rt-spoke1-vnet-workload" {
-      subnet_id      = "${azurerm_subnet.spoke1-workload.id}"
-      route_table_id = "${azurerm_route_table.spoke1-rt.id}"
+      subnet_id      = azurerm_subnet.spoke1-workload.id
+      route_table_id = azurerm_route_table.spoke1-rt.id
       depends_on = ["azurerm_subnet.spoke1-workload"]
     }
 
     resource "azurerm_route_table" "spoke2-rt" {
       name                          = "spoke2-rt"
-      location                      = "${azurerm_resource_group.hub-nva-rg.location}"
-      resource_group_name           = "${azurerm_resource_group.hub-nva-rg.name}"
+      location                      = azurerm_resource_group.hub-nva-rg.location
+      resource_group_name           = azurerm_resource_group.hub-nva-rg.name
       disable_bgp_route_propagation = false
 
       route {
@@ -254,19 +251,19 @@ Crie o arquivo de configuração do Terraform que declara a Rede Virtual Local.
       }
 
       tags {
-        environment = "${local.prefix-hub-nva}"
+        environment = local.prefix-hub-nva
       }
     }
 
     resource "azurerm_subnet_route_table_association" "spoke2-rt-spoke2-vnet-mgmt" {
-      subnet_id      = "${azurerm_subnet.spoke2-mgmt.id}"
-      route_table_id = "${azurerm_route_table.spoke2-rt.id}"
+      subnet_id      = azurerm_subnet.spoke2-mgmt.id
+      route_table_id = azurerm_route_table.spoke2-rt.id
       depends_on = ["azurerm_subnet.spoke2-mgmt"]
     }
 
     resource "azurerm_subnet_route_table_association" "spoke2-rt-spoke2-vnet-workload" {
-      subnet_id      = "${azurerm_subnet.spoke2-workload.id}"
-      route_table_id = "${azurerm_route_table.spoke2-rt.id}"
+      subnet_id      = azurerm_subnet.spoke2-workload.id
+      route_table_id = azurerm_route_table.spoke2-rt.id
       depends_on = ["azurerm_subnet.spoke2-workload"]
     }
 

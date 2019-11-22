@@ -1,20 +1,21 @@
 ---
-title: Tutorial - Crie um registro de alias do DNS do Azure para se referir a um registro de recurso na zona.
+title: 'Tutorial: Criar um registro de alias para se referir a um registro de recurso em uma zona'
+titleSuffix: Azure DNS
 description: Este tutorial mostra como configurar um registro de alias do DNS do Azure para fazer referência a um registro de recurso na zona.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 3b4ee688d6a5606ab6008b459fcf6331c24afaae
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: allensu
+ms.openlocfilehash: 59ffe9781d97880044da5eedbdf84181bf1b2fa1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091633"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082886"
 ---
-# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Tutorial: criar um registro de alias para se referir a um registro de recurso de zona
+# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Tutorial: Criar um registro de alias para se referir a um registro de recurso de zona
 
 Registros de alias podem referenciar outros conjuntos de registros do mesmo tipo. Por exemplo, você pode ter um conjunto de registros DNS CNAME como um alias para outro conjunto de registros CNAME do mesmo tipo. Essa funcionalidade é útil se você quer ter alguns conjuntos de registros como aliases e alguns como não aliases em termos de comportamento.
 
@@ -30,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 Você deve ter um nome de domínio disponível para hospedar no DNS do Azure para testar. Você deve ter controle total sobre esse domínio. Controle total inclui a capacidade de definir os registros NS (nomes de servidor) para o domínio.
 
-Para obter instruções para hospedar seu domínio no DNS do Azure, consulte [Tutorial: hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Para obter instruções para hospedar seu domínio no DNS do Azure, confira o [Tutorial: Hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
 
 ## <a name="create-an-alias-record"></a>Criar um registro de alias
@@ -38,7 +39,7 @@ Para obter instruções para hospedar seu domínio no DNS do Azure, consulte [Tu
 Crie um registro de alias que aponte para um registro de recurso na zona.
 
 ### <a name="create-the-target-resource-record"></a>Criar o registro de recurso de destino
-1. Selecione sua zona DNS do Azure para abri-la.
+1. Escolha sua zona DNS do Azure para abri-la.
 2. Selecione **Conjunto de registros**.
 3. Na caixa de texto **Nome**, insira **servidor**.
 4. Para o **tipo**, selecione **um**.
@@ -46,7 +47,7 @@ Crie um registro de alias que aponte para um registro de recurso na zona.
 6. Selecione **OK**.
 
 ### <a name="create-the-alias-record"></a>Crie o registro de alias
-1. Selecione sua zona DNS do Azure para abri-la.
+1. Escolha sua zona DNS do Azure para abri-la.
 2. Selecione **Conjunto de registros**.
 3. Na caixa de texto **Nome**, insira **teste**.
 4. Para o **tipo**, selecione **um**.
@@ -57,7 +58,7 @@ Crie um registro de alias que aponte para um registro de recurso na zona.
 ## <a name="test-the-alias-record"></a>Testar o registro de alias
 
 1. Inicie sua ferramenta nslookup favorita. Navegue até [https://network-tools.com/nslook](https://network-tools.com/nslook).
-2. Defina o tipo de consulta como registros A e pesquise **test.\<seu nome de domínio \>**. A resposta é **10.10.10.10**.
+2. Defina o tipo de consulta como registros A e pesquise **test.\<seu nome de domínio \>** . A resposta é **10.10.10.10**.
 3. No portal do Azure, altere o **server** um registro **10.11.11.11**.
 4. Aguarde alguns minutos e use o nslookup novamente para o registro de **teste**. A resposta é **10.11.11.11**.
 

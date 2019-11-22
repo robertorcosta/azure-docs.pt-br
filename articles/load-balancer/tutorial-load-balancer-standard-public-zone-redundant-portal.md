@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: VMs do balanceador de carga entre zonas de disponibilidade – portal do Azure'
+title: 'Tutorial: Balancear a carga das VMs entre zonas de disponibilidade – portal do Azure'
 titlesuffix: Azure Load Balancer
 description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end com redundância de zona para balancear a carga de VMs entre zonas de disponibilidade usando o portal do Azure
 services: load-balancer
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 5b024321a18c6dec4f56a7cbc12c5a8fa748f903
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 2079ec95b582ed724583112f7af4865af66eef9d
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273471"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048864"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
 

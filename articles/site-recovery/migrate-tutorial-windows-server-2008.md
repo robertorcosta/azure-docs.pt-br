@@ -1,19 +1,19 @@
 ---
-title: Migrar servidores locais do Windows Server 2008 no Azure com o Azure Site Recovery | Microsoft Docs
+title: Migrar servidores Windows Server 2008 para o Azure com o Azure Site Recovery
 description: Este artigo descreve como migrar computadores locais do Windows Server 2008 para o Azure usando o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d0d5c482e2faf5e4a2c2918a64bd56e4aa814323
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814506"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936135"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores que executam o Windows Server 2008 para o Azure
 

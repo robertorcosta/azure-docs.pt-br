@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50056e6b201313805e7b9253e7a962e096b9df65
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: bcec326ddab1e74f43e1bb7ef446998a40799fd0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372985"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043568"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Veracode
 
@@ -31,69 +31,66 @@ Neste tutorial, você aprenderá a integrar o Veracode ao Azure AD (Azure Active
 * Permitir que os usuários sejam conectados automaticamente ao Veracode com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do Veracode.
+* Assinatura do Veracode habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Veracode dá suporte ao SSO iniciado pelo provedor de identidade e ao provisionamento do usuário Just-in-Time.
 
-* O Veracode dá suporte ao SSO iniciado por **IDP**
-* O Veracode é compatível com o provisionamento de usuário **Just-In-Time**
+## <a name="add-veracode-from-the-gallery"></a>Adicionar o Veracode da galeria
 
-## <a name="adding-veracode-from-the-gallery"></a>Adicionando o Veracode da galeria
+Para configurar a integração do Veracode ao Azure AD, adicione o Veracode da galeria à sua lista de aplicativos SaaS gerenciados.
 
-Para configurar a integração do Veracode ao Azure AD, você precisará adicionar o Veracode da galeria à sua lista de aplicativos SaaS gerenciados.
-
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **Veracode** na caixa de pesquisa.
+1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite "Veracode" na caixa de pesquisa.
 1. Selecione **Veracode** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-veracode"></a>Configurar e testar o logon único do Azure AD para o Veracode
 
-Configure e teste o SSO do Azure AD com o Veracode usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Veracode.
+Configure e teste o SSO do Azure AD com o Veracode usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer um vínculo entre um usuário do Azure AD e o usuário relacionado do Veracode.
 
 Para configurar e testar o SSO do Azure AD com o Veracode, conclua os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configure o SSO do Azure AD](#configure-azure-ad-sso)** para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B. Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** para permitir que B. Fernandes use o logon único do Azure AD.
 1. **[Configurar o SSO do Veracode](#configure-veracode-sso)** – para definir as configurações de logon único no lado do aplicativo.
     * **[Criar um usuário de teste do Veracode](#create-veracode-test-user)** – para ter um equivalente de B.Fernandes no Veracode que esteja vinculado à representação de usuário do Azure AD.
-1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
+1. **[Teste o SSO](#test-sso)** para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Veracode**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Veracode**, localize a seção **Gerenciar**. Selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
 
-   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+   ![Captura de tela da página Configurar o logon único com o SAML, com o ícone de lápis realçado](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
+1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente com o Azure. Clique em **Salvar**.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar logon único com o SAML**, na seção **Certificado de Autenticação do SAML**, localize **Certificado (Base64)** . Selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
 
-    ![O link de download do Certificado](common/certificatebase64.png)
+    ![Captura de tela da seção Certificado de Autenticação SAML, com o link Download realçado](common/certificatebase64.png)
 
-1. O aplicativo Veracode espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+1. O Veracode espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/default-attributes.png)
+    ![Captura de tela da seção Atributos do Usuário e Declarações](common/default-attributes.png)
 
-1. Além do indicado acima, o aplicativo Veracode espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
+1. O Veracode também espera que mais alguns atributos sejam passados de volta na resposta SAML. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
 
-    | NOME | Atributo de Origem|
+    | NOME | Atributo de origem|
     | ---------------| --------------- |
     | nome |User.givenname |
     | sobrenome |User.surname |
@@ -101,31 +98,31 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configurar o Veracode**, copie as URLs apropriadas de acordo com suas necessidades.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![Captura de tela da seção Configurar Veracode, com URLs de configuração realçadas](common/copy-configuration-urls.png)
 
 ## <a name="configure-veracode-sso"></a>Configurar o SSO do Veracode
 
 1. Em uma janela diferente do navegador da Web, entre no site da sua empresa do Veracode como administrador.
 
-1. No menu na parte superior, clique em **Configurações** e em **Administrador**.
+1. No menu na parte superior, selecione **Configurações** > **Administrador**.
    
-    ![Administração](./media/veracode-tutorial/ic802911.png "Administração")
+    ![Captura de tela da Administração do Veracode, com o ícone de Configurações e o Administrador realçados](./media/veracode-tutorial/ic802911.png "Administração")
 
-1. Clique na guia **SAML** .
+1. Selecione a guia **SAML**.
 
 1. Na seção **Configurações do SAML da Organização** , realize as seguintes etapas:
 
-    ![Administração](./media/veracode-tutorial/ic802912.png "Administração")
+    ![Captura de tela da seção Configurações de SAML da Organização](./media/veracode-tutorial/ic802912.png "Administração")
 
-    a.  Na caixa de texto **Emissor**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
+    a.  Para o **Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    b. Para carregar seu certificado baixado do Portal do Azure, clique em **Escolher Arquivo**.
+    b. Para **Certificado de Autenticação de Declaração**, selecione **Escolher Arquivo** para carregar o certificado baixado do portal do Azure.
 
-    c. Selecione **Habilitar Autorregistro**.
+    c. Para **Autoregistro**, selecione **Habilitar Autoregistro**.
 
-1. Na seção **Configurações de Autorregistro**, realize as seguintes etapas e clique em **Salvar**:
+1. Na seção **Configurações de Autorregistro**, realize as seguintes etapas e selecione **Salvar**:
 
-    ![Administração](./media/veracode-tutorial/ic802913.png "Administração")
+    ![Captura de tela da seção de Configurações de Autorregistro, com várias opções realçadas](./media/veracode-tutorial/ic802913.png "Administração")
 
     a. Para **Ativação de Novo Usuário**, selecione **Sem Ativação Necessária**.
 
@@ -147,35 +144,36 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** >**Usuários** > **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
 1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Clique em **Criar**.
+
+   1. Para **Nome**, insira `B.Simon`.  
+   1. Para **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione **Mostrar senha** e anote o valor da senha mostrada.
+   1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao Veracode.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Veracode**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+   ![Captura de tela da seção Gerenciar, com Usuários e grupos realçados](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Selecione **Adicionar usuário**. Na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
-    ![O link Adicionar Usuário](common/add-assign-user.png)
+    ![Captura de tela da página Usuários e grupos, com a função Adicionar usuário destacada](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, em **Usuários**, selecione **B.Fernandes**. Em seguida, escolha **Selecionar** na parte inferior da tela.
+1. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Em seguida, escolha **Selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
 
 ### <a name="create-veracode-test-user"></a>Criar usuário de teste do Veracode
 
-Para permitir que os usuários do AD do Azure façam logon no Veracode, eles devem ser provisionados no Veracode. No caso do Veracode, o provisionamento é uma tarefa automatizada. Não há nenhum item de ação para você. Os usuários são criados automaticamente, se necessário, durante a primeira tentativa de logon único.
+Para entrar no Veracode, os usuários do Azure AD precisam ser provisionados no Veracode. Essa tarefa é automatizada e você não precisa fazer nada manualmente. Os usuários são criados automaticamente, se necessário, durante a primeira tentativa de logon único.
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do Veracode ou APIs fornecidas pelo Veracode para provisionar as contas de usuário do Azure AD.
@@ -184,11 +182,11 @@ Para permitir que os usuários do AD do Azure façam logon no Veracode, eles dev
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Veracode no Painel de Acesso, você deverá ser conectado automaticamente ao Veracode no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o **Veracode** no Painel de Acesso, você deverá ser conectado automaticamente ao Veracode no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS ao Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

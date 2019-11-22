@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar clusters do Apache Hadoop usando o Resource Manager – Azure HDInsight'
+title: 'Início Rápido: Apache Hadoop e Resource Manager – Azure HDInsight'
 description: Neste início rápido, você cria um cluster do Apache Hadoop no Azure HDInsight usando o modelo do Resource Manager
 keywords: introdução ao hadoop, hadoop linux, início rápido do hadoop, introdução ao hive, início rápido do hive
 ms.service: hdinsight
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 6c4ff1df0ec56339721b3cdab9bb62b0ee8ba94f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: b554fcd4d4175aeac88df14eebbbaf4a8ba49f4c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067684"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044793"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Início Rápido: Criar um cluster do Apache Hadoop no Azure HDInsight usando o modelo do Resource Manager
 
@@ -50,7 +50,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
     > [!NOTE]  
     > Os valores fornecidos devem ser exclusivos e seguir as diretrizes de nomenclatura. O modelo não executa verificações de validação. Se os valores que você fornecer já estiverem em uso ou não seguirem as diretrizes, você receberá um erro após o envio do modelo.  
 
-    ![HDInsight para Linux – Introdução ao modelo do Resource Manager no portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Implantar o cluster Hadoop no HDInsight usando o portal do Azure e um modelo do Resource Manager")
+    ![Introdução ao HDInsight Linux, modelo do Resource Manager no portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Implantar o cluster Hadoop no HDInsight usando o portal do Azure e um modelo de gerenciador de grupo de recursos")
 
 3. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar**. Você receberá uma notificação de que sua implantação está em andamento.  Demora cerca de 20 minutos para criar um cluster.
 
@@ -70,7 +70,7 @@ Após concluir o início rápido, poderá ser conveniente excluir o cluster. Com
 
 1. Volte para a guia do navegador onde você tem o portal do Azure. Você deve estar na página de visão geral do cluster. Se você quiser apenas excluir o cluster, mas manter a conta de armazenamento padrão, selecione **Excluir**.
 
-    ![Excluir cluster HDInsight do portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "HDInsight delete cluster from portal")
+    ![Excluir cluster do HDInsight do portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "Excluir cluster do HDInsight do portal")
 
 2. Se você quiser excluir o cluster, bem como a conta de armazenamento padrão, selecione o nome do grupo de recursos (realçado na captura de tela anterior) para abrir a página do grupo de recursos.
 

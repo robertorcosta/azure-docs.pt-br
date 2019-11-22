@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Balancear a carga de máquinas virtuais do Windows no Azure | Microsoft Docs
+title: Tutorial – Balancear a carga de máquinas virtuais do Windows no Azure
 description: Neste tutorial, você aprenderá a usar o Azure PowerShell para criar um balanceador de carga para um aplicativo altamente disponível e seguro em três máquinas virtuais do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe202712f5e269950b64046453867bd23d18a9ab
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 05a796d7bbe08f8e560c6545f3ed37c0f54b9cf9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100218"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067857"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Tutorial: Balancear a carga de máquinas virtuais do Windows no Azure para criar um aplicativo altamente disponível com o Azure PowerShell
 O balanceamento de carga fornece um nível mais alto de disponibilidade, distribuindo as solicitações de entrada em várias máquinas virtuais. Neste tutorial, você aprenderá sobre os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e fornecem alta disponibilidade. Você aprenderá como:

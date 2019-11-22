@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d7d2ad6adefb83c3c313063a9e630458ccebc5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 07c1d6e3c622a76a1e625962ad5f08d414ad8cef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851762"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175050"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade do dispositivo?
 
@@ -30,7 +30,7 @@ Para proteger esses ativos, a equipe de TI precisa primeiro gerenciar as identid
 - Seus usuários podem obter acesso aos ativos da organização de que precisam. 
 - A equipe de TI obtém os controles de que precisam para proteger sua organização.
 
-O gerenciamento de identidade de dispositivos também é a base para o [acesso condicional com base em dispositivos](../conditional-access/require-managed-devices.md). Com as políticas de acesso condicional baseadas em dispositivos, é possível garantir que o acesso a recursos em seu ambiente seja feita apenas por dispositivos gerenciados.
+O gerenciamento de identidades do dispositivo também é a base para o [Acesso Condicional com base em dispositivos](../conditional-access/require-managed-devices.md). Com as políticas de Acesso Condicional baseadas em dispositivos, é possível garantir que o acesso a recursos em seu ambiente seja feita apenas por dispositivos gerenciados.
 
 ## <a name="getting-devices-in-azure-ad"></a>Obter dispositivos no Azure AD
 
@@ -94,4 +94,4 @@ Com o gerenciamento de identidade do dispositivo no Azure AD, é possível:
 - Saiba mais sobre [dispositivos ingressados no Azure AD](concept-azure-ad-join.md)
 - Saiba mais sobre [dispositivos ingressados no Azure AD híbrido](concept-azure-ad-join-hybrid.md)
 - Confira uma visão geral de como gerenciar identidades de dispositivo no portal do Azure em [Gerenciar identidades de dispositivo usando o portal do Azure](device-management-azure-portal.md).
-- Para saber mais sobre o acesso condicional baseado em dispositivo, confira [Configurar as políticas de acesso condicional com base em dispositivo do Azure Active Directory](../conditional-access/require-managed-devices.md).
+- Para saber mais sobre o acesso condicional baseado em dispositivo, confira [Configurar as políticas de Acesso Condicional com base em dispositivo do Azure Active Directory](../conditional-access/require-managed-devices.md).

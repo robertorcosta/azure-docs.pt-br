@@ -1,5 +1,6 @@
 ---
-title: Tutorial – Criar um gateway de aplicativo que hospeda vários sites usando a portal do Azure
+title: 'Tutorial: Hospedar vários sites usando o portal do Azure'
+titleSuffix: Azure Application Gateway
 description: Neste tutorial, você aprenderá a criar um gateway de aplicativo que hospede vários sites usando o portal do Azure.
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
-ms.openlocfilehash: 73a313a6244971b65ba89fb7b676610d88acabfa
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498445"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075142"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar um gateway de aplicativo para hospedar vários sites web usando o portal do Azure.
 
@@ -219,7 +220,7 @@ Depois de criar o gateway de aplicativo com seu endereço IP público, é possí
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-1. Digite seu nome de domínio na barra de endereços do navegador. Como http://www.contoso.com.
+1. Digite seu nome de domínio na barra de endereços do navegador. Como `http://www.contoso.com`.
 
     ![Testar o site contoso no gateway do aplicativo](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 

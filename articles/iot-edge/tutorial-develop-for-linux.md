@@ -1,20 +1,20 @@
 ---
-title: Desenvolver módulo para dispositivos Linux – Azure IoT Edge | Microsoft Docs
+title: 'Tutorial: Desenvolver módulo para dispositivos Linux – Azure IoT Edge'
 description: Este tutorial explica como configurar os recursos de nuvem e de computador de desenvolvimento para desenvolver módulos do IoT Edge usando contêineres do Linux para dispositivos Linux
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a523028fb312f030bc453692daceb0f254f844b6
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 01ca118348b3a084c97182338bf656da83d52cb4
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240960"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114047"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Linux
 
@@ -150,7 +150,7 @@ Depois que a nova solução for carregada na janela do Visual Studio Code, aguar
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Forneça suas credenciais de Registro para o agente do IoT Edge
 
-O arquivo do ambiente armazena as credenciais para o registro de contêiner e as compartilha com o tempo de execução do IoT Edge. O tempo de execução precisa dessas credenciais para efetuar pull de suas imagens de contêiner para o dispositivo IoT Edge. 
+O arquivo do ambiente armazena as credenciais para o registro de contêiner e as compartilha com o runtime do IoT Edge. O runtime precisa dessas credenciais para efetuar pull de suas imagens de contêiner para o dispositivo IoT Edge. 
 
 A extensão do IoT Edge tenta efetuar pull de suas credenciais de Registro de Contêiner do Azure e as popula no arquivo de ambiente. Verifique se suas credenciais já estão incluídas. Caso contrário, adicione-as agora:
 
@@ -284,7 +284,7 @@ Você verificou que as imagens de contêineres criadas estão armazenadas em seu
 
 5. Use o botão de atualização para atualizar a exibição do dispositivo até ver os módulos SimulatedTemperatureSensor e SampleModule em execução em seu dispositivo. 
 
-   Pode levar alguns minutos para que os dois módulos sejam iniciados. O tempo de execução do IoT Edge precisa receber seu novo manifesto de implantação, obter as imagens de módulo do tempo de execução do contêiner e iniciar cada novo módulo. 
+   Pode levar alguns minutos para que os dois módulos sejam iniciados. O runtime do IoT Edge precisa receber seu novo manifesto de implantação, obter as imagens de módulo do runtime do contêiner e iniciar cada novo módulo. 
 
    ![Exibir módulos em execução em seu dispositivo IoT Edge](./media/tutorial-develop-for-linux/view-running-modules.png)
 
@@ -300,7 +300,7 @@ O código SampleModule recebe mensagens por meio de sua fila de entrada e as pas
 
 ## <a name="view-changes-on-device"></a>Exibir alterações no dispositivo
 
-Se desejar ver o que está acontecendo no seu próprio dispositivo, use os comandos nesta seção para inspecionar o tempo de execução do IoT Edge e os módulos em execução em seu dispositivo. 
+Se desejar ver o que está acontecendo no seu próprio dispositivo, use os comandos nesta seção para inspecionar o runtime do IoT Edge e os módulos em execução em seu dispositivo. 
 
 Os comandos nesta seção são para seu dispositivo IoT Edge, não para seu computador de desenvolvimento. Se estiver usando uma máquina virtual para seu dispositivo IoT Edge, conecte-se a ela agora. No Azure, acesse a página de visão geral da máquina virtual e selecione **Conectar** para acessar a conexão de shell segura. 
 
@@ -310,7 +310,7 @@ Os comandos nesta seção são para seu dispositivo IoT Edge, não para seu comp
    iotedge list
    ```
 
-   Você deverá ver quatro módulos: os dois módulos de tempo de execução do IoT Edge, o SimulatedTemperatureSensor e o SampleModule. Todos os quatro devem estar listados como em execução.
+   Você deverá ver quatro módulos: os dois módulos de runtime do IoT Edge, o SimulatedTemperatureSensor e o SampleModule. Todos os quatro devem estar listados como em execução.
 
 * Inspecione os logs para ver se há um módulo específico:
 

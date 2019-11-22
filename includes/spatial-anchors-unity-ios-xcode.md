@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562498"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933493"
 ---
 Selecione **Compilar**. Na caixa de diálogo que é aberta, selecione uma pasta para exportar o projeto Xcode.
 
@@ -33,7 +33,7 @@ open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Se um erro `library not found for -lPods-Unity-iPhone` é exibido, provavelmente, você abriu o arquivo `.xcodeproj` em vez do arquivo `.xcworkspace`. 
+> Confira as etapas de solução de problemas [aqui](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015) se estiver enfrentado problemas com o CocoaPod após atualizar para o macOS Catalina (10.15).
 
 Selecione o nó raiz **Unity-iPhone** para exibir as configurações do projeto e, em seguida, selecione a guia **Geral**.
 
@@ -50,3 +50,6 @@ Conecte o dispositivo iOS ao Mac e defina o **esquema ativo** como o dispositivo
 Selecione **Compilar e, em seguida, executar o esquema atual**.
 
 ![Implantar e executar](./media/spatial-anchors-unity/deploy-run.png)
+
+> [!NOTE]
+> Se um erro `library not found for -lPods-Unity-iPhone` é exibido, provavelmente, você abriu o arquivo `.xcodeproj` em vez do arquivo `.xcworkspace`.

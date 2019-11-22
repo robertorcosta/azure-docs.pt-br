@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/14/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 7075e127192635c08aa2da2b4798dea6d6abb13b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f027926a7b90ac99b04456ad3635466a6e27655
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639422"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968788"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Fazer backup de uma máquina virtual no Azure com o modelo do Resource Manager
 

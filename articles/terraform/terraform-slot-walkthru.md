@@ -1,26 +1,23 @@
 ---
-title: Terraform com slots de implantação de provedor do Azure
+title: Tutorial - Usando Terraform para provisionar infraestrutura com slots de implantação do Azure
 description: Tutorial sobre como usar o Terraform com slots de implantação de provedor do Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, máquina virtual, Azure, slots de implantação
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 11/07/2019
+ms.openlocfilehash: 0bfd10325f1a62e74f0d3573f052d114069491a3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169816"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838054"
 ---
-# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Usar o Terraform para provisionar a infraestrutura com slots de implantação do Azure
+# <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Tutorial: Usando Terraform para provisionar infraestrutura com slots de implantação do Azure
 
 É possível usar os [slots de implantação do Azure](/azure/app-service/deploy-staging-slots) para alternar entre diferentes versões do aplicativo. Essa capacidade ajuda a minimizar o impacto de implantações interrompidas. 
 
-Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela implantação de dois aplicativos por meio de GitHub e Azure. Um aplicativo está hospedado em um slot de produção. O segundo aplicativo está hospedado em um slot de teste. (Os nomes "produção" e "preparação" são arbitrários e podem ser qualquer coisa desejada que represente seu cenário.) Após configurar os slots de implantação, você poderá usar o Terraform para alternar entre os dois slots, conforme necessário.
+Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela implantação de dois aplicativos por meio de GitHub e Azure. Um aplicativo está hospedado em um slot de produção. O segundo aplicativo está hospedado em um slot de teste. (Os nomes "produção" e "preparo" são arbitrários. Eles podem ser qualquer um que seja apropriado para seu cenário.) Após configurar os slots de implantação, você usa o Terraform para alternar entre os dois slots, conforme necessário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,13 +61,11 @@ Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela
     cd deploy
     ```
 
-1. Usando o [editor vi](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), crie um arquivo nomeado `deploy.tf`. Este arquivo conterá a [configuração do Terraform](https://www.terraform.io/docs/configuration/index.html).
+1. No Cloud Shell, crie um arquivo chamado `deploy.tf`.
 
     ```bash
-    vi deploy.tf
+    code deploy.tf
     ```
-
-1. Entre no modo de inserção selecionando a tecla I.
 
 1. Cole o código a seguir no editor:
 
@@ -85,8 +80,8 @@ Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela
 
     resource "azurerm_app_service_plan" "slotDemo" {
         name                = "slotAppServicePlan"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
         sku {
             tier = "Standard"
             size = "S1"
@@ -95,27 +90,21 @@ Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela
 
     resource "azurerm_app_service" "slotDemo" {
         name                = "slotAppService"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
     }
 
     resource "azurerm_app_service_slot" "slotDemo" {
         name                = "slotAppServiceSlotOne"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-        app_service_name    = "${azurerm_app_service.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
+        app_service_name    = azurerm_app_service.slotDemo.name
     }
     ```
 
-1. Selecione a tecla Esc para sair do modo de inserção.
-
-1. Salve o arquivo e saia do editor vi, inserindo o comando a seguir:
-
-    ```bash
-    :wq
-    ```
+1. Salve o arquivo ( **&lt;Ctrl>S**) e saia do editor ( **&lt;Ctrl>Q**).
 
 1. Agora que você criou o arquivo, verifique o conteúdo.
 
@@ -207,7 +196,7 @@ Após criar fork do repositório do projeto de teste, configure os slots de impl
 
 1. Na guia **Opção de implantação**, selecione **OK**.
 
-Neste ponto, você implantou o slot de produção. Para implantar o slot de preparo, execute todas as etapas anteriores nesta seção apenas com as modificações a seguir:
+Neste ponto, você implantou o slot de produção. Para implantar o slot de preparo, execute as etapas anteriores com as seguintes modificações:
 
 - Na etapa 3, selecione o recurso **slotAppServiceSlotOne**.
 
@@ -219,8 +208,6 @@ Neste ponto, você implantou o slot de produção. Para implantar o slot de prep
 
 Nas seções anteriores, você configurou dois slots--**slotAppService** e **slotAppServiceSlotOne**--para implantar a partir de diferentes branches no GitHub. Vamos visualizar os aplicativos Web para validar que foram implantados com êxito.
 
-Execute as seguintes etapas duas vezes. Na etapa 3, selecione **slotAppService** na primeira vez e, em seguida, selecione **slotAppServiceSlotOne** na segunda vez.
-
 1. No menu principal do Portal do Azure, selecione **Grupos de recursos**.
 
 1. Selecione **slotDemoResourceGroup**.
@@ -231,14 +218,11 @@ Execute as seguintes etapas duas vezes. Na etapa 3, selecione **slotAppService**
 
     ![Selecione a URL na guia de visão para renderizar o aplicativo](./media/terraform-slot-walkthru/resource-url.png)
 
-> [!NOTE]
-> Pode levar vários minutos para o Azure compilar e implantar o site a partir do GitHub.
->
->
+1. Dependendo do aplicativo selecionado, você verá os seguintes resultados:
+    - aplicativo Web **slotAppService** - Página azul com um título de página de **Slot Demo App 1**. 
+    - aplicativo Web **slotAppServiceSlotOne** - Página verde com um título de página de **Slot Demo App 2**.
 
-Para o aplicativo Web **slotAppService**, você vê uma página azul com um título de página de **Slot Demo App 1**. Para o aplicativo Web **slotAppServiceSlotOne**, você vê uma página verde com um título de página de **Slot Demo App 2**.
-
-![Visualizar os aplicativos para testar se foram implantados corretamente](./media/terraform-slot-walkthru/app-preview.png)
+    ![Visualizar os aplicativos para testar se foram implantados corretamente](./media/terraform-slot-walkthru/app-preview.png)
 
 ## <a name="swap-the-two-deployment-slots"></a>Trocar os dois slots de implantação
 
@@ -256,13 +240,11 @@ Para testar a troca dos dois slots de implantação, execute as seguintes etapas
     cd clouddrive/swap
     ```
 
-1. Usando o editor vi, crie um arquivo nomeado `swap.tf`.
+1. No Cloud Shell, crie um arquivo chamado `swap.tf`.
 
     ```bash
-    vi swap.tf
+    code swap.tf
     ```
-
-1. Entre no modo de inserção selecionando a tecla I.
 
 1. Cole o código a seguir no editor:
 
@@ -278,13 +260,7 @@ Para testar a troca dos dois slots de implantação, execute as seguintes etapas
     }
     ```
 
-1. Selecione a tecla Esc para sair do modo de inserção.
-
-1. Salve o arquivo e saia do editor vi, inserindo o comando a seguir:
-
-    ```bash
-    :wq
-    ```
+1. Salve o arquivo ( **&lt;Ctrl>S**) e saia do editor ( **&lt;Ctrl>Q**).
 
 1. Inicialize o Terraform.
 
@@ -304,7 +280,7 @@ Para testar a troca dos dois slots de implantação, execute as seguintes etapas
     terraform apply
     ```
 
-1. Depois que o Terraform terminar de alternar os slots, retorne ao navegador que está renderizando o aplicativo Web **slotAppService** e atualize a página. 
+1. Após o Terraform ter trocado os slots, retorne ao navegador. Atualize a página. 
 
 O aplicativo Web no slot de preparo **slotAppServiceSlotOne** foi alternado pelo slot de produção e agora é renderizado em verde. 
 
@@ -317,3 +293,8 @@ terraform apply
 ```
 
 Depois que o aplicativo for alternado, você verá a configuração original.
+
+## <a name="next-steps"></a>Próximas etapas
+
+> [!div class="nextstepaction"] 
+> [Saiba mais sobre como usar o Terraform no Azure](/azure/terraform)

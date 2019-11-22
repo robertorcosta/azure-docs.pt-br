@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcf9c8ea62610b6e4eb4ad642107df81ae712054
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 3125f5b9075a69289bd6a44d62c3d06d5e6d910d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950397"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integração do Azure Active Directory ao TOPdesk – Secure
 
@@ -138,7 +139,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
 3. Clique em **Configurações de Logon**.
 
-    ![Configurações de logon](./media/topdesk-secure-tutorial/ic790599.png "Configurações de logon")
+    ![Configurações de Logon](./media/topdesk-secure-tutorial/ic790599.png "Configurações de Logon")
 
 4. Expanda o menu **Configurações de Logon** e clique em **Geral**.
 
@@ -146,7 +147,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
 5. Na seção **Seguro** da seção de configuração de **Logon do SAML**, realize as seguintes etapas:
 
-    ![Configurações técnicas](./media/topdesk-secure-tutorial/ic790855.png "Configurações técnicas")
+    ![Configurações Técnicas](./media/topdesk-secure-tutorial/ic790855.png "Configurações Técnicas")
 
     a. Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
 
@@ -158,7 +159,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
 6. Execute as seguintes etapas para criar um arquivo de certificado:
 
-    ![Certificado](./media/topdesk-secure-tutorial/ic790606.png "Certificado")
+    ![Certificate](./media/topdesk-secure-tutorial/ic790606.png "Certificado")
 
     a. Abra o arquivo de metadados baixado do Portal do Azure.
 
@@ -174,7 +175,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
 8. Na página do diálogo **Assistente de configuração do SAML** , realize as seguintes etapas:
 
-    ![Assistente de configuração SAML](./media/topdesk-secure-tutorial/ic790608.png "Assistente de configuração SAML")
+    ![Assistente de configuração do SAML](./media/topdesk-secure-tutorial/ic790608.png "Assistente de configuração do SAML")
 
     a. Para carregar o arquivo de metadados baixado do Portal do Azure, em **Metadados de Federação**, clique em **Procurar**.
 
@@ -256,7 +257,7 @@ No caso do TOPdesk - Secure, o provisionamento é uma tarefa manual.
 
 3. No diálogo **Novo Operador** , realize as seguintes etapas:
 
-    ![Novo operador](./media/topdesk-secure-tutorial/ic790611.png "Novo operador")
+    ![Novo Operador](./media/topdesk-secure-tutorial/ic790611.png "Novo Operador")
 
     a. Clique na guia **Geral**.
 

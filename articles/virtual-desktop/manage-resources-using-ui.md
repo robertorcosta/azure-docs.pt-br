@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300908"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904907"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implantar uma ferramenta de gerenciamento
 
@@ -103,9 +103,14 @@ Siga estas instruções para iniciar a ferramenta:
 1. Selecione o recurso dos Serviços de Aplicativos do Azure com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue até a URL associada a ele; por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Entre usando suas credenciais da Área de Trabalho Virtual do Windows.
 3. Quando solicitado a escolher um Grupo de Locatários, selecione **Grupo de Locatários Padrão** na lista suspensa.
+4. Quando você seleciona Grupo de Locatários Padrão, um menu deve ser exibido no lado direito da janela. Nesse menu, encontre o nome do seu grupo de locatários e selecione-o.
 
 > [!NOTE]
 > Se tiver um Grupo de Locatários personalizado, digite o nome manualmente em vez de escolher na lista suspensa.
+
+## <a name="report-issues"></a>Relatar problemas
+
+Caso tenha problemas com a ferramenta de gerenciamento ou outras ferramentas da Área de Trabalho Virtual do Windows, siga as instruções em [Modelos ARM para Serviços de Área de Trabalho Remota](https://github.com/Azure/RDS-Templates/blob/master/README.md) para relatá-los no GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas
 

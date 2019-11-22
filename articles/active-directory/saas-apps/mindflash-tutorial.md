@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdf91993-aaaa-4598-89b7-77ef8ca065d5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 97e38c62da74444f1f229f12e42d98e75a6e5073
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e7498411e68b83f8c05d50f52f73f97df9f797
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097196"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Integração do Azure Active Directory com o Mindflash
 
@@ -190,7 +191,7 @@ Para permitir que os usuários do AD do Azure façam logon no Mindflash, eles de
 
 1. Vá para **Gerenciar Usuários**.
    
-    ![Gerenciar Usuários](./media/mindflash-tutorial/ic787140.png "Gerenciar Usuários")
+    ![Gerenciar usuários](./media/mindflash-tutorial/ic787140.png "Gerenciar Usuários")
 
 1. Clique em **Adicionar Usuários** e, em seguida, clique em **Novo**.
 

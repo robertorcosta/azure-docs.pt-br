@@ -1,21 +1,18 @@
 ---
 title: Exemplo – cofres de chave sem pontos de extremidade de vNet
 description: Esta definição de política de exemplo audita cofres do Key Vault para detectar instâncias que não têm pontos de extremidade de serviço de rede virtual.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 078a781ca96df421d52179f5e8d25650def8a2f3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255729"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076197"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Amostra – Cofres do Key Vault sem pontos de extremidade de rede virtual
 
-Esta política audita cofres Key Vault sem nenhum ponto de extremidade de rede virtual. Use para impor seus requisitos de segurança. Para obter mais informações, confira [Pontos de extremidade de serviço de rede virtual no Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
+Este exemplo de como [integrar o Key Vault com o Azure Policy](../../../key-vault/azure-policy.md) faz uma auditoria para verificar se há cofres de chaves sem pontos de extremidade de rede virtual. Use para impor seus requisitos de segurança. Para obter mais informações, confira [Pontos de extremidade de serviço de rede virtual no Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 
 Você pode implantar essa política de exemplo usando:
 
@@ -187,4 +184,5 @@ Há várias ferramentas que podem ser usadas para interagir com a API REST do Ge
 ## <a name="next-steps"></a>Próximas etapas
 
 - Revisar os outros [exemplos do Azure Policy](index.md)
+- Saiba como [integrar o Azure Key Vault ao Azure Policy](../../../key-vault/azure-policy.md).
 - Revisar a [estrutura de definição do Azure Policy](../concepts/definition-structure.md)

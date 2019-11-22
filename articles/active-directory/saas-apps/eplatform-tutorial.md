@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 10/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a822f1f5d781576102d874f33b31b698f4907a7d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b9dd7781263887a21597f32c74bd51854cc0dcfc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121560"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081922"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eplatform"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ePlatform
 
@@ -67,10 +67,10 @@ Configure e teste o SSO do Azure AD com o ePlatform usando um usuário de teste 
 Para configurar e testar o SSO do Azure AD com o ePlatform, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
 1. **[Configurar o SSO do ePlatform](#configure-eplatform-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    1. **[Criar um usuário de teste do ePlatform](#create-eplatform-test-user)** – para ter um equivalente de B.Fernandes no ePlatform que esteja vinculado à representação de usuário do Azure AD.
+    * **[Criar um usuário de teste do ePlatform](#create-eplatform-test-user)** – para ter um equivalente de B.Fernandes no ePlatform que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -84,6 +84,16 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
+
+1. O aplicativo ePlatform espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à configuração dos atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![image](common/default-attributes.png)
+
+1. Além do indicado acima, o aplicativo ePlatform espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
+
+    | NOME | Atributo de Origem |
+    | ---------------| --------------- |
+    | upn | user.userprincipalname |
 
 1. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
@@ -135,7 +145,7 @@ Para configurar o logon único no lado do **ePlatform**, é necessário enviar o
 
 Nesta seção, você criará um usuário chamado B.Fernandes no ePlatform. Trabalhe com a [equipe de suporte do ePlatform](https://help.eplatform.co/hc/en-us) para adicionar os usuários na plataforma ePlatform. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-## <a name="test-sso"></a>Testar o SSO 
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 

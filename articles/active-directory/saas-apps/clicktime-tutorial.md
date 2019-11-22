@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b14b060cc37f94e51ceb902f8b4158120d4d02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 233ddde25645cbdd9073011eeec2a20e42c8e9a8
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105289"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Azure Active Directory com o ClickTime
 
@@ -136,7 +137,7 @@ Para configurar o logon único do Azure AD com o ClickTime, execute as seguintes
 
 1. Na seção de configuração de **Preferências de Logon Único** , realize as seguintes etapas:
    
-    ![Configurações de segurança](./media/clicktime-tutorial/tic777280.png "as configurações de segurança")
+    ![Configurações de Segurança](./media/clicktime-tutorial/tic777280.png "Configurações de Segurança")
    
     a.  Selecione **Permitir** a entrada usando o SSO (Logon Único) com **Azure AD**.
    
@@ -215,7 +216,7 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
 
 1. Clique em **Adicionar Pessoa**.
    
-    ![Adicionar pessoa](./media/clicktime-tutorial/tic777283.png "Adicionar pessoa")
+    ![Adicionar Pessoa](./media/clicktime-tutorial/tic777283.png "Adicionar Pessoa")
 
 1. Na seção Nova Pessoa, execute as etapas a seguir:
    

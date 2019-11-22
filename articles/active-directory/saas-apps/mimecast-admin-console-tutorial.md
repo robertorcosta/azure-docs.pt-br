@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9edadd6462052f82f92c05c1678f845ece856cfb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097335"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Tutorial: Integração do Azure Active Directory ao Mimecast Admin Console
 
@@ -143,7 +144,7 @@ Para configurar o logon único do Azure AD com o Mimecast Admin Console, execute
     
 4. Clique em **Novo Perfil de Autenticação**.
 
-    ![Novos Perfis de Autenticação](./media/mimecast-admin-console-tutorial/ic795000.png "Novos Perfis de Autenticação")
+    ![Novos Perfis de Autenticação](./media/mimecast-admin-console-tutorial/ic795000.png "Nenhum perfil de autenticação")
 
 5. Na seção **Perfil de Autenticação** , realize as seguintes etapas:
 
@@ -266,5 +267,5 @@ Ao clicar no bloco do Mimecast Admin Console no Painel de Acesso, você deverá 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

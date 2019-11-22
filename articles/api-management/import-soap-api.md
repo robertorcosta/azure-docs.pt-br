@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 22b7b79426829b57f15263f7792dca6596c6641f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 359b90cc434dad04fc0296c54fcc762f3a75062d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073253"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107667"
 ---
 # <a name="import-soap-api"></a>Importar a API SOAP
 
@@ -60,7 +60,7 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
     * **Ilimitado**   
 10. Selecione **Criar**.
 
-### <a name="test-the-new-apim-api-in-the-administrative-portal"></a>Testar a nova API de APIM no portal administrativo
+### <a name="test-the-new-api-in-the-administrative-portal"></a>Testar a nova API no portal administrativo
 
 As operações podem ser chamadas diretamente do portal administrativo, que fornece uma maneira conveniente de exibir e testar as operações de uma API.  
 
@@ -72,21 +72,6 @@ As operações podem ser chamadas diretamente do portal administrativo, que forn
 1. Pressione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
-
-### <a name="call-operation"> </a>Chamar uma operação no portal do desenvolvedor
-
-As operações também podem ser chamadas do **Portal do desenvolvedor** para testar APIs. 
-
-1. Selecione a API que você criou na etapa "Importar e publicar uma API de back-end".
-2. Pressione **Portal do desenvolvedor**.
-
-    O site "Portal do desenvolvedor" é aberto.
-3. Selecione a **API** que você criou.
-4. Clique na operação que deseja testar.
-5. Pressione **Experimentar**.
-6. Pressione **Enviar**.
-    
-    Após invocar uma operação, o portal do desenvolvedor exibe o **Status de resposta**, os **Cabeçalhos de resposta** e o **Conteúdo de resposta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

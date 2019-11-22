@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 1053541e192668a7b572d97c141c2fe8fc16ac5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bb4fc076d01c1108278cea0cebba958b4ea94660
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757356"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044045"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Início Rápido: Experimentar o Content Moderator na Web
 
@@ -68,6 +68,6 @@ Ou então, continue com as próximas etapas para começar a usar as APIs de mode
 ## <a name="next-steps"></a>Próximas etapas
 
 Aprenda a usar as próprias APIs de moderação no seu aplicativo.
-- Implemente a moderação de imagem. Use o [console de API](try-image-api.md) ou o [C# quickstart](image-moderation-quickstart-dotnet.md) para varrer imagens e detectar conteúdo adulto e vigoroso usando tags, índices de confiança e outras informações extraídas.
-- Implementar a moderação de texto. Use o [console de API](try-text-api.md) ou o [início rápido do C#](text-moderation-quickstart-dotnet.md) para examinar o conteúdo de texto para encontrar conteúdo ofensivo, classificação de textos indesejados assistida por computador (versão prévia) e dados pessoais.
+- Implemente a moderação de imagem. Use o [console da API](try-image-api.md) ou siga o [início rápido do SDK do .NET](dotnet-sdk-quickstart.md) para examinar as imagens e detectar conteúdo adulto e racista em potencial usando marcas, pontuações de confiança e outras informações extraídas.
+- Implementar a moderação de texto. Use o [console da API](try-text-api.md) ou o [início rápido do SDK do .NET](dotnet-sdk-quickstart.md) para examinar o conteúdo de texto e identificar conteúdo ofensivo em potencial, classificação de textos indesejados assistida por computador (versão prévia) e dados pessoais.
 - Implementar a moderação de vídeo. Siga as [guia de instruções de moderação de vídeo para C# ](video-moderation-api.md) para verificar a vídeos e detectar possível conteúdo adulto. 

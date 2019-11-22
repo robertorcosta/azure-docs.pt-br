@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Alta disponibilidade para VMs Linux no Azure | Microsoft Docs
+title: Tutorial – Alta disponibilidade para VMs do Linux no Azure
 description: Neste tutorial, você aprenderá como usar a CLI do Azure para implantar máquinas virtuais altamente disponíveis em Conjuntos de Disponibilidade
 documentationcenter: ''
 services: virtual-machines-linux
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 10458e3c5f1e4dc9034206470fdfec19e13417fb
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: cd0366a0029ccc4816308e280ac93b7c724bb82a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299440"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034619"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com a CLI do Azure
 

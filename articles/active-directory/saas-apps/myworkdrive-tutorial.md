@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 03998d214c1fb977741976eca7b878d0c6b577aa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160379"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074076"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutorial: Integrar o MyWorkDrive com o Azure Active Directory
 
@@ -100,9 +100,17 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 ### <a name="configure-myworkdrive-sso"></a>Configurar o SSO do MyWorkDrive
 
-1. Em uma janela de navegador da Web diferente, entre como administrador de segurança do MyWorkDrive.
+1. Para automatizar a configuração no MyWorkDrive, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
 
-2. No MyWorkDrive Server no painel de administração, clique em **ENTERPRISE** e execute as seguintes etapas:
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+1. Após a adição da extensão ao navegador, um clique em **Configurar o MyWorkDrive** direcionará você ao aplicativo MyWorkDrive. Nele, forneça as credenciais de administrador para entrar no MyWorkDrive. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 4.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Caso deseje configurar o MyWorkDrive manualmente, em outra janela do navegador da Web, entre no MyWorkDrive como Administrador de segurança.
+
+1. No MyWorkDrive Server no painel de administração, clique em **ENTERPRISE** e execute as seguintes etapas:
 
     ![O administrador](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 

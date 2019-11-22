@@ -1,22 +1,21 @@
 ---
-title: Configurar a nuvem para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure no Portal | Microsoft Docs
-description: Provisionamento automático de dispositivos no Hub IoT no Portal do Azure
+title: 'Tutorial: Configurar a nuvem para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure no portal'
+description: 'Tutorial: Configurar os recursos de nuvem para provisionamento de dispositivos no [portal do Azure](https://portal.azure.com) usando o DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 41689b7596c9da350a9e0fec619e49d332a36d5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826187"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112799"
 ---
-# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar recursos de nuvem para provisionamento de dispositivos com o Serviço de Provisionamento de Dispositivos no Hub IoT
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configurar recursos de nuvem para provisionamento de dispositivos com o Serviço de Provisionamento de Dispositivos no Hub IoT
 
 Este tutorial mostra como configurar a nuvem para provisionamento automático de dispositivos usando o Serviço de Provisionamento de Dispositivos no Hub IoT. Neste tutorial, você aprenderá como:
 
@@ -48,7 +47,7 @@ Siga estas etapas para criar uma nova instância do Serviço de Provisionamento 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nome** | Qualquer nome exclusivo | -- | 
    | **Assinatura** | Sua assinatura  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
-   | **Grupo de recursos** | myResourceGroup | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
+   | **Grupo de recursos** | myResourceGroup | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
    | **Localidade** | Qualquer local válido | Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). |   
 
    ![Inserir as informações básicas sobre seu serviço Provisionamento de Dispositivos no portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)

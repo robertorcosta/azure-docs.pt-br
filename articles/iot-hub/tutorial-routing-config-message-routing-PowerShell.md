@@ -1,6 +1,6 @@
 ---
-title: Configurar o roteamento de mensagens para o Hub IoT do Azure usando o Azure PowerShell | Microsoft Docs
-description: Configurar o roteamento de mensagens para o Hub IoT do Azure usando o Azure PowerShell
+title: Configurar o roteamento de mensagens para o Hub IoT do Azure com o Azure PowerShell
+description: Configurar o roteamento de mensagens para o Hub IoT do Azure usando o Azure PowerShell. Dependendo das propriedades da mensagem, encaminhe para uma conta de armazenamento ou para uma fila do Barramento de Serviço.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2c0e66bfe5ec332d25b93305cb2ac8d172ca130d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 68338c56419316e561bb072c1a0555e89d3de85b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535137"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084431"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Tutorial: Usar o Azure PowerShell para configurar o roteamento de mensagens do Hub IoT
 
@@ -34,13 +34,13 @@ Comece criando os recursos com o PowerShell.
 
 ### <a name="use-powershell-to-create-your-base-resources"></a>Use o PowerShell para criar seus recursos de base
 
+Copie e cole o script abaixo no Cloud Shell e pressione Enter. Ele executa o script uma linha por vez. Esta primeira seção do script criará os recursos de base para este tutorial, incluindo a conta de armazenamento, o Hub IoT, o Namespace de Barramento de Serviço e a fila do Barramento de Serviço. Ao percorrer o tutorial, copie cada bloco de script e cole-o no Cloud Shell para executá-lo.
+
 Há vários nomes de recurso que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para facilitar essa tarefa, esses nomes de recurso são acrescentados com um valor alfanumérico aleatório chamado *randomValue*. O randomValue é gerado uma vez na parte superior do script e acrescentado aos nomes de recursos conforme necessário em todo o script. Se você não quiser que ele seja aleatório, defina uma cadeia de caracteres vazia ou como um valor específico. 
 
 > [!IMPORTANT]
 > As variáveis definidas no script inicial também são usadas pelo script de roteamento, portanto, execute todos os scripts na mesma sessão do Cloud Shell. Se você abrir uma nova sessão para executar o script para configurar o roteamento, diversas variáveis estarão sem valores. 
 >
-
-Copie e cole o script abaixo no Cloud Shell e pressione Enter. Ele executa o script uma linha por vez. Esta primeira seção do script criará os recursos de base para este tutorial, incluindo a conta de armazenamento, o Hub IoT, o Namespace de Barramento de Serviço e a fila do Barramento de Serviço. Ao percorrer o tutorial, copie cada bloco de script e cole-o no Cloud Shell para executá-lo.
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
@@ -140,7 +140,7 @@ Primeiro, configure o ponto de extremidade para a conta de armazenamento e crie 
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-Estas variáveis são definidas:
+Essas são as variáveis usadas pelo script que devem ser definidas dentro de sua sessão do Cloud Shell:
 
 **resourceGroup**: há duas ocorrências desse campo – defina ambas para seu grupo de recursos.
 
@@ -162,7 +162,7 @@ Estas variáveis são definidas:
 
 **condition**: esse campo é a consulta usada para filtrar as mensagens enviadas para esse ponto de extremidade. A condição de consulta para as mensagens que estão sendo roteadas para o armazenamento é `level="storage"`.
 
-**enabled**: esse campo assume `true` como padrão, indicando que a rota da mensagem deve ser habilitada depois de criada.
+**enabled**: Esse campo assume `true` como padrão, indicando que a rota da mensagem deve ser habilitada depois de ser criada.
 
 Copie esse script e cole-o na janela do Cloud Shell.
 
@@ -232,7 +232,7 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-Agora configure o ponto de extremidade de roteamento e a rota de mensagem para a fila do Barramento de Serviço. Estas variáveis são definidas:
+Agora configure o ponto de extremidade de roteamento e a rota de mensagem para a fila do Barramento de Serviço. Essas são as variáveis usadas pelo script que devem ser definidas dentro de sua sessão do Cloud Shell:
 
 **endpointName**: esse campo é o nome que identifica o ponto de extremidade. 
 

@@ -1,19 +1,19 @@
 ---
-title: Criar e implantar módulos personalizados – Machine Learning no Azure IoT Edge | Microsoft Docs
-description: Crie e implante módulos do IoT Edge que processam dados de dispositivos folha por meio de um modelo de machine learning e, em seguida, enviam os insights para o Hub IoT.
+title: 'Tutorial: Criar e implantar módulos personalizados – Machine Learning no Azure IoT Edge'
+description: 'Tutorial: Crie e implante módulos do IoT Edge que processam dados de dispositivos folha por meio de um modelo de machine learning e, em seguida, enviam os insights para o Hub IoT.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7bfe620510d5ff88a20c518be1f4dd1fb422daa2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493999"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106553"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implantar módulos do IoT Edge personalizados
 

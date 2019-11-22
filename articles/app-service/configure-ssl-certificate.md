@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572144"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907130"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no Serviço de Aplicativo do Azure
 
@@ -68,6 +68,10 @@ O Certificado gratuito gerenciado pelo Serviço de Aplicativo é uma solução i
 - Não oferece suporte a certificados curinga.
 - Não oferece suporte a domínios raiz.
 - Não pode ser exportado.
+
+> [!NOTE]
+> O certificado gratuito é emitido pela DigiCert. Para alguns domínios de nível superior, é necessário permitir explicitamente a DigiCert como um emissor do certificado criando um [registro de domínio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) com o valor `0 issue digicert.com`.
+> 
 
 Para criar um Certificado gratuito gerenciado pelo Serviço de Aplicativo:
 
@@ -325,7 +329,7 @@ Após a conclusão da operação de renovação, clique em **Sincronizar**. A op
 
 ### <a name="export-certificate"></a>Exportar o certificado
 
-Como o certificado do Serviço de Aplicativo é um [segredo do Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), você pode exportar uma cópia em PFX dele e usá-lo para outros serviços do Azure ou fora do Azure.
+Como um Certificado do Serviço de Aplicativo é um [segredo do Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), você pode exportar uma cópia em PFX dele e usá-la para outros serviços do Azure ou fora do Azure.
 
 Para exportar o Certificado do Serviço de Aplicativo como um arquivo PFX, execute os seguintes comandos no [Cloud Shell](https://shell.azure.com). Você também poderá executá-lo localmente se tiver [instalado a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Substitua os espaços reservados pelos nomes que você usou ao [criar o certificado do Serviço de Aplicativo](#start-certificate-order).
 
@@ -344,7 +348,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-O arquivo *appservicecertificate.pfx* baixado é um arquivo PKCS12 bruto que contém os certificados públicos e privados. Sempre que receber a solicitação, a senha de importação e a frase secreta de PEM serão a cadeia de caracteres vazia.
+O arquivo *appservicecertificate.pfx* baixado é um arquivo PKCS12 bruto que contém os certificados públicos e privados. Em cada aviso, use uma cadeia de caracteres vazia para a senha de importação e a frase secreta PEM.
 
 ### <a name="delete-certificate"></a>Excluir Certificado 
 

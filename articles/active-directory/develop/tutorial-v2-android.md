@@ -11,23 +11,34 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a26a7fc27fa13d86eb3b82fd4be70e5b371581f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5417c29b62414468064338a67b188c7b7f832ac5
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677975"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242210"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Conectar usuários e chamar o Microsoft Graph em um aplicativo Android
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Tutorial: Conectar usuários e chamar o Microsoft Graph em um aplicativo Android
+
+> [!NOTE]
+> Este tutorial ainda não foi atualizado para funcionar com a biblioteca do MSAL para Android versão 1.0. Ele funciona com uma versão anterior, conforme configurado neste tutorial.
 
 Neste tutorial, você aprenderá como integrar um aplicativo Android à plataforma de identidade da Microsoft. Seu aplicativo conectará um usuário, obterá um token de acesso para chamar a API do Microsoft Graph e fará uma solicitação para a API do Microsoft Graph.  
 
-Após concluir este guia, seu aplicativo aceitará conexões de contas Microsoft pessoais (incluindo outlook.com, live.com e outras) e contas corporativas ou de estudante de qualquer empresa ou organização que utilize o Azure Active Directory.
+> [!div class="checklist"]
+> * Integrar um aplicativo Android à plataforma de identidade da Microsoft
+> * Conectar um usuário
+> * Obter um token de acesso para chamar a API do Microsoft Graph
+> * Chame a API do Microsoft Graph.  
+
+Após concluir este tutorial, seu aplicativo aceitará conexões de contas Microsoft pessoais (incluindo outlook.com, live.com e outras), bem como contas corporativas ou de estudante de qualquer empresa ou organização que utilize o Azure Active Directory.
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="how-this-tutorial-works"></a>Como este tutorial funciona
 
@@ -53,7 +64,7 @@ Esta amostra usa a MSAL (Biblioteca de Autenticação da Microsoft) para Android
 
 ## <a name="create-a-project"></a>Criar um projeto
 
-Este tutorial irá criar um novo projeto. Se, ao invés disso, você quiser baixar o tutorial concluído, [baixe o código](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
+Este tutorial irá criar um novo projeto. Se, ao invés disso, você quiser baixar o tutorial concluído, [baixe o código](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 
 1. Abra o Android Studio e selecione **Iniciar um novo projeto do Android Studio**.
 2. Selecione **Atividade Básica** e, em seguida, **Avançar**.
@@ -177,7 +188,7 @@ Este tutorial irá criar um novo projeto. Se, ao invés disso, você quiser baix
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:1.0.+'
+    implementation 'com.microsoft.identity.client:msal:0.3+'
     ```
 
 ### <a name="use-msal"></a>Usar a MSAL
@@ -535,6 +546,10 @@ Após entrar, este aplicativo exibirá os dados retornados do ponto de extremida
 ### <a name="consent"></a>Consentimento
 
 Na primeira vez que um usuário entrar no seu aplicativo, ele será solicitado pela identidade da Microsoft a consentir com as permissões solicitadas.  Embora a maioria dos usuários seja capaz de dar seu consentimento, alguns locatários do Azure AD desabilitaram o consentimento do usuário, que exige que os administradores consintam em nome de todos os usuários. Para dar suporte a esse cenário, registre os escopos do seu aplicativo no portal do Azure.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, exclua o objeto de aplicativo criado na etapa [Registrar seu aplicativo](#register-your-application).
 
 ## <a name="get-help"></a>Obter ajuda
 

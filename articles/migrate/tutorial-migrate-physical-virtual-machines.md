@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffa072f593a06a38e6e3d121fb76806e41bf568e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 28705ea8a552f4d2e6653857c69ebb8d5f87b962
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605544"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907120"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrar servidores físicos ou virtualizados para o Azure 
 
@@ -123,7 +123,7 @@ Verifique se os computadores estão em conformidade com os requisitos da migraç
 > [!NOTE]
 > A migração baseada em agente com a Migração de Servidor de Migrações para Azure baseia-se nos recursos do serviço do Azure Site Recovery. Alguns requisitos podem ser vinculados à documentação do Site Recovery.
 
-1. [Verifique](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) os requisitos do servidor VMware.
+1. [Verifique](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) os requisitos do servidor.
 2. [Verifique](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) os requisitos de suporte da VM para a migração.
 3. Verifique as configurações da VM. As VMs locais que você replica para o Azure devem cumprir os [requisitos de VM do Azure](migrate-support-matrix-vmware.md#azure-vm-requirements).
 
@@ -265,7 +265,7 @@ Agora, selecione os computadores para migração.
 
     ![Replicar VMs](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. Em **Replicar**, > **Configurações de origem** > **Seus computadores estão virtualizados?** , selecione **Sim, com o VMware vSphere**.
+2. Em **Replicar**, > **Configurações de origem** > **Os computadores estão virtualizados?** , selecione **Não virtualizados/Outro**.
 3. Em **Dispositivo local**, selecione o nome do dispositivo de Migrações para Azure que você configurou.
 4. No **vCenter Server**, especifique o nome do vCenter Server que gerencia as VMs ou do servidor vSphere no qual as VMs estão hospedadas.
 5. Em **Servidor de Processo**, selecione o nome do dispositivo de replicação.

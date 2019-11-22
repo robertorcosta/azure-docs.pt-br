@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ed903e71a019d0bdb1b62503913bd696e9d8a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add43f081ca6059651725cd6f817d4cce127b74b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102055"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73155764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integração do Azure Active Directory ao FreshDesk
 
@@ -169,7 +170,7 @@ Para configurar o logon único do Azure AD com o FreshDesk, execute as seguintes
 
 2. Selecione o **Ícone de Configurações** e, na seção **Segurança**, realize as seguintes etapas:
 
-    ![Logon Único](./media/freshdesk-tutorial/IC776770.png "Logon Único")
+    ![Logon único](./media/freshdesk-tutorial/IC776770.png "Logon Único")
   
     a. Para **SSO (Logon Único)** , selecione **Ativado**.
 
@@ -245,7 +246,7 @@ No caso do FreshDesk, o provisionamento é uma tarefa manual.
 
 2. No menu na parte superior, clique em **Administrador**.
 
-    ![Admin](./media/freshdesk-tutorial/IC776772.png "Admin")
+    ![Administrador](./media/freshdesk-tutorial/IC776772.png "Administrador")
 
 3. Na guia **Configurações Gerais**, clique em **Agentes**.
   
@@ -257,7 +258,7 @@ No caso do FreshDesk, o provisionamento é uma tarefa manual.
 
 5. Na caixa de diálogo Informações sobre o Agente, execute as seguintes etapas:
 
-    ![Informações de Agente](./media/freshdesk-tutorial/IC776775.png "Informações de Agente")
+    ![Informações sobre o Agente](./media/freshdesk-tutorial/IC776775.png "Informações sobre o Agente")
 
     a. Na caixa de texto **Email** , digite o endereço de email do Azure AD da conta do Azure AD que você deseja provisionar.
 
@@ -285,5 +286,5 @@ Ao clicar no bloco do FreshDesk no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

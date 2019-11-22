@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b96cfe9813eef9caf1f1f21e43470a23c7032cb1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2b5bcd0d3bba914b81e305c88a512645c1a1c258
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072117"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108515"
 ---
 # <a name="import-an-openapi-specification"></a>Importar uma especificação de OpenAPI
 
@@ -43,7 +43,8 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
 
 1. Selecione **APIs** em **GERENCIAMENTO DE API**.
 2. Selecione **Especificação de OpenAPI** na lista **Adicionar uma nova API**.
-    ![Especificação OpenAPI](./media/import-api-from-oas/oas-api.png)
+
+    ![Especificação de OpenAPI](./media/import-api-from-oas/oas-api.png)
 3. Insira as configurações apropriadas. Você pode definir todos os valores da API durante a criação. Como alternativa, você pode definir algumas delas mais tarde acessando a guia **Configurações**. <br/> Se você pressionar **Tab**, alguns campos (ou todos eles) serão preenchidos com as informações do serviço de back-end especificado.
 
     ![Criar uma API](./media/api-management-get-started/create-api.png)
@@ -63,40 +64,18 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
 > [!NOTE]
 > As limitações de importação da API estão documentadas em [outro artigo](api-management-api-import-restrictions.md).
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API do APIM no portal do Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure
+
+![Testar mapa de API](./media/api-management-get-started/01-import-first-api-01.png)
 
 As operações podem ser chamadas diretamente do portal do Azure, o que oferece uma maneira fácil de exibir e testar as operações de uma API.
 
-![Testar API](./media/api-management-get-started/01-import-first-api-01.png)
-
-1. Selecione a API que você criou na etapa anterior.
+1. Selecione a API que você criou na etapa anterior (na guia **APIs**).
 2. Pressione a guia **Testar**.
-3. Clique em **GetSpeakers**.
-
-    A página exibe campos para parâmetros de consulta, mas, nesse caso, não há nenhum. A página também exibe campos para os cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. Se você criou a instância do APIM, já é um administrador e, portanto, a chave é preenchida automaticamente.
+3. Clique em **GetSpeakers**. A página exibe campos para parâmetros de consulta, nesse caso, não há nenhum, e cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. A chave é preenchida automaticamente.
 4. Pressione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
-
-## <a name="call-operation"> </a>Chamar uma operação no Portal do desenvolvedor
-
-As operações também podem ser chamadas do **Portal do desenvolvedor** para testar APIs.
-
-1. Selecione a API que você criou na etapa "Importar e publicar uma API de back-end".
-2. Pressione **Portal do desenvolvedor**.
-
-    ![Testar no Portal do desenvolvedor](./media/api-management-get-started/developer-portal.png)
-
-    O site "Portal do desenvolvedor" é aberto.
-3. Selecione **API**.
-4. Selecione **API de Conferência de Demonstração**.
-5. Clique em **GetSpeakers**.
-
-    A página exibe campos para parâmetros de consulta, mas, nesse caso, não há nenhum. A página também exibe campos para os cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. Se você criou a instância do APIM, já é um administrador e, portanto, a chave é preenchida automaticamente.
-6. Pressione **Experimentar**.
-7. Pressione **Enviar**.
-
-    Após invocar uma operação, o portal do desenvolvedor exibe o **Status de resposta**, os **Cabeçalhos de resposta** e o **Conteúdo de resposta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

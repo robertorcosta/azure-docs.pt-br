@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed1f1b6973d96fdc0bce560877720adfc5e33081
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170895"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074026"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services)
 
@@ -81,7 +81,6 @@ Para configurar a integração do AWS (Amazon Web Services) com o Azure AD, voc�
 1. Na seção **Adicionar por meio da galeria**, digite **Amazon Web Services (AWS)** na caixa de pesquisa.
 1. Selecione **AWS (Amazon Web Services)** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws"></a>Configurar e testar o logon único do Azure AD para a AWS (Amazon Web Services)
 
 Configure e teste o SSO do Azure AD com a AWS (Amazon Web Services) usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado na AWS (Amazon Web Services).
@@ -93,6 +92,7 @@ Para configurar e testar o SSO do Azure AD com a AWS (Amazon Web Services), conc
     1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
 1. **[Configurar o SSO da AWS (Amazon Web Services)](#configure-amazon-web-services-aws-sso)** – para definir as configurações de logon único no lado do aplicativo.
     1. **[Criar um usuário de teste da AWS (Amazon Web Services)](#create-amazon-web-services-aws-test-user)** – para ter um equivalente de B.Fernandes na AWS (Amazon Web Services) que esteja vinculado à representação de usuário do Azure AD.
+    1. **[Como configurar o provisionamento de função na AWS (Amazon Web Services)](#how-to-configure-role-provisioning-in-amazon-web-services-aws)**
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -312,11 +312,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     c. Selecione **Fechar**.
 
-21. No portal de gerenciamento do Azure AD, no aplicativo AWS, acesse **Provisionamento**.
+### <a name="how-to-configure-role-provisioning-in-amazon-web-services-aws"></a>Como configurar o provisionamento de função na AWS (Amazon Web Services)
+
+1. No portal de gerenciamento do Azure AD, no aplicativo AWS, acesse **Provisionamento**.
 
     ![Captura de tela do aplicativo AWS, com Provisionamento realçado](./media/amazon-web-service-tutorial/provisioning.png)
 
-22. Insira a chave de acesso e o segredo nos campos **clientsecret** e **Token do Segredo**, respectivamente.
+2. Insira a chave de acesso e o segredo nos campos **clientsecret** e **Token do Segredo**, respectivamente.
 
     ![Captura de tela da caixa de diálogo Credenciais de Administrador](./media/amazon-web-service-tutorial/provisioning1.png)
 
@@ -328,7 +330,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     d. Salve a configuração selecionando **Salvar**.
 
-23. Na seção **Configurações**, para **Status de Provisionamento**, selecione **Ativado**. Em seguida, selecione **Salvar**.
+3. Na seção **Configurações**, para **Status de Provisionamento**, selecione **Ativado**. Em seguida, selecione **Salvar**.
 
     ![Captura de tela da seção Configurações, com Ativado realçado](./media/amazon-web-service-tutorial/provisioning2.png)
 

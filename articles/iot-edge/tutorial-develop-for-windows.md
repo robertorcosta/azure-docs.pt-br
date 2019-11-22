@@ -1,20 +1,20 @@
 ---
-title: Desenvolver módulo para dispositivos Windows – Azure IoT Edge | Microsoft Docs
+title: 'Tutorial: Desenvolver módulo para dispositivos Windows – Azure IoT Edge'
 description: Este tutorial explica como configurar os recursos de nuvem e de computador de desenvolvimento para desenvolver módulos do IoT Edge usando contêineres do Windows para dispositivos Windows
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/15/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 755290997cb6aab328cd38ce81a21c598c737b5f
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 67a80178c5cd800ea08d9f5493efd0f37422fe36
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429016"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113987"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -154,7 +154,7 @@ Depois que o novo projeto for carregado na janela do Visual Studio, aguarde um p
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Forneça suas credenciais de Registro para o agente do IoT Edge
 
-O tempo de execução do IoT Edge precisa das credenciais de registro para efetuar pull de suas imagens de contêineres para o dispositivo IoT Edge. A extensão do IoT Edge tenta extrair informações do Registro de Contêiner do Azure e populá-las no modelo de implantação.
+O runtime do IoT Edge precisa das credenciais de registro para efetuar pull de suas imagens de contêineres para o dispositivo IoT Edge. A extensão do IoT Edge tenta extrair informações do Registro de Contêiner do Azure e populá-las no modelo de implantação.
 
 1. Abra o arquivo **deployment.template.json** em sua solução do módulo.
 
@@ -305,13 +305,13 @@ O código IotEdgeModule1 recebe mensagens por meio de sua fila de entrada e as p
 
 3. Observe a janela de **Saída** no Visual Studio para ver as mensagens chegando ao seu hub IoT. 
 
-   Pode levar alguns minutos para que os dois módulos sejam iniciados. O tempo de execução do IoT Edge precisa receber seu novo manifesto de implantação, obter as imagens de módulo do tempo de execução do contêiner e iniciar cada novo módulo. 
+   Pode levar alguns minutos para que os dois módulos sejam iniciados. O runtime do IoT Edge precisa receber seu novo manifesto de implantação, obter as imagens de módulo do runtime do contêiner e iniciar cada novo módulo. 
 
    ![Exibir o dispositivo de entrada para mensagens de nuvem](./media/tutorial-develop-for-windows/view-d2c-messages.png)
 
 ## <a name="view-changes-on-device"></a>Exibir alterações no dispositivo
 
-Se desejar ver o que está acontecendo no seu próprio dispositivo, use os comandos nesta seção para inspecionar o tempo de execução do IoT Edge e os módulos em execução em seu dispositivo. 
+Se desejar ver o que está acontecendo no seu próprio dispositivo, use os comandos nesta seção para inspecionar o runtime do IoT Edge e os módulos em execução em seu dispositivo. 
 
 Os comandos nesta seção são para seu dispositivo IoT Edge, não para seu computador de desenvolvimento. Se estiver usando uma máquina virtual para seu dispositivo IoT Edge, conecte-se a ela agora. No Azure, acesse a página de visão geral da máquina virtual e selecione **Conectar** para acessar a conexão de área de trabalho remota. No dispositivo, abra um comando ou janela do PowerShell para executar os comandos `iotedge`.
 
@@ -321,7 +321,7 @@ Os comandos nesta seção são para seu dispositivo IoT Edge, não para seu comp
    iotedge list
    ```
 
-   Você deverá ver quatro módulos: os dois módulos de tempo de execução do IoT Edge, o SimulatedTemperatureSensor e o IotEdgeModule1. Todos os quatro devem estar listados como em execução.
+   Você deverá ver quatro módulos: os dois módulos de runtime do IoT Edge, o SimulatedTemperatureSensor e o IotEdgeModule1. Todos os quatro devem estar listados como em execução.
 
 * Inspecione os logs para ver se há um módulo específico:
 

@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c9925e11325c87598f90af1b677246eca805e6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe4f730826f99a5cd0ce15d0763ea28d3ff0a7f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101703"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159189"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: Integração do Azure Active Directory com o Gigya
 
@@ -131,11 +132,11 @@ Para configurar o logon único do Azure AD com o Gigya, execute as seguintes eta
 
 2. Vá para **Configurações \> Logon do SAML** e clique no botão **Adicionar**.
    
-    ![Logon SAML](./media/gigya-tutorial/ic789532.png "logon SAML")
+    ![Logon do SAML](./media/gigya-tutorial/ic789532.png "Logon do SAML")
 
 3. Na seção **Logon SAML** , execute as seguintes etapas:
    
-    ![Configuração SAML](./media/gigya-tutorial/ic789533.png "configuração SAML")
+    ![Configuração do SAML](./media/gigya-tutorial/ic789533.png "Configuração de SAML")
    
     a. Na caixa de texto **Nome** , digite um nome para a sua configuração.
    
@@ -210,7 +211,7 @@ Para permitir que os usuários do Azure AD façam logon no Gigya, eles devem ser
 
 2. Acesse **Administrador \> Gerenciar Usuários** e clique em **Convidar Usuários**.
    
-    ![Gerenciar Usuários](./media/gigya-tutorial/ic789535.png "Gerenciar Usuários")
+    ![Gerenciar usuários](./media/gigya-tutorial/ic789535.png "Gerenciar Usuários")
 
 3. Na caixa de diálogo Convidar Usuários, execute as seguintes etapas:
    
@@ -236,5 +237,5 @@ Ao clicar no bloco do Gigya no Painel de Acesso, você deverá ser conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

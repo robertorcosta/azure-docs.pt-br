@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b118a509f72af2146abf854b881fa34d8de302a1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564929"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936044"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderar imagens de produto de comércio eletrônico com o Azure Content Moderator
 
@@ -65,7 +65,9 @@ Este tutorial usa três serviços cognitivos; portanto, exige três chaves e pon
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-Você precisará atualizar os campos `___Key` com os valores de suas chaves de assinatura (você obterá a `CustomVisionKey` posteriormente) e talvez precise alterar os campos `___Uri`, de modo que eles contenham os identificadores de região corretos. Preencha a parte `YOURTEAMID` do campo `ReviewUri` com a ID da equipe de análise criada anteriormente. Você preencherá a parte final do campo `CustomVisionUri` mais tarde.
+Você precisará atualizar os campos `___Key` com os valores de suas chaves de assinatura e alterar os campos `___Uri` para as URLs de ponto de extremidade corretas (você obterá a chave e o ponto de extremidade da Visão Personalizada mais adiante). Você pode encontrar esses valores nas guias **Início rápido** de cada recurso do Azure. Preencha a parte `YOURTEAMID` do campo `ReviewUri` com a ID da equipe de análise criada anteriormente. Você preencherá a parte final do campo `CustomVisionUri` mais tarde.
+
+[!INCLUDE [subdomains note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="primary-method-calls"></a>Principais chamadas de método
 

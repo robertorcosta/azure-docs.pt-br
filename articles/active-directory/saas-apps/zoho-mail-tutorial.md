@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9874e1f3-ade5-42e7-a700-e08b3731236a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c2599a2ddd09cbaf869bf4d9e21a8032855cce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8fc58b9cdec1a68dd12b7f70f7521a024f358ce
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086177"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Tutorial: Integração do Azure Active Directory ao Zoho
 
@@ -130,15 +131,15 @@ Para configurar o logon único do Azure AD com o Zoho, execute as seguintes etap
 
 2. Vá para o **Painel de Controle**.
    
-    ![Painel de controle](./media/zoho-mail-tutorial/ic789607.png "Painel de controle")
+    ![Painel de Controle](./media/zoho-mail-tutorial/ic789607.png "Painel de Controle")
 
 3. Clique na guia **Autenticação SAML** .
    
-    ![Autenticação SAML](./media/zoho-mail-tutorial/ic789608.png "Autenticação SAML")
+    ![Autenticação SAML](./media/zoho-mail-tutorial/ic789608.png "Autenticação do SAML")
 
 4. Na seção **Detalhes da Autenticação SAML** , realize as seguintes etapas:
    
-    ![Detalhes de Autenticação SAML](./media/zoho-mail-tutorial/ic789609.png "Detalhes de Autenticação SAML")
+    ![Detalhes da Autenticação SAML](./media/zoho-mail-tutorial/ic789609.png "Detalhes da Autenticação SAML")
    
     a. Na caixa de texto **URL de Logon**, cole a **URL de Logon** copiada no portal do Azure.
    
@@ -218,11 +219,11 @@ Para permitir que os usuários do AD do Azure façam logon no Zoho Mail, eles de
 
 1. Vá para **Detalhes do Usuário \> Adicionar Usuário**.
    
-    ![Adicionar Usuário](./media/zoho-mail-tutorial/ic789611.png "Adicionar Usuário")
+    ![Adicionar Usuário](./media/zoho-mail-tutorial/ic789611.png "Adicionar usuário")
 
 1. No diálogo **Adicionar usuários** , realize as seguintes etapas:
    
-    ![Adicionar Usuário](./media/zoho-mail-tutorial/ic789612.png "Adicionar Usuário")
+    ![Adicionar Usuário](./media/zoho-mail-tutorial/ic789612.png "Adicionar usuário")
    
     a. Na caixa de texto **Nome**, digite o Nome do usuário, como **Brenda**.
 
@@ -249,5 +250,5 @@ Ao clicar no bloco do Zoho no Painel de Acesso, você deverá ser conectado auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

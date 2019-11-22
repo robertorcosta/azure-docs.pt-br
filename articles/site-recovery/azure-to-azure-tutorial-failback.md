@@ -1,19 +1,19 @@
 ---
-title: Fazer failback de VMs do Azure replicadas para uma região do Azure secundária para recuperação de desastre com o serviço do Azure Site Recovery.
-description: Saiba como fazer failback de VMs do Azure com o serviço Azure Site Recovery.
+title: Efetuar o failback de VMs do Azure para uma região primária com o serviço do Azure Site Recovery.
+description: Descreve como efetuar o failback de VMs do Azure para uma região primária com o serviço do Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814522"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091354"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Failback de uma VM do Azure entre regiões do Azure
 
@@ -56,6 +56,9 @@ Depois que as VMs forem protegidas novamente, você poderá fazer failback para 
 8. A VM deve aparecer como o fazer failover realizado e failback realizado.
 
     ![VM nas regiões primária e secundária](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+
+> [!NOTE]
+> Para computadores que executam a extensão do Site Recovery versão 9.28.x.x em diante, o [Pacote cumulativo de atualizações 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) do Site Recovery limpa computadores na região de recuperação de desastre secundária, após o failback ser concluído e as VMs serem protegidas novamente. Não é necessário excluir manualmente as VMs e NICs na região secundária. Se você desabilitar completamente a replicação após o failback, o Site Recovery limpará os discos na região de recuperação de desastre, além das VMs e NICs.
 
 ## <a name="next-steps"></a>Próximas etapas
 

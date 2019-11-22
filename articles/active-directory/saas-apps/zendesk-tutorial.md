@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4d161295f236c711e8efbe23deb3c8ba5cad985
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30a57258dfe112c1b2d03bc43738c92272a156f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086299"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Tutorial: Integração do Azure Active Directory ao Zendesk
 
@@ -177,7 +178,7 @@ Para configurar o logon único do Azure AD com o Zendesk, execute as seguintes e
 
     ![Segurança](././media/zendesk-tutorial/ic773089.png "Segurança")
 
-    ![Logon Único](././media/zendesk-tutorial/ic773090.png "Logon Único")
+    ![Logon Único](././media/zendesk-tutorial/ic773090.png "Logon único")
 
     a. Clique na guia **Administrador e Agentes**.
 
@@ -257,10 +258,10 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Zendes
 
 3. Selecione a guia **Usuário** e clique em **Adicionar**.
 
-    ![Adicionar Usuário](././media/zendesk-tutorial/ic773632.png "Adicionar Usuário")
+    ![Adicionar usuário](././media/zendesk-tutorial/ic773632.png "Adicionar usuário")
 4. Digite o **Nome** e **Email** de uma conta existente do Azure AD que você deseja provisionar e clique em **Salvar**.
 
-    ![Novo Usuário](././media/zendesk-tutorial/ic773633.png "Novo Usuário")
+    ![Novo usuário](././media/zendesk-tutorial/ic773633.png "Novo usuário")
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do Zendesk ou APIs fornecidas pelo Zendesk para provisionar as contas de usuário do AAD.
@@ -277,6 +278,6 @@ Ao clicar no bloco do Zendesk no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurar Provisionamento de Usuário](zendesk-provisioning-tutorial.md)

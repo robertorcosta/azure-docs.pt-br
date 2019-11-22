@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do REST: Criar um pipeline de enriquecimento de IA para extrair texto e estrutura de blobs JSON'
+title: 'Tutorial: Extrair texto e estrutura de blobs JSON'
 titleSuffix: Azure Cognitive Search
 description: Veja um exemplo de extração de texto e processamento de linguagem natural do conteúdo em blobs JSON usando o Postman e as APIs REST da Pesquisa Cognitiva do Azure.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790183"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113666"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>Tutorial: Adicionar uma estrutura ao "conteúdo não estruturado" com o enriquecimento de IA
+# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Tutorial: Extrair texto e estrutura de blobs JSON no Azure usando APIs REST (Azure Cognitive Search)
 
-Se você tiver conteúdo de imagem ou texto não estruturado, um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) poderá ajudá-lo a extrair informações e criar outro tipo de conteúdo útil para cenários de pesquisa de texto completo ou mineração de conhecimento. Embora um pipeline possa processar arquivos de imagem (JPG, PNG e TIFF), este tutorial concentra-se no conteúdo baseado em palavras, aplicando a detecção de idioma e a análise de texto para criar campos e informações que podem ser aproveitadas em consultas, facetas e filtros.
+Se você tiver conteúdo de imagem ou texto não estruturado no Armazenamento de Blobs do Azure, um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) poderá ajudá-lo a extrair informações e criar outro tipo de conteúdo útil para cenários de pesquisa de texto completo ou mineração de conhecimento. Embora um pipeline possa processar arquivos de imagem (JPG, PNG e TIFF), este tutorial concentra-se no conteúdo baseado em palavras, aplicando a detecção de idioma e a análise de texto para criar campos e informações que podem ser aproveitadas em consultas, facetas e filtros.
 
 > [!div class="checklist"]
 > * Comece com documentos inteiros (texto não estruturado), como PDF, MD, DOCX e PPTX no Armazenamento de Blobs do Azure.

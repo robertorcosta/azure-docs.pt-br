@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd75cc392bb30d15b665190eef8fbea39d692ee3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096263"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Integração do Azure Active Directory com o New Relic
 
@@ -128,11 +129,11 @@ Para configurar o logon único do Azure AD com o New Relic, execute as seguintes
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
    
-    ![Configurações de Conta](./media/new-relic-tutorial/ic797036.png "Configurações de Conta")
+    ![Configurações da Conta](./media/new-relic-tutorial/ic797036.png "Configurações da Conta")
 
 3. Clique na guia **Segurança e autenticação** e na guia **Logon único**.
    
-    ![Logon Único](./media/new-relic-tutorial/ic797037.png "Logon Único")
+    ![Logon único](./media/new-relic-tutorial/ic797037.png "Logon Único")
 
 4. Na página da caixa de diálogo SAML, execute as seguintes etapas:
    
@@ -207,11 +208,11 @@ Para permitir que os usuários do Azure Active Directory façam logon no New Rel
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
    
-    ![Configurações de Conta](./media/new-relic-tutorial/ic797040.png "Configurações de Conta")
+    ![Configurações da Conta](./media/new-relic-tutorial/ic797040.png "Configurações da Conta")
 
 3. No painel **Conta** no lado esquerdo, clique em **Resumo** e em **Adicionar usuário**.
    
-    ![Configurações de Conta](./media/new-relic-tutorial/ic797041.png "Configurações de Conta")
+    ![Configurações da Conta](./media/new-relic-tutorial/ic797041.png "Configurações da Conta")
 
 4. No diálogo **Usuários ativos** , realize as seguintes etapas:
    

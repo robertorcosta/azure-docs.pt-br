@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Criar um gateway de aplicativo com dimensionamento automático, redundância de zona e endereço IP reservado – Azure PowerShell'
+title: 'Tutorial: Melhorar o acesso ao aplicativo Web – Gateway de Aplicativo do Azure'
 description: Neste tutorial, saiba como criar um gateway de aplicativo com dimensionamento automático, redundância de zona e endereço IP reservado usando o Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 2/14/2019
+ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947143"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011359"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutorial: Criar um gateway de aplicativo que melhora o acesso a aplicativos Web
 

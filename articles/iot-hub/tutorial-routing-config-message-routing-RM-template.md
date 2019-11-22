@@ -1,5 +1,5 @@
 ---
-title: Configurar o roteamento de mensagens para o Hub IoT do Azure usando um modelo do Azure Resource Manager | Microsoft Docs
+title: Configurar o roteamento de mensagens para o Hub IoT do Azure usando um modelo do Azure Resource Manager
 description: Configurar o roteamento de mensagens para o Hub IoT do Azure usando um modelo do Azure Resource Manager
 author: robinsh
 manager: philmeagit st
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163306"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084401"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Usar um modelo do Azure Resource Manager para configurar o roteamento de mensagens do Hub IoT
 
@@ -26,17 +26,17 @@ ms.locfileid: "66163306"
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-## <a name="download-the-template-and-parameters-file"></a>Baixar o arquivo de parâmetros e o modelo
+## <a name="download-the-template-and-parameters-file"></a>Baixe o arquivo de modelo e parâmetros
 
 Para a segunda parte deste tutorial, você pode baixar e executar um aplicativo do Visual Studio para enviar mensagens ao Hub IoT. Há uma pasta nesse download que contém o arquivo de parâmetros e o modelo do Azure Resource Manager, bem como os scripts do PowerShell e CLI do Azure.
 
-Baixe os [Exemplos de C# do IoT do Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) agora mesmo. Descompacte o arquivo master.zip. O arquivo de parâmetros e o modelo do Resource Manager estão em /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **template_iothub.json** e **template_iothub_parameters.json**.
+Vá em frente e baixe os [Exemplos de C# do IoT do Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) agora mesmo. Descompacte o arquivo master.zip. O arquivo de parâmetros e o modelo do Resource Manager estão em /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **template_iothub.json** e **template_iothub_parameters.json**.
 
 ## <a name="create-your-resources"></a>Criar seus recursos
 
-Você vai usar um modelo do Azure RM (Resource Manager) para criar todos os seus recursos. Pode-se executar algumas linhas de scripts da CLI do Azure e do PowerShell de cada vez. Um modelo do RM é implantado em uma única etapa. Este artigo mostra as seções separadamente para ajudá-lo a entender cada uma delas. Em seguida, mostrará como implantar o modelo e criar o dispositivo virtual para teste. Depois que o modelo for implantado, você poderá exibir a configuração de roteamento de mensagens no portal.
+Você vai usar um modelo do Azure RM (Resource Manager) para criar todos os seus recursos. Os scripts da CLI do Azure e do PowerShell podem ser executados algumas linhas por vez. Um modelo do RM é implantado em uma única etapa. Este artigo mostra as seções separadamente para ajudá-lo a entender cada uma delas. Em seguida, mostrará como implantar o modelo e criar o dispositivo virtual para teste. Depois que o modelo for implantado, você poderá exibir a configuração de roteamento de mensagens no portal.
 
-Há vários nomes de recurso que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para facilitar a nomeação dos recursos, os nomes de recurso são configurados para acrescentar um valor alfanumérico aleatório gerado com base na data e hora atuais. 
+Há vários nomes de recurso que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para tornar mais fácil dar nome aos recursos, esses nomes de recurso são configurados para acrescentar um valor alfanumérico aleatório gerado com base na data/hora atual. 
 
 Se você examinar o modelo, verá em que local as variáveis estão configuradas para esses recursos que usam o parâmetro passado e concatenam *randomValue* para o parâmetro. 
 
@@ -48,7 +48,7 @@ A maioria desses parâmetros tem valores padrão. Os que terminam com **_in** s�
 
 **randomValue**: esse valor é gerado com base na data/hora atual em que você implanta o modelo. Esse campo não está no arquivo de parâmetros, pois é gerado no próprio modelo.
 
-**subscriptionId**: esse campo é predefinido para a assinatura na qual você está implantando o modelo. Esse campo não está no arquivo de parâmetros, pois ele é definido para você.
+**subscriptionId**: esse campo é definido para você para a assinatura na qual você está implantando o modelo. Esse campo não está no arquivo de parâmetros, pois ele é definido para você.
 
 **IoTHubName_in**: esse campo é o nome base do Hub IoT, que é concatenado com randomValue para ser globalmente exclusivo.
 
@@ -78,7 +78,7 @@ A maioria desses parâmetros tem valores padrão. Os que terminam com **_in** s�
 
 Esses valores são usados no modelo e derivados principalmente de parâmetros.
 
-**queueAuthorizationRuleResourceId**: esse campo é a ResourceId da regra de autorização para a fila do Barramento de Serviço. ResourceId, por sua vez, é usada para recuperar a cadeia de conexão para a fila.
+**queueAuthorizationRuleResourceId**: esse campo é a ResourceId para a regra de autorização para a fila do Barramento de Serviço. ResourceId, por sua vez, é usada para recuperar a cadeia de conexão para a fila.
 
 **iotHubName**: esse campo é o nome do Hub IoT depois de ter randomValue concatenado. 
 
@@ -126,7 +126,7 @@ Esta seção é assim:
 
 ### <a name="resources-service-bus-namespace-and-queue"></a>Recursos: Fila e namespace do Barramento de Serviço
 
-O segundo recurso criado é o namespace do Barramento de Serviço, juntamente com a fila do Barramento de Serviço para o qual as mensagens são roteadas. A SKU está definida como o padrão. A versão da API é recuperada das variáveis. Ela é também definida para ativar o namespace do Barramento de Serviço quando ele é implantado nesta seção (status: Ativo). 
+O segundo recurso criado é o namespace do Barramento de Serviço, juntamente com a fila do Barramento de Serviço para o qual as mensagens são roteadas. A SKU está definida como o padrão. A versão da API é recuperada das variáveis. Também é definida para ativar o namespace do Barramento de Serviço quando ele é implantado nesta seção (status: Ativo). 
 
 ```json
 {
@@ -193,7 +193,7 @@ Aqui está a primeira parte da seção do Hub IoT. Esta parte do modelo configur
 
 A próxima seção é a seção para a configuração de roteamento de mensagens para o Hub IoT. Primeiro está a seção para os pontos de extremidade. Esta parte do modelo configura os pontos de extremidade de roteamentos para a fila do Barramento de Serviço e a conta de armazenamento, incluindo as cadeias de conexão.
 
-Para criar a cadeia de conexão para a fila, você precisa de queueAuthorizationRulesResourcedId, que é obtido de forma embutida. Para criar a cadeia de conexão da conta de armazenamento, você pode recuperar a chave de armazenamento primária e, em seguida, usá-la no formato da cadeia de conexão.
+Para criar a cadeia de conexão para a fila, você precisa de queueAuthorizationRulesResourcedId, que é recuperado embutido. Para criar a cadeia de conexão da conta de armazenamento, você pode recuperar a chave de armazenamento primária e, em seguida, usá-la no formato da cadeia de conexão.
 
 É também na configuração de ponto de extremidade que você define o formato de blob como `AVRO` ou `JSON`.
 
@@ -370,7 +370,7 @@ Os arquivos são carregados para o compartilhamento usado por sua instância do 
 
 Execute o script para executar a implantação. A última linha desse script recupera a variável configurada para ser retornada – a cadeia de conexão da fila do Barramento de Serviço.
 
-Essas variáveis são definidas neste script.
+O script define e usa estas variáveis:
 
 **$RGName** é o nome de grupo de recursos ao qual implantar o modelo. Esse campo é criado antes de implantar o modelo.
 

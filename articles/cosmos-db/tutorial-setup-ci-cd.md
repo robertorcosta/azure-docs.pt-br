@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: dad99a7e3d0463263e912aa05b5312edbcb89c0b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 28c7166c3569505d595c55178cf721ee432bd642
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597678"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024152"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB no Azure DevOps
 
@@ -50,7 +50,7 @@ Agora que a extensão está instalada, entre em sua conta do Azure DevOps e enco
 3. Por fim, selecione o modelo desejado para o pipeline de build. Vamos selecionar o modelo do **ASP.NET** neste tutorial. 
 
 > [!NOTE]
-> O pool de agente a ser selecionado para este CI deve ter o Docker for Windows instalado, a menos que a instalação seja feita manualmente em uma tarefa anterior como parte do CI. Consulte o artigo [Agentes hospedados da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) para ver uma seleção de pools de agente; é recomendável começar com `Hosted VS2017` ou `Hosted VS2019`. 
+> O pool de agente a ser selecionado para este CI deve ter o Docker for Windows instalado, a menos que a instalação seja feita manualmente em uma tarefa anterior como parte do CI. Confira o artigo [Agentes hospedados da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) para ver uma seleção de pools de agentes. Recomendamos começar com `Hosted VS2017`.
 
 Agora temos um pipeline de build que podemos configurar para usar a tarefa de build do emulador do Azure Cosmos DB. 
 

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2eaae9093614f1512dcd75d23c98bca871bf2850
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5422298bf782944f10b60e98b5f251d8088f36ed
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193335"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172742"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -68,7 +68,7 @@ O certificado solicitado ou criado precisa atender aos requisitos a seguir. O do
 * **Uso de chave** – o certificado precisa ser configurado para *assinaturas digitais* e *codificação de chave*.
 * **Finalidade do certificado** : o certificado deve ser válido para autenticação de servidor SSL.
 
-Neste tutorial, vamos criar um certificado autoassinado para o LDAP Seguro usando o PowerShell. Abra uma janela do PowerShell como **Administrador** e execute os comandos a seguir. Substitua a variável *$dnsName* pelo nome DNS usado por seu próprio domínio gerenciado, como *contoso.com*:
+Neste tutorial, vamos criar um certificado autoassinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Abra uma janela do PowerShell como **Administrador** e execute os comandos a seguir. Substitua a variável *$dnsName* pelo nome DNS usado por seu próprio domínio gerenciado, como *contoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -176,7 +176,7 @@ O arquivo de certificado *.CER* agora pode ser distribuído para os computadores
 
 Com um certificado digital criado e exportado que inclua a chave privada e o computador cliente definido para confiar na conexão, agora habilite o LDAP Seguro no domínio gerenciado do Azure AD DS. Para habilitar o LDAP Seguro em um domínio gerenciado do Azure AD DS, execute as seguintes etapas de configuração:
 
-1. No [portal do Azure](https://portal.azure.com), pesquise *serviços de domínio* na caixa **Pesquisar recursos**. Selecione **Azure AD Domain Services** nos resultados da pesquisa.
+1. No [portal do Azure](https://portal.azure.com), insira *serviços de domínio* na caixa **Pesquisar recursos**. Selecione **Azure AD Domain Services** nos resultados da pesquisa.
 
     ![Pesquisar e selecionar o domínio gerenciado do Azure AD DS no portal do Azure](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
@@ -207,7 +207,7 @@ Quando você habilita o acesso LDAP Seguro na Internet para o domínio gerenciad
 Vamos criar uma regra para permitir o acesso LDAP Seguro de entrada pela porta TCP 636 em um conjunto especificado de endereços IP. Uma regra *DenyAll* padrão de prioridade mais baixa se aplica a todos os outros tipo de tráfego de entrada na Internet, de modo que somente os endereços especificados possam acessar o domínio gerenciado do Azure AD DS usando o LDAP Seguro.
 
 1. No portal do Azure, selecione *Grupos de recursos* na barra de navegação do lado esquerdo.
-1. Escolha o grupo de recursos, como *myResourceGroup* e, em seguida, selecione o grupo de segurança de rede, como *AADDS-contoso.com-NSG*.
+1. Escolha o grupo de recursos, como *myResourceGroup* e, em seguida, selecione o grupo de segurança de rede, como *aaad-nsg*.
 1. A lista de regras de segurança de entrada e saída existentes é exibida. No lado esquerdo das janelas do grupo de segurança de rede, escolha **Segurança > Regras de segurança de entrada**.
 1. Selecione **Adicionar** e, em seguida, crie uma regra para permitir a porta *TCP* *636*. Para maior segurança, escolha a origem como *Endereços IP* e, em seguida, especifique seu próprio intervalo ou endereço IP válido para sua organização.
 
@@ -297,3 +297,4 @@ Neste tutorial, você aprendeu como:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate

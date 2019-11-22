@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e7c3ccb553010b84a30ccdad875ea0362112d830
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69618786"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172340"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar uma VM de gerenciamento para configurar e administrar um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -101,7 +101,7 @@ Os domínios gerenciados do Azure AD DS são gerenciados usando as mesmas ferram
 
 Para instalar as Ferramentas de Administração do Active Directory em uma máquina virtual unida ao domínio, conclua as seguintes etapas:
 
-1. O **Gerenciador do Servidor** deve abrir por padrão ao entrar na VM. Caso contrário, no menu **Iniciar**, selecione **Gerenciador do Servidor**.
+1. Se **Gerenciador do Servidor** não abrir por padrão quando você entrar na VM, selecione o menu **Iniciar** e, em seguida, escolha **Gerenciador do Servidor**.
 1. No painel *Dashboard* da janela **Gerenciador do Servidor**, selecione **Adicionar Funções e Recursos**.
 1. Na página **Antes de Você Começar** do *Assistente de Adição de Funções e Recursos*, selecione **Avançar**.
 1. Para o *Tipo de Instalação*, deixe a opção **Instalação baseada em função ou recurso** marcada e selecione **Avançar**.
@@ -131,13 +131,15 @@ Com as ferramentas administrativas instaladas, vejamos como é possível usá-la
 
 1. Para ver os usuários e grupos que pertencem ao domínio gerenciado do Azure AD DS, selecione o contêiner **Usuários do AADDC**. As contas e os grupos de usuário do locatário do Azure AD são listados neste contêiner.
 
-    No exemplo de saída a seguir, uma conta de usuário chamada *contosoadmin* e um grupo para *Administradores do AAD DC* são mostrados neste contêiner.
+    Na saída de exemplo a seguir, uma conta de usuário chamada *Contoso Admin* e um grupo para *Administradores do AAD DC* são mostrados neste contêiner.
 
     ![Exiba a lista de usuários de domínio do Azure AD DS no Centro Administrativo do Active Directory](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. Para ver os computadores que estão unidos ao domínio gerenciado do Azure AD DS, selecione o contêiner **Computadores do AADDC**. Uma entrada para a máquina virtual atual, como *myVM*, é listada. As contas de computador de todos os computadores que se uniram a um domínio gerenciado do Azure AD DS serão armazenadas no contêiner *Computadores do AADDC*.
 
-Ações comuns do Centro Administrativo do Active Directory – como a redefinição de senha de uma conta de usuário ou o gerenciamento da associação a grupos – estão disponíveis. Você também pode usar o *Módulo do Active Directory para Windows PowerShell*, instalado como parte das ferramentas administrativas, para gerenciar ações comuns em seu domínio gerenciado do Azure AD DS.
+Ações comuns do Centro Administrativo do Active Directory – como a redefinição de senha de uma conta de usuário ou o gerenciamento da associação a grupos – estão disponíveis. Essas ações só funcionam para usuários e grupos criados diretamente no domínio gerenciado do Azure AD DS. As informações de identidade só são sincronizadas *do* Azure AD para o Azure AD DS. Não há nenhum write-back do Azure AD DS para o Azure AD. Você não pode alterar as senhas nem a associação de grupo gerenciado para usuários sincronizados do Azure AD e fazer com que essas alterações sejam sincronizadas de volta.
+
+Você também pode usar o *Módulo do Active Directory para Windows PowerShell*, instalado como parte das ferramentas administrativas, para gerenciar ações comuns em seu domínio gerenciado do Azure AD DS.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implantar os Gêmeos Digitais do Azure | Microsoft Azure'
+title: 'Tutorial: Implantar os Gêmeos Digitais do Azure'
 description: Saiba como implantar a instância dos Gêmeos Digitais do Azure e configurar seus recursos espaciais usando as etapas deste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/17/2019
-ms.openlocfilehash: 54afe8ea67996562c88a2ade2ec16c4eaa89cdee
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 4d4e7e47b82c46cca53fab0540a4867031eaab85
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949757"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107751"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implantar a Versão prévia dos Gêmeos Digitais do Azure e configurar um grafo espacial
 

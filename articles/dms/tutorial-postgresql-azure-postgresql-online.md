@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/06/2019
-ms.openlocfilehash: 5888555e93c28c96445bed1936deda022b0a4b94
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/28/2019
+ms.openlocfilehash: 1b4eebafadcdbebfc89ce7265f4d4f77f4f5ac8c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734597"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043239"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para o Banco de Dados do Azure para PostgreSQL online usando o DMS
 
@@ -63,7 +63,7 @@ Para concluir este tutorial, você precisará:
 * Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o Banco de Dados do Azure para PostgreSQL a fim de permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-rede da VNet usado para o Serviço de Migração de Banco de Dados do Azure.
 * Há dois métodos para invocar a CLI:
 
-  * No canto superior direito do portal do Azure, marque o botão Cloud Shell:
+  * No canto superior direito do portal do Azure, selecione o botão Cloud Shell:
 
        ![Botão Cloud Shell no portal do Azure](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Bright Pattern Omnichannel Contact Center | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Bright Pattern Omnichannel Contact Center | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Bright Pattern Omnichannel Contact Center.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 205b1746bac30a015d4efe4bde573be44563e2f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 27cda1f1a797ca0cb8e1b9d1c4cd7498c22ddde5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451707"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081929"
 ---
-# <a name="tutorial-integrate-bright-pattern-omnichannel-contact-center-with-azure-active-directory"></a>Tutorial: Integrar o Bright Pattern Omnichannel Contact Center com o Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bright-pattern-omnichannel-contact-center"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Bright Pattern Omnichannel Contact Center
 
 Neste tutorial, você aprenderá como integrar o Bright Pattern Omnichannel Contact Center ao Azure Active Directory (Azure AD). Ao integrar o Bright Pattern Omnichannel Contact Center com o Azure AD, você poderá:
 
@@ -37,15 +37,18 @@ Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O
 
 Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Assinatura do Bright Pattern Omnichannel Contact Center habilitada para logon único (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
+
+
 * O Bright Pattern Omnichannel Contact Center dá suporte ao SSO iniciado por **SP e IDP**
 * O Bright Pattern Omnichannel Contact Center dá suporte ao provisionamento de usuário **Just In Time**
+
 
 ## <a name="adding-bright-pattern-omnichannel-contact-center-from-the-gallery"></a>Adicionar o Bright Pattern Omnichannel Contact Center da galeria
 
@@ -58,30 +61,31 @@ Para configurar a integração do Bright Pattern Omnichannel Contact Center com 
 1. Na seção **Adicionar da galeria**, digite **Bright Pattern Omnichannel Contact Center** na caixa de pesquisa.
 1. Selecione **Bright Pattern Omnichannel Contact Center** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+
+## <a name="configure-and-test-azure-ad-single-sign-on-for-bright-pattern-omnichannel-contact-center"></a>Configurar e testar o logon único do Azure AD para o Bright Pattern Omnichannel Contact Center
 
 Configure e teste o SSO do Azure AD com o Bright Pattern Omnichannel Contact Center usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre o usuário do Azure AD e o usuário relacionado do Bright Pattern Omnichannel Contact Center.
 
 Para configurar e testar o SSO do Azure AD com o Bright Pattern Omnichannel Contact Center, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-2. **[Configurar o SSO do Bright Pattern Omnichannel Contact Center](#configure-bright-pattern-omnichannel-contact-center-sso)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Bright Pattern Omnichannel Contact Center](#create-bright-pattern-omnichannel-contact-center-test-user)** – para ter um equivalente de B.Fernandes no Bright Pattern Omnichannel Contact Center que esteja vinculado à representação do usuário do AD do Azure.
-6. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Bright Pattern Omnichannel Contact Center](#configure-bright-pattern-omnichannel-contact-center-sso)** – para configurar o logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do Bright Pattern Omnichannel Contact Center](#create-bright-pattern-omnichannel-contact-center-test-user)** – para ter um equivalente de B.Fernandes no Bright Pattern Omnichannel Contact Center que esteja vinculado à representação do usuário do AD do Azure.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Bright Pattern Omnichannel Contact Center**, localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Escolher um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Bright Pattern Omnichannel Contact Center**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `<SUBDOMAIN>_sso`
 
@@ -94,11 +98,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte do Bright Pattern Omnichannel Contact Center](mailto:support@brightpattern.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. O aplicativo Bright Pattern Omnichannel Contact Center espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
+1. O aplicativo Bright Pattern Omnichannel Contact Center espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à configuração dos atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
     ![image](common/edit-attribute.png)
 
-1. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
+1. Além do indicado acima, o aplicativo Bright Pattern Omnichannel Contact Center espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seu requisito.
 
     | NOME | Namespace  |
     | ---------------| --------------- |
@@ -106,31 +110,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | lastName | user.surname |
     | email | user.mail |
 
-    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
-    b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
-
-    c. Deixe o **Namespace** em branco.
-
-    d. Escolha Origem como **Atributo**.
-
-    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
-
-    f. Clique em **Ok**
-
-    g. Clique em **Save** (Salvar).
-
-1. Na página **Configurar o Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para fazer o download do certificado e salvá-lo no computador.
-
-   ![O link de download do Certificado](common/certificatebase64.png)
+    ![O link de download do Certificado](common/certificatebase64.png)
 
 1. Na seção **Configurar Bright Pattern Omnichannel Contact Center**, copie as URLs apropriadas, com base em seu requisito.
 
-   ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
-### <a name="configure-bright-pattern-omnichannel-contact-center-sso"></a>Configurar o SSO do Bright Pattern Omnichannel Contact Center
-
-Para configurar o logon único no lado do **Bright Pattern Omnichannel Contact Center**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Bright Pattern Omnichannel Contact Center](mailto:support@brightpattern.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -162,18 +148,27 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
+## <a name="configure-bright-pattern-omnichannel-contact-center-sso"></a>Configurar o SSO do Bright Pattern Omnichannel Contact Center
+
+Para configurar o logon único no lado do **Bright Pattern Omnichannel Contact Center**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Bright Pattern Omnichannel Contact Center](mailto:support@brightpattern.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+
 ### <a name="create-bright-pattern-omnichannel-contact-center-test-user"></a>Criar usuário de teste do Bright Pattern Omnichannel Contact Center
 
 Nesta seção, o usuário B.Fernandes será criado no Bright Pattern Omnichannel Contact Center. O Bright Pattern Omnichannel Contact Center dá suporte ao provisionamento de usuário Just In Time, por padrão. Não há itens de ação para você nesta seção. Se o usuário ainda não existir no Bright Pattern Omnichannel Contact Center, um novo usuário será criado após a autenticação.
 
-### <a name="test-sso"></a>Testar o SSO
+## <a name="test-sso"></a>Testar o SSO 
 
-Quando você selecionar o bloco do Bright Pattern Omnichannel Contact Center, no painel de acesso, você deverá ser conectado automaticamente no Bright Pattern Omnichannel Contact Center para os quais você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Ao clicar no bloco do Bright Pattern Omnichannel Contact Center no Painel de Acesso, você deverá ser conectado automaticamente ao Bright Pattern Omnichannel Contact Center, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o Bright Pattern Omnichannel Contact Center com o Azure AD](https://aad.portal.azure.com/)
+

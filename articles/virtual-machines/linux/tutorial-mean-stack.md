@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar uma pilha do MEAN em uma máquina virtual do Linux no Azure | Microsoft Docs
+title: Tutorial – Criar uma pilha MEAN em uma máquina virtual do Linux no Azure
 description: Neste tutorial, você aprenderá a criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma VM Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5a1d1f738d8f32777bc4a6ea7d04fb0abf2accf7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300813"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034400"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma máquina virtual do Linux no Azure
 
@@ -81,7 +81,7 @@ ssh azureuser@13.72.77.9
 
 ## <a name="install-nodejs"></a>Instalar o Node. js
 
-O [Node.js](https://nodejs.org/en/) é um tempo de execução de JavaScript baseado no mecanismo de JavaScript V8 do Chrome. O Node.js é usado neste tutorial para configurar as rotas do Expresso e os controladores AngularJS.
+O [Node.js](https://nodejs.org/en/) é um runtime de JavaScript baseado no mecanismo de JavaScript V8 do Chrome. O Node.js é usado neste tutorial para configurar as rotas do Expresso e os controladores AngularJS.
 
 Na VM, usando o shell bash que você abriu com SSH, instale o Node.js.
 

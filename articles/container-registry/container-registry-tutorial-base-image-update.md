@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Automatizar builds de imagem de contêiner na atualização da imagem base – Tarefas do Registro de Contêiner do Azure
+title: Tutorial – Disparar um build da imagem na atualização da imagem base – Registro de Contêiner do Azure
 description: Neste tutorial, você aprenderá a configurar uma Tarefa do Registro de Contêiner do Azure para disparar builds de imagem de contêiner automaticamente na nuvem quando uma imagem base for atualizada.
 services: container-registry
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6b9a74ee6530d8fc195490b0f1414e6348e855f6
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 1beb66d8491b7dac84e9531558f8967e22086575
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743599"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931679"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: automatizar builds de imagem de contêiner na atualização da imagem base em um Registro de Contêiner do Azure 
 

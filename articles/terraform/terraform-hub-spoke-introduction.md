@@ -1,22 +1,19 @@
 ---
-title: Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure
+title: Tutorial – Criar uma topologia de rede híbrida de hub e spoke no Azure usando o Terraform
 description: Tutorial que ilustra como criar uma arquitetura de referência de rede híbrida inteira no Azure usando o Terraform
-services: terraform
-ms.service: azure
-keywords: terraform, hub e spoke, redes, redes híbridas, devops, máquina virtual, azure, emparelhamento vnet, solução de virtualização de rede
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 5c2a61dd9da6d233a4b1410042f2125a1c300758
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 8d85163e746f1d2d0713a9a4f247a2061e0029b8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173445"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969406"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Tutorial: Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutorial: Criar uma topologia de rede híbrida de hub e spoke no Azure usando o Terraform
 
 Esta série de tutoriais mostra como usar o Terraform para implementar no Azure uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
 

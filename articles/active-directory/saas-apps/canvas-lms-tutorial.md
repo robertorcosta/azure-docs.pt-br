@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d96d1addf1028c2651ed837f3dab66f12d5d5fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab998b6d9aec663123f0bd2428e4c6f1767f1846
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105857"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158743"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integração do Azure Active Directory com o Canvas
 
@@ -136,15 +137,15 @@ Para configurar o logon único do Azure AD com o Canvas, realize as seguintes et
 
 2. Vá para **Cursos \> Contas Gerenciadas \> Microsoft**.
 
-    ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
+    ![Tela](./media/canvas-lms-tutorial/ic775990.png "Tela")
 
 3. No painel de navegação à esquerda, selecione **Autenticação** e clique em **Adicionar Nova Config. do SAML**.
 
-    ![Autenticação](./media/canvas-lms-tutorial/ic775991.png "Autenticação")
+    ![Autenticação](./media/canvas-lms-tutorial/ic775991.png "Authentication")
 
 4. Na página de integração atual, execute as seguintes etapas:
 
-    ![Integração Atual](./media/canvas-lms-tutorial/ic775992.png "integração Atual")
+    ![Integração Atual](./media/canvas-lms-tutorial/ic775992.png "Integração Atual")
 
     a. Na caixa de texto **ID da Entidade de IdP**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
 
@@ -223,7 +224,7 @@ Para permitir que os usuários do Azure AD façam logon no Canvas, eles devem se
 
 2. Vá para **Cursos \> Contas Gerenciadas \> Microsoft**.
 
-   ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
+   ![Tela](./media/canvas-lms-tutorial/ic775990.png "Tela")
 
 3. Clique em **Usuários**.
 
@@ -235,7 +236,7 @@ Para permitir que os usuários do Azure AD façam logon no Canvas, eles devem se
 
 5. Na página da caixa de diálogo Adicionar um Novo Usuário, execute as seguintes etapas:
 
-   ![Adicionar Usuário](./media/canvas-lms-tutorial/ic775997.png "Adicionar Usuário")
+   ![Adicionar Usuário](./media/canvas-lms-tutorial/ic775997.png "Adicionar usuário")
 
    a. Na caixa de texto **Nome Completo**, insira o nome de usuário, como **BrendaFernandes**.
 

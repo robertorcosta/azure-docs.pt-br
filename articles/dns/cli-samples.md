@@ -1,18 +1,18 @@
 ---
-title: Amostras da CLI do Azure para o DNS
-description: Amostras da CLI do Azure para o DNS
+title: Amostras da CLI do Azure para o DNS – DNS do Azure
+description: Com esta amostra, use a CLI do Azure para criar zonas e registros DNS no DNS do Azure.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: e51b198bc92afdf22269478b96e364934e63c191
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 31f34c6713d97c9019c23ae1c5c36d513a9c323c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154695"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030342"
 ---
 # <a name="azure-cli-examples-for-azure-dns"></a>Exemplos da CLI do Azure para o DNS do Azure
 

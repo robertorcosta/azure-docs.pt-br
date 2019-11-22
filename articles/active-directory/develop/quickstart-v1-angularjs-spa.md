@@ -13,21 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380758"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150052"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Início Rápido: Criar o aplicativo de página única AngularJS para conexão e saída com o Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> A [plataforma de identidade da Microsoft](v2-overview.md) é uma evolução da plataforma de desenvolvedor do Azure AD (Azure Active Directory). Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtêm tokens para chamar APIs da Microsoft, tais como o Microsoft Graph ou APIs que os desenvolvedores criaram.
+> Caso precise habilitar credenciais para contas pessoais, além das contas corporativa e de estudante, use o *[ponto de extremidade da plataforma de identidade da Microsoft](azure-ad-endpoint-comparison.md)* .
+> Este guia de início rápido é para o ponto de extremidade do Azure AD v1.0 mais antigo. Recomendamos que você use o ponto de extremidade v2.0 para novos projetos. Para obter mais informações, confira [este tutorial do JavaScript SPA](tutorial-v2-javascript-spa.md), bem como [este artigo](active-directory-v2-limitations.md) que explica o *ponto de extremidade da plataforma de identidade da Microsoft*.
 
 O Azure AD (Azure Active Directory) faz com que seja simples e direto adicionar entrada e saída e proteger chamadas de API do OAuth para seus aplicativos de página única. Ele habilita seu aplicativo a autenticar usuários com suas contas do Active Directory do Windows Server e consuma qualquer API Web que o Azure AD ajuda a proteger, como as APIs do Office 365 ou a API do Azure.
 
@@ -45,9 +50,6 @@ Para criar o aplicativo em funcionamento completo, você precisará:
 1. Registrar um aplicativo no Azure AD.
 2. Instalar a ADAL e configurar o aplicativo de página única.
 3. Use o ADAL para páginas seguras no aplicativo de página única.
-
-> [!NOTE]
-> Caso precise habilitar credenciais para contas pessoais, além das contas corporativa e de estudante, use o *[ponto de extremidade da plataforma de identidade da Microsoft](azure-ad-endpoint-comparison.md)* . Para obter mais informações, confira [este tutorial do JavaScript SPA](tutorial-v2-javascript-spa.md), bem como [este artigo](active-directory-v2-limitations.md) que explica o *ponto de extremidade da plataforma de identidade da Microsoft*. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

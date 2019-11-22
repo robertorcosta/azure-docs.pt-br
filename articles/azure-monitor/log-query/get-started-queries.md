@@ -3,30 +3,25 @@ title: Introdução às consultas de log no Azure Monitor | Microsoft Docs
 description: Este artigo fornece um tutorial de introdução à programação de consultas de log no Azure Monitor.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
-ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.date: 10/24/2019
+ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894297"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933035"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
-
 > [!NOTE]
-> Você deve concluir a [introdução ao Azure Monitor log Analytics](get-started-portal.md) antes de concluir este tutorial.
+> Você poderá trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [Ambiente de demonstração](https://portal.loganalytics.io/demo), que inclui muitos dados de exemplo.
 
-> [!NOTE]
-> Você pode trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [ambiente de demonstração](https://portal.loganalytics.io/demo), que inclui muitos dados de exemplo.
+Neste tutorial, você aprenderá a escrever consultas de log no Azure Monitor. Ele irá ensiná-lo como para:
 
-
-Neste tutorial, você aprenderá a escrever consultas de log em Azure Monitor. Ele irá ensiná-lo como para:
-
-- Entender a estrutura de consulta
+- Entender a estrutura de consultas
 - Classificar os resultados de consulta
 - Filtrar resultados da consulta
 - Especifique um intervalo de tempo
@@ -34,8 +29,12 @@ Neste tutorial, você aprenderá a escrever consultas de log em Azure Monitor. E
 - Definir e usar campos personalizados
 - Agregar e agrupar resultados
 
-Para obter um tutorial sobre como usar Log Analytics no portal do Azure, consulte Introdução [ao Azure Monitor log Analytics](get-started-portal.md).<br>
-Para obter mais detalhes sobre as consultas de log no Azure Monitor, consulte [visão geral das consultas de log no Azure monitor](log-query-overview.md).
+Para obter um tutorial sobre como usar o Log Analytics no portal do Azure, confira [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md).<br>
+Para obter mais detalhes sobre consultas de log no Azure Monitor, confira [Visão geral de consultas de log no Azure Monitor](log-query-overview.md).
+
+Acompanhe com uma versão em vídeo deste tutorial abaixo:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Escrevendo uma nova consulta
 As consultas podem começar com um nome de tabela ou com o comando *pesquisa*. Você deve começar com um nome de tabela, pois ele define um escopo claro para a consulta e melhora o desempenho da consulta e a relevância dos resultados.
@@ -106,7 +105,7 @@ SecurityEvent
 
 Ao escrever as condições de filtro, você pode usar as expressões a seguir:
 
-| Expression | Descrição | Exemplo |
+| Expression | DESCRIÇÃO | Exemplo |
 |:---|:---|:---|
 | == | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `Level == 8` |
 | =~ | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -177,7 +176,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**estender** mantém todas as colunas originais no conjunto de resultados e define outros adicionais. A consulta a seguir usa **Extend** para adicionar a coluna *EventCode* . Observe que essa coluna pode não ser exibida no final da tabela e, nesse caso, você precisaria expandir os detalhes de um registro para exibi-lo.
+**estender** mantém todas as colunas originais no conjunto de resultados e define outros adicionais. A consulta a seguir usa **estender** para adicionar a coluna *EventCode*. Observe que essa coluna pode não ser exibida no final dos resultados da tabela. Nesse caso, você precisaria expandir os detalhes de um registro para exibi-lo.
 
 ```Kusto
 SecurityEvent
@@ -222,7 +221,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Resumir por uma coluna de hora
 Agrupar os resultados também pode ser baseado em uma coluna de hora ou outro valor contínuo. Resumindo simplesmente `by TimeGenerated` entanto seria criar grupos para cada milissegundo de único ao longo do intervalo de tempo, pois esses são valores exclusivos. 
 
-Para criar grupos com base em valores contínuos, é melhor dividir o intervalo em unidades gerenciáveis usando **bin**. A consulta a seguir analisa *Perf* registros que medem a memória livre (*MBytes disponíveis*) em um computador específico. Ele calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
+Para criar grupos com base em valores contínuos, é melhor dividir o intervalo em unidades gerenciáveis usando **bin**. A consulta a seguir analisa *Perf* registros que medem a memória livre (*MBytes disponíveis*) em um computador específico. Ela calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
 
 ```Kusto
 Perf 
@@ -238,6 +237,6 @@ Para tornar a saída mais clara, selecione-a como um gráfico de tempo, mostrand
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [como escrever consultas de pesquisa](search-queries.md)

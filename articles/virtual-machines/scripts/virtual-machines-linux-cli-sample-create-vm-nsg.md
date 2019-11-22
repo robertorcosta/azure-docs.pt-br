@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script da CLI do Azure - Criar duas VMs com um NSG interno e um externo | Microsoft Docs
+title: Amostra de script da CLI do Azure – Criar duas VMs com um NSG interno e um externo
 description: Exemplo de script da CLI do Azure - Criar duas VMs com um NSG interno e um externo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0ed3ed5c3f44f9ddf912b420c4a89b6ca0fa94af
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 857a2862a7ddf515567f96b2e688e54a957cd3d9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709581"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039591"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>Proteger o tráfego de rede entre máquinas virtuais
 

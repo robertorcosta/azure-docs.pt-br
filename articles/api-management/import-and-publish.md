@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 6a1ae2966e8d5535a5fd9aeffb5ddc3a788f85ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bae762b4603b2f5f80447a16671fed4e37e62b95
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072113"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108546"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar sua primeira API 
 
@@ -75,7 +75,7 @@ Esta seção mostra como importar e publicar uma API de back-end da especificaç
 > [!TIP]
 > Se você estiver tendo problemas com a importação de sua própria definição de API, [veja a lista de problemas e restrições conhecidos](api-management-api-import-restrictions.md).
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API do APIM no portal do Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure
 
 ![Testar mapa de API](./media/api-management-get-started/01-import-first-api-01.png)
 
@@ -88,23 +88,6 @@ As operações podem ser chamadas diretamente do portal do Azure, o que oferece 
 
     O back-end responde com **200 OK** e alguns dados.
 
-## <a name="call-operation"> </a>Chamar uma operação no portal do desenvolvedor
-
-As operações também podem ser chamadas do **Portal do desenvolvedor** para testar APIs.
-
-1. Navegue até o **portal do Desenvolvedor**.
-
-    ![Portal do desenvolvedor](./media/api-management-get-started/developer-portal.png)
-
-2. Selecione **APIS**, clique em **API de Conferência de Demonstração** e então em **GetSpeakers**.
-
-    A página exibe campos para parâmetros de consulta, nesse caso, não há nenhum, e cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. Se você criou a instância do APIM, já é um administrador e, portanto, a chave é preenchida automaticamente.
-
-3. Pressione **Experimentar**.
-4. Pressione **Enviar**.
-
-    Depois de uma operação ser invocada, o portal do desenvolvedor mostra as respostas.  
-
 ## <a name="next-steps"> </a>Próximas etapas
 
 Neste tutorial, você aprendeu como:
@@ -112,7 +95,6 @@ Neste tutorial, você aprendeu como:
 > [!div class="checklist"]
 > * Importar sua primeira API
 > * Testar a API no Portal do Azure
-> * Testar a API no Portal do desenvolvedor
 
 Prosseguir para o próximo tutorial:
 

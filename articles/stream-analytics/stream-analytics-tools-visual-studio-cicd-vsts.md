@@ -1,5 +1,5 @@
 ---
-title: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o Azure DevOps
+title: Implantar trabalhos do Azure Stream Analytics com CI/CD e o Azure DevOps
 description: Este artigo descreve como implantar um trabalho do Stream Analytics com CI/CD usando o Azure DevOps Services.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e05e4eab8bd3c307334b62df00dc03e56ce60ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727580"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925078"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o Azure Pipelines
 Esse tutorial descreve como configurar a integração e a implantação contínua para um trabalho do Azure Stream Analytics usando o Azure Pipelines. 
@@ -117,7 +117,7 @@ Abra um navegador da Web e navegue até o projeto que você acabou de criar no [
     
     |**Configuração**  |**Valor sugerido**  |
     |---------|---------|
-    |Assinatura  |  Escolha sua assinatura.   |
+    |Subscription  |  Escolha sua assinatura.   |
     |Ação  |  Criar ou atualizar o grupo de recursos   |
     |Grupo de recursos  |  Insira um nome de grupo de recursos.   |
     |Modelo  | [O caminho da sua solução]\bin\Debug\Deploy\\[O nome do seu projeto].JobTemplate.json   |

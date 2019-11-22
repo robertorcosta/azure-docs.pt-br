@@ -1,5 +1,5 @@
 ---
-title: Configurar o método de roteamento de tráfego da sub-rede usando o Gerenciador de Tráfego do Azure
+title: 'Tutorial: Configurar o roteamento de tráfego da sub-rede – Gerenciador de Tráfego do Azure'
 description: Este artigo explica como configurar o Gerenciador de Tráfego para rotear o tráfego de sub-redes de usuário para pontos de extremidade específicos.
 services: traffic-manager
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: allensu
-ms.openlocfilehash: da2d4816f3f7a99ac2d213d72d7e801cf630e165
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: c2fbb4a85347c8ee68376069474add865cc06c43
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304943"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048824"
 ---
-# <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Direcionar o tráfego para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
+# <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Tráfego direto para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 
 Este artigo descreve como configurar o método de roteamento de tráfego de sub-rede. O método de roteamento de tráfego de **sub-rede** permite que você mapeie um conjunto de intervalos de endereços IP para pontos de extremidade específicos e quando o Gerenciador de Tráfego recebe uma solicitação, ele inspeciona o IP de origem da solicitação e retorna o ponto de extremidade associado a ele.
 
@@ -156,8 +156,8 @@ Crie um perfil de Gerenciador de Tráfego que permite que você retorne pontos d
     | ---                     | ---                                                |
     | NOME                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
     | Método de roteamento          | Selecione o método de roteamento **Sub-rede**.                                       |
-    | Assinatura            | Selecione sua assinatura.                          |
-    | Grupo de recursos          | Selecione **Existing** e insira *myResourceGroupTM1*. |
+    | Subscription            | Selecione sua assinatura.                          |
+    | Resource group          | Selecione **Existing** e insira *myResourceGroupTM1*. |
     | |                              |
     |
 

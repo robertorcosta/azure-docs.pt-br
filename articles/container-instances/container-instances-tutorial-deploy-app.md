@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325626"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846589"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implantar um aplicativo de contêiner nas Instâncias de Contêiner do Azure
 
@@ -37,7 +37,9 @@ Nesta seção, você usará a CLI do Azure para implantar a imagem criada no [pr
 
 ### <a name="get-registry-credentials"></a>Obter credenciais de registro
 
-Ao implantar uma imagem hospedada em um registro de contêiner privado, como aquele criado no [segundo tutorial](container-instances-tutorial-prepare-acr.md), você precisará fornecer credenciais para acessar o registro. Conforme mostrado em [Autenticação com o Registro de Contêiner do Azure em Instâncias de Contêiner do Azure](../container-registry/container-registry-auth-aci.md), uma melhor prática para muitos cenários é criar e configurar uma entidade de serviço do Azure Active Directory com permissões de *pull* no registro. Confira esse artigo para obter scripts de exemplo a fim de criar uma entidade de serviço com as permissões necessárias. Anote a ID e a senha da entidade de serviço. Use essas credenciais quando implantar o contêiner.
+Ao implantar uma imagem hospedada em um registro de contêiner privado do Azure, como aquele criado no [segundo tutorial](container-instances-tutorial-prepare-acr.md), você precisará fornecer credenciais para acessar o registro. 
+
+Uma melhor prática para muitos cenários é criar e configurar uma entidade de serviço do Azure Active Directory com permissões de *pull* no registro. Consulte [Autenticar com o Registro de Contêiner do Azure de Instâncias de Contêiner do Azure](../container-registry/container-registry-auth-aci.md) para obter os scripts de exemplo para criar uma entidade de serviço com as permissões necessárias. Anote a *ID e a senha da entidade de serviço* e a *senha da entidade de serviço*. Use essas credenciais para acessar o registro quando implantar o contêiner.
 
 Você também precisará do nome completo do servidor de logon do registro de contêiner (substitua `<acrName>` pelo nome do registro):
 

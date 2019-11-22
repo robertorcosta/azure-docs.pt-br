@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 32af532fcb3b3c5a294590bb7a1fa610d1068e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094449"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Azure Active Directory com o Picturepark
 
@@ -117,7 +117,7 @@ Para configurar o logon único do Azure AD com o Picturepark, realize as seguint
     | |
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Picturepark](https://picturepark.com/about/contact/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Picturepark](https://picturepark.com/company/picturepark-customer-support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
@@ -148,11 +148,11 @@ Para configurar o logon único do Azure AD com o Picturepark, realize as seguint
 
 3. Clique em **Autenticação** e em **Provedores de identidade**.
    
-    ![Autenticação](./media/picturepark-tutorial/ic795063.png "Autenticação")
+    ![Autenticação](./media/picturepark-tutorial/ic795063.png "Authentication")
 
 4. Na seção **Configuração do provedor de identidade** , realize as seguintes etapas:
    
-    ![Configuração do Provedor de Identidade](./media/picturepark-tutorial/ic795064.png "Configuração do Provedor de Identidade")
+    ![Configuração do provedor de identidade](./media/picturepark-tutorial/ic795064.png "Configuração do provedor de identidade")
    
     a. Clique em **Adicionar**.
   
@@ -234,11 +234,11 @@ Para permitir que os usuários do Azure AD entrem no Picturepark, eles devem ser
 
 1. Na guia **Visão geral de usuários**, clique em **Novo**.
    
-    ![Gerenciamento de usuário](./media/picturepark-tutorial/ic795068.png "Gerenciamento de usuário")
+    ![Gerenciamento de Usuários](./media/picturepark-tutorial/ic795068.png "Gerenciamento de Usuários")
 
 1. Na caixa de diálogo **Criar Usuário**, realize as seguintes etapas de um Usuário válido do Azure Active Directory que você deseja provisionar:
    
-    ![Criar usuário](./media/picturepark-tutorial/ic795069.png "Criar usuário")
+    ![Criar Usuário](./media/picturepark-tutorial/ic795069.png "Criar Usuário")
    
     a. Na caixa de texto **Endereço de Email**, digite o **endereço de email** do usuário `BrittaSimon@contoso.com`.  
    

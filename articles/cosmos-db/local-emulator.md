@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997881"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075652"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usar o Emulador do Azure Cosmos para desenvolvimento e teste locais
 
@@ -217,9 +217,9 @@ Inicie o emulador em um prompt de comando do administrador com “/EnableGremlin
 
 ## <a name="export-the-ssl-certificate"></a>Exportar o certificado SSL
 
-As linguagens e o tempo de execução .NET usam o Repositório de Certificados do Windows para a conexão segura com o emulador local do Azure Cosmos DB. Outras linguagens têm seu próprio método de gerenciar e usar certificados. O Java usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) enquanto o Python usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html).
+As linguagens e o runtime .NET usam o Repositório de Certificados do Windows para a conexão segura com o emulador local do Azure Cosmos DB. Outras linguagens têm seu próprio método de gerenciar e usar certificados. O Java usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) enquanto o Python usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html).
 
-Para obter um certificado para uso com linguagens e tempos de execução que não se integram ao Repositório de Certificados do Windows, você precisará exportá-lo usando o Gerenciador de Certificados do Windows. Você pode iniciá-lo executando certlm.msc ou seguir as instruções passo a passo em [Exportar os certificados do emulador do Azure Cosmos](./local-emulator-export-ssl-certificates.md). Depois que o gerenciador de certificados estiver em execução, abra os Certificados Pessoais, conforme mostrado abaixo, e exporte o certificado com o nome amigável "DocumentDBEmulatorCertificate" como um arquivo X.509 codificado em BASE-64 (.cer).
+Para obter um certificado para uso com linguagens e runtimes que não se integram ao Repositório de Certificados do Windows, você precisará exportá-lo usando o Gerenciador de Certificados do Windows. Você pode iniciá-lo executando certlm.msc ou seguir as instruções passo a passo em [Exportar os certificados do emulador do Azure Cosmos](./local-emulator-export-ssl-certificates.md). Depois que o gerenciador de certificados estiver em execução, abra os Certificados Pessoais, conforme mostrado abaixo, e exporte o certificado com o nome amigável "DocumentDBEmulatorCertificate" como um arquivo X.509 codificado em BASE-64 (.cer).
 
 ![Certificado SSL do emulador local do Azure Cosmos DB](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
@@ -416,6 +416,24 @@ Fechar o shell interativo depois de o emulador ter sido iniciado desligará o co
 Para abrir o Data Explorer, navegue até a URL a seguir no seu navegador. O ponto de extremidade do emulador é fornecido na mensagem de resposta mostrada acima.
 
     https://<emulator endpoint provided in response>/_explorer/index.html
+
+Se você tiver um aplicativo cliente .NET em execução em um contêiner do Docker no Linux e estiver executando o emulador do Azure Cosmos em um computador host, nesse caso, não poderá se conectar à conta do Azure Cosmos no emulador. Como o aplicativo não está em execução no computador host, o certificado registrado no contêiner do Linux que corresponde ao ponto de extremidade do emulador não pode ser adicionado. 
+
+Como solução alternativa, você pode desabilitar a validação de certificado SSL do servidor no aplicativo cliente passando uma instância de `HttpClientHandler`, conforme mostrado no exemplo de código .NET a seguir. Essa solução alternativa só é aplicável se você está usando o pacote NuGet `Microsoft.Azure.DocumentDB`, pois não há suporte para ela com o pacote NuGet `Microsoft.Azure.Cosmos`:
+ 
+ ```csharp
+var httpHandler = new HttpClientHandler()
+{
+    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+};
+ 
+using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+{
+    RunDatabaseDemo(client).GetAwaiter().GetResult();
+}
+```
+
+Além de desabilitar a validação do certificado SSL, é importante que você inicie o emulador com a opção `/allownetworkaccess` e o ponto de extremidade do emulador possa ser acessado no endereço IP do host em vez do DNS `host.docker.internal`.
 
 ## Executar no Mac ou Linux<a id="mac"></a>
 

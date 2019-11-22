@@ -1,22 +1,19 @@
 ---
-title: Testar módulos do Terraform no Azure usando o Terratest
+title: Tutorial – Testar módulos do Terraform no Azure usando o Terratest
 description: Saiba como usar o Terratest para testar seus módulos do Terraform.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, conta de armazenamento, azure, terratest, teste de unidade, teste de integração
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 637bb01bff625989e392d5d711ebd5cdef5c0e09
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: bdb76fe2f87806c02a861ea84361b61a3e94b554
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169635"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969209"
 ---
-# <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testar módulos do Terraform no Azure usando o Terratest
+# <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>Tutorial: Testar módulos do Terraform no Azure usando o Terratest
 
 > [!NOTE]
 > O código de exemplo neste artigo não funciona com a versão 0.12 (e superior).
@@ -40,7 +37,7 @@ Antes de começar, instale o seguinte software:
 
 - **Linguagem de programação Go**: Os casos de teste do Terraform são escritos na linguagem [Go](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) é uma ferramenta de gerenciamento de dependências para a linguagem Go.
-- **CLI do Azure**: A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) é uma ferramenta de linha de comando que pode ser usada para gerenciar recursos do Azure. (O Terraform dá suporte à autenticação no Azure por meio de uma entidade de serviço ou [por meio da CLI do Azure](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
+- **CLI do Azure**: A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) é uma ferramenta de linha de comando que pode ser usada para gerenciar recursos do Azure. (O Terraform dá suporte à autenticação no Azure por meio de uma entidade de serviço ou [por meio da CLI do Azure](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
 - **mage**: Usamos o [executável do Mage](https://github.com/magefile/mage/releases) para mostrar como simplificar a execução de casos do Terratest. 
 
 ## <a name="create-a-static-webpage-module"></a>Criar um módulo de página da Web estático
@@ -91,7 +88,7 @@ Conforme mencionado anteriormente neste artigo, este módulo também gera uma UR
 
 ```hcl
 output "homepage_url" {
-  value = "${azurerm_storage_blob.homepage.url}"
+  value = azurerm_storage_blob.homepage.url
 }
 ```
 
@@ -106,30 +103,30 @@ A lógica de módulo de página da Web estática é implementada em `./main.tf`:
 ```hcl
 resource "azurerm_resource_group" "main" {
   name     = "${var.website_name}-staging-rg"
-  location = "${var.location}"
+  location = var.location
 }
 
 resource "azurerm_storage_account" "main" {
   name                     = "${lower(replace(var.website_name, "/[[:^alnum:]]/", ""))}data001"
-  resource_group_name      = "${azurerm_resource_group.main.name}"
-  location                 = "${azurerm_resource_group.main.location}"
+  resource_group_name      = azurerm_resource_group.main.name
+  location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
 resource "azurerm_storage_container" "main" {
   name                  = "wwwroot"
-  resource_group_name   = "${azurerm_resource_group.main.name}"
-  storage_account_name  = "${azurerm_storage_account.main.name}"
+  resource_group_name   = azurerm_resource_group.main.name
+  storage_account_name  = azurerm_storage_account.main.name
   container_access_type = "blob"
 }
 
 resource "azurerm_storage_blob" "homepage" {
   name                   = "index.html"
-  resource_group_name    = "${azurerm_resource_group.main.name}"
-  storage_account_name   = "${azurerm_storage_account.main.name}"
-  storage_container_name = "${azurerm_storage_container.main.name}"
-  source                 = "${var.html_path}"
+  resource_group_name    = azurerm_resource_group.main.name
+  storage_account_name   = azurerm_storage_account.main.name
+  storage_container_name = azurerm_storage_container.main.name
+  source                 = var.html_path
   type                   = "block"
   content_type           = "text/html"
 }
@@ -173,7 +170,7 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
   html_path    = "empty.html"
 }
 ```
@@ -226,7 +223,7 @@ func TestUT_StorageAccountName(t *testing.T) {
         // Terraform init and plan only
         tfPlanOutput := "terraform.tfplan"
         terraform.Init(t, tfOptions)
-        terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions.Vars, "plan", "-out="+tfPlanOutput)...)
+        terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions, "plan", "-out="+tfPlanOutput)...)
 
         // Read and parse the plan output
         f, err := os.Open(path.Join(tfOptions.TerraformDir, tfPlanOutput))
@@ -317,11 +314,11 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
 }
 
 output "homepage" {
-  value = "${module.staticwebpage.homepage_url}"
+  value = module.staticwebpage.homepage_url
 }
 ```
 
@@ -395,8 +392,7 @@ GoPath/src/staticwebpage/test$ go test
 Os testes de integração levam muito mais tempo do que os testes de unidade (dois minutos para um caso de integração comparados com um minuto para cinco casos de unidade). Mas você é que decide se quer usar testes de unidade ou testes de integração em um cenário. Normalmente, preferimos usar testes de unidade para uma lógica complexa usando funções HCL do Terraform. Geralmente, podemos usar testes de integração para a perspectiva de ponta a ponta de um usuário.
 
 ## <a name="use-mage-to-simplify-running-terratest-cases"></a>Usar mage para simplificar casos do Terratest em execução 
-
-A execução de casos de teste no Azure Cloud Shell não é uma tarefa fácil. Você precisa ir para diretórios diferentes e executar comandos diferentes. Para evitar o uso do Cloud Shell, colocamos o sistema de compilação em nosso projeto. Nesta seção, usaremos um sistema de compilação do Go, o mage, para fazer o trabalho.
+A execução de casos de teste no Azure Cloud Shell requer a execução de comandos diferentes em vários diretórios. Para tornar esse processo mais eficiente, apresentamos o sistema de compilação em nosso projeto. Nesta seção, usaremos um sistema de compilação do Go, o mage, para fazer o trabalho.
 
 A única coisa exigida pelo mage é o `magefile.go` no diretório raiz de seu projeto (marcado com `(+)` no exemplo abaixo):
 
@@ -522,5 +518,5 @@ Em vez de executar `az login` antes dos testes, você pode concluir a autentica�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre o Terratest, confira a [página do GitHub do Terratest](https://github.com/gruntwork-io/terratest).
-* Para obter mais informações sobre mage, consulte a [página do mage no GitHub](https://github.com/magefile/mage) e o [site do mage](https://magefile.org/).
+> [!div class="nextstepaction"] 
+> [Página do GitHub Terratest](https://github.com/gruntwork-io/terratest).

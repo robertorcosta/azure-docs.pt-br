@@ -1,5 +1,5 @@
 ---
-title: Usar a WAN Virtual do Azure para criar conexões do ExpressRoute com o Azure e com ambientes locais | Microsoft Docs
+title: 'WAN Virtual do Azure: Criar conexões do ExpressRoute'
 description: Neste tutorial, saiba como usar a WAN Virtual do Azure para criar conexões do ExpressRoute com o Azure e com ambientes locais.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 8ad86280eab3041667bf9d1713ae2b4bc82a4c9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a394f93c5cc606c26ffa1cc64bf1d61617b05b8
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491599"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014936"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure
 
@@ -34,11 +34,11 @@ Neste tutorial, você aprenderá como:
 
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
-* Você tem uma rede virtual à qual deseja se conectar. Verifique se nenhuma das sub-redes das redes locais se sobrepõe às redes virtuais às quais você deseja se conectar. Para criar uma rede virtual no portal do Azure, confira o [Início rápido](../virtual-network/quick-create-portal.md).
+* Você tem uma rede virtual à qual deseja se conectar. Verifique se nenhuma das sub-redes das redes locais se sobrepõe às redes virtuais às quais você deseja se conectar. Para criar uma rede virtual no portal do Azure, consulte o [Início Rápido](../virtual-network/quick-create-portal.md).
 
-* Sua rede virtual não tem gateways de rede virtual. Se a rede virtual tiver um gateway (VPN ou ExpressRoute), remova todos os gateways. Essa configuração requer que as redes virtuais sejam conectadas ao gateway do hub da WAN Virtual.
+* Sua rede virtual não tem gateways de rede virtual. Se sua rede virtual tem um gateway (VPN ou ExpressRoute), remova todos os gateways. Essa configuração requer que as redes virtuais sejam conectadas ao gateway do hub da WAN Virtual.
 
-* Obtenha um intervalo de endereços IP para sua região de hub. O hub é uma rede virtual criada e usada pela WAN Virtual. O intervalo de endereços especificado para o hub não pode se sobrepor a nenhuma das redes virtuais existentes às quais você se conecta. Ele também não pode se sobrepor aos intervalos de endereços aos quais você se conecta localmente. Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede local, trabalhe em conjunto com alguém que possa fornecer os detalhes.
+* Obtenha um intervalo de endereços IP para sua região de hub. O hub é uma rede virtual criada e usada pela WAN Virtual. O intervalo de endereços especificado para o hub não pode se sobrepor a nenhuma das redes virtuais existentes às quais você se conecta. Ele também não pode se sobrepor aos intervalos de endereços aos quais você se conecta localmente. Se não estiver familiarizado com os intervalos de endereços IP da sua configuração de rede local, trabalhe com alguém que possa lhe fornecer esses detalhes.
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -47,7 +47,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 
 1. Navegue até a página da WAN virtual. No portal, clique em **+Criar um recurso**. Digite **WAN Virtual** na caixa de pesquisa e clique em Enter.
-2. Selecione **WAN Virtual** nos resultados. Na página da WAN Virtual, clique em **Criar** para abrir a página Criar WAN.
+2. Selecione **WAN Virtual** nos resultados. Na página WAN Virtual, clique em **Criar** para abrir a página Criar WAN.
 3. Na página **Criar WAN**, na guia **Básico**, preencha os seguintes campos:
 
    ![Criar WAN](./media/virtual-wan-expressroute-portal/createwan.png)

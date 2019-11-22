@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3d0a8151610658d8302d90f9a3cb3159a877925
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43245a88ee48b016e1947047d12349423cca6047
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106858"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integração do Azure Active Directory ao AppDynamics
 
@@ -142,7 +143,7 @@ Para configurar o logon único do Azure AD com o AppDynamics, realize as seguint
 
 1. Na seção **Provedor de Autenticação** , realize as seguintes etapas:
 
-   ![Configuração SAML](./media/appdynamics-tutorial/ic790225.png "configuração SAML")
+   ![Configuração do SAML](./media/appdynamics-tutorial/ic790225.png "Configuração de SAML")
 
    a. Como **Provedor de Autenticação**, selecione **SAML**.
 
@@ -224,5 +225,5 @@ Ao clicar no bloco do AppDynamics no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

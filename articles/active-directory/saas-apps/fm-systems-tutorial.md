@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f78c58c5-6e98-458b-8991-78624a245665
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 62e800a5ac1e1e001e5d4ef328a80c554d007182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7f5e003a058cd94e6e4a4440c512217c387fda3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102361"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integração do Azure Active Directory ao FM:Systems
 
@@ -187,11 +188,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 3. Clique em **Criar novo usuário**.
    
-    ![Criar Novo Usuário](./media/fm-systems-tutorial/ic795906.png "Criar Novo Usuário")
+    ![Criar Novo Usuário](./media/fm-systems-tutorial/ic795906.png "Criar novo usuário")
 
 4. Na seção **Criar Usuário** , realize as seguintes etapas:
    
-    ![Criar usuário](./media/fm-systems-tutorial/ic795907.png "Criar usuário")
+    ![Criar Usuário](./media/fm-systems-tutorial/ic795907.png "Criar Usuário")
    
     a. Digite o **Nome de Usuário**, a **Senha**, **Confirmar Senha**, o **Email** e a **ID do Funcionário** de uma conta válida do Azure Active Directory que você deseje provisionar nas caixas de texto relacionadas.
    
@@ -209,5 +210,5 @@ Ao clicar no bloco do FM:Systems no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

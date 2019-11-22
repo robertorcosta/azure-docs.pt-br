@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1068d364-11f3-43b5-bd6d-26f00ecd5baa
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e12b5984eb2fe4e54ffec7d6b4a2a6da202c70e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dc91d51d49ac1a317b88835e4d2e51773216020
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097798"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159500"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>Tutorial: Integração do Azure Active Directory ao Lucidchart
 
@@ -150,7 +151,7 @@ Para configurar o logon único do Azure AD com o Lucidchart, execute as seguinte
 
     d. Selecione **Adicionar Automaticamente Novos Usuários à Equipe** e clique em **Salvar Alterações**.
 
-    ![Salvar Alterações](./media/lucidchart-tutorial/ic791195.png "Salvar Alterações")
+    ![Save Changes](./media/lucidchart-tutorial/ic791195.png "Salvar Alterações")
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -221,4 +222,4 @@ Ao clicar no bloco do Lucidchart no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

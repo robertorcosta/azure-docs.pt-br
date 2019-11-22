@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 28a804a57a4113b22efd5274ad00b3a216b700aa
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 96a9940826570bd687fdef5726bdc103139f9902
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747034"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074652"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Fazer backup do banco de dados do SQL Server em uma VM do Azure
 
@@ -23,7 +23,7 @@ Este tutorial mostra como fazer backup de um banco de dados do SQL Server em exe
 > * Criar e configurar um cofre.
 > * Descobrir bancos de dados e configurar backups.
 > * Configurar a proteção automática para bancos de dados.
-> * Executar um backup ad hoc.
+> * Executar um backup sob demanda.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -215,7 +215,7 @@ Para criar uma política de backup:
 
 14. Depois de concluir as edições à política de backup, selecione **OK**.
 
-## <a name="run-an-ad-hoc-backup"></a>Executar um backup ad hoc
+## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 
 1. No cofre dos Serviços de Recuperação, escolha os itens de Backup.
 2. Clique em "SQL na VM do Azure".
@@ -233,7 +233,7 @@ Neste tutorial, você usou o portal do Azure para:
 > * Criar e configurar um cofre.
 > * Descobrir bancos de dados e configurar backups.
 > * Configurar a proteção automática para bancos de dados.
-> * Executar um backup ad hoc.
+> * Executar um backup sob demanda.
 
 Continue no próximo tutorial para restaurar uma máquina virtual do Azure de um disco.
 

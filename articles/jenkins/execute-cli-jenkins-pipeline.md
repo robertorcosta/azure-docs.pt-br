@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 6/7/2017
-ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2019
+ms.openlocfilehash: 3da18bf50c82a32a9cec70555ac0d051e7660184
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162202"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882126"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implantar o Serviço de Aplicativo do Azure com o Jenkins e a CLI do Azure
 Para implantar um aplicativo Web do Java no Azure, você pode usar a CLI do Azure na [pipeline do Jenkins](https://jenkins.io/doc/book/pipeline/). Neste tutorial, você cria um pipeline de CI/CD em uma VM do Azure, incluindo como:
@@ -174,7 +174,7 @@ Você verá:
 ## <a name="deploy-to-azure-web-app-on-linux"></a>Implantar no Aplicativo Web do Azure no Linux
 Agora que você sabe como usar a CLI do Azure em seu pipeline Jenkins, você pode modificar o script para implantar um aplicativo Web do Azure no Linux.
 
-O aplicativo Web no Linux dá suporte a uma forma diferente de fazer a implantação, que é usar o Docker. Para implantar, você precisa fornecer um Dockerfile que empacote seu aplicativo Web com tempo de execução do serviço em uma imagem do Docker. O plug-in, então, compilará a imagem, a enviará por push a um registro de Docker e a implantará em seu aplicativo Web.
+O aplicativo Web no Linux dá suporte a uma forma diferente de fazer a implantação, que é usar o Docker. Para implantar, você precisa fornecer um Dockerfile que empacote seu aplicativo Web com tempo de execução do serviço em uma imagem do Docker. O plug-in, então, criará a imagem, a enviará por push a um Registro do Docker e a implantará em seu aplicativo Web.
 
 * Siga as etapas [aqui](../app-service/containers/quickstart-nodejs.md) para criar um aplicativo Web do Azure em execução no Linux.
 * Instale o Docker em sua instância do Jenkins seguindo as instruções deste [artigo](https://docs.docker.com/engine/installation/linux/ubuntu/).

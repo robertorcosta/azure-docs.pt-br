@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597251"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052185"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines
 
@@ -223,7 +223,7 @@ Para criar um pipeline com uma etapa para implantar um modelo:
 1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos. O nome é o que você especificou no arquivo YAML do pipeline.  Você verá uma conta de armazenamento criada.  O nome da conta de armazenamento começa com **store**.
 1. Selecione o nome da conta de armazenamento para abri-la.
-1. Selecione **Propriedades**. Observe que o **SKU** é **Standard_LRS**.
+1. Selecione **Propriedades**. Observe que a **Replicação** é **LRS (armazenamento com redundância local)** .
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines verificação do portal](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
@@ -250,7 +250,7 @@ Quando você atualiza o modelo e envia as alterações por push para o repositó
 
     Com o branch mestre do repositório remoto atualizado, o pipeline é disparado novamente.
 
-Para verificar as alterações, é possível verificar o SKU da conta de armazenamento.  Confira [Verificar a implantação](#verify-the-deployment).
+Para confirmar as alterações, verifique a propriedade Replicação da conta de armazenamento.  Confira [Verificar a implantação](#verify-the-deployment).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

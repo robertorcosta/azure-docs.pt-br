@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do Python: Chamar os Serviços Cognitivos em um pipeline com enriquecimento de IA'
+title: 'Tutorial: Criar um conjunto de habilidades em Python usando APIs REST'
 titleSuffix: Azure Cognitive Search
 description: Percorra um exemplo de extração de dados, linguagem natural e processamento de imagem por IA na Pesquisa Cognitiva do Azure usando um notebook Jupyter Python. Os dados extraídos são indexados e podem ser acessados facilmente pela consulta.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790213"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113684"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Tutorial do Python: Chamar APIs de Serviços Cognitivos em um pipeline de enriquecimento da Pesquisa Cognitiva do Azure
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Tutorial: Criar um pipeline de enriquecimento de IA usando REST e Python
 
 Neste tutorial, você aprenderá a mecânica de programação de enriquecimento de dados na Pesquisa Cognitiva do Azure usando *habilidades cognitivas*. As habilidades são apoiadas pelos recursos de processamento de linguagem natural (PLN) e análise de imagem nos Serviços Cognitivos. Por meio da composição do conjunto de qualificações e configuração, você pode extrair texto e representações de texto de um arquivo de imagem ou documento digitalizado. Você também pode detectar a linguagem, entidades, frases-chave e muito mais. O resultado é um conteúdo mais avançado em um índice de pesquisa, criado com aprimoramentos de IA em um pipeline de indexação. 
 

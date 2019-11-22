@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58fcd21c7e6e3f2336d3e809584451dc38f6276b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fda8e928b530001faeae34c364dfed91d7620f0a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105731"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157518"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Azure Active Directory ao Central Desktop
 
@@ -140,7 +141,7 @@ Para configurar o logon único do Azure AD com o Central Desktop, execute as seg
 
 2. Vá para **Configurações**. Selecione **Avançado** e, em seguida, selecione **Logon Único**.
 
-    ![Configuração – Avançada](./media/central-desktop-tutorial/ic769563.png "Configuração – Avançada")
+    ![Configuração — Avançada](./media/central-desktop-tutorial/ic769563.png "Configuração — Avançada")
 
 3. Na página **Configurações de Logon Único** , execute as seguintes etapas:
 
@@ -156,7 +157,7 @@ Para configurar o logon único do Azure AD com o Central Desktop, execute as seg
 
 4. Na seção **Método de Verificação de Assinatura de Mensagem**, execute as seguintes etapas:
 
-    ![Método de verificação da assinatura da mensagem](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
+    ![Método de verificação de assinatura de mensagem](./media/central-desktop-tutorial/ic769565.png "Método de Verificação de Assinatura de Mensagem")
     
     a. Selecione **Certificado**.
 
@@ -236,7 +237,7 @@ Para que usuários do Azure AD consigam entrar, eles devem ser provisionados no 
 
 3. Na caixa **Endereço de Email de Novos Membros**, digite uma conta do Azure AD que você deseja provisionar e, em seguida, selecione **Próximo**.
 
-    ![Endereços de Email de Novos Membros](./media/central-desktop-tutorial/ic781052.png "Endereços de Email de Novos Membros")
+    ![Endereços de email dos novos membros](./media/central-desktop-tutorial/ic781052.png "Endereços de email dos novos membros")
 
 4. Selecione **Adicionar Membro(s) Interno(s)** .
 
@@ -257,4 +258,4 @@ Ao clicar no bloco do Central Desktop no Painel de Acesso, você deverá ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

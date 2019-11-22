@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6bd02bcd52808af43c2254304c56fee76903c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a144bec0a610a5a47e8a9bf3ff6a5de05b239ed
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090956"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Integração do Azure Active Directory com o Humanity
 
@@ -132,14 +133,14 @@ Para configurar o logon único do Azure AD com o Humanity, realize as seguintes 
 
 2. No menu na parte superior, clique em **Administrador**.
 
-    ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![Administrador](./media/shiftplanning-tutorial/iC786619.png "Administrador")
 3. Em **Integração**, clique em **Logon Único**.
 
-    ![Logon Único](./media/shiftplanning-tutorial/iC786620.png "Logon Único")
+    ![Logon único](./media/shiftplanning-tutorial/iC786620.png "Logon Único")
 
 4. Na seção **Logon Único** , realize as seguintes etapas:
 
-    ![Logon Único](./media/shiftplanning-tutorial/iC786905.png "Logon Único")
+    ![Logon único](./media/shiftplanning-tutorial/iC786905.png "Logon Único")
 
     a. Selecione **SAML Habilitado**.
 
@@ -214,7 +215,7 @@ Para permitir que os usuários do Azure AD façam logon no Humanity, eles dever�
 
 2. Clique em **Administrador**.
 
-    ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![Administrador](./media/shiftplanning-tutorial/iC786619.png "Administrador")
 
 3. Clique em **Equipe**.
 
@@ -247,4 +248,4 @@ Ao clicar no bloco do Humanity no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

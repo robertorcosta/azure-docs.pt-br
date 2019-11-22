@@ -1,19 +1,19 @@
 ---
-title: Configurar dispositivo IoT Edge – Machine Learning no Azure IoT Edge | Microsoft Docs
-description: Configure uma Máquina Virtual do Azure executando o Linux como um dispositivo do Azure IoT Edge que atua como um gateway transparente.
+title: 'Tutorial: Configurar dispositivo IoT Edge – Machine Learning no Azure IoT Edge'
+description: 'Tutorial: Configure uma Máquina Virtual do Azure executando o Linux como um dispositivo do Azure IoT Edge que atua como um gateway transparente.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d8f67cf94e143cd67a525fa2cc675650fb59e65
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 714f0c335e2871fa1afe2f99d08870f0e39c488e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494023"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113976"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 

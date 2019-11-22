@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 7574e80101784961448ff3c3b5a49d9e2c2f9807
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9339a03fcb3f67402c0aab030cb69a45e1b42b45
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720221"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123499"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Avaliar servidores físicos com as migrações para Azure: Avaliação de Servidor
 
@@ -43,7 +43,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 - [Conclua](tutorial-prepare-physical.md) o primeiro tutorial desta série. Caso contrário, as instruções deste tutorial não funcionarão.
 - Veja o que você deve ter feito no primeiro tutorial:
     - [Configurar as permissões do Azure](tutorial-prepare-physical.md#prepare-azure) para as Migrações para Azure.
-    - [Preparar servidores físicos](tutorial-prepare-physical.md#prepare-azure) para avaliação e migração. Os requisitos do dispositivo devem ser verificados. Você também deve ter uma conta configurada para a descoberta do servidor físico. As portas necessárias devem estar disponíveis, e você deve estar ciente das URLs necessárias para o acesso ao Azure.
+    - [Preparar servidores físicos](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) para avaliação e migração. Os requisitos do dispositivo devem ser verificados. Você também deve ter uma conta configurada para a descoberta do servidor físico. As portas necessárias devem estar disponíveis, e você deve estar ciente das URLs necessárias para o acesso ao Azure.
 
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto das Migrações para Azure
@@ -104,9 +104,10 @@ Baixe o arquivo compactado para o dispositivo.
 Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
-2. Execute o seguinte comando para gerar o hash para o VHD
+2. Execute o seguinte comando para gerar o hash para o arquivo zip
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Exemplo de uso: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
+
 3.  Para a versão 1.19.05.10 do dispositivo, o hash gerado deve corresponder a essas configurações.
 
   **Algoritmo** | **Valor de hash**
@@ -114,27 +115,32 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
   SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
-= Esse script do instalador faz o seguinte:
+
+O script do instalador faz o seguinte:
 
 - Instala agentes e um aplicativo Web para avaliação e descoberta de servidor físico.
 - Instala as funções do Windows, incluindo o serviço de ativação do Windows, o IIS e o ISE do PowerShell.
 - Baixa e instala um módulo regravável do IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
 - Atualiza uma chave do registro (HKLM) com detalhes de configuração persistente para Migrações para Azure.
 - Cria os seguintes arquivos sob o caminho:
-    - **Arquivos de configuração**: %Programdata%\Microsoft Azure\Config
-    - **Arquivos de configuração**: %Programdata%\Microsoft Azure\Logs
+    - **Arquivos de Configuração**: %ProgramData%\Microsoft Azure\Config
+    - **Arquivos de Log**: %ProgramData%\Microsoft Azure\Logs
 
 Crie o script da seguinte maneira:
 
 1. Extraia o arquivo compactado para uma pasta no servidor que hospedará o dispositivo.
 2. Inicie o PowerShell no servidor acima com privilégio administrativo (elevado).
 3. Altere o diretório do PowerShell para a pasta em que o conteúdo foi extraído do arquivo compactado baixado.
-4. Execute o script, executando o seguinte comando:
+4. Execute o script chamado **AzureMigrateInstaller.ps1** executando o seguinte comando:
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-O script iniciará o aplicativo Web do dispositivo quando ele for concluído com êxito.
+O script iniciará o aplicativo Web do dispositivo quando ele for concluído com êxito. 
 
+Caso haja algum problema, você poderá acessar os logs do script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Carimbo de data/hora</em>.log para solucionar problemas.
+
+> [!NOTE]
+> Não execute o script do instalador das Migrações para Azure em um dispositivo existente das Migrações para Azure.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
@@ -182,7 +188,7 @@ Você pode adicionar um conjunto de credenciais para servidores Windows e Linux.
     - Para remover um servidor, selecione > **Excluir**.
 4. Após a validação, clique em **Salvar e iniciar descoberta** para iniciar o processo de descoberta.
 
-Isso iniciará a descoberta. São necessários cerca de 15 minutos para que os metadados dos servidores descobertos sejam exibidos no portal do Azure. 
+Isso iniciará a descoberta. São necessários cerca de 1,5 minutos por servidor para que os metadados dos servidores descobertos sejam exibidos no portal do Azure. 
 
 ### <a name="verify-servers-in-the-portal"></a>Verificar servidores no portal
 

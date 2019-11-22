@@ -1,19 +1,19 @@
 ---
-title: Configure a recuperação de desastre em VMs locais do Hyper-V (sem o VMM) para o Azure com o Site Recovery | Microsoft Docs
+title: Configurar a recuperação de desastre do Hyper-V usando o Azure Site Recovery
 description: Saiba como configurar a recuperação de desastre de VMs locais do Hyper-V (sem o VMM) para o Azure usando o Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44f72df28191d02a6d320671e0173eb1306e0c78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845705"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029940"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V para o Azure
 
@@ -31,6 +31,8 @@ Neste tutorial, você aprenderá como:
 
 > [!NOTE]
 > Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção **Guias de Instruções** da [documentação do Site Recovery](https://docs.microsoft.com/azure/site-recovery).
+
+
 
 ## <a name="before-you-begin"></a>Antes de começar
 

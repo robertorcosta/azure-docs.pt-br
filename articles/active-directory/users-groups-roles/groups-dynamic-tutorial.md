@@ -1,26 +1,25 @@
 ---
-title: Associação de grupo dinâmica para adicionar e remover usuários – tutorial – Azure Active Directory
+title: Adicionar usuários a um grupo dinâmico – tutorial – Azure AD | Microsoft Docs
 description: Neste tutorial, você usa grupos com regras de associação do usuário para adicionar ou remover usuários automaticamente
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1429841ca1376d67c7372f36bd35694afd4cd7ce
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102637"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027103"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros do grupo automaticamente
 

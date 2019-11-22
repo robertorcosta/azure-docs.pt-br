@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: badd674030ec014f2e70050c3c45599a26b17882
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c533949cf0ce69ddc5237dd893dd75e43447c4a9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073822"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931596"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Início Rápido: Extrair dados de recibos usando a API REST de Reconhecimento de Formulários com cURL
 
@@ -36,7 +36,7 @@ Para concluir este início rápido, é necessário ter:
 
 Para começar a analisar um recibo, chame a API **Analisar recibo** usando o comando cURL a seguir. Antes de executar o comando, faça essas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto de extremidade que você obteve com a chave de assinatura do Reconhecimento de Formulários. Encontre-o na guia **Visão geral** de recursos do Reconhecimento de Formulários.
+1. Substitua `<Endpoint>` pelo ponto de extremidade que você obteve com a assinatura do Reconhecimento de Formulários.
 1. Substitua `<your receipt URL>` pelo endereço da URL de uma imagem de recibo.
 1. Substitua `<subscription key>` pela chave de assinatura que você copiou na etapa anterior.
 

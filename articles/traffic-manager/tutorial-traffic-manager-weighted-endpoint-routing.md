@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Rotear o tráfego para pontos de extremidade ponderados – Gerenciador de Tráfego do Azure
+title: 'Tutorial: Rotear o tráfego para pontos de extremidade ponderados – Gerenciador de Tráfego do Azure'
 description: Este artigo de tutorial descreve como rotear o tráfego para pontos de extremidade ponderados usando o Gerenciador de Tráfego.
 services: traffic-manager
 author: asudbring
@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: allensu
-ms.openlocfilehash: f9e2b6f6a45279c52e19a63509c57fb34e739330
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 45ece08599722e04c4e6799fa5c3589cba1fca42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258382"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037925"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Controlar o roteamento de tráfego com pontos de extremidade ponderados usando o Gerenciador de Tráfego
 
@@ -56,11 +56,11 @@ Nesta seção, você criará duas VMs (*myIISVMEastUS* e *myIISVMWestEurope*) na
 1. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Computação** > **Windows Server 2019 Datacenter**.
 2. Em **Criar uma máquina virtual**, insira ou selecione os seguintes valores na guia **Configurações básicas**:
 
-   - **Assinatura** > **Grupo de Recursos**: Selecione **Criar** e, em seguida, digite **myResourceGroupTM1**.
+   - **Assinatura** > **Grupo de Recursos**: Selecione **Criar novo** e, em seguida, digite **myResourceGroupTM1**.
    - **Detalhes da Instância** > **Nome da máquina virtual**: Digite *myIISVMEastUS*.
    - **Detalhes da instância** > **Região**:  Selecione **Leste dos EUA**.
-   - **Conta de Administrador** > **Nome de Usuário**:  Insira um nome de usuário de sua escolha.
-   - **Conta de Administrador** > **Senha**:  Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Conta Administrador** > **Nome de Usuário**:  Insira um nome de usuário de sua escolha.
+   - **Conta Administrador** > **Senha**:  Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Regras de Porta de Entrada** > **Portas de entrada públicas**: Selecione **Permitir portas selecionadas**.
    - **Regras de Porta de Entrada** > **Selecionar as portas de entrada**: Selecione **RDP** e **HTTP** na caixa suspensa.
 
@@ -119,15 +119,15 @@ Nesta seção, você criará uma VM (*myVMEastUS* e *myVMWestEurope*) em cada re
    - **Assinatura** > **Grupo de Recursos**: Selecione **myResourceGroupTM1**.
    - **Detalhes da Instância** > **Nome da máquina virtual**: Digite *myVMEastUS*.
    - **Detalhes da instância** > **Região**:  Selecione **Leste dos EUA**.
-   - **Conta de Administrador** > **Nome de Usuário**:  Insira um nome de usuário de sua escolha.
-   - **Conta de Administrador** > **Senha**:  Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Conta Administrador** > **Nome de Usuário**:  Insira um nome de usuário de sua escolha.
+   - **Conta Administrador** > **Senha**:  Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Regras de Porta de Entrada** > **Portas de entrada públicas**: Selecione **Permitir portas selecionadas**.
    - **Regras de Porta de Entrada** > **Selecionar as portas de entrada**: Selecione **RDP** na caixa suspensa.
 
 3. Selecione a guia **Gerenciamento** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede** e, em seguida, **Avançar: Gerenciamento**. Em **Monitoramento**, defina **Diagnóstico de inicialização** como **Desativado**.
 4. Selecione **Examinar + criar**.
 5. Examine as configurações e, em seguida, clique em **Criar**.  
-6. Siga as etapas para criar uma segunda VM chamada *myVMWestEurope*, com o nome de **Grupo de recursos** *myResourceGroupTM2*, a **localização** *Oeste da Europa* e todas as outras configurações iguais a *myVMEastUS*.
+6. Execute as etapas para criar uma segunda VM chamada *myVMWestEurope*, com o nome de **Grupo de recursos** *myResourceGroupTM2*, a **localização** *Oeste da Europa* e todas as outras configurações iguais a *myVMEastUS*.
 7. As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
@@ -141,8 +141,8 @@ Criar um perfil do Gerenciador de Tráfego com base no método de roteamento **P
     | ---                     | ---                                                |
     | NOME                   | Insira um nome exclusivo na zona trafficmanager.net. Isso resulta no nome DNS trafficmanager.net, que é usado para acessar seu perfil do Gerenciador de Tráfego.                                   |
     | Método de roteamento          | Selecione o método de roteamento **Ponderado**.                                       |
-    | Assinatura            | Selecione sua assinatura.                          |
-    | Grupo de recursos          | Selecione **Usar existente** e **myResourceGroupTM1**. |
+    | Subscription            | Selecione sua assinatura.                          |
+    | Resource group          | Selecione **Usar existente** e **myResourceGroupTM1**. |
     |        |   |
 
     ![Criar um perfil do Gerenciador de Tráfego](./media/tutorial-traffic-manager-weighted-endpoint-routing/create-traffic-manager-profile.png)

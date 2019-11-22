@@ -1,19 +1,19 @@
 ---
 title: Tutorial de C# sobre preenchimento automático e sugestões
 titleSuffix: Azure Cognitive Search
-description: Este tutorial baseia-se no projeto "Paginação dos resultados da pesquisa – Pesquisa Cognitiva do Azure" para adicionar preenchimento automático e sugestões. A meta é uma experiência de usuário mais rica. Aprenda a combinar uma lista suspensa de sugestões com preenchimento automático embutido.
+description: Este tutorial demonstra o preenchimento automático e sugestões como uma maneira de coletar entradas de termo de pesquisa dos usuários usando a lista suspensa. Ele se baseia em um projeto de hotéis existente.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786495"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114569"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Tutorial do C#: Adicionar preenchimento automático e sugestões – Pesquisa Cognitiva do Azure
 

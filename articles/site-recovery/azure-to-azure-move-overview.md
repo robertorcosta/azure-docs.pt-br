@@ -1,34 +1,23 @@
 ---
-title: Mover as VMs da IaaS do Azure para outra região do Azure usando o serviço do Azure Site Recovery | Microsoft Docs
-description: Use o Azure Site Recovery para mover as VMs IaaS do Azure de uma região do Azure para outra.
-services: site-recovery
+title: Mover as VMs do Azure para outra região com o Azure Site Recovery
+description: Usar o Azure Site Recovery para mover as VMs do Azure de uma região do Azure para outra.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077999"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091950"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
+# <a name="moving-azure-vms-to-another-azure-region"></a>Mover máquinas virtuais do Azure para outra região do Azure
 
-O Azure cresce junto com a base de clientes e adiciona suporte a novas regiões para acompanhar o aumento de demandas. Novas funcionalidades também são adicionadas mensalmente entre serviços. Talvez você queira mover suas VMs (máquinas virtuais) para uma região diferente ou para Zonas de Disponibilidade para aumentar a disponibilidade.
+Este artigo fornece uma visão geral dos motivos e das etapas envolvidas na movimentação de VMs do Azure para outra região do Azure usando [Azure Site Recovery](site-recovery-overview.md). 
 
-Este tutorial descreve os diferentes cenários em que você desejaria mover suas VMs. Ele também descreve como configurar a arquitetura na região de destino para obter uma disponibilidade mais alta. 
-
-Neste tutorial, você aprenderá sobre:
-
-> [!div class="checklist"]
-> 
-> * Motivos para mover as VMs
-> * Arquiteturas típicas
-> * Movimentação das VMs no estado em que se encontram para uma região de destino
-> * Movimentação as VMs para aumentar a disponibilidade
 
 ## <a name="reasons-to-move-azure-vms"></a>Motivos para mover VMs do Azure
 

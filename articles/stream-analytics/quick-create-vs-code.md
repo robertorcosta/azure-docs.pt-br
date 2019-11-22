@@ -1,5 +1,5 @@
 ---
-title: Criar um trabalho em nuvem do Azure Stream Analytics no Visual Studio Code (versão prévia)
+title: Criar um trabalho em nuvem do Azure Stream Analytics no Visual Studio Code
 description: Este início rápido apresenta uma introdução para criar um trabalho do Stream Analytics, configurar entradas, saídas e definir uma consulta com o Visual Studio Code.
 ms.service: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 3301be3a067982cb90e663fe3782319eb0b90ba0
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 35e2711bbb3cd6dc0662146a566014dd65d879bc
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673141"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935098"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Início Rápido: Criar um trabalho em nuvem do Azure Stream Analytics no Visual Studio Code (versão prévia)
 

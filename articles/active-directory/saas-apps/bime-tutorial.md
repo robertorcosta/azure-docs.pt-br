@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f792798e724387b6917c23d1bde0c2c68fa8a270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106256"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Azure Active Directory com o Bime
 
@@ -136,11 +137,11 @@ Para configurar o logon único do Azure AD com o Bime, execute as seguintes etap
 
 2. Na barra de ferramentas, clique em **Administrador** e em **Conta**.
   
-    ![Admin](./media/bime-tutorial/ic775558.png "Admin")
+    ![Administrador](./media/bime-tutorial/ic775558.png "Administrador")
 
 3. Na página de configuração da conta, execute as seguintes etapas:
   
-    ![Configurar Logon Único](./media/bime-tutorial/ic775559.png "Configurar Logon Único")
+    ![Configurar Logon Único](./media/bime-tutorial/ic775559.png "Configurar o logon único")
 
     a. Selecione **Habilitar autenticação SAML**.
 
@@ -211,7 +212,7 @@ Para que possam fazer logon no Bime, os usuários do Azure AD deverão ser provi
 
 2. Na barra de ferramentas, clique em **Administrador** e em **Usuários**.
 
-    ![Admin](./media/bime-tutorial/ic775561.png "Admin")
+    ![Administrador](./media/bime-tutorial/ic775561.png "Administrador")
 
 3. Na **Lista de Usuários**, clique em **Adicionar Novo Usuário** (“+”).
 
@@ -244,5 +245,5 @@ Ao clicar no bloco do Bime no Painel de Acesso, você deverá ser conectado auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

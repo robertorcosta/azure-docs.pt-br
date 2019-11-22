@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240413"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053730"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança empresarial no Azure HDInsight
 
@@ -59,6 +59,10 @@ Para acessar os logs de auditoria do Apache Ranger e do Ambari, bem como os logs
 A proteção de dados é importante para atender aos requisitos de segurança e conformidade da organização. Além de restringir o acesso a dados de funcionários não autorizados, você deve criptografá-lo.
 
 Ambos os armazenamentos de dados para clusters HDInsight, Armazenamento de Blobs do Azure e Azure Data Lake Storage Gen1/Gen2, dão suporte à [criptografia de dados](../../storage/common/storage-service-encryption.md) transparente do lado do servidor em repouso. Os clusters seguros do HDInsight funcionarão perfeitamente com esse recurso de criptografia de dados do lado do servidor em repouso.
+
+### <a name="compliance"></a>Conformidade
+
+As ofertas de conformidade do Azure são baseadas em vários tipos de garantias, incluindo certificações formais, atestados, validações, autorizações e avaliações produzidas por empresas de auditoria de terceiros independentes, bem como alterações contratuais, autoavaliações e documentos de diretrizes para o cliente produzidos pela Microsoft. Para obter informações sobre a conformidade do HDInsight, confira a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trust-center) e a [Visão geral da conformidade no Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
 
 ## <a name="shared-responsibility-model"></a>Modelo de responsabilidade compartilhada
 

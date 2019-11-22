@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: c098b67ab2782fa3cf29b5b19aa198f899ba69c0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529246"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890609"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C para dispositivos Windows
 
@@ -96,7 +96,7 @@ Crie um modelo de solução de C que possa ser personalizado com seu próprio c�
 
 ### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
 
-O manifesto de implantação compartilha as credenciais para seu registro de contêiner com o tempo de execução do IoT Edge. O tempo de execução precisa dessas credenciais para efetuar pull de imagens privadas para o dispositivo IoT Edge. Use as credenciais da seção **Chaves de acesso** do Registro de Contêiner do Azure. 
+O manifesto de implantação compartilha as credenciais para seu registro de contêiner com o runtime do IoT Edge. O runtime precisa dessas credenciais para efetuar pull de imagens privadas para o dispositivo IoT Edge. Use as credenciais da seção **Chaves de acesso** do Registro de Contêiner do Azure. 
 
 1. No gerenciador de soluções do Visual Studio, abra o arquivo **deployment.template.json**. 
 
@@ -134,7 +134,7 @@ O código padrão do módulo recebe mensagens em uma fila de entrada e as passa 
       )
       ```
 
-   3. Adicione **my_parson** à lista de bibliotecas na seção **target_link_libraries** do arquivo CMakeLists.txt.
+   3. Adicione `my_parson` à lista de bibliotecas na seção **target_link_libraries** do arquivo CMakeLists.txt.
 
    4. Salve o arquivo **CMakeLists.txt**.
 
@@ -174,6 +174,14 @@ O código padrão do módulo recebe mensagens em uma fila de entrada e as passa 
 4. Localize a função `InputQueue1Callback` e substitua toda ela pelo seguinte código. Essa função implementa o filtro de mensagens real. Quando uma mensagem é recebida, ela verifica se a temperatura relatada excede o limite. Em caso afirmativo, ela encaminha a mensagem por meio de sua fila de saída. Caso contrário, ela ignora a mensagem. 
 
     ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
@@ -183,7 +191,10 @@ O código padrão do módulo recebe mensagens em uma fila de entrada e as passa 
         unsigned const char* messageBody;
         size_t contentSize;
 
-        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) != IOTHUB_MESSAGE_OK)
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
         {
             messageBody = "<null>";
         }
@@ -336,7 +347,7 @@ Verifique se seu dispositivo IoT Edge está em funcionamento.
 
 ## <a name="view-generated-data"></a>Exibir os dados gerados
 
-Depois que você aplica o manifesto de implantação no seu dispositivo IoT Edge, o tempo de execução do IoT Edge no dispositivo coleta as novas informações de implantação e inicia a execução nele. Todos os módulos em execução no dispositivo que não estão incluídos no manifesto de implantação são interrompidos. Todos os módulos ausentes do dispositivo são iniciados. 
+Depois que você aplica o manifesto de implantação no seu dispositivo IoT Edge, o runtime do IoT Edge no dispositivo coleta as novas informações de implantação e inicia a execução nele. Todos os módulos em execução no dispositivo que não estão incluídos no manifesto de implantação são interrompidos. Todos os módulos ausentes do dispositivo são iniciados. 
 
 É possível usar a extensão Ferramentas do IoT Edge para exibir as mensagens conforme elas chegam ao Hub IoT. 
 

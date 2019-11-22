@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 8944a5adbe1b9e129b4a95c64aaa7a75fb96ac82
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1ac5e4dd28f7565f546c700a4bbb0076fd793bb7
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845559"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163437"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migrar Oracle para Banco de Dados do Azure para PostgreSQL online usando o DMS (visualização)
 
@@ -243,8 +243,8 @@ Introdução:
     | ------------- | ------------- | ------------- |
     | HR | targetHR.public | public.countries.country_id |
     | HR | targetHR.trgthr | trgthr.countries.country_id |
-    | HR | targetHR.TARGETHR | “TARGETHR”.”COUNTRIES”.”COUNTRY_ID” |
-    | HR | targetHR.HR | “HR”.”COUNTRIES”.”COUNTRY_ID” |
+    | HR | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
     | HR | targetHR.Hr | *Não é possível mapear usos mistos de maiúsculas e minúsculas |
 
     *Para criar um esquema misto de tabelas com uso de maiúsculas e minúsculas no PostgreSQL de destino, contate [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). Podemos fornecer um script para configurar um esquema misto de tabelas com uso de maiúsculas e minúsculas no Banco de dados PostgreSQL de destino.

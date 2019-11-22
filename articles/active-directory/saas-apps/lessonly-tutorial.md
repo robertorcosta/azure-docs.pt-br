@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b038eca3d4e6beb6b1d226a4a7b1e20bfe3bb55a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: fa22b46dabcc5c8b2db5997ffc9b2f2480846d6f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121423"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074646"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Lesson.ly
 
@@ -65,10 +65,10 @@ Configure e teste o SSO do Azure AD com o Lesson.ly usando um usuário de teste 
 Para configurar e testar o SSO do Azure AD com o Lesson.ly, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
 1. **[Configurar o SSO do Lesson.ly](#configure-lessonly-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    1. **[Criar um usuário de teste do Lesson.ly](#create-lessonly-test-user)** – para ter um equivalente de B.Fernandes no Lesson.ly que esteja vinculado à representação de usuário do Azure AD.
+    * **[Criar um usuário de teste do Lesson.ly](#create-lessonly-test-user)** – para ter um equivalente de B.Fernandes no Lesson.ly que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -92,6 +92,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [Equipe de suporte do cliente do Lessonly.com](mailto:support@lessonly.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+
+1. O aplicativo Lesson.ly espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![image](common/default-attributes.png)
+
+1. Além do indicado acima, o aplicativo Lesson.ly espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
+
+    | NOME | Atributo de Origem|
+    | ---------------  | ----------------|
+    | urn: oid:2.5.4.42 | user.givenname |
+    | urn: oid:2.5.4.4  | user.surname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 | user.objectid |
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -137,7 +150,7 @@ Para configurar o logon único no lado do **Lesson.ly**, é necessário enviar o
 
 ### <a name="create-lessonly-test-user"></a>Criar um usuário de teste do Lesson.ly
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Lessonly.com. O Lessonly.com dá suporte ao provisionamento Just-In-Time, que está habilitado por padrão.
+O objetivo desta seção é criar um usuário chamado B.Fernandes no Lessonly.com. O Lessonly.com dá suporte ao provisionamento Just-In-Time, que está habilitado por padrão.
 
 Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Lessonly.com, caso ainda não exista.
 

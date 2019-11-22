@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e4449ac3519757bb9670d2d7fec53cb5f3ce152
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 66d8e13a4e042146ef2b99728e41e14f1dcb3435
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948293"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885367"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o G Suite
 
@@ -250,7 +250,9 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 ### <a name="create-g-suite-test-user"></a>Criar um usuário de teste do G Suite
 
-O objetivo desta seção é criar um usuário chamado B. Fernandes no software G Suite. O G Suite dá suporte ao provisionamento automático, que é habilitado por padrão. Não há nenhuma ação para você nesta seção. Se um usuário ainda não existir no G Suite Software, um novo será criado quando você tentar acessar o G Suite Software.
+O objetivo desta seção é [criar um usuário no G Suite](https://support.google.com/a/answer/33310?hl=en) chamado B.Fernandes. Depois que o usuário for criado manualmente no G Suite, ele poderá entrar usando as credenciais de logon do Office 365.
+
+O G Suite também dá suporte ao Provisionamento de Usuário automático. Para configurar o Provisionamento de Usuário automático, primeiro, [configure o G Suite para o Provisionamento de Usuário automático](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
 > [!NOTE]
 > Verifique se o usuário já existe no G Suite se o provisionamento no Microsoft Azure Active Directory não foi ativado antes de testar o logon único.

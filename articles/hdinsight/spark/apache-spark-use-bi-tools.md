@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Analisar dados do Apache Spark usando o Power BI no Azure HDInsight '
+title: 'Tutorial: Analisar dados do Apache Spark do Azure HDInsight com o Power BI'
 description: Tutorial - Use o Microsoft Power BI para visualizar dados armazenados do Apache Spark em clusters HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: c2d6a5acba304d7421b000cab2ee5cee5b85e5ce
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035696"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241361"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark usando o Power BI no HDInsight
 
@@ -78,11 +78,11 @@ As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power 
 
 2. Na guia **Página Inicial**, navegue até **Obter Dados** > **Mais..** .
 
-    ![Coloque os dados no Power BI Desktop do Apache Spark do HDInsight](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Coloque os dados no Power BI do Apache Spark BI")
+    ![Obter dados para o Power BI Desktop do HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Obter dados para o Power BI do Apache Spark BI")
 
 3. Insira `Spark` na caixa de pesquisa, selecione **Azure HDInsight Spark** e, em seguida, selecione **Conectar**.
 
-    ![Colocar dados no Power BI do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Colocar dados no Power BI do Apache Spark BI")
+    ![Obter dados para o Power BI do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Obter dados para o Power BI do Apache Spark BI")
 
 4. Insira a URL do cluster (no formato `mysparkcluster.azurehdinsight.net`) na caixa de texto **Servidor**.
 
@@ -94,7 +94,7 @@ As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power 
 
 7. Selecione a tabela `hvac`, aguarde para ver uma visualização dos dados e selecione **Carregar**.
 
-    ![Nome de usuário e senha do cluster do Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Nome de usuário e senha do cluster do Spark")
+    ![Nome de usuário e senha do cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Nome de usuário e senha do cluster Spark")
 
     O Power BI Desktop agora tem todas as informações necessárias para se conectar ao cluster do Spark e carregar os dados da tabela `hvac`. A tabela e as respectivas colunas são exibidas no painel **Campos**.
 
@@ -134,11 +134,11 @@ O serviço do Power BI permite que você compartilhe os relatórios e painéis p
 
 1. Selecione um workspace para o qual publicar seu conjunto de dados e para o qual fazer relatórios e, em seguida, clique em **Selecionar**. Na imagem a seguir, o **Meu Workspace** padrão está selecionado.
 
-    ![Selecione o workspace para o qual publicar seu conjunto de dados e para o qual fazer relatórios](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selecione o workspace para o qual publicar seu conjunto de dados e para o qual fazer relatórios") 
+    ![Selecione o workspace no qual publicar o conjunto de dados e o relatório](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selecione o workspace no qual publicar o conjunto de dados e o relatório") 
 
 1. Depois que a publicação for bem-sucedida, clique em **Abrir 'BuildingTemperature.pbix' no Power BI**.
 
-    ![Publicação realizada com êxito, clique para inserir credenciais](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicação realizada com êxito, clique para inserir credenciais") 
+    ![Publicação bem-sucedida, clique para inserir as credenciais](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicação bem-sucedida, clique para inserir as credenciais") 
 
 1. No serviço do Power BI, clique em **Inserir credenciais**.
 

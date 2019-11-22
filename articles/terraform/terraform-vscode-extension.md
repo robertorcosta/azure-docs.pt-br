@@ -1,30 +1,27 @@
 ---
-title: Instalar e usar a extensão Visual Studio Code do Azure Terraform
+title: Tutorial – Configurar a extensão Visual Studio Code do Azure Terraform
 description: Saiba como instalar e usar a extensão do Terraform do Azure no Visual Studio Code.
-services: terraform
-ms.service: azure
-keywords: terraform, azure, devops, visual studio code, extensão
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 7dd87f38ca5dfb1c2fdd38b56b314e0cbbe3ce12
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 93ec85a2e37350ef56ff8c2e1a0ea16bb3be355e
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169923"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969321"
 ---
-# <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Instalar e usar a extensão Visual Studio Code do Azure Terraform
+# <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>Tutorial: Configurar a extensão do Visual Studio Code do Azure Terraform
 
-A extensão do Terraform para Microsoft Azure Visual Studio Code foi projetada para aumentar a produtividade do desenvolvedor ao criar, testar e usar o Terraform com o Azure. A extensão fornece o suporte de comando do Terraform, visualização gráfica de recurso e integração do CloudShell com o Visual Studio Code.
+A extensão Visual Studio Code do Azure Terraform permite que você trabalhe com o Terraform no editor. Com essa extensão, você pode criar, testar e executar configurações do Terraform. A extensão também dá suporte à visualização de grafo de recursos.
 
 Neste artigo, você aprenderá a:
 > [!div class="checklist"]
-> * Use o Terraform para automatizar e simplificar o provisionamento dos serviços do Azure.
-> * Instalar e usar a extensão do Terraform do Microsoft Visual Studio Code para serviços do Azure.
-> * Use o Visual Studio Code para gravar, planejar e executar planos de Terraform.
+> * Automatizar o provisionamento de serviços do Azure usando o Terraform
+> * Instalar e usar a extensão Visual Studio Code do Terraform para serviços do Azure.
+> * Usar o Visual Studio Code para gravar, planejar e executar planos do Terraform.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
@@ -144,7 +141,7 @@ Neste exercício, você cria e executa um arquivo de configuração básico do T
 
     ![Você deseja abrir o Cloud Shell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-1. Na primeira vez que iniciar o Cloud Shell em uma nova pasta, você será solicitado a configurar o aplicativo Web. Selecione **Abrir**.
+1. Na primeira vez que iniciar o Cloud Shell em uma nova pasta, você deverá criar o aplicativo Web. Selecione **Abrir**.
 
     ![Primeira inicialização do Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
@@ -287,7 +284,7 @@ Após alguns instantes, você deve ver uma listagem no painel do Terminal semelh
 
 ![Resultados do teste Lint](media/terraform-vscode-extension/tf-lint-test-results.png)
 
-### <a name="module-test-end-to-end"></a>Teste de módulo: *ponta a ponta*
+### <a name="test-the-module"></a>Testar o módulo
 
 1. Na barra de menus, selecione **Exibir > Paleta de Comandos... > Azure Terraform: executar teste**.
 
@@ -304,7 +301,7 @@ Após alguns instantes, você deve ver uma listagem no painel do Terminal semelh
 
 Após alguns instantes, você deve ver uma listagem no painel do Terminal semelhante a este exemplo:
 
-![Resultados do teste de ponta a ponta](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+![Resultados do teste](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

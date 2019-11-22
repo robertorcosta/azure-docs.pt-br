@@ -1,5 +1,5 @@
 ---
-title: Tutorial – implantar o aplicativo do registro do Docker com replicação geográfica no Azure
+title: Tutorial – Implantar um aplicativo de um Registro de Contêiner do Azure com replicação geográfica
 description: Implante um aplicativo Web baseado em Linux para duas regiões diferentes do Azure usando uma imagem de contêiner de um Registro de Contêiner do Azure com replicação geográfica. Parte dois de uma série de três partes.
 services: container-registry
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 0aebc31e1b8e6849d4cc0aeccc0e0a79edf0e65d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146913"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931410"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: implantar um aplicativo Web de um Registro de Contêiner do Azure com replicação geográfica
 

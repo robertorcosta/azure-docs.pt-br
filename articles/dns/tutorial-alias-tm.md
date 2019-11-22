@@ -1,18 +1,19 @@
 ---
-title: Tutorial – Criar um registro de alias do DNS do Azure para dar suporte a nomes de domínio apex com o Gerenciador de Tráfego
+title: 'Tutorial: Criar um registro de alias para dar suporte a nomes de domínio apex – Gerenciador de Tráfego'
+titleSuffix: Azure DNS
 description: Este tutorial mostra como configurar um registro de alias do DNS do Azure para dar suporte usando seu nome de domínio apex com o Gerenciador de Tráfego.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: allensu
+ms.openlocfilehash: 3834b782be054611de67b782b7fcd0c46cbf3a19
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530953"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082264"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de Tráfego 
 
@@ -70,7 +71,7 @@ Instale o IIS em ambos **Web-01** e **Web 02**.
 
 1. Conecte-se à **Web-01** e entre.
 2. No painel **Gerenciador do Servidor**, escolha **Adicionar funções e recursos**.
-3. Marque **Avançar** três vezes. Na página **Funções do Servidor**, selecione **Servidor Web (IIS)**.
+3. Marque **Avançar** três vezes. Na página **Funções do Servidor**, selecione **Servidor Web (IIS)** .
 4. Escolha **Adicionar Recursos** e, em seguida, **Avançar**.
 5. Marque **Avançar** quatro vezes. Em seguida, escolha **Instalar**. Esse procedimento leva alguns minutos para ser concluído.
 6. Quando a instalação for concluída, marque **Fechar**.

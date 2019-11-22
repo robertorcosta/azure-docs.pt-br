@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073344"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107852"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API do Azure
 
@@ -142,7 +142,7 @@ Navegue até sua instância do Gerenciamento de API do Azure e selecione **Valor
 
 ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Testar a nova API do Gerenciamento de API no portal do Azure
+## <a name="test-in-azure-portal"></a> Testar a nova API no portal do Azure
 
 Você pode chamar as operações diretamente do portal do Azure. Usar o portal do Azure é uma maneira conveniente de exibir e testar as operações de uma API.  
 
@@ -157,26 +157,6 @@ Você pode chamar as operações diretamente do portal do Azure. Usar o portal d
 4. Selecione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
-
-## <a name="test-in-developer-portal"></a>Chamar uma operação no portal do desenvolvedor
-
-Você também pode chamar as operações do Portal do desenvolvedor para testar APIs. 
-
-1. Selecione a API criada na etapa Importar e publicar uma API de back-end.
-
-2. Selecione **Portal do desenvolvedor**.
-
-    O site do portal do desenvolvedor é aberto.
-
-3. Selecione a **API** que você criou.
-
-4. Selecione a operação que deseja testar.
-
-5. Selecione **Experimentar**.
-
-6. Selecione **Enviar**.
-    
-    Após invocar uma operação, o portal do desenvolvedor exibe o **Status de resposta**, os **Cabeçalhos de resposta** e o **Conteúdo de resposta**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2019
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddf2b310a4faa3b13b7402fb67aeb3d1312ac4ac
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 240b64bcaa242e39140f39faff31418f96b34193
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324529"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149905"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -30,4 +30,6 @@ A [plataforma de identidade da Microsoft](v2-overview.md) é uma evolução da p
 
 A [MSAL (Biblioteca de Autenticação da Microsoft)](msal-overview.md) permite que os desenvolvedores adquiram tokens do ponto de extremidade da plataforma de identidade da Microsoft para acessar APIs Web seguras. A ADAL (Biblioteca de Autenticação do Active Directory) é integrada ao ponto de extremidade do Azure AD para desenvolvedores (v1.0), enquanto a MSAL é integrada ao ponto de extremidade da plataforma de identidade da Microsoft (v2.0).
 
-Para novos aplicativos Web, recomendamos que você use a plataforma de identidade da Microsoft (v2.0) e a MSAL para adquirir tokens e acessar APIs Web protegidas: [Início Rápido: Adicionar conexão com a Microsoft para um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md).
+## <a name="next-steps"></a>Próximas etapas
+
+Para novos aplicativos Web, recomendamos que você use a plataforma de identidade da Microsoft (v2.0) e a MSAL para adquirir tokens e acessar APIs Web protegidas. Confira [Início Rápido: Adicionar entrada com a Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md) para começar.

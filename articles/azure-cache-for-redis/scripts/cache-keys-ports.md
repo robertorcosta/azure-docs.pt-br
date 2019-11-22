@@ -1,26 +1,19 @@
 ---
-title: Exemplo de script da CLI do Azure – Obter o nome de host, portas e chaves do Cache do Azure para Redis | Microsoft Docs
+title: Exemplo de script da CLI do Azure – Obter o nome de host, as portas e as chaves do Cache do Azure para Redis
 description: Exemplo de script da CLI do Azure – Obter o nome de host, portas e chaves de uma instância do Cache do Azure para Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 tags: azure-service-management
-ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.topic: sample
 ms.date: 08/30/2017
 ms.author: yegu
-ms.openlocfilehash: ff410db561879089c4c1f20acb7cb349f0484fda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 604ec6de3b95a4bc289176d54d9c7b0a6c42eae6
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60234299"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122524"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obtenha o nome de host, portas e chaves do Cache do Azure para Redis
 
