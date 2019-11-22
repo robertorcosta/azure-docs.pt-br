@@ -1,5 +1,5 @@
 ---
-title: Adicionar usuários de colaboração B2B como uma função de trabalho de informação - Azure Active Directory | Microsoft Docs
+title: Adicionar usuários de colaboração B2B como um operador de informações-Azure AD
 description: A colaboração B2B permite que operadores de informações e proprietários de aplicativos adicionem usuários convidados ao Azure AD para acesso | Microsoft Docs
 services: active-directory
 ms.service: active-directory
@@ -12,16 +12,16 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37dc4a618f01022f4963a14aba921edcce9f4b60
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65812544"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268847"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como usuários na organização podem convidar usuários convidados para um aplicativo
 
-Depois que um usuário convidado tiver sido adicionado ao diretório no Azure AD, o proprietário do aplicativo poderá enviar ao usuário convidado um link direto para o aplicativo que deseja compartilhar. Os administradores do Azure AD também podem configurar o gerenciamento de autoatendimento para aplicativos baseados em SAML ou galeria no locatário do Azure AD. Dessa forma, os proprietários de aplicativos podem gerenciar seus próprios usuários convidados, mesmo que os usuários convidados ainda não tenham sido adicionados ao diretório. Quando um aplicativo é configurado para autoatendimento, o proprietário do aplicativo usa o Painel de Acesso para convidar um usuário convidado para um aplicativo ou adicionar um usuário convidado a um grupo que tenha acesso ao aplicativo. O gerenciamento de aplicativos de autoatendimento para aplicativos baseados SAML e galeria requer algumas configurações iniciais de um administrador. A seguir, um resumo das etapas de configuração (para instruções mais detalhadas, consulte [Pré-requisitos](#prerequisites), posteriormente nesta página):
+Depois que um usuário convidado tiver sido adicionado ao diretório no Azure AD, o proprietário do aplicativo poderá enviar ao usuário convidado um link direto para o aplicativo que deseja compartilhar. Os administradores do Azure AD também podem configurar o gerenciamento de autoatendimento para aplicativos baseados em SAML ou galeria no locatário do Azure AD. Dessa forma, os proprietários de aplicativos podem gerenciar seus próprios usuários convidados, mesmo que os usuários convidados ainda não tenham sido adicionados ao diretório. Quando um aplicativo é configurado para autoatendimento, o proprietário do aplicativo usa o Painel de Acesso para convidar um usuário convidado para um aplicativo ou adicionar um usuário convidado a um grupo que tenha acesso ao aplicativo. O gerenciamento de aplicativo de autoatendimento para galeria e aplicativos baseados em SAML requer uma configuração inicial por um administrador. Veja a seguir um resumo das etapas de instalação (para obter instruções mais detalhadas, consulte [pré-requisitos](#prerequisites) mais adiante nesta página):
 
  - Habilitar gerenciamento de grupos de autoatendimento para o locatário
  - Criar um grupo para atribuir ao aplicativo e tornar o usuário um proprietário
@@ -37,7 +37,7 @@ Depois que um aplicativo é configurado para autoatendimento, os proprietários 
 1. Abra o Painel de Acesso, indo para `https://myapps.microsoft.com`.
 2. Aponte para o aplicativo, selecione as reticências ( **...** ) e, em seguida, selecione **Gerenciar aplicativo**.
  
-   ![Captura de tela mostrando o gerenciar aplicativo submenu para o aplicativo Salesforce](media/add-users-iw/access-panel-manage-app.png)
+   ![Captura de tela mostrando o submenu gerenciar aplicativo para o aplicativo Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
 3. Na parte superior da lista de usuários, selecione **+** .
    
@@ -45,7 +45,7 @@ Depois que um aplicativo é configurado para autoatendimento, os proprietários 
    
 4. Na caixa de pesquisa **Adicionar membros**, insira o endereço de email do usuário convidado. Opcionalmente, inclua uma mensagem de boas-vindas.
    
-   ![Captura de tela mostrando a adicionar janela dos membros para adicionar um convidado](media/add-users-iw/access-panel-invitation.png)
+   ![Captura de tela mostrando a janela Adicionar membros para adicionar um convidado](media/add-users-iw/access-panel-invitation.png)
    
 5. Selecione **Adicionar** para enviar um convite ao usuário convidado. Depois de enviar o convite, a conta de usuário é automaticamente adicionada ao diretório como convidado.
 
@@ -56,11 +56,11 @@ Depois que um aplicativo é configurado para autoatendimento, os proprietários 
 2. Abra o Painel de Acesso, indo para `https://myapps.microsoft.com`.
 3. Selecione o aplicativo de **Grupos**.
    
-   ![Captura de tela mostrando o aplicativo de grupos no painel de acesso](media/add-users-iw/access-panel-groups.png)
+   ![Captura de tela mostrando o aplicativo grupos no painel de acesso](media/add-users-iw/access-panel-groups.png)
    
 4. Em **Grupos que possuo**, selecione o grupo que tem acesso ao aplicativo que você deseja compartilhar.
    
-   ![Captura de tela mostrando onde selecionar um grupo para os grupos que possuo](media/add-users-iw/access-panel-groups-i-own.png)
+   ![Captura de tela mostrando onde selecionar um grupo nos grupos dos quais sou proprietário](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. Na parte superior da lista de membros do grupo, selecione **+** .
    
@@ -68,12 +68,12 @@ Depois que um aplicativo é configurado para autoatendimento, os proprietários 
    
 6. Na caixa de pesquisa **Adicionar membros**, insira o endereço de email do usuário convidado. Opcionalmente, inclua uma mensagem de boas-vindas.
    
-   ![Captura de tela mostrando a adicionar janela dos membros para adicionar um convidado](media/add-users-iw/access-panel-invitation.png)
+   ![Captura de tela mostrando a janela Adicionar membros para adicionar um convidado](media/add-users-iw/access-panel-invitation.png)
    
 7. Selecione **Adicionar** para enviar automaticamente o convite ao usuário convidado. Depois de enviar o convite, a conta de usuário é automaticamente adicionada ao diretório como convidado.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O gerenciamento de aplicativos de autoatendimento exige alguma configuração inicial por um administrador global e um administrador do Azure AD. Como parte dessa configuração, você configurará o aplicativo para autoatendimento e atribuirá um grupo ao aplicativo que o proprietário do aplicativo poderá gerenciar. Também é possível configurar o grupo para permitir que alguém solicite a associação, mas isso exige a aprovação de um proprietário do grupo. (Saiba mais sobre [gerenciamento de grupos de autoatendimento](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
 
@@ -86,7 +86,7 @@ O gerenciamento de aplicativos de autoatendimento exige alguma configuração in
 3. Selecione **Grupos**.
 4. Em **Configurações**, selecione **Geral**.
 5. Em **Gerenciamento de Grupos de Autoatendimento**, próximo a **Proprietários podem gerenciar solicitações de associação ao grupo no Painel de Acesso**, selecione **Sim**.
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>Criar um grupo para atribuir ao aplicativo e tornar o usuário um proprietário
 1. Entre no [portal do Azure](https://portal.azure.com) como um administrador do Azure AD ou Administrador Global.

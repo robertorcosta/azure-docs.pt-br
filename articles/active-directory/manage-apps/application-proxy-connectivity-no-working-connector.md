@@ -1,5 +1,5 @@
 ---
-title: Nenhum grupo do conector de trabalho encontrado para um aplicativo de Application Proxy | Microsoft Docs
+title: Nenhum grupo de conectores de trabalho encontrado para um aplicativo de proxy de aplicativo
 description: Solucionar problemas que podem ocorrer quando não há nenhum trabalho conector em um grupo de conector para seu aplicativo com o Application Proxy do Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f829b8e8a4bc08b43d3c30a6333771ccd4e26e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96ab0d1b3bbab9c97c04da4f918f3aaa2f1d07e4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783618"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275613"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nenhum grupo do conector de trabalho encontrado para um aplicativo de Application Proxy
 
@@ -32,7 +32,7 @@ Se não houver nenhum conector funcionando em um grupo de conector para o seu ap
 
 -   Se você tiver não conectores no grupo, você poderá:
 
-    -   Baixar um novo conector à direita no servidor local e atribuí-lo a esse grupo
+    -   Baixar um novo conector à direita no servidor local e atribuí-lo a este grupo
 
     -   Mover um conector ativo para o grupo
 

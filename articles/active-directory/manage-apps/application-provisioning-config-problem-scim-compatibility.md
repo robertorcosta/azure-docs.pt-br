@@ -1,5 +1,5 @@
 ---
-title: Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory | Microsoft Docs
+title: Problemas conhecidos com a conformidade do protocolo SCIM 2,0-Azure AD
 description: Como solucionar problemas de compatibilidade de protocolo comuns enfrentados ao adicionar um aplicativo inexistente na galeria que dá suporte a SCIM 2.0 ao Microsoft Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a0e595d2120d3cdccd42c502a83de9d5ed3ff4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eee480d4a52f77e054bf8f0780707444b6db28b0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963181"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275807"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -74,7 +74,7 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Obter o esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter o esquema") 
+   ![Obter esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter esquema") 
 
 8. Copie a saída JSON da última etapa e salve-a em um arquivo de texto. Isso contém qualquer mapeamento de atributo personalizado que você adicionou para o seu aplicativo antigo e deve ser aproximadamente algumas milhares de linhas de JSON.
 9. Execute o comando a seguir para excluir o trabalho de provisionamento:

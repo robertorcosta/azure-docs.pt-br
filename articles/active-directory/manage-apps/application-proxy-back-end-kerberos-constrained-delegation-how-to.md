@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de configurações de delegação restrita de Kerberos para o proxy de aplicativo | Microsoft Docs
+title: Solucionar problemas de delegação restrita de Kerberos-proxy de aplicativo
 description: Solucionar problemas configurações de delegação restrita de Kerberos para o Proxy do Aplicativo
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca50cfb8697fdbb8c71054c5a6b4d5e23792eb5
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381528"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275688"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas configurações de delegação restrita de Kerberos para o Proxy do Aplicativo
 
@@ -38,7 +38,7 @@ Este artigo pressupõe o seguinte:
 - Os hosts de servidor e aplicativo residem em um único domínio do Azure Active Directory. Para obter informações detalhadas sobre cenários de floresta e entre domínios, consulte o [white paper do KCD](https://aka.ms/KCDPaper).
 - O aplicativo em questãoo é publicado em um locatário do Azure com pré-autenticação habilitada. Os usuários devem autenticar no Azure por meio da autenticação baseada em formulários. Cenários de autenticação de cliente avançados não são cobertos por este artigo. Eles podem ser adicionados em algum momento no futuro.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O Proxy de Aplicativo do Azure AD pode ser implantado em vários tipos de infraestruturas ou ambientes. As arquiteturas variam de organização para organização. As causas mais comuns de problemas relacionados ao KCD não são os ambientes. Pequenos erros de configuração ou erros gerais são o que causam a maior parte dos problemas.
 
@@ -56,13 +56,13 @@ O melhor local para posicionar os conectores é o mais próximo possível de seu
 
 O que mostra um problema do KCD? Há várias indicações comuns de que o SSO do KCD está falhando. Os primeiros sinais de um problema aparecem no navegador.
 
-![Exemplo: Erro de configuração do KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Exemplo: erro de configuração KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
-![Exemplo: A autorização falhou devido à falta de permissões](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
+![Exemplo: falha de autorização devido a permissões ausentes](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Ambas essas imagens mostram o mesmo sintoma: Falha SSO. O acesso do usuário ao aplicativo foi negado.
+Ambas essas imagens mostram o mesmo sintoma: falha do SSO. O acesso do usuário ao aplicativo foi negado.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 Como você soluciona os problemas depende do problema e dos sintomas observados. Antes de continuar, explore os artigos a seguir. Eles fornecem informações úteis de solução de problemas:
 
@@ -84,7 +84,7 @@ As comunicações externas entre o cliente e o front-end do Azure não tem nenhu
 
 Conforme mencionado anteriormente, as mensagens de erro do navegador fornecem boas dicas do por que as coisas estão falhando. Certifique-se de anotar a ID da atividade e o carimbo de data/hora na resposta. Essas informações ajudam a correlacionar o comportamento a eventos reais no log de eventos do Proxy do Azure.
 
-![Exemplo: Erro de configuração do KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
+![Exemplo: erro de configuração KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
 As entradas correspondentes visualizadas no log de eventos seriam os eventos 13019 ou 12027. Você pode encontrar os logs de eventos do conector em **Logs de Aplicativos e Serviços** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Conector** &gt; **Admin**.
 

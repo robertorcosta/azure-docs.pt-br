@@ -1,5 +1,6 @@
 ---
-title: Como solucionar problemas de conexões e gateway de rede virtual do usando o observador de rede do Azure - REST | Microsoft Docs
+title: Solucionar problemas de gateway e conexões de VNET – API REST do Azure
+titleSuffix: Azure Network Watcher
 description: Esta página explica como solucionar problemas de conexões e gateways de rede virtual com o observador de rede do Azure usando a REST
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 0f10b9b45f63485417685a0826c047725a264772
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b3898a7c4cd09b59da0fc167b758199119793eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686129"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277792"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando o observador de rede do Azure
 
@@ -46,9 +47,9 @@ Para obter uma lista de tipos de gateway com suporte, visite [Tipos de Gateway c
 
 ## <a name="overview"></a>Visão geral
 
-A solução de problemas do observador de rede fornece a capacidade de solucionar problemas que podem surgir com as conexões e os gateways de rede virtual. Quando se faz uma solicitação para a solução de problemas de recursos, os logs são consultados e inspecionados. Você receberá um relatório com os resultados assim que a inspeção estiver concluída. As solicitações de API de solução de problemas são solicitações de execução longa e podem demorar para gerar um resultado. Os logs são armazenados em um contêiner em uma conta de armazenamento.
+A solução de problemas do observador de rede fornece a capacidade de solucionar problemas que podem surgir com as conexões e os gateways de rede virtual. Quando se faz uma solicitação para a solução de problemas de recursos, os logs são consultados e inspecionados. Quando a inspeção estiver concluída, você receberá um relatório com os resultados. As solicitações de API de solução de problemas são solicitações de execução longa e podem demorar para gerar um resultado. Os logs são armazenados em um contêiner em uma conta de armazenamento.
 
-## <a name="log-in-with-armclient"></a>Como fazer logon com ARMClient
+## <a name="log-in-with-armclient"></a>Faça logon com o ARMClient
 
 ```powershell
 armclient login
@@ -323,10 +324,10 @@ is a transient state while the Azure platform is being updated.",
 
 ## <a name="understanding-the-results"></a>Como entender os resultados
 
-O texto de ação fornece orientação geral sobre como resolver o problema. Se for possível executar uma ação para solucionar o problema, você receberá um link com orientações adicionais. Nos casos em que não há orientações adicionais, a resposta fornecerá a url para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o do que está incluído, acesse [Visão geral da solução de problemas do observador de rede](network-watcher-troubleshoot-overview.md)
+O texto de ação fornece orientação geral sobre como resolver o problema. Se for possível executar uma ação para solucionar o problema, você receberá um link com orientações adicionais. Nos casos em que não há orientações adicionais, a resposta fornecerá a url para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o do que está incluído, acesse [Visão geral da solução de problemas do Observador de rede](network-watcher-troubleshoot-overview.md)
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento, acesse o link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.
+Se as configurações alteradas interromperem a conectividade da VPN, consulte [Gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para localizar as regras de segurança e o grupo de segurança de rede que podem estar em questão.

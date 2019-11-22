@@ -1,5 +1,5 @@
 ---
-title: Enviar métricas do sistema operacional convidado para o armazenamento de dados do Monitor do Azure para uma máquina virtual do Windows (clássica)
+title: Enviar métricas de VM do Windows clássicas para Azure Monitor banco de dados de métricas
 description: Enviar métricas do sistema operacional convidado para o armazenamento de dados do Monitor do Azure para uma máquina virtual do Windows (clássica)
 author: anirudhcavale
 services: azure-monitor
@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844915"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286142"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o armazenamento de dados do Monitor do Azure para uma máquina virtual do Windows (clássica)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o banco de dados de métricas de Azure Monitor para uma máquina virtual do Windows (clássica)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-A extensão de diagnóstico do [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (conhecida como "WAD" ou "Diagnóstico") permite coletar métricas e logs do sistema operacional convidado (sistema operacional convidado) em execução como parte de uma máquina virtual, serviço em nuvem ou Cluster do Service Fabric. A extensão pode enviar telemetria para [muitos locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+A extensão de diagnóstico do [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (conhecida como "WAD" ou "Diagnóstico") permite coletar métricas e logs do sistema operacional convidado (sistema operacional convidado) em execução como parte de uma máquina virtual, serviço em nuvem ou Cluster do Service Fabric. A extensão pode enviar telemetria para [vários locais diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-Este artigo descreve o processo de envio de métricas de desempenho do sistema operacional convidado para uma máquina virtual do Windows (clássica) ao repositório de métricas do Monitor do Azure. A partir da versão 1.11 do Diagnostics, você pode gravar métricas diretamente no repositório de métricas do Monitor do Azure, onde métricas de plataforma padrão já foram coletadas. 
+Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para uma máquina virtual do Windows (clássica) para o banco de dados de métricas Azure Monitor. A partir do Diagnóstico versão 1.11, você pode gravar as métricas diretamente no armazenamento de métricas do Azure Monitor, no qual as métricas da plataforma padrão já são coletadas. 
 
-Armazená-los nesse local permite acessar as mesmas ações que você faz para as métricas da plataforma. As ações incluem alertas em tempo quase real, gráficos, roteamento, acesso a uma API REST e muito mais. No passado, a extensão Diagnostics gravava no Armazenamento do Azure, mas não no armazenamento de dados do Monitor do Azure. 
+Armazená-los nesse local permite acessar as mesmas ações que você faz para as métricas da plataforma. As ações incluem alertas quase em tempo real, criação de gráficos, roteamento, acesso a partir de uma API REST e muito mais. Anteriormente, a Extensão de diagnóstico gravava no Armazenamento do Azure, mas não no armazenamento de dados do Azure Monitor. 
 
 O processo descrito neste artigo funciona somente em máquinas virtuais clássicas que executam o sistema operacional Windows.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Você deve ser um [administrador ou co-administrador de serviços](../../billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
+- Você deve ser um [administrador ou coadministrador de serviços](../../billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
 
 - Sua assinatura precisará ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
@@ -50,17 +50,17 @@ O processo descrito neste artigo funciona somente em máquinas virtuais clássic
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
 Crie uma entidade de serviço em seu locatário do Active Directory do Azure usando as instruções em [Criar uma entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md). Observe o seguinte ao percorrer este processo: 
-- Crie um novo segredo de cliente para este aplicativo.
-- Salve a chave e o ID do cliente para uso nas etapas posteriores.
+- Crie um novo segredo do cliente para esse aplicativo.
+- Salve a chave e a ID do cliente para uso em etapas posteriores.
 
 Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para o recurso que você deseja emitir métricas. Você pode usar um grupo de recursos ou uma assinatura inteira.  
 
 > [!NOTE]
 > A extensão Diagnostics usa a entidade de serviço para autenticar no Monitor do Azure e emitir métricas para sua VM clássica.
 
-## <a name="author-diagnostics-extension-configuration"></a>Configuração da extensão Author Diagnostics
+## <a name="author-diagnostics-extension-configuration"></a>Criar configuração de Extensão de diagnóstico
 
-1. Prepare o seu arquivo de configuração da extensão Diagnostics. Esse arquivo determina quais logs e contadores de desempenho a extensão Diagnostics deve coletar para sua VM clássica. A seguir está um exemplo:
+1. Prepare o arquivo de configuração de Extensão de diagnóstico. Esse arquivo determina quais logs e contadores de desempenho a extensão Diagnostics deve coletar para sua VM clássica. A seguir está um exemplo:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -197,12 +197,12 @@ Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para
 
 1. No menu suspenso de recursos, selecione sua VM clássica.
 
-1. No menu suspenso namespaces, selecione **azure.vm.windows.guest**.
+1. No menu suspenso de namespaces, selecione **azure.vm.windows.guest**.
 
-1. No menu suspenso de métricas, selecione **Memory \ Committed Bytes in Use**.
+1. No menu suspenso de métricas, selecione **Bytes de Memória\Confirmados em Uso**.
    ![Plotar as métricas](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
+- Saiba mais sobre as [métricas personalizadas](metrics-custom-overview.md).
 

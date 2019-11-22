@@ -1,5 +1,5 @@
 ---
-title: Aplicativos curinga no proxy do aplicativo do Azure Active Directory | Microsoft Docs
+title: Aplicativos curinga no Proxy de Aplicativo do AD do Azure
 description: Saiba como usar aplicativos curinga no proxy do aplicativo do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: c5a9e7be5f582051e03cba08733fcbfa697cc8f5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828000"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275041"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicativos curinga no proxy do aplicativo do Azure Active Directory
 
@@ -53,9 +53,9 @@ Se tiver aplicativos adicionais com definições de configuração diferentes, v
 
 A criação de um aplicativo curinga se baseia no mesmo [fluxo de publicação do aplicativo](application-proxy-add-on-premises-application.md) disponível para todos os outros aplicativos. A única diferença é que você inclui um curinga na URL e, talvez, a configuração SSO.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-Para começar, certifique-se de que atender esses requisitos.
+Para começar, verifique se você atendeu a esses requisitos.
 
 ### <a name="custom-domains"></a>Domínios personalizados
 
@@ -84,11 +84,11 @@ Aqui estão algumas considerações que você deve levar em conta para aplicativ
 
 Para aplicativos curinga, a **URL interna** deve ser formatada como `http(s)://*.<domain>`.
 
-![Para a URL interna, use o formato http :/ / *. \<domínio >](./media/application-proxy-wildcard/22.png)
+![Para URL interna, use o formato http (s)://*. > de domínio\<](./media/application-proxy-wildcard/22.png)
 
 Ao configurar uma **URL externa**, você deve usar o seguinte formato: `https://*.<custom domain>`
 
-![Para a URL externa, use o formato https://*. \<domínio personalizado >](./media/application-proxy-wildcard/21.png)
+![Para URL externa, use o formato https://*.\<> de domínio personalizado](./media/application-proxy-wildcard/21.png)
 
 Outras posições do curinga, vários curingas ou outras cadeias de caracteres regex não são compatíveis e estão causando erros.
 
@@ -118,7 +118,7 @@ O aplicativo curinga é representado com apenas um bloco no [painel MyApps](http
 
 Para aplicativos que usem [delegação restrita de Kerberos (KCD) como o método SSO](application-proxy-configure-single-sign-on-with-kcd.md), o SPN listado para o método SSO também pode precisar de um curinga. Por exemplo, o SPN pode ser: `HTTP/*.adventure-works.com`. Você ainda precisa ter os SPNs individuais configurados nos servidores back-end (por exemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
-## <a name="scenario-1-general-wildcard-application"></a>Cenário 1: Aplicativo curinga geral
+## <a name="scenario-1-general-wildcard-application"></a>Cenário 1: aplicativo curinga geral
 
 Neste cenário, você tem três aplicativos diferentes que deseja publicar:
 
@@ -142,15 +142,15 @@ Seguindo as [etapas documentadas](application-proxy-add-on-premises-application.
 
 - URL Interna:
 
-    ![Exemplo: Curinga na URL interna](./media/application-proxy-wildcard/42.png)
+    ![Exemplo: curinga na URL interna](./media/application-proxy-wildcard/42.png)
 
 - URL Externa:
 
-    ![Exemplo: Curinga na URL externa](./media/application-proxy-wildcard/43.png)
+    ![Exemplo: curinga na URL externa](./media/application-proxy-wildcard/43.png)
 
 - SPN do Aplicativo Interno:
 
-    ![Exemplo: Curinga na configuração de SPN](./media/application-proxy-wildcard/44.png)
+    ![Exemplo: curinga na configuração de SPN](./media/application-proxy-wildcard/44.png)
 
 Publicando o aplicativo curinga, você já pode acessar os três aplicativos navegando até as URLs a que já está acostumado (por exemplo, `travel.adventure-works.com`).
 
@@ -163,7 +163,7 @@ A configuração implementa a seguinte estrutura:
 | Azul  | Aplicativos publicados explicitamente e visíveis no portal do Azure. |
 | Cinza  | Os aplicativos que você pode acessar por meio do aplicativo pai. |
 
-## <a name="scenario-2-general-wildcard-application-with-exception"></a>Cenário 2: Aplicativo curinga geral com exceção
+## <a name="scenario-2-general-wildcard-application-with-exception"></a>Cenário 2: aplicativo curinga geral com exceção
 
 Neste cenário, você tem, além dos três aplicativos gerais, outro aplicativo, `finance.adventure-works.com`, que só deve ser acessado pela divisão de finanças. Com a estrutura do aplicativo atual, o aplicativo de finanças seria acessível por meio do aplicativo curinga e por todos os funcionários. Para mudar isso, você exclui o aplicativo do curinga configurando o de finanças como um aplicativo à parte com permissões mais restritivas.
 
@@ -173,15 +173,15 @@ Após as [etapas documentadas](application-proxy-add-on-premises-application.md)
 
 - Na **URL Interna**, você define **finanças**, em vez de um curinga.
 
-    ![Exemplo: Defina finanças, em vez de um caractere curinga na URL interna](./media/application-proxy-wildcard/52.png)
+    ![Exemplo: definir finanças em vez de um curinga na URL interna](./media/application-proxy-wildcard/52.png)
 
 - Na **URL Externa**, você define **finanças**, em vez de um curinga.
 
-    ![Exemplo: Definir finanças, em vez de um caractere curinga na URL externa](./media/application-proxy-wildcard/53.png)
+    ![Exemplo: definir finanças em vez de um curinga na URL externa](./media/application-proxy-wildcard/53.png)
 
 - SPN do aplicativo interno definido como **finanças**, em vez de um curinga.
 
-    ![Exemplo: Conjunto de finanças, em vez de um caractere curinga na configuração de SPN](./media/application-proxy-wildcard/54.png)
+    ![Exemplo: definir finanças em vez de um curinga na configuração de SPN](./media/application-proxy-wildcard/54.png)
 
 Esta configuração implementa o seguinte cenário:
 
@@ -193,5 +193,5 @@ Se tiver vários aplicativos publicados para finanças e `finance.adventure-work
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre **domínios personalizados**, consulte [trabalhando com domínios personalizados no Proxy de aplicativo do Azure AD](application-proxy-configure-custom-domain.md).
-- Para saber mais sobre **publicação de aplicativos**, consulte [publicar aplicativos usando o Proxy de aplicativo do Azure AD](application-proxy-add-on-premises-application.md)
+- Para saber mais sobre **domínios personalizados**, confira [trabalhando com domínios personalizados no Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md).
+- Para saber mais sobre a **publicação de aplicativos**, consulte [publicar aplicativos usando o Azure proxy de aplicativo do AD](application-proxy-add-on-premises-application.md)

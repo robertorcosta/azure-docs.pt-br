@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 6bb597ab49050c2bb365379cfac44f4b4d176af1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c691281f1ff0cf88d1ba61af43fad8e7782924aa
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680399"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278502"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando o Azure Data Factory
 
@@ -43,7 +43,7 @@ Especificamente, esse conector REST genérico dá suporte para:
 > [!TIP]
 > Para testar uma solicitação para recuperação de dados antes de configurar o conector REST no Data Factory, saiba mais sobre a especificação da API para os requisitos de cabeçalho e corpo. Você pode usar ferramentas como o Postman ou um navegador da Web para validar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -57,22 +57,22 @@ As seções a seguir fornecem detalhes sobre propriedades que você pode usar pa
 
 As seguintes propriedades são suportadas para o serviço vinculado REST:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **Type** deve ser definida como **RestService**. | Sim |
+| type | A propriedade **Type** deve ser definida como **RestService**. | Sim |
 | url | A URL base do serviço REST. | Sim |
-| enableServerCertificateValidation | Se o certificado SSL do lado do servidor deve ser validado ao se conectar ao ponto de extremidade. | Não<br /> (o padrão é **verdadeiro**) |
+| enableServerCertificateValidation | Se o certificado SSL do lado do servidor deve ser validado ao se conectar ao ponto de extremidade. | Não<br /> (o padrão é **verdadeira**) |
 | authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anônimo**, **Básico**, **Windows** e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | Sim |
-| connectVia | O [Tempo de Integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, essa propriedade usará o tempo de execução de integração do Azure padrão. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
 
 ### <a name="use-basic-authentication"></a>Usar autenticação básica
 
 Defina a **authenticationType** na propriedade **Básico**. Além das propriedades genéricas descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
 | userName | O nome de usuário a ser usado para acessar o ponto de extremidade REST. | Sim |
-| Senha | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| password | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
 
@@ -102,10 +102,10 @@ Defina a **authenticationType** na propriedade **Básico**. Além das propriedad
 
 Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além das propriedades genéricas descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | Sim |
-| servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como  **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | Sim |
 | aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| Sim |
 
@@ -139,7 +139,7 @@ Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além da
 
 Defina a **authenticationType** na propriedade **ManagedServiceIdentity**. Além das propriedades genéricas descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
 | aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| Sim |
 
@@ -171,10 +171,10 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do REST, há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** do conjunto de dados deve ser definida como**RestResource**. | Sim |
-| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. | Não |
+| type | A propriedade **tipo** do conjunto de dados deve ser definida como**RestResource**. | Sim |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. O conector HTTP copia dados da URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`. | Não |
 
 Se você estivesse Configurando `requestMethod`, `additionalHeaders`, `requestBody` e `paginationRules` no conjunto de uma, ele ainda terá suporte como está, enquanto você deve usar o novo modelo na origem da atividade no futuro.
 
@@ -207,15 +207,18 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | O **tipo** de propriedade da fonte da atividade de cópia deve ser definida como: **RestSource**. | Sim |
+| type | O **tipo** de propriedade da fonte da atividade de cópia deve ser definida como: **RestSource**. | Sim |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (padrão) e **Post**. | Não |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
 | requestBody | O corpo da solicitação HTTP. | Não |
 | paginationRules | As regras de paginação para compor as próximas solicitações de página. Consulte a seção [suporte à paginação](#pagination-support) em detalhes. | Não |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. O valor padrão é **01:00:40**.  | Não |
 | requestInterval | O tempo de espera antes de enviar a solicitação para a próxima página. O valor padrão é **00:00:01** |  Não |
+
+>[!NOTE]
+>O conector REST ignora qualquer cabeçalho "Accept" especificado em `additionalHeaders`. Como o conector REST só dá suporte à resposta em JSON, TT gerará automaticamente um cabeçalho de `Accept: application/json`.
 
 **Exemplo 1: usando o método Get com paginação**
 

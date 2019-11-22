@@ -1,26 +1,22 @@
 ---
 title: Usar um controlador de entrada do traefik personalizado e configurar o HTTPS
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 08/13/2019
 ms.topic: conceptual
 description: Saiba como configurar Azure Dev Spaces para usar um controlador de entrada do traefik personalizado e configurar o HTTPS usando esse controlador de entrada
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: c015fe8e7108f07d66d2464c4f8b6287e8f54446
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a7f8684c8236e69c16bedf0186ed7ed17bbc8462
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582319"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280068"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Usar um controlador de entrada do traefik personalizado e configurar o HTTPS
 
 Este artigo mostra como configurar Azure Dev Spaces para usar um controlador de entrada do traefik personalizado. Este artigo também mostra como configurar esse controlador de entrada personalizado para usar HTTPS.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma, poderá [criar uma conta gratuita][azure-account-create].
 * A [CLI do Azure][az-cli] instalada.

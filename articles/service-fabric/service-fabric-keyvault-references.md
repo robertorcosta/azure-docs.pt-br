@@ -8,18 +8,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: atsenthi
-ms.openlocfilehash: b0f1a081727721ea0325276cf9edd52c6d71fb6b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 96da89a00b054767553b0ed3d8debf30c344dd62
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243854"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307327"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte do KeyVaultReference para aplicativos Service Fabric (versão prévia)
 
 Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança os segredos exigidos pelo seu aplicativo. Por exemplo, talvez você queira armazenar as credenciais do repositório de contêiner no keyvault e fazer referência a ela no manifesto do aplicativo. Service Fabric KeyVaultReference usa Service Fabric identidade gerenciada e facilita a referência a segredos do keyvault. O restante deste artigo fornece detalhes sobre como usar Service Fabric KeyVaultReference e inclui alguns usos típicos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Identidade gerenciada para o aplicativo (MIT)
     
@@ -37,7 +37,7 @@ Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança 
         ...
     {
         "parameters":  [
-            "name":  "CentralSecretService"
+            "name":  "CentralSecretService",
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -142,13 +142,13 @@ KeyVaultReference é um tipo com suporte para o contêiner RepositoryCredentials
         <RepositoryCredentials AccountName="user1" Type="KeyVaultReference" Password="https://ttkvault.vault.azure.net/secrets/containerpwd/e225bd97e203430d809740b47736b9b8"/>
       </ContainerHostPolicies>
 ```
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 - A identidade gerenciada precisa ser habilitada para o suporte do KeyVaultReference, a ativação do aplicativo falhará se KeyVaultReference for usado sem habilitar a identidade gerenciada.
 
 - Se você estiver usando a identidade atribuída pelo sistema, ela será criada somente depois que o aplicativo for implantado e isso criará uma dependência circular. Depois que o aplicativo for implantado, você poderá conceder à permissão de acesso de identidade atribuída pelo sistema ao keyvault. Você pode encontrar a identidade atribuída pelo sistema por nome {cluster}/{Application Name}/{ServiceName}
 
 - O keyvault precisa estar na mesma assinatura que o cluster do Service Fabric. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Documentação do Azure keyvault](https://docs.microsoft.com/azure/key-vault/)

@@ -1,5 +1,5 @@
 ---
-title: Logon único do SAML para aplicativos locais com Aplicativo Azure AD proxy | Microsoft Docs
+title: Logon único do SAML para aplicativos locais com Aplicativo Azure AD proxy
 description: Saiba como fornecer logon único para aplicativos locais que são protegidos com a autenticação SAML. Forneça acesso remoto a aplicativos locais com o proxy de aplicativo.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d004d1183c9f5c1aec2dae7ab2d638528f164cd9
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 59e4e527f25a32c8a5274db5eab5d33a7843bc3c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062510"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275580"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Logon único do SAML para aplicativos locais com o proxy de aplicativo
 
@@ -97,7 +97,7 @@ Depois de concluir todas essas etapas, seu aplicativo estará pronto para execu�
 1. Abra um navegador e navegue até a **URL externa** que você criou quando publicou o aplicativo. 
 1. Entre com a conta de teste que você atribuiu ao aplicativo. Você deve ser capaz de carregar o aplicativo e ter o SSO no aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Como o Proxy de Aplicativo do Azure AD fornece logon único?](application-proxy-single-sign-on.md)
 - [Solucionar problemas de Proxy de Aplicativo](application-proxy-troubleshoot.md)

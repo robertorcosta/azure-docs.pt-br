@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar Slack para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: provisionamento de usuário para a margem de atraso-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no Slack.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a294254bd52db89179c5644ea7a0f0f04027f30
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932482"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278175"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Slack e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Slack.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -34,7 +34,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 * Um locatário do Slack com o [plano Plus](https://aadsyncfabric.slack.com/pricing), ou outro com mais recursos, habilitado
 * Uma conta de usuário no Slack com permissões de Administrador de Equipe
 
-Observação: A integração de provisionamento do Azure AD depende da [API de SCIM do Slack](https://api.slack.com/scim), disponível para as equipes do Slack no plano Plus ou outro melhor.
+Observação: a integração de provisionamento do Azure AD depende da [API scim de margem de atraso](https://api.slack.com/scim), que está disponível para as equipes de margem de atraso no plano mais ou melhor.
 
 ## <a name="assigning-users-to-slack"></a>Como atribuir usuários ao Slack
 
@@ -54,7 +54,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisará 
 
 Esta seção orienta você pela conexão do Azure AD com a API de provisionamento de conta de usuário do Slack e pela configuração do serviço de provisionamento, a fim de criar, atualizar e desabilitar contas de usuário atribuídas no Slack com base na atribuição de usuário e de grupo do Azure AD.
 
-**Dica:** Você também pode optar por ativar o logon único com base em SAML para o Slack, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+**Dica:** você também pode optar por ativar o logon único com base em SAML para o Slack, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Slack no Azure AD:
 
@@ -106,7 +106,7 @@ Opcionalmente, você pode habilitar o provisionamento de objetos de grupo do Azu
 
 Isso resulta na sincronização total de qualquer objeto de grupo atribuído ao Slack na seção **Usuários e Grupos** do Azure AD para o Slack. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Slack.
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 

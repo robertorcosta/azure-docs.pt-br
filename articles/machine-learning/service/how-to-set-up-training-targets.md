@@ -1,5 +1,5 @@
 ---
-title: Criar e usar destinos de computação para treinamento de modelo
+title: Usar destinos de computação para treinamento de modelo
 titleSuffix: Azure Machine Learning
 description: Configure os ambientes de treinamento (destinos de computação) para treinamento de modelo de machine learning. É possível alternar facilmente os ambientes de treinamento. Inicie o treinamento localmente. Se precisar expandir, passe para um destino de computação em nuvem.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489577"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305322"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Neste artigo, você aprende a usar vários destinos de computação para treinam
 
 
 >[!NOTE]
-> O código deste artigo foi testado com a versão 1.0.39 do SDK do Azure Machine Learning.
+> O código deste artigo foi testado com Azure Machine Learning SDK versão 1.0.74.
 
 ## <a name="compute-targets-for-training"></a>Destinos de computação para treinamento
 
@@ -105,9 +105,6 @@ A Computação do Machine Learning do Azure tem limites padrão como o número d
 #### <a name="run-based-creation"></a>Criação baseada em execução
 
 É possível criar a Computação do Azure Machine Learning como um destino de computação em tempo de execução. A computação é criada automaticamente para a sua execução. A computação é excluída automaticamente depois de a execução ser concluída. 
-
-> [!NOTE]
-> Para especificar o número máximo de nós a serem usados, normalmente você definirá `node_count` como o número de nós. Atualmente, há (04/04/2019) um bug que impede que isso funcione. Como alternativa, use a propriedade `amlcompute._cluster_max_node_count` da configuração de execução. Por exemplo: `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > A criação baseada em execução da computação do Azure Machine Learning atualmente está em Versão Prévia. Não use a criação baseada em execução se você estiver usando o ajuste de hiperparâmetro ou o aprendizado de máquina automatizado. Para usar o ajuste de hiperparâmetro ou aprendizado de máquina automatizados, crie um destino de [computação persistente](#persistent) em vez disso.
@@ -380,7 +377,7 @@ Depois de criar uma configuração de execução, você pode usá-la para execut
 > [!IMPORTANT]
 > Quando você envia a execução de treinamento, um instantâneo do diretório que contém seus scripts de treinamento é criado e enviado para o destino de computação. Ele também é armazenado como parte do experimento em seu espaço de trabalho. Se você alterar os arquivos e enviar a execução novamente, somente os arquivos alterados serão carregados.
 >
-> Para impedir que arquivos sejam incluídos no instantâneo, crie um arquivo [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione os arquivos a ele. O arquivo de `.amlignore` usa a mesma sintaxe e padrões que o arquivo [. gitignore](https://git-scm.com/docs/gitignore) . Se ambos os arquivos existirem, o arquivo `.amlignore` terá precedência.
+> Para impedir que arquivos sejam incluídos no instantâneo, crie um arquivo [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione os arquivos a ele. O arquivo de `.amlignore` usa a mesma sintaxe e padrões que o arquivo [. gitignore](https://git-scm.com/docs/gitignore) . Se ambos os arquivos existirem, o arquivo de `.amlignore` terá precedência.
 > 
 > Para obter mais informações, veja [cópias de sombra](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -394,7 +391,7 @@ Primeiro, crie um experimento no seu workspace.
 
 Envie o experimento com um objeto `ScriptRunConfig`.  Esse objeto inclui:
 
-* **pasta_de_origem**: o diretório de origem que contém o script de treinamento
+* **SOURCE_DIRECTORY**: o diretório de origem que contém o script de treinamento
 * **script**: identificar o script de treinamento
 * **run_config**: a configuração de execução, que, por sua vez, define onde o treinamento ocorrerá.
 
@@ -423,7 +420,7 @@ Para obter mais informações, consulte a documentação do [ScriptRunConfig](ht
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Criar configuração de execução e enviar execução usando Azure Machine Learning CLI
 
-Você pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [Machine Learning extensão da CLI](reference-azure-machine-learning-cli.md) para criar configurações de execução e enviar execuções em diferentes destinos de computação. Os exemplos a seguir pressupõem que você tenha um Workspace do Azure Machine Learning existente e que tenha feito logon no Azure usando o comando da CLI `az login`. 
+Você pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [Machine Learning extensão da CLI](reference-azure-machine-learning-cli.md) para criar configurações de execução e enviar execuções em diferentes destinos de computação. Os exemplos a seguir pressupõem que você tenha um Workspace do Azure Machine Learning existente e que tenha feito logon no Azure usando `az login` comando da CLI. 
 
 ### <a name="create-run-configuration"></a>Criar configuração de execução
 
@@ -433,7 +430,7 @@ A maneira mais simples de criar a configuração de execução é navegar na pas
 az ml folder attach
 ```
 
-Esse comando cria uma subpasta `.azureml` que contém arquivos de configuração de execução de modelo para destinos de computação diferentes. Você pode copiar e editar esses arquivos para personalizar sua configuração, por exemplo, para adicionar pacotes do Python ou alterar as configurações do Docker.  
+Este comando cria uma subpasta `.azureml` que contém arquivos de configuração de execução de modelo para destinos de computação diferentes. Você pode copiar e editar esses arquivos para personalizar sua configuração, por exemplo, para adicionar pacotes do Python ou alterar as configurações do Docker.  
 
 ### <a name="structure-of-run-configuration-file"></a>Estrutura do arquivo de configuração de execução
 

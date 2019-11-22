@@ -1,23 +1,14 @@
 ---
 title: Importar e exportar dados com projetos no Azure Notebooks
 description: Como trazer dados para um projeto do Azure Notebooks de fontes externas e como exportar dados de um projeto.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: b33d5dbfa354061b9b25069b3b300010b7cd49bf
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970204"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277394"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabalhar com arquivos de dados em projetos do Azure Notebook
 
@@ -41,11 +32,11 @@ Você pode trazer arquivos para um projeto no painel do projeto ou em um bloco d
 
 1. Escolha o comando **Carregar** e **Da URL** ou **Do computador** e crie os detalhes necessários para os dados que você deseja importar:
 
-   - **Da URL**: Insira o endereço de origem no campo **URL do Arquivo** e o nome do arquivo para atribuir ao bloco de anotações do projeto no campo **Nome do Arquivo**. Em seguida, escolha **+ Adicionar Arquivo** para adicionar a URL à lista de carregamento. Repita o processo para todas as URLs adicionais e escolha **Concluído**.
+   - **Da URL**: Insira o endereço de origem no campo **URL do arquivo** e o nome do arquivo para atribuir ao bloco de anotações em seu projeto no campo nome do **arquivo** . Em seguida, escolha **+ Adicionar Arquivo** para adicionar a URL à lista de carregamento. Repita o processo para todas as URLs adicionais e escolha **Concluído**.
 
-     ![Carregar de URL popup](media/quickstarts/upload-from-url-popup.png)
+     ![Carregar popup da URL](media/quickstarts/upload-from-url-popup.png)
 
-   - **Do computador**: Arraste e solte os arquivos no popup ou marque **Escolher Arquivos** e, em seguida, procure e escolha os arquivos de dados que você deseja importar. Você pode soltar ou escolher qualquer número de arquivos, de qualquer tipo e formato, já que é o código no bloco de anotações que abre o arquivo e analisa seus dados.
+   - **Em computador**: arraste e solte arquivos para o pop-up, ou selecione **escolher arquivos**, navegue até e selecione os arquivos de dados que deseja importar. Você pode soltar ou escolher qualquer número de arquivos, de qualquer tipo e formato, já que é o código no bloco de anotações que abre o arquivo e analisa seus dados.
 
      ![Carregar do popup do computador](media/quickstarts/upload-from-computer-popup.png)
 
@@ -61,7 +52,7 @@ Você pode trazer arquivos para um projeto no painel do projeto ou em um bloco d
 
 1. No popup **Carregar status** exibido, escolha uma **Pasta de destino** na lista suspensa:
 
-    - Pasta da sessão ( *~/* ): Carrega arquivos para a sessão atual do bloco de anotações, mas não cria arquivos no projeto. A pasta de sessão cria um par com a pasta do projeto, mas ela não persistirá após o término da sessão. Para acessar arquivos de sessão no código, use o prefixo *../* nos nomes de arquivo com o caminho relativo.
+    - Pasta de sessão ( *~/* ): carrega arquivos na sessão atual do bloco de anotações, mas não cria arquivos no projeto. A pasta de sessão cria um par com a pasta do projeto, mas ela não persistirá após o término da sessão. Para acessar arquivos de sessão no código, use o prefixo *../* nos nomes de arquivo com o caminho relativo.
 
         O uso da pasta de sessão é útil para experimentações e evita a acumulação de arquivos que poderão ou não ser necessários a longo prazo no projeto. Você também pode carregar arquivos para a pasta de sessão que tenha nomes idênticos aos arquivos do projeto sem causar conflitos ou precisar renomear os arquivos. Por exemplo, digamos que você tenha uma versão de *data.csv* no projeto, mas deseja experimentar uma versão diferente de *data.csv*. Ao carregar o arquivo na pasta de sessão, você pode executar o bloco de anotações usando dados no arquivo carregado (referindo-se a ele no código usando *../data.csv*) em vez dos dados no arquivo do projeto.
 

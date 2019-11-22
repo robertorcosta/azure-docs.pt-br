@@ -1,5 +1,6 @@
 ---
-title: Como visualizar os padrões de tráfego de rede com ferramentas de software livre e observador de rede do Azure | Microsoft Docs
+title: Visualizar padrões de tráfego de rede com ferramentas de código aberto
+titleSuffix: Azure Network Watcher
 description: Esta página descreve como usar a captura de pacote do observador de rede com CapAnalysis para visualizar os padrões de tráfego para e de suas VMs.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3baf73eed09e6880820952b8457526b6c21dd83b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64936016"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277755"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Como visualizar padrões de tráfego de rede de e para suas VMs usando ferramentas de software livre
 
@@ -76,7 +77,7 @@ O CapAnalysis oferece várias opções para visualizar sua captura de pacote, ca
 
 1. Geomap
 
-    Este painel fornece uma exibição de mapa de seu tráfego de rede, com cores de dimensionamento para o volume de tráfego de cada país/região. Você pode selecionar países/regiões realçados para exibir estatísticas de fluxo adicionais, como a proporção dos dados enviados e recebidos pelos IPs nesse país/região.
+    Esse painel fornece uma exibição de mapa do tráfego de rede, com cores dimensionando para o volume de tráfego de cada país/região. Você pode selecionar países/regiões realçados para exibir estatísticas de fluxo adicionais, como a proporção de dados enviados e recebidos de IPs nesse país/região.
 
     ![geomap][8]
 
@@ -96,7 +97,7 @@ O recurso de captura de pacote do observador de rede e permite que você capture
 
 Para saber mais sobre logs de fluxo NSG, acesse [Logs de fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
 
-Para saber como visualizar os logs de fluxo NSG com o Power BI, veja [Como visualizar logs de fluxos NSG com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Saiba como visualizar os logs de fluxo NSG com o Power BI visitando [fluxos de NSG visualizar logs com o Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 <!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png

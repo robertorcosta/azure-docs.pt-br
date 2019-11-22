@@ -1,6 +1,6 @@
 ---
 title: Como configurar o postmaster – Azure digital gêmeos | Microsoft Docs
-description: Saiba como configurar e usar o postmaster para testar as APIs do Azure digital gêmeos.
+description: Saiba como configurar e usar o postmaster para testar as APIs do gêmeos digital do Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 6a001d6b501a22b4b07599792a64af735c5d4d9b
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090499"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304805"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman para os Gêmeos Digitais do Azure
 
@@ -52,15 +52,15 @@ Configurar seu aplicativo Azure Active Directory para usar o fluxo de concessão
 
 1. A API selecionada é exibida como **Gêmeos Digitais do Azure** no mesmo painel **Solicitar permissões de API**. Selecione a lista suspensa **Ler (1)** e a caixa de seleção **Read.Write**. Selecione o botão **Adicionar permissões**.
 
-    [![Adicionar permissões de API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    [![adicionar permissões de API para o Azure digital gêmeos](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
 1. Dependendo das configurações da sua organização, talvez você precise seguir etapas adicionais para conceder acesso de administrador a essa API. Entre em contato com seu administrador para obter mais informações. Assim que o acesso de administrador for aprovado, a coluna **CONSENTIMENTO DO ADMINISTRADOR NECESSÁRIO** no painel de **Permissões de API** será mostrada da seguinte forma para as suas APIs:
 
-    [aprovação de consentimento do administrador ![](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [![configurar a aprovação de consentimento do administrador](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
 1. Configure um segundo **URI de redirecionamento** para `https://www.getpostman.com/oauth2/callback`.
 
-    [![adicionar um URI de redirecionamento do postmaster](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+    [![configurar um novo URI de redirecionamento do postmaster](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
 1. Para certificar-se [de que o aplicativo está registrado como um **cliente público**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), abra o painel de **autenticação** para o registro do aplicativo e role para baixo nesse painel. Na seção **tipo de cliente padrão** , escolha **Sim** para **tratar aplicativo como um cliente público**e clique em **salvar**.
 
@@ -104,7 +104,7 @@ Configure e configure o postmaster para obter um token de Azure Active Directory
 
 1. Agora, o cliente deve se parecer com:
 
-    [![exemplo de cliente do postmaster](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [exemplo de token de cliente do ![postmaster](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
 1. Selecione **Solicitação de Token**.
   
@@ -116,14 +116,14 @@ Depois de concluir as etapas anteriores, configure o Postman para fazer uma soli
 
 1. Na guia **cabeçalhos** , adicione um **tipo de conteúdo de chave de** cabeçalho de solicitação HTTP com valor `multipart/mixed`.
 
-   [tipo de conteúdo ![com várias partes/misturado](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [![especificar várias partes do tipo de conteúdo/misto](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
 
 1. Serialize dados não textuais em arquivos. Os dados JSON seriam salvos como um arquivo JSON.
 1. Na guia **corpo** , selecione `form-data`. 
 1. Adicione cada arquivo atribuindo um nome de **chave** , selecionando `File`.
 1. Em seguida, selecione cada arquivo por meio do botão **Escolher arquivo**.
 
-   [![exemplo de cliente do postmaster](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [exemplo de corpo de formulário de cliente do ![post](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
 
    >[!NOTE]
    > * O cliente Postman não requer que as partes com várias partes tenham um **Content-Type** ou **Content-Disposition** atribuído manualmente.

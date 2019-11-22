@@ -1,53 +1,53 @@
 ---
-title: Saiba mais sobre as opções de suporte de âncora espacial do Azure | Microsoft Docs
-description: Informações espaciais âncoras do Azure sobre como abrir uma solicitação com a equipe de suporte.
+title: Opções de suporte
+description: Informações sobre como abrir uma solicitação com a equipe de suporte de âncoras espaciais do Azure.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1930d5fc9dafe7d480302ded9b4e5a86f55a7669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 371cb9ade54da42af1ed75c3e9857b6d1a7a0f4f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964521"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276980"
 ---
-# <a name="azure-spatial-anchors-support-options"></a>Opções de suporte do Azure âncoras espacial
+# <a name="azure-spatial-anchors-support-options"></a>Opções de suporte de âncoras espaciais do Azure
 
-## <a name="open-a-tech-support-ticket"></a>Abra um tíquete de suporte técnico
+## <a name="open-a-tech-support-ticket"></a>Abrir um tíquete de suporte técnico
 
-Para abrir um tíquete de suporte técnico dentro do Portal do Azure para âncoras espacial do Azure:
+Para abrir um tíquete de suporte técnico no portal do Azure para âncoras espaciais do Azure:
 
-1. Com o [portal do Azure](https://azure.microsoft.com/account/) abrir, selecione o ícone de ajuda na barra de menus superior e selecione o **ajuda + suporte** botão. 
+1. Com o [portal do Azure](https://azure.microsoft.com/account/) aberto, selecione o ícone ajuda na barra de menus superior e, em seguida, selecione o botão **ajuda + suporte** .
 
-![Suporte e Ajuda do portal do azure](./media/spatial-anchor-support.png)
+![portal do Azure ajuda e suporte](./media/spatial-anchor-support.png)
 
-1. Com a Ajuda + suporte aberto, selecione de página **+ novo solicitação de suporte**.
+1. Com a página ajuda + suporte aberta, selecione **+ nova solicitação de suporte**.
 
-![Portal do Azure nova solicitação de suporte](./media/spatial-anchor-support2.png)
+![portal do Azure nova solicitação de suporte](./media/spatial-anchor-support2.png)
 
-1. Ao preencher os campos de tíquete de suporte: 
+1. Ao concluir os campos de tíquete de suporte:
 
-- Tipo de problema: Técnicos
-- Serviço: Âncoras Espaciais
+- Tipo de problema: técnico
+- Serviço: âncoras espaciais
 
-![Campos de tíquete de suporte do portal do Azure](./media/spatial-anchor-support3.png)
+![portal do Azure campos de tíquete de suporte](./media/spatial-anchor-support3.png)
 
 ## <a name="community-support"></a>Suporte da comunidade
 
-Para obter suporte da comunidade do usuário, consulte [âncoras espacial do Azure no Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors). 
+Para obter suporte da comunidade de usuários, consulte [âncoras espaciais do Azure em Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors).
 
-## <a name="provide-content-feedback"></a>Fornecer comentários sobre o conteúdo
+## <a name="provide-content-feedback"></a>Fornecer comentários de conteúdo
 
-Na parte inferior de cada artigo de conteúdo, há uma oportunidade para abrir um problema do GitHub e fornecer comentários sobre o conteúdo da documentação do Azure de âncora espacial. 
+Na parte inferior de cada artigo de conteúdo, há uma oportunidade de abrir um problema do GitHub e fornecer comentários sobre o conteúdo da documentação da âncora espacial do Azure.
 
 ## <a name="provide-product-feedback"></a>Fornecer comentários sobre o produto
 
-Para fornecer comentários, compartilham uma ideia ou sugestão para o serviço âncoras espacial do Azure ou votar nas ideias que outras pessoas tenham sido enviadas, visite o [Fórum de comentários do Azure espacial âncoras](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
+Para fornecer comentários, compartilhe uma ideia ou sugestão para o serviço de âncoras espaciais do Azure ou Vote nas ideias que outras pessoas enviaram, visite o [Fórum de comentários das âncoras espaciais do Azure](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para perguntas frequentes sobre âncoras espacial do Azure, consulte a [perguntas frequentes sobre](spatial-anchor-faq.md) página.
+Para perguntas frequentes sobre âncoras espaciais do Azure, consulte a página de [perguntas frequentes](spatial-anchor-faq.md) .

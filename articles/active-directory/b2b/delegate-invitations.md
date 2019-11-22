@@ -1,6 +1,6 @@
 ---
-title: Habilitar configurações de colaboração externa do B2B – Azure Active Directory | Microsoft Docs
-description: Saiba como habilitar a colaboração externa do B2B do Active Directory e gerenciar quem pode convidar usuários convidados. Use a função de emissor do convite convidado delegar convites.
+title: Habilitar configurações de colaboração externa B2B-Azure AD
+description: Saiba como habilitar a colaboração externa B2B Active Directory e gerenciar quem pode convidar usuários convidados. Use a função emissor de convite para delegar convites.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,18 +11,18 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11dda7fc3760f468c094fb4cf4484a27895f83b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65812682"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272892"
 ---
-# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitar a colaboração de B2B externa e gerenciar quem pode convidar pessoas
+# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitar a colaboração externa B2B e gerenciar quem pode convidar convidados
 
-Este artigo descreve como habilitar a colaboração B2B do Azure Active Directory (Azure AD) e determinar quem pode convidar convidados. Por padrão, todos os usuários e convidados em seu diretório podem convidar pessoas, mesmo se eles não tiver sido atribuídos a uma função de administrador. Configurações de colaboração externa permitem que você ative convites ativada ou desativada para diferentes tipos de usuários em sua organização. Você também pode delegar convites para usuários individuais, atribuindo funções que permitem a eles convidar pessoas.
+Este artigo descreve como habilitar a colaboração B2B do Azure Active Directory (Azure AD) e determinar quem pode convidar convidados. Por padrão, todos os usuários e convidados em seu diretório podem convidar convidados mesmo que não estejam atribuídos a uma função de administrador. As configurações de colaboração externas permitem ativar ou desativar os convites de convidado para diferentes tipos de usuários em sua organização. Você também pode delegar convites a usuários individuais atribuindo funções que lhes permitem convidar convidados.
 
-## <a name="configure-b2b-external-collaboration-settings"></a>Definir as configurações de colaboração externa do B2B
+## <a name="configure-b2b-external-collaboration-settings"></a>Definir configurações de colaboração externa B2B
 
 Com a colaboração B2B do Azure AD, um administrador de locatário pode definir as seguintes políticas de convite:
 
@@ -33,27 +33,27 @@ Com a colaboração B2B do Azure AD, um administrador de locatário pode definir
 
 Por padrão, todos os usuários, incluindo convidados, podem convidar usuários convidados.
 
-### <a name="to-configure-external-collaboration-settings"></a>Para definir configurações de colaboração externa:
+### <a name="to-configure-external-collaboration-settings"></a>Para definir configurações de colaboração externas:
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) como um administrador de locatários.
+1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de locatários.
 2. Selecione **Azure Active Directory** > **Usuários** > **Configurações de usuário**.
 3. Em **Usuários externos**, selecione **Gerenciar configurações de colaboração externa**.
    > [!NOTE]
    > As **configurações de colaboração externa** também estão disponíveis na página **Relações organizacionais**. No Azure Active Directory, em **Gerenciar**, acesse **Relações organizacionais** > **Configurações**.
-4. Sobre o **configurações de colaboração externa** , escolha as políticas que você deseja habilitar.
+4. Na página **configurações de colaboração externas** , escolha as políticas que você deseja habilitar.
 
    ![Configuração de colaboração externa](./media/delegate-invitations/control-who-to-invite.png)
 
-  - **Permissões de usuários convidados são limitadas**: Essa política determina as permissões para convidados em seu diretório. Selecione **Sim** para convidados do bloco de determinadas tarefas de diretório, como enumerar usuários, grupos ou outros recursos de diretório. Selecione **não** para fornecer convidados com o mesmo acesso aos dados do diretório como usuários regulares em seu diretório.
-   - **Administradores e usuários na função de convidador podem convidar**: Para permitir que administradores e usuários na função "Emissor do convite convidado" convidar pessoas, definir essa política como **Sim**.
-   - **Membros podem convidar**: Para permitir que os membros não-administrador do seu diretório convidar pessoas, definir essa política como **Sim**.
-   - **Convidados podem convidar**: Para permitir que os convidados convidarem outras pessoas, definir essa política como **Sim**.
-   - **Permitir senha de uso único de Email para convidados (visualização)** : Para obter mais informações sobre o recurso de senha de uso único, consulte [autenticação de senha de uso único de Email (visualização)](one-time-passcode.md).
-   - **Restrições de colaboração**: Para obter mais informações sobre como permitir ou bloquear convites para domínios específicos, consulte [permitir ou bloquear convites para usuários B2B de organizações específicas](allow-deny-list.md).
+  - **As permissões de usuários convidados são limitadas**: essa política determina as permissões para convidados em seu diretório. Selecione **Sim** para bloquear convidados de determinadas tarefas de diretório, como enumerar usuários, grupos ou outros recursos de diretório. Selecione **não** para dar aos convidados o mesmo acesso aos dados do diretório como usuários comuns em seu diretório.
+   - **Administradores e usuários na função de emissor do convite para convidados podem convidar**: para permitir que administradores e usuários na função "emissor do convidado" convidem convidados, defina essa política como **Sim**.
+   - **Os membros podem convidar**: para permitir que membros não administradores do seu diretório convidem convidados, defina essa política como **Sim**.
+   - Os **convidados podem convidar**: para permitir que convidados convidem outros convidados, defina essa política como **Sim**.
+   - **Habilitar a senha de uso único de email para convidados (versão prévia)** : para obter mais informações sobre o recurso de senha de uso único, consulte [autenticação de senha de uso único de email (versão prévia)](one-time-passcode.md).
+   - **Restrições de colaboração**: para obter mais informações sobre como permitir ou bloquear convites para domínios específicos, consulte [permitir ou bloquear convites para usuários B2B de organizações específicas](allow-deny-list.md).
 
-## <a name="assign-the-guest-inviter-role-to-a-user"></a>Atribua a função de emissor do convite convidado a um usuário
+## <a name="assign-the-guest-inviter-role-to-a-user"></a>Atribuir a função de convite do convidado a um usuário
 
-Com a função de emissor do convite convidado, você pode conceder a usuários individuais a capacidade de convidar pessoas sem atribuir um administrador global ou outra função de administrador. Atribua a função de emissor do convite convidado a indivíduos. Em seguida, verifique se você definiu **administradores e usuários na função de convidador podem convidar** à **Sim**.
+Com a função emissor de convite para convidado, você pode dar aos usuários individuais a capacidade de convidar convidados sem atribuir a eles um administrador global ou outra função de administrador. Atribua a função de convite do convidado a indivíduos. Em seguida, verifique se você definiu **Administradores e usuários na função emissor de convite de convidado pode convidar** para **Sim**.
 
 Veja um exemplo que mostra como usar o PowerShell para adicionar um usuário à função Emissor de convite para convidado:
 

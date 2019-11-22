@@ -1,5 +1,5 @@
 ---
-title: Como abrir as portas de firewall necessárias para um aplicativo de Application Proxy | Microsoft Docs
+title: Como abrir portas de firewall necessárias para um aplicativo de proxy de aplicativo
 description: Descubra quais portas abrir para o Application Proxy do Azure AD funcionar corretamente
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e69f2e5049ca290a17c058c9d18dc7c6ec91f49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b676508c73ff0233526f19b865bb9e4f7b80f12
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783556"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275544"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Como abrir as portas de firewall necessárias para um aplicativo de Application Proxy
 
 Para ver uma lista completa das portas necessárias e a função de cada porta, consulte a seção pré-requisitos da [documentação de Application Proxy](application-proxy-add-on-premises-application.md). observe que o Application Proxy usa apenas as portas de saída.
 
-Você também pode verificar se você tem todas as portas abertas necessárias, abrindo o [ferramenta de teste de portas do conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) da sua rede local. Mais marcas de seleção verde significa maior resiliência. 
+Você também pode verificar se você tem todas as portas necessárias abertas abrindo a [ferramenta de teste de portas de conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) de sua rede local. Mais marcas de seleção verde significa maior resiliência. 
 
 ## <a name="app-proxy-regions"></a>Regiões de Proxy de aplicativo
 
@@ -37,7 +37,7 @@ Para certificar-se de que a ferramenta oferece os resultados certos, certifique-
 
 -   Abrir a ferramenta em um navegador do servidor na qual você instalou o conector.
 
--   Certifique-se de que quaisquer proxies ou firewalls aplicáveis a seu conector também estejam aplicados a esta página. Isso pode ser feito no Internet Explorer, vá para **as configurações**  - &gt; **opções da Internet**  - &gt; **conexões**  - &gt; **Configurações de LAN**. Nessa página, você vê o campo "Use um Servidor Proxy para sua LAN". Marque essa caixa e coloque o endereço do proxy no campo "Endereço".
+-   Certifique-se de que quaisquer proxies ou firewalls aplicáveis a seu conector também estejam aplicados a esta página. Isso pode ser feito no Internet Explorer acessando **configurações** -&gt; **opções da Internet** -&gt; **conexões** -&gt; **configurações de LAN**. Nessa página, você vê o campo "Use um Servidor Proxy para sua LAN". Marque essa caixa e coloque o endereço do proxy no campo "Endereço".
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)

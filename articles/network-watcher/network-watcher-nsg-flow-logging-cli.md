@@ -1,5 +1,6 @@
 ---
-title: Gerenciar logs de fluxo de grupo de segurança de rede com o Observador de Rede do Azure - CLI do Azure | Microsoft Docs
+title: Gerenciar logs de fluxo NSG-CLI do Azure
+titleSuffix: Azure Network Watcher
 description: Esta página explica como gerenciar logs de fluxo de grupo de segurança de rede no Observador de Rede do Azure com CLI do Azure
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5e7c09c1a06a94a2ed64f3624ee38dc42606d7bc
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 950b014d7e08eeeeed40ba7b294e53e1c200474b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563479"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278009"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar logs de fluxo de grupo de segurança de rede com a CLI do Azure
 
@@ -29,13 +30,13 @@ ms.locfileid: "69563479"
 > - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Rede permite que você exiba informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
+Os logs de fluxo do Grupo de Segurança da Rede são um recurso do Observador de Rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança da Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e saída por regra, a NIC à qual o fluxo se aplica, informações com cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
 
 Para executar as etapas deste artigo, será necessário [instalar a interface de linha de comando do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="register-insights-provider"></a>Registrar o provedor Insights
 
-Para o registro de fluxo em log funcionar, o provedor **Microsoft.Insights** deve ser registrado. Se você não tiver certeza se o provedor **Microsoft.Insights** está registrado, execute o script a seguir.
+Para o registro em log de fluxo funcionar com sucesso, o provedor **Microsoft.Insights** deve ser registrado. Se você não tiver certeza se o provedor **Microsoft.Insights** está registrado, execute o script a seguir.
 
 ```azurecli
 az provider register --namespace Microsoft.Insights
@@ -74,9 +75,9 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 
 > [!IMPORTANT]
-> Atualmente, há um problema em que [os logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) para o observador de rede não são automaticamente excluídos do armazenamento de BLOBs com base nas configurações da política de retenção. Se você tiver uma política de retenção diferente de zero, recomendamos que você exclua periodicamente os blobs de armazenamento que ultrapassaram seu período de retenção para evitar qualquer cobrança incorrida. Para obter mais informações sobre como excluir o blog de armazenamento de log de fluxo do NSG, consulte [excluir blobs de armazenamento de log de fluxo NSG](network-watcher-delete-nsg-flow-log-blobs.md).
+> Atualmente, há um problema em que os [logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) para o Observador de Rede não são automaticamente excluídos do Armazenamento de Blobs com base nas configurações da política de retenção. Se você tiver uma política de retenção diferente de zero, recomendamos que você exclua periodicamente os blobs de armazenamento que ultrapassaram os respectivos períodos de retenção para evitar incorrer em alguma cobrança. Para obter mais informações sobre como excluir o blob de armazenamento de log de fluxo do NSG, confira [Excluir blobs de armazenamento de log de fluxo do NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Saiba como [Visualizar seus logs de fluxo NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

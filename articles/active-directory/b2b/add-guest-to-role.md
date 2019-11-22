@@ -1,5 +1,5 @@
 ---
-title: Adicionar um usuário de colaboração B2B a uma função - Azure Active Directory | Microsoft Docs
+title: Adicionar um usuário de colaboração B2B a uma função-Azure Active Directory
 description: Adicionar um usuário convidado a uma função no Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cb195fd3fbf668afe436d3247767d2cc998281a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 703e68994a9d156ccf3e74a5df4a2f4ee2f062cd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767585"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268547"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a usuários de organizações parceiras em seu locatário do Azure Active Directory
 
@@ -33,7 +33,7 @@ Os usuários da colaboração B2B do Azure AD (Azure Active Directory) são adic
 
 ## <a name="limited-administrator-role"></a>Função Administrador Limitado
 
-![Captura de tela mostrando a função de administrador limitado](./media/add-guest-to-role/limited-admin-role.png)
+![Captura de tela mostrando a função de administrador limitada](./media/add-guest-to-role/limited-admin-role.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

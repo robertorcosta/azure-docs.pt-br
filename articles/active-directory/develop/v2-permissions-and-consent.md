@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b4aa4fbff4e1b89b87dd05e0547db8e14ae5835
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927146"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271509"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -41,6 +41,7 @@ A plataforma de identidade da Microsoft implementa o protocolo de autorização 
 * Microsoft Graph: `https://graph.microsoft.com`
 * API de Email do Office 365: `https://outlook.office.com`
 * Azure AD Graph: `https://graph.windows.net`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
 > Recomendamos que você use o Microsoft Graph em vez do Azure AD Graph, API de Email do Office 365 e outros recursos.

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7b0276ca41e1b9342b3602a67dea0517c60f66a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d30f59252a5282c1b0e43249d2cab1e6136b539
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489338"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276671"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ajustar hiperparâmetros para seu modelo com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -380,7 +380,7 @@ Você pode visualizar todas as suas execuções de ajuste de hiperparâmetro no 
 
 ## <a name="find-the-best-model"></a>Localizar o melhor modelo
 
-Depois que todas as execuções de ajuste de hiperparâmetro forem concluídas, [identifique a configuração de melhor desempenho](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true-) e os valores de hiperparâmetro correspondentes:
+Depois que todas as execuções de ajuste de hiperparâmetro forem concluídas, [identifique a configuração de melhor desempenho](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) e os valores de hiperparâmetro correspondentes:
 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()

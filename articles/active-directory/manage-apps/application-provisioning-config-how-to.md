@@ -1,5 +1,5 @@
 ---
-title: Como configurar provisionamento do usuário para um aplicativo de galeria do Azure AD | Microsoft Docs
+title: Como configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD
 description: Como você pode rapidamente configurar provisionamento e desprovisionamento de conta de usuário avançado para aplicativos já listados na Galeria de Aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bcc53b97b1187314404cfe075f6593f437e7bf4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5a2955a418aa0ce43c030afc588a2840bbb9b50f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789058"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275824"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar provisionamento do usuário para um aplicativo de galeria do Azure AD
 
@@ -52,6 +52,6 @@ Tutoriais de aplicativos podem ser encontrados em [lista de tutoriais sobre como
 
 Uma coisa importante a considerar ao configurar o provisionamento é examinar e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais propriedades de usuário (ou grupo) fluem do Azure AD para o aplicativo. Isso inclui a definição da "propriedade correspondente" que é usada para identificar exclusivamente e corresponder usuários/grupos entre os dois sistemas. Consulte o link nas *próximas etapas* para obter mais informações sobre mapeamentos de atributo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

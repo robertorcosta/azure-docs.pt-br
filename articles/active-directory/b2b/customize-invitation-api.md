@@ -1,5 +1,5 @@
 ---
-title: B2B API e personalização da colaboração - Azure Active Directory | Microsoft Docs
+title: API de colaboração B2B e personalização-Azure Active Directory
 description: A colaboração B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0369988bc6f6503f9940e6aabccb91ab843d63f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65811876"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272873"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalização da colaboração B2B do Azure Active Directory
 

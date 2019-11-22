@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2d22c4a7a8b95f5a200518a3c46fc33f55c66a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 316d82cbfd0c96fba2ac9714f8025d71c743d7d5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569856"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269553"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como exigir a verificação em duas etapas para um usuário
 
@@ -56,7 +56,7 @@ Todos os usuários começam com o status *Desabilitado*. Quando você registra o
 Use as etapas a seguir para acessar a página em que você pode exibir e gerenciar estados de usuário:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Acesse **Azure Active Directory** > **Usuários e grupos** > **Todos os usuários**.
+2. Procurar pelo *Azure Active Directory* e selecioná-lo. Sekecuibe **Usuários** > **Todos os usuários**.
 3. Selecione **Autenticação Multifator**.
    ![Selecionar a Autenticação Multifator](./media/howto-mfa-userstates/selectmfa.png)
 4. Uma nova página que exibe os estados do usuário é aberta.
@@ -179,6 +179,6 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Por que foi um usuário solicitado ou não é solicitado a executar a MFA? Consulte a seção [relatório de entradas do Azure AD nos relatórios do documento de autenticação multifator do Azure](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* Por que foi um usuário solicitado ou não é solicitado a executar a MFA? Consulte a seção [relatório de entradas do Microsoft Azure Active Directory nos relatórios do documento de autenticação multifator do Azure](howto-mfa-reporting.md#azure-ad-sign-ins-report).
 * Para definir configurações adicionais, como IPs confiáveis, mensagens de voz personalizadas e alertas de fraudes, consulte o artigo [Definir configurações de Autenticação Multifator do Microsoft Azure](howto-mfa-mfasettings.md)
 * Informações sobre como gerenciar configurações de usuário para Autenticação Multifator do Microsoft Azure podem ser encontradas no artigo [Gerenciar configurações do usuário com Autenticação Multifator do Microsoft Azure na nuvem](howto-mfa-userdevicesettings.md)

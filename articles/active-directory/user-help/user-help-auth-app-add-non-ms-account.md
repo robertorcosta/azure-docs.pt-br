@@ -1,6 +1,6 @@
 ---
-title: Adicionar um não conta Microsoft a um aplicativo autenticador-Azure AD
-description: Como adicionar suas contas não Microsoft, como Google, Facebook ou GitHub ao aplicativo Microsoft Authenticator para a verificação de dois fatores.
+title: Adicionar contas que não são da Microsoft ao aplicativo Microsoft Authenticator-Azure AD
+description: Adicione contas que não sejam da Microsoft, como para o Google ou Facebook para o aplicativo Microsoft Authenticator para verificar sua identidade ao usar a verificação de dois fatores.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803672"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278890"
 ---
-# <a name="add-your-non-microsoft-accounts"></a>Adicionar contas não Microsoft
+# <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas que não são da Microsoft ao aplicativo Microsoft Authenticator
 
-Adicione suas contas não Microsoft, como Google, Facebook ou GitHub ao aplicativo Microsoft Authenticator para a verificação de dois fatores. O aplicativo Microsoft Authenticator funciona com qualquer aplicativo que use a verificação de dois fatores e com qualquer conta que dê suporte a padrões das TOTP (Senhas Avulsas por Tempo Limitado).
+Adicione suas contas não Microsoft, como Google, Facebook ou GitHub ao aplicativo Microsoft Authenticator para a verificação de dois fatores. O aplicativo Microsoft Authenticator funciona com qualquer aplicativo que use a verificação de dois fatores e com qualquer conta que dê suporte a padrões das Senhas Avulsas por Tempo Limitado (TOTP).
 
 >[!Important]
 >Antes de poder adicionar sua conta, você deverá baixar e instalar o aplicativo Microsoft Authenticator. Se você ainda não tiver feito isso, siga as etapas no artigo [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md).
@@ -30,7 +30,7 @@ Adicione suas contas não Microsoft, como Google, Facebook ou GitHub ao aplicati
 
 Em geral, para todas as suas contas pessoais, você deverá:
 
-1. Entre em sua conta e ative a verificação de dois fatores usando seu dispositivo ou computador.
+1. Entre em sua conta e habilite a verificação de dois fatores usando seu dispositivo ou computador.
 
 2. Adicionar a conta ao aplicativo Microsoft Authenticator. Você pode ser solicitado a digitalizar um código QR como parte desse processo.
 

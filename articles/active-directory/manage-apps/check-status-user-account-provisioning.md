@@ -1,5 +1,5 @@
 ---
-title: Relatar o provisionamento automático de conta de usuário para aplicativos SaaS | Microsoft Docs
+title: Relatar o provisionamento automático de conta de usuário para aplicativos SaaS
 description: Saiba como verificar o status dos trabalhos de provisionamento de automático de conta de usuário e como solucionar problemas com o provisionamento de usuários individuais.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e5ef4067f22d0e9e015e4d9a646f8b92309010a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033517"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275057"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o provisionamento automático de conta de usuário
 
@@ -40,11 +40,11 @@ Conectores de provisionamento são configurados e definidos usando o [Portal do 
 Este artigo usa os seguintes termos, definidos a seguir:
 
 * **Sistema de origem** – o repositório de usuários do qual o serviço de provisionamento do Azure AD faz a sincronização. O Azure Active Directory é o sistema de origem para a maioria dos conectores de provisionamento previamente integrados, no entanto, há algumas exceções (exemplo: Sincronização de Entrada do Workday).
-* **Sistema de destino** – o repositório de usuários ao qual o serviço de provisionamento do Azure AD faz a sincronização. Isso normalmente é um aplicativo SaaS (exemplos: Salesforce, ServiceNow, G Suite, Dropbox for Business), mas, em alguns casos, pode ser um sistema local, como Active Directory (exemplo: Sincronização de Entrada do Workday para Active Directory).
+* **Sistema de destino** – o repositório de usuários ao qual o serviço de provisionamento do Azure AD faz a sincronização. Esse é normalmente um aplicativo SaaS (exemplos: Salesforce, ServiceNow, G Suite, Dropbox for Business), mas, em alguns casos, pode ser um sistema local, como Active Directory (exemplo: sincronização de entrada de WORKDAY para Active Directory).
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Obtendo relatórios de provisionamento do portal do Azure
 
-Para obter informações de relatório de provisionamento para um determinado aplicativo, comece iniciando o [portal do Azure](https://portal.azure.com) e **Azure Active Directory** &gt; os logs de provisionamento de **aplicativos** &gt; empresariais **(versão prévia)** noSeção de atividade. Você também pode navegar até o aplicativo empresarial para o qual o provisionamento está configurado. Por exemplo, se você estiver provisionando usuários para o LinkedIn Elevate, o caminho de navegação para os detalhes do aplicativo será:
+Para obter informações de relatório de provisionamento para um determinado aplicativo, comece iniciando o [portal do Azure](https://portal.azure.com) e **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **os logs de provisionamento (versão prévia)** na seção **atividade** . Você também pode navegar até o aplicativo empresarial para o qual o provisionamento está configurado. Por exemplo, se você estiver provisionando usuários para o LinkedIn Elevate, o caminho de navegação para os detalhes do aplicativo será:
 
 **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos > LinkedIn Elevate**
 
@@ -61,13 +61,13 @@ A [barra de progresso de provisionamento](application-provisioning-when-will-pro
 
 O **status atual** deve ser o primeiro lugar em que os administradores procuram verificar a integridade operacional do trabalho de provisionamento.
 
- ![Relatório de resumo](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![Relatório resumido](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## <a name="provisioning-logs-preview"></a>Provisionando logs (versão prévia)
 
-Todas as atividades executadas pelo serviço de provisionamento são registradas nos [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)do Azure AD. Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos** &gt; empresariais **logs de provisionamento (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Alguns dos tipos de eventos de atividade incluídos no log são:
+Todas as atividades executadas pelo serviço de provisionamento são registradas nos [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)do Azure AD. Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **Provisionando logs (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Alguns dos tipos de eventos de atividade incluídos no log são:
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 O relatório de Resumo de provisionamento e os logs de provisionamento desempenham uma função importante que ajuda os administradores a solucionar problemas de provisionamento de várias contas de usuário.
 

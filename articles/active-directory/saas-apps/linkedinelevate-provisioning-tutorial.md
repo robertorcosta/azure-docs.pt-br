@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o LinkedIn Elevate para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: provisionamento de usuário para LinkedIn Elevate – Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no LinkedIn Elevate.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adefb0c88e88a8bfb4b896c0788654e478ff4555
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea6f9923062d960f18203b081702e69a30dd3c9e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963699"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276837"
 ---
-# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar o LinkedIn Elevate para provisionamento automático de usuário
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn Elevate para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no LinkedIn Elevate e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o LinkedIn Elevate.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -55,7 +55,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisará 
 
 Esta seção orienta você pela conexão do Azure AD à API de provisionamento de conta de usuário do SCIM do LinkedIn Elevate e também pela configuração do serviço de provisionamento, a fim de criar, atualizar e desabilitar contas de usuário atribuídas no LinkedIn Elevate com base na atribuição de usuário e de grupo do Azure AD.
 
-**Dica:** Você também pode optar por habilitar o logon único baseado em SAML para o LinkedIn Elevate seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+**Dica:** você também pode optar por habilitar o logon único baseado em SAML para o LinkedIn Elevate seguindo as instruções fornecidas no [Portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Para configurar o provisionamento de conta de usuário automático para o LinkedIn Elevate no Azure AD:
 
@@ -84,7 +84,7 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 5. Clique em **Gerar token**. Você deve ver o token de acesso ser exibido sob o campo **Token de acesso**.
 
-6. Salve seu token de acesso para a área de transferência ou o computador antes de sair da página.
+6. Salve seu token de acesso na área de transferência ou no computador antes de sair da página.
 
 7. Em seguida, entre no [Portal do Azure](https://portal.azure.com) e navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
@@ -118,7 +118,7 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos ao LinkedIn Elevate na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo LinkedIn Learning.
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

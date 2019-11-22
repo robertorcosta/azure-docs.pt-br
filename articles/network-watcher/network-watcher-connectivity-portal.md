@@ -1,5 +1,6 @@
 ---
-title: Solucionar problemas de conexões com o Observador de Rede do Azure – Portal do Azure | Microsoft Docs
+title: Solucionar problemas de conexões-portal do Azure
+titleSuffix: Azure Network Watcher
 description: Saiba como usar o recurso de resolução de problemas de conexão do Observador de Rede do Azure usando o Portal do Azure.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: kumud
-ms.openlocfilehash: 783bcd0cdc97328f16c4a0defa18daa46a065842
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5236d076939b6972946adfde3557e3534f9adf5c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702013"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275981"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Solucionar problemas de conexões com o Observador de Rede do Azure usando o Portal do Azure
 
@@ -58,7 +59,7 @@ Para verificar a conectividade e a latência para um ponto de extremidade, escol
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
+Saiba como automatizar as capturas de pacote com alertas da máquina Virtual, consultando [Criar uma captura de pacote acionada por alerta](network-watcher-alert-triggered-packet-capture.md)
 
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](diagnose-vm-network-traffic-filtering-problem.md)
 

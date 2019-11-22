@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v2 para JavaScript'
-description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca cliente do Armazenamento do Azure para o Node.js v2 para carregar um blob no Armazenamento do Microsoft Azure, fazer o download de um blob e listar os blobs em um contêiner.
+description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Use a biblioteca de cliente de armazenamento do Azure para node. js v2 para carregar um blob, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/04/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 12078300b36412a1507991507a39654acdeb7c69
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7300d4eccec5b1e4b3b5b7dc292cf6150a42e7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825338"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269679"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v2-for-javascript"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v2 para JavaScript
 
@@ -22,7 +22,7 @@ Neste guia prático, você aprende como usar a biblioteca de clientes para Node.
 > [!TIP]
 > A versão mais recente da biblioteca de clientes do Armazenamento do Azure para Node.js é v10. A Microsoft recomenda que você use a versão mais recente da biblioteca de clientes, quando possível. Para começar a usar o v10, consulte [início rápido: carregar, baixar, listar e excluir BLOBs usando a biblioteca de cliente de armazenamento do Azure para JavaScript v10 (versão prévia)](storage-quickstart-blobs-nodejs-v10.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

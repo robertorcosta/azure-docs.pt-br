@@ -1,5 +1,5 @@
 ---
-title: Introdução às funções, permissões e segurança com o Azure Monitor
+title: Funções, permissões e segurança no Azure Monitor
 description: Saiba como usar funções e permissões internas do Azure Monitor para restringir o acesso aos recursos de monitoramento.
 author: johnkemnetz
 services: azure-monitor
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260613"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305156"
 ---
-# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
+# <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Muitas equipes precisam regular estritamente o acesso aos dados e configurações de monitoramento. Por exemplo, se você tiver membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de DevOps) ou se usar um provedor de serviços gerenciados, talvez você queira conceder a eles acesso apenas aos dados de monitoramento e restringir sua capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar uma função interna de RBAC de monitoramento a um usuário no Azure rapidamente ou criar sua própria função personalizada para um usuário que precise de permissões limitadas de monitoramento. Em seguida, ele aborda considerações de segurança para os recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados contidos nos mesmos.
 
 ## <a name="built-in-monitoring-roles"></a>Funções internas de monitoramento
-As funções internas do Azure Monitor são projetadas para ajudar a limitar o acesso aos recursos em uma assinatura, permitindo que as pessoas responsáveis pelo monitoramento da infra-estrutura obtenham e configurem os dados que precisam. O Azure Monitor fornece duas funções prontas para uso: Um Leitor de Monitoramento e um Colaborador de Monitoramento.
+As funções internas do Azure Monitor são projetadas para ajudar a limitar o acesso aos recursos em uma assinatura, permitindo que as pessoas responsáveis pelo monitoramento da infra-estrutura obtenham e configurem os dados que precisam. O Azure Monitor fornece duas funções integradas: um Leitor de monitoramento e um Colaborador de monitoramento.
 
 ### <a name="monitoring-reader"></a>Leitor de monitoramento
 Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os dados de monitoramento em uma assinatura, mas não podem modificar nenhum recurso nem editar nenhuma configuração relacionados ao monitoramento de recursos. Essa função é apropriada para os usuários em uma organização, como engenheiros de suporte ou de operações, que precisam ser capazes de:
@@ -61,7 +61,7 @@ Pessoas atribuídas à função de Colaborador de monitoramento podem exibir tod
 * Crie e exclua e execute pesquisas salvas no espaço de trabalho Log Analytics.
 * Crie e exclua a configuração de armazenamento Log Analytics espaço de trabalho.
 
-\*o usuário também deve receber a permissão ListKeys no recurso de destino (conta de armazenamento ou namespace do hub de eventos) para definir um perfil de log ou uma configuração de diagnóstico.
+\*usuário também deve receber a permissão ListKeys no recurso de destino (conta de armazenamento ou namespace do hub de eventos) para definir um perfil de log ou uma configuração de diagnóstico.
 
 > [!NOTE]
 > Essa função não concede acesso de leitura aos dados de log que foram transmitidos para um hub de eventos ou armazenados em uma conta de armazenamento. [Veja abaixo](#security-considerations-for-monitoring-data) para obter informações sobre como configurar o acesso a esses recursos.

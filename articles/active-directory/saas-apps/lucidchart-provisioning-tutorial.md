@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o LucidChart para provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: provisionamento de usuário para LucidChart-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o LucidChart.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9540cf882af6b11f0e8624e477ad336f6d5d9ad3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3791992586edbdc5188c3078b1f1bb108ce580d7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963670"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276861"
 ---
-# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configurar o LucidChart para provisionamento automático de usuário
+# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configurar o LucidChart para provisionamento automático do usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no LucidChart e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o LucidChart. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -67,7 +67,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
     ![Provisionamento do LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. Na seção **Credenciais de Administrador**, insira o **Token Secreto** gerado pela sua conta do LucidChart (o token pode ser encontrado em sua conta: **Team** > **App Integration** > **SCIM**).
+5. Na seção **Credenciais de Administrador**, insira o **Token Secreto** gerado pela conta do LucidChart (o token pode ser encontrado em sua conta: **Equipe** > **Integração de Aplicativos** > **SCIM**).
 
     ![Provisionamento do LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 
@@ -87,7 +87,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao LucidChart na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento.
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

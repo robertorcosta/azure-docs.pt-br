@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 9946994f21e19bd2ac0b53054cbb2181f1558bd3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 18bbfd1b54947bb88ba8f06c65a17b90430b38a3
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227341"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305219"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
@@ -31,7 +31,7 @@ Este artigo explica como trabalhar com associações do [Azure Cosmos DB](../cos
 > [!NOTE]
 > As associações do Azure Cosmos DB têm suporte apenas para usar com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados por meio da sua função usando o cliente estático da API, incluindo a [API do Azure Cosmos DB para MongoDB](../cosmos-db/mongodb-introduction.md), a [API do Cassandra](../cosmos-db/cassandra-introduction.md), a [API do Gremlin](../cosmos-db/graph-introduction.md) e a [API de Tabela](../cosmos-db/table-introduction.md).
 
-## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
 As associações do Azure Cosmos DB para Functions versão 1.x são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB), versão 1.x. O código-fonte para a associação está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB).
 
@@ -43,15 +43,7 @@ O Gatilho do Azure Cosmos DB usa o [Feed de Alterações do Azure Cosmos DB](../
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
-Consulte o exemplo específico a um idioma:
-
-* [C#](#trigger---c-example)
-* [Script do C# (. CSx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
-
-[Ignorar exemplos de gatilho](#trigger---attributes)
-
-### <a name="trigger---c-example"></a>Gatilho - exemplo C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que é chamada quando há inserções ou atualizações na coleção e no banco de dados especificados.
 
@@ -84,9 +76,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ignorar exemplos de gatilho](#trigger---attributes)
-
-### <a name="trigger---c-script-example"></a>Gatilho - exemplo de script C#
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função script C#](functions-reference-csharp.md) que usa a associação. A função grava mensagens de log quando registros do Cosmos DB são modificados.
 
@@ -122,9 +112,7 @@ Aqui está o código de script do C#:
     }
 ```
 
-[Ignorar exemplos de gatilho](#trigger---attributes)
-
-### <a name="trigger---javascript-example"></a>Gatilho - exemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava mensagens de log quando registros do Cosmos DB são modificados.
 
@@ -153,7 +141,11 @@ Aqui está o código JavaScript:
     }
 ```
 
-## <a name="trigger---attributes"></a>Gatilho – atributos
+---
+
+## <a name="trigger---attributes"></a>Gatilho - atributos
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes de C#](functions-dotnet-class-library.md), utilize o atributo [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs).
 
@@ -170,13 +162,23 @@ O construtor do atributo toma o nome do banco de dados e o nome da coleção. Pa
     }
 ```
 
-Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger---c-example).
+Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger).
+
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+O script não dá suporte C# a atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Não há suporte para atributos pelo JavaScript.
+
+---
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `CosmosDBTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `CosmosDBTrigger` atributo.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
 |**tipo** || Deve ser definido como `cosmosDBTrigger`. |
 |**direction** || Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
@@ -213,18 +215,7 @@ O gatilho não indica se um documento foi atualizado ou inserido, ele fornece ap
 
 A associação de dados de entrada do Azure Cosmos DB usa a API de SQL para recuperar um ou mais documentos do Azure Cosmos DB e passá-los para o parâmetro de entrada da função. A ID do documento ou os parâmetros de consulta podem ser determinados com base no gatilho que invoca a função.
 
-## <a name="input---examples"></a>Entrada – exemplos
-
-Veja os exemplos específicos a um idioma que lê um documento especificando um valor de ID:
-
-* [C#](#input---c-examples)
-* [Script do C# (. CSx)](#input---c-script-examples)
-* [JavaScript](#input---javascript-examples)
-* [F#](#input---f-examples)
-
-[Ignorar exemplos de entrada](#input---attributes)
-
-### <a name="input---c-examples"></a>Entrada – exemplos em C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Esta seção contém os seguintes exemplos:
 
@@ -248,9 +239,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="queue-trigger-look-up-id-from-json-c"></a>
 
-#### <a name="queue-trigger-look-up-id-from-json-c"></a>Gatilho da fila, pesquisar ID no JSON (C#)
+### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho de fila, Pesquisar ID de JSON
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é disparada por uma mensagem da fila que contém um objeto JSON. O gatilho da fila analisa o JSON em um objeto chamado `ToDoItemLookup`, que contém a ID a pesquisar. Essa ID é usada para recuperar um documento `ToDoItem` no banco de dados e na coleção especificados.
 
@@ -297,9 +288,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-c"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-c"></a>Gatilho HTTP, pesquisar ID na cadeia de caracteres de consulta (C#)
+### <a name="http-trigger-look-up-id-from-query-string"></a>Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa uma cadeia de caracteres de consulta para especificar a ID a pesquisar. Essa ID é usada para recuperar um documento `ToDoItem` no banco de dados e na coleção especificados.
 
@@ -339,9 +330,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-c"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-c"></a>Gatilho HTTP, pesquisar ID nos dados da rota (C#)
+### <a name="http-trigger-look-up-id-from-route-data"></a>Gatilho HTTP, Pesquisar ID de dados de rota
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa os dados da rota para especificar a ID a pesquisar. Essa ID é usada para recuperar um documento `ToDoItem` no banco de dados e na coleção especificados.
 
@@ -386,7 +377,9 @@ namespace CosmosDBSamplesV1
 
 [Ignorar exemplos de entrada](#input---attributes)
 
-#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>Gatilho HTTP, pesquisar ID nos dados da rota, usando SqlQuery (C#)
+<a id="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>
+
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>Gatilho HTTP, Pesquisar ID de dados de rota, usando SQLQuery
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa os dados da rota para especificar a ID a pesquisar. Essa ID é usada para recuperar um documento `ToDoItem` no banco de dados e na coleção especificados.
 
@@ -426,7 +419,9 @@ namespace CosmosDBSamplesV1
 
 [Ignorar exemplos de entrada](#input---attributes)
 
-#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c"></a>Gatilho HTTP, obter vários documentos, usando SqlQuery (C#)
+<a id="http-trigger-get-multiple-docs-using-sqlquery-c"></a>
+
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho HTTP, obter vários documentos, usando SQLQuery
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera uma lista de documentos. A função é disparada por uma solicitação HTTP. A consulta é especificada na propriedade do atributo `SqlQuery`.
 
@@ -467,7 +462,9 @@ namespace CosmosDBSamplesV1
 
 [Ignorar exemplos de entrada](#input---attributes)
 
-#### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>Gatilho HTTP, obter vários documentos, usando DocumentClient (C#)
+<a id="http-trigger-get-multiple-docs-using-documentclient-c"></a>
+
+### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>Gatilho HTTP, obter vários documentos, usando DocumentClient (C#)
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera uma lista de documentos. A função é disparada por uma solicitação HTTP. O código usa uma instância `DocumentClient` fornecida pela associação do Azure Cosmos DB para ler uma lista de documentos. A instância `DocumentClient` também pode ser usada para as operações de gravação.
 
@@ -526,9 +523,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
-
-### <a name="input---c-script-examples"></a>Entrada – exemplos de script C#
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 Esta seção contém os seguintes exemplos:
 
@@ -552,9 +547,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="queue-trigger-look-up-id-from-string-c-script"></a>
 
-#### <a name="queue-trigger-look-up-id-from-string-c-script"></a>Gatilho da fila, pesquisar ID na cadeia de caracteres (script C#)
+### <a name="queue-trigger-look-up-id-from-string"></a>Gatilho de fila, Pesquisar ID da cadeia de caracteres
 
 O exemplo a seguir mostra uma associação de entrada do Cosmos DB em um arquivo *function.json* e uma [função script C#](functions-reference-csharp.md) que usa a associação. A função lê um documento único e atualiza o valor de texto do documento.
 
@@ -572,6 +567,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "direction": "in"
 }
 ```
+
 A seção [configuração](#input---configuration) explica essas propriedades.
 
 Aqui está o código de script do C#:
@@ -586,9 +582,9 @@ Aqui está o código de script do C#:
     }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>Gatilho da fila, obter vários documentos, usando SqlQuery (script C#)
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários documentos, usando SQLQuery
 
 O exemplo a seguir mostra uma associação de dados de entrada do Cosmos DB em um arquivo *function.json* e uma [função script C#](functions-reference-csharp.md) que usa a associação de dados. A função recupera vários documentos especificados por uma consulta SQL usando um gatilho de fila para personalizar os parâmetros de consulta.
 
@@ -627,9 +623,9 @@ Aqui está o código de script do C#:
     }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-c-script"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>Gatilho HTTP, pesquisar ID na cadeia de caracteres de consulta (script C#)
+### <a name="http-trigger-look-up-id-from-query-string"></a>Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta
 
 O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa uma cadeia de caracteres de consulta para especificar a ID a pesquisar. Essa ID é usada para recuperar um documento `ToDoItem` no banco de dados e na coleção especificados.
 
@@ -688,9 +684,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-c-script"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>Gatilho HTTP, pesquisar ID nos dados da rota (script C#)
+### <a name="http-trigger-look-up-id-from-route-data"></a>Gatilho HTTP, Pesquisar ID de dados de rota
 
 O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa os dados da rota para especificar a ID a pesquisar. Essa ID é usada para recuperar um documento `ToDoItem` no banco de dados e na coleção especificados.
 
@@ -750,9 +746,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>Gatilho HTTP, obter vários documentos, usando SqlQuery (script C#)
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho HTTP, obter vários documentos, usando SQLQuery
 
 O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera uma lista de documentos. A função é disparada por uma solicitação HTTP. A consulta é especificada na propriedade do atributo `SqlQuery`.
 
@@ -807,9 +803,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>
 
-#### <a name="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>Gatilho HTTP, obter vários documentos, usando DocumentClient (script C#)
+### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>Gatilho HTTP, obtenha vários documentos, usando DocumentClient
 
 O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera uma lista de documentos. A função é disparada por uma solicitação HTTP. O código usa uma instância `DocumentClient` fornecida pela associação do Azure Cosmos DB para ler uma lista de documentos. A instância `DocumentClient` também pode ser usada para as operações de gravação.
 
@@ -885,9 +881,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
-
-### <a name="input---javascript-examples"></a>Entrada – exemplos de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Esta seção contém os seguintes exemplos:
 
@@ -896,9 +890,10 @@ Esta seção contém os seguintes exemplos:
 * [Gatilho HTTP, pesquisar ID nos dados da rota](#http-trigger-look-up-id-from-route-data-javascript)
 * [Gatilho da fila, obter vários documentos, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
 
-[Ignorar exemplos de entrada](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-json-javascript"></a>Gatilho da fila, pesquisar ID no JSON (JavaScript)
+<a id="queue-trigger-look-up-id-from-json-javascript"></a>
+
+### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho de fila, Pesquisar ID de JSON
 
 O exemplo a seguir mostra uma associação de entrada do Cosmos DB em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função lê um documento único e atualiza o valor de texto do documento.
 
@@ -926,6 +921,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "direction": "out"
 }
 ```
+
 A seção [configuração](#input---configuration) explica essas propriedades.
 
 Aqui está o código JavaScript:
@@ -939,9 +935,9 @@ Aqui está o código JavaScript:
     };
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>Gatilho HTTP, pesquisar ID na cadeia de caracteres de consulta (JavaScript)
+### <a name="http-trigger-look-up-id-from-query-string"></a>Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta
 
 O exemplo a seguir mostra uma [função de script JavaScript](functions-reference-node.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa uma cadeia de caracteres de consulta para especificar a ID a pesquisar. Essa ID é usada para recuperar um documento `ToDoItem` no banco de dados e na coleção especificados.
 
@@ -997,9 +993,9 @@ module.exports = function (context, req, toDoItem) {
 };
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-javascript"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>Gatilho HTTP, pesquisar ID nos dados da rota (JavaScript)
+### <a name="http-trigger-look-up-id-from-route-data"></a>Gatilho HTTP, Pesquisar ID de dados de rota
 
 O exemplo a seguir mostra uma [função de script JavaScript](functions-reference-node.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa uma cadeia de caracteres de consulta para especificar a ID a pesquisar. Essa ID é usada para recuperar um documento `ToDoItem` no banco de dados e na coleção especificados.
 
@@ -1056,11 +1052,9 @@ module.exports = function (context, req, toDoItem) {
 };
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>
 
-
-
-#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>Gatilho da fila, obter vários documentos, usando SqlQuery (script javaScript)
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários documentos, usando SQLQuery
 
 O exemplo a seguir mostra uma associação de dados de entrada do Cosmos DB em um arquivo *function.json* e uma [função script C#](functions-reference-node.md) que usa a associação de dados. A função recupera vários documentos especificados por uma consulta SQL usando um gatilho de fila para personalizar os parâmetros de consulta.
 
@@ -1095,67 +1089,31 @@ Aqui está o código JavaScript:
     };
 ```
 
-[Ignorar exemplos de entrada](#input---attributes)
-
-<a name="infsharp"></a>
-
-### <a name="input---f-examples"></a>Entrada – exemplos de F#
-
-O exemplo a seguir mostra uma associação de entrada do Cosmos DB em um arquivo *function.json* e uma [função F#](functions-reference-fsharp.md) que usa a associação. A função lê um documento único e atualiza o valor de texto do documento.
-
-Aqui estão os dados de associação no arquivo *function.json*:
-
-```json
-{
-    "name": "inputDocument",
-    "type": "documentDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "id" : "{queueTrigger}",
-    "connection": "MyAccount_COSMOSDB",
-    "direction": "in"
-}
-```
-
-A seção [configuração](#input---configuration) explica essas propriedades.
-
-O código F# é o seguinte:
-
-```fsharp
-    (* Change input document contents using Azure Cosmos DB input binding *)
-    open FSharp.Interop.Dynamic
-    let Run(myQueueItem: string, inputDocument: obj) =
-    inputDocument?text <- "This has changed."
-```
-
-Esse exemplo requer um arquivo `project.json` que especifique as dependências `FSharp.Interop.Dynamic` e `Dynamitey` do NuGet:
-
-```json
-{
-    "frameworks": {
-        "net46": {
-            "dependencies": {
-                "Dynamitey": "1.0.2",
-                "FSharp.Interop.Dynamic": "3.0.0"
-            }
-        }
-    }
-}
-```
-
-Para adicionar um arquivo do `project.json`, veja [Gerenciamento de pacotes do F#](functions-reference-fsharp.md#package).
+---
 
 ## <a name="input---attributes"></a>Entrada – atributos
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes de C#](functions-dotnet-class-library.md), utilize o atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs).
 
 O construtor do atributo toma o nome do banco de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [a seção de configuração a seguir](#input---configuration).
 
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+O script não dá suporte C# a atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Não há suporte para atributos pelo JavaScript.
+
+---
+
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `DocumentDB` atributo.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
 |**tipo**     || Deve ser definido como `documentdb`.        |
 |**direction**     || Deve ser definido como `in`.         |
@@ -1171,33 +1129,30 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="input---usage"></a>Entrada - uso
 
-Em funções C# e F#, todas as alterações feitas no documento de entrada por parâmetros de entrada nomeados são persistidas automaticamente.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Funções de JavaScript, as atualizações não são feitas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para fazer atualizações. Consulte o [exemplo JavaScript](#input---javascript-examples).
+Quando a função é encerrada com êxito, todas as alterações feitas no documento de entrada por meio de parâmetros de entrada nomeados são persistidas automaticamente.
+
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+Quando a função é encerrada com êxito, todas as alterações feitas no documento de entrada por meio de parâmetros de entrada nomeados são persistidas automaticamente.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+As atualizações não são feitas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para fazer atualizações. Consulte o [exemplo de entrada](#input).
+
+---
 
 ## <a name="output"></a>Saída
 
 Com a associação de saída do Azure Cosmos DB, você pode gravar um novo documento para um banco de dados do Azure Cosmos DB usando a API de SQL.
 
-## <a name="output---examples"></a>Saída – exemplos
-
-Consulte os exemplos específicos a um idioma:
-
-* [C#](#output---c-examples)
-* [Script do C# (. CSx)](#output---c-script-examples)
-* [JavaScript](#output---javascript-examples)
-* [F#](#output---f-examples)
-
-Veja também o [exemplo de entrada](#input---c-examples) que usa `DocumentClient`.
-
-[Ignorar exemplos de saída](#output---attributes)
-
-### <a name="output---c-examples"></a>Saída - exemplos C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Esta seção contém os seguintes exemplos:
 
 * Gatilho da fila, gravar um documento
-* Gatilho da fila, gravar documentos usando IAsyncCollector
+* Gatilho de fila, gravar documentos usando `IAsyncCollector`
 
 Os exemplos se referem a um tipo `ToDoItem` simples:
 
@@ -1212,9 +1167,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ignorar exemplos de saída](#output---attributes)
-
-#### <a name="queue-trigger-write-one-doc-c"></a>Gatilho da fila, gravar um documento (C#)
+### <a name="queue-trigger-write-one-doc"></a>Gatilho da fila, gravar um documento
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que adiciona um documento a um banco de dados, usando os dados fornecidos na mensagem do armazenamento de fila.
 
@@ -1245,9 +1198,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ignorar exemplos de saída](#output---attributes)
-
-#### <a name="queue-trigger-write-docs-using-iasynccollector-c"></a>Gatilho da fila, gravar documentos usando IAsyncCollector (C#)
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Gatilho da fila, gravar documentos usando IAsyncCollector
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que adiciona uma coleção de documentos a um banco de dados, usando os dados fornecidos em um JSON de mensagem da fila.
 
@@ -1282,18 +1233,14 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ignorar exemplos de saída](#output---attributes)
-
-### <a name="output---c-script-examples"></a>Saída – exemplos de script C#
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 Esta seção contém os seguintes exemplos:
 
 * Gatilho da fila, gravar um documento
-* Gatilho da fila, gravar documentos usando IAsyncCollector
+* Gatilho de fila, gravar documentos usando `IAsyncCollector`
 
-[Ignorar exemplos de saída](#output---attributes)
-
-#### <a name="queue-trigger-write-one-doc-c-script"></a>Gatilho da fila, gravar um documento (script C#)
+### <a name="queue-trigger-write-one-doc"></a>Gatilho da fila, gravar um documento
 
 O exemplo a seguir mostra uma associação de saída do Azure Cosmos DB em um arquivo *function.json* e uma [função de script C#](functions-reference-csharp.md) que usa a associação. A função usa uma associação de entrada de fila para uma fila que recebe o JSON no seguinte formato:
 
@@ -1355,7 +1302,7 @@ Aqui está o código de script do C#:
     }
 ```
 
-#### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Gatilho da fila, gravar documentos usando IAsyncCollector
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Gatilho da fila, gravar documentos usando IAsyncCollector
 
 Para criar vários documentos, você também pode associar a `ICollector<T>` ou `IAsyncCollector<T>`, sendo `T` um dos tipos com suporte.
 
@@ -1414,9 +1361,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-[Ignorar exemplos de saída](#output---attributes)
-
-### <a name="output---javascript-examples"></a>Saída – exemplos de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de saída do Azure Cosmos DB em um arquivo *function.json* e uma [função de script C#](functions-reference-node.md) que usa a associação. A função usa uma associação de entrada de fila para uma fila que recebe o JSON no seguinte formato:
 
@@ -1471,87 +1416,11 @@ Aqui está o código JavaScript:
     };
 ```
 
-[Ignorar exemplos de saída](#output---attributes)
-
-### <a name="output---f-examples"></a>Saída – exemplos de F#
-
-O exemplo a seguir mostra uma associação de saída do Azure Cosmos DB em um arquivo *function.json* e uma [função de script C#](functions-reference-fsharp.md) que usa a associação. A função usa uma associação de entrada de fila para uma fila que recebe o JSON no seguinte formato:
-
-```json
-{
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-A função cria documentos do Azure Cosmos DB no formato a seguir para cada registro:
-
-```json
-{
-    "id": "John Henry-123456",
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-Aqui estão os dados de associação no arquivo *function.json*:
-
-```json
-{
-    "name": "employeeDocument",
-    "type": "documentDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "createIfNotExists": true,
-    "connection": "MyAccount_COSMOSDB",
-    "direction": "out"
-}
-```
-A seção [configuração](#output---configuration) explica essas propriedades.
-
-O código F# é o seguinte:
-
-```fsharp
-    open FSharp.Interop.Dynamic
-    open Newtonsoft.Json
-
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
-
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-      let employee = JObject.Parse(myQueueItem)
-      employeeDocument <-
-        { id = sprintf "%s-%s" employee?name employee?employeeId
-          name = employee?name
-          employeeId = employee?employeeId
-          address = employee?address }
-```
-
-Esse exemplo requer um arquivo `project.json` que especifique as dependências `FSharp.Interop.Dynamic` e `Dynamitey` do NuGet:
-
-```json
-{
-    "frameworks": {
-        "net46": {
-          "dependencies": {
-            "Dynamitey": "1.0.2",
-            "FSharp.Interop.Dynamic": "3.0.0"
-           }
-        }
-    }
-}
-```
-
-Para adicionar um arquivo do `project.json`, veja [Gerenciamento de pacotes do F#](functions-reference-fsharp.md#package).
+---
 
 ## <a name="output---attributes"></a>Saída - atributos
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes de C#](functions-dotnet-class-library.md), utilize o atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs).
 
@@ -1567,13 +1436,23 @@ O construtor do atributo toma o nome do banco de dados e o nome da coleção. Pa
     }
 ```
 
-Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-examples).
+Para obter um exemplo completo, consulte [saída](#output).
+
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+O script não dá suporte C# a atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Não há suporte para atributos pelo JavaScript.
+
+---
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `DocumentDB` atributo.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
 |**tipo**     || Deve ser definido como `documentdb`.        |
 |**direction**     || Deve ser definido como `out`.         |
@@ -1600,7 +1479,7 @@ Por padrão, quando você grava no parâmetro de saída em sua função, um docu
 |---|---|
 | CosmosDB | [Códigos de erro CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre a computação de banco de dados sem servidor com o Cosmos DB](../cosmos-db/serverless-computing-database.md)
 * [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

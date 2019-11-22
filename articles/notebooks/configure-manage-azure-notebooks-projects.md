@@ -1,23 +1,14 @@
 ---
 title: Configurar e gerenciar projetos do Azure Notebooks
 description: Como gerenciar os metadados do projeto, arquivos de projeto, as etapas de instalação e de ambiente do projeto por meio da interface do usuário do Azure Notebooks e de acesso direto pelo terminal.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: kraigb
-ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 56c265122894412e79b3d5a7b256964c49ab81a6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973123"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277634"
 ---
 # <a name="manage-and-configure-projects"></a>Gerenciar e configurar projetos
 
@@ -45,7 +36,7 @@ No painel do projeto, selecione **Configurações do Projeto** e, em seguida, se
 | Configuração | DESCRIÇÃO |
 | --- | --- |
 | Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. Por exemplo, "Olá, Mundo no Python". |
-| ID do Projeto | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto. Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](create-clone-jupyter-notebooks.md#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
+| ID do projeto | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto. Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](create-clone-jupyter-notebooks.md#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
 | Projeto público | Se definido, permite que qualquer pessoa com o link acesse o projeto. Ao criar um projeto privado, desmarque essa opção. |
 | Ocultar clones | Se definido, outros usuários não poderão ver uma lista de clones que foram feitos para este projeto. Ocultar clones é útil para projetos que são compartilhados com muitas pessoas que não fazem parte da mesma organização, como ao usar um notebook para dar uma aula. |
 
@@ -70,7 +61,7 @@ O comando **+ Novo** (atalho de teclado: n) cria novos arquivos ou pastas. Ao us
 
 ### <a name="upload-files"></a>Carregar arquivos
 
-O comando **Upload** fornece duas opções para importar dados de outros locais: **Da URL** e **Do Computador**. Para obter mais informações, confira [Trabalhar com arquivos de dados em projetos do Azure Notebooks](work-with-project-data-files.md).
+O comando **upload** fornece duas opções para importar dados de outros locais: **da URL** e **do computador**. Para obter mais informações, confira [Trabalhar com arquivos de dados em projetos do Azure Notebooks](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Selecionar comandos específicos do arquivo
 
@@ -87,7 +78,7 @@ Cada item na lista de arquivos do projeto fornece comandos por meio de um menu d
 | Editar arquivo | i | Abre o arquivo para edição. |
 | Baixar | d | Baixa um arquivo zip que contém o arquivo ou o conteúdo de uma pasta. |
 | Renomear | a | Solicita um novo nome para o arquivo ou pasta. |
-| Excluir | x | Solicita confirmação e, em seguida, remove permanentemente o arquivo do projeto. Exclusões não podem ser desfeitas. |
+| Exclusão | x | Solicita confirmação e, em seguida, remove permanentemente o arquivo do projeto. Exclusões não podem ser desfeitas. |
 | Mover | m | Move um arquivo para uma pasta diferente no mesmo projeto. |
 
 #### <a name="preview"></a>Visualização
@@ -115,7 +106,7 @@ Todas as formas de configuração do projeto são aplicadas sempre que a máquin
 
 ### <a name="one-time-initialization-script"></a>Script de inicialização única
 
-O Azure Notebooks executado pela primeira vez cria um servidor para o projeto e procura por um arquivo no projeto chamado *aznbsetup.sh*. Se esse arquivo estiver presente, o Azure Notebooks o executará. A saída do script é armazenada na pasta do projeto como *.aznbsetup.log*.
+O Azure Notebooks da primeira vez que cria um servidor para o projeto, ele procura um arquivo no projeto chamado *aznbsetup.sh*. Se esse arquivo estiver presente, Azure Notebooks o executará. A saída do script é armazenada na pasta do projeto como *.aznbsetup.log*.
 
 ### <a name="environment-setup-steps"></a>Etapas de configuração do ambiente
 
@@ -131,11 +122,11 @@ Para adicionar uma etapa, primeiro selecione **+ Adicionar** e, em seguida, sele
 
 As informações que você projeta em seguida dependem do tipo de operação que você escolheu:
 
-- **Requirements.txt**: Na segunda lista suspensa, selecione um arquivo *Requirements.txt* que já está no projeto. Em seguida, selecione uma versão do Python na terceira lista suspensa que aparece. Usando um arquivo *Requirements.txt*, o Azure Notebooks executa o `pip install -r` com o arquivo *Requirements.txt* ao iniciar um servidor de notebook. Você não precisa instalar explicitamente os pacotes de dentro do notebook propriamente dito.
+- **Requirements. txt**: na segunda lista suspensa, selecione um arquivo *requirements. txt* que já está no projeto. Em seguida, selecione uma versão do Python na terceira lista suspensa que aparece. Usando um arquivo *Requirements.txt*, o Azure Notebooks executa o `pip install -r` com o arquivo *Requirements.txt* ao iniciar um servidor de notebook. Você não precisa instalar explicitamente os pacotes de dentro do notebook propriamente dito.
 
-- **Script de shell**: Na segunda lista suspensa, selecione um script de shell do Bash no projeto (geralmente um arquivo com a extensão *.sh*) que contém quaisquer comandos que você deseja executar para inicializar o ambiente.
+- **Script de shell**: na segunda lista suspensa, selecione um script de shell bash no projeto (normalmente um arquivo com a extensão *. sh* ) que contém os comandos que você deseja executar para inicializar o ambiente.
 
-- **Environment.yml**: Na segunda lista suspensa, selecione um arquivo *environments.yml* para projetos do Python usando um ambiente do Conda.
+- **Environment. yml**: na segunda lista suspensa, selecione um arquivo *Environments. yml* para projetos do Python usando um ambiente Conda.
 
 Quando você terminar de adicionar etapas, selecione **Salvar**.
 
@@ -190,5 +181,5 @@ Você também pode usar o comando de uma célula de código em um notebook do Py
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
+- [Como trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
 - [Acessar dados de nuvem em um notebook](access-data-resources-jupyter-notebooks.md)

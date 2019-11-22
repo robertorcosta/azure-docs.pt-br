@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5e96ced1bd87a0ed8be19bf4e07f7b0d9b319aad
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 25ab298a8b72b3734e41daf66ef5063b8e43a96e
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837322"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286631"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 
@@ -81,6 +81,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Malgaxe|  `mg`    |Estatística apenas|  Estatística|
 |Malaio| `ms`    |Estatística apenas   |Estatística|
 |Maltese|   `mt`    |Estatística apenas|  Estatística|
+|Maori| `mi`  |Neural apenas| Neural|
 |Norueguês| `nb`    |Neural disponível|  Neural|
 |Persa|   `fa`    |Neural disponível|  Neural|
 |Polonês|    `pl`    |Neural disponível|  Neural|
@@ -115,10 +116,10 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 |Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
-| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Latim `Latn` |
-| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
+| Chinês (Simplificado) | `zh-Hans` | Chinês (simplificado) `Hans`| <--> | Latim `Latn` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês (simplificado) `Hans`| <--> | Chinês tradicional `Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
-| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
+| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês (simplificado) `Hans` |
 | Guzerate | `gu`  | Guzerate `Gujr` | --> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
 | Híndi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
@@ -191,7 +192,7 @@ O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos
 | Vietnamita      | `vi`          |
 | Galês      | `cy`          |
 
-## <a name="detect"></a>Detect
+## <a name="detect"></a>Detectar
 
 API de Tradução de Texto detecta todos os idiomas disponíveis para tradução e transliteração.
 
@@ -237,6 +238,7 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
 |Malgaxe|  `mg`    |
+|Maori| `mi`  |
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
 | Polonês      | `pl`          |

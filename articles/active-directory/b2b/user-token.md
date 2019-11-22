@@ -1,5 +1,5 @@
 ---
-title: Noções básicas sobre tokens de usuário na colaboração B2B – Azure Active Directory | Microsoft Docs
+title: Entender os tokens de usuário na colaboração B2B – Azure AD
 description: Referência ao token de usuário para colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c2e872c108e19e21258610edd62899b1029fcd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767177"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271771"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Noções básicas sobre tokens de usuário na colaboração B2B do Azure AD
 
@@ -36,5 +36,5 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ilk0dWVLMm9hSU
 
 * [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 * [Propriedades de usuário de colaboração B2B](user-properties.md)
-* [Mapeamento de declarações de usuário de colaboração B2B](claims-mapping.md)
+* [Mapeamento de declarações do usuário de colaboração B2B](claims-mapping.md)
 

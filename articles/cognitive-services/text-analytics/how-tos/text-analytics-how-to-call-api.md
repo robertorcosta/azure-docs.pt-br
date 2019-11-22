@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 5697ae4c8864e0b9c4cbfc9e1e1048e1c3d60f77
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837205"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286599"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -25,10 +25,9 @@ Cada solicitação deve incluir sua chave de acesso e um ponto de extremidade HT
 
 Lembre-se de que a Análise de Texto é sem estado, portanto não há ativos de dados para gerenciar. O texto é carregado, analisado após o recebimento e os resultados são retornados imediatamente para o aplicativo de chamada.
 
-> [!Tip]
-> Nas chamadas individuais para ver como funciona a API, você pode enviar solicitações POST do **console interno de testes da API**, disponível em qualquer [página de documentação da API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Não há configurações, e os únicos requisitos são colar uma chave de acesso e os documentos JSON na solicitação. 
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -42,8 +41,8 @@ No momento, é possível enviar os mesmos documentos para todas as operações d
 
 | Elemento | Valores válidos | Obrigatório? | Uso |
 |---------|--------------|-----------|-------|
-|`id` |O tipo de dados é a cadeia de caracteres, mas na prática as IDs do documento tendem a ser números inteiros. | Obrigatório | O sistema usa as IDs que você fornece para estruturar o resultado. São gerados códigos de idioma, pontuações de sentimento e frases-chave para cada ID na solicitação.|
-|`text` | Texto bruto não estruturado, até 5.120 caracteres. | Obrigatório | O texto pode ser expresso em qualquer idioma para a detecção de idioma. Para análise de sentimento, extração de frases-chave e identificação de entidades, o texto deve estar em um [idioma compatível](../text-analytics-supported-languages.md). |
+|`id` |O tipo de dados é a cadeia de caracteres, mas na prática as IDs do documento tendem a ser números inteiros. | obrigatórios | O sistema usa as IDs que você fornece para estruturar o resultado. São gerados códigos de idioma, pontuações de sentimento e frases-chave para cada ID na solicitação.|
+|`text` | Texto bruto não estruturado, até 5.120 caracteres. | obrigatórios | O texto pode ser expresso em qualquer idioma para a detecção de idioma. Para análise de sentimento, extração de frases-chave e identificação de entidades, o texto deve estar em um [idioma compatível](../text-analytics-supported-languages.md). |
 |`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de dois caracteres para um [idioma compatível](../text-analytics-supported-languages.md) | Varia | Obrigatório para análise de sentimento, extração de frases-chave e vinculação de entidade; opcional para detecção de idioma. Nenhum erro ocorre se você excluí-lo, mas a análise é enfraquecida sem ele. O código de idioma deve corresponder ao `text` fornecido. |
 
 Para saber mais sobre limites, confira [Visão geral da Análise de Texto > Limites de dados](../overview.md#data-limits). 
@@ -91,7 +90,7 @@ O serviço aceita solicitações de até 1 MB de tamanho. Se você estiver usand
 
    No Postman, a resposta é exibida na próxima janela, como um único documento JSON, com um item para cada ID do documento fornecido na solicitação.
 
-## <a name="see-also"></a>Confira também 
+## <a name="see-also"></a>Consulte também 
 
  [Visão geral da Análise de Texto](../overview.md)  
  [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)

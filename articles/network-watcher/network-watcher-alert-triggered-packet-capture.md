@@ -1,5 +1,6 @@
 ---
-title: Usar a captura de pacote para fazer o monitoramento de rede proativo com alertas e o Azure Functions | Microsoft Docs
+title: Use a captura de pacote para fazer o monitoramento de rede proativo com alertas-Azure Functions
+titleSuffix: Azure Network Watcher
 description: Este artigo descreve como criar uma captura de pacotes disparada por alertas com o Observador de Rede do Azure
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: d894fabf3cfd4c6949aba94d558751bf007356d9
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 26599776abdf7ecbb6c86c332a40e0c2b7d6e67e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165150"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276127"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
 
@@ -36,7 +37,7 @@ Usando o Observador de Rede, Alertas e Funções de dentro do ecossistema do Azu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * A versão mais recente do [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Uma instância existente do Observador de Rede. Se você ainda não tiver um, [crie uma instância do Observador de Rede](network-watcher-create.md).
@@ -80,8 +81,8 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
     |**Nome do aplicativo**|PacketCaptureExample|O nome do aplicativo de funções.|
     |**Assinatura**|[Sua assinatura]A assinatura na qual a criar o aplicativo de funções.||
     |**Grupo de recursos**|PacketCaptureRG|O nome do grupo de recursos para conter o aplicativo de funções.|
-    |**Plano de hospedagem**|Plano de Consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
-    |**Localidade**|EUA Central| A região na qual um aplicativo de funções será criado.|
+    |**Plano de hospedagem**|Plano de consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
+    |**Localidade**|Centro dos EUA| A região na qual um aplicativo de funções será criado.|
     |**Conta de armazenamento**|{gerado automaticamente}| A conta de armazenamento que o Azure Functions usa para armazenamento de finalidade geral.|
 
 3. Na folha **Aplicativos do Functions PacketCaptureExample**, selecione **Functions** > **Função personalizada** > **+** .
@@ -141,7 +142,7 @@ Para usar os cmdlets do PowerShell no Observador de Rede, faça upload do últim
 
 6. Vá para os módulos do Azure. Na pasta **AZ. Network** local, selecione todos os arquivos na pasta. Depois, selecione **OK**. 
 
-7. Repita essas etapas para **AZ.** Accounts e **AZ.** Resources.
+7. Repita essas etapas para **AZ. Accounts** e **AZ. Resources**.
 
     ![Carregar arquivos][functions6]
 
@@ -253,7 +254,7 @@ $Encryptedpassword
 
 1. Adicione as variáveis de ambiente e seus valores às configurações do aplicativo e selecione **Salvar**.
 
-    ![Configurações de aplicativo][functions12]
+    ![Configurações do aplicativo][functions12]
 
 ### <a name="add-powershell-to-the-function"></a>Adicione o PowerShell para a função
 

@@ -1,5 +1,6 @@
 ---
-title: Diagnosticar a Conectividade Local por meio do Gateways de VPN com o Observador de Rede do Azure | Microsoft Docs
+title: Diagnosticar a conectividade local por meio do gateway de VPN
+titleSuffix: Azure Network Watcher
 description: Este artigo descreve como diagnosticar a conectividade local por meio do gateway de VPN com a solução de problemas de recursos do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754055"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275950"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio do Gateway de VPN
 
@@ -39,7 +40,7 @@ Você deseja configurar uma conexão site a site entre a rede local e o Azure us
 1. Conexão site a site (baseada em rota) – [Conexão entre o Gateway de VPN e o roteador local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [Configuração do FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-As orientações passo a passo e detalhadas para definir uma configuração site a site podem ser encontradas visitando: [Criar uma VNet com uma conexão site a site usando o portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Orientações passo a passo detalhadas para definir uma configuração de Site a Site podem ser encontradas ao consultar: [Criar uma VNet com uma conexão Site a Site usando o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 Uma das etapas críticas da configuração é a definição dos parâmetros de comunicação do IPsec. Configurações incorretas levarão à perda da conectividade entre a rede local e o Azure. Atualmente, os Gateways de VPN do Azure são configurados para suportar os seguintes parâmetros de IPsec na Fase 1. Conforme mencionado anteriormente, observe que essas configurações não podem ser modificadas.  Como você pode ver na tabela a seguir, os algoritmos de criptografia compatíveis com o Gateway de VPN do Azure são AES128, AES256 e 3DES.
 
@@ -52,7 +53,7 @@ Uma das etapas críticas da configuração é a definição dos parâmetros de c
 | Método de autenticação |Chave Pré-Compartilhada |Chave Pré-Compartilhada |
 | Algoritmos de criptografia |AES256 AES128 3DES |AES256 3DES |
 | Algoritmo de hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Tempo de vida (tempo) da SA (associação de segurança) da fase 1 |28\.800 segundos |10\.800 segundos |
+| Tempo de vida (tempo) da SA (associação de segurança) da fase 1 |28.800 segundos |10.800 segundos |
 
 Como usuário, seria necessário configurar o FortiGate. Uma configuração de exemplo pode ser encontrada no [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Sem saber, você configurou seu FortiGate para usar o SHA-512 como algoritmo de hash. Como esse algoritmo não é um algoritmo com suporte para conexões baseadas em política, a conexão VPN funcionará.
 
@@ -107,7 +108,7 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não|
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Sim |
 | ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
-| Authentication | Incompatibilidade de chave pré-compartilhada. | Sim|
+| Autenticação | Incompatibilidade de chave pré-compartilhada. | Sim|
 | PeerReachability | O gateway correspondente não está acessível. | Sim|
 | IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
 | WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|

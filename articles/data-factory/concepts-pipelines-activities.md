@@ -5,20 +5,19 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/12/2018
-ms.openlocfilehash: bed81633b27d5d0f89cb7e3d7a6e0975de4b6772
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/19/2019
+ms.openlocfilehash: 6e466675a9bd86693ce0ee048480712a55829ce6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681453"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280729"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-create-pipelines.md)
 > * [Versão atual](concepts-pipelines-activities.md)
@@ -26,17 +25,18 @@ ms.locfileid: "73681453"
 Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e a usá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seus cenários de movimentação e processamento de dados.
 
 ## <a name="overview"></a>Visão geral
-Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Por exemplo, um pipeline pode conter um conjunto de atividades que ingerem e limpam dados de log e, em seguida, iniciam um trabalho do Spark em um cluster HDInsight para analisar os dados de log. A vantagem disso é que o pipeline permite que você gerencie atividades como um conjunto, em vez de cada uma individualmente. Por exemplo, você pode implantar e agendar o pipeline, em vez de atividades de forma independente.
+Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Por exemplo, um pipeline pode conter um conjunto de atividades que ingerir e limpar dados de log e, em seguida, disparar um fluxo de dados de mapeamento para analisar os dados de log. O pipeline permite que você gerencie as atividades como um conjunto, em vez de cada uma individualmente. Você implanta e agenda o pipeline em vez das atividades de forma independente.
 
-As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um SQL Server local para um Armazenamento de Blobs do Azure. Em seguida, usar uma atividade Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar/transformar dados do armazenamento de blobs para gerar dados de saída. Por fim, usar uma segunda atividade de cópia para copiar os dados de saída em um SQL Data Warehouse do Azure sobre o qual as soluções de relatório de BI (business intelligence) são criadas.
+As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um SQL Server local para um Armazenamento de Blobs do Azure. Em seguida, use uma atividade de fluxo de dados ou uma atividade do databricks Notebook para processar e transformar dados do armazenamento de BLOBs em um pool do Azure Synapse Analytics sobre o qual business intelligence soluções de relatório são criadas.
 
-O Data Factory dá suporte a três tipos de atividades: [atividades de movimentação de dados](copy-activity-overview.md), [atividades de transformação de dados](transform-data.md) e [atividades de controle](control-flow-web-activity.md). Uma atividade pode não usar ou usar vários [conjuntos de dados](concepts-datasets-linked-services.md) de entrada e gerar um ou mais [conjuntos de dados](concepts-datasets-linked-services.md) de saída. O seguinte diagrama mostra a relação entre pipeline, atividade e conjunto de dados no Data Factory:
+Data Factory tem três agrupamentos de atividades: [atividades de movimentação de dados](copy-activity-overview.md), [atividades de transformação de dados](transform-data.md)e atividades de [controle](control-flow-web-activity.md). Uma atividade pode não usar ou usar vários [conjuntos de dados](concepts-datasets-linked-services.md) de entrada e gerar um ou mais [conjuntos de dados](concepts-datasets-linked-services.md) de saída. O seguinte diagrama mostra a relação entre pipeline, atividade e conjunto de dados no Data Factory:
 
 ![Relação entre pipeline, atividade e conjunto de dados](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
 Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade. Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Depois de criar um conjunto de dados, você pode usá-lo com atividades no pipeline. Por exemplo, um conjunto de dados pode ser o conjunto de dados de entrada/saída de uma atividade de Cópia ou uma atividade do HDInsightHive. Para saber mais sobre conjuntos de dados, confira o artigo [Conjuntos de dados no Azure Data Factory](concepts-datasets-linked-services.md).
 
 ## <a name="data-movement-activities"></a>Atividades de movimentação de dados
+
 A Atividade de Cópia no Data Factory copia os dados de um repositório de dados de origem para um repositório de dados de coletor. O Data Factory dá suporte aos armazenamentos de dados listados na tabela nesta seção. Os dados de qualquer origem podem ser gravados em qualquer coletor. Clique em um repositório de dados para saber como copiar dados dentro e fora do repositório.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
@@ -48,6 +48,8 @@ O Azure Data Factory dá suporte às seguintes atividades de transformação, qu
 
 Atividades de transformação de dados | Ambiente de computação
 ---------------------------- | -------------------
+[Fluxo de Dados](control-flow-execute-data-flow-activity.md) | Azure Databricks gerenciado por Azure Data Factory
+[Azure Function](control-flow-azure-function-activity.md) | Funções do Azure
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
@@ -56,26 +58,31 @@ Atividades de transformação de dados | Ambiente de computação
 [Atividades de Machine Learning: execução do Lote e recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
 [Procedimento armazenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análise Azure Data Lake
-[Código Personalizado](transform-data-using-dotnet-custom-activity.md) | Lote do Azure
+[Atividade personalizada](transform-data-using-dotnet-custom-activity.md) | Lote do Azure
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 [Atividade de jar do databricks](transform-data-databricks-jar.md) | Azure Databricks
 [Atividade de Python do databricks](transform-data-databricks-python.md) | Azure Databricks
 
 Para obter mais informações, confira o artigo [Atividades de transformação de dados](transform-data.md).
 
-## <a name="control-activities"></a>Atividades de controle
+## <a name="control-flow-activities"></a>Atividades de fluxo de controle
 Há suporte para as seguintes atividades de fluxo de controle:
 
 Atividade de controle | DESCRIÇÃO
 ---------------- | -----------
-[Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md) | A atividade de execução de pipeline permite que um pipeline do Data Factory invoque outro pipeline.
-[ForEachActivity](control-flow-for-each-activity.md) | A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
-[WebActivity](control-flow-web-activity.md) | A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade.
-[Atividade de pesquisa](control-flow-lookup-activity.md) | A atividade de pesquisa pode ser usada para ler ou procurar um registro/nome de tabela/valor de qualquer fonte externa. Essa saída pode referenciada pelas atividades com êxito.
-[Atividade de obtenção de metadados](control-flow-get-metadata-activity.md) | A atividade GetMetadata pode ser usada para recuperar metadados de todos os dados no Azure Data Factory.
-[Atividade Until](control-flow-until-activity.md) | Implementa o loop Do-Until, que é semelhante à estrutura de looping Do-Until em linguagens de programação. Ela executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira. Especifique um valor de tempo limite para a atividade Until no Data Factory.
+[Acrescentar variável](control-flow-append-variable-activity.md) | Adicione um valor a uma variável de matriz existente.
+[Executar pipeline](control-flow-execute-pipeline-activity.md) | A atividade de execução de pipeline permite que um pipeline do Data Factory invoque outro pipeline.
+[Filter](control-flow-filter-activity.md) | Aplicar uma expressão de filtro a uma matriz de entrada
+[Para cada](control-flow-for-each-activity.md) | A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
+[Obter metadados](control-flow-get-metadata-activity.md) | A atividade GetMetadata pode ser usada para recuperar metadados de todos os dados no Azure Data Factory.
 [Atividade de Condição If](control-flow-if-condition-activity.md) | A Condição If pode ser usada para ramificar com base em condições que são avaliadas como true ou false. A atividade If Condition fornece a mesma funcionalidade que uma instrução if fornece em linguagens de programação. Ela avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando a condição é avaliada como `false`.
+[Atividade de pesquisa](control-flow-lookup-activity.md) | A atividade de pesquisa pode ser usada para ler ou procurar um registro/nome de tabela/valor de qualquer fonte externa. Essa saída pode referenciada pelas atividades com êxito.
+[Definir variável](control-flow-set-variable-activity.md) | Defina o valor de uma variável existente.
+[Atividade Until](control-flow-until-activity.md) | Implementa o loop Do-Until, que é semelhante à estrutura de looping Do-Until em linguagens de programação. Ela executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira. Especifique um valor de tempo limite para a atividade Until no Data Factory.
+[Atividade de validação](control-flow-validation-activity.md) | Certifique-se de que um pipeline continue a execução somente se um conjunto de uma referência existir, atender a um critério especificado ou se um tempo limite for atingido.
 [Atividade de espera](control-flow-wait-activity.md) | Quando você usa uma atividade de espera em um pipeline, o pipeline aguarda o período de tempo especificado antes de continuar com a execução de atividades subsequentes.
+[Atividade da Web](control-flow-web-activity.md) | A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade.
+[Atividade de webhook](control-flow-webhook-activity.md) | Usando a atividade webhook, chame um ponto de extremidade e passe uma URL de retorno de chamada. A execução do pipeline aguarda a chamada do retorno de chamada antes de prosseguir para a próxima atividade.
 
 ## <a name="pipeline-json"></a>Pipeline de JSON
 Veja como um pipeline é definido no formato JSON:
@@ -90,17 +97,22 @@ Veja como um pipeline é definido no formato JSON:
         [
         ],
         "parameters": {
-         }
+        },
+        "concurrency": <your max pipeline concurrency>,
+        "annotations": [
+        ]
     }
 }
 ```
 
-Marca | DESCRIÇÃO | Tipo | Obrigatório
+Marca | DESCRIÇÃO | Digite | obrigatórios
 --- | ----------- | ---- | --------
-Nome | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Cadeia de caracteres | Sim
-Descrição | Especifique o texto descrevendo para que o pipeline é usado. | Cadeia de caracteres | Não
+name | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Sim
+Description | Especifique o texto descrevendo para que o pipeline é usado. | String | Não
 atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Matriz | Sim
-parâmetros | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Listar | Não
+parameters | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Listar | Não
+simultaneidade | O número máximo de execuções simultâneas que o pipeline pode ter. Por padrão, não há nenhum máximo. Se o limite de simultaneidade for atingido, as execuções de pipeline adicionais serão enfileiradas até que as anteriores sejam concluídas | NUMBER | Não 
+annotations | Uma lista de marcas associadas ao pipeline | Matriz | Não
 
 ## <a name="activity-json"></a>Atividade JSON
 A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Há dois tipos principais de atividades: atividades de execução e de controle.
@@ -128,11 +140,11 @@ As atividades de execução incluem [atividades de movimentação de dados](#dat
 
 A seguinte tabela descreve as propriedades na definição de JSON da atividade:
 
-Marca | DESCRIÇÃO | Obrigatório
+Marca | DESCRIÇÃO | obrigatórios
 --- | ----------- | ---------
-Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
-Descrição | Texto que descreve para que a atividade é usada | Sim
-Tipo | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities), [Atividades de transformação de dados](#data-transformation-activities) e [Atividades de controle](#control-activities) para diferentes tipos de atividade. | Sim
+name | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
+Description | Texto que descreve para que a atividade é usada | Sim
+type | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities), [Atividades de transformação de dados](#data-transformation-activities) e [Atividades de controle](#control-flow-activities) para diferentes tipos de atividade. | Sim
 linkedServiceName | Nome do serviço vinculado usado pela atividade.<br/><br/>Uma atividade pode exigir que você especifique o serviço vinculado que é vinculado ao ambiente de computação necessário. | Sim para Atividade de HDInsight, Atividade de Pontuação de Lote do Azure Machine Learning e Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outros
 typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não
 policy | Políticas que afetam o comportamento de tempo de execução da atividade. Essa propriedade inclui o comportamento de tempo limite e de repetição. Se não forem especificados, os valores padrão serão usados. Para obter mais informações, consulte a seção [Política de atividade](#activity-policy). | Não
@@ -169,12 +181,12 @@ Políticas afetam o comportamento de tempo de execução de uma atividade, ofere
 }
 ```
 
-Nome JSON | DESCRIÇÃO | Valores Permitidos | Obrigatório
+Nome JSON | DESCRIÇÃO | Valores Permitidos | obrigatórios
 --------- | ----------- | -------------- | --------
 Tempo limite | Especifica o tempo limite para a atividade ser executada. | Timespan | Não. O tempo limite padrão é 7 dias.
-tentar novamente | Número máximo de novas tentativas | Número inteiro | Não. O padrão é 0
-retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Número inteiro | Não. O padrão é de 30 segundos
-secureOutput | Quando definido como true, a saída da atividade é considerada segura e não será registrada em log para monitoramento. | Booliano | Não. O padrão é falso.
+tentar novamente | Número máximo de novas tentativas | Inteiro | Não. O padrão é 0
+retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Inteiro | Não. O padrão é de 30 segundos
+secureOutput | Quando definido como true, a saída da atividade é considerada segura e não será registrada em log para monitoramento. | Boolean | Não. O padrão é falso.
 
 ### <a name="control-activity"></a>Atividade de controle
 As atividades de controle têm a seguinte estrutura de nível superior:
@@ -193,11 +205,11 @@ As atividades de controle têm a seguinte estrutura de nível superior:
 }
 ```
 
-Marca | DESCRIÇÃO | Obrigatório
+Marca | DESCRIÇÃO | obrigatórios
 --- | ----------- | --------
-Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade.<br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
-Descrição | Texto que descreve para que a atividade é usada | Sim
-Tipo | Tipo da atividade. Confira as seções [atividades de movimentação de dados](#data-movement-activities), [atividades de transformação de dados](#data-transformation-activities) e [atividades de controle](#control-activities) para diferentes tipos de atividade. | Sim
+name | Nome da atividade. Especifique um nome que represente a ação executada pela atividade.<br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
+Description | Texto que descreve para que a atividade é usada | Sim
+type | Tipo da atividade. Confira as seções [atividades de movimentação de dados](#data-movement-activities), [atividades de transformação de dados](#data-transformation-activities) e [atividades de controle](#control-flow-activities) para diferentes tipos de atividade. | Sim
 typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não
 dependsOn | Essa propriedade é usada para definir a dependência de atividade e o modo como as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, consulte [dependência de atividade](#activity-dependency). | Não
 
@@ -346,7 +358,7 @@ Observe os seguintes pontos:
 
 - Na seção de atividades, há apenas uma atividade cujo **tipo** é definido como **HDInsightHive**.
 - O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService chamado AzureStorageLinkedService) e na pasta script no contêiner `adfgetstarted`.
-- A seção `defines` é usada para especificar as configurações de tempo de execução passadas para o script do hive como valores de configuração de Hive (por exemplo, $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
+- A seção `defines` é usada para especificar as configurações de runtime passadas para o script do hive como valores de configuração de Hive (por exemplo, $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 A seção **typeProperties** é diferente para cada atividade de transformação. Para saber mais sobre as propriedades de tipo com suporte para uma atividade de transformação, clique na atividade de transformação nas [Atividades de transformação de dados](#data-transformation-activities).
 
@@ -362,7 +374,7 @@ Pipelines são agendados por gatilhos. Há diferentes tipos de gatilhos (gatilho
 
 Para que o gatilho dispare uma execução de pipeline, você deve incluir uma referência de pipeline do pipeline específico na definição do gatilho. Os pipelines e os gatilhos têm uma relação n-m. Vários gatilhos podem disparar um único pipeline e o mesmo gatilho pode disparar vários pipelines. Uma vez definido o gatilho, você deve iniciar o gatilho para que ele comece a disparar o pipeline. Para obter mais informações sobre gatilhos, consulte o artigo [gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md).
 
-Por exemplo, digamos que você tenha um gatilho de agendador, "Gatilho A", que você gostaria que disparasse a execução do seu pipeline, "MyCopyPipeline". Você define o gatilho conforme mostrado no exemplo a seguir:
+Por exemplo, digamos que você tenha um gatilho de Agendador, "disparar um" que eu deseje iniciar meu pipeline, "MyCopyPipeline". Você define o gatilho conforme mostrado no exemplo a seguir:
 
 ### <a name="trigger-a-definition"></a>Definição do gatilho A
 

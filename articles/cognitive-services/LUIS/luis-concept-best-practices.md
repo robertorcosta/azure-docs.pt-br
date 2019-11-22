@@ -1,7 +1,7 @@
 ---
-title: Práticas recomendadas-LUIS
+title: Práticas recomendadas para criar seu aplicativo LUIS
 titleSuffix: Azure Cognitive Services
-description: Conheça as melhores práticas do LUIS para obter os melhores resultados do seu modelo de aplicativo do LUIS.
+description: Conheça as práticas recomendadas para obter os melhores resultados do modelo do aplicativo LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 64d67edaf5affbc908fba7b6c261096589bc84d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4be79338db71ad83204fae971da0b77885a8070
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487611"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280919"
 ---
-# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criação de um aplicativo de reconhecimento vocal com os Serviços Cognitivos
+# <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Práticas recomendadas para a criação de um aplicativo de reconhecimento de linguagem (LUIS)
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS: 
 
 * Criar modelos de linguagem (intenções e entidades)

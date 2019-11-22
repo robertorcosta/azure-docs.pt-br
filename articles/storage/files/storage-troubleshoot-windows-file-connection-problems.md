@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f36d3bcb16876f080f780658bc59afd794e3431e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 261816e42c8de670cd7888af726a70e1a6e5b228
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699191"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269369"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -39,13 +39,13 @@ O Windows 8, o Windows Server 2012 e versões posteriores de cada solicitação 
 1. Conecte a partir de um cliente com suporte à criptografia SMB (Windows 8, Windows Server 2012 ou posterior) ou conecte a partir de uma máquina virtual que está no mesmo datacenter da conta de armazenamento do Azure usada para o compartilhamento de arquivos do Azure.
 2. Verifique se a configuração [Transferência segura obrigatória](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está desabilitada na conta de armazenamento se o cliente não oferecer suporte à criptografia SMB.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: As regras de firewall ou de rede virtual estão habilitadas na conta de armazenamento 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: as regras de firewall ou de rede virtual estão habilitadas na conta de armazenamento 
 
 Se as regras de firewall e de VNET (rede virtual) estiverem configuradas na conta de armazenamento, o tráfego de rede terá acesso negado a menos que o endereço IP do cliente ou da rede virtual tenha permissão de acesso.
 
 ### <a name="solution-for-cause-2"></a>Solução para a causa 2
 
-Verifique se regras de firewall e de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtuais estão causando o problema, altere temporariamente a configuração da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verifique se regras de firewall e de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtuais estão causando o problema, altere temporariamente a configuração da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, confira [Configurar redes virtuais e firewalls do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Erro 53, Erro 67 ou Erro 87 ao montar ou desmontar um compartilhamento de arquivos do Azure
@@ -56,13 +56,13 @@ Quando você tenta montar um compartilhamento de arquivos do local ou de um data
 - Ocorreu um erro de sistema 67. O nome de rede não foi encontrado.
 - Ocorreu um erro de sistema 87. O parâmetro está incorreto.
 
-### <a name="cause-1-port-445-is-blocked"></a>Causa 1: A porta 445 está bloqueada
+### <a name="cause-1-port-445-is-blocked"></a>Causa 1: a porta 445 está bloqueada
 
 Pode ocorrer um erro de sistema 53 ou erro de sistema 67 se a comunicação de saída na porta 445 para o datacenter de Arquivos do Azure estiver bloqueada. Para ver o resumo de ISPs que permitem ou proíbem o acesso a partir da porta 445, vá para [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Para verificar se o firewall ou ISP está bloqueando a porta 445, use a ferramenta [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ou o cmdlet `Test-NetConnection`. 
 
-Para usar o `Test-NetConnection` cmdlet, o módulo Azure PowerShell deve ser instalado, consulte [instalar Azure PowerShell módulo](/powershell/azure/install-Az-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes referentes a sua conta de armazenamento.
+Para usar o cmdlet `Test-NetConnection`, o módulo Azure PowerShell deve ser instalado, consulte [instalar Azure PowerShell Module](/powershell/azure/install-Az-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes referentes a sua conta de armazenamento.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -97,8 +97,8 @@ Se a conexão foi bem-sucedida, você verá a seguinte saída:
 Sincronização de Arquivos do Azure pode transformar seu Windows Server local em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Sincronização de Arquivos do Azure funciona na porta 443 e, portanto, pode ser usado como uma solução alternativa para acessar os arquivos do Azure de clientes que têm a porta 445 bloqueada. [Saiba como configurar o sincronização de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Solução 2 – usar VPN
-Ao configurar uma VPN para sua conta de armazenamento específica, o tráfego passará por um túnel seguro em oposição à Internet. Siga as [instruções para configurar a](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) VPN para acessar os arquivos do Azure do Windows.
+Ao configurar uma VPN para sua conta de armazenamento específica, o tráfego passará por um túnel seguro em oposição à Internet. Siga as [instruções para configurar a VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) para acessar os arquivos do Azure do Windows.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solução 3-desbloquear a porta 445 com a ajuda do seu ISP/administrador de ti
 Trabalhe com seu departamento de ti ou ISP para abrir a porta 445 de saída para [intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -148,13 +148,13 @@ A navegar até um compartilhamento de arquivos do Azure no portal, você pode re
 Falha de autorização  
 Você não tem acesso 
 
-### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 1: Sua conta de usuário não tem acesso à conta de armazenamento
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 1: sua conta de usuário não tem acesso à conta de armazenamento
 
 ### <a name="solution-for-cause-1"></a>Solução para a causa 1
 
 Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azure está localizado, clique em **Controle de acesso (IAM)** e verifique se sua conta de usuário tem acesso à conta de armazenamento. Para saber mais, confira [Como proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: As regras de firewall ou de rede virtual estão habilitadas na conta de armazenamento
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: as regras de firewall ou de rede virtual estão habilitadas na conta de armazenamento
 
 ### <a name="solution-for-cause-2"></a>Solução para a causa 2
 
@@ -186,7 +186,7 @@ Você pode ver o desempenho lento ao tentar transferir arquivos para o Serviço 
 -   Se você sabe o tamanho final de um arquivo que você está estendendo com gravações e o seu software não tem problemas de compatibilidade com o final ainda não escrito desse arquivo que contém zeros, defina o tamanho do arquivo antecipadamente em vez de realizar cada gravação como uma gravação de extensão.
 -   Use o método de cópia correto:
     -   Use o [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas as transferências entre dois compartilhamentos de arquivo.
-    -   Use o [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre um compartilhamento de arquivos e um computador local.
+    -   Use o [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre compartilhamentos de arquivos e um computador local.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Considerações para Windows 8.1 ou Windows Server 2012 R2
 
@@ -256,12 +256,12 @@ Utilize uma das seguintes soluções:
 
   `net use * \\storage-account-name.file.core.windows.net\share`
 
-Depois de seguir essas instruções, você pode receber a seguinte mensagem de erro ao executar o net use para a conta de serviço de rede/sistema: "Ocorreu um erro de sistema 1312. Uma sessão de logon especificada não existe. Talvez ela já tenha sido finalizada.” Se isso ocorrer, verifique se o nome de usuário que é passado para net use inclui informações de domínio (por exemplo: "[nome da conta de armazenamento].file.core.windows.net").
+Depois de seguir estas instruções, você pode receber a seguinte mensagem de erro quando você executa o net use para a conta de serviço de rede/sistema: "Ocorreu um erro de sistema 1312. Uma sessão de logon especificada não existe. Talvez ela já tenha sido finalizada.” Se isso ocorrer, verifique se o nome de usuário que é passado para net use inclui informações de domínio (por exemplo: "[nome da conta de armazenamento].file.core.windows.net").
 
 <a id="doesnotsupportencryption"></a>
 ## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>Erro "Você está copiando um arquivo para um destino que não dá suporte à criptografia"
 
-Quando um arquivo é copiado pela rede, o arquivo é descriptografado no computador de origem, transmitido em texto não criptografado e criptografado novamente no destino. No entanto, você poderá ver o seguinte erro quando estiver tentando copiar um arquivo criptografado: "Você está copiando o arquivo para um destino que não dá suporte à criptografia."
+Quando um arquivo é copiado pela rede, o arquivo é descriptografado no computador de origem, transmitido em texto não criptografado e criptografado novamente no destino. No entanto, você pode ver o seguinte erro quando estiver tentando copiar um arquivo criptografado: "Você está copiando o arquivo para um destino que não dá suporte à criptografia".
 
 ### <a name="cause"></a>Causa
 Esse problema pode ocorrer se você estiver usando o sistema de arquivos com criptografia (EFS). Os arquivos criptografados pelo BitLocker podem ser copiados para os Arquivos do Azure. No entanto, os Arquivos do Azure não dão suporte a EFS NTFS.
@@ -289,7 +289,7 @@ Esse problema poderá ocorrer se não houver cache suficiente no computador clie
 Para resolver esse problema, ajuste o valor do registro **DirectoryCacheEntrySizeMax** para permitir o cache de listagens de diretório maiores no computador cliente:
 
 - Local: HKLM\System\CCS\Services\Lanmanworkstation\Parameters
-- Nome do valor: DirectoryCacheEntrySizeMax 
+- Emaranhado do valor: DirectoryCacheEntrySizeMax 
 - Tipo de valor: DWORD
  
  

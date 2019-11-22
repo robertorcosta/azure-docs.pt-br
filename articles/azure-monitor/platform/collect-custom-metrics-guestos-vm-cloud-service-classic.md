@@ -1,6 +1,6 @@
 ---
-title: Enviar as métricas do SO convidado aos Serviços de Nuvem clássicos de armazenamento de métricas do Azure Monitor
-description: Enviar as métricas do SO convidado aos Serviços de Nuvem de armazenamento de métricas do Azure Monitor
+title: Enviar métricas clássicas dos serviços de nuvem para Azure Monitor banco de dados de métricas
+description: Descreve o processo para enviar métricas de desempenho do SO convidado para serviços de nuvem clássicos do Azure para o repositório de métrica Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 56138277866d3b2bf02733a2c595a5a232faed8c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844941"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304772"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar as métricas do SO convidado aos Serviços de Nuvem clássicos de armazenamento de métricas do Azure Monitor 
 
@@ -27,9 +27,9 @@ Armazená-las nesse local permite que você acesse as mesmas ações possíveis 
 
 O processo descrito neste artigo só funciona para contadores de desempenho nos Serviços de Nuvem do Azure. Ele não funciona para outras métricas personalizadas. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Você deve ser um [administrador ou co-administrador de serviços](~/articles/billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
+- Você deve ser um [administrador ou coadministrador de serviços](~/articles/billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
 
 - Sua assinatura precisará ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
@@ -192,5 +192,5 @@ Use a filtragem de dimensão e os recursos de divisão para exibir a memória to
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
+- Saiba mais sobre as [métricas personalizadas](metrics-custom-overview.md).
 

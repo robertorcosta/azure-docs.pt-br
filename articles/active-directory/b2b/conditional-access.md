@@ -1,5 +1,5 @@
 ---
-title: Acesso condicional para usuários de colaboração B2B-Azure Active Directory | Microsoft Docs
+title: Acesso condicional para usuários de colaboração B2B – Azure AD
 description: A colaboração B2B do Azure Active Directory dá suporte à autenticação multifator (MF) para acesso seletivo aos seus aplicativos corporativos
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357125"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273007"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para usuários de colaboração B2B
 
@@ -46,7 +46,7 @@ Confira a animação abaixo para ver a experiência de resgate:
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>Redefinição de MFA para usuários de colaboração B2B
 Atualmente, o administrador pode exigir que os usuários de colaboração B2B façam uma verificação novamente usando somente os seguintes cmdlets do PowerShell:
 
-1. Conectar ao Azure AD
+1. Conectar-se ao AD do Azure
 
    ```
    $cred = Get-Credential
@@ -57,7 +57,7 @@ Atualmente, o administrador pode exigir que os usuários de colaboração B2B fa
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
-   Veja um exemplo:
+   Aqui está um exemplo:
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -75,9 +75,9 @@ Na versão atual, a MFA está sempre na locação de recursos, por motivos de pr
 
 Se a Contoso tiver a política de MFA habilitada para App1, mas não para App2, se olharmos para a declaração de MFA da Contoso no token, veremos o seguinte problema:
 
-* Dia 1: Um usuário tem o MFA na Contoso e está acessando o App1; portanto, nenhum prompt adicional do MFA é mostrado na Fabrikam.
+* Dia 1: um usuário tem MFA na Contoso e está acessando o App1, então nenhuma solicitação de MFA adicional é mostrada na Fabrikam.
 
-* Dia 2: O usuário acessou o Aplicativo 2 na Contoso; portanto, agora ao acessar a Fabrikam, ele precisa se registrar no MFA nele.
+* Dia 2: o usuário acessou o App 2 na Contoso, então agora ao acessar a Fabrikam, ele deve se registrar na MFA.
 
 Esse processo pode ser confuso e pode levar a causar preenchimentos incompletos na entrada.
 
@@ -85,7 +85,7 @@ Além disso, mesmo se a Contoso tiver o recurso MFA, nem sempre aconteceria da F
 
 Finalmente, a MFA de locatários de recursos também funciona para IDs sociais e MSAs e para organizações parceiras que não tenham a MFA configurada.
 
-Portanto, a recomendação para MFA para usuários B2B é sempre exigir MFA no locatário que convida. Esse requisito pode levar a um MFA duplo em alguns casos, mas sempre que se acessa o locatário de convite a experiência dos usuários finais é previsível: Sara precisará se registrar no MFA com o locatário de convite.
+Portanto, a recomendação para MFA para usuários B2B é sempre exigir MFA no locatário que convida. Esse requisito poderia conduzir a uma MFA dupla em alguns casos, mas sempre que acessa o locatário que convida, a experiência dos usuários finais será previsível: Sally deve se registrar na MFA com o locatário que convida.
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Acesso condicional baseado no dispositivo, baseado no local e em risco para usuários B2B
 

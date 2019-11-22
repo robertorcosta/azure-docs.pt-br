@@ -1,5 +1,5 @@
 ---
-title: Habilitar o acesso remoto para Power BI com o Proxy de Aplicativo do AD do Azure | Microsoft Docs
+title: Habilitar o acesso remoto para Power BI com o Azure Proxy de Aplicativo do AD
 description: Aborda as noções básicas sobre como integrar um Power BI local com o Proxy de Aplicativo do AD do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795621"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275519"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitar o acesso remoto para Power BI Mobile com o Azure Proxy de Aplicativo do AD
 
 Este artigo discute como usar o Azure Proxy de Aplicativo do AD para habilitar o Power BI aplicativo móvel para se conectar ao Servidor de Relatórios do Power BI (PBIRS) e SQL Server Reporting Services (SSRS) 2016 e posterior. Por meio dessa integração, os usuários que estão fora da rede corporativa podem acessar seus relatórios de Power BI do aplicativo Power BI Mobile e ser protegidos pela autenticação do Azure AD. Essa proteção inclui [benefícios de segurança](application-proxy-security.md#security-benefits) como o acesso condicional e a autenticação multifator.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Este artigo pressupõe que você já implantou os serviços de relatório e o [proxy de aplicativo habilitado](application-proxy-add-on-premises-application.md).
 
@@ -153,7 +153,7 @@ Você pode usar Microsoft Intune para gerenciar os aplicativos cliente que a for
 7. Clique em **conceder consentimento do administrador** para conceder a permissão de acesso ao aplicativo.
 8. Configure a política do Intune desejada consultando [como criar e atribuir políticas de proteção de aplicativo](https://docs.microsoft.com/intune/app-protection-policies).
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 Se o aplicativo retornar uma página de erro depois de tentar carregar um relatório por mais de alguns minutos, talvez seja necessário alterar a configuração de tempo limite. Por padrão, o proxy de aplicativo dá suporte a aplicativos que levam até 85 segundos para responder a uma solicitação. Para aumentar essa configuração para 180 segundos, selecione o tempo limite de back-end para **longo** na página de configurações de proxy de aplicativo para o aplicativo. Para obter dicas sobre como criar relatórios rápidos e confiáveis, consulte [práticas recomendadas de Power bi relatórios](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
 

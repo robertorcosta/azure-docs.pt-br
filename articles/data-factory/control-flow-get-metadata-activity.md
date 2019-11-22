@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: e891f6675920e7bb90d2a6d007676cdd65f19917
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679899"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280659"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
 
@@ -57,6 +57,7 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 
 - Para o Amazon S3 e o Google Cloud Storage, `lastModified` se aplica ao Bucket e à chave, mas não à pasta virtual, e `exists` se aplica ao Bucket e à chave, mas não ao prefixo ou à pasta virtual.
 - Para o armazenamento de BLOBs do Azure, `lastModified` se aplica ao contêiner e ao blob, mas não à pasta virtual.
+- O filtro de curingas em pastas/arquivos não tem suporte para a atividade obter metadados.
 
 **Banco de dados relacional**
 
@@ -134,10 +135,10 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 
 Atualmente, a atividade obter metadados pode retornar os seguintes tipos de informações de metadados:
 
-Propriedade | DESCRIÇÃO | Obrigatório
+Propriedade | DESCRIÇÃO | obrigatórios
 -------- | ----------- | --------
 fieldList | Os tipos de informações de metadados necessários. Para obter detalhes sobre os metadados com suporte, consulte a seção [Opções de metadados](#metadata-options) deste artigo. | Sim 
-dataset | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | Sim
+conjunto de dados | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | Sim
 formatSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
 storeSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
 

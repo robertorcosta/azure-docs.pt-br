@@ -1,5 +1,6 @@
 ---
-title: Solução de problemas de conexões e do gateway de rede virtual do Azure - PowerShell | Microsoft Docs
+title: Solucionar problemas de gateway e conexões de VNet do Azure-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: Esta página explica como usar o cmdlet do PowerShell para solucionar problemas do Observador de rede do Azure
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 40d576a980bd66fea44f9f8e4935fab3d777e4c8
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 4e65be8254710beffc6cc042316305d8d64c43c3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163867"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277823"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando o PowerShell do Observador de rede do Azure
 
@@ -72,7 +73,7 @@ $sc = New-AzStorageContainer -Name logs
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Como executar a solução de problemas de recursos do Observador de rede
 
-Você usa o cmdlet `Start-AzNetworkWatcherResourceTroubleshooting` para solucionar problemas de recursos. Passamos o cmdlet do objeto do Observador de Rede, a Id da Conexão ou Gateway de Rede Virtual, a id da conta de armazenamento e o caminho para armazenar os resultados.
+Utilize o cmdlet `Start-AzNetworkWatcherResourceTroubleshooting` para solucionar os problemas dos recursos. Passamos o cmdlet do objeto do Observador de Rede, a Id da Conexão ou Gateway de Rede Virtual, a id da conta de armazenamento e o caminho para armazenar os resultados.
 
 > [!NOTE]
 > O cmdlet `Start-AzNetworkWatcherResourceTroubleshooting` é demorado e pode levar alguns minutos para ser concluído.
@@ -85,10 +86,10 @@ Depois que você executar o cmdlet, o Observador de rede revisará o recurso par
 
 ## <a name="understanding-the-results"></a>Como entender os resultados
 
-O texto de ação fornece orientação geral sobre como resolver o problema. Se for possível executar uma ação para solucionar o problema, você receberá um link com orientações adicionais. Nos casos em que não há orientações adicionais, a resposta fornecerá a url para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o do que está incluído, acesse [Visão geral da solução de problemas do observador de rede](network-watcher-troubleshoot-overview.md)
+O texto de ação fornece orientação geral sobre como resolver o problema. Se for possível executar uma ação para solucionar o problema, você receberá um link com orientações adicionais. Nos casos em que não há orientações adicionais, a resposta fornecerá a url para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o do que está incluído, acesse [Visão geral da solução de problemas do Observador de rede](network-watcher-troubleshoot-overview.md)
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento, acesse o link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.
+Se as configurações alteradas interromperem a conectividade da VPN, consulte [Gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para localizar as regras de segurança e o grupo de segurança de rede que podem estar em questão.

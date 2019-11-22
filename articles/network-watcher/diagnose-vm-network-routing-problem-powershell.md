@@ -1,5 +1,6 @@
 ---
-title: Diagnosticar um problema de roteamento de rede de máquina virtual - Azure PowerShell | Microsoft Docs
+title: Diagnosticar um problema de roteamento de rede VM-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: Neste artigo, você aprenderá a diagnosticar um problema de roteamento da rede de máquina virtual com a funcionalidade de próximo salto do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 08d273ce6e6ecb1b10d3c39a0954d430a3cb674a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81e2af329661d485b2d189e9a1f70b50bd6d4b7d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730748"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276104"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticar um problema de roteamento de rede de máquina virtual - Azure PowerShell
 
@@ -34,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo requer o Azure PowerShell `Az` módulo. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo Azure PowerShell `Az`. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 
 
@@ -82,7 +83,7 @@ $networkWatcher = New-AzNetworkWatcher `
 
 ### <a name="use-next-hop"></a>Usar próximo salto
 
-O Azure cria automaticamente as rotas para destinos padrão. Você pode criar rotas personalizadas que substituem as rotas padrão. Às vezes, as rotas personalizadas podem causar falha na comunicação. Para testar o roteamento de uma VM, use o [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) comando para determinar o próximo salto de roteamento ao tráfego é destinado a um endereço específico.
+O Azure cria automaticamente as rotas para destinos padrão. Você pode criar rotas personalizadas que substituem as rotas padrão. Às vezes, as rotas personalizadas podem causar falha na comunicação. Para testar o roteamento de uma VM, use o comando [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) para determinar o próximo salto de roteamento quando o tráfego for destinado a um endereço específico.
 
 Teste a comunicação de saída da VM para um dos endereços IP para www.bing.com:
 
@@ -110,7 +111,7 @@ A saída retornada informa que **Nenhum** é o **NextHopType** e que a **RouteTa
 
 ## <a name="view-details-of-a-route"></a>Exibir detalhes de uma rota
 
-Para analisar ainda mais o roteamento, examine as rotas efetivas para o adaptador de rede com o [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) comando:
+Para analisar ainda mais o roteamento, examine as rotas efetivas para a interface de rede com o comando [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) :
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `

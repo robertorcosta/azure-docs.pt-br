@@ -1,20 +1,16 @@
 ---
 title: Solucionando problemas
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: 5eec9771e964cf6b47492fdad34bcba14d897d41
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072203"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279712"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -453,3 +449,13 @@ kubectl -n my-namespace delete pod --all
 ```
 
 Depois que o pods for reiniciado, você poderá começar a usar seu namespace existente com Azure Dev Spaces.
+
+### <a name="enable-azure-dev-spaces-on-aks-cluster-with-restricted-egress-traffic-for-cluster-nodes"></a>Habilitar Azure Dev Spaces no cluster AKS com tráfego de saída restrito para nós de cluster
+
+Para habilitar Azure Dev Spaces em um cluster AKS para o qual o tráfego de saída de nós de cluster é restrito, você precisará permitir os seguintes FQDNs:
+
+| FQDN                                    | Port      | Uso      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | Para efetuar pull de imagens do Linux Alpine e outras Azure Dev Spaces |
+| gcr.io | HTTP: 443 | Para efetuar pull de imagens do Helm/gaveta|
+| storage.googleapis.com | HTTP: 443 | Para efetuar pull de imagens do Helm/gaveta|

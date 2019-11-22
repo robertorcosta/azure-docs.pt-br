@@ -3,18 +3,18 @@ title: Cria políticas de maneira programática
 description: Este artigo orienta você na criação e gerenciamento por meio de programação de políticas no Azure Policy.
 ms.date: 01/31/2019
 ms.topic: conceptual
-ms.openlocfilehash: 581f7e5cc2fa20f1ff284e32351e495349fdfad2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bc97eac8f66a3c289bb22bfac8617177d60b4583
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959428"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267230"
 ---
 # <a name="programmatically-create-policies"></a>Cria políticas de maneira programática
 
 Este artigo orienta você na criação e gerenciamento por meio de programação de políticas. As definições de Azure Policy impõem diferentes regras e efeitos sobre seus recursos. A imposição garante que os recursos permaneçam em conformidade com seus padrões empresariais e contratos de nível de serviço.
 
-Para obter informações sobre a conformidade, veja [como obter dados de conformidade](getting-compliance-data.md).
+Para obter informações sobre a conformidade, veja [como obter dados de conformidade](get-compliance-data.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 

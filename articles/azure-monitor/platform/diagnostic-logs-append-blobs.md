@@ -1,6 +1,6 @@
 ---
 title: Preparar a alteração de formato dos logs de diagnóstico do Azure Monitor
-description: Os Logs de Diagnóstico do Azure serão movidos para usar blobs de acréscimo em 1º de novembro de 2018.
+description: Descreve o impacto e como atualizar suas ferramentas para lidar com os novos logs de diagnóstico do Azure que foram alterados para usar blobs de acréscimo em 1º de novembro de 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258395"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307054"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Preparar a alteração de formato dos logs de diagnóstico do Azure Monitor arquivados em uma conta de armazenamento
 

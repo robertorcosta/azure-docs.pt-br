@@ -1,5 +1,5 @@
 ---
-title: Experiências do usuário final para aplicativos - Active Directory Domain Service | Microsoft Docs
+title: Experiências do usuário final para aplicativos-Azure Active Directory
 description: O Microsoft Azure Active Directory (Azure AD) fornece várias maneiras personalizáveis de implantar aplicativos para usuários finais em sua organização.
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4a091abff02e544f97f5621b56836cf6ba6e237
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 330f3100858d517666ac14fa8c206b4c06998c4f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175965"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274214"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure
 
@@ -76,6 +76,6 @@ Quando um usuário autorizado clica em um desses links específicos do aplicativ
 
 Esses links usam os mesmos mecanismos de controle de acesso que o painel de acesso e o Office 365, e apenas esses usuários ou grupos que foram atribuídos ao aplicativo no portal do Azure serão capazes de autenticar com êxito. No entanto, todos os usuários não autorizados receberão uma mensagem explicando que não foi concedido acesso e receberão um link para carregar o painel de acesso para exibir os aplicativos disponíveis para os quais têm acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para planos de implantação, consulte [planos de implantação do Azure Active Directory Domain Services](../fundamentals/active-directory-deployment-plans.md)

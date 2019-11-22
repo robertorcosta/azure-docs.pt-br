@@ -1,5 +1,5 @@
 ---
-title: Problemas ao configurar o logon único federado para aplicativos da galeria do Azure AD | Microsoft Docs
+title: Problemas ao configurar o SSO Federado para aplicativos da galeria do Azure AD
 description: Aborda alguns dos problemas comuns que você pode encontrar ao configurar o logon único federado usando o SAML para aplicativos que estão listados na Galeria do Aplicativo Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f4e690b440604a312ddfa8cd320ac200c0f40cf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381213"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274651"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único federado para um aplicativo na Galeria do Azure AD
 
@@ -42,7 +42,7 @@ Se não conseguir configurar o Identificador ou a URL de Resposta, confirme se o
 
 Para saber os padrões pré-configurado para o aplicativo:
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.** Vá para a etapa 7. Se você já estiver na folha de configuração do aplicativo no Azure AD.
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.** Vá para a etapa 7. Se você já estiver na folha de configuração do aplicativo no Azure AD.
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -52,7 +52,7 @@ Para saber os padrões pré-configurado para o aplicativo:
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
@@ -96,7 +96,7 @@ Para baixar o certificado ou metadados do aplicativo Azure Active Directory, sig
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Selecione o aplicativo para o qual você precisa configurar o logon único.
 

@@ -2,14 +2,14 @@
 title: Implantação segura entre regiões – Azure Deployment Manager
 description: Descreve como implantar um serviço em muitas regiões com o Azure Deployment Manager. Ele mostra as práticas de implantação segura para verificar a estabilidade da sua implantação antes de distribuir a todas as regiões.
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a0d13150086b393e10bc16c5c2cef173ab0abab
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9b0e314b3911dcd3b96dc2b5b32081bd2e9c0c0c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147200"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307038"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar práticas de implantação segura com o Azure Deployment Manager (visualização pública)
 
@@ -338,3 +338,5 @@ Neste artigo, você aprendeu sobre o Deployment Manager. Vá para o próximo art
 
 > [!div class="nextstepaction"]
 > [Tutorial: Usar Gerenciador de implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md)
+>
+> [Início rápido: Experimente o Azure Deployment Manager em apenas alguns minutos](https://github.com/Azure-Samples/adm-quickstart)

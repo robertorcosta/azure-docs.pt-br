@@ -1,5 +1,5 @@
 ---
-title: Remover atribuições de usuário ou grupo de um aplicativo no Azure Active Directory | Microsoft Docs
+title: Remover atribuições de usuário ou grupo de um aplicativo no Azure AD
 description: Como remover a atribuição de acesso de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380816283156969c47f45a9b47435688df91f4ca
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: edf918b57212cf2adfbffb358a0257d9dbea85e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381052"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275873"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remover a atribuição de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
 
@@ -32,7 +32,7 @@ ms.locfileid: "68381052"
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Como fazer para remover uma atribuição de usuário ou grupo em um aplicativo empresarial no Portal do Azure?
 
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório.
 1. Selecione **Todos os serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
 1. Na página **Azure Active Directory- *DirectoryName***  (ou seja, a página do Azure ad para o diretório que você está gerenciando), selecione **aplicativos empresariais**.
 1. Na página **aplicativos empresariais – todos os aplicativos** , você verá uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.

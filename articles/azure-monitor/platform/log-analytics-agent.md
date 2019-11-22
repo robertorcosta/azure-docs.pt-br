@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/07/2019
-ms.openlocfilehash: 8070abad675acc69f5b1da232b60179078adbc57
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/21/2019
+ms.openlocfilehash: 33ba07ac8d89546856666cc7ab94fae650020001
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932234"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306526"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Coletar dados de log com o agente de Log Analytics
 
@@ -20,7 +20,7 @@ O agente do Azure Log Analytics, anteriormente conhecido como agente do Microsof
 
 Este artigo fornece uma visão geral detalhada do agente, dos requisitos do sistema e da rede e dos diferentes métodos de implantação.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 ![Diagrama de comunicação do agente do Log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
 
@@ -40,7 +40,7 @@ Se você estiver usando o System Center Operations Manager 2012 R2 ou posterior:
 * Os computadores Linux que relatam para um grupo de gerenciamento devem ser configurados para relatar diretamente a um espaço de trabalho Log Analytics. Se os computadores Linux já estiverem se reportando diretamente a um espaço de trabalho e você quiser monitorá-los com Operations Manager, siga estas etapas para [relatar a um grupo de gerenciamento de Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group).
 * Você pode instalar o Log Analytics agente do Windows no computador Windows e fazer com que ele se reporte a ambos Operations Manager integrados a um espaço de trabalho e a um espaço de trabalho diferente.
 
-O agente para Linux e Windows não é apenas para se conectar ao Azure Monitor, ele também dá suporte à automação do Azure para hospedar a função de Hybrid runbook Worker e outros serviços, como [controle de alterações](../../automation/change-tracking.md), [Gerenciamento de atualizações](../../automation/automation-update-management.md)e [central de segurança do Azure ](../../security-center/security-center-intro.md). Para obter mais informações sobre a função Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Automação do Azure](../../automation/automation-hybrid-runbook-worker.md).  
+O agente para Linux e Windows não é apenas para se conectar ao Azure Monitor, ele também dá suporte à automação do Azure para hospedar a função de Hybrid runbook Worker e outros serviços, como [controle de alterações](../../automation/change-tracking.md), [Gerenciamento de atualizações](../../automation/automation-update-management.md)e [central de segurança do Azure](../../security-center/security-center-intro.md). Para obter mais informações sobre a função Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Automação do Azure](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operacionais Windows compatíveis
 
@@ -85,7 +85,7 @@ Começando com versões lançadas depois de agosto de 2018, estamos fazendo as s
 
 A tabela a seguir realça os pacotes necessários para distribuições do Linux com suporte em que o agente será instalado.
 
-|Pacote necessário |Descrição |Versão mínima |
+|Pacote necessário |DESCRIÇÃO |Versão mínima |
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1,0. x ou 1.1. x |
@@ -106,14 +106,13 @@ As informações abaixo listam as informações de configuração de proxy e fir
 
 |Recurso de agente|Portas |Direção |Ignorar a inspeção de HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porta 443 |Saída|SIM |  
-|*.oms.opinsights.azure.com |Porta 443 |Saída|SIM |  
-|*.blob.core.windows.net |Porta 443 |Saída|SIM |  
-|*.azure-automation.net |Porta 443 |Saída|SIM |  
+|*.ods.opinsights.azure.com |Porta 443 |Saída|Sim |  
+|*.oms.opinsights.azure.com |Porta 443 |Saída|Sim |  
+|*.blob.core.windows.net |Porta 443 |Saída|Sim |  
 
 Para obter informações de firewall necessárias para o Azure governamental, consulte [Gerenciamento do Azure governamental](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
-Se você planeja usar o Hybrid Runbook Worker da Automação do Azure para conectar e se registrar no serviço de automação para usar runbooks em seu ambiente, é necessário ter acesso ao número da porta e as URLs descritas em [Configurar sua rede para o Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+Se você planeja usar o Hybrid Runbook Worker de automação do Azure para se conectar e se registrar no serviço de automação para usar runbooks ou soluções de gerenciamento em seu ambiente, ele deve ter acesso ao número da porta e às URLs descritas em [configurar sua rede para o Hybrid runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 O agente do Windows e Linux dá suporte à comunicação por meio de um servidor proxy ou Log Analytics gateway para Azure Monitor usando o protocolo HTTPS.  Há suporte para a autenticação anônima e básica (nome de usuário/senha).  Para o agente do Windows conectado diretamente ao serviço, a configuração do proxy é especificada durante a instalação ou [após a implementação](agent-manage.md#update-proxy-settings) no Painel de Controle ou no PowerShell.  
 
@@ -124,11 +123,11 @@ Para o agente Linux, o servidor proxy pode ser especificado durante a instalaç�
 > [!NOTE]
 > Se seu servidor proxy não exigir autenticação, o agente para Linux exigirá mesmo assim fornecendo um pseudo usuário/senha. Isso pode ser qualquer nome de usuário ou senha.
 
-|Propriedade| Descrição |
+|Propriedade| DESCRIÇÃO |
 |--------|-------------|
-|Protocolo | https |
+|Protocolo | HTTPS |
 |usuário | Nome de usuário opcional para autenticação de proxy |
-|Senha | Senha opcional para autenticação de proxy |
+|password | Senha opcional para autenticação de proxy |
 |proxyhost | Endereço ou FQDN do servidor proxy/gateway do Log Analytics |
 |porta | Número da porta opcional para o servidor proxy/gateway do Log Analytics |
 
@@ -141,14 +140,14 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 Conectar computadores em sua assinatura do Azure ou ambiente híbrido diretamente com Azure Monitor logs pode ser feito usando métodos diferentes, dependendo de seus requisitos. A tabela a seguir realça cada método para determinar o que funciona melhor em sua organização.
 
-|Origem | Método | Descrição|
+|Fonte | Método | DESCRIÇÃO|
 |-------|-------------|-------------|
 |VM do Azure| - Extensão de VM do Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) ou [Linux](../../virtual-machines/extensions/oms-linux.md) usando a CLI do Azure ou com um modelo do Azure Resource Manager<br>- [manualmente no portal do Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- o [provisionamento automático da central de segurança do Azure](../../security-center/security-center-enable-data-collection.md)| -A extensão instala o agente de Log Analytics em máquinas virtuais do Azure e os registra em um espaço de trabalho Azure Monitor existente.<br>-A central de segurança do Azure pode provisionar o agente de Log Analytics em todas as VMs do Azure com suporte e quaisquer novas que forem criadas se você habilitá-la para monitorar vulnerabilidades de segurança e ameaças. Se habilitada, qualquer VM nova ou existente sem um agente instalado será provisionada.|
 | Computador Windows híbrido|- [Instalação manual](agent-windows.md)<br>- [DSC de Automação do Azure](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modelo do Resource Manager com o Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instalar o agente Microsoft Monitoring da linha de comando ou usando um método automatizado como DSC de automação do Azure, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), ou com um modelo do Azure Resource Manager, se você implantou o Microsoft Azure Stack no seu datacenter.| 
 | Computador Linux híbrido| [Instalação manual](../../azure-monitor/learn/quick-collect-linux-computer.md)|Instale o agente para Linux chamando um script de wrapper hospedado no GitHub. | 
 | System Center Operations Manager|[Conectar o Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure a integração entre Operations Manager e Azure Monitor logs para encaminhar os dados coletados de computadores com Windows relatando a um grupo de gerenciamento.|  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Consultar as [fontes de dados](../../azure-monitor/platform/agent-data-sources.md) para entender as fontes de dados disponíveis para coletar dados do sistema Windows ou Linux. 
 

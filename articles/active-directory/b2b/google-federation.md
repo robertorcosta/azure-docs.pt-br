@@ -1,5 +1,5 @@
 ---
-title: Adicionar o Google como um provedor de identidade para B2B-Azure Active Directory | Microsoft Docs
+title: Adicionar o Google como um provedor de identidade para B2B-Azure AD
 description: Associe ao Google para permitir que usuários convidados entrem em seus aplicativos Azure AD usando as próprias contas do Gmail
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68acf32660fe36ddd4c2982b818ce21adde7ddab
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603586"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272889"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como provedor de identidade para usuários convidados B2B
 
@@ -101,7 +101,7 @@ Agora, você definirá a ID do cliente e o segredo do cliente do Google, seja in
 1. Instale a versão mais recente do módulo PowerShell for Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)) do Azure AD.
 2. Execute o seguinte comando: `Connect-AzureAD`.
 3. No prompt de entrada, entre com a conta de Administrador Global gerenciada.  
-4. Execute o comando a seguir: 
+4. Execute o seguinte comando: 
    
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  

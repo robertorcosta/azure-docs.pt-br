@@ -1,5 +1,6 @@
 ---
-title: Solucionar problemas de conexões com o Observador de Rede do Azure – API REST do Azure | Microsoft Docs
+title: Solucionar problemas de conexões – API REST do Azure
+titleSuffix: Azure Network Watcher
 description: Saiba como usar o recurso de resolução de problemas de conexão do Observador de Rede do Azure usando a API REST do Azure.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
-ms.openlocfilehash: 82dd77e8ea36610244b97c1701209d5aa3be2869
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 792556a63b5ca9ef53a33960e8284354972b3895
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017778"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275952"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Solucionar problemas de conexões com o Observador de Rede do Azure usando a API REST do Azure
 
@@ -40,7 +41,7 @@ Este artigo pressupõe que você tenha os seguintes recursos:
 > [!IMPORTANT]
 > A solução de problemas de conexão exige que a VM para solução de problemas tenha a extensão da VM `AzureNetworkWatcherExtension` instalada. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto de extremidade de destino.
 
-## <a name="log-in-with-armclient"></a>Fazer logon com o ARMClient
+## <a name="log-in-with-armclient"></a>Faça logon com o ARMClient
 
 Faça logon no armclient com suas credenciais do Azure.
 
@@ -50,7 +51,7 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Recuperar uma máquina virtual
 
-Execute o script a seguir para retornar para uma máquina virtual. Essas informações são necessárias para a execução de conectividade.
+Execute o script a seguir para retornar uma máquina virtual. Essas informações são necessárias para a execução de conectividade.
 
 O código a seguir precisa de valores para as variáveis a seguir:
 
@@ -131,7 +132,7 @@ Date: Fri, 02 Jun 2017 20:21:16 GMT
 null
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>resposta
 
 A seguinte resposta é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está **Inacessível**. Você pode ver que todas as investigações enviadas falharam. Falha de conectividade na solução de virtualização devido a um `NetworkSecurityRule` configurado pelo usuário chamado **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
 
@@ -247,7 +248,7 @@ Date: Fri, 02 Jun 2017 20:26:05 GMT
 null
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>resposta
 
 No exemplo a seguir, o `connectionStatus` é mostrado como **Inacessível**. Nos detalhes de `hops`, você pode ver em `issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`.
 
@@ -343,7 +344,7 @@ Date: Fri, 02 Jun 2017 20:31:00 GMT
 null
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>resposta
 
 Na resposta a seguir, você pode ver o `connectionStatus` ser mostrado como **Acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
 
@@ -430,7 +431,7 @@ Date: Fri, 02 Jun 2017 20:05:03 GMT
 null
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>resposta
 
 O exemplo a seguir é a resposta da execução da chamada à API anterior. Uma vez que a verificação é bem-sucedida, a propriedade `connectionStatus` é mostrada como **Alcançável**.  São fornecidos os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
 

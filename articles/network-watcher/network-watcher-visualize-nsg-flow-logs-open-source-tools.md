@@ -1,5 +1,6 @@
 ---
-title: Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede usando o Observador de Rede e a Pilha Elástica | Microsoft Docs
+title: Visualizar logs de fluxo NSG – pilha elástica
+titleSuffix: Azure Network Watcher
 description: Gerencie e analise os Logs de Fluxo do Grupo de Segurança de Rede no Azure usando o Observador de Rede e a Pilha Elástica.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53cbfe08d310f7244134e1ae31b18644a83c63d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859988"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277738"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo NSG do Observador de Rede do Azure usando ferramentas de código aberto
 
@@ -195,7 +196,7 @@ Para obter mais informações sobre esse plug-in, consulte a [documentação](ht
 
 3. Para exibir a interface da Web do Kibana, navegue até `http://localhost:5601`
 4. Para esse cenário, o padrão de índice usado para os logs do fluxo é "nsg-flow-logs". Você pode alterar o padrão de índice na seção "saída" do arquivo logstash.conf.
-5. Se você quiser exibir o painel Kibana remotamente, crie uma regra NSG de entrada permitindo o acesso à **porta 5601**.
+5. Se você quiser exibir o painel de Kibana remotamente, criar uma regra NSG entrada permitindo o acesso ao **porta 5601**.
 
 ### <a name="create-a-kibana-dashboard"></a>Criar um painel Kibana
 
@@ -207,7 +208,7 @@ Baixe o [arquivo do painel](https://aka.ms/networkwatchernsgflowlogdashboard), o
 
 Na guia **Management** (Gerenciamento) do Kibana, navegue até **Saved Objects** (Objetos Salvos) e importe todos os três arquivos. Em seguida, na guia **Painel**, você pode abrir e carregar o painel de exemplo.
 
-Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seu próprio interesse. Leia mais sobre como criar visualizações do Kibana a partir da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html) do Kibana.
+Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seu próprio interesse. Leia mais sobre como criar visualizações do Kibana na [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html) do Kibana.
 
 ### <a name="visualize-nsg-flow-logs"></a>Visualizar logs de fluxo NSG
 
@@ -245,7 +246,7 @@ Combinando os logs de fluxo do Grupo de Segurança de Rede com o Elastic Stack, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como visualizar os logs de fluxo NSG com o Power BI, veja [Como visualizar logs de fluxos NSG com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Saiba como visualizar os logs de fluxo NSG com o Power BI visitando [fluxos de NSG visualizar logs com o Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 <!--Image references-->
 

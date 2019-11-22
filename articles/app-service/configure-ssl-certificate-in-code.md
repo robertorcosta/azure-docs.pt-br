@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 93dfe784d45cd9cd93d22c5e8c3275c563f7f88b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572088"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271276"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Usar um certificado SSL em seu código no serviço Azure App
 
@@ -29,7 +29,7 @@ Essa abordagem para usar certificados em seu código usa a funcionalidade SSL no
 
 Ao permitir que o Serviço de Aplicativo gerencie os certificados SSL, é possível manter os certificados e o código do aplicativo separados e proteger seus dados confidenciais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para seguir este guia de instruções, é necessário ter:
 
@@ -38,7 +38,7 @@ Para seguir este guia de instruções, é necessário ter:
 
 ## <a name="find-the-thumbprint"></a>Localizar a impressão digital
 
-No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **serviços de aplicativos** >  **\<nome-do-aplicativo >** .
+No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<nome_do_aplicativo>** .
 
 No painel de navegação à esquerda do seu aplicativo, selecione **configurações de TLS/SSL**e, em seguida, selecione **certificados de chave privada (. pfx)** ou **certificados de chave pública (. cer)** .
 
@@ -141,6 +141,8 @@ Se você precisar carregar um arquivo de certificado que é carregado manualment
 > ```azurecli-interactive
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
+>
+> Essa abordagem para usar certificados em seu código usa a funcionalidade SSL no serviço de aplicativo, o que exige que seu aplicativo esteja na camada **básica** ou acima.
 
 O exemplo C# a seguir carrega um certificado público de um caminho relativo em seu aplicativo:
 
@@ -157,7 +159,7 @@ var cert = new X509Certificate2(bytes);
 
 Para ver como carregar um certificado SSL de um arquivo em node. js, PHP, Python, Java ou Ruby, consulte a documentação do respectivo idioma ou plataforma da Web.
 
-## <a name="more-resources"></a>Mais recursos
+## <a name="more-resources"></a>Mais Recursos
 
 * [Proteger um nome DNS personalizado com uma associação SSL](configure-ssl-bindings.md)
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)

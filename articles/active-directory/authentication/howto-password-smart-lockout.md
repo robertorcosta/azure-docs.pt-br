@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d4cb2d424d242fd9ea078d981a85516a00c8115f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125012"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268661"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Sync smart lockout
 
@@ -33,7 +33,7 @@ Implantações federadas usando AD FS 2016 e AF FS 2019 podem permitir benefíci
 
 O bloqueio inteligente está sempre ativado para todos os clientes do Azure AD com as configurações padrão que oferecem a combinação certa de segurança e usabilidade. A personalização das configurações de bloqueio inteligente, com valores específicos para sua organização, requer licenças pagas do Azure AD para seus usuários.
 
-O uso do bloqueio inteligente não garante que um usuário genuíno nunca seja bloqueado. Quando o bloqueio inteligente bloqueia uma conta de usuário, tentamos o nosso melhor para não bloquear o usuário genuíno. O serviço de bloqueio tenta garantir que atores mal-intencionados não obtenham acesso a uma conta de usuário original.  
+O uso do bloqueio inteligente não garante que um usuário original nunca será bloqueado. Quando o bloqueio inteligente bloqueia uma conta de usuário, nós experimentamos o melhor para não bloquear o usuário original. O serviço de bloqueio tenta garantir que atores mal-intencionados não obtenham acesso a uma conta de usuário original.  
 
 * Cada centro de dados do Azure Active Directory rastreia o bloqueio de forma independente. Um usuário terá (threshold_limit * datacenter_count) número de tentativas, se o usuário acessar cada datacenter.
 * O Smart Lockout usa localização familiar versus local desconhecido para diferenciar entre um ator ruim e o usuário genuíno. Locais desconhecidos e familiares ambos terá contadores separados de bloqueio.
@@ -67,7 +67,8 @@ Baseado nos seus requisitos organizacionais, os valores de bloqueio inteligente 
 
 Para verificar ou modificar os valores de bloqueio inteligente para a sua organização, use os seguintes passos:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory** > **métodos** > de autenticação**proteção por senha**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Procurar pelo *Azure Active Directory* e selecioná-lo. Selecione os **métodos de autenticação** > proteção por **senha**.
 1. Coloque o **limite de bloqueio**, baseado em quantas vezes de logins falhados é permitido em uma conta antes do primeiro bloqueio. O padrão é 10.
 1. Coloque a **duração do bloqueio em segundos**, para a duração em segundos de cada bloqueio. O padrão é 60 segundos (um minuto).
 
@@ -80,7 +81,7 @@ Para verificar ou modificar os valores de bloqueio inteligente para a sua organi
 
 Quando o limite de bloqueio inteligente for disparado, você receberá a seguinte mensagem enquanto a conta estiver bloqueada:
 
-**Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente depois e, se ainda tiver problemas, entre em contato com seu administrador.**
+**Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente mais tarde e, se você ainda tiver problemas, entre em contato com seu administrador.**
 
 ## <a name="next-steps"></a>Próximas etapas
 

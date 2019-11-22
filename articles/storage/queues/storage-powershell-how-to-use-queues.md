@@ -1,5 +1,5 @@
 ---
-title: Executar operações no armazenamento de filas do Azure com o PowerShell-armazenamento do Azure
+title: Executar ações de armazenamento de filas do Azure no PowerShell
 description: Como executar operações no armazenamento de Fila do Azure com o PowerShell
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: bf5cf668620eb08e0d808c2052eac59b15af740c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 98c59555f2b9b93ee3f78da91f85a7728679235d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721217"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269375"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Fila do Azure com o Azure PowerShell
 
@@ -36,7 +36,7 @@ Não há nenhum cmdlet do PowerShell para o plano de dados para filas. Para exec
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre na sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela.
+Inicie sessão na sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela.
 
 ```powershell
 Connect-AzAccount
@@ -44,7 +44,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Recuperar a lista de locais
 
-Se você não sabe qual localização deseja usar, você pode listar as localizações disponíveis. Depois que a lista for exibida, encontre o que deseja usar. Este exercício usará **eastus**. Armazene-a na variável **local** para uso futuro.
+Se você não souber qual localização você deseja usar, poderá listar as localizações disponíveis. Depois que a lista for exibida, encontre a que deseja usar. Este exercício usará **eastus**. Armazene-a na variável **local** para uso futuro.
 
 ```powershell
 Get-AzLocation | select Location
@@ -62,7 +62,7 @@ $resourceGroup = "howtoqueuesrg"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## <a name="create-storage-account"></a>Criar conta de armazenamento
+## <a name="create-storage-account"></a>Criar Conta de Armazenamento
 
 Crie uma conta de armazenamento padrão para uso geral com o LRS (armazenamento com redundância local) usando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Obtenha o contexto da conta de armazenamento que define a conta de armazenamento a ser usada. Ao agir em uma conta de armazenamento, você pode referenciar o contexto em vez de fornecer repetidamente as credenciais.
 

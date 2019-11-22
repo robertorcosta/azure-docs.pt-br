@@ -1,5 +1,6 @@
 ---
-title: Solucionar problemas de conexões com o Observador de Rede do Azure – CLI do Azure | Microsoft Docs
+title: Solucionar problemas de conexões-CLI do Azure
+titleSuffix: Azure Network Watcher
 description: Saiba como usar a funcionalidade de solução de problemas de conexão do Observador de Rede do Azure usando a CLI do Azure.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
-ms.openlocfilehash: 568d3fe774bd2ec810bd3aa386fb151518e6a581
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07358d5d77e91f0b4eebffa068ff72fc83c74893
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720851"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276020"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Solucionar problemas de conexões com o Observador de Rede do Azure usando a CLI do Azure
 
@@ -49,7 +50,7 @@ Este exemplo verifica a conectividade a uma máquina virtual de destino pela por
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>resposta
 
 A seguinte resposta é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está **Inacessível**. Você pode ver que todas as investigações enviadas falharam. Falha de conectividade na solução de virtualização devido a um `NetworkSecurityRule` configurado pelo usuário chamado **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
 
@@ -130,7 +131,7 @@ Esse exemplo verifica a conectividade entre uma máquina virtual e um ponto de e
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>resposta
 
 No exemplo a seguir, o `connectionStatus` é mostrado como **Inacessível**. Nos detalhes de `hops`, você pode ver em `issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`.
 
@@ -188,7 +189,7 @@ O exemplo a seguir verifica a conectividade com um site.
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>resposta
 
 Na resposta a seguir, você pode ver o `connectionStatus` ser mostrado como **Acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
 
@@ -234,7 +235,7 @@ O exemplo a seguir verifica a conectividade de uma máquina virtual com uma cont
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>resposta
 
 O json a seguir é um exemplo de resposta da execução do cmdlet anterior. Uma vez que a verificação é bem-sucedida, a propriedade `connectionStatus` é mostrada como **Alcançável**.  São fornecidos os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
 
@@ -271,6 +272,6 @@ O json a seguir é um exemplo de resposta da execução do cmdlet anterior. Uma 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
+Saiba como automatizar as capturas de pacote com alertas da máquina Virtual, consultando [Criar uma captura de pacote acionada por alerta](network-watcher-alert-triggered-packet-capture.md)
 
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](diagnose-vm-network-traffic-filtering-problem.md)

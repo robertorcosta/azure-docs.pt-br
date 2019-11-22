@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486634"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280806"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Reconheça quais são os enunciados ideais para o aplicativo LUIS
 
@@ -60,17 +60,17 @@ Pegue estes enunciados de exemplo:
 |Quero obter um computador, como faço isso?|
 |Quando posso ter um computador?| 
 
-O termo principal aqui, "computador", não é variado. Use alternativas como computadores, laptops, estações de trabalho ou até mesmo máquinas. O LUIS infere de modo inteligente os sinônimos com base no contexto, mas quando você cria enunciados para treinamento, ainda é melhor variá-los.
+O termo principal aqui, "Computer", não é variado. Use alternativas como computadores, laptops, estações de trabalho ou até mesmo máquinas. O LUIS pode inferir de forma inteligente sinônimos do contexto, mas quando você cria declarações para treinamento, é sempre melhor adaptá-los.
 
 ## <a name="example-utterances-in-each-intent"></a>Enunciados de exemplo em cada intenção
 
-Cada intenção precisa ter exemplos de enunciados, pelo menos 15. Se você tiver uma intenção que não tenha nenhum enunciado de exemplo, não poderá treinar o LUIS. Se você tiver uma intenção com um ou vários enunciados de exemplo, o LUIS não preverá mais com precisão a intenção. 
+Cada intenção precisa ter exemplos de enunciados, pelo menos 15. Se você tiver uma intenção que não tenha nenhum enunciado de exemplo, não poderá treinar o LUIS. Se você tiver uma intenção com um ou muito poucos exemplos de declarações, o LUIS poderá não prever a intenção com precisão. 
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Adicione pequenos grupos de 15 enunciados para cada iteração de criação
 
 Em cada iteração do modelo, não adicione uma grande quantidade de enunciados. Adicione enunciados em quantidades de 15. [Treine](luis-how-to-train.md), [publique](luis-how-to-publish-app.md) e [teste](luis-interactive-test.md) novamente.  
 
-O LUIS constrói modelos eficazes com enunciados que são cuidadosamente selecionados pelo criador do modelo LUIS. Adicionar muitos enunciados não é positivo porque gera confusão.  
+O LUIS constrói modelos eficazes com enunciados que são cuidadosamente selecionados pelo criador do modelo LUIS. Adicionar muitos enunciados não é positivo porque gera confusão.
 
 É melhor começar com alguns enunciados e, em seguida, [examinar enunciados de ponto de extremidade](luis-how-to-review-endpoint-utterances.md) para a extração de entidade e previsão de intenção corretas.
 
@@ -112,7 +112,7 @@ Pontuação é um token separado no LUIS. Um expressão que contém um ponto no 
 
 Se a pontuação não for normalizada, o LUIS não ignorará as marcas de pontuação, por padrão, porque alguns aplicativos cliente podem inserir significância nessas marcas. Verifique se suas declarações de exemplo usam pontuação e nenhuma pontuação para que os dois estilos retornem as mesmas pontuações relativas. 
 
-Certifique-se de que o modelo manipule pontuação nos [exemplos de expressões](luis-concept-utterance.md) (com e sem pontuação) ou nos [padrões](luis-concept-patterns.md), onde é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
+Verifique se o modelo lida com pontuação no exemplo declarações (tendo e não tem pontuação) ou nos [padrões](luis-concept-patterns.md) onde é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
 
 Se a pontuação não tiver um significado específico em seu aplicativo cliente, considere [ignorar a pontuação](#utterance-normalization) normalizando a pontuação. 
 
@@ -128,7 +128,7 @@ O treinamento geralmente não é determinístico: a previsão de enunciado pode 
 
 Os desenvolvedores devem começar a testar o aplicativo LUIS com tráfego real, enviando enunciados para a URL do [ponto de extremidade de previsão](luis-how-to-azure-subscription.md). Esses enunciados são usados para melhorar o desempenho de intenções e entidades com [Examinar enunciados](luis-how-to-review-endpoint-utterances.md). Testes enviadas com o painel de teste de site do LUIS não são enviados por meio do ponto de extremidade e, portanto, não contribuem para aprendizado ativo. 
 
-## <a name="review-utterances"></a>Revisar declarações
+## <a name="review-utterances"></a>Examinar enunciados
 
 Depois que seu modelo estiver treinado, publicado e recebendo consultas de [ponto de extremidade](luis-glossary.md#endpoint), [examine os enunciados](luis-how-to-review-endpoint-utterances.md) sugeridos pelo LUIS. O LUIS seleciona enunciados de ponto de extremidade que têm pontuações baixas para intenção ou entidade. 
 

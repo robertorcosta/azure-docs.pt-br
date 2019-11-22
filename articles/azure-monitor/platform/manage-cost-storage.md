@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: ae49a84dba01047d85ea0dbb854d1a7a59318567
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1fbd69a095e171ec2fb386bed34b196f723e7496
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647648"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278929"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs de Azure Monitor
 
@@ -76,7 +76,7 @@ Para alterar o tipo de preço Log Analytics do seu espaço de trabalho,
 
 1. No portal do Azure, abra **uso e custos estimados** em seu espaço de trabalho, em que você verá uma lista de cada tipo de preço disponível para esse espaço de trabalho.
 
-2. Examine os custos estimados para cada tipo de preço. Essa estimativa se baseia nos últimos 31 dias de uso, portanto, essa estimativa de custo depende dos últimos 31 dias que representam o uso típico. No exemplo abaixo, você pode ver como, com base nos padrões de dados dos últimos 31 dias, esse espaço de trabalho custaria menos na camada pré-paga (#1) em comparação com a camada de reserva de capacidade de 100 GB/dia (#2).  
+2. Examine os custos estimados de cada tipo de preço. Essa estimativa se baseia nos últimos 31 dias de uso, portanto, essa estimativa de custo depende dos últimos 31 dias que representam o uso típico. No exemplo abaixo, você pode ver como, com base nos padrões de dados dos últimos 31 dias, esse espaço de trabalho custaria menos na camada pré-paga (#1) em comparação com a camada de reserva de capacidade de 100 GB/dia (#2).  
 
     ![Tipos de preço](media/manage-cost-storage/pricing-tier-estimated-costs.png)
 
@@ -351,9 +351,9 @@ Algumas sugestões para reduzir o volume de logs coletados incluem:
 | Origem do alto volume de dados | Como reduzir o volume de dados |
 | -------------------------- | ------------------------- |
 | Eventos de segurança            | Selecione [eventos de segurança mínima ou comuns](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Alterar a política de auditoria de segurança para coletar somente eventos necessários. Em particular, examine a necessidade para coletar eventos para <br> - [auditoria de plataforma de filtragem](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditoria de registro](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditoria de sistema de arquivos](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditoria de objeto kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditoria de manipulação de identificador](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditoria de armazenamento removível |
-| Contadores de desempenho       | Altere a [configuração do contador de desempenho](data-sources-performance-counters.md) para: <br> - Reduzir a frequência de coleta <br> - Reduzir o número de contadores de desempenho |
+| contadores de desempenho       | Altere a [configuração do contador de desempenho](data-sources-performance-counters.md) para: <br> - Reduzir a frequência de coleta <br> - Reduzir o número de contadores de desempenho |
 | Logs de eventos                 | Altere a [configuração de log de eventos](data-sources-windows-events.md) para: <br> - Reduzir o número de logs de eventos coletados <br> - Coletar somente níveis de eventos necessários. Por exemplo, não colete eventos de nível *informações* |
-| syslog                     | Altere a [configuração do syslog](data-sources-syslog.md) para: <br> - Reduzir o número de instalações coletadas <br> - Coletar somente níveis de eventos necessários. Por exemplo, não coletar eventos de nível *Informações* e *Depurar* |
+| Syslog                     | Altere a [configuração do syslog](data-sources-syslog.md) para: <br> - Reduzir o número de instalações coletadas <br> - Coletar somente níveis de eventos necessários. Por exemplo, não coletar eventos de nível *Informações* e *Depurar* |
 | AzureDiagnostics           | Altere a coleção de logs do recurso para: <br> - Reduzir o número de logs de envio de recursos para o Log Analytics <br> - Coletar somente os logs necessários |
 | Dados da solução de computadores que não precisam da solução | Use [direcionamento de solução](../insights/solution-targeting.md) para coletar dados somente dos grupos de computadores necessários. |
 
@@ -442,7 +442,7 @@ Ao criar o alerta para a primeira consulta, quando há mais de 100 GB de dados e
    - **Período de tempo** de *1440* minutos e **Frequência de alerta** a cada *60* minutos uma vez que os dados de uso são atualizados somente uma vez por hora.
 - **Definir os detalhes do alerta** especifica o seguinte:
    - O **Nome** como *Volume de dados maior que 100 GB em 24 horas*
-   - A **Gravidade** como *Aviso*
+   - **Gravidade** como *Aviso*
 
 Especifique um já existente ou crie um novo [Grupo de ação](action-groups.md) para que, quando o alerta de log corresponder aos critérios, você seja notificado.
 
@@ -456,7 +456,7 @@ Ao criar o alerta para a segunda consulta, quando existe a previsão de que have
    - **Período de tempo** de *180* minutos e **Frequência de alerta** a cada *60* minutos uma vez que os dados de uso são atualizados somente uma vez por hora.
 - **Definir os detalhes do alerta** especifica o seguinte:
    - O **Nome** como *Previsão de volume de dados maior que 100 GB em 24 horas*
-   - A **Gravidade** como *Aviso*
+   - **Gravidade** como *Aviso*
 
 Especifique um já existente ou crie um novo [Grupo de ação](action-groups.md) para que, quando o alerta de log corresponder aos critérios, você seja notificado.
 

@@ -1,5 +1,5 @@
 ---
-title: Como configurar o logon único federado para um aplicativo inexistente na galeria | Microsoft Docs
+title: Como configurar o logon único federado para um aplicativo inexistente na Galeria
 description: Como configurar o logon único federado para um aplicativo inexistente na galeria personalizado que você deseja integrar com o Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7de7384b93237e240352651eda6e16383bcb143
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: c1d49ec5ef80b284aa6b1a305b037d19dae34870
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190194"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274588"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único federado para um aplicativo inexistente na galeria
 
@@ -97,7 +97,7 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Selecione o aplicativo para o qual você precisa configurar o logon único.
 
@@ -120,7 +120,7 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
 
-Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas abaixo:
+Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
 
 1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
@@ -132,7 +132,7 @@ Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas ab
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Selecione o aplicativo para o qual você precisa configurar o logon único.
 
@@ -156,7 +156,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
@@ -170,7 +170,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
-12. **Opcional:** Caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
+12. **Opcional:** caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
 
 13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 

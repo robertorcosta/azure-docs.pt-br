@@ -1,5 +1,6 @@
 ---
-title: Executar a detecção de invasão de rede com o Observador de Rede do Azure e ferramentas de software livre | Microsoft Docs
+title: Executar a detecção de intrusão de rede com ferramentas de código aberto
+titleSuffix: Azure Network Watcher
 description: Este artigo descreve como usar o Observador de Rede do Azure e ferramentas de software livre para executar a detecção de invasão de rede
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a0b4ff4fc985355d8dc76f2f3fd7fb35da55ec0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605710"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275930"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre
 
@@ -255,7 +256,7 @@ Você também pode criar suas próprias visualizações e painéis personalizado
 
 O painel de exemplo fornece várias visualizações dos logs de alerta Suricata:
 
-1. Alertas por GeoIP – um mapa que mostra a distribuição de alertas por seu país/região de origem com base na localização geográfica (determinada por IP)
+1. Alertas por GeoIP – um mapa que mostra a distribuição de alertas por seu país/região de origem com base no local geográfico (determinado pelo IP)
 
     ![ip geográfico][3]
 

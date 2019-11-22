@@ -1,5 +1,5 @@
 ---
-title: Problemas ao entrar no aplicativo de logon único federado não Galeria | Microsoft Docs
+title: Problemas ao entrar no aplicativo de logon único federado não-Galeria
 description: Diretrizes para os problemas específicos que você pode enfrentar ao entrar em um aplicativo configurado para o logon único federado baseado em SAML com Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d26f52db394877cff13bf4b0b476a9603c1ddba8
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0b8aac627936aef2cfa79bbd92d6163fe40b4d32
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381387"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274847"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo inexistente na galeria configurado para logon único federado
 
@@ -32,7 +32,7 @@ Para solucionar os problemas de entrada abaixo, recomendamos que você siga esta
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 
-*Erro AADSTS70001: O aplicativo com `https://contoso.com` identificador não foi encontrado no diretório*.
+*Erro AADSTS70001: o aplicativo com o identificador `https://contoso.com` não foi encontrado no diretório*.
 
 **Possível causa**
 
@@ -40,7 +40,7 @@ O atributo que o Emissor envia do aplicativo para o Azure AD na solicitação SA
 
 **Resolução**
 
-Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
+Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
 
 1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
@@ -52,7 +52,7 @@ Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do i
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
@@ -62,7 +62,7 @@ Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do i
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo. 
 
-*Erro AADSTS50011: O endereço `https://contoso.com` de resposta não corresponde aos endereços de resposta configurados para o aplicativo* 
+*Erro AADSTS50011: o endereço de resposta `https://contoso.com` não corresponde aos endereços de resposta configurados para o aplicativo* 
 
 **Possível causa** 
 
@@ -70,7 +70,7 @@ O valor de AssertionConsumerServiceURL na solicitação SAML não corresponde ao
 
 **Resolução** 
 
-Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
+Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
  
 1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.** 
 
@@ -88,13 +88,13 @@ Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do i
 
 7. Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
-8. Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique ou atualize o valor na caixa de texto URL de resposta para `AssertionConsumerServiceURL` corresponder ao valor na solicitação SAML.    
+8. Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique ou atualize o valor na caixa de texto URL de resposta para corresponder ao valor de `AssertionConsumerServiceURL` na solicitação SAML.    
     
 Depois de atualizar o valor da URL de resposta no Azure AD, e ele corresponder ao valor enviado pelo aplicativo na solicitação SAML, você deverá ser capaz de entrar no aplicativo.
 
 ## <a name="user-not-assigned-a-role"></a>Usuário não atribuído a uma função
 
-*Erro AADSTS50105: O usuário `brian\@contoso.com` conectado não está atribuído a uma função para o aplicativo*
+*Erro AADSTS50105: o usuário conectado `brian\@contoso.com` não está atribuído a uma função para o aplicativo*
 
 **Possível causa**
 
@@ -114,7 +114,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
@@ -128,7 +128,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
-12. **Opcional:** Caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
+12. **Opcional:** caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
 
 13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 
@@ -164,15 +164,15 @@ O fornecedor do aplicativo deve validar que eles dão suporte à implementação
 
 ## <a name="misconfigured-application"></a>Aplicativo configurado incorretamente
 
-*Erro AADSTS650056: Aplicativo configurado incorretamente. Isso pode ser devido a um dos seguintes: O cliente não listou nenhuma permissão para ' AAD Graph ' nas permissões solicitadas no registro do aplicativo do cliente. Ou, o administrador não consentiu no locatário. Ou então, verifique o identificador do aplicativo na solicitação para garantir que ele corresponda ao identificador do aplicativo cliente configurado. Entre em contato com seu administrador para corrigir a configuração ou o consentimento em nome do locatário.* .
+*Erro AADSTS650056: aplicativo configurado incorretamente. Isso pode ser devido a um dos seguintes: o cliente não listou nenhuma permissão para ' AAD Graph ' nas permissões solicitadas no registro do aplicativo do cliente. Ou, o administrador não consentiu no locatário. Ou então, verifique o identificador do aplicativo na solicitação para garantir que ele corresponda ao identificador do aplicativo cliente configurado. Entre em contato com seu administrador para corrigir a configuração ou o consentimento em nome do locatário.*
 
 **Possível causa**
 
-O `Issuer` atributo enviado do aplicativo para o Azure ad na solicitação SAML não corresponde ao valor do identificador configurado para o aplicativo no Azure AD.
+O atributo `Issuer` enviado do aplicativo para o Azure AD na solicitação SAML não corresponde ao valor do identificador configurado para o aplicativo no Azure AD.
 
 **Resolução**
 
-Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente:
+Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador**.
 
@@ -212,7 +212,7 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
@@ -228,7 +228,7 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 
 ## <a name="saml-request-not-present-in-the-request"></a>A solicitação SAML não está presente na solicitação
 
-*Erro AADSTS750054: SAMLRequest ou SAMLResponse deve estar presente como parâmetro de cadeia de caracteres na solicitação HTTP para a Associação de redirecionamento SAML.*
+*Erro AADSTS750054: SAMLRequest ou SAMLResponse deve estar presente como parâmetros de cadeia de caracteres de consulta na solicitação HTTP para associação de redirecionamento SAML.*
 
 **Possível causa**
 

@@ -1,5 +1,5 @@
 ---
-title: Ocultar um aplicativo da experiência do usuário no Azure Active Directory | Microsoft Docs
+title: Ocultar um aplicativo da experiência do usuário no Azure AD
 description: Como ocultar um aplicativo da experiência do usuário em painéis de acesso do Microsoft Azure Active Directory ou inicializadores do Office 365.
 services: active-directory
 author: msmimart
@@ -12,18 +12,18 @@ ms.date: 11/12/2018
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd98aa974f2adcd363c04c10b7a10cef6ca8ce7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e01c79c5cc9391922333af4e9a60ba44a6a6b13
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824531"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273998"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Ocultar aplicativos de usuários finais no Azure Active Directory
 
 Instruções sobre como ocultar aplicativos do painel MyApps dos usuários finais ou inicializador do Office 365. Quando um aplicativo estiver oculto, os usuários ainda terão permissões para o aplicativo. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os privilégios de administrador do aplicativo são necessários para ocultar um aplicativo do painel MyApps e do inicializador do Office 365.
 

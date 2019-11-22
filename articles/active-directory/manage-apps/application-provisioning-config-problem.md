@@ -1,5 +1,5 @@
 ---
-title: Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD | Microsoft Docs
+title: Problema ao configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD
 description: Como solucionar problemas comuns enfrentados ao configurar provisionamento do usuário para um aplicativo já listado na Galeria de aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a8eaa46b46551f9b6075ec10b38de80f84c22a0
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 55b9b8dae6ff47099935f42f75286b1b4ddd3708
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034169"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275753"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD
 
@@ -33,9 +33,9 @@ Você sempre deve começar encontrando o tutorial de instalação específica de
 
 Depois que o serviço estiver configurado, a maioria das informações sobre a operação do serviço podem ser obtidas de dois lugares:
 
--   **Provisionando logs (versão prévia)** – os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registram todas as operações executadas pelo serviço de provisionamento, incluindo a consulta do Azure ad para usuários atribuídos que estão no escopo do provisionamento. O aplicativo de destino para a existência desses usuários, comparando os objetos de usuário entre o sistema de consulta. Em seguida, adicione, atualize ou desabilite a conta de usuário no sistema de destino com base na comparação. Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos** &gt; empresariais **logs de provisionamento (versão prévia)** na seção **atividade** .
+-   **Provisionando logs (versão prévia)** – os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registram todas as operações executadas pelo serviço de provisionamento, incluindo a consulta do Azure ad para usuários atribuídos que estão no escopo do provisionamento. O aplicativo de destino para a existência desses usuários, comparando os objetos de usuário entre o sistema de consulta. Em seguida, adicione, atualize ou desabilite a conta de usuário no sistema de destino com base na comparação. Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **Provisionando logs (versão prévia)** na seção **atividade** .
 
--   **Status atual –** Um resumo da última execução de provisionamento para um determinado aplicativo pode ser visto na seção **Azure Active Directory &gt; o provisionamento de nome &gt; \] &gt;de aplicativo dos \[aplicativos empresariais** , na parte inferior do na tela nas configurações do serviço. A seção status atual mostra se um ciclo de provisionamento começou a provisionar contas de usuário. Você pode ver o progresso do ciclo, ver quantos usuários e grupos foram provisionados e ver quantas funções são criadas. Se houver erros, os detalhes poderão ser encontrados nos logs de [provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
+-   **Status atual –** Um resumo da última execução de provisionamento para um determinado aplicativo pode ser visto no **Azure Active Directory &gt; aplicativos empresariais &gt; \[nome do aplicativo\] &gt;seção provisionamento** , na parte inferior da tela, nas configurações do serviço. A seção status atual mostra se um ciclo de provisionamento começou a provisionar contas de usuário. Você pode ver o progresso do ciclo, ver quantos usuários e grupos foram provisionados e ver quantas funções são criadas. Se houver erros, os detalhes poderão ser encontrados nos logs de [provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas de problemas gerais com o provisionamento a considerar
 
@@ -68,7 +68,7 @@ Quando um usuário aparece como "ignorado" nos logs de provisionamento, é muito
 
 - **Um atributo obrigatório está ausente ou não está preenchido para um usuário.** Uma coisa importante a considerar ao configurar o provisionamento ser examinar e configurar os mapeamentos de atributo e fluxos de trabalho que definem quais fluxo propriedades de usuário (ou grupo) do Azure AD para o aplicativo. Isso inclui a configuração de "propriedade correspondente" usada para identificar exclusivamente e corresponder usuários/grupos entre os dois sistemas. Para obter mais informações sobre esse importante processo, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
 
-  * **Mapeamentos de atributo para grupos:** Provisionamento do nome do grupo e dos detalhes do grupo, além dos membros, se houver suporte para alguns aplicativos. Você pode habilitar ou desabilitar essa funcionalidade, habilitando ou desabilitando o **Mapeamento** para objetos de grupo mostrados na guia **Provisionamento**. Se o provisionamento de grupos é habilitado, certifique-se de rever os mapeamentos de atributos para garantir que um campo apropriado está sendo usado para a "ID correspondente". Este pode ser o nome de exibição ou alias de email, já que o grupo e seus membros não são provisionados se a propriedade correspondente está vazia ou não está preenchida para um grupo no Azure AD.
+  * **Mapeamentos de atributos para grupos:** provisionamento do nome do grupo e detalhes do grupo, além de membros, se houver suporte para alguns aplicativos. Você pode habilitar ou desabilitar essa funcionalidade habilitando ou desabilitando o **mapeamento** para objetos de grupo mostrados na guia **provisionamento** . Se o provisionamento de grupos estiver habilitado, certifique-se de examinar os mapeamentos de atributo para garantir que um campo apropriado esteja sendo usado para a "ID correspondente". Este pode ser o nome de exibição ou alias de email, já que o grupo e seus membros não são provisionados se a propriedade correspondente está vazia ou não está preenchida para um grupo no Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](user-provisioning.md)

@@ -1,6 +1,6 @@
 ---
 title: Coletar métricas personalizadas para VM Linux com o agente InfluxData Telegraf
-description: Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
+description: instruções sobre como implantar o agente InfluxData telegraf em uma VM do Linux no Azure e configurar o agente para publicar métricas para Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 4e8783d500ed7dd6e8e5d518d2a4fbe5e5e1e276
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200529"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305280"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 
@@ -29,7 +29,7 @@ O [Telegraf](https://docs.influxdata.com/telegraf/v1.7/) é um agente controlado
 
 Para este tutorial, podemos implantar uma VM do Linux que executa o sistema operacional Ubuntu 16.04 LTS. A maioria dos sistemas operacionais Linux tem suporte para o agente Telegraf. Os pacotes Debian e RPM estão disponíveis junto com binários descompactados do Linux no portal de download do [InfluxData](https://portal.influxdata.com/downloads). Consulte este [guia de instalação Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para instruções de instalação adicionais e opções. 
 
-Entre no [portal do Azure](https://portal.azure.com).
+Entre no [Portal do Azure](https://portal.azure.com).
 
 Crie uma nova VM do Linux: 
 
@@ -49,7 +49,7 @@ Crie uma nova VM do Linux:
 
 1. Na página **configurações** em **rede** > **grupo de segurança de rede** > **selecione portas de entrada públicas**, selecione **http** e **SSH (22)** . Deixe o restante dos padrões e selecione **OK**. 
 
-1. Na página Resumo, selecione **Criar** para iniciar a implantação da máquina virtual. 
+1. Na página **Resumo**, selecione {0}Criar{0} para iniciar a implantação da máquina virtual. 
 
 1. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, o resumo da VM abre automaticamente. 
 
@@ -130,8 +130,8 @@ Além disso, neste passo a passo, você usou o agente Telegraf para emitem métr
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos para a máquina virtual e selecione **excluir**. Em seguida, confirme o nome do grupo de recursos para excluir. 
 
-## <a name="next-steps"></a>Próximos passos
-- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
+## <a name="next-steps"></a>Próximas etapas
+- Saiba mais sobre as [métricas personalizadas](metrics-custom-overview.md).
 
 
 

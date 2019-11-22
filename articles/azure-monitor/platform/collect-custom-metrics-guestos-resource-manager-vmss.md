@@ -1,5 +1,5 @@
 ---
-title: Enviar métricas do sistema operacional convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para um conjunto de dimensionamento de máquina virtual do Windows
+title: Coletar métricas do conjunto de dimensionamento do Windows no Azure Monitor com o modelo
 description: Enviar métricas do sistema operacional convidado para o repositório de métricas do Monitor do Azure usando um modelo do Gerenciador de Recursos para um conjunto de dimensionamento de máquina virtual do Windows
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8ee8c0c9d9724706f9b46013eba14e878832fd02
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844977"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286129"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas do sistema operacional convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para um conjunto de dimensionamento de máquina virtual do Windows
 
@@ -25,9 +25,9 @@ O artigo descreve o processo para enviar métricas de desempenho do SO convidado
 
 Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações de modelos](../../azure-resource-manager/resource-group-overview.md) e sua estrutura e sintaxe.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Sua assinatura precisará ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - Você precisa ter [Azure PowerShell](/powershell/azure) instalado, ou você pode usar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
@@ -233,7 +233,7 @@ Salve e feche ambos os arquivos.
 ## <a name="deploy-the-resource-manager-template"></a>Implantar o modelo do Resource Manager 
 
 > [!NOTE]  
-> Você deve estar executando a extensão 1.5 ou superior do Diagnóstico do Azure **e** ter a propriedade **autoUpgradeMinorVersion:** definida como **verdadeira** no modelo do Resource Manager. Então, o Azure carregará a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo. 
+> Você deve estar executando a extensão 1.5 ou superior do Diagnóstico do Azure **e** ter a propriedade **autoUpgradeMinorVersion:** definida como **verdadeira** no modelo do Resource Manager. O Azure, então, carrega a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo. 
 
 
 Para implantar o modelo do Resource Manager, use o Azure PowerShell:  
@@ -270,7 +270,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
    > Você pode encontrar erros ao redor selecionado **vmSkuSize**. Nesse caso, volte ao seu arquivo **azuredeploy.json** e atualize o valor padrão do parâmetro **vmSkuSize**. É recomendável que você tente **Standard_DS1_v2**. 
 
 
-## <a name="chart-your-metrics"></a>Fazer um gráfico das métricas 
+## <a name="chart-your-metrics"></a>Traçar um gráfico das métricas 
 
 1. Entre no Portal do Azure. 
 
@@ -284,7 +284,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
 
 1. No menu suspenso de recursos, selecione o conjunto de escalas da máquina virtual que você criou.  
 
-1. No menu suspenso namespaces, selecione **azure.vm.windows.guest**. 
+1. No menu suspenso de namespaces, selecione **azure.vm.windows.guest**. 
 
 1. No menu suspenso de métricas, selecione **Memória\%Bytes Confirmados em Uso**.  
 
@@ -293,6 +293,6 @@ Você também pode optar por usar as dimensões nessa métrica para traçar uma 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
+- Saiba mais sobre as [métricas personalizadas](metrics-custom-overview.md).
 
 

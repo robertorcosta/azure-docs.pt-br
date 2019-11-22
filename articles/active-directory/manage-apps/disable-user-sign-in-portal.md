@@ -1,5 +1,5 @@
 ---
-title: Desabilitar entradas de usuário em um aplicativo empresarial no Azure Active Directory | Microsoft Docs
+title: Desabilitar as entradas de usuário para um aplicativo empresarial no Azure AD
 description: Como desabilitar um aplicativo empresarial para que nenhum usuário possa entrar nele no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a08779d171367d982392ae4e987fb46e019e61f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 10553898376c4b9236ee62718fffccd45b12d70b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720270"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274083"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desabilitar entradas de usuário em um aplicativo empresarial no Azure Active Directory
 
@@ -29,7 +29,7 @@ ms.locfileid: "73720270"
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Como desabilitar entradas de usuário?
 
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório.
 1. Selecione **Todos os serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
 1. No painel **Azure Active Directory** -  ***DirectoryName*** (ou seja, o painel do Azure ad para o diretório que você está gerenciando), selecione **aplicativos empresariais**.
 1. No painel **aplicativos empresariais – todos os aplicativos** , você vê uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.

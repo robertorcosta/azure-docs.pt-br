@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Pingboard para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: provisionamento de usuário para Pingboard-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar contas de usuário automaticamente para o Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7e2fabc86374f7fe055303d056ae8e00f33389
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81988f2643fd9acb911e6f70765cedbb4786f14c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964377"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278248"
 ---
-# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar o Pingboard para o provisionamento automático de usuário
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que você precisa seguir para habilitar o provisionamento automático e o desprovisionamento de contas de usuário do Azure AD (Active Directory do Azure) para o Pingboard.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -84,7 +84,7 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
 
 1. Insira o endereço de email de uma pessoa ou um grupo que você deseja que receba notificações de erro de provisionamento no campo **Email de Notificação**. Marque a caixa de seleção logo abaixo.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o Pingboard**.
 

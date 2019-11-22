@@ -1,5 +1,5 @@
 ---
-title: Configurar aplicativos SaaS para colaboração B2B – Azure Active Directory | Microsoft Docs
+title: Configurar aplicativos SaaS para colaboração B2B – Azure AD
 description: Exemplos de código e do PowerShell para colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65811939"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272946"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicativos SaaS para colaboração B2B
 
@@ -79,7 +79,7 @@ Você pode permitir que os usuários autentiquem os usuários convidados do Box 
 
 2. Configure o logon único na seguinte ordem:
 
-   ![Captura de tela que mostra as definições de configuração de logon único](media/configure-saas-apps/configure-box-sso.png)
+   ![Captura de tela mostrando as definições de configuração de logon único](media/configure-saas-apps/configure-box-sso.png)
 
    a. Na caixa **URL de Logon**, verifique se a URL de Logon está definida corretamente para o Box no portal do Azure. Essa é a URL do seu locatário Box.com. Ela deve seguir a convenção de nomenclatura *https://.box.com* .  
    O **Identificador** não se aplica a esse aplicativo, mas ainda aparece como um campo obrigatório.
@@ -104,6 +104,6 @@ Consulte os seguintes artigos na colaboração B2B do Azure AD:
 
 - [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 - [Grupos dinâmicos e colaboração B2B](use-dynamic-groups.md)
-- [Mapeamento de declarações de usuário de colaboração B2B](claims-mapping.md)
+- [Mapeamento de declarações do usuário de colaboração B2B](claims-mapping.md)
 - [Compartilhamento externo do Office 365](o365-external-user.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Logon vinculado para aplicativos do Azure AD-plataforma Microsoft Identity | Microsoft Docs
+title: Logon vinculado para aplicativos do Azure AD-plataforma Microsoft Identity
 description: Configurar o logon único vinculado (SSO) para seus aplicativos empresariais do Azure AD na plataforma Microsoft Identity (Azure AD)
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1e26a3c7d284a60b830f6f66cdcecef97db4d6
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2c4547bddeea8b67bd3377124b1c299662fea3e6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834626"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274180"
 ---
 # <a name="configure-linked-sign-on"></a>Configurar o logon vinculado
 
@@ -43,9 +43,9 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confir
 
 1. Insira a URL do aplicativo a ser vinculado. Digite a URL e selecione **salvar**. 
  
-1. Você pode atribuir usuários e grupos ao aplicativo, o que faz com que o aplicativo seja exibido no iniciador de [aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do Azure ad](end-user-experiences.md) para esses usuários.
+1. Você pode atribuir usuários e grupos ao aplicativo, o que faz com que o aplicativo seja exibido no [iniciador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do Azure ad](end-user-experiences.md) para esses usuários.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: Resgate do convite em colaboração B2B - Azure Active Directory | Microsoft Docs
+title: Resgate de convite na colaboração B2B – Azure AD
 description: Descreve a experiência de resgate de convite de colaboração B2B do Azure AD para usuários finais, incluindo o contrato de termos de privacidade.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d32818f9e96e931f9e8c3c13554752327c5c456
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3e85b0ae298589c0e0e051a24e5db89eae81db62
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622621"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272128"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate do convite de colaboração do Azure Active Directory B2B
 
@@ -38,10 +38,10 @@ Quando você adiciona um usuário convidado ao seu diretório [usando o portal d
 Como alternativa ao email de convite, você pode dar a um convidado um link direto para seu aplicativo ou Portal. Primeiro, você precisa adicionar o usuário convidado ao seu diretório por meio do [portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) ou do [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Em seguida, você pode usar qualquer uma das [maneiras personalizáveis para implantar aplicativos para usuários](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), incluindo links de logon diretos. Quando um convidado usa um link direto em vez do email de convite, ele ainda será guiado pela primeira experiência de consentimento.
 
 > [!IMPORTANT]
-> O link direto deve ser específico do locatário. Em outras palavras, ele deve incluir uma ID de locatário ou um domínio verificado para que o convidado possa ser autenticado em seu locatário, onde o aplicativo compartilhado está localizado. Uma URL comum como https://myapps.microsoft.com não funcionará para um convidado porque será redirecionada para seu locatário inicial para autenticação. Aqui estão alguns exemplos de links diretos com o contexto do locatário:
- > - Painel de acesso de https://myapps.microsoft.com/?tenantid=&lt aplicativos:; ID do locatário&gt; 
- > - Painel de acesso de aplicativos para um domínio https://myapps.microsoft.com/&lt verificado:; domínio verificado&gt;
- > - Portal do Azure: https://portal.azure.com/&lt ; ID do locatário&gt;
+> O link direto deve ser específico do locatário. Em outras palavras, ele deve incluir uma ID de locatário ou um domínio verificado para que o convidado possa ser autenticado em seu locatário, onde o aplicativo compartilhado está localizado. Uma URL comum como https://myapps.microsoft.com não funcionará para um convidado porque ela será redirecionada para seu locatário inicial para autenticação. Aqui estão alguns exemplos de links diretos com o contexto do locatário:
+ > - Painel de acesso de aplicativos: https://myapps.microsoft.com/?tenantid=&lt; ID do locatário&gt; 
+ > - Painel de acesso de aplicativos para um domínio verificado: https://myapps.microsoft.com/&lt;&gt; de domínio verificado
+ > - Portal do Azure: https://portal.azure.com/&lt; ID do locatário&gt;
  > - Aplicativo individual: consulte como usar um [link de logon direto](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Há alguns casos em que o email de convite é recomendado em um link direto. Se esses casos especiais forem importantes para sua organização, recomendamos que você convide os usuários usando métodos que ainda enviam o email de convite:
@@ -58,14 +58,14 @@ Quando um convidado entra para acessar recursos em uma organização parceira pe
    ![Captura de tela mostrando a página Analisar as permissões](media/redemption-experience/review-permissions.png) 
 
    > [!NOTE]
-   > Para obter informações sobre como você, como administrador de locatários, pode fornecer um link para a política de privacidade de sua organização, confira [Como: Adicionar informações de privacidade de sua organização ao Azure Active Directory](https://aka.ms/adprivacystatement).
+   > Para obter informações sobre como você, administrador de locatários, pode vincular a declaração de privacidade da sua organização, consulte [Como adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement).
 
 2. Se os termos de uso estiverem configurados, o convidado será aberto e examinará os termos de uso e, em seguida, selecionará **aceitar**. 
 
    ![Captura de tela mostrando os novos termos de uso](media/redemption-experience/terms-of-use-accept.png) 
 
    > [!NOTE]
-   > Você pode configurar Ver [termos de uso](../governance/active-directory-tou.md) em **gerenciar** > **relações** > organizacionais**termos de uso**.
+   > Você pode configurar Ver os [termos de uso](../governance/active-directory-tou.md) em **gerenciar** > **relações organizacionais** > **termos de uso**.
 
 3. A menos que especificado de outra forma, o convidado é redirecionado para o painel de acesso de aplicativos, que lista os aplicativos que o convidado pode acessar.
 

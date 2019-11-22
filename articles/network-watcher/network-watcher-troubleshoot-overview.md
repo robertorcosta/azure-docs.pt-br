@@ -1,5 +1,6 @@
 ---
-title: Introdução à solução de problemas do recurso no Observador de Rede do Azure | Microsoft Docs
+title: Introdução à solução de problemas de recursos
+titleSuffix: Azure Network Watcher
 description: Essa página fornece uma visão geral das capacidades de solução de problemas do recurso do Observador de Rede
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684237"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277786"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
@@ -75,7 +76,7 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não|
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Sim |
 | ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
-| Authentication | Incompatibilidade de chave pré-compartilhada | Sim|
+| Autenticação | Incompatibilidade de chave pré-compartilhada | Sim|
 | PeerReachability | O gateway correspondente não está acessível. | Sim|
 | IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
 | WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
@@ -87,14 +88,14 @@ A tabela a seguir lista quais gateways e conexões têm suporte com a solução 
 |  |  |
 |---------|---------|
 |**Tipos de gateway**   |         |
-|VPN      | Com suporte        |
+|VPN      | Suportado        |
 |ExpressRoute | Sem suporte |
 |**Tipos de VPN** | |
-|Baseada em Rota | Com suporte|
+|Baseada em Rota | Suportado|
 |Baseada em Políticas | Sem suporte|
 |**Tipos de conexão**||
-|IPsec| Com suporte|
-|VNet2Vnet| Com suporte|
+|IPsec| Suportado|
+|VNet2Vnet| Suportado|
 |ExpressRoute| Sem suporte|
 |VPNClient| Sem suporte|
 
@@ -107,7 +108,7 @@ Os arquivos de log para solução de problemas de recursos são armazenados em u
 > [!NOTE]
 > Em alguns casos, somente um subconjunto dos arquivos de log é gravado no armazenamento.
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento, acesse o link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

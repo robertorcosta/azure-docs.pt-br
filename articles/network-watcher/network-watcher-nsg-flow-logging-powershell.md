@@ -1,5 +1,6 @@
 ---
-title: Gerenciar logs de fluxo de Grupo de Segurança de Rede com o Observador de Rede do Azure - PowerShell | Microsoft Docs
+title: Gerenciar logs de fluxo NSG-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: Esta página explica como gerenciar logs de fluxo de Grupo de Segurança de Rede no Observador de Rede do Azure com o PowerShell
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 508fe6f7dc6c5fef99e5f62a2ce75b0c81b1577f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 162e499ba44557db388484639c21877fd8b852bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676343"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277957"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurar logs de fluxo de Grupo de Segurança de Rede com o PowerShell
 
@@ -29,11 +30,11 @@ ms.locfileid: "71676343"
 > - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Rede permite que você exiba informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
+Os logs de fluxo do Grupo de Segurança da Rede são um recurso do Observador de Rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança da Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e saída por regra, a NIC à qual o fluxo se aplica, informações com cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
 
 ## <a name="register-insights-provider"></a>Registrar o provedor Insights
 
-Para o registro de fluxo em log funcionar, o provedor **Microsoft.Insights** deve ser registrado. Se você não tiver certeza se o provedor **Microsoft.Insights** está registrado, execute o script a seguir.
+Para o registro em log de fluxo funcionar com sucesso, o provedor **Microsoft.Insights** deve ser registrado. Se você não tiver certeza se o provedor **Microsoft.Insights** está registrado, execute o script a seguir.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
@@ -95,7 +96,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 Para saber mais sobre a estrutura do log visite a [Visão geral do log do fluxo de Grupo de Segurança de Rede](network-watcher-nsg-flow-logging-overview.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Saiba como [Visualizar seus logs de fluxo NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: bd727e9c68a34c8e182a6726b257a6bf37178837
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023898"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306766"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 
@@ -38,6 +38,9 @@ ms.locfileid: "73023898"
 |**Documentação da API**|[Alterar a documentação de referência de API da biblioteca do Processador de Feed](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**Introdução**|[Introdução ao SDK .NET do processador do feed de alterações](change-feed.md)|
 |**Framework atualmente com suporte**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+
+> [!NOTE]
+> Se você estiver usando o processador do feed de alterações, consulte a versão mais recente 3. x do [SDK do .net](change-feed-processor.md), que tem o feed de alterações interno do SDK. 
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -195,10 +198,10 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 | [1.1.0](#1.1.0) |13 de agosto de 2017 |--- |
 | [1.0.0](#1.0.0) |07 de julho de 2017 |--- |
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

@@ -1,28 +1,24 @@
 ---
-title: Como criar um cluster Kubernetes habilitado para espaços de desenvolvimento do Azure usando o Azure Cloud Shell
-titleSuffix: Azure Dev Spaces
+title: Como criar um cluster kubernetes habilitado para Azure Dev Spaces usando Azure Cloud Shell
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 10/04/2018
 ms.topic: conceptual
 description: Aprenda a criar rapidamente um cluster do Kubernetes habilitado para Azure Dev Spaces diretamente do navegador sem instalar nada.
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: cd0c8c3c26feefe3448ada1cf1575706cd17e525
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: dbdc9226e417b3142284386ae3586819cda802d9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808697"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280107"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Criar um cluster do Kubernetes usando o Azure Cloud Shell
 
-Você pode usar [Azure Cloud Shell](/azure/cloud-shell) para criar um cluster do serviço de Kubernetes do Azure usando o **experimentar** botão nessa página. Se não estiver conectado, siga os prompts para entrar com uma conta do Azure e, em seguida, digite os comandos no prompt do Azure Cloud Shell quando for exibido.
+Você pode usar [Azure cloud Shell](/azure/cloud-shell) para criar um cluster do serviço kubernetes do Azure usando o botão **experimentar** nesta página. Se não estiver conectado, siga os prompts para entrar com uma conta do Azure e, em seguida, digite os comandos no prompt do Azure Cloud Shell quando for exibido.
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Primeiro, crie o grupo de recursos em um [região que dá suporte a espaços de desenvolvimento do Azure][supported-regions].
+Primeiro, crie o grupo de recursos em uma [região com suporte a Azure dev Spaces][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -41,7 +37,7 @@ São necessários alguns minutos para criar o cluster.  Quando concluída, a sa�
 Consulte [Azure Dev Spaces](/azure/dev-spaces/) para obter links e ter acesso a tutoriais completos.
 
 > [!IMPORTANT]
-> Muitos dos tutoriais e guias de início rápido do Azure Dev espaços usam a CLI de espaços de desenvolvimento do Azure para executar operações. É possível instalar a CLI de espaços de desenvolvimento do Azure no Azure Cloud Shell.
+> Muitos dos guias de início rápido e tutoriais do Azure Dev Spaces usam a CLI do Azure Dev Spaces para executar operações. Não é possível instalar a CLI do Azure Dev Spaces no Azure Cloud Shell.
 
 
 [supported-regions]: ../about.md#supported-regions-and-configurations

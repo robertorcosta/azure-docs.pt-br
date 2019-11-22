@@ -1,5 +1,6 @@
 ---
-title: Analisar a segurança de rede com exibição de grupo de segurança do Observador de Rede do Azure - API REST | Microsoft Docs
+title: Analisar segurança de rede-exibição do grupo de segurança-API REST do Azure
+titleSuffix: Azure Network Watcher
 description: Este artigo descreve como usar o PowerShell para analisar a segurança de uma máquina virtual com o modo de exibição de Grupo de Segurança.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 86fff39605fa91c1b09c1547dd0efa97b8fd26cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f11e288c28274e08fdabe7fee02a099410611872
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687859"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277903"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analisar a segurança de sua máquina virtual com o modo de exibição de Grupo de Segurança usando a API REST
 
@@ -53,7 +54,7 @@ armclient login
 
 Execute o script a seguir para retornar uma máquina virtual. O código a seguir precisa de variáveis:
 
-- **subscriptionId** -a id da assinatura também pode ser recuperada com o **Get-AzSubscription** cmdlet.
+- **SubscriptionId** -a ID da assinatura também pode ser recuperada com o cmdlet **Get-AzSubscription** .
 - **resourceGroupName** - o nome de um grupo de recursos que contém as máquinas virtuais.
 
 ```powershell
