@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 00f579017ce4dd79e913565ee27698398b5feb38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823600"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421565"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bancos de dados na nuvem escalados horizontalmente
 
@@ -24,7 +24,7 @@ Se você for um desenvolvedor de Software como Serviço e seu aplicativo sofrer 
 
 A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. Um administrador ou desenvolvedor usa a ferramenta para mover shardlets (dados de um fragmento) entre diferentes bancos de dados (fragmentos). A ferramenta usa o gerenciamento de mapa de fragmentos para manter o banco de dados de metadados de serviço e garantir mapeamentos consistentes.
 
-![Visão geral][1]
+![Visão Geral][1]
 
 ## <a name="download"></a>Baixar
 
@@ -104,14 +104,15 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
-    // Reference tables
+    // reference tables
     schemaInfo.Add(new ReferenceTableInfo("dbo", "region"));
     schemaInfo.Add(new ReferenceTableInfo("dbo", "nation"));
 
-    // Sharded tables
+    // sharded tables
     schemaInfo.Add(new ShardedTableInfo("dbo", "customer", "C_CUSTKEY"));
     schemaInfo.Add(new ShardedTableInfo("dbo", "orders", "O_CUSTKEY"));
-    // Publish
+
+    // publish
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
@@ -216,21 +217,26 @@ O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do 
 ## <a name="deploy-diagnostics"></a>Implantar Diagnósticos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 Para habilitar o monitoramento e diagnóstico usando a configuração de diagnóstico para as funções Web e de trabalho fornecidas pelo pacote NuGet, execute os seguintes comandos usando o Azure PowerShell:
 
 ```powershell
-    $storage_name = "<YourAzureStorageAccount>"
-    $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
-    $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"
-    $config_path = "<YourFilePath>\SplitMergeWorkerContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
+$storageName = "<azureStorageAccount>"
+$key = "<azureStorageAccountKey"
+$storageContext = New-AzStorageContext -StorageAccountName $storageName -StorageAccountKey $key
+$configPath = "<filePath>\SplitMergeWebContent.diagnostics.xml"
+$serviceName = "<cloudServiceName>"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWeb"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWorker"
 ```
 
 Você pode encontrar mais informações sobre como configurar e implantar configurações de diagnóstico aqui: [Habilitando o diagnóstico nos Serviços de Nuvem e nas Máquinas Virtuais do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
@@ -245,7 +251,7 @@ O WADLogsTable destacado na figura acima contém os eventos detalhados do log de
 
 ![Configuração][3]
 
-## <a name="performance"></a>Desempenho
+## <a name="performance"></a>Performance
 
 Em geral, é esperado um melhor desempenho das camadas de serviço maiores e mais funcionais no Banco de dados SQL do Azure. Alocações de E/S, CPU e memória maiores para camadas de serviço mais altas beneficiarão a cópia em massa e excluirão operações que o serviço de divisão/mesclagem usa internamente. Por esse motivo, aumente a camada de serviço apenas para os bancos de dados por um período definido e limitado.
 

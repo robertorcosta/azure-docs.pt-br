@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de espaço de arquivo de bancos de dados individuais/em pool
+title: Single/pooled databases file space management
 description: Esta página descreve como gerenciar o espaço no arquivo com bancos de dados individuais e em pool no Banco de Dados SQL do Azure e fornece exemplos de código para determinar se você precisará reduzir um banco de dados individual ou em pool, além de como executar uma operação de redução do banco de dados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: a8fe58313bce6e9a21b07aa095672ec35ce572d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 007bbffbd7c4fcad339f88eb78991eb39fb829e6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803052"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420974"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados individuais e em pool no Banco de Dados SQL do Azure
 
@@ -25,11 +25,7 @@ Este artigo descreve os diferentes tipos de espaço de armazenamento para bancos
 > [!NOTE]
 > Este artigo faz não se aplica à opção de implantação de instância gerenciada no Banco de Dados SQL do Azure.
 
-## <a name="overview"></a>Visão geral
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
+## <a name="overview"></a>Visão Geral
 
 Com bancos de dados individuais e em pool no Banco de Dados SQL do Azure, há padrões de carga de trabalho nos quais a alocação de arquivos de dados subjacentes para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usadas. Essa condição pode ocorrer quando o espaço usado aumenta e os dados são excluídos posteriormente. O motivo é porque o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos.
 
@@ -56,7 +52,7 @@ No entanto, as seguintes APIs também medem o tamanho do espaço alocado para os
 O serviço de Banco de Dados SQL não reduz automaticamente os arquivos de banco de dados para recuperar espaço alocado não utilizado devido ao possível impacto no desempenho do banco de dados.  No entanto, os clientes podem reduzir o arquivo em um banco de dados no momento de sua escolha, seguindo as etapas descritas em [recuperar espaço não utilizado alocado](#reclaim-unused-allocated-space).
 
 > [!NOTE]
-> Ao contrário dos arquivos de dados, o serviço Banco de Dados SQL reduz automaticamente os arquivos de log, pois essa operação não afeta o desempenho do banco de dados. 
+> Ao contrário dos arquivos de dados, o serviço Banco de Dados SQL reduz automaticamente os arquivos de log, pois essa operação não afeta o desempenho do banco de dados.
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>Entendendo os tipos de espaço de armazenamento para um banco de dados
 
@@ -68,7 +64,6 @@ Noções básicas sobre as quantidades de espaço de armazenamento a seguir são
 |**Espaço alocado de dados**|A quantidade de espaço no arquivo formatado disponibilizada para armazenar dados do banco de dados.|O quantidade de espaço alocado cresce automaticamente, mas nunca diminui após as exclusões. Esse comportamento garante que as futuras inserções sejam mais rápidas, já que o espaço não precisa ser reformatado.|
 |**Espaço de dados alocados, mas não utilizado**|A diferença entre a quantidade de espaço de dados alocado e espaço de dados usado.|Essa quantidade representa a quantidade máxima de espaço livre que pode ser recuperado pela redução de arquivos de dados do banco de dados.|
 |**Tamanho máximo dos dados**|A quantidade máxima de espaço para dados que pode ser usada para armazenar dados do banco de dados.|A quantidade do espaço de dados alocados não pode crescer além do tamanho máximo de dados.|
-||||
 
 O diagrama a seguir ilustra o relacionamento entre os tipos de espaço diferentes de espaço de armazenamento para um banco de dados.
 
@@ -98,13 +93,13 @@ Use a seguinte consulta para retornar a quantidade de espaço de dados do banco 
 ```sql
 -- Connect to database
 -- Database data space allocated in MB and database data space allocated unused in MB
-SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB, 
-SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB 
+SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
+SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
- 
+
 ### <a name="database-data-max-size"></a>Tamanho máximo de dados de banco de dados
 
 Modifique a consulta a seguir para retornar o tamanho máximo do banco de dados.  Unidades do resultado da consulta são em bytes.
@@ -125,7 +120,6 @@ Noções básicas sobre as quantidades de espaço de armazenamento a seguir são
 |**Espaço alocado de dados**|O resumo de espaço de dados alocado por todos os bancos de dados no pool elástico.||
 |**Espaço de dados alocados, mas não utilizado**|A diferença entre a quantidade de espaço de dados alocado e espaço de dados usado por todos os banco de dados no pool elástico.|Essa quantidade representa a quantidade máxima de espaço alocado para o pool elástico que pode ser recuperado pela redução de arquivo de dados do banco de dados.|
 |**Tamanho máximo dos dados**|A quantidade máxima de espaço para dados que pode ser usada pelo pool elástico de todos esses bancos de dados.|O espaço alocado não deve exceder o tamanho máximo do pool elástico.  Se essa condição ocorrer, o espaço alocado que não for utilizado poderá ser recuperado, encolhendo os arquivos de dados do banco de dados.|
-||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consultar um pool elástico para informações de espaço de armazenamento
 
@@ -146,36 +140,29 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de pool elástico alocado e espaço alocado não usado
 
-Modifique o seguinte script do PowerShell para retornar uma tabela listando o espaço total alocado e o espaço não utilizado alocado para cada banco de dados em um pool elástico. A tabela ordena bancos de dados desses bancos de dados com a maior quantidade de espaço alocado não utilizado para a menor quantidade de espaço alocado não utilizado.  Unidades do resultado da consulta são em MB.  
+Modify the following examples to return a table listing the space allocated and unused allocated space for each database in an elastic pool. A tabela ordena bancos de dados desses bancos de dados com a maior quantidade de espaço alocado não utilizado para a menor quantidade de espaço alocado não utilizado.  Unidades do resultado da consulta são em MB.  
 
 Os resultados da consulta para determinar o espaço alocado para cada banco de dados no pool podem ser incluídos juntos para determinar o espaço do pool elástico alocado. O espaço do pool elástico alocado não deve exceder o tamanho máximo do pool elástico.  
+
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 O script do PowerShell requer o módulo do SQL Server PowerShell - consulte [Download do módulo do PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para instalar.
 
 ```powershell
-# Resource group name
-$resourceGroupName = "rg1" 
-# Server name
-$serverName = "ls2" 
-# Elastic pool name
-$poolName = "ep1"
-# User name for server
-$userName = "name"
-# Password for server
-$password = "password"
+$resourceGroupName = "<resourceGroupName>"
+$serverName = "<serverName>"
+$poolName = "<poolName>"
+$userName = "<userName>"
+$password = "<password>"
 
-# Get list of databases in elastic pool
-$databasesInPool = Get-AzSqlElasticPoolDatabase `
-    -ResourceGroupName $resourceGroupName `
-    -ServerName $serverName `
-    -ElasticPoolName $poolName
+# get list of databases in elastic pool
+$databasesInPool = Get-AzSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName -ElasticPoolName $poolName
 $databaseStorageMetrics = @()
 
-# For each database in the elastic pool,
-# get its space allocated in MB and space allocated unused in MB.
-  
-foreach ($database in $databasesInPool)
-{
+# for each database in the elastic pool, get space allocated in MB and space allocated unused in MB
+foreach ($database in $databasesInPool) {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `
     SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB, `
     SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB `
@@ -184,17 +171,13 @@ foreach ($database in $databasesInPool)
     HAVING type_desc = 'ROWS'"
     $serverFqdn = "tcp:" + $serverName + ".database.windows.net,1433"
     $databaseStorageMetrics = $databaseStorageMetrics + 
-        (Invoke-Sqlcmd -ServerInstance $serverFqdn `
-        -Database $database.DatabaseName `
-        -Username $userName `
-        -Password $password `
-        -Query $sqlCommand)
+        (Invoke-Sqlcmd -ServerInstance $serverFqdn -Database $database.DatabaseName `
+            -Username $userName -Password $password -Query $sqlCommand)
 }
-# Display databases in descending order of space allocated unused
+
+# display databases in descending order of space allocated unused
 Write-Output "`n" "ElasticPoolName: $poolName"
-Write-Output $databaseStorageMetrics | Sort `
-    -Property DatabaseDataSpaceAllocatedUnusedInMB `
-    -Descending | Format-Table
+Write-Output $databaseStorageMetrics | Sort -Property DatabaseDataSpaceAllocatedUnusedInMB -Descending | Format-Table
 ```
 
 A captura de tela a seguir é um exemplo da saída do script:
@@ -230,31 +213,30 @@ DBCC SHRINKDATABASE (N'db1')
 
 Esse comando pode afetar o desempenho do banco de dados enquanto está em execução e, se possível, deve ser executado durante períodos de baixa utilização.  
 
-Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
+Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>A redução automática
 
 Como alternativa, a redução automática pode ser ativada para um banco de dados.  A redução automática reduz a complexidade do gerenciamento de arquivos e é menos impactante para o desempenho do banco de dados do que o `SHRINKDATABASE` ou `SHRINKFILE`.  A redução automática pode ser particularmente útil para gerenciar pools elásticos com muitos bancos de dados.  No entanto, a redução automática pode ser menos eficaz na recuperação de espaço no arquivo do que `SHRINKDATABASE` e `SHRINKFILE`.
 Para ativar a redução automática, modifique o nome do banco de dados no comando a seguir.
 
-
 ```sql
 -- Enable auto-shrink for the database.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Para obter mais informações sobre esse comando, consulte [banco de dados definido](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) opções. 
+Para obter mais informações sobre esse comando, consulte [banco de dados definido](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) opções.
 
 ### <a name="rebuild-indexes"></a>Recriar índices
 
 Depois que os arquivos de dados do banco de dados são reduzidos, os índices podem se tornar fragmentados e perder sua eficácia de otimização do desempenho. Se a degradação do desempenho ocorrer, considere reconstruir os índices do banco de dados. Para obter mais informações sobre fragmentação e reconstrução de índices, consulte [Reorganizar e reconstruir índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre tamanhos máximos do banco de dados, consulte:
   - [Banco de dados SQL do Azure Limites do modelo de compra baseado em vCore para um único banco de dados](sql-database-vcore-resource-limits-single-databases.md)
   - [Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
   - [Banco de dados SQL do Azure limites de modelo de compra baseado em vCore para pools Elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
   - [Limites de recursos para pools elásticos usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-elastic-pools.md)
-- Para mais informações sobre o `SHRINKDATABASE`comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
+- Para mais informações sobre o `SHRINKDATABASE`comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 - Para obter mais informações sobre fragmentação e reconstrução de índices, consulte [Reorganizar e reconstruir índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
