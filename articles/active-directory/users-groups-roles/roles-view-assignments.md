@@ -82,7 +82,7 @@ Esta seção descreve a exibição de atribuições de uma função com escopo d
 
 Solicitação HTTP para obter uma atribuição de função para uma determinada definição de função.
 
-GET
+OBTER
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’

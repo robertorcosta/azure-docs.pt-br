@@ -58,7 +58,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * O software SAP e combinações de SO (sistema operacional) e banco de dados com suporte.
   * A versão do kernel do SAP necessária para Windows e Linux no Microsoft Azure.
 * A Nota SAP [2015553] lista pré-requisitos para implantações de software SAP com suporte do SAP no Azure.
-* Nota SAP [2002167] recomendou configurações do sistema operacional Red Hat Enterprise Linux
+* Nota SAP [2002167] recomendou configurações do SO para o Red Hat Enterprise Linux
 * Nota SAP [2009879] tem diretrizes SAP HANA para Red Hat Enterprise Linux
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramentos relatadas para o SAP no Azure.
 * A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
@@ -108,7 +108,7 @@ Para implantar o modelo, siga estas etapas:
     * **Tamanho do sistema SAP**: insira o número de SAPS que o novo sistema irá fornecer. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
     * Em **SYSTEMAVAILABILITY**, selecione **HA**.
     * **Nome de usuário de administrador, senha de administrador ou chave SSH**: é criado um novo usuário que pode ser usado para entrar no computador.
-    * **ID de sub-rede**: se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. Geralmente, a ID é semelhante a **/subscriptions/\<ID da assinatura ID>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual>/subnets/\<nome da sub-rede>** . Deixe em branco, se você quiser criar uma nova rede virtual
+    * **ID de sub-rede**: se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida a VM deve ser atribuída para a ID de sub-rede específico. Geralmente, a ID é semelhante a **/subscriptions/\<ID da assinatura ID>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual>/subnets/\<nome da sub-rede>** . Deixe em branco, se você quiser criar uma nova rede virtual
 
 ### <a name="manual-deployment"></a>Implantação manual
 

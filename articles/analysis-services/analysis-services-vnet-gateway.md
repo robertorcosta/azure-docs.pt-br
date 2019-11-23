@@ -35,7 +35,7 @@ Instância Gerenciada do Banco de Dados SQL do Azure fontes de dados são execut
     ![Sempre use propriedade de gateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 [Conectando fontes de dados locais](analysis-services-gateway.md)   
 [Instalar e configurar um gateway de dados local](analysis-services-gateway-install.md)   
 [VNET (Rede Virtual) do Azure](../virtual-network/virtual-networks-overview.md)   

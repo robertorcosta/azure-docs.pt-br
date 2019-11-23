@@ -27,7 +27,7 @@ Alguns desses conjuntos de dados estão disponíveis no armazenamento de Blobs d
 O restante desses conjuntos de dados de exemplo está disponível no workspace em **Conjuntos de dados salvos**. Você pode encontrar isso na paleta de módulo à esquerda da tela do experimento no Machine Learning Studio (clássico).
 Você pode usar qualquer um desses conjuntos de dados em seu próprio teste arrastando-o para a tela do teste.
 
-## <a name="datasets"></a>Conjunto de dados
+## <a name="datasets"></a>Conjuntos de dados
 
 <table>
 

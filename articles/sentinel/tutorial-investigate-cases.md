@@ -21,7 +21,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72024616"
 ---
-# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigue incidentes com o Azure Sentinel
+# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: investigar incidentes com o Azure Sentinel
 
 > [!IMPORTANT]
 > O grafo de investigação está atualmente em visualização pública.
@@ -31,7 +31,7 @@ ms.locfileid: "72024616"
 
 Este tutorial ajuda você a investigar incidentes com o Azure Sentinel. Depois de conectar suas fontes de dados ao Azure Sentinel, você deseja ser notificado quando algo suspeito acontecer. Para permitir que você faça isso, o Azure Sentinel permite que você crie regras de alerta avançadas, que geram incidentes que você pode atribuir e investigar.
 
-Este artigo aborda:
+Este artigo cobre:
 > [!div class="checklist"]
 > * Investigar incidentes
 > * Usar o grafo de investigação
@@ -70,9 +70,9 @@ O grafo de investigação permite que os analistas façam as perguntas certas pa
   
 O grafo de investigação fornece:
 
-- **Contexto visual de dados brutos**: A dinâmica, o Visual Graph exibe as relações de entidade extraídas automaticamente dos dados brutos. Isso permite que você veja facilmente as conexões entre diferentes fontes de dados.
+- **Contexto visual de dados brutos**: o Visual Graph dinâmico exibe as relações de entidade extraídas automaticamente dos dados brutos. Isso permite que você veja facilmente as conexões entre diferentes fontes de dados.
 
-- **Descoberta completa do escopo da investigação**: Expanda seu escopo de investigação usando consultas de exploração internas para trazer o escopo completo de uma violação.
+- **Descoberta completa de escopo de investigação**: expanda seu escopo de investigação usando consultas de exploração internas para trazer o escopo completo de uma violação.
 
 - **Etapas de investigação internas**: Use opções de exploração predefinidas para verificar se você está fazendo as perguntas certas diante de uma ameaça.
 
@@ -97,7 +97,7 @@ Para usar o grafo de investigação:
 
     ![Exibir alertas relacionados](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Para cada consulta de exploração, você pode selecionar a opção para abrir os resultados do evento bruto e a consulta usada em Log Analytics, selecionando **eventos @ no__t-1**.
+1. Para cada consulta de exploração, você pode selecionar a opção para abrir os resultados do evento bruto e a consulta usada em Log Analytics, selecionando **eventos\>** .
 
 1. Para entender o incidente, o grafo fornece uma linha do tempo paralela.
 

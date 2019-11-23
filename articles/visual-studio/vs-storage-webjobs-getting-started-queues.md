@@ -183,7 +183,7 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**Observação:** O painel pode não mostrar corretamente o status e a saída das funções que foram desligadas.
+**Observação:** o painel pode não mostrar corretamente o status e a saída das funções que foram desligadas.
 
 Para obter mais informações, consulte [Desligamento normal dos trabalhos Web](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
@@ -191,7 +191,7 @@ Para obter mais informações, consulte [Desligamento normal dos trabalhos Web](
 Para gravar uma função que cria uma nova mensagem da fila, use o atributo **Queue** . Como **QueueTrigger**, você passa o nome da fila como uma cadeia de caracteres ou pode [definir o nome da fila dinamicamente](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Mensagens da fila da cadeia
-O exemplo de código não síncrono a seguir cria uma nova mensagem de fila na fila denominada "outputqueue" com o mesmo conteúdo que a mensagem da fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **IAsyncCollector @ no__t-1T >** conforme mostrado posteriormente nesta seção.)
+O exemplo de código não síncrono a seguir cria uma nova mensagem de fila na fila denominada "outputqueue" com o mesmo conteúdo que a mensagem da fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **IAsyncCollector\<t >** conforme mostrado posteriormente nesta seção.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -217,7 +217,7 @@ public static void CreateQueueMessage(
 O SDK serializa automaticamente o objeto em JSON. Uma mensagem da fila sempre é criada, mesmo que o objeto seja nulo.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Criar várias mensagens ou em funções assíncronas
-Para criar várias mensagens, crie o tipo de parâmetro para a fila de saída **ICollector @ no__t-1T >** ou **IAsyncCollector @ no__t-3T >** , conforme mostrado no exemplo a seguir.
+Para criar várias mensagens, torne o tipo de parâmetro para a fila de saída **ICollector\<t >** ou **IAsyncCollector\<t >** , conforme mostrado no exemplo a seguir.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -395,7 +395,7 @@ public static void CopyBlob(
 * Definir as configurações de **QueueTrigger** como contagem máxima de remoção da fila.
 * Obtenha nomes de fila por meio da configuração.
 
-### <a name="set-sdk-connection-strings-in-code"></a>Defina as cadeias de conexão do SDK no código
+### <a name="set-sdk-connection-strings-in-code"></a>Definir cadeias de conexão do SDK no código
 A definição das cadeias de conexão do SDK no código lhe permite usar seus próprios nomes de cadeia de conexão em arquivos de configuração ou variáveis de ambiente, conforme mostrado no exemplo a seguir.
 
 ```csharp
@@ -478,7 +478,7 @@ static void Main(string[] args)
 }
 ```
 
-**Observação:** Os nomes de fila, tabela e blob são resolvidos sempre que uma função é chamada, mas os nomes dos contêineres de blobs são resolvidos somente quando o aplicativo é iniciado. Você não pode alterar o nome do contêiner de blob enquanto o trabalho está em execução.
+**Observação:** os nomes de fila, tabela e blob são resolvidos sempre que uma função é chamada, mas os nomes de contêineres de blob são resolvidos somente quando o aplicativo é iniciado. Você não pode alterar o nome do contêiner de blob enquanto o trabalho está em execução.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Como disparar uma função manualmente
 Para disparar uma função manualmente, use o método **Call** ou **CallAsync** no objeto **JobHost** e no atributo **NoAutomaticTrigger** na função, conforme mostrado no exemplo a seguir.
@@ -551,7 +551,7 @@ Em um Trabalho Web contínuo, os logs de aplicativo são mostrados em /data/jobs
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-Em um blob do Azure, os logs do aplicativo são semelhantes a este: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+Em um blob do Azure, os logs de aplicativo se parecem com este: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Olá, mundo!,
 
 Em uma tabela do Azure, os logs de **Console.Out** e **Console.Error** têm esta aparência:
 

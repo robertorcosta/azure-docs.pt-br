@@ -29,8 +29,8 @@ Criar e configurar um cofre de chaves para uso com o Azure Disk Encryption envol
 
 Essas etapas são ilustradas nos seguintes guias de início rápido:
 
-- [Criar e criptografar uma VM do Windows com CLI do Azure](disk-encryption-cli-quickstart.md)
-- [Criar e criptografar uma VM do Windows com Azure PowerShell](disk-encryption-cli-quickstart.md)
+- [Criar e criptografar uma VM do Windows com a CLI do Azure](disk-encryption-cli-quickstart.md)
+- [Criar e criptografar uma VM do Windows com o Azure PowerShell](disk-encryption-cli-quickstart.md)
 
 Você também pode, se desejar, gerar ou importar uma chave de criptografia de chave (KEK).
 
@@ -41,7 +41,7 @@ Você também pode, se desejar, gerar ou importar uma chave de criptografia de c
 
 As etapas neste artigo podem ser concluídas com o [CLI do Azure](/cli/azure/), o [módulo Azure PowerShell Az](/powershell/azure/overview)ou o [portal do Azure](https://portal.azure.com).
 
-Embora o portal possa ser acessado por meio de seu navegador, CLI do Azure e Azure PowerShell exigem a instalação local; consulte criptografia de disco [Azure para Windows: Instale as ferramentas @ no__t-0 para obter detalhes.
+Embora o portal possa ser acessado por meio de seu navegador, CLI do Azure e Azure PowerShell exigem a instalação local; consulte [Azure Disk Encryption para Windows: instalar ferramentas](disk-encryption-windows.md#install-tools-and-connect-to-azure) para obter detalhes.
 
 ### <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 

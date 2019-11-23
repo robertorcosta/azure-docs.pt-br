@@ -14,7 +14,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2019
 ms.locfileid: "72263935"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar o GitHub para o AKS (Serviço de Kubernetes do Azure) com a integração e implantação contínuas do Jenkins
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implante do GitHub para o Azure Kubernetes Service (AKS) com a integração e implantação contínuas do Jenkins
 
 Este tutorial implanta um aplicativo de amostra do GitHub em um [cluster do Serviço de Kubernetes do Azure (AKS)](/azure/aks/intro-kubernetes) configurando a integração contínua (IC) e a implantação contínua (CD) no Jenkins. Dessa forma, quando você atualiza seu aplicativo enviando confirmações para o GitHub, o Jenkins executa automaticamente uma nova compilação de contêiner, envia imagens do Registro de Contêiner do Azure (ACR) e executa seu aplicativo no AKS. 
 
@@ -33,7 +33,7 @@ Para concluir este tutorial, você precisará destes itens:
 
 - Reconhecimento básico de Kubernetes, Git, CI/CD e imagens de contêiner
 
-- Um [cluster AKs][aks-quickstart] e o `kubectl` configurados com as [credenciais do cluster AKs][aks-credentials]
+- Um [cluster AKs][aks-quickstart] e `kubectl` configurados com as [credenciais do cluster AKs][aks-credentials]
 
 - Um [registro de ACR (registro de contêiner do Azure)][acr-quickstart], o nome do servidor de logon do ACR e o cluster AKs configurado para [autenticar com o registro do ACR][acr-authentication]
 
@@ -89,7 +89,7 @@ Antes de poder enviar por push a imagem de contêiner *Azure-vote-front* para AC
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Use o comando [Docker tag][docker-tag] para marcar a imagem com o nome do servidor de logon do ACR e um número de versão `v1`. Forneça seu próprio nome `<acrLoginServer>` obtido na etapa anterior:
+Use o comando [Docker tag][docker-tag] para marcar a imagem com o nome do servidor de logon do ACR e um número de versão de `v1`. Forneça seu próprio nome `<acrLoginServer>` obtido na etapa anterior:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -230,8 +230,8 @@ Clique em **OK** e retorne ao portal do Jenkins.
 Na página inicial do portal do Jenkins, selecione **Novo item** no lado esquerdo:
 
 1. Insira *azure-vote* como nome do trabalho. Escolha **Projeto Freestyle** e selecione **OK**
-1. Na seção **geral** , selecione **projeto do GitHub** e insira a URL do repositório bifurcado, como *https: \//github. com/\<your-GitHub-Account @ no__t-5/Azure-votação-app-Redis*
-1. Na seção **Gerenciamento de código-fonte** , selecione **git**, insira a URL do repositório bifurcado *. Git* , como *https: \//GitHub. com/\<your-GitHub-Account @ no__t-6/Azure-Voting-app-Redis. git*
+1. Na seção **geral** , selecione **projeto do GitHub** e insira a URL do repositório bifurcado, como *https:\//github.com/\<sua conta do GitHub\>/Azure-Voting-app-Redis*
+1. Na seção **Gerenciamento de código-fonte** , selecione **git**, insira a URL do repositório bifurcado *. Git* , como *https:\//github.com/\<sua conta do GitHub\>/Azure-Voting-app-Redis.git*
 
 1. Na seção **Gatilhos de Build**, selecione **Gatilho de gancho do GitHub para sondagem de GITscm**
 1. Em **Ambiente de Build**, selecione **Usar arquivos ou textos secretos**

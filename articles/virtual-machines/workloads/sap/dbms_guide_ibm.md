@@ -310,7 +310,7 @@ ms.locfileid: "70099998"
 
 
 Com o Microsoft Azure, você pode migrar seu aplicativo SAP existente em execução no IBM DB2 para Linux, UNIX e Windows (LUW) para máquinas virtuais do Azure. Com o SAP no IBM DB2 para LUW, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração, que estão disponíveis localmente.
-Informações gerais sobre como executar o SAP Business Suite no IBM DB2 para LUW podem ser encontradas na SCN (rede de comunidade SAP <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>) em.
+Informações gerais sobre como executar o SAP Business Suite no IBM DB2 para LUW podem ser encontradas na SCN (rede de comunidade SAP) em <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
 Para obter mais informações e atualizações sobre o SAP no DB2 para LUW no Azure, consulte a observação do SAP [2233094]. 
 
@@ -318,18 +318,18 @@ Há vários artigos na carga de trabalho do SAP no Azure.  É recomendável inic
 
 As seguintes notas SAP estão relacionadas ao SAP no Azure em relação à área de abordados neste documento:
 
-| Número da observação | Título |
+| Número da observação | Title |
 | --- | --- |
-| [1928533] |Aplicativos SAP no Azure: Produtos suportados e tipos de VM do Azure |
-| [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
+| [1928533] |Aplicativos SAP no Azure: tipos de VM do Azure e produtos com suporte |
+| [2015553] |SAP no Microsoft Azure: pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Métricas-chave de monitoramento para SAP no Microsoft Azure |
-| [1409604] |Virtualização no Windows: Monitoramento Avançado |
-| [2191498] |SAP no Linux com o Azure: Monitoramento Avançado |
+| [1409604] |Virtualização no Windows: monitoramento avançado |
+| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
 | [2233094] |DB6: Aplicativos SAP no Azure usando o IBM DB2 para Linux, UNIX e Windows - informações adicionais |
-| [2243692] |Linux na VM (IaaS) do Microsoft Azure: Problemas de licença do SAP |
-| [1984787] |SUSE Linux Enterprise Server 12: Notas de instalação |
-| [2002167] |Red Hat Enterprise Linux 7.x: Instalação e atualização |
+| [2243692] |Linux na VM do Microsoft Azure (IaaS): problemas de licença SAP |
+| [1984787] |SUSE LINUX Enterprise Server 12: notas de instalação |
+| [2002167] |Red Hat Enterprise Linux 7.x: instalação e atualização |
 | [1597355] |Recomendação de troca de espaço para Linux |
 
 Como uma pré-leitura para este documento, você deve ler o documento [Considerações para implantação de DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md), bem como outros guias de [carga de trabalho do SAP na documentação do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
@@ -341,7 +341,7 @@ O SAP no IBM DB2 para LUW em Microsoft Azure serviços de máquina virtual tem s
 Para obter informações sobre os tipos de VM do Azure e produtos SAP com suporte, consulte a Nota SAP [1928533].
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do IBM DB2 para Linux, UNIX e Windows para instalações do SAP em VMs do Azure
-### <a name="storage-configuration"></a>Configuração do armazenamento
+### <a name="storage-configuration"></a>Configuração de armazenamento
 Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS com base em discos anexados diretamente. Esses discos são montados na VM do Azure e são baseados no Armazenamento de Blobs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos, como os seguintes serviços de arquivo do Azure **NÃO** tem suporte para arquivos de banco de dados: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
@@ -368,7 +368,7 @@ A funcionalidade de backup/restauração para IBM DB2 para LUW tem suporte da me
 
 Você deve se certificar de que tenha uma estratégia de backup do banco de dados válida em vigor. 
 
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa nas VMs com até oito threads por CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compressão de backup pode desempenhar um papel significativo nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup
@@ -402,5 +402,5 @@ Para os discos que contêm os caminhos de armazenamento do DB2 para seus diretó
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Outros
+### <a name="other"></a>outro
 Todas as outras áreas gerais, como o monitoramento do SAP ou Conjuntos de Disponibilidade do Azure se aplicam como descritas no documento [Considerações para a implantação DBMS de Máquinas Virtuais do Azure para carga de trabalho SAP](dbms_guide_general.md) para implantações de VMs com o Banco de Dados IBM também.

@@ -48,7 +48,7 @@ Vamos começar com o driver ODBC.
 
     ![Administrador de fonte de dados ODBC do Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Etapa 2: Conectar-se ao banco de dados Cosmos do Azure
+## <a id="connect"></a>Etapa 2: conectar-se ao banco de dados Cosmos do Azure
 
 1. Depois de [Instalar o driver ODBC do Azure Cosmos DB](#install), na janela **Administrador de Fonte de Dados ODBC**, clique em **Adicionar**. Você pode criar um DSN de usuário ou de sistema. Neste exemplo, estamos criando um DSN de usuário.
 
@@ -57,29 +57,29 @@ Vamos começar com o driver ODBC.
 1. Na janela **Instalação de SDN do Driver ODBC do Azure Cosmos DB**, preencha as seguintes informações: 
 
     ![Janela Configuração de DSN do Driver ODBC do Azure Cosmos DB](./media/odbc-driver/odbc-driver-dsn-setup.png)
-    - **Nome da fonte de dados**: Seu próprio nome amigável para o DSN do ODBC. Esse nome é exclusivo à sua conta do Azure Cosmos DB; portanto, nomeie-a corretamente se você tiver várias contas.
-    - **Descrição**: Uma breve descrição da fonte de dados.
-    - **Host**: O URI de sua conta do Azure Cosmos DB. Você pode recuperar isso na página Chaves do Azure Cosmos DB no portal do Azure, conforme mostra a captura de tela a seguir. 
-    - **Chave de acesso**: A chave primária ou secundária, somente leitura ou gravação da página Chaves do Azure Cosmos DB no portal do Azure, conforme mostra a captura de tela a seguir. É recomendável que você use a chave somente leitura se o DSN for usado para relatórios e processamento de dados somente leitura.
+    - **Nome da Fonte de Dados**: seu próprio nome amigável para o DSN do ODBC. Esse nome é exclusivo à sua conta do Azure Cosmos DB; portanto, nomeie-a corretamente se você tiver várias contas.
+    - **Descrição**: uma breve descrição da fonte de dados.
+    - **Host**: URI de sua conta do Azure Cosmos DB. Você pode recuperar isso na página Chaves do Azure Cosmos DB no portal do Azure, conforme mostra a captura de tela a seguir. 
+    - **Chave de Acesso**: a chave primária ou secundária, somente leitura ou gravação da página Chaves do Azure Cosmos DB no portal do Azure, conforme mostra a captura de tela a seguir. É recomendável que você use a chave somente leitura se o DSN for usado para relatórios e processamento de dados somente leitura.
     ![Página Chaves do Azure Cosmos DB](./media/odbc-driver/odbc-cosmos-account-keys.png)
-    - **Criptografar a chave de acesso para**: Selecione a melhor opção com base nos usuários deste computador. 
+    - **Criptografar a Tecla de Acesso para**: selecione a melhor opção com base nos usuários deste computador. 
     
 1. Clique no botão **Testar** para ter certeza de que você pode se conectar à sua conta do Azure Cosmos DB. 
 
 1.  Clique em **Opções Avançadas de** e defina os seguintes valores:
-    *  **Versão da API REST**: Selecione a [versão da API REST](https://docs.microsoft.com/rest/api/cosmos-db/) para suas operações. O padrão 2015-12-16. Se você tiver contêineres com [chaves de partição grandes](large-partition-keys.md) e exigir a versão de API REST 2018-12-31:
+    *  **Versão da API REST**: selecione a [versão da API REST](https://docs.microsoft.com/rest/api/cosmos-db/) para suas operações. O padrão 2015-12-16. Se você tiver contêineres com [chaves de partição grandes](large-partition-keys.md) e exigir a versão de API REST 2018-12-31:
         - Digite **2018-12-31** para a versão da API REST
         - No menu **Iniciar** , digite "regedit" para localizar e abrir o aplicativo **Editor do registro** .
-        - No editor do registro, navegue até o caminho: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC. PERSONALIZADO**
+        - No editor do registro, navegue até o caminho: **computador \ HKEY_LOCAL_MACHINE \software\odbc\odbc. INI**
         - Crie uma nova subchave com o mesmo nome que o seu DSN, por exemplo, "DSN ODBC da conta contoso".
         - Navegue até a subchave "DSN de ODBC da conta contoso".
         - Clique com o botão direito do mouse para adicionar um novo valor de **cadeia de caracteres** :
             - Nome do valor: **IgnoreSessionToken**
             - Dados do valor: **1**
-             @ No__t-2Registry configurações do editor @ no__t-3
-    - **Coerência da consulta**: Selecione o [nível de coerência](consistency-levels.md) para as operações. O padrão é Sessão.
-    - **Número de tentativas**: Insira o número de vezes para tentar novamente uma operação se a solicitação inicial não for concluída devido à limitação de taxa de serviço.
-    - **Arquivo de esquema**: Você tem várias opções aqui.
+            ![configurações do editor do registro](./media/odbc-driver/cosmos-odbc-edit-registry.png)
+    - **Consistência de Consulta**: selecione o [nível de consistência](consistency-levels.md) para as operações. O padrão é Sessão.
+    - **Número de tentativas**: insira o número de vezes para tentar novamente uma operação se a solicitação inicial não for concluída devido à limitação de taxa de serviço.
+    - **Arquivo de Esquema**: você tem várias opções aqui.
         - Por padrão, deixar essa entrada como está (em branco), o driver examina a primeira página de dados de todos os contêineres para determinar o esquema de cada contêiner. Isso é conhecido como mapeamento de contêiner. Sem um arquivo de esquema definido, o driver deve executar o exame para cada sessão de driver e pode resultar em um tempo de inicialização mais alto de um aplicativo usando o DSN. É recomendável sempre associar um arquivo de esquema para um DSN.
         - Se você já tiver um arquivo de esquema (possivelmente criado com o Editor de Esquema), poderá clicar em **Procurar**, navegar até o arquivo, clicar em **Salvar** e clicar em **OK**.
         - Se você desejar criar um novo esquema, clique em **OK** e clique em **Editor de Esquema** na janela principal. Em seguida, vá para as informações do Editor de Esquema. Ao criar o novo arquivo de esquema, não se esqueça de voltar para a janela **Opções Avançadas** para incluir o arquivo de esquema recém-criado.
@@ -88,7 +88,7 @@ Vamos começar com o driver ODBC.
 
     ![Novo DSN ODBC do Azure Cosmos DB na guia DSN de Usuário](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#container-mapping"></a>Etapa 3: Criar uma definição de esquema usando o método de mapeamento de contêiner
+## <a id="#container-mapping"></a>Etapa 3: criar uma definição de esquema usando o método de mapeamento de contêiner
 
 Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de contêiner** ou **delimitadores de tabela**. Uma sessão de amostragem pode utilizar os dois métodos de amostragem, mas cada contêiner só pode usar um método de amostragem específico. As etapas a seguir criam um esquema para os dados em um ou mais contêineres usando o método de mapeamento de contêiner. Esse método de amostragem recupera os dados na página de um contêiner para determinar a estrutura dos dados. Ele transpõe um contêiner para uma tabela no lado do ODBC. Esse método de amostragem é eficiente e rápido quando os dados em um contêiner são homogêneos. Se um contêiner contiver o tipo de dados heterogêneo, recomendamos que você use o [método de mapeamento de delimitadores de tabela](#table-mapping) , pois ele fornece um método de amostragem mais robusto para determinar as estruturas de dados no contêiner. 
 

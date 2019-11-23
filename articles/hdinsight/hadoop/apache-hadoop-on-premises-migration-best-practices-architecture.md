@@ -30,7 +30,7 @@ Os clusters de Azure HDInsight são projetados para um tipo específico de uso d
 |Processamento em lotes (ETL/ELT)|Hadoop, Spark|
 |Data warehousing|Hadoop, Spark, Consulta Interativa|
 |IoT/Streaming|Kafka, Storm, Spark|
-|Processamento transacional do NoSQL|HBase|
+|Processamento transacional do NoSQL|hbase|
 |Consultas interativas e mais rápidas com o caching na memória|Consulta Interativa|
 |Ciência de dados|ML Services, Spark|
 
@@ -39,9 +39,9 @@ A tabela a seguir mostra os diferentes métodos que podem ser usados para criar 
 |**Ferramenta**|**Baseado em navegador**|**Linha de comando**|**API REST**|**SDK**|
 |---|---|---|---|---|
 |[Portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
-|[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
+|[Fábrica de dados do Azure](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[CLI do Azure (versão 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
-|[PowerShell do Azure](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
+|[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[Curl](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
 |[SDK .NET](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
 |[SDK do Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
@@ -105,7 +105,7 @@ Algumas melhores práticas do metastore Hive do HDInsight são as seguintes:
 - Faça backup do metastore personalizado periodicamente.
 - Mantenha o metastore e o cluster HDInsight na mesma região.
 - Monitore o metastore para obter desempenho e disponibilidade usando as ferramentas de monitoramento do banco de dados SQL do Azure, como portal do Azure ou Azure Monitor logs.
-- Execute o comando **ANALYZE TABLE** conforme necessário para gerar estatísticas para tabelas e colunas. Por exemplo: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Execute o comando **ANALYZE TABLE** conforme necessário para gerar estatísticas para tabelas e colunas. Por exemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Melhores práticas para diferentes cargas de trabalho
 

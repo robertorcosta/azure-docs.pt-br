@@ -30,22 +30,22 @@ Para ver uma introdução de oito minutos e uma demonstração desse recurso, as
 
 O tipo de retorno da função do Azure deve ser um `JObject` válido. (Tenha em mente que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *não* é um `JObject`.) Qualquer tipo de retorno diferente de `JObject` falha e gera o conteúdo de resposta de erro do usuário *não é um JObject válido*.
 
-| **Propriedade** | **Descrição** | **Obrigatório** |
+| **Propriedade** | **Descrição** | **Necessária** |
 | --- | --- | --- |
-| Tipo   | A propriedade Type deve ser definida como: **AzureFunction** | Sim |
-| url do aplicativo de função | URL para o Aplicativo de Funções do Azure. O formato é `https://<accountname>.azurewebsites.net`. Essa URL é o valor na seção **URL** ao exibir o Aplicativo de funções no portal do Azure  | Sim |
-| teclas de função | Tecla de acesso para o Azure Function. Clique na seção **Gerenciar** seção para a função respectiva e copie-a na **Tecla de Função** ou na **Tecla Host**. Saiba mais aqui: [Azure Functions gatilhos e associações http](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | Sim |
+| type   | A propriedade Type deve ser definida como: **AzureFunction** | sim |
+| url do aplicativo de função | URL para o Aplicativo de Funções do Azure. O formato é `https://<accountname>.azurewebsites.net`. Essa URL é o valor na seção **URL** ao exibir o Aplicativo de funções no portal do Azure  | sim |
+| teclas de função | Tecla de acesso para o Azure Function. Clique na seção **Gerenciar** seção para a função respectiva e copie-a na **Tecla de Função** ou na **Tecla Host**. Saiba mais aqui: [Azure Functions gatilhos e associações http](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | sim |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Atividade do Azure Function
 
-| **Propriedade**  | **Descrição** | **Valores permitidos** | **Obrigatório** |
+| **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessária** |
 | --- | --- | --- | --- |
-| Nome  | Nome da atividade no pipeline  | Cadeia de caracteres | Sim |
-| Tipo  | O tipo de atividade é 'AzureFunctionActivity' | Cadeia de caracteres | Sim |
-| serviço vinculado | O serviço de função do Azure vinculado para o Aplicativo de funções correspondente do Azure  | Referência de serviço vinculado | Sim |
-| nome da função  | Nome da função no Aplicativo de funções do Azure que essa atividade chama | Cadeia de caracteres | Sim |
-| estático  | Método da API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST", "PUT"   | Sim |
+| name  | Nome da atividade no pipeline  | String | sim |
+| type  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |
+| serviço vinculado | O serviço de função do Azure vinculado para o Aplicativo de funções correspondente do Azure  | Referência de serviço vinculado | sim |
+| nome da função  | Nome da função no Aplicativo de funções do Azure que essa atividade chama | String | sim |
+| method  | Método da API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST", "PUT"   | sim |
 | cabeçalho  | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: "cabeçalhos": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não |
 | corpo  | corpo que é enviado junto com a solicitação para o método de api de função  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) ou objeto.   | Necessário para os métodos PUT/POST |
 |   |   |   | |

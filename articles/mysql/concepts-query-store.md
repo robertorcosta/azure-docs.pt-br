@@ -17,7 +17,7 @@ ms.locfileid: "73603019"
 
 **Aplica-se a:** Banco de dados do Azure para MySQL 5,7
 
-O recurso Repositório de Consultas no banco de dados do Azure para MySQL fornece uma maneira de controlar o desempenho de consulta ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas ajudando você a rapidamente localizar as consultas de execução mais longa e que consomem mais recursos. O Repositório de Consultas captura automaticamente um histórico das estatísticas de tempo de execução e consultas e o retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver padrões de uso do banco de dados. Todos os usuários, bancos de dados e consultas são armazenados no banco de dados de esquema do **MySQL** na instância do banco de dados do Azure para MySQL.
+O recurso Repositório de Consultas no banco de dados do Azure para MySQL fornece uma maneira de controlar o desempenho de consulta ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas ajudando você a rapidamente localizar as consultas de execução mais longa e que consomem mais recursos. O Repositório de Consultas captura automaticamente um histórico das estatísticas de runtime e consultas e o retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver padrões de uso do banco de dados. Todos os usuários, bancos de dados e consultas são armazenados no banco de dados de esquema do **MySQL** na instância do banco de dados do Azure para MySQL.
 
 ## <a name="common-scenarios-for-using-query-store"></a>Cenários comuns para usar o Repositório de Consultas
 
@@ -71,7 +71,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 > [!NOTE]
 > As estatísticas de espera não devem ser habilitadas durante o horário de pico da carga de trabalho ou ser ativadas indefinidamente para cargas de trabalho confidenciais. <br>Para cargas de trabalho em execução com alta utilização de CPU ou em servidores configurados com menos vCores, tome cuidado ao habilitar estatísticas de espera. Ele não deve ser ativado indefinidamente. 
 
-Os tipos de evento de espera combinam diferentes eventos de espera em buckets por semelhança. O Repositório de Consultas fornece o tipo de evento de espera, o nome do evento de espera específico e a consulta em questão. Ser capaz de correlacionar essas informações de espera com as estatísticas de tempo de execução de consulta significa que você pode obter uma compreensão mais profunda do que contribui para as características de desempenho de consulta.
+Os tipos de evento de espera combinam diferentes eventos de espera em buckets por semelhança. O Repositório de Consultas fornece o tipo de evento de espera, o nome do evento de espera específico e a consulta em questão. Ser capaz de correlacionar essas informações de espera com as estatísticas de runtime de consulta significa que você pode obter uma compreensão mais profunda do que contribui para as características de desempenho de consulta.
 
 Aqui estão alguns exemplos de como você pode obter mais insights sobre sua carga de trabalho usando as estatísticas de espera no Repositório de Consultas:
 
@@ -112,40 +112,40 @@ Exiba e gerencie o Repositório de Consultas usando as seguintes exibições e f
 
 Consultas são normalizadas examinando sua estrutura após a remoção de literais e constantes. Se duas consultas forem idênticas, exceto por valores literais, elas terão o mesmo hash.
 
-### <a name="mysqlquery_store"></a>MySQL. query_store
+### <a name="mysqlquery_store"></a>mysql.query_store
 
 Essa exibição retorna todos os dados no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário e ID de consulta distinta.
 
 | **Nome** | **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
-| `schema_name`| varchar (64) | NÃO | Nome do esquema |
-| `query_id`| BigInt (20) | NÃO| ID exclusiva gerada para a consulta específica, se a mesma consulta for executada em um esquema diferente, uma nova ID será gerada |
+| `schema_name`| varchar(64) | NÃO | Nome do esquema |
+| `query_id`| bigint(20) | NÃO| ID exclusiva gerada para a consulta específica, se a mesma consulta for executada em um esquema diferente, uma nova ID será gerada |
 | `timestamp_id` | timestamp| NÃO| Carimbo de data/hora em que a consulta é executada. Isso se baseia na configuração de query_store_interval|
 | `query_digest_text`| longtext| NÃO| O texto de consulta normalizado após a remoção de todos os literais|
 | `query_sample_text` | longtext| NÃO| Primeira aparência da consulta real com literais|
 | `query_digest_truncated` | bit| SIM| Se o texto da consulta foi truncado. O valor será Sim se a consulta tiver mais de 1 KB|
-| `execution_count` | BigInt (20)| NÃO| O número de vezes que a consulta foi executada para esta ID de carimbo de data/hora durante o período de intervalo configurado|
-| `warning_count` | BigInt (20)| NÃO| Número de avisos que esta consulta gerou durante a|
-| `error_count` | BigInt (20)| NÃO| Número de erros que esta consulta gerou durante o intervalo|
-| `sum_timer_wait` | double| SIM| Tempo de execução total desta consulta durante o intervalo|
-| `avg_timer_wait` | double| SIM| Tempo médio de execução para esta consulta durante o intervalo|
-| `min_timer_wait` | double| SIM| Tempo mínimo de execução para esta consulta|
-| `max_timer_wait` | double| SIM| Tempo de execução máximo|
-| `sum_lock_time` | BigInt (20)| NÃO| Quantidade total de tempo gasto para todos os bloqueios para esta execução de consulta durante esta janela de tempo|
-| `sum_rows_affected` | BigInt (20)| NÃO| Número de linhas afetadas|
-| `sum_rows_sent` | BigInt (20)| NÃO| Número de linhas enviadas ao cliente|
-| `sum_rows_examined` | BigInt (20)| NÃO| Número de linhas verificadas|
-| `sum_select_full_join` | BigInt (20)| NÃO| Número de junções completas|
-| `sum_select_scan` | BigInt (20)| NÃO| Número de verificações selecionadas |
-| `sum_sort_rows` | BigInt (20)| NÃO| Número de linhas classificadas|
-| `sum_no_index_used` | BigInt (20)| NÃO| Número de vezes em que a consulta não usou nenhum índice|
-| `sum_no_good_index_used` | BigInt (20)| NÃO| Número de vezes em que o mecanismo de execução de consulta não usou índices bons|
-| `sum_created_tmp_tables` | BigInt (20)| NÃO| Número total de tabelas temporárias criadas|
-| `sum_created_tmp_disk_tables` | BigInt (20)| NÃO| Número total de tabelas temporárias criadas no disco (gera e/s)|
+| `execution_count` | bigint(20)| NÃO| O número de vezes que a consulta foi executada para esta ID de carimbo de data/hora durante o período de intervalo configurado|
+| `warning_count` | bigint(20)| NÃO| Número de avisos que esta consulta gerou durante a|
+| `error_count` | bigint(20)| NÃO| Número de erros que esta consulta gerou durante o intervalo|
+| `sum_timer_wait` | Duplo| SIM| Tempo de execução total desta consulta durante o intervalo|
+| `avg_timer_wait` | Duplo| SIM| Tempo médio de execução para esta consulta durante o intervalo|
+| `min_timer_wait` | Duplo| SIM| Tempo mínimo de execução para esta consulta|
+| `max_timer_wait` | Duplo| SIM| Tempo de execução máximo|
+| `sum_lock_time` | bigint(20)| NÃO| Quantidade total de tempo gasto para todos os bloqueios para esta execução de consulta durante esta janela de tempo|
+| `sum_rows_affected` | bigint(20)| NÃO| Número de linhas afetadas|
+| `sum_rows_sent` | bigint(20)| NÃO| Número de linhas enviadas ao cliente|
+| `sum_rows_examined` | bigint(20)| NÃO| Número de linhas verificadas|
+| `sum_select_full_join` | bigint(20)| NÃO| Número de junções completas|
+| `sum_select_scan` | bigint(20)| NÃO| Número de verificações selecionadas |
+| `sum_sort_rows` | bigint(20)| NÃO| Número de linhas classificadas|
+| `sum_no_index_used` | bigint(20)| NÃO| Número de vezes em que a consulta não usou nenhum índice|
+| `sum_no_good_index_used` | bigint(20)| NÃO| Número de vezes em que o mecanismo de execução de consulta não usou índices bons|
+| `sum_created_tmp_tables` | bigint(20)| NÃO| Número total de tabelas temporárias criadas|
+| `sum_created_tmp_disk_tables` | bigint(20)| NÃO| Número total de tabelas temporárias criadas no disco (gera e/s)|
 | `first_seen` | timestamp| NÃO| A primeira ocorrência (UTC) da consulta durante a janela de agregação|
 | `last_seen` | timestamp| NÃO| A última ocorrência (UTC) da consulta durante esta janela de agregação|
 
-### <a name="mysqlquery_store_wait_stats"></a>MySQL. query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
 Essa exibição retorna os dados de eventos de espera no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário, ID de consulta e evento distinto.
 
@@ -153,13 +153,13 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 |---|---|---|---|
 | `interval_start` | timestamp | NÃO| Início do intervalo (incremento de 15 minutos)|
 | `interval_end` | timestamp | NÃO| Fim do intervalo (incremento de 15 minutos)|
-| `query_id` | BigInt (20) | NÃO| ID exclusiva gerada na consulta normalizada (do repositório de consultas)|
-| `query_digest_id` | varchar (32) | NÃO| O texto de consulta normalizado após a remoção de todos os literais (do repositório de consultas) |
+| `query_id` | bigint(20) | NÃO| ID exclusiva gerada na consulta normalizada (do repositório de consultas)|
+| `query_digest_id` | varchar(32) | NÃO| O texto de consulta normalizado após a remoção de todos os literais (do repositório de consultas) |
 | `query_digest_text` | longtext | NÃO| Primeira aparência da consulta real com literais (do repositório de consultas) |
-| `event_type` | varchar (32) | NÃO| Categoria do evento de espera |
-| `event_name` | varchar (128) | NÃO| Nome do evento de espera |
-| `count_star` | BigInt (20) | NÃO| Número de eventos de espera amostrados durante o intervalo para a consulta |
-| `sum_timer_wait_ms` | double | NÃO| Tempo de espera total (em milissegundos) desta consulta durante o intervalo |
+| `event_type` | varchar(32) | NÃO| Categoria do evento de espera |
+| `event_name` | varchar(128) | NÃO| Nome do evento de espera |
+| `count_star` | bigint(20) | NÃO| Número de eventos de espera amostrados durante o intervalo para a consulta |
+| `sum_timer_wait_ms` | Duplo | NÃO| Tempo de espera total (em milissegundos) desta consulta durante o intervalo |
 
 ### <a name="functions"></a>Funções
 
@@ -171,8 +171,8 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 
-- Se um servidor MySQL tiver o parâmetro `default_transaction_read_only` em, Repositório de Consultas não poderá capturar dados.
-- Repositório de Consultas funcionalidade poderá ser interrompida se encontrar consultas longas em Unicode (\> = 6000 bytes).
+- Se um servidor MySQL tiver o parâmetro `default_transaction_read_only` ativado, Repositório de Consultas não poderá capturar dados.
+- Repositório de Consultas funcionalidade poderá ser interrompida se encontrar consultas longas de Unicode (\>= 6000 bytes).
 - O período de retenção para estatísticas de espera é de 24 horas.
 - Estatísticas de espera usa exemplo para capturar uma fração de eventos. A frequência pode ser modificada usando o parâmetro `query_store_wait_sampling_frequency`.
 

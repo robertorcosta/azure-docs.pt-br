@@ -22,7 +22,7 @@ ms.locfileid: "73810402"
 
 Os pools de instância são um novo recurso no banco de dados SQL do Azure que fornece uma maneira conveniente e econômica de migrar instâncias SQL menores para a nuvem em escala.
 
-Os pools de instância permitem pré-configurar os recursos de computação de acordo com os requisitos de migração totais. Em seguida, você pode implantar várias instâncias gerenciadas individuais até seu nível de computação provisionado previamente. Por exemplo, se você pré-provisionar 8 vCores, poderá implantar duas instâncias VCORE e 4 VCORE e, em seguida, migrar bancos de dados para essas instâncias. Antes dos pools de instância estarem disponíveis, as cargas de trabalho menores e menos intensivas de computação geralmente teriam de ser consolidadas em uma instância gerenciada maior ao migrar para a nuvem. A necessidade de migrar grupos de bancos de dados para uma instância grande normalmente exigiu um planejamento de capacidade cuidadoso e governança de recursos, considerações de segurança adicionais e alguma consolidação de dados extra funciona no nível da instância.
+Os pools de instância permitem pré-provisionar os recursos de computação de acordo com os requisitos de migração totais. Em seguida, você pode implantar várias instâncias gerenciadas individuais até seu nível de computação pré-provisionado. Por exemplo, se você pré-provisionar 8 vCores, poderá implantar duas instâncias VCORE e 4 VCORE e, em seguida, migrar bancos de dados para essas instâncias. Antes dos pools de instância estarem disponíveis, as cargas de trabalho menores e menos intensivas de computação geralmente teriam de ser consolidadas em uma instância gerenciada maior ao migrar para a nuvem. A necessidade de migrar grupos de bancos de dados para uma instância grande normalmente exigiu um planejamento de capacidade cuidadoso e governança de recursos, considerações de segurança adicionais e alguma consolidação de dados extra funciona no nível da instância.
 
 Além disso, os pools de instância dão suporte à integração VNet nativa para que você possa implantar vários pools de instância e várias instâncias únicas na mesma sub-rede.
 
@@ -112,7 +112,7 @@ Recursos opcionais ou recursos que exigem a escolha de valores específicos (com
 
 Embora as instâncias gerenciadas nos pools tenham vCore e RAM dedicados, elas compartilham o disco local (para uso de tempdb) e os recursos de rede. Não é provável, mas é possível experimentar o efeito *vizinho ruidosa* se várias instâncias no pool tiverem alto consumo de recursos ao mesmo tempo. Se você observar esse comportamento, considere implantar essas instâncias em um pool maior ou como instâncias únicas.
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 Como as instâncias implantadas em um pool compartilham a mesma máquina virtual, convém considerar a desabilitação de recursos que introduzem riscos mais altos de segurança ou a controlar firmemente as permissões de acesso a esses recursos. Por exemplo, integração CLR, backup e restauração nativos, email de banco de dados, etc.
 
@@ -152,7 +152,7 @@ Para obter detalhes completos sobre o preço do pool de instâncias, consulte a 
 
 - Para começar a usar os pools de instância, consulte [Guia de instruções de pool de instâncias do banco de dados SQL](sql-database-instance-pools-how-to.md).
 - Para saber como criar sua primeira instância gerenciada, confira o [Guia de início rápido](sql-database-managed-instance-get-started.md).
-- Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
+- Para um recurso e lista de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
 - Para saber mais sobre a configuração de rede virtual, confira [Configuração de VNet de instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).
 - Para obter um início rápido que cria uma Instância Gerenciada e restaura um banco de dados de um arquivo de backup, veja [Criar uma instância gerenciada](sql-database-managed-instance-get-started.md).
 - Para obter um tutorial usando o DMS (Serviço de Migração de Banco de Dados do Azure) para a migração, confira [Migração de instância gerenciada usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).

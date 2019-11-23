@@ -117,7 +117,7 @@ Substitua `{tenant id}`, `{application id}` e `{redirect uri}` usando as seguint
 
 1. Substitua `{tenant id}` pela ID de locatário do aplicativo do Azure Active Directory criado. Acesse a ID clicando em **Registros do aplicativo** -> **Pontos de Extremidade**.
 
-    ![Pontos de extremidade][api-management-endpoint]
+    ![Pontos de Extremidade][api-management-endpoint]
 
 2. Substitua `{application id}` pelo valor obtido navegando para a página **Configurações**.
 3. Substitua a guia `{redirect uri}` com o valor das **URIs de Redirecionamento** pelo aplicativo do Azure Active Directory.
@@ -226,7 +226,7 @@ Confira os seguintes recursos para diferentes orientações do processo de backu
 
 -   [Replicar contas de Gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automatizar backup e restauração do Gerenciamento de API com Aplicativos Lógicos](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Gerenciamento de API do Azure API: Fazendo backup e restaurando a configuração](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+-   [Gerenciamento de API do Azure: Fazendo backup e restaurando a configuração](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
     _A abordagem detalhada por Stuart não corresponde com as diretrizes oficiais, mas é interessante._
 
 [backup an api management service]: #step1

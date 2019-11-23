@@ -237,7 +237,7 @@ Consulte o [site do pacote](https://azure.github.io/azureml-sdk-for-r) para obte
     + o pacote azureml-contrib-explique-Model foi renomeado para azureml-contrib-interpret.
   + **[azureml-núcleo](https://docs.microsoft.com/python/api/azureml-core)**
     + API adicionada para cancelar o registro de conjuntos de os. DataSet. [unregister_all_versions ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_datastore.abstractdatastore#unregister--).
-    + Adicionada a API do conjunto de dados para verificar a hora da alteração do dado. `dataset.data_changed_time`.
+    + Adicionada a API do conjunto de dados para verificar a hora da alteração do dado. [https://aka.ms/AzureNVblog](`dataset.data_changed_time`).
     + Poder consumir `FileDataset` e `TabularDataset` como entradas para `PythonScriptStep`, `EstimatorStep`e `HyperDriveStep` no pipeline Azure Machine Learning
     + O desempenho do `FileDataset.mount` foi melhorado para pastas com um grande número de arquivos
     + Ser capaz de consumir [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset) e [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset) como entradas para [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep), [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep)e [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyperdrivestep) no pipeline Azure Machine Learning.

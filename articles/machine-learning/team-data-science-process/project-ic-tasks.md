@@ -55,7 +55,7 @@ Para clonar repositórios e modificar o conteúdo em seu computador local ou DSV
 
 Para trabalhar com repositórios localmente e enviar por push suas alterações para os repositórios de equipe e projeto compartilhados, primeiro copie ou *clone* os repositórios em seu computador local. 
 
-1. No Azure DevOps, acesse a página de resumo do projeto da sua equipe em *https: \/ @ no__t-2 @ no__t-3Server name >/\<organization name >/\<team name >* , por exemplo, **https: \//dev. Azure. com/DataScienceUnit/myTeam**.
+1. No Azure DevOps, vá para a página de resumo do projeto da sua equipe em *https:\//nome do servidor \<>/\<nome da organização >/\<nome da equipe*>, por exemplo, **https:\//dev.Azure.com/DataScienceUnit/myTeam**.
    
 1. Selecione **repositórios** no painel de navegação esquerdo e, na parte superior da página, selecione o repositório que você deseja clonar.
    

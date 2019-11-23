@@ -15,16 +15,15 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 09/18/2019
 ms.locfileid: "67171913"
 ---
-**HDD Standard discos gerenciados**
-[!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
+**HDD Standard Managed disks** [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-**SSD Standard discos gerenciados**
-[!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**SSD Premium discos gerenciados: Limites por disco**
+**SSD Standard Managed disks** [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
+
+**SSD Premium discos gerenciados: limites por disco**
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**SSD Premium discos gerenciados: Limites por VM**
+**SSD Premium discos gerenciados: limites por VM**
 
 | Recurso | Limite padrão |
 | --- | --- |

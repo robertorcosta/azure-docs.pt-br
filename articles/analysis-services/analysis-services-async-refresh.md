@@ -93,16 +93,16 @@ O corpo pode ser semelhante ao seguinte:
 }
 ```
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 Não é necessário especificar parâmetros. O padrão será aplicado.
 
-| Nome             | Tipo  | DESCRIÇÃO  |Padrão  |
+| NOME             | Digite  | DESCRIÇÃO  |Padrão  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comandos de atualização](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) da TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Não há suporte para a adição de tipo.      |   automático      |
 | `CommitMode`     | Enum  | Determina se os objetos serão confirmados em lotes ou somente na conclusão. Os modos incluem: default, transactional, partialBatch.  |  transacional       |
-| `MaxParallelism` | Int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
-| `RetryCount`     | Int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
+| `MaxParallelism` | int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
+| `RetryCount`     | int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
 | `Objects`        | Matriz | Uma matriz de objetos a serem processados. Cada objeto inclui: "table" ao processar a tabela inteira ou "table" e "partition" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
 
 O CommitMode é igual ao partialBatch. Ele é usado ao fazer uma carga inicial de grandes conjuntos de dados, que pode levar horas. Se a operação de atualização falhar depois de confirmar com êxito um ou mais lotes, os lotes confirmados com êxito permanecerão confirmados (ela não reverterá lotes confirmadas com êxito).
@@ -211,7 +211,7 @@ Consulte [Criar entidade de serviço - portal do Azure](../active-directory/deve
 3.  Execute o exemplo.
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Exemplos](analysis-services-samples.md)   
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

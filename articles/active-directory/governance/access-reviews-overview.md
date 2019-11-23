@@ -58,8 +58,8 @@ Dependendo do que você deseja examinar, você criará sua análise de acesso na
 | --- | --- | --- | --- |
 | Membros do grupo de segurança</br>Membros do grupo do escritório | Revisores especificados</br>Proprietários do grupo</br>Análise automática | Revisões de acesso do Azure AD</br>Grupos do Azure AD | Painel de acesso |
 | Atribuído a um aplicativo conectado | Revisores especificados</br>Análise automática | Revisões de acesso do Azure AD</br>Aplicativos corporativos do Azure Active Directory (visualização) | Painel de acesso |
-| Função do Azure AD | Revisores especificados</br>Análise automática | [PIM do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
-| Função de recurso do Azure | Revisores especificados</br>Análise automática | [PIM do Azure AD](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
+| Função do Azure AD | Revisores especificados</br>Análise automática | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
+| Função de recurso do Azure | Revisores especificados</br>Análise automática | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
 
 
 ## <a name="onboard-access-reviews"></a>Revisões de acesso integrado
@@ -97,7 +97,7 @@ Se você estiver pronto para implantar as revisões de acesso em sua organizaç�
 
 ### <a name="which-users-must-have-licenses"></a>Quais usuários precisam ter licenças?
 
-Cada usuário que interage com as revisões de acesso deve ter uma licença paga de Azure AD Premium P2. Por exemplo:
+Cada usuário que interage com as revisões de acesso deve ter uma licença paga de Azure AD Premium P2. Alguns exemplos incluem:
 
 - Administradores que criam uma revisão de acesso
 - Proprietários de grupo que executam uma revisão de acesso
@@ -113,11 +113,11 @@ Aqui estão alguns cenários de exemplo para ajudá-lo a determinar o número de
 | Um administrador cria uma revisão de acesso do grupo A com 500 usuários. Atribui 3 proprietários de grupo como revisores. | 1 licença para o administrador + 3 licenças para cada proprietário do grupo como revisores. | 4 |
 | Um administrador cria uma revisão de acesso do grupo A com 500 usuários. O torna uma análise automática. | 1 licença para as licenças de administrador + 500 para cada usuário como revisores automáticos. | 501 |
 | Um administrador cria uma revisão de acesso do grupo B com 5 usuários e 25 usuários convidados. O torna uma análise automática. | 1 licença para o administrador + 5 licenças para cada usuário como revisores automáticos.<br/>(os usuários convidados são abordados na proporção 1:5 necessária) | 6 |
-| Um administrador cria uma revisão de acesso do grupo C com 5 usuários e 108 usuários convidados. O torna uma análise automática. | 1 licença para o administrador + 5 licenças para cada usuário como autoviewers + 16 licenças adicionais para cobrir todos os usuários convidados 108 na proporção 1:5 necessária.<br/>1 + 5 = 6 licenças, que abrangem 5 @ no__t-06 = 30 usuários convidados. Para os restantes (108-5 @ no__t-06) = 78 usuários convidados, 78/5 = 16 licenças adicionais são necessárias. Portanto, no total, são necessárias 6 + 16 = 22 licenças. | 22 |
+| Um administrador cria uma revisão de acesso do grupo C com 5 usuários e 108 usuários convidados. O torna uma análise automática. | 1 licença para o administrador + 5 licenças para cada usuário como autoviewers + 16 licenças adicionais para cobrir todos os usuários convidados 108 na proporção 1:5 necessária.<br/>1 + 5 = 6 licenças, que abrangem 5\*6 = 30 usuários convidados. Para o restante (108-5\*6) = 78 usuários convidados, 78/5 = 16 licenças adicionais são necessárias. Portanto, no total, são necessárias 6 + 16 = 22 licenças. | 22 |
 
 Para obter informações sobre como atribuir licenças a seus usos, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
 - [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)

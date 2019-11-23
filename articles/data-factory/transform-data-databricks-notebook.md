@@ -57,11 +57,11 @@ A seguir está a definição JSON de exemplo de uma Atividade de Notebook do Dat
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
-|Propriedade|DESCRIÇÃO|Obrigatório|
+|Propriedade|DESCRIÇÃO|obrigatórios|
 |---|---|---|
-|Nome|Nome da atividade no pipeline.|Sim|
-|Descrição|Texto que descreve o que a atividade faz.|Não|
-|Tipo|Para Atividade de Notebook do Databricks, o tipo da atividade é DatabricksNotebook.|Sim|
+|name|Nome da atividade no pipeline.|Sim|
+|Description|Texto que descreve o que a atividade faz.|Não|
+|type|Para Atividade de Notebook do Databricks, o tipo da atividade é DatabricksNotebook.|Sim|
 |linkedServiceName|Nome do serviço vinculado do Databricks no qual o notebook do Databricks executa. Saiba mais sobre esse serviço vinculado no artigo  [Serviços de computação vinculados](compute-linked-services.md) .|Sim|
 |notebookPath|O caminho absoluto do notebook a ser executado no workspace do Databricks. Esse caminho deve começar com uma barra.|Sim|
 |baseParameters|Uma matriz de pares chave-valor. Parâmetros básicos podem ser utilizados para cada execução de atividade. Se o notebook utilizar um parâmetro que não for especificado, será usado o valor padrão do notebook. Encontre mais informações sobre os parâmetros em [Notebooks do Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Não|

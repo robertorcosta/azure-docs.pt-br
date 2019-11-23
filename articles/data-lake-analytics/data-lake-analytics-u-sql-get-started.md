@@ -27,7 +27,7 @@ U-SQL é uma linguagem que combina o SQL declarativo com o C# imperativo para pe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de percorrer os exemplos de U-SQL neste documento, leia e complete [Tutorial: Desenvolva scripts U-SQL usando as ferramentas de Data Lake para Visual Studio @ no__t-0. Esse tutorial explica a mecânica do uso do U-SQL com as Ferramentas do Azure Data Lake para Visual Studio.
+Antes de percorrer os exemplos do U-SQL nesse documento, leia e conclua o [Tutorial: Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Esse tutorial explica a mecânica do uso do U-SQL com as Ferramentas do Azure Data Lake para Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>Seu primeiro script U-SQL
 
@@ -55,7 +55,7 @@ Esse script não possui nenhuma etapa de transformação. Ele faz a leitura do a
 Observe o ponto de interrogação ao lado do tipo de dados no campo `Duration`. Isso significa que o campo `Duration` pode ser nulo.
 
 ### <a name="key-concepts"></a>Principais conceitos
-* **Variáveis de conjunto de linhas**: Cada expressão de consulta que produz um conjunto de linhas pode ser atribuída a uma variável. O U-SQL segue o padrão de nomenclatura de variável do T-SQL (`@searchlog`, por exemplo) no script.
+* **Variáveis de conjunto de linhas**: cada expressão de consulta que produz um conjunto de linhas pode ser atribuído a uma variável. O U-SQL segue o padrão de nomenclatura de variável do T-SQL (`@searchlog`, por exemplo) no script.
 * A palavra-chave **EXTRACT** lê dados de um arquivo e define o esquema na leitura. `Extractors.Tsv` é um extrator U-SQL interno para arquivos de valores separados por tabulação. Você pode desenvolver extratores personalizados.
 * **OUTPUT** grava dados de um conjunto de linhas em um arquivo. `Outputters.Csv()` é um outputter U-SQL interno para criar um arquivo de valores separados por vírgulas. Você pode desenvolver outputters personalizados.
 

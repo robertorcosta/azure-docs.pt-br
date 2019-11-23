@@ -258,7 +258,7 @@ Em casos raros, o serviço do Azure AD Connect não inicia após executar a atua
 **P: não tenho certeza de quais são os riscos quando atualizo para uma versão mais recente do Azure AD Connect. Você pode ligar para mim para me ajudar com a atualização?**  
 Se você precisar de ajuda a atualizar para uma versão mais recente do Azure AD Connect, abra um tíquete de suporte em [criar uma solicitação de serviço, entre em contato com o suporte do Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solução de problemas
 **P: Como posso obter ajuda com o Azure AD Connect?**
 
 [Pesquise a Base de Dados de Conhecimento (KB) Microsoft](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)

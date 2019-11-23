@@ -47,7 +47,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * O software SAP e combinações de SO (sistema operacional) e banco de dados com suporte.
   * A versão do kernel do SAP necessária para Windows e Linux no Microsoft Azure.
 * A Nota SAP [2015553] lista pré-requisitos para implantações de software SAP com suporte do SAP no Azure.
-* Nota SAP [2002167] recomendou configurações do sistema operacional Red Hat Enterprise Linux
+* Nota SAP [2002167] recomendou configurações do SO para o Red Hat Enterprise Linux
 * Nota SAP [2009879] tem diretrizes SAP HANA para Red Hat Enterprise Linux
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramentos relatadas para o SAP no Azure.
 * A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
@@ -108,9 +108,9 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
    > [!IMPORTANT]
    > Recomendamos as seguintes versões do agente de isolamento do Azure (ou posterior) para que os clientes se beneficiem de um tempo de failover mais rápido, se uma interrupção de recurso falhar ou se os nós de cluster não conseguirem se comunicar mais um com o outro:  
-   > RHEL 7,6: Fence-Agents-4.2.1 -11. EL7 _ 6.8  
-   > RHEL 7,5: Fence-Agents-4.0.11 -86. EL7 _ 5.8  
-   > RHEL 7,4: Fence-Agents-4.0.11 -66. EL7 _ 4.12  
+   > RHEL 7,6: Fence-Agents-4.2.1-11. el7_6.8  
+   > RHEL 7,5: Fence-Agents-4.0.11-86. el7_5.8  
+   > RHEL 7,4: Fence-Agents-4.0.11-66. el7_4.12  
    > Para obter mais informações, consulte [a VM do Azure em execução como um membro de cluster de alta disponibilidade do RHEL leva muito tempo para ser decrescente ou o isolamento falha/expira antes de a VM ser desligada](https://access.redhat.com/solutions/3408711).
 
    Verifique a versão do agente de limite do Azure. Se necessário, atualize-o para uma versão igual ou posterior à especificada acima.
@@ -206,7 +206,7 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
 1. Clique em Registros do Aplicativo
 1. Clique em novo registro
 1. Insira um nome, selecione "contas somente neste diretório da organização" 
-2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo,\/http:/localhost) e clique em Adicionar  
+2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo, http:\//localhost) e clique em Adicionar  
    A URL de logon não é usada e pode ser qualquer URL válida
 1. Selecione certificados e segredos e clique em novo segredo do cliente
 1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em Adicionar

@@ -234,7 +234,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
 |Atributo|DESCRIÇÃO|  
 |---------------|-----------------|  
-|`Name`|Obrigatório. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. O nome deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @ e não pode iniciar com a frase "azureSearch" (diferencia maiúsculas de minúsculas).|  
+|`Name`|Necessário. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. O nome deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @ e não pode iniciar com a frase "azureSearch" (diferencia maiúsculas de minúsculas).|  
 |`Text`|Contém a propriedade Pesos.|  
 |`Weights`|Opcional. Um par de nome-valor que especifica um nome de campo e o peso relativo. O peso relativo deve ser um inteiro positivo ou o número de ponto flutuante. O valor máximo é int32.MaxValue.<br /><br /> Você pode especificar o nome do campo sem um peso correspondente. Os pesos são usados para indicar a importância de um campo em relação aos outros.|  
 |`Functions`|Opcional. Uma função de pontuação somente pode ser aplicada a campos filtráveis.|  

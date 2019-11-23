@@ -30,7 +30,7 @@ Depois de criar seu aplicativo, você aprenderá a configurar o código usando o
 
 As bibliotecas da Microsoft que dão suporte a aplicativos móveis são:
 
-  Biblioteca MSAL | Descrição
+  Biblioteca MSAL | DESCRIÇÃO
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Para desenvolver aplicativos portáteis. As plataformas com suporte do MSAL.NET para criar um aplicativo móvel são UWP, Xamarin. iOS e Xamarin. Android.
   ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Para desenvolver aplicativos iOS nativos com Objective-C ou Swift
@@ -82,7 +82,7 @@ var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
 
-Há outros métodos de*parâmetro* que definem o pai da interface do usuário, substituem a autoridade padrão, especificam um nome de cliente e uma versão (para telemetria), especificam um URI de redirecionamento, especificam o alocador de http a ser usado (por exemplo, para lidar com proxies, especifique telemetria e registro em log). Este é o tópico dos parágrafos a seguir.
+Há outros métodos de*parâmetro* que definem o pai da interface do usuário, substituem a autoridade padrão, especificam um nome de cliente e uma versão (para telemetria), especificam um URI de redirecionamento, especificam o alocador http a ser usado (por exemplo, para manipular proxies, especificar telemetria e registro em log). Este é o tópico dos parágrafos a seguir.
 
 ##### <a name="specifying-the-parent-uiwindowactivity"></a>Especificando a interface do usuário/janela/atividade pai
 
@@ -355,7 +355,7 @@ Observe que o esquema "msauthv3" é necessário ao compilar seu aplicativo com o
 
 MSAL.NET ainda não dá suporte a agentes para Android.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Adquirindo um token](scenario-mobile-acquire-token.md)

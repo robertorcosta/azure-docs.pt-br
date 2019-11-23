@@ -103,6 +103,6 @@ Opcionalmente, você pode configurar outros recursos do Azure AD.  Eles não sã
 > [!CAUTION]
 > Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Somente contas de serviço devem ser adicionadas ao grupo *Administradores* .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre o modelo de permissão de nuvem privada](learn-private-cloud-permissions.md)

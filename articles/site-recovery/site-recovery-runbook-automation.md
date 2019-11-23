@@ -117,9 +117,9 @@ O blog de Aman Sharma na [coleta de nuvens](http://harvestingclouds.com) tem um 
 
     ![Clicar no botão Personalizar](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Clique nas reticências (...) ao lado de **Group 1: Inicie o @ no__t-0 @ no__t-1**Adicionar post action**.
+2. Clique nas reticências (...) ao lado de **grupo 1: iniciar** > **Adicionar ação de postagem**.
 3. Em **Inserir ação**, verifique se o **script** está selecionado e especifique um nome para o script (**Olá, mundo**).
-4. Especifique uma conta de automação e selecione um runbook. Para salvar o script, clique em **OK**. O script é adicionado ao **Grupo 1: Etapas posteriores**.
+4. Especifique uma conta de automação e selecione um runbook. Para salvar o script, clique em **OK**. O script é adicionado ao **Grupo 1: Pós-etapas**.
 
 
 ## <a name="reuse-a-runbook-script"></a>Reutilizar um script de runbook
@@ -247,7 +247,7 @@ Fazemos isso especificando vários valores, usando Azure PowerShell.
 
 Use o mesmo script para planos de recuperação diferentes. Insira parâmetros diferentes armazenando o valor que corresponde a um plano de recuperação em variáveis diferentes.
 
-## <a name="sample-scripts"></a>Scripts de exemplo
+## <a name="sample-scripts"></a>Exemplos de scripts
 
 Para implantar scripts de exemplo em sua conta de Automação, clique no botão **Implantar no Azure**.
 

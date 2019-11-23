@@ -76,13 +76,13 @@ Se preferir configurar manualmente o URI de redirecionamento, você poderá faze
 
 ### <a name="username-password"></a>Senha do nome de usuário
 
-Se seu aplicativo estiver usando apenas o nome de usuário/senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. De fato, esse fluxo faz uma viagem de ida e volta para o ponto de extremidade v 2.0 da plataforma de identidade da Microsoft e seu aplicativo não será chamado novamente em qualquer URI específico. No entanto, você precisa expressar que seu aplicativo é um aplicativo cliente público. Essa configuração é obtida acessando a seção de **autenticação** do seu aplicativo e, na subseção **Configurações avançadas** , escolha **Sim**, para o **aplicativo pergunta tratar como um cliente público** (no **padrão** parágrafo de tipo de cliente)
+Se seu aplicativo estiver usando apenas o nome de usuário/senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. De fato, esse fluxo faz uma viagem de ida e volta para o ponto de extremidade v 2.0 da plataforma de identidade da Microsoft e seu aplicativo não será chamado novamente em qualquer URI específico. No entanto, você precisa expressar que seu aplicativo é um aplicativo cliente público. Essa configuração é obtida acessando a seção de **autenticação** do seu aplicativo e, na subseção **Configurações avançadas** , escolha **Sim**, para o **aplicativo pergunta tratar como um cliente público** (no **tipo de cliente padrão** parágrafo)
 
 ## <a name="api-permissions"></a>Permissões de API
 
 Os aplicativos móveis chamam APIs em nome do usuário conectado. Seu aplicativo precisa solicitar permissões delegadas, também chamadas de escopos. Dependendo da experiência desejada, isso pode ser feito estaticamente por meio do portal do Azure ou dinamicamente em tempo de execução. O registro estático das permissões permite que os administradores aprovem facilmente seu aplicativo e é recomendado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Configuração de código](scenario-mobile-app-configuration.md)

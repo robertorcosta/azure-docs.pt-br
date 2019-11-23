@@ -33,7 +33,7 @@ Este tutorial ajuda você a monitorar seus dados no Azure Sentinel.
 > * Usar pastas de trabalho internas
 > * Criar pastas de trabalho
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ter pelo menos as permissões de colaborador ou leitor de pasta de trabalho no grupo de recursos do espaço de trabalho do Azure Sentinel.
 

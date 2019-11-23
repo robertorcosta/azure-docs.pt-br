@@ -32,7 +32,7 @@ O armazenamento do Azure dá suporte a três tipos de assinaturas de acesso comp
 
     Para obter mais informações sobre a SAS do serviço, consulte [criar um serviço SAS (API REST)](/rest/api/storageservices/create-service-sas).
 
-- **SAS de Conta.** Uma SAS de conta é protegida com a chave da conta de armazenamento. Uma SAS de conta delega acesso a recursos em um ou mais dos serviços de armazenamento. Todas as operações disponíveis por meio de uma SAS de delegação de serviço ou de usuário também estão disponíveis por meio de uma SAS de conta. Além disso, com a SAS da conta, você pode delegar acesso a operações que se aplicam ao nível do serviço, como **obter/definir propriedades de serviço** e obter as operações de **Estatísticas de serviço** . Você também pode delegar acesso a operações de leitura, gravação e exclusão em contêineres de blob, tabelas, filas e compartilhamentos de arquivos que não são permitidos com um SAS de serviço. 
+- **SAS de Conta.** Uma SAS de conta é protegida com a chave da conta de armazenamento. Uma SAS de conta delega acesso a recursos em um ou mais dos serviços de armazenamento. Todas as operações disponíveis por meio de uma SAS de delegação de serviço ou de usuário também estão disponíveis por meio de uma SAS de conta. Além disso, com a SAS da conta, você pode delegar acesso a operações que se aplicam ao nível do serviço, como **obter/definir propriedades de serviço** e obter as operações de **Estatísticas de serviço** . Você também pode delegar acesso para operações de leitura, gravação e exclusão em filas, tabelas e contêineres de blob, além de compartilhamentos de arquivos que não são permitidos com uma SAS de serviço. 
 
     Para obter mais informações sobre a SAS da conta, [crie uma SAS da conta (API REST)](/rest/api/storageservices/create-account-sas).
 
@@ -42,7 +42,7 @@ O armazenamento do Azure dá suporte a três tipos de assinaturas de acesso comp
 Uma assinatura de acesso compartilhado pode assumir uma destas duas formas:
 
 - **SAS ad hoc:** Quando você cria uma SAS ad hoc, a hora de início, a hora de expiração e as permissões para a SAS são todas especificadas no URI de SAS (ou implícita, se a hora de início for omitida). Qualquer tipo de SAS pode ser uma SAS ad hoc.
-- **SAS de serviço com política de acesso armazenada:** Uma política de acesso armazenada é definida em um contêiner de recursos, que pode ser um contêiner de BLOBs, uma tabela, uma fila ou um compartilhamento de arquivos. A política de acesso armazenada pode ser usada para gerenciar restrições para uma ou mais assinaturas de acesso compartilhado do serviço. Quando você associa uma SAS de serviço a uma política de acesso armazenada, a SAS herda as restrições @ no__t-0the hora de início, hora de expiração e permissões @ no__t-1defined para a política de acesso armazenada.
+- **SAS de serviço com política de acesso armazenada:** Uma política de acesso armazenada é definida em um contêiner de recursos, que pode ser um contêiner de BLOBs, uma tabela, uma fila ou um compartilhamento de arquivos. A política de acesso armazenada pode ser usada para gerenciar restrições para uma ou mais assinaturas de acesso compartilhado do serviço. Quando você associa uma SAS de serviço a uma política de acesso armazenada, a SAS herda as restrições&mdash;hora de início, hora de expiração e permissões&mdash;definidas para a política de acesso armazenada.
 
 > [!NOTE]
 > Uma SAS de delegação de usuário ou uma SAS de conta deve ser uma SAS ad hoc. As políticas de acesso armazenadas não têm suporte para a SAS de delegação de usuário ou a SAS da conta.
@@ -133,7 +133,7 @@ Para começar a usar as assinaturas de acesso compartilhado, consulte os artigos
 
 - [Criar uma SAS de conta com .NET](storage-account-sas-create-dotnet.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Delegar acesso com uma assinatura de acesso compartilhado (API REST)](/rest/api/storageservices/delegate-access-with-shared-access-signature)
 - [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas)

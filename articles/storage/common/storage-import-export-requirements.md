@@ -57,10 +57,10 @@ Cada trabalho pode ser usado para transferir dados para apenas uma conta de arma
 Os tipos de armazenamento na lista a seguir têm suporte com o serviço de Importação/Exportação do Azure.
 
 
-|Trabalho  |Serviço de Armazenamento |Com suporte  |Sem suporte  |
+|trabalho  |Serviço de Armazenamento |Suportado  |Sem suporte  |
 |---------|---------|---------|---------|
 |Importar     |  Armazenamento do Blob do Azure <br><br> Armazenamento de arquivos do Azure       | Blobs de página e Blobs de bloco com suporte <br><br> Arquivos com suporte          |
-|Exportação     |   Armazenamento do Blob do Azure       | Blobs de blocos, blobs de páginas e blobs de acréscimo com suporte         | Arquivos do Azure sem suporte
+|Exportar     |   Armazenamento do Blob do Azure       | Blobs de blocos, blobs de páginas e blobs de acréscimo com suporte         | Arquivos do Azure sem suporte
 
 
 ## <a name="supported-hardware"></a>Hardware com suporte 
@@ -72,7 +72,7 @@ Para o serviço de Importação/Exportação do Azure, você precisa de discos c
 Os discos na lista a seguir têm suporte para uso com o serviço de Importação/Exportação.
 
 
-|Tipo de disco  |Tamanho  |Com suporte |
+|Tipo de disco  |Tamanho  |Suportado |
 |---------|---------|---------|
 |SSD    |   2,5"      |SATA III          | 
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
@@ -91,7 +91,7 @@ Um grande número de unidades pode ser distribuído em vários trabalhos e não 
 Ao preparar discos rígidos e copiar os dados usando a ferramenta WAImportExport, você pode usar os adaptadores USB externos a seguir. A maioria dos adaptadores disponíveis no mercado USB 3.0 ou posteriores deve funcionar. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)

@@ -457,7 +457,7 @@ Aqui você tem duas opções:
 1. **O cliente é um sistema SAP de back-end** Se um sistema SAP de back-end estiver configurado para acessar o SAP Content Server, o sistema SAP será um cliente. Como o sistema SAP e o SAP Content Server são implantados na mesma região do Azure, no mesmo datacenter do Azure, eles estão fisicamente próximos. Portanto, não é necessário ter um SAP Cache Server dedicado. Os clientes da interface do usuário do SAP (GUI do SAP ou navegador da Web) acessam o sistema SAP diretamente e o sistema SAP recupera documentos do SAP Content Server.
 2. **O cliente é um navegador da Web local** O SAP Content Server pode ser configurado para ser acessado diretamente pelo navegador da Web. Nesse caso, um navegador da Web em execução local é um cliente do SAP Content Server. O datacenter local e o datacenter do Azure são colocados em diferentes locais físicos (idealmente próximos entre si). Seu datacenter local é conectado ao Azure por meio do ExpressRoute ou VPN site a site do Azure. Embora as duas opções ofereçam uma conexão de rede VPN segura para o Azure, a conexão de rede site a site não oferece uma largura de banda de rede e SLA de latência entre o datacenter local e o datacenter do Azure. Para acelerar o acesso a documentos, você pode realizar uma das seguintes ações:
    1. Instale o SAP Cache Server local, próximo ao navegador da Web local (opção na figura abaixo)
-   2. Configure a Azure ExpressRoute, que oferece uma conexão de rede dedicada de alta velocidade e baixa latência entre o datacenter local e o datacenter do Azure.
+   2. Configure o ExpressRoute do Azure, que oferece uma conexão de rede dedicada de alta velocidade e baixa latência entre o datacenter local e o datacenter do Azure.
 
 ![Opção de instalação local do SAP Cache Server](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
@@ -467,7 +467,7 @@ Se você configurar o SAP Content Server para armazenar arquivos no banco de dad
 
 Se você configura o SAP Content Server para armazenar arquivos no sistema de arquivos, uma opção é executar o backup/restauração manual da estrutura do arquivo inteiro na qual os documentos estão localizados. Semelhante ao backup/restauração do SAP MaxDB, é recomendável ter um volume de disco dedicado para fins de backup. 
 
-#### <a name="other"></a>Outros
+#### <a name="other"></a>outro
 Outras configurações específicas do SAP Content Server são transparentes para VMs do Azure e são descritas em vários documentos e Notas SAP:
 
 * <https://service.sap.com/contentserver> 

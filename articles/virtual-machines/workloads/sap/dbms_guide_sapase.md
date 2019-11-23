@@ -378,9 +378,9 @@ Como com sistemas locais, são necessárias várias etapas para habilitar toda a
 
 e os links gerados no DBACockpit da transação são semelhantes a este:
 
-> https:\//fullyqualifiedhostname>:44300/SAP/BC/Webdynpro\</SAP/dba_cockpit
+> https:\//\<fullyqualifiedhostname >: 44300/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
-> http:\//fullyqualifiedhostname>:8000/SAP/BC/Webdynpro\</SAP/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: 8000/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
 > 
 
@@ -531,9 +531,9 @@ Como com sistemas locais, são necessárias várias etapas para habilitar toda a
 
 e os links gerados no DBACockpit da transação serão semelhantes a este:
 
-> https:\//fullyqualifiedhostname>:44300/SAP/BC/Webdynpro\</SAP/dba_cockpit
+> https:\//\<fullyqualifiedhostname >: 44300/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
-> http:\//fullyqualifiedhostname>:8000/SAP/BC/Webdynpro\</SAP/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: 8000/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
 > 
 

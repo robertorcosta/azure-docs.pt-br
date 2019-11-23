@@ -35,9 +35,9 @@ Um dos formatos a seguir pode ser usado para acessar dados armazenados no Armaze
 
 |Formato de Acesso a Dados |DESCRIÇÃO |
 |---|---|
-|`wasb:///`|Acesse o armazenamento padrão usando comunicação não criptografada.|
+|`wasb:///`|Acessar o armazenamento padrão usando comunicação não criptografada.|
 |`wasbs:///`|Acessar o armazenamento padrão usando comunicação criptografada.|
-|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Usado ao comunicar-se com uma conta de armazenamento não padrão. |
+|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Usado ao se comunicar com uma conta de armazenamento não padrão. |
 
 
 [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](../../storage/common/storage-scalability-targets.md) lista os limites atuais em contas de Armazenamento do Azure. Se as necessidades do aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, o aplicativo poderá ser criado para usar múltiplas contas de armazenamento e fazer o particionamento dos objetos de dados nessas contas de armazenamento.
@@ -204,7 +204,7 @@ O Azure Data Lake Storage fornece LRS (armazenamento com redundância local), ma
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Replicação do Armazenamento do Azure](../../storage/common/storage-redundancy.md)
+- [Replicação de Armazenamento do Azure](../../storage/common/storage-redundancy.md)
 - [Orientação sobre desastres para o ADLS (Azure Data Lake Storage)](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
 ## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Anexar contas de Armazenamento do Azure adicionais ao cluster

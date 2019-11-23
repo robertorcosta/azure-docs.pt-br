@@ -52,7 +52,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Bibliotecas do cliente](analysis-services-data-providers.md)   
 [Conectar-se a partir do Power BI Desktop](analysis-services-connect-pbi.md)

@@ -59,9 +59,9 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Você pode gerenciar a execução de consulta paralela ajustando os seguintes parâmetros:
 
-- **MaxDegreeOfParallelism**: Define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como -1, o SDK gerenciará o grau de paralelismo. Se `MaxDegreeOfParallelism` não estiver especificado ou definido como 0, que é o valor padrão, haverá uma conexão de rede individual com as partições do contêiner.
+- **MaxDegreeOfParallelism**: define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como -1, o SDK gerenciará o grau de paralelismo. Se `MaxDegreeOfParallelism` não estiver especificado ou definido como 0, que é o valor padrão, haverá uma conexão de rede individual com as partições do contêiner.
 
-- **MaxBufferedItemCount**: Troca latência de consulta versus utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o SDK gerenciará o número de itens no buffer durante a execução de consultas paralelas.
+- **MaxBufferedItemCount**: negocia a latência da consulta em comparação com a utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o SDK gerenciará o número de itens no buffer durante a execução de consultas paralelas.
 
 Com o mesmo estado da coleção, uma consulta paralela retorna resultados na mesma ordem de uma execução serial. Ao executar uma consulta entre partições que inclui operadores de classificação (ORDER BY, TOP), o SDK do Azure Cosmos DB emite a consulta paralelamente entre partições. Ela mescla parcialmente os resultados classificados no lado do cliente para produzir resultados ordenados globalmente.
 

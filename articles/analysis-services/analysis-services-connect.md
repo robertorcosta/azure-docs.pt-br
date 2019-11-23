@@ -74,7 +74,7 @@ Use a conta do Windows executando o processo atual.
 Com versões mais antigas do Excel, os usuários podem se conectar a um servidor do Azure Analysis Service usando um arquivo Office Data Connectionn (.odc). Para obter mais informações, consulte [Criar um arquivo Office Data Connection (.odc)](analysis-services-odc.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Conectar com Excel](analysis-services-connect-excel.md)    
 [Conectar com Power BI](analysis-services-connect-pbi.md)   

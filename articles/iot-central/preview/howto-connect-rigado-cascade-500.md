@@ -28,7 +28,7 @@ O gateway IoT em cascata 500 é uma oferta de hardware do rigado que é incluíd
 
 A Cascade 500 é previamente certificada para o PnP (Azure IoT Plug and Play), permitindo que nossos criadores de solução carreguem facilmente o dispositivo em suas soluções de ponta a ponta. O gateway em cascata permite que você se conecte sem fio a uma variedade de sensores de monitoramento de condição que estão em proximidade com o dispositivo de gateway. Esses sensores podem ser integrados ao IoT Central por meio do dispositivo de gateway.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para percorrer este guia de instruções, você precisa dos seguintes recursos:
 
 * Um dispositivo rigado Cascade 500 em cascata. Para obter mais informações, visite [rigado](https://www.rigado.com/).

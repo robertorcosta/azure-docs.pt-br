@@ -41,11 +41,11 @@ Este artigo mostra como usar o Data Factory para _carregar dados do Office 365 n
 3. Selecione **Criar**.
 4. Após a conclusão da criação, vá para o seu data factory. Você verá a home page **Data Factory** conforme mostrado na imagem a seguir:
    
-   ![Página inicial da data factory](./media/load-office-365-data/data-factory-home-page.png)
+   ![Página inicial do data factory](./media/load-office-365-data/data-factory-home-page.png)
 
 5. Selecione o bloco **Autor & Monitor** para iniciar o aplicativo de integração de dados em uma guia separada.
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 
 1. Na página "Introdução", selecione **Criar pipeline**.
  

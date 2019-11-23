@@ -131,7 +131,7 @@ ms.locfileid: "72899156"
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
 "> config. xml</a><br>
                                                             
-do <a href="https://github.com/Microsoft/ApplicationInsights-Java">repositório GitHub do SDK de Java</a> de software livre                                                        </p>
+do <a href="https://github.com/Microsoft/ApplicationInsights-Java">repositório GitHub do SDK de Java</a> de software livre                                                         </p>
                                                         <br><br>
                                                         <h3>Aplicativos .NET</h3>
                                                         <p>
@@ -149,14 +149,14 @@ do <a href="https://github.com/Microsoft/ApplicationInsights-Java">repositório 
                                                             <a href="./app/profiler-aspnetcore-linux.md">Criação de perfil do ASP.NET Core</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Eventos e métricas personalizados</a><br>
                                                             
-do <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">repositório GitHub</a> de software livre SDK do .NET Core                                                        </p>
+do <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">repositório GitHub</a> de software livre SDK do .NET Core                                                         </p>
                                                         <br><br>
                                                           <h3>Aplicativos Node.js</h3>
                                                         <p>
                                                             <a href="./app/nodejs.md">Configuração de monitoramento aprofundado</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Eventos e métricas personalizados</a><br>
                                                             
-de <a href="https://github.com/Microsoft/ApplicationInsights-node.js">repositório GitHub do SDK do node. js de código aberto</a>                                                        </p>
+de <a href="https://github.com/Microsoft/ApplicationInsights-node.js">repositório GitHub do SDK do node. js de código aberto</a>                                                         </p>
                                                         <br><br>
                                                         <h3>Monitoramento do lado do cliente/navegador</h3>
                                                         <p>
@@ -217,7 +217,7 @@ de <a href="https://github.com/Microsoft/ApplicationInsights-node.js">repositór
                                                             <a href="./app/data-model-event-telemetry.md">Evento</a><br>
                                                             <a href="./app/data-model-metric-telemetry.md">Métrica</a><br>
                                                             
-de <a href="./app/data-model-context.md">contexto</a>                                                            </p>
+de <a href="./app/data-model-context.md">contexto</a>                                                             </p>
                                                         </p>
                                                     </div>
                                                 </div>

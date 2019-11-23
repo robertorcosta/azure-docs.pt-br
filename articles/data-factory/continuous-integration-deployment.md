@@ -199,7 +199,7 @@ A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para a
 Você pode seguir etapas semelhantes (com a função `Start-AzDataFactoryV2Trigger`) para reiniciar os gatilhos após a implantação.
 
 > [!IMPORTANT]
-> Em cenários de integração e implementação contínuos, o tipo de tempo de execução de integração em diferentes ambientes deve ser o mesmo. Por exemplo, se você tiver um *Runtime de integração (IR) auto-hospedado* no ambiente de desenvolvimento, o mesmo IR deve ser do tipo *Auto-Hospedado* em outros ambientes, como teste e produção Além disso. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, será necessário configurar os Integration Runtimes como *Linked Self-Hosted* em todos os ambientes, como desenvolvimento, teste e produção.
+> Em cenários de integração e implementação contínuos, o tipo de runtime de integração em diferentes ambientes deve ser o mesmo. Por exemplo, se você tiver um *Runtime de integração (IR) auto-hospedado* no ambiente de desenvolvimento, o mesmo IR deve ser do tipo *Auto-Hospedado* em outros ambientes, como teste e produção Além disso. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, será necessário configurar os Integration Runtimes como *Linked Self-Hosted* em todos os ambientes, como desenvolvimento, teste e produção.
 
 #### <a name="sample-prepostdeployment-script"></a>Exemplo de script de pré/pós-implantação
 
@@ -341,8 +341,8 @@ Aqui estão algumas diretrizes para usar ao criar o arquivo de parâmetros perso
       * `=` significa manter o valor atual como o valor padrão para o parâmetro.
       * `-` significa não manter o valor padrão para o parâmetro.
       * `|` é um caso especial para segredos de Azure Key Vault para cadeias de conexão ou chaves.
-   * `<name>` é o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um caractere `-`, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzido para `AzureStorage1_connectionString`.
-   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo padrão será `string`. Valores com suporte: `string`, `bool`, `number`, `object` e `securestring`.
+   * `<name>` é o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um `-` caractere, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzida para `AzureStorage1_connectionString`.
+   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo padrão será `string`. Valores com suporte: `string`, `bool`, `number`, `object`e `securestring`.
 * Ao especificar uma matriz no arquivo de definição, você indica que a propriedade correspondente no modelo é uma matriz. Data Factory itera através de todos os objetos na matriz usando a definição especificada no objeto Integration Runtime da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usada como o nome do parâmetro para cada iteração.
 * Não é possível ter uma definição específica para uma instância de recurso. Qualquer definição se aplica a todos os recursos desse tipo.
 * Por padrão, todas as cadeias de caracteres seguras, como segredos de Key Vault e cadeias de caracteres seguras, como cadeias de conexão, chaves e tokens, são parametrizadas.
@@ -415,7 +415,7 @@ Abaixo está uma explicação de como o modelo acima é construído, dividido po
 #### <a name="pipelines"></a>Pipelines
     
 * Qualquer propriedade no caminho Activities/typeproperties/waitTimeInSeconds é parametrizada. Qualquer atividade em um pipeline que tenha uma propriedade de nível de código chamada `waitTimeInSeconds` (por exemplo, a atividade `Wait`) é parametrizada como um número, com um nome padrão. Mas ele não terá um valor padrão no modelo do Resource Manager. Será uma entrada obrigatória durante a implantação do Gerenciador de recursos.
-* Da mesma forma, uma propriedade chamada `headers` (por exemplo, em uma atividade `Web`) é parametrizada com o tipo `object` (JObject). Ele tem um valor padrão, que é o mesmo valor que na fábrica de origem.
+* Da mesma forma, uma propriedade chamada `headers` (por exemplo, em uma atividade de `Web`) é parametrizada com o tipo `object` (JObject). Ele tem um valor padrão, que é o mesmo valor que na fábrica de origem.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
@@ -424,15 +424,15 @@ Abaixo está uma explicação de como o modelo acima é construído, dividido po
 #### <a name="triggers"></a>Gatilhos
 
 * Em `typeProperties`, duas propriedades são parametrizadas. O primeiro é `maxConcurrency`, que é especificado para ter um valor padrão e é do tipo`string`. Ele tem o nome de parâmetro padrão de `<entityName>_properties_typeProperties_maxConcurrency`.
-* A propriedade `recurrence` também é parametrizada. Sob ele, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a propriedade `interval`, que é parametrizada como um tipo numérico, e com o nome do parâmetro sufixado com `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma, a propriedade `freq` é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto, a propriedade `freq` é parametrizada sem um valor padrão. O nome é reduzido e sufixado. Por exemplo: `<entityName>_freq`.
+* A propriedade `recurrence` também é parametrizada. Sob ele, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a propriedade `interval`, que é parametrizada como um tipo numérico, e com o nome do parâmetro sufixado com `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma, a propriedade `freq` é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto, a propriedade `freq` é parametrizada sem um valor padrão. O nome é reduzido e sufixado. Por exemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
 * Os serviços vinculados são exclusivos. Como os serviços vinculados e os conjuntos de linhas têm uma ampla gama de tipos, você pode fornecer personalização específica de tipo. Neste exemplo, todos os serviços vinculados do tipo `AzureDataLakeStore`, um modelo específico será aplicado e, para todos os outros (via \*), um modelo diferente será aplicado.
 * A propriedade `connectionString` será parametrizada como um valor de `securestring`, não terá um valor padrão e terá um nome de parâmetro abreviado com `connectionString`.
-* A propriedade `secretAccessKey` é um `AzureKeyVaultSecret` (por exemplo, em um serviço vinculado `AmazonS3`). Ele é parametrizado automaticamente como um Azure Key Vault segredo e buscado a partir do cofre de chaves configurado. Você também pode parametrizar o cofre de chaves em si.
+* A propriedade `secretAccessKey` é uma `AzureKeyVaultSecret` (por exemplo, em um `AmazonS3` serviço vinculado). Ele é parametrizado automaticamente como um Azure Key Vault segredo e buscado a partir do cofre de chaves configurado. Você também pode parametrizar o cofre de chaves em si.
 
-#### <a name="datasets"></a>Conjunto de dados
+#### <a name="datasets"></a>Conjuntos de dados
 
 * Embora a personalização específica de tipo esteja disponível para conjuntos de valores, a configuração pode ser fornecida sem ter explicitamente uma configuração de nível \*. No exemplo acima, todas as propriedades de DataSet em `typeProperties` são parametrizadas.
 
@@ -545,7 +545,7 @@ Veja abaixo o modelo de parametrização padrão atual. Se você só precisa adi
 }
 ```
 
-Veja abaixo um exemplo de como adicionar um único valor ao modelo de parametrização padrão. Só queremos adicionar uma ID de cluster interativo do databricks interativo para um serviço vinculado do databricks ao arquivo de parâmetros. Observe que o arquivo abaixo é o mesmo que o arquivo acima, exceto para `existingClusterId` incluído no campo de propriedades de `Microsoft.DataFactory/factories/linkedServices`.
+Veja abaixo um exemplo de como adicionar um único valor ao modelo de parametrização padrão. Só queremos adicionar uma ID de cluster interativo do databricks interativo para um serviço vinculado do databricks ao arquivo de parâmetros. Observe que o arquivo abaixo é o mesmo que o arquivo acima, exceto pelo `existingClusterId` incluído no campo de propriedades de `Microsoft.DataFactory/factories/linkedServices`.
 
 ```json
 {

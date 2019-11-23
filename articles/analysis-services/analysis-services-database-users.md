@@ -27,7 +27,7 @@ As permissões de função incluem:
 
 Ao criar um projeto de modelo de tabela, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de funções no Visual Studio com projetos Analysis Services. Quando implantado em um servidor, você usa SQL Server Management Studio (SSMS), [Analysis Services cmdlets do PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou TMSL ( [linguagem de script de modelo de tabela](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) para adicionar ou remover funções e membros do usuário.
 
-Os **grupos de segurança** devem ser [habilitados para email](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade `MailEnabled` definida como `True`. Ao especificar um grupo por endereço de email, use `obj:groupid@tenantid`.
+Os**grupos de segurança** devem ser [habilitados para email](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade `MailEnabled` definida como `True`. Ao especificar um grupo por endereço de email, use `obj:groupid@tenantid`.
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para adicionar ou gerenciar funções e usuários no Visual Studio  
@@ -42,7 +42,7 @@ Os **grupos de segurança** devem ser [habilitados para email](https://docs.micr
   
 4.  Selecione uma das seguintes permissões:  
   
-    |Permissão|Descrição|  
+    |Permissão|DESCRIÇÃO|  
     |----------------|-----------------|  
     |**Nenhum**|Os membros não podem modificar o esquema do modelo e não podem consultar dados.|  
     |**Ler**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema de modelo.|  
@@ -71,7 +71,7 @@ Para adicionar funções e usuários a um modelo de banco de dados implantado, v
 
 3. Selecione uma permissão.
 
-   |Permissão|Descrição|  
+   |Permissão|DESCRIÇÃO|  
    |----------------|-----------------|  
    |**Controle total (Administrador)**|Os membros podem modificar o esquema de modelo, processar e consultar todos os dados.| 
    |**Processar banco de dados**|Os membros podem executar as operações Processar e Processar Tudo. Não podem modificar o esquema do modelo e não podem consultar dados.|  
@@ -121,7 +121,7 @@ Neste exemplo, um usuário externo B2B e um grupo são adicionados à função A
 
 O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gerenciamento de banco de dados de tarefas específicas e o cmdlet Invoke-ASCmd de uso geral, que aceita um script ou consulta de TMSL (Linguagem de Script de Modelo Tabular). Os cmdlets a seguir são usados para gerenciar usuários e funções de banco de dados.
   
-|Cmdlet|Descrição|
+|Cmdlet|DESCRIÇÃO|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicionar um membro a uma função de banco de dados.| 
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remover um membro de uma função de banco de dados.|   
@@ -147,7 +147,7 @@ Os filtros de linha são aplicados às linhas especificadas e às linhas relacio
   
  Você pode usar o filtro, *=FALSE()* , para negar o acesso a todas as linhas de uma tabela inteira.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
   [Gerenciar administradores de servidor](analysis-services-server-admins.md)   
   [Gerenciar o Azure Analysis Services com PowerShell](analysis-services-powershell.md)  

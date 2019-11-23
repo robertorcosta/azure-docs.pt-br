@@ -28,7 +28,7 @@ Configure o acesso aos logs de consulta lenta do MySQL.
 2. Selecione seu servidor de Banco de Dados do Azure para MySQL.
 
 3. Na seção **monitoramento** na barra lateral, selecione **logs do servidor**. 
-   ![Screenshot de opções de logs de servidor @ no__t-1
+   ![captura de tela de opções de logs do servidor](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
 4. Para ver os parâmetros do servidor, selecione **clique aqui para habilitar logs e configurar parâmetros de log**.
 
@@ -71,10 +71,10 @@ Após o início do log, você pode exibir uma lista de logs de consultas lentas 
 1. Especifique quais coletores de dados enviarão os logs de consulta lentos (conta de armazenamento, Hub de eventos ou espaço de trabalho Log Analytics).
 
 1. Selecione **MySqlSlowLogs** como o tipo de log.
-![Screenshot das opções de configuração de configurações de diagnóstico @ no__t-1
+![captura de tela das opções de configuração de configurações de diagnóstico](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
 
 1. Depois de configurar os coletores de dados para canalizar os logs de consulta lentos, selecione **salvar**.
-![Screenshot das opções de configuração de configurações de diagnóstico, com salvar realçado @ no__t-1
+![captura de tela das opções de configuração de configurações de diagnóstico, com salvar realçado](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
 
 1. Acesse os logs de consulta lento explorando-os nos coletores de dados que você configurou. Pode levar até 10 minutos para que os logs sejam exibidos.
 

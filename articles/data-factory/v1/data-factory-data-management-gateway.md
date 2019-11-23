@@ -22,10 +22,10 @@ ms.locfileid: "73682724"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md).
+> Este artigo se aplica à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md).
 
 > [!NOTE]
-> O Gateway de Gerenciamento de Dados agora foi remarcado como Tempo de Execução de Integração Auto-Hospedado.
+> O Gateway de Gerenciamento de Dados agora foi remarcado como Integration Runtime auto-hospedado.
 
 O Gateway de Gerenciamento de Dados é um agente cliente que você deve instalar no seu ambiente local para copiar dados entre a nuvem e os repositórios de dados locais. Os repositórios de dados locais compatíveis com o Data Factory estão listados na seção [Fontes de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
@@ -263,7 +263,7 @@ Você vê a hora de atualização agendada nos seguintes locais:
 
 A guia Página Inicial do Gerenciador de Configurações do Gateway de Gerenciamento de Dados exibe a agenda de atualização e a última vez em que o gateway foi instalado/atualizado.
 
-![Agendar atualizações](media/data-factory-data-management-gateway/UpdateSection.png)
+![Agende atualizações](media/data-factory-data-management-gateway/UpdateSection.png)
 
 Você pode instalar a atualização imediatamente ou aguardar até que o gateway seja atualizado automaticamente no horário agendado. Por exemplo, a imagem a seguir mostra a mensagem de notificação exibida no Gerenciador de Configurações do Gateway com o botão Atualizar, que pode ser clicado para instalar a atualização imediatamente.
 
@@ -350,7 +350,7 @@ No Portal do Azure, você pode exibir o instantâneo quase em tempo real de util
 
 1. No Portal do Azure, navegue até a home page do data factory e clique no bloco **Serviços vinculados**.
 
-    ![Página inicial da data factory](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png)
+    ![Página inicial do data factory](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png)
 2. Selecione o **gateway** na página **Serviços vinculados**.
 
     ![Página Serviços vinculados](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
@@ -365,7 +365,7 @@ A tabela a seguir fornece descrições das colunas na lista **Nós de Gateway**:
 
 Propriedade de monitoramento | DESCRIÇÃO
 :------------------ | :----------
-Nome | Nome do gateway lógico e nós associada ao gateway. O nó é um computador local do Windows em que o gateway está instalado. Para obter informações sobre ter mais de um nó (até quatro nós) em um único gateway lógico, consulte [Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade](data-factory-data-management-gateway-high-availability-scalability.md).
+NOME | Nome do gateway lógico e nós associada ao gateway. O nó é um computador local do Windows em que o gateway está instalado. Para obter informações sobre ter mais de um nó (até quatro nós) em um único gateway lógico, consulte [Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade](data-factory-data-management-gateway-high-availability-scalability.md).
 Status | Status do gateway lógico e dos nós de gateway. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a seção [status do gateway](#gateway-status) .
 Versão | Mostra a versão do gateway lógico e cada nó do gateway. A versão do gateway lógico é determinada com base na versão da maioria dos nós no grupo. Se não há nós com versões diferentes na configuração do gateway lógico, somente os nós com o mesmo número de versão que o gateway lógico funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe).
 Memória disponível | Memória disponível em um nó do gateway. Esse valor é um instantâneo quase em tempo real.

@@ -14,7 +14,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/05/2019
 ms.locfileid: "73605798"
 ---
-# <a name="connect-with-the-macos-client"></a>Conectar-se com o cliente macOS
+# <a name="connect-with-the-macos-client"></a>Conectar-se ao cliente macOS
 
 > Aplica-se a: macOS 10,12 ou posterior
 

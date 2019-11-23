@@ -69,7 +69,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * A Nota SAP [401162] contém informações sobre como evitar o "endereço já em uso" ao configurar a Replicação do Sistema HANA.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
-* [SAP HANA certificada IaaS plataformas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+* [Plataformas IaaS certificadas pela SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP no][planning-guide] guia do Linux.
 * [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (este artigo).
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP no][dbms-guide] guia do Linux.
@@ -112,7 +112,7 @@ Para implantar o modelo, siga estas etapas:
     - Em **SYSTEMAVAILABILITY**, selecione **HA**.
     - **Nome de usuário e senha de**administrador: um novo usuário é criado e pode ser usado para entrar no computador.
     - **Sub-rede nova ou existente**: determina se uma nova rede virtual e sub-rede devem ser criadas ou se uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-    - **ID de sub-rede**: se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. Geralmente, a ID é semelhante a **/subscriptions/\<ID da assinatura ID>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual>/subnets/\<nome da sub-rede>** .
+    - **ID de sub-rede**: se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida a VM deve ser atribuída para a ID de sub-rede específico. Geralmente, a ID é semelhante a **/subscriptions/\<ID da assinatura ID>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual>/subnets/\<nome da sub-rede>** .
 
 ### <a name="manual-deployment"></a>Implantação manual
 

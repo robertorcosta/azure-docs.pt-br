@@ -24,7 +24,7 @@ Para obter mais informações sobre o painel do kubernetes, consulte [painel de 
 
 As etapas detalhadas neste documento pressupõem que você tenha criado um cluster do AKS e estabelecido uma conexão `kubectl` com o cluster. Se você precisar criar um cluster AKS, consulte o guia de [início rápido do AKS][aks-quickstart].
 
-A CLI do Azure versão 2.0.46 ou posterior também precisa estar instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+Você também precisa ter instalada e configurada a CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Iniciar o painel do Kubernetes
 
@@ -34,7 +34,7 @@ Para iniciar o painel do kubernetes, use o comando [AZ AKs Browse][az-aks-browse
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kubernetes, e abre um navegador da Web para o painel do Kubernetes. Se um navegador da Web não abrir no painel do kubernetes, copie e cole o endereço da URL anotado na CLI do Azure `http://127.0.0.1:8001`, normalmente.
+Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kubernetes, e abre um navegador da Web para o painel do Kubernetes. Se um navegador da Web não abrir no painel do kubernetes, copie e cole o endereço da URL anotado na CLI do Azure, geralmente `http://127.0.0.1:8001`.
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)

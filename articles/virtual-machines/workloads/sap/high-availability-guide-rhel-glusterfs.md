@@ -54,7 +54,7 @@ Primeiro, leia os seguintes documentos e Notas SAP
   * A versão do kernel do SAP necessária para Windows e para Linux no Microsoft Azure
 
 * A Nota SAP [2015553] lista pré-requisitos para implantações de software SAP com suporte do SAP no Azure.
-* Nota SAP [2002167] recomendou configurações do sistema operacional Red Hat Enterprise Linux
+* Nota SAP [2002167] recomendou configurações do SO para o Red Hat Enterprise Linux
 * Nota SAP [2009879] tem diretrizes SAP HANA para Red Hat Enterprise Linux
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramentos relatadas para o SAP no Azure.
 * A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
@@ -109,10 +109,10 @@ Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriorm
 1. Crie um Conjunto de Disponibilidade  
    Defina o máximo de domínio de atualização
 1. Crie a Máquina Virtual 1  
-   Use pelo menos RHEL 7, nesta imagem de exemplo do Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos o RHEL 7, neste exemplo a imagem do Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecione o Conjunto de Disponibilidade criado anteriormente  
 1. Crie a Máquina Virtual 2  
-   Use pelo menos RHEL 7, nesta imagem de exemplo do Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos o RHEL 7, neste exemplo a imagem do Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecione o Conjunto de Disponibilidade criado anteriormente  
 1. Adicione um disco de dados para cada sistema SAP para ambas as máquinas virtuais.
 
@@ -354,5 +354,5 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias grandes), confira [Alta disponibilidade e recuperação de desastres do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
+* Para saber como estabelecer o plano de recuperação de desastre do SAP HANA no Azure (instâncias grandes) e de alta disponibilidade, veja [Alta disponibilidade e recuperação de desastre do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
 * Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA em VMs do Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha]

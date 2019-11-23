@@ -1,6 +1,6 @@
 ---
 title: Configurar o ambiente de desenvolvimento no Linux | Microsoft Docs
-description: Instale o tempo de execução, o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir a instalação, você estará pronto para criar aplicativos.
+description: Instale o runtime, o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir a instalação, você estará pronto para criar aplicativos.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -29,11 +29,11 @@ ms.locfileid: "72170613"
 >
 >  
 
-Para implantar e executar os [aplicativos do Azure Service Fabric](service-fabric-application-model.md) em seu computador de desenvolvimento Linux, instale o tempo de execução e o SDK comum. Você também pode instalar os SDKs opcionais para desenvolvimento em Java e .NET Core. 
+Para implantar e executar os [aplicativos do Azure Service Fabric](service-fabric-application-model.md) em seu computador de desenvolvimento Linux, instale o runtime e o SDK comum. Você também pode instalar os SDKs opcionais para desenvolvimento em Java e .NET Core. 
 
 As etapas neste artigo presumem a instalação nativa no Linux ou o uso da imagem de contêiner do Service Fabric OneBox, `microsoft/service-fabric-onebox`.
 
-Não há suporte para a instalação do tempo de execução do Service Fabric e do SDK no subsistema do Windows para Linux. É possível gerenciar entidades do Service Fabric hospedadas em outro lugar na nuvem ou no local com a interface de linha de comando (CLI) do Azure Service Fabric, para a qual há suporte. Para obter informações sobre como instalar a CLI, consulte [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
+Não há suporte para a instalação do runtime do Service Fabric e do SDK no subsistema do Windows para Linux. É possível gerenciar entidades do Service Fabric hospedadas em outro lugar na nuvem ou no local com a interface de linha de comando (CLI) do Azure Service Fabric, para a qual há suporte. Para obter informações sobre como instalar a CLI, consulte [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -54,7 +54,7 @@ Há suporte de desenvolvimento para estas versões de sistema operacional.
 
 ### <a name="script-installation-ubuntu"></a>Instalação por script (Ubuntu)
 
-Para conveniência, um script é fornecido para instalar o tempo de execução do Service Fabric e o SDK do Service Fabric comum juntamente com a CLI **sfctl**. Execute as etapas de instalação manual da próxima seção. Você vê o que está sendo instalado e as licenças associadas. A execução do script supõe que você concorda com as licenças para todos os softwares que estão sendo instalados.
+Para conveniência, um script é fornecido para instalar o runtime do Service Fabric e o SDK do Service Fabric comum juntamente com a CLI **sfctl**. Execute as etapas de instalação manual da próxima seção. Você vê o que está sendo instalado e as licenças associadas. A execução do script supõe que você concorda com as licenças para todos os softwares que estão sendo instalados.
 
 Depois que o script for executado com êxito, é possível pular para [Configurar um cluster local](#set-up-a-local-cluster).
 
@@ -63,7 +63,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ```
 
 ### <a name="manual-installation"></a>Instalação manual
-Para a instalação manual do tempo de execução do Service Fabric e SDK comum, siga o restante deste guia.
+Para a instalação manual do runtime do Service Fabric e SDK comum, siga o restante deste guia.
 
 ## <a name="update-your-apt-sources-or-yum-repositories"></a>Atualizar suas fontes APT ou repositórios Yum
 Para instalar o SDK e o pacote de execução associado via ferramenta da linha de comando apt-get, primeiro atualize as fontes APT (Advanced Packaging Tool).
@@ -174,7 +174,7 @@ sudo apt-get install servicefabricsdkcommon
 sudo yum install servicefabricsdkcommon
 ```
 
-O tempo de execução do Service Fabric que vem com a instalação anterior do SDK inclui os pacotes da tabela a seguir. 
+O runtime do Service Fabric que vem com a instalação anterior do SDK inclui os pacotes da tabela a seguir. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
@@ -272,7 +272,7 @@ Você pode instalar o plug-in Eclipse do Service Fabric de dentro do IDE do Ecli
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse em vez de usar um instalador de pacote (`apt` ou `apt-get`). Isso garante que você obtenha a versão mais atual do Eclipse. Você pode instalar o IDE do Eclipse para Desenvolvedores Java ou para Java EE para Desenvolvedores.
 
-1. No Eclipse, verifique se você instalou o Eclipse Neon ou posterior e o Buildship versão 2.2.1 ou posterior. Verifique as versões dos componentes instalados selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. Você pode atualizar Buildship usando as instruções em [Buildship do Eclipse: Plug-ins Eclipse para gradle @ no__t-0.
+1. No Eclipse, verifique se você instalou o Eclipse Neon ou posterior e o Buildship versão 2.2.1 ou posterior. Verifique as versões dos componentes instalados selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. Você pode atualizar a criação usando as instruções em [criação do eclipse: plug-ins do Eclipse para gradle][buildship-update].
 
 2. Para instalar o plug-in Service Fabric, selecione**Ajuda** > **Instalar Novo Software**.
 
@@ -286,13 +286,13 @@ Você pode instalar o plug-in Eclipse do Service Fabric de dentro do IDE do Ecli
 
 6. Execute as etapas de instalação. Depois aceite os termos de licença do usuário final.
 
-Se você já tiver o plug-in Service Fabric instalado, verifique se tem a versão mais recente. Faça a verificação selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. Em seguida, procure o Service Fabric na lista de plug-ins instalados. Selecione **Atualizar** se houver uma versão mais recente disponível.
+Se você já tiver o plug-in Service Fabric instalado, verifique se tem a versão mais recente. Faça a verificação selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. Em seguida, pesquise Service Fabric na lista de plug-ins instalados. Selecione **Atualizar** se uma versão mais recente estiver disponível.
 
 Para obter mais informações, consulte [Plug-in Service Fabric para o desenvolvimento de aplicativos Java do Eclipse](service-fabric-get-started-eclipse.md).
 
 ## <a name="update-the-sdk-and-runtime"></a>Atualizar SDK e execução
 
-Para atualizar para a versão mais recente do SDK e tempo de execução, execute os seguintes comandos.
+Para atualizar para a versão mais recente do SDK e runtime, execute os seguintes comandos.
 
 ```bash
 sudo apt-get update

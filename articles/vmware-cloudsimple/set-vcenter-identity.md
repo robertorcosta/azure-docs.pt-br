@@ -116,7 +116,7 @@ Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Act
 
 4. Selecione **logon único > configuração**.
 
-    ![Logon único](media/OnPremAD02.png)
+    ![Logon Único](media/OnPremAD02.png)
 
 5. Abra a guia **fontes de identidade** e clique em **+** para adicionar uma nova fonte de identidade.
 

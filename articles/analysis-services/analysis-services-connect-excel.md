@@ -20,7 +20,7 @@ Após criar um servidor e implantar um modelo tabular, os clientes poderão cone
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A conta de logon precisa pertencer a uma função de modelo de banco de dados com, pelo menos, permissões de leitura. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md). 
+A conta de logon precisa pertencer a uma função de modelo de banco de dados com, pelo menos, permissões de leitura. Para obter mais informações, consulte [Autenticação e permissões de usuário](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Conectar-se no Excel
 
@@ -40,7 +40,7 @@ A conexão com um servidor no Excel usando Obter Dados no Excel 2016 e posterior
     ![Conectar a partir do modelo de seleção do Excel](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Bibliotecas do cliente](analysis-services-data-providers.md)   
 [Gerenciar seu serviço](analysis-services-manage.md)     

@@ -25,19 +25,19 @@ Azure Cosmos DB mecanismo de grafo segue a especificação de etapas de passagem
 
 * O ***[Código de bytes do Gremlin](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** é uma especificação independente da linguagem de programação para passagens de gráfico. Cosmos DB grafo ainda não dá suporte a ele. Use ```GremlinClient.SubmitAsync()``` e passe passagem como uma cadeia de texto.
 
-* Atualmente, não há suporte para ***a cardinalidade ```property(set, 'xyz', 1)```*** . Use ```property(list, 'xyz', 1)``` em vez disso.
+* a cardinalidade do conjunto de ***```property(set, 'xyz', 1)```*** não tem suporte hoje. Use ```property(list, 'xyz', 1)``` em vez disso.
 
 * ***```match()```*** permite consultar grafos usando correspondência de padrão declarativa. Essa funcionalidade não está disponível.
 
 * Não há suporte para ***objetos como propriedades*** em vértices ou bordas. As propriedades somente podem ser tipos primitivos ou matrizes.
 
-* Não há suporte para a ***classificação por propriedades de matriz*** ```.order().by(<array property>)```. É possível classifica apenas por tipos primitivos.
+* Não há suporte para ***a classificação por propriedades de matriz*** ```.order().by(<array property>)```. É possível classifica apenas por tipos primitivos.
 
-* Não há suporte para ***tipos JSON não primitivos*** . Use os tipos ```string```, ```number``` ou ```true``` @ no__t-3 @ no__t-4. Não há suporte para valores ```null```. 
+* Não há suporte para ***tipos JSON não primitivos*** . Use ```string```tipos de ```false``` /, ```number```ou ```true```. Não há suporte para valores de ```null```. 
 
 * O serializador ***GraphSONv3*** não está disponível hoje.
 
 * ***As transações*** não têm suporte devido à natureza distribuída do sistema.  Configure o modelo de consistência apropriado na conta do Gremlin para "ler suas próprias gravações" e use a simultaneidade otimista para resolver as gravações conflitantes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Visite [Cosmos DB](https://feedback.azure.com/forums/263030-azure-cosmos-db) página de voz de usuário para compartilhar comentários e ajudar a equipe a se concentrar em recursos que são importantes para você.

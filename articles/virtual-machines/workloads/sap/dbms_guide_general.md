@@ -57,14 +57,14 @@ Neste documento, são introduzidas considerações sobre a execução de sistema
 ## <a name="definitions"></a>Definições
 Em todo o documento, estes termos são usados:
 
-* **IaaS**: Infraestrutura como serviço.
-* **PaaS**: Plataforma como serviço.
-* **SaaS**: Software como serviço.
-* **Componente SAP**: Um aplicativo SAP individual, como o ECC (componente central de ERP), o Business Warehouse (BW), o Solution Manager ou o Enterprise Portal (EP). Os componentes do SAP podem ser baseados em tecnologias tradicionais de ABAP ou Java ou em um aplicativo não baseado em NetWeaver, como objetos comerciais.
-* **Ambiente SAP**: Um ou mais componentes SAP agrupados logicamente para executar uma função de negócios, como desenvolvimento, garantia de qualidade, treinamento, recuperação de desastres ou produção.
-* **Cenário SAP**: Este termo refere-se à totalidade dos ativos SAP na estrutura de TI de um cliente. A estrutura da SAP inclui todos os ambientes de produção e não produto.
-* **Sistema SAP**: A combinação de uma camada DBMS e uma camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, um sistema de teste SAP Business Warehouse ou um sistema de produção SAP CRM. Nas implantações do Azure, dividir essas duas camadas entre locais e o Azure não tem suporte. Como resultado, um sistema SAP é implantado localmente ou implantado no Azure. Você pode implantar os diferentes sistemas de uma estrutura SAP no Azure ou no local. Por exemplo, você pode implantar os sistemas de desenvolvimento e teste do SAP CRM no Azure, mas implantar o sistema de produção do SAP CRM local.
-* **Entre instalações**: Descreve um cenário em que as VMs são implantadas em uma assinatura do Azure que tem conectividade site a site, multissite ou Azure ExpressRoute entre os data centers locais e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários entre instalações. 
+* **IaaS**: infraestrutura como serviço.
+* **PaaS:** plataforma como serviço.
+* **SaaS**: software como serviço.
+* **Componente SAP**: um aplicativo SAP individual, como um componente central de ERP (ECC), Business Warehouse (BW), Solution Manager ou Enterprise Portal (EP). Os componentes do SAP podem ser baseados em tecnologias tradicionais de ABAP ou Java ou em um aplicativo não baseado em NetWeaver, como objetos comerciais.
+* **Ambiente SAP**: um ou mais componentes SAP agrupados logicamente para executar uma função de negócios, como desenvolvimento, garantia de qualidade, treinamento, recuperação de desastres ou produção.
+* **Cenário SAP**: este termo refere-se a todos os ativos do SAP no cenário de ti de um cliente. A estrutura da SAP inclui todos os ambientes de produção e não produto.
+* **Sistema SAP**: a combinação de uma camada DBMS e uma camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, um sistema de teste SAP Business Warehouse ou um sistema de produção SAP CRM. Nas implantações do Azure, dividir essas duas camadas entre locais e o Azure não tem suporte. Como resultado, um sistema SAP é implantado localmente ou implantado no Azure. Você pode implantar os diferentes sistemas de uma estrutura SAP no Azure ou no local. Por exemplo, você pode implantar os sistemas de desenvolvimento e teste do SAP CRM no Azure, mas implantar o sistema de produção do SAP CRM local.
+* **Entre instalações**: descreve um cenário em que as VMs são implantadas em uma assinatura do Azure que tem conectividade site a site, multissite ou Azure ExpressRoute entre os data centers locais e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários entre instalações. 
 
     O motivo para a conexão é estender domínios locais, Active Directory local e DNS local para o Azure. A estrutura local é estendida para os ativos do Azure da assinatura. Com essa extensão, as VMs podem fazer parte do domínio local. Os usuários de domínio do domínio local podem acessar os servidores e executar serviços nessas VMs, como os serviços DBMS. A comunicação e resolução de nomes entre VMs implantadas de forma local e VMs implantadas no Azure são possíveis. Esse cenário é o cenário mais comum em uso para implantar ativos do SAP no Azure. Para obter mais informações, consulte [Planejamento e design para gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
@@ -78,27 +78,27 @@ Em todo o documento, estes termos são usados:
 Algumas documentações da Microsoft descrevem cenários entre instalações de maneira um pouco diferente, especialmente para configurações de alta disponibilidade do DBMS. No caso dos documentos relacionados ao SAP, o cenário entre instalações se resume à conectividade de [ExpressRoute](https://azure.microsoft.com/services/expressroute/) de site a site ou privada e uma estrutura SAP que é distribuída entre o local e o Azure.
 
 ## <a name="resources"></a>Recursos
-Há outros artigos disponíveis sobre a carga de trabalho do SAP no Azure. Comece com [a carga de trabalho do SAP no Azure: ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) Comece e escolha sua área de interesse.
+Há outros artigos disponíveis sobre a carga de trabalho do SAP no Azure. Comece com a [carga de trabalho do SAP no Azure: comece](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) e escolha sua área de interesse.
 
 As seguintes notas SAP estão relacionadas ao SAP no Azure em relação à área abordada neste documento.
 
-| Número da observação | Título |
+| Número da observação | Title |
 | --- | --- |
 | [1928533] |Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure |
-| [2015553] |SAP no Microsoft Azure: pré-requisitos de suporte |
+| [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Métricas-chave de monitoramento para SAP no Microsoft Azure |
-| [1409604] |Virtualização no Windows: monitoramento aprimorado |
-| [2191498] |SAP no Linux com o Azure: monitoramento aprimorado |
-| [2039619] |Os aplicativos SAP no Microsoft Azure que usam o Oracle Database: produtos e versões com suporte |
-| [2233094] |DB6: Aplicativos SAP no Azure usando IBM DB2 para Linux, UNIX e Windows: Informações adicionais |
-| [2243692] |Linux na VM (IaaS) do Microsoft Azure: Problemas de licença do SAP |
-| [1984787] |SUSE Linux Enterprise Server 12: Notas de instalação |
-| [2002167] |Red Hat Enterprise Linux 7.x: Instalação e atualização |
+| [1409604] |Virtualização no Windows: monitoramento avançado |
+| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
+| [2039619] |Aplicativos SAP em Microsoft Azure usando o banco de dados Oracle: produtos e versões com suporte |
+| [2233094] |DB6: aplicativos SAP no Azure usando IBM DB2 para Linux, UNIX e Windows: informações adicionais |
+| [2243692] |Linux na VM do Microsoft Azure (IaaS): problemas de licença SAP |
+| [1984787] |SUSE LINUX Enterprise Server 12: notas de instalação |
+| [2002167] |Red Hat Enterprise Linux 7. x: instalação e atualização |
 | [2069760] |Atualização e instalação do SAP do Oracle Linux 7.x |
 | [1597355] |Recomendação de troca de espaço para Linux |
-| [2171857] |Oracle Database 12c: Suporte ao sistema de arquivos no Linux |
-| [1114181] |Oracle Database 11g: Suporte ao sistema de arquivos no Linux |
+| [2171857] |Oracle Database 12c: suporte ao sistema de arquivos no Linux |
+| [1114181] |Oracle Database 11g: suporte ao sistema de arquivos no Linux |
 
 
 Para obter informações sobre todas as notas SAP para Linux, consulte o [wiki da Comunidade SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes).
@@ -205,7 +205,7 @@ As recomendações a seguir pressupõem essas características de e/s para DBMS 
 
 Para o armazenamento Standard, os tipos de cache possíveis são:
 
-* Nenhum
+* nenhum
 * Ler
 * Leitura/Gravação
 
@@ -213,7 +213,7 @@ Para obter um desempenho consistente e determinístico, defina o cache no armaze
 
 Para o armazenamento Premium, existem as seguintes opções de cache:
 
-* Nenhum
+* nenhum
 * Ler
 * Leitura/gravação
 * Nenhum + Acelerador de Gravação, que é apenas para VMs da série M do Azure
@@ -247,7 +247,7 @@ Para obter mais informações, consulte [entender a unidade temporária em VMs d
 ### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Resiliência do Armazenamento do Microsoft Azure
 O Armazenamento do Microsoft Azure armazena o VHD de base, com o sistema operacional e discos anexados ou BLOBs, em pelo menos três nós de armazenamento separados. Esse tipo de armazenamento é chamado de LRS (armazenamento com redundância local). LRS é o padrão para todos os tipos de armazenamento no Azure.
 
-Há outros métodos de redundância. Para obter mais informações, consulte [Replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+Há outros métodos de redundância. Para saber mais, veja [Replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
 > [!NOTE]
 >O armazenamento Premium é o tipo recomendado de armazenamento para VMs DBMS e discos que armazenam arquivos de banco de dados e log e refazer. O único método de redundância disponível para o armazenamento Premium é LRS. Como resultado, você precisa configurar métodos de banco de dados para habilitar a replicação de banco de dados em outra região do Azure ou na zona de disponibilidade. Os métodos de banco de dados incluem SQL Server Always On, Oracle Data Guard e replicação do sistema HANA.

@@ -48,7 +48,7 @@ Você pode usar gatilhos para obter respostas do Barramento de Serviço e dispon
 
 Confirme se seu aplicativo lógico tem permissões para acessar o namespace do Barramento de Serviço.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Acesse o *namespace* do seu Barramento de Serviço. Na página do namespace, em **Configurações**, selecione **Políticas de acesso compartilhado**. Em **Declarações**, verifique se você tem permissões de **Gerenciamento** para esse namespace.
 
@@ -159,6 +159,6 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 O conector do barramento de serviço pode economizar até 1.500 sessões exclusivas por vez de um barramento de serviço para o cache do conector. Se a contagem de sessões exceder esse limite, as sessões antigas serão removidas do cache. Para obter outros detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](/connectors/servicebus/)do conector.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

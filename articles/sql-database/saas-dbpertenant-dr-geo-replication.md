@@ -35,7 +35,7 @@ Este tutorial explora fluxos de trabalho de failover e failback. Você aprender�
  
 
 Antes de iniciar este tutorial, verifique se todos os pré-requisitos a seguir foram atendidos:
-* O aplicativo de banco de dados SAAS Wingtip Tickets por locatário é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)  
+* O aplicativo de banco de dados SaaS Wingtip Tickets por locatário é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)  
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>Introdução ao padrão de recuperação de replicação geográfica
@@ -84,7 +84,7 @@ Neste tutorial, você primeiro usa replicação geográfica para criar réplicas
 Mais tarde, em uma etapa de repatriação separada, você faz failover dos bancos de dados de catálogo e locatário na região de recuperação para a região original. O aplicativo e os bancos de dados ficam disponíveis em toda a repatriação. Ao concluir, o aplicativo estará totalmente funcional na região original.
 
 > [!Note]
-> O aplicativo é recuperado para o _região emparelhada_ da região em que o aplicativo é implantado. Para saber mais, veja [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+> O aplicativo é recuperado para a _região emparelhada_ da região em que o aplicativo é implantado. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Examinar o estado de integridade do aplicativo
 
@@ -185,7 +185,7 @@ Agora imagine que haja uma interrupção na região em que o aplicativo é impla
 
 2. Pressione **F5** para executar o script.  
     * O script é aberto em uma nova janela do PowerShell e, em seguida, inicia uma série de trabalhos do PowerShell executados em paralelo. Esses trabalhos fazem failover de bancos de dados de locatário para a região de recuperação.
-    * A região de recuperação é a _região emparelhada_ associada à região do Azure na qual você implantou o aplicativo. Para saber mais, veja [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * A região de recuperação é a _região emparelhada_ associada à região do Azure na qual você implantou o aplicativo. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Monitore o status do processo de recuperação na janela do PowerShell.
     ![processo de failover](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -231,7 +231,7 @@ Quando o processo de recuperação for concluída, o aplicativo e todos os locat
 
     ![Locatários novos e recuperados no hub de eventos](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
 
-2. No [portal do Azure](https://portal.azure.com), abra a lista de grupos de recursos.  
+2. No [Portal do Azure](https://portal.azure.com), abra a lista de grupos de recursos.  
     * Observe o grupo de recursos que você implantou, mais o grupo de recursos de recuperação, com o sufixo _-recovery_.  O grupo de recursos de recuperação contém todos os recursos criados durante o processo de recuperação, além de novos recursos criados durante a interrupção.  
 
 3. Abra o grupo de recursos de recuperação e observe os seguintes itens:
@@ -283,7 +283,7 @@ Agora vamos imaginar que a interrupção foi resolvida e o script de repatriaç�
     * **$DemoScenario = 1**, Iniciar a sincronização do servidor locatário, o pool e informações de configuração do banco de dados para o catálogo
     * Pressione **F5** para executar o script.
 
-3.  Então, para iniciar o processo de repatriação, defina:
+3.  Em seguida, para iniciar o processo de repatriação, defina:
     * **$DemoScenario = 6**, Repatrie o aplicativo para sua região original
     * Pressione **F5** para executar o script de recuperação em uma nova janela do PowerShell.  A repatriação levará vários minutos e pode ser monitorada na janela do PowerShell.
     ![Processo de repatriação](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
@@ -295,7 +295,7 @@ Agora vamos imaginar que a interrupção foi resolvida e o script de repatriaç�
     ![Hub de eventos repatriados](media/saas-dbpertenant-dr-geo-replication/events-hub-repatriated.png)
 
 
-## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>Como projetar o aplicativo para garantir que ele e o banco de dados sejam colocados 
+## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>Projetando o aplicativo para garantir que ele e o banco de dados sejam colocados 
 O aplicativo foi projetado para sempre se conectar de uma instância na mesma região do banco de dados de locatário. Esse design reduz a latência entre o aplicativo e o banco de dados. Essa otimização assume que a interação do aplicativo no banco de dados é mais ativa que a interação do usuário com o aplicativo.  
 
 Os bancos de dados de locatário podem ser distribuídos por regiões originais e de recuperação por algum tempo durante a repatriação. Para cada banco de dados, o aplicativo procura a região na qual o banco de dados está localizado, fazendo uma pesquisa de DNS no nome do servidor de locatário. No Banco de Dados SQL, o nome do servidor é um alias. O nome de servidor com alias contém o nome da região. Se o aplicativo não estiver na mesma região do que o banco de dados, ele redirecionará para a instância na mesma região que o servidor de banco de dados.  Redirecionar a instância na mesma região que o banco de dados minimiza a latência entre o aplicativo e o banco de dados. 

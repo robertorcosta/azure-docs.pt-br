@@ -31,7 +31,7 @@ O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de d
 Alguns dos snippets de código mostram o atributo **Table** usado nas funções que são chamadas manualmente ou seja, que não usam um dos atributos de gatilho.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Como adicionar entidades a uma tabela
-Para adicionar entidades a uma tabela, use o atributo **Table** com um parâmetro **ICollector @ no__t-2T >** ou **IAsyncCollector @ no__t-4T suporta >** em que **t** especifica o esquema das entidades que você deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela.
+Para adicionar entidades a uma tabela, use o atributo **Table** com um parâmetro **ICollector\<t >** ou **IAsyncCollector\<t >** , em que **t** especifica o esquema das entidades que você deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela.
 
 O exemplo de código a seguir adiciona entidades **Person** a uma tabela denominada *Ingress*.
 
@@ -80,7 +80,7 @@ Quando a função é concluída, a página **Detalhes de Invocação** relata o 
 ![Função de entrada concluída](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Como ler várias entidades de uma tabela
-Para ler uma tabela, use o **atributo Table** com um parâmetro **IQueryable @ no__t-2T >** em que o tipo **t** deriva de **TableEntity** ou implementa **ITableEntity**.
+Para ler uma tabela, use o atributo **Table** com um **parâmetro IQueryable\<t >** em que o tipo **t** deriva de **TableEntity** ou implementa **ITableEntity**.
 
 O seguinte exemplo de código lê e registra em log todas as linhas da tabela **Ingress** :
 

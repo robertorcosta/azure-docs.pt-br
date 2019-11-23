@@ -47,7 +47,7 @@ Este guia descreve como configurar o conector do Azure para SAP LaMa, criar máq
 > [!NOTE]
 > O conector só está disponível na edição Enterprise SAP LaMa
 
-## <a name="resources"></a>Implante
+## <a name="resources"></a>Recursos
 
 As seguintes Notas do SAP estão relacionadas ao tópico do SAP no Azure:
 
@@ -77,7 +77,7 @@ O conector do Azure é fornecido a partir do SAP LaMa 3.0 SP05. É recomendável
 1. Abra a folha Azure Active Directory
 1. Clique em Registros do Aplicativo
 1. Clique em Adicionar
-1. Insira um nome, selecione tipo de aplicativo "aplicativo Web/API", insira uma URL de logon (por exemplo, http: \//localhost) e clique em criar
+1. Insira um nome, selecione tipo de aplicativo "aplicativo Web/API", insira uma URL de logon (por exemplo, http:\//localhost) e clique em criar
 1. A URL de logon não é usada e pode ser qualquer URL válida
 1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
 1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar
@@ -289,7 +289,7 @@ Na conta do NetApp, o pool de capacidade especifica o tamanho e o tipo de discos
 
 ![Pool de capacidade do SAP LaMa NetApp criado ](media/lama/sap-lama-capacitypool-list.png)
 
-Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância do as, as seguintes montagens são necessárias: */sapmnt/\<SID @ no__t-2*, */usr/SAP/\<SID @ no__t-5*e */Home/\<sid @ no__t-8adm*. Opcionalmente, */usr/SAP/trans* é necessário para o diretório de transporte central, que é pelo menos usado por todos os sistemas de um cenário.
+Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância as, as seguintes montagens são necessárias: */sapmnt/\<sid\>* , */usr/sap/\<Sid\>* e */Home/\<Sid\>ADM*. Opcionalmente, */usr/SAP/trans* é necessário para o diretório de transporte central, que é pelo menos usado por todos os sistemas de um cenário.
 
 > [!NOTE]
 > Durante a fase BETA, o nome dos volumes deve ser exclusivo na assinatura.
@@ -336,7 +336,7 @@ Após a instalação bem-sucedida, o sistema deve ser descoberto no SAP LaMa.
 
 Os pontos de montagem devem ser assim para o ASCS e a instância do as:
 
-pontos de montagem de @no__t 0SAP LaMa no LaMa ](media/lama/sap-lama-ascs.png) (este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
+![pontos de montagem do SAP LaMa no LaMa ](media/lama/sap-lama-ascs.png) (este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
 
 
 #### <a name="install-sap-hana"></a>Instalar SAP HANA
@@ -432,7 +432,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Instância Primária do Servidor de Aplicativo*.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="errors-and-warnings-during-discover"></a>Erros e avisos durante a descoberta
 
@@ -563,7 +563,7 @@ Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Ins
   * Solução  
     Make sure to add a Host rule in step *Isolation* to allow communication from the VM to the domain controller
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [SAP HANA no guia de operações do Azure][hana-ops-guide]
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

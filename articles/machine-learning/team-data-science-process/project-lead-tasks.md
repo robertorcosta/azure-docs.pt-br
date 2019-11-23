@@ -25,13 +25,13 @@ Um líder de projetos gerencia as atividades diárias de cientistas de dados ind
 
 ![Fluxo de trabalho da tarefa líder do projeto](./media/project-lead-tasks/project-leads-1-tdsp-creating-projects.png)
 
-Este tutorial aborda a etapa 1: Crie o repositório do projeto e a etapa 2: Repositório de projeto de semente do seu repositório ProjectTemplate de equipe. 
+Este tutorial aborda a etapa 1: criar o repositório do projeto e a etapa 2: propagar o repositório do projeto do seu repositório ProjectTemplate de equipe. 
 
-Para a etapa 3: Criar item de trabalho de recurso para o projeto e etapa 4: Adicionar histórias para fases do projeto, consulte [desenvolvimento ágil de projetos de ciência de dados](agile-development.md).
+Para a etapa 3: criar um item de trabalho de recurso para o projeto e a etapa 4: adicionar histórias para fases do projeto, consulte [desenvolvimento ágil de projetos de ciência de dados](agile-development.md).
 
-Para a etapa 5: Crie e personalize ativos de armazenamento/análise e compartilhe, se necessário, consulte [criar dados de equipe e recursos de análise](team-lead-tasks.md#create-team-data-and-analytics-resources).
+Para a etapa 5: criar e personalizar ativos de armazenamento/análise e compartilhar, se necessário, consulte [criar dados de equipe e recursos de análise](team-lead-tasks.md#create-team-data-and-analytics-resources).
 
-Para a etapa 6: Configurar o controle de segurança do repositório do projeto, consulte [adicionar membros da equipe e configurar permissões](team-lead-tasks.md#add-team-members-and-configure-permissions).
+Para a etapa 6: configurar o controle de segurança do repositório do projeto, consulte [adicionar membros da equipe e configurar permissões](team-lead-tasks.md#add-team-members-and-configure-permissions).
 
 > [!NOTE] 
 > Este artigo usa Azure Repos para configurar um projeto TDSP, porque é como implementar o TDSP na Microsoft. Se sua equipe usa outra plataforma de Hospedagem de código, as tarefas do líder do projeto são as mesmas, mas a maneira de concluí-las pode ser diferente.
@@ -57,7 +57,7 @@ Para clonar repositórios e modificar o conteúdo em seu computador local ou Má
 
 Para criar um repositório de projeto no projeto **myTeam** de sua equipe:
 
-1. Acesse a página de **Resumo** do projeto da sua equipe em *https: \/ @ no__t-3 @ no__t-4Server name >/\<organization name >/\<team Name >* , por exemplo, **https: \//dev. Azure. com/DataScienceUnit/myTeam**e Selecione **repositórios** na navegação à esquerda. 
+1. Acesse a página de **Resumo** do projeto da sua equipe em *https:\//nome do servidor \<>/\<nome da organização >/\<nome da equipe*>, por exemplo, **https:\//dev.Azure.com/DataScienceUnit/myTeam**e selecione **repositórios** na barra de navegação à esquerda. 
    
 1. Selecione o nome do repositório na parte superior da página e, em seguida, selecione **novo repositório** na lista suspensa.
    
@@ -83,7 +83,7 @@ Para popular o repositório do seu projeto com o conteúdo do seu repositório d
    
    ![Selecionar importação](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório do **teamtemplate** em **clonar URL**. A URL é *https: \/ @ no__t-2 @ no__t-3Server name >/\<organization name >/\<team name >/_git/\<team modelo Repository name >* . Por exemplo: **https: \//dev. Azure. com/DataScienceUnit/myTeam/_git/teamtemplate**. 
+1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório do **teamtemplate** em **clonar URL**. A URL é *https:\//nome do servidor \<>/\<nome da organização >/\<nome da equipe >/_git/\<nome do repositório de modelos de equipe >* . Por exemplo: **https:\//dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
    
 1. Selecione **Importar**. O conteúdo do seu repositório de modelos de equipe é importado para o repositório do projeto. 
    

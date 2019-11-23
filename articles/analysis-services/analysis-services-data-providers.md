@@ -20,7 +20,7 @@ Bibliotecas de cliente são necessárias para que ferramentas e aplicativos clie
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Baixar as bibliotecas de clientes mais recentes (Windows Installer)  
 
-|Baixar  |Versão do produto  | 
+|Download  |Versão do produto  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.10.25    |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.10.25       |

@@ -120,14 +120,14 @@ A tabela a seguir descreve os cenários e os valores de auditoria disponíveis p
 
 |Cenário  |Serviço de auditoria  |Auditar categoria  |Atividade de auditoria  |Ator de auditoria  |Limitações do log de auditoria  |
 |---------|---------|---------|---------|---------|---------|
-|Administração habilitando o fluxo de trabalho de solicitação de consentimento        |Revisões de Acesso           |UserManagement           |Criar modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário            |
-|Administrador desabilitando o fluxo de trabalho de solicitação de consentimento       |Revisões de Acesso           |UserManagement           |Excluir modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
-|Administração atualizando as configurações de fluxo de trabalho de consentimento        |Revisões de Acesso           |UserManagement           |Atualizar modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
-|Usuário final criando uma solicitação de consentimento de administrador para um aplicativo       |Revisões de Acesso           |Política         |Criar solicitação           |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
-|Revisores aprovando uma solicitação de consentimento de administrador       |Revisões de Acesso           |UserManagement           |Aprovar todas as solicitações no fluxo de negócios          |Contexto do aplicativo            |No momento, você não pode localizar o contexto do usuário ou a ID do aplicativo que recebeu o consentimento do administrador.           |
-|Revisores negando uma solicitação de consentimento de administrador       |Revisões de Acesso           |UserManagement           |Aprovar todas as solicitações no fluxo de negócios          |Contexto do aplicativo            | No momento, você não pode localizar o contexto de usuário do ator que negou uma solicitação de consentimento de administrador          |
+|Administração habilitando o fluxo de trabalho de solicitação de consentimento        |Revisões de acesso           |UserManagement           |Criar modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário            |
+|Administrador desabilitando o fluxo de trabalho de solicitação de consentimento       |Revisões de acesso           |UserManagement           |Excluir modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
+|Administração atualizando as configurações de fluxo de trabalho de consentimento        |Revisões de acesso           |UserManagement           |Atualizar modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
+|Usuário final criando uma solicitação de consentimento de administrador para um aplicativo       |Revisões de acesso           |Política         |Criar solicitação           |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
+|Revisores aprovando uma solicitação de consentimento de administrador       |Revisões de acesso           |UserManagement           |Aprovar todas as solicitações no fluxo de negócios          |Contexto do aplicativo            |No momento, você não pode localizar o contexto do usuário ou a ID do aplicativo que recebeu o consentimento do administrador.           |
+|Revisores negando uma solicitação de consentimento de administrador       |Revisões de acesso           |UserManagement           |Aprovar todas as solicitações no fluxo de negócios          |Contexto do aplicativo            | No momento, você não pode localizar o contexto de usuário do ator que negou uma solicitação de consentimento de administrador          |
 
-## <a name="faq"></a>Perguntas Frequentes 
+## <a name="faq"></a>FAQ 
 
 **Ativei esse fluxo de trabalho, mas ao testar a funcionalidade, por que não consigo ver o novo prompt de "aprovação necessária", permitindo que eu solicite o acesso?**
 
@@ -149,7 +149,7 @@ Não, para os solicitantes agora, só é possível obter atualizações por meio
  
 Se você estiver preocupado em conceder consentimento de administrador e permitir que todos os usuários no locatário usem o aplicativo, recomendamos que você negue a solicitação. Em seguida, conceda manualmente o consentimento do administrador restringindo o acesso ao aplicativo exigindo a atribuição de usuário e atribuindo usuários ou grupos ao aplicativo. Para obter mais informações, confira [Métodos para atribuir usuários e grupos](methods-for-assigning-users-and-groups.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o consentimento de aplicativos, consulte a [estrutura de consentimento do Azure Active Directory](../develop/consent-framework.md).
 

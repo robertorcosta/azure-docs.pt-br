@@ -48,7 +48,7 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > | **Extensão** | **Descrição** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Fornece um modelo de dicionário de pesquisa de texto para números inteiros. |
-> | [xsyn de\_de dict](https://www.postgresql.org/docs/current/dict-xsyn.html) | Modelo de dicionário de pesquisa de texto para processamento estendido de sinônimo. |
+> | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Modelo de dicionário de pesquisa de texto para processamento estendido de sinônimo. |
 > | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Um dicionário de pesquisa de texto que remove acentos (sinais diacríticos) dos lexemas. |
 
 ### <a name="functions-extensions"></a>Extensões de funções
@@ -60,7 +60,7 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > | [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | Fornece um meio para calcular as distância ortodrômicas na superfície da Terra. |
 > | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Fornece várias funções para determinar semelhanças e a distância entre cadeias de caracteres. |
 > | [inserir\_nome de usuário](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.8) | Funções para controlar quem alterou uma tabela. |
-> | [intag](https://www.postgresql.org/docs/current/intagg.html) | Agregador inteiro e enumerador (obsoleto). |
+> | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Agregador inteiro e enumerador (obsoleto). |
 > | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Fornece funções e operadores para manipular matrizes de inteiros sem nulos. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Funções para controlar a hora da última modificação. |
 > | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Fornece funções de criptografia. |
@@ -69,7 +69,7 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Funções para implementar a integridade referencial (obsoleto). |
 > | análise de\_de sessão | Funções para consultar matrizes hstore. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Fornece funções que manipulam tabelas inteiras, incluindo a tabela de referência cruzada. |
-> | [TCN](https://www.postgresql.org/docs/current/tcn.html) | Notificações de alteração disparadas. |
+> | [tcn](https://www.postgresql.org/docs/current/tcn.html) | Notificações de alteração disparadas. |
 > | [viagem de viagens](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Funções para implementação de viagem de tempo. |
 > | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Gera UUIDs (identificadores exclusivos universais). |
 
@@ -104,11 +104,11 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Funções administrativas para PostgreSQL. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Funções para verificar a integridade da relação. |
-> | [arquivo\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Wrapper de dados estrangeiros para acesso de arquivo simples. |
+> | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Wrapper de dados estrangeiros para acesso de arquivo simples. |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspecione o conteúdo das páginas do banco de dados em um nível baixo. |
 > | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Fornece um meio para examinar o que está acontecendo no cache do buffer compartilhado em tempo real. |
-> | [PG\_cron](https://github.com/citusdata/pg_cron) | Agendador de trabalhos para PostgreSQL. |
-> | [PG\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Examine o mapa de espaço livre (FSM). |
+> | [pg\_cron](https://github.com/citusdata/pg_cron) | Agendador de trabalhos para PostgreSQL. |
+> | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Examine o mapa de espaço livre (FSM). |
 > | [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Fornece uma maneira para carregar dados de relação no cache de buffer. |
 > | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Fornece um meio para rastrear as estatísticas de execução de todas as instruções SQL executadas por um servidor. Consulte a seção "pg_stat_statements" para obter informações sobre essa extensão. |
 > | [visibilidade de\_PG](https://www.postgresql.org/docs/current/pgvisibility.html) | Examine a VM (mapa de visibilidade) e as informações de visibilidade no nível da página. |
@@ -130,8 +130,8 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
 > | address\_standardizer, address\_standardizer\_data\_us | Usado para analisar um endereço em elementos constituintes. Usado para oferecer suporte à etapa de normalização de endereços de geocodificação. |
-> | PostGIS\_sfcgal | PostGIS SFCGAL functions. |
-> | PostGIS\_Tiger\_geocodificador | Geocodificador PostGIS Tiger e reverso geocodificador. |
+> | postgis\_sfcgal | PostGIS SFCGAL functions. |
+> | postgis\_tiger\_geocoder | Geocodificador PostGIS Tiger e reverso geocodificador. |
 > | topologia de\_PostGIS | Tipos e funções espaciais de topologia PostGIS. |
 
 
@@ -140,7 +140,7 @@ A [extensão pg\_stat\_Statements](https://www.postgresql.org/docs/current/pgsta
 
 A configuração `pg_stat_statements.track` controla quais instruções são contadas pela extensão. O padrão é `top`, o que significa que todas as instruções emitidas diretamente pelos clientes são controladas. Dois outros níveis de rastreamento são `none` e `all`. Essa definição é configurável como um parâmetro de servidor por meio de [portal do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) ou da [CLI do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
-Há uma compensação entre as informações de execução de consulta que o pg_stat_statements fornece e o efeito no desempenho do servidor enquanto registra cada instrução SQL. Se você não estiver usando ativamente a extensão pg_stat_statements, recomendamos que defina `pg_stat_statements.track` como `none`. Alguns serviços de monitoramento de terceiros podem depender do pg_stat_statements para fornecer informações de desempenho de consulta, portanto, confirme se esse é o caso para você ou não.
+Há uma compensação entre as informações de execução da consulta pg_stat_statements fornece e o efeito no desempenho do servidor enquanto registra cada instrução SQL. Se você não estiver usando ativamente a extensão de pg_stat_statements, recomendamos que defina `pg_stat_statements.track` como `none`. Alguns serviços de monitoramento de terceiros podem contar com pg_stat_statements para fornecer informações de desempenho de consulta, portanto, confirme se esse é o caso para você ou não.
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
 Você pode usar dblink e postgres_fdw para se conectar de um servidor PostgreSQL para outro ou a outro banco de dados no mesmo servidor. O servidor de recebimento precisa permitir conexões do servidor de envio por meio de seu firewall. Para usar essas extensões para se conectar entre os servidores do banco de dados do Azure para PostgreSQL, defina **permitir acesso aos serviços do Azure** como ativado. Você também precisará ativar essa configuração se quiser usar as extensões para fazer um loop de volta para o mesmo servidor. A configuração **permitir acesso aos serviços do Azure** pode ser encontrada na página portal do Azure para o servidor postgres em **segurança de conexão**. Desativando **permitir o acesso aos serviços do Azure** em listas de permissões todos os IPS do Azure.

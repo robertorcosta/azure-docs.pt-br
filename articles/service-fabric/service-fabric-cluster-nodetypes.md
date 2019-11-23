@@ -34,7 +34,7 @@ Conforme mostrado na figura anterior, as instâncias do conjunto de dimensioname
 Quando você escala um conjunto de dimensionamento verticalmente, uma nova instância é criada. O novo nome da instância do conjunto de dimensionamento geralmente será o nome do conjunto de dimensionamento mais o número de instância seguinte. Em nosso exemplo, é BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mapear balanceadores de carga do conjunto de dimensionamento para tipos de nó e conjuntos de dimensionamento
-Se você tiver implantado o cluster no portal do Azure ou usado o modelo do exemplo do Azure Resource Manager, todos os recursos em um grupo de recursos serão listados. Você pode ver os balanceadores de carga para cada conjunto de dimensionamento ou tipo de nó. O nome do balanceador de carga usa o seguinte formato: **Lb-&lt;node nome do tipo @ no__t-2**. Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
+Se você tiver implantado o cluster no portal do Azure ou usado o modelo do exemplo do Azure Resource Manager, todos os recursos em um grupo de recursos serão listados. Você pode ver os balanceadores de carga para cada conjunto de dimensionamento ou tipo de nó. O nome do balanceador de carga usa o seguinte formato: **LB-&lt;nome do tipo de nó&gt;** . Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
 
 ![Recursos][Resources]
 
@@ -75,21 +75,21 @@ Veja a seguir um trecho de Service Fabric extensão da máquina virtual:
 
 A seguir estão as descrições de propriedade:
 
-| **Name** | **Valores permitidos** | ** --- ** | **Diretrizes ou descrição resumida** |
+| **Nome** | **Valores permitidos** | ** --- ** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-| name | string | --- | nome exclusivo para a extensão |
+| name | cadeia de caracteres | --- | nome exclusivo para a extensão |
 | type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | --- | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | --- | Habilitar a atualização automática de versões secundárias do Runtime da it |
-| publisher | Microsoft.Azure.ServiceFabric | --- | nome do editor de extensão de Service Fabric |
-| clusterEndpont | string | --- | URI: porta para ponto de extremidade de gerenciamento |
-| nodeTypeRef | string | --- | nome do nodeType |
+| publicador | Microsoft.Azure.ServiceFabric | --- | nome do editor de extensão de Service Fabric |
+| clusterEndpont | cadeia de caracteres | --- | URI: porta para ponto de extremidade de gerenciamento |
+| nodeTypeRef | cadeia de caracteres | --- | nome do nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | --- | tempo permitido para pausar a infraestrutura imutável do Azure |
 | enableParallelJobs | true ou false | --- | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
-| nicPrefixOverride | string | --- | Prefixo de sub-rede como "10.0.0.0/24" |
+| nicPrefixOverride | cadeia de caracteres | --- | Prefixo de sub-rede como "10.0.0.0/24" |
 | commonNames | string[] | --- | Nomes comuns de certificados de cluster instalados |
-| x509StoreName | string | --- | Nome do repositório onde o certificado de cluster instalado está localizado |
+| x509StoreName | cadeia de caracteres | --- | Nome do repositório onde o certificado de cluster instalado está localizado |
 | typeHandlerVersion | 1,1 | --- | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
-| Caminho | string | --- | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo. 
+| Caminho | cadeia de caracteres | --- | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Consulte [visão geral do recurso "Implantar em qualquer lugar" e comparação com clusters gerenciados do Azure](service-fabric-deploy-anywhere.md).

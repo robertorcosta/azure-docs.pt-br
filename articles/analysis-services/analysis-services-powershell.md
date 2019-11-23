@@ -22,7 +22,7 @@ Tarefas de gerenciamento de recursos de servidor como criar ou excluir um servid
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="permissions"></a>Permissões
+## <a name="permissions"></a>permissões
 
 A maioria das tarefas do PowerShell exige privilégios de administrador no servidor do Analysis Services que está sendo gerenciado. As tarefas agendadas do PowerShell são operações autônomas. A conta ou a entidade de serviço que executa o agendador precisa ter privilégios de administrador no servidor do Analysis Services. 
 

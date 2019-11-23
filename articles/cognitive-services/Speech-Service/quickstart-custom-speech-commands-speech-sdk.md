@@ -26,7 +26,7 @@ Neste artigo, você vai:
 - Publicar um aplicativo de comandos personalizados e obter um identificador de aplicativo (ID do aplicativo)
 - Criar um aplicativo cliente usando o SDK de fala para permitir que você se comunique com seu aplicativo de comandos personalizados
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Um aplicativo de comandos personalizados é necessário para concluir este artigo. Se você ainda não criou um aplicativo de comandos personalizados, poderá fazer isso nestes guias de início rápido anteriores:
 

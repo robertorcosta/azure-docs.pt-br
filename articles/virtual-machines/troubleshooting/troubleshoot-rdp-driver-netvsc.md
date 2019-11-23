@@ -36,7 +36,7 @@ Esse problema pode ocorrer se for a versão do arquivo do sistema instalados net
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estas etapas, [tire um instantâneo do disco do sistema](../windows/snapshot-copy-managed-disk.md) da VM afetada como um backup. Para solucionar esse problema, use o Console Serial ou [repare a VM off-line](#repair-the-vm-offline) anexando o disco do sistema operacional da VM a uma VM de recuperação.
+Antes de seguir estas etapas, [tire um instantâneo do disco do sistema](../windows/snapshot-copy-managed-disk.md) da VM afetada como um backup. Para solucionar esse problema, use o Console serial ou [repare a VM off-line](#repair-the-vm-offline) anexando o disco do sistema da VM a um VM de recuperação.
 
 
 ### <a name="use-the-serial-console"></a>Usar o Serial Console
@@ -54,7 +54,7 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
 
 2. Baixe a atualização apropriada para um disco de dados novo ou existente que está anexado a uma VM de trabalho da mesma região:
 
-   - **10.0.14393.594**: [KB4073562 ou uma atualização](https://support.microsoft.com/help/4073562) posterior
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
 3. Desanexe o disco do utilitário da VM de trabalho e, em seguida, anexá-o à VM interrompida.
@@ -71,7 +71,7 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
 
 1. [Anexar o disco do sistema para uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 
-2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
+2. Inicie uma conexão de Área de Trabalho Remota à VM de recuperação.
 
 3. Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Anote a letra da unidade atribuída ao disco do sistema operacional anexado.
 
@@ -97,7 +97,7 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
 
 12. Faça o download da atualização apropriada:
 
-    - **10.0.14393.594**: [KB4073562 ou uma atualização](https://support.microsoft.com/help/4073562) posterior
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
 13. Anexe o disco do sistema como um disco de dados em uma VM de resgate no qual você pode baixar a atualização.
@@ -116,6 +116,6 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
 
 16. [Desanexar o disco do sistema e criar VM novamente](../windows/troubleshoot-recovery-disks-portal.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contatar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se ainda precisar de ajuda, [entre em contato com o Suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

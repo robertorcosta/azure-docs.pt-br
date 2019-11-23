@@ -47,7 +47,7 @@ O suporte a idiomas é implantado inicialmente em versão prévia, passando para
 > [!NOTE]
 > Para obter suporte de idioma detalhado para a visualização pública de reconhecimento de entidade nomeada (NER) v3, consulte [tipos de entidade nomeada](named-entity-types.md).
 
-| idioma              | Código de idioma | Sentimento | Frases-chave | Reconhecimento de Entidade Nomeada | Vinculação de entidade |       Observações        |
+| idioma              | Código de idioma | Sentimento | Frases principais | Reconhecimento de Entidade Nomeada | Vinculação de entidade |       Observações        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Árabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Tcheco                 |     `cs`      |           |             |           ✔ \*           |                |                    |
@@ -77,7 +77,7 @@ o suporte ao idioma \* está em versão prévia
 
 \** também disponível no [análise de sentimento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) e/ou em visualizações públicas do [reconhecimento de entidade nomeada v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview) .
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Página Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/)   
-[Página do produto de serviços cognitivos](https://azure.microsoft.com/services/cognitive-services/)
+[Página do Produto de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)

@@ -48,7 +48,7 @@ AppID de entidade de serviço e senha ou certificado podem ser usados em cadeias
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>módulo <a name="azmodule" />Using AZ. AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />usando o módulo AZ. AnalysisServices
 
 Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use `Connect-AzAccount` cmdlet. 
 

@@ -1,6 +1,6 @@
 ---
 title: Sistemas operacionais compatíveis, mecanismos de contêiner – Azure IoT Edge | Microsoft Docs
-description: Saiba quais sistemas operacionais podem executar o tempo de execução e o daemon do Azure IoT Edge, bem como os mecanismos de contêiner compatíveis com os seus dispositivos de produção
+description: Saiba quais sistemas operacionais podem executar o runtime e o daemon do Azure IoT Edge, bem como os mecanismos de contêiner compatíveis com os seus dispositivos de produção
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -35,7 +35,8 @@ Azure IoT Edge módulos são implementados como contêineres, portanto IoT Edge 
 <br>
 <center>
 
-![Moby como tempo de execução do contêiner @ no__t-1 @ no__t-2
+](./media/support/only-moby-for-production.png)
+de ![Moby como tempo de execução do contêiner </center>
 
 ## <a name="operating-systems"></a>Sistemas operacionais
 Azure IoT Edge é executado na maioria dos sistemas operacionais que podem executar contêineres; no entanto, não há suporte igualmente para todos esses sistemas. Os sistemas operacionais são agrupados em camadas que representam o nível de suporte que os usuários podem esperar.
@@ -51,13 +52,14 @@ A família do sistema operacional de host sempre deverá corresponder à famíli
 <br>
 <center>
 
-o sistema operacional ![Host corresponde ao sistema operacional convidado @ no__t-1 @ no__t-2
+![sistema operacional host corresponde ao sistema operacional convidado](./media/support/edge-on-device.png)
+</center>
 
 ### <a name="tier-1"></a>Camada 1
 
 Os sistemas listados na tabela a seguir têm suporte da Microsoft, seja geralmente disponível ou em visualização pública, e são testados com cada nova versão. 
 
-| Sistema operacional | AMD64 | ARM32v7 | ARM64 |
+| Sistema Operacional | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
 | [Ubuntu Server 16, 4](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16, 4 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versão prévia pública  |
@@ -74,7 +76,7 @@ Os sistemas operacionais Windows listados acima são os requisitos para disposit
 
 Os sistemas listados na tabela a seguir são considerados compatíveis com Azure IoT Edge, mas não são ativamente testados ou mantidos pela Microsoft.
 
-| Sistema operacional | AMD64 | ARM32v7 | ARM64 |
+| Sistema Operacional | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | [CentOS 7,5](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1804) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 8](https://www.debian.org/releases/jessie/) | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
@@ -101,7 +103,8 @@ O Azure IoT Edge pode ser executado em máquinas virtuais. Usar uma máquina vir
 <br>
 <center>
 
-![Azure IoT Edge em uma VM @ no__t-1 @ no__t-2
+![Azure IoT Edge em uma VM](./media/support/edge-on-vm.png)
+</center>
 
 ## <a name="minimum-system-requirements"></a>Requisitos mínimos do sistema
 O Azure IoT Edge executa perfeitamente em dispositivos tão pequenos quanto um Raspberry Pi3 até um hardware de nível de servidor. Escolher o hardware certo para seu cenário depende das cargas de trabalho que você deseja executar. Tomar a decisão final do dispositivo pode ser complicado, no entanto, é possível criar facilmente protótipos de uma solução em laptops ou desktops tradicionais.

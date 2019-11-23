@@ -30,7 +30,7 @@ Para obter diretrizes de design sobre a criação de aplicativos, leia a [arquit
 
 Considere o uso da plataforma Service Fabric para os seguintes tipos de aplicativos:
 
-* **Coleta de dados, processamento e IOT**: Service Fabric manipula grande escala e tem baixa latência por meio de seus serviços com estado. Ele pode ajudar a processar dados em milhões de dispositivos em que os dados para o dispositivo e a computação estão colocalizados.
+* **Coleta de dados, processamento e IOT**: o Service Fabric lida com uma grande escala e tem baixa latência por meio de seus serviços com estado. Ele pode ajudar a processar dados em milhões de dispositivos em que os dados para o dispositivo e a computação estão colocalizados.
 
     Os clientes que criaram serviços de IoT usando Service Fabric incluem [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), a [construção PCL](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure), [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)e [sistemas de malha](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
 
@@ -38,11 +38,11 @@ Considere o uso da plataforma Service Fabric para os seguintes tipos de aplicati
 
     Os clientes que criaram serviços de jogos incluem os [próximos jogos](https://customers.microsoft.com/story/next-games-media-telecommunications-azure) e [Digamore](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/). Os clientes que criaram sessões interativas incluem [Honeywell com o Hololens](https://customers.microsoft.com/story/honeywell-manufacturing-hololens).
 
-* **Análise de dados e processamento de fluxo de trabalho**: Aplicativos que devem processar com confiança eventos ou fluxos de dados se beneficiam das leituras e gravações otimizadas em Service Fabric. O Service Fabric também dá suporte a pipelines de processamento de aplicativos, onde os resultados devem ser confiáveis e passados para o próximo estágio de processamento sem perda. Esses pipelines incluem sistemas transacionais e financeiros, em que a consistência de dados e as garantias de computação são essenciais.
+* **Análise de dados e processamento de fluxo de trabalho**: aplicativos que precisam processar com confiança eventos ou fluxos de dados de benefício das leituras e gravações otimizadas em Service Fabric. O Service Fabric também dá suporte a pipelines de processamento de aplicativos, onde os resultados devem ser confiáveis e passados para o próximo estágio de processamento sem perda. Esses pipelines incluem sistemas transacionais e financeiros, em que a consistência de dados e as garantias de computação são essenciais.
 
     Os clientes que criaram serviços de fluxo de trabalho de negócios incluem [Zeiss Group](https://customers.microsoft.com/story/zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform), [Quorum Business Solutions](https://customers.microsoft.com/en-us/story/quorum-business-solutions-expand-energy-managemant-solutions-using-azure-service-fabric)e [Société General](https://customers.microsoft.com/en-us/story/societe-generale-speeds-real-time-market-quotes-using-azure-service-fabric).
 
-* **Computação de dados**: Service Fabric permite que você crie aplicativos com estado que fazem computação intensiva de dados. Service Fabric permite a colocação de processamento (computação) e dados em aplicativos. 
+* **Computação de dados**: o Service Fabric permite que você crie aplicativos com estado que realizam computação intensiva de dados. Service Fabric permite a colocação de processamento (computação) e dados em aplicativos. 
 
    Normalmente, quando seu aplicativo requer acesso a dados, a latência de rede associada a um cache de dados externo ou a uma camada de armazenamento limita o tempo de computação. Os serviços de Service Fabric com estado eliminam essa latência, permitindo leituras e gravações mais otimizadas. 
    
@@ -50,7 +50,7 @@ Considere o uso da plataforma Service Fabric para os seguintes tipos de aplicati
 
     Os clientes que criaram serviços de computação incluem [Solidsoft resposta](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals) e [infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura).
 
-* **Serviços altamente disponíveis**: Service Fabric fornece um failover rápido criando várias réplicas de serviço secundário. Se um nó, processo ou serviço individual falhar devido a uma falha de hardware, ou outra falha, uma das réplicas secundárias é promovida a uma réplica primária com perda mínima de serviço.
+* **Serviços altamente disponíveis**: o Service Fabric fornece um failover rápido criando várias réplicas de serviço secundárias. Se um nó, processo ou serviço individual falhar devido a uma falha de hardware, ou outra falha, uma das réplicas secundárias é promovida a uma réplica primária com perda mínima de serviço.
 
 * **Serviços escalonáveis**: serviços individuais podem ser particionados, permitindo que seu estado seja escalado horizontalmente no cluster. Serviços individuais também podem ser criados e removidos em tempo real. Você pode escalar horizontalmente os serviços de algumas instâncias em alguns nós para milhares de instâncias em muitos nós e, em seguida, dimensioná-los novamente conforme necessário. Você pode usar Service Fabric para criar esses serviços e gerenciar seus ciclos de vida completos.
 
@@ -68,9 +68,9 @@ Os microsserviços com monitoração de estado simplificam o design dos aplicati
 
 Os diagramas a seguir ilustram as diferenças entre a criação de um aplicativo sem estado e um com estado. Ao aproveitar os modelos de programação dos [Reliable Services](service-fabric-reliable-services-introduction.md) e [Reliable Actors](service-fabric-reliable-actors-introduction.md), os serviços com estado reduzem a complexidade do aplicativo, ao mesmo tempo que alcançam uma alta taxa de transferência e baixa latência.
 
-Aqui está um exemplo de aplicativo que usa serviços sem estado: ![Application que usa serviços sem estado @ no__t-1
+Aqui está um aplicativo de exemplo que usa serviços sem estado: ![aplicativo que usa serviços sem estado][Image1]
 
-Aqui está um exemplo de aplicativo que usa serviços com estado: ![Application que usa serviços com estado @ no__t-1
+Aqui está um exemplo de aplicativo que usa serviços com estado: ![aplicativo que usa serviços com estado][Image2]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -22,7 +22,7 @@ Para autenticar no Azure Key Vault, você precisa de uma credencial do Azure Act
 
 O gerenciamento dessas credenciais pode ser difícil. É tentador agrupar credenciais em um aplicativo incluindo-as em arquivos de origem ou de configuração. O `Microsoft.Azure.Services.AppAuthentication` para a biblioteca .NET simplifica esse problema. Ele usa as credenciais do desenvolvedor para autenticação durante o desenvolvimento local. Quando a solução é implantada posteriormente no Azure, a biblioteca alterna automaticamente para as credenciais do aplicativo. O uso de credenciais de desenvolvedor durante o desenvolvimento local é mais seguro porque você não precisa criar credenciais do Azure AD nem compartilhar credenciais entre desenvolvedores.
 
-A biblioteca `Microsoft.Azure.Services.AppAuthentication` gerencia a autenticação automaticamente, o que, por sua vez, permite que você se concentre em sua solução, em vez de suas credenciais. Ele dá suporte ao desenvolvimento local com Microsoft Visual Studio, CLI do Azure ou autenticação integrada do Azure AD. Quando implantada em um recurso do Azure que oferece suporte a uma identidade gerenciada, a biblioteca usa automaticamente as [identidades gerenciadas para recursos do Azure](../active-directory/msi-overview.md). Nenhuma alteração de configuração ou de código é necessária. A biblioteca também dá suporte ao uso direto de [credenciais de cliente](../azure-resource-manager/resource-group-authenticate-service-principal.md) do Azure ad quando uma identidade gerenciada não está disponível ou quando o contexto de segurança do desenvolvedor não pode ser determinado durante o desenvolvimento local.
+A biblioteca de `Microsoft.Azure.Services.AppAuthentication` gerencia a autenticação automaticamente, o que, por sua vez, permite que você se concentre em sua solução, em vez de suas credenciais. Ele dá suporte ao desenvolvimento local com Microsoft Visual Studio, CLI do Azure ou autenticação integrada do Azure AD. Quando implantada em um recurso do Azure que oferece suporte a uma identidade gerenciada, a biblioteca usa automaticamente as [identidades gerenciadas para recursos do Azure](../active-directory/msi-overview.md). Nenhuma alteração de configuração ou de código é necessária. A biblioteca também dá suporte ao uso direto de [credenciais de cliente](../azure-resource-manager/resource-group-authenticate-service-principal.md) do Azure ad quando uma identidade gerenciada não está disponível ou quando o contexto de segurança do desenvolvedor não pode ser determinado durante o desenvolvimento local.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +34,7 @@ A biblioteca `Microsoft.Azure.Services.AppAuthentication` gerencia a autenticaç
 
 Para aplicativos .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio do pacote `Microsoft.Azure.Services.AppAuthentication`. Estas são algumas dicas para começar:
 
-1. Selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **gerenciar pacotes NuGet para a solução** para adicionar referências aos pacotes NuGet [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft. Azure. keyvault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) para seu projeto.
+1. Selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **gerenciar pacotes NuGet para a solução** para adicionar referências aos pacotes NuGet [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft. Azure. keyvault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) ao seu projeto.
 
 1. Adicione os códigos a seguir:
 
@@ -69,13 +69,13 @@ Para o desenvolvimento local, o `AzureServiceTokenProvider` busca tokens usando 
 
 Para autenticar usando o Visual Studio:
 
-1. Entre no Visual Studio e use as **ferramentas**&nbsp; @ no__t-2 @ no__t-3**Opções** para abrir **Opções**.
+1. Entre no Visual Studio e use as **ferramentas**&nbsp;>&nbsp;**Opções** para abrir **Opções**.
 
 1. Selecione **autenticação de serviço do Azure**, escolha uma conta para o desenvolvimento local e selecione **OK**.
 
 Se você encontrar problemas ao usar o Visual Studio, como erros que envolvem o arquivo do provedor de token, examine atentamente as etapas anteriores.
 
-Talvez seja necessário autenticar novamente o token do desenvolvedor. Para fazer isso, selecione **ferramentas**&nbsp; @ no__t-2 @ no__t-3**Opções**e, em seguida, selecione **Azure @ no__t-6Service @ no__t-7Authentication**. Procure um link **autenticar novamente** na conta selecionada. Selecione-o para autenticar.
+Talvez seja necessário autenticar novamente o token do desenvolvedor. Para fazer isso, selecione **ferramentas**&nbsp;**Opções**de &nbsp;de >e, em seguida, selecione **serviço de&nbsp;do Azure&nbsp;autenticação**. Procure um link **autenticar novamente** na conta selecionada. Selecione-o para autenticar.
 
 #### <a name="authenticating-with-azure-cli"></a>Autenticando com a CLI do Azure
 
@@ -87,9 +87,9 @@ Para usar CLI do Azure:
 
 1. Entre no portal do Azure: *AZ login* para entrar no Azure.
 
-1. Verifique o acesso inserindo *AZ Account Get-Access-token--resource https://vault.azure.net* . Se você receber um erro, verifique se a versão correta do CLI do Azure está instalada corretamente.
+1. Verifique o acesso digitando *AZ Account Get-Access-token--resource https://vault.azure.net* . Se você receber um erro, verifique se a versão correta do CLI do Azure está instalada corretamente.
 
-   Se CLI do Azure não estiver instalado no diretório padrão, você poderá receber um relatório de erros que `AzureServiceTokenProvider` não pode localizar o caminho para CLI do Azure. Use a variável de ambiente **AzureCLIPath** para definir a pasta de instalação do CLI do Azure. `AzureServiceTokenProvider` adiciona o diretório especificado na variável de ambiente **AzureCLIPath** à variável de ambiente **Path**, quando necessário.
+   Se CLI do Azure não estiver instalado no diretório padrão, você poderá receber um relatório de erros que `AzureServiceTokenProvider` não pode encontrar o caminho para CLI do Azure. Use a variável de ambiente **AzureCLIPath** para definir a pasta de instalação do CLI do Azure. `AzureServiceTokenProvider` adiciona o diretório especificado na variável de ambiente **AzureCLIPath** à variável de ambiente **Path**, quando necessário.
 
 1. Se você tiver entrado no CLI do Azure usando várias contas ou sua conta tiver acesso a várias assinaturas, será necessário especificar a assinatura a ser usada. Insira o comando *AZ Account Set--subscription < subscription-id >* .
 
@@ -156,7 +156,7 @@ Há três métodos principais de usar uma entidade de serviço para executar seu
     Esse comando cria um arquivo. PEM (chave privada) que é armazenado em seu diretório base. Implante esse certificado no repositório *LocalMachine* ou *CurrentUser* .
 
     > [!Important]
-    > O comando da CLI gera um arquivo. PEM, mas o Windows só fornece suporte nativo para certificados PFX. Para gerar um certificado PFX, use os comandos do PowerShell mostrados aqui: [Crie uma entidade de serviço com um certificado autoassinado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). Esses comandos também implantam o certificado automaticamente.
+    > O comando da CLI gera um arquivo. PEM, mas o Windows só fornece suporte nativo para certificados PFX. Para gerar um certificado PFX, use os comandos do PowerShell mostrados aqui: [criar entidade de serviço com certificado autoassinado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). Esses comandos também implantam o certificado automaticamente.
 
 1. Defina uma variável de ambiente chamada **AzureServicesAuthConnectionString** com o seguinte valor:
 
@@ -201,7 +201,7 @@ A identidade gerenciada ou a identidade do desenvolvedor deve ter permissão par
 
 Para usar um certificado de cliente para autenticação de entidade de serviço:
 
-1. Crie um certificado de entidade de serviço e armazene-o automaticamente em seu Key Vault. Use o CLI do Azure [AZ ad SP Create-for-RBAC--keyvault \<keyvaultname >--cert \<certificatename >--Create-CERT--ignore-Assignment](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) comando:
+1. Crie um certificado de entidade de serviço e armazene-o automaticamente em seu Key Vault. Use o CLI do Azure [AZ ad SP Create-for-RBAC--keyvault \<keyvaultname >--cert \<certificatename >--Create-CERT--ignore-Assignment](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) Command:
 
     ```azurecli
     az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
@@ -243,9 +243,9 @@ Há suporte para as seguintes opções:
 
 ## <a name="samples"></a>Exemplos
 
-Para ver a biblioteca `Microsoft.Azure.Services.AppAuthentication` em ação, consulte os exemplos de código a seguir.
+Para ver a biblioteca de `Microsoft.Azure.Services.AppAuthentication` em ação, consulte os exemplos de código a seguir.
 
-- [Usar uma identidade gerenciada para recuperar um segredo do Azure Key Vault em tempo de execução](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
+- [Usar uma identidade gerenciada para recuperar um segredo do Azure Key Vault em runtime](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
 
 - [Implante de forma programática um modelo do Azure Resource Manager de uma VM do Azure com uma identidade gerenciada](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
 
@@ -277,7 +277,7 @@ O principal usado não tem acesso ao recurso que está tentando acessar. Conceda
 
 #### <a name="managed-identity-isnt-set-up-on-the-app-service"></a>A identidade gerenciada não está configurada no serviço de aplicativo
 
-Verifique as variáveis de ambiente MSI_ENDPOINT e MSI_SECRET existam usando o [console de depuração do kudu](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Se essas variáveis de ambiente não existirem, a identidade gerenciada não será habilitada no serviço de aplicativo.
+Verifique as variáveis de ambiente MSI_ENDPOINT e MSI_SECRET existem usando o [console de depuração kudu](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Se essas variáveis de ambiente não existirem, a identidade gerenciada não será habilitada no serviço de aplicativo.
 
 ### <a name="common-issues-when-deployed-locally-with-iis"></a>Problemas comuns quando implantados localmente com o IIS
 

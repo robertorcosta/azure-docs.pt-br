@@ -29,9 +29,9 @@ Para autenticar uma entidade de segurança do seu aplicativo de armazenamento do
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registre o aplicativo com um locatário do Azure AD
 
-A primeira etapa no uso do Azure AD para autorizar o acesso aos recursos de armazenamento é registrar seu aplicativo cliente com um locatário do Azure AD do [portal do Azure](https://portal.azure.com). Ao registrar seu aplicativo cliente, você fornece informações sobre o aplicativo para o Azure AD. O Azure AD, em seguida, fornece uma ID do cliente (também chamado de *ID do aplicativo*) que você usa para associar o aplicativo ao Azure AD no tempo de execução. Para saber mais sobre a ID do cliente, consulte [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
+A primeira etapa no uso do Azure AD para autorizar o acesso aos recursos de armazenamento é registrar seu aplicativo cliente com um locatário do Azure AD do [portal do Azure](https://portal.azure.com). Ao registrar seu aplicativo cliente, você fornece informações sobre o aplicativo para o Azure AD. O Azure AD, em seguida, fornece uma ID do cliente (também chamado de *ID do aplicativo*) que você usa para associar o aplicativo ao Azure AD no runtime. Para saber mais sobre a ID do cliente, consulte [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar seu aplicativo de armazenamento do Azure, siga as etapas mostradas em [Quickstart: Registre um aplicativo com a plataforma de identidade da Microsoft @ no__t-0. A imagem a seguir mostra as configurações comuns para o registro de um aplicativo Web:
+Para registrar seu aplicativo de armazenamento do Azure, siga as etapas mostradas em [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). A imagem a seguir mostra as configurações comuns para o registro de um aplicativo Web:
 
 ![Captura de tela mostrando como registrar seu aplicativo de armazenamento com o Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -94,7 +94,7 @@ A ID do locatário identifica o locatário do Azure AD a ser usado para autentic
 
 [!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
 
-## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: criar um blob de blocos
+## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código .NET: criar um blob de blocos
 
 O exemplo de código mostra como obter um token de acesso do Azure AD. O token de acesso é usado para autenticar o usuário especificado e, em seguida, autoriza uma solicitação para criar um blob de blocos. Para que esse exemplo funcione, primeiro siga as etapas descritas nas seções anteriores.
 
@@ -121,7 +121,7 @@ Quando seu aplicativo acessa o armazenamento do Azure, ele faz isso em nome do u
 
 Um aplicativo Web de exemplo completo que adquire um token e o usa para criar um blob no armazenamento do Azure está disponível no [GitHub](https://aka.ms/aadstorage). Revisar e executar o exemplo completo pode ser útil para entender os exemplos de código. Para obter instruções sobre como executar o exemplo concluído, consulte a seção intitulada [Exibir e executar o exemplo concluído](#view-and-run-the-completed-sample).
 
-#### <a name="add-references-and-using-statements"></a>Adicionar referências e usar instruções  
+#### <a name="add-references-and-using-statements"></a>Adicione referências e usando instruções  
 
 No Visual Studio, instale a biblioteca de cliente do armazenamento do Azure. No menu **Ferramentas**, selecione **Gerenciador de Pacotes do NuGet** e, em seguida, **Console do Gerenciador de Pacotes**. Digite os seguintes comandos na janela do console para instalar os pacotes necessários da biblioteca de cliente do armazenamento do Azure para .NET:
 
@@ -177,7 +177,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 Em seguida, adicione um método que solicite um token do Azure AD em nome do usuário. Esse método define o escopo para o qual as permissões devem ser concedidas. Para obter mais informações sobre permissões e escopos, consulte [permissões e consentimento no ponto de extremidade da plataforma Microsoft Identity](../../active-directory/develop/v2-permissions-and-consent.md).
 
-Use a ID do recurso para construir o escopo para o qual adquirir o token. O exemplo constrói o escopo usando a ID do recurso junto com o escopo `user_impersonation` interno, que indica que o token está sendo solicitado em nome do usuário.
+Use a ID do recurso para construir o escopo para o qual adquirir o token. O exemplo constrói o escopo usando a ID do recurso junto com o escopo de `user_impersonation` interno, que indica que o token está sendo solicitado em nome do usuário.
 
 Tenha em mente que talvez seja necessário apresentar ao usuário uma interface que permita ao usuário consentir que solicite o token de seu nome. Quando o consentimento é necessário, o exemplo captura o **MsalUiRequiredException** e chama outro método para facilitar a solicitação de consentimento:
 

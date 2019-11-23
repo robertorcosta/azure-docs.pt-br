@@ -40,7 +40,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 * As portas adequadas devem estar abertas no servidor Windows Active Directory (AD) aplicável.  
     As portas necessárias são as seguintes: 
 
-    |     Serviço           |     Porta     |     Protocol     |
+    |     O Barramento de           |     Port     |     Protocolo     |
     |-----------------------|--------------|------------------|
     |    Serviços Web do AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -86,7 +86,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 
     * **DNS primário**  
         Esse é o DNS necessário para as operações de autenticação SMB e de ingresso no domínio do Active Directory. 
-    * @No__t **DNS secundário**-1  
+    *   de **DNS secundário**  
         Esse é o servidor DNS secundário para garantir que os serviços de nome redundantes. 
     * **Domínio**  
         Esse é o nome de domínio de seu Active Directory Domain Services que você deseja unir.

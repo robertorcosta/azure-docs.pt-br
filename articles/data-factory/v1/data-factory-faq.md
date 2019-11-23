@@ -20,7 +20,7 @@ ms.locfileid: "70139827"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [perguntas frequentes - Data Factory](../frequently-asked-questions.md).
+> Este artigo se aplica à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [perguntas frequentes - Data Factory](../frequently-asked-questions.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -53,10 +53,10 @@ Você pode criar fábricas de dados usando um dos SDKs/ferramentas a seguir:
 * **Azure PowerShell** Veja [Criar e monitorar o Azure Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para ver um tutorial/passo a passo da criação de uma fábrica de dados usando o PowerShell. Consulte [Data Factory][adf-powershell-reference] o conteúdo de referência do cmdlet na biblioteca MSDN para obter uma documentação abrangente dos cmdlets data Factory.
 * **Biblioteca de classes .NET** Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Data Factory. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET](data-factory-create-data-factories-programmatically.md) para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Consulte [Data Factory referência da biblioteca de classes][msdn-class-library-reference] para obter uma documentação abrangente de data Factory SDK do .net.
 * **REST API** Você também pode usar a API REST exposta pelo serviço do Azure Data Factory para criar e implantar fábricas de dados. Consulte [Data Factory referência da API REST][msdn-rest-api-reference] para obter uma documentação abrangente de data Factory API REST.
-* **Modelo do Azure Resource Manager** Para obter detalhes, veja [Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md).
+* **Modelo do Azure Resource Manager** Consulte [Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para obter detalhes.
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso renomear um Data Factory?
-Nº Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
+Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Posso mover uma fábrica de dados de uma assinatura do Azure para outra?
 Sim. Use o botão **Mover** na folha do data factory, conforme mostrado no diagrama a seguir:
@@ -70,12 +70,12 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | --- | --- |
 | [Cluster HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Lote do Azure](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades de Machine Learning: Execução de lote e Recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
-| [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades de Machine Learning: execução do Lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
+| [Análise Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como o Azure Data Factory se compara com o SSIS (SQL Server Integration Services)? 
-Veja a apresentação [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de um dos nossos MVPs (Most Valued Professionals): Reza Rad. Algumas das alterações recentes no Data Factory podem não estar listadas no conjunto de slides. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Nós incorporaremos essas atualizações à comparação das tecnologias de integração de dados da Microsoft, mais tarde neste ano.   
+Consulte a apresentação [Azure data Factory versus SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de um de nossos MVPs (profissionais mais valorizados): reza Rad. Algumas das alterações recentes no Data Factory podem não estar listadas no conjunto de slides. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Nós incorporaremos essas atualizações à comparação das tecnologias de integração de dados da Microsoft, mais tarde neste ano.   
 
 ## <a name="activities---faq"></a>Atividades - Perguntas frequentes
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quais são os tipos diferentes de atividades que você pode usar em um pipeline do Azure Data Factory?
@@ -170,7 +170,7 @@ Você pode executar novamente uma fatia de uma das seguintes maneiras:
 
 * Use o Aplicativo Monitorar e Gerenciar para executar uma janela de atividade ou fatia novamente. Veja [Executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para obter instruções.   
 * Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal do Azure.
-* Execute o cmdlet **set-AzDataFactorySliceStatus** com o status definido como aguardando a fatia.   
+* Execute o cmdlet **set-AzDataFactorySliceStatus** com o status definido como **aguardando** a fatia.   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"

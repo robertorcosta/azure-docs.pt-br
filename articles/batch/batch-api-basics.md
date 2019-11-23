@@ -40,7 +40,7 @@ O seguinte fluxo de trabalho de alto nível é típico de quase todos os aplicat
 2. Carregue os **arquivos de aplicativo** que as tarefas executarão. Esses arquivos podem ser binários ou scripts e suas dependências e são executados pelas tarefas em seus trabalhos. As tarefas podem baixar esses arquivos de sua conta de armazenamento ou você pode usar o recurso dos [pacotes de aplicativos](#application-packages) de lote para a implantação e o gerenciamento dos aplicativos.
 3. Crie um [pool](#pool) de nós de computação. Quando você cria um pool, pode especificar o número de nós de computação para o pool, seu tamanho e o sistema operacional. Quando cada tarefa no trabalho é executada, ela é atribuída para ser executada em um de nós no pool.
 4. Crie um [trabalho](#job). Um trabalho gerencia uma coleção de tarefas. Você associa cada trabalho a um pool específico no qual as tarefas do trabalho serão executadas.
-5. Adicione [tarefas](#task) ao trabalho. Cada tarefa executa o aplicativo ou script que você carregou para processar os arquivos de dados que ele baixa de sua conta do Armazenamento. À medida que cada tarefa é concluída, pode carregar sua saída para o Armazenamento do Azure.
+5. Adicione [Tarefas](#task) ao trabalho. Cada tarefa executa o aplicativo ou script que você carregou para processar os arquivos de dados que ele baixa de sua conta do Armazenamento. À medida que cada tarefa é concluída, pode carregar sua saída para o Armazenamento do Azure.
 6. Monitore o andamento dos trabalhos e recupere a saída de tarefas do Armazenamento do Azure.
 
 As seções a seguir discutem os recursos do lote que habilitam seu cenário computacional distribuído.
@@ -77,7 +77,7 @@ Você pode executar várias cargas de trabalho do Lote em uma única conta do Lo
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-## <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
+## <a name="azure-storage-account"></a>Conta de armazenamento do Azure
 
 A maioria das soluções do Lote usa o Armazenamento do Azure para armazenar arquivos de recurso e de saída. Por exemplo, as tarefas do Lote (incluindo as tarefas padrão, tarefas iniciais, tarefas de preparação do trabalho e tarefas de liberação do trabalho) especificam tipicamente os arquivos de recurso que residem nas contas de armazenamento.
 
@@ -89,13 +89,13 @@ O Lote é compatível com as seguintes opções de conta de Armazenamento do Azu
 
 Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md).
 
-Você pode associar uma conta de armazenamento à sua conta do Lote durante a criação da conta do Lote, ou depois. Considere seus requisitos de desempenho e custo ao escolher uma conta de armazenamento. Por exemplo, as opções de conta de armazenamento de blob e GPv2 dão suporte a [limites maiores de capacidade e escalabilidade](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) em comparação com a GPv1. (Contate o Suporte do Azure para solicitar um aumento do limite de armazenamento.) Essas opções de conta podem melhorar o desempenho das soluções do Lote que contêm uma grande quantidade de tarefas paralelas lidas ou gravadas na conta de armazenamento.
+Você pode associar uma conta de armazenamento à sua conta do Lote durante a criação da conta do Lote, ou depois. Considere seus requisitos de desempenho e custo ao escolher uma conta de armazenamento. Por exemplo, as opções de conta de armazenamento de blob e GPv2 dão suporte a [limites maiores de capacidade e escalabilidade](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) em comparação com a GPv1. (Entre em contato com o suporte do Azure para solicitar um aumento em um limite de armazenamento.) Essas opções de conta podem melhorar o desempenho de soluções do lote que contêm um grande número de tarefas paralelas que lêem ou gravam na conta de armazenamento.
 
 ## <a name="compute-node"></a>Nó de computação
 
 Um nó de computação é uma máquina virtual (VM) do Azure ou VM do serviço de nuvem que é dedicada ao processamento de uma parte da carga de trabalho do aplicativo. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de arquivos local alocado para o nó. Você pode criar pools de nós do Windows ou Linux usando os serviços de nuvem do Azure, imagens do [Marketplace de máquinas virtuais do Azure][vm_marketplace]ou imagens personalizadas que você prepara. Consulte o seguinte seção [Pool](#pool) para obter mais informações sobre essas opções.
 
-Os nós podem executar qualquer executável ou script que tenha suporte no ambiente do sistema operacional do nó. Os executáveis ou scripts incluem \*. exe, \*. cmd, @no__t -2. bat e scripts do PowerShell para Windows-e binários, Shell e scripts do Python para Linux.
+Os nós podem executar qualquer executável ou script que tenha suporte no ambiente do sistema operacional do nó. Os executáveis ou scripts incluem \*. exe, \*. cmd, \*. bat e scripts do PowerShell para Windows – e binários, Shell e scripts do Python para Linux.
 
 Todos os nós de computação no Lote também incluem:
 
@@ -214,11 +214,11 @@ Você pode especificar [pacotes de aplicativos](#application-packages) para impl
 >
 >
 
-### <a name="network-configuration"></a>Configuração da rede
+### <a name="network-configuration"></a>Configuração de rede
 
 Você pode especificar a sub-rede de uma [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) do Azure em que nós de computação do pool devem ser criados. Confira a seção Configuração da rede do pool para obter mais informações.
 
-## <a name="job"></a>Trabalho
+## <a name="job"></a>trabalho
 
 Um trabalho é uma coleção de tarefas. Ele gerencia como a computação é realizada por suas tarefas nos nós de computação em um pool.
 
@@ -245,7 +245,7 @@ O plano de trabalho em pools é independente. Entre pools diferentes, não é ga
 
 ### <a name="scheduled-jobs"></a>Trabalhos agendados
 
-As agendas de [trabalho][rest_job_schedules] permitem que você crie trabalhos recorrentes no serviço de lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Você pode especificar a duração do agendamento - quanto tempo e quando o agendamento entra em vigor – e com que frequência os trabalhos são criados durante o período agendado.
+As [agendas de trabalho][rest_job_schedules] permitem que você crie trabalhos recorrentes no serviço de lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Você pode especificar a duração do agendamento - quanto tempo e quando o agendamento entra em vigor – e com que frequência os trabalhos são criados durante o período agendado.
 
 ## <a name="task"></a>Tarefa
 
@@ -305,7 +305,7 @@ Se você adicionar ou atualizar a tarefa inicial para um pool existente , dever�
 >
 >
 
-### <a name="job-manager-task"></a>Tarefa do gerenciador de trabalhos
+### <a name="job-manager-task"></a>Tarefa do Gerenciador de Trabalhos
 
 Você geralmente usa uma **tarefa do gerenciador de trabalhos** para controlar e/ou monitorar a execução do trabalho — por exemplo, para criar e enviar tarefas para um trabalho, determinar as tarefas adicionais a executar e quando o trabalho é concluído. No entanto, uma tarefa do gerenciador de trabalhos não está limitada a essas atividades. É uma tarefa completa que pode executar as ações necessárias para o trabalho. Por exemplo, uma tarefa do gerenciador de trabalhos pode baixar um arquivo especificado como um parâmetro, analisar o conteúdo desse arquivo e enviar tarefas adicionais com base no conteúdo.
 
@@ -322,8 +322,8 @@ Uma tarefa do gerenciador de trabalho é iniciada antes de todas as outras taref
 
 O Lote fornece tarefas de preparação do trabalho para a instalação de execução pré-trabalho. As tarefas de liberação do trabalho são para a manutenção ou a limpeza pós-trabalho.
 
-* **Tarefa de preparação de trabalho**: a tarefa de preparação do trabalho é executada em todos os nós de computação agendados para executar tarefas, antes que qualquer outra tarefa do trabalho seja executada. É possível usar a tarefa de preparação do trabalho para copiar os dados compartilhados por todas as tarefas, mas é exclusiva para o trabalho, por exemplo.
-* **Tarefa de liberação de trabalho**: quando um trabalho é concluído, a tarefa de liberação do trabalho é executada em cada nó no pool que executou pelo menos uma tarefa. É possível usar a tarefa de liberação do trabalho para excluir os dados copiados pela tarefa de preparação do trabalho ou compactar e carregar os dados do log de diagnóstico, por exemplo.
+* **Tarefa de preparação do trabalho**– a tarefa de preparação do trabalho é executada em todos os nós de computação agendados para executar as tarefas, antes de qualquer outra tarefa do trabalho ser executada. É possível usar a tarefa de preparação do trabalho para copiar os dados compartilhados por todas as tarefas, mas é exclusiva para o trabalho, por exemplo.
+* **Tarefa de liberação do trabalho**– quando o trabalho for concluído, a tarefa de liberação do trabalho será executada em cada nó no pool que executou pelo menos uma tarefa. É possível usar a tarefa de liberação do trabalho para excluir os dados copiados pela tarefa de preparação do trabalho ou compactar e carregar os dados do log de diagnóstico, por exemplo.
 
 As tarefas de preparação e liberação do trabalho permitem especificar uma linha de comando a ser executada quando a tarefa é chamada. Elas oferecem recursos, como download de arquivo, execução elevada, variáveis de ambiente personalizadas, duração máxima da execução, contagem de repetição e tempo de retenção do arquivo.
 
@@ -335,7 +335,7 @@ Uma [tarefa de várias instâncias](batch-mpi.md) é a que é configurada para s
 
 Para obter uma análise detalhada sobre como executar os trabalhos da MPI no Lote usando a biblioteca .NET do Lote, confira [Usar tarefas de várias instâncias para executar os aplicativos da MPI (Interface de Troca de Mensagens) no Lote do Azure](batch-mpi.md).
 
-### <a name="task-dependencies"></a>Dependências de tarefa
+### <a name="task-dependencies"></a>Dependências da tarefa
 
 As [dependências de tarefas](batch-task-dependencies.md), como o nome indica, permitem especificar que uma tarefa depende da conclusão de outras tarefas antes de sua execução. Este recurso fornece suporte para situações em que uma tarefa "downstream" consome a saída de uma tarefa "upstream" - ou quando uma tarefa upstream executa alguma inicialização necessária para uma tarefa downstream. Para usar esse recurso, primeiro você deve habilitar as dependências em seu trabalho do Lote. Em seguida, para cada tarefa que depende de outra (ou de muitas outras), você especifica as tarefas das quais a tarefa depende.
 
@@ -353,7 +353,7 @@ Cada tarefa executada pelo serviço Lote tem acesso a variáveis de ambiente def
 
 Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, consulte a operação [Adicionar uma tarefa a um trabalho][rest_add_task] (API REST do lote) ou as propriedades [CloudTask. EnvironmentSettings][net_cloudtask_env] e [CloudJob. CommonEnvironmentSettings][net_job_env] no .net do lote.
 
-Seu aplicativo cliente ou serviço pode obter as variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [obter informações sobre uma tarefa][rest_get_task_info] (REST do lote) ou acessando a propriedade [CloudTask. EnvironmentSettings][net_cloudtask_env] ( .NET do lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
+O aplicativo ou serviço cliente pode obter as variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [obter informações sobre uma tarefa][rest_get_task_info] (REST do lote) ou acessando a propriedade [CloudTask. EnvironmentSettings][net_cloudtask_env] (.net do lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
 
 Você pode encontrar uma lista completa de todas as variáveis de ambiente definidas pelo serviço em [variáveis de ambiente do nó de computação][msdn_env_vars].
 
@@ -367,30 +367,30 @@ O diretório raiz contém a seguinte estrutura de diretório:
 
 ![Estrutura de diretórios do nó de computação][1]
 
-* **aplicativos**: Contém informações sobre os detalhes dos pacotes de aplicativos instalados no nó de computação. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_APP_PACKAGE` .
+* **aplicativos**: contém informações sobre os detalhes dos pacotes de aplicativos instalados no nó de computação. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_APP_PACKAGE` .
 
-* **fsmounts**: O diretório contém todos os sistemas de arquivos montados em um nó de computação. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_MOUNTS_DIR` . Para obter mais informações, consulte [montar um sistema de arquivos virtual em um pool do lote](virtual-file-mount.md).
+* **fsmounts**: o diretório contém todos os sistemas de arquivos montados em um nó de computação. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_MOUNTS_DIR` . Para obter mais informações, consulte [montar um sistema de arquivos virtual em um pool do lote](virtual-file-mount.md).
 
-* **compartilhado**: esse diretório fornece acesso de leitura/gravação a *todas* as tarefas executadas em um nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` .
+* **compartilhado**– esse diretório fornece acesso de leitura/gravação a *todas* as tarefas executadas em um nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` .
 
-* **inicialização**: esse diretório é usado por uma tarefa inicial como seu diretório de trabalho. Todos os arquivos que são baixados para o nó pela tarefa de inicialização são armazenados aqui. A tarefa inicial pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` .
+* **inicialização**– esse diretório é usado por uma tarefa inicial como seu diretório de trabalho. Todos os arquivos que são baixados para o nó pela tarefa de inicialização são armazenados aqui. A tarefa inicial pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` .
 
-* **volátil**: Esse diretório é para fins internos. Não há garantia de que todos os arquivos nesse diretório ou que o diretório em si existam no futuro.
+* **volátil**: esse diretório é para fins internos. Não há garantia de que todos os arquivos nesse diretório ou que o diretório em si existam no futuro.
 
-* **WorkItems**: Esse diretório contém os diretórios para trabalhos e suas tarefas no nó de computação.
+* **WorkItems**: esse diretório contém os diretórios para trabalhos e suas tarefas no nó de computação.
 
-* **Tarefas**: No diretório **WorkItems** , um diretório é criado para cada tarefa executada no nó. Ele é acessado referenciando a variável de ambiente `AZ_BATCH_TASK_DIR`.
+* **Tarefas**: dentro do diretório **WorkItems** , um diretório é criado para cada tarefa executada no nó. Ele é acessado referenciando a variável de ambiente `AZ_BATCH_TASK_DIR`.
 
     Em cada diretório de tarefas, o serviço Lote cria um diretório de trabalho (`wd`) cujo caminho exclusivo é especificado pela variável de ambiente `AZ_BATCH_TASK_WORKING_DIR`. Esse diretório oferece acesso de leitura/gravação à tarefa. A tarefa pode criar, ler, atualizar e excluir arquivos contidos nesse diretório. Esse diretório é mantido com base na restrição *RetentionTime* especificada para a tarefa.
 
-    `stdout.txt` e `stderr.txt`: esses arquivos são gravados na pasta de tarefas durante a execução da tarefa.
+    `stdout.txt` e `stderr.txt` – esses arquivos são gravados na pasta de tarefas durante a execução da tarefa.
 
 > [!IMPORTANT]
 > Quando um nó é removido do pool, *todos* os arquivos armazenados no nó são removidos.
 >
 >
 
-## <a name="application-packages"></a>pacotes de aplicativos
+## <a name="application-packages"></a>Pacotes de aplicativos
 
 O recurso dos [pacotes de aplicativos](batch-application-packages.md) fornece um gerenciamento e implantação fáceis dos aplicativos para os nós de computação em seus pools. Você pode carregar e gerenciar várias versões dos aplicativos executados por suas tarefas, incluindo seus binários e arquivos de suporte. Então, você pode implantar automaticamente um ou mais desses aplicativos nos nós de computação em seu pool.
 
@@ -533,7 +533,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
     Isso efetivamente coloca o nó offline para que nenhuma tarefa adicional seja atribuída a ele, mas permite que o nó permaneça em execução e no pool. Isso o habilita a continuar a investigar a causa das falhas sem perder os dados da tarefa com falha e sem que o nó cause falhas de tarefas adicionais. Por exemplo, você pode desabilitar o agendamento de tarefas no nó e [fazer logon remotamente](#connecting-to-compute-nodes) para examinar os logs de evento do nó ou solucionar outros problemas. Depois de concluir sua investigação, você pode colocar o nó online novamente habilitando o agendamento de tarefas ([REST][rest_online] | [.net][net_online]) ou executar uma das outras ações discutidas anteriormente.
 
 > [!IMPORTANT]
-> Com cada ação descrita nesta seção – reinicializar, refazer a imagem, remover e desabilitar o agendamento de tarefas – é possível especificar como as tarefas atualmente em execução no nó são lidadas quando você executa a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se deseja **encerrar** as tarefas em execução, reenfileira-las para agendamento em outros nós ou permitir que as tarefas em execução sejam concluídas antes de executar a ação (**TaskCompletion**).
+> Com cada ação descrita nesta seção – reinicializar, refazer a imagem, remover e desabilitar o agendamento de tarefas – é possível especificar como as tarefas atualmente em execução no nó são lidadas quando você executa a ação. Por exemplo, ao desabilitar o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se as tarefas em execução devem ser **encerradas** , **reenfileira** -las para agendamento em outros nós ou permitir que as tarefas em execução sejam concluídas antes de executar a ação (**TaskCompletion**).
 >
 >
 

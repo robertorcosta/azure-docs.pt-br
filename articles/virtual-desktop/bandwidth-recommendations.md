@@ -25,12 +25,12 @@ Ao usar uma sessão remota do Windows, a largura de banda disponível da sua red
 
 A tabela a seguir lista as larguras de banda mínimas recomendadas para uma experiência de usuário tranqüila. 
 
-|Carga de Trabalho        |Aplicativos de exemplo                                                                                           |Largura de banda recomendada|
+|Carga de trabalho        |Aplicativos de exemplo                                                                                           |Largura de banda recomendada|
 |----------------|--------------------------------------------------------------------------------------------------------------|---------------------|
-|Profissional de tarefas     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1,5 @ no__t-0Mbps        |
-|Office Worker   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, visualizador de fotos                                        |3 @ no__t-0Mbps          |
-|Trabalhador de conhecimento|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, visualizador de fotos, Java                                  |5 @ no__t-0Mbps          |
-|Power Worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, visualizador de fotos, Java, CAD/CAM, ilustração/publicação|15 @ no__t-0Mbps         |
+|Profissional de tarefas     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1,5&nbsp;Mbps        |
+|Office Worker   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, visualizador de fotos                                        |3&nbsp;Mbps          |
+|Trabalhador de conhecimento|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, visualizador de fotos, Java                                  |5&nbsp;Mbps          |
+|Power Worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, visualizador de fotos, Java, CAD/CAM, ilustração/publicação|15&nbsp;Mbps         |
 
 >[!NOTE]
 >Essas recomendações se aplicam independentemente de quantos usuários estão na sessão.

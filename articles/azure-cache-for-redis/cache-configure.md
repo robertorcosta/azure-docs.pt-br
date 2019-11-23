@@ -74,7 +74,7 @@ Clique em **Log de auditoria** para exibir as ações executadas em seu cache. V
 
 A seção **(IAM) do controle de acesso** fornece suporte para controle de acesso baseado em função (RBAC) no Portal do Azure. Essas configurações ajudam as organizações a atenderem seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para saber mais, confira [Role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.md)(Controle de acesso baseado em função no portal do Azure).
 
-### <a name="tags"></a>Marcas
+### <a name="tags"></a>tags
 
 A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 

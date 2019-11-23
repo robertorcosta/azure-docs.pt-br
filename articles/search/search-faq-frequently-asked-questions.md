@@ -23,7 +23,7 @@ ms.locfileid: "72792903"
 
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Como o Azure Pesquisa Cognitiva diferente da pesquisa de texto completo em meu DBMS?
 
-O Azure Pesquisa Cognitiva dá suporte a várias fontes de dados, [análise linguística para muitas linguagens](https://docs.microsoft.com/rest/api/searchservice/language-support), [análise personalizada para entradas de dados interessantes e incomuns](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), pesquisa de controles de classificação por meio de [perfis de Pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e experiência do usuário recursos como typeahead, realce de visita e navegação facetada. Ele também inclui outros recursos, como sinônimos e sintaxe de consulta avançada, mas esses geralmente não são recursos diferenciados.
+O Azure Pesquisa Cognitiva dá suporte a várias fontes de dados, [análise linguística para muitas linguagens](https://docs.microsoft.com/rest/api/searchservice/language-support), [análise personalizada para entradas de dados interessantes e incomuns](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), pesquisa de controles de classificação por meio de [perfis de Pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e recursos de experiência do usuário, como typeahead, realce de visita e navegação facetada. Ele também inclui outros recursos, como sinônimos e sintaxe de consulta avançada, mas esses geralmente não são recursos diferenciados.
 
 ### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Qual é a diferença entre o Azure Pesquisa Cognitiva e o Elasticsearch?
 
@@ -99,12 +99,12 @@ Por exemplo, suponha que uma entrada de "turnê*" em uma pesquisa com curinga pr
 
 A maioria dos clientes escolhe campos dedicados em vez de uma coleção quando se trata de dar suporte a idiomas diferentes no mesmo índice. Os campos específicos de idioma possibilitam a atribuição de um analisador adequado. Por exemplo, a atribuição do Analisador de Francês da Microsoft a um campo que contém cadeias de caracteres em francês. Isso também simplifica a filtragem. Se você souber que uma consulta é iniciada em uma página com fr-fr na URL, poderá limitar os resultados da pesquisa para esse campo. Ou criar um [perfil de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para dar ao campo mais peso relativo. O Azure Pesquisa Cognitiva dá suporte a mais de [50 analisadores de idioma](https://docs.microsoft.com/azure/search/search-language-support) para sua escolha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A sua pergunta é sobre a falta de um recurso ou funcionalidade? Solicite o recurso no [site do User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
  [StackOverflow:  pesquisa cognitiva do Azure](https://stackoverflow.com/questions/tagged/azure-search)  
  [Como funciona a pesquisa de texto completo no Azure Pesquisa Cognitiva](search-lucene-query-architecture.md)  
- [O que é o Azure Pesquisa Cognitiva?](search-what-is-azure-search.md)
+ [O que é a Pesquisa Cognitiva do Azure?](search-what-is-azure-search.md)

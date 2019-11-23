@@ -24,7 +24,7 @@ Depois de concluir as etapas neste documento, você pode implantar a topologia p
 > [!NOTE]  
 > Uma versão completa dos exemplos de topologia do Storm criados neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks)
 

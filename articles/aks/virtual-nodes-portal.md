@@ -81,12 +81,12 @@ No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > 
 
 Na página **Noções básicas**, configure as seguintes opções:
 
-- *DETALHES DO PROJETO*: escolha uma assinatura do Azure e marque ou crie um grupo de recursos do Azure, por exemplo, *meuGrupodeRecursos*. Insira um **nome do cluster do Kubernetes**, como *myAKSCluster*.
-- *DETALHES DO CLUSTER*: escolha uma região, a versão do Kubernetes e o prefixo de nome DNS para o cluster do AKS.
-- *POOL DE NÓS PRIMÁRIO*: escolha um tamanho de VM para os nós de AKS. O tamanho da VM **não pode** ser alterado após a implantação de um cluster AKS.
+- *DETALHES DO PROJETO*: selecione uma assinatura do Azure e selecione ou crie um grupo de recursos do Azure, por exemplo, *myResourceGroup*. Insira um **nome do cluster do Kubernetes**, como *myAKSCluster*.
+- *DETALHES DO CLUSTER*: selecione uma região, a versão do Kubernetes e o prefixo de nome DNS para o cluster do AKS.
+- *Pool de nós primário*: selecione um tamanho de VM para os nós AKs. O tamanho da VM **não pode** ser alterado após a implantação de um cluster AKS.
      - Selecione o número de nós para implantação no cluster. Para este artigo, defina a **Contagem de nós** como *1*. A contagem de nós **pode** ser ajustada após a implantação do cluster.
 
-Clique em **Avançar: Dimensionar @ no__t-0.
+Clique em **Avançar: escala**.
 
 Na página **escala** , selecione *habilitado* em **nós virtuais**.
 
@@ -104,9 +104,9 @@ Demora alguns minutos para o cluster do AKS ser criado e ficar pronto para uso.
 
 O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Para gerenciar um cluster Kubernetes, use [kubectl][kubectl], o cliente de linha de comando Kubernetes. O cliente `kubectl` está pré-instalado no Azure Cloud Shell.
 
-Para abrir o Cloud Shell, escolha **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
+Para abrir o Cloud Shell, selecione **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
 
-Use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] para configurar o `kubectl` para se conectar ao cluster kubernetes. O exemplo a seguir obtém as credenciais para o nome do cluster *myAKSCluster* no grupo de recursos chamado *myResourceGroup*:
+Use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] para configurar `kubectl` para se conectar ao cluster kubernetes. O exemplo a seguir obtém as credenciais para o nome do cluster *myAKSCluster* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -221,7 +221,7 @@ Feche a sessão de terminal do pod de teste com `exit`. Quando a sessão for enc
 
 Neste artigo, agendamos um pod no nó virtual e atribuímos a um endereço IP privado interno. Ao invés disso, você pode criar uma implantação de serviço e direcionar o tráfego para o pod por meio de um balanceador de carga ou controlador de entrada. Para obter mais informações, consulte [criar um controlador de entrada básico em AKs][aks-basic-ingress].
 
-Os nós virtuais são um componente de uma solução de dimensionamento no AKS. Para saber mais sobre essas soluções de dimensionamento, consulte os artigos a seguir:
+Os nós virtuais são um componente de uma solução de dimensionamento no AKS. Para obter mais informações sobre esses itens, confira os artigos a seguir:
 
 - [Usar o dimensionador de kubernetes horizontal Pod][aks-hpa]
 - [Usar o dimensionador de cluster kubernetes][aks-cluster-autoscaler]

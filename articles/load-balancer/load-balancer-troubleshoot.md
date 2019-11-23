@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas do Azure Load Balancer
-description: Learn how to troubleshoot known issues with Azure Load Balancer.
+description: Saiba como solucionar problemas conhecidos com o Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -28,7 +28,7 @@ Esta página fornece informações para solução de problemas comuns do Azure L
 - VMs por trás do Load Balancer não estão respondendo às investigações de integridade 
 - VMs por trás do Load Balancer não estão respondendo ao tráfego na porta configurada
 
-When the external clients to the backend VMs go through the load balancer, the IP address of the clients will be used for the communication. Make sure the IP address of the clients are added into the NSG allow list. 
+Quando os clientes externos para as VMs de back-end passam pelo balanceador de carga, o endereço IP dos clientes será usado para a comunicação. Verifique se o endereço IP dos clientes foi adicionado à lista de permissões NSG. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintoma: As VMs por trás do Load Balancer não estão respondendo às investigações de integridade
 Para que os servidores back-end participem do conjunto de balanceadores de carga, eles devem passar na verificação de investigação. Para saber mais sobre investigações de integridade, confira [Noções básicas sobre investigações do Load Balancer](load-balancer-custom-probe-overview.md). 
@@ -78,7 +78,7 @@ Se todas as causas anteriores, aparentemente, tiverem sido validadas e resolvida
     - Execute um rastreamento Netsh simultâneo na VM do pool de back-end de destino e na outra VM de teste da mesma VNet. Agora, execute um teste PsPing por algum tempo, colete alguns rastreamentos de rede e interrompa o teste. 
     - Analise a captura de rede e verifique se há pacotes de entrada e saída relacionados à consulta de ping. 
         - Se não forem observados pacotes de entrada na VM do pool de back-end, possivelmente, há uma configuração incorreta de UDR ou grupos de segurança de rede bloqueando o tráfego. 
-        - If no outgoing packets are observed on the backend pool VM, the VM needs to be checked for any unrelated issues (for example, Application blocking the probe port). 
+        - Se nenhum pacote de saída for observado na VM do pool de back-end, a VM precisará ser verificada em busca de problemas não relacionados (por exemplo, aplicativo que bloqueia a porta de investigação). 
     - Verifique se os pacotes de investigação estão sendo forçados para outro destino (possivelmente por meio de configurações UDR) antes de chegarem ao Load Balancer. Isso pode fazer com que o tráfego nunca chegue à VM de back-end. 
 * Altere o tipo de investigação (por exemplo, HTTP para TCP) e configure a porta correspondente nas ACLs dos grupos de segurança de rede e no firewall a fim de verificar se o problema é com a configuração da resposta de investigação. Para saber mais sobre a configuração da investigação de integridade, confira [Endpoint Load Balancing health probe configuration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/) (Configuração da investigação de integridade no balanceamento de carga do ponto de extremidade).
 
@@ -104,9 +104,9 @@ Se uma VM não responder ao tráfego de dados, pode ser porque a porta de destin
 
 Se um ou mais grupos de segurança de rede configurados na sub-rede ou na VM estiverem bloqueando o IP de origem ou a porta, a VM não poderá responder.
 
-For the public load balancer, the IP address of the Internet clients will be used for communication between the clients and the load balancer backend VMs. Make sure the IP address of the clients are allowed in the backend VM's network security group.
+Para o Load Balancer público, o endereço IP dos clientes da Internet será usado para comunicação entre os clientes e as VMs de back-end do balanceador de carga. Verifique se o endereço IP dos clientes é permitido no grupo de segurança de rede da VM de back-end.
 
-1. Liste os grupos de segurança de rede configurados na VM de back-end. For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md)
+1. Liste os grupos de segurança de rede configurados na VM de back-end. Para obter mais informações, consulte [gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md)
 1. Na lista de grupos de segurança de rede, verifique se:
     - O tráfego de entrada ou saída na porta de dados tem interferência. 
     - Uma regra do grupo de segurança de rede **Negar Tudo** na NIC da VM ou na sub-rede tem uma prioridade mais alta do que a regra padrão que permite as investigações e o tráfego do Load Balancer (grupos de segurança de rede devem permitir o IP 168.63.129.16 do Load Balancer, que é a porta de investigação)
@@ -132,7 +132,7 @@ Se você optar por abrir um caso de suporte, colete as informações a seguir pa
 - Use Psping em uma das VMs de back-end na VNet para testar a resposta da porta de investigação (exemplo: psping 10.0.0.4:3389) e registrar resultados. 
 - Se nenhuma resposta for recebida nesses testes de ping, execute um rastreamento Netsh simultâneo na VM de back-end e na VM de teste da VNet enquanto executa PsPing. Em seguida, interrompa o rastreamento Netsh. 
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se as etapas anteriores não resolverem o problema, abra um [tíquete de suporte](https://azure.microsoft.com/support/options/).
 

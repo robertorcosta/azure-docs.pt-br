@@ -41,7 +41,8 @@ Para atingir o desempenho ideal, configure seu servidor DNS para lidar com ender
 
 Um vserver do cluster é mostrado à esquerda e os endereços IP aparecem no centro e à direita. Configure cada ponto de acesso do cliente com registros e ponteiros A conforme ilustrado.
 
-diagrama de DNS Round Robin do cluster ![Avere @ no__t-1<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+![diagrama de DNS Round Robin do cluster do avere](media/avere-vfxt-rrdns-diagram.png) 
+<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Cada endereço IP voltado ao cliente deve ter um nome exclusivo para uso interno pelo cluster. (Neste diagrama, os IPs do cliente são chamados de vs1-client-IP-* para maior clareza, mas na produção você provavelmente deve usar algo mais conciso, como cliente*.)
 

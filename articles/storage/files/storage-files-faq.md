@@ -384,7 +384,7 @@ posso **configurar compartilhamentos aninhados? Em outras palavras, um compartil
 **Como posso usar os Arquivos do Azure com o IBM MQ?**  
     A IBM liberou um documento que ajuda clientes do IBM MQ a configurar o Arquivos do Azure juntamente com o serviço IBM. Para obter mais informações, consulte [Como configurar o gerenciador de filas com várias instâncias do IBM MQ com o serviço Arquivos do Microsoft Azure](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Solucionar problemas do Arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solucionar problemas do Arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Solucionar problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

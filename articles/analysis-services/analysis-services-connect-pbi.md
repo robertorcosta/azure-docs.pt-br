@@ -46,7 +46,7 @@ Depois de criar um servidor no Azure e implantar um modelo tabular nele, os usu�
 1. Crie um arquivo do Power BI Desktop que tenha uma conexão ativa com seu modelo no servidor.
 2. Em [Power BI](https://powerbi.microsoft.com), clique em **Obter Dados** > **Arquivos** e em seguida, localize e selecione o arquivo .pbix.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 [Conectar-se ao Azure Analysis Services](analysis-services-connect.md)   
 [Bibliotecas de cliente](analysis-services-data-providers.md)
 

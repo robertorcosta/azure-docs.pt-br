@@ -45,4 +45,4 @@ Quando um recurso estiver ativo, ele será removido do roteiro. A funcionalidade
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Visite a página [Guia do editor do Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+Visite a página [Guia do AppSource Publisher e Azure Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).

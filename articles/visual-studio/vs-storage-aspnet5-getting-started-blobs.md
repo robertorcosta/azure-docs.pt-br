@@ -28,7 +28,7 @@ Este artigo descreve como começar a usar o armazenamento de Blobs do Azure no V
 
 Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Um único blob pode ter qualquer tamanho. Blobs podem ser coisas como imagens, arquivos de áudio e vídeo, dados brutos e arquivos de documentos. Este artigo descreve como começar a usar o armazenamento de blobs depois de criar uma conta de armazenamento do Azure usando o recurso **Serviços Conectados** do Visual Studio em um projeto do ASP.NET Core.
 
-Assim como arquivos residem em pastas, blobs de armazenamento residem em contêineres. Após ter criado um blob, crie um ou mais contêineres nesse blob. Por exemplo, em um blob chamado "Scrapbook", você pode criar contêineres chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos individuais para eles. Confira [Início Rápido: Carregar, baixar e listar BLOBs usando. NET @ no__t-0 para obter mais informações sobre como manipular BLOBs programaticamente.
+Assim como arquivos residem em pastas, blobs de armazenamento residem em contêineres. Após ter criado um blob, crie um ou mais contêineres nesse blob. Por exemplo, em um blob chamado "Scrapbook", você pode criar contêineres chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos individuais para eles. Consulte [Início rápido: Upload, download e blobs de lista usando .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) para obter mais informações sobre como manipular blobs com programação.
 
 Algumas das APIs de armazenamento do Azure são assíncronas e o código neste artigo supõe que os métodos assíncronos estejam sendo usados. Confira [Programação assíncrona](https://docs.microsoft.com/dotnet/csharp/async) para saber mais.
 
@@ -141,7 +141,7 @@ do
 } while (token != null);
 ```
 
-Confira [Início Rápido: Carregar, baixar e listar BLOBs usando. NET @ no__t-0 para outras maneiras de listar o conteúdo de um contêiner de BLOB.
+Consulte [Início rápido: Upload e download e listar blobs usando o .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) para outras formas de listar o conteúdo de um contêiner de blob.
 
 ## <a name="download-a-blob"></a>Baixar um blob
 
@@ -158,7 +158,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Confira [Início Rápido: Carregar, baixar e listar BLOBs usando. NET @ no__t-0 para outras maneiras de salvar BLOBs como arquivos.
+Consulte [Início rápido: Upload e download e listar blobs usando o .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) para outras formas de salvar blobs como arquivos.
 
 ## <a name="delete-a-blob"></a>Excluir um blob
 

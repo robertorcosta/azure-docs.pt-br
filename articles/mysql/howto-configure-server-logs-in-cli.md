@@ -24,7 +24,7 @@ Para seguir este guia de instruções, você precisa:
 
 ## <a name="configure-logging"></a>Configurar o registro em log
 É possível configurar o servidor para acessar os logs de consulta lenta do MySQL executando as seguintes etapas:
-1. Ative o log de consultas lentas definindo o parâmetro **@ no__t-1query @ no__t-2log com lentidão** como on.
+1. Ative o log de consultas lentas definindo a **consulta de\_lenta\_** parâmetro de log como on.
 2. Ajuste outros parâmetros como **long\_query\_time** e **log\_slow\_admin\_statements**.
 
 Para saber como definir o valor desses parâmetros por meio da CLI do Azure, consulte [Como configurar parâmetros do servidor](howto-configure-server-parameters-using-cli.md).

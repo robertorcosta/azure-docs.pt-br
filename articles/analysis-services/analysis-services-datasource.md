@@ -22,14 +22,14 @@ Fontes de dados e conectores mostrados no Get Data ou no Assistente de Importaç
 
 |Fonte de dados  |Na memória  |DirectQuery  |
 |---------|---------|---------|
-|Banco de Dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   sim      |    sim      |
-|SQL Data Warehouse do Azure     |   sim      |   sim       |
-|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   sim       |    Não      |
-|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   sim       |    Não      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  sim        |  Não        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   sim       |    Não      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     sim     |   Não       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   sim       |   Não       |
+|Banco de Dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
+|SQL Data Warehouse do Azure     |   Sim      |   Sim       |
+|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não      |
+|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   Sim       |    Não      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sim        |  Não        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sim       |    Não      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sim     |   Não       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sim       |   Não       |
 ||||
 
 <a name="tab1400a">1</a> - Tabular 1.400 e modelos superiores somente.   
