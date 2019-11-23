@@ -1,19 +1,19 @@
 ---
-title: Apache Spark & Apache Kafka com Cosmos DB-Azure HDInsight
+title: Apache Spark & Apache Kafka with Cosmos DB - Azure HDInsight
 description: Saiba como usar o Streaming Estruturado do Apache Spark para ler dados do Apache Kafka e, em seguida, armazená-los no Azure Cosmos DB. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: faae65c6664123bd673711674a36edc928c74278
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive
+ms.date: 11/18/2019
+ms.openlocfilehash: 04faafca0811e60ded47d1e91a82054a1c1cdb25
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044902"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406167"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Streaming Estruturado do Apache Spark com o Apache Kafka e o Azure Cosmos DB
 
@@ -32,7 +32,7 @@ O streaming estruturado do Spark é um mecanismo de processamento de fluxo basea
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
-Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela internet pública. Qualquer item que se comunique com o Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O seguinte diagrama mostra como a comunicação flui entre os clusters:
+Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Qualquer item que se comunique com o Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O seguinte diagrama mostra como a comunicação flui entre os clusters:
 
 ![Diagrama de clusters Spark e Kafka em uma rede virtual do Azure](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
 
@@ -55,53 +55,36 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
    * Um cluster Spark no HDInsight 3.6.
 
-   * Uma Rede Virtual do Azure, que contém os clusters HDInsight.
-
-       > [!NOTE]  
-       > A rede virtual criada pelo modelo usa o espaço de endereço 10.0.0.0/16.
+   * Uma Rede Virtual do Azure, que contém os clusters HDInsight. A rede virtual criada pelo modelo usa o espaço de endereço 10.0.0.0/16.
 
    * Um banco de dados da API do SQL do Azure Cosmos DB.
 
-     > [!IMPORTANT]  
-     > O bloco de anotações de streaming estruturado usado neste exemplo requer o Spark no HDInsight 3.6. Se você usar uma versão anterior do Spark no HDInsight, você receberá erros ao usar o bloco de anotações.
+    > [!IMPORTANT]  
+    > O bloco de anotações de streaming estruturado usado neste exemplo requer o Spark no HDInsight 3.6. Se você usar uma versão anterior do Spark no HDInsight, você receberá erros ao usar o bloco de anotações.
 
-2. Use as seguintes informações para preencher as entradas na seção **Implantação personalizada**:
+1. Use as seguintes informações para preencher as entradas na seção **Implantação personalizada**:
 
-    ![Valores de implantação personalizada do HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
+    |Propriedade |Value |
+    |---|---|
+    |Subscription|Selecione sua assinatura do Azure.|
+    |Resource group|Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.|
+    |Cosmos DB Account Name|este valor é usado como o nome da conta do Cosmos DB. The name can only contain lowercase letters, numbers, and the hyphen (-) character. Ela deve ter entre 3 e 31 caracteres.|
+    |Base Cluster Name|este valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado__spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.|
+    |Cluster Version|a versão do cluster do HDInsight. Este exemplo é testado com 3.6 HDInsight e pode não funcionar com outros tipos de cluster.|
+    |Nome de usuário para logon do cluster|O nome do usuário administrador dos clusters Spark e Kafka.|
+    |Senha de logon do cluster|A senha do usuário administrador dos clusters Spark e Kafka.|
+    |Ssh User Name|O usuário SSH para criar para os clusters Spark e Kafka.|
+    |Ssh Password|A senha para o usuário SSH dos clusters Kafka e Spark.|
 
-    * **Assinatura**: selecione sua assinatura do Azure.
+    ![HDInsight custom deployment values](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-    * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.
+1. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 
-    * **Local**: escolha um local geograficamente perto de você.
-
-    * **Nome da conta do Cosmos DB**: esse valor é usado como o nome da conta do Cosmos DB.
-
-    * **Nome do Cluster de base**: esse valor é usado como o nome de base para os clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado__spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.
-
-    * **Versão do cluster**: versão do cluster HDInsight.
-
-        > [!IMPORTANT]  
-        > Este exemplo é testado com 3.6 HDInsight e pode não funcionar com outros tipos de cluster.
-
-    * **Nome de usuário de logon do cluster**: O nome de usuário do administrador para os clusters Spark e Kafka.
-
-    * **Senha de logon do cluster**: A senha de usuário do administrador para os clusters Spark e Kafka.
-
-    * **Nome de usuário SSH**: O usuário SSH para criar para os clusters Spark e Kafka.
-
-    * **Senha SSH**: a senha para o usuário SSH dos clusters Kafka e Spark.
-
-3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
-
-4. Por fim, selecione **Comprar**. Demora cerca de 20 minutos para criar os clusters.
-
-> [!IMPORTANT]  
-> A criação dos clusters, da rede virtual e da conta do Cosmos DB pode levar até 45 minutos.
+1. Por fim, selecione **Comprar**. A criação dos clusters, da rede virtual e da conta do Cosmos DB pode levar até 45 minutos.
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>Criar o banco de dados e a coleção do Cosmos DB
 
-O projeto usado neste documento armazena dados no Cosmos DB. Antes de executar o código, você deve primeiro criar um _banco de dados_ e uma _coleção_ em sua instância do Cosmos DB. Você também deve recuperar o ponto de extremidade do documento e a _chave_ usada para autenticar solicitações para o Cosmos DB. 
+O projeto usado neste documento armazena dados no Cosmos DB. Antes de executar o código, você deve primeiro criar um _banco de dados_ e uma _coleção_ em sua instância do Cosmos DB. Você também deve recuperar o ponto de extremidade do documento e a _chave_ usada para autenticar solicitações para o Cosmos DB.
 
 Uma forma de fazer isso é usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). O script a seguir criará um banco de dados denominado `kafkadata` e uma coleção denominada `kafkacollection`. A chave primária será retornada.
 
@@ -119,15 +102,16 @@ databaseName='kafkadata'
 collectionName='kafkacollection'
 
 # Create the database
-az cosmosdb database create --name $name --db-name $databaseName --resource-group $resourceGroupName
+az cosmosdb sql database create --account-name $name --name $databaseName --resource-group $resourceGroupName
+
 # Create the collection
-az cosmosdb collection create --collection-name $collectionName --name $name --db-name $databaseName --resource-group $resourceGroupName
+az cosmosdb sql container create --account-name $name --database-name $databaseName --name $collectionName --partition-key-path "/my/path" --resource-group $resourceGroupName
 
 # Get the endpoint
 az cosmosdb show --name $name --resource-group $resourceGroupName --query documentEndpoint
 
 # Get the primary key
-az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query primaryMasterKey
+az cosmosdb keys list --name $name --resource-group $resourceGroupName --type keys
 ```
 
 O ponto de extremidade do documento e as informações de chave primária são semelhantes ao seguinte texto:
@@ -141,38 +125,6 @@ O ponto de extremidade do documento e as informações de chave primária são s
 
 > [!IMPORTANT]  
 > Salve os valores de ponto de extremidade e de chave, visto que eles são necessários nos Blocos de notas Jupyter.
-
-## <a name="get-the-apache-kafka-brokers"></a>Obter os agentes de Apache Kafka
-
-O código neste exemplo conecta-se aos hosts de agente Kafka no cluster do Kafka. Para localizar os endereço dos dois hosts de agente Kafka, use o exemplo do PowerShell ou Bash a seguir:
-
-```powershell
-$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
-$clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
-    -Credential $creds `
-    -UseBasicParsing
-$respObj = ConvertFrom-Json $resp.Content
-$brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
-($brokerHosts -join ":9092,") + ":9092"
-```
-
-> [!NOTE]  
-> O exemplo de Bash espera `$CLUSTERNAME` para conter o nome do cluster Kafka.
->
-> Este exemplo usa o utilitário [jq](https://stedolan.github.io/jq/) para analisar dados fora do documento JSON.
-
-```bash
-curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
-```
-
-Quando solicitado, insira a senha para a conta de logon do cluster (admin)
-
-A saída é semelhante ao texto a seguir:
-
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
-
-Salve essas informações, pois elas são usadas nas diversas etapas deste documento.
 
 ## <a name="get-the-notebooks"></a>Obter os blocos de anotações
 
@@ -204,7 +156,7 @@ Na home page do [Jupyter Notebook](https://jupyter.org/), selecione a entrada __
 
 ## <a name="next-steps"></a>Próximos passos
 
-Agora que você aprendeu a usar o Fluxo Estruturado do Spark, consulte os seguintes documentos para saber mais sobre como trabalhar com o Apache Spark, o Apache Kafka e o Azure Cosmos DB:
+Now that you've learned how to use Apache Spark Structured Streaming, see the following documents to learn more about working with Apache Spark, Apache Kafka, and Azure Cosmos DB:
 
 * [Como usar o fluxo do Apache Spark (DStream) com o Apache Kafka](hdinsight-apache-spark-with-kafka.md).
 * [Iniciar com o Jupyter Notebook e Apache Spark no HDInsight](spark/apache-spark-jupyter-spark-sql.md)

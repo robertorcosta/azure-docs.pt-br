@@ -1,22 +1,22 @@
 ---
-title: Introdução à autenticação baseada em certificado - Azure Active Directory
+title: Certificate-based authentication - Azure Active Directory
 description: Aprenda a configurar a autenticação baseada em certificado no seu ambiente
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359068"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382016"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -44,7 +44,7 @@ Para configurar a autenticação baseada em certificado, as instruções a segui
 - O dispositivo do cliente deve ter acesso a pelo menos uma autoridade de certificação que emite certificados de cliente.
 - Um certificado de cliente para autenticação de cliente deve ter sido emitido para seu cliente.
 
-## <a name="step-1-select-your-device-platform"></a>Etapa 1: Selecionar a plataforma do dispositivo
+## <a name="step-1-select-your-device-platform"></a>Etapa 1: selecione a plataforma do dispositivo
 
 Para a plataforma do dispositivo sob sua responsabilidade, a primeira etapa é examinar o seguinte:
 
@@ -56,7 +56,7 @@ As informações relacionadas existentes para as seguintes plataformas de dispos
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
-## <a name="step-2-configure-the-certificate-authorities"></a>Etapa 2: Configurar autoridades de certificação
+## <a name="step-2-configure-the-certificate-authorities"></a>Etapa 2: Configuração de autoridades de certificação
 
 Para configurar as autoridades de certificação no Azure Active Directory, carregue o seguinte para cada autoridade de certificação:
 
@@ -96,7 +96,7 @@ Para a configuração, você pode usar o [Azure Active Directory PowerShell vers
 
 Como essa é a primeira etapa de configuração, você precisa estabelecer uma conexão com seu locatário. Como existe uma conexão com o seu locatário, você pode revisar, adicionar, excluir e modificar autoridades de certificação confiáveis que são definidas em seu diretório.
 
-### <a name="connect"></a>Connect
+### <a name="connect"></a>Conectar
 
 Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
@@ -134,7 +134,7 @@ Para modificar uma autoridade de certificação confiável, use o cmdlet [Set-Az
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
-## <a name="step-3-configure-revocation"></a>Etapa 3: Configurar a revogação
+## <a name="step-3-configure-revocation"></a>Etapa 3: configurar a revogação
 
 Para revogar um certificado do cliente, o Azure Active Directory busca a CRL (Lista de Certificados Revogados) nas URLs carregadas como parte das informações da autoridade de certificado e a armazena em cache. O carimbo de data/hora da última publicação (propriedade**Effective Date** ) na CRL é usado para garantir que a CRL continua sendo válida. A CRL é referenciada periodicamente para revogar o acesso a certificados que fazem parte da lista.
 
@@ -162,7 +162,7 @@ As etapas a seguir descrevem o processo para atualizar e invalidar o token de au
 
 A data que você define deve estar no futuro. Se a data não estiver no futuro, a propriedade **StsRefreshTokensValidFrom** não será definida. Se a data estiver no futuro, **StsRefreshTokensValidFrom** será definida para a hora atual (não a data indicada pelo comando Set-MsolUser).
 
-## <a name="step-4-test-your-configuration"></a>Etapa 4: Testar a configuração
+## <a name="step-4-test-your-configuration"></a>Etapa 4: testar a sua configuração
 
 ### <a name="testing-your-certificate"></a>Teste do seu certificado
 
@@ -202,7 +202,7 @@ Um perfil do EAS pode ser configurado e colocado no dispositivo por meio da util
 1. Configure um perfil EAS no aplicativo que atenda aos requisitos da seção anterior.
 2. Abra o aplicativo e verifique a sincronização de email.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Informações adicionais sobre autenticação baseada em certificado nos dispositivos Android.](active-directory-certificate-based-authentication-android.md)
 

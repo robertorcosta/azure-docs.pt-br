@@ -1,21 +1,15 @@
 ---
-title: Visão geral da integração de mensagens do Azure Blockchain Workbench
-description: Visão geral do uso de mensagens na visualização do Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Use messages to integrate with Azure Blockchain Workbench
+description: Overview of using messages to integrate Azure Blockchain Workbench Preview with other systems.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 99159b15ea663d43d125748d6db1f334b72931ae
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161804"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324501"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
 
@@ -65,7 +59,7 @@ Blockchain Workbench retorna uma resposta com os seguintes campos:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | GUID do cliente fornecido |
 | userId                | ID do usuário que foi criado |
-| userChainIdentifier   | Endereço do usuário que foi criado na rede blockchain. No Ethereum, o endereço é o endereço **na cadeia** do usuário. |
+| userChainIdentifier   | Endereço do usuário que foi criado na rede blockchain. In Ethereum, the address is the user's **on-chain** address. |
 | ConnectionId          | Identificador exclusivo para a conexão blockchain|
 | messageSchemaVersion  | Versão do esquema de mensagens |
 | messageName           | **CreateUserUpdate** |
@@ -375,7 +369,7 @@ Os Tópicos do Barramento de Serviço podem ser usados para notificar os usuári
 
 ## <a name="notification-message-reference"></a>Referência da mensagem de notificação
 
-Dependendo do **, as**mensagens de notificação têm um dos tipos de mensagem a seguir.
+Depending on the **messageName**, the notification messages have one of the following message types.
 
 ### <a name="block-message"></a>Mensagem de bloco
 
@@ -556,7 +550,7 @@ Exemplo de uma *ContractMessage* do Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-contract-function-invocation"></a>Mensagem de evento: invocação de função de contrato
+### <a name="event-message-contract-function-invocation"></a>Event message: Contract function invocation
 
 Contém informações sobre quando uma função de contrato é invocada, como o nome da função, a entrada de parâmetros e o chamador da função.
 
@@ -636,7 +630,7 @@ Exemplo de uma *EventMessage ContractFunctionInvocation* do Blockchain Workbench
 }
 ```
 
-### <a name="event-message-application-ingestion"></a>Mensagem de evento: ingestão de aplicativos
+### <a name="event-message-application-ingestion"></a>Event message: Application ingestion
 
 Contém informações sobre quando um aplicativo é carregado no Workbench, como o nome e a versão do aplicativo carregado.
 
@@ -678,7 +672,7 @@ Contém informações sobre quando um aplicativo é carregado no Workbench, como
 | ID | Identificador exclusivo do fluxo de trabalho do aplicativo no Azure Blockchain Workbench |
 | Nome | Nome do fluxo de trabalho do aplicativo |
 | displayName | Nome de exibição do fluxo de trabalho do aplicativo |
-| functions | Coleção de [funções para o fluxo de trabalho do aplicativo](#workflow-function-information)|
+| functions | Collection of [functions for the application workflow](#workflow-function-information)|
 | estados | Coleção de [estados do fluxo de trabalho do aplicativo](#workflow-state-information) |
 | properties | [Informações sobre as propriedades de fluxo de trabalho](#workflow-property-information) do aplicativo |
 
@@ -830,7 +824,7 @@ Exemplo de uma *EventMessage ApplicationIngestion* do Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-role-assignment"></a>Mensagem de evento: atribuição de função
+### <a name="event-message-role-assignment"></a>Event message: Role assignment
 
 Contém informações sobre quando um usuário recebe uma função no Workbench, como quem executou a atribuição de função e o nome da função e o aplicativo correspondente.
 

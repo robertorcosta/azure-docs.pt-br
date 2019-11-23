@@ -1,21 +1,21 @@
 ---
-title: usar o Gerenciador de Armazenamento do Azure para gerenciar dados no Azure Data Lake Storage Gen2
-description: Neste guia de início rápido, você aprende a usar Gerenciador de Armazenamento do Azure para criar um contêiner em uma conta de Azure Data Lake Storage Gen2, bem como um diretório e um arquivo. Em seguida, você aprenderá a baixar o arquivo para seu computador local e exibir todo o arquivo em um diretório.
+title: Use Azure Storage Explorer with Azure Data Lake Storage Gen2
+description: In this quickstart, you learn how to use Azure Storage Explorer to create a container in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. Em seguida, você aprenderá a baixar o arquivo para seu computador local e exibir todo o arquivo em um diretório.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 95d7a58c8188e8c6633f6be50af608aed437edff
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 53f43945b13a9dae44eba752f935eb34d7aa498b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991411"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327611"
 ---
-# <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>usar o Gerenciador de Armazenamento do Azure para gerenciar dados em uma conta do Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer with Azure Data Lake Storage Gen2
 
 Neste início rápido, você aprenderá como usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para criar um diretório e um blob. Em seguida, você aprenderá a baixar o blob para seu computador local e exibir todos os blobs em um diretório. Você também aprenderá como criar um instantâneo de um blob, gerenciar as políticas de acesso do diretório e criar uma assinatura de acesso compartilhado.
 
@@ -33,7 +33,7 @@ Na primeira inicialização, é exibida a janela **Gerenciador de Armazenamento 
 |---|---|
 |Adicionar uma conta do Azure | Redireciona você para a página de logon das suas organizações para autenticação no Azure. Atualmente, esse será o método de autenticação com suporte apenas se você quiser gerenciar e definir ACLs. |
 
-Selecione **Adicionar uma Conta do Azure** e clique em **Entrar...** . Siga os avisos da tela para entrar na sua conta do Azure.
+Select **Add an Azure Account** and click **Sign in..** . Follow the on-screen prompts to sign into your Azure account.
 
 ![Gerenciador de Armazenamento do Microsoft Azure – Janela Conexão](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -45,13 +45,13 @@ Ao concluir a conexão, o Gerenciador de Armazenamento do Azure carrega exibindo
 
 Os blobs são sempre carregados em um diretório. Isso permite que você organize grupos de blobs da mesma forma que organiza os arquivos em pastas no seu computador.
 
-Para criar um diretório, expanda a conta de armazenamento criada por você na etapa a seguir. Selecione **Contêiner de blobs**, clique com o botão direito do mouse e selecione **Criar contêiner de Blobs**. Insira o nome do seu contêiner. Ao concluir, pressione **Enter** para criar o contêiner. Após a criação com êxito do diretório de blobs, ele será exibido na pasta **Contêiner de blobs** da conta de armazenamento selecionada.
+Para criar um diretório, expanda a conta de armazenamento criada por você na etapa a seguir. Selecione **Contêiner de blobs**, clique com o botão direito do mouse e selecione **Criar contêiner de Blobs**. Enter the name for your container. When complete, press **Enter** to create the container. Após a criação com êxito do diretório de blobs, ele será exibido na pasta **Contêiner de blobs** da conta de armazenamento selecionada.
 
-![Gerenciador de Armazenamento do Microsoft Azure-criando um contêiner](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Microsoft Azure Storage Explorer - Creating a container](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>Carregar blobs para o diretório
 
-O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e blobs de páginas. Os arquivos VHD usados para auxiliar VMs IaaS são blobs de páginas. Os blobs de acréscimo são usados para registro em log, como quando você quer gravar em um arquivo e depois adicionar mais informações. A maioria dos arquivos armazenados no Armazenamento de Blobs são blobs de blocos.
+O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e blobs de páginas. Os arquivos VHD usados para voltar VMs IaaS são blobs de páginas. Os blobs de acréscimo são usados para registro em log, como quando você quer gravar em um arquivo e depois adicionar mais informações. A maioria dos arquivos armazenados no Armazenamento de Blobs são blobs de blocos.
 
 Na faixa de opções de diretório, selecione **Carregar**. Essa operação lhe dá a opção de carregar um arquivo ou uma pasta.
 
@@ -75,7 +75,7 @@ No aplicativo **Gerenciador de Armazenamento do Azure**, selecione um diretório
 
 Para baixa blobs usando o **Gerenciador de Armazenamento do Azure**, com um blob selecionado, selecione **Baixar** na faixa de opções. Uma caixa de diálogo é aberta, na qual é possível inserir um nome de arquivo. Selecione **Salvar** para iniciar o download de um blob para a localização local.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia de início rápido, você aprendeu a transferir arquivos entre um disco local e o armazenamento de Blobs do Azure usando o **Gerenciador de Armazenamento do Azure**. Para saber mais sobre como definir as ACLs em seus arquivos e diretórios, siga para as nossas instruções sobre o assunto.
 

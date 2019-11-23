@@ -1,41 +1,41 @@
 ---
-title: Como a - exigir dispositivos para acesso de aplicativo de nuvem com acesso condicional do Azure Active Directory gerenciados | Microsoft Docs
-description: Saiba como configurar o Azure Active Directory (Azure AD) com base em dispositivo políticas de acesso condicional que exigem dispositivos gerenciados para acesso de aplicativo de nuvem.
+title: Conditional Access require managed device - Azure Active Directory
+description: Learn how to configure Azure Active Directory (Azure AD) device-based Conditional Access policies that require managed devices for cloud app access.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c99b8390cd43c3f0767123684fe06e0ae74f86
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 31b7aa906cbefc0ffda707a228f2a9d50be351a8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509366"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380026"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir que os dispositivos gerenciados para acesso de aplicativo de nuvem com acesso condicional
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>How To: Require managed devices for cloud app access with Conditional Access
 
 Em um mundo que prioriza os dispositivos móveis e a nuvem, o Azure AD (Azure Active Directory) permite o logon único em aplicativos e serviços de qualquer lugar. Os usuários autorizados podem acessar aplicativos em nuvem em uma grande variedade de dispositivos, inclusive dispositivos para dispositivos móveis e também pessoais. No entanto, muitos ambientes tem pelo menos alguns aplicativos que devem ser acessados por dispositivos que atendem aos padrões de segurança e conformidade. Esses dispositivos também são conhecidos como dispositivos gerenciados. 
 
-Este artigo explica como você pode configurar políticas de acesso condicional que exigem que os dispositivos gerenciados para acessar determinados aplicativos de nuvem em seu ambiente. 
+This article explains how you can configure Conditional Access policies that require managed devices to access certain cloud apps in your environment. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Exigir que os dispositivos gerenciados para vínculos de acesso do aplicativo de nuvem **acesso condicional do Azure AD** e **gerenciamento de dispositivo do Azure AD** juntos. Caso ainda não esteja familiarizado com uma dessas áreas, você deverá ler os seguintes tópicos primeiro:
+Requiring managed devices for cloud app access ties **Azure AD Conditional Access** and **Azure AD device management** together. Caso ainda não esteja familiarizado com uma dessas áreas, você deverá ler os seguintes tópicos primeiro:
 
-- **[Acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md)**  -este artigo fornece uma visão geral conceitual do acesso condicional e a terminologia relacionada.
+- **[Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** - This article provides you with a conceptual overview of Conditional Access and the related terminology.
 - **[Introduction to device management in Azure Active Directory](../devices/overview.md)** - esse artigo fornece uma visão geral das várias opções para conseguir dispositivos sob controle organizacional. 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Controle do equilíbrio entre produtividade e segurança é um desafio. A proliferação de dispositivos com suporte para acessar os recursos de nuvem ajuda a melhorar a produtividade dos usuários. Por outro lado, não convém certos recursos em seu ambiente para ser acessado por dispositivos com um nível de proteção desconhecido. Para os recursos afetados, você deve exigir que os usuários possam acessar somente usando um dispositivo gerenciado. 
 
-Com acesso condicional do Azure AD, você pode atender a esse requisito com uma única política que concede acesso:
+With Azure AD Conditional Access, you can address this requirement with a single policy that grants access:
 
 - Para aplicativos na nuvem selecionados
 - Para usuários e grupos selecionados
@@ -49,11 +49,11 @@ Em termos simples, os dispositivos gerenciados são dispositivos que estão sob 
 
 Para obter um dispositivo registrado com o Microsoft Azure AD, você tem três opções: 
 
-- **Dispositivos registrados no Azure AD** – para obter um dispositivo pessoal registrado com o Azure AD
-- **Dispositivos ingressados no Azure AD** – para obter um dispositivo Windows 10 organizacional que não ingressou em um local do AD registrado no Azure AD. 
-- **Dispositivos ingressados no Azure AD híbrido** – para obter um Windows 10 ou o dispositivo com suporte de nível inferior que ingressou em um local do AD registrado no Azure AD.
+- **Azure AD registered devices** - to get a personal device registered with Azure AD
+- **Azure AD joined devices** - to get an organizational Windows 10 device that is not joined to an on-premises AD registered with Azure AD. 
+- **Hybrid Azure AD joined devices** - to get a Windows 10 or supported down-level device that is joined to an on-premises AD registered with Azure AD.
 
-Essas três opções são discutidas no artigo [o que é uma identidade do dispositivo?](../devices/overview.md)
+These three options are discussed in the article [What is a device identity?](../devices/overview.md)
 
 Para se tornar um dispositivo gerenciado, um dispositivo registrado pode ser um **dispositivo ingressado no Microsoft Azure AD Híbrido** ou um **dispositivo que tenha sido marcado como em conformidade**.  
 
@@ -61,7 +61,7 @@ Para se tornar um dispositivo gerenciado, um dispositivo registrado pode ser um 
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Requer dispositivos que tenham ingressado no Microsoft Azure AD Híbrido
 
-Em sua política de acesso condicional, você pode selecionar **exigir dispositivo ingressado do Azure AD híbrido** declarar que os aplicativos de nuvem selecionados só podem ser acessados usando um dispositivo gerenciado. 
+In your Conditional Access policy, you can select **Require Hybrid Azure AD joined device** to state that the selected cloud apps can only be accessed using a managed device. 
 
 ![Condições baseadas no dispositivo](./media/require-managed-devices/10.png)
 
@@ -91,6 +91,6 @@ Para um dispositivo que esteja marcado como em conformidade, você pode presumir
 - As informações da sua empresa são protegidas ao ajudar a controlar a maneira como sua força de trabalho as acessa e compartilha
 - O dispositivo e seus aplicativos são compatíveis com os requisitos de segurança da empresa
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Antes de configurar uma política de acesso condicional baseado em dispositivo em seu ambiente, você deve dar uma olhada a [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+Before configuring a device-based Conditional Access policy in your environment, you should take a look at the [best practices for Conditional Access in Azure Active Directory](best-practices.md).

@@ -1,22 +1,22 @@
 ---
-title: Personalizando a redefinição de senha de autoatendimento do Azure AD-Azure Active Directory
+title: Customize self-service password reset - Azure Active Directory
 description: Opções de personalização para redefinição de senha por autoatendimento do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527dd99f122ec70cc47305947a5cbce3207b9664
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 0dfd035f73ea529ddb55bac6ce601185fda51a4d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666311"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381931"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade de Autoatendimento de Redefinição de Senha do Azure AD
 
@@ -24,22 +24,22 @@ Os profissionais de TI que desejam implantar a redefinição de senha de autoate
 
 ## <a name="customize-the-contact-your-administrator-link"></a>Personalizar o link "Contate o administrador"
 
-Os usuários de redefinição de senha de autoatendimento têm um link "Contate o administrador" disponível para eles no portal de redefinição de senha. Se um usuário selecionar esse link, ele fará uma destas duas coisas:
+Self-service password reset users have a "Contact your administrator" link available to them in the password reset portal. If a user selects this link, it will do one of two things:
 
-* Se deixado no estado padrão:
-   * O email é enviado aos seus administradores e solicita que eles forneçam assistência para alterar a senha do usuário. Consulte o [email de exemplo](#sample-email) abaixo.
-* Se personalizado:
-   * Envia o usuário para uma página da Web ou endereço de email especificado pelo administrador para obter assistência.
+* If left in the default state:
+   * Email is sent to your administrators and asks them to provide assistance in changing the user's password. See the [sample email](#sample-email) below.
+* If customized:
+   * Sends your user to a webpage or email address specified by the administrator for assistance.
 
 > [!TIP]
-> Se você personalizar isso, é recomendável definir isso para algo que os usuários já conhecem para obter suporte
+> If you customize this, we recommend setting this to something users are already familiar with for support
 
 > [!WARNING]
-> Se você personalizar essa configuração com um endereço de email e uma conta que precise de uma redefinição de senha, talvez o usuário não possa solicitar assistência.
+> If you customize this setting with an email address and account that needs a password reset the user may be unable to ask for assistance.
 
 ### <a name="sample-email"></a>Email de exemplo
 
-![Exemplo de solicitação para redefinir email enviado ao administrador][Contact]
+![Sample request to reset email sent to Administrator][Contact]
 
 Esse contato é enviado para os seguintes destinatários na seguinte ordem:
 
@@ -76,8 +76,8 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 * Depois que um usuário inserir seu nome de usuário
 * Se o usuário acessar a URL personalizada:
-   * Passando o `whr` parâmetro para a página de redefinição de senha, como`https://login.microsoftonline.com/?whr=contoso.com`
-   * Passando o `username` parâmetro para a página de redefinição de senha, como`https://login.microsoftonline.com/?username=admin@contoso.com`
+   * By passing the `whr` parameter to the password reset page, like `https://login.microsoftonline.com/?whr=contoso.com`
+   * By passing the `username` parameter to the password reset page, like `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Encontre detalhes sobre como configurar a identidade visual da empresa no artigo [Adicionar uma identidade visual da empresa à página de entrada do Azure AD](../fundamentals/customize-branding.md).
 
@@ -88,7 +88,7 @@ Você pode alterar o atributo de nome de diretório em **Azure Active Directory*
 * O nome amigável no email, por exemplo, "Microsoft em nome da demonstração da CONTOSO"
 * A linha do assunto no email, por exemplo, "Código de verificação de email da conta de demonstração da CONTOSO"
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
@@ -100,7 +100,7 @@ Você pode alterar o atributo de nome de diretório em **Azure Active Directory*
 * [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contate o administrador para obter ajuda com a redefinição do exemplo de email de senha"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contact your administrator for help with resetting your password email example"

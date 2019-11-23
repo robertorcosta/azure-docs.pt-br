@@ -1,27 +1,21 @@
 ---
-title: Arquitetura de visualização do Azure Blockchain Workbench
-description: Visão geral da arquitetura de visualização do Azure Blockchain Workbench e seus componentes.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Arquitetura do Azure Blockchain Workbench
+description: Overview of Azure Blockchain Workbench Preview architecture and its components.
 ms.date: 09/05/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 4613d441fd0d363654073d4832de19139a7781e7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579733"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324892"
 ---
-# <a name="azure-blockchain-workbench-preview-architecture"></a>Arquitetura de visualização do Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-architecture"></a>Arquitetura do Azure Blockchain Workbench
 
-A visualização do Azure Blockchain Workbench simplifica o desenvolvimento de aplicativos Blockchain fornecendo uma solução usando vários componentes do Azure. O Blockchain Workbench pode ser implantado usando um modelo de solução no Azure Marketplace. O modelo permite que você escolha módulos e componentes para implantar, incluindo pilha de blockchain, tipo de aplicativo de cliente e suporte para a integração de IoT. Uma vez implantado, o Blockchain Workbench fornece acesso a um aplicativo web, aplicativo iOS e aplicativo Android.
+Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. O Blockchain Workbench pode ser implantado usando um modelo de solução no Azure Marketplace. O modelo permite que você escolha módulos e componentes para implantar, incluindo pilha de blockchain, tipo de aplicativo de cliente e suporte para a integração de IoT. Uma vez implantado, o Blockchain Workbench fornece acesso a um aplicativo web, aplicativo iOS e aplicativo Android.
 
-![Arquitetura do Blockchain Workbench](./media/architecture/architecture.png)
+![Blockchain Workbench architecture](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>Identidade e autenticação
 
@@ -119,7 +113,7 @@ O Workbench fornece o log de aplicativo usando o Application Insights e o Azure 
 
 O Azure Monitor fornece informações sobre a integridade da rede blockchain. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Implantar o Azure Blockchain Workbench](../../blockchain-workbench/blockchain-workbench-deploy.md)

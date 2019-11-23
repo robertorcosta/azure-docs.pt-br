@@ -1,21 +1,15 @@
 ---
-title: Configurar o firewall do Banco de Dados SQL do Azure Blockchain Workbench
-description: Saiba como configurar o firewall de banco de BD SQL do Azure Blockchain Workbench Preview.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Configure Azure Blockchain Workbench database firewall
+description: Learn how to configure the Azure Blockchain Workbench Preview database firewall to allow external clients and applications to connect.
 ms.date: 09/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 0153065ca0ccd6cf34456d630d7437d5ea7c5b48
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e6739b7ead9299f020465d3c50ed01826334ca76
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845223"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325993"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurar o firewall do banco de dados do Azure Blockchain Workbench
 
@@ -25,7 +19,7 @@ Este artigo mostra como configurar uma regra de firewall usando o portal do Azur
 
 Para se conectar ao banco de dados em que você deseja configurar uma regra:
 
-1. Entre no portal do Azure com uma conta que tenha permissões de **proprietário** para os recursos do Azure Blockchain Workbench.
+1. Sign in to the Azure portal with an account that has **Owner**     permissions for the Azure Blockchain Workbench resources.
 2. No painel de navegação esquerdo, selecione **Grupos de recursos**.
 3. Escolha o nome do grupo de recursos para sua implantação do Blockchain Workbench.
 4. Selecione **Tipo** para classificar a lista de recursos e, em seguida, escolha o **SQL Server**.
@@ -56,7 +50,7 @@ Criar uma regra de firewall:
 1. Para salvar sua configuração de firewall, selecione **Salvar**.
 2. Teste o intervalo de endereços IP configurado para o banco de dados conectando-se por um aplicativo ou uma ferramenta de teste. Por exemplo, SQL Server Management Studio.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Exibições de banco de dados no Azure Blockchain Workbench](database-views.md)

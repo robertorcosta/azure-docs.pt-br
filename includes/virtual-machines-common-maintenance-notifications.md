@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2dbe8a1bf8c4fd0ead20c50a320265a3acefa43c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171901"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328307"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Exibir VMs agendadas para manutenção no portal
 
@@ -21,7 +21,7 @@ Após agendar uma onda de manutenção planejada, observe a lista de máquinas v
 
 É possível usar o portal do Azure e procurar as VMs agendadas para manutenção.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Na navegação à esquerda, clique em **Máquinas virtuais**.
 
@@ -29,9 +29,9 @@ Após agendar uma onda de manutenção planejada, observe a lista de máquinas v
 
 4. Selecione e adicione as seguintes colunas:
 
-   **Manutenção**: Mostra o status de manutenção da VM. Estes são os valores possíveis:
+   **Manutenção**: mostra o status de manutenção da VM. Estes são os valores possíveis:
       
-      | Value | DESCRIÇÃO |
+      | Value | Descrição |
       |-------|-------------|
       | Comece agora | A VM está na janela de manutenção de autoatendimento, na qual você pode iniciar a manutenção por conta própria. Veja a seguir como iniciar a manutenção na VM. | 
       | Agendado | A VM está programada para manutenção sem a opção para iniciar a manutenção. Para saber mais sobre a janela de manutenção, selecione a janela de manutenção agendada neste modo de exibição ou clique na VM. | 
@@ -41,15 +41,15 @@ Após agendar uma onda de manutenção planejada, observe a lista de máquinas v
       | - | Sua VM não faz parte de uma onda de manutenção planejada. |
       
 
-   **Manutenção - Janela de autoatendimento**: Mostra a janela de tempo quando você pode iniciar automaticamente a manutenção em suas VMs.
+   **Janela de manutenção de autoatendimento**: mostra a janela de tempo, quando é possível iniciar automaticamente a manutenção nas VMs.
    
-   **Manutenção - Janela agendada**: Mostra a janela de tempo quando o Azure manterá a VM para concluir a manutenção. 
+   **Janela de manutenção agendada**: mostra a janela de tempo, quando o Azure fará a manutenção da VM. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
 
-O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para obter mais informações, consulte [Criar alertas do log de atividades em notificações de serviço](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owners group. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para obter mais informações, consulte [Criar alertas do log de atividades em notificações de serviço](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 Certifique-se de definir o **tipo de evento** como **Manutenção Planejada** e **Serviços** como **Conjuntos de Dimensionamento de Máquinas Virtuais do Microsoft Azure** e / ou **Máquinas Virtuais**
     
