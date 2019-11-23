@@ -1,5 +1,5 @@
 ---
-title: Configurar endereços IP privados para VMs-CLI do Azure
+title: Configure private IP addresses for VMs - Azure CLI
 description: Aprenda a configurar endereços IP privados para máquinas virtuais usando a interface de linha de comando (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
-ms.openlocfilehash: 5734b96466801efaa991a971bd87f60aafc9df32
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: dfc56d86d2e516a7c7bb82ef7a5e84105e049188
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196621"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404453"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurar endereços IP privados para uma máquina virtual usando a CLI do Azure
 
@@ -35,7 +35,7 @@ Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você t
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Os seguintes exemplos de comandos de CLI do Azure esperam um ambiente simples existente. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma rede virtual](quick-create-cli.md).
+> Os seguintes exemplos de comandos de CLI do Azure esperam um ambiente simples existente. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma vnet](quick-create-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Especificar um endereço IP estático e privado ao criar uma VM
 
@@ -251,7 +251,7 @@ Para alterar a NIC da VM usada em comandos anteriores, conclua as seguintes etap
 2. Execute o comando **azure vm set** para alterar a NIC usada pela VM.
    
     ```azurecli
-    azure vm set -g TestRG -n DNS01 -N TestNIC2
+   az vm nic set --resource-group TestRG --vm-name DNS01 --nics TestNIC2
     ```
 
     Saída esperada:
@@ -269,6 +269,6 @@ Para alterar a NIC da VM usada em comandos anteriores, conclua as seguintes etap
     > [!NOTE]
     > Se a VM for grande o suficiente para ter mais de uma NIC, execute o comando **azure network nic delete** para excluir a NIC antiga.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como gerenciar [configurações de endereço IP](virtual-network-network-interface-addresses.md).

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8aba38b7ecebefb1205b17bc633d9ff0c0812d4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206800"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328304"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 
@@ -341,7 +341,7 @@ De acordo com a descrição geral, os executáveis do SQL Server devem ser local
 Essas configurações permitem que o tempdb consuma mais espaço do que a unidade do sistema é capaz de fornecer. A unidade D:\ não persistente também oferece melhor latência de e/s e taxa de transferência (com exceção de VMs da série). Para determinar o tamanho adequado de tempdb, é possível verificar os tamanhos de tempdb nos sistemas existentes. 
 
 >[!NOTE]
-> no caso de você coloca os arquivos de dados tempdb e o arquivo de log em uma pasta na unidade D:\ que você criou, você precisa certificar-se de que a pasta existe após uma reinicialização da VM. Since the D:\ drive is freshly initialized after a VM reboot all file and directory structures are wiped out. A possibility to recreate eventual directory structures on D:\ drive before the start of the SQL Server service is documented in [this article](https://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
+> no caso de você coloca os arquivos de dados tempdb e o arquivo de log em uma pasta na unidade D:\ que você criou, você precisa certificar-se de que a pasta existe após uma reinicialização da VM. Since the D:\ drive is freshly initialized after a VM reboot all file and directory structures are wiped out. A possibility to recreate eventual directory structures on D:\ drive before the start of the SQL Server service is documented in [this article](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
 
 Uma configuração de VM que executa o SQL Server com um banco de dados SAP e em que os arquivos de log e dados do tempdb estão na unidade D:\ teria a seguinte aparência:
 

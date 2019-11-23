@@ -1,22 +1,22 @@
 ---
-title: Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior | Microsoft Docs
+title: Troubleshoot legacy hybrid Azure Active Directory joined devices
 description: Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7f02937555f7637a6d2f81be717aaad83bab74f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481449"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379112"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
@@ -32,7 +32,7 @@ Para Windows 10 ou Windows Server 2016, confira [Solução de problemas do Azure
 
 Este artigo pressupõe que você tenha [dispositivos configurados e ingressados no Azure Active Directory híbrido](hybrid-azuread-join-plan.md) para dar suporte aos seguintes cenários:
 
-- Acesso condicional baseado em dispositivo
+- Device-based Conditional Access
 
 Este artigo fornece orientação para solução de possíveis problemas.  
 
@@ -69,11 +69,11 @@ Se o dispositivo não tiver ingressado no Azure AD híbrido, você poderá tenta
     ![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
    - O Autoworkplace.exe não pode autenticar silenciosamente com o Microsoft Azure Active Directory ou o AD FS. Isso pode ser causado pela ausência de AD FS ou sua configuração incorreta (para domínios federados), ou ausência do Logon único contínuo do Azure AD ou sua configuração incorreta (para domínios gerenciados) ou problemas de rede. 
-   - É possível que a autenticação multifator (MFA) está habilitada/configurada para o usuário e WIAORMULTIAUTHN não está configurado no servidor do AD FS. 
+   - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
    - Outra possibilidade é que a página de descoberta de domínio doméstico (HRD) esteja aguardando a interação do usuário, o que evita que o **autoworkplace.exe** solicite silenciosamente um token.
    - É possível que o AD FS e as URLs do Azure AD estejam ausentes na zona de intranet do IE no cliente.
    - Problemas de conectividade de rede podem estar impedindo o **autoworkplace.exe** de alcançar o AD FS ou as URLs do Azure AD. 
-   - **Autoworkplace.exe** requer que o cliente para que a linha de visão direta do cliente para local a organização controlador de domínio do AD, o que significa que unem híbrida do Azure AD terá êxito apenas quando o cliente é conectado à intranet da organização.
+   - **Autoworkplace.exe** requires the client to have direct line of sight from the client to the organization's on-premises AD domain controller, which means that hybrid Azure AD join succeeds only when the client is connected to organization's intranet.
    - Sua organização usa o Logon Único Contínuo do Microsoft Azure Active Directory `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não está presente nas configurações de intranet do Internet Explorer do dispositivo, e **Permitir atualizações à barra de status por meio de script** não está habilitada para a zona da Intranet.
 - Você não está conectado como um usuário de domínio
 
@@ -91,7 +91,7 @@ Se o dispositivo não tiver ingressado no Azure AD híbrido, você poderá tenta
 
     ![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-Você também pode encontrar as informações de status no log de eventos em: **Applications and Services Log\Microsoft-Workplace Join**
+Também é possível encontrar informações de status no log de eventos em: **Log de Aplicativos e Serviços\Microsoft-Workplace Join**
   
 **As causas mais comuns para a falha do ingresso do Azure AD híbrido são:** 
 
@@ -103,6 +103,6 @@ Você também pode encontrar as informações de status no log de eventos em: **
    - Ou, caso seu domínio seja gerenciado, o SSO contínuo não foi configurado ou não está funcionando.
    - Um usuário atingiu o limite de dispositivos. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para perguntas, consulte as [Perguntas frequentes sobre o gerenciamento de dispositivos](faq.md)  

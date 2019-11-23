@@ -13,89 +13,87 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 0a3bc6bcae2f06173cbc334ffe80e2dfa001e407
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 435ae9f08f718a9310fd1687fb7859058edf8b45
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309274"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384242"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
 
 > [!NOTE]
-> Um subconjunto de soluções de segurança foi desativado em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [aposentadoria dos recursos da central de segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_solutions).
+> A subset of security solutions has been retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Soluções de segurança integradas do Azure
 A Central de Segurança facilita a criação de soluções de segurança integradas no Azure. Os benefícios incluem:
 
-- **Implantação simplificada**: A Central de Segurança oferece provisionamento simplificado das soluções integradas de parceiros. Para soluções como antimalware e avaliação de vulnerabilidade, a central de segurança pode provisionar o agente em suas máquinas virtuais. Para dispositivos de firewall, a central de segurança pode cuidar de grande parte da configuração de rede necessária.
-- **Detecções integradas**: Os eventos de segurança das soluções de parceiro são automaticamente coletados, agregados e exibidos como parte dos incidentes e alertas da Central de Segurança. Esses eventos também são combinados com detecções de outras fontes para fornecer funcionalidades de detecção avançada de ameaças.
-- **Monitoramento e gerenciamento de integridade unificados**: Os clientes podem usar eventos de integridade integrados para monitorar todas as soluções de parceiros em um relance. O gerenciamento básico está disponível com acesso fácil à configuração avançada usando a solução de parceiro.
+- **Implantação simplificada**: a Central de Segurança oferece provisionamento simplificado das soluções integradas de parceiros. For solutions like antimalware and vulnerability assessment, Security Center can provision the agent on your virtual machines. For firewall appliances, Security Center can take care of much of the network configuration required.
+- **Detecções Integradas**: os eventos de segurança das soluções de parceiro são automaticamente coletados, agregados e exibidos como parte dos incidentes e alertas da Central de Segurança. Esses eventos também são combinados com detecções de outras fontes para fornecer funcionalidades de detecção avançada de ameaças.
+- **Unificação de gerenciamento e monitoramento de integridade**: os clientes podem usar eventos de integridade integrados para monitorar todas as soluções de parceiro em um relance. O gerenciamento básico está disponível com acesso fácil à configuração avançada usando a solução de parceiro.
 
-Atualmente, as soluções de segurança integradas incluem a avaliação de vulnerabilidades de [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e o Firewall do aplicativo Web do Microsoft Application Gateway.
+Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and Microsoft Application Gateway Web application firewall.
 
 > [!NOTE]
-> A central de segurança não instala o Microsoft Monitoring Agent em soluções de virtualização de parceiros, pois a maioria dos fornecedores de segurança proíbe agentes externos em execução em seus dispositivos.
+> Security Center does not install the Microsoft Monitoring Agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
 >
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>Como as soluções de segurança são integradas
-As soluções de segurança do Azure implantadas da Central de Segurança serão conectadas automaticamente. Você também pode conectar outras fontes de dados de segurança, incluindo computadores executados localmente ou em outras nuvens.
+As soluções de segurança do Azure implantadas da Central de Segurança serão conectadas automaticamente. You can also connect other security data sources, including computers running on-premises or in other clouds.
 
 ![Integração de soluções de parceiros](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gerenciar soluções de segurança integrada do Azure e outras fontes de dados
 
-1. Entre no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Entre no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
-2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
+2. No menu **Microsoft Azure**, selecione **Central de Segurança**. A **Central de Segurança – Visão geral** é aberta.
 
 3. No menu da Central de Segurança, selecione **Soluções de segurança**.
 
    ![Visão geral da Central de Segurança](./media/security-center-partner-integration/overview.png)
 
-Em **soluções de segurança**, você pode ver a integridade das soluções de segurança integradas do Azure e executar tarefas básicas de gerenciamento.
+In **Security solutions**, you can see the health of integrated Azure security solutions and run basic management tasks.
 
 ### <a name="connected-solutions"></a>Soluções conectadas
 
-A seção **soluções conectadas** inclui soluções de segurança que estão atualmente conectadas à central de segurança. Ele também mostra o status de integridade de cada solução.  
+The **Connected solutions** section includes security solutions that are currently connected to Security Center. It also shows the health status of each solution.  
 
 ![Soluções conectadas](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 O status de uma solução de parceiro pode ser:
 
-* Íntegro (verde)-sem problemas de integridade.
-* Não íntegro (vermelho) – há um problema de integridade que requer atenção imediata.
+* Healthy (green) - no health issues.
+* Unhealthy (red) - there's a health issue that requires immediate attention.
 * Problemas de integridade (laranja) - a solução interrompeu o envio de relatórios sobre sua integridade.
-* Não relatado (cinza)-a solução ainda não relatou nada e nenhum dado de integridade está disponível. O status de uma solução poderá não ser relatado se ele tiver sido conectado recentemente e ainda estiver sendo implantado.
+* Not reported (gray) - the solution hasn't reported anything yet and no health data is available. A solution's status may be unreported if it was connected recently and is still deploying.
 
 > [!NOTE]
-> Se os dados de status de integridade não estiverem disponíveis, a Central de Segurança mostrará a data e a hora do último evento recebido para indicar se a solução está reportando ou não. Se nenhum dado de integridade estiver disponível e nenhum alerta for recebido nos últimos 14 dias, a central de segurança indicará que a solução não está íntegra ou não está relatando.
+> Se os dados de status de integridade não estiverem disponíveis, a Central de Segurança mostrará a data e a hora do último evento recebido para indicar se a solução está reportando ou não. If no health data is available and no alerts were received within the last 14 days, Security Center indicates that the solution is unhealthy or not reporting.
 >
 >
 
-1. Selecione **Exibir** para obter informações adicionais e opções, como:
+1. Select **VIEW** for additional information and options such as:
 
    - **Console da solução**. Abre a experiência de gerenciamento para esta solução.
-   - **Vincular VM**. Abre a página vincular aplicativos. Nela, você pode conectar recursos à solução de parceiro.
+   - **Vincular VM**. Opens the Link Applications page. Nela, você pode conectar recursos à solução de parceiro.
    - **Excluir solução**.
    - **Configurar**.
 
    ![Detalhes da solução de parceiro](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
-### <a name="discovered-solutions"></a>Soluções de descoberta
+### <a name="discovered-solutions"></a>Soluções descobertas
 
-A central de segurança descobre automaticamente as soluções de segurança em execução no Azure, mas não está conectada à central de segurança e exibe as soluções na seção **soluções descobertas** . Essas soluções incluem soluções do Azure, como [Azure ad Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)e soluções de parceiros.
+Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), and partner solutions.
 
 > [!NOTE]
-> A camada Padrão da Central de Segurança é necessária no nível de assinatura para o recurso de descoberta de soluções. Consulte [preços](security-center-pricing.md) para saber mais sobre os tipos de preço.
+> A camada Padrão da Central de Segurança é necessária no nível de assinatura para o recurso de descoberta de soluções. See [Pricing](security-center-pricing.md) to learn more about the pricing tiers.
 >
 >
 
-Selecione **conectar** em uma solução para integrar com a central de segurança e ser notificado sobre alertas de segurança.
-
-![Soluções de descoberta](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
 
 ### <a name="add-data-sources"></a>Adicionar fontes de dados
 
@@ -105,9 +103,9 @@ A seção **Adicionar fontes de dados** inclui outras fontes de dados disponíve
 
 ## <a name="exporting-data-to-a-siem"></a>Exportar dados para um SIEM
 
-Você pode configurar seus SIEMs ou outras ferramentas de monitoramento para receber eventos da central de segurança do Azure.
+You can configure your SIEMs or other monitoring tools to receive Azure Security Center events.
 
-Todos os eventos da central de segurança do Azure são publicados no [log de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)do Azure Azure monitor. O Azure Monitor usa [um pipeline consolidado](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) para transmitir os dados para um hub de eventos, no qual ele pode ser obtido em sua ferramenta de monitoramento.
+All events from Azure Security Center are published to Azure Monitor's Azure [Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Azure Monitor uses [a consolidated pipeline](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) to  stream the data to an Event Hub where it can then be pulled into your monitoring tool.
 
 As seções a seguir descrevem como você pode configurar os dados para serem transmitidos para um hub de eventos. As etapas pressupõem que você já tem a Central de Segurança do Azure configurado na sua assinatura do Azure.
 
@@ -117,36 +115,36 @@ As seções a seguir descrevem como você pode configurar os dados para serem tr
 
 ### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Quais são os dados de segurança do Azure expostos para SIEM?
 
-Nesta versão, expõemos os [alertas de segurança.](../security-center/security-center-managing-and-responding-alerts.md) Em versões futuras, enriqueceremos o conjunto de dados com as recomendações de segurança.
+In this version, we expose the [security alerts.](../security-center/security-center-managing-and-responding-alerts.md) Em versões futuras, enriqueceremos o conjunto de dados com as recomendações de segurança.
 
-### <a name="how-to-set-up-the-pipeline"></a>Como configurar o pipeline
+### <a name="how-to-set-up-the-pipeline"></a>How to set up the pipeline
 
 #### <a name="create-an-event-hub"></a>Criar um Hub de Evento
 
-Antes de começar, [crie um namespace de hubs de eventos](../event-hubs/event-hubs-create.md) -o destino de todos os seus dados de monitoramento.
+Before you begin, [create an Event Hubs namespace](../event-hubs/event-hubs-create.md) - the destination for all your monitoring data.
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmissão do Log de Atividades do Azure para os Hubs de Eventos
 
-Consulte o artigo [fluxo de atividades do Stream a seguir para os hubs de eventos](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 
 #### <a name="install-a-partner-siem-connector"></a>Instalar um conector do SIEM parceiro 
 
 Rotear dados de monitoramento para um Hub de Eventos com o Azure Monitor permite fácil integração com as ferramentas de monitoramento e o SIEM de parceiro.
 
-Consulte o seguinte artigo para obter a lista de [Siems com suporte](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+See the following article for the list of [supported SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
 
 ### <a name="example-for-querying-data"></a>Exemplo de consulta de dados 
 
-Aqui estão algumas consultas Splunk que você pode usar para efetuar pull de dados de alerta:
+Here are some Splunk queries you can use to pull alert data:
 
 | **Descrição da consulta:** | **Consulta** |
 |----|----|
 | Todos os Alertas| index=main Microsoft.Security/locations/alerts|
 | Resumir contagem de operações por seu nome| index=main sourcetype="amal:security" \| tabela operationName \| estatísticas contam por operationName|
-| Obter informações de alertas: Hora, Nome, Estado, ID e Assinatura | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
+| Obter informações de alertas: hora, nome, estado, ID e assinatura | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a integrar as soluções de parceiro à Central de Segurança. Para saber mais sobre a Central de Segurança, confira estes artigos:
 

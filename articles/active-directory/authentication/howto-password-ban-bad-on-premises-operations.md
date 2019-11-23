@@ -1,22 +1,22 @@
 ---
-title: Operações e relatórios de proteção de senha do Azure AD – Azure Active Directory
-description: Operações de pós-implantação e relatórios de proteção de senha do Azure AD
+title: Password protection operations and reports - Azure Active Directory
+description: Azure AD Password Protection post-deployment operations and reporting
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5ff7f0bbf1bf474a611ae033165bca6dfaac676
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 98668fc836aa21bdd14831c4a801557cdab5a202
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097640"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381657"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Procedimentos operacionais de proteção por senha do Azure AD
 
@@ -28,7 +28,7 @@ Siga as orientações no artigo [Configurar a lista de senhas banidas personaliz
 
 ## <a name="enable-password-protection"></a>Habilitar proteção por senha
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, métodos de **autenticação**e proteção por **senha**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password Protection**.
 1. Configure **Habilitar proteção por senha no Windows Server Active Directory** para **Sim**
 1. Conforme mencionado na [Guia de implantação](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), é recomendável configurar inicialmente o **Modo** para **Auditoria**
    * Depois que estiver familiarizado com o recurso, você pode alternar a **Modo** para **Imposto**
@@ -56,12 +56,12 @@ Essa mensagem é apenas um exemplo dos vários resultados possíveis. A mensagem
 Os usuário finais afetados talvez precisem trabalhar com a equipe de TI para entender os requisitos novos e serem mais capazes de escolher senhas seguras.
 
 > [!NOTE]
-> A proteção por senha do Azure AD não tem controle sobre a mensagem de erro específica exibida pelo computador cliente quando uma senha fraca é rejeitada.
+> Azure AD Password Protection has no control over the specific error message displayed by the client machine when a weak password is rejected.
 
 ## <a name="enable-mode"></a>Ativar modo
 
-Essa configuração deve ser deixada em seu estado padrão habilitado (Sim). A definição dessa configuração como desabilitada (Não) fará com que todos os agentes DC de proteção de senha do Azure AD implantados entrem em um modo quiescente em que todas as senhas sejam aceitas como estão e nenhuma atividade de validação seja executada (nem mesmo eventos de auditoria serão executados, por exemplo).
+This setting should be left in its default enabled (Yes) state. A definição dessa configuração como desabilitada (Não) fará com que todos os agentes DC de proteção de senha do Azure AD implantados entrem em um modo quiescente em que todas as senhas sejam aceitas como estão e nenhuma atividade de validação seja executada (nem mesmo eventos de auditoria serão executados, por exemplo).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Monitoramento para proteção de senha do Azure AD](howto-password-ban-bad-on-premises-monitor.md)

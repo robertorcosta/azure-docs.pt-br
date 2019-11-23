@@ -1,22 +1,22 @@
 ---
-title: Como configurar o Write-back de senha para o Azure AD SSPR-Azure Active Directory
+title: Configure password writeback for SSPR - Azure Active Directory
 description: Usar o Azure AD e o Azure AD Connect para o write-back de senhas para um diretório local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e12fe38ba69f6ac8f27130e01baff0c358aa409
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1acda877ecadc8ad0abd09b78d5453743e2470b1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021768"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381150"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instruções: Configurar write-back de senha
 
@@ -53,13 +53,13 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 * Microsoft 365 E3 ou A3
 * Microsoft 365 E5 ou A5
 * Microsoft 365 F1
-* Microsoft 365 Business
+* Microsoft 365 Empresarial
 
 > [!WARNING]
 > Os planos de licenciamento do Office 365 autônomo *não oferecem suporte à/ao "Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que esse recurso funcione.
 >
 
-## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Permissões de Active Directory e políticas de complexidade de senha local 
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Active Directory permissions and on-premises password complexity policies 
 
 A conta especificada no utilitário do Azure AD Connect deve ter os seguintes itens configurados para estar no escopo para SSPR:
 
@@ -99,9 +99,9 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
     * **Gravar pwdLastSet**
 9. Selecione **Aplicar/OK** para aplicar as alterações e sair das caixas de diálogo abertas.
 
-Como a origem da autoridade está no local, as políticas de complexidade de senha se aplicam da mesma fonte de dados conectada. Verifique se você alterou as políticas de grupo existentes para "duração mínima da senha". A política de grupo não deve ser definida como 1, o que significa que a senha deve ter pelo menos um dia de idade antes de ser atualizada. Você precisa ter certeza de que ele está definido como 0. Essas configurações podem ser encontradas em `gpmc.msc` em **configuração do computador > políticas > configurações do Windows > configurações de segurança > políticas de conta**. Execute `gpupdate /force` para garantir que a alteração entra em vigor. 
+Since the source of authority is on premises, the password complexity policies apply from the same connected data source. Make sure you've changed the existing group policies for "Minimum password age". The group policy shouldn't be set to 1, which means password should be at least a day old before it can be updated. You need make sure it's set to 0. These settings can be found in `gpmc.msc` under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies**. Run `gpupdate /force` to ensure that the change takes effect. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [O que é write-back de senha?](concept-sspr-writeback.md)
 

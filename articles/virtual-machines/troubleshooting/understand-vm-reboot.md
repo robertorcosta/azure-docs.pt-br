@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a536eb89f2040333617329e963ce00f5c6b1ba7a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086971"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384237"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Entender uma reinicialização do sistema para VM do Azure
 
@@ -67,7 +67,7 @@ Atualizações de múltiplas instâncias (para VMs em um conjunto de disponibili
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Ações de reinicialização ou desligamento iniciado pelo usuário
 
-Se você executar uma reinicialização no portal do Azure, no Azure PowerShell, na interface de linha de comando ou na API de redefinição, poderá encontrar o evento no [Log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md).
+If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or REST API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md).
 
 Se você executar a ação do sistema operacional da VM, poderá encontrar o evento nos logs do sistema.
 
@@ -101,7 +101,7 @@ Todas as máquinas virtuais no host são realocadas automaticamente para um serv
 
 Em raras ocasiões, a equipe de operações do Azure pode precisar executar atividades de manutenção para garantir a integridade geral da plataforma Azure. Esse comportamento pode afetar a disponibilidade da VM e normalmente resulta na mesma ação de recuperação automática descrita anteriormente.  
 
-A manutenção não planejada inclui o seguinte:
+Unplanned maintenance include the following:
 
 - Desfragmentação de nó urgente
 - Atualizações de comutador de rede urgentes
@@ -118,7 +118,7 @@ A duração do desligamento pode demorar mais de cinco minutos, mas também pode
 
 **Ultrapassando limites de E/S**
 
-As VMs podem ser desligadas temporariamente quando as solicitações de E/S são limitadas consistentemente porque o volume de operações de IOPS (E/S por segundo) excede os limites de E/S do disco. (O armazenamento de disco padrão é limitado a 500 IOPS.) Para atenuar esse problema, use a distribuição de disco ou o espaço de armazenamento na VM convidada, dependendo da carga de trabalho. Para obter detalhes, consulte [Configurando VMs do Azure para otimizar o desempenho de armazenamento](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+As VMs podem ser desligadas temporariamente quando as solicitações de E/S são limitadas consistentemente porque o volume de operações de IOPS (E/S por segundo) excede os limites de E/S do disco. (Standard disk storage is limited to 500 IOPS.) To mitigate this issue, use disk striping or configure the storage space inside the guest VM, depending on the workload. Para obter detalhes, consulte [Configurando VMs do Azure para otimizar o desempenho de armazenamento](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 ### <a name="other-incidents"></a>Outros incidentes
 

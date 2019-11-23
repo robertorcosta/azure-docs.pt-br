@@ -1,35 +1,35 @@
 ---
-title: Como bloquear a autenticação herdada para Azure Active Directory (Azure AD) com acesso condicional | Microsoft Docs
-description: Saiba como melhorar sua postura de segurança bloqueando a autenticação herdada usando o acesso condicional do Azure AD.
+title: Block legacy authentication - Azure Active Directory
+description: Learn how to improve your security posture by blocking legacy authentication using Azure AD Conditional Access.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4e4dc33d670c5f6c5ebefa21ccf1a1ff941e913
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2a65145fe9752a90e3328c308ce603c8626d8708
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024587"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380872"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação herdada no Azure AD com acesso condicional   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>How to: Block legacy authentication to Azure AD with Conditional Access   
 
 Para fornecer aos usuários acesso fácil aos aplicativos na nuvem, o Azure AD (Azure Active Directory) dá suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação herdada. No entanto, protocolos herdados não dão suporte para MFA (autenticação multifator). Em muitos ambientes, a MFA é um requisito comum para lidar com roubo de identidade. 
 
-Se o seu ambiente estiver pronto para bloquear a autenticação herdada para melhorar a proteção do locatário, você poderá atingir esse objetivo com o acesso condicional. Este artigo explica como você pode configurar políticas de acesso condicional que bloqueiam a autenticação herdada para seu locatário.
+If your environment is ready to block legacy authentication to improve your tenant's protection, you can accomplish this goal with Conditional Access. This article explains how you can configure Conditional Access policies that block legacy authentication for your tenant.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você esteja familiarizado com: 
 
-- Os [conceitos básicos](overview.md) do acesso condicional do Azure AD 
-- As [práticas recomendadas](best-practices.md) para configurar políticas de acesso condicional no portal do Azure
+- The [basic concepts](overview.md) of Azure AD Conditional Access 
+- The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -40,29 +40,29 @@ O Azure AD dá suporte para vários dos protocolos de autenticação e autoriza�
 
 Autenticação de fator único (por exemplo, nome de usuário e senha) atualmente não é suficiente. Senhas são ruins porque são fáceis de adivinhar e nós (humanos) dificilmente escolhemos boas senhas. Senhas também são vulneráveis a uma variedade de ataques, como pulverização de senha e phishing. Uma das medidas mais fáceis que você pode tomar para proteção contra ameaças de senha é implementar MFA. Com MFA, mesmo se um invasor possuir a senha de um usuário, somente a senha não será suficiente para autenticar e acessar os dados com êxito.
 
-Como é possível impedir que aplicativos usando autenticação herdada acessem os recursos do locatário? A recomendação é simplesmente bloqueá-los com uma política de acesso condicional. Se necessário, você permite que apenas determinados usuários e locais de rede específicos usem aplicativos baseados em autenticação herdada.
+Como é possível impedir que aplicativos usando autenticação herdada acessem os recursos do locatário? The recommendation is to just block them with a Conditional Access policy. Se necessário, você permite que apenas determinados usuários e locais de rede específicos usem aplicativos baseados em autenticação herdada.
 
 As políticas de Acesso Condicional são impostas após a conclusão da autenticação multifator. Portanto, o Acesso Condicional não funciona como uma primeira linha de defesa para cenários como ataques de DoS (ataque de negação de serviço), mas pode utilizar os sinais desses eventos (por exemplo, o nível de risco de entrada, a localização da solicitação e assim por diante) para determinar o acesso.
 
 ## <a name="implementation"></a>Implementação
 
-Esta seção explica como configurar uma política de acesso condicional para bloquear a autenticação herdada. 
+This section explains how to configure a Conditional Access policy to block legacy authentication. 
 
-### <a name="identify-legacy-authentication-use"></a>Identificar o uso de autenticação herdada
+### <a name="identify-legacy-authentication-use"></a>Identify legacy authentication use
 
-Antes de poder bloquear a autenticação herdada em seu diretório, primeiro você precisa entender se os usuários têm aplicativos que usam autenticação herdada e como ele afeta o diretório geral. Os logs de entrada do Azure AD podem ser usados para entender se você está usando a autenticação herdada.
+Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you’re using legacy authentication.
 
-1. Navegue até o **portal do Azure** > **Azure Active Directory** **entradas** > .
-1. Adicione a coluna aplicativo cliente, caso não seja exibida, clicando em **colunas** > **aplicativo cliente**.
-1. **Adicionar filtros** > **aplicativo cliente** > selecione todas as opções para **outros clientes** e clique em **aplicar**.
+1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
+1. Add the Client App column if it is not shown by clicking on **Columns** > **Client App**.
+1. **Add filters** > **Client App** > select all of the options for **Other clients** and click **Apply**.
 
-A filtragem mostrará apenas as tentativas de entrada feitas por protocolos de autenticação herdados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. O campo **aplicativo cliente** na guia **informações básicas** indicará qual protocolo de autenticação herdado foi usado.
+Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
 
-Esses logs indicarão quais usuários ainda estão dependendo da autenticação herdada e quais aplicativos estão usando protocolos herdados para fazer solicitações de autenticação. Para usuários que não aparecem nesses logs e são confirmados para não usar a autenticação herdada, implemente uma política de acesso condicional somente para esses usuários.
+These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that do not appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy for these users only.
 
 ### <a name="block-legacy-authentication"></a>Bloquear a autenticação herdada 
 
-Em uma política de acesso condicional, você pode definir uma condição que esteja vinculada aos aplicativos cliente que são usados para acessar seus recursos. A condição de aplicativos cliente permite restringir o escopo a aplicativos usando autenticação herdada, selecionando **Outros clientes** para **Aplicativos móveis e clientes de desktop**.
+In a Conditional Access policy, you can set a condition that is tied to the client apps that are used to access your resources. A condição de aplicativos cliente permite restringir o escopo a aplicativos usando autenticação herdada, selecionando **Outros clientes** para **Aplicativos móveis e clientes de desktop**.
 
 ![Outros clientes](./media/block-legacy-authentication/01.png)
 
@@ -80,7 +80,7 @@ Se você quiser bloquear a autenticação herdada para sua organização, provav
 
 ![Atribuições](./media/block-legacy-authentication/03.png)
 
-O Azure tem um recurso de segurança que impede a criação de uma política como essa, pois essa configuração viola as [práticas recomendadas](best-practices.md) para políticas de acesso condicional.
+Azure has a safety feature that prevents you from creating a policy like this because this configuration violates the  [best practices](best-practices.md) for Conditional Access policies.
  
 ![Sem suporte para configuração de política](./media/block-legacy-authentication/04.png)
 
@@ -101,15 +101,15 @@ Para obter mais informações, consulte [Como implantar uma nova política?](bes
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
-O bloqueio de acesso usando **outros clientes** também bloqueia o Exchange Online PowerShell e o Dynamics 365 usando a autenticação básica.
+Blocking access using **Other clients** also blocks Exchange Online PowerShell and Dynamics 365 using basic auth.
 
 A configuração de uma política para **Outros clientes** bloqueia determinados clientes, como SPConnect, para toda a organização. Esse bloqueio acontece porque os clientes mais antigos são autenticados de maneiras inesperadas. O problema não se aplica aos principais aplicativos do Office, como os antigos clientes do Office.
 
 Pode levar até 24 horas para que a política entre em vigor.
 
-Você pode selecionar todos os controles de concessão disponíveis para a condição **outros clientes** ; no entanto, a experiência do usuário final é sempre o mesmo acesso bloqueado.
+You can select all available grant controls for the **Other clients** condition; however, the end-user experience is always the same - blocked access.
 
-Se você bloquear a autenticação herdada usando a condição **outros clientes** , também poderá definir a plataforma do dispositivo e a condição de local. Por exemplo, se você quiser bloquear apenas a autenticação herdada para dispositivos móveis, defina a condição **plataformas de dispositivo** selecionando:
+If you block legacy authentication using the **Other clients** condition, you can also set the device platform and location condition. Por exemplo, se você quiser bloquear apenas a autenticação herdada para dispositivos móveis, defina a condição **plataformas de dispositivo** selecionando:
 
 - Android
 - iOS
@@ -117,7 +117,7 @@ Se você bloquear a autenticação herdada usando a condição **outros clientes
 
 ![Sem suporte para configuração de política](./media/block-legacy-authentication/06.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Se você ainda não estiver familiarizado com a configuração de políticas de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md) para obter um exemplo.
-- Para obter mais informações sobre o suporte à autenticação moderna, consulte [como funciona a autenticação moderna para aplicativos cliente do office 2013 e do office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- If you are not familiar with configuring Conditional Access policies yet, see [require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md) for an example.
+- For more information about modern authentication support, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

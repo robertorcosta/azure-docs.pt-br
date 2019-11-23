@@ -1,6 +1,6 @@
 ---
-title: Visão geral de segurança do Azure Active Directory (Azure AD) Identity Protection
-description: Saiba como a visão geral de segurança fornece informações sobre a postura de segurança de sua organização.
+title: Azure Active Directory Identity Protection security overview
+description: Learn how the Security overview gives you an insight into your organization’s security posture.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adc4acf10fee1b8b2c5e3af18389a49d84e2df14
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: a9550684ad154f28a02ee347fd0a79c1ec286beb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887228"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382191"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection – visão geral de segurança
 
-A [visão geral de segurança](https://aka.ms/IdentityProtectionRefresh) na portal do Azure fornece uma percepção da postura de segurança de sua organização. Ela ajuda a identificar possíveis ataques e compreender a eficácia de suas políticas.
+The [Security overview](https://aka.ms/IdentityProtectionRefresh) in the Azure portal gives you an insight into your organization’s security posture. Ela ajuda a identificar possíveis ataques e compreender a eficácia de suas políticas.
 
 A "Visão geral de segurança" é amplamente dividida em duas seções:
 
@@ -37,7 +37,7 @@ Este gráfico mostra o número de novos usuários arriscados detectados durante 
 
 ### <a name="new-risky-sign-ins-detected"></a>Novas entradas arriscadas detectadas
 
-Este gráfico mostra o número de novas entradas arriscadas detectadas durante o período de tempo selecionado. Você pode filtrar a exibição deste gráfico pelo tipo de risco de entrada (em tempo real ou agregação) e o nível de risco de entrada (baixo, médio, alto). Entradas desprotegidas são entradas bem-sucedidas de risco em tempo real que não passaram por desafio de MFA. (Observação: as entradas que são arriscadas devido a detecções offline não podem ser protegidas em tempo real por políticas de risco de entrada). Passe o mouse sobre os incrementos de data UTC para ver o número de entradas detectadas como em risco nesse dia. Um clique nesse gráfico apresentará a você o relatório 'Entradas arriscadas'.
+Este gráfico mostra o número de novas entradas arriscadas detectadas durante o período de tempo selecionado. Você pode filtrar a exibição deste gráfico pelo tipo de risco de entrada (em tempo real ou agregação) e o nível de risco de entrada (baixo, médio, alto). Entradas desprotegidas são entradas bem-sucedidas de risco em tempo real que não passaram por desafio de MFA. (Note: Sign-ins that are risky because of offline detections cannot be protected in real-time by sign-in risk policies). Passe o mouse sobre os incrementos de data UTC para ver o número de entradas detectadas como em risco nesse dia. Um clique nesse gráfico apresentará a você o relatório 'Entradas arriscadas'.
 
 ## <a name="tiles"></a>Blocos
  
@@ -52,7 +52,7 @@ O bloco "Usuários de risco médio" mostra a última contagem de usuários com p
 
 ### <a name="unprotected-risky-sign-ins"></a>Entradas arriscadas desprotegidas
 
-O bloco ' entradas arriscadas não protegidas ' mostra a contagem da semana passada de entradas de risco em tempo real bem-sucedidas, que não foram bloqueadas ou que MFA desafiada por uma política de acesso condicional, uma política de risco de proteção de identidade ou uma MFA por usuário. Esses são logons potencialmente comprometidos que tiveram êxito e não passaram por desafio de MFA. Para proteger essas entradas no futuro, aplique uma política de risco de entrada. Um clique no bloco "Entradas arriscadas desprotegidas" redirecionará para a folha de configuração de política de risco de entrada, na qual você poderá configurar a política de risco de entrada para exigir o MFA em uma entrada com um nível de risco especificado.
+The ‘Unprotected risky sign-ins' tile shows the last week’s count of successful, real-time risky sign-ins that were not blocked or MFA challenged by a Conditional Access policy, Identity Protection risk policy, or per-user MFA. Esses são logons potencialmente comprometidos que tiveram êxito e não passaram por desafio de MFA. Para proteger essas entradas no futuro, aplique uma política de risco de entrada. Um clique no bloco "Entradas arriscadas desprotegidas" redirecionará para a folha de configuração de política de risco de entrada, na qual você poderá configurar a política de risco de entrada para exigir o MFA em uma entrada com um nível de risco especificado.
 
 ### <a name="legacy-authentication"></a>Autenticação herdada
 
@@ -60,10 +60,10 @@ O bloco "Autenticação herdada" mostra a contagem de autenticações herdadas r
 
 ### <a name="identity-secure-score"></a>Classificação de segurança de identidade
 
-A Classificação de Segurança de Identidade mede e compara a sua postura de segurança para os padrões de mercado. Se você clicar no bloco ' identidade segura (visualização) ', ele será redirecionado para a folha ' identidade segura ', em que você pode aprender mais sobre como melhorar sua postura de segurança.
+A Classificação de Segurança de Identidade mede e compara a sua postura de segurança para os padrões de mercado. If you click on ‘Identity Secure Score (Preview)’ tile, it will redirect to the ‘Identity Secure Score’ blade where you can learn more about improving your security posture.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [O que é risco](concept-identity-protection-risks.md)
+- [What is risk](concept-identity-protection-risks.md)
 
-- [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
+- [Policies available to mitigate risks](concept-identity-protection-policies.md)
