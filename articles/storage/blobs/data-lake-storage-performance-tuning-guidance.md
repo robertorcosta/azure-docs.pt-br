@@ -1,21 +1,21 @@
 ---
-title: Diretrizes de ajuste de desempenho do Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Optimize Azure Data Lake Storage Gen2 for performance | Microsoft Docs
 description: Diretrizes de ajuste de desempenho do Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b134842303bebdf10efdf388057c8ad7b3be61be
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855583"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327935"
 ---
-# <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Ajustando o desempenho do Azure Data Lake Storage Gen2
+# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimize Azure Data Lake Storage Gen2 for performance
 
 O Azure Data Lake Storage Gen2 dá suporte a alta taxa de transferência para movimentação de dados e análise com uso intensivo de E/S.  No Data Lake Storage Gen2, usar toda a taxa de transferência disponível – a quantidade de dados que podem ser lidos ou gravados por segundo – é importante para obter o melhor desempenho.  Isso é obtido executando o maior número possível de leituras e gravações em paralelo.
 
@@ -43,10 +43,10 @@ A conectividade de rede entre os dados de origem e o Data Lake Storage Gen2 às 
 
 Depois que você tiver resolvido os gargalos de hardware de origem e conectividade de rede acima, você estará pronto para configurar as ferramentas de ingestão. A tabela a seguir resume as configurações de chave para diversas ferramentas de ingestão populares e fornece artigos detalhados de ajuste de desempenho para eles.  Para saber mais sobre qual ferramenta usar para seu cenário, visite este [artigo](data-lake-storage-data-scenarios.md).
 
-| Ferramenta               | Configurações     | Mais Detalhes                                                                 |
+| Ferramenta               | Configurações     | Mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
+| Fábrica de dados do Azure| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Estruturar seu conjunto de dados
@@ -131,12 +131,12 @@ Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YAR
 
 Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros disponíveis para ajustar para esse aplicativo específico. A tabela a seguir lista alguns dos parâmetros e links para começar com o ajuste de desempenho para cada aplicativo.
 
-| Carga de Trabalho | Parâmetro para definir tarefas |
+| Carga de trabalho | Parâmetro para definir tarefas |
 |----------|------------------------|
 | [Spark no HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [Hive no HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
 | [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 * [Visão geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

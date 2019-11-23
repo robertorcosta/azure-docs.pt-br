@@ -1,5 +1,5 @@
 ---
-title: Envio e uso de consultas e respostas da API da Pesquisa de empresa local do Bing
+title: Sending and using API queries and responses - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
 description: Use este artigo para aprender como enviar e usar consultas de pesquisa com a API da Pesquisa de empresa local do Bing.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 31f81d76ff433d5f2e634b9a8f5fac50f8425f49
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906368"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326732"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envio e uso de consultas e respostas da API da Pesquisa de empresa local do Bing
 
@@ -60,11 +60,11 @@ Os resultados do JSON retornados pela API incluem os seguintes atributos:
 * endereço
 * entityPresentationInfo
 * área geográfica
-* id
-* name
+* ID
+* Nome
 * routeablePoint
 * telefone
-* url
+* URL
 
 Para obter informações gerais sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a referência da [API de Pesquisa Local do Bing v7](local-search-reference.md).
 
@@ -146,7 +146,7 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
 - [Início rápido de negócios pesquisa Java local](quickstarts/local-search-java-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](quickstarts/local-search-node-quickstart.md)

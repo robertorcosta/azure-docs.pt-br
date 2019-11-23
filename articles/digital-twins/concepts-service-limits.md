@@ -1,19 +1,19 @@
 ---
-title: Limites do serviço de visualização pública – gêmeos digital do Azure | Microsoft Docs
-description: Saiba mais sobre os limites do serviço de visualização pública para o gêmeos digital do Azure.
+title: Public preview service limits - Azure Digital Twins | Microsoft Docs
+description: Learn about public preview service, subscription, instance, and rate limits for Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 3cea4fe65e49bfa2d49822d443103ae6cc6ce69f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/21/2019
+ms.openlocfilehash: f54311af65d9678b2a51b23a38bab66111a818ca
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014161"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383082"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de visualização pública
 
@@ -70,9 +70,9 @@ Os limites a seguir definem o número total de todas as chamadas de função def
 
 Os limites a seguir limitam o número total de todas as mensagens que seus dispositivos podem enviar para sua instância dos Gêmeos Digitais do Azure:
 
-- 100 mensagens por segundo em todos os dispositivos
--   25 mensagens por segundo por dispositivo
+- 100 messages per second across all devices
+-   25 messages per second per device
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para testar um exemplo de Gêmeos Digitais do Azure,vá para [Início Rápido para encontrar salas disponíveis](./quickstart-view-occupancy-dotnet.md).

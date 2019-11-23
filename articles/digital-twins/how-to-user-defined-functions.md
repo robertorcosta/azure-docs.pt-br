@@ -1,5 +1,5 @@
 ---
-title: Como criar funções definidas pelo usuário – no Azure digital gêmeos | Microsoft Docs
+title: How to create user-defined functions - in Azure Digital Twins | Microsoft Docs
 description: Como criar funções definidas pelo usuário, correspondentes e atribuições de função com os Gêmeos Digitais do Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4db6f0052c92d4532917a996eda82a27d97d3063
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009560"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383308"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo usuário em Gêmeos Digitais do Azure
 
@@ -46,7 +46,7 @@ Correspondentes são objetos de grafo que determinam quais funções definidas p
 
 O correspondente de exemplo a seguir é avaliado como verdadeiro em qualquer evento de telemetria do sensor `"Temperature"` como valor de tipo de dados. Você pode criar vários correspondentes em uma função definida pelo usuário fazendo uma solicitação HTTP POST autenticada para:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/matchers
 ```
 
@@ -69,7 +69,7 @@ Com o corpo JSON:
 }
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Em qual região do servidor de sua instância está hospedada |
 
@@ -81,7 +81,7 @@ A criação de uma função definida pelo usuário envolve fazer uma solicitaç�
 
 Depois que os correspondentes forem criados, carregue o snippet de função com a seguinte solicitação HTTP POST de várias partes autenticada:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
@@ -109,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Um nome de limite de conteúdo com diversas partes |
 | YOUR_SPACE_IDENTIFIER | O identificador de espaço  |
@@ -201,7 +201,7 @@ Crie uma atribuição de função para que a função definida pelo usuário sej
 
 1. [Consulte a API do sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) de todas as funções para obter a ID da função que você deseja atribuir à sua função definida pelo usuário. Faça isso, executando uma solicitação HTTP GET autenticada para:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Guarde a ID da função desejada. Ela será passada como o atributo do corpo JSON **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) abaixo.
@@ -210,17 +210,17 @@ Crie uma atribuição de função para que a função definida pelo usuário sej
 1. Localize o valor do **caminho** (`YOUR_ACCESS_CONTROL_PATH`), consultando os espaços com `fullpath`.
 1. Copie o valor `spacePaths` retornado. Esse valor será utilizado posteriormente. Faça uma solicitação HTTP GET autenticada para:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_SPACE_NAME | O nome do espaço que você deseja usar |
 
 1. Cole o valor `spacePaths` retornado no **caminho** para criar uma atribuição de função definida pelo usuário, fazendo uma solicitação HTTP POST autenticada para:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/roleassignments
     ```
     Com o corpo JSON:
@@ -234,11 +234,11 @@ Crie uma atribuição de função para que a função definida pelo usuário sej
     }
     ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | O identificador para a função desejada |
     | YOUR_USER_DEFINED_FUNCTION_ID | A ID da função definida pelo usuário que você deseja usar |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | A ID especificando o tipo de função definida pelo usuário |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
     | YOUR_ACCESS_CONTROL_PATH | O caminho de controle de acesso |
 
 >[!TIP]
@@ -252,7 +252,7 @@ O sensor definido no gráfico de inteligência espacial envia telemetria. Por su
 1. Dependendo de quais correspondentes foram avaliados com êxito, recupere as funções definidas pelo usuário associadas.
 1. Execute cada função definida pelo usuário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba com [criar pontos de extremidade de Gêmeos Digitais do Azure ](./how-to-egress-endpoints.md) para envio de eventos.
 

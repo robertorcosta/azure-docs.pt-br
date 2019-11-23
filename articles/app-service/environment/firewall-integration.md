@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 038178b3b73e9b07ce96e079403cb641f8efe8b1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 936fd797786d05edd7cf0f729af33c95ad3b3c56
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210060"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405668"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -30,18 +30,21 @@ As dependências de saída do ASE são quase que totalmente definidas com FQDNs,
 
 A solução para proteger os endereços de saída está em usar um dispositivo de firewall que possa controlar o tráfego de saída com base em nomes de domínio. Firewall do Azure pode restringir o tráfego de HTTP e HTTPS de saída com base no FQDN de destino.  
 
+> [!NOTE]
+> At this moment, we can't fully lockdown the outbound connection currently.
+
 ## <a name="system-architecture"></a>Arquitetura do sistema
 
-Implantar um ASE com tráfego de saída passando por um dispositivo de firewall requer a alteração de rotas na sub-rede do ASE. As rotas operam em um nível de IP. Se você não tiver cuidado ao definir suas rotas, poderá forçar o tráfego de resposta TCP para a origem de outro endereço. Quando o endereço de resposta for diferente do endereço do qual o tráfego foi enviado, o problema será chamado de roteamento assimétrico e interromperá o TCP.
+Deploying an ASE with outbound traffic going through a firewall device requires changing routes on the ASE subnet. Routes operate at an IP level. If you are not careful in defining your routes, you can force TCP reply traffic to source from another address. When your reply address is different from the address traffic was sent to, the problem is called asymmetric routing and it will break TCP.
 
-Deve haver rotas definidas para que o tráfego de entrada para o ASE possa responder da mesma maneira que o tráfego chegou. As rotas devem ser definidas para solicitações de gerenciamento de entrada e para solicitações de aplicativo de entrada.
+There must be routes defined so that inbound traffic to the ASE can reply back the same way the traffic came in. Routes must be defined for inbound management requests and for inbound application requests.
 
-O tráfego de e para um ASE deve obedecer às convenções a seguir
+The traffic to and from an ASE must abide by the following conventions
 
-* Não há suporte para o tráfego para SQL, armazenamento e Hub de eventos do Azure com o uso de um dispositivo de firewall. Esse tráfego deve ser enviado diretamente para esses serviços. A maneira de fazer isso acontecer é configurar pontos de extremidade de serviço para esses três serviços. 
-* As regras da tabela de rotas devem ser definidas para enviar o tráfego de gerenciamento de entrada de onde ele foi fornecido.
-* As regras da tabela de rotas devem ser definidas para enviar o tráfego do aplicativo de entrada de onde ele foi fornecido. 
-* Todo o outro tráfego que sai do ASE pode ser enviado ao seu dispositivo de firewall com uma regra de tabela de rotas.
+* The traffic to Azure SQL, Storage, and Event Hub are not supported with use of a firewall device. This traffic must be sent directly to those services. The way to make that happen is to configure service endpoints for those three services. 
+* Route table rules must be defined that send inbound management traffic back from where it came.
+* Route table rules must be defined that send inbound application traffic back from where it came. 
+* All other traffic leaving the ASE can be sent to your firewall device with a route table rule.
 
 ![ASE com o fluxo de conexão do Firewall do Azure][5]
 
@@ -49,7 +52,7 @@ O tráfego de e para um ASE deve obedecer às convenções a seguir
 
 As etapas para bloquear a saída do ASE existente com o Firewall do Azure são:
 
-1. Habilitar pontos de extremidade de serviço para o SQL, o Armazenamento e o Hub de Eventos na sub-rede do ASE. Para habilitar os pontos de extremidade de serviço, acesse o portal de rede > sub-redes e selecione Microsoft. EventHub, Microsoft. SQL e Microsoft. Storage na lista suspensa pontos de extremidade de serviço. Quando você tiver pontos de extremidade de serviço habilitados para o SQL Azure, todas as dependências do SQL do Azure contidas nos aplicativos precisarão ser configuradas com pontos de extremidade de serviço também. 
+1. Habilitar pontos de extremidade de serviço para o SQL, o Armazenamento e o Hub de Eventos na sub-rede do ASE. To enable service endpoints, go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. Quando você tiver pontos de extremidade de serviço habilitados para o SQL Azure, todas as dependências do SQL do Azure contidas nos aplicativos precisarão ser configuradas com pontos de extremidade de serviço também. 
 
    ![selecionar pontos de extremidade de serviço][2]
   
@@ -85,13 +88,13 @@ Se você souber o intervalo de endereços do qual seu tráfego de solicitação 
 
 Esse uso do Gateway de Aplicativo é apenas um exemplo de como configurar o sistema. Se você seguiu esse caminho, você precisa adicionar uma rota à tabela de rotas da sub-rede do ASE, de modo que o tráfego de resposta enviado ao Gateway de Aplicativo acesse-o diretamente. 
 
-## <a name="logging"></a>Registrando em log 
+## <a name="logging"></a>Registro em log 
 
 O Firewall do Azure pode enviar logs para o Armazenamento do Azure, o Hub de Eventos ou os Logs do Azure Monitor. Para integrar seu aplicativo com qualquer destino compatível, acesse o portal do Firewall do Azure > Logs de Diagnóstico e habilite os logs para o destino desejado. Se você fizer a integração com os logs do Azure Monitor, poderá ver os logs de qualquer tráfego enviado para o Firewall do Azure. Para ver o tráfego que está sendo negado, abra o portal de espaços de trabalho do Log Analytics existentes &gt; Logs e insira uma consulta como 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-A integração do firewall do Azure com logs de Azure Monitor é útil ao obter um aplicativo funcionando quando você não está ciente de todas as dependências do aplicativo. Você pode saber mais sobre os logs de Azure Monitor de [analisar dados de log em Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>Dependências
 
@@ -107,24 +110,24 @@ As informações a seguir só são necessárias se você deseja configurar um di
 
 | Ponto de extremidade |
 |----------|
-| Azure SQL |
+| SQL do Azure |
 | Armazenamento do Azure |
-| Hub de eventos do Azure |
+| Hub de Eventos do Azure |
 
 #### <a name="ip-address-dependencies"></a>Dependências de endereço IP
 
 | Ponto de extremidade | Detalhes |
 |----------| ----- |
 | \*:123 | Verificação do relógio do NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
-| \*:12000 | Essa porta é usada para alguns tipos de monitoramento do sistema. Se bloqueado, alguns problemas serão mais difíceis de fazer a triagem, mas seu ASE continuará a operar |
-| 40.77.24.27:80 | Necessário para monitorar e alertar sobre problemas do ASE |
-| 40.77.24.27:443 | Necessário para monitorar e alertar sobre problemas do ASE |
-| 13.90.249.229:80 | Necessário para monitorar e alertar sobre problemas do ASE |
-| 13.90.249.229:443 | Necessário para monitorar e alertar sobre problemas do ASE |
-| 104.45.230.69:80 | Necessário para monitorar e alertar sobre problemas do ASE |
-| 104.45.230.69:443 | Necessário para monitorar e alertar sobre problemas do ASE |
-| 13.82.184.151:80 | Necessário para monitorar e alertar sobre problemas do ASE |
-| 13.82.184.151:443 | Necessário para monitorar e alertar sobre problemas do ASE |
+| \*:12000 | Essa porta é usada para alguns tipos de monitoramento do sistema. If blocked, then some issues will be harder to triage but your ASE will continue to operate |
+| 40.77.24.27:80 | Needed to monitor and alert on ASE problems |
+| 40.77.24.27:443 | Needed to monitor and alert on ASE problems |
+| 13.90.249.229:80 | Needed to monitor and alert on ASE problems |
+| 13.90.249.229:443 | Needed to monitor and alert on ASE problems |
+| 104.45.230.69:80 | Needed to monitor and alert on ASE problems |
+| 104.45.230.69:443 | Needed to monitor and alert on ASE problems |
+| 13.82.184.151:80 | Needed to monitor and alert on ASE problems |
+| 13.82.184.151:443 | Needed to monitor and alert on ASE problems |
 
 Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado com as marcas FQDN. 
 
@@ -217,7 +220,7 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-| \*. identity.azure.net:443 |
+| \*.identity.azure.net:443 |
 
 #### <a name="linux-dependencies"></a>Dependências do Linux 
 
@@ -232,7 +235,7 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
-| \*. cdn.mscr.io:443 |
+| \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
@@ -249,15 +252,15 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## <a name="us-gov-dependencies"></a>Dependências de US Gov
+## <a name="us-gov-dependencies"></a>US Gov dependencies
 
-Por US Gov você ainda precisa definir pontos de extremidade de serviço para armazenamento, SQL e Hub de eventos.  Você também pode usar o Firewall do Azure com as instruções anteriores neste documento. Se você precisar usar seu próprio dispositivo de firewall de saída, os pontos de extremidade serão listados abaixo.
+For US Gov you still need to set service endpoints for Storage, SQL and Event Hub.  You can also use Azure Firewall with the instructions earlier in this document. If you need to use your own egress firewall device, the endpoints are listed below.
 
 | Ponto de extremidade |
 |----------|
-| \*. ctldl.windowsupdate.com:80 |
-| \*. management.usgovcloudapi.net:80 |
-| \*. update.microsoft.com:80 |
+| \*.ctldl.windowsupdate.com:80 |
+| \*.management.usgovcloudapi.net:80 |
+| \*.update.microsoft.com:80 |
 |admin.core.usgovcloudapi.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
@@ -300,9 +303,9 @@ Por US Gov você ainda precisa definir pontos de extremidade de serviço para ar
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
 |mscrl.microsoft.com
-|OCSP. DigiCert. 0 |
+|ocsp.digicert.0 |
 |ocsp.msocsp.co|
-|OCSP. VeriSign. 0 |
+|ocsp.verisign.0 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -314,7 +317,7 @@ Por US Gov você ainda precisa definir pontos de extremidade de serviço para ar
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
 |\*ctldl.windowsupdate.com:443 |
-|\*. management.usgovcloudapi.net:443 |
+|\*.management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |

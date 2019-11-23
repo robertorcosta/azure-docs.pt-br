@@ -1,37 +1,37 @@
 ---
-title: Executar serviço kubernetes do Azure-Análise de Texto
+title: Run Azure Kubernetes Service - Text Analytics
 titleSuffix: Azure Cognitive Services
-description: Implante a imagem de contêiner Análise de Texto no serviço kubernetes do Azure e teste-a em um navegador da Web.
+description: Deploy the Text Analytics container image to Azure Kubernetes Service, and test it in a web browser.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: db1c26805f76b0ca8991a562531b4476b6899d86
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 3264ec5a83277e6bb4befad46cd1337175e911c5
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130090"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383461"
 ---
-# <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Implantar um contêiner de Análise de Texto no serviço kubernetes do Azure
+# <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Deploy a Text Analytics container to Azure Kubernetes Service
 
-Saiba como implantar os serviços cognitivas do Azure [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) a imagem de contêiner no AKs (serviço kubernetes do Azure). Este procedimento mostra como criar um recurso de Análise de Texto, como criar uma imagem de análise de opiniões associada e como exercitar essa orquestração dos dois em um navegador. Usar contêineres pode mudar sua atenção para longe de gerenciar a infraestrutura para se concentrar no desenvolvimento de aplicativos.
+Learn how to deploy the Azure Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container image to Azure Kubernetes Service (AKS). This procedure shows how to create a Text Analytics resource, how to create an associated sentiment analysis image, and how to exercise this orchestration of the two from a browser. Using containers can shift your attention away from managing infrastructure to instead focusing on application development.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente. Não use Azure Cloud Shell. Você precisará do seguinte:
+Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente. Don't use Azure Cloud Shell. Você precisará do seguinte:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Um editor de texto, por exemplo, [Visual Studio Code](https://code.visualstudio.com/download).
-* O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instalado.
-* A [CLI do kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instalada.
+* A text editor, for example, [Visual Studio Code](https://code.visualstudio.com/download).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+* The [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
 * Um recurso do Azure com o tipo de preço correto. Nem todos os tipos de preços funcionam com esse contêiner:
-    * O recurso **análise de texto do Azure** somente com tipos de preço F0 ou Standard.
-    * Recurso de **Serviços cognitivas do Azure** com o tipo de preço S0.
+    * **Azure Text Analytics** resource with F0 or standard pricing tiers only.
+    * **Azure Cognitive Services** resource with the S0 pricing tier.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -57,7 +57,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 ***
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Usar mais [contêineres de serviços cognitivas](../../cognitive-services-container-support.md)
-* Usar o [serviço conectado do análise de texto](../vs-text-connected-service.md)
+* Use more [Cognitive Services containers](../../cognitive-services-container-support.md)
+* Use the [Text Analytics Connected Service](../vs-text-connected-service.md)

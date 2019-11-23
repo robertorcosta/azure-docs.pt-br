@@ -1,52 +1,52 @@
 ---
-title: Exibir uma loja de conhecimento (versão prévia) com Gerenciador de Armazenamento
+title: View a knowledge store (preview) with Storage Explorer
 titleSuffix: Azure Cognitive Search
-description: Exiba e analise uma loja de conhecimento do Azure Pesquisa Cognitiva com o Gerenciador de Armazenamento do portal do Azure. A loja de conhecimento está atualmente em visualização pública.
+description: Exiba e analise um repositório de conhecimento da Pesquisa Cognitiva do Azure com o Gerenciador de Armazenamento do portal do Azure. knowledge store is currently in public preview.
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e3ea879a419aa14d3a6693e23f4f120aca8d9d51
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ca2df05cf20ef51b2d5ca866f22bd9450dd6acaf
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720056"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406563"
 ---
-# <a name="view-a-knowledge-store-with-storage-explorer"></a>Exibir uma loja de conhecimento com Gerenciador de Armazenamento
+# <a name="view-a-knowledge-store-with-storage-explorer"></a>Exibir um repositório de conhecimento com o Gerenciador de Armazenamento
 
 > [!IMPORTANT] 
-> A loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
+> O repositório de conhecimento está atualmente em versão prévia pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de versão prévia. Atualmente, há suporte limitado ao portal e não há suporte para o SDK do .NET.
 
-Neste artigo, você aprenderá, por exemplo, como se conectar e explorar uma loja de conhecimento usando Gerenciador de Armazenamento no portal do Azure.
+In this article, you'll learn by example how to connect to and explore a knowledge store using Storage Explorer in the Azure portal.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Siga as etapas em [criar uma loja de conhecimento em portal do Azure](knowledge-store-create-portal.md) ou [crie uma loja de conhecimento do Azure pesquisa cognitiva usando o REST](knowledge-store-create-rest.md) para criar o exemplo de armazenamento de conhecimento usado neste passo a passos.
++ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](knowledge-store-create-rest.md) to create the sample knowledge store used in this walkthrough.
 
-+ Você também precisará do nome da conta de armazenamento do Azure que usou para criar a loja de conhecimento, junto com sua chave de acesso do portal do Azure.
++ Também será necessário o nome da conta de armazenamento do Azure que você usou para criar o repositório de conhecimento, junto com sua chave de acesso do portal do Azure.
 
-## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Exibir, editar e consultar uma loja de conhecimento em Gerenciador de Armazenamento
+## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>View, edit, and query a knowledge store in Storage Explorer
 
-1. Na portal do Azure, [abra a conta de armazenamento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) que você usou para criar a loja de conhecimento.
+1. In the Azure portal, [open the Storage account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
 
-1. No painel de navegação esquerdo da conta de armazenamento, clique em **Gerenciador de armazenamento**.
+1. No painel de navegação esquerdo da conta de armazenamento, clique em **Gerenciador de Armazenamento**.
 
-1. Expanda a lista **tabelas** para mostrar uma lista de projeções de tabela do Azure que foram criadas quando você executou o assistente de **importação de dados** em seus dados de exemplo de revisões do hotel.
+1. Expanda a lista **TABELAS** para mostrar uma lista de projeções de tabela do Azure que foram criadas quando você executou o assistente de **Importação de Dados** em seus dados de exemplo de resenhas de hotéis.
 
-Selecione qualquer tabela para exibir os dados aprimorados, incluindo frases-chave opiniões, dados de localização de latitude e longitude e muito mais.
+Selecione qualquer tabela para exibir os dados aprimorados, incluindo pontuações de sentimento de frases-chave, dados de localização de latitude e longitude e muito mais.
 
    ![Exibir tabelas no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Exibir tabelas no Gerenciador de Armazenamento")
 
-Para alterar o tipo de dados de qualquer valor de tabela ou alterar valores individuais em sua tabela, clique em **Editar**. Quando você altera o tipo de dados para qualquer coluna em uma linha de tabela, ela será aplicada a todas as linhas.
+Para alterar o tipo de dados para qualquer valor de tabela ou para alterar valores individuais em sua tabela, clique em **Editar**. Quando você alterar o tipo de dados para qualquer coluna na linha de tabela, ele será aplicado a todas as linhas.
 
-   ![Editar tabela no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Editar tabela no Gerenciador de Armazenamento")
+   ![Editar tabelas no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Editar tabelas no Gerenciador de Armazenamento")
 
-Para executar consultas, clique em **consulta** na barra de comandos e insira suas condições.  
+Para executar consultas, clique em **Consultar** na barra de comandos e insira suas condições.  
 
-   ![Tabela de consulta no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Tabela de consulta no Gerenciador de Armazenamento")
+   ![Consultar tabelas no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Consultar tabelas no Gerenciador de Armazenamento")
 
 ## <a name="clean-up"></a>Limpar
 
@@ -56,10 +56,10 @@ Você pode localizar e gerenciar recursos no portal usando o link **Todos os rec
 
 Se você estiver usando um serviço gratuito, estará limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Conecte essa loja de conhecimento para Power BI para análise mais profunda ou avance com código, usando a API REST e o postmaster para criar um repositório de conhecimento diferente.
+Connect this knowledge store to Power BI for deeper analysis, or move forward with code, using the REST API and Postman to create a different knowledge store.
 
 > [!div class="nextstepaction"]
-> [Conectar-se com Power BI](knowledge-store-connect-power-bi.md)
-> [criar uma loja de conhecimento em repouso](knowledge-store-howto.md)
+> [Connect with Power BI](knowledge-store-connect-power-bi.md)
+> [Create a knowledge store in REST](knowledge-store-howto.md)

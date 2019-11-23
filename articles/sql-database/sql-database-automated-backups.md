@@ -1,5 +1,5 @@
 ---
-title: backups automáticos com redundância geográfica
+title: automatic, geo-redundant backups
 description: O Banco de dados SQL cria automaticamente um backup de banco de dados local a cada poucos minutos e usa o armazenamento com redundância geográfica de acesso de leitura do Azure para redundância geográfica.
 services: sql-database
 ms.service: sql-database
@@ -12,49 +12,49 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 1cdd8fdac03c25bf28db94867891fef4c2846fcd
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 5d5a2b9527dcb53b0315ac5fd964c6f30961f3e7
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196547"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405754"
 ---
 # <a name="automated-backups"></a>Backups automatizados
 
-O banco de dados SQL cria automaticamente os backups de banco de dados que são mantidos entre 7 e 35 dias e usa o [armazenamento com redundância geográfica com acesso de leitura do Azure (ra-grs)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) para garantir que eles sejam preservados mesmo que o Data Center não esteja disponível. Esses backups são criados automaticamente. Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Se suas regras de segurança exigirem que seus backups estejam disponíveis por um longo período de tempo (até 10 anos), você poderá configurar uma [retenção de longo prazo](sql-database-long-term-retention.md) em bancos de dados singleton e pools elásticos.
+SQL Database automatically creates the database backups that are kept between 7 and 35 days, and uses Azure [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) to ensure that they are preserved even if the data center is unavailable. These backups are created automatically. Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. If your security rules require that your backups are available for an extended period of time (up to 10 years), you can configure a [long-term retention](sql-database-long-term-retention.md) on Singleton databases and Elastic pools.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="what-is-a-sql-database-backup"></a>O que é um backup de banco de dados SQL
 
-O banco de dados SQL usa a tecnologia SQL Server para criar [backups completos](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) toda semana, [backups diferenciais](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) a cada 12 horas e [backups de log de transações](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) a cada 5-10 minutos. Os backups são armazenados em [blobs de armazenamento ra-grs](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) que são replicados para um [Data Center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção Data Center. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
+SQL Database uses SQL Server technology to create [full backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) every week, [differential backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) every 12 hours, and [transaction log backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) every 5-10 minutes. The backups are stored in [RA-GRS storage blobs](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) that are replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
 Use esses backups para:
 
-- **Restaure um banco de dados existente para um ponto no tempo no passado** dentro do período de retenção usando o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST. Em um banco de dados individual e pools elásticos, essa operação criará um novo banco de dados no mesmo servidor que o banco de dados original. No Instância Gerenciada, essa operação pode criar uma cópia do banco de dados ou o mesmo Instância Gerenciada ou diferente na mesma assinatura.
-  - **[Altere o período de retenção de backup](#how-to-change-the-pitr-backup-retention-period)** entre 7 a 35 dias para configurar sua política de backup.
-  - **Altere a política de retenção de longo prazo até 10 anos** em banco de dados individual e pools elásticos usando [o portal do Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) ou [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups).
-- **Restaure um banco de dados excluído para a hora em que ele foi excluído** ou a qualquer momento dentro do período de retenção. O banco de dados excluído só pode ser restaurado no mesmo servidor lógico ou Instância Gerenciada em que o banco de dados original foi criado.
-- **Restaurar um banco de dados para outra região geográfica**. A restauração geográfica permite a recuperação de um desastre geográfico quando você não consegue acessar o servidor nem o banco de dados. Ele cria um novo banco de dados em qualquer servidor existente do mundo.
-- **Restaure um banco de dados de um backup específico de longo prazo** no Banco de Dados Individual ou pool elástico se o banco de dados tiver sido configurado com uma EPD (política de retenção de longo prazo). EPD permite que você restaure uma versão antiga do banco de dados usando [o portal do Azure](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) ou [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups) para atender a uma solicitação de conformidade ou para executar uma versão antiga do aplicativo. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+- **Restore an existing database to a point-in-time in the past** within the retention period using the Azure portal, Azure PowerShell, Azure CLI, or REST API. In Single database and Elastic pools, this operation will create a new database in the same server as the original database. In Managed Instance, this operation can create a copy of the database or same or different Managed Instance under the same subscription.
+  - **[Change Backup Retention Period](#how-to-change-the-pitr-backup-retention-period)** between 7 to 35 days to configure your backup policy.
+  - **Change long-term retention policy up to 10 years** on Single Database and Elastic Pools using [the Azure portal](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) or [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups).
+- **Restore a deleted database to the time it was deleted** or anytime within the retention period. The deleted database can only be restored in the same logical server or Managed Instance where the original database was created.
+- **Restore a database to another geographical region**. A restauração geográfica permite a recuperação de um desastre geográfico quando você não consegue acessar o servidor nem o banco de dados. Ele cria um novo banco de dados em qualquer servidor existente do mundo.
+- **Restore a database from a specific long-term backup** on Single Database or Elastic Pool if the database has been configured with a long-term retention policy (LTR). LTR allows you to restore an old version of the database using [the Azure portal](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) or [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups) to satisfy a compliance request or to run an old version of the application. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 - Para executar uma restauração, consulte [Restaurar um banco de dados de backups](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
 > No armazenamento do Azure, o termo *replicação* refere-se a copiar arquivos de uma localização para outra. *Replicação de banco de dados* do SQL significa manter vários bancos de dados secundários sincronizados com um banco de dados primário.
 
-Você pode experimentar algumas dessas operações usando os seguintes exemplos:
+You can try some of these operations using the following examples:
 
-| | O Portal do Azure | PowerShell do Azure |
+| | O Portal do Azure | Azure PowerShell |
 |---|---|---|
-| Alterar retenção de backup | [Banco de Dados Individual](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) <br/> [Instância Gerenciada](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [Banco de Dados Individual](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Instância Gerenciada](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Alterar retenção de backup de longo prazo | [Banco de dados individual](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instância Gerenciada-N/A  | [Banco de Dados Individual](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Instância Gerenciada-N/A  |
-| Restaurar o banco de dados do ponto no tempo | [Banco de dados individual](sql-database-recovery-using-backups.md#point-in-time-restore) | [Banco de dados individual](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância Gerenciada](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Change backup retention | [Single Database](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) <br/> [Instância Gerenciada](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Instância Gerenciada](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Change Long-term backup retention | [Banco de dados individual](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance - N/A  | [Single Database](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Managed Instance - N/A  |
+| Restore database from point-in-time | [Banco de dados individual](sql-database-recovery-using-backups.md#point-in-time-restore) | [Banco de dados individual](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância Gerenciada](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Restaurar banco de dados excluído | [Banco de dados individual](sql-database-recovery-using-backups.md) | [Banco de dados individual](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância Gerenciada](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| Restaurar banco de dados do armazenamento de BLOBs do Azure | Banco de dados único-N/A <br/>Instância Gerenciada-N/A  | Banco de dados único-N/A <br/>[Instância Gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| Restore database from Azure Blob Storage | Single database - N/A <br/>Managed Instance - N/A  | Single database - N/A <br/>[Instância Gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo são backups mantidos
 
-Todos os bancos de dados SQL do Azure (bancos de dados de instância única, em pool e gerenciados) têm um período de retenção de backup padrão de **sete** dias. Você pode [alterar o período de retenção de backup de até 35 dias](#how-to-change-the-pitr-backup-retention-period).
+All Azure SQL databases (single, pooled, and managed instance databases) have a default backup retention period of  **seven** days. You can [change backup retention period up to 35 days](#how-to-change-the-pitr-backup-retention-period).
 
 Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da mesma maneira que em um banco de dados online. Por exemplo, se você excluir um banco de dados Básico que tenha um período de retenção de sete dias, um backup de quatro dias será salvo por mais três dias.
 
@@ -67,7 +67,7 @@ Se você precisar manter os backups por mais tempo que o período máximo de ret
 
 ### <a name="backups-for-point-in-time-restore"></a>Backups para a Recuperação Pontual
 
-O Banco de Dados SQL permite o autoatendimento para PITR (Recuperação Pontual) ao criar automaticamente o backup completo, backups diferenciais e backups de log de transações. Os backups completos de banco de dados são criados semanalmente, os backups diferenciais de banco de dados geralmente são criados a cada 12 horas e os backups de log de transações geralmente são criados a cada 5 a 10 minutos, com a frequência baseada no tamanho da computação e na quantidade de atividade do banco de dados. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema. Você não pode alterar ou desabilitar os trabalhos de backup. 
+O Banco de Dados SQL permite o autoatendimento para PITR (Recuperação Pontual) ao criar automaticamente o backup completo, backups diferenciais e backups de log de transações. Os backups completos de banco de dados são criados semanalmente, os backups diferenciais de banco de dados geralmente são criados a cada 12 horas e os backups de log de transações geralmente são criados a cada 5 a 10 minutos, com a frequência baseada no tamanho da computação e na quantidade de atividade do banco de dados. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema. You cannot change or disable the backup jobs. 
 
 Os backups de PITR têm redundância geográfica e são protegidos pela [Replicação inter-regional do Armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -82,16 +82,16 @@ Como o PITR, os backups de LTR têm redundância geográfica e são protegidos p
 Para obter mais informações, confira [Retenção de backup de longo prazo](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Custos de armazenamento
-Para bancos de dados individuais e instâncias gerenciadas, um valor de armazenamento de backup mínimo igual a 100% do tamanho do banco de dados é fornecido sem custo adicional. Para pools elásticos, um valor de armazenamento de backup mínimo igual a 100% do armazenamento de dados alocado para o pool é fornecido sem custo adicional. O consumo adicional de armazenamento de backup será cobrado em GB/mês. Esse consumo adicional dependerá da carga de trabalho e do tamanho dos bancos de dados individuais.
+For single databases and managed instances, a minimum backup storage amount equal to 100% of database size is provided at no extra charge. For elastic pools, a minimum backup storage amount equal to 100% of the allocated data storage for the pool is provided at no extra charge. O consumo adicional de armazenamento de backup será cobrado em GB/mês. This additional consumption will depend on the workload and size of the individual databases.
 
-Você pode usar a análise de custo de assinatura do Azure para determinar seus gastos atuais no armazenamento de backup.
+You can use Azure subscription cost analysis to determine your current spending on backup storage.
 
-![Análise de custo de armazenamento de backup](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
+![Backup storage cost analysis](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-Se você for para sua assinatura e abrir a folha de análise de custo, poderá selecionar a subcategoria de medidor **mi pitr armazenamento de backup** para ver sua previsão de custo e cobrança de backup atual. Você também pode incluir outras subcategorias de medidor, como o armazenamento de **uso geral de instância gerenciada** ou o armazenamento de **uso geral de instância gerenciada** para comparar o custo de armazenamento de backup com outras categorias de custo.
+If you go to your subscription and open Cost Analysis blade, you can select meter subcategory **mi pitr backup storage** to see your current backup cost and charge forecast. You can also include other meter subcategories such as **managed instance general purpose - storage** or **managed instance general purpose - compute gen5** to compare backup storage cost with other cost categories.
 
 > [!Note]
-> Você pode [alterar o período de retenção para 7 dias](#change-pitr-backup-retention-period-using-azure-portal) para reduzir o custo de armazenamento de backup.
+> You can [change retention period to 7 days](#change-pitr-backup-retention-period-using-azure-portal) to reduce the backup storage cost.
 
 Para saber mais sobre preços de armazenamento, confira a página de [preços](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
@@ -101,9 +101,9 @@ Quando o banco de dados é criptografado com TDE, os backups são criptografados
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Como a Microsoft garante a integridade do backup
 
-Em uma base contínua, a equipe de engenharia do banco de dados SQL do Azure testa automaticamente a restauração de backups automatizados de banco de dados de bancos que são colocados em servidores lógicos e pools elásticos (isso não está disponível no Instância Gerenciada). Na restauração pontual, os bancos de dados também recebem verificações de integridade usando DBCC CHECKDB.
+On an ongoing basis, the Azure SQL Database engineering team automatically tests the restore of automated database backups of databases placed in Logical servers and Elastic pools (this is not available in Managed Instance). Upon point-in-time restore, databases also receive integrity checks using DBCC CHECKDB.
 
-Instância Gerenciada usa o backup inicial automático com `CHECKSUM` dos bancos de dados restaurados usando o comando `RESTORE` nativo ou o serviço de migração de serviços quando a migração é concluída.
+Managed Instance takes automatic initial backup with `CHECKSUM` of the databases restored using native `RESTORE` command or Data Migration Service once the migration is completed.
 
 Os problemas encontrados durante a verificação de integridade resultarão em um alerta para a equipe de engenharia. Para obter mais informações sobre a integridade dos dados no Banco de Dados SQL do Azure, confira [Integridade dos dados no Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
@@ -115,27 +115,27 @@ Quando você migra o banco de dados de uma camada de serviço baseada em DTU, co
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Como alterar o período de retenção de backup de PITR
 
-Você pode alterar o período de retenção de backup PITR padrão usando o portal do Azure, o PowerShell ou a API REST. Os valores com suporte são: 7, 14, 21, 28 ou 35 dias. Os exemplos a seguir ilustram como alterar a retenção de PITR para 28 dias.
+You can change the default PITR backup retention period using the Azure portal, PowerShell, or the REST API. Os valores com suporte são: 7, 14, 21, 28 ou 35 dias. Os exemplos a seguir ilustram como alterar a retenção de PITR para 28 dias.
 
 > [!WARNING]
-> Se você reduzir o período de retenção atual, todos os backups existentes mais antigos que o novo período de retenção não estarão mais disponíveis. Se você aumentar o período de retenção atual, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.
+> If you reduce the current retention period, all existing backups older than the new retention period are no longer available. Se você aumentar o período de retenção atual, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.
 
 > [!NOTE]
 > Essas APIs afetarão somente o período de retenção de PITR. Se você tiver configurado a LTR para o banco de dados, ela não será afetada. Para obter mais informações sobre como alterar o(s) período(s) de retenção de LTR, confira [Retenção de longo prazo](sql-database-long-term-retention.md).
 
-### <a name="change-pitr-backup-retention-period-using-azure-portal"></a>Alterar o período de retenção de backup PITR usando portal do Azure
+### <a name="change-pitr-backup-retention-period-using-azure-portal"></a>Change PITR backup retention period using Azure portal
 
-Para alterar o período de retenção de backup PITR usando o portal do Azure, navegue até o objeto de servidor cujo período de retenção você deseja alterar no portal e, em seguida, selecione a opção apropriada com base no objeto de servidor que você está modificando.
+To change the PITR backup retention period using the Azure portal, navigate to the server object whose retention period you wish to change within the portal and then select the appropriate option based on which server object you're modifying.
 
 #### <a name="single-database--elastic-poolstabsingle-database"></a>[Banco de dados individual e pools elásticos](#tab/single-database)
 
-A alteração da retenção de backup PITR para bancos de dados SQL individuais do Azure é executada no nível do servidor. A alteração feita no nível do servidor se aplica a bancos de dados nesse servidor. Para alterar o PITR do servidor de banco de dados SQL do Azure de portal do Azure, navegue até a folha visão geral do servidor, clique em gerenciar backups no menu de navegação e, em seguida, clique em configurar retenção na barra de navegação.
+Change of PITR backup retention for single Azure SQL Databases is performed at the server level. Change made at the server level applies to databases on that server. To change PITR for Azure SQL Database server from Azure portal, navigate to the server overview blade, click on Manage Backups on the navigation menu, and then click on Configure retention at the navigation bar.
 
 ![Alterar PITR no portal do Azure](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
 #### <a name="managed-instancetabmanaged-instance"></a>[Instância Gerenciada](#tab/managed-instance)
 
-A alteração da retenção de backup PITR para instância gerenciada do banco de dados SQL é executada em um nível de banco de dados individual. Para alterar a retenção de backup do PITR de um banco de dados de instância do portal do Azure, navegue até a folha de visão geral do banco de dados individual e clique em configurar retenção de backup na barra de navegação.
+Change of PITR backup retention for SQL Database managed instance is performed at an individual database level. To change PITR backup retention for an instance database from Azure portal, navigate to the individual database overview blade, and then click on Configure backup retention at the navigation bar.
 
 ![Alterar PITR no portal do Azure](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
@@ -145,7 +145,7 @@ A alteração da retenção de backup PITR para instância gerenciada do banco d
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
@@ -153,7 +153,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 
 ### <a name="change-pitr-retention-period-using-rest-api"></a>Alterar o período de retenção de PITR usando a API REST
 
-#### <a name="sample-request"></a>Solicitação de Exemplo
+#### <a name="sample-request"></a>Amostra de Solicitação
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
@@ -169,7 +169,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-#### <a name="sample-response"></a>Exemplo de Resposta
+#### <a name="sample-response"></a>Amostra de Resposta
 
 Código de status: 200
 
@@ -186,10 +186,10 @@ Código de status: 200
 
 Para obter mais informações, confira [API REST de retenção de backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL do Azure, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 - Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](sql-database-recovery-using-backups.md).
 - Para restaurar para um determinado ponto no tempo usando o PowerShell, consulte [Restaurar um banco de dados para um ponto no tempo usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
 - Para configurar, gerenciar e restaurar a retenção de longo prazo de backups automatizados no Armazenamento de Blobs do Azure usando o portal do Azure, consulte [Gerenciar retenção de backup de longo prazo usando o portal do Azure](sql-database-long-term-backup-retention-configure.md).
-- Para configurar, gerenciar e restaurar de retenção de longo prazo de backups automatizados no armazenamento de BLOBs do Azure usando o PowerShell, consulte [gerenciar retenção de backup de longo prazo usando o PowerShell](sql-database-long-term-backup-retention-configure.md).
+- To configure, manage, and restore from long-term retention of automated backups in Azure Blob storage using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-long-term-backup-retention-configure.md).

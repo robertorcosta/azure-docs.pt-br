@@ -1,19 +1,19 @@
 ---
 title: Spark Streaming no Azure HDInsight
-description: Como usar Apache Spark aplicativos de streaming em clusters Spark do HDInsight.
-ms.service: hdinsight
+description: How to use Apache Spark Streaming applications on HDInsight Spark clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/11/2019
-ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 11/20/2019
+ms.openlocfilehash: 521d72642a27995d096402a4ca0e4af632b0788c
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813987"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406294"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral de Streaming do Apache Spark
 
@@ -27,9 +27,9 @@ Os aplicativos Spark Streaming precisam aguardar uma fração de segundo para co
 
 O Spark Streaming é um fluxo contínuo de entrada de dados que usa um *fluxo discretizado* chamado DStream. Um DStream pode ser criado com base em fontes de entrada, como os Hubs de Eventos ou o Kafka, ou com a aplicação de transformações em outro DStream.
 
-Um DStream oferece uma camada de abstração sobre os dados brutos de evento. 
+Um DStream oferece uma camada de abstração sobre os dados brutos de evento.
 
-Inicie com um evento único, como uma leitura de temperatura de um termostato conectado. Quando esse evento é recebido pelo aplicativo Spark Streaming, ele é armazenado de forma confiável, em um local em que é replicado em vários nós. Essa tolerância a falhas garante que a falha de qualquer nó não resultará na perda do evento. O núcleo do Spark usa uma estrutura de dados que distribui dados em vários nós no cluster, em que cada nó geralmente mantém seu próprios dados na memória para um melhor desempenho. Essa estrutura de dados é chamada de RDD (*conjunto de dados distribuído resiliente*).
+Inicie com um evento único, como uma leitura de temperatura de um termostato conectado. When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. O núcleo do Spark usa uma estrutura de dados que distribui dados em vários nós no cluster, em que cada nó geralmente mantém seu próprios dados na memória para um melhor desempenho. Essa estrutura de dados é chamada de RDD (*conjunto de dados distribuído resiliente*).
 
 Cada RDD representa os eventos coletados por um período de tempo definido pelo usuário, denominado *intervalo de lote*. Com a expiração de cada intervalo de lote, um novo RDD é produzido, contendo todos os dados desse intervalo. O conjunto contínuo de RDDs é coletado em um DStream. Por exemplo, se o intervalo de lote for de um segundo, o DStream emitirá um lote a cada segundo com um RDD que contém todos os dados ingeridos durante esse segundo. Ao processar o DStream, o evento de temperatura aparece em um desses lotes. Um aplicativo Spark Streaming processa os lotes que contêm os eventos e, por fim, atua nos dados armazenados em cada RDD.
 
@@ -139,13 +139,13 @@ stream.foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
         .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()
 ```
 
-Aguarde cerca de 30 segundos depois de iniciar o aplicativo acima.  Em seguida, você pode consultar o dataframe periodicamente para ver o conjunto atual de valores presentes no lote, por exemplo, usando esta consulta SQL:
+Wait for about 30 seconds after starting the application above.  Then, you can query the DataFrame periodically to see the current set of values present in the batch, for example using this SQL query:
 
 ```sql
 %%sql
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 A saída resultante é semelhante a:
 
-| value | tempo real |
+| value | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -214,7 +214,7 @@ stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
     .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()
@@ -222,7 +222,7 @@ ssc.start()
 
 Após o primeiro minuto, há 12 entradas – seis entradas de cada um dos dois lotes coletados na janela.
 
-| value | tempo real |
+| value | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158
@@ -251,7 +251,7 @@ Normalmente, você cria um aplicativo Spark Streaming localmente em um arquivo J
 
 O status de todos os aplicativos também pode ser verificado com uma solicitação GET em um ponto de extremidade LIVY. Por fim, encerre um aplicativo em execução emitindo uma solicitação DELETE no ponto de extremidade do LIVY. Para detalhes sobre a API LIVY, veja [ Trabalhos remotos com o Apache LIVY ](apache-spark-livy-rest-interface.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um cluster Apache Spark no HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Guia de programação de Streaming do Apache Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)

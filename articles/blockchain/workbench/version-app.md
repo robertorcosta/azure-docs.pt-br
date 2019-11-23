@@ -1,29 +1,23 @@
 ---
-title: Controle de versão do aplicativo Blockchain – Azure Blockchain Workbench
-description: Como usar versões de aplicativo na visualização do Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Blockchain app versioning - Azure Blockchain Workbench
+description: How to use application versions in Azure Blockchain Workbench Preview.
 ms.date: 11/20/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 35d9be219d1473ac56ca501f80fca96a265e814f
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: 45219790cf0cd064e0fcd456e262b2f93aa03ac9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284843"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323903"
 ---
-# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versão prévia do aplicativo do Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Azure Blockchain Workbench Preview application versioning
 
-Você pode criar e usar várias versões de um aplicativo de visualização do Azure Blockchain Workbench. Se várias versões do mesmo aplicativo forem carregadas, um histórico de versão estará disponível e os usuários poderão escolher qual versão desejam usar.
+You can create and use multiple versions of an Azure Blockchain Workbench Preview app. Se várias versões do mesmo aplicativo forem carregadas, um histórico de versão estará disponível e os usuários poderão escolher qual versão desejam usar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma implantação do Blockchain Workbench. Para obter mais informações, consulte [implantação do Azure Blockchain Workbench](deploy.md) para obter detalhes sobre a implantação
 * Um aplicativo blockchain implantado no Blockchain Workbench. Consulte [Criar um aplicativo blockchain implantado no Azure Blockchain Workbench](create-app.md)
@@ -60,6 +54,6 @@ Por padrão, a versão mais recente habilitada do aplicativo habilitada é usada
 
     Você pode criar novos contratos ou executar ações em contratos de versão anterior. A versão do aplicativo é exibida após o nome do aplicativo e será exibido um aviso sobre a versão mais antiga.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Solução de problemas do Azure Blockchain Workbench](troubleshooting.md)

@@ -1,22 +1,22 @@
 ---
-title: Administradores gerenciam usuários e dispositivos – Azure MFA-Azure Active Directory
-description: Como os administradores podem alterar as configurações do usuário, como forçar os usuários a fazer o processo de verificação novamente.
+title: Manage users and devices Azure MFA - Azure Active Directory
+description: How can administrators change user settings such as forcing the users to do the proof-up process again.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 808faaed76ff63d69feb8170eaac72021c7bd49d
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 5fd03ea807e48f6f0e287bb4497e4d20268995db
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042118"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404177"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a Autenticação Multifator do Azure na nuvem
 
@@ -26,32 +26,32 @@ Como administrador, você pode gerenciar as seguintes configurações de usuári
 * Excluir senhas de aplicativo
 * Exigir a MFA em todos os dispositivos confiáveis
 
-## <a name="manage-authentication-methods"></a>Gerenciar métodos de autenticação
+## <a name="manage-authentication-methods"></a>Manage authentication methods
 
-Como um administrador atribuiu a função de administrador de autenticação, você pode exigir que os usuários redefinam sua senha, registrem-se novamente para MFA ou revogar sessões de MFA existentes de seu objeto de usuário.
+As an administrator assigned the Authentication Administrator role you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object.
 
-![Gerenciar métodos de autenticação do portal do Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, selecione **Azure Active Directory** > **Usuários** > **Todos os usuário**.
-1. Escolha o usuário no qual você deseja executar uma ação e selecione **métodos de autenticação**.
-   - **Redefinir senha** redefinirá a senha do usuário e atribuirá uma senha temporária que deve ser alterada na próxima entrada.
-   - **Exigir o novo registro da MFA** fará com que, quando o usuário entrar na próxima vez, será solicitado a configurar um novo método de autenticação de MFA.
-   - **Revogar sessões de MFA** limpa as sessões do MFA lembradas do usuário e exige que elas executem o MFA na próxima vez que ela for exigida pela política no dispositivo.
+1. Choose the user you wish to perform an action on and select **Authentication methods**.
+   - **Reset Password** will reset the user's password and assign a temporary password that must be changed on the next sign in.
+   - **Require Re-register MFA** will make it so that when the user signs in next time, they will be requested to setup a new MFA authentication method.
+   - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it is required by the policy on the device.
 
 ## <a name="delete-users-existing-app-passwords"></a>Excluir senhas de aplicativo de usuários existentes
 
-Essa configuração exclui todas as senhas de aplicativo que um usuário criou. Aplicativos sem navegador que estavam associados a essas senhas de aplicativo deixam de funcionar até que uma nova senha de aplicativo seja criada. São necessárias permissões de administrador global para executar esta ação.
+Essa configuração exclui todas as senhas de aplicativo que um usuário criou. Aplicativos sem navegador que estavam associados a essas senhas de aplicativo deixam de funcionar até que uma nova senha de aplicativo seja criada. Global administrator permissions are required to perform this action.
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Como excluir senhas de aplicativo de usuários existentes
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **Usuários** > **Todos os usuário**.
 3. À direita, selecione **Autenticação Multifator** na barra de ferramentas. Abre a página de autenticação multifator.
-4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
+4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. A list of quick step options appears on the right.
 5. Selecione **Gerenciar configurações de usuário**.
 6. Marque a caixa **Excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
-   ![excluir todas as senhas de aplicativo existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+   ![Delete all existing app passwords](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. Clique em **Salvar**.
 8. Clique em **Fechar**.
 

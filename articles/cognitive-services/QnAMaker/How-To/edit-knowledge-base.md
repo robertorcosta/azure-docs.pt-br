@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 11/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1450d6b41d9a193f8069509aacd3343ae646c6ac
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: cc4ead968a0ee2c9890c1cd24a6b70516b2b2e74
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307015"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326794"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Editar uma base de dados de conhecimento no QnA Maker
 
@@ -36,14 +36,14 @@ O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhe
  
 1. Escolha a opção **Configurações**. Aqui você pode editar o campo obrigatório Nome do Serviço.
   
-    |Meta|Action|
+    |Objetivo|Ação|
     |--|--|
     |Adicionar URL|Você pode adicionar novos URLs para adicionar novos conteúdos de perguntas frequentes à base de conhecimento clicando em **Gerenciar base de conhecimento -> link "+ Adicionar URL"** .|
     |Excluir URL|Você pode excluir URLs existentes selecionando o ícone de exclusão, a lixeira.|
-    |Atualizar o conteúdo da URL|Se você quiser que sua base de conhecimento rastreie o conteúdo mais recente de URLs existentes, marque a caixa de seleção **Atualizar**. Isso atualizará a base de conhecimento com o conteúdo mais recente da URL.|
+    |Refresh content|Se você quiser que sua base de conhecimento rastreie o conteúdo mais recente de URLs existentes, marque a caixa de seleção **Atualizar**. This will update the knowledge base with latest URL content once. This is not setting a regular schedule of updates.|
     |Adicionar arquivo|Você pode adicionar um documento de arquivo suportado para fazer parte de uma base de conhecimento, selecionando **Gerenciar base de conhecimento** e, em seguida, selecionando **+ Adicionar Arquivo**|
     |Importar|Você também pode importar qualquer base de conhecimento existente, selecionando o botão **Base de dados de Conhecimento Ímport**. |
-    |Atualização|A atualização da base de conhecimento depende do **nível de preço de gerenciamento** usado durante a criação do serviço QnA Maker associado à sua base de conhecimento. Você também pode atualizar o tipo de gerenciamento no portal do Azure, se necessário.
+    |Atualizar|A atualização da base de conhecimento depende do **nível de preço de gerenciamento** usado durante a criação do serviço QnA Maker associado à sua base de conhecimento. Você também pode atualizar o tipo de gerenciamento no portal do Azure, se necessário.
 
 1. Quando terminar de fazer alterações na base de conhecimento, selecione **Salvar e treinar** no canto superior direito da página para manter as alterações.    
 
@@ -54,7 +54,7 @@ O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhe
 
 ## <a name="add-a-qna-pair"></a>Adicionar um par de QnA
 
-Na página **Editar** , selecione **Adicionar par de QnA** para adicionar uma nova linha à tabela base de dados de conhecimento.
+On the **EDIT** page, select **Add QnA pair** to add a new row to the knowledge base table.
 
 ![Adicionar par QnA](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,7 +72,7 @@ Adicione perguntas alternativas para um par de QnA existente para melhorar a pro
 
 ## <a name="add-metadata"></a>Adicionar metadados
 
-Adicione pares de metadados selecionando primeiro **as opções de exibição**e, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione **+** o sinal para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
+Add metadata pairs by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata pair. This pair consists of one key and one value.
 
 ![Adicionar Metadados](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -81,15 +81,15 @@ Adicione pares de metadados selecionando primeiro **as opções de exibição**e
 
 ## <a name="manage-large-knowledge-bases"></a>Gerenciar grandes bases de conhecimento
 
-* **Grupos de fonte de dados**: Os QnAs são agrupados pela fonte de dados a partir da qual foram extraídos. Você pode expandir ou recolher a fonte de dados.
+* **Data source groups**: The QnAs are grouped by the data source from which they were extracted. Você pode expandir ou recolher a fonte de dados.
 
     ![Usar a barra de fonte de dados do QnA Maker para recolher e expandir perguntas e respostas da fonte de dados](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Pesquisar na base de dados de conhecimento**: É possível pesquisar a base de dados de conhecimento, digitando a caixa de texto na parte superior da tabela da Base de Dados de Conhecimento. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
+* **Search knowledge base**: You can search the knowledge base by typing in the text box at the top of the Knowledge Base table. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
 
     ![Usar a caixa de pesquisa do QnA Maker acima das perguntas e respostas para reduzir a exibição apenas para itens correspondentes ao filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **Paginação**: Mover rapidamente pelas fontes de dados para gerenciar grandes bases de dados de conhecimento
+* **Pagination**: Quickly move through data sources to manage large knowledge bases
 
     ![Usar os recursos de paginação do QnA Maker acima das perguntas e respostas para percorrer as páginas de perguntas e respostas](../media/qnamaker-how-to-edit-kb/pagination.png)
 
@@ -103,7 +103,7 @@ Se você compartilhar seu KB com [colaboradores](collaborate-knowledge-base.md) 
 
 Se você excluir qualquer um dos recursos do Azure usados em suas bases de conhecimento do QnA Maker, as bases de conhecimento não funcionarão mais. Antes de excluir qualquer recurso, exporte suas bases de conhecimento da página **Configurações**. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Colaborar em uma base de dados de conhecimento](./collaborate-knowledge-base.md)

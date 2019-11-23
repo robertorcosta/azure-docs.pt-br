@@ -1,5 +1,5 @@
 ---
-title: Habilitar aplicativos multilocatários – Azure digital gêmeos | Microsoft Docs
+title: Enable multitenant applications - Azure Digital Twins | Microsoft Docs
 description: Como configurar aplicativos multilocatário do Azure Active Directory para os Gêmeos Digitais do Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: 6394d519b93b55358ef9d528f89978d5a3cf3007
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/21/2019
+ms.openlocfilehash: 65e1fa3fe371766566eeeaaa2d33479ea0243d61
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005910"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383351"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Ativar aplicativos de vários usuários com Gêmeos Digitais do Azure
 
@@ -54,18 +54,18 @@ Para resolver o cenário de problema anterior, as seguintes ações são necess�
 
 - No [portal do Azure](https://portal.azure.com), o administrador do locatário do Azure Active Directory do **CUSTOMER** realiza as seguintes etapas:
 
-  1. Abrir **assinaturas**.
+  1. Search for **Subscriptions** in the top Azure search field. Selecione **Assinaturas**.
   1. Selecione a assinatura que tem um locatário do Azure Active Directory a ser usado no aplicativo do **DEVELOPER**.
 
-     [![Azure Active Directory assinaturas](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
+     [![Azure Active Directory subscriptions](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. Selecione **Provedores de Recursos**.
   1. Pesquise **Microsoft.IoTSpaces**.
   1. Selecione **Registrar**.
 
-     [provedores de recursos de Azure Active Directory ![](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
+     [![Azure Active Directory resource providers](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre como usar funções definidas pelo usuário com os Gêmeos Digitais do Azure, leia [Como criar funções definidas pelo usuário dos Gêmeos Digitais do Azure](./how-to-user-defined-functions.md).
 
