@@ -4,22 +4,22 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172306"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451401"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Implantar o modelo do Cloud Shell
 
 Você pode usar o [Cloud Shell](../articles/cloud-shell/overview.md) para implantar o modelo. Para implantar um modelo externo, forneça o URI do modelo, exatamente como você faria para qualquer implantação externa. Para implantar um modelo local, você deve carregar o modelo primeiro para a conta de armazenamento do seu Cloud Shell. Esta seção descreve como carregar o modelo na sua conta do Cloud Shell e implantá-lo como um arquivo local. Caso ainda não tenha usado o Cloud Shell, confira [Visão geral do Azure Cloud Shell](../articles/cloud-shell/overview.md) para saber mais sobre como configurá-lo.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Selecione o grupo de recursos do Cloud Shell. O nome padrão é `cloud-shell-storage-<region>`.
 
-   ![Escolha o grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Escolha o grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cloud-shell-resource-group.png)
 
 1. Selecione a conta de armazenamento do Cloud Shell.
 

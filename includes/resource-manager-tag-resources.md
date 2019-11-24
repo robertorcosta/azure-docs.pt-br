@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172308"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451538"
 ---
 1. Para exibir as marcas de um recurso ou um grupo de recursos, procura marcas existentes na visão geral. Se você não tiver aplicado marcas anteriormente, a lista estará vazia.
    
@@ -52,9 +52,9 @@ Para atribuir marcas em massa para vários recursos:
 
 Para exibir todos os recursos com uma marca:
 
-1. Selecione **Todos os serviços** e **Marcas**.
+1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
 
-     ![Localizar por marca](./media/resource-manager-tag-resources/find-tags.png)
+     ![Localizar por marca](./media/resource-manager-tag-resources/find-tags-general.png)
 
 1. Selecione a marca para recursos de visualização.
 
@@ -70,4 +70,4 @@ Para exibir todos os recursos com uma marca:
 
 1. A exibição está disponível no painel.
 
-     ![painel](./media/resource-manager-tag-resources/dashboard.png)
+     ![painel](./media/resource-manager-tag-resources/dashboard-with-view.png)
