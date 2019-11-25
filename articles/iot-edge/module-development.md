@@ -1,6 +1,6 @@
 ---
 title: Desenvolver módulos para o Azure IoT Edge | Microsoft Docs
-description: Desenvolver módulos personalizados para o Azure IoT Edge que podem se comunicar com o tempo de execução e o IoT Hub
+description: Desenvolver módulos personalizados para o Azure IoT Edge que podem se comunicar com o runtime e o IoT Hub
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,20 +8,19 @@ ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 9d983dc4a2623e7f2a272ea2a320d2658d784dee
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 37f55165d1fea8a69d10003baeb0006199326cba
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003591"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456609"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desenvolva seus próprios módulos do IoT Edge
 
-Os módulos do Azure IoT Edge podem conectar outros serviços do Azure e contribuir para o pipeline de dados em nuvem maior. Este artigo descreve como é possível desenvolver módulos para comunicação com o tempo de execução do IoT Edge e Hub IoT e, portanto, com o restante da nuvem do Azure. 
+Os módulos do Azure IoT Edge podem conectar outros serviços do Azure e contribuir para o pipeline de dados em nuvem maior. Este artigo descreve como é possível desenvolver módulos para comunicação com o runtime do IoT Edge e Hub IoT e, portanto, com o restante da nuvem do Azure. 
 
-## <a name="iot-edge-runtime-environment"></a>Ambiente de tempo de execução do IoT Edge
-O tempo de execução do IoT Edge fornece a infraestrutura para integrar a funcionalidade de vários módulos do IoT Edge e implantá-los nos dispositivos IoT Edge. Em um nível alto, qualquer programa pode ser empacotado como um módulo do IoT Edge. No entanto, para aproveitar ao máximo as funcionalidades de gerenciamento e comunicação do IoT Edge, um programa em execução em um módulo pode se conectar ao hub do IoT Edge local, integrado no tempo de execução do IoT Edge.
+## <a name="iot-edge-runtime-environment"></a>Ambiente de runtime do IoT Edge
+O runtime do IoT Edge fornece a infraestrutura para integrar a funcionalidade de vários módulos do IoT Edge e implantá-los nos dispositivos IoT Edge. Em um nível alto, qualquer programa pode ser empacotado como um módulo do IoT Edge. No entanto, para aproveitar ao máximo as funcionalidades de gerenciamento e comunicação do IoT Edge, um programa em execução em um módulo pode se conectar ao hub do IoT Edge local, integrado no runtime do IoT Edge.
 
 ## <a name="using-the-iot-edge-hub"></a>Usar o hub do IoT Edge
 O hub do IoT Edge fornece duas funcionalidades principais: proxy para o Hub IoT e comunicações locais.
@@ -60,42 +59,42 @@ Conectar-se ao hub IoT Edge local a partir de um módulo envolve duas etapas:
 1. Crie uma instância ModuleClient no aplicativo.
 2. Verifique se que seu aplicativo aceita o certificado apresentado pelo hub do IoT Edge nesse dispositivo.
 
-Crie uma instância ModuleClient para conectar o módulo ao Hub do IoT Edge em execução no dispositivo, de modo semelhante como as instâncias DeviceClient conectam dispositivos ao Hub IoT. Para obter mais informações sobre a classe ModuleClient e seus métodos de comunicação, consulte a referência de API para seu idioma preferencial do SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)ou [node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Crie uma instância ModuleClient para conectar o módulo ao Hub do IoT Edge em execução no dispositivo, de modo semelhante como as instâncias DeviceClient conectam dispositivos ao Hub IoT. For more information about the ModuleClient class and its communication methods, see the API reference for your preferred SDK language: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable), or [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
-## <a name="language-and-architecture-support"></a>Suporte à linguagem e à arquitetura
+## <a name="language-and-architecture-support"></a>Language and architecture support
 
-O IoT Edge dá suporte a vários sistemas operacionais, arquiteturas de dispositivo e linguagens de desenvolvimento para que você possa criar o cenário que atenda às suas necessidades. Use esta seção para entender as opções para o desenvolvimento de módulos de IoT Edge personalizados. Você pode saber mais sobre o suporte a ferramentas e requisitos para cada idioma em [preparar seu ambiente de desenvolvimento e teste para IOT Edge](development-environment.md).
+IoT Edge supports multiple operating systems, device architectures, and development languages so that you can build the scenario that matches your needs. Use this section to understand your options for developing custom IoT Edge modules. You can learn more about tooling support and requirements for each language in [Prepare your development and test environment for IoT Edge](development-environment.md).
 
 ### <a name="linux"></a>Linux
 
-Para todos os idiomas na tabela a seguir, IoT Edge dá suporte ao desenvolvimento de dispositivos AMD64 e ARM32 Linux. 
+For all languages in the following table, IoT Edge supports development for AMD64 and ARM32 Linux devices. 
 
 | Linguagem de desenvolvimento | Ferramentas de desenvolvimento |
 | -------------------- | ----------------- |
-| C | Visual Studio Code<br>Visual Studio 2017/2019 |
-| C# | Visual Studio Code<br>Visual Studio 2017/2019 |
-| Java | Visual Studio Code |
-| Node.js | Visual Studio Code |
-| Python | Visual Studio Code |
+| C | Código do Visual Studio<br>Visual Studio 2017/2019 |
+| C# | Código do Visual Studio<br>Visual Studio 2017/2019 |
+| Java | Código do Visual Studio |
+| Node.js | Código do Visual Studio |
+| Python | Código do Visual Studio |
 
 >[!NOTE]
->O desenvolvimento e a depuração de suporte para dispositivos ARM64 Linux estão em [Visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter mais informações, confira [Desenvolver e depurar módulos do IoT Edge ARM64 no Visual Studio Code (versão prévia)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+>Develop and debugging support for ARM64 Linux devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter mais informações, confira [Desenvolver e depurar módulos do IoT Edge ARM64 no Visual Studio Code (versão prévia)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ### <a name="windows"></a>Windows
 
-Para todos os idiomas na tabela a seguir, IoT Edge dá suporte ao desenvolvimento de dispositivos AMD64 Windows.
+For all languages in the following table, IoT Edge supports development for AMD64 Windows devices.
 
 | Linguagem de desenvolvimento | Ferramentas de desenvolvimento |
 | -------------------- | ----------------- |
 | C | Visual Studio 2017/2019 |
-| C# | Visual Studio Code (sem recursos de depuração)<br>Visual Studio 2017/2019 |
+| C# | Visual Studio Code (no debugging capabilities)<br>Visual Studio 2017/2019 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-[Prepare seu ambiente de desenvolvimento e teste para IoT Edge](development-environment.md)
+[Prepare your development and test environment for IoT Edge](development-environment.md)
 
-[Use o Visual Studio para C# desenvolver módulos para IOT Edge](how-to-visual-studio-develop-module.md)
+[Use Visual Studio to develop C# modules for IoT Edge](how-to-visual-studio-develop-module.md)
 
-[Use Visual Studio Code para desenvolver módulos para IoT Edge](how-to-vs-code-develop-module.md)
+[Use Visual Studio Code to develop modules for IoT Edge](how-to-vs-code-develop-module.md)
 
-[Entender e usar SDKs do Hub IoT do Azure](../iot-hub/iot-hub-devguide-sdks.md)
+[Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md)

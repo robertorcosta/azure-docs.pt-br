@@ -1,20 +1,15 @@
 ---
-title: Efetuar push da imagem do Docker para o Registro de Contêiner do Azure privado
+title: Push & pull Docker image
 description: Envie e obtenha imagens do Docker para um registro de contêiner privado no Azure usando a CLI do Docker
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 01/23/2019
-ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 6944755619ea5e8e63af04b9b3bca6f7376e29a9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6751a04c3c1bfe826334161704c20c1ba2e5a6d2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309435"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456364"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
 
@@ -25,7 +20,7 @@ Nas etapas a seguir, você baixará uma [imagem Nginx](https://store.docker.com/
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Registro de Contêiner do Azure** - crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
-* **CLI do Docker** – você também deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [MacOS][docker-mac], [Windows][docker-windows]ou [Linux][docker-linux] .
+* **CLI do Docker** – você também deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 ## <a name="log-in-to-a-registry"></a>Fazer logon em um registro
 
@@ -62,7 +57,7 @@ Execute o seguinte comando [docker run](https://docs.docker.com/engine/reference
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Navegue até `http://localhost:8080` para exibir a página da Web padrão servida pelo Nginx no contêiner em execução. Você verá uma página semelhante à seguinte:
+Browse to `http://localhost:8080` to view the default web page served by Nginx in the running container. Você verá uma página semelhante à seguinte:
 
 ![Nginx no computador local](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +99,7 @@ Use o comando [docker run](https://docs.docker.com/engine/reference/run/) para e
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Navegue até `http://localhost:8080` para exibir o contêiner em execução.
+Browse to `http://localhost:8080` to view the running container.
 
 Para parar e remover o contêiner, pressione `Control`+`C`.
 
@@ -122,7 +117,7 @@ Para remover as imagens de seu registro de contêiner do Azure, você pode usar 
 az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que conhece os fundamentos, você está pronto para começar a usar o registro! Por exemplo, implante as imagens de contêiner do Registro para:
 

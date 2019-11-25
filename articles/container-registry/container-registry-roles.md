@@ -1,25 +1,20 @@
 ---
-title: Registro de Contêiner do Azure - funções e permissões
+title: RBAC roles and permissions
 description: Use o controle de acesso baseado nas função do Azure (RBAC) e o gerenciamento de identidades e acesso (IAM) para fornecer permissões refinadas a recursos em um registro de contêiner do Azure.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: danlep
-ms.openlocfilehash: 69104cdaeb4abfc15e2ac4209e1ddbc610656c13
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8ef4f26dfd59c7b3b177ef58fa23e08f7e66d328
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793979"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456245"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 
 O serviço de Registro de Contêiner do Azure dá suporte a um conjunto de funções do Azure que fornecem níveis diferentes de permissões para um registro de contêiner do Azure. Use o [controle de acesso baseado em função do Azure](../role-based-access-control/index.yml) (RBAC) para atribuir permissões específicas a usuários ou entidades que precisam interagir com um registro de serviço.
 
-| Função/permissão       | [Acessar o Resource Manager](#access-resource-manager) | [Criar/excluir registro](#create-and-delete-registry) | [Enviar uma imagem por push](#push-image) | [Pull de imagem](#pull-image) | [Excluir dados de imagem](#delete-image-data) | [Alterar políticas](#change-policies) |   [Imagens de entrada](#sign-images)  |
+| Função/permissão       | [Acessar o Resource Manager](#access-resource-manager) | [Criar/excluir registro](#create-and-delete-registry) | [Enviar uma imagem por push](#push-image) | [Pull de imagem](#pull-image) | [Delete image data](#delete-image-data) | [Alterar políticas](#change-policies) |   [Imagens de entrada](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietário | X | X | X | X | X | X |  |  
 | Colaborador | X | X | X |  X | X | X |  |  
@@ -63,7 +58,7 @@ A capacidade de `docker pull` uma imagem de não quarentena, ou de enviar por pu
 
 ## <a name="delete-image-data"></a>Excluir dados de imagem
 
-A capacidade de [Excluir imagens de contêiner](container-registry-delete.md)ou excluir outros [artefatos com suporte](container-registry-image-formats.md) , como gráficos Helm, de um registro.
+The ability to [delete container images](container-registry-delete.md), or delete other [supported artifacts](container-registry-image-formats.md) such as Helm charts, from a registry.
 
 ## <a name="change-policies"></a>Alterar políticas
 

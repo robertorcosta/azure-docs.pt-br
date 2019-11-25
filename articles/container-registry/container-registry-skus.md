@@ -1,33 +1,28 @@
 ---
-title: SKUs do Registro de Contêiner do Azure
-description: Saiba mais sobre os recursos e limites nas camadas de serviço básico, Standard e Premium (SKUs) do registro de contêiner do Azure.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Service tiers and SKUs
+description: Learn about the features and limits in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: danlep
-ms.openlocfilehash: 19b1fb78413f82d422779b12227b4a5e2361d813
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1ebe5339b7523a4463dee45b126244d7ec5b2e4b
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681821"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456276"
 ---
 # <a name="azure-container-registry-skus"></a>SKUs do Registro de Contêiner do Azure
 
 O ACR (Registro de Contêiner do Azure) está disponível em várias camadas de serviço, conhecidas como SKUs. Essas SKUs fornecem preços previsíveis e várias opções de alinhamento aos padrões de capacidade e uso de seu registro de Docker privado no Azure.
 
-| SKU | DESCRIÇÃO |
+| SKU | Descrição |
 | --- | ----------- |
-| **Básico** | Um ponto de entrada de otimização de custo para desenvolvedores aprendendo sobre o Registro de Contêiner do Azure. Os registros básicos têm os mesmos recursos de programação que o Standard e o Premium (como Azure Active Directory [integração de autenticação](container-registry-authentication.md#individual-login-with-azure-ad), [exclusão de imagem][container-registry-delete]e [WebHooks][container-registry-webhook]). No entanto, o armazenamento incluído e a taxa de transferência de imagem são mais apropriados para cenários de uso mais baixos. |
+| **Básico** | Um ponto de entrada de otimização de custo para desenvolvedores aprendendo sobre o Registro de Contêiner do Azure. Basic registries have the same programmatic capabilities as Standard and Premium (such as Azure Active Directory [authentication integration](container-registry-authentication.md#individual-login-with-azure-ad), [image deletion][container-registry-delete], and [webhooks][container-registry-webhook]). No entanto, o armazenamento incluído e a taxa de transferência de imagem são mais apropriados para cenários de uso mais baixos. |
 | **Standard** | Os registros Standard oferecem os mesmos recursos do Básico, com maior armazenamento incluído e taxa de transferência de imagem. Registros Standard devem atender às necessidades da maioria dos cenários de produção. |
-| **Premium** | Os registros Premium fornecem a maior quantidade de armazenamento incluído e operações simultâneas, permitindo cenários de alto volume. Além da taxa de transferência de imagem mais alta, o Premium adiciona recursos como [replicação geográfica][container-registry-geo-replication] para gerenciar um único registro em várias regiões, [confiança de conteúdo](container-registry-content-trust.md) para assinatura de marca de imagem, [firewalls e redes virtuais (versão prévia)](container-registry-vnet.md) para restringir o acesso ao registro. |
+| **Premium** | Os registros Premium fornecem a maior quantidade de armazenamento incluído e operações simultâneas, permitindo cenários de alto volume. In addition to higher image throughput, Premium adds features such as [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, [content trust](container-registry-content-trust.md) for image tag signing, [firewalls and virtual networks (preview)](container-registry-vnet.md) to restrict access to the registry. |
 
-Todos os SKUs básico, Standard e Premium fornecem os mesmos recursos de programação. Todos eles também se beneficiam do [armazenamento de imagem][container-registry-storage] gerenciado inteiramente pelo Azure. A escolha de uma SKU de nível mais alto oferece mais desempenho e escala. Com várias camadas de serviço, pode começar com o Básico e depois mudar para o Padrão e o Premium à medida que crescer o uso do registro.
+The Basic, Standard, and Premium SKUs all provide the same programmatic capabilities. They also all benefit from [image storage][container-registry-storage] managed entirely by Azure. A escolha de uma SKU de nível mais alto oferece mais desempenho e escala. Com várias camadas de serviço, pode começar com o Básico e depois mudar para o Padrão e o Premium à medida que crescer o uso do registro.
 
-## <a name="sku-features-and-limits"></a>Recursos e limites de SKU
+## <a name="sku-features-and-limits"></a>SKU features and limits
 
 A tabela a seguir fornece detalhes sobre os recursos e os limites das camadas de serviço Básico, Standard e Premium.
 
@@ -35,11 +30,11 @@ A tabela a seguir fornece detalhes sobre os recursos e os limites das camadas de
 
 ## <a name="changing-skus"></a>Alterando SKUs
 
-Você pode alterar a SKU do registro com o CLI do Azure ou no portal do Azure. Você pode mover-se livremente entre SKUs, desde que o SKU que você está alternando tenha a capacidade máxima de armazenamento necessária. 
+Você pode alterar a SKU do registro com o CLI do Azure ou no portal do Azure. You can move freely between SKUs as long as the SKU you're switching to has the required maximum storage capacity. 
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
-Para mover entre SKUs no CLI do Azure, use o comando [AZ ACR Update][az-acr-update] . Por exemplo, para alternar para o Premium:
+To move between SKUs in the Azure CLI, use the [az acr update][az-acr-update] command. Por exemplo, para alternar para o Premium:
 
 ```azurecli
 az acr update --name myregistry --sku Premium
@@ -57,7 +52,7 @@ Para saber mais sobre os preços de cada SKU de Registro de Contêiner do Azure,
 
 Para obter detalhes sobre os preços das transferências de dados, confira [Detalhes de Preços de Largura de Banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 **Roteiro do Registro de Contêiner do Azure**
 

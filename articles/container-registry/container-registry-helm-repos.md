@@ -1,19 +1,14 @@
 ---
-title: Usar repositórios do Helm no Registro de Contêiner do Azure
+title: Store Helm charts
 description: Saiba como usar um repositório do Helm com o Registro de Contêiner do Azure para armazenar gráficos para seus aplicativos
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: iainfou
-ms.openlocfilehash: 3f0aed1c97acc5dd5c9a9abe1f9171fd3886d83b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0c5e66d5f2fc3dd3c2d8c0a975c3e9d1c813732d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212562"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456350"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Usar o Registro de Contêiner do Azure como um repositório do Helm para os gráficos de aplicativo
 

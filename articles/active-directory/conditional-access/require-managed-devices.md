@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 11/22/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31b7aa906cbefc0ffda707a228f2a9d50be351a8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380026"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452406"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>How To: Require managed devices for cloud app access with Conditional Access
 
@@ -79,7 +79,7 @@ A opção de *exigir que um dispositivo seja marcado como em conformidade* é a 
 
 Essa opção requer que um dispositivo seja registrado com o Microsoft Azure AD e também marcado como em conformidade por:
          
-- Intune.
+- Intune
 - Um sistema gerenciado por dispositivo móvel de terceiros (MDM) que gerencia os dispositivos Windows 10 por meio da integração do Azure AD. Sistemas MDM de terceiros para tipos de dispositivo OS, exceto Windows 10, não são suportados.
  
 ![Condições baseadas no dispositivo](./media/require-managed-devices/46.png)
@@ -90,6 +90,9 @@ Para um dispositivo que esteja marcado como em conformidade, você pode presumir
 - Os aplicativos móveis que sua força de trabalho usa são gerenciados
 - As informações da sua empresa são protegidas ao ajudar a controlar a maneira como sua força de trabalho as acessa e compartilha
 - O dispositivo e seus aplicativos são compatíveis com os requisitos de segurança da empresa
+
+> [!NOTE]
+> If you configure a policy to require compliant devices users may be prompted on Mac, iOS, and Android to select a device certificate during policy evaluation. This is a known behavior.
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -1,21 +1,21 @@
 ---
-title: Saída e pontos de extremidade – Azure digital gêmeos | Microsoft Docs
-description: Saiba como criar e saída de pontos de extremidade de evento no Azure digital gêmeos.
+title: Egress and endpoints - Azure Digital Twins | Microsoft Docs
+description: Learn how to create and egress event endpoints in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/22/2019
+ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010065"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456919"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Saída e pontos de extremidade no Azure digital gêmeos
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Egress and endpoints in Azure Digital Twins
 
 Os *pontos de extremidade* dos Gêmeos Digitais do Azure representam um agente de mensagens ou eventos na assinatura de um usuário do Azure. Eventos e mensagens podem ser enviados para os tópicos Hubs de Eventos do Azure, Grade de Eventos do Azure e Barramento de Serviço do Azure.
 
@@ -47,16 +47,16 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 }
 ```
 
-| Atributo | Digite | DESCRIÇÃO |
+| Atributo | Type | Descrição |
 | --- | --- | --- |
-| ID | cadeia de caracteres | Identificador exclusivo do evento. |
-| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
+| ID | string | Identificador exclusivo do evento. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
 | data | objeto | Dados do evento específicos ao provedor de recursos. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
 
 Para obter mais informações sobre o esquema de evento da Grade de Eventos:
 
@@ -85,17 +85,17 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 - ExtendedPropertyKey
 - ExtendedType
 - KeyStore
-- Relatório
+- Relate
 - RoleDefinition
 - Sensor
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Espaço
+- Espacial
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- System
+- Sistema
 - Usuário
 - UserBlobMetadata
 - UserExtendedProperty
@@ -122,7 +122,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 }
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -153,7 +153,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 }
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -188,7 +188,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 }
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -223,7 +223,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 }
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -246,7 +246,7 @@ Os exemplos a seguir demonstram como configurar os pontos de extremidade suporta
 >[!IMPORTANT]
 > Preste muita atenção ao atributo **eventTypes**. Ele define quais tipos de evento são manipulados pelo ponto de extremidade e assim, determinam seu roteamento.
 
-Uma solicitação HTTP POST autenticada em relação a:
+An authenticated HTTP POST request against:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar|
     | YOUR_SECONDARY_KEY | A cadeia de conexão secundária usada para autenticar |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
@@ -356,7 +356,7 @@ Sempre que o sistema estiver em um estado de espera de retrocesso, a atualizaç�
 
 Quando um endpoint se torna inacessível, o sistema entra em um tempo de espera de recuo exponencial de até 30 minutos. Os eventos são descartados em cada tempo de espera de recuo acionado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda [como usar o Swagger de Gêmeos Digitais do Azure](how-to-use-swagger.md).
 

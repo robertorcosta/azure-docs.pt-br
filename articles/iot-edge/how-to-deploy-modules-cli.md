@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: c8cd6e2d13e252f9a7560b55eca58341e791db5a
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 72535b69c81aee880eb16bf5d10e11dedb36f3a7
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964933"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457463"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implantar módulos do Azure IoT Edge com CLI do Azure
 
@@ -28,7 +27,7 @@ Este artigo mostra como criar um manifesto de implantação JSON e usar esse arq
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure.
-* Um [Dispositivo do IoT Edge](how-to-register-device.md#register-with-the-azure-cli) com o tempo de execução do IoT Edge instalado.
+* Um [Dispositivo do IoT Edge](how-to-register-device.md#register-with-the-azure-cli) com o runtime do IoT Edge instalado.
 * A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack.
 * A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
@@ -116,7 +115,7 @@ Use o comando a seguir para aplicar a configuração a um dispositivo do IoT Edg
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-O parâmetro de ID do dispositivo diferencia maiúsculas de minúsculas. O parâmetro de conteúdo aponta para o arquivo de manifesto de implantação que você salvou.
+The device ID parameter is case-sensitive. O parâmetro de conteúdo aponta para o arquivo de manifesto de implantação que você salvou.
 
    ![saída az iot edge set-modules](./media/how-to-deploy-cli/set-modules.png)
 
@@ -130,7 +129,7 @@ Exiba os módulos no seu dispositivo IoT Edge:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-O parâmetro de ID do dispositivo diferencia maiúsculas de minúsculas.
+The device ID parameter is case-sensitive.
 
    ![saída da lista de identidade do módulo hub iot az](./media/how-to-deploy-cli/list-modules.png)
 

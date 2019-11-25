@@ -1,19 +1,14 @@
 ---
-title: Armazenamento de imagens no Registro de Contêiner do Azure
+title: Container image storage
 description: Detalhes sobre como as imagens de contêiner do Docker são armazenadas no Registro de Contêiner do Azure, incluindo segurança, redundância e capacidade.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: danlep
-ms.openlocfilehash: 4517cc21ca0087358e750cd480288d4ec3718791
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310529"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456214"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagens de contêiner no Registro de Contêiner do Azure
 
@@ -35,7 +30,7 @@ Para cenários que exigem ainda mais garantia de alta disponibilidade, utilize o
 
 A tabela a seguir descreve os limites de armazenamento e imagem de contêiner em vigor para os registros de contêiner do Azure.
 
-| Recurso | Limite |
+| Grupos | Limite |
 | -------- | :---- |
 | Repositórios | Sem limite |
 | Imagens | Sem limite |
@@ -47,9 +42,9 @@ Números muito altos de repositórios e marcas podem afetar o desempenho do regi
 
 ## <a name="storage-cost"></a>Custo de armazenamento
 
-Para obter detalhes completos sobre os preços, consulte [preços do registro de contêiner do Azure][pricing].
+For full details about pricing, see [Azure Container Registry pricing][pricing].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as diferentes SKUs de Registro de Contêiner do Azure (Básico, Standard e Premium), consulte [SKUs do Registro de Contêiner do Azure](container-registry-skus.md).
 
