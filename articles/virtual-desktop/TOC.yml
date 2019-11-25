@@ -34,32 +34,42 @@
           href: connect-macos.md
         - name: Conectar-se ao cliente iOS
           href: connect-ios.md
-    - name: Criar um pool de host com um modelo do Azure Resource Manager
-      href: create-host-pools-arm-template.md
-    - name: Criar um pool de host com o PowerShell
-      href: create-host-pools-powershell.md
-    - name: Implantar uma máquina virtual do Windows 7 na Área de Trabalho Virtual do Windows
-      href: deploy-windows-7-virtual-machine.md
-    - name: Aplicar licença do Windows a hosts da sessão da Área de Trabalho Virtual do Windows
+    - name: Criar um pool de hosts e hosts da sessão
+      items:
+        - name: Modelo do Azure Resource Manager
+          href: create-host-pools-arm-template.md
+        - name: PowerShell
+          href: create-host-pools-powershell.md
+        - name: Implantar uma máquina virtual do Windows 7
+          href: deploy-windows-7-virtual-machine.md
+        - name: Implantar um host da sessão baseado em GPU
+          href: configure-vm-gpu.md
+    - name: Criar um contêiner de perfil
+      items:
+        - name: Usar um compartilhamento de arquivo baseado em VM
+          href: create-host-pools-user-profile.md
+        - name: Usar o Azure NetApp Files
+          href: create-fslogix-profile-container.md
+    - name: Definir configurações do pool de hosts
+      items:
+        - name: Propriedades de RDP
+          href: customize-rdp-properties.md
+        - name: Balanceamento de carga para pools de hosts em pool
+          href: configure-host-pool-load-balancing.md
+    - name: Usar licença da Área de Trabalho Virtual do Windows
       href: apply-windows-license.md
     - name: Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivo
       href: create-host-pools-user-profile.md
-    - name: Criar um contêiner de perfil para um pool de hosts usando o Azure NetApp Files
-      href: create-fslogix-profile-container.md
-    - name: Configurar o método de balanceamento de carga da Área de Trabalho Virtual do Windows
-      href: configure-host-pool-load-balancing.md
-    - name: Preparar e personalizar uma imagem de VHD mestre
-      href: set-up-customize-master-image.md
-    - name: Instalar o Office em uma imagem de VHD mestre
-      href: install-office-on-wvd-master-image.md
-    - name: Configurar GPU para a Área de Trabalho Virtual do Windows
-      href: configure-vm-gpu.md
+    - name: Personalizar imagem do host da sessão
+      items:
+        - name: Configurar uma imagem de VHD mestre
+          href: set-up-customize-master-image.md
+        - name: Instalar o Office em uma imagem de VHD mestre
+          href: install-office-on-wvd-master-image.md
     - name: Dimensionar hosts da sessão dinamicamente
       href: set-up-scaling-script.md
-    - name: Personalizar o feed para usuários da Área de Trabalho Virtual do Windows
+    - name: Personalizar feed
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Personalizar as propriedades RDP
-      href: customize-rdp-properties.md
     - name: Implantar a ferramenta de diagnóstico
       href: deploy-diagnostics.md
     - name: Configurar anexação de aplicativo MSIX
