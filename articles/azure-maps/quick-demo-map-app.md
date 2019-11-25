@@ -1,22 +1,22 @@
 ---
-title: Pesquisa de Mapa Interativo com o Azure Mapas | Microsoft Docs
+title: 'Início Rápido: Pesquisa de Mapa Interativo com o Azure Mapas'
 description: Início Rápido do Azure – Criar uma demonstração de pesquisa de mapa interativo usando o Azure Mapas
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 092da53c3179d939ebf0472219338b8d8392fda6
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554291"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903174"
 ---
-# <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Criar um mapa de pesquisa interativo usando o Azure Mapas
+# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Início Rápido: Criar um mapa de pesquisa interativo usando o Azure Mapas
 
 Este artigo demonstra os recursos dos Mapas do Azure para criar um mapa que fornece aos usuários uma experiência de pesquisa interativa. Ele apresenta e explica as seguintes etapas básicas:
 * Criar sua conta do Azure Mapas.

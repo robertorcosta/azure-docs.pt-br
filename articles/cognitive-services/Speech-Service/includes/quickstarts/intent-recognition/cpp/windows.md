@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b26b5edeaac1f6305ed2db920c711f906eb10384
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 76b7c9436b8d1d466a69df7e5427991df0a9c63e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506016"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125401"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
+>
 > * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
 > * [Criar um aplicativo LUIS para obter uma chave de ponto de extremidade](../../../../quickstarts/create-luis.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
@@ -47,11 +48,11 @@ Antes de inicializar um objeto `IntentRecognizer`, é preciso criar uma configur
 Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
 
 > [!NOTE]
-> É importante usar a chave de ponto de extremidade LUIS e não as chaves de início ou de criação, pois apenas a chave do ponto de extremidade é válida para o reconhecimento de conversão de fala em intenção. Confira o artigo [Criar um aplicativo LUIS e obter uma chave de ponto de extremidade](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para ver instruções sobre como obter a chave correta.
+> É importante usar a chave de ponto de extremidade LUIS, e não as chaves de Início ou de Criação porque apenas a chave do ponto de extremidade é válida para o reconhecimento de conversão de fala em intenção. Confira o artigo [Criar um aplicativo LUIS e obter uma chave de ponto de extremidade](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para ver instruções sobre como obter a chave correta.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-## <a name="initialize-a-intentrecognizer"></a>Inicializar um IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntentRecognizer
 
 Agora, vamos criar um `IntentRecognizer`. Insira esse código no método `recognizeIntent()`, logo abaixo da configuração de Fala.
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=28)]
@@ -63,7 +64,7 @@ Agora é preciso associar um `LanguageUnderstandingModel` ao reconhecedor de int
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
-No objeto `IntentRecognizer`, chame o método `RecognizeOnceAsync()`. Esse método permite que o serviço de Fala saiba que você está enviando uma única expressão para reconhecimento e permite parar o reconhecimento assim que a frase for identificada.
+No objeto `IntentRecognizer`, chame o método `RecognizeOnceAsync()`. Esse método permite que o Serviço de Fala saiba que você está enviando uma única expressão para reconhecimento e permite parar o reconhecimento, assim que a frase é identificada.
 Para simplificar, aguardaremos os resultados futuros retornarem para concluir.
 
 Dentro da instrução using, adicione este código: [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
@@ -76,7 +77,8 @@ Dentro da instrução using, abaixo de `RecognizeOnceAsync()`, adicione este có
 
 ## <a name="check-your-code"></a>Verificar o código
 
-Neste momento, seu código deverá ter a seguinte aparência: (Adicionamos alguns comentários nesta versão) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
+Neste momento, seu código deverá ter a seguinte aparência:  
+(Adicionamos alguns comentários nesta versão) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar o aplicativo
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do LUIS (Reconhecimento vocal)
-summary: Saiba como usar o serviço de reconhecimento vocal para permitir que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras.
+summary: Saiba como o Reconhecimento vocal permite que os aplicativos entendam o que uma pessoa quer ao interpretar as palavras dela.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/19/2019
+  ms.date: 11/22/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -11,13 +11,13 @@ metadata:
   services: cognitive-services
   title: Documentação do reconhecimento Vocal (LUIS)
   titleSuffix: Azure Cognitive Services
-  description: O serviço de reconhecimento vocal (LUIS) permite que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras. O LUIS usa o aprendizado de máquina para permitir que desenvolvedores criem aplicativos que possam receber entradas do usuário em linguagem natural e extrair o significado disso.
-  ms.openlocfilehash: 70249b540e53ab8182a25f81d7401697b2b888c1
-  ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+  description: O serviço LUIS (Serviço Inteligente de Reconhecimento Vocal) permite que o aplicativo entenda o que uma pessoa quer ao interpretar as palavras dela. O LUIS usa o aprendizado de máquina para permitir que desenvolvedores criem aplicativos que possam receber entradas do usuário em linguagem natural e extrair o significado disso.
+  ms.openlocfilehash: 14386a08b92814b16fb007e4dd01cb4bb5238c0a
+  ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71155029"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74406144"
 landingContent:
 - title: Sobre o LUIS (Reconhecimento vocal)
   linkLists:
@@ -25,16 +25,18 @@ landingContent:
     links:
     - text: O que é o reconhecimento vocal?
       url: what-is-luis.md
-    - text: Novidades
-      url: whats-new.md
     - text: Portal do LUIS
       url: https://www.luis.ai
   - linkListType: concept
     links:
     - text: Planejar seu aplicativo
       url: luis-how-plan-your-app.md
-    - text: O ciclo de criação do seu aplicativo
+    - text: Design de aplicativo iterativo
       url: luis-concept-app-iteration.md
+  - linkListType: whats-new
+    links:
+    - text: O que há de novo?
+      url: whats-new.md
   - linkListType: video
     links:
     - text: 'Roadshow de IA: LUIS'
@@ -47,7 +49,7 @@ landingContent:
       url: luis-concept-intent.md
     - text: Entidades
       url: luis-concept-entity-types.md
-    - text: Um bom exemplo de enunciado
+    - text: Declarações
       url: luis-concept-utterance.md
     - text: Recursos de lista de frases
       url: luis-concept-feature.md
@@ -89,15 +91,15 @@ landingContent:
       url: sdk-python-quickstart-authoring-app.md#train-the-app
   - linkListType: how-to-guide
     links:
-    - text: Controle de versão do seu aplicativo
+    - text: Realizar controle de versão do seu aplicativo
       url: luis-how-to-manage-versions.md
-    - text: Teste interativo
+    - text: Realizar teste interativo
       url: luis-interactive-test.md
-    - text: Teste em lote
+    - text: Realizar teste em lote
       url: luis-how-to-batch-test.md
-    - text: Treinamento do seu aplicativo
+    - text: Treinar seu aplicativo
       url: luis-how-to-train.md
-    - text: Publicar para usar um ponto de extremidade de previsão
+    - text: Publicar um ponto de extremidade de previsão
       url: luis-how-to-publish-app.md
 - title: Obter uma previsão do ponto de extremidade
   linkLists:
@@ -123,7 +125,7 @@ landingContent:
     links:
     - text: Recursos para desenvolvedores
       url: developer-reference-resource.md
-    - text: Limites do aplicativo
+    - text: Limitações do aplicativo
       url: luis-boundaries.md
     - text: Entidades predefinidas
       url: luis-reference-prebuilt-entities.md

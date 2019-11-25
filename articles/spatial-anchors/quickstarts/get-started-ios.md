@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56360238db8632e74a95c057a7fe643b5cea3151
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: a1d2fa083c0083423767484b20e296a3080e4ebe
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206827"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092108"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Início Rápido: Criar um aplicativo para iOS com Âncoras Espaciais do Azure em Objective-C ou Swift
 
@@ -32,7 +32,7 @@ Você aprenderá a:
 
 Para concluir este início rápido, certifique-se de que:
 
-- Um computador macOS habilitado para desenvolvedor com <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10+</a> e <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalado.
+- Um desenvolvedor habilitou o computador macOS com a versão mais recente do <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> e <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalada.
 - Git instalado via Homebrew. Insira o seguinte comando em uma única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
 - Um dispositivo iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com ARKit</a> habilitado para desenvolvedor.
 
@@ -67,6 +67,9 @@ cd ./iOS/Objective-C/
 Execute `pod install --repo-update` para instalar os CocoaPods para o projeto.
 
 Agora, abra o `.xcworkspace` no Xcode.
+
+> [!NOTE]
+> Confira as etapas de solução de problemas [aqui](#cocoapods-issues-on-macos-catalina-1015) se estiver enfrentado problemas com o CocoaPod após atualizar para o macOS Catalina (10.15).
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
@@ -118,6 +121,18 @@ Selecione **Compilar e, em seguida, executar o esquema atual**.
 > Se um erro `library not found for -lPods-SampleObjC` é exibido, provavelmente, você abriu o arquivo `.xcodeproj` em vez do `.xcworkspace`. Abra o `.xcworkspace` e tente novamente.
 
 No Xcode, interrompa o aplicativo pressionando **Parar**.
+
+## <a name="troubleshooting"></a>solução de problemas
+
+### <a name="cocoapods-issues-on-macos-catalina-1015"></a>Problemas do CocoaPods no macOS Catalina (10.15)
+
+Se você atualizou recentemente para o macOS Catalina (10.15) e tinha o CocoaPods instalado anteriormente, o CocoaPods pode estar em um estado incompleto e falhar ao configurar corretamente seus arquivos de projeto `.xcworkspace` e pods. Para resolver esse problema, será preciso reinstalar o CocoaPods executando os seguintes comandos:
+
+```shell
+brew update
+brew install cocoapods --build-from-source
+brew link --overwrite cocoapods
+```
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

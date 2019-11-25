@@ -7,12 +7,12 @@ ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da3fb604bfb65f67e50d56a4520620cabc292b93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329727"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082811"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicionar uma associação de fila do Armazenamento do Azure à sua função do Python
 
@@ -48,11 +48,11 @@ No Functions, cada tipo de associação requer que um `direction`, `type` e um `
 
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
 
-Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O tempo de execução do Functions e a associação de saída da fila fazem essas tarefas para você.
+Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O runtime do Functions e a associação de saída da fila fazem essas tarefas para você.
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
-Como anteriormente, use o seguinte comando para iniciar o tempo de execução do Functions localmente:
+Como anteriormente, use o seguinte comando para iniciar o runtime do Functions localmente:
 
 ```bash
 func host start
@@ -61,7 +61,7 @@ func host start
 > [!NOTE]  
 > Como você habilitou os pacotes de extensões no host.json, a [extensão de associação do armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi baixada e instalada para você durante a inicialização, juntamente com outras extensões de associação da Microsoft.
 
-Copie a URL da função `HttpTrigger` da saída do tempo de execução de função e cole-a na barra de endereços do navegador. Acrescente o valor de cadeia de consulta `?name=<yourname>` a essa URL e execute a solicitação. Você deve ver a mesma resposta no navegador como você viu no artigo anterior.
+Copie a URL da função `HttpTrigger` da saída do runtime de função e cole-a na barra de endereços do navegador. Acrescente o valor de cadeia de consulta `?name=<yourname>` a essa URL e execute a solicitação. Você deve ver a mesma resposta no navegador como você viu no artigo anterior.
 
 Dessa vez, a associação de saída também cria uma fila denominada `outqueue` em sua Conta de armazenamento e adiciona uma mensagem com essa mesma cadeia de caracteres.
 
@@ -91,7 +91,7 @@ curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow54
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você atualizou a função disparada por HTTP para gravar dados em uma fila de armazenamento. Para saber mais sobre como desenvolver o Azure Functions usando o Python, confira o [Guia do desenvolvedor de Python para o Azure Functions](functions-reference-python.md) e [Gatilhos e associações do Azure Functions](functions-triggers-bindings.md). Para obter exemplos de projetos de funções completos no Python, confira os [Exemplos de funções de Python](/samples/browse/?products=azure-functions&languages=python). 
+Você atualizou a função disparada por HTTP para gravar dados em uma fila de armazenamento. Para saber mais sobre como desenvolver o Azure Functions usando o Python, confira o [Guia do desenvolvedor de Python para o Azure Functions](functions-reference-python.md) e [Gatilhos e associações do Azure Functions](functions-triggers-bindings.md). Para obter exemplos de projetos de funções completos no Python, confira os [Exemplos de funções de Python](/samples/browse/?products=azure-functions&languages=python). Para saber mais sobre preços, confira a [Página de preço de funções](https://azure.microsoft.com/pricing/details/functions/) e o artigo [Estimativa de custos do plano de consumo](functions-consumption-costs.md).
 
 Em seguida, você deve habilitar o monitoramento do Application Insights para seu aplicativo de funções:
 

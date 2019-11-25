@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5c881551648e8fc6078405e34fa3280723009b20
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490965"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090438"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Linux
 
@@ -80,11 +80,34 @@ Caso você planeje usar as intenções, será necessária uma assinatura do [LUI
 
    ![Captura de tela do Explorador de pacotes](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. Abra o arquivo pom.xml e edite-o.
+
+    No final do arquivo, antes da marca de fechamento `</project>`, crie os elementos `repositories` e `dependencies`, como mostrado aqui, e verifique se o `version` corresponde à sua versão atual:
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
 1. No **Explorador de pacotes**, clique com o botão direito do mouse em seu projeto. Escolha **Propriedades** e, em seguida, **Executar/Configurações de Depuração** > **Novo…** > **Aplicativo Java**. 
 
 1. A janela **Editar Configuração** é exibida. No campo **Nome**, insira **Principal** e use **Pesquisar** para a **Classe Principal** para localizar e selecionar **com.microsoft.cognitiveservices.speech.samples.FunctionsList**.
 
    ![Captura de tela da configuração de inicialização da edição](media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
+
+1. Copie os binários de áudio para a arquitetura de destino, do **Linux-arm** ou do **Linux-x64** para o local do Projeto em Java, por exemplo, **/home/wcaltest/JRE-Sample-Release**
 
 1. Também na janela **Editar Configuração**, selecione a página **Ambiente** e **Novo**. A janela **Nova Variável de Ambiente** é exibida. No campo **Nome**, insira **LD_LIBRARY_PATH** e, no campo **valor**, insira a pasta contendo os arquivos *.so, por exemplo, **/home/wcaltest/JRE-Sample-Release**
 
@@ -113,20 +136,19 @@ Caso você planeje usar as intenções, será necessária uma assinatura do [LUI
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. A palavra-chave padrão (palavra-chave) é "Computador". Você também pode tentar uma das outras palavras-chave fornecidas, como "Máquina" e "Assistente". Os arquivos de recurso para essas alternativas de palavra-chave estão no SDK de Dispositivos de Fala, na pasta de palavra-chave. Por exemplo, `/home/wcaltest/JRE-Sample-Release/keyword/Computer` contém os arquivos usados para a palavra-chave "Computador".
+1. A palavra-chave padrão (palavra-chave) é "Computador". Você também pode tentar uma das outras palavras-chave fornecidas, assim como "Máquina" ou "Assistente". Os arquivos de recurso para essas alternativas de palavra-chave estão no SDK de Dispositivos de Fala, na pasta da palavra-chave. Por exemplo, `/home/wcaltest/JRE-Sample-Release/keyword/Computer` contém os arquivos usados para a palavra-chave "Computador".
 
    > [!TIP]
    > Você também pode [criar uma palavra-chave personalizada](speech-devices-sdk-create-kws.md).
 
-    Para usar uma nova palavra-chave, atualize as duas linhas a seguir em `FunctionsList.java` e copie o pacote de palavras de ativação para o aplicativo. Por exemplo, para usar a palavra-chave “Computador” do pacote de palavras-chave `kws-machine.zip`:
+    Para usar uma nova palavra-chave, atualize a linha a seguir em `FunctionsList.java` e copie a palavra-chave para o aplicativo. Por exemplo, para usar a palavra-chave “Computador” do pacote de palavras-chave `machine.zip`:
 
-   * Copie o pacote de palavras-chave para a pasta do projeto **target/classes**.
+   * Copie o arquivo de `kws.table` do pacote zip para a pasta do projeto **target/classes**.
 
-   * Atualize o `FunctionsList.java` com a palavra-chave e o nome do pacote:
+   * Atualize o `FunctionsList.java` com o nome da palavra-chave:
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Execute o aplicativo de exemplo do Eclipse

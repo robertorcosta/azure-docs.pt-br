@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Executar o SDK de Dispositivos de Fala no Android – Serviço de Fala'
+title: 'Início Rápido: Executar o SDK de Dispositivos de Fala no Android'
 titleSuffix: Azure Cognitive Services
 description: Pré-requisitos e instruções para começar a usar com o SDK de Dispositivos de Fala do Android.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: acb041ce29d0340686a09764158063ad8d000c7c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3eb6ec28879a7c53feb270e33857cd67dc06b0b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491303"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111696"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Android
 
@@ -29,46 +29,47 @@ O código-fonte para o aplicativo de exemplo é incluído com o SDK de Dispositi
 
 Antes de começar a usar o SDK de Dispositivos de Fala, você precisará:
 
-* Seguir as instruções fornecidas com o [kit de desenvolvimento](get-speech-devices-sdk.md) para ligar o dispositivo.
+- Seguir as instruções fornecidas com o [kit de desenvolvimento](get-speech-devices-sdk.md) para ligar o dispositivo.
 
-* Baixar a última versão do [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-download) e extrair o arquivo .zip no diretório de trabalho.
-   > [!NOTE]
-   > O arquivo Android-Sample-Release.zip inclui o aplicativo de exemplo do Android e este início rápido pressupõe que o aplicativo seja extraído para C:\SDSDK\Android-Sample-Release
+- Baixar a última versão do [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-download) e extrair o arquivo .zip no diretório de trabalho.
 
-* Para obter uma [chave de assinatura do Azure para os Serviços de Fala](get-started.md)
+  > [!NOTE]
+  > O arquivo Android-Sample-Release.zip inclui o aplicativo de exemplo do Android e este início rápido pressupõe que o aplicativo seja extraído para C:\SDSDK\Android-Sample-Release
 
-* Se você pretende usar a transcrição de conversas, use um [dispositivo de microfone circular](get-speech-devices-sdk.md); atualmente, esse recurso só está disponível para "en-US" e "zh-CN" nas regiões “centralus” e “eastasia”. Você precisará ter uma chave de fala em uma dessas regiões para usar a transcrição de conversas.
+- Para obter uma [chave de assinatura do Azure para os Serviços de Fala](get-started.md)
 
-* Se você pretender usar os Serviços de Fala para identificar intenções (ou ações) de enunciados do usuário, precisará de uma assinatura do [LUIS (Serviço de Reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Para saber mais sobre o LUIS e o reconhecimento de intenção, confira [Reconhecer intenções de fala com o LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+- Se você pretende usar a transcrição de conversas, use um [dispositivo de microfone circular](get-speech-devices-sdk.md); atualmente, esse recurso só está disponível para "en-US" e "zh-CN" nas regiões “centralus” e “eastasia”. Você precisará ter uma chave de fala em uma dessas regiões para usar a transcrição de conversas.
 
-    Você pode [criar um modelo simples de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) ou usar o modelo LUIS, LUIS-example.json. O exemplo de modelo LUIS está disponível na [site de download do SDK de Dispositivos de Fala](https://aka.ms/sdsdk-luis). Para carregar o arquivo JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione **Importar novo aplicativo**e, em seguida, selecione o arquivo JSON.
+- Se você pretender usar os Serviços de Fala para identificar intenções (ou ações) de enunciados do usuário, precisará de uma assinatura do [LUIS (Serviço de Reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Para saber mais sobre o LUIS e o reconhecimento de intenção, confira [Reconhecer intenções de fala com o LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
-* Instale o [Android Studio](https://developer.android.com/studio/) e [Vysor](https://vysor.io/download/) em seu computador.
+  Você pode [criar um modelo simples de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) ou usar o modelo LUIS, LUIS-example.json. O exemplo de modelo LUIS está disponível na [site de download do SDK de Dispositivos de Fala](https://aka.ms/sdsdk-luis). Para carregar o arquivo JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione **Importar novo aplicativo**e, em seguida, selecione o arquivo JSON.
+
+- Instale o [Android Studio](https://developer.android.com/studio/) e [Vysor](https://vysor.io/download/) em seu computador.
 
 ## <a name="set-up-the-device"></a>Configurar o dispositivo
 
 1. Inicie o Vysor no seu computador.
 
-    ![Vysor](media/speech-devices-sdk/qsg-3.png)
+   ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
 1. Seu dispositivo deve estar listado em **Escolha um dispositivo**. Clique no botão **Exibir** ao lado do dispositivo.
 
 1. Conecte-se à sua rede sem fio, selecionando o ícone de pasta e, em seguida, selecione **Configurações** > **WLAN**.
 
-    ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+   ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
 
-    > [!NOTE]
-    > Se sua empresa tem políticas sobre como conectar dispositivos ao seu sistema de Wi-Fi, é neecessário obter o endereço MAC e entrar em contato com seu departamento de TI sobre como conectar-se ao Wi-Fi de sua empresa.
-    >
-    > Para localizar o endereço MAC do kit de desenvolvimento, selecione o ícone de pasta de arquivo na área de trabalho do kit de desenvolvimento.
-    >
-    >  ![Pasta de arquivo do Vysor](media/speech-devices-sdk/qsg-10.png)
-    >
-    > Escolha a opção **Configurações**. Pesquise "endereço mac" e, em seguida, selecione **endereço Mac** > **WLAN Avançado**. Anote o endereço MAC que aparece na parte inferior da caixa de diálogo.
-    >
-    > ![Endereço MAC do Vysor](media/speech-devices-sdk/qsg-11.png)
-    >
-    > Algumas empresas podem ter um tempo limite de quanto tempo um dispositivo pode ser conectado a seus sistemas Wi-Fi. Talvez seja necessário estender o registro do kit de desenvolvimento com o sistema Wi-Fi após um determinado número de dias.
+   > [!NOTE]
+   > Se sua empresa tem políticas sobre como conectar dispositivos ao seu sistema de Wi-Fi, é neecessário obter o endereço MAC e entrar em contato com seu departamento de TI sobre como conectar-se ao Wi-Fi de sua empresa.
+   >
+   > Para localizar o endereço MAC do kit de desenvolvimento, selecione o ícone de pasta de arquivo na área de trabalho do kit de desenvolvimento.
+   >
+   > ![Pasta de arquivo do Vysor](media/speech-devices-sdk/qsg-10.png)
+   >
+   > Escolha a opção **Configurações**. Pesquise "endereço mac" e, em seguida, selecione **endereço Mac** > **WLAN Avançado**. Anote o endereço MAC que aparece na parte inferior da caixa de diálogo.
+   >
+   > ![Endereço MAC do Vysor](media/speech-devices-sdk/qsg-11.png)
+   >
+   > Algumas empresas podem ter um tempo limite de quanto tempo um dispositivo pode ser conectado a seus sistemas Wi-Fi. Talvez seja necessário estender o registro do kit de desenvolvimento com o sistema Wi-Fi após um determinado número de dias.
 
 ## <a name="run-the-sample-application"></a>Executar o aplicativo de exemplo
 
@@ -95,22 +96,22 @@ Para validar sua instalação do kit de desenvolvimento, crie e instale o aplica
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Se você estiver usando a transcrição de conversas, suas informações de chave de fala e região também serão necessárias em conversation.java:
+   Se você estiver usando a transcrição de conversas, suas informações de chave de fala e região também serão necessárias em conversation.java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
-    ```
+   ```
 
 1. A palavra-chave padrão é "Computador". Você também pode tentar uma das outras palavras-chave fornecidas, como "Máquina" e "Assistente". Os arquivos de recurso para essas alternativas de palavra-chave estão no SDK de Dispositivos de Fala, na pasta de palavra-chave. Por exemplo, C:\SDSDK\Android-Sample-Release\keyword\Computer contém os arquivos usados para a palavra-chave "Computador".
 
    > [!TIP]
    > Você também pode [criar uma palavra-chave personalizada](speech-devices-sdk-create-kws.md).
 
-    Para usar uma nova palavra-chave, atualize as duas linhas a seguir em `MainActivity.java` e copie o pacote de palavras de ativação para o aplicativo. Por exemplo, para usar a palavra-chave “Computador” do pacote de palavras-chave kws-machine.zip:
+   Para usar uma nova palavra-chave, atualize as duas linhas a seguir em `MainActivity.java` e copie o pacote de palavras de ativação para o aplicativo. Por exemplo, para usar a palavra-chave “Computador” do pacote de palavras-chave kws-machine.zip:
 
-   * Copie o pacote de palavras-chave para a pasta “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
-   * Atualize o `MainActivity.java` com a palavra-chave e o nome do pacote:
+   - Copie o pacote de palavras-chave para a pasta “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+   - Atualize o `MainActivity.java` com a palavra-chave e o nome do pacote:
 
      ```java
      private static final String Keyword = "Machine";
@@ -126,20 +127,20 @@ Para validar sua instalação do kit de desenvolvimento, crie e instale o aplica
 
    Esta tabela lista os valores compatíveis:
 
-   |Variável|Significado|Valores disponíveis|
-   |--------|-------|----------------|
-   |`DeviceGeometry`|Configuração de microfone físico|Para um kit de desenvolvimento circular: `Circular6+1` |
-   |||Para um kit de desenvolvimento linear: `Linear4`|
-   |`SelectedGeometry`|Configuração do microfone do software|Para um kit de desenvolvimento circular que usa todos os microfones: `Circular6+1`|
-   |||Para um kit de desenvolvimento circular que usa os quatro microfones: `Circular3+1`|
-   |||Para um kit de desenvolvimento linear que usa todos os microfones: `Linear4`|
-   |||Para um kit de desenvolvimento linear que usa dois microfones: `Linear2`|
+   | Variável | Significado | Valores disponíveis |
+   | -------- | ------- | ---------------- |
+   | `DeviceGeometry` | Configuração de microfone físico | Para um kit de desenvolvimento circular: `Circular6+1` |
+   |          |         | Para um kit de desenvolvimento linear: `Linear4` |
+   | `SelectedGeometry` | Configuração do microfone do software | Para um kit de desenvolvimento circular que usa todos os microfones: `Circular6+1` |
+   |          |         | Para um kit de desenvolvimento circular que usa os quatro microfones: `Circular3+1` |
+   |          |         | Para um kit de desenvolvimento linear que usa todos os microfones: `Linear4` |
+   |          |         | Para um kit de desenvolvimento linear que usa dois microfones: `Linear2` |
 
 1. Para compilar o aplicativo, no menu **Executar**, selecione **Executar 'aplicativo'** . A caixa de diálogo **Selecionar o Destino de Implantação** aparece.
 
 1. Selecione seu dispositivo e, em seguida, selecione **OK** para implantar o aplicativo no dispositivo.
 
-    ![Selecione a caixa de diálogo Destino da Implantação](media/speech-devices-sdk/qsg-7.png)
+   ![Selecione a caixa de diálogo Destino da Implantação](media/speech-devices-sdk/qsg-7.png)
 
 1. O aplicativo de exemplo do SDK de Dispositivos de Fala é iniciado e exibe as seguintes opções:
 
@@ -153,17 +154,16 @@ Para validar sua instalação do kit de desenvolvimento, crie e instale o aplica
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-   Se você não puder se conectar ao Dispositivo de Fala. Digite o comando a seguir em uma janela do prompt de comando. Ele retornará uma lista de dispositivos:
+Se você não puder se conectar ao Dispositivo de Fala. Digite o comando a seguir em uma janela do prompt de comando. Ele retornará uma lista de dispositivos:
 
-   ```powershell
-    adb devices
-   ```
+```powershell
+ adb devices
+```
 
-   > [!NOTE]
-   > Esse comando usa o Android Debug Bridge, `adb.exe`, que faz parte da instalação do Android Studio. Essa ferramenta está localizada em C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. Você pode adicionar esse diretório para o caminho para que seja mais conveniente para invocar `adb`. Caso contrário, você deve especificar o caminho completo para a instalação do adb.exe em cada comando que invoca `adb`.
-   >
-   > Se um erro `no devices/emulators found` for exibido, verifique se o cabo USB está conectado e se um cabo de alta qualidade está sendo usado.
-   >
+> [!NOTE]
+> Esse comando usa o Android Debug Bridge, `adb.exe`, que faz parte da instalação do Android Studio. Essa ferramenta está localizada em C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. Você pode adicionar esse diretório para o caminho para que seja mais conveniente para invocar `adb`. Caso contrário, você deve especificar o caminho completo para a instalação do adb.exe em cada comando que invoca `adb`.
+>
+> Se um erro `no devices/emulators found` for exibido, verifique se o cabo USB está conectado e se um cabo de alta qualidade está sendo usado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

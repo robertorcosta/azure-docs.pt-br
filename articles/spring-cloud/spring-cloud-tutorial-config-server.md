@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/18/2019
-ms.openlocfilehash: 6cf7b4a52ba3a7dbda5fa3fa558c4b68d09f4eb2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 6742e1a5924fdcd1fe00f49ac790209a907d1bac
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646718"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132781"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>Tutorial: Configurar um Servidor de Configuração do Spring Cloud para seu serviço
 
@@ -95,7 +95,7 @@ Todas as propriedades configuráveis usadas para configurar o repositório Git p
 | `password`      | `no`     | A senha usada para acessar o servidor do repositório `Git`, __obrigatória__ quando o servidor do repositório `Git` dá suporte a `Http Basic Authentication`. |
 
 > [!NOTE]
-> Alguns servidores do repositório `Git`, como o GitHub, dão suporte a "token pessoal" ou a "token acesso" como uma senha para `HTTP Basic Authentication`. Você também pode usar esse tipo de token como uma senha aqui e o "token pessoal" ou o "token de acesso" não expirará. Porém, para servidores do repositório Git, como o BitBucket e o Azure DevOps, o token expirará em uma ou duas horas, o que torna essa opção inviável para usar com o Azure Spring Cloud.
+> Muitos servidores de repositório `Git` dão suporte ao uso de tokens em vez de senhas para `HTTP Basic Authentication`. Alguns repositórios, como o GitHub, permitem que os tokens persistam indefinidamente. No entanto, alguns servidores de repositório Git, incluindo o Azure DevOps, forçam tokens a expirar em algumas horas. Os repositórios que fazem com que os tokens expirem não devem usar a autenticação baseada em token com o Azure Spring Cloud.
 
 ### <a name="git-repositories-with-pattern"></a>Repositórios Git com padrão
 
@@ -127,7 +127,9 @@ Agora que você salvou seus arquivos de configuração em um repositório, é ne
 
 1. Navegue até a página **Visão geral** do Azure Spring Cloud.
 
-1. Acesse a guia **Servidor de Configuração** no título **Configurações** no menu do lado esquerdo.
+1. Escolha o serviço a ser configurado.
+
+1. Na página do serviço, escolha a guia **Servidor de Configuração** no título **Configurações** no menu do lado esquerdo.
 
 ![captura de tela da janela](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 

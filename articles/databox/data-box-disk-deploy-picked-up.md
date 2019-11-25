@@ -10,12 +10,12 @@ ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128697"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092071"
 ---
 ::: zone target="chromeless"
 
@@ -133,15 +133,29 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 
 ### <a name="in-singaporetabin-singapore"></a>[Em Singapura](#tab/in-singapore)
 
-1. Imprima a etiqueta de remessa e anexe à caixa. Se o rótulo estiver danificado ou tiver sido perdido:
+1. Imprima a etiqueta de remessa e anexe-a à caixa. Se o rótulo estiver danificado ou tiver sido perdido:
     - Acesse **Visão Geral > Baixar etiqueta de remessa** e obtenha uma etiqueta de remessa de devolução.
     - Afixe o rótulo ao dispositivo. Certifique-se que a etiqueta está visível.
 
-2. Para solicitar retirada:
-    - Ligue para a linha direta do **SingPost** pelo número **6845 6485** no horário comercial (das 9h às 17h, de segunda-feira a sexta-feira).  
-    - Mencione *Retirada do Microsoft Azure* e o número da solicitação de serviço (número de rastreamento na etiqueta de remessa de devolução) para providenciar uma retirada. 
-    - Você receberá uma confirmação verbal para o agendamento da retirada. 
-    - Se a transportadora não chegar para a coleta, ligue para o **SingPost** pelo número **6845 6485** para providências alternativas. 
+2. Para solicitar a retirada, envie um email para o Atendimento ao Cliente do SingPost usando o modelo a seguir com o número de controle (esse número pode ser encontrado no rótulo de retorno fornecido no pacote entregue).
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a. Requestor name
+     b. Requestor contact number
+     c. Requestor collection address
+     d. Preferred collection date
+    ```
+
+   > [!NOTE]
+   > Para solicitações de reserva recebidas em um dia útil:
+   > - Antes das 15:00, a retirada ocorrerá no dia útil a seguir, entre 9:00 e 13:00.
+   > - Após às 15:00, a retirada ocorrerá no dia útil a seguir, entre 14:00 e 18:00.
+
+   Se tiver problemas, entre em contato com as Operações do Data Box na Ásia pelo email adbo@microsoft.com. Forneça o nome do trabalho no cabeçalho de assunto e o problema encontrado.
+
 3. Passe para a transportadora. 
 
 

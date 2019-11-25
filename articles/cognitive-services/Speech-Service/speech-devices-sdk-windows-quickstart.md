@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Executar o SDK de Dispositivos de Fala no Windows – Serviço de Fala'
+title: 'Início Rápido: Executar o SDK de Dispositivos de Fala no Windows'
 titleSuffix: Azure Cognitive Services
 description: Pré-requisitos e instruções para começar a trabalhar com um SDK de Dispositivos de Fala do Windows.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: b1f23ffac26cb48493f013290654189162861a27
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4da99d895ba7a6d9ce537ab513ce4cc248aff7a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468747"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111676"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Windows
 
-Neste início rápido, você aprenderá a usar o SDK de Dispositivos de Fala para Windows para criar um produto habilitado para fala ou usá-lo como um dispositivo de [transcrição de conversas](conversation-transcription-service.md). Atualmente, há suporte apenas para o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/).
+Neste início rápido, você aprenderá a usar o SDK de Dispositivos de Fala para Windows para criar um produto habilitado para fala ou usá-lo como um dispositivo de [transcrição de conversas](conversation-transcription-service.md). Na Transcrição de conversas, há suporte apenas para o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). Para outros usos de fala, há suporte para matrizes de microfone lineares que fornecem uma geometria de matriz de microfone.
 
 O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v4) no Windows de 64 bits. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
@@ -32,7 +32,7 @@ O código-fonte para o [aplicativo de exemplo](https://aka.ms/sdsdk-download-JRE
 Este início rápido requer:
 
 * Sistema operacional: Windows de 64 bits
-* [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
+* Uma matriz de microfone como o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Java IDE do Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) apenas.
 * [Microsoft Visual C++ redistribuível](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
@@ -65,6 +65,29 @@ Caso você planeje usar as intenções, será necessária uma assinatura do [LUI
 
    ![Captura de tela do Explorador de pacotes](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. Abra o arquivo pom.xml e edite-o.
+
+    No final do arquivo, antes da marca de fechamento `</project>`, crie os elementos `repositories` e `dependencies`, como mostrado aqui, e verifique se o `version` corresponde à sua versão atual:
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
+1. Copie o conteúdo de **Windows-x64** para o local do Projeto em Java, por exemplo, **C:\SDSDK\JRE-Sample-Release**
+
 1. Copie `kws.table`, `participants.properties` e `Microsoft.CognitiveServices.Speech.extension.pma.dll` para a pasta do projeto **target\classes**
 
 ## <a name="configure-the-sample-application"></a>Configurar o aplicativo de exemplo
@@ -82,27 +105,25 @@ Caso você planeje usar as intenções, será necessária uma assinatura do [LUI
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Se você estiver usando a transcrição de conversas, suas informações de chave de fala e região também serão necessárias em `Cts.java`:
+   Se você estiver usando a transcrição de conversas, suas informações de chave de fala e região também serão necessárias em `Cts.java`:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
-    ```
+   ```
 
 1. A palavra-chave padrão (palavra-chave) é "Computador". Você também pode tentar uma das outras palavras-chave fornecidas, assim como "Máquina" ou "Assistente". Os arquivos de recurso para essas alternativas de palavra-chave estão no SDK de Dispositivos de Fala, na pasta da palavra-chave. Por exemplo, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contém os arquivos usados para a palavra-chave "Computador".
 
-   > [!TIP]
-   > Você também pode [criar uma palavra-chave personalizada](speech-devices-sdk-create-kws.md).
+    > [!TIP]
+    > Você também pode [criar uma palavra-chave personalizada](speech-devices-sdk-create-kws.md).
 
-    Para usar uma nova palavra-chave, atualize as duas linhas a seguir em `FunctionsList.java` e copie o pacote de palavras-chave para o aplicativo. Por exemplo, para usar a palavra-chave “Computador” do pacote de palavras-chave `kws-machine.zip`:
+    Para usar uma nova palavra-chave, atualize a linha a seguir em `FunctionsList.java` e copie a palavra-chave para o aplicativo. Por exemplo, para usar a palavra-chave “Computador” do pacote de palavras-chave `machine.zip`:
 
-   * Copie o pacote de palavras-chave para a pasta do projeto **target/classes**.
-
-   * Atualize o `FunctionsList.java` com a palavra-chave e o nome do pacote:
+   * Copie o arquivo de `kws.table` do pacote zip para a pasta do projeto **target/classes**.
+   * Atualize o `FunctionsList.java` com o nome da palavra-chave:
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Execute o aplicativo de exemplo do Eclipse
@@ -121,23 +142,23 @@ Caso você planeje usar as intenções, será necessária uma assinatura do [LUI
 
 ## <a name="create-and-run-a-standalone-application"></a>Criar e executar um aplicativo autônomo
 
-1. No **Explorador de pacotes**, clique com o botão direito do mouse em seu projeto. Escolha **Exportar**. 
+1. No **Explorador de pacotes**, clique com o botão direito do mouse em seu projeto. Escolha **Exportar**.
 
 1. A janela **Exportar** é exibida. Expanda **Java** e selecione **Arquivo JAR executável** e, em seguida, selecione **Avançar**.
 
-   ![Captura de tela da janela Exportar](media/speech-devices-sdk/eclipse-export-windows.png) 
+   ![Captura de tela da janela Exportar](media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. A janela **Exportação de Arquivo JAR Executável** é exibida. Escolha um **Destino de exportação** para o aplicativo e, em seguida, selecione **Concluir**.
- 
+
    ![Captura da tela de Exportação de Arquivo JAR Executável](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
-1. Coloque `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` e `Microsoft.CognitiveServices.Speech.extension.pma.dll` na pasta de destino escolhida acima, pois o aplicativo precisa desses arquivos.
+1. Coloque `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` e `Microsoft.CognitiveServices.Speech.extension.pma.dll` na pasta de destino escolhida acima porque o aplicativo precisa desses arquivos.
 
 1. Para executar o aplicativo autônomo
 
-     ```powershell
-     java -jar SpeechDemo.jar
-     ```
+   ```powershell
+   java -jar SpeechDemo.jar
+   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

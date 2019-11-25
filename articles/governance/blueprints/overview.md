@@ -1,17 +1,14 @@
 ---
 title: Visão geral do Azure Blueprint
 description: Entenda como o serviço do Azure Blueprints permite criar, definir e implantar artefatos no seu ambiente do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: overview
-ms.service: blueprints
-ms.openlocfilehash: 86f58594ce1af91b19f70cbdb1114a90180e3b4f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981703"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048285"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Visão geral do serviço do Azure Blueprints
 
@@ -54,7 +51,7 @@ Um plano gráfico é composto por _artefatos_. Plantas atualmente dão suporte o
 |Recurso  | Opções de hierarquia| DESCRIÇÃO  |
 |---------|---------|---------|
 |Grupos de recursos | Subscription | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager. |
-|Modelo do Azure Resource Manager | Assinatura, Grupo de Recursos | Modelos são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
+|Modelo do Azure Resource Manager | Assinatura, Grupo de Recursos | Modelos, incluindo aninhados e vinculados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
 |Atribuição de política | Assinatura, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à assinatura a qual o blueprint está atribuído. A política ou iniciativa deve estar dentro do escopo do local de definição do blueprint. Se a política ou iniciativa tiver parâmetros, esses parâmetros serão atribuídos na criação do blueprint ou durante a atribuição do blueprint. |
 |Atribuição de função | Assinatura, Grupo de Recursos | Adicione um usuário ou grupo existente a uma função interna para fazer com que as pessoas certas tenham sempre o acesso correto aos seus recursos. Atribuições de função podem ser definidas para a assinatura inteira ou aninhadas em um grupo de recursos específico incluído no blueprint. |
 
@@ -117,7 +114,7 @@ As seguintes funções internas estão disponíveis:
 Se essas funções internas não se ajustarem às suas necessidades de segurança, considere a criação de uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Se estiver usando uma identidade gerenciada atribuída pelo sistema, a entidade de serviço para o Azure BluePrints requer a função **Proprietário** na assinatura atribuída para habilitar a implantação. Se estiver usando o portal, essa função é concedida automaticamente e revogada para a implantação. Se usando a API REST, essa função deve ser concedida manualmente, mas é revogada ainda automaticamente após a conclusão da implantação. Se estiver usando uma identidade gerenciada atribuída pelo usuário, somente o usuário que está criando a atribuição de especificação técnica precisa de permissões de **Proprietário**.
+> Se estiver usando uma identidade gerenciada atribuída pelo sistema, a entidade de serviço para o Azure BluePrints requer a função **Proprietário** na assinatura atribuída para habilitar a implantação. Se estiver usando o portal, essa função é concedida automaticamente e revogada para a implantação. Se usando a API REST, essa função deve ser concedida manualmente, mas é revogada ainda automaticamente após a conclusão da implantação. Se você estiver usando uma identidade gerenciada atribuída pelo usuário, somente o usuário que criar a atribuição blueprint precisará da permissão `Microsoft.Blueprint/blueprintAssignments/write`, que está incluída nas funções internas **Proprietário** e **Operador de Blueprint**.
 
 ## <a name="naming-limits"></a>Limites de nomenclatura
 

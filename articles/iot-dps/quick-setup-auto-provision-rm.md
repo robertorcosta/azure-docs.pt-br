@@ -1,22 +1,22 @@
 ---
-title: Configurar o Provisionamento de Dispositivos usando um modelo do Azure Resource Manager | Microsoft Docs
+title: 'Início Rápido: Configurar o Provisionamento de Dispositivos usando um modelo do Azure Resource Manager'
 description: Início Rápido do Azure – Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando um modelo
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/18/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126470"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903390"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Início Rápido: Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
 
 É possível usar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de nuvem do Azure necessários para o provisionamento dos dispositivos. Essas etapas mostram como criar um Hub IoT, um novo Serviço de Provisionamento de Dispositivos no Hub IoT e vincular os dois serviços usando um modelo do Azure Resource Manager. Este início rápido usa [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) executar o programático as etapas necessárias para criar um grupo de recursos e implantar o modelo, mas você pode facilmente usar o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [doPowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby ou outras linguagens de programação para executar essas etapas e implantar seu modelo. 
 
@@ -31,7 +31,7 @@ ms.locfileid: "62126470"
 
 Entre na sua conta do Azure e selecione sua assinatura.
 
-1. Ao prompt de comando, execute o [comando de logon][lnk-login-command]:
+1. No prompt de comando, execute o [comando de logon][lnk-login-command]:
     
     ```azurecli
     az login
@@ -39,7 +39,7 @@ Entre na sua conta do Azure e selecione sua assinatura.
 
     Siga as instruções de autenticação usando o código e entre em sua conta do Azure por meio de um navegador da Web.
 
-2. Se você tiver várias assinaturas do Azure, entrar o Azure lhe dará acesso a todas as contas do Azure associadas às suas credenciais. Use o seguinte [comando para listar as contas do Azure][lnk-az-account-command] disponíveis para você:
+2. Se você tiver várias assinaturas do Azure, entrar o Azure lhe dará acesso a todas as contas do Azure associadas às suas credenciais. Use o seguinte comando [para listar as contas do Azure][lnk-az-account-command] disponíveis para você usar:
     
     ```azurecli
     az account list 
@@ -321,7 +321,7 @@ Use os seguintes comandos da CLI do Azure para implantar seus modelos e verifica
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Outros Guias de Início Rápido na coleção aproveitam este Guia de Início Rápido. Se você planeja continuar trabalhando com Guias de Início Rápido ou tutoriais subsequentes, não limpe os recursos criados neste Guia de Início Rápido. Caso não planeje continuar, você pode usar a CLI do Azure para [excluir um recurso individual][lnk-az-resource-command], como um Hub IoT ou um serviço de provisionamento, ou excluir um grupo de recursos e todos os seus recursos.
+Outros Guias de Início Rápido na coleção aproveitam este Guia de Início Rápido. Se você planeja continuar trabalhando com Guias de Início Rápido ou tutoriais subsequentes, não limpe os recursos criados neste Guia de Início Rápido. Caso não planeje continuar, você pode usar a CLI do Azure para [excluir um recurso individual][lnk-az-resource-command], como um hub IoT ou um serviço de provisionamento, ou excluir um grupo de recursos e todos os seus recursos.
 
 Para excluir o serviço de provisionamento, execute o seguinte comando:
 

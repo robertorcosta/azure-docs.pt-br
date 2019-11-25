@@ -1,5 +1,5 @@
 ---
-title: Início Rápido – Configurar Máquinas Virtuais do Linux no Azure usando o Ansible | Microsoft Docs
+title: Início Rápido – Configurar máquinas virtuais do Linux no Azure usando o Ansible
 description: Neste Início Rápido, saiba como criar uma máquina virtual do Linux no Azure usando o Ansible
 keywords: ansible, azure, devops, máquina virtual
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 32d4486138f21bd99c3d75ee72ae5dd0df667e41
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 325b581910bc343f57a2da00ab3ed6e447c1e9e3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668639"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037085"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Início Rápido: Configurar máquinas virtuais do Linux no Azure usando o Ansible
 

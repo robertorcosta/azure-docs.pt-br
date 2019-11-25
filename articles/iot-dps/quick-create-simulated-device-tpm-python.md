@@ -1,23 +1,23 @@
 ---
-title: Provisionar um dispositivo simulado TPM no Hub IoT do Azure usando Python | Microsoft Docs
+title: 'Início Rápido: Provisionar um dispositivo TPM simulado ao Hub IoT do Azure usando Python'
 description: Início Rápido do Azure – Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento de Dispositivos no Hub IoT. Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 05/21/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: df12acad5fa9287f43cc256bfcc89fa6775c3e3b
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 423b04c15bcc2d73a33d7ecde736724168d28025
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001316"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904852"
 ---
-# <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo Python para o Serviço de Provisionamento de Dispositivos no Hub IoT
+# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Início Rápido: Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo Python para o Serviço de Provisionamento de Dispositivos no Hub IoT
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 

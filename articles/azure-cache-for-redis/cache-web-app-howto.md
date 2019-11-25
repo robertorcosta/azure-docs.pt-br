@@ -1,26 +1,18 @@
 ---
-title: Criar um aplicativo Web ASP.NET com o Cache do Azure para Redis | Microsoft Docs
+title: Criar um aplicativo Web ASP.NET com o Cache do Azure para Redis
 description: Neste início rápido, você aprenderá a criar um aplicativo Web ASP.NET com o Cache do Azure para Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326492"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122589"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Início Rápido: Use o Cache do Azure para Redis com um aplicativo Web ASP.NET 
 
@@ -111,7 +103,7 @@ Como o arquivo *CacheSecrets.config* não está implantado no Azure com seu apli
 * Antes: `<appSettings>`
 * Depois: `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
-O tempo de execução do ASP.NET mescla o conteúdo do arquivo externo com a marcação no elemento `<appSettings>` . O tempo de execução ignora o atributo de arquivo se o arquivo especificado não puder ser encontrado. Seus segredos (a cadeia de conexão do cache) não são incluídos como parte do código-fonte do aplicativo. Quando você implantar o aplicativo Web no Azure, o arquivo *CacheSecrets.config* não será implantado.
+O runtime do ASP.NET mescla o conteúdo do arquivo externo com a marcação no elemento `<appSettings>` . O runtime ignora o atributo de arquivo se o arquivo especificado não puder ser encontrado. Seus segredos (a cadeia de conexão do cache) não são incluídos como parte do código-fonte do aplicativo. Quando você implantar o aplicativo Web no Azure, o arquivo *CacheSecrets.config* não será implantado.
 
 ### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>Para configurar o aplicativo para usar o StackExchange.Redis
 

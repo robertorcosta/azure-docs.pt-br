@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/06/2019
-ms.openlocfilehash: 31b2322bdf7b7c03ae8974d57ee1b44c2f6137b9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: cce7562c74577f6fd545bcaed3ee3e0968fd40b4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607520"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132899"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Dimensionar um aplicativo no Azure Spring Cloud
 
@@ -31,11 +31,13 @@ Para concluir este tutorial, você precisará:
 
 1. Navegue até a página **Visão geral** do Azure Spring Cloud.
 
+1. Escolha o grupo de recursos que contém o serviço.
+
 1. Acesse a guia **Aplicativos** no título **Configurações** no menu do lado esquerdo.
 
 1. Selecione o aplicativo que deseja dimensionar. Neste exemplo, dimensionaremos o aplicativo denominado “account-service”. Isso deve direcionar você para a página **Visão geral** do aplicativo.
 
-1. Acesse a guia **Dimensionar** no título **Configurações** no menu do lado esquerdo. Você deve ver um formulário com linhas para cada um dos atributos de dimensionamento que mencionamos anteriormente.
+1. Acesse a guia **Dimensionar** no título **Configurações** no menu do lado esquerdo. Você deve ver as opções dos atributos de dimensionamento na seção a seguir.
 
 ## <a name="scale-your-application"></a>Dimensionar o aplicativo
 
@@ -45,9 +47,11 @@ Você pode modificar os atributos de dimensionamento. Tenha as seguintes observa
 
 * **Memória/GB**: a quantidade máxima de memória permitida é 8 GB por instância de aplicativo.  A quantidade total de memória para um aplicativo será o valor definido aqui multiplicado pelo número de instâncias do aplicativo.
 
-* **Contagem de instâncias**: você pode expandir até 20 instâncias na camada Standard. Esse valor altera o número de instâncias em execução separadas do aplicativos de microsserviço.
+* **Contagem de instâncias do aplicativo**: você pode expandir até 20 instâncias na camada Standard. Esse valor altera o número de instâncias em execução separadas do aplicativos de microsserviço.
 
-Clique no botão **Salvar** para aplicar suas configurações de dimensionamento.
+Lembre-se de clicar no botão **Salvar** para aplicar suas configurações de dimensionamento.
+
+![Serviço de dimensionamento no portal do Azure](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 Depois de alguns segundos, as alterações feitas serão exibidas na página **Visão geral**, com mais detalhes disponíveis na guia **Instâncias do aplicativo**. O dimensionamento não requer nenhuma alteração de código ou reimplantação.
 

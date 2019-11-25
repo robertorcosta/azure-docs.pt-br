@@ -9,18 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: f57d36f6f24aab44d13ea07d8706bf40b7dcf552
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2ec6e1d00d331a7bb8dd7182dd4b0c91dd3d25a7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72937335"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049085"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Comparar as opções do Azure IoT Central e do Azure IoT
 
 O Microsoft Azure IoT Central e o Azure IoT oferecem várias opções para a criação de uma solução de IoT. Essas opções são adequadas para diferentes conjuntos de requisitos do cliente:
 
-* O [Azure IoT Central](overview-iot-central.md) é uma solução SaaS (software como serviço) que usa uma abordagem baseada em modelo para ajudá-lo a criar soluções de IoT de nível empresarial sem a necessidade de experiência em desenvolvimento de soluções de nuvem.
+* [Azure IoT Central](overview-iot-central.md) é uma plataforma de aplicativo IoT que usa uma abordagem baseada em modelo para ajudar você a criar soluções IoT de nível corporativo sem precisar de conhecimento em desenvolvimento de solução de nuvem.
 
 * Os [aceleradores de solução do Azure IoT](https://docs.microsoft.com/azure/iot-accelerators/) é uma coleção de nível empresarial de [aceleradores de solução](../../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) criada no PaaS (plataforma como serviço) do Azure que ajuda você a acelerar o desenvolvimento de soluções personalizadas de IoT.
 
@@ -42,7 +42,7 @@ A tabela a seguir resume as principais diferenças entre os aceleradores de solu
 |     | Azure IoT Central | Aceleradores de solução de IoT do Azure |
 | --- | ----------- | --------- |
 | Uso principal                      | Para acelerar o tempo para colocação no mercado de soluções de IoT simples que não exigem personalização profunda de serviço.                                                    | Para acelerar o desenvolvimento de uma solução de IoT personalizada que precisa obter a máxima flexibilidade.                                                                                                                             |
-| Acesso a serviços PaaS subjacentes | SaaS. Como ele é uma solução totalmente gerenciada, os serviços subjacentes não são expostos.                                                                                            | Você tem acesso aos serviços do Azure subjacentes para gerenciá-los ou substituí-los conforme necessário.                                                                                                                    |
+| Acesso a serviços PaaS subjacentes | Como ele é uma solução totalmente gerenciada, os serviços subjacentes não são expostos.                                                                                            | Você tem acesso aos serviços do Azure subjacentes para gerenciá-los ou substituí-los conforme necessário.                                                                                                                    |
 | Flexibilidade                        | Média. Você pode usar a experiência do usuário baseada no navegador interno para personalizar o modelo da solução e os aspectos da interface do usuário. A infraestrutura não é personalizável porque os diferentes componentes não são expostos. | Alta. O código para os microsserviços é software livre e pode ser modificado da maneira que você desejar. Além disso, é possível personalizar a infraestrutura de implantação.                                               |
 | Nível de habilidade                        | Baixa. Você precisa de habilidades de modelagem para personalizar a solução. Nenhuma habilidade de codificação é necessária.                                                                          | Médio-alto. Você precisa ter habilidades em Java ou .NET para personalizar o back-end da solução. Você precisa de habilidades no JavaScript para personalizar a visualização.                                                                       |
 | Experiência de introdução             | Os modelos de aplicativo e de dispositivo fornecem modelos predefinidos. Podem ser implantados em minutos.                                                                                                  | Soluções pré-configuradas implementam cenários comuns de IoT. Podem ser implantados em minutos.                                                                                                                            |

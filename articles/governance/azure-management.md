@@ -2,15 +2,15 @@
 title: Visão geral do Gerenciamento do Azure - Governança do Azure
 description: Visão geral das áreas de gerenciamento de aplicativos do Azure e recursos com links para conteúdo sobre ferramentas de gerenciamento do Azure.
 ms.date: 12/06/2018
-ms.topic: article
-ms.openlocfilehash: e85d5162146fb716ed9f846dc5a828d83c669627
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
-ms.translationtype: MT
+ms.topic: overview
+ms.openlocfilehash: f91e439a5fb7c330fb29d300e83779083641875b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013915"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132834"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de gerenciamento no Azure
+# <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de gerenciamento do Azure
 
 A Governança no Azure é um aspecto do Gerenciamento do Azure. Este artigo aborda as diferentes áreas de gerenciamento para implantar e manter os recursos no Azure.
 
@@ -18,7 +18,7 @@ Gerenciamento refere-se às tarefas e processos necessários para manter seus ap
 
 O diagrama a seguir ilustra as diferentes áreas de gerenciamento que são necessárias para manter qualquer aplicativo ou recurso. Essas diferentes áreas podem ser pensadas como um ciclo de vida. Cada área é necessária em sequência contínua durante o tempo de vida de um recurso. Esse ciclo de vida do recurso começa com a implantação inicial, passando pela operação contínua e, finalmente, chegando na desativação.
 
-![Disciplinas de gerenciamento no Azure](../monitoring/media/management-overview/management-capabilities.png)
+![Disciplinas de gerenciamento do Azure](../monitoring/media/management-overview/management-capabilities.png)
 
 Nenhum serviço único do Azure preenche completamente os requisitos de uma área de gerenciamento específica. Em vez disso, cada qual é realizado por vários serviços que trabalham em conjunto. Alguns serviços, como o Application Insights, oferecem funcionalidade de monitoramento segmentado para aplicativos Web. Outros, como os logs do Azure Monitor, armazenam dados de gerenciamento para outros serviços. Esse recurso permite que você analise diferentes tipos de dados coletados por diversificados serviços.
 
@@ -36,7 +36,7 @@ A automação dessas tarefas permite eliminar a redundância, minimizando o temp
 ## <a name="govern"></a>Administrar
 
 Governança fornece mecanismos e processos para manter controle sobre seus aplicativos e recursos no Azure. Ela envolve planejar suas iniciativas e estabelecer prioridades estratégicas.
-Governança no Azure é implementada principalmente com dois serviços. O [Azure Policy](./policy/overview.md) permite criar, atribuir e gerenciar definições de política para impor regras aos recursos. Esse recurso mantém os recursos em conformidade com os padrões corporativos. O [Gerenciamento de custos do Azure](../cost-management/overview-cost-mgt.md) permite que você acompanhe o uso e as despesas da nuvem para seus recursos do Azure e outros provedores de nuvem.
+Governança no Azure é implementada principalmente com dois serviços. O [Azure Policy](./policy/overview.md) permite criar, atribuir e gerenciar definições de política para impor regras aos recursos. Esse recurso mantém os recursos em conformidade com os padrões corporativos. O [Gerenciamento de custos do Azure](../cost-management/overview-cost-mgt.md) permite acompanhar o uso da nuvem e as despesas dos recursos do Azure e de outros provedores de nuvem.
 
 ## <a name="secure"></a>Segurança
 

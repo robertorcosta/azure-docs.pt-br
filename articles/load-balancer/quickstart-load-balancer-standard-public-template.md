@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Criar um Standard Load Balancer – modelo do Azure Resource Manager'
-titlesuffix: Azure Load Balancer
+title: 'Início Rápido: Criar um balanceador de carga Standard – modelo do Azure'
+titleSuffix: Azure Load Balancer
 description: Este início rápido mostra como criar um Standard Load Balancer usando o modelo do Azure Resource Manager.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: ab55583d72297f2a1c72bac21e4414919f31b91b
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 884ba1106e7b68fefaf91ee4e25cacd05bf96fc0
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161376"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048744"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Início Rápido: Criar um Standard Load Balancer para balancear carga de VMs usando o modelo do Azure Resource Manager
 

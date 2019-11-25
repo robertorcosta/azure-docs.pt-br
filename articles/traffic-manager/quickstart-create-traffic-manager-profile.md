@@ -1,5 +1,5 @@
 ---
-title: Início Rápido – Criar um perfil do Gerenciador de Tráfego para alta disponibilidade dos aplicativos usando o portal do Azure
+title: 'Início Rápido: Criar um perfil para HA de aplicativos – portal do Azure – Gerenciador de Tráfego do Microsoft Azure'
 description: Este artigo de início rápido descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos Web altamente disponíveis.
 services: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b6a015c7462f082d5114a51d83cfacb0c550b026
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224687"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032705"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego usando o portal do Azure
 
@@ -42,7 +42,7 @@ Para esse início rápido, você precisará implantar duas instâncias de um apl
    - **Assinatura** > **Grupo de Recursos**: Selecione **Criar novo** e, em seguida, digite **myResourceGroupTM1**.
    - **Detalhes da Instância** > **Nome**: Digite *myWebAppEastUS*.
    - **Detalhes da Instância** > **Publicar**: Selecione **Código**.
-   - **Detalhes da Instância** > **Pilha de tempo de execução**: Selecione **ASP.NET v4.7**
+   - **Detalhes da Instância** > **Pilha de runtime**: Selecione **ASP.NET v4.7**
    - **Detalhes da Instância** > **Sistema Operacional**: Selecione **Windows**.
    - **Detalhes da instância** > **Região**:  Selecione **Leste dos EUA**.
    - **Plano do Serviço de Aplicativo** > **Plano do Windows (Leste dos EUA)** : Selecione **Criar novo** e, em seguida, digite **myAppServicePlanEastUS**

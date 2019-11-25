@@ -1,5 +1,5 @@
 ---
-title: Visão geral da redefinição de senha corporativa ou de estudante – Azure Active Directory | Microsoft Docs
+title: Visão geral da redefinição de senha corporativa ou de estudante – Azure AD
 description: Uma lista de links para artigos que ensinam como registrar e redefinir sua senha corporativa ou de estudante sem assistência do administrador.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15fbc526822f3b6659bc190ee67c6c17ff96b067
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160611"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028501"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Visão geral da redefinição de senha corporativa ou de estudante
 
@@ -34,5 +34,5 @@ Para obter informações detalhadas e instruções sobre como registrar sua cont
 
 |Artigo |DESCRIÇÃO |
 |------|------------|
-| [Registrar-se para redefinição de senha self-service](active-directory-passwords-reset-register.md) Instruções sobre como verificar seus métodos de autenticação e se inscrever na redefinição de senha self-service para que você possa redefinir sua própria senha.|
-| [Redefinir sua senha](active-directory-passwords-update-your-own-password.md) Instruções sobre como redefinir ou desbloquear sua senha para uma conta corporativa ou de estudante.|
+| [Registro de redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md) | Instruções sobre como verificar seus métodos de autenticação e se inscrever na redefinição de senha por autoatendimento para que você possa redefinir sua própria senha. |
+| [Redefinir sua senha](active-directory-passwords-update-your-own-password.md) | Instruções para redefinir ou desbloquear sua senha para uma conta corporativa ou de estudante. |

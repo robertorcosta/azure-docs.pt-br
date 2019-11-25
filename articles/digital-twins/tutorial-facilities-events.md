@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Capturar eventos de um espaço dos Gêmeos Digitais do Azure | Microsoft Docs'
+title: 'Tutorial: Capturar eventos de um espaço dos Gêmeos Digitais do Azure'
 description: Saiba como receber notificações de seus espaços integrando os Gêmeos Digitais do Azure ao Aplicativo Lógico do Azure usando as etapas deste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: 26976956722d77e2dfb8c17734c207b2667c0126
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 545e1757f4f3669957d8f6755cdbd9a2b29513b6
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949171"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129156"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações de espaços dos Gêmeos Digitais do Azure usando Aplicativos Lógicos
 
@@ -38,7 +38,7 @@ Este tutorial pressupõe que você [configurou](tutorial-facilities-setup.md) e 
 - Uma instância de Gêmeos Digitais em execução.
 - Os [exemplos de C# dos Gêmeos Digitais](https://github.com/Azure-Samples/digital-twins-samples-csharp) baixados e extraídos do seu computador de trabalho.
 - [SDK do .NET Core versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) no computador de desenvolvimento para executar o exemplo. Execute `dotnet --version` para verificar se a versão instalada é a correta.
-- Uma conta do Office 365 para enviar e-mails de notificação.
+- Uma conta do [Office 365](https://products.office.com/home) para enviar emails de notificação.
 
 > [!TIP]
 > Use um nome de instância dos Gêmeos Digitais exclusivo quando estiver provisionando uma nova instância.
@@ -63,7 +63,7 @@ Os [tópicos da grade de eventos](../event-grid/concepts.md#topics) fornecem uma
 
 1. Navegue até o tópico da grade de eventos a partir do grupo de recursos, selecione **Visão Geral** e copie o valor de **Ponto de Extremidade do Tópico** em um arquivo temporário. Você precisará dessa URL nas próximas seções. 
 
-1. Selecione **Chaves de acesso** e copie **YOUR_KEY_1** e **YOUR_KEY_2** para um arquivo temporário. Você precisará desses valores para criar o ponto de extremidade na próxima seção.
+1. Selecione **Chaves de acesso** e copie a **Chave 1** e a **Chave 2** em um arquivo temporário. Você precisará desses valores para criar o ponto de extremidade na próxima seção.
 
     [![Chaves da Grade de Eventos](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
@@ -85,9 +85,9 @@ Os [tópicos da grade de eventos](../event-grid/concepts.md#topics) fornecem uma
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Substitua o espaço reservado `<Primary connection string for your Event Grid>` pelo valor de **YOUR_KEY_1**.
+1. Substitua o espaço reservado `<Primary connection string for your Event Grid>` pelo valor da **Chave 1**.
 
-1. Substitua o espaço reservado `<Secondary connection string for your Event Grid>` pelo valor de **YOUR_KEY_2**.
+1. Substitua o espaço reservado `<Secondary connection string for your Event Grid>` pelo valor da **Chave 2**.
 
 1. Substitua o espaço reservado do **caminho** pelo caminho do tópico da grade de eventos. Obtenha esse caminho removendo o **https://** e os caminhos de recurso à direita da URL do **Ponto de Extremidade do Tópico**. Ele deve ficar aproximadamente com este formato: *seuNomedaGradedeEvento.seuLocal.eventgrid.azure.net*.
 
@@ -178,7 +178,7 @@ Você pode usar o serviço [Aplicativos Lógicos do Azure](../logic-apps/logic-a
 
    a. Selecione **Adicionar uma ação** e selecione **Outlook para Office 365**.
 
-   b. Na lista **Ações**, selecione **Enviar um email**. Selecione **Entrar** e use suas credenciais de conta de email. Selecione **Permitir acesso**, se solicitado.
+   b. Na lista **Ações**, selecione **Enviar um email (V2)** . Selecione **Entrar** e use suas credenciais de conta de email. Selecione **Permitir acesso**, se solicitado.
 
    c. Na caixa **Para**, insira a ID do email para receber notificações. Em **Assunto**, digite o texto **Notificação dos Gêmeos Digitais sobre a má qualidade do ar no espaço**. Em seguida, selecione **TopologyObjectId** na lista **Conteúdo dinâmico** de **Parse JSON**.
 

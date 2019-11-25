@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 669ebbf595629e8093c51d76b0816edeb5f80f93
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467237"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007597"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Usar o Personalizador no Azure Notebook
 
@@ -589,7 +589,7 @@ Para encontrar uma melhor política de aprendizado, com base em seus dados para 
 1. Insira os dados necessários, do nome da avaliação e do intervalo de datas para a avaliação do loop. O intervalo de datas deve incluir apenas os dias nos quais você está se concentrando para sua avaliação. 
     ![No portal do Azure, abra a página Avaliações do recurso Personalizador. Selecione Criar Avaliação. Insira o nome da avaliação e o intervalo de datas.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
-    A finalidade de executar essa avaliação offline é determinar se há uma melhor política de aprendizado para os recursos e as ações usadas neste loop. Para descobrir essa melhor política de aprendizado, verifique se a **Política de otimização** está ativada.
+    A finalidade de executar essa avaliação offline é determinar se há uma melhor política de aprendizado para os recursos e as ações usadas neste loop. Para descobrir essa política de aprendizado mais adequada, verifique se a **Descoberta de Otimização** está ativada.
 
 1. Selecione **OK** para iniciar a avaliação. 
 1. Esta página **Avaliações** lista a nova avaliação e o status atual dela. Dependendo da quantidade de dados que você tem, essa avaliação pode levar algum tempo. Você pode voltar para esta página depois de alguns minutos para ver os resultados. 

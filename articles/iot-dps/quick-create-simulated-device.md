@@ -1,20 +1,20 @@
 ---
-title: Provisionar um dispositivo simulado TPM no Hub IoT do Azure usando C | Microsoft Docs
+title: 'Início Rápido: Provisionar um dispositivo TPM simulado para o Hub IoT do Azure usando C'
 description: Este início rápido usa registros individuais. Neste início rápido, você criará e provisionará um dispositivo TPM simulado usando o SDK do dispositivo C para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3df1bd879c10411800596ce7157be4554fcffaf6
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908683"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903504"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Provisionar um dispositivo TPM simulado usando o SDK de C do IoT do Azure
 
@@ -220,4 +220,3 @@ Neste Guia de Início Rápido, você criou um dispositivo TPM simulado no seu co
 
 > [!div class="nextstepaction"]
 > [Guia de Início Rápido do Azure – Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT do Azure](quick-enroll-device-tpm-java.md)
-

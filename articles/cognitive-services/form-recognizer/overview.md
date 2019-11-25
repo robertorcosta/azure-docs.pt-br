@@ -1,7 +1,7 @@
 ---
 title: O que é o Reconhecimento de Formulários?
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar o Reconhecimento de Formulários para analisar dados de formulário e de tabela.
+description: O Reconhecimento de Formulários dos Serviços Cognitivos do Azure permite identificar e extrair pares chave-valor e dados de tabela de documentos de formulário.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 86e0494ded84e9711b2283ae5fad77ff626cf792
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594549"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904492"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 

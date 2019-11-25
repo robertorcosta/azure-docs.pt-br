@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo .NET no Service Fabric no Azure | Microsoft Docs
+title: Criar rapidamente um aplicativo .NET no Service Fabric do Azure
 description: Neste guia de início rápido, você cria um aplicativo .NET para o Azure usando o aplicativo de exemplo dos serviços confiáveis do Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 02c77d1a34a4dec8732b5fa2edb4d7a55e079c28
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: dfc8890d58763bd193f6a0b4137fc972d26beb9f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225190"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013209"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início Rápido: Implantar um aplicativo Reliable Services em .NET no Service Fabric
 
@@ -54,7 +54,7 @@ Para concluir este guia de início rápido:
     
 ## <a name="build-a-cluster"></a>Criar um cluster
 
-Depois de instalar o tempo de execução, os SDKs, as ferramentas do Visual Studio, Docker e estar com o Docker funcionando, crie um cluster de desenvolvimento local de cinco nós.
+Depois de instalar o runtime, os SDKs, as ferramentas do Visual Studio, Docker e estar com o Docker funcionando, crie um cluster de desenvolvimento local de cinco nós.
 
 > [!Note]
 > O motivo para ter o Docker em execução quando você cria o cluster é para que o cluster seja criado com recursos de contêiner habilitados. Se o Docker não estiver em execução, você terá que recriar o cluster para habilitar recursos de contêiner.

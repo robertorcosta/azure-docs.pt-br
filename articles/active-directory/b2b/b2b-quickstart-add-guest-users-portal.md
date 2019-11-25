@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 11/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91ec337a3237e1bde54b42463d97a803f113c7c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 064af4f54f3d3069c7e04a66cc7248dbfaa7ba0b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813129"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008545"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Início Rápido: adicionar usuários convidados ao diretório no portal do Azure
 
@@ -46,9 +46,13 @@ Para concluir o cenário deste tutorial, você precisa de:
 
     ![Captura de tela mostrando onde selecionar a opção Novo usuário convidado](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
-5.  Em **Nome de usuário**, insira o endereço de email do usuário externo. Em **Incluir uma mensagem pessoal com o convite**, digite uma mensagem de boas-vindas. 
+5. Na página **Novo usuário**, selecione **Convidar usuário** e adicione as informações do usuário convidado. 
 
-    ![Captura de tela mostrando onde inserir a mensagem de convite de usuário convidado](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+   - **Name.** O nome e o sobrenome do usuário convidado.
+   - **Endereço de email (obrigatório)** . O endereço de email do usuário convidado.
+   - **Mensagem pessoal (opcional)** Inclua uma mensagem pessoal de boas-vindas para o usuário convidado.
+   - **Grupos**: você pode adicionar o usuário convidado a um ou mais grupos existentes, ou pode fazer isso posteriormente.
+   - **Função do diretório**: se precisar de permissões administrativas do Azure AD para o usuário, você poderá adicioná-las a uma função do Azure AD. 
 
 6. Selecione **Convidar** para enviar automaticamente o convite ao usuário convidado. Uma notificação será exibida no canto superior direito com a mensagem **Usuário convidado com êxito**. 
 7.  Depois de enviar o convite, a conta de usuário é automaticamente adicionada ao diretório como convidado.

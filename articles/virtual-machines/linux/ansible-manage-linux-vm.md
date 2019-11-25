@@ -1,5 +1,5 @@
 ---
-title: Início Rápido – Gerenciar Máquinas Virtuais do Linux no Azure usando o Ansible | Microsoft Docs
+title: Início Rápido – Gerenciar Máquinas Virtuais do Linux no Azure usando o Ansible
 description: Neste Início Rápido, saiba como gerenciar uma Máquina Virtual do Linux no Azure usando o Ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: c4878902425a26086ad77647ea06568f2110ccfe
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: fb6c4c7c6f90aa4fb9ac566433c62690e51db20d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668630"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037038"
 ---
 # <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Início Rápido: Gerenciar Máquinas Virtuais do Linux no Azure usando o Ansible
 

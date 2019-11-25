@@ -1,5 +1,5 @@
 ---
-title: Visão geral da verificação de dois fatores e de sua conta corporativa ou de estudante – Azure Active Directory | Microsoft Docs
+title: Verificação de segurança e sua conta corporativa ou de estudante – Azure AD
 description: Saiba como configurar seus métodos de verificação de segurança para usar a verificação de dois fatores com sua conta corporativa ou de estudante.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8cda4b04a4555ed7747bb9444c2a5ec2e266573
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615993"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028459"
 ---
-# <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>Visão geral da verificação de dois fatores e de sua conta corporativa ou de estudante
+# <a name="two-factor-verification-and-your-work-or-school-account"></a>Verificação de dois fatores e sua conta corporativa ou de estudante
 
 Você recebeu um email de alguém da TI ou do seu chefe informando que a organização adicionou uma verificação de segurança adicional à sua conta. O que isso significa? Isso significa que sua organização está criando etapas extras para garantir que você é quem diz ser ao entrar na conta. Essa verificação extra, também conhecida como verificação de dois fatores, é feita por meio de uma combinação de seu nome de usuário, sua senha e um dispositivo móvel ou telefone.
 

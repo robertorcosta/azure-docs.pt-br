@@ -1,25 +1,25 @@
 ---
-title: Início rápido de Adicionar política de nomenclatura para grupos do Office 365 – Azure Active Directory | Microsoft Docs
+title: Início rápido da política de nomenclatura de grupo – Azure Active Directory | Microsoft Docs
 description: Explica como adicionar novos usuários no Azure Active Directory ou excluir usuários existentes dele
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 04/24/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 84e419ac5c3d292b7e630d1ebb3d3b9f59ef7b8a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734726"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026945"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início Rápido: política de nomenclatura para grupos no Azure Active Directory
 

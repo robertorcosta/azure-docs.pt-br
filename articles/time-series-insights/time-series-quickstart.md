@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Azure Time Series Insights Explorer | Microsoft Docs'
-description: Este guia de início rápido mostra como começar a usar o gerenciador do Azure Time Series Insights no navegador da Web para visualizar grandes volumes de dados de IoT. Conheça os principais recursos em um ambiente de demonstração.
+title: 'Início Rápido: Gerenciador do Azure Time Series Insights - Azure Time Series Insights | Microsoft Docs'
+description: Saiba como começar com o gerenciador do Azure Time Series Insights. Visualize grandes volumes de dados do IoT e faça um tour pelos principais recursos do seu ambiente.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/23/2019
-ms.openlocfilehash: 156e95c88bc3c66890ba9c8baf9b281330b60186
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0253a46cd73679c7c2f50a1e37d26d67578e342e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990901"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006429"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Início Rápido: Explorar o Azure Time Series Insights
 

@@ -173,11 +173,14 @@
           href: troubleshoot-recovery-disks-linux.md
         - name: Portal do Azure
           href: troubleshoot-recovery-disks-portal-linux.md
-- name: Erros de inicialização
-  href: boot-error-troubleshoot.md
+- name: Erros de inicialização no Linux
+  href: boot-error-troubleshoot-linux.md
   items:
     - name: Resgate do Grub
       href: troubleshoot-vm-boot-error.md
+- name: Erros de inicialização no Windows
+  href: boot-error-troubleshoot.md
+  items:
     - name: Diagnóstico de inicialização
       href: boot-diagnostics.md
     - name: Erros de BitLocker

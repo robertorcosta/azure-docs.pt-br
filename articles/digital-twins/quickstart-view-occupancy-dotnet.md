@@ -1,5 +1,5 @@
 ---
-title: Encontrar salas disponíveis – Gêmeos Digitais do Azure | Microsoft Docs
+title: 'Início Rápido: Encontre salas disponíveis – Gêmeos Digitais do Azure'
 description: Neste início rápido, você executará dois aplicativos de exemplo .NET Core para enviar telemetria simulada de movimento e de dióxido de carbono para um espaço nos Gêmeos Digitais do Azure. O objetivo é encontrar salas disponíveis com ar fresco nas APIs de Gerenciamento após o processamento computado na nuvem.
 ms.author: alinast
 author: alinamstanciu
@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 10/03/2019
-ms.openlocfilehash: 3c9a806b936b9f167d1700c95b1e769926abb17b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.date: 11/12/2019
+ms.openlocfilehash: 44ef646328f5f55d16dfa2d6906b78866292ebd9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958903"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123205"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início Rápido: Encontrar salas disponíveis usando os Gêmeos Digitais do Azure
 
@@ -59,6 +59,8 @@ Compile o aplicativo de ocupação usando as etapas a seguir.
     - **Tenant**: insira a ID do diretório do locatário do Azure AD também anotada na seção anterior.
     - **BaseUrl**: a URL da API de Gerenciamento de sua instância dos Gêmeos Digitais está no formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Substitua os espaços reservados nessa URL pelos valores da instância da seção anterior.
 
+    Salve o arquivo atualizado.
+
 ## <a name="provision-graph"></a>Grafo de provisão
 
 Esta etapa provisiona o grafo espacial dos Gêmeos Digitais com:
@@ -74,30 +76,32 @@ O grafo espacial é provisionado usando o arquivo [provisionSample.yaml](https:/
 1. Execute `dotnet run ProvisionSample`.
 
     >[!NOTE]
-    >A ferramenta de Logon do Dispositivo da CLI do Azure é usada para autenticar o usuário no Azure AD. O usuário precisa inserir um código especificado para fazer a autenticação usando a página de [logon da Microsoft](https://microsoft.com/devicelogin). Depois que o código for inserido, siga as etapas para se autenticar. O usuário deve fazer a autenticação quando a ferramenta estiver em execução.
+    >A ferramenta de Logon do Dispositivo da CLI do Azure é usada para autenticar o usuário no Azure AD. O usuário precisa inserir um código especificado para fazer a autenticação usando a página de [logon da Microsoft](https://microsoft.com/devicelogin). Após a inserção do código, execute as etapas para se autenticar. O usuário deve fazer a autenticação quando a ferramenta estiver em execução.
 
     >[!TIP]
     > Ao executar essa etapa, verifique se as variáveis foram copiadas corretamente caso apareça a seguinte mensagem de erro: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 1. A etapa de provisionamento pode levar alguns minutos. Ela também provisiona um Hub IoT em sua instância dos Gêmeos Digitais. Ela será repetida até que o Hub IoT exiba o Status=`Running`.
 
-    [![Exemplo de provisionamento](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
+    [![Provisionar o exemplo – Status = Em execução](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
 1. No final da execução, copie a `ConnectionString` do dispositivo para usar no exemplo do simulador de dispositivo. Copie apenas a cadeia de caracteres descrita nesta imagem.
 
-    [![Copiar a cadeia de conexão](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![Copiar a cadeia de conexão](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
 
     >[!TIP]
     > É possível exibir e modificar seu grafo espacial usando o [Visualizador de Grafos dos Gêmeos Digitais do Azure](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
+Mantenha a janela do console aberta para usá-la novamente depois.
+
 ## <a name="send-sensor-data"></a>Enviar dados de sensor
 
-Compile e execute o aplicativo do simulador de sensor seguindo estas etapas.
+Compile e execute o aplicativo do dispositivo simulador de sensor executando estas etapas.
 
-1. Abra um novo prompt de comando. Vá para o projeto que você baixou na pasta digital-twins-samples-csharp-master.
+1. Abra um novo prompt de comando. Acesse o projeto que você baixou na pasta `digital-twins-samples-csharp-master`.
 1. Execute `cd device-connectivity`.
 1. Execute `dotnet restore`.
-1. Edite [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) para atualizar **DeviceConnectionString** com a `ConnectionString` anterior.
+1. Edite [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) para atualizar **DeviceConnectionString** com a `ConnectionString` anterior. Salve o arquivo atualizado.
 1. Execute `dotnet run` para começar a enviar dados de sensor. Você verá que eles são enviados para os Gêmeos Digitais, conforme mostrado na imagem a seguir.
 
      [![Conectividade do dispositivo](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
@@ -115,28 +119,28 @@ O exemplo de sensor simula os valores de dados aleatórios para dois sensores. E
 1. Execute `dotnet run GetAvailableAndFreshSpaces`.
 1. Examine esse prompt de comando e o prompt de comando dos dados do sensor lado a lado.
 
-    Um prompt de comando envia os dados simulados de movimento e de dióxido de carbono para os Gêmeos Digitais a cada cinco segundos. O outro comando lê o grafo em tempo real para descobrir os ambientes disponíveis com ar fresco tendo como base dados simulados aleatórios. Ele exibe uma das seguintes condições quase em tempo real com base nos dados de sensor que foram enviados da última vez:
-   - Salas disponíveis com ar fresco.
-   - Sala ocupada ou ar de baixa qualidade.
+    O prompt de comando de dados do sensor envia dados simulados de movimento e de dióxido de carbono para os Gêmeos Digitais a cada cinco segundos. O outro prompt de comando lê o grafo em tempo real para descobrir os ambientes disponíveis com ar fresco tendo como base dados simulados aleatórios. Ele exibe uma das seguintes condições quase em tempo real com base nos dados de sensor que foram enviados da última vez:
+   - `Room is available and air is fresh`
+   - `Room is not available or air quality is poor`
 
      [![Obter espaços disponíveis com ar fresco](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
-Para entender o que aconteceu neste início rápido e quais APIs foram chamadas, abra o [Visual Studio Code](https://code.visualstudio.com/Download) com o projeto de workspace do código encontrado em digital-twins-samples-csharp. Use o seguinte comando:
+Para entender o que aconteceu neste início rápido e quais APIs foram chamadas, abra o [Visual Studio Code](https://code.visualstudio.com/Download) com o projeto de workspace do código encontrado em `digital-twins-samples-csharp`. Use o seguinte comando:
 
-```plaintext
+```cmd
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
 
 Os tutoriais se aprofundam no código. Eles ensinam como modificar dados de configuração e quais APIs são chamadas. Para obter mais informações sobre as APIs de Gerenciamento, vá para sua página do Swagger dos Gêmeos Digitais:
 
-```plaintext
+```URL
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
 | NOME | Substitua por |
 | --- | --- |
 | NOME_DA_SUA_INSTÂNCIA | O nome da instância dos Gêmeos Digitais |
-| SUA_LOCALIZAÇÃO | Em qual região do servidor de sua instância está hospedada |
+| SUA_LOCALIZAÇÃO | A região do servidor na qual sua instância está hospedada |
 
 Ou, para sua conveniência, navegue até o [Swagger dos Gêmeos Digitais](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
@@ -157,7 +161,7 @@ Para continuar nos tutoriais, não limpe os recursos criados neste início rápi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este início rápido usou um cenário simples para mostrar como encontrar salas com boas condições de trabalho. Para obter uma análise detalhada do cenário, confira este tutorial:
+Este início rápido usou um cenário simples e aplicativos de exemplo para mostrar como os Gêmeos Digitais podem ser usados para encontrar salas com boas condições de trabalho. Para obter uma análise detalhada do cenário, confira este tutorial:
 
 >[!div class="nextstepaction"]
 >[Tutorial: Implantar os Gêmeos Digitais do Azure e configurar um grafo espacial](tutorial-facilities-setup.md)

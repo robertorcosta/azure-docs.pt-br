@@ -1,5 +1,6 @@
 ---
-title: Início Rápido – criar um ponto de extremidade e perfil de rede de distribuição de conteúdo do Azure usando modelos do Resource Manager | Microsoft Docs
+title: Início Rápido – Criar um ponto de extremidade e perfil usando modelos do Resource Manager
+titleSuffix: Azure Content Delivery Network
 description: Saiba como criar um ponto de extremidade e perfil de rede de distribuição de conteúdo do Azure usando modelos do Resource Manager
 services: cdn
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: cbde4c7fd568e6d9ff9a0d90332da96926e08077
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b711a12161bc134bdcbb8c1f3e74f2e5ae06e701
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593144"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083132"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Início Rápido: Criar um ponto de extremidade e perfil de CDN do Azure usando um modelo do Resource Manager
 

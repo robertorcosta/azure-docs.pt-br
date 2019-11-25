@@ -1,23 +1,23 @@
 ---
-title: Este início rápido mostra como registrar os dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Azure usando Java | Microsoft Docs
+title: 'Início Rápido: Como inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Azure usando Java'
 description: Este início rápido usa os registros em grupo e individuais. Neste início rápido, você irá registrar dispositivos X.509 para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando Java.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/20/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3eec6628ca7dbc16e0cc01701620f1699ba8d368
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8a1accf232b022bc3028f91d2151c00b98969f1f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412764"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904774"
 ---
-# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Registrar dispositivos X.509 para o Serviço de Provisionamento de Dispositivos usando Java
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
@@ -58,7 +58,7 @@ As etapas a seguir mostram como adicionar os detalhes de provisionamento do disp
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. No código-fonte baixado, navegue até a pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Abra o arquivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** em um editor de sua escolha e adicione os seguintes detalhes:
+2. No código-fonte baixado, navegue até a pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** . Abra o arquivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** em um editor de sua escolha e adicione os seguintes detalhes:
 
     1. Adicione a `[Provisioning Connection String]` do serviço de provisionamento pelo portal desta forma:
         1. Navegue até seu serviço de provisionamento no [Portal do Azure](https://portal.azure.com). 
@@ -67,14 +67,14 @@ As etapas a seguir mostram como adicionar os detalhes de provisionamento do disp
 
             ![Obter a cadeia de conexão de provisionamento do portal](./media/quick-enroll-device-x509-java/provisioning-string.png)  
 
-        4. No arquivo de código de exemplo **_ServiceEnrollmentGroupSample.java_**, substitua a `[Provisioning Connection String]` por uma **cadeia de conexão de chave primária**.
+        4. No arquivo de código de exemplo **_ServiceEnrollmentGroupSample.java_** , substitua a `[Provisioning Connection String]` por uma **cadeia de conexão de chave primária**.
 
             ```Java
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
     2. Adicione o certificado raiz do grupo de dispositivos. Se precisar de um certificado raiz de exemplo, use a ferramenta _gerador de certificados X.509_ da seguinte maneira:
-        1. Em uma janela de comando, navegue até a pasta **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_**.
+        1. Em uma janela de comando, navegue até a pasta **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_** .
         2. Crie a ferramenta executando o seguinte comando:
 
                 ```cmd\sh
@@ -90,7 +90,7 @@ As etapas a seguir mostram como adicionar os detalhes de provisionamento do disp
 
         5. Quando solicitado, você pode inserir um _Nome Comum_ para seus certificados.
         6. A ferramenta gera localmente um **Certificado de Cliente**, a **Chave privada do certificado de cliente** e o **Certificado raiz**.
-        7. Copie o **Certificado raiz**, incluindo as linhas **_-----BEGIN CERTIFICATE-----_** e **_-----END CERTIFICATE-----_**. 
+        7. Copie o **Certificado raiz**, incluindo as linhas **_-----BEGIN CERTIFICATE-----_** e **_-----END CERTIFICATE-----_** . 
         8. Atribua o valor do **Certificado raiz** ao parâmetro **PUBLIC_KEY_CERTIFICATE_STRING** conforme mostrado abaixo:
 
                 ```Java
@@ -142,7 +142,7 @@ As etapas a seguir mostram como adicionar os detalhes de provisionamento do disp
 
 ## <a name="build-and-run-sample-group-enrollment"></a>Compilar e executar o registro do grupo de exemplo
 
-1. Abra uma janela de comando e navegue até a pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
+1. Abra uma janela de comando e navegue até a pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
 
 2. Compile o código de exemplo usando este comando:
 

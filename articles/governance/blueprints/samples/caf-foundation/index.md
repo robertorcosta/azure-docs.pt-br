@@ -1,14 +1,14 @@
 ---
 title: Exemplo de blueprint da Base do CAF – Visão Geral
-description: Visão geral e arquitetura do exemplo de blueprint da Base do CAF.
+description: Visão geral e arquitetura do exemplo de blueprint do CAF (Cloud Adoption Framework) para o Azure Foundation.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: a353f92be995412702a93219c8fb1af967368beb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2943d3327fe6ea3c935694118aaa995b8e96ace6
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038505"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404792"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Visão geral do exemplo de blueprint do Cloud Adoption Framework da Microsoft para o Azure Foundation
 
@@ -50,7 +50,7 @@ Para obter mais informações, confira o [Cloud Adoption Framework da Microsoft 
 Você revisou a visão geral e a arquitetura do exemplo de blueprint da Base do CAF.
 
 > [!div class="nextstepaction"]
->  [Blueprint da Base do CAF – Etapas de implantação](./deploy.md)
+> [Blueprint da Base do CAF – Etapas de implantação](./deploy.md)
 
 Outros artigos sobre blueprints e como usá-los:
 

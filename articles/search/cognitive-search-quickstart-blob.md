@@ -1,5 +1,5 @@
 ---
-title: Criar um conjunto de habilidades no portal do Azure
+title: 'Início Rápido: Criar um conjunto de habilidades no portal do Azure'
 titleSuffix: Azure Cognitive Search
 description: Use o assistente Importar dados para adicionar habilidades cognitivas a um pipeline de indexação. As habilidades cognitivas incluem o OCR (Reconhecimento de Caracteres Ópticos) e o processamento de linguagem natural.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 14d2751f55f3df26277b1210b9201eed61409c6b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2280b718fe949384bb67b1b606ab143ddca8e077
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792073"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113358"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de habilidades cognitivas da Pesquisa Cognitiva do Azure no portal do Azure
 

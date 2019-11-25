@@ -1,7 +1,7 @@
 ---
-title: Análise de sentimento usando a API REST de Análise de Texto dos Serviços Cognitivos do Azure
+title: Analisar o sentimento com a API REST de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Saiba como detectar sentimento usando a API REST de Análise de Texto.
+description: Este artigo mostrará como detectar sentimentos em texto com os Serviços Cognitivos da API REST de Análise de Texto.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494456"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031454"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemplo: Detectar o sentimento com a Análise de Texto
 
@@ -36,7 +36,7 @@ A análise de sentimento é executada em todo o documento, em vez de extrair o s
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Análise de Sentimento v3 em versão prévia pública
 
-A [próxima versão da Análise de Sentimento](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) agora está disponível em versão prévia pública. Ele fornece melhorias significativas na precisão e nos detalhes da pontuação e categorização de texto da API.
+A [próxima versão da Análise de Sentimento](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) agora está disponível em versão prévia pública. Ele fornece melhorias significativas na precisão e nos detalhes da pontuação e categorização de texto da API.
 
 > [!NOTE]
 > * O formato de solicitação e os [limites de dados](../overview.md#data-limits) da Análise de Sentimento v3 são os mesmos que os da versão anterior.

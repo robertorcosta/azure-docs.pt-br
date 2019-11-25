@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 366986f989fdd8d76b1707451c2a7cca2aa554cf
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719966"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889951"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
 > [!div class="op_single_selector"]
@@ -68,9 +68,7 @@ Para este tutorial, usamos um conjunto de dados interno de exemplo que pode ser 
 
 3. Continue para a próxima página.
 
-   ![Botão Próxima página da pesquisa cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
-
-### <a name="step-2---skip-cognitive-skills"></a>Etapa 2 – Ignorar Habilidades cognitivas
+### <a name="step-2---skip-the-enrich-content-page"></a>Etapa 2 – Pular a página "Enriquecer conteúdo"
 
 O assistente dá suporte à criação de um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) para incorporar os algoritmos de IA dos Serviços Cognitivos na indexação. 
 
@@ -104,7 +102,6 @@ Por padrão, o assistente procura na fonte de dados identificadores exclusivos c
 
 2. Continue para a próxima página.
 
-   ![Próxima página – Criar o indexador](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Etapa 4 – Configurar o indexador
 
@@ -127,6 +124,8 @@ Podem ser necessários alguns minutos para que o portal atualize a página, mas 
 ## <a name="view-the-index"></a>Exibir índice
 
 A página principal do serviço fornece links para os recursos criados em seu serviço da Pesquisa Cognitiva do Azure.  Para exibir o índice que você acabou de criar, clique em **Índices** na lista de links. 
+
+Aguarde a atualização da página do portal. Após alguns minutos, você deverá ver o índice com uma contagem de documentos e tamanho de armazenamento.
 
    ![Lista de índices no painel de serviço](media/search-get-started-portal/indexes-list.png)
 
@@ -154,7 +153,7 @@ O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API R
 
    ![Comando Search Explorer](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. Na lista suspensa **Índice**, escolha *hotels-sample*. Clique na lista suspensa **Versão da API** para ver quais APIs REST estão disponíveis. Para as consultas a seguir, use a versão disponível para uso geral (06/05/2019).
+2. Na lista suspensa **Índice**, escolha *hotels-sample-index*. Clique na lista suspensa **Versão da API** para ver quais APIs REST estão disponíveis. Para as consultas a seguir, use a versão disponível para uso geral (06/05/2019).
 
    ![Comandos de índice e API](media/search-get-started-portal/search-explorer-changeindex.png)
 

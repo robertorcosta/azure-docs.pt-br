@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários para .NET | Microsoft Docs'
-description: Introdução à biblioteca de clientes do Reconhecimento de Formulários para .NET.
+description: Introdução à biblioteca de clientes do Reconhecedor de Formulário para .NET para treinar, extrair, analisar e obter a saída de dados estruturados.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6d360939a0196d7e5dc651ecf9a01ef5cbd2f689
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264444"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904599"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários para .NET
 
@@ -43,7 +43,7 @@ Use a biblioteca de clientes do Reconhecimento de Formulários para .NET para:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Depois de obter uma chave do recurso ou da assinatura de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, chamada `FORM_RECOGNIZER_KEY`.
+Depois de obter uma chave da assinatura ou do recurso de avaliação, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamados `FORM_RECOGNIZER_KEY` e `FORM_RECOGNIZER_ENDPOINT`, respectivamente.
 
 ### <a name="create-a-new-c-application"></a>Criar um aplicativo em C#
 
@@ -120,7 +120,6 @@ Estes snippets de códigos mostram como realizar as seguintes tarefas com a bibl
 
 Antes de definir algum método, adicione as definições de variável a seguir à parte superior da classe **Program**. Você precisará preencher algumas das variáveis por conta própria. 
 
-* Você pode encontrar o valor do ponto de extremidade do serviço na seção **Visão geral** do portal do Azure. 
 * Para recuperar a URL de SAS para os dados de treinamento, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **Obter assinatura de acesso compartilhado**. Verifique se as permissões de **Leitura** e **Lista** estão marcadas e clique em **Criar**. Em seguida, copie o valor na seção **URL**. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Se você precisar de um formulário de exemplo para analisar, poderá usar um dos arquivos na pasta **Test** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Este guia usa apenas formulários em PDF.
 

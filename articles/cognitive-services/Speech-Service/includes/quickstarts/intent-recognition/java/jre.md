@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 441c938e9ab74eafecaf0f9188c0884696eccfae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2aa8311c9284d9aff3c50fcec30bc8ab9df6b11b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506112"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125398"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
+>
 > * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
 > * [Criar um aplicativo LUIS para obter uma chave de ponto de extremidade](../../../../quickstarts/create-luis.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
@@ -37,20 +38,20 @@ Carregue o projeto e abra o `Main.java`.
 Vamos adicionar um código que funciona como um esqueleto para o projeto.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-20,69-76)]
 
-## <a name="create-a-speech-configuration"></a>Criar uma configuração de fala
+## <a name="create-a-speech-configuration"></a>Criar uma configuração de Fala
 
 Antes de inicializar um objeto `IntentRecognizer`, é preciso criar uma configuração que use a região e a chave de ponto de extremidade LUIS. Inserir este código no bloco try/catch no principal
 
 Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
 > [!NOTE]
-> É importante usar a chave de ponto de extremidade LUIS e não as chaves de início ou de criação, pois apenas a chave do ponto de extremidade é válida para o reconhecimento de conversão de fala em intenção. Confira o artigo [Criar um aplicativo LUIS e obter uma chave de ponto de extremidade](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para ver instruções sobre como obter a chave correta.
+> É importante usar a chave de ponto de extremidade LUIS, e não as chaves de Início ou de Criação porque apenas a chave do ponto de extremidade é válida para o reconhecimento de conversão de fala em intenção. Confira o artigo [Criar um aplicativo LUIS e obter uma chave de ponto de extremidade](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para ver instruções sobre como obter a chave correta.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-## <a name="initialize-a-intentrecognizer"></a>Inicializar um IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntentRecognizer
 
-Agora vamos criar um `IntentRecognizer`. Insira esse código logo abaixo da configuração de fala.
+Agora, vamos criar um `IntentRecognizer`. Insira esse código logo abaixo da configuração de fala.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=30)]
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um LanguageUnderstandingModel e as intenções
@@ -60,13 +61,13 @@ Agora é preciso associar um `LanguageUnderstandingModel` ao reconhecedor de int
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
-No objeto `IntentRecognizer`, chame o método `recognizeOnceAsync()`. Esse método permite que o serviço de Fala saiba que você está enviando uma única expressão para reconhecimento e permite parar o reconhecimento assim que a frase for identificada.
+No objeto `IntentRecognizer`, chame o método `recognizeOnceAsync()`. Esse método permite que o Serviço de Fala saiba que você está enviando uma única expressão para reconhecimento e permite parar o reconhecimento, assim que a frase é identificada.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=41)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Exibir os resultados do reconhecimento (ou os erros)
 
-Quando o serviço de fala retornar o resultado do reconhecimento, você poderá utilizá-lo. Para manter a simplicidade, vamos imprimir o resultado no console.
+Quando o Serviço de Fala retornar o resultado do reconhecimento, você poderá utilizá-lo. Para manter a simplicidade, vamos imprimir o resultado no console.
 
 Abaixo da chamada para `recognizeOnceAsync()`, adicione este código: [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=44-65)]
 
@@ -76,7 +77,8 @@ Abaixo da chamada para `recognizeOnceAsync()`, adicione este código: [!code-jav
 
 ## <a name="check-your-code"></a>Verificar o código
 
-Neste momento, seu código deverá ter a seguinte aparência: (Adicionamos alguns comentários nesta versão) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
+Neste momento, seu código deverá ter a seguinte aparência:  
+(Adicionamos alguns comentários nesta versão) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar o aplicativo
 

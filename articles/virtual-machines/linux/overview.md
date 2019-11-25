@@ -1,5 +1,5 @@
 ---
-title: Visão geral das VMs do Linux no Azure | Microsoft Docs
+title: Visão geral das VMs do Linux no Azure
 description: Descreve os serviços de Computação, Armazenamento e Rede do Azure com máquinas virtuais Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 14ed21efec47e15663724bd782ad931903fb8f13
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dc0145e23b940f6aca9021186254b966592f343d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082415"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035350"
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
 O Microsoft Azure é uma coleção crescente de serviços de nuvem públicos e integrados, incluindo análise, máquinas virtuais, bancos de dados, dispositivo móvel, rede, armazenamento e Web&mdash;, sendo ideal para hospedar suas soluções.  O Microsoft Azure fornece uma plataforma de computação escalonável que lhe permite pagar apenas pelo que você usa, quando quiser, sem precisar investir em hardware local.  O Azure está pronto quando você está, para escalar suas soluções horizontal e verticalmente, em qualquer escala necessária para atender às necessidades de seus clientes.
@@ -68,7 +68,7 @@ Cada assinatura do Azure tem limites de cota padrão que podem afetar a implanta
 * [Limites de Serviço da assinatura do Azure](../../azure-subscription-service-limits.md)
 
 ## <a name="partners"></a>Parceiros
-A Microsoft trabalha junto com parceiros para garantir que as imagens disponíveis sejam atualizadas e otimizadas para um tempo de execução do Azure.  Para obter mais informações sobre os parceiros do Azure, confira os links a seguir:
+A Microsoft trabalha junto com parceiros para garantir que as imagens disponíveis sejam atualizadas e otimizadas para um runtime do Azure.  Para obter mais informações sobre os parceiros do Azure, confira os links a seguir:
 
 * Linux no Azure – [Distribuições endossadas](endorsed-distros.md)
 * SUSE – [Azure Marketplace – SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES?tab=Overview)

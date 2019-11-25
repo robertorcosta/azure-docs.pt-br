@@ -1,23 +1,23 @@
 ---
-title: Provisionar um dispositivo simulado X.509 no Hub IoT do Azure usando Java | Microsoft Docs
+title: 'Início Rápido: Provisionar um dispositivo simulado X.509 ao Hub IoT do Azure usando Java'
 description: Início Rápido do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento de Dispositivos no Hub IoT. Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 52fbef24e8a1b9fd7e0ade404c23a587c81d6b0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb7df108492d73e79b7f456a4c64063a2c6943de
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105991"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904821"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
+# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Início Rápido: Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Estas etapas mostram como simular um dispositivo X.509 no computador de desenvolvimento que executa o sistema operacional Windows e usam um exemplo de código para conectar este dispositivo simulado com o Serviço de Provisionamento do Dispositivo e o hub IoT. 
@@ -73,7 +73,7 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
     java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
     ```
 
-2. Insira **N** em _Do you want to input common name_. Copie para a área de transferência a saída de `Client Cert` de *-----BEGIN CERTIFICATE-----* até *-----END CERTIFICATE-----*.
+2. Insira **N** em _Do you want to input common name_. Copie para a área de transferência a saída de `Client Cert` de *-----BEGIN CERTIFICATE-----* até *-----END CERTIFICATE-----* .
 
    ![Gerador de certificado individual](./media/java-quick-create-simulated-device-x509/individual.png)
 

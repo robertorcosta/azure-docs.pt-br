@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 058cf516fd8d10cef1e1c93e5493f8c19bdc679d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4db9e1e812390f173da89a508c1dbc6782f4454f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607492"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120007"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -73,12 +73,10 @@ Planejamos adicionar suporte aos sistemas operacionais a seguir, então verifiqu
 A infraestrutura precisa dos seguintes itens para dar suporte à Área de Trabalho Virtual do Windows:
 
 * Um [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* Um Windows Server Active Directory em sincronia com o Azure Active Directory. Isso pode ser habilitado por meio do:
-  * Azure AD Connect
-  * Azure AD Domain Services
-     >[!NOTE]
-     >Se você usar o Azure AD Domain Services, os usuários precisarão ser obtidos no Azure Active Directory. No momento, não há suporte para o uso do Azure AD Domain Services com usuários obtidos no Windows Server AD.
-* Uma assinatura do Azure, contendo uma rede virtual que contenha o Windows Server Active Directory ou que esteja conectada a ele
+* Um Windows Server Active Directory em sincronia com o Azure Active Directory. Você pode configurar isso com um dos seguintes:
+  * Azure AD Connect (para organizações híbridas)
+  * Azure AD Domain Services (para organizações híbridas ou na nuvem)
+* Uma assinatura do Azure que contém uma rede virtual que contenha o Windows Server Active Directory ou que esteja conectada a ele
   
 As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ser:
 
@@ -100,7 +98,7 @@ As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windo
 >[!NOTE]
 >Abrir essas URLs é essencial para uma implantação da Área de Trabalho Virtual do Windows confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs são correspondentes apenas aos sites e recursos da Área de Trabalho Virtual do Windows e não incluem URLs para outros serviços como o Azure AD.
 
-A Área de Trabalho Virtual do Windows é composta por áreas de trabalho e aplicativos do Windows que você fornece aos usuários e pela solução de gerenciamento, que é hospedada pela Microsoft como um serviço no Azure. As áreas de trabalho e os aplicativos podem ser implantados em VMs (máquinas virtuais) em qualquer região do Azure. A solução de gerenciamento e os dados dessas VMs residirão nos Estados Unidos (região Leste dos EUA 2). Isso poderá resultar na transferência de dados para os Estados Unidos.
+A Área de Trabalho Virtual do Windows é composta por áreas de trabalho e aplicativos do Windows que você fornece aos usuários e pela solução de gerenciamento, que é hospedada pela Microsoft como um serviço no Azure. As áreas de trabalho e os aplicativos podem ser implantados em VMs (máquinas virtuais) em qualquer região do Azure. A solução de gerenciamento e os dados dessas VMs residirão nos Estados Unidos. Isso poderá resultar na transferência de dados para os Estados Unidos.
 
 Para otimizar o desempenho, verifique se a rede atende aos seguintes requisitos:
 
@@ -117,14 +115,16 @@ Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área 
 
 ## <a name="supported-virtual-machine-os-images"></a>Imagens compatíveis do sistema operacional da máquina virtual
 
-A Área de Trabalho Virtual do Windows dá suporte às seguintes imagens de sistema operacional:
+A Área de Trabalho Virtual do Windows é compatível com as seguintes imagens do sistema operacional x64:
 
-* Windows 10 Enterprise de várias sessões
-* Windows 10 Enterprise
+* Windows 10 Enterprise de várias sessões, versão 1809 ou posterior
+* Windows 10 Enterprise, versão 1809 ou posterior
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
+
+A Área de Trabalho Virtual do Windows não é compatível com as imagens do sistema operacional x86 (32 bits).
 
 As opções de automação e implantação disponíveis dependem do sistema operacional e da versão escolhidos, conforme mostrado na tabela a seguir: 
 

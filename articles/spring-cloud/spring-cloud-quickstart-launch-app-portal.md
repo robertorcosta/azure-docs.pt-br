@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: bc8b834e0dd128457910c46cc1a62382bbc28ee1
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39a249fb75249505189e2af4872c3a3f61ebe2af
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721577"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133234"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Início Rápido: Iniciar um aplicativo do Azure Spring Cloud usando o portal do Azure
 
@@ -56,14 +56,16 @@ az extension add --name spring-cloud
 
 1. Em um navegador da Web, abra [este link para o Azure Spring Cloud no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
 
-1. Selecione **Azure Spring Cloud** para ir para a página de visão geral. Selecione o botão **Criar** para começar.
-
-1. Preencha o formulário, considerando as seguintes diretrizes:
+1. Preencha o formulário na página **Criar** do Azure Spring Cloud.  Considere as seguintes diretrizes:
     - Nome do Serviço: especifique o nome da instância de serviço.  O nome deve ter entre 4 e 32 caracteres e pode conter apenas letras minúsculas, números e hifens.  O primeiro caractere do nome do serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
     - Assinatura: selecione a assinatura da qual você deseja que este recurso seja cobrado.  Verifique se essa assinatura foi adicionada à nossa lista de permissões do Azure Spring Cloud.
     - Grupo de recursos: a criação de grupos de recursos para novos recursos é uma melhor prática.
     - Localização: selecione a localização de sua instância de serviço. No momento, os locais com suporte incluem o Leste dos EUA, Oeste dos EUA 2, Oeste da Europa e Sudeste Asiático.
-    
+
+1. Clique em **Examinar e criar**.
+
+1. Verifique suas especificações e clique em **Criar**.
+
 Leva cerca de 5 minutos para o serviço ser implantado.  Depois de implantada, a página **Visão Geral** da instância de serviço será exibida.
 
 ## <a name="set-up-your-configuration-server"></a>Definir seu servidor de configuração
@@ -72,7 +74,7 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Depois de implantada, a
 
 1. Na seção **Repositório padrão**, defina **URI** como "https\://github.com/Azure-Samples/piggymetrics", defina **RÓTULO** como "config" e selecione **Aplicar** para salvar as alterações.
 
-    ![Captura de tela do portal do ASC](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+    ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Compilar e implantar aplicativos de microsserviço
 

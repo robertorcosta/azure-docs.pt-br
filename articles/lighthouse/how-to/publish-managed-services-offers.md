@@ -1,18 +1,14 @@
 ---
 title: Publicar uma oferta de serviços gerenciados no Azure Marketplace
 description: Saiba como publicar uma oferta de serviço gerenciado que integre os clientes ao gerenciamento de recursos delegados do Azure.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 10/17/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 4b2ce1253fd4421b36105fdbae68c6e89173a3c6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 29f17e6227d3c50a4d9fe13f7525ac71f7550632
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615473"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131297"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicar uma oferta de serviços gerenciados no Azure Marketplace
 
@@ -81,10 +77,10 @@ Por fim, adicione uma ou mais entradas de **Autorização** ao plano. As autoriz
 
 Para cada **Autorização**, você precisará fornecer o seguinte. Em seguida, você pode selecionar **Nova autorização** quantas vezes forem necessárias para adicionar mais definições de usuários e funções.
 
-  - **ID do Objeto do Azure AD**: o identificador Azure AD de um usuário, grupo de usuários ou aplicativo que receberá determinadas permissões (conforme descrito pela definição de função) relativas aos recursos dos clientes.
-  - **Nome de exibição do objeto do Azure AD**: um nome amigável para ajudar o cliente a entender a finalidade da autorização. O cliente verá esse nome ao delegar recursos.
-  - **Definição de Função**: Selecione uma das funções internas do Azure AD disponíveis na lista. Essa função determinará as permissões que o usuário no campo **ID do Objeto do Azure AD** terá nos recursos dos clientes. Para obter descrições dessas funções, confira [Funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) e [Suporte de função para o gerenciamento de recursos delegados do Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
-  - **Funções atribuíveis**: Isso será necessário apenas se você tiver selecionado Administrador de Acesso do Usuário na **Definição de Função** para essa autorização. Nesse caso, você deve adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de objeto do Azure AD** poderá atribuir essas **Funções atribuíveis** às [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), necessárias para [implantar políticas que possam ser corrigidas](deploy-policy-remediation.md). Observe que nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário. Se você não selecionar uma ou mais funções aqui, seu envio não será aprovado na certificação. (Se você não selecionou Administrador de Acesso do Usuário para a Definição de Função desse usuário, o campo não terá efeito.)
+- **ID do Objeto do Azure AD**: o identificador Azure AD de um usuário, grupo de usuários ou aplicativo que receberá determinadas permissões (conforme descrito pela definição de função) relativas aos recursos dos clientes.
+- **Nome de exibição do objeto do Azure AD**: um nome amigável para ajudar o cliente a entender a finalidade da autorização. O cliente verá esse nome ao delegar recursos.
+- **Definição de Função**: Selecione uma das funções internas do Azure AD disponíveis na lista. Essa função determinará as permissões que o usuário no campo **ID do Objeto do Azure AD** terá nos recursos dos clientes. Para obter descrições dessas funções, confira [Funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) e [Suporte de função para o gerenciamento de recursos delegados do Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
+- **Funções atribuíveis**: Isso será necessário apenas se você tiver selecionado Administrador de Acesso do Usuário na **Definição de Função** para essa autorização. Nesse caso, você deve adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de objeto do Azure AD** poderá atribuir essas **Funções atribuíveis** às [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), necessárias para [implantar políticas que possam ser corrigidas](deploy-policy-remediation.md). Observe que nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário. Se você não selecionar uma ou mais funções aqui, seu envio não será aprovado na certificação. (Se você não selecionou Administrador de Acesso do Usuário para a Definição de Função desse usuário, o campo não terá efeito.)
 
 > [!TIP]
 > Na maioria dos casos, é melhor atribuir permissões a um grupo de usuários ou entidade de serviço do Azure AD, em vez de a uma série de contas de usuário individuais. Assim você pode adicionar ou remover o acesso de usuários individuais sem precisar atualizar e publicar o plano novamente quando os requisitos de acesso forem alterados. Para obter recomendações adicionais, confira [Locatários, funções e usuários em cenários do Azure Lighthouse](../concepts/tenants-users-roles.md).
@@ -141,64 +137,19 @@ Depois de adicionar essas informações, selecione **Salvar.**
 
 Depois de concluir todas as seções, a próxima etapa é publicar a oferta no Azure Marketplace. Selecione o botão **Publicar** para iniciar o processo de ativação da oferta. Para saber mais sobre esse processo, confira [Publicar ofertas do Azure Marketplace e do AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
 
+Você pode [publicar uma versão atualizada de sua oferta](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer) a qualquer momento. Por exemplo, talvez você queira adicionar uma nova definição de função a uma oferta publicada anteriormente. Quando você fizer isso, os clientes que já tiverem adicionado a oferta verão um ícone na página [**Provedores de serviço**](view-manage-service-providers.md) no portal do Azure avisando que há uma atualização disponível. Cada cliente poderá [examinar as alterações](view-manage-service-providers.md#update-service-provider-offers) e decidir se querem atualizar para a nova versão. 
+
 ## <a name="the-customer-onboarding-process"></a>O processo de integração do cliente
 
-Quando um cliente adiciona sua oferta, ele poderá [delegar uma ou mais assinaturas ou grupos de recursos específicos](view-manage-service-providers.md#delegate-resources) que serão integrados no gerenciamento de recursos delegados do Azure. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, ele verá uma observação na parte superior da seção **Ofertas de provedores** da página [**Provedores de serviço**](view-manage-service-providers.md) no portal do Azure. Se um usuário do locatário do cliente não puder realizar essa delegação, provavelmente ele não terá a função Proprietário na assinatura. Para localizar os usuários que podem delegar a assinatura, o usuário poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+Após o cliente adicionar a oferta, ele poderá [delegar uma ou mais assinaturas ou grupos de recursos específicos](view-manage-service-providers.md#delegate-resources), que serão integrados para gerenciamento de recursos delegados do Azure. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, ele verá uma observação na parte superior da seção **Ofertas de provedores** da página [**Provedores de serviço**](view-manage-service-providers.md) no portal do Azure.
 
-Antes que uma assinatura (ou grupo de recursos dentro de uma assinatura) possa ser integrada, ela deve ser autorizada para integração ao ser registrada manualmente no provedor de recursos **Microsoft.ManagedServices**. Um usuário no locatário do cliente com a função Colaborador ou Proprietário pode fazer isso seguindo as etapas descritas em [Provedores e tipos de recursos do Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+> [!IMPORTANT]
+> A delegação deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) na assinatura que está sendo integrada (ou que contém os grupos de recursos para integração). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
-O cliente pode confirmar que a assinatura está pronta para integração com uma das maneiras a seguir.
+Depois que o cliente delegar uma assinatura (ou um ou mais grupos de recursos em uma assinatura), o provedor de recursos **Microsoft.Managedservices** será registrado para essa assinatura, e os usuários em seu locatário poderão acessar os recursos delegados de acordo com as autorizações da oferta.
 
-### <a name="azure-portal"></a>Portal do Azure
-
-1. No portal do Azure, selecione a assinatura.
-1. Selecione **Provedores de recursos**.
-1. Confirme se o **Microsoft.ManagedServices** é exibido como **Registrado**.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-Deve retornar uma resposta semelhante à seguinte:
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### <a name="azure-cli"></a>CLI do Azure
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-Deve retornar uma resposta semelhante à seguinte:
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> Neste momento, as assinaturas (ou grupos de recursos em uma assinatura) não poderão ser delegadas se a assinatura usar Azure Databricks. Da mesma forma, se uma assinatura (ou grupos de recursos dentro de uma assinatura) já tiver sido delegada, não será possível criar espaços de trabalho do Databricks nessa assinatura.
 
 ## <a name="next-steps"></a>Próximas etapas
 

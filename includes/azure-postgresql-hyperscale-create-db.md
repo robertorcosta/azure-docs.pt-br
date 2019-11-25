@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71279880"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73986215"
 ---
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -26,7 +26,7 @@ Entre no [Portal do Azure](https://portal.azure.com).
 Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreSQL:
 1. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
 2. Selecione **Bancos de Dados** na página **Novo** e selecione **Banco de Dados do Azure para PostgreSQL** na página **Bancos de Dados**.
-3. Para a opção de implantação, clique no botão **Criar** em **grupo de servidores Hyperscale (Citus) - VISUALIZAÇÃO.**
+3. Para a opção de implantação, clique no botão **Criar** em **grupo de servidores Hyperscale (Citus).**
 4. Preencha o formulário de detalhes sobre o novo servidor com as seguintes informações:
    - Grupo de recursos: clique no link **Criar novo** abaixo da caixa de texto desse campo. Insira um nome como **myresourcegroup**.
    - Nome do grupo de servidores: digite um nome exclusivo para o novo grupo de servidores que também poderá ser usado para um subdomínio do servidor.

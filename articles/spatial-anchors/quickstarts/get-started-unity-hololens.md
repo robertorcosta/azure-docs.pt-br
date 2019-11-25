@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56f9901a1468207a295f8223e990f7a926b2d76e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e8196c9561465930fc9723c9b8f8a0d02668ef5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561419"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114087"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Início Rápido: criar um aplicativo Unity para HoloLens que usa as Âncoras Espaciais do Azure
 
@@ -78,7 +78,7 @@ Na pasta, clique duas vezes em **HelloAR U3D.sln** para abrir o projeto no Visua
 
 Altere a **Configuração da Solução** para **Lançamento**, altere a **Plataforma da Solução** para **x86** e selecione **Dispositivo** das opções de destino de implantação.
 
-Se estiver usando o HoloLens 2, use o **ARM** como a **Plataforma de Solução**, em vez de **x86**.
+Se estiver usando o HoloLens 2, use o **ARM64** como a **Plataforma de Solução**, em vez de **x86**.
 
    ![Configuração do Visual Studio](./media/get-started-unity-hololens/visual-studio-configuration.png)
 

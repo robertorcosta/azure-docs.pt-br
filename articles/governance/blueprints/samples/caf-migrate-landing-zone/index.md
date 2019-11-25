@@ -1,14 +1,14 @@
 ---
 title: Exemplo de blueprint da zona de aterrissagem de Migração do CAF – Visão geral
-description: Visão geral e arquitetura do exemplo de blueprint da zona de aterrissagem de migração do CAF.
+description: Visão geral e arquitetura do exemplo de blueprint da zona de destino do CAF (Cloud Adoption Framework) para o Azure Migration.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: cba1eb6d4761ae8e236f22fa22ff08c129d9637e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e007c7af4d788016d74f085ba39b63ee218d6de0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038457"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404763"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Visão geral do exemplo de blueprint da zona de aterrissagem de migração do Cloud Adoption Framework da Microsoft para o Azure
 
@@ -43,7 +43,7 @@ Para obter mais informações, confira o [Cloud Adoption Framework da Microsoft 
 Você revisou a visão geral e arquitetura do exemplo de blueprint da zona de aterrissagem da Migração do CAF.
 
 > [!div class="nextstepaction"]
->  [Blueprint da zona de aterrissagem de Migração do CAF – Etapas de implantação](./deploy.md)
+> [Blueprint da zona de aterrissagem de Migração do CAF – Etapas de implantação](./deploy.md)
 
 Outros artigos sobre blueprints e como usá-los:
 

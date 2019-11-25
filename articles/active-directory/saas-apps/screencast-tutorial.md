@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Screencast-O-Matic | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Screencast-O-Matic | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Screencast-O-Matic.
 services: active-directory
 documentationCenter: na
@@ -13,38 +13,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/14/2019
+ms.date: 11/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73a29e106424fe87596bf196c16e9ea190da2d72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc887e95b6fa6f8b17fbbb3dbaae5105385a07fa
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091384"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132142"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Tutorial: Integração do Azure Active Directory com o Screencast-O-Matic
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-screencast-o-matic"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Screencast-O-Matic
 
-Neste tutorial, você aprenderá a integrar o Screencast-O-Matic ao Azure AD (Azure Active Directory).
-A integração do Screencast-O-Matic ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o Screencast-O-Matic ao Azure AD (Azure Active Directory). Ao integrar o Screencast-O-Matic ao Azure AD, você poderá:
 
-* No Azure AD, é possível controlar quem tem acesso ao Screencast-O-Matic.
-* É possível permitir que os usuários sejam automaticamente conectados ao Screencast-O-Matic (logon único) com suas contas do Microsoft Azure Active Directory.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar quem tem acesso ao Screencast-O-Matic.
+* Permitir que os usuários sejam automaticamente conectados ao Screencast-O-Matic com suas contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Screencast-O-Matic, você precisa dos seguintes itens:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Uma assinatura habilitada para logon único do Screencast-O-Matic
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Uma assinatura habilitada para SSO (logon único) do Screencast-O-Matic.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Screencast-O-Matic dá suporte ao SSO iniciado por **SP**
 * O Screencast-O-Matic é compatível com o provisionamento de usuário **Just-In-Time**
@@ -53,160 +51,120 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Screencast-O-Matic ao Azure AD, é necessário adicionar o Screencast-O-Matic à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-**Para adicionar o Screencast-O-Matic da galeria, execute as seguintes etapas:**
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, digite **Screencast-O-Matic** na caixa de pesquisa.
+1. Escolha **Screencast-O-Matic** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-screencast-o-matic"></a>Configurar e testar o logon único do Azure AD para o Screencast-O-Matic
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o Screencast-O-Matic por meio de um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Screencast-O-Matic.
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+Para configurar e testar o SSO do Azure AD com o Screencast-O-Matic, conclua os seguintes blocos de construção:
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Screencast-O-Matic](#configure-screencast-o-matic-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    * **[Criar um usuário de teste do Screencast-O-Matic](#create-screencast-o-matic-test-user)** – para ter um equivalente de Brenda Fernandes no Screencast-O-Matic vinculado à representação do usuário no Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, digite **Screencast-O-Matic**, selecione **Screencast-O-Matic** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Screencast-O-Matic**, localize a seção **Gerenciar** e escolha **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
-    ![Screencast-O-Matic na lista de resultados](common/search-new-app.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
-
-Nesta seção, você configurará e testará o logon único do Microsoft Azure Active Directory com o Screencast-O-Matic, com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Microsoft Azure Active Directory e o usuário relacionado do Screencast-O-Matic.
-
-Para configurar e testar o logon único do Azure AD com o Screencast-O-Matic, você precisará concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Screencast-O-Matic](#configure-screencast-o-matic-single-sign-on)** : para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Screencast-O-Matic](#create-screencast-o-matic-test-user)** : para ter um equivalente de Brenda Fernandes no Screencast-O-Matic vinculado à representação do usuário no Microsoft Azure Active Directory.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Microsoft Azure Active Directory com o Screencast-O-Matic, execute as seguintes etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Screencast-O-Matic**, clique em **Logon Único**.
-
-    ![Link Configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
-
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
-
-    ![Informações de logon único de Domínio e URLs do Screencast-O-Matic](common/sp-signonurl.png)
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://screencast-o-matic.com/<InstanceName>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [Equipe de suporte do Cliente Screencast Matic O](mailto:support@screencast-o-matic.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Download** para baixar o **XML de metadados** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Screencast-O-Matic**, copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Screencast-O-Matic**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-    b. Identificador do Azure AD
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-    c. URL de logoff
-
-### <a name="configure-screencast-o-matic-single-sign-on"></a>Configurar o logon único do Screencast-O-Matic
-
-1. Em outra janela do navegador da Web, faça logon no Screencast-O-Matic como administrador.
-
-2. Clique em **Assinatura**.
-
-    ![A Assinatura](./media/screencast-tutorial/tutorial_screencast_sub.png)
-
-3. Na seção **página Acesso**, clique em **Instalação**.
-
-    ![O Acesso](./media/screencast-tutorial/tutorial_screencast_setup.png)
-
-4. Na **Página de Acesso da Instalação**, execute as seguintes etapas:
-
-   * Na seção **URL de acesso**, digite o nome de instância na caixa de texto especificada.
-
-    ![O Acesso](./media/screencast-tutorial/tutorial_screencast_access.png)
-
-   * Selecione **Exigir Usuário do Domínio** na seção **Restrição de Usuário SAML (opcional)** .
-
-   * Em **Carregar arquivo XML de metadados IDP**, clique em **Escolher Arquivo** para carregar os metadados que você baixou do portal do Azure.
-
-   * Clique em **OK**.
-
-    ![O Acesso](./media/screencast-tutorial/tutorial_screencast_save.png)
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
-
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
-
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome**, insira **BrendaFernandes**.
-  
-    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Screencast-O-Matic.
+Nessa seção, você permitirá que B.Fernandes use o logon único do Azure ao conceder a ela o acesso ao Screencast-O-Matic.
 
-1. No portal do Azure, escolha **Aplicativos Empresariais**, escolha **Todos os Aplicativos** e, em seguida, escolha **Screencast-O-Matic**.
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Matic O Screencast**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+   ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-2. Na lista de aplicativos, selecione **Matic O Screencast**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link do Screencast-O-Matic na lista de aplicativos](common/all-applications.png)
+    ![O link Adicionar Usuário](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
+## <a name="configure-screencast-o-matic-sso"></a>Configurar o SSO do Screencast-O-Matic
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Para automatizar a configuração no Screencast-O-Matic, é necessário instalar a **Extensão de navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
 
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Após a adição da extensão ao navegador, um clique em **Configurar o Screencast-O-Matic** direcionará você ao aplicativo Screencast-O-Matic. Nele, forneça as credenciais de administrador para entrar no Screencast-O-Matic. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 11.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+    ![Configuração da instalação](common/setup-sso.png)
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Caso deseje configurar o Screencast-O-Matic manualmente, abra uma nova janela do navegador da Web, entre em seu site de empresa do Screencast-O-Matic como administrador e execute as seguintes etapas:
+
+1. Clique em **Assinatura**.
+
+    ![A Assinatura](./media/screencast-tutorial/tutorial_screencast_sub.png)
+
+1. Na seção **página Acesso**, clique em **Instalação**.
+
+    ![O Acesso](./media/screencast-tutorial/tutorial_screencast_setup.png)
+
+1. Na **Página de Acesso da Instalação**, execute as seguintes etapas.
+
+1. Na seção **URL de acesso**, digite o nome de instância na caixa de texto especificada.
+
+    ![O Acesso](./media/screencast-tutorial/tutorial_screencast_access.png)
+
+1. Selecione **Exigir Usuário do Domínio** na seção **Restrição de Usuário SAML (opcional)** .
+
+1. Em **Carregar arquivo XML de metadados IDP**, clique em **Escolher Arquivo** para carregar os metadados que você baixou do portal do Azure.
+
+1. Clique em **OK**.
+
+    ![O Acesso](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### <a name="create-screencast-o-matic-test-user"></a>Criar um usuário de teste do Screencast-O-Matic
 
-Nesta seção, um usuário chamado Brenda Fernandes é criado no Screencast-O-Matic. O Screencast-O-Matic é compatível com o provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se o usuário ainda não existir no Screencast-O-Matic, será criado um novo usuário após a autenticação. Se você precisar criar um usuário manualmente, contate a  [equipe de suporte ao Cliente do Screencast-O-Matic](mailto:support@screencast-o-matic.com).
+Nesta seção, um usuário chamado Brenda Fernandes é criado no Screencast-O-Matic. O Screencast-O-Matic é compatível com o provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se o usuário ainda não existir no Screencast-O-Matic, será criado um novo usuário após a autenticação. Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao Cliente do Screencast-O-Matic](mailto:support@screencast-o-matic.com).
 
-### <a name="test-single-sign-on"></a>Testar logon único
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -214,8 +172,10 @@ Ao clicar no bloco Screencast-O-Matic no Painel de Acesso, você deve ser conect
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o Screencast-O-Matic com o Azure AD](https://aad.portal.azure.com/)

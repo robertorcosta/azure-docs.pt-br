@@ -10,19 +10,18 @@ ms.topic: overview
 description: Introdução ao Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c96115f2eba6f8c8a028251d146ca3f766eba044
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: c87aee26f5f9a4c3f919150a22a8b2f5a7b57352
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305464"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889746"
 ---
 # <a name="azure-dev-spaces"></a>Espaços de Desenvolvimento do Azure
 
-O Azure Dev Spaces é uma experiência de desenvolvimento rápida e iterativa do Kubernetes para equipes em clusters do AKS (Serviço de Kubernetes do Azure). Você pode colaborar com sua equipe em um cluster do AKS compartilhado. O Azure Dev Spaces também permite testar todos os componentes do aplicativo no AKS sem replicar ou simular dependências. Você pode executar iterativamente e depurar contêineres diretamente no AKS com a configuração mínima do computador de desenvolvimento.
+O Azure Dev Spaces oferece uma experiência de desenvolvimento rápida e iterativa do Kubernetes para equipes em clusters do AKS (Serviço de Kubernetes do Azure). O Azure Dev Spaces também permite depurar e testar todos os componentes do seu aplicativo no AKS com uma configuração mínima do computador de desenvolvimento, sem replicar ou simular dependências.
 
 ![](media/azure-dev-spaces/collaborate-graphic.gif)
-
 
 ## <a name="how-azure-dev-spaces-simplifies-kubernetes-development"></a>Como Azure Dev Spaces simplifica o desenvolvimento de Kubernetes
 
@@ -43,7 +42,7 @@ Para obter mais informações sobre como funciona o Azure Dev Spaces, confira [C
 
 ## <a name="supported-regions-and-configurations"></a>Configurações e regiões com suporte
 
-O Azure Dev Spaces só é compatível com os clusters do AKS nas regiões **Leste dos EUA**, **Leste dos EUA 2**, **EUA Central**, **Centro-Sul dos EUA**, **Oeste dos EUA 2**, **Europa Setentrional**, **Oeste da Europa**, **Sul do Reino Unido**, **Sudeste Asiático**, **Leste da Austrália**, **Canadá Central** e **Leste do Canadá**. O Azure Dev Spaces dá suporte ao uso da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou do [Visual Studio Code](https://code.visualstudio.com/download) com a [extensão do Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) instalada no Linux, no MacOS ou no Windows 8 ou posterior para criar e executar aplicativos no AKS. Ele também dá suporte à utilização do [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) instalado no Windows 8 ou posterior. Para o Visual Studio 2019, você precisará da carga de trabalho de Desenvolvimento do Azure. No caso do Visual Studio 2017, você precisará da carga de trabalho de Desenvolvimento da Web e das [Ferramentas do Visual Studio para Kubernetes](https://aka.ms/get-vsk8stools).
+O Azure Dev Spaces só é compatível com os clusters do AKS nas regiões **Leste dos EUA**, **Leste dos EUA 2**, **EUA Central**, **Centro-Sul dos EUA**, **Oeste dos EUA 2**, **Europa Setentrional**, **Oeste da Europa**, **Sul do Reino Unido**, **Pacífico Asiático**, **Sudeste Asiático**, **Leste da Austrália**, **Canadá Central** e **Leste do Canadá**. O Azure Dev Spaces dá suporte ao uso da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou do [Visual Studio Code](https://code.visualstudio.com/download) com a [extensão do Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) instalada no Linux, no MacOS ou no Windows 8 ou posterior para criar e executar aplicativos no AKS. Ele também dá suporte à utilização do [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) instalado no Windows 8 ou posterior. Para o Visual Studio 2019, você precisará da carga de trabalho de Desenvolvimento do Azure. No caso do Visual Studio 2017, você precisará da carga de trabalho de Desenvolvimento da Web e das [Ferramentas do Visual Studio para Kubernetes](https://aka.ms/get-vsk8stools).
 
 ## <a name="next-steps"></a>Próximas etapas
 

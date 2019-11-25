@@ -1,23 +1,23 @@
 ---
-title: Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando Java | Microsoft Docs
+title: 'Início Rápido: Inscrever o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando Java'
 description: Início Rápido do Azure – Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço Java. Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/20/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: ae1fbd93b26838b262dc6f07081f20b63e853d5c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88ce16a658e760f69cdf17c9bb4de78fceca927a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104736"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903459"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Início Rápido: Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
@@ -32,7 +32,7 @@ Certifique-se de [configurar o Serviço de Provisionamento de Dispositivos do Hu
 
 1. Certifique-se de ter o [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado no computador. 
 
-2. Configure variáveis de ambiente para a instalação do Java. A variável `PATH` deve incluir o caminho completo para o diretório *jdk1.8.x\bin*. Se esta for a primeira instalação do Java do seu computador, crie uma variável de ambiente chamada `JAVA_HOME` e aponte-a para o caminho completo até o diretório *jdk1.8.x*. No computador Windows, esse diretório está localizado na pasta *C:\\Arquivos de Programas\\Java\\*, e você pode criar ou editar variáveis de ambiente procurando **Editar as variáveis de ambiente do sistema** no **Painel de Controle** do seu computador Windows. 
+2. Configure variáveis de ambiente para a instalação do Java. A variável `PATH` deve incluir o caminho completo para o diretório *jdk1.8.x\bin*. Se esta for a primeira instalação do Java do seu computador, crie uma variável de ambiente chamada `JAVA_HOME` e aponte-a para o caminho completo até o diretório *jdk1.8.x*. No computador Windows, esse diretório está localizado na pasta *C:\\Arquivos de Programas\\Java\\* , e você pode criar ou editar variáveis de ambiente procurando **Editar as variáveis de ambiente do sistema** no **Painel de Controle** do seu computador Windows. 
 
    Verifique se o Java foi instalado com sucesso em seu computador executando o seguinte comando na janela de comando:
 
@@ -63,7 +63,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. No código-fonte baixado, navegue até a pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**. Abra o arquivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** em um editor de sua escolha e adicione os seguintes detalhes:
+2. No código-fonte baixado, navegue até a pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** . Abra o arquivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** em um editor de sua escolha e adicione os seguintes detalhes:
 
    1. Adicione o `[Provisioning Connection String]` do serviço de provisionamento do portal desta forma:
        1. Navegue até seu serviço de provisionamento no [Portal do Azure](https://portal.azure.com). 
@@ -72,7 +72,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
 
            ![Obter a cadeia de conexão de provisionamento do portal](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
 
-       4. No arquivo de código de exemplo **_ServiceEnrollmentSample.java_**, substitua o `[Provisioning Connection String]` por uma **cadeia de conexão de chave primária**.
+       4. No arquivo de código de exemplo **_ServiceEnrollmentSample.java_** , substitua o `[Provisioning Connection String]` por uma **cadeia de conexão de chave primária**.
     
            ```Java
            private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
@@ -80,7 +80,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
 
    2. Adicione os detalhes do dispositivo TPM:
        1. Obtenha a *ID de registro* e a *chave de endosso do TPM* para uma simulação de dispositivo TPM, seguindo as etapas que levam à seção [Simular dispositivo TPM](quick-create-simulated-device.md#simulatetpm).
-       2. Use a **_ID de Registro_** e a **_Chave de Endosso_** da saída da etapa anterior para substituir o `[RegistrationId]` e `[TPM Endorsement Key]` no arquivo de código de exemplo **_ServiceEnrollmentSample.java_**:
+       2. Use a **_ID de Registro_** e a **_Chave de Endosso_** da saída da etapa anterior para substituir o `[RegistrationId]` e `[TPM Endorsement Key]` no arquivo de código de exemplo **_ServiceEnrollmentSample.java_** :
         
            ```Java
            private static final String REGISTRATION_ID = "[RegistrationId]";
@@ -117,7 +117,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
 
 ## <a name="build-and-run-the-java-sample-code"></a>Compilar e executar o código de exemplo do Java
 
-1. Abra uma janela de comando e navegue até a pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**.
+1. Abra uma janela de comando e navegue até a pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** .
 
 2. Compile o código de exemplo usando este comando:
 
