@@ -2,7 +2,7 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: Visão geral da Política do Azure
+    - name: O que é a Política do Azure?
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
 - name: Guia de início rápido
