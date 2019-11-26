@@ -4,60 +4,60 @@ description: Descreve como exibir as operações de implantação do Azure Resou
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: d8daf7191bb22f7c7057f6ef6b220a18868872cc
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 23687ddcfb7911a999ee06ac8df8badf341b41d9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149575"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484200"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>Exibir histórico de implantação com Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>View deployment history with Azure Resource Manager
 
-Azure Resource Manager permite que você exiba seu histórico de implantação e examine operações específicas em implantações anteriores. Você pode ver os recursos que foram implantados e obter informações sobre quaisquer erros.
+Azure Resource Manager enables you to view your deployment history and examine specific operations in past deployments. You can see the resources that were deployed, and get information about any errors.
 
 Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 
-Para obter detalhes sobre uma implantação do histórico de implantação.
+To get details about a deployment from the deployment history.
 
-1. Selecione o grupo de recursos que você deseja examinar.
+1. Select the resource group you want to examine.
 
-1. Selecione o link em **implantações**.
+1. Select the link under **Deployments**.
 
-   ![Selecionar histórico de implantação](./media/resource-manager-deployment-operations/select-deployment-history.png)
+   ![Select deployment history](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
-1. Selecione uma das implantações do histórico de implantação.
+1. Select one of the deployments from the deployment history.
 
    ![Selecionar a implantação](./media/resource-manager-deployment-operations/select-details.png)
 
-1. Um resumo da implantação é exibido, incluindo uma lista dos recursos que foram implantados.
+1. A summary of the deployment is displayed, including a list of the resources that were deployed.
 
     ![Resumo da implantação](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
-1. Para exibir o modelo usado para a implantação, selecione **modelo**. Você pode baixar o modelo para reutilizá-lo.
+1. To view the template used for the deployment, select **Template**. You can download the template to reuse it.
 
     ![Mostrar modelo](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
-1. Se sua implantação falhou, você verá uma mensagem de erro. Selecione a mensagem de erro para obter mais detalhes.
+1. If your deployment failed, you see an error message. Select the error message for more details.
 
-    ![Exibir falha na implantação](./media/resource-manager-deployment-operations/show-error.png)
+    ![View failed deployment](./media/resource-manager-deployment-operations/show-error.png)
 
-1. A mensagem de erro detalhada é exibida.
+1. The detailed error message is displayed.
 
-    ![Exibir detalhes do erro](./media/resource-manager-deployment-operations/show-details.png)
+    ![View error details](./media/resource-manager-deployment-operations/show-details.png)
 
-1. A ID de correlação é usada para rastrear eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para solucionar problemas de implantação.
+1. The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
 
-    ![Obter ID de correlação](./media/resource-manager-deployment-operations/get-correlation-id.png)
+    ![Get correlation ID](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
-1. Para saber mais sobre a etapa que falhou, selecione **detalhes da operação**.
+1. To learn more about the step that failed, select **Operation details**.
 
-    ![Selecionar operações de implantação](./media/resource-manager-deployment-operations/select-deployment-operations.png)
+    ![Select deployment operations](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
-1. Você verá os detalhes dessa etapa da implantação.
+1. You see the details for that step of the deployment.
 
-    ![Mostrar detalhes da operação](./media/resource-manager-deployment-operations/show-operation-details.png)
+    ![Show operation details](./media/resource-manager-deployment-operations/show-operation-details.png)
 
 ## <a name="powershell"></a>PowerShell
 
@@ -75,7 +75,7 @@ Ou você pode filtrar os resultados para mostrar somente as implantações que f
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-A ID de correlação é usada para rastrear eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para solucionar problemas de implantação. Para obter a ID de correlação, use:
+The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment. Para obter a ID de correlação, use:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
@@ -121,7 +121,7 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-Observe serviceRequestId e trackingId para a operação. serviceRequestId pode ser útil ao trabalhar com o suporte técnico para solucionar um problema de implantação. Você usará o TrackingID na próxima etapa para se concentrar em uma operação específica.
+Observe serviceRequestId e trackingId para a operação. serviceRequestId pode ser útil ao trabalhar com o suporte técnico para solucionar um problema de implantação. You'll use the trackingId in the next step to focus on a particular operation.
 
 Para obter a mensagem de status de uma determinada operação com falha, use o seguinte comando:
 
@@ -137,7 +137,7 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Cada operação de implantação no Azure inclui conteúdo da solicitação e resposta. Durante a implantação, você pode usar o parâmetro **DeploymentDebugLogLevel** para especificar que a solicitação e/ou a resposta são registradas.
+Cada operação de implantação no Azure inclui conteúdo da solicitação e resposta. During deployment, you can use **DeploymentDebugLogLevel** parameter to specify that the request and/or response are logged.
 
 Você obtém informações do log e salva-as localmente usando os seguintes comandos do PowerShell:
 
@@ -147,15 +147,15 @@ Você obtém informações do log e salva-as localmente usando os seguintes coma
 (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 ```
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 
-Para obter o status geral de uma implantação, use o comando **Azure Group Deployment show** .
+To get the overall status of a deployment, use the **azure group deployment show** command.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-A ID de correlação é usada para rastrear eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para solucionar problemas de implantação.
+The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
@@ -169,7 +169,7 @@ az group deployment operation list -g ExampleGroup -n ExampleDeployment
 
 ## <a name="rest"></a>REST
 
-Para obter informações sobre uma implantação, use a operação [obter informações sobre uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments) .
+The following example shows how to get information about a deployment. For documentation about the latest API version, see the [Deployments - Get](/rest/api/resources/deployments/get) operation.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -192,7 +192,7 @@ Na resposta, observe em particular os elementos **provisioningState**, **correla
 }
 ```
 
-Para obter informações sobre implantações, use [listar todas as operações de implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments). 
+The following example shows how to get deployment operations. For documentation about the latest API version, see the [Deployment Operations - List](/rest/api/resources/deploymentoperations/list) operation.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -225,7 +225,7 @@ A resposta inclui informações de solicitação e/ou resposta com base no que f
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre como usar os logs de atividades para monitorar outros tipos de ação, confira [View activity logs to manage Azure resources](resource-group-audit.md) (Exibir logs de atividades para gerenciar recursos do Azure).
 * Para validar sua implantação antes de executá-la, consulte [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).

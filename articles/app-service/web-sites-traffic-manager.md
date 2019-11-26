@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a1f377c3325797f2f55f051830014b1068c51327
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2cd53c3c0b3e9acbb8a5a88c7696e8b3089c50c9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405585"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483388"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controle do tráfego do Serviço de Aplicativo do Azure com o Gerenciador de Tráfego do Azure
 > [!NOTE]
@@ -34,7 +34,7 @@ Você pode usar o Gerenciador de Tráfego do Azure para controlar como as solici
 ## <a name="routing-methods"></a>Métodos de roteamento
 O Gerenciador de Tráfego do Azure usa quatro métodos diferentes de roteamento. Esses métodos são descritos na lista a seguir, já que pertencem a aplicativos do Serviço de Aplicativo do Azure.
 
-* **[Prioridade](../traffic-manager/traffic-manager-routing-methods.md#priority):** use um aplicativo primário para todo o tráfego e forneça backups caso o backup primário ou os aplicativos de backup não estejam disponíveis.
+* **[Prioridade](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method):** use um aplicativo primário para todo o tráfego e forneça backups caso o backup primário ou os aplicativos de backup não estejam disponíveis.
 * **[Ponderada](../traffic-manager/traffic-manager-routing-methods.md#weighted):** distribua tráfego em um conjunto de aplicativos, seja uniformemente ou acordo com pesos, o que você definir.
 * **[Desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance):** quando você tiver aplicativos em diferentes localizações geográficas, use o aplicativo "mais próximo" em termos da menor latência de rede.
 * **[Geográfico](../traffic-manager/traffic-manager-routing-methods.md#geographic):** direcionar os usuários para aplicativos específicos com base em qual localização geográfica a consulta DNS se origina. 

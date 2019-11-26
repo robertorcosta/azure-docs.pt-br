@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 26a951ffaf0253371ffe69c6df798120f0464082
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881905"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462623"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analisar sua mídia usando o portal do Azure 
 
 > [!IMPORTANT]
-> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
+> Review the [retirement plans](media-services-analytics-overview.md#retirement-plans) of some media processors.
 
 ## <a name="overview"></a>Visão Geral
 A Análise dos Serviços de Mídia do Azure é uma coleção de componentes de fala e visão (em escala empresarial, conformidade, segurança e alcance global) que facilitam para as organizações e empresas obterem ideias práticas de seus arquivos de vídeo. Para maiores detalhes da Análise de Serviços de Mídia do Azure consulte [esse](media-services-analytics-overview.md) tópico. 
@@ -54,15 +54,11 @@ O idioma natural a ser reconhecido no arquivo de multimídia. Por exemplo, ingl�
 
 ### <a name="captions"></a>Legendas
 Você pode escolher um formato de legenda que será gerado do seu conteúdo. Um trabalho de indexação pode gerar arquivos de legenda oculta nos seguintes formatos:  
-
-* **SAMI**
+ 
 * **TTML**
 * **WebVTT**
 
 Arquivos de CC (Legenda Oculta) nesses formatos podem ser usados para tornar os arquivos de áudio e vídeo acessíveis para pessoas com deficiência auditiva.
-
-### <a name="aib-file"></a>Arquivo AIB
-Selecione esta opção se você deseja gerar o Arquivo de blob de índice de áudio para uso com o IFilter personalizado do SQL Server. Para saber mais, confira [este](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
 ### <a name="keywords"></a>Palavras-chave
 Selecione esta opção se você gostaria de gerar um arquivo XML de palavras-chave. Esse arquivo contém palavras-chave extraídas do conteúdo de fala, com informações de frequência de compensação.

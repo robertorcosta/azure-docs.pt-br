@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: dbfa1752f275417c19ada9a7f76e01be6f00397e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5e52d60a6cf1d6c8fc248ca8ad8ab7199f5ce885
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214595"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483575"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -50,8 +50,8 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 | name | Multi-tenant limit | Integration service environment limit | Notas |
 |------|--------------------|---------------------------------------|-------|
-| Duração da execução | 90 dias | 365 dias | To change the default limit, see [change run duration](#change-duration). |
-| Retenção de armazenamento | 90 dias a partir da hora de início de execução | 365 dias | To change the default limit, see [change storage retention](#change-retention). |
+| Duração da execução | 90 dias | 366 days | To change the default limit, see [change run duration](#change-duration). |
+| Retenção de armazenamento | 90 dias a partir da hora de início de execução | 366 days | To change the default limit, see [change storage retention](#change-retention). |
 | Intervalo de recorrência mínimo | 1 segundo | 1 segundo ||
 | Intervalo de recorrência máximo | 500 dias | 500 dias ||
 |||||
@@ -61,13 +61,17 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Alterar a duração de execução e a retenção de armazenamento
 
-To change the default limit for run duration and storage retention, follow these steps. Se você precisar ultrapassar o limite máximo, [entre em contato com a equipe do Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com suas necessidades.
+To change the default limit for run duration and storage retention, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
-1. No Portal do Azure, no menu do aplicativo lógico, escolha **Configurações de fluxo de trabalho**.
+1. In the Azure portal, on your logic app's menu, select **Workflow settings**.
 
-2. Em **Opções de runtime**, na lista **Retenção histórica de execuções em dias** , escolha **Personalizado**.
+1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
-3. Digite ou arraste o controle deslizante para o número de dias que você deseja.
+1. Enter or drag the slider for the number of days that you want. 
+
+   > [!NOTE]
+   > For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+   > For logic apps in an integration service environment, you can decreause or increase the 90-day default limit.
 
 <a name="looping-debatching-limits"></a>
 

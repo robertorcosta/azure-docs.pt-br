@@ -1,24 +1,19 @@
 ---
-title: Obter logs e eventos de contêiner com as Instâncias de Contêiner do Azure
+title: Get container instance logs & events
 description: Saiba como depurar com logs e eventos de contêiner com as Instâncias de Contêiner do Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 57d35b9423fd8c64e5a58ee4d8055aa3b238ba8c
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325964"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481751"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperar logs e eventos de contêiner nas Instâncias de Contêiner do Azure
 
-Quando você tiver um contêiner com comportamento inadequado, comece exibindo seus logs com [AZ container logs][az-container-logs]e transmitindo seu erro padrão e padrão com [AZ container Attach][az-container-attach].
+When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
 
 ## <a name="view-logs"></a>Exibir logs
 
@@ -50,7 +45,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ## <a name="attach-output-streams"></a>Anexar fluxos de saída
 
-O comando [AZ container Attach][az-container-attach] fornece informações de diagnóstico durante a inicialização do contêiner. Depois que o contêiner for iniciado, ele transmite STDOUT e STDERR para o console local.
+The [az container attach][az-container-attach] command provides diagnostic information during container startup. Depois que o contêiner for iniciado, ele transmite STDOUT e STDERR para o console local.
 
 Por exemplo, aqui está a saída do contêiner com base em tarefa na [Executar uma tarefa em contêineres em ACI](container-instances-restart-policy.md), depois de ter fornecido a uma URL válida para processar um arquivo de texto grande:
 
@@ -147,7 +142,7 @@ A saída inclui as propriedades principais do contêiner, juntamente com eventos
   ...
 }
 ```
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba como [solucionar problemas de contêiner e implantação](container-instances-troubleshooting.md) nas Instâncias de Contêiner do Azure.
 
 <!-- LINKS - Internal -->

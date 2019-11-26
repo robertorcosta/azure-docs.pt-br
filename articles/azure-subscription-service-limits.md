@@ -10,12 +10,12 @@ ms.service: cost-management-billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: ed08a457ac00da7b40dc267cc1eb3b61db9df297
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 08c459a3c32b44df2d9e5cf783087dd34d660292
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224442"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463326"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura e limites de serviço, cotas e restrições do Azure
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Over time, the list will be expanded and updated to cover more services.
@@ -76,6 +76,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Hubs de Eventos](#event-hubs-limits)
 * [Front Door Service](#azure-front-door-service-limits)
 * [Identity Manager](#identity-manager-limits)
+* [Centro de IoT](#iot-central-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Serviço de Provisionamento de Dispositivos no Hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -329,6 +330,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### <a name="service-bus-limits"></a>Limites de Barramento de Serviço
 [!INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+### <a name="iot-central-limits"></a>IoT Central limits
+[!INCLUDE [iot-central-limits](../includes/iot-central-limits.md)]
 
 ### <a name="iot-hub-limits"></a>Limites do Hub IoT
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]

@@ -2,13 +2,13 @@
 title: Práticas de segurança recomendadas
 description: Ao usar o gerenciamento de recursos delegados do Azure, é importante considerar a segurança e o controle de acesso.
 ms.date: 07/11/2019
-ms.topic: overview
-ms.openlocfilehash: e0f0a9d4cdd56ff1bca9b9faf493d3e0d68e558c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132460"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463889"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
@@ -40,7 +40,7 @@ Depois de criar esses grupos, é possível atribuir usuários conforme necessár
 Tenha em mente que, quando você [integrar clientes por meio de uma oferta pública de serviço gerenciado](../how-to/publish-managed-services-offers.md), qualquer grupo (ou entidade de serviço ou usuário) que você incluir terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir grupos diferentes para trabalhar com cada cliente, será necessário publicar um plano privado separado que seja exclusivo para cada cliente ou integrar clientes individualmente usando modelos do Azure Resource Manager. Por exemplo, você pode publicar um plano público com acesso muito limitado e, em seguida, trabalhar com o cliente diretamente para integrar seus recursos para acesso adicional usando um Modelo de Recurso do Azure personalizado que concede acesso adicional, conforme necessário.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Implantar Autenticação Multifator do Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
-- Saiba mais sobre [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
+- Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).

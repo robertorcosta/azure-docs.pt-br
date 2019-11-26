@@ -2,17 +2,17 @@
 title: Azure Lighthouse em cenários empresariais
 description: As funcionalidades do Azure Lighthouse podem ser usadas para simplificar o gerenciamento entre locatários dentro de uma empresa que usa vários locatários do Azure AD.
 ms.date: 09/25/2019
-ms.topic: overview
-ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132506"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463908"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
 
-O cenário mais comum para o [Azure Lighthouse](../overview.md) é um provedor de serviços que gerencia recursos nos locatários do Azure AD (Azure Active Directory) de seus clientes. No entanto, as funcionalidades do Azure Lighthouse também podem ser usadas para simplificar o gerenciamento entre locatários dentro de uma empresa que usa vários locatários do Azure AD.
+The most common scenario for [Azure Lighthouse](../overview.md) is a service provider managing resources in its customers’ Azure  Active Directory (Azure AD) tenants. No entanto, as funcionalidades do Azure Lighthouse também podem ser usadas para simplificar o gerenciamento entre locatários dentro de uma empresa que usa vários locatários do Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Locatários únicos versus múltiplos
 
@@ -24,7 +24,7 @@ Ao mesmo tempo, há situações que podem exigir que uma organização mantenha 
 
 Ao centralizar as operações de gerenciamento em vários locatários, será necessário determinar qual locatário incluirá os usuários que executam operações de gerenciamento para os outros locatários. Em outras palavras, será necessário determinar qual locatário será o locatário de gerenciamento para outros locatários.
 
-Por exemplo, digamos que sua organização tem um único locatário que chamaremos de *Locatário A*. Sua organização adquire dois locatários adicionais, *Locatário B* e *Locatário C*, e você tem motivos empresariais que exigem a manutenção deles como locatários separados.
+For example, say your organization has a single tenant that we’ll call *Tenant A*. Your organization then acquires two additional tenants, *Tenant B* and *Tenant C*, and you have business reasons that require you to maintain them as separate tenants.
 
 Sua organização deseja usar as mesmas definições de política, práticas de backup e processos de segurança entre todos os locatários. Como você já tem usuários (incluindo grupos de usuários e entidades de serviço) responsáveis por realizar essas tarefas no Locatário A, é possível integrar todas as assinaturas dentro do Locatário B e do Locatário C para que esses mesmos usuários no Locatário A possam executar essas tarefas.
 
@@ -56,7 +56,7 @@ Por exemplo, no exemplo descrito acima, o Locatário A pode ser pensado como um 
 
 Nesse exemplo, os usuários do Locatário A com as permissões adequadas podem [exibir e gerenciar recursos delegados](../how-to/view-manage-customers.md) na página **Meus clientes** do portal do Azure. Da mesma forma, os usuários dos Locatários B e C com as permissões adequadas podem [exibir e gerenciar os recursos que foram delegados](../how-to/view-manage-service-providers.md) ao Locatário A na página **Provedores de serviço** do portal do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
 - Saiba mais sobre o [Gerenciamento de recursos delegados do Azure](azure-delegated-resource-management.md).
