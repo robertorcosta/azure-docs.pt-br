@@ -40,7 +40,7 @@ Siga as etapas abaixo para instalar ou atualizar manualmente as extensões do po
 
 1. Retorne à guia **Visão geral** no portal, escolha **Iniciar** para iniciar o aplicativo de funções.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

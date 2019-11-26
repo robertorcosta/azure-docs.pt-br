@@ -15,7 +15,7 @@ ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 2f8ba53080b10568a3ac74e9ad2a81114e1c7c93
 ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206700"
@@ -31,7 +31,7 @@ O Azure é apoiado pela infraestrutura que executa o Windows Server 2016. O Wind
 >
 > Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 A precisão de um relógio de computador é medida na proximidade do relógio do computador com o padrão de hora UTC (Tempo Universal Coordenado). O UTC é definido por uma amostra multinacional de relógios atômicos precisos que só pode ser desligada em um segundo em 300 anos. Mas ler o UTC diretamente requer um hardware especializado. Em vez disso, os servidores de horário são sincronizados com o UTC e acessados de outros computadores para fornecer escalabilidade e robustez. Todo computador tem o serviço de sincronização de tempo em execução que sabe a que horas os servidores devem ser usados e verifica periodicamente se o relógio do computador precisa ser corrigido e ajusta o tempo, se necessário. 
 
@@ -71,7 +71,7 @@ Para confirmar que o NTP está sincronizando corretamente, execute o comando `nt
 
 ### <a name="host-only"></a>Somente do host 
 
-Como os servidores NTP como time.windows.com e ntp.ubuntu.com são públicos, sincronizar o tempo com eles requer o envio de tráfego pela Internet. Varying packet delays can negatively affect quality of the time sync. Removing NTP by switching to host-only sync can sometimes improve your time sync results.
+Como os servidores NTP como time.windows.com e ntp.ubuntu.com são públicos, sincronizar o tempo com eles requer o envio de tráfego pela Internet. Os atrasos de pacotes variados podem afetar negativamente a qualidade da sincronização de tempo. A remoção do NTP alternando para a sincronização somente de host pode às vezes melhorar o tempo de sincronização dos resultados.
 
 Alternar para a sincronização de horário somente de host faz sentido se você tiver problemas de sincronização de horário usando a configuração padrão. Experimente a sincronização somente do host para ver se isso melhoraria a sincronização de tempo na sua VM. 
 
@@ -145,11 +145,11 @@ Para mais informações sobre chrony, consulte [Usando o chrony](https://access.
 
 Se as fontes chrony e TimeSync estiverem ativadas simultaneamente, você pode marcar uma como, **prefere**, que define a outra fonte como um backup. Como os serviços NTP não atualizam o relógio para grandes distorções, exceto após um longo período, o VMICTimeSync recuperará o relógio de eventos de VM pausados muito mais rapidamente do que as ferramentas baseadas em NTP.
 
-By default chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too big, chrony will fail to fix the drift. To overcome this the `makestep` parameter in **/etc/chrony.conf** can be changed to force a timesync if the drift exceeds the threshold specified.
+Por padrão, o chronyd acelera ou reduz o relógio do sistema para corrigir qualquer descompasso de tempo. Se a descompasso se tornar muito grande, o chrony falhará ao corrigir a descompasso. Para superar isso, o parâmetro `makestep` em **/etc/chrony.conf** pode ser alterado para forçar uma sincronização de TimeSync se a descompasso exceder o limite especificado.
  ```bash
 makestep 1.0 -1
 ```
-Here, chrony will force a time update if the drift is greater than 1 second. To apply the changes restart the chronyd service.
+Aqui, o chrony forçará uma atualização de tempo se a descompasso for maior que 1 segundo. Para aplicar as alterações, reinicie o serviço chronyd.
 
 ```bash
 systemctl restart chronyd
@@ -162,7 +162,7 @@ No Ubuntu e no SUSE, a sincronização de tempo é configurada usando [systemd](
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
 

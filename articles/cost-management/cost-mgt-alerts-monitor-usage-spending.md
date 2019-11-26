@@ -35,21 +35,21 @@ Alertas de crédito o notificam quando seus compromissos monetários do crédito
 
 Alertas de cota de gastos de departamento notificam quando o departamento de gastos atinge um limite fixo da cota. As cotas de gastos são configuradas no portal do EA. Sempre que um limite é atingido, ele gera um email aos proprietários do departamento e é mostrado em alertas de custo. Por exemplo, 50% ou 75% da cota.
 
-## <a name="supported-alert-features-by-offer-categories"></a>Supported alert features by offer categories
+## <a name="supported-alert-features-by-offer-categories"></a>Recursos de alerta com suporte por categorias de oferta
 
-Support for alert types depends on the type of Azure account that you have (Microsoft offer). The following table shows the alert features that are supported by various Microsoft offers. You can view the full list of Microsoft offers at [Understand Cost Management data](understand-cost-mgt-data.md).
+O suporte para tipos de alertas depende do tipo de conta do Azure que você tem (oferta da Microsoft). A tabela a seguir mostra os recursos de alerta que têm suporte de várias ofertas da Microsoft. Você pode exibir a lista completa de ofertas da Microsoft em [entender os dados de gerenciamento de custos](understand-cost-mgt-data.md).
 
-| Tipo de alerta | Enterprise Agreement | Contrato de Cliente Microsoft | Web direct/Pay-As-You-Go |
+| Tipo de alerta | Contrato Enterprise | Contrato de Cliente da Microsoft | Web Direct/pago conforme o uso |
 |---|---|---|---|
-| Budget | ✔ | ✔ | ✔ |
+| Visto | ✔ | ✔ | ✔ |
 | Crédito | ✔ |✘ | ✘ |
-| Department spending quota | ✔ | ✘ | ✘ |
+| Cota de gastos do departamento | ✔ | ✘ | ✘ |
 
 
 
 ## <a name="view-cost-alerts"></a>Exibir alertas de custo
 
-To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
+Para exibir alertas de custo, abra o escopo desejado no portal do Azure e selecione **orçamentos** no menu. Use o **escopo** Pill para alternar para um escopo diferente. Selecione **alertas de custo** no menu. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 ![Imagem de exemplo de alertas mostrados no Gerenciamento de Custos](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -67,6 +67,6 @@ Quando você exibe os detalhes de um alerta ignorado, pode reativá-lo se a aç�
 
 ![Imagem de exemplo mostrando as opções de ignorar e reativar](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 - Se você não tiver criado um orçamento nem definido condições de alerta para um orçamento, conclua o tutorial [Criar e gerenciar orçamentos](tutorial-acm-create-budgets.md).

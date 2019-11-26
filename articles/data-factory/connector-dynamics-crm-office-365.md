@@ -75,10 +75,10 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como **Dynamics**, **DynamicsCrm**ou **CommonDataServiceForApps**. | Sim |
-| deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"Online"** para o Dynamics online. | Sim |
-| serviceUri | A URL de serviço da instância do Dynamics, por exemplo, `https://adfdynamics.crm.dynamics.com`. | Sim |
-| authenticationType | O tipo de autenticação para se conectar a um servidor do Dynamics. Os valores permitidos são: **AADServicePrincipal** ou **"Office365"** . | Sim |
+| type | A propriedade Type deve ser definida como **Dynamics**, **DynamicsCrm**ou **CommonDataServiceForApps**. | sim |
+| deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"Online"** para o Dynamics online. | sim |
+| serviceUri | A URL de serviço da instância do Dynamics, por exemplo, `https://adfdynamics.crm.dynamics.com`. | sim |
+| authenticationType | O tipo de autenticação para se conectar a um servidor do Dynamics. Os valores permitidos são: **AADServicePrincipal** ou **"Office365"** . | sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | Sim ao usar a autenticação `AADServicePrincipal` |
 | servicePrincipalCredentialType | Especifique o tipo de credencial a ser usada para autenticação da entidade de serviço. Os valores permitidos são: **ServicePrincipalKey** ou **ServicePrincipalCert**. | Sim ao usar a autenticação `AADServicePrincipal` |
 | servicePrincipalCredential | Especifique a credencial da entidade de serviço. <br>Ao usar `ServicePrincipalKey` como tipo de credencial, `servicePrincipalCredential` pode ser uma cadeia de caracteres (o ADF a criptografará na implantação do serviço vinculado) ou uma referência a um segredo em AKV. <br>Ao usar `ServicePrincipalCert` como credencial, `servicePrincipalCredential` deve ser uma referência a um certificado em AKV. | Sim ao usar a autenticação `AADServicePrincipal` | 
@@ -172,14 +172,14 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como **Dynamics**, **DynamicsCrm**ou **CommonDataServiceForApps**. | Sim |
-| deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"OnPremisesWithIfd"** para o Dynamics local com IFD.| Sim |
-| hostName | O nome do host do servidor do Dynamics local. | Sim |
+| type | A propriedade Type deve ser definida como **Dynamics**, **DynamicsCrm**ou **CommonDataServiceForApps**. | sim |
+| deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"OnPremisesWithIfd"** para o Dynamics local com IFD.| sim |
+| hostName | O nome do host do servidor do Dynamics local. | sim |
 | porta | O nome da porta do servidor do Dynamics local. | Não, o padrão é 443 |
-| organizationName | O nome da organização da instância do Dynamics. | Sim |
-| authenticationType | O tipo de autenticação para se conectar ao servidor do Dynamics. Especifique **"Ifd"** para o Dynamics local com IFD. | Sim |
-| Nome de Usuário | Especifique o nome de usuário para se conectar ao Dynamics. | Sim |
-| password | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| organizationName | O nome da organização da instância do Dynamics. | sim |
+| authenticationType | O tipo de autenticação para se conectar ao servidor do Dynamics. Especifique **"Ifd"** para o Dynamics local com IFD. | sim |
+| Nome de Usuário | Especifique o nome de usuário para se conectar ao Dynamics. | sim |
+| password | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para fonte, Sim para o coletor |
 
 **Exemplo: Dynamics local com IFD usando a autenticação de IFD**
@@ -218,7 +218,7 @@ Para copiar dados de e para o Dynamics, há suporte para as propriedades a segui
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como **DynamicsEntity**, **DynamicsCrmEntity**ou **CommonDataServiceForAppsEntity**. |Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como **DynamicsEntity**, **DynamicsCrmEntity**ou **CommonDataServiceForAppsEntity**. |sim |
 | entityName | O nome lógico da entidade a ser recuperada. | Não para fonte (se "query" na fonte da atividade for especificada), Sim para coletor |
 
 **Exemplo:**
@@ -250,7 +250,7 @@ Para copiar dados do Dynamics, há suporte para as propriedades a seguir na seç
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como **dynamicsname**, **DynamicsCrmSource**ou **CommonDataServiceForAppsSource**. | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como **dynamicsname**, **DynamicsCrmSource**ou **CommonDataServiceForAppsSource**. | sim |
 | query | FetchXML é uma linguagem de consulta proprietária que é usada no Dynamics (online e local). Veja os exemplos a seguir. Para saber mais, consulte [criar consultas com FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Não (se "entityName" no conjunto de dados for especificada) |
 
 >[!NOTE]
@@ -318,8 +318,8 @@ Para copiar dados para o Dynamics, as propriedades a seguir têm suporte na seç
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type do coletor da atividade de cópia deve ser definida como **DynamicsSink**, **DynamicsCrmSink**ou **CommonDataServiceForAppsSink**. | Sim |
-| writeBehavior | O comportamento da operação de gravação.<br/>O valor permitido é **"Upsert"** . | Sim |
+| type | A propriedade Type do coletor da atividade de cópia deve ser definida como **DynamicsSink**, **DynamicsCrmSink**ou **CommonDataServiceForAppsSink**. | sim |
+| writeBehavior | O comportamento da operação de gravação.<br/>O valor permitido é **"Upsert"** . | sim |
 | alternateKeyName | Especifique o nome da chave alternativa definido em sua entidade para executar "Upsert". | Não |
 | writeBatchSize | A contagem de linhas de dados gravados no Dynamics em cada lote. | Não (o padrão é 10) |
 | ignoreNullValues | Indica se deve ignorar valores nulos de dados de entrada (exceto campos de chave) durante uma operação de gravação.<br/>Os valores permitidos são **True** e **False**.<br>- **True**: deixa os dados no objeto de destino inalterados quando você faz uma operação upsert/atualização. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False**: atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert/atualização. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |

@@ -62,7 +62,7 @@ Para ativar uma conta:
 1.  No portal da Cloudyn, clique em **Configurações** no canto superior direito e selecione **Contas de Nuvem**.
 2.  Na guia Contas do Microsoft Azure, procure as contas que têm uma assinatura **desativada**.
 3.  À direita de uma conta não ativada, clique no símbolo **editar** se parece com um lápis.
-4.  Sua ID de locatário e a ID da taxa são detectadas automaticamente. Clique em \\**Próximo**.
+4.  Sua ID de locatário e a ID da taxa são detectadas automaticamente. Clique em **Avançar**.
 5.  Você será redirecionado para o portal do Azure. Entre no portal e autorize o Coletor Cloudyn a acessar os dados do Azure.
 6.  Em seguida, você será redirecionado para a página de gerenciamento das Contas do Cloudyn e sua assinatura será atualizada com o status de conta **ativo**. Ela mostra um símbolo de marca de seleção verde.
 7.  Se você não vir um símbolo de marca de seleção verde para uma ou mais assinaturas, isso significa que você não tem permissões para criar um aplicativo de leitor (o CloudynCollector) para a assinatura. Um usuário com permissões mais altas para a assinatura precisa repetir as etapas 3 e 4.  
@@ -74,9 +74,9 @@ Depois de concluir as etapas anteriores, você pode exibir as recomendações do
 
 Primeiro, vamos analisar o cenário mais comum que faz com que as contas de usuário sejam *initiallySuspended*.
 
-> Admin1 might be a Microsoft Cloud Solution Provider or Enterprise Agreement user. Their organization is ready to start using Cloudyn.  Ele se registra por meio do portal do Azure e entra no portal do Cloudyn. As the person who registers the Cloudyn service and signs into the Cloudyn portal, Admin1 becomes the *primary administrator*. O Admin1 não cria as contas de usuário. However, using the Cloudyn portal, they do create Azure accounts and set up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that they need to register with Cloudyn and sign in to the Cloudyn portal.
+> Admin1 pode ser um provedor de solução Microsoft Cloud ou Enterprise Agreement usuário. Sua organização está pronta para começar a usar o Cloudyn.  Ele se registra por meio do portal do Azure e entra no portal do Cloudyn. Como a pessoa que registra o serviço Cloudyn e entra no portal do Cloudyn, admin1 se torna o *administrador primário*. O Admin1 não cria as contas de usuário. No entanto, usando o portal do Cloudyn, eles criam contas do Azure e configuram uma hierarquia de entidade. Admin1 informa admin2, um administrador de locatários, que eles precisam registrar com o Cloudyn e entrar no portal do Cloudyn.
 >
-> O Admin2 se registra por meio do portal do Azure. However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. O administrador principal, Admin1, é notificado sobre a suspensão da conta. O Admin1 precisa ativar a conta do Admin2 e conceder *acesso de entidade de administrador* para as entidades apropriadas, permitir o acesso ao gerenciamento de usuários e ativar a conta de usuário.
+> O Admin2 se registra por meio do portal do Azure. No entanto, quando eles tentam entrar no portal do Cloudyn, eles recebem um erro dizendo que sua conta está **suspensa**. O administrador principal, Admin1, é notificado sobre a suspensão da conta. O Admin1 precisa ativar a conta do Admin2 e conceder *acesso de entidade de administrador* para as entidades apropriadas, permitir o acesso ao gerenciamento de usuários e ativar a conta de usuário.
 
 
 Se você receber um alerta solicitando para permitir o acesso de um usuário, precisará ativar a conta do usuário.
@@ -90,7 +90,7 @@ Para ativar a conta do usuário:
 
 As contas de usuário do Cloudyn se conectam usando o logon único do Azure. Se um usuário digitar incorretamente sua senha, ele poderá ficar bloqueado no Cloudyn mesmo que ainda possa acessar o Azure.
 
-If you change your e-mail address in Cloudyn from the default address in Azure, your account can get locked out. It might show "status initiallySuspended." Se sua conta de usuário estiver bloqueada, contate um administrador alternativo para redefinir a sua conta.
+Se você alterar seu endereço de email em Cloudyn do endereço padrão no Azure, sua conta poderá ser bloqueada. Ele pode mostrar "status initiallySuspended". Se sua conta de usuário estiver bloqueada, contate um administrador alternativo para redefinir a sua conta.
 
 Recomendamos que você crie pelo menos duas contas de administrador do Cloudyn caso uma das contas fique bloqueada.
 

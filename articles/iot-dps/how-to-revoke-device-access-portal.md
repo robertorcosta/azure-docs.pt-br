@@ -1,5 +1,5 @@
 ---
-title: Disenroll device from Azure IoT Hub Device Provisioning Service
+title: Cancelar o registro de dispositivo do serviço de provisionamento de dispositivos no Hub IoT do Azure
 description: Como cancelar o registro de um dispositivo para impedir o provisionamento por meio do Provisionamento de Dispositivos no Hub IoT
 author: wesmc7777
 ms.author: wesmc
@@ -26,7 +26,7 @@ O registro no Serviço de Provisionamento de Dispositivos permite que um disposi
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Adicionar os dispositivos usando uma entrada de registro individual à lista de bloqueios
 
-Os registros individuais se aplicam a um único dispositivo e podem usar certificados X.509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Devices that use SAS tokens as their attestation mechanism can be provisioned only through an individual enrollment.) To blacklist a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
+Os registros individuais se aplicam a um único dispositivo e podem usar certificados X.509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para adicionar um dispositivo que tenha um registro individual à lista negra, você pode desabilitar ou excluir sua entrada de registro. 
 
 Para adicionar temporariamente o dispositivo à lista de bloqueios desabilitando sua entrada de registro: 
 
@@ -108,7 +108,7 @@ Para adicionar um dispositivo individual à lista de bloqueios em um grupo de re
 
 Após a criação bem-sucedida de seu registro, você deverá ver o registro do dispositivo desabilitado listado na guia **Registros Individuais**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 O cancelamento do registro também faz parte do processo de desprovisionamento maior. O desprovisionamento de um dispositivo inclui tanto o cancelamento do registro do serviço de provisionamento como o cancelamento do registro do Hub IoT. Para saber mais sobre o processo completo, consulte [Como desprovisionar dispositivos autoprovisionados anteriormente](how-to-unprovision-devices.md) 
 

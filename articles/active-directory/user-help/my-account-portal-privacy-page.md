@@ -1,6 +1,6 @@
 ---
-title: View privacy-related info from the My Account portal - Azure AD
-description: Learn how your organization uses your privacy-related information from the Privacy page of the My Account portal.
+title: Exibir informações relacionadas à privacidade no portal minha conta – Azure AD
+description: Saiba como sua organização usa suas informações relacionadas à privacidade na página de privacidade do portal minha conta.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,9 +19,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231812"
 ---
-# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>View how your organization uses your privacy-related data
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Veja como sua organização usa seus dados relacionados à privacidade
 
-You can view how your organization uses your data from the **Privacy** page of the **My Account** portal.
+Você pode exibir como sua organização usa seus dados na página **privacidade** do portal **minha conta** .
 
 ## <a name="view-your-privacy-related-info"></a>Exibir suas informações de privacidade
 
@@ -29,7 +29,7 @@ You can view how your organization uses your data from the **Privacy** page of t
 
 2. Selecione **Privacidade** no painel de navegação à esquerda ou selecione o link **Examinar privacidade** no bloco **Privacidade**.
 
-    ![My Account page, showing highlighted Privacy links](media/my-account-portal/my-account-portal-privacy.png)
+    ![Página minha conta, mostrando links de privacidade realçados](media/my-account-portal/my-account-portal-privacy.png)
 
 3. Examine as informações, inclusive:
 
@@ -37,16 +37,16 @@ You can view how your organization uses your data from the **Privacy** page of t
 
     - **Termos de uso**. Os termos de uso de sua empresa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-After viewing how your organization uses your data, you can:
+Depois de exibir como sua organização usa seus dados, você pode:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
 
-- View or manage your [organizations](my-account-portal-organizations-page.md).
+- Exiba ou gerencie suas [organizações](my-account-portal-organizations-page.md).
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 
-- You can also view your Microsoft Office-related contact preferences and privacy information from the [Office portal, Security & privacy page](https://portal.office.com/account/#security).
+- Você também pode exibir suas preferências de contato relacionadas ao Microsoft Office e informações de privacidade na [página de privacidade do portal do Office, segurança &](https://portal.office.com/account/#security).

@@ -19,16 +19,16 @@ ms.locfileid: "74227962"
 
 O Azure Data Lake Storage Gen2 [dá suporte a um namespace hierárquico](data-lake-storage-introduction.md) que fornece um contêiner baseado em diretórios nativo sob medida para funcionar com o HDFS (Sistema de Arquivos Distribuído Hadoop). O acesso aos dados do Armazenamento do Data Lake Gen2 pelo HDFS está disponível por meio do [driver ABFS](data-lake-storage-abfs-driver.md).
 
-This article demonstrates how to create an account using the Azure portal, Azure PowerShell, or via the Azure CLI.
+Este artigo demonstra como criar uma conta usando o portal do Azure, Azure PowerShell ou por meio do CLI do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
 |           | Pré-requisito |
 |-----------|--------------|
-|Portal     | Nenhum         |
-|PowerShell | This article requires the PowerShell module Az.Storage version **0.7** or later. Para localizar a versão atual, execute o comando `Get-Module -ListAvailable Az.Storage`. Se, após a execução desse comando, nenhum resultado for exibido ou se uma versão inferior a **0.7** for exibida, você precisará atualizar o módulo do PowerShell. Confira a seção [Atualizar seu módulo PowerShell](#upgrade-your-powershell-module) deste guia.
+|Portal     | nenhum         |
+|PowerShell | Este artigo requer o módulo do PowerShell AZ. Storage versão **0,7** ou posterior. Para localizar a versão atual, execute o comando `Get-Module -ListAvailable Az.Storage`. Se, após a execução desse comando, nenhum resultado for exibido ou se uma versão inferior a **0.7** for exibida, você precisará atualizar o módulo do PowerShell. Confira a seção [Atualizar seu módulo PowerShell](#upgrade-your-powershell-module) deste guia.
 |CLI        | Você pode entrar no Azure e executar comandos da CLI do Azure de uma das duas formas a seguir: <ul><li>Você pode executar comandos da CLI de dentro do portal do Azure, no Azure Cloud Shell </li><li>Você pode instalar a CLI e executar comandos da CLI localmente</li></ul>|
 
 Ao trabalhar na linha de comando, você tem a opção de executar o Azure Cloud Shell ou instalar a CLI localmente.
@@ -39,17 +39,17 @@ O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente
 
 [![Cloud Shell](./media/data-lake-storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-The button launches an interactive shell that you can use to run the steps in this article:
+O botão inicia um shell interativo que você pode usar para executar as etapas neste artigo:
 
 [![Captura de tela mostrando a janela do Cloud Shell no portal](./media/data-lake-storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
-Você também pode instalar e usar a CLI do Azure localmente. This article requires that you are running the Azure CLI version 2.0.38 or later. Execute `az --version` para encontrar a versão. Caso precise instalá-la ou atualizá-la, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Você também pode instalar e usar a CLI do Azure localmente. Este artigo requer que você esteja executando o CLI do Azure versão 2.0.38 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Criar uma conta de armazenamento com o Azure Data Lake Storage Gen2 habilitado
 
-Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
+Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. A conta de armazenamento fornece um namespace exclusivo para os dados do armazenamento do Azure que podem ser acessados de qualquer lugar do mundo por HTTP ou HTTPS. Os dados em sua conta de armazenamento do Azure são duráveis e altamente disponíveis, seguros e amplamente escalonáveis.
 
 > [!NOTE]
 > Você deve criar novas contas de armazenamento com o tipo **StorageV2 (uso geral V2)** para tirar proveito dos recursos de Armazenamento do Data Lake Gen2.  
@@ -58,11 +58,11 @@ Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta
 
 ## <a name="create-an-account-using-the-azure-portal"></a>Criar uma conta usando o portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com).
+Entre no [Portal do Azure](https://portal.azure.com).
 
-### <a name="create-a-storage-account"></a>Crie uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente. This article shows how to create a new resource group.
+Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente. Este artigo mostra como criar um novo grupo de recursos.
 
 Para criar uma conta de armazenamento de uso geral v2 no portal do Azure, siga estas etapas:
 
@@ -70,16 +70,16 @@ Para criar uma conta de armazenamento de uso geral v2 no portal do Azure, siga e
 > O namespace hierárquico está disponível atualmente em todas as regiões públicas.
 
 1. Escolha a assinatura na qual você deseja criar a conta de armazenamento.
-2. In the Azure portal, choose the **Create a resource** button, then choose **Storage account**.
-3. No campo **Grupo de recursos**, selecione **Criar novo**. Enter a name for your new resource group.
+2. Na portal do Azure, escolha o botão **criar um recurso** e, em seguida, escolha **conta de armazenamento**.
+3. No campo **Grupo de recursos**, selecione **Criar novo**. Insira um nome para o novo grupo de recursos.
    
    Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente.
 
 4. Em seguida, insira um nome para sua conta de armazenamento. O nome escolhido deve ser exclusivo no Azure. O nome também deve ter entre 3 e 24 caracteres e pode incluir apenas números e letras minúsculas.
 5. Escolha um local.
-6. Make sure that **StorageV2 (general purpose v2)** appears as selected in the **Account kind** drop-down list.
-7. Optionally change the values in each of these fields: **Performance**, **Replication**, **Access tier**. To learn more about these options, see [Introduction to Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services).
-8. Choose the **Advanced** tab.
+6. Verifique se **StorageV2 (uso geral v2)** aparece como selecionado na lista suspensa **tipo de conta** .
+7. Opcionalmente, altere os valores em cada um desses campos: **desempenho**, **replicação**, **camada de acesso**. Para saber mais sobre essas opções, consulte [introdução ao armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services).
+8. Escolha a guia **avançado** .
 10. Na seção **Data Lake Storage Gen2**, defina **Namespace hierárquico** como **Habilitado**.
 11. Clique em **Revisar + Criar** para criar a conta de armazenamento.
 
@@ -121,7 +121,7 @@ Use o comando `Login-AzAccount` e siga as instruções na tela para fazer a aute
 Login-AzAccount
 ```
 
-### <a name="create-a-resource-group"></a>Criar um grupos de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Para criar um novo grupo de recursos com o PowerShell, use o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup): 
 
@@ -175,7 +175,7 @@ Para interagir com o Data Lake Storage Gen2 usando a CLI, será necessário adic
 
 Para fazer isso, insira o seguinte comando usando o Cloud Shell ou um shell local: `az extension add --name storage-preview`
 
-### <a name="create-a-resource-group"></a>Criar um grupos de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Para criar um novo grupo de recursos com a CLI do Azure, use o comando [az group create](/cli/azure/group).
 
@@ -210,8 +210,8 @@ Para remover o grupo de recursos e seus recursos associados, incluindo a nova co
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-In this article, you've created a storage account with Data Lake Storage Gen2 capabilities. Para saber como carregar e baixar blobs para e da sua conta de armazenamento, confira o tópico a seguir.
+Neste artigo, você criou uma conta de armazenamento com recursos de Data Lake Storage Gen2. Para saber como carregar e baixar blobs para e da sua conta de armazenamento, confira o tópico a seguir.
 
 * [AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

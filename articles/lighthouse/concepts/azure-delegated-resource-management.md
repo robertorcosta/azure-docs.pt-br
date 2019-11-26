@@ -43,7 +43,7 @@ Em um alto nível, veja como o gerenciamento de recursos delegados do Azure func
 
 Se precisar de ajuda com relação ao gerenciamento de recursos delegados do Azure, abra uma solicitação de suporte no portal do Azure. Para **Tipo de problema**, escolha **Técnico**. Selecione uma assinatura e **Gerenciamento de Recursos Delegados** (em **Monitoramento e Gerenciamento**).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
+- Saiba mais sobre [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
 - Saiba mais sobre [ofertas de serviços gerenciados no Azure Marketplace](managed-services-offers.md).

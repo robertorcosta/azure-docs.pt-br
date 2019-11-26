@@ -21,10 +21,10 @@ ms.locfileid: "74278343"
 
 A central de segurança do Azure fornece licenças adicionais da Microsoft para trabalhar com os seguintes produtos de segurança:
 
-* [Azure WAF](#azure-waf)
+* [WAF do Azure](#azure-waf)
 * [Proteção contra DDoS do Azure](#azure-ddos)
 
-## Azure WAF <a name="azure-waf"></a>
+## WAF do Azure<a name="azure-waf"></a>
 
 O Gateway de Aplicativo do Azure oferece um WAF (firewall do aplicativo Web) que fornece proteção centralizada de seus aplicativos Web contra vulnerabilidades e explorações comuns.
 

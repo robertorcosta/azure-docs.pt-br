@@ -1,6 +1,6 @@
 ---
 title: Arquitetura do Azure Blockchain Workbench
-description: Overview of Azure Blockchain Workbench Preview architecture and its components.
+description: Visão geral da arquitetura de visualização do Azure Blockchain Workbench e seus componentes.
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -13,9 +13,9 @@ ms.locfileid: "74324892"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Arquitetura do Azure Blockchain Workbench
 
-Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. O Blockchain Workbench pode ser implantado usando um modelo de solução no Azure Marketplace. O modelo permite que você escolha módulos e componentes para implantar, incluindo pilha de blockchain, tipo de aplicativo de cliente e suporte para a integração de IoT. Uma vez implantado, o Blockchain Workbench fornece acesso a um aplicativo web, aplicativo iOS e aplicativo Android.
+A visualização do Azure Blockchain Workbench simplifica o desenvolvimento de aplicativos Blockchain fornecendo uma solução usando vários componentes do Azure. O Blockchain Workbench pode ser implantado usando um modelo de solução no Azure Marketplace. O modelo permite que você escolha módulos e componentes para implantar, incluindo pilha de blockchain, tipo de aplicativo de cliente e suporte para a integração de IoT. Uma vez implantado, o Blockchain Workbench fornece acesso a um aplicativo web, aplicativo iOS e aplicativo Android.
 
-![Blockchain Workbench architecture](./media/architecture/architecture.png)
+![Arquitetura do Blockchain Workbench](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>Identidade e autenticação
 
@@ -113,7 +113,7 @@ O Workbench fornece o log de aplicativo usando o Application Insights e o Azure 
 
 O Azure Monitor fornece informações sobre a integridade da rede blockchain. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Implantar o Azure Blockchain Workbench](../../blockchain-workbench/blockchain-workbench-deploy.md)

@@ -36,7 +36,7 @@ A Microsoft requer as seguintes informações para implantar unidades de instân
 - Para cada região de implantação do Azure:
     - Um intervalo de endereços IP /29 para conexões de ER-P2P que conectar redes virtuais do Azure para instâncias grandes HANA.
     - Um bloco CIDR /24 usado para o pool de IPs de servidores de instâncias grandes HANA.
-    - Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. This particular range may not overlap with any of the other IP address ranges you defined before.
+    - Opcional ao usar o [ExpressRoute alcance global](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para habilitar o roteamento direto do local para as unidades de instância grande do Hana ou o roteamento entre unidades de instância grande do Hana em diferentes regiões do Azure, você precisa reservar outro/29 intervalo de endereços IP. Esse intervalo específico não pode se sobrepor a nenhum dos outros intervalos de endereços IP definidos anteriormente.
 - Os valores de intervalo de endereços IP usados no atributo de espaço de endereço de rede virtual de cada rede virtual do Azure que se conecta às instâncias grandes do HANA.
 - Dados para cada sistema de instâncias grandes HANA:
   - Nome de host desejado - o ideal é usar o nome de domínio totalmente qualificado.

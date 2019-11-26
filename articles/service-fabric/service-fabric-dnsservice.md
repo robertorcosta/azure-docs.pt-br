@@ -114,10 +114,10 @@ Depois de ter um modelo, habilite o serviço DNS com as seguintes etapas:
 3. Após atualizar o modelo de cluster com as alterações, aplique-as e permita a conclusão do upgrade. Quando a atualização for concluída, o serviço do sistema DNS começa a ser executado em seu cluster. O nome do serviço é `fabric:/System/DnsService` e você pode encontrar na seção do serviço **Sistema** no explorador do Microsoft Azure Service Fabric. 
 
 > [!NOTE]
-> When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
+> Ao atualizar o DNS de desabilitado para habilitado, Service Fabric Explorer pode não refletir o novo estado. Para resolver, reinicie os nós modificando o UpgradePolicy em seu modelo de Azure Resource Manager. Consulte a [referência do modelo de Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) para obter mais informações.
 
 > [!NOTE]
-> Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
+> Habilitar o serviço DNS ao desenvolver em um computador local substituirá algumas configurações de DNS. Se você tiver problemas para se conectar à Internet, verifique as configurações de DNS.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Configurando o nome DNS para o serviço
 É possível configurar um nome DNS para os serviços de forma declarativa para serviços padrão no arquivo ApplicationManifest.xml ou através de comandos do PowerShell.
@@ -181,10 +181,10 @@ Consultas DNS destinadas a uma partição são formatadas da seguinte maneira:
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-Onde:
+Em que:
 
 - *First-Label-Of-Partitioned-Service-DNSName* é a primeira parte do nome DNS do serviço.
-- *PartitionPrefix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. The default value is "--". Para saber mais, consulte [Configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão é "--". Para saber mais, consulte [Configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* é o nome da partição. 
 - *PartitionSuffix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão pode ser uma cadeia de caracteres vazia. Para saber mais, consulte [Configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Remaining-Partitioned-Service-DNSName* é a parte restante do nome DNS do serviço.
@@ -262,6 +262,6 @@ public class ValuesController : Controller
 
 * O serviço DNS para serviços do Service Fabric ainda não é suportado no Linux. O serviço DNS é suportado para contêineres no Linux. Resolução manual usando Fabric Client / ServicePartitionResolver é a alternativa disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a comunicação de serviço no cluster com [Conectar e comunicar-se com serviços](service-fabric-connect-and-communicate-with-services.md)
 

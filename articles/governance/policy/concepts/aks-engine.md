@@ -44,7 +44,7 @@ Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recurs
      az provider register --namespace 'Microsoft.PolicyInsights'
      ```
 
-   - PowerShell do Azure
+   - Azure PowerShell
    
      ```azurepowershell-interactive
      # Log in first with Connect-AzAccount if you're not using Cloud Shell

@@ -207,7 +207,7 @@ Agora podemos configurar o endereço IP e a porta de front-end do balanceador de
 
 ![Painel de navegação de "Pool Frontend IP" do balanceador de carga](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
 * [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)

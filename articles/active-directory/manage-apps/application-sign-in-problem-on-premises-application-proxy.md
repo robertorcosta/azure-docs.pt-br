@@ -1,5 +1,5 @@
 ---
-title: Problem signing in to on-premises app using Azure AD app proxy | Microsoft Docs
+title: Problema ao entrar no aplicativo local usando o proxy de aplicativo do Azure AD | Microsoft Docs
 description: Solução de problemas comuns que ocorrem quando você não consegue entrar em um aplicativo local integrado ao Azure AD usando o Proxy de Aplicativo do Azure AD
 services: active-directory
 documentationcenter: ''
@@ -58,5 +58,5 @@ Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comu
   Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
   * [Estou tendo problemas ao instalar o conector de agente de proxy de aplicativo](application-proxy-connector-installation-problem.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Como fornecer acesso remoto seguro a aplicativos locais](application-proxy.md)

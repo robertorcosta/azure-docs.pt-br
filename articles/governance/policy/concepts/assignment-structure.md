@@ -61,8 +61,8 @@ Essa propriedade tem os seguintes valores:
 
 |Modo |Valor JSON |Digite |Corrigir manualmente |Entrada do log de atividades |DESCRIÇÃO |
 |-|-|-|-|-|-|
-|Habilitado |Padrão |cadeia de caracteres |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
-|Desabilitado |DoNotEnforce |cadeia de caracteres |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
+|Habilitado |Padrão |cadeia de caracteres |sim |sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
+|Desabilitado |DoNotEnforce |cadeia de caracteres |sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
 
 Se **imposiçãomode** não for especificado em uma definição de política ou iniciativa, o valor _padrão_ será usado. [As tarefas de correção](../how-to/remediate-resources.md) podem ser iniciadas para políticas de [deployIfNotExists](./effects.md#deployifnotexists) , **mesmo quando** é definido como _DoNotEnforce_.
 

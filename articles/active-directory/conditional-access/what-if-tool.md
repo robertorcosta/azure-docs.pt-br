@@ -1,6 +1,6 @@
 ---
-title: The Conditional Access What If tool - Azure Active Directory
-description: Learn how you can understand the impact of your Conditional Access policies on your environment.
+title: A ferramenta de What If de acesso condicional-Azure Active Directory
+description: Saiba como você pode entender o impacto de suas políticas de acesso condicional em seu ambiente.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,21 +18,21 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379989"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Troubleshoot using the What If tool in Conditional Access
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta de What If no acesso condicional
 
-[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
+O [acesso condicional](../active-directory-conditional-access-azure-portal.md) é um recurso do Azure Active Directory (AD do Azure) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Como você sabe o que esperar das políticas de acesso condicional em seu ambiente? Para responder a essa pergunta, você pode usar a **ferramenta de What If de acesso condicional**.
 
-This article explains how you can use this tool to test your Conditional Access policies.
+Este artigo explica como você pode usar essa ferramenta para testar suas políticas de acesso condicional.
 
-## <a name="what-it-is"></a>Definição
+## <a name="what-it-is"></a>O que é
 
-The **Conditional Access What If policy tool** allows you to understand the impact of your Conditional Access policies on your environment. Em vez de testar as suas políticas executando várias entradas manualmente, essa ferramenta permite que você avalie uma conexão simulada de um usuário. A simulação calcula o impacto que essa conexão tem em suas políticas e gera um relatório de simulação. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
+A **ferramenta de política de What If de acesso condicional** permite que você entenda o impacto de suas políticas de acesso condicional em seu ambiente. Em vez de testar as suas políticas executando várias entradas manualmente, essa ferramenta permite que você avalie um logon simulado de um usuário. A simulação calcula o impacto que esse logon tem em suas políticas e gera um relatório de simulação. O relatório não lista apenas as políticas de acesso condicional aplicadas, mas também [as políticas clássicas](policy-migration.md#classic-policies) , se existirem.    
 
-The **What If** tool provides a way to quickly determine the policies that apply to a specific user. Você pode usar as informações, por exemplo, se você precisar solucionar um problema.    
+A ferramenta de **What If** fornece uma maneira de determinar rapidamente as políticas que se aplicam a um usuário específico. Você pode usar as informações, por exemplo, se você precisar solucionar um problema.    
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
-In the **Conditional Access What If tool**, you first need to configure the settings of the sign-in scenario you want to simulate. Essas configurações incluem:
+Na **ferramenta de What If de acesso condicional**, primeiro você precisa definir as configurações do cenário de entrada que deseja simular. Essas configurações incluem:
 
 - O usuário que você deseja testar 
 - Os aplicativos de nuvem que o usuário tente acessar
@@ -44,9 +44,9 @@ Terminada a avaliação, a ferramenta gera um relatório das políticas afetadas
 
 ## <a name="running-the-tool"></a>A execução da ferramenta
 
-You can find the **What If** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
+Você pode encontrar a ferramenta **What If** na página **[acesso condicional-políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** no portal do Azure.
 
-To start the tool, in the toolbar on top of the list of policies, click **What If**.
+Para iniciar a ferramenta, na barra de ferramentas na parte superior da lista de políticas, clique em **What If**.
 
 ![What If](./media/what-if-tool/01.png)
 
@@ -88,7 +88,7 @@ Essa configuração imita a [condição de risco de logon](conditions.md#sign-in
 
 ## <a name="evaluation"></a>Avaliação 
 
-You start an evaluation by clicking **What If**. O resultado da avaliação fornece um relatório que consiste em: 
+Você inicia uma avaliação clicando em **What If**. O resultado da avaliação fornece um relatório que consiste em: 
 
 ![What If](./media/what-if-tool/03.png)
 
@@ -102,7 +102,7 @@ Na lista de políticas que se aplicam ao usuário selecionado, você também pod
 
 Na lista de políticas que não se aplicam ao usuário, você pode também encontrar os motivos pelos quais essas políticas não se aplicam. Para cada política listada, o motivo representa a primeira condição que não foi atendida. Um motivo possível para uma política que não é aplicada é uma política desabilitada por não ter sido melhor avaliada.   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Se você quiser saber como configurar uma política de Acesso Condicional, consulte [Exigir MFA para aplicativos específicos com Acesso Condicional do Azure Active Directory](app-based-mfa.md).
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](best-practices.md). 

@@ -1,6 +1,6 @@
 ---
-title: Entenda o ciclo de vida de um blueprint
-description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
+title: Entender ciclo de vida de um blueprint
+description: Saiba mais sobre o ciclo de vida que uma definição do plano gráfico passa e detalhes sobre cada estágio, incluindo a atualização e a remoção de atribuições de plano gráfico.
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
@@ -29,7 +29,7 @@ Para entender completamente um blueprint e os estágios, vamos abordar um ciclo 
 
 Ao criar um blueprint, adicione artefatos, salve em um grupo de gerenciamento ou assinatura e forneça um nome e uma versão exclusivos. O blueprint agora está no modo **Rascunho** e ainda não pode ser atribuído. Enquanto no modo **Rascunho**, ele pode continuar a ser atualizado e alterado.
 
-Um blueprint nunca publicado no **modo Rascunho** exibe um ícone diferente na página **Blueprint Definitions** do que aqueles que foram **Publicados**. The **Latest Version** is displayed as **Draft** for these never published blueprints.
+Um blueprint nunca publicado no **modo Rascunho** exibe um ícone diferente na página **Blueprint Definitions** do que aqueles que foram **Publicados**. A **versão mais recente** é exibida como **rascunho** para essas nunca publicadas.
 
 Crie e edite um blueprint com o [portal do Azure](../create-blueprint-portal.md#create-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -63,11 +63,11 @@ Cada versão de um blueprint é um objeto exclusivo que pode ser individualmente
 
 1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
-1. Select **Blueprint definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Select it to open the edit page.
+1. Selecione **definições de plano gráfico** na página à esquerda e use as opções de filtro para localizar o plano gráfico para o qual você deseja excluir uma versão. Selecione-o para abrir a página Editar.
 
-1. Select the **Published versions** tab and locate the version you wish to delete.
+1. Selecione a guia **versões publicadas** e localize a versão que você deseja excluir.
 
-1. Right-click on the version to delete and select **Delete this version**.
+1. Clique com o botão direito do mouse na versão a ser excluída e selecione **excluir esta versão**.
 
 ## <a name="deleting-the-blueprint"></a>Exclusão do blueprint
 
@@ -94,18 +94,18 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 Para saber como, confira [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
 
-### <a name="unassigning-assignments"></a>Unassigning assignments
+### <a name="unassigning-assignments"></a>Cancelando atribuição de atribuições
 
-If the blueprint is no longer needed, it can be unassigned from the management group or subscription. During blueprint unassignment, the following occurs:
+Se o plano gráfico não for mais necessário, ele poderá não ser atribuído do grupo de gerenciamento ou da assinatura. Durante a desatribuição do plano gráfico, ocorre o seguinte:
 
-- Removal of [blueprint resource locking](resource-locking.md)
-- Deletion of the blueprint assignment object
-- (Conditional) If a **system-assigned managed identity** was used, it's also deleted
+- Remoção do [bloqueio de recursos do Blueprint](resource-locking.md)
+- Exclusão do objeto de atribuição Blueprint
+- Condiciona Se uma **identidade gerenciada atribuída pelo sistema** foi usada, ela também será excluída
 
 > [!NOTE]
-> All resources deployed by the blueprint assignment remain in place, but are no longer protected by Azure Blueprints.
+> Todos os recursos implantados pela atribuição Blueprint permanecem em vigor, mas não são mais protegidos pelas plantas do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
 - Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).

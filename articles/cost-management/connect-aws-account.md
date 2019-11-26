@@ -49,7 +49,7 @@ A primeira etapa é obter a frase secreta de conexão exclusiva do portal do Clo
     ![Cole a ID externa do Cloudyn na página Criar função](./media/connect-aws-account/create-role01.png)
 5. Em **Anexar políticas de permissões**, na pesquisa de caixa de filtros **Tipo de política** digite `ReadOnlyAccess`, selecione **ReadOnlyAccess** e, em seguida, clique em **Next: Review**.  
     ![Selecione o acesso somente leitura na lista de nomes de política](./media/connect-aws-account/readonlyaccess.png)
-6. Na página de Revisão, assegure-se de que suas seleções estão corretas e digite um **Nome da função**. For example, *Azure-Cost-Mgt*. Enter a **Role description**. Por exemplo, _Atribuição de função do Cloudyn_ e, em seguida, clique em **Criar função**.
+6. Na página de Revisão, assegure-se de que suas seleções estão corretas e digite um **Nome da função**. Por exemplo, *Azure-custo-gerenciamento*. Insira uma **Descrição de função**. Por exemplo, _Atribuição de função do Cloudyn_ e, em seguida, clique em **Criar função**.
 7. Na lista **Funções**, clique na função criada e copie o valor da **ARN da Função** na página Resumo. Use o valor de ARN (Amazon Resource Name) da Função posteriormente ao registrar sua configuração no Cloudyn.  
     ![Copie a função ARN da página de Resumo](./media/connect-aws-account/role-arn.png)
 
@@ -172,7 +172,7 @@ Crie um bucket S3 para armazenar informações de cobrança detalhadas.
    }
    ```
 
-9. Clique em **Save** (Salvar).  
+9. Clique em **Salvar**.  
     ![Clique em Salvar no editor de Política de bucket](./media/connect-aws-account/bucket-policy-editor.png)
 
 
@@ -191,6 +191,6 @@ O Cloudyn recupera informações detalhadas de cobrança do seu bucket de S3 e p
 
 Alguns dos relatórios de otimização podem exigir alguns dias de dados para obter um tamanho de amostra de dados adequado para recomendações precisas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre Cloudyn, continue para [Examinar o uso e custos](tutorial-review-usage.md) tutorial para o Cloudyn.

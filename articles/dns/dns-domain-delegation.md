@@ -65,7 +65,7 @@ A imagem a seguir mostra um exemplo de consulta DNS. O contoso.net e o partners.
 
 Cada delegação realmente tem duas cópias dos registros NS: uma na zona pai apontando para a zona filho e outra na própria zona filho. A zona 'contoso.net' contém os registros NS para contoso.net (juntamente com os registros NS em 'net'). Esses registros são chamados de registros NS autoritativos e ficam no ápice da zona filho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [delegar seu domínio ao DNS do Azure](dns-delegate-domain-azure-dns.md)
 

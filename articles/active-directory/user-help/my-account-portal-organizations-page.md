@@ -1,6 +1,6 @@
 ---
-title: Manage your organizations from the My Account portal - Azure AD
-description: How to view and leave organizations connected to your work or school account from the Organizations page of the My Account portal.
+title: Gerenciar suas organizações no portal minha conta – Azure AD
+description: Como exibir e deixar as organizações conectadas à sua conta corporativa ou de estudante na página organizações do portal minha conta.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,9 +19,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231855"
 ---
-# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Manage organizations connected to your work or school account from the Organizations page
+# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Gerenciar organizações conectadas à sua conta corporativa ou de estudante na página organizações
 
-You can manage your organizations from the **Organizations** page of the **My Account** portal.
+Você pode gerenciar suas organizações na página **organizações** do portal **minha conta** .
 
 Há dois tipos de organizações mostrados na página **Organizações**:
 
@@ -30,7 +30,7 @@ Há dois tipos de organizações mostrados na página **Organizações**:
 - **Outras organizações.** Outras organizações incluem qualquer grupo que você tenha entrado anteriormente usando sua conta corporativa ou de estudante. Você pode sair de tais organizações a qualquer momento.
 
     >[!NOTE]
-    > If you don't have an assigned Home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.
+    > Se você não tiver uma organização inicial atribuída, verá apenas um único título que diz às organizações a lista de suas organizações associadas.
 
 ## <a name="view-your-organizations"></a>Exibir suas organizações
 
@@ -38,7 +38,7 @@ Há dois tipos de organizações mostrados na página **Organizações**:
 
 2. Escolha **Organizações** no painel de navegação à esquerda ou escolha o link **Gerenciar organizações** no bloco **Organizações**.
 
-    ![My Account page, showing highlighted Organizations links](media/my-account-portal/my-account-portal-organizations.png)
+    ![Página minha conta, mostrando links para organizações realçadas](media/my-account-portal/my-account-portal-organizations.png)
 
 3. Examine as informações de sua **Organização inicial**.
 
@@ -51,20 +51,20 @@ Há dois tipos de organizações mostrados na página **Organizações**:
 Você pode sair de qualquer organização que não seja a organização inicial.
 
 >[!Important]
->Se você sair de uma organização por engano, não será possível desfazer a ação. You'll have to wait for the administrator of that organization to invite you again.
+>Se você sair de uma organização por engano, não será possível desfazer a ação. Você precisará aguardar o administrador dessa organização para convidá-lo novamente.
 
-1. Select **Leave organization** next to the organization you want to leave, and then select **Leave** to confirm you want to leave.
+1. Selecione **deixar organização** ao lado da organização que você deseja sair e selecione **deixar** para confirmar que deseja sair.
 
     ![Página Organizações, com link para sair da organização em destaque](media/my-account-portal/my-account-portal-organizations-leave.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-After viewing your organizations, you can:
+Depois de exibir suas organizações, você pode:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 
-- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).

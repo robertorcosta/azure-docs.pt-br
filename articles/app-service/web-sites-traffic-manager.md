@@ -42,7 +42,7 @@ O Gerenciador de Tráfego do Azure usa quatro métodos diferentes de roteamento.
 Para obter mais informações, consulte [Métodos de roteamento do Gerenciador de Tráfego](../traffic-manager/traffic-manager-routing-methods.md).
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>Perfis do Serviço de Aplicativo e do Gerenciador de Tráfego
-To configure the control of App Service app traffic, you create a profile in Azure Traffic Manager that uses one of the four load balancing methods described previously, and then add the endpoints (in this case, App Service) for which you want to control traffic to the profile. O status do aplicativo (em execução, parado ou excluído) é comunicado regularmente ao perfil para que o Gerenciador de Tráfego do Azure possa direcioná-lo de acordo.
+Para configurar o controle do tráfego do aplicativo do serviço de aplicativo, você cria um perfil no Gerenciador de tráfego do Azure que usa um dos quatro métodos de balanceamento de carga descritos anteriormente e, em seguida, adiciona os pontos de extremidade (nesse caso, o serviço de aplicativo) para o qual você deseja controlar o tráfego para o criar. O status do aplicativo (em execução, parado ou excluído) é comunicado regularmente ao perfil para que o Gerenciador de Tráfego do Azure possa direcioná-lo de acordo.
 
 Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguintes pontos:
 
@@ -54,7 +54,7 @@ Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguin
 * Os nomes de domínio personalizados funcionam conforme esperado, mas, além de adicioná-los a seus aplicativos, você também deve configurar o mapa DNS para apontar para a URL do Gerenciador de Tráfego. Para saber mais sobre como configurar um domínio personalizado para um aplicativo do Serviço de Aplicativo, confira [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md).
 * Você só pode adicionar aplicativos que estejam no modo padrão ou premium para um perfil do Gerenciador de Tráfego do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 Para obter uma visão geral conceitual e técnica do Gerenciador de Tráfego do Azure, consulte [Visão geral do Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md).
 
 

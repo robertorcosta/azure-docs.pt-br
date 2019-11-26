@@ -1,5 +1,5 @@
 ---
-title: Manage users in Azure Blockchain Workbench
+title: Gerenciar usuários no Azure Blockchain Workbench
 description: Como gerenciar usuários no Azure Blockchain Workbench.
 ms.date: 05/09/2019
 ms.topic: article
@@ -15,7 +15,7 @@ ms.locfileid: "74324707"
 
 O Azure Workbench de Blockchain inclui gerenciamento de usuário para as pessoas e organizações que fazem parte de seu consórcio.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Uma implantação do Blockchain Workbench é necessária. Consulte [implantação do Azure Blockchain Workbench](deploy.md) para obter detalhes sobre a implantação.
 
@@ -25,14 +25,14 @@ O Workbench de Blockchain do Azure usa o Microsoft Azure Active Directory (AD do
 
 Usuários Blockchain Workbench precisam existir no locatário do Microsoft Azure Active Directory e antes de atribuí-los para aplicativos e funções. Para adicionar usuários ao Microsoft Azure Active Directory, use as seguintes etapas:
 
-1.  Entre no [portal do Azure](https://portal.azure.com).
+1.  Entre no [Portal do Azure](https://portal.azure.com).
 2.  Selecione sua conta no canto superior direito e alterne para o locatário do Microsoft Azure Active Directory associado ao Blockchain Workbench.
 3.  Selecione **Microsoft Azure Active Directory > Usuários**. Você verá uma lista de usuários em seu diretório.
 4.  Para adicionar usuários ao diretório, selecione **Novo usuário**. Para usuários externos, selecione **Novo usuário convidado**.
 
     ![Novo usuário](./media/manage-users/add-ad-user.png)
 
-5.  Preencha os campos obrigatórios para o novo usuário. Clique em **Criar**.
+5.  Preencha os campos obrigatórios para o novo usuário. Selecione **Criar**.
 
 Visite a documentação [Microsoft Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md) para obter mais detalhes sobre como gerenciar os usuários no Azure AD.
 
@@ -42,7 +42,7 @@ Depois que os usuários foram adicionados ao diretório, a próxima etapa é esc
 
 Para adicionar usuários ao grupo **Administrador** no diretório do Microsoft Azure Active Directory:
 
-1.  Entre no [portal do Azure](https://portal.azure.com).
+1.  Entre no [Portal do Azure](https://portal.azure.com).
 2.  Verifique se você está no locatário do Azure AD associado ao Blockchain Workbench selecionando sua conta no canto superior direito.
 3.  Selecione **Azure Active Directory > Proxy de Aplicativo**.
 4.  Selecione o aplicativo de cliente do Azure Active Directory para o Blockchain Workbench
@@ -107,7 +107,7 @@ Use o aplicativo Blockchain Workbench para gerenciar usuários e organizações 
 
     ![Alterar a função](./media/manage-users/application-change-role.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo de procedimentos, você aprendeu como gerenciar os usuários do Azure Blockchain Workbench. Para saber como usar o aplicativo blockchain, continue no próximo artigo de instruções.
 

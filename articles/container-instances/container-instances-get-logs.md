@@ -1,5 +1,5 @@
 ---
-title: Get container instance logs & events
+title: Obter logs de instância de contêiner & eventos
 description: Saiba como depurar com logs e eventos de contêiner com as Instâncias de Contêiner do Azure
 ms.topic: article
 ms.date: 03/21/2019
@@ -13,7 +13,7 @@ ms.locfileid: "74481751"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperar logs e eventos de contêiner nas Instâncias de Contêiner do Azure
 
-When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
+Quando você tiver um contêiner com comportamento inadequado, comece exibindo seus logs com [AZ container logs][az-container-logs]e transmitindo seu erro padrão e padrão com [AZ container Attach][az-container-attach].
 
 ## <a name="view-logs"></a>Exibir logs
 
@@ -45,7 +45,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ## <a name="attach-output-streams"></a>Anexar fluxos de saída
 
-The [az container attach][az-container-attach] command provides diagnostic information during container startup. Depois que o contêiner for iniciado, ele transmite STDOUT e STDERR para o console local.
+O comando [AZ container Attach][az-container-attach] fornece informações de diagnóstico durante a inicialização do contêiner. Depois que o contêiner for iniciado, ele transmite STDOUT e STDERR para o console local.
 
 Por exemplo, aqui está a saída do contêiner com base em tarefa na [Executar uma tarefa em contêineres em ACI](container-instances-restart-policy.md), depois de ter fornecido a uma URL válida para processar um arquivo de texto grande:
 
@@ -142,7 +142,7 @@ A saída inclui as propriedades principais do contêiner, juntamente com eventos
   ...
 }
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba como [solucionar problemas de contêiner e implantação](container-instances-troubleshooting.md) nas Instâncias de Contêiner do Azure.
 
 <!-- LINKS - Internal -->

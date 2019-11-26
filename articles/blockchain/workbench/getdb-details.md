@@ -1,6 +1,6 @@
 ---
 title: Obter detalhes do banco de dados do Azure Blockchain Workbench
-description: Learn how to get Azure Blockchain Workbench Preview database and database server information.
+description: Saiba como obter informações de banco de dados e servidor de banco de dados do Azure Blockchain Workbench.
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
@@ -13,9 +13,9 @@ ms.locfileid: "74324684"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Obter informações sobre seu banco de dados do Azure Blockchain Workbench
 
-This article shows how to get detailed information about your Azure Blockchain Workbench Preview database.
+Este artigo mostra como obter informações detalhadas sobre o banco de dados de visualização do Azure Blockchain Workbench.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 São fornecidas informações sobre aplicativos, fluxos de trabalho e execução de contrato inteligente usando exibições de banco de dados no banco de dados de SQL do Workbench Blockchain. Os desenvolvedores podem usar essas informações ao usar ferramentas como o Microsoft Excel, o Power BI, o Visual Studio e o SQL Server Management Studio.
 
@@ -41,7 +41,7 @@ Para se conectar ao banco de dados:
 
 O nome do servidor de banco de dados e o nome do banco de dados permitem que você se conecte ao banco de dados do Blockchain Workbench usando sua ferramenta de desenvolvimento ou relatórios.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Exibições de banco de dados no Azure Blockchain Workbench](database-views.md)

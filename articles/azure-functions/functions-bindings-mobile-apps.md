@@ -23,7 +23,7 @@ As associações dos Aplicativos Móveis permitem ler e atualizar tabelas de dad
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
 As ligações de aplicativos para dispositivos móveis são fornecidas no pacote [ do Microsoft.Azure.WebJobs.Extensions.MobileApps ](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet, versão 1.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/).
 
@@ -37,7 +37,7 @@ A associação de entrada dos Aplicativos Móveis carrega um registro de um pont
 
 Consulte o exemplo específico a um idioma:
 
-* [Script do C# (. CSx)](#input---c-script-example)
+* [Script do C# (.csx)](#input---c-script-example)
 * JavaScript
 
 ### <a name="input---c-script-example"></a>Entrada - exemplo de script C#
@@ -132,9 +132,9 @@ Para saber informações sobre propriedades de atributo que podem ser configurad
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `MobileTable` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `MobileTable` atributo.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
 | **tipo**|| Deve ser definido como "mobileTable"|
 | **direction**||Deve ser definido como "in"|
@@ -166,7 +166,7 @@ Use a associação de saída dos Aplicativos Móveis para gravar um novo registr
 Consulte o exemplo específico a um idioma:
 
 * [C#](#output---c-example)
-* [Script do C# (. CSx)](#output---c-script-example)
+* [Script do C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Saída - exemplo C#
@@ -290,9 +290,9 @@ Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-ex
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `MobileTable` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `MobileTable` atributo.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
 | **tipo**|| Deve ser definido como "mobileTable"|
 | **direction**||Deve ser definido como "out"|
@@ -316,7 +316,7 @@ Nas funções do script C#, use um parâmetro de saída nomeado do tipo `out obj
 
 Nas funções do Node.js, use `context.bindings.<name>` para acessar o registro de saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

@@ -41,7 +41,7 @@ Os diagramas de protocolo abaixo descrevem a sequência de logon único para um 
 
 1. Na portal do Azure, selecione **Azure Active Directory > aplicativos empresariais** e selecione **novo aplicativo**.
 
-2. Na seção **aplicativos locais** , selecione **Adicionar um aplicativo local**.
+2. Na seção **Aplicativos locais**, selecione **Adicionar um aplicativo local**.
 
 3. Insira o nome de exibição para o novo aplicativo e, em seguida, selecione **Adicionar**.
 

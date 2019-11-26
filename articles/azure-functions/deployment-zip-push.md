@@ -87,7 +87,7 @@ A implantação de zip integra-se com esse recurso, que você pode habilitar def
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Implantação contínua para Azure Functions](functions-continuous-deployment.md)

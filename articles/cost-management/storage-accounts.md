@@ -23,7 +23,7 @@ ms.locfileid: "74229921"
 
 Você pode salvar relatórios do Cloudyn no portal do Cloudyn, armazenamento do Azure ou AWS buckets de armazenamento. Salvar seus relatórios no portal de Cloudyn é gratuito. No entanto, salvar seus relatórios para o armazenamento de seu provedor serviço de nuvem é opcional e incorre em custos adicionais. Este artigo o ajudará a configurar contas de armazenamento do Azure e buckets de armazenamento Amazon Web Services (AWS) para armazenar seus relatórios.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Você deve ter uma conta de armazenamento do Azure ou uma bucket de armazenamento da Amazon.
 
@@ -65,7 +65,7 @@ Quando você cria uma nova política, você pode fornecer as permissões exatas 
 2. Na lista de serviços, selecione **IAM**.
 3. Selecione **Políticas** no lado esquerdo do console e, em seguida, clique **Criar política**.
 4. Clique na guia **JSON**.
-5. A seguinte política permite que você salve um relatório em um bucket S3. Copy and paste the following policy example to the **JSON** tab. Replace &lt;bucketname&gt; with your bucket name.
+5. A seguinte política permite que você salve um relatório em um bucket S3. Copie e cole o exemplo de política a seguir na guia **JSON** . Substitua &lt;bucketname&gt; pelo nome do Bucket.
 
    ```json
    {
@@ -161,6 +161,6 @@ Você também pode definir permissão para criar relatórios sobre o bucket S3 u
 
 Você pode agora salvar relatórios no armazenamento do Azure. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e em seguida ou adicione sua própria URL ou use uma URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Selecione um formato de arquivo CSV ou JSON e, em seguida, salve o relatório.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine [Reconhecimento de relatórios do Cloudyn](understanding-cost-reports.md) para saber mais sobre a estrutura básica e as funções de relatórios do Cloudyn.

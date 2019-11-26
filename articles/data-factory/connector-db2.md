@@ -70,12 +70,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Db2** | Sim |
-| server |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`. |Sim |
-| banco de dados |Nome do banco de dados DB2. |Sim |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |Sim |
-| Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |Sim |
-| password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| type | A propriedade type deve ser definida como: **Db2** | sim |
+| server |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`. |sim |
+| banco de dados |Nome do banco de dados DB2. |sim |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |sim |
+| Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |sim |
+| password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |sim |
 | pacotecollection | Especifique em onde os pacotes necessários são criados automaticamente pelo ADF ao consultar o banco de dados | Não |
 | certificateCommonName | Ao usar o protocolo SSL (SSL) ou a criptografia TLS, você deve inserir um valor para o nome comum do certificado. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
@@ -113,7 +113,7 @@ Para copiar dados do DB2, há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **Db2Table** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **Db2Table** | sim |
 | schema | Nome do esquema. |Não (se "query" na fonte da atividade for especificada)  |
 | tabela | Nome da tabela. |Não (se "query" na fonte da atividade for especificada)  |
 | tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "query" na fonte da atividade for especificada) |
@@ -148,7 +148,7 @@ Para copiar dados do DB2, há suporte para as seguintes propriedades na seção 
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Db2Source** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Db2Source** | sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

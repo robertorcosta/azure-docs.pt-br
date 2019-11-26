@@ -1,5 +1,5 @@
 ---
-title: Manage IoT Hub Device Provisioning Service using Azure CLI & IoT extension
+title: Gerenciar o serviço de provisionamento de dispositivos no Hub IoT usando a extensão CLI do Azure & IoT
 description: Saiba como usar a CLI do Azure e a extensão de IoT para gerenciar o Serviço de Provisionamento de Dispositivos no Hub IoT
 author: chrissie926
 ms.author: menchi
@@ -43,20 +43,20 @@ O exemplo mostra como fazer logon na conta do Azure, criar um Grupo de Recursos 
 Conclua as etapas de instalação descritas anteriormente antes de começar. Se você ainda não tiver uma conta do Azure, você pode [criar uma conta gratuita](https://azure.microsoft.com/free/?v=17.39a) hoje. 
 
 
-### <a name="1-log-in-to-the-azure-account"></a>1. Log in to the Azure account
+### <a name="1-log-in-to-the-azure-account"></a>1. faça logon na conta do Azure
   
     az login
 
 ![logon][1]
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Create a resource group IoTHubBlogDemo in eastus
+### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. criar um grupo de recursos IoTHubBlogDemo em lesteus
 
     az group create -l eastus -n IoTHubBlogDemo
 
 ![Criar grupo de recursos][2]
 
 
-### <a name="3-create-two-device-provisioning-services"></a>3. Create two Device Provisioning services
+### <a name="3-create-two-device-provisioning-services"></a>3. criar dois serviços de provisionamento de dispositivos
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
@@ -64,20 +64,20 @@ Conclua as etapas de instalação descritas anteriormente antes de começar. Se 
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
-### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. List all the existing Device Provisioning services under this resource group
+### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. listar todos os serviços de provisionamento de dispositivos existentes neste grupo de recursos
 
     az iot dps list --resource-group IoTHubBlogDemo
 
 ![Listar Serviços de Provisionamento de Dispositivos][4]
 
 
-### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Create an IoT Hub blogDemoHub under the newly created resource group
+### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. criar um blogDemoHub do Hub IoT no grupo de recursos recém-criado
 
     az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
 
 ![Criar Hub IoT][5]
 
-### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Link one existing IoT Hub to a Device Provisioning service
+### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. vincular um hub IoT existente a um serviço de provisionamento de dispositivos
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 
@@ -92,8 +92,8 @@ Conclua as etapas de instalação descritas anteriormente antes de começar. Se 
 [6]: ./media/how-to-manage-dps-with-cli/link-hub.jpg
 
 
-## <a name="next-steps"></a>Próximos passos
-Neste tutorial, você aprendeu como:
+## <a name="next-steps"></a>Próximas etapas
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Registrar o dispositivo

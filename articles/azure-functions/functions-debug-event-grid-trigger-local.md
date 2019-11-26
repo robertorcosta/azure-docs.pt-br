@@ -16,7 +16,7 @@ ms.locfileid: "74227079"
 
 Este artigo demonstra como depurar uma função local que manipula um evento de grade de eventos do Azure gerado por uma conta de armazenamento. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Criar ou usar um aplicativo de função existente
 - Criar ou usar uma conta de armazenamento existente
@@ -105,7 +105,7 @@ Depois que a Grade de Eventos reconhece que um novo arquivo for carregado para o
 
 Para limpar os recursos criados neste artigo, exclua o contêiner **Testar** em sua conta de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Gatilho de Grade de Eventos para o Azure Functions](./functions-bindings-event-grid.md)

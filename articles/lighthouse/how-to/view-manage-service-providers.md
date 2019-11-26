@@ -12,7 +12,7 @@ ms.locfileid: "74463803"
 ---
 # <a name="view-and-manage-service-providers"></a>Exibir e gerenciar provedores de serviços
 
-Os clientes podem usar a página **Provedores de serviços** no [portal do Azure](https://portal.azure.com) para exibir informações sobre provedores de serviços e ofertas de provedores de serviços, recursos específicos delegados por meio do [gerenciamento de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md) e comprar outras ofertas de provedores de serviços. Embora possamos nos referir aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
+Os clientes podem usar a página **Provedores de serviços** no [portal do Azure](https://portal.azure.com) para exibir informações sobre provedores de serviços e ofertas de provedores de serviços, recursos específicos delegados por meio do [gerenciamento de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md) e comprar outras ofertas de provedores de serviços. Embora nos refiramos aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
 Para acessar a página **Provedores de serviços** no portal do Azure, o cliente pode selecionar **Todos os serviços**, pesquisar **Provedores de serviços** e selecioná-lo. Ele também pode pesquisar isso inserindo “Provedores de serviço” na caixa de pesquisa próxima à parte superior do portal do Azure.
 
@@ -47,13 +47,13 @@ Um cliente pode adicionar uma nova oferta de provedores de serviços na página 
 
 Se o cliente desejar remover uma oferta de provedor de serviços, poderá selecionar o ícone de lixeira na linha dessa oferta. Depois de confirmar a exclusão, esse provedor de serviços não terá mais acesso aos recursos do cliente que antes eram delegados para essa oferta.
 
-## <a name="update-service-provider-offers"></a>Update service provider offers
+## <a name="update-service-provider-offers"></a>Atualizar ofertas do provedor de serviços
 
-After a customer has added an offer, a service provider may publish an updated version of the same offer to Azure Marketplace. For example, they may want to add a new role definition. If a new version of the offer has been published, the **Provider offers** page will show an "update" icon in the row for that offer. The customer can select this icon to see the differences between the current version of the offer and the new one.
+Depois que um cliente tiver adicionado uma oferta, um provedor de serviços poderá publicar uma versão atualizada da mesma oferta no Azure Marketplace. Por exemplo, eles podem querer adicionar uma nova definição de função. Se uma nova versão da oferta tiver sido publicada, a página de **ofertas do provedor** mostrará um ícone de "atualização" na linha dessa oferta. O cliente pode selecionar esse ícone para ver as diferenças entre a versão atual da oferta e a nova.
 
- ![Update offer icon](../media/update-offer.jpg)
+ ![Ícone de oferta de atualização](../media/update-offer.jpg)
 
-After reviewing the changes, the customer can choose to update to the new version. Once they do, the authorizations and other settings specified in the new version will apply to any subscriptions and/or resource groups that have been delegated for that offer.
+Depois de revisar as alterações, o cliente pode optar por atualizar para a nova versão. Depois disso, as autorizações e outras configurações especificadas na nova versão serão aplicadas a quaisquer assinaturas e/ou grupos de recursos que tenham sido delegados para essa oferta.
 
 ## <a name="view-delegations"></a>Exibir delegações
 
@@ -61,7 +61,7 @@ As delegações representam as atribuições de função que concedem permissõe
 
 Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de delegação ou filtre por clientes, ofertas ou palavras-chave específicos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Azure Lighthouse](../overview.md).
 - Saiba como os provedores de serviço podem [exibir e gerenciar clientes](view-manage-customers.md) acessando **Meus clientes** no portal do Azure.

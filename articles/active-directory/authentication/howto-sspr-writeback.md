@@ -1,5 +1,5 @@
 ---
-title: Configure password writeback for SSPR - Azure Active Directory
+title: Configurar write-back de senha para SSPR-Azure Active Directory
 description: Usar o Azure AD e o Azure AD Connect para o write-back de senhas para um diretório local
 services: active-directory
 ms.service: active-directory
@@ -53,13 +53,13 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 * Microsoft 365 E3 ou A3
 * Microsoft 365 E5 ou A5
 * Microsoft 365 F1
-* Microsoft 365 Empresarial
+* Microsoft 365 Business
 
 > [!WARNING]
 > Os planos de licenciamento do Office 365 autônomo *não oferecem suporte à/ao "Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que esse recurso funcione.
 >
 
-## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Active Directory permissions and on-premises password complexity policies 
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Permissões de Active Directory e políticas de complexidade de senha local 
 
 A conta especificada no utilitário do Azure AD Connect deve ter os seguintes itens configurados para estar no escopo para SSPR:
 
@@ -99,9 +99,9 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
     * **Gravar pwdLastSet**
 9. Selecione **Aplicar/OK** para aplicar as alterações e sair das caixas de diálogo abertas.
 
-Since the source of authority is on premises, the password complexity policies apply from the same connected data source. Make sure you've changed the existing group policies for "Minimum password age". The group policy shouldn't be set to 1, which means password should be at least a day old before it can be updated. You need make sure it's set to 0. These settings can be found in `gpmc.msc` under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies**. Run `gpupdate /force` to ensure that the change takes effect. 
+Como a origem da autoridade está no local, as políticas de complexidade de senha se aplicam da mesma fonte de dados conectada. Verifique se você alterou as políticas de grupo existentes para "duração mínima da senha". A política de grupo não deve ser definida como 1, o que significa que a senha deve ter pelo menos um dia de idade antes de ser atualizada. Você precisa ter certeza de que ele está definido como 0. Essas configurações podem ser encontradas em `gpmc.msc` em **configuração do computador > políticas > configurações do Windows > configurações de segurança > políticas de conta**. Execute `gpupdate /force` para garantir que a alteração entra em vigor. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [O que é write-back de senha?](concept-sspr-writeback.md)
 

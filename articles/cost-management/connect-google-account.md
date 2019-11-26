@@ -73,6 +73,6 @@ Sua conta do Google aparecerá na lista de contas e deverá indicar **Autenticad
 
 Dentro de algumas horas, os relatórios da Cloudyn mostram informações sobre custo e uso do Google.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre Cloudyn, continue para [Examinar o uso e custos](./tutorial-review-usage.md) tutorial para o Cloudyn.

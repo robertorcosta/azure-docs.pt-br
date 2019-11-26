@@ -18,7 +18,7 @@ O status de orquestração personalizado permite que você defina um valor de st
 ## <a name="sample-use-cases"></a>Casos de uso de exemplo
 
 > [!NOTE]
-> The following samples show how to use custom status feature in C# and JavaScript. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Os exemplos a seguir mostram como usar o recurso de status C# personalizado no e o JavaScript. Os C# exemplos são gravados para Durable Functions 2. x e não são compatíveis com Durable Functions 1. x. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 ### <a name="visualize-progress"></a>Visualizar progresso
 
@@ -51,7 +51,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -112,7 +112,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -186,7 +186,7 @@ public static void Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -251,7 +251,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -297,7 +297,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -333,9 +333,9 @@ O clientes terão a seguinte resposta:
 ```
 
 > [!WARNING]
-> O conteúdo do status personalizado é limitado a 16 KB de textoUTF-16 JSON porque ele precisa ser capaz de caber em uma coluna de Armazenamento de Tabelas do Azure. We recommend you use external storage if you need a larger payload.
+> O conteúdo do status personalizado é limitado a 16 KB de textoUTF-16 JSON porque ele precisa ser capaz de caber em uma coluna de Armazenamento de Tabelas do Azure. Recomendamos que você use o armazenamento externo se precisar de uma carga maior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Learn about durable timers](durable-functions-timers.md)
+> [Saiba mais sobre temporizadores duráveis](durable-functions-timers.md)

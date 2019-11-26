@@ -1,5 +1,5 @@
 ---
-title: Fivetran quickstart
+title: Início rápido do Fivetran
 description: Comece rapidamente com Fivetran e Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -81,5 +81,5 @@ Para entrar no Fivetran, insira as credenciais que você usa para acessar o SQL 
 * Host (o nome do servidor).
 * Porta.
 * Banco de dados.
-* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
+* Usuário (o nome de usuário deve ser **fivetran\@_server_name_**  em que *server_name* faz parte do URI do host do Azure: ***server_name *. Database. Windows. net**).
 * Senha.

@@ -1,21 +1,15 @@
 ---
-title: Rede de consórcio Hyperledger Fabric no Azure
-description: Modelo de solução para implantar e configurar uma rede de consórcio Hyperledger Fabric
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Implantar o modelo de solução do consórcio de malha de multilimiar no Azure
+description: Como implantar e configurar o modelo de solução de rede do consórcio Fabric Consortium no Azure
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: caleteet
-manager: femila
-ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510762"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325127"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Rede de consórcio Hyperledger Fabric
 
@@ -39,10 +33,10 @@ Para habilitar o Hyperledger Fabric no Azure, há dois tipos principais de impla
 
 Em qualquer implantação, os blocos de construção que formam o núcleo do Hyperledger Fabric são os mesmos.  As diferenças nas implantações são como esses componentes são dimensionados.
 
-- **Nós de AC**: um nó que executa uma Autoridade de Certificação usado para gerar certificados que são usados para identidades na rede.
-- **Nós do comprador**: um nó que executa o serviço de comunicação que implementa uma garantia de entrega, como transmissões de ordem total ou transações atômicas.
-- **Nós pares**: um nó que confirma as transações e mantém o estado e uma cópia do Razão distribuído.
-- **Nós CouchDB**: um nó que pode executar o serviço de CouchDB e que pode conter o banco de dados de estado e fornecer consultas avançadas de dados de código em cadeia, expandindo a chave/valor simples para armazenamento de tipo JSON.
+- **Nós de CA**: um nó que executa uma autoridade de certificação que é usada para gerar certificados que são usados para identidades na rede.
+- **Nós do solicitante**: um nó que executa o serviço de comunicação implementando uma garantia de entrega, como a transmissão de ordem total ou transações atômicas.
+- **Nós pares**: um nó que confirma as transações e mantém o estado e uma cópia do razão distribuído.
+- **Nós CouchDB**: um nó que pode executar o serviço CouchDB que pode manter o banco de dados de estado e fornecer consultas avançadas de data chaincode, expandindo de chave/valor simples para o armazenamento de tipo JSON.
 
 ### <a name="single-virtual-machine-architecture"></a>Arquitetura de máquina virtual individual
 
@@ -68,7 +62,7 @@ Depois de ter uma assinatura, acesse o [ Portal do Azure ](https://portal.azure.
 
 No modelo do **Consórcio Hyperledger Fabric**, selecione **Criar**.
 
-A implantação de modelos orientará você na configuração da rede [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) de vários nós. O fluxo de implantação é dividido em quatro etapas: Noções básicas, configurações de rede de consórcio, configuração de malha e componentes opcionais.
+A implantação de modelos orientará você na configuração da rede [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) de vários nós. O fluxo de implantação é dividido em quatro etapas: Noções básicas, configurações de rede do consórcio, configuração de malha e componentes opcionais.
 
 ### <a name="basics"></a>Noções básicas
 
@@ -81,7 +75,7 @@ Em **Noções básicas**, especifique valores para parâmetros padrão para qual
 **Prefixo do recurso** | Prefixo do nome para os recursos provisionados como parte da implantação |6 caracteres ou menos |
 **Nome de Usuário** | O nome de usuário do administrador de cada uma das máquinas virtuais implementadas para esse membro |1 a 64 caracteres |
 **Tipo de autenticação** | O método para autenticar na máquina virtual |Senha ou chave pública SSH|
-**Senha (Tipo de Autenticação = Senha)** |A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha precisa conter três dos seguintes tipos de caractere: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial<br /><br />Embora todas as VMs tenham inicialmente a mesma senha, você pode alterar a senha após o provisionamento|12 a 72 caracteres|
+**Senha (Tipo de Autenticação = Senha)** |A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve conter três dos seguintes tipos de caracteres: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial<br /><br />Embora todas as VMs tenham inicialmente a mesma senha, você pode alterar a senha após o provisionamento|12 a 72 caracteres|
 **Chave SSH (tipo de autenticação = chave SSH pública)** |A chave de shell segura usada para logon remoto ||
 **Assinatura** |A assinatura para a qual implantar ||
 **Grupo de recursos** |O grupo de recursos no qual será implantada a rede do consórcio ||
@@ -98,9 +92,9 @@ Em **Configurações de rede**, especifique entradas para criar ou ingressar em 
 | Nome do Parâmetro | DESCRIÇÃO | Valores permitidos |
 |---|---|---|
 **Configuração de rede** |Você pode optar por criar uma nova rede ou ingressar em uma existente. Se você escolher *Ingressar na existente*, você precisa fornecer valores adicionais. |Nova rede <br/> Ingressar na existente |
-**Senha de AC de HLF** |Uma senha usada para certificados gerados por autoridades de certificação que são criadas como parte da implantação. A senha precisa conter três dos seguintes tipos de caractere: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial.<br /><br />Embora todas as máquinas virtuais tenham inicialmente a mesma senha, você pode alterar a senha após o provisionamento.|1 a 25 caracteres |
+**Senha de AC de HLF** |Uma senha usada para certificados gerados por autoridades de certificação que são criadas como parte da implantação. A senha deve conter três dos seguintes tipos de caracteres: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial.<br /><br />Embora todas as máquinas virtuais tenham inicialmente a mesma senha, você pode alterar a senha após o provisionamento.|1 a 25 caracteres |
 **Configuração da organização** |Você pode personalizar o nome da sua organização e o certificado ou usar os valores padrão.|Padrão <br/> Avançado |
-**Configurações de rede VPN** | Provisionar um gateway de túnel VPN para acessar as VMs | Sim <br/> Não |
+**Configurações de rede VPN** | Provisionar um gateway de túnel VPN para acessar as VMs | sim <br/> Não |
 
 Selecione **OK**.
 

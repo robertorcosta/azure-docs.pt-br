@@ -20,7 +20,7 @@ ms.locfileid: "74221768"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 
-[Testing](luis-concept-test.md) an app is an iterative process. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso não sejam, faça atualizações ao aplicativo de LUIS, treine e teste novamente. 
+[Testar](luis-concept-test.md) um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso não sejam, faça atualizações ao aplicativo de LUIS, treine e teste novamente. 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -30,20 +30,20 @@ ms.locfileid: "74221768"
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="train-before-testing"></a>Train before testing
+## <a name="train-before-testing"></a>Treinar antes do teste
 
-In order to test against the most recent version of the active app, select **Train** from the top menu, before testing. 
+Para testar a versão mais recente do aplicativo ativo, selecione **treinar** no menu superior, antes de testar. 
 
 ## <a name="test-an-utterance"></a>Testar uma declaração
 
-The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user. 
+O expressão de teste não deve ser exatamente o mesmo que qualquer declarações de exemplo no aplicativo. O expressão de teste deve incluir a opção de palavra, o comprimento da frase e o uso da entidade que você espera para um usuário. 
 
 1. Acesse seu aplicativo selecionando seu nome na página **Meus Aplicativos**. 
 
 1. Para acessar o painel extensível **Testar**, selecione **Testar** no painel superior do seu aplicativo.
 
     > [!div class="mx-imgBorder"]
-    > ![Train & Test App page](./media/luis-how-to-interactive-test/test.png)
+    > página do aplicativo ![Train & Test](./media/luis-how-to-interactive-test/test.png)
 
 1. Insira uma declaração na caixa de texto e selecione Enter. É possível digitar quantas declarações de teste você desejar no **Teste**, mas apenas uma declaração por vez.
 
@@ -100,7 +100,7 @@ Se estiver usando [Padrões](luis-concept-patterns.md) e a declaração tiver co
 Se tiver vários pontos de extremidade LUIS, use o link **Configurações Adicionais** no painel Publicado do Teste para alterar o ponto de extremidade usado para teste. Se não tiver certeza sobre qual ponto de extremidade usar, selecione o **Starter_Key** padrão. 
 
 > [!div class="mx-imgBorder"]
-> ![Test panel with Additional Settings link highlighted](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
+> ![painel de teste com configurações adicionais link realçado](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
 <!--
 ###  View Bing Spell Check corrections in test panel
@@ -138,9 +138,9 @@ Use the following procedure to include the [Bing Spell Check v7](https://azure.m
 ## <a name="batch-testing"></a>Teste em lote
 Confira os [conceitos](luis-concept-batch-test.md) de teste do lote e saiba [como](luis-how-to-batch-test.md) testar um lote de declarações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar a precisão do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
 
 * [Rotular enunciados sugeridos com o LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usar recursos para melhorar o desempenho do aplicativo de LUIS](luis-how-to-add-features.md) 
+* [Usar recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 

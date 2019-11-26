@@ -23,7 +23,7 @@ Este documento é indicado para solucionar o erro a seguir quando exibido no por
 ### <a name="summary"></a>Resumo
 Esse problema ocorre quando o Azure Functions Runtime não pode ser iniciado. O motivo mais comum para que esse erro ocorra é quando o aplicativo de funções perde o acesso à sua conta de armazenamento. [Leia mais sobre os requisitos da conta de armazenamento aqui](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
-### <a name="troubleshooting"></a>Solução de Problemas
+### <a name="troubleshooting"></a>Solucionando problemas
 Vamos percorrer os quatro casos de erro mais comuns e aprender como identificar e resolver cada caso.
 
 1. Conta de armazenamento excluída
@@ -56,10 +56,10 @@ Na etapa anterior, se não havia uma cadeia de conexão da conta de armazenament
 
 [Leia sobre essas configurações de aplicativo aqui](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>Diretriz
+### <a name="guidance"></a>Diretrizes
 
 * Não marque "configuração de slot" para nenhuma dessas configurações. Quando você trocar os slots de implantação, a função será interrompida.
-* Do not modify these settings as part of automated deployments.
+* Não modifique essas configurações como parte das implantações automatizadas.
 * Essas configurações precisam ser fornecidas e estarem válidas no momento da criação. Uma implantação automatizada que não contenha essas configurações resultará em um aplicativo não funcional, mesmo se as configurações forem adicionadas após o fato.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenciais da conta de armazenamento inválidas
@@ -81,11 +81,11 @@ Se uma cota de execução diária estiver configurada, seu Aplicativo de funçõ
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * Remova a cota e reinicie o aplicativo para resolver o problema.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Agora que seu aplicativo de funções retornou e está operacional, confira nossos guias de início rápido e nossas referências para o desenvolvedor para colocá-lo em funcionamento novamente!
 
-* [Criar sua primeira função](functions-create-first-azure-function.md)  
+* [Criar sua primeira Função do Azure](functions-create-first-azure-function.md)  
   Crie diretamente sua primeira função usando o início rápido do Azure Functions. 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
   Fornece informações mais técnicas sobre o Azure Functions runtime e uma referência para funções de codificação e definição de associações e gatilhos.

@@ -12,12 +12,12 @@ ms.locfileid: "74231217"
 ---
 # <a name="durable-functions-unit-testing"></a>Testes de unidade de Funções Duráveis
 
-Os testes de unidade são uma parte importante de modernas práticas de desenvolvimento de software. Testes de unidade verificam o comportamento de lógica de negócios e protegem contra a introdução de alterações com falhas despercebidas no futuro. As Funções Duráveis podem facilmente aumentar a complexidade, então introduzir testes de unidade ajudará a evitar alterações com falha. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and activity functions.
+Os testes de unidade são uma parte importante de modernas práticas de desenvolvimento de software. Testes de unidade verificam o comportamento de lógica de negócios e protegem contra a introdução de alterações com falhas despercebidas no futuro. As Funções Duráveis podem facilmente aumentar a complexidade, então introduzir testes de unidade ajudará a evitar alterações com falha. As seções a seguir explicam como testar a unidade dos três tipos de função: o cliente de orquestração, o Orchestrator e as funções de atividade.
 
 > [!NOTE]
-> This article provides guidance for unit testing for Durable Functions apps targeting Durable Functions 1.x. It has not yet been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Este artigo fornece diretrizes para testes de unidade para Durable Functions aplicativos direcionados Durable Functions 1. x. Ele ainda não foi atualizado para considerar as alterações introduzidas no Durable Functions 2. x. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os exemplos neste artigo requerem conhecimento sobre os conceitos e as estruturas a seguir:
 
@@ -31,7 +31,7 @@ Os exemplos neste artigo requerem conhecimento sobre os conceitos e as estrutura
 
 ## <a name="base-classes-for-mocking"></a>Classes base para a simulação
 
-Mocking is supported via three abstract classes in Durable Functions 1.x:
+Há suporte para a simulação por meio de três classes abstratas no Durable Functions 1. x:
 
 * `DurableOrchestrationClientBase`
 
@@ -39,9 +39,9 @@ Mocking is supported via three abstract classes in Durable Functions 1.x:
 
 * `DurableActivityContextBase`
 
-These classes are base classes for `DurableOrchestrationClient`, `DurableOrchestrationContext`, and `DurableActivityContext` that define Orchestration Client, Orchestrator, and Activity methods. As simulações definirão o comportamento esperado para métodos de classe base para que o teste de unidade possa verificar a lógica de negócios. Há um fluxo de trabalho de duas etapas para testes de unidade da lógica de negócios em Cliente de Orquestração e Orchestrator:
+Essas classes são classes base para `DurableOrchestrationClient`, `DurableOrchestrationContext`e `DurableActivityContext` que definem os métodos de cliente de orquestração, orquestrador e atividade. As simulações definirão o comportamento esperado para métodos de classe base para que o teste de unidade possa verificar a lógica de negócios. Há um fluxo de trabalho de duas etapas para testes de unidade da lógica de negócios em Cliente de Orquestração e Orchestrator:
 
-1. Use the base classes instead of the concrete implementation when defining orchestration client and orchestrator function signatures.
+1. Use as classes base em vez da implementação concreta ao definir as assinaturas de cliente de orquestração e de função de orquestrador.
 2. Nos testes de unidade, simule o comportamento das classes base e verifique a lógica de negócios.
 
 Encontre mais detalhes nos parágrafos a seguir para testar funções que usam a associação de cliente de orquestração e a associação de orquestrador.
@@ -52,9 +52,9 @@ Nesta seção, o teste de unidade validará a lógica da seguinte função de ga
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-A tarefa de teste de unidade será verificar o valor do cabeçalho `Retry-After` fornecido na carga de resposta. So the unit test will mock some of `DurableOrchestrationClientBase` methods to ensure predictable behavior.
+A tarefa de teste de unidade será verificar o valor do cabeçalho `Retry-After` fornecido na carga de resposta. Portanto, o teste de unidade simulará alguns dos métodos `DurableOrchestrationClientBase` para garantir um comportamento previsível.
 
-First, a mock of the base class is required, `DurableOrchestrationClientBase`. The mock can be a new class that implements `DurableOrchestrationClientBase`. No entanto, o uso de uma estrutura de simulação como [moq](https://github.com/moq/moq4) simplifica o processo:
+Primeiro, uma simulação da classe base é necessária, `DurableOrchestrationClientBase`. A simulação pode ser uma nova classe que implementa `DurableOrchestrationClientBase`. No entanto, o uso de uma estrutura de simulação como [moq](https://github.com/moq/moq4) simplifica o processo:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -172,11 +172,11 @@ Nesta seção, o teste de unidade validará o comportamento da função de Ativi
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-E os testes de unidade verificarão o formato da saída. The unit tests can use the parameter types directly or mock `DurableActivityContextBase` class:
+E os testes de unidade verificarão o formato da saída. Os testes de unidade podem usar os tipos de parâmetro diretamente ou simular `DurableActivityContextBase` classe:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)

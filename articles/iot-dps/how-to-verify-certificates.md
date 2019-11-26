@@ -1,6 +1,6 @@
 ---
-title: Verify X.509 CA certificates with Azure IoT Hub Device Provisioning Service
-description: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hub Device Provisioning Service
+title: Verificar certificados de autoridade de certificação X. 509 com o serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Como fazer a prova de posse para certificados de AC X. 509 com o serviço de provisionamento de dispositivos no Hub IoT do Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
@@ -69,7 +69,7 @@ Os scripts de PowerShell e Bash fornecidos na documentação e SDKs dependem do 
 
    ![Carregar verificação de certificado](./media/how-to-verify-certificates/upload-cert-verification.png)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como usar o portal para criar um grupo de registro, consulte [Gerenciando registros de dispositivos com o portal do Azure](how-to-manage-enrollments.md).
 - Para saber mais sobre como usar os SDKs do serviço para criar um grupo de registro, consulte [Gerenciando registros de dispositivos com os SDKs do serviço](how-to-manage-enrollments-sdks.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure Functions bindings expressions and patterns
-description: Learn to create different Azure Functions binding expressions based on common patterns.
+title: Padrões e expressões de associações de Azure Functions
+description: Aprenda a criar diferentes expressões de associação de Azure Functions com base em padrões comuns.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
@@ -12,9 +12,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227216"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>Azure Functions binding expression patterns
+# <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
 
-One of the most powerful features of [triggers and bindings](./functions-triggers-bindings.md) is *binding expressions*. No arquivo *function.json* e em parâmetros de função e de código, você pode usar expressões que são resolvidas para valores de várias fontes.
+Um dos recursos mais poderosos de [gatilhos e associações](./functions-triggers-bindings.md) é a *Associação de expressões*. No arquivo *function.json* e em parâmetros de função e de código, você pode usar expressões que são resolvidas para valores de várias fontes.
 
 A maioria das expressões são identificadas, encapsulando-as entre chaves. Por exemplo, em uma função de gatilho de fila, `{queueTrigger}` resolve para o texto de mensagem da fila. Se a propriedade `path` para uma associação de saída de blob é `container/{queueTrigger}` e a função é disparada por uma mensagem da fila `HelloWorld`, um blob denominado `HelloWorld` é criado.
 
@@ -67,7 +67,7 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-file-name"></a>Trigger file name
+## <a name="trigger-file-name"></a>Nome do arquivo de gatilho
 
 O `path` para um gatilho de Blob pode ser um padrão que permite que você se refera ao nome do blob que dispara em outras associações e código de função. O padrão também pode incluir critérios de filtragem que especifique os blobs que podem disparar uma invocação de função.
 
@@ -169,7 +169,7 @@ Esses valores de metadados estão acessíveis nas propriedades do arquivo *funct
 
 Detalhes de propriedades de metadados para cada gatilho são descritos no artigo de referência correspondente. Para obter um exemplo, consulte [metadados de gatilho de fila](functions-bindings-storage-queue.md#trigger---message-metadata). A documentação também está disponível na guia **Integrar** do portal, na seção **Documentação** abaixo da área de configuração de associação.  
 
-## <a name="json-payloads"></a>JSON payloads
+## <a name="json-payloads"></a>Cargas JSON
 
 Quando uma carga de gatilho for JSON, você pode consultar as propriedades na configuração de outras associações na mesma função e no código de função.
 
@@ -301,10 +301,10 @@ A expressão de associação `DateTime` resolve para `DateTime.UtcNow`. O seguin
   "path": "my-output-container/{DateTime}"
 }
 ```
-## <a name="binding-at-runtime"></a>Associando no runtime
+## <a name="binding-at-runtime"></a>Associando no tempo de execução
 
 No C#, e em outras linguagens .NET, você pode usar um padrão de associação obrigatório, em vez de associações declarativas em *function.json* e atributos. A associação obrigatória é útil quando os parâmetros de associação precisam ser calculado no runtime, em vez do tempo de design. Para obter mais informações, consulte a [referência do desenvolvedor C#](functions-dotnet-class-library.md#binding-at-runtime) ou [referência do desenvolvedor de script C#](functions-reference-csharp.md#binding-at-runtime).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Using the Azure Function return value](./functions-bindings-return-value.md)
+> [Usando o valor de retorno da função do Azure](./functions-bindings-return-value.md)

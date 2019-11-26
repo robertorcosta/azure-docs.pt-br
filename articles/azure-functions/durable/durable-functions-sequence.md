@@ -27,10 +27,10 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 * `E1_HelloSequence`: uma função de orquestrador que chama `E1_SayHello` várias vezes em uma sequência. Ela armazena as saídas das chamadas `E1_SayHello` e registra os resultados.
 * `E1_SayHello`: uma função de atividade que precede uma cadeia de caracteres com "Hello".
 
-The following sections explain the configuration and code that is used for C# scripting and JavaScript. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
+As seções a seguir explicam a configuração e o código que C# é usado para script e JavaScript. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
 
 > [!NOTE]
-> JavaScript Durable Functions are available for the Functions 2.0 runtime only.
+> Durable Functions de JavaScript estão disponíveis apenas para o Functions 2,0 Runtime.
 
 ## <a name="e1_hellosequence"></a>E1_HelloSequence
 
@@ -43,7 +43,7 @@ Se você usa o Visual Studio Code ou o portal do Azure para desenvolvimento, est
 O importante é o tipo de associação de `orchestrationTrigger`. Todas as funções de orquestrador devem usar esse tipo de gatilho.
 
 > [!WARNING]
-> Para obedecer a regra de "não fazer E/S" das funções de orquestrador, não use nenhuma associação de entrada ou saída ao usar a associação de gatilho `orchestrationTrigger`.  Se outras associações de entrada ou de saída forem necessárias, elas deverão ser usadas no contexto das funções `activityTrigger`, que são chamadas pelo orquestrador. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
+> Para obedecer a regra de "não fazer E/S" das funções de orquestrador, não use nenhuma associação de entrada ou saída ao usar a associação de gatilho `orchestrationTrigger`.  Se outras associações de entrada ou de saída forem necessárias, elas deverão ser usadas no contexto das funções `activityTrigger`, que são chamadas pelo orquestrador. Para obter mais informações, consulte o artigo [restrições de código de função do Orchestrator](durable-functions-code-constraints.md) .
 
 ### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script C# (código de exemplo do Visual Studio Code e do portal do Azure)
 
@@ -51,7 +51,7 @@ Este é o código-fonte:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-Todas as funções de orquestração em C# devem ter um parâmetro do tipo `DurableOrchestrationContext`, que existe no assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Se você estiver usando o script C#, o assembly poderá ser referenciado usando a notação `#r`. This context object lets you call other *activity* functions and pass input parameters using its `CallActivityAsync` method.
+Todas as funções de orquestração em C# devem ter um parâmetro do tipo `DurableOrchestrationContext`, que existe no assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Se você estiver usando o script C#, o assembly poderá ser referenciado usando a notação `#r`. Esse objeto de contexto permite chamar outras funções de *atividade* e passar parâmetros de entrada usando seu método `CallActivityAsync`.
 
 O código chama `E1_SayHello` três vezes seguidas com valores de parâmetros diferentes. O valor retornado de cada chamada é adicionado à lista `outputs`, que é retornada ao final da função.
 
@@ -61,10 +61,10 @@ Este é o código-fonte:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Todas as funções de orquestração de JavaScript devem incluir o [módulo `durable-functions`](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. Há três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
+Todas as funções de orquestração de JavaScript devem incluir o [módulo `durable-functions`](https://www.npmjs.com/package/durable-functions). É uma biblioteca que permite que você escreva Durable Functions em JavaScript. Há três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
 
 1. A função é uma [função de gerador.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
-2. A função é encapsulada em uma chamada para o método `orchestrator` do módulo `durable-functions` (aqui `df`).
+2. A função é encapsulada em uma chamada para o método `durable-functions` do módulo `orchestrator` (aqui `df`).
 3. A função deve ser síncrona. Como o método "orchestrator" lida com a chamada "context.done", a função deve simplesmente "return".
 
 O objeto `context` contém um objeto `df`, permite chamar outras funções de *atividade* e passa parâmetros de entrada usando seu método `callActivity`. O código chama `E1_SayHello` três vezes em sequência com valores de parâmetros diferentes, usando `yield` para indicar que a execução deve aguardar as chamadas de função de atividade assíncrona serem retornadas. O valor retornado de cada chamada é adicionado à lista `outputs`, que é retornada ao final da função.
@@ -86,7 +86,7 @@ A implementação de `E1_SayHello` é uma operação de formatação de cadeia d
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-This function has a parameter of type `DurableActivityContext`, which it uses to get the input that was passed to it by the orchestrator function's call to `CallActivityAsync<T>`.
+Essa função tem um parâmetro do tipo `DurableActivityContext`, que ele usa para obter a entrada passada para ela pela chamada da função de orquestrador para `CallActivityAsync<T>`.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -139,7 +139,7 @@ Como você pode ver, o `runtimeStatus` da instância é *Concluído* e o `output
 > [!NOTE]
 > O ponto de extremidade HTTP POST que iniciou a função de orquestrador é implementado no aplicativo de exemplo como uma função de gatilho HTTP chamada "HttpStart". Você pode implementar uma lógica inicial semelhante a outros tipos de gatilho, como `queueTrigger`, `eventHubTrigger` ou `timerTrigger`.
 
-Examine os logs de execução da função. The `E1_HelloSequence` function started and completed multiple times due to the replay behavior described in the [orchestration reliability](durable-functions-orchestrations.md#reliability) topic. Por outro lado, houve apenas três execuções de `E1_SayHello`, uma vez que as execuções dessas funções não são repetidas.
+Examine os logs de execução da função. A função `E1_HelloSequence` iniciada e concluída várias vezes devido ao comportamento de reprodução descrito no tópico de [confiabilidade da orquestração](durable-functions-orchestrations.md#reliability) . Por outro lado, houve apenas três execuções de `E1_SayHello`, uma vez que as execuções dessas funções não são repetidas.
 
 ## <a name="visual-studio-sample-code"></a>Código de exemplo do Visual Studio
 
@@ -147,7 +147,7 @@ Esta é a orquestração como um único arquivo em C# em um projeto do Visual St
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este exemplo demonstrou uma orquestração de encadeamento de função simples. O próximo exemplo mostra como implementar o padrão de fan-out/fan-in.
 

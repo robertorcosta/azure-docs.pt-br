@@ -10,7 +10,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74285915"
 ---
-# <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados SAP HANA em VMs do Azure
+# <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
 Os bancos de dados do SAP HANA são cargas de trabalho críticas que exigem um RPO (objetivo de ponto de recuperação) baixo e retenção de longo prazo. Você pode fazer backup de bancos de dados SAP HANA em execução em VMs (máquinas virtuais) do Azure usando o [backup do Azure](backup-overview.md).
 

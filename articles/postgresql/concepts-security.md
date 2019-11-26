@@ -1,6 +1,6 @@
 ---
-title: Security in Azure Database for PostgreSQL - Single Server
-description: An overview of the security features in Azure Database for PostgreSQL - Single Server.
+title: Segurança no banco de dados do Azure para PostgreSQL-servidor único
+description: Uma visão geral dos recursos de segurança no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,45 +13,45 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74485075"
 ---
-# <a name="security-in-azure-database-for-postgresql---single-server"></a>Security in Azure Database for PostgreSQL - Single Server
+# <a name="security-in-azure-database-for-postgresql---single-server"></a>Segurança no banco de dados do Azure para PostgreSQL-servidor único
 
-There are multiple layers of security that are available to protect the data on your Azure Database for PostgreSQL server. This article outlines those security options.
+Há várias camadas de segurança que estão disponíveis para proteger os dados no servidor do banco de dado do Azure para PostgreSQL. Este artigo descreve essas opções de segurança.
 
 ## <a name="information-protection-and-encryption"></a>Proteção e criptografia de informações
 
-### <a name="in-transit"></a>In-transit
-Azure Database for PostgreSQL secures your data by encrypting data in-transit with Transport Layer Security. Encryption (SSL/TLS) is enforced by default.
+### <a name="in-transit"></a>Em trânsito
+O banco de dados do Azure para PostgreSQL protege seus dados criptografando os dados em trânsito com a segurança da camada de transporte. A criptografia (SSL/TLS) é imposta por padrão.
 
-### <a name="at-rest"></a>At-rest
-O serviço Banco de Dados do Azure para PostgreSQL usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Data, including backups, are encrypted on disk, with the exception of temporary files created while running queries. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
+### <a name="at-rest"></a>Em repouso
+O serviço Banco de Dados do Azure para PostgreSQL usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, com exceção dos arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
 
 ## <a name="network-security"></a>Segurança de rede
-Connections to an Azure Database for PostgreSQL server are first routed through a regional gateway. The gateway has a publicly accessible IP, while the server IP addresses are protected. For more information about the gateway, visit the [connectivity architecture article](concepts-connectivity-architecture.md).  
+As conexões com um servidor de banco de dados do Azure para PostgreSQL são roteadas primeiro por meio de um gateway regional. O gateway tem um IP acessível publicamente, enquanto os endereços IP do servidor são protegidos. Para obter mais informações sobre o gateway, visite o [artigo arquitetura de conectividade](concepts-connectivity-architecture.md).  
 
-A newly created Azure Database for PostgreSQL server has a firewall that blocks all external connections. Though they reach the gateway, they are not allowed to connect to the server. 
+Um banco de dados do Azure criado recentemente para o servidor PostgreSQL tem um firewall que bloqueia todas as conexões externas. Embora eles atinjam o gateway, eles não têm permissão para se conectar ao servidor. 
 
 ### <a name="ip-firewall-rules"></a>Regras de firewall de IP
-IP firewall rules grant access to servers based on the originating IP address of each request. See the [firewall rules overview](concepts-firewall-rules.md) for more information.
+As regras de firewall IP concedem acesso a servidores com base no endereço IP de origem de cada solicitação. Consulte a [visão geral das regras de firewall](concepts-firewall-rules.md) para obter mais informações.
 
 ### <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
-Virtual network service endpoints extend your virtual network connectivity over the Azure backbone. Using virtual network rules you can enable your Azure Database for PostgreSQL server to allow connections from selected subnets in a virtual network. For more information, see the [virtual network service endpoint overview](concepts-data-access-and-security-vnet.md).
+Os pontos de extremidade de serviço de rede virtual estendem sua conectividade de rede virtual no backbone do Azure. Usando regras de rede virtual, você pode habilitar seu banco de dados do Azure para o servidor PostgreSQL para permitir conexões de sub-redes selecionadas em uma rede virtual. Para obter mais informações, consulte [visão geral do ponto de extremidade do serviço de rede virtual](concepts-data-access-and-security-vnet.md).
 
 
 ## <a name="access-management"></a>gerenciamento de acesso
 
-While creating the Azure Database for PostgreSQL server, you provide credentials for an administrator role. This administrator role can be used to create additional [PostgreSQL roles](https://www.postgresql.org/docs/current/user-manag.html).
+Ao criar o banco de dados do Azure para o servidor PostgreSQL, você fornece credenciais para uma função de administrador. Essa função de administrador pode ser usada para criar [funções](https://www.postgresql.org/docs/current/user-manag.html)adicionais do PostgreSQL.
 
-You can also connect to the server using [Azure Active Directory (AAD) authentication](concepts-aad-authentication.md).
+Você também pode se conectar ao servidor usando a [autenticação do Azure Active Directory (AAD)](concepts-aad-authentication.md).
 
 
 ## <a name="threat-protection"></a>Proteção contra ameaças
 
-You can opt in to [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+Você pode aceitar a [proteção avançada contra ameaças](concepts-data-access-and-security-threat-protection.md) , que detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar servidores.
 
-[Audit logging](concepts-audit.md) is available to track activity in your databases. 
+O [log de auditoria](concepts-audit.md) está disponível para acompanhar a atividade em seus bancos de dados. 
 
 
-## <a name="next-steps"></a>Próximos passos
-- Enable firewall rules for [IPs](concepts-firewall-rules.md) or [virtual networks](concepts-data-access-and-security-vnet.md)
-- Learn about [Azure Active Directory authentication](concepts-aad-authentication.md) in Azure Database for PostgreSQL
+## <a name="next-steps"></a>Próximas etapas
+- Habilitar regras de firewall para [IPS](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-and-security-vnet.md)
+- Saiba mais sobre a [autenticação Azure Active Directory](concepts-aad-authentication.md) no banco de dados do Azure para PostgreSQL

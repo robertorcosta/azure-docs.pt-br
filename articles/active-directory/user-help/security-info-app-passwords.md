@@ -1,6 +1,6 @@
 ---
-title: Create app passwords from Security info (preview) page - Azure AD
-description: Create auto-generated passwords (app passwords) to use with any non-browser app, or any app that doesn't support two-factor verification, in your organization. Essa senha de aplicativo é separada da senha normal e pode ser configurada na página de informações de segurança.
+title: Criar senhas de aplicativo de informações de segurança (visualização) página-Azure AD
+description: Crie senhas geradas automaticamente (senhas de aplicativo) para usar com qualquer aplicativo sem navegador ou qualquer aplicativo que não dê suporte à verificação de dois fatores em sua organização. Essa senha de aplicativo é separada da senha normal e pode ser configurada na página de informações de segurança.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,7 +19,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231802"
 ---
-# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Create app passwords from the Security info (preview) page
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Criar senhas de aplicativo da página informações de segurança (versão prévia)
 
 Alguns aplicativos, como o Outlook 2010, não dão suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas, o aplicativo não funcionará. Para contornar este problema, você pode criar uma senha gerada automaticamente para usar com cada aplicativo que não seja o navegador, separado da sua senha normal.
 
@@ -30,7 +30,7 @@ Alguns aplicativos, como o Outlook 2010, não dão suporte à verificação em d
 
 Ao usar senhas de aplicativos, é importante lembrar:
 
-- App passwords are auto-generated, and should be created and entered once per app.
+- As senhas de aplicativo são geradas automaticamente e devem ser criadas e inseridas uma vez por aplicativo.
 
 - Há um limite de 40 senhas por usuário. Se você tentar criar um após esse limite, será solicitado que você exclua uma senha existente antes de poder criar a nova.
 

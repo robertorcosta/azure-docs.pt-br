@@ -1,5 +1,5 @@
 ---
-title: Configure private IP addresses for VMs - Azure CLI
+title: Configurar endereços IP privados para VMs-CLI do Azure
 description: Aprenda a configurar endereços IP privados para máquinas virtuais usando a interface de linha de comando (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
@@ -35,7 +35,7 @@ Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você t
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Os seguintes exemplos de comandos de CLI do Azure esperam um ambiente simples existente. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma vnet](quick-create-cli.md).
+> Os seguintes exemplos de comandos de CLI do Azure esperam um ambiente simples existente. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma rede virtual](quick-create-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Especificar um endereço IP estático e privado ao criar uma VM
 
@@ -269,6 +269,6 @@ Para alterar a NIC da VM usada em comandos anteriores, conclua as seguintes etap
     > [!NOTE]
     > Se a VM for grande o suficiente para ter mais de uma NIC, execute o comando **azure network nic delete** para excluir a NIC antiga.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como gerenciar [configurações de endereço IP](virtual-network-network-interface-addresses.md).

@@ -180,9 +180,9 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
 
 * **Receba notificações gêmeas**. Esta operação permite que o back-end de solução seja notificado quando o gêmeo é modificado. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *twinChangeEvents*. Por padrão, nenhuma dessas rotas existe previamente, então nenhuma notificação gêmea é enviada. Se a taxa de alteração for alta demais ou então por outros motivos como falhas internas, o Hub IoT poderá enviar apenas uma notificação contendo todas as alterações. Portanto, se o aplicativo precisar de auditoria e registro em log confiável de todos os estados intermediários, será necessário usar mensagens de dispositivo para nuvem. A mensagem de notificação gêmea inclui propriedades e corpo.
 
-  - propriedades
+  - Propriedades
 
-    | name | Value |
+    | NOME | Valor |
     | --- | --- |
     $content-type | aplicativo/json |
     $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -196,7 +196,7 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
 
     As propriedades do sistema de mensagens são fixadas previamente com o símbolo `$`.
 
-  - Corpo
+  - corpo
         
     Esta seção inclui todas as alterações gêmeas em um formato JSON. Ele usa o mesmo formato que um patch, com as diferenças de que ele pode conter todas as seções gêmeas: marcas, properties.reported, properties.desired e também de que ele contém os elementos "$metadata". Por exemplo,
 
@@ -231,7 +231,7 @@ Além dessas operações, o back-end da solução pode:
 
 O aplicativo do dispositivo opera no dispositivo gêmeo usando as seguintes operações atômicas:
 
-* **Recuperar dispositivo gêmeo**. This operation returns the device twin document (including desired and reported system properties) for the currently connected device. (Tags are not visible to device apps.)
+* **Recuperar dispositivo gêmeo**. Esta operação retorna o documento de dispositivo de documentos (incluindo as propriedades do sistema desejadas e reportadas) para o dispositivo conectado no momento. (As marcas não são visíveis para os aplicativos do dispositivo.)
 
 * **Atualizar parcialmente as propriedades reportadas**. Essa operação permite a atualização parcial das propriedades reportadas do dispositivo conectado no momento. Esta operação usa o mesmo formato de atualização JSON que a solução de back-end usa para uma atualização parcial de propriedades desejadas.
 
@@ -245,11 +245,11 @@ Os [SDKs do dispositivo IoT do Azure](iot-hub-devguide-sdks.md) facilitam o uso 
 
 Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com as seguintes restrições:
 
-* All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$` e SP.
+* Todas as chaves em objetos JSON são codificadas em UTF-8, diferencia maiúsculas de minúsculas e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$` e SP.
 
 * Todos os valores em objetos JSON podem ser dos seguintes tipos de JSON: booliano, número, cadeia de caracteres, objeto. Não há permissão para matrizes. O valor máximo dos inteiros é 4503599627370495 e o valor mínimo dos inteiros é -4503599627370496.
 
-* All JSON objects in tags, desired, and reported properties can have a maximum depth of 10. Por exemplo, o seguinte objeto é válido:
+* Todos os objetos JSON em marcas, propriedades desejadas e relatadas podem ter uma profundidade máxima de 10. Por exemplo, o seguinte objeto é válido:
 
    ```json
    {
@@ -381,7 +381,7 @@ Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * O artigo [Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu sobre dispositivos gêmeos, pode ser interessante ler os seguintes tópicos do Guia do desenvolvedor do Hub IoT:
 

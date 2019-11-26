@@ -23,7 +23,7 @@ O Gerenciamento de Custos do Azure fornece as ferramentas para planejar, analisa
 
 ## <a name="methodology"></a>Metodologia
 
-O gerenciamento de custos é um problema organizacional e deve ser uma prática contínua que começa antes de você investir dinheiro em recursos de nuvem. Para implementar o gerenciamento de custos e otimizar os custos com êxito, sua organização precisa:
+O gerenciamento de custos é um problema organizacional e deve ser uma prática contínua que começa antes de você gastar dinheiro em recursos de nuvem. Para implementar o gerenciamento de custos e otimizar os custos com êxito, sua organização precisa:
 
 - Preparar-se com as ferramentas adequadas para o sucesso
 - Responsabilizar-se pelos custos
@@ -32,8 +32,8 @@ O gerenciamento de custos é um problema organizacional e deve ser uma prática 
 Os três grupos principais, descritos abaixo, precisam estar alinhados na organização para garantir o sucesso do gerenciamento de custos.
 
 - **Departamento Financeiro** – equipe responsável pela aprovação de solicitações de orçamento na empresa, com base nas previsões de gastos com a nuvem. Eles pagam a fatura correspondente e atribuem os custos a várias equipes para permitir a responsabilização pelos custos.
-- **Gerentes** – os resposáveis pelas decisões comerciais da empresa, que precisam entender os gastos com a nuvem para encontrar os melhores resultados para os gastos.
-- **Equipes de aplicativos** – os engenheiros que gerenciam os recursos da nuvem no dia a dia, desenvolvendo serviços para atender às necessidades da empresa. Essas equipes precisam de flexibilidade para aproveitar ao máximo seus orçamentos definidos.
+- **Gerentes** – os tomadores de decisão empresariais em uma organização que precisam entender os gastos com a nuvem para encontrar os melhores resultados de gastos.
+- **Equipes do aplicativo** – os engenheiros que gerenciam os recursos de nuvem no dia a dia, desenvolvendo serviços para atender às necessidades da organização. Essas equipes precisam de flexibilidade para aproveitar ao máximo seus orçamentos definidos.
 
 ### <a name="key-principles"></a>Principais princípios
 
@@ -50,11 +50,11 @@ Suas respostas o ajudarão a selecionar a oferta ideal para você. Elas determin
 
 #### <a name="visibility"></a>Visibilidade
 
-Quando bem estruturado, o Gerenciamento de Custos ajuda a informar as pessoas sobre os custos do Azure pelos quais elas são responsáveis ou sobre o valor de seus gastos. O Azure conta com serviços, cuja função é fornecer insights sobre *em que* seu dinheiro é gasto. Aproveite essas ferramentas. Elas podem ajudá-lo a encontrar recursos subutilizados, remover o desperdício e maximizar as oportunidades de economia de custo.
+Quando bem estruturado, o Gerenciamento de Custos ajuda a informar as pessoas sobre os custos do Azure pelos quais elas são responsáveis ou sobre o valor de seus gastos. O Azure tem serviços projetados para fornecer insights sobre *em que* seu dinheiro é gasto. Aproveite essas ferramentas. Elas podem ajudá-lo a encontrar recursos subutilizados, remover o desperdício e maximizar as oportunidades de economia de custo.
 
 #### <a name="accountability"></a>Responsabilidade
 
-Atribua os custos em sua organização para garantir que as pessoas certas sejam responsabilizadas pelos gastos de suas equipes. Para entender completamente o gastos do Azure da sua organização, organize seus recursos para maximizar os insights sobre a atribuição de custos. Uma boa organização ajuda a gerenciar e reduzir os custos e a apontar os responsáveis pela eficiência dos gastos da empresa.
+Atribua os custos em sua organização para garantir que as pessoas certas sejam responsabilizadas pelos gastos de suas equipes. Para entender completamente o gastos do Azure da sua organização, organize seus recursos para maximizar os insights sobre a atribuição de custos. Uma boa organização ajuda a gerenciar e reduzir os custos e a responsabilizar pessoas pela eficiência dos gastos na organização.
 
 #### <a name="optimization"></a>Otimização
 
@@ -96,7 +96,7 @@ Para saber mais sobre as diversas opções, visite [Como comprar o Azure](https:
 - Sem taxas mínimas ou compromissos
 - Preços competitivos
 - Pague apenas pelo que usar
-- Cancela quando quiser
+- Cancele a qualquer momento
 
 #### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
@@ -159,7 +159,7 @@ Adote as seguintes maneiras de otimizar os gastos.
 
 Depois de implantar sua infraestrutura no Azure, é importante garantir que ela esteja sendo usada. A maneira mais fácil de começar a economizar imediatamente é examinar seus recursos e remover os que não estão sendo usados. Neste ponto, você deve determinar se os recursos estão sendo usados da forma mais eficiente possível.
 
-#### <a name="azure-advisor"></a>Azure Advisor
+#### <a name="azure-advisor"></a>Assistente do Azure
 
 O Assistente do Azure é um serviço que, entre outras coisas, identifica as máquinas virtuais com baixa utilização do ponto de vista de uso da CPU ou de rede. Neste ponto, você pode decidir desligar ou redimensionar a máquina com base no custo estimado para continuar a executar as máquinas. O Assistente também fornece recomendações para compras de instância reservada. As recomendações baseiam-se em seus últimos 30 dias de uso das máquinas virtuais. Quando acionadas, as recomendações podem ajudar a reduzir seus gastos.
 
@@ -191,5 +191,5 @@ Para obter mais informações, confira [Calculadora de economia do Benefício H�
 
 O Azure também tem um serviço que permite que você crie serviços que aproveitam a capacidade excedente no Azure com taxas reduzidas. Para obter mais informações, confira [Usar VMs de baixa prioridade com o Lote](../batch/batch-low-pri-vms.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Se você é novo no Gerenciamento de Custos, leia [O que é o Gerenciamento de Custos do Azure?](overview-cost-mgt.md) para saber como ele ajuda a monitorar e controlar os gastos do Azure e para otimizar o uso de recursos.

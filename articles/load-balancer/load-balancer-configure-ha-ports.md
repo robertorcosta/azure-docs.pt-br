@@ -101,6 +101,6 @@ Na Etapa 4 de [Criar um conjunto de Load Balancer Interno](load-balancer-get-sta
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as [Portas de Alta Disponibilidade](load-balancer-ha-ports-overview.md).

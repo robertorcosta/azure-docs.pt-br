@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure MFA NPS extension - Azure Active Directory
+title: Solucionando problemas da extensão NPS do Azure MFA-Azure Active Directory
 description: Obter ajuda para resolver problemas com a extensão NPS da Autenticação Multifator do Azure
 services: multi-factor-authentication
 ms.service: active-directory
@@ -31,7 +31,7 @@ Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure
 | **ESTS_TOKEN_ERROR** | Siga as instruções em [Solução de problemas da extensão NPS do MFA](howto-mfa-nps-extension.md#troubleshooting) para investigar problemas de certificado do cliente e token ADAL. |
 | **HTTPS_COMMUNICATION_ERROR** | O servidor NPS não pode receber respostas do Azure MFA. Verifique se os firewalls estão abertos bidirecionalmente para o tráfego de entrada e saída de https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | No servidor que executa a extensão do NPS, verifique se é possível acessar https://adnotifications.windowsazure.com e https://login.microsoftonline.com/. Se os sites não forem carregados, resolva os problemas de conectividade no servidor. |
-| **Extensão NPS para o MFA do Azure:** <br> Extensão do NPS para o Azure MFA executa apenas a autenticação secundária para solicitações de Radius no estado AccessAccept. Solicitação recebida para o nome de usuário com o estado de resposta AccessReject, ignorando a solicitação. | Esse erro geralmente reflete uma falha de autenticação no AD ou que o servidor NPS não pode receber respostas do Microsoft Azure Active Directory. Verifique se seus firewalls estão abertos bidirecionalmente para o tráfego de e para https://adnotifications.windowsazure.com e https://login.microsoftonline.com usando as portas 80 e 443. Também é importante verificar que, na guia DIAL-IN de permissões de acesso de rede, a configuração é definida como "controlar o acesso por meio do Azure Policy de rede do NPS". This error can also trigger if the user is not assigned a license. |
+| **Extensão NPS para o MFA do Azure:** <br> Extensão do NPS para o Azure MFA executa apenas a autenticação secundária para solicitações de Radius no estado AccessAccept. Solicitação recebida para o nome de usuário com o estado de resposta AccessReject, ignorando a solicitação. | Esse erro geralmente reflete uma falha de autenticação no AD ou que o servidor NPS não pode receber respostas do Microsoft Azure Active Directory. Verifique se seus firewalls estão abertos bidirecionalmente para o tráfego de e para https://adnotifications.windowsazure.com e https://login.microsoftonline.com usando as portas 80 e 443. Também é importante verificar que, na guia DIAL-IN de permissões de acesso de rede, a configuração é definida como "controlar o acesso por meio do Azure Policy de rede do NPS". Esse erro também pode disparar se o usuário não tiver uma licença atribuída. |
 | **REGISTRY_CONFIG_ERROR** | Uma chave está ausente no registro do aplicativo, que pode ser devido à não execução do [script do PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) após a instalação. A mensagem de erro deve incluir a chave ausente. Verifique se você tem a chave em HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Solicitação do RADIUS ausente. Atributo userName\Identifier obrigatório do RADIUS. Verifique se o NPS está recebendo as solicitações RADIUS | Esse erro geralmente reflete um problema de instalação. A extensão NPS deve ser instalada em servidores NPS que podem receber solicitações RADIUS. Servidores NPS que são instalados como dependências para serviços como RDG e RRAS não recebem solicitações RADIUS. A Extensão NPS não funciona quando é instalada em instalações como essas e ocorre um erro, pois ela não pode ler os detalhes da solicitação de autenticação. |
 | **REQUEST_MISSING_CODE** | Verifique se o protocolo de criptografia de senha entre os servidores NPS e NAS suportam o método de autenticação secundário que você está usando. O **PAP** dá suporte a todos os métodos de autenticação do Azure MFA na nuvem: chamada telefônica, mensagem de texto unidirecional, notificação de aplicativo móvel e código de verificação de aplicativo móvel. **CHAPV2** e **EAP** dão suporte a chamada telefônica e notificação de aplicativo móvel. |
@@ -90,7 +90,7 @@ Se você encontrar um desses erros, recomendamos que [contate o suporte](#contac
 | **VersionNotSupported** |  |
 | **MFAPinNotSetup** |  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 ### <a name="troubleshoot-user-accounts"></a>Solução de problemas de contas de usuário
 

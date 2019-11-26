@@ -1,5 +1,5 @@
 ---
-title: Azure Functions F# developer reference
+title: Referência F# do Azure Functions Developer
 description: Entenda como desenvolver Azure Functions usando script F#.
 author: sylvanc
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
@@ -202,7 +202,7 @@ Quando o Azure Functions executa seu código, ele processa o código-fonte com `
 
 <a name="package"></a>
 
-## <a name="package-management"></a>Gerenciamento de pacotes
+## <a name="package-management"></a>Gerenciamento de pacote
 Para usar os pacotes do NuGet em uma função F#, adicione um arquivo `project.json` à pasta da função, no sistema de arquivos do aplicativo de funções. Veja um exemplo de arquivo `project.json` que adiciona uma referência do pacote NuGet ao `Microsoft.ProjectOxford.Face` versão 1.1.0:
 
 ```json
@@ -284,7 +284,7 @@ Os caminhos fornecidos para a diretiva `#load` são relativos ao local de seu ar
 
 A diretiva `#load` só funciona com arquivos `.fsx` (script em F#) e não com arquivos `.fs`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
 * [Guia de F#](/dotnet/articles/fsharp/index)

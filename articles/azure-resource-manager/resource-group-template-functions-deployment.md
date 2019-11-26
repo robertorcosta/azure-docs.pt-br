@@ -1,5 +1,5 @@
 ---
-title: Template functions - deployment
+title: Funções de modelo – implantação
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para recuperar informações sobre implantação.
 ms.topic: conceptual
 ms.date: 11/19/2019
@@ -15,8 +15,8 @@ ms.locfileid: "74230230"
 O Gerenciador de Recursos fornece as seguintes funções para obter os valores de seções do modelo e os valores relacionados à implantação:
 
 * [implantação](#deployment)
-* [environment](#environment)
-* [parâmetros](#parameters)
+* [ambiente](#environment)
+* [parameters](#parameters)
 * [variáveis](#variables)
 
 Para obter valores de recursos, de grupos de recursos ou de assinaturas, veja [Funções de recurso](resource-group-template-functions-resource.md).
@@ -133,15 +133,15 @@ O exemplo anterior retorna o seguinte objeto:
 
 Para um modelo no nível da assinatura, que usa a função de implantação, confira [função de implantação de assinatura](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Ele é implantado com os comandos `az deployment create` ou `New-AzDeployment`.
 
-## <a name="environment"></a>environment
+## <a name="environment"></a>Ambiente
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+Retorna informações sobre o ambiente do Azure usado para implantação.
 
 ### <a name="return-value"></a>Valor de retorno
 
-This function returns properties for the current Azure environment.
+Essa função retorna propriedades para o ambiente atual do Azure.
 
 ```json
 {
@@ -179,7 +179,7 @@ This function returns properties for the current Azure environment.
 
 ### <a name="example"></a>Exemplo
 
-The following example template returns the environment object.
+O modelo de exemplo a seguir retorna o objeto de ambiente.
 
 ```json
 {
@@ -195,7 +195,7 @@ The following example template returns the environment object.
 }
 ```
 
-The preceding example returns the following object when deployed to global Azure:
+O exemplo anterior retorna o seguinte objeto quando implantado no Azure global:
 
 ```json
 {
@@ -231,17 +231,17 @@ The preceding example returns the following object when deployed to global Azure
 }
 ```
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>parameters
 
 `parameters(parameterName)`
 
 Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser definido na seção de parâmetros do modelo.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| . | obrigatórios | Type | Descrição |
+| . | obrigatórios | Digite | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| parameterName |SIM |string |O nome do parâmetro a retornar. |
+| parameterName |sim |cadeia de caracteres |O nome do parâmetro a retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -326,15 +326,15 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| name | Type | Value |
+| NOME | Digite | Valor |
 | ---- | ---- | ----- |
-| stringOutput | string | opção 1 |
-| intOutput | Int | 1 |
+| stringOutput | String | opção 1 |
+| intOutput | int | 1 |
 | objectOutput | Objeto | {"one": "a", "two": "b"} |
 | arrayOutput | Matriz | [1, 2, 3] |
-| crossOutput | string | opção 1 |
+| crossOutput | String | opção 1 |
 
-For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
+Para obter mais informações sobre como usar parâmetros, consulte [parâmetros no modelo Azure Resource Manager](template-parameters.md).
 
 ## <a name="variables"></a>variáveis
 
@@ -342,11 +342,11 @@ For more information about using parameters, see [Parameters in Azure Resource M
 
 Retorna o valor da variável. O nome do parâmetro especificado deve ser definido na seção variáveis do modelo.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| . | obrigatórios | Type | Descrição |
+| . | obrigatórios | Digite | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| variableName |SIM |string |O nome da variável a retornar. |
+| variableName |sim |String |O nome da variável a retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -418,16 +418,16 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| name | Type | Value |
+| NOME | Digite | Valor |
 | ---- | ---- | ----- |
-| exampleOutput1 | string | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | Matriz | [1, 2, 3, 4] |
-| exampleOutput3 | string | myVariable |
+| exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
+Para obter mais informações sobre como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para mesclar diversos modelos, confira [Usar modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).

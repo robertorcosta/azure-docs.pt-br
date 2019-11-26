@@ -296,5 +296,5 @@ Esse widget mostra seus custos atuais do Amazon EC2 e compara-as para o Azure. A
 Esse widget realça o mapeamento de melhor de unidades de computação elástica entre EC2 Amazon e o Azure.
 - Clique no widget para abrir o relatório Instances Over Time.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Leia o artigo [Usar relatórios do Cloudyn](use-reports.md) para saber mais sobre relatórios.

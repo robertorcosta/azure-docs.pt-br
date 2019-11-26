@@ -134,8 +134,8 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,25][9.25 UR] | SP1 3.1
 Sistemas de arquivos | ext3, ext4, XFS
 Gerenciador de volumes | -O LVM tem suporte.<br/> -/boot no LVM tem suporte do [pacote cumulativo de atualizações 31](https://support.microsoft.com/help/4478871/) (versão 9,20 do serviço de mobilidade) em diante. Ele não tem suporte em versões anteriores do serviço de mobilidade.<br/> -Não há suporte para vários discos de sistema operacional.
 Dispositivos de armazenamento paravirtualizados | Não há suporte para dispositivos exportados por drivers paravirtualizados.
-Dispositivos de E/S de bloqueio de várias filas | Sem suporte.
-Servidores físicos com o controlador de armazenamento CCISS da HP | Sem suporte.
+Dispositivos de E/S de bloqueio de várias filas | Não compatível.
+Servidores físicos com o controlador de armazenamento CCISS da HP | Não compatível.
 Convenção de nomenclatura de ponto de montagem/dispositivo | O nome do dispositivo ou o nome do ponto de montagem deve ser exclusivo.<br/> Verifique se não há dois dispositivos/pontos de montagem com nomes que diferenciam maiúsculas de minúsculas. Por exemplo, nomes de dispositivos para a mesma VM que *Device1* e *Device1* não têm suporte.
 Diretórios | Se você estiver executando uma versão do serviço de mobilidade anterior à versão 9,20 (lançada no [pacote cumulativo de atualizações 31](https://support.microsoft.com/help/4478871/)), essas restrições se aplicarão:<br/><br/> -Esses diretórios (se configurados como partições/sistemas de arquivos separados) devem estar no mesmo disco do sistema operacional no servidor de origem:/(raiz),/boot,/usr,/usr/local,/var,/etc.</br> -O diretório/boot deve estar em uma partição de disco e não ser um volume LVM.<br/><br/> Da versão 9,20 em diante, essas restrições não se aplicam. 
 Diretório de inicialização | -Discos de inicialização não deve estar no formato de partição GPT. Essa é uma limitação da arquitetura do Azure. Os discos GPT têm suporte como discos de dados.<br/><br/> Não há suporte para vários discos de inicialização em uma VM<br/><br/> -/boot em um volume LVM em mais de um disco não tem suporte.<br/> -Um computador sem um disco de inicialização não pode ser replicado.
@@ -148,7 +148,7 @@ BTRFS | O BTRFS tem suporte do [pacote cumulativo de atualizações 34](https://
 **Ação** | **Detalhes**
 --- | ---
 Redimensionar o disco na VM replicada | Com suporte.
-Adicionar disco na VM replicada | Sem suporte.<br/> Desabilite a replicação da VM, adicione o disco e, em seguida, habilite novamente a replicação.
+Adicionar disco na VM replicada | Não compatível.<br/> Desabilite a replicação da VM, adicione o disco e, em seguida, habilite novamente a replicação.
 
 ## <a name="network"></a>Rede
 
@@ -170,15 +170,15 @@ Várias NICs da rede do convidado/servidor | Sim.
 
 **Componente** | **Com suporte**
 --- | ---
-Azure ExpressRoute | Sim
-ILB | Sim
-ELB | Sim
-Gerenciador de Tráfego do Azure | Sim
-NIC múltipla | Sim
-Endereço IP Reservado | Sim
-IPv4 | Sim
-Manter endereço IP de origem | Sim
-Pontos de extremidade de serviço de rede virtual do Azure<br/> | Sim
+Azure ExpressRoute | sim
+ILB | sim
+ELB | sim
+Gerenciador de Tráfego do Azure | sim
+NIC múltipla | sim
+Endereço IP Reservado | sim
+IPv4 | sim
+Manter endereço IP de origem | sim
+Pontos de extremidade de serviço de rede virtual do Azure<br/> | sim
 Redes aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
@@ -187,24 +187,24 @@ Redes aceleradas | Não
 Dados dinâmicos | O disco do sistema operacional deve ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
 Configuração de disco do Docker | Não
 NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN iSCSI/FC) | Sim
+Host SAN iSCSI/FC) | sim
 Host vSAN | Sim para VMware<br/><br/> N/D para servidores físicos
 MPIO (Múltiplos caminhos) do host | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Volumes de host Virtual (VVols) | Sim para VMware<br/><br/> N/D para servidores físicos
-VMDK do convidado/servidor | Sim
+VMDK do convidado/servidor | sim
 Disco de cluster compartilhado do convidado/servidor | Não
 Disco criptografado do convidado/servidor | Não
 NFS do convidado/servidor | Não
 ISCSI de convidado/servidor | Para migração-Sim<br/>Para recuperação de desastre-não, o iSCSI fará o failback como um disco anexado à VM
 SMB 3.0 do convidado/servidor | Não
-RDM do convidado/servidor | Sim<br/><br/> N/D para servidores físicos
+RDM do convidado/servidor | sim<br/><br/> N/D para servidores físicos
 Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 8.192 GB ao replicar para discos gerenciados (versão 9,26 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
 Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | Não
 Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | Não
-Volume do convidado/servidor com discos distribuídos >4 TB <br/><br/>Gerenciamento de volumes lógicos (LVM)| Sim
+Volume do convidado/servidor com discos distribuídos >4 TB <br/><br/>Gerenciamento de volumes lógicos (LVM)| sim
 Convidado/servidor - espaços de armazenamento | Não
 Adicionar/remover disco a quente por convidado/servidor | Não
-Convidado/servidor - excluir disco | Sim
+Convidado/servidor - excluir disco | sim
 MPIO (Múltiplos caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Anteriormente, havia compatibilidade com quatro.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
@@ -222,15 +222,15 @@ Inicialização de EFI/servidor do convidado/UEFI | -Com suporte para Windows Se
 
 **Componente** | **Com suporte**
 --- | ---
-Armazenamento com redundância local | Sim
-Armazenamento com redundância geográfica | Sim
-Armazenamento com redundância geográfica com acesso de leitura | Sim
+Armazenamento com redundância local | sim
+Armazenamento com redundância geográfica | sim
+Armazenamento com redundância geográfica com acesso de leitura | sim
 Armazenamento frio | Não
 Armazenamento quente| Não
 Blobs de bloco | Não
-Criptografia em repouso (SSE)| Sim
+Criptografia em repouso (SSE)| sim
 Criptografia em repouso (CMK)| Não
-Armazenamento Premium | Sim
+Armazenamento Premium | sim
 Serviço de importação/exportação | Não
 Firewalls do armazenamento do Azure para VNets | Sim.<br/> Configurado na conta de armazenamento de armazenamento/cache de destino (usada para armazenar dados de replicação).
 Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os custos de transações são consideravelmente mais altos para v2 em comparação com v1)
@@ -239,10 +239,10 @@ Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os cust
 
 **Recurso** | **Com suporte**
 --- | ---
-Conjuntos de disponibilidade | Sim
+Conjuntos de disponibilidade | sim
 Zonas de disponibilidade | Não
-HUB | Sim
-Discos gerenciados | Sim
+HUB | sim
+Discos gerenciados | sim
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -257,9 +257,9 @@ Contagem do disco do sistema operacional | 1 | A verificação falha se não tiv
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
 Tamanho do disco de dados | Até 8.192 GB ao replicar para o disco gerenciado (versão 9,26 em diante)<br></br>Até 4.095 GB ao replicar para a conta de armazenamento| A verificação falha se não tiver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
-VHD compartilhado | Sem suporte. | A verificação falha se não tiver suporte.
-Disco FC | Sem suporte. | A verificação falha se não tiver suporte.
-BitLocker | Sem suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador. |
+VHD compartilhado | Não compatível. | A verificação falha se não tiver suporte.
+Disco FC | Não compatível. | A verificação falha se não tiver suporte.
+BitLocker | Não compatível. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador. |
 Nome da VM | De 1 a 63 caracteres.<br/><br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. |  Atualize o valor nas propriedades do computador no Site Recovery.
 
 ## <a name="resource-group-limits"></a>Limites de grupo de recursos

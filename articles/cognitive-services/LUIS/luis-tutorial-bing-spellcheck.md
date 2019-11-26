@@ -1,5 +1,5 @@
 ---
-title: Correct misspelled words - LUIS
+title: Corrigir palavras incorretas-LUIS
 titleSuffix: Azure Cognitive Services
 description: Corrija palavras grafadas incorretamente na declaração adicionando a API de Verificação Ortográfica do Bing V7 para consultas de ponto de extremidade do LUIS.
 services: cognitive-services
@@ -96,12 +96,12 @@ A URL do ponto de extremidade tem vários valores que precisam ser passados corr
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorar erros de ortografia
 
-If you don't want to use the Bing Spell Check API v7 service, you need to add the correct and incorrect spelling. 
+Se você não quiser usar o serviço do Verificação Ortográfica do Bing API v7, será necessário adicionar a grafia correta e incorreta. 
 
-Two solutions are:
+Duas soluções são:
 
-* Label example utterances that have the all the different spellings so that LUIS can learn proper spelling as well as typos. Essa opção exige mais esforço de aplicação de rótulos do que o uso de um verificador ortográfico.
-* Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances. 
+* Exemplo de rótulo declarações que têm todas as diferentes ortografias para que o LUIS possa aprender a grafia adequada, bem como erros de digitação. Essa opção exige mais esforço de aplicação de rótulos do que o uso de um verificador ortográfico.
+* Crie uma lista de frases com todas as variações da palavra. Com essa solução, você não precisa rotular as variações de palavras no exemplo declarações. 
 
 ## <a name="publishing-page"></a>Página de publicação
 A página de [publicação](luis-how-to-publish-app.md) tem uma caixa de seleção **Habilitar o verificador ortográfico do Bing**. Isso é uma conveniência para criar a chave e entender como a URL de ponto de extremidade é alterada. Você ainda precisará usar os parâmetros de ponto de extremidade corretos para que a ortografia seja corrigida em cada declaração. 

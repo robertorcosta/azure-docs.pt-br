@@ -67,10 +67,10 @@ As seguintes propriedades são suportadas para o serviço vinculado HTTP:
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade deve ser definida como **HttpServer**. | Sim |
-| url | A URL base para o servidor web. | Sim |
+| type | O **tipo** propriedade deve ser definida como **HttpServer**. | sim |
+| url | A URL base para o servidor web. | sim |
 | enableServerCertificateValidation | Especifique se deseja ativar a validação do certificado SSL do servidor ao se conectar a um terminal HTTP. Se seu servidor HTTPS usa um certificado autoassinado, defina essa propriedade como **falsos**. | Não<br /> (o padrão é **verdadeira**) |
-| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Veja as seções que seguem esta tabela para mais propriedades e amostras JSON para esses tipos de autenticação. | Sim |
+| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Veja as seções que seguem esta tabela para mais propriedades e amostras JSON para esses tipos de autenticação. | sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação Básica, Digest ou Windows
@@ -79,8 +79,8 @@ Defina a **authenticationType** propriedade **Básico**, **Digest**, ou **Window
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| userName | O nome do usuário a ser usado para acessar o terminal HTTP. | Sim |
-| password | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| userName | O nome do usuário a ser usado para acessar o terminal HTTP. | sim |
+| password | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | sim |
 
 **Exemplo**
 
@@ -177,7 +177,7 @@ As propriedades a seguir têm suporte para HTTP em configurações de `location`
 
 | Propriedade    | DESCRIÇÃO                                                  | obrigatórios |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | A propriedade Type em `location` no conjunto de texto deve ser definida como **HttpServerLocation**. | Sim      |
+| type        | A propriedade Type em `location` no conjunto de texto deve ser definida como **HttpServerLocation**. | sim      |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. O conector HTTP copia dados da URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`.   | Não       |
 
 > [!NOTE]
@@ -216,7 +216,7 @@ As propriedades a seguir têm suporte para HTTP em configurações de `location`
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade do conjunto de dados deve ser definida como **HttpFile**. | Sim |
+| type | O **tipo** propriedade do conjunto de dados deve ser definida como **HttpFile**. | sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. | Não |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (padrão) e **Post**. | Não |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
@@ -280,7 +280,7 @@ As propriedades a seguir têm suporte para HTTP em configurações de `storeSett
 
 | Propriedade                 | DESCRIÇÃO                                                  | obrigatórios |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | A propriedade Type em `storeSettings` deve ser definida como **HttpReadSetting**. | Sim      |
+| type                     | A propriedade Type em `storeSettings` deve ser definida como **HttpReadSetting**. | sim      |
 | requestMethod            | O método HTTP. <br>Valores permitidos são **Obtenha** (padrão) e **Post**. | Não       |
 | addtionalHeaders         | Cabeçalhos de solicitação HTTP adicionais.                             | Não       |
 | requestBody              | O corpo da solicitação HTTP.                               | Não       |
@@ -335,7 +335,7 @@ As propriedades a seguir têm suporte para HTTP em configurações de `storeSett
 
 | Propriedade | DESCRIÇÃO | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade **tipo** da origem da atividade de cópia deve ser configurada para **HttpSource**. | Sim |
+| type | A propriedade **tipo** da origem da atividade de cópia deve ser configurada para **HttpSource**. | sim |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. O valor padrão é **01:00:40**.  | Não |
 
 **Exemplo**

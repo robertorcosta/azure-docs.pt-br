@@ -17,7 +17,7 @@ ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
 ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74275950"
@@ -84,7 +84,7 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado. |Sim|
+| NoFault | Quando nenhum erro é detectado. |sim|
 | GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não|
 | PlannedMaintenance |  A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento. | Não |
@@ -92,26 +92,26 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | PlatformInActive | Há um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
 | NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| Não|
-| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | Sim |
+| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| sim|
+| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | sim |
 
 ### <a name="connection"></a>Conexão
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado. |Sim|
+| NoFault | Quando nenhum erro é detectado. |sim|
 | GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento.  | Não |
 | VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não |
 | ConnectionEntityNotFound | A configuração da Conexão está ausente. | Não |
 | ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Sim |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
-| Autenticação | Incompatibilidade de chave pré-compartilhada. | Sim|
-| PeerReachability | O gateway correspondente não está acessível. | Sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| sim|
+| Autenticação | Incompatibilidade de chave pré-compartilhada. | sim|
+| PeerReachability | O gateway correspondente não está acessível. | sim|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |sim|
 
 ## <a name="next-steps"></a>Próximas etapas
 

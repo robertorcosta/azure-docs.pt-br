@@ -30,7 +30,7 @@ ms.locfileid: "74211916"
 
 Este guia mostra como gerenciar as zonas DNS usando a CLI do Azure entre plataformas, que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando o [Azure PowerShell](dns-operations-dnszones.md) ou o Portal do Azure.
 
-Especificamente, este guia lida com zonas DNS públicas. Para obter informações sobre como usar a CLI do Azure para gerenciar Zonas Privadas no DNS do Azure, consulte [Introdução às Zonas Privadas do DNS do Azure usando a CLI do Azure](private-dns-getstarted-cli.md).
+Este guia trata especificamente das zonas DNS públicas. Para obter informações sobre como usar a CLI do Azure para gerenciar Zonas Privadas no DNS do Azure, consulte [Introdução às Zonas Privadas do DNS do Azure usando a CLI do Azure](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Introdução
 
@@ -68,15 +68,15 @@ Escolha quais das suas assinaturas do Azure deseja usar.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Optional: To install/use Azure DNS Private Zones feature
-The Azure DNS Private Zone feature is available via an extension to the Azure CLI. Instalar o “dns” da extensão da CLI do Azure 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Opcional: para instalar/usar Zonas Privadas do DNS do Azure recurso
+O recurso de zona privada do DNS do Azure está disponível por meio de uma extensão para o CLI do Azure. Instalar o “dns” da extensão da CLI do Azure 
 ```
 az extension add --name dns
 ``` 
 
-### <a name="create-a-resource-group"></a>Criar um grupos de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de DNS são globais, não regionais, a escolha do local do grupo de recursos não afeta o DNS do Azure.
+O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de DNS são globais, não regionais, a escolha do local do grupo de recursos não afeta o DNS do Azure.
 
 Você pode ignorar esta etapa se está usando um grupo de recursos existente.
 
@@ -192,7 +192,7 @@ O exemplo a seguir mostra como excluir a zona *contoso.com* de grupo de recursos
 az network dns zone delete --resource-group myresourcegroup --name contoso.com
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [gerenciar conjuntos de registros e registros](dns-getstarted-create-recordset-cli.md) em sua zona DNS.
 

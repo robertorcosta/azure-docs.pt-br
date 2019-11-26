@@ -1,5 +1,5 @@
 ---
-title: Certificate-based authentication - Azure Active Directory
+title: Autenticação baseada em certificado-Azure Active Directory
 description: Aprenda a configurar a autenticação baseada em certificado no seu ambiente
 services: active-directory
 ms.service: active-directory
@@ -96,7 +96,7 @@ Para a configuração, você pode usar o [Azure Active Directory PowerShell vers
 
 Como essa é a primeira etapa de configuração, você precisa estabelecer uma conexão com seu locatário. Como existe uma conexão com o seu locatário, você pode revisar, adicionar, excluir e modificar autoridades de certificação confiáveis que são definidas em seu diretório.
 
-### <a name="connect"></a>Conectar
+### <a name="connect"></a>Connect
 
 Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
@@ -202,7 +202,7 @@ Um perfil do EAS pode ser configurado e colocado no dispositivo por meio da util
 1. Configure um perfil EAS no aplicativo que atenda aos requisitos da seção anterior.
 2. Abra o aplicativo e verifique a sincronização de email.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Informações adicionais sobre autenticação baseada em certificado nos dispositivos Android.](active-directory-certificate-based-authentication-android.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Create a Cognitive Services Text Analytics resource
+title: Criar um recurso de Análise de Texto de serviços cognitivas
 titleSuffix: Azure Cognitive Services
 description: Saiba como criar um recurso de Análise de Texto de Serviços Cognitivos.
 services: cognitive-services
@@ -16,25 +16,25 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383417"
 ---
-## <a name="create-a-cognitive-services-text-analytics-resource"></a>Create a Cognitive Services Text Analytics resource
+## <a name="create-a-cognitive-services-text-analytics-resource"></a>Criar um recurso de Análise de Texto de serviços cognitivas
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Select **Create a resource**, and then go to **AI + Machine Learning** > **Text Analytics**.
-   Or, go to [Create Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
-1. Enter all the required settings:
+1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Selecione **criar um recurso**e vá para **ia + Machine Learning** > **análise de texto**.
+   Ou vá para [criar análise de texto](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
+1. Insira todas as configurações necessárias:
 
-    |Configuração|Value|
+    |Configuração|Valor|
     |--|--|
-    |name|Enter a name (2-64 characters).|
-    |Subscription|Select the appropriate subscription.|
-    |Location|Select a nearby location.|
-    |tipo de preço| Enter **S**, the standard pricing tier.|
-    |Resource group|Select an available resource group.|
+    |NOME|Insira um nome (2-64 caracteres).|
+    |Assinatura|Selecione a assinatura apropriada.|
+    |Local padrão|Selecione um local próximo.|
+    |Tipo de preço| Insira **S**, o tipo de preço Standard.|
+    |Grupo de recursos|Selecione um grupo de recursos disponível.|
 
-1. Select **Create**, and wait for the resource to be created. Your browser automatically redirects to the newly created resource page.
-1. Collect the configured `endpoint` and an API key:
+1. Selecione **criar**e aguarde até que o recurso seja criado. Seu navegador redireciona automaticamente para a página de recursos recém-criada.
+1. Coletar o `endpoint` configurado e uma chave de API:
 
-    |Resource tab in portal|Configuração|Value|
+    |Guia de recursos no portal|Configuração|Valor|
     |--|--|--|
-    |**Visão geral**|Ponto de extremidade|Copy the endpoint. It appears similar to `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`.|
-    |**Chaves**|Chave de API|Copy one of the two keys. It's a 32-character alphanumeric string with no spaces or dashes: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|
+    |**Visão geral**|Ponto de extremidade|Copie o ponto de extremidade. Ele é semelhante a `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`.|
+    |**Chaves**|Chave de API|Copie uma das duas chaves. É uma cadeia de caracteres alfanumérica de 32 caracteres sem espaços ou traços: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|

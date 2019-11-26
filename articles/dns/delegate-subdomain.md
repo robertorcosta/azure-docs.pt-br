@@ -1,6 +1,6 @@
 ---
-title: Delegate a subdomain - Azure DNS
-description: With this learning path, get started delegating an Azure DNS subdomain.
+title: Delegar um subdomínio-DNS do Azure
+description: Com este roteiro de aprendizagem, comece a delegar um subdomínio de DNS do Azure.
 services: dns
 author: asudbring
 ms.service: dns
@@ -20,12 +20,12 @@ Você pode usar o portal do Azure para delegar um subdomínio de DNS. Por exempl
 
 Se você preferir, você pode delegar um subdomínio usando o [Azure PowerShell](delegate-subdomain-ps.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para delegar um subdomínio de DNS do Azure, primeiro você deve delegar seu domínio público ao DNS do Azure. Veja [Delegar um domínio ao DNS do Azure](./dns-delegate-domain-azure-dns.md) para obter instruções sobre como configurar os servidores de nome para delegação. Depois que seu domínio tiver sido delegado para a zona DNS do Azure, você poderá delegar um subdomínio.
 
 > [!NOTE]
-> Contoso.com é usado como um exemplo ao longo deste artigo. Substitua seu próprio nome de domínio para contoso.com.
+> Contoso.com é usado como exemplo ao longo deste artigo. Substitua seu próprio nome de domínio para contoso.com.
 
 ## <a name="create-a-zone-for-your-subdomain"></a>Criar uma zona para o subdomínio
 
@@ -33,7 +33,7 @@ Primeiro, crie a zona para o subdomínio **engineering**.
 
 1. No portal do Azure, selecione **Criar um recurso**.
 2. Na caixa de pesquisa, digite **DNS**e selecione **Zona DNS**.
-3. Clique em **Criar**.
+3. Selecione **Criar**.
 4. No painel **Criar zona DNS**, digite **engineering.contoso.com** na caixa de texto **Nome**.
 5. Selecione o grupo de recursos para sua zona. Você talvez queira usar o mesmo grupo de recursos como a zona pai para manter recursos semelhantes juntos.
 6. Clique em **Criar**.
@@ -41,7 +41,7 @@ Primeiro, crie a zona para o subdomínio **engineering**.
 
 ## <a name="note-the-name-servers"></a>Observe os servidores de nome
 
-Em seguida, observe os quatro servidores de nomes para o subdomínio engineering.
+Em seguida, observe os quatro servidores de nomes do subdomínio engineering.
 
 No painel da zona **engineering**, observe os quatro servidores de nomes para a zona. Você usará esses servidores de nome posteriormente.
 
@@ -68,6 +68,6 @@ Use nslookup para testar a delegação.
 2. No prompt de comando, digite `nslookup www.engineering.contoso.com.`
 3. Você deve receber uma resposta não autoritativa mostrando o endereço **10.10.10.10**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [Configurar DNS reverso para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).

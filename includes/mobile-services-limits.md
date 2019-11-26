@@ -11,18 +11,18 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224507"
 ---
-| Camada | Gratuito | Basic | Standard |
+| Camada | Grátis | Básica | Standard |
 | --- | --- | --- | --- |
-| Chamadas à API |500.000 |1.5 million per unit |15 million per unit |
-| Active devices |500 |Ilimitado |Ilimitado |
+| Chamadas à API |500.000 |1,5 milhões por unidade |15 milhões por unidade |
+| Dispositivos ativos |500 |Ilimitado |Ilimitado |
 | Escala |N/D |Até 6 unidades |Unidades ilimitadas |
-| Notificações por push |Azure Notification Hubs Free tier included, up to 1 million pushes |Notification Hubs Basic tier included, up to 10 million pushes |Notification Hubs Standard tier included, up to 10 million pushes |
-| Real-time messaging/<br/>WebSockets |Limitado |350 per mobile service |Ilimitado |
+| Notificações por push |Camada gratuita dos hubs de notificação do Azure incluída, até 1 milhão envios por push |Camada básica dos hubs de notificação incluída, até 10 milhões envios por push |Camada Standard dos hubs de notificação incluída, até 10 milhões envios por push |
+| Mensagens em tempo real/<br/>Soquetes Web |Limitado |350 por serviço móvel |Ilimitado |
 | Sincronizações offline |Limitado |Incluso |Incluso |
 | Trabalhos agendados |Limitado |Incluso |Incluso |
-| Azure SQL Database (required) <br/>Serão aplicadas taxas padrão para capacidade adicional |20 MB incluídos |20 MB incluídos |20 MB incluídos |
-| Capacidade da CPU |60 minutes per day |Ilimitado |Ilimitado |
-| Transferência de dados de saída |165 MB per day (daily rollover) |Incluso |Incluso |
+| Banco de dados SQL do Azure (obrigatório) <br/>Serão aplicadas taxas padrão para capacidade adicional |20 MB incluídos |20 MB incluídos |20 MB incluídos |
+| Capacidade de CPU |60 minutos por dia |Ilimitado |Ilimitado |
+| Transferência de dados de saída |165 MB por dia (substituição diária) |Incluso |Incluso |
 
-For more information on limits and pricing, see [Azure Mobile Services pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
+Para obter mais informações sobre limites e preços, consulte [preços dos serviços móveis do Azure](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

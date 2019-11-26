@@ -1,6 +1,6 @@
 ---
-title: Manage your connected devices from the My Account portal - Azure AD
-description: How to view and disable devices connected to your work or school account from the Devices page of the My Account portal.
+title: Gerenciar seus dispositivos conectados no portal minha conta – Azure AD
+description: Como exibir e desabilitar dispositivos conectados à sua conta corporativa ou de estudante na página dispositivos do portal minha conta.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,13 +19,13 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233208"
 ---
-# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Manage devices connected to your work or school account from the Devices page
+# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Gerenciar dispositivos conectados à sua conta corporativa ou de estudante na página dispositivos
 
-From the **Devices** page of the **My Account** portal, you can:
+Na página **dispositivos** do portal **minha conta** , você pode:
 
-- View your work or school account-connected devices.
+- Exiba seus dispositivos conectados à conta corporativa ou de estudante.
 
-- Disable any devices you no longer own, have lost, or that have been stolen.
+- Desabilite todos os dispositivos que você não possui mais, que foram perdidos ou que foram roubados.
 
 ## <a name="view-your-connected-devices"></a>Exibir seus dispositivos conectados
 
@@ -33,7 +33,7 @@ From the **Devices** page of the **My Account** portal, you can:
 
 2. Selecione **Dispositivos** do painel de navegação à esquerda ou selecione o link **Gerenciar dispositivos** no bloco **Dispositivos**.
 
-    ![My Account page, showing highlighted Devices links](media/my-account-portal/my-account-portal-devices.png)
+    ![Página minha conta, mostrando links de dispositivos realçados](media/my-account-portal/my-account-portal-devices.png)
 
 3. Examine as informações dos dispositivos conectados e verifique se você reconhece todos eles.
 
@@ -41,7 +41,7 @@ From the **Devices** page of the **My Account** portal, you can:
 
 ## <a name="disable-a-device"></a>Desabilitar um dispositivo
 
-Você pode desabilitar os dispositivos conectados a qualquer hora. Isso é particularmente importante se um dispositivo não parece familiar ou em caso de perda ou roubo de dispositivos. After you disable a device, it can no longer be authenticated by your organization, and will be unable to access any of your organization's resources.
+Você pode desabilitar os dispositivos conectados a qualquer hora. Isso é particularmente importante se um dispositivo não parece familiar ou em caso de perda ou roubo de dispositivos. Depois de desabilitar um dispositivo, ele não poderá mais ser autenticado por sua organização e não poderá acessar nenhum dos recursos da sua organização.
 
 >[!Important]
 >Se você desabilitar um dispositivo por engano, não será possível desfazer a ação. Você terá de entrar em contato com o administrador da organização para adicionar o dispositivo novamente.
@@ -52,24 +52,24 @@ Você pode desabilitar os dispositivos conectados a qualquer hora. Isso é parti
 
 2. Selecione **Sim** para confirmar que você deseja desabilitar o dispositivo.
 
-## <a name="view-a-bitlocker-key"></a>View a BitLocker key
+## <a name="view-a-bitlocker-key"></a>Exibir uma chave do BitLocker
 
-If you're locked out of your device or have a fatal error, you can go to another device and view your BitLocker key from the **My Account** portal.
+Se você estiver bloqueado em seu dispositivo ou tiver um erro fatal, poderá ir para outro dispositivo e exibir a chave do BitLocker no portal **minha conta** .
 
-1. On another device, where you're not locked out, go to the **Devices** page of the **My Account** portal.
+1. Em outro dispositivo, em que você não está bloqueado, vá para a página **dispositivos** do portal **minha conta** .
 
-    ![Device page with BitLocker key option](media/my-account-portal/my-account-portal-devices-bitlocker.png)
+    ![Página do dispositivo com a opção de chave do BitLocker](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Select **View Bitlocker Keys** for the locked out device and write down the BitLocker key for your locked device.
+2. Selecione **Exibir chaves do BitLocker** para o dispositivo bloqueado e anote a chave do BitLocker para seu dispositivo bloqueado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-After viewing your connected devices, you can:
+Depois de exibir os dispositivos conectados, você pode:
 
-- Select to view or manage your [security info](user-help-security-info-overview.md).
+- Selecione para exibir ou gerenciar suas [informações de segurança](user-help-security-info-overview.md).
 
-- View and manage your [organizations](my-account-portal-organizations-page.md).
+- Exiba e gerencie suas [organizações](my-account-portal-organizations-page.md).
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 
-- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).

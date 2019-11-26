@@ -458,7 +458,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 A lista de aliases sempre está aumentando. Para descobrir quais aliases atualmente são compatíveis com o Azure Policy, use um dos seguintes métodos:
 
-- PowerShell do Azure
+- Azure PowerShell
 
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell

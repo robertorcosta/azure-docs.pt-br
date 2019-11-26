@@ -62,7 +62,7 @@ O script a seguir demonstra como:
    echo The managed identity for Azure resources service principal ID is $spID
    ```
 
-## <a name="azure-powershell"></a>PowerShell do Azure
+## <a name="azure-powershell"></a>Azure PowerShell
 
 O script a seguir demonstra como:
 

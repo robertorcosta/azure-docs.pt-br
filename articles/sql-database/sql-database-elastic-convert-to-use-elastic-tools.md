@@ -22,7 +22,7 @@ ms.locfileid: "74421213"
 
 Gerencie com facilidade seus bancos de dados fragmentados e escalonados horizontalmente existentes, usando as ferramentas de banco de dados do Banco de Dados SQL do Azure (como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Primeiro converta um conjunto existente de bancos de dados para usar o [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Para migrar um banco de dados fragmentado existente:
 
@@ -100,7 +100,7 @@ Para utilizar esse padrão de mapeamento, os valores de ID do locatário precisa
 $ShardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $ShardMapManager
 ```
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Option 3: List mappings on an individual database
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opção 3: listar mapeamentos em um banco de dados individual
 
 A configuração desse padrão também exige a criação de um mapa de lista conforme mostrado na etapa 2, opção 1.
 
@@ -153,7 +153,7 @@ Get-Mappings -ShardMap $ShardMap
 
 Após ter concluído a configuração, você pode começar a usar a biblioteca de cliente do Banco de Dados Elástico. Você também pode usar o [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e a [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Obtenha os scripts do PowerShell de [Azure SQL DB-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (Scripts das ferramentas de Banco de Dados Elástico do BD SQL do Azure).
 
@@ -163,7 +163,7 @@ Use a ferramenta de divisão e mesclagem para mover dados de/para um modelo mult
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatários, confira [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
 

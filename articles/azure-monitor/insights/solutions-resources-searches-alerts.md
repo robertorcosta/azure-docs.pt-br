@@ -114,9 +114,9 @@ As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
 | Nome do elemento | obrigatórios | DESCRIÇÃO |
 |:--|:--|:--|
-| habilitado       | Sim | Especifica se o alerta está habilitado quando ele é criado. |
-| intervalo      | Sim | A frequência com a consulta é executada em minutos. |
-| queryTimeSpan | Sim | Período de tempo em minutos no qual avaliar resultados. |
+| enabled       | sim | Especifica se o alerta está habilitado quando ele é criado. |
+| intervalo      | sim | A frequência com a consulta é executada em minutos. |
+| queryTimeSpan | sim | Período de tempo em minutos no qual avaliar resultados. |
 
 O recurso de agendamento deve depender a pesquisa salva para que ele seja criado antes da agenda.
 > [!NOTE]
@@ -166,27 +166,27 @@ As propriedades de Recursos de ação de alerta são descritas nas tabelas a seg
 
 | Nome do elemento | obrigatórios | DESCRIÇÃO |
 |:--|:--|:--|
-| `type` | Sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
-| `name` | Sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
+| `type` | sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
+| `name` | sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
 | `description` | Não | Descrição opcional do alerta. |
-| `severity` | Sim | Severidade do alerta registro dos seguintes valores:<br><br> **crítico**<br>**aviso**<br>**informativo**
+| `severity` | sim | Severidade do alerta registro dos seguintes valores:<br><br> **crítico**<br>**aviso**<br>**informativo**
 
 #### <a name="threshold"></a>Limite
 Esta seção é necessária. Define as propriedades para o limite de alerta.
 
 | Nome do elemento | obrigatórios | DESCRIÇÃO |
 |:--|:--|:--|
-| `Operator` | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| `Value` | Sim | O valor para comparar os resultados. |
+| `Operator` | sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| `Value` | sim | O valor para comparar os resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta seção é opcional. Inclua-o para um alerta de métrica de medição.
 
 | Nome do elemento | obrigatórios | DESCRIÇÃO |
 |:--|:--|:--|
-| `TriggerCondition` | Sim | Especifica se o limite do número total de violações ou falhas consecutivas dos seguintes valores:<br><br>**Total<br>consecutivas** |
-| `Operator` | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| `Value` | Sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
+| `TriggerCondition` | sim | Especifica se o limite do número total de violações ou falhas consecutivas dos seguintes valores:<br><br>**Total<br>consecutivas** |
+| `Operator` | sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| `Value` | sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
 
 
 #### <a name="throttling"></a>Limitação
@@ -203,7 +203,7 @@ O usuário que tiver estendido seus alertas ao Azure tem uma agenda que deve ter
 
 | Nome do elemento | obrigatórios | DESCRIÇÃO |
 |:--|:--|:--|
-| AzNsNotification | Sim | A ID de recurso do grupo de ações do Azure a ser associada ao alerta para tomar as ações necessárias quando os critérios de alerta são atendidos. |
+| AzNsNotification | sim | A ID de recurso do grupo de ações do Azure a ser associada ao alerta para tomar as ações necessárias quando os critérios de alerta são atendidos. |
 | CustomEmailSubject | Não | A linha do assunto personalizada do email enviado para todos os endereços especificados no grupo de ação associado. |
 | CustomWebhookPayload | Não | Conteúdo personalizado a ser enviado a todos os pontos de extremidade de webhook definidos no grupo de ações associado. O formato depende do que está o webhook está esperando e deve ser um JSON válido serializado. |
 

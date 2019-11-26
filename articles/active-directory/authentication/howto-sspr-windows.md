@@ -1,6 +1,6 @@
 ---
-title: Self-service password reset for Windows - Azure Active Directory
-description: How to enable self-service password reset using forgot password at the Windows login screen
+title: Redefinição de senha de autoatendimento para Windows-Azure Active Directory
+description: Como habilitar a redefinição de senha de autoatendimento usando a senha esquecida na tela de logon do Windows
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,19 +18,19 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381239"
 ---
-# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>How to: Enable password reset from the Windows login screen
+# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como habilitar a redefinição de senha na tela de logon do Windows
 
-For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset their password at the Windows login screen. Users no longer have to find a device with a web browser to access the [SSPR portal](https://aka.ms/sspr).
+Para computadores que executam o Windows 7, 8, 8,1 e 10, você pode permitir que os usuários redefinam sua senha na tela de logon do Windows. Os usuários não precisam mais localizar um dispositivo com um navegador da Web para acessar o [portal do SSPR](https://aka.ms/sspr).
 
-![Example Windows 7 and 10 login screens with SSPR link shown](./media/howto-sspr-windows/windows-reset-password.png)
+![Exemplo de telas de logon do Windows 7 e 10 com o link SSPR mostrado](./media/howto-sspr-windows/windows-reset-password.png)
 
 ## <a name="general-limitations"></a>Limitações gerais
 
-- Password reset is not currently supported from a Remote Desktop or from Hyper-V enhanced sessions.
+- Atualmente, a redefinição de senha não tem suporte de uma Área de Trabalho Remota ou de sessões avançadas do Hyper-V.
 - Esse recurso não funciona para redes com autenticação de rede 802.1x implantada e a opção "Executar imediatamente antes do logon do usuário". Para redes com autenticação de rede 802.1x implantada, é recomendável usar a autenticação de computador para habilitar esse recurso.
-- Hybrid Azure AD joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials.
-- If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this step can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
-- The following settings are known to interfere with the ability to use and reset passwords on Windows 10 devices
+- Os computadores ingressados no Azure AD híbrido devem ter a linha de visão de conectividade de rede para um controlador de domínio para usar a nova senha e atualizar as credenciais armazenadas em cache.
+- Se estiver usando uma imagem, antes de executar o Sysprep, verifique se o cache da Web foi limpo para o administrador interno antes de executar a etapa CopyProfile. Mais informações sobre essa etapa podem ser encontradas no artigo de suporte [desempenho ruim ao usar o perfil de usuário padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
+- As configurações a seguir são conhecidas por interferir na capacidade de usar e redefinir senhas em dispositivos Windows 10
     - Se as teclas de atalho Ctrl+Alt+Del forem exigidas pela política nas versões do Windows 10 anteriores a v1809, a **Redefinição de senha** não funcionará.
     - Se as notificações de tela de bloqueio estiverem desativadas, a **Redefinição de senha** não funcionará.
     - HideFastUserSwitching é definido como habilitado ou 1
@@ -38,26 +38,26 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
     - NoLockScreen é definido como habilitado ou 1
     - EnableLostMode é definido no dispositivo
     - Explorer.exe é substituído por um shell personalizado
-- The combination of the following specific three settings can cause this feature to not work.
-    - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
-    - DisableLockScreenAppNotifications = 1 or Enabled
-    - IsContentDeliveryPolicyEnforced = 1 or True
+- A combinação das três configurações específicas a seguir pode fazer com que esse recurso não funcione.
+    - Logon interativo: não exigir CTRL + ALT + DEL = Disabled
+    - DisableLockScreenAppNotifications = 1 ou habilitado
+    - IsContentDeliveryPolicyEnforced = 1 ou true
 
-## <a name="windows-10-password-reset"></a>Windows 10 password reset
+## <a name="windows-10-password-reset"></a>Redefinição de senha do Windows 10
 
-### <a name="windows-10-prerequisites"></a>Windows 10 prerequisites
+### <a name="windows-10-prerequisites"></a>Pré-requisitos do Windows 10
 
-- An administrator must enable Azure AD self-service password reset from the Azure portal.
-- **Users must register for SSPR before using this feature**
-- Network proxy requirements
-   - Windows 10 devices 
-       - Port 443 to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com`
-       - Windows 10 devices only support machine-level proxy configuration
-- Run at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
+- Um administrador deve habilitar a redefinição de senha de autoatendimento do Azure AD no portal do Azure.
+- **Os usuários devem se registrar no SSPR antes de usar esse recurso**
+- Requisitos de proxy de rede
+   - Dispositivos Windows 10 
+       - Porta 443 para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
+       - Dispositivos Windows 10 dão suporte apenas à configuração de proxy no nível de computador
+- Execute pelo menos o Windows 10, versão de abril de 2018 atualização (v1803) e os dispositivos devem ser:
     - Adicionado ao Azure AD
     - Adicionado ao Azure AD híbrido
 
-### <a name="enable-for-windows-10-using-intune"></a>Enable for Windows 10 using Intune
+### <a name="enable-for-windows-10-using-intune"></a>Habilitar para Windows 10 usando o Intune
 
 Implantar a alteração de configuração para habilitar a redefinição de senha da tela de logon usando o Intune é o método mais flexível. O Intune permite que você implante a alteração de configuração para um grupo específico de computadores que você definir. Esse método requer o registro do dispositivo no Intune.
 
@@ -79,9 +79,9 @@ Implantar a alteração de configuração para habilitar a redefinição de senh
       - Clique em **OK**
    - Clique em **OK**
 1. Clique em **Criar**
-1. This policy can be assigned to specific users, devices, or groups. More information can be found in the article [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. Essa política pode ser atribuída a usuários, dispositivos ou grupos específicos. Mais informações podem ser encontradas no artigo [atribuir perfis de usuário e de dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 
-### <a name="enable-for-windows-10-using-the-registry"></a>Enable for Windows 10 using the Registry
+### <a name="enable-for-windows-10-using-the-registry"></a>Habilitar para Windows 10 usando o registro
 
 1. Entre no Windows PC usando credenciais administrativas
 1. Execute o **regedit** como administrador
@@ -89,71 +89,71 @@ Implantar a alteração de configuração para habilitar a redefinição de senh
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
 
-#### <a name="troubleshooting-windows-10-password-reset"></a>Troubleshooting Windows 10 password reset
+#### <a name="troubleshooting-windows-10-password-reset"></a>Solucionando problemas de redefinição de senha do Windows 10
 
 O log de auditoria do Microsoft Azure AD inclui informações sobre o endereço IP e o ClientType em que a redefinição de senha ocorreu.
 
-![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Exemplo de redefinição de senha do Windows 7 no log de auditoria do Azure AD](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. Essa conta é usada para manter o processo de redefinição de senha seguro. A própria conta tem uma senha gerada aleatoriamente, não é mostrada na conexão do dispositivo e será removida automaticamente após o usuário reiniciar sua senha. Multiple `defaultuser` profiles may exist but can be safely ignored.
+Quando os usuários redefinem sua senha na tela de logon de um dispositivo Windows 10, uma conta temporária de baixo privilégio chamada `defaultuser1` é criada. Essa conta é usada para manter o processo de redefinição de senha seguro. A própria conta tem uma senha gerada aleatoriamente, não é mostrada na conexão do dispositivo e será removida automaticamente após o usuário reiniciar sua senha. Vários perfis de `defaultuser` podem existir, mas podem ser ignorados com segurança.
 
-## <a name="windows-7-8-and-81-password-reset"></a>Windows 7, 8, and 8.1 password reset
+## <a name="windows-7-8-and-81-password-reset"></a>Redefinição de senha do Windows 7, 8 e 8,1
 
-### <a name="windows-7-8-and-81-prerequisites"></a>Windows 7, 8, and 8.1 prerequisites
+### <a name="windows-7-8-and-81-prerequisites"></a>Pré-requisitos do Windows 7, 8 e 8,1
 
-- An administrator must enable Azure AD self-service password reset from the Azure portal.
-- **Users must register for SSPR before using this feature**
-- Network proxy requirements
-   - Windows 7, 8, and 8.1 devices
-       - Port 443 to `passwordreset.microsoftonline.com`
+- Um administrador deve habilitar a redefinição de senha de autoatendimento do Azure AD no portal do Azure.
+- **Os usuários devem se registrar no SSPR antes de usar esse recurso**
+- Requisitos de proxy de rede
+   - Dispositivos Windows 7, 8 e 8,1
+       - Porta 443 para `passwordreset.microsoftonline.com`
 - Sistema operacional Windows 7 ou Windows 8.1 corrigido.
 - TLS 1.2 habilitado usando a diretriz encontrada em [Configurações de registro do protocolo TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12).
-- If more than one 3rd party credential provider is enabled on your machine, users will see more than one user profile on the login screen.
+- Se mais de um provedor de credenciais de terceiros estiver habilitado em seu computador, os usuários verão mais de um perfil de usuário na tela de logon.
 
 > [!WARNING]
-> TLS 1.2 must be enabled, not just set to auto negotiate
+> O TLS 1,2 deve ser habilitado, não apenas definido como negociação automática
 
-### <a name="install"></a>Instale
+### <a name="install"></a>Instalar
 
 1. Baixe o instalador correto para a versão do Windows que você quer habilitar.
    - O software está disponível no Centro de Download da Microsoft em [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
 1. Entre no computador em que você quer instalar e execute o instalador.
 1. Após a instalação, uma reinicialização é altamente recomendável.
-1. After the reboot, at the login screen choose a user and click "Forgot password?" para iniciar o fluxo de trabalho de redefinição de senha.
+1. Após a reinicialização, na tela de logon, escolha um usuário e clique em "esqueceu a senha?" para iniciar o fluxo de trabalho de redefinição de senha.
 1. Conclua o fluxo de trabalho seguindo as etapas na tela para redefinir sua senha.
 
-![Exemplo de clique em "Esqueceu a senha?" no Windows 7 SSPR flow](media/howto-sspr-windows/windows-7-sspr.png)
+![Exemplo de clique em "Esqueceu a senha?" no Windows 7 Fluxo de SSPR](media/howto-sspr-windows/windows-7-sspr.png)
 
 #### <a name="silent-installation"></a>Instalação silenciosa
 
 - Para uma instalação silenciosa, use o comando “msiexec /i SsprWindowsLogon.PROD.msi /qn”
 - Para uma desinstalação silenciosa, use o comando “msiexec /x SsprWindowsLogon.PROD.msi /qn”
 
-#### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Troubleshooting Windows 7, 8, and 8.1 password reset
+#### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Solução de problemas de redefinição de senha do Windows 7, 8 e 8,1
 
 Os eventos serão registrados no computador e no Azure AD. Os eventos do Azure AD incluirão informações sobre o endereço IP e o ClientType em que a redefinição de senha ocorreu.
 
-![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Exemplo de redefinição de senha do Windows 7 no log de auditoria do Azure AD](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
 Se for necessário outro registro em log, uma chave do Registro no computador poderá ser alterada para habilitar o registro em log detalhado. Habilite o registro detalhado somente para fins de solução de problemas.
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- To enable verbose logging, create a `REG_DWORD: “EnableLogging”`, and set it to 1.
-- To disable verbose logging, change the `REG_DWORD: “EnableLogging”` to 0.
+- Para habilitar o log detalhado, crie um `REG_DWORD: “EnableLogging”`e defina-o como 1.
+- Para desabilitar o log detalhado, altere o `REG_DWORD: “EnableLogging”` para 0.
 
 ## <a name="what-do-users-see"></a>O que os usuários veem
 
-Now that you have configured password reset for your Windows devices, what changes for the user? Como eles sabem que podem redefinir sua senha na tela de logon?
+Agora que você configurou a redefinição de senha para seus dispositivos Windows, o que muda para o usuário? Como eles sabem que podem redefinir sua senha na tela de logon?
 
-![Example Windows 7 and 10 login screens with SSPR link shown](./media/howto-sspr-windows/windows-reset-password.png)
+![Exemplo de telas de logon do Windows 7 e 10 com o link SSPR mostrado](./media/howto-sspr-windows/windows-reset-password.png)
 
-When users attempt to sign in, they now see a **Reset password** or **Forgot password** link that opens the self-service password reset experience at the login screen. Essa funcionalidade permite aos usuários redefinir a senha sem a necessidade de usar outro dispositivo para acessar um navegador da Web.
+Quando os usuários tentam entrar, eles agora veem um link **Redefinir senha** ou **esqueceu a senha** que abre a experiência de redefinição de senha de autoatendimento na tela de logon. Essa funcionalidade permite aos usuários redefinir a senha sem a necessidade de usar outro dispositivo para acessar um navegador da Web.
 
 Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](../user-help/active-directory-passwords-update-your-own-password.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-[Plan authentication methods to allow](concept-authentication-methods.md)
+[Planejar métodos de autenticação para permitir](concept-authentication-methods.md)
 
-[Configure Windows 10](https://docs.microsoft.com/windows/configuration/)
+[Configurar o Windows 10](https://docs.microsoft.com/windows/configuration/)

@@ -1,5 +1,5 @@
 ---
-title: Access from Container Instances
+title: Acesso de instâncias de contêiner
 description: Saiba como fornecer acesso a imagens em seu registro de contêiner particular das Instâncias de Contêiner do Azure usando uma entidade de serviço do Azure Active Directory.
 ms.topic: article
 ms.date: 04/23/2018
@@ -40,14 +40,14 @@ az container create \
     --registry-password <service-principal-password>
 ```
 
-## <a name="sample-scripts"></a>Scripts de exemplo
+## <a name="sample-scripts"></a>Exemplos de scripts
 
 Você pode encontrar os scripts de exemplo anteriores para a CLI do Azure no GitHub, bem como versões do Azure PowerShell:
 
 * [CLI do Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Os seguintes artigos contêm mais detalhes sobre como trabalhar com entidades de serviço e o ACR:
 

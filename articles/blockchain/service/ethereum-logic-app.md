@@ -1,5 +1,5 @@
 ---
-title: Use Ethereum Blockchain connector with Azure Logic Apps - Azure Blockchain Service
+title: Usar o conector do Ethereum Blockchain com o aplicativo lógico do Azure-serviço Blockchain do Azure
 description: Use o conector do Ethereum Blockchain com os Aplicativos Lógicos do Azure para disparar funções de contrato inteligente e responder a eventos de contrato inteligente.
 ms.date: 10/14/2019
 ms.topic: article
@@ -15,11 +15,11 @@ ms.locfileid: "74325213"
 
 Use o [conector do Ethereum Blockchain](https://docs.microsoft.com/connectors/blockchainethereum/) com os [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/) para executar ações de contrato inteligente e responder a eventos de contrato inteligente. Por exemplo, digamos que você deseje criar um microsserviço baseado em REST que retorna informações de um razão do blockchain. Usando um aplicativo lógico, você pode aceitar solicitações HTTP que consultam informações armazenadas em um razão do blockchain.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-Complete the optional prerequisite [Quickstart: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md). O início rápido orienta você pela instalação do [Azure Blockchain Development Kit para Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e pela configuração do ambiente de desenvolvimento do blockchain.
+Conclua o início rápido de pré-requisito opcional [: Use Visual Studio Code para se conectar a uma rede do Azure Blockchain Service Consortium](connect-vscode.md). O início rápido orienta você pela instalação do [Azure Blockchain Development Kit para Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e pela configuração do ambiente de desenvolvimento do blockchain.
 
-## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+## <a name="create-a-logic-app"></a>criar um aplicativo lógico
 
 Os Aplicativos Lógicos do Azure ajudam você a agendar e automatizar processos empresariais e fluxos de trabalho quando precisar integrar sistemas e serviços. Primeiro, crie uma lógica que usa o conector do Ethereum Blockchain.
 
@@ -52,14 +52,14 @@ Use gatilhos de evento do Ethereum Blockchain quando desejar que um aplicativo l
 
     ![Designer de Aplicativos Lógicos com propriedades do Gatilho de evento](./media/ethereum-logic-app/event-properties.png)
 
-    | Propriedade | Descrição |
+    | Propriedade | DESCRIÇÃO |
     |----------|-------------|
     | **ABI do Contrato** | O ABI (interface binária de aplicativo) do contrato define as interfaces do contrato inteligente. Para obter mais informações, confira [Obter o ABI do contrato](#get-the-contract-abi). |
     | **Endereço do contrato inteligente** | O endereço do contrato é o endereço de destino do contrato inteligente no Ethereum Blockchain. Para obter mais informações, confira [Obter o endereço do contrato](#get-the-contract-address). |
     | **Nome do evento** | Selecione um evento de contrato inteligente a ser verificado. O evento dispara o aplicativo lógico. |
     | **Intervalo** e **Frequência** | Selecione a frequência com que deseja verificar se há eventos. |
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Para concluir o aplicativo lógico, você pode adicionar uma nova etapa que executa uma ação com base no gatilho de evento do Ethereum Blockchain. Por exemplo, envie um email.
 
@@ -78,7 +78,7 @@ As ações do conector exigem um gatilho. Use uma ação de conector do Ethereum
 1. Altere ou [crie uma conexão de API](#create-an-api-connection) para o Azure Blockchain Service.
 1. Dependendo da ação escolhida, forneça os detalhes a seguir sobre a função de contrato inteligente.
 
-    | Propriedade | Descrição |
+    | Propriedade | DESCRIÇÃO |
     |----------|-------------|
     | **ABI do Contrato** | O ABI do contrato define as interfaces do contrato inteligente. Para obter mais informações, confira [Obter o ABI do contrato](#get-the-contract-abi). |
     | **Código de bytes do contrato** | O código de bytes do contrato inteligente compilado. Para obter mais informações, confira [Obter o código de bytes do contrato](#get-the-contract-bytecode). |
@@ -153,7 +153,7 @@ Uma conexão de API com um blockchain é necessária para o conector do Ethereum
 
 Para ajudar você a configurar uma conexão com um membro do Azure Blockchain Service, a lista a seguir traz as propriedades que podem ser necessárias, dependendo do cenário.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |----------|-------------|
 |**Nome da conexão** | Nome da conexão de API. Obrigatório. |
 |**Ponto de extremidade RPC do Ethereum** | Endereço HTTP do nó de transação do Azure Blockchain Service. Obrigatório. Para obter mais informações, confira [Obter o ponto de extremidade RPC](#get-the-rpc-endpoint). |
@@ -176,7 +176,7 @@ O endereço do ponto de extremidade RPC do Azure Blockchain Service é necessár
 
 **Para usar o portal do Azure:**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Acesse o membro do Azure Blockchain Service. Selecione **Nós de transação** e o link do nó de transação padrão.
 
     ![Página Nós de transação com a seleção (nó padrão)](./media/ethereum-logic-app/transaction-nodes.png)
@@ -193,7 +193,7 @@ O endereço do ponto de extremidade RPC do Azure Blockchain Service é necessár
 Use a chave privada da conta do Ethereum para autenticação ao enviar uma transação para o blockchain. As chaves pública e privada da conta do Ethereum são geradas com base em um mnemônico de 12 palavras. O Azure Blockchain Development Kit para Ethereum gera um mnemônico quando você se conecta a um membro do consórcio do Azure Blockchain Service. Obtenha o endereço do ponto de extremidade usando a extensão do kit de desenvolvimento.
 
 1. No Visual Studio Code, abra a paleta de comandos (F1).
-1. Select **Azure Blockchain: Retrieve private key**.
+1. Selecione **Azure Blockchain: recuperar chave privada**.
 1. Selecione o mnemônico que você salvou ao se conectar ao membro do consórcio.
 
     ![Paleta de comandos com uma opção para selecionar o mnemônico](./media/ethereum-logic-app/private-key.png)
@@ -282,6 +282,6 @@ O Truffle exibe o endereço do contrato após a implantação do contrato inteli
 
 ![Metadados com o valor do endereço no Visual Studio Code](./media/ethereum-logic-app/contract-address-metadata.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Assista a cenários comuns no vídeo [Como fazer mais com os Aplicativos Lógicos](https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true).

@@ -39,7 +39,7 @@ Você pode adicionar sua conta Microsoft pessoal ativando primeiro a verificaç�
 
 ### <a name="turn-on-two-factor-verification"></a>Ativar a verificação de dois fatores
 
-1. No seu computador, vá para a página [Noções básicas sobre segurança](https://account.microsoft.com/security) e entre usando sua conta Microsoft pessoal. Por exemplo, alain@outlook.com.
+1. No seu computador, vá para a página [Noções básicas sobre segurança](https://account.microsoft.com/security) e entre usando sua conta Microsoft pessoal. Por exemplo: alain@outlook.com.
 
 2. Na parte inferior da página **Noções básicas de segurança**, escolha o link **mais opções de segurança**.
 

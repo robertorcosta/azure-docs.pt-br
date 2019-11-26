@@ -25,7 +25,7 @@ Os endereços IP estão associados a aplicativos de função, não a funções i
 
 Cada aplicativo de função possui um único endereço IP de entrada. Para encontrar esse endereço IP:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de função.
 3. Selecione **recursos da plataforma**.
 4. Selecione **Propriedades** e o endereço IP de entrada será exibido em **Endereço IP virtual**.
@@ -115,7 +115,7 @@ Se você precisar de endereços IP dedicados e estáticos, recomendamos [Ambient
 
 Para descobrir se seu aplicativo de função é executado em um Ambiente de Serviço de Aplicativo:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de função.
 3. Selecione o guia **Visão geral**.
 4. A camada do plano de Serviço de Aplicativo aparece em **Plano de serviço de aplicativo / camada de preço**. A camada de preços do Ambiente de Serviço de Aplicativo é **Isolado**.
@@ -128,6 +128,6 @@ az webapp show --resource-group <group_name> --name <app_name> --query sku --out
 
 O Ambiente do Serviço de Aplicativo `sku` é `Isolated`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Uma causa comum de alterações de IP é a função de escala de aplicativos. [Saiba mais sobre o dimensionamento do aplicativo de função](functions-scale.md).

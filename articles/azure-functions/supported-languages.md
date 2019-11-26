@@ -22,7 +22,7 @@ Há três níveis de suporte:
 * **Versão prévia** – ainda não tem suporte, mas é esperado para alcançar o status de GA no futuro.
 * **Experimental** – não tem suporte e pode ser abandonado no futuro; nenhuma garantia de status de GA ou de versão prévia eventual.
 
-## <a name="languages-by-runtime-version"></a>Languages by runtime version 
+## <a name="languages-by-runtime-version"></a>Idiomas por versão de tempo de execução 
 
 [Duas versões do Azure Functions runtime](functions-versions.md) estão disponíveis. A tabela a seguir indica quais linguagens têm suporte em cada versão de runtime.
 
@@ -38,16 +38,16 @@ O runtime versão 2.x não oferece suporte a linguagens experimentais. O suporte
 
 ### <a name="language-extensibility"></a>Extensibilidade de linguagem
 
-Starting with version 2.x, the runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). As linguagens JavaScript e Java no runtime 2.x são criadas com essa extensibilidade.
+A partir da versão 2. x, o tempo de execução foi projetado para oferecer [extensibilidade de linguagem](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). As linguagens JavaScript e Java no runtime 2.x são criadas com essa extensibilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-To learn more about how to develop functions in the supported languages, see the following resources:
+Para saber mais sobre como desenvolver funções nos idiomas com suporte, consulte os seguintes recursos:
 
-+ [C# class library developer reference](functions-dotnet-class-library.md)
-+ [C# script developer reference](functions-reference-csharp.md)
-+ [Java developer reference](functions-reference-java.md)
-+ [JavaScript developer reference](functions-reference-node.md)
-+ [PowerShell developer reference](functions-reference-powershell.md)
-+ [Python developer reference](functions-reference-python.md)
-+ [TypeScript developer reference](functions-reference-node.md#typescript)
++ [C#referência do desenvolvedor da biblioteca de classes](functions-dotnet-class-library.md)
++ [C#referência do desenvolvedor de script](functions-reference-csharp.md)
++ [Referência do desenvolvedor Java](functions-reference-java.md)
++ [Referência do desenvolvedor de JavaScript](functions-reference-node.md)
++ [Referência do desenvolvedor do PowerShell](functions-reference-powershell.md)
++ [Referência do desenvolvedor do Python](functions-reference-python.md)
++ [Referência do desenvolvedor TypeScript](functions-reference-node.md#typescript)

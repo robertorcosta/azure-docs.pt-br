@@ -123,7 +123,7 @@ A página **atribuição de convidado** exibe todos os detalhes de conformidade 
 
 ![Exibir detalhes de conformidade](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
-### <a name="azure-powershell"></a>PowerShell do Azure
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Você também pode exibir detalhes de conformidade de Azure PowerShell. Primeiro, verifique se você tem o módulo configuração de convidado instalado.
 

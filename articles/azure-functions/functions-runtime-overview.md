@@ -43,7 +43,7 @@ As funções de trabalho do Azure Functions são implantadas em contêineres do 
 
 Para começar a usar o Azure Functions Runtime, você deve ter um computador com Windows Server 2016 ou com a Atualização do Windows 10 para Criadores com acesso a uma instância do SQL Server.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Instalar a [visualização do Azure Functions Runtime](https://aka.ms/azafrdoc)
 

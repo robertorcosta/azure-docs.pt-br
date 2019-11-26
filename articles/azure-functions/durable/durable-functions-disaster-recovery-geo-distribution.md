@@ -14,12 +14,12 @@ ms.locfileid: "74232935"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Recuperação de desastres e distribuição geográfica
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Nas Durable Functions, todos os estados são persistentes no Armazenamento do Azure. Um [hub de tarefas](durable-functions-task-hubs.md) é um contêiner lógico dos recursos do Armazenamento do Azure usado para orquestrações. Funções de orquestrador e atividade só podem interagir entre si quando pertencem ao mesmo hub de tarefas.
 Os cenários descritos propõem opções de implantação para aumentar a disponibilidade e minimizar o tempo de inatividade durante as atividades de recuperação de desastre.
 
-É importante observar que esses cenários são baseados nas configurações ativa-passiva, pois são guiados pelo uso do Armazenamento do Azure. Esse padrão consiste em implantar um aplicativo de função (passivo) de backup em uma região diferente. O Gerenciador de Tráfego monitorará o aplicativo de função (ativo) principal quanto à disponibilidade. Ele fará failover para o aplicativo de função de backup se o principal falhar. Para obter mais informações, consulte [Método de roteamento de tráfego por prioridade](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) do [Gerenciador de Tráfego](https://azure.microsoft.com/services/traffic-manager/).
+É importante observar que esses cenários são baseados nas configurações ativa-passiva, pois são guiados pelo uso do Armazenamento do Azure. Esse padrão consiste em implantar um aplicativo de função (passivo) de backup em uma região diferente. O Gerenciador de Tráfego monitorará o aplicativo de função (ativo) principal quanto à disponibilidade. Ele fará failover para o aplicativo de função de backup se o principal falhar. Para obter mais informações, consulte [Método de roteamento de tráfego por prioridade](https://azure.microsoft.com/services/traffic-manager/) do [Gerenciador de Tráfego](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
 
 >[!NOTE]
 >
@@ -83,6 +83,6 @@ Assim como acontece com os outros cenários, há considerações importantes:
 
 ![Diagrama mostrando o cenário 3.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode ler mais sobre [Projetar aplicativos altamente disponíveis usando RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)

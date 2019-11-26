@@ -38,10 +38,10 @@ Este artigo descreve os problemas atuais e anteriores com a aderência ao servi�
 
 | **Problemas de conformidade SCIM 2.0** |  **Corrigido?** | **Corrigir a data**  |  
 |---|---|---|
-| O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | Sim  |  18 de dezembro de 2018 | 
-| Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  Sim  | 18 de dezembro de 2018  | 
-|  As solicitações de patch para atributos com vários valores contêm a sintaxe de filtro de caminho inválido | Sim  |  18 de dezembro de 2018  | 
-|  As solicitações de criação de grupo contêm um URI de esquema inválido | Sim  |  18 de dezembro de 2018  |  
+| O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | sim  |  18 de dezembro de 2018 | 
+| Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  sim  | 18 de dezembro de 2018  | 
+|  As solicitações de patch para atributos com vários valores contêm a sintaxe de filtro de caminho inválido | sim  |  18 de dezembro de 2018  | 
+|  As solicitações de criação de grupo contêm um URI de esquema inválido | sim  |  18 de dezembro de 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>As correções de serviços foram aplicadas automaticamente ao meu aplicativo SCIM já existente?
 

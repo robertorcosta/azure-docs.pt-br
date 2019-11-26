@@ -1,5 +1,5 @@
 ---
-title: Roll X.509 certificates in Azure IoT Hub Device Provisioning Service
+title: Distribuir certificados X. 509 no serviço de provisionamento de dispositivos no Hub IoT do Azure
 description: Como distribuir certificados x. 509 com sua instância de serviço de provisionamento de dispositivos
 author: wesmc7777
 ms.author: wesmc
@@ -94,7 +94,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 1. Clique em **Registros Individuais**e clique na entrada da ID de registro na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
 
     ![Gerenciar registros individuais usando o certificado secundário](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -177,7 +177,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 1. Clique em **Grupos de Registro**e, em seguida, clique no nome de grupo na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
 
     Esse novo certificado intermediário deve ser assinado por um certificado de autoridade de certificação de raiz verificado que já foi adicionado ao serviço de provisionamento. Para saber mais, confira [Certificados X.509](concepts-security.md#x509-certificates).
 
@@ -206,7 +206,7 @@ Depois que um certificado é incluído como parte de uma entrada de registro des
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre os certificados x. 509 no serviço de provisionamento de dispositivos, consulte [Segurança](concepts-security.md) 
 - Para saber como fazer uma prova de posse para certificados de autoridade de certificação X.509 com o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure, consulte [Como verificar os certificados](how-to-verify-certificates.md)

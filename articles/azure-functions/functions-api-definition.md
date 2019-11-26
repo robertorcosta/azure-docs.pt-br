@@ -1,5 +1,5 @@
 ---
-title: OpenAPI metadata in Azure Functions
+title: OpenAPI metadados no Azure Functions
 description: Visão geral do suporte OpenAPI em Azure Functions
 author: alexkarcher-msft
 ms.topic: conceptual
@@ -40,7 +40,7 @@ Para obter instruções passo a passo, confira este [tutorial de introdução](.
 
 ### <a name="templates"></a>Modelos disponíveis
 
-|name| Descrição |
+|NOME| DESCRIÇÃO |
 |:-----|:-----|
 |Definição gerada|Uma definição de OpenAPI com a quantidade máxima de informações que podem ser inferidas de metadados existentes da função.|
 
@@ -75,7 +75,7 @@ A tabela a seguir representa as configurações do Portal do Azure e dados corre
 
 Agora, as alterações em swagger.json em seu repositório são hospedadas por seu aplicativo de funções na URL e chave de definição de API que você anotou na etapa 1.c.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Tutorial de introdução](functions-api-definition-getting-started.md). Experimente o nosso passo a passo para exibir uma definição de OpenAPI em ação.
 * [Repositório do GitHub do Azure Functions](https://github.com/Azure/Azure-Functions/). Confira o repositório Funções para fornecer comentários sobre a versão prévia de suporte de definição de API. Execute o GitHub para qualquer coisa que você gostaria de ver atualizada.
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md). Saiba mais sobre a codificação de funções e definição de gatilhos e associações.

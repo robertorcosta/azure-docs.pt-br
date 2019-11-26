@@ -264,7 +264,7 @@ Exclua as URLs de resposta não utilizadas configuradas para o aplicativo.
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Na **URL de resposta (URL do serviço de consumidor de asserção)** , exclua as URLs de resposta não usadas ou padrão criadas pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Na **URL de resposta (URL do serviço de consumidor de asserção)** , exclua as URLs de resposta não usadas ou padrão criadas pelo sistema. Por exemplo: `https://127.0.0.1:444/applications/default.aspx`.
 
 
 
