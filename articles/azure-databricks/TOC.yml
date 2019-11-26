@@ -226,7 +226,7 @@
       maintainContext: true
     - name: Dados
       items:
-        - name: Sistema de arquivos do Databricks
+        - name: DBFS – Sistema de Arquivos do Databricks
           href: /azure/databricks/data/databricks-file-system
           maintainContext: true
         - name: Bancos de dados e tabelas
@@ -242,7 +242,7 @@
             - name: Bancos de dados SQL usando JDBC
               href: /azure/databricks/data/data-sources/sql-databases
               maintainContext: true
-            - name: Bancos de dados SQL usando o conector de Apache Spark
+            - name: Bancos de dados SQL usando o conector do Apache Spark
               href: /azure/databricks/data/data-sources/sql-databases-azure
               maintainContext: true
             - name: Armazenamento de Blobs do Azure
@@ -254,7 +254,7 @@
             - name: Armazenamento do Azure Data Lake
               href: /azure/databricks/data/data-sources/azure/azure-datalake
               maintainContext: true
-            - name: Passagem do Azure Data Lake Storage
+            - name: Passagem de credencial do Azure Data Lake Storage
               href: /azure/databricks/data/data-sources/azure/adls-passthrough
               maintainContext: true
             - name: Cosmos DB
@@ -263,7 +263,7 @@
             - name: SQL Data Warehouse do Azure
               href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
               maintainContext: true
-            - name: Arquivos binários
+            - name: Arquivo binário
               href: /azure/databricks/data/data-sources/binary-file
               maintainContext: true
             - name: Cassandra
@@ -275,7 +275,7 @@
             - name: ElasticSearch
               href: /azure/databricks/data/data-sources/elasticsearch
               maintainContext: true
-            - name: Imagens
+            - name: Imagem
               href: /azure/databricks/data/data-sources/image
               maintainContext: true
             - name: Tabelas do Hive
@@ -641,7 +641,7 @@
             - name: Manipular arquivos e registros inválidos
               href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
               maintainContext: true
-            - name: Preempção de tarefa para alta simultaneidade
+            - name: Tarefa p para alta simultaneidade
               href: /azure/databricks/spark/latest/spark-sql/preemption
               maintainContext: true
             - name: Manipular consultas grandes em fluxos de trabalho interativos
@@ -659,7 +659,7 @@
             - name: Funções definidas pelo usuário do Pandas
               href: /azure/databricks/spark/latest/spark-sql/udf-python-pandas
               maintainContext: true
-            - name: Compatibilidade do Apache Hive
+            - name: Compatibilidade com o Apache Hive
               href: /azure/databricks/spark/latest/spark-sql/compatibility/hive
               maintainContext: true
     - name: R
@@ -764,16 +764,16 @@
               href: /azure/databricks/applications/deep-learning/data-prep/ddl-data
               maintainContext: true
             - name: Carregar dados usando Petastorm
-              href: /azure/databricks//applications/deep-learning/data-prep/petastorm
+              href: /azure/databricks/applications/deep-learning/data-prep/petastorm
               maintainContext: true
             - name: Salvar DataFrames e conjuntos de valores em arquivos TFRecord
-              href: /azure/databricks//applications/deep-learning/data-prep/dataset-to-tfrecords
+              href: /azure/databricks/applications/deep-learning/data-prep/dataset-to-tfrecords
               maintainContext: true
             - name: Carregar dados de arquivos TFRecord com o TensorFlow
-              href: /azure/databricks//applications/deep-learning/data-prep/tfrecords-to-tensorflow
+              href: /azure/databricks/applications/deep-learning/data-prep/tfrecords-to-tensorflow
               maintainContext: true
             - name: Salvar dados em arquivos TFRecord com o TensorFlow
-              href: /azure/databricks//applications/deep-learning/data-prep/tensorflow-to-tfrecords
+              href: /azure/databricks/applications/deep-learning/data-prep/tensorflow-to-tfrecords
               maintainContext: true
         - name: Treinamento de nó único
           items:
@@ -995,7 +995,7 @@
             - name: Visão geral do gerenciamento de contas
               href: /azure/databricks/administration-guide/account-settings/index
               maintainContext: true
-            - name: Gerenciar a assinatura
+            - name: Gerenciar sua assinatura
               href: /azure/databricks/administration-guide/account-settings/account
               maintainContext: true
             - name: Log de diagnóstico no Azure Databricks
@@ -1061,6 +1061,17 @@
         - name: Gerenciar o armazenamento do workspace
           href: /azure/databricks/administration-guide/workspace-storage/storage
           maintainContext: true
+        - name: Habilitar configurações de cluster
+          items:
+            - name: Visão geral da configuração do cluster
+              href: /azure/databricks/administration-guide/clusters/index
+              maintainContext: true
+            - name: Habilitar os Serviços de Contêiner
+              href: /azure/databricks/administration-guide/clusters/container-services
+              maintainContext: true
+            - name: Habilitar o Databricks Runtime para Genomics
+              href: /azure/databricks/administration-guide/clusters/genomics-runtime
+              maintainContext: true
         - name: Gerenciar redes virtuais
           items:
             - name: Visão geral das redes virtuais
@@ -1084,7 +1095,7 @@
     - name: solução de problemas
       items:
         - name: Perguntas comuns
-          href: /azure/databricks//azure/azure-databricks/frequently-asked-questions-databricks
+          href: /azure/azure-databricks/frequently-asked-questions-databricks
           maintainContext: true
         - name: Administração
           items:
