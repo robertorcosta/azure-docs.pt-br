@@ -1,5 +1,5 @@
 ---
-title: Manage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal
+title: Gerenciar registros de dispositivo para o serviço de provisionamento de dispositivos no Hub IoT do Azure no portal do Azure
 description: Como gerenciar registros de dispositivos para o Serviço de Provisionamento de Dispositivos no portal do Azure
 author: wesmc7777
 ms.author: wesmc
@@ -34,9 +34,9 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
      a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registros**.  
      b. Clique no botão **Adicionar** na parte superior.  
      c. Quando o painel "Adicionar Grupos de Registros" for exibido, insira as informações da entrada da lista de registro.  O **Nome de Grupo** é obrigatório. Selecione também "AC ou Intermediária" para **Tipo de certificado** e carregue o **Certificado principal** raiz para o grupo de dispositivos.  
-     d. Clique em **Save** (Salvar). Após a criação bem-sucedida de seu grupo de registro, você deverá ver o nome do grupo aparecer sob a guia **Grupos de Registro**.  
+     d. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o nome do grupo aparecer sob a guia **Grupos de Registro**.  
 
-     [![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [![grupo de registro no portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
 * Um **registro Individual** é uma entrada para um único dispositivo que pode registrar. Os registros individuais podem usar certificados x509 ou tokens de SAS (de um TPM virtual ou físico) como mecanismos de certificação. É recomendável usar registros individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual como o mecanismo de Atestado. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
@@ -49,7 +49,7 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
        a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.  
        b. Clique no botão **Adicionar** na parte superior.   
        c. Quando o painel "Adicionar Registro" for exibido, insira as informações da entrada da lista de registro. Primeiro, selecione o **Mecanismo** de certificação para o dispositivo (X.509 ou TPM). A certificação X.509 exige upload do **Certificado principal** para o dispositivo. O TPM exige que você insira a **Chave de Atestado** e a **ID do Registro** para o dispositivo.  
-       d. Clique em **Save** (Salvar). Após a criação bem-sucedida de seu grupo de registro, você deverá ver o dispositivo aparecer sob a guia **Registros Individuais**.  
+       d. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o dispositivo aparecer sob a guia **Registros Individuais**.  
 
        [![Registro individual no portal](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 

@@ -255,9 +255,9 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 |Parâmetro de consulta|Digite|Finalidade|
 |--|--|--|
 |`query`|cadeia de caracteres|A declaração do usuário.|
-|`verbose`|Booleano|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. O padrão é falso.|
-|`log`|Booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é falso.|
-|`show-all-intents`|Booleano|Um valor booliano que indica se todas as tentativas ou a primeira tentativa de Pontuação devem ser retornadas. O padrão é falso.|
+|`verbose`|boolean|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. O padrão é falso.|
+|`log`|boolean|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é falso.|
+|`show-all-intents`|boolean|Um valor booliano que indica se todas as tentativas ou a primeira tentativa de Pontuação devem ser retornadas. O padrão é falso.|
 
 # <a name="v2-prediction-endpointtabv2"></a>[Ponto de extremidade de previsão V2](#tab/v2)
 
@@ -272,9 +272,9 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 |--|--|--|
 |`q`|cadeia de caracteres|A declaração do usuário.|
 |`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
-|`verbose`|Booleano|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
-|`staging`|Booleano|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
-|`log`|Booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
+|`verbose`|boolean|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
+|`staging`|boolean|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
+|`log`|boolean|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
 
 ***
 

@@ -1,5 +1,5 @@
 ---
-title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
+title: Como provisionar dispositivos para multilocação no serviço de provisionamento de dispositivos no Hub IoT do Azure
 description: Como fornecer o provisionamento dos dispositivos para multilocação com a Instância de Serviço de Provisionamento de Dispositivos
 author: wesmc7777
 ms.author: wesmc
@@ -36,7 +36,7 @@ Este artigo usa uma amostra de dispositivo simulado com o [SDK do Azure IoT C](h
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md).
 
@@ -248,7 +248,7 @@ Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exe
 
 Ao usar o atestado de chave simétrica com registros em grupo, você não usa as chaves de registro de grupo diretamente. Em vez disso, você cria uma chave derivada e exclusiva para cada dispositivo e mencionada em [Registros de Grupo com chaves simétricas](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Para gerar a chave do dispositivo, use a chave mester de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
+Para gerar a chave do dispositivo, use a chave mestra de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
 
 Não inclua a chave mestra de grupo em seu código de dispositivo.
 
@@ -417,10 +417,10 @@ Para excluir o grupo de recursos por nome:
 
 4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+- Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
+- Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
 
 
 

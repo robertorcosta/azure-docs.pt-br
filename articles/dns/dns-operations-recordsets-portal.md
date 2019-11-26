@@ -33,7 +33,7 @@ Para criar um conjunto de registros no portal do Azure, veja [Create DNS records
 
 ## <a name="add-a-new-record-to-a-record-set"></a>Adicionar um novo registro a um conjunto de registros
 
-Você pode adicionar até 20 registros em qualquer conjunto de registros. Um conjunto de registros não pode conter dois registros idênticos. Conjuntos de registros vazios (sem nenhum registro) podem ser criados, mas não aparecem nos servidores de nome DNS do Azure. Os conjuntos de registros do tipo CNAME podem conter, no máximo, um registro.
+Você pode adicionar até 20 registros em qualquer conjunto de registros. Um conjunto de registros não pode conter dois registros idênticos. Os conjuntos de registros vazios (sem nenhum registro) podem ser criados, mas não aparecem nos servidores de nome do DNS do Azure. Os conjuntos de registros do tipo CNAME podem conter, no máximo, um registro.
 
 1. Na folha **Propriedades do conjunto de registros** da zona DNS, clique no conjunto de registros ao qual você quer adicionar um registro.
 
@@ -99,7 +99,7 @@ Não é possível adicionar nem remover registros no conjunto de registros SOA c
 
 O registro NS definido no apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
 
-Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à coospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
+Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
 
 Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser modificados sem restrição.
 
@@ -107,7 +107,7 @@ Observe que isso se aplica somente ao conjunto de registros NS definido no apex 
 
 Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (nome = "\\@\") criados automaticamente quando a zona é criada. Eles são excluídos automaticamente ao excluir a zona.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md).
 * Para obter mais informações sobre como automatizar o DNS, confira [Criando zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).

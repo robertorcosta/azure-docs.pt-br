@@ -1,7 +1,7 @@
 ---
 title: Criar um Basic Load Balancer interno – CLI do Azure
 titleSuffix: Azure Load Balancer
-description: In this article, learn how to create an internal load balancer using Azure CLI
+description: Neste artigo, saiba como criar um balanceador de carga interno usando CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -28,7 +28,7 @@ Este artigo mostra como criar um balanceador de carga interno para balancear car
 
 Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupos de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
@@ -39,7 +39,7 @@ O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroupILB* na loc
     --name myResourceGroupILB \
     --location eastus
 ```
-## <a name="create-a-virtual-network"></a>Crie uma rede virtual
+## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Criar uma rede virtual chamado *myVnet* com uma sub-rede chamada *mySubnet* no *myResourceGroup* usando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
@@ -52,7 +52,7 @@ Criar uma rede virtual chamado *myVnet* com uma sub-rede chamada *mySubnet* no *
 ```
 ## <a name="create-basic-load-balancer"></a>Criar o balanceador de carga básico
 
-Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
+Esta seção fornece detalhes sobre como criar e configurar os componentes a seguir do balanceador de carga:
   - uma configuração de IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
   - um pool de IP de back-end no qual o pool de front-end envia o tráfego de rede com a carga balanceada.
   - uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
@@ -60,7 +60,7 @@ Esta seção fornece detalhes sobre como criar e configurar os componentes do ba
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
+Crie um Load Balancer interno com [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** , que inclui uma configuração de IP de front-end chamada **myfrontend**, um pool de back-end chamado **MYBACKENDPOOL** que está associado a um endereço IP privado * * 10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \
@@ -233,5 +233,5 @@ Quando não for mais necessário, você pode usar o comando [az group delete](/c
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um Load Balancer Básico, anexou VMs a ele, configurou a regra de tráfego do balanceador de carga, a investigação de integridade e testou o balanceador de carga. Para saber mais sobre os balanceadores de carga e seus recursos associados, continue para os artigos de instrução.

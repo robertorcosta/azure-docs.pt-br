@@ -1,5 +1,5 @@
 ---
-title: How to use Batch Transcription - Speech Service
+title: Como usar a transcrição do lote – serviço de fala
 titleSuffix: Azure Cognitive Services
 description: A transcrição de lote é ideal se você quer transcrever uma grande quantidade de áudio em armazenamento, como Blobs do Azure. Usando a API REST dedicada, você pode apontar para arquivos de áudio por um URI de SAS (assinatura de acesso compartilhado) e transcrições de recebimento de forma assíncrona.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 07/05/2019
 ms.author: panosper
 ms.openlocfilehash: 5418b378c2c3cff09dbccbaa7b7240c61bbb583e
 ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74221522"
@@ -21,7 +21,7 @@ ms.locfileid: "74221522"
 
 A transcrição de lote é ideal se você quer transcrever uma grande quantidade de áudio em armazenamento, como Blobs do Azure. Usando a API REST dedicada, você pode apontar para arquivos de áudio por um URI de SAS (assinatura de acesso compartilhado) e transcrições de recebimento de forma assíncrona.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="subscription-key"></a>Chave de Assinatura
 
@@ -82,31 +82,31 @@ Parâmetros de configuração são fornecidos como JSON:
 
 ### <a name="configuration-properties"></a>Propriedades de configuração
 
-Use these optional properties to configure transcription:
+Use essas propriedades opcionais para configurar a transcrição:
 
-| . | Descrição |
+| . | DESCRIÇÃO |
 |-----------|-------------|
 | `ProfanityFilterMode` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `None`, o que desativa a filtragem de profanação, `masked` que substitui a profanidade por asteriscos, `removed` que remove todos os palavrões do resultado ou `tags`, que adiciona tags de "profanidade". A configuração padrão é `masked`. |
 | `PunctuationMode` | Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `None`, o que desativa a pontuação, `dictated` que implica pontuação explícita, `automatic` que permite ao decodificador lidar com pontuação ou `dictatedandautomatic`, o que implica em sinais de pontuação ditados ou automáticos. |
  | `AddWordLevelTimestamps` | Especifica se os carimbos de data/hora no nível da palavra devem ser adicionados à saída. Os valores aceitos são `true`, o que habilita os carimbos de data/hora no nível da palavra e `false` (o valor padrão) para desabilitá-los. |
- | `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `true` which enables sentiment per utterance and `false` (the default value) to disable it. |
- | `AddDiarization` | Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` which enables diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.|
+ | `AddSentiment` | Especifica um sentimentos que deve ser adicionado ao expressão. Os valores aceitos são `true` que habilita a expressão e a `false` (o valor padrão) para desabilitá-lo. |
+ | `AddDiarization` | Especifica que a análise de diarization deve ser executada na entrada que é esperada como canal mono contendo duas vozes. Os valores aceitos são `true` que habilita diarization e `false` (o valor padrão) para desabilitá-lo. Ele também requer que `AddWordLevelTimestamps` seja definido como true.|
 
 ### <a name="storage"></a>Armazenamento
 
-Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
+A transcrição do lote dá suporte ao [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para leitura de áudio e gravação de transcrições no armazenamento.
 
 ## <a name="webhooks"></a>Webhooks
 
-Polling for transcription status may not be the most performant, or provide the best user experience. To poll for status, you can register callbacks, which will notify the client when long-running transcription tasks have completed.
+A sondagem do status de transcrição pode não ser a mais eficaz ou fornecer a melhor experiência do usuário. Para sondar o status, você pode registrar retornos de chamada, que notificarão o cliente quando tarefas de transcrição de execução longa forem concluídas.
 
-For more details, see [Webhooks](webhooks.md).
+Para obter mais detalhes, consulte [WebHooks](webhooks.md).
 
-## <a name="speaker-separation-diarization"></a>Speaker Separation (Diarization)
+## <a name="speaker-separation-diarization"></a>Separação de alto-falantes (Diarization)
 
-Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports Diarization and is capable of recognizing two speakers on mono channel recordings.
+Diarization é o processo de separar os alto-falantes em um pedaço de áudio. Nosso pipeline de lote dá suporte a Diarization e é capaz de reconhecer dois alto-falantes em gravações de canal mono.
 
-To request that your audio transcription request is processed for diarization, you simply have to add the relevant parameter in the HTTP request as shown below.
+Para solicitar que sua solicitação de transcrição de áudio seja processada para diarization, basta adicionar o parâmetro relevante na solicitação HTTP, conforme mostrado abaixo.
 
  ```json
 {
@@ -122,30 +122,30 @@ To request that your audio transcription request is processed for diarization, y
 }
 ```
 
-Word level timestamps would also have to be 'turned on' as the parameters in the above request indicate.
+Os carimbos de data/hora de nível de palavra também teriam que ser ' ativados ', uma vez que os parâmetros na solicitação acima indicam.
 
-The corresponding audio will contain the speakers identified by a number (currently we support only two voices, so the speakers will be identified as 'Speaker 1 'and 'Speaker 2') followed by the transcription output.
+O áudio correspondente conterá os alto-falantes identificados por um número (atualmente, damos suporte apenas a duas vozes, de modo que os alto-falantes serão identificados como ' orador 1 ' e ' orador 2 ') seguidos da saída da transcrição.
 
-Also note that Diarization is not available in Stereo recordings. Furthermore, all JSON output will contain the Speaker tag. If diarization is not used, it will show 'Speaker: Null' in the JSON output.
+Observe também que o Diarization não está disponível em gravações de estéreo. Além disso, toda a saída JSON conterá a marca do orador. Se diarization não for usado, ele mostrará ' orador: NULL ' na saída JSON.
 
 > [!NOTE]
-> Diarization is available in all regions and for all locales!
+> O Diarization está disponível em todas as regiões e em todas as localidades!
 
 ## <a name="sentiment"></a>Sentimento
 
-Sentiment is a new feature in Batch Transcription API and is an important feature in the call center domain. Customers can use the `AddSentiment` parameters to their requests to
+O sentimentos é um novo recurso da API de transcrição do lote e é um recurso importante no domínio do Call Center. Os clientes podem usar os parâmetros de `AddSentiment` para suas solicitações para
 
-1.  Get insights on customer satisfaction
-2.  Get insight on the performance of the agents (team taking the calls)
-3.  Pinpoint the exact point in time when a call took a turn in a negative direction
-4.  Pinpoint what went well when turning negative calls to positive
-5.  Identify what customers like and what they dislike about a product or a service
+1.  Obtenha informações sobre a satisfação do cliente
+2.  Obtenha informações sobre o desempenho dos agentes (equipe fazendo as chamadas)
+3.  Identifique o ponto exato no tempo em que uma chamada levou uma direção negativa
+4.  Identifique o que deu certo ao transformar chamadas negativas em positivos
+5.  Identificar o que os clientes gostam e o que eles não gostam sobre um produto ou um serviço
 
-Sentiment is scored per audio segment where an audio segment is defined as the time lapse between the start of the utterance (offset) and the detection silence of end of byte stream. The entire text within that segment is used to calculate sentiment. We DO NOT calculate any aggregate sentiment values for the entire call or the entire speech of each channel. These aggregations are left to the domain owner to further apply.
+A notação é pontuada por segmento de áudio em que um segmento de áudio é definido como o tempo se sobrepõe entre o início do expressão (deslocamento) e o silêncio de detecção do fluxo de fim de byte. O texto inteiro dentro desse segmento é usado para calcular as opiniões. NÃO calculamos valores de opiniões agregados para toda a chamada ou toda a fala de cada canal. Essas agregações são deixadas para o proprietário do domínio para serem aplicadas.
 
-Sentiment is applied on the lexical form.
+As opiniões são aplicadas no formato léxico.
 
-A JSON output sample looks like below:
+Um exemplo de saída JSON é semelhante ao seguinte:
 
 ```json
 {
@@ -180,11 +180,11 @@ A JSON output sample looks like below:
   ]
 }
 ```
-The feature uses a Sentiment model, which is currently in Beta.
+O recurso usa um modelo de sentimentos, que está atualmente em versão beta.
 
-## <a name="sample-code"></a>Código de exemplo
+## <a name="sample-code"></a>Exemplo de código
 
-Complete samples are available in the [GitHub sample repository](https://aka.ms/csspeech/samples) inside the `samples/batch` subdirectory.
+Exemplos completos estão disponíveis no [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) dentro do subdiretório `samples/batch`.
 
 Você precisa personalizar o código de exemplo com as informações de assinatura, a região de serviço, o URI de SAS que aponta para o arquivo de áudio a transcrever e IDs de modelo caso deseje usar um modelo de linguagem ou acústico personalizado.
 
@@ -210,6 +210,6 @@ Você pode encontrar o exemplo no diretório `samples/batch` do [repositório de
 > [!NOTE]
 > Trabalhos em lotes de transcrição são agendados por melhor esforço, não há nenhum tempo estimado para quando um trabalho será alterado para o estado de execução. Uma vez no estado de execução, a transcrição real é processada mais rapidamente do que o áudio em tempo real.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obter a assinatura de avaliação do Speech](https://azure.microsoft.com/try/cognitive-services/)

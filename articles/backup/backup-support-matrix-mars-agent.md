@@ -122,12 +122,12 @@ Criptografado| Com suporte.
 Compactado | Com suporte.
 Esparsos | Com suporte.
 Compactados e esparsos |Com suporte.
-Links físicos| Sem suporte. Ignorada.
-Ponto de nova análise| Sem suporte. Ignorada.
-Criptografados e esparsos |Sem suporte. Ignorada.
-Fluxo compactado| Sem suporte. Ignorada.
-Fluxo esparso| Sem suporte. Ignorada.
-OneDrive (arquivos sincronizados são fluxos esparsos)| Sem suporte.
+Links físicos| Não compatível. Ignorada.
+Ponto de nova análise| Não compatível. Ignorada.
+Criptografados e esparsos |Não compatível. Ignorada.
+Fluxo compactado| Não compatível. Ignorada.
+Fluxo esparso| Não compatível. Ignorada.
+OneDrive (arquivos sincronizados são fluxos esparsos)| Não compatível.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades ou volumes com suporte para backup
 

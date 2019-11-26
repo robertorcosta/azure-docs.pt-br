@@ -1,6 +1,6 @@
 ---
-title: Azure Functions error handling guidance
-description: Learn to handle errors in Azure Functions with links to specific binding errors.
+title: Diretrizes de tratamento de erro Azure Functions
+description: Saiba como tratar erros no Azure Functions com links para erros de associação específicos.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
@@ -14,9 +14,9 @@ ms.locfileid: "74227332"
 ---
 # <a name="azure-functions-error-handling"></a>Tratamento de erros do Azure Functions
 
-Handling errors in Azure Functions is important to avoid lost data, missed events, and to monitor the health of your application.
+O tratamento de erros no Azure Functions é importante para evitar perda de dados, eventos perdidos e para monitorar a integridade do aplicativo.
 
-This article describes general strategies for error handling along with links to binding-specific errors.
+Este artigo descreve estratégias gerais para tratamento de erros junto com links para erros específicos de associação.
 
 ## <a name="handling-errors"></a>Tratamento de erros
 
@@ -24,7 +24,7 @@ This article describes general strategies for error handling along with links to
 
 ## <a name="binding-error-codes"></a>Códigos de erro de associação
 
-When integrating with Azure services, errors may originate from the APIs of the underlying services. Information relating to binding-specific errors is available in the **Exceptions and return codes** section of the following articles:
+Ao integrar com os serviços do Azure, os erros podem se originar das APIs dos serviços subjacentes. Informações relacionadas a erros específicos de associação estão disponíveis na seção **exceções e códigos de retorno** dos seguintes artigos:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
@@ -38,4 +38,4 @@ When integrating with Azure services, errors may originate from the APIs of the 
 
 + [Barramento de Serviço](functions-bindings-service-bus.md#exceptions-and-return-codes)
 
-+ [Armazenamento de tabelas](functions-bindings-storage-table.md#exceptions-and-return-codes)
++ [Armazenamento de tabela](functions-bindings-storage-table.md#exceptions-and-return-codes)

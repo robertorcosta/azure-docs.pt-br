@@ -50,7 +50,7 @@ Se o novo registro tem o mesmo nome e tipo de um registro existente, você preci
 
 ### <a name="create-a-records-in-a-new-record-set"></a>Criar registros 'A' em um novo conjunto de registros
 
-Você cria conjuntos de registros usando o cmdlet `New-AzDnsRecordSet`. Ao criar um conjunto de registros, você precisa especificar o nome do conjunto de registros, a zona, o TTL (vida útil), o tipo de registro e os registros a serem criados.
+Você cria conjuntos de registros usando o cmdlet `New-AzDnsRecordSet` . Ao criar um conjunto de registros, você precisa especificar o nome do conjunto de registros, a zona, o TTL (vida útil), o tipo de registro e os registros a serem criados.
 
 Os parâmetros para adicionar registros a um conjunto de registros variam dependendo do tipo de conjunto de registros. Por exemplo, ao usar um conjunto de registros do tipo "A", você precisa especificar o endereço IP usando o parâmetro `-IPv4Address`. Outros parâmetros são usados para outros tipos de registro. Consulte Exemplos adicionais dos tipos de registro para obter detalhes.
 
@@ -314,7 +314,7 @@ Set-AzDnsRecordSet -RecordSet $rs
 
 O registro NS definido no apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
 
-Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à coospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
+Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
 
 Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser modificados sem restrição.
 
@@ -349,7 +349,7 @@ Set-AzDnsRecordSet -RecordSet $rs
 
 ## <a name="delete-a-record-set"></a>Excluir um conjunto de registros
 
-Conjuntos de registros podem ser excluídos com o cmdlet `Remove-AzDnsRecordSet` . Excluir um conjunto de registros também exclui todos os registros no conjunto de registros.
+Os conjuntos de registros podem ser excluídos usando o cmdlet `Remove-AzDnsRecordSet` . Excluir um conjunto de registros também exclui todos os registros no conjunto de registros.
 
 > [!NOTE]
 > Não é possível excluir os conjuntos de registro SOA e NS no ápice da zona (`-Name '@'`).  O DNS do Azure foi criado automaticamente quando a zona foi criada e é excluído automaticamente quando a zona é excluída.
@@ -392,7 +392,7 @@ Você pode substituir a configuração `$ConfirmPreference` atual usando o parâ
 
 Para obter mais informações sobre `-Confirm` e `$ConfirmPreference`, consulte [Sobre as Variáveis de Preferência](/powershell/module/microsoft.powershell.core/about/about_preference_variables).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as [zonas e os registros no DNS do Azure](dns-zones-records.md).
 <br>

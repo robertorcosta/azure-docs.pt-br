@@ -131,11 +131,11 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Discos/volumes criptografados**    | Sem suporte para migração. |
 | **Discos de RDM/PassThrough**      | Sem suporte para migração. |
 | **Disco compartilhado** | As VMs que usam discos compartilhados não têm suporte para migração.
-| **NFS**                        | Volumes NFS montados como volumes nas VMs não serão replicados. |
+| **-**                        | Volumes NFS montados como volumes nas VMs não serão replicados. |
 | **ISCSI**                      | As VMs com destinos iSCSI não têm suporte para migração.
 | **Disco de destino**                | Você pode migrar para VMs do Azure somente com o Managed disks. |
-| **IPv6** | Sem suporte.
-| **Agrupamento NIC** | Sem suporte.
+| **Protocolo** | Não compatível.
+| **Agrupamento NIC** | Não compatível.
 | **Azure Site Recovery** | Não é possível replicar usando a migração de servidor de migrações para Azure se a VM estiver habilitada para replicação com Azure Site Recovery.
 
 

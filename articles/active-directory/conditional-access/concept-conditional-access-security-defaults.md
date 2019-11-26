@@ -78,7 +78,7 @@ Depois que os padrões de segurança são habilitados em seu locatário, todas a
 As organizações usam uma variedade de serviços do Azure gerenciados por meio da API Azure Resource Manager, incluindo:
 
 - Portal do Azure 
-- PowerShell do Azure 
+- Azure PowerShell 
 - CLI do Azure
 
 O uso de Azure Resource Manager para gerenciar seus serviços é uma ação altamente privilegiada. Azure Resource Manager pode alterar configurações de todo o locatário, como configurações de serviço e cobrança de assinatura. A autenticação de fator único é vulnerável a uma variedade de ataques, como phishing e spray de senha. 
@@ -124,7 +124,7 @@ Para habilitar os padrões de segurança em seu diretório:
 1. Navegue até **Azure Active Directory**  **Propriedades**de >de .
 1. Selecione **gerenciar padrões de segurança**.
 1. Defina a alternância **habilitar padrões de segurança** para **Sim**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -21,20 +21,20 @@ O Azure Functions oferece suporte às linguagens de programação C# e script C#
 Este artigo pressupõe que você tenha completado as seguintes etapas:
 
 * [Guia do desenvolvedor do Azure Functions](functions-reference.md)
-* [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
+* [Ferramentas do Azure Functions Visual Studio 2019](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>Versões com suporte
 
-The Azure Functions 2.x runtime uses .NET Core 2.2. Your function code can use .NET Core 2.2 APIs by updating the Visual Studio project settings. The Function templates do not default to .NET Core 2.2 to avoid adversely affecting customers that do not have .NET Core 2.2 installed.
+O tempo de execução do Azure Functions 2. x usa o .NET Core 2,2. O código de função pode usar as APIs do .NET Core 2,2 Atualizando as configurações do projeto do Visual Studio. Os modelos de função não têm como padrão o .NET Core 2,2 para evitar afetar negativamente os clientes que não têm o .NET Core 2,2 instalado.
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
 No Visual Studio, o modelo de projeto do **Azure Functions** cria um projeto de biblioteca de classes do C# que contém os seguintes arquivos:
 
 * [host.json](functions-host-json.md) – armazena conjuntos de configurações que afetam todas as funções no projeto quando estão em execução localmente ou no Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) – armazena as configurações de aplicativo e as cadeias de conexão que são usadas quando estão em execução localmente. Este arquivo contém segredos e não é publicado no aplicativo de funções no Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-run-local.md#local-settings-file) – armazena as configurações de aplicativo e as cadeias de conexão que são usadas quando estão em execução localmente. Este arquivo contém segredos e não é publicado no aplicativo de funções no Azure. Em vez disso, [adicione configurações de aplicativo ao seu aplicativo de funções](functions-develop-vs.md#function-app-settings).
 
-When you build the project, a folder structure that looks like the following example is generated in the build output directory:
+Quando você cria o projeto, uma estrutura de pastas parecida com o exemplo a seguir é gerada no diretório de saída da compilação:
 
 ```
 <framework.version>
@@ -69,7 +69,7 @@ public static class SimpleExample
 } 
 ```
 
-O atributo `FunctionName` marca o método como um ponto de entrada da função. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método C# válido.
+O atributo `FunctionName` marca o método como um ponto de entrada da função. O nome deve ser exclusivo em um projeto, começar com uma letra e conter apenas letras, números, `_`e `-`, até 127 caracteres de comprimento. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método C# válido.
 
 O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a um parâmetro de método. A função de exemplo é disparada por uma mensagem de fila, a qual é transmitida para o método no parâmetro `myQueueItem`.
 
@@ -178,7 +178,7 @@ O mesmo pacote é usado para a versão 1.x e 2.x do runtime do Functions. A estr
 </ItemGroup>
 ```
 
-Entre as dependências do pacote `Sdk` estão os gatilhos e associações. A 1.x project refers to 1.x triggers and bindings because those triggers and bindings target the .NET Framework, while 2.x triggers and bindings target .NET Core.
+Entre as dependências do pacote `Sdk` estão os gatilhos e associações. Um projeto 1. x refere-se a gatilhos e associações de 1. x porque esses gatilhos e associações se destinam ao .NET Framework, enquanto os gatilhos de 2. x e associações são direcionadas ao .NET Core.
 
 O pacote `Sdk` também depende do [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) e, indiretamente, do [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Essas dependências garantem que seu projeto use as versões desses pacotes que funcionam com a versão de runtime do Functions para a qual o projeto é direcionado. Por exemplo, o `Newtonsoft.Json` tem a versão 11 para o .NET Framework 4.6.1, mas o runtime do Functions direcionado para o .NET Framework 4.6.1 só é compatível com o `Newtonsoft.Json` 9.0.1. Portanto, o código de sua função nesse projeto também tem que usar `Newtonsoft.Json` 9.0.1.
 
@@ -324,7 +324,7 @@ As configurações do aplicativo podem ser lidas de variáveis de ambiente ao de
 
 A propriedade [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter os valores de configuração do aplicativo, mas é recomendável que você use `GetEnvironmentVariable` conforme mostrado aqui.
 
-## <a name="binding-at-runtime"></a>Associando no runtime
+## <a name="binding-at-runtime"></a>Associando no tempo de execução
 
 No C# e em outras linguagens .NET, é possível usar um padrão de associação [obrigatório](https://en.wikipedia.org/wiki/Imperative_programming) em vez de associações [*declarativas*](https://en.wikipedia.org/wiki/Declarative_programming) em atributos. A associação obrigatória é útil quando os parâmetros de associação precisam ser calculado no runtime, em vez do tempo de design. Com esse padrão, é possível se vincular a associações de entrada e saída com suporte instantaneamente no código da função.
 
@@ -341,7 +341,7 @@ Defina uma associação obrigatória da seguinte maneira:
   }
   ```
 
-  `BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [IAsyncCollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) with imperative binding.
+  `BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela de aplicativos móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) com associação imperativa.
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo único
 
@@ -399,7 +399,7 @@ public static class IBinderExampleMultipleAttributes
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre gatilhos e associações](functions-triggers-bindings.md)

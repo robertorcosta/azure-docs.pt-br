@@ -1,5 +1,5 @@
 ---
-title: Configure managed identities on Azure VM using REST - Azure AD
+title: Configurar identidades gerenciadas na VM do Azure usando REST-Azure AD
 description: Instruções passo a passo para configurar um sistema e identidades gerenciadas atribuídas pelo usuário em uma VM do Azure usando CURL para fazer chamadas da API REST.
 services: active-directory
 documentationcenter: ''
@@ -30,15 +30,15 @@ As identidades gerenciadas dos recursos do Azure fornecem aos serviços do Azure
 
 Neste artigo, usando CURL para fazer chamadas para o ponto de extremidade REST do Azure Resource Manager, você aprenderá como executar as seguintes identidades gerenciadas para operações de recursos do Azure em uma VM do Azure:
 
-- Habilitar e desabilitar a identidade gerenciada atribuída pelo sistema em uma VM do Azure
+- Habilitar e desabilitar a identidade gerenciada atribuída ao sistema em uma VM do Azure
 - Adicionar e remover uma identidade gerenciada atribuída pelo usuário em uma VM do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Não deixe de analisar a [diferença entre uma identidade gerenciada atribuída pelo sistema e atribuída pelo usuário](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-it-work)** .
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Se você estiver usando o Windows, instale o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou use o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal do Azure.
-- Se você usa o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [SO de distribuição do Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale o console local da CLI do Azure](/cli/azure/install-azure-cli).
+- Se você usa o [subsistema do Windows para Linux](/cli/azure/install-azure-cli) ou um [SO de distribuição do Linux](https://msdn.microsoft.com/commandline/wsl/about), [instale o console local da CLI do Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Se você estiver usando o console local do Azure CLI, faça logon no Azure usando `az login` com uma conta associada à assinatura do Azure que deseja gerenciar as identidades gerenciadas pelo sistema ou pelo usuário.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -47,9 +47,9 @@ Neste artigo, usando CURL para fazer chamadas para o ponto de extremidade REST d
 
 Nesta seção, você aprenderá como habilitar e desabilitar a identidade gerenciada atribuída pelo sistema em uma VM do Azure usando CURL para fazer chamadas para o ponto de extremidade REST do Azure Resource Manager.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Ativar identidade gerenciada atribuída pelo sistema durante a criação de uma VM do Azure
+### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Habilitar identidade gerenciada atribuída ao sistema durante a criação de uma VM do Azure
 
-Para criar uma VM do Azure com a identidade gerenciada atribuída ao sistema habilitada, a conta precisará da atribuição de função [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Nenhum adicionais do Microsoft Azure Active Directory atribuições de função de diretório são necessárias.
+Para criar uma VM do Azure com a identidade gerenciada atribuída ao sistema habilitada, a conta precisará da atribuição de função [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Nenhuma atribuição adicional de função de diretório do Azure AD será necessária.
 
 1. Criar um [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contenção e implantação de VM e seus recursos relacionados usando [az group create](/cli/azure/group/#az-group-create). Ignore esta etapa, se você já tiver o grupo de recursos que deseja usar:
 
@@ -81,7 +81,7 @@ Para criar uma VM do Azure com a identidade gerenciada atribuída ao sistema hab
    
    **Cabeçalhos da solicitação**
    
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -148,7 +148,7 @@ Para criar uma VM do Azure com a identidade gerenciada atribuída ao sistema hab
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>Ativar identidade atribuída pelo sistema em uma VM do Azure existente
 
-Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM que foi originalmente provisionada sem ela, sua conta precisa da atribuição de função [Atribuída do Virtual Machine](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Nenhum adicionais do Microsoft Azure Active Directory atribuições de função de diretório são necessárias.
+Para habilitar a identidade gerenciada atribuída ao sistema em uma VM que foi originalmente provisionada sem ela, a conta precisará da atribuição de função [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Nenhuma atribuição adicional de função de diretório do Azure AD será necessária.
 
 1. Recupere um token de acesso do portador, que você usará na próxima etapa no cabeçalho Autorização para criar sua VM com uma identidade gerenciada atribuída pelo sistema.
 
@@ -170,7 +170,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM que foi
    ```
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -202,7 +202,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM que foi
    ```
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -237,7 +237,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM que foi
     
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -258,7 +258,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM que foi
 
 ### <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>Desativar identidade gerenciada atribuída pelo sistema de uma VM do Azure
 
-Para desabilitar a identidade gerenciada atribuída ao sistema em uma VM, a conta precisará da atribuição de função [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Nenhum adicionais do Microsoft Azure Active Directory atribuições de função de diretório são necessárias.
+Para desabilitar a identidade gerenciada atribuída ao sistema em uma VM, a conta precisará da atribuição de função [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Nenhuma atribuição adicional de função de diretório do Azure AD será necessária.
 
 1. Recupere um token de acesso do portador, que você usará na próxima etapa no cabeçalho Autorização para criar sua VM com uma identidade gerenciada atribuída pelo sistema.
 
@@ -280,7 +280,7 @@ Para desabilitar a identidade gerenciada atribuída ao sistema em uma VM, a cont
    ```
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -301,9 +301,9 @@ Para desabilitar a identidade gerenciada atribuída ao sistema em uma VM, a cont
 
 Nesta seção, você aprenderá a adicionar e remover a identidade gerenciada atribuída pelo usuário em uma VM do Azure usando CURL para fazer chamadas para o ponto de extremidade REST do Azure Resource Manager.
 
-### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Atribuir uma identidade gerenciada atribuída pelo usuário durante a criação de uma VM do Azure
+### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Atribuir uma identidade gerenciada atribuída ao usuário durante a criação de uma VM do Azure
 
-Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precisa das atribuições de função [Contribuidor de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Nenhum adicionais do Microsoft Azure Active Directory atribuições de função de diretório são necessárias.
+Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precisa das atribuições de função [Contribuidor de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Nenhuma atribuição adicional de função de diretório do Azure AD será necessária.
 
 1. Recupere um token de acesso do portador, que você usará na próxima etapa no cabeçalho Autorização para criar sua VM com uma identidade gerenciada atribuída pelo sistema.
 
@@ -339,7 +339,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -420,7 +420,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -490,7 +490,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Atribuir uma identidade gerenciada usuário atribuído a uma VM existente do Azure
 
-Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precisa das atribuições de função [Contribuidor de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Nenhum adicionais do Microsoft Azure Active Directory atribuições de função de diretório são necessárias.
+Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precisa das atribuições de função [Contribuidor de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Nenhuma atribuição adicional de função de diretório do Azure AD será necessária.
 
 1. Recupere um token de acesso do portador, que você usará na próxima etapa no cabeçalho Autorização para criar sua VM com uma identidade gerenciada atribuída pelo sistema.
 
@@ -498,7 +498,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    az account get-access-token
    ```
 
-2.  Crie uma identidade gerenciada atribuída pelo usuário usando as instruções encontradas aqui, [Crie uma identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+2.  Crie uma identidade gerenciada atribuída ao usuário usando as instruções encontradas aqui, [Criar uma identidade gerenciada atribuída ao usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 3. Para garantir que você não exclua as identidades gerenciadas atribuídas pelo usuário ou pelo sistema atribuídas à VM, é necessário listar os tipos de identidade atribuídos à VM usando o seguinte comando CURL. Se houver identidades gerenciadas atribuídas ao conjunto de dimensionamento de máquinas virtuais, elas serão listadas no valor `identity`.
 
@@ -511,11 +511,11 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    ```
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.
 
-    If you have any user or system-assigned managed identities assigned to the VM as identified in the `identity` value in the response, skip to step 5 that shows you how to retain the system-assigned managed identity while adding a user-assigned managed identity on your VM.
+    Se você tiver qualquer usuário ou identidades gerenciadas atribuídas pelo sistema atribuídas à VM, conforme identificado no valor de `identity` na resposta, pule para a etapa 5 que mostra como manter a identidade gerenciada atribuída pelo sistema ao adicionar uma identidade gerenciada atribuída pelo usuário em sua VM.
 
 4. Se você não tiver nenhuma identidade gerenciada atribuída pelo usuário atribuída à sua VM, use o seguinte comando CURL para chamar o ponto de extremidade REST do Azure Resource Manager para atribuir a primeira identidade gerenciada atribuída pelo usuário à VM.
 
@@ -532,7 +532,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    ```
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        |
@@ -564,7 +564,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -600,7 +600,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -639,7 +639,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -658,7 +658,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
     }
    ```   
 
-### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remover uma identidade gerenciada atribuída pelo usuário de uma VM do Azure
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remover uma identidade gerenciada atribuída ao usuário de uma VM do Azure
 
 Para remover uma identidade atribuída ao usuário a uma VM, a conta precisará da atribuição de função [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
 
@@ -680,7 +680,7 @@ Para remover uma identidade atribuída ao usuário a uma VM, a conta precisará 
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.
@@ -703,7 +703,7 @@ Para remover uma identidade atribuída ao usuário a uma VM, a conta precisará 
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -735,7 +735,7 @@ Para remover uma identidade atribuída ao usuário a uma VM, a conta precisará 
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
@@ -765,7 +765,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Cabeçalhos da solicitação**
 
-|Cabeçalho da solicitação  |Descrição  |
+|Cabeçalho da solicitação  |DESCRIÇÃO  |
 |---------|---------|
 |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
 |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
@@ -792,7 +792,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Cabeçalhos da solicitação**
 
-|Cabeçalho da solicitação  |Descrição  |
+|Cabeçalho da solicitação  |DESCRIÇÃO  |
 |---------|---------|
 |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
 |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.| 
@@ -807,7 +807,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações sobre como criar, listar ou excluir identidades gerenciadas atribuídas pelo usuário usando o REST, consulte:
 

@@ -24,7 +24,7 @@ ms.locfileid: "74225481"
 
 Este início rápido mostra como configurar regras de saída no Standard Load Balancer usando a CLI do Azure.  
 
-Quando você terminar, o recurso Load Balancer conterá dois front-ends e regras associadas a eles: um para entrada e outro para saída.  Cada front-end tem uma referência a um endereço IP público e este cenário usa o um endereço IP público diferente para a entrada, ao contrário da saída.   A regra de balanceamento de carga fornece apenas balanceamento de carga de entrada e a regra de saída controla a NAT de saída fornecida para a VM.  This quickstart uses two separate backend pools, one for inbound and one for outbound, to illustrate capability and allow for flexibility for this scenario.
+Quando você terminar, o recurso Load Balancer conterá dois front-ends e regras associadas a eles: um para entrada e outro para saída.  Cada front-end tem uma referência a um endereço IP público e este cenário usa o um endereço IP público diferente para a entrada, ao contrário da saída.   A regra de balanceamento de carga fornece apenas balanceamento de carga de entrada e a regra de saída controla a NAT de saída fornecida para a VM.  Este guia de início rápido usa dois pools de back-end separados, um para entrada e outro para saída, para ilustrar a capacidade e permitir a flexibilidade para esse cenário.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -71,17 +71,17 @@ Criar um endereço IP Standard para o uso de configuração de saída de front-e
 
 ## <a name="create-azure-load-balancer"></a>Criar o Azure Load Balancer
 
-Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
+Esta seção fornece detalhes sobre como criar e configurar os componentes a seguir do balanceador de carga:
   - Um IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
-  - A backend pool where the frontend IP sends the load balanced network traffic.
-  - A backend pool for outbound connectivity. 
+  - Um pool de back-end onde o IP de front-end envia o tráfego de rede com balanceamento de carga.
+  - Um pool de back-end para conectividade de saída. 
   - Uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
   - Uma regra de entrada de balanceador de carga que define como o tráfego é distribuído para as VMs.
   - Uma regra de saída de balanceador de carga que define como o tráfego é distribuído das VMs.
 
 ### <a name="create-load-balancer"></a>Criar balanceador de carga
 
-Create a Load Balancer with the inbound IP address using [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named *lb* that includes an inbound frontend IP configuration and a backend pool *bepoolinbound* that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
+Crie um Load Balancer com o endereço IP de entrada usando [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado *lb* que inclui uma configuração de IP de front-end de entrada e um *bepoolinbound* do pool de back-ends que está associado ao endereço *IP público mypublicipinbound* que você criou na etapa anterior.
 
 ```azurecli-interactive
   az network lb create \
@@ -94,9 +94,9 @@ Create a Load Balancer with the inbound IP address using [az network lb create](
     --public-ip-address mypublicipinbound   
   ```
 
-### <a name="create-outbound-pool"></a>Create outbound pool
+### <a name="create-outbound-pool"></a>Criar pool de saída
 
-Create an additional backend address pool to define outbound connectivity for a pool of VMs with [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) with the name *bepooloutbound*.  Creating a separate outbound pool provides maximum flexibility, but you can omit this step and only use the inbound *bepoolinbound* as well.
+Crie um pool de endereços de back-end adicional para definir a conectividade de saída para um pool de VMs com [AZ Network lb address-pool Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) com o nome *bepooloutbound*.  A criação de um pool de saída separado fornece a máxima flexibilidade, mas você pode omitir essa etapa e usar apenas o *bepoolinbound* de entrada também.
 
 ```azurecli-interactive
   az network lb address-pool create \
@@ -167,9 +167,9 @@ az network lb outbound-rule create \
  --address-pool bepooloutbound
 ```
 
-If you do not want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *bepoolinbound* instead.  We recommend to use separate pools for flexibility and readability of the resulting configuration.
+Se você não quiser usar um pool de saída separado, poderá alterar o argumento do pool de endereços no comando anterior para especificar *bepoolinbound* em vez disso.  É recomendável usar pools separados para flexibilidade e legibilidade da configuração resultante.
 
-At this point, you can proceed with adding your VM's to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+Neste ponto, você pode continuar adicionando suas VMs ao pool de back-end *bepoolinbound* __e__ *bepooloutbound* atualizando a configuração de IP dos respectivos recursos da NIC usando [AZ Network NIC IP-config address-pool Add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -179,7 +179,7 @@ Quando não for mais necessário, você pode usar o comando [az group delete](/c
   az group delete --name myresourcegroupoutbound
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um Standard Load Balancer, configurou regras de tráfego de entrada e de balanceador de carga e configurou uma investigação de integridade para as VMs no pool de back-end. Para saber mais sobre o Azure Load Balancer, continue nos tutoriais do Azure Load Balancer.
 
 > [!div class="nextstepaction"]

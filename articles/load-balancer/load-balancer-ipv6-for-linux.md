@@ -1,7 +1,7 @@
 ---
 title: Configurar DHCPv6 para VMs Linux
 titleSuffix: Azure Load Balancer
-description: In this article, learn how to configure DHCPv6 for Linux VMs.
+description: Neste artigo, saiba como configurar o DHCPv6 para VMs Linux.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -54,9 +54,9 @@ Este documento descreve como habilitar o DHCPv6 para que a sua máquina virtual 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-Beginning with Ubuntu 17.10, the default network configuration mechanism is [NETPLAN]( https://netplan.io).  At install/instantiation time, NETPLAN reads network configuration from YAML configuration files at this location: /{lib,etc,run}/netplan/*.yaml.
+A partir do Ubuntu 17,10, o mecanismo de configuração de rede padrão é [netplan]( https://netplan.io).  No momento da instalação/instanciação, o netplan lê a configuração de rede nos arquivos de configuração do YAML neste local:/{lib, etc, execute}/netplan/*. YAML.
 
-Please include a *dhcp6:true* statement for each ethernet interface in your configuration.  Por exemplo:
+Inclua uma instrução *dhcp6: true* para cada interface Ethernet em sua configuração.  Por exemplo:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Please include a *dhcp6:true* statement for each ethernet interface in your conf
             eno1:
               dhcp6: true
 
-During early boot, the netplan “network renderer” writes configuration to /run to hand off control of devices to the specified networking daemon For reference information about NETPLAN, see https://netplan.io/reference.
+Durante a inicialização inicial, o "processador de rede" do netplan grava a configuração em/Run para entregar o controle de dispositivos ao daemon de rede especificado para obter informações de referência sobre o netplan, consulte https://netplan.io/reference.
  
 ## <a name="debian"></a>Debian
 

@@ -30,7 +30,7 @@ ms.locfileid: "74211708"
 
 Este artigo mostra como gerenciar suas zonas DNS usando o Azure PowerShell. Você também pode gerenciar as zonas DNS usando a plataforma cruzada [CLI do Azure](dns-operations-dnszones-cli.md) ou o portal do Azure.
 
-Especificamente, este guia lida com zonas DNS públicas. Para obter informações sobre como usar o Azure PowerShell para gerenciar Zonas Privadas no DNS do Azure, consulte [Introdução às Zonas Privadas do DNS do Azure usando o Azure PowerShell](private-dns-getstarted-powershell.md).
+Este guia trata especificamente das zonas DNS públicas. Para obter informações sobre como usar o Azure PowerShell para gerenciar Zonas Privadas no DNS do Azure, consulte [Introdução às Zonas Privadas do DNS do Azure usando o Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -168,7 +168,7 @@ Você pode substituir a configuração `$ConfirmPreference` atual usando o parâ
 
 Para obter mais informações sobre `-Confirm` e `$ConfirmPreference`, consulte [Sobre as Variáveis de Preferência](/powershell/module/microsoft.powershell.core/about/about_preference_variables).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [gerenciar conjuntos de registros e registros](dns-operations-recordsets.md) em sua zona DNS.
 <br>

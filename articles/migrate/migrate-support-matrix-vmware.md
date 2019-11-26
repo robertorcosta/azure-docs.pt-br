@@ -179,15 +179,15 @@ Máquina virtual. interação. desligar | Permitir que a VM seja desligada duran
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 4 TB para discos de dados.
 **Limites de disco** |  Até 60 discos por VM.
 **Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
-**Cluster de disco compartilhado** | Sem suporte.
-**Discos independentes** | Sem suporte.
+**Cluster de disco compartilhado** | Não compatível.
+**Discos independentes** | Não compatível.
 **Discos de RDM/PassThrough** | Se as VMs tiverem discos RDM ou de passagem, esses discos não serão replicados para o Azure.
-**NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
+**-** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
-**E/s de vários caminhos** | Sem suporte.
-**VMotion de armazenamento** | Sem suporte. A replicação não funcionará se uma VM usar o Storage vMotion.
-**NICs agrupadas** | Sem suporte.
-**IPv6** | Sem suporte.
+**E/s de vários caminhos** | Não compatível.
+**VMotion de armazenamento** | Não compatível. A replicação não funcionará se uma VM usar o Storage vMotion.
+**NICs agrupadas** | Não compatível.
+**Protocolo** | Não compatível.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Premium) no Azure.
 **Replicação simultânea** | 100 VMs por vCenter Server. Se você tiver mais, migre-os em lotes de 100.
 
@@ -325,15 +325,15 @@ Baixar e instalar em migrações para Azure | Quando você instalar o dispositiv
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por VM.
 **Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
-**Cluster de disco compartilhado** | Sem suporte.
+**Cluster de disco compartilhado** | Não compatível.
 **Discos independentes** | Com suporte.
 **Discos de passagem** | Com suporte.
-**NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
+**-** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
-**E/s de vários caminhos** | Sem suporte.
+**E/s de vários caminhos** | Não compatível.
 **VMotion de armazenamento** | Suportado
-**NICs agrupadas** | Sem suporte.
-**IPv6** | Sem suporte.
+**NICs agrupadas** | Não compatível.
+**Protocolo** | Não compatível.
 
 
 
@@ -378,9 +378,9 @@ Contagem do disco do sistema operacional | 1 | A verificação falha se não tiv
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
 Tamanho do disco de dados | Até 4.095 GB | A verificação falha se não tiver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
-VHD compartilhado | Sem suporte. | A verificação falha se não tiver suporte.
-Disco FC | Sem suporte. | A verificação falha se não tiver suporte.
-BitLocker | Sem suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
+VHD compartilhado | Não compatível. | A verificação falha se não tiver suporte.
+Disco FC | Não compatível. | A verificação falha se não tiver suporte.
+BitLocker | Não compatível. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
 Nome da VM | De 1 a 63 caracteres.<br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. |  Atualize o valor nas propriedades do computador no Site Recovery.
 Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/> -Antes de a migração habilitar o RDP na VM local. Certifique-se de que as regras TCP e UDP são adicionadas ao perfil **Público** e que o RDP é permitido no **Firewall do Windows** > **Aplicativos Permitidos** para todos os perfis.<br/> Para acesso VPN site a site, habilite o RDP e permita que o RDP no **Firewall do Windows** -> **aplicativos e recursos permitidos** para redes de **domínio e privadas** . Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada. Além disso, adicione um endereço IP público para a VM. |  

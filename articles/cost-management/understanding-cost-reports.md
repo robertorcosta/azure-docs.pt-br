@@ -38,7 +38,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
       - Análise de Custo
       - Alocação
-      - Gerenciamento de ativos
+      - Gerenciamento de Ativos
       - Otimização
 
    Digite um nome de filtro e clique em **Salvar**.
@@ -73,7 +73,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
    Os exemplos podem incluir:
    - Centro de custo
-   - Departamento
+   - department
    - Aplicativo
    - Ambiente
    - Código de custo
@@ -111,7 +111,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - Todos os Pagamentos Antecipados
        - Sem Pagamentos Antecipados
        - Pagamentos Parciais Antecipados
-       - Sob Demanda
+       - Sob demanda
        - Reserva
        - À Vista
      - **Tipo de Encargo**
@@ -146,7 +146,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
     Use Resolução para selecionar a resolução de tempo dentro do intervalo de datas selecionado. Sua resolução de tempo determina como as unidades são exibidas no relatório, e pode ser:
     - Diário
     - Semanal
-    - Gasto mensal
+    - Mensal
     - Trimestral
     - Anual
 
@@ -191,7 +191,7 @@ Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Salvar um relatório no armazenamento do provedor de nuvem
 
-Para salvar um relatório no seu provedor de serviços de nuvem, você já deve ter configurado uma conta de armazenamento. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e, em seguida, adicione sua própria URL ou use a URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento ou adicione uma nova conta. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Select a CSV or JSON file format and then save the report.
+Para salvar um relatório no seu provedor de serviços de nuvem, você já deve ter configurado uma conta de armazenamento. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e, em seguida, adicione sua própria URL ou use a URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento ou adicione uma nova conta. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Selecione um formato de arquivo CSV ou JSON e salve o relatório.
 
 ### <a name="schedule-a-report"></a>Agendar um relatório
 
@@ -201,7 +201,7 @@ Você pode executar relatórios em intervalos agendados, e você pode enviá-los
 
 Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Exportar todos os dados do relatório**. Uma janela pop-up será exibida e um arquivo CSV é baixado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os relatórios incluídos no Cloudyn em [Usar relatórios do Cloudyn](use-reports.md).
 - Saiba como usar relatórios para criar [painéis](dashboards.md).

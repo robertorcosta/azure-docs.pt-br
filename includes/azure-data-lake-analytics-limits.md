@@ -11,11 +11,11 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224392"
 ---
-Azure Data Lake Analytics makes the complex task of managing distributed infrastructure and complex code easy. It dynamically provisions resources, and you can use it to do analytics on exabytes of data. When the job completes, it winds down resources automatically. You pay only for the processing power that was used. Dessa forma, você não precisa reescrever os códigos conforme o tamanho dos dados ou da quantidade de computação usada aumenta ou diminui. To raise the default limits for your subscription, contact support.
+Azure Data Lake Analytics torna fácil a tarefa complexa de gerenciar a infraestrutura distribuída e o código complexo. Ele provisiona recursos dinamicamente e você pode usá-lo para fazer análises em exabytes de dados. Quando o trabalho é concluído, ele encerra os recursos automaticamente. Você paga apenas pela capacidade de processamento que foi usada. À medida que o tamanho dos dados armazenados ou da quantidade de computação usada aumenta ou diminui, você não precisa reescrever os códigos. Para aumentar os limites padrão de sua assinatura, contate o suporte.
 
 | **Recurso** | **Limite padrão** | **Comentários** |
 | --- | --- | --- |
 | Número máximo de trabalhos simultâneos |20 | |
-| Maximum number of analytics units (AUs) per account |250 | Use qualquer combinação até o máximo de 250 AUs em 20 trabalhos. To increase this limit, contact Microsoft Support. |
+| Número máximo de unidades de análise (AUs) por conta |250 | Use qualquer combinação até o máximo de 250 AUs em 20 trabalhos. Para aumentar esse limite, entre em contato com Suporte da Microsoft. |
 | Tamanho máximo de script para envio de trabalho | 3 MB | |
-| Maximum number of Data Lake Analytics accounts per region per subscription | 5 | To increase this limit, contact Microsoft Support. |
+| Número máximo de contas de Data Lake Analytics por região por assinatura | 5 | Para aumentar esse limite, entre em contato com Suporte da Microsoft. |
