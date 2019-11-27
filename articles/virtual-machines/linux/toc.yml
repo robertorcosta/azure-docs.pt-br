@@ -126,7 +126,7 @@
     - name: Hosts dedicados
       href: dedicated-hosts.md
     - name: Manutenção e atualizações
-      href: maintenance-and-updates.md
+      href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Armazenamento em disco
       items:
         - name: Introdução aos discos gerenciados
@@ -298,16 +298,30 @@
               href: ../extensions/agent-linux.md
             - name: Atualização do agente
               href: update-agent.md
-        - name: Manutenção planejada
-          href: maintenance-notifications.md
         - name: Atenuando a execução especulativa
           href: mitigate-se.md
-        - name: Eventos agendados
-          href: scheduled-events.md
         - name: Monitorizar metadados
           href: instance-metadata-service.md
         - name: Obter métricas de uso com o REST
           href: metrics-vm-usage-rest.md
+    - name: Manutenção da plataforma
+      items:
+        - name: Notificações de manutenção
+          items:
+            - name: Visão geral
+              href: maintenance-notifications.md
+            - name: CLI
+              href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Portal
+              href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Controle de manutenção
+          items:
+            - name: CLI
+              href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Eventos agendados
+          href: scheduled-events.md
     - name: Monitorar VMs
       items:
         - name: Azure Monitor para VMs

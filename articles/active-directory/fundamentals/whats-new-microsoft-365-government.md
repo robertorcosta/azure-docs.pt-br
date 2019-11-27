@@ -1,6 +1,6 @@
 ---
-title: O que há de novo para o Azure Active Directory no Microsoft 365 Government - Azure Active Directory | Microsoft Docs
-description: Saiba mais sobre algumas alterações ao Azure Active Directory (Azure AD) em que a instância de nuvem do governo do Microsoft 365, que pode afetar você.
+title: O que há de novo no Azure AD no Microsoft 365 governamental? | Microsoft Docs
+description: Saiba mais sobre algumas alterações no Azure Active Directory (Azure AD) na instância de nuvem do governo Microsoft 365, que pode afetar você.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,54 +13,54 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b077c7b5efbad2add971d42ff31938b56f6bc33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258888"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805275"
 ---
-# <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>O que há de novo para o Azure Active Directory no Microsoft 365 Government
+# <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>O que há de novo para Azure Active Directory no governo Microsoft 365
 
-Fizemos algumas alterações ao Azure Active Directory (Azure AD) em que a instância de nuvem de governo do Microsoft 365, que é aplicável aos clientes que usam os seguintes serviços:
+Fizemos algumas alterações no Azure Active Directory (Azure AD) na instância de nuvem do governo Microsoft 365, que é aplicável aos clientes que usam os seguintes serviços:
 
 - Microsoft Azure Governamental
 
-- Governo do Microsoft 365 – GCC High
+- Governo Microsoft 365 – GCC alto
 
-- Microsoft 365 Government – DoD
+- Governo Microsoft 365 – DoD
 
-Este artigo não se aplica a Microsoft 365 Government – clientes GCC.
+Este artigo não se aplica a clientes Microsoft 365 do governo-GCC.
 
 ## <a name="changes-to-the-initial-domain-name"></a>Alterações no nome de domínio inicial
 
-Durante à inscrição inicial sua organização para um serviço online da Microsoft 365 Government, você recebeu uma solicitação para escolher o nome de domínio da sua organização, `<your-domain-name>.onmicrosoft.com`. Se você já tiver um nome de domínio com o sufixo. com, nada será alterado.
+Durante a inscrição inicial da sua organização para um serviço online governamental Microsoft 365, você foi solicitado a escolher o nome de domínio da sua organização, `<your-domain-name>.onmicrosoft.com`. Se você já tiver um nome de domínio com o sufixo. com, nada será alterado.
 
-No entanto, se você estiver se inscrevendo para um novo serviço do Microsoft 365 Government, você será solicitado para escolher um nome de domínio usando o `.us` sufixo. Portanto, ele será `<your-domain-name>.onmicrosoft.us`.
+No entanto, se você estiver se inscrevendo para um novo serviço governamental Microsoft 365, será solicitado que você escolha um nome de domínio usando o sufixo `.us`. Portanto, será `<your-domain-name>.onmicrosoft.us`.
 
 >[!Note]
->Essa alteração não se aplica a todos os clientes que são gerenciados por provedores de serviço de nuvem (CSPs).
+>Essa alteração não se aplica a clientes que são gerenciados por CSPs (provedores de serviços de nuvem).
 
 ## <a name="changes-to-portal-access"></a>Alterações no acesso ao portal
 
-Nós atualizamos os pontos de extremidade do portal para o Microsoft Azure governamental, Microsoft 365 Government – alta GCC e Microsoft 365 Government – DoD, conforme mostrado na [tabela de mapeamento de ponto de extremidade](#endpoint-mapping).
+Atualizamos os pontos de extremidade do portal para Microsoft Azure Governamental, Microsoft 365 governamental – GCC High e Microsoft 365 governamental – DoD, conforme mostrado na tabela de [mapeamento de ponto de extremidade](#endpoint-mapping).
 
-Anteriormente, os clientes podem entrar usando o Azure em todo o mundo (portal.azure.com) e os portais do Office 365 (portal.office.com). Com essa atualização, os clientes agora devem entrar usando o Microsoft Azure governamental, Microsoft 365 Government - alta GCC e Microsoft 365 Government - portais DoD específico.
+Anteriormente, os clientes podiam entrar usando os portais mundiais do Azure (portal.azure.com) e do Office 365 (portal.office.com). Com essa atualização, os clientes agora devem entrar usando o Microsoft Azure Governamental específico, os portais de Microsoft 365 de governo-GCC alta e Microsoft 365 governamental-DoD.
 
 ## <a name="endpoint-mapping"></a>Mapeamento de ponto de extremidade
 
 A tabela a seguir mostra os pontos de extremidade para todos os clientes:
 
-| NOME | detalhes do ponto de extremidade |
+| NOME | Detalhes do ponto de extremidade |
 |------|------------------|
-| Portais |Microsoft Azure Government: https://portal.azure.us<p>Governo do Microsoft 365 – GCC alta: https://portal.office365.us<p>Microsoft 365 Government – DoD: https://portal.apps.mil |
-| Ponto de extremidade de autoridade do Active Directory do Azure | https://login.microsoftonline.us |
+| Portais |Microsoft Azure Governamental: https://portal.azure.us<p>Governo Microsoft 365 – GCC alto: https://portal.office365.us<p>Governo Microsoft 365 – DoD: https://portal.apps.mil |
+| Ponto de extremidade de autoridade de Azure Active Directory | https://login.microsoftonline.us |
 | API do Graph do Active Directory do Azure | https://graph.windows.net |
-| API do Microsoft Graph para o governo do Microsoft 365 - GCC High | https://graph.microsoft.us |
-| API do Microsoft Graph para o governo do Microsoft 365 - DoD | https://dod-graph.microsoft.us |
-| Pontos de extremidade de serviços do Azure governamental | Para obter detalhes, consulte [guia do desenvolvedor do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Governo do Microsoft 365 - pontos de extremidade alta GCC | Para obter detalhes, consulte [dos EUA do Office 365 Pontos de extremidade de alta GCC do governo](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 Government - DoD | Para obter detalhes, consulte [dos EUA do Office 365 Pontos de extremidade do governo DoD](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| API de Microsoft Graph para Microsoft 365 governamental-GCC alto | https://graph.microsoft.us |
+| API de Microsoft Graph para Microsoft 365 governamental-DoD | https://dod-graph.microsoft.us |
+| Pontos de extremidade de serviços do Azure governamental | Para obter detalhes, consulte [Guia do desenvolvedor do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
+| Microsoft 365 os pontos de extremidade mais poestados do governo de GCC | Para obter detalhes, consulte [pontos de extremidade altos do Office 365 no governo dos EUA](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Governo Microsoft 365-DoD | Para obter detalhes, consulte [pontos de extremidade do DoD do governo dos EUA do Office 365](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -68,8 +68,8 @@ Para obter mais informações, consulte estes artigos:
 
 - [O que é o Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
-- [Atualização de ponto de extremidade de autoridade do Azure governamental AAD](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
+- [Atualização do ponto de extremidade da autoridade do AAD do Azure governamental](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
-- [Pontos de extremidade do Microsoft Graph na nuvem do governo dos EUA](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
+- [Microsoft Graph pontos de extremidade na nuvem do governo dos EUA](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [O Office 365 US Government GCC High e DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 do governo dos EUA GCC alto e DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

@@ -1,6 +1,6 @@
 ---
 title: Glossário de termos do Hub IoT do Azure | Microsoft Docs
-description: Guia do Desenvolvedor ‑ Um glossário de termos comuns relacionadas ao Hub IoT do Azure.
+description: Guia do desenvolvedor – um glossário explicando alguns dos termos comuns usados nos artigos do Hub IoT do Azure.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c4215933b3816b445c55282bae9a36e88c0311f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119802"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890538"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -46,7 +46,7 @@ As [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemNam
 ## <a name="azure-portal"></a>Portal do Azure
 O [portal do Microsoft Azure](https://portal.azure.com) é um local central no qual você pode provisionar e gerenciar os recursos do Azure. Ele organiza seu conteúdo usando _folhas_.
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="azure-powershell"></a>PowerShell do Azure
 O [Azure PowerShell](/powershell/azure/overview) é uma coleção de cmdlets que você pode usar para gerenciar o Azure com o Windows PowerShell. É possível usar os cmdlets para criar, testar, implantar e gerenciar soluções e serviços entregues pela plataforma Azure.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
@@ -176,7 +176,7 @@ Os aceleradores de solução do Azure IoT incluem vários serviços do Azure par
 ## <a name="the-iot-extension-for-azure-cli"></a>A extensão IoT para o CLI do Azure 
 [A extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) é uma ferramenta de linha de comando de plataforma cruzada. A ferramenta permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry), envie e receba mensagens e arquivos de seus dispositivos e monitore as operações do hub IoT.
 
-## <a name="job"></a>Trabalho
+## <a name="job"></a>trabalho
 O back-end de sua solução pode usar [trabalhos](iot-hub-devguide-jobs.md) para agendar e controlar atividades em um conjunto de dispositivos registrados no Hub IoT. As atividades incluem atualização de [propriedades desejadas](#desired-properties) do dispositivo gêmeo, atualização de [marcas](#tags) do dispositivo gêmeo e invocação de [métodos diretos](#direct-method). O [Hub IoT](#iot-hub) também usa  para [importar e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) do [registro de identidade](#identity-registry).
 
 ## <a name="modules"></a>Módulos
@@ -247,7 +247,7 @@ Uma assinatura do Azure é onde ocorre a cobrança. Cada recurso do Azure que vo
 ## <a name="system-properties"></a>Propriedades do sistema
 No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), as propriedades do sistema são somente leitura em incluem informações sobre o uso do dispositivo, por exemplo, a hora da última atividade e o estado da conexão.
 
-## <a name="tags"></a>tags
+## <a name="tags"></a>Marcas
 No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), as marcas são metadados do dispositivo armazenadas e recuperadas pelo back-end da solução na forma de um documento JSON. As marcas não são visíveis para os aplicativos em um dispositivo.
 
 ## <a name="telemetry"></a>Telemetria
