@@ -106,9 +106,9 @@ As informações abaixo listam as informações de configuração de proxy e fir
 
 |Recurso de agente|Portas |Direção |Ignorar a inspeção de HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porta 443 |Saída|Sim |  
-|*.oms.opinsights.azure.com |Porta 443 |Saída|Sim |  
-|*.blob.core.windows.net |Porta 443 |Saída|Sim |  
+|*.ods.opinsights.azure.com |Porta 443 |Saída|sim |  
+|*.oms.opinsights.azure.com |Porta 443 |Saída|sim |  
+|*.blob.core.windows.net |Porta 443 |Saída|sim |  
 
 Para obter informações de firewall necessárias para o Azure governamental, consulte [Gerenciamento do Azure governamental](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
