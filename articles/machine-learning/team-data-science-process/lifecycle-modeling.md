@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d72d39a2a59e06954c36473083af2d2b4689a7b6
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306217"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538218"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados da Equipe
 
@@ -41,8 +41,8 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 ## <a name="how-to-do-it"></a>Como fazer isso
 Há três tarefas principais abordadas neste estágio:
 
-  * **Engenharia de recursos**: Crie recursos de dados a partir de dados brutos para facilitar o treinamento do modelo.
-  * **Treinamento do modelo**: Encontre o modelo que responde à pergunta com mais precisão, comparando suas métricas de sucesso.
+  * **Engenharia de recursos**: crie recursos de dados dos dados brutos para facilitar o treinamento do modelo.
+  * **Treinamento do modelo**: encontre o modelo que responde à pergunta com mais precisão, comparando suas métricas de sucesso.
   * Determine se seu modelo é **adequado para produção.**
 
 ### <a name="feature-engineering"></a>Engenharia de recursos
@@ -63,7 +63,7 @@ O processo de treinamento do modelo inclui as seguintes etapas:
    * **Determine a "melhor" solução** para responder à pergunta, comparando a métrica de sucesso entre os métodos alternativos.
 
 > [!NOTE]
-> **Evitar vazamento**: Você poderá causar vazamento de dados se incluir dados de fora do conjunto de dados de treinamento que permitam a um modelo ou ao algoritmo de aprendizado de máquina fazer previsões boas de forma irrealista. A perda é um motivo comum pelo qual os cientistas de dados ficam preocupados quando obtêm resultados preditivos que parecem bons demais para serem verdadeiros. Essas dependências podem ser difíceis de serem detectadas. Para evitar vazamentos, geralmente é necessária a iteração entre a criação de um conjunto de dados de análise, a criação de um modelo e a avaliação da precisão dos resultados. 
+> **Evite o vazamento**: será possível causar o vazamento de dados se você incluir dados de fora do conjunto de dados de treinamento que permite a um modelo ou ao algoritmo de aprendizado de máquina fazer previsões boas de forma irrealista. A perda é um motivo comum pelo qual os cientistas de dados ficam preocupados quando obtêm resultados preditivos que parecem bons demais para serem verdadeiros. Essas dependências podem ser difíceis de serem detectadas. Para evitar vazamentos, geralmente é necessária a iteração entre a criação de um conjunto de dados de análise, a criação de um modelo e a avaliação da precisão dos resultados. 
 > 
 > 
 
@@ -72,9 +72,9 @@ Fornecemos uma [ferramenta automatizada de modelagem e relatório](https://githu
 ## <a name="artifacts"></a>Artefatos
 Os artefatos produzidos neste estágio incluem:
 
-   * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): Os recursos desenvolvidos para a modelagem estão descritos na seção **Conjuntos de recursos** do relatório **Definição de dados**. Ele contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
-   * [Relatório de modelo](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): Para cada modelo testado, é produzido um relatório padrão baseado em modelo que fornece detalhes sobre cada experimento.
-   * **Decisão de ponto de verificação**: Avalie se o modelo tem um desempenho bom o suficiente para implantá-lo em um sistema de produção. Algumas perguntas importantes a serem feitas são:
+   * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): os recursos desenvolvidos para a modelagem estão descritos na seção **Conjuntos de recursos** do relatório **Definição de dados**. Ele contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
+   * [Relatório de modelo](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): para cada modelo testado, é produzido um relatório padrão baseado em modelo que fornece detalhes sobre cada experimento.
+   * **Decisão de ponto de verificação**: avalie se o modelo tem um bom desempenho, suficiente para implantá-lo em um sistema de produção. Algumas perguntas importantes a serem feitas são:
      * O modelo responde à pergunta com confiança suficiente, considerando os dados de teste? 
      * Você deve experimentar abordagens alternativas? Você deve coletar dados adicionais, realizar mais engenharia de recursos ou fazer experimentos com outros algoritmos?
 

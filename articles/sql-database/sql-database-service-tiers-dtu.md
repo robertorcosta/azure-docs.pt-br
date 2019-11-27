@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 6d4c9dd08f2d00bc12f041748cc78363c9abecbd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/26/2019
+ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822513"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539321"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 
@@ -31,7 +31,7 @@ As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por
 
 Escolher uma camada de serviço depende principalmente da continuidade dos negócios, armazenamento e requisitos de desempenho.
 
-||Basic|Standard|Premium|
+||Básica|Standard|Premium|
 | :-- | --: |--:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |SLA de tempo de atividade|99,99%|99,99%|99,99%|
@@ -43,6 +43,12 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 |OLTP na memória|N/D|N/D|Suportado|
 |||||
 
+> [!IMPORTANT]
+> As camadas de serviço básico, Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, é recomendável uma camada de serviço S3 ou superior. 
+>
+>Em relação ao armazenamento de dados, as camadas de serviço básico, Standard S0 e S1 são colocadas em blobs de páginas padrão. Os blobs de páginas padrão usam mídia de armazenamento baseada em HDD (unidade de disco rígido) e são mais adequados para desenvolvimento, teste e outras cargas de trabalho acessadas com pouca frequência que são menos sensíveis à variabilidade de desempenho.
+>
+
 > [!NOTE]
 > Você pode obter um banco de dados SQL do Azure gratuito na camada de serviço básica em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [Crie um banco de dados de nuvem gerenciado com sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
 
@@ -50,14 +56,14 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 
 Os tamanhos da computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [modelo de compra baseado em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
-||Basic|Standard|Premium|
+||Básica|Standard|Premium|
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | Máximo de DTUs | 5 | 3000 | 4000 | 
 |||||
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço no arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU de pool elástico, armazenamento e limites de banco de dados em pool
 
@@ -89,7 +95,7 @@ O parâmetro de comparação e sua metodologia são descritos em mais detalhes a
 
 O parâmetro de comparação mede o desempenho de um conjunto de operações básicas do banco de dados que ocorrem com mais frequência em cargas de trabalho de OLPT (transação online). Embora o parâmetro de comparação seja projetado com a computação em nuvem em mente, o esquema do banco de dados, o preenchimento dos dados e as transações foram projetados para ser amplamente representativos dos elementos básicos mais comumente usados em cargas de trabalho OLTP.
 
-### <a name="schema"></a>Esquema
+### <a name="schema"></a>ESQUEMA
 
 O esquema foi projetado para ter variedade e complexidade suficiente para dar suporte a uma ampla gama de operações. O parâmetro de comparação é executado em um banco de dados composto por seis tabelas. As tabelas recaem em três categorias: tamanho fixo, em escala e crescente. Há duas tabelas de tamanho fixo; três tabelas em escala e uma tabela crescente. As tabelas de tamanho fixo têm um número constante de linhas. As tabelas em escala têm uma cardinalidade proporcional ao desempenho do banco de dados, mas não são alteradas durante o parâmetro de comparação. A tabela crescente é dimensionada como uma tabela em escala na carga inicial, mas depois a cardinalidade é alterada no curso da execução do parâmetro de comparação à medida que as linhas são inseridas e excluídas.
 
@@ -112,7 +118,7 @@ A carga de trabalho consiste em nove tipos de transação, conforme mostrado na 
 | Atualização Intensa |UPDATE; maior parte fora da memória; leitura/gravação |
 | Inserção Simples |INSERT; na memória; leitura/gravação |
 | Inserção Intensa |INSERT; maior parte fora da memória; leitura/gravação |
-| Excluir |DELETE; combinação de na memória e não na memória; leitura/gravação |
+| Exclusão |DELETE; combinação de na memória e não na memória; leitura/gravação |
 | CPU Intensa |SELECT; na memória; carga de CPU relativamente intensa; somente leitura |
 
 ### <a name="workload-mix"></a>Combinação de carga de trabalho
@@ -128,7 +134,7 @@ As transações são selecionadas aleatoriamente em uma distribuição ponderada
 | Atualização Intensa |3 |
 | Inserção Simples |3 |
 | Inserção Intensa |2 |
-| Excluir |2 |
+| Exclusão |2 |
 | CPU Intensa |10 |
 
 ### <a name="users-and-pacing"></a>Usuários e definição
@@ -166,7 +172,7 @@ As principais métricas no parâmetro de comparação são a taxa de transferên
 | --- | --- | --- |
 | Premium |Transações por segundo |95º percentil em 0,5 segundo |
 | Standard |Transações por minuto |90º percentil em 1,0 segundo |
-| Basic |Transações por hora |80º percentil em 2,0 segundos |
+| Básica |Transações por hora |80º percentil em 2,0 segundos |
 
 ## <a name="next-steps"></a>Próximas etapas
 

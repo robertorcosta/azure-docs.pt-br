@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 3aa5660e5b777364ef9d684debe7e06f42acee6e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482027"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534144"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Criar uma tabela de rotas do Hub WAN virtual para NVAs: portal do Azure
 
@@ -31,7 +31,7 @@ Verifique se você atende aos seguintes critérios:
 
     * O NVA não está implantado no Hub virtual. Ela deve ser implantada em uma VNet separada.
 
-    *  A VNet NVA pode ter uma ou várias redes virtuais conectadas a ela. Neste artigo, nos referimos à VNet NVA como uma "VNet spoke indireta". Esses VNets podem ser conectados à VNet do NVA usando o emparelhamento VNet. Os links de emparelhamento vnet são representados por setas pretas na figura acima.
+    *  A VNet NVA pode ter uma ou várias redes virtuais conectadas a ela. Neste artigo, nos referimos à VNet NVA como uma "VNet spoke indireta". Esses VNets podem ser conectados à VNet do NVA usando o emparelhamento VNet. Os links de emparelhamento vnet são representados por setas pretas na figura acima, entre vnet 1, vnet 2 e NVA vnet.
 *  Você criou 2 VNets. Eles serão usados como spoke VNets.
 
     * Para este exercício, os espaços de endereço do spoke da VNet são: VNet1:10.0.2.0/24 e VNet2:10.0.3.0/24. Se você precisar de informações sobre como criar uma VNet, consulte [criar uma rede virtual](../virtual-network/quick-create-portal.md).
@@ -79,7 +79,7 @@ Atualize o Hub com uma tabela de rotas de Hub. Para os fins deste exercício, vo
 
 ## <a name="connections"></a>5. criar as conexões de VNet
 
-Crie uma conexão de cada VNet de spoke indireto (VNet1 e VNet2) para o Hub. Em seguida, crie uma conexão da VNet NVA para o Hub. Essas conexões vnet são difiguradas por setas azuis na figura acima. 
+Crie uma conexão de vnet de cada VNet de spoke indireto (VNet1 e VNet2) para o Hub. Essas conexões vnet são descritas pelas setas azuis na figura acima. Em seguida, crie uma conexão de vnet da VNet NVA para o Hub (seta preta na figura). 
 
  Para esta etapa, você pode usar os seguintes valores:
 
