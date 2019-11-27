@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186607"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534303"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
@@ -85,6 +85,11 @@ O RTO (objetivo de tempo de recuperação) é uma medida de quanto tempo leva pa
 ## <a name="migrate-a-storage-account-to-gzrs-or-ra-gzrs"></a>Migrar uma conta de armazenamento para GZRS ou RA-GZRS
 
 Você pode migrar qualquer conta de armazenamento existente para GZRS ou RA-GZRS. A migração de uma conta existente do ZRS para o GZRS ou o RA-GZRS é simples, ao mesmo tempo em que a migração de uma conta LRS, GRS ou RA-GRS é mais envolvida. As seções a seguir descrevem como migrar em qualquer caso.
+
+**Limitações conhecidas**
+
+- A camada de arquivo morto não tem suporte no momento em contas (RA-) GZRS. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para obter mais detalhes.
+- Os discos gerenciados não dão suporte a (RA-) GZRS. Você pode armazenar instantâneos e imagens para SSD Standard Managed Disks no armazenamento HDD Standard e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### <a name="migrating-from-a-zrs-account"></a>Migrando de uma conta do ZRS
 

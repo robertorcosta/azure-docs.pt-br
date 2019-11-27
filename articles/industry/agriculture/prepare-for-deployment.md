@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ccd8fc293d284150d7318242b71a46a99fec12fa
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
-ms.translationtype: HT
+ms.openlocfilehash: 0fc7eb6c3b582c4fc95d78397c4cb2820ebb4ea8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406315"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534236"
 ---
 # <a name="deploy-farmbeats"></a>Implantar o FarmBeats
 
@@ -68,6 +68,9 @@ A página Termos de uso é exibida. Examine os termos do Marketplace padrão ou 
 6. Selecione **fechar**e, em seguida, a caixa de seleção "concordo" e, em seguida, selecione **criar**.
 7. Agora você assinou com êxito o contrato de licença de usuário final (EULA) do Azure FarmBeats no Marketplace.  
 7. Para continuar com a implantação, siga as próximas etapas deste guia.
+
+> [!NOTE]
+> A conclusão da oferta no Azure Marketplace conclui apenas uma parte da instalação. Siga as instruções abaixo para concluir a implantação do Azure FarmBeats em sua assinatura do Azure.
 
 ## <a name="prepare"></a>Preparar
 

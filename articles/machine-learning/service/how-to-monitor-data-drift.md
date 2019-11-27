@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: e33f8a8090e7840087add0e16252bd2a3e873524
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: acf1df6bb71f4ea8878d8f50f3f42f4ddd831fb5
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276772"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539232"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,7 +31,7 @@ No contexto do Machine Learning, a descompasso de dados é a alteração nos dad
 Com Azure Machine Learning, você pode monitorar as entradas para um modelo implantado em AKS e comparar esses dados com o conjunto de informações de treinamento para o modelo. Em intervalos regulares, os dados de inferência são [instantâneos e](how-to-explore-prepare-data.md)analisados, em seguida, computados em relação ao conjunto de dados de linha de base para produzir uma análise de descompasso que: 
 
 + Mede a magnitude da descompasso de dados, chamada de coeficiente de descompasso.
-+ Mede a contribuição de descompasso de dados por recurso, informando quais recursos causaram a descompasso de dados.
++ Mede a contribuição de descompasso de dados por recurso, indicando quais recursos causaram a descompasso de dados.
 + Mede métricas de distância. Atualmente, a Wasserstein e a distância de energia são computadas.
 + Mede as distribuições de recursos. Estimativa e histogramas de densidade do kernel no momento.
 + Enviar alertas para descompasso de dados por email.
@@ -90,7 +90,7 @@ from azureml.datadrift import DataDriftDetector, AlertConfiguration
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
 
-# create a new DatadriftDetector object
+# create a new DataDriftDetector object
 datadrift = DataDriftDetector.create(ws, model.name, model.version, services, frequency="Day", alert_config=alert_config)
     
 print('Details of Datadrift Object:\n{}'.format(datadrift))
@@ -112,7 +112,7 @@ run = datadrift.run(target_date, services, feature_list=feature_list, compute_ta
 
 # show details of the data drift run
 exp = Experiment(ws, datadrift._id)
-dd_run = Run(experiment=exp, run_id=run)
+dd_run = Run(experiment=exp, run_id=run.id)
 RunDetails(dd_run).show()
 ```
 
@@ -142,7 +142,7 @@ O exemplo de Python a seguir demonstra como plotar métricas de descompasso de d
 # start and end are datetime objects 
 drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 
-# Show all data drift result figures, one per serivice.
+# Show all data drift result figures, one per service.
 # If setting with_details is False (by default), only the data drift magnitude will be shown; if it's True, all details will be shown.
 drift_figures = datadrift.show(with_details=True)
 ```

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 82f7c380c66dc6b42f4ca5c67c13524428c78221
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 815933f1f08b873ae1438d6b2f1e6cd922fe886a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674807"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548232"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binário no Azure Data Factory
 
@@ -27,14 +27,14 @@ Você pode usar o conjunto de um DataSet binário na atividade de [cópia](copy-
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de e binário.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de e binário.
 
-| Propriedade         | DESCRIÇÃO                                                  | Obrigatório |
+| Propriedade         | DESCRIÇÃO                                                  | obrigatórios |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| Tipo             | A propriedade Type do conjunto de conjuntos deve ser definida como **Binary**. | Sim      |
-| location         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
+| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **Binary**. | sim      |
+| location         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | sim      |
 | compactação | Grupo de propriedades para configurar a compactação de arquivo. Configure esta seção quando desejar fazer compactação/descompactação durante a execução da atividade. | Não |
-| Tipo | O codec de compactação usado para ler/gravar arquivos binários. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**. para usar ao salvar o arquivo. | Não       |
+| type | O codec de compactação usado para ler/gravar arquivos binários. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**. para usar ao salvar o arquivo.<br>Observação ao usar a atividade de cópia para descompactar arquivo (s) ZipDeflate e gravar no armazenamento de dados de coletor baseado em arquivo, os arquivos serão extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/`. | Não       |
 | level | A taxa de compactação. Aplicar quando o conjunto de um for usado no coletor da atividade de cópia.<br>Os valores permitidos são **ideal** ou **mais rápido**.<br>- **mais rápido:** a operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **ideal**: a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
 
 Veja abaixo um exemplo de conjunto de uma Binary DataSet no armazenamento de BLOBs do Azure:
@@ -73,18 +73,18 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade de cópia\*.
 
-| Propriedade      | DESCRIÇÃO                                                  | Obrigatório |
+| Propriedade      | DESCRIÇÃO                                                  | obrigatórios |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **binaryname**. | Sim      |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **binaryname**. | sim      |
 | storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
 ### <a name="binary-as-sink"></a>Binário como coletor
 
 As propriedades a seguir têm suporte na seção de ***\*do coletor*** de atividade de cópia\*.
 
-| Propriedade      | DESCRIÇÃO                                                  | Obrigatório |
+| Propriedade      | DESCRIÇÃO                                                  | obrigatórios |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **BinarySink**. | Sim      |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **BinarySink**. | sim      |
 | storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
 ## <a name="next-steps"></a>Próximas etapas

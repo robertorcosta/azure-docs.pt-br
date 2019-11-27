@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: ca5274113c0c0fd6cb0e81748fbe59320a7c83c8
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
-ms.translationtype: HT
+ms.openlocfilehash: 2dc5bfb7459e28a4d118c5d1629133bae3a5637f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405551"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533690"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Opções de suporte e ajuda dos serviços cognitivas do Azure
 
@@ -63,7 +63,7 @@ Se não conseguir encontrar uma resposta para seu problema por meio da pesquisa,
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
 </div>
 
-Para solicitar novos recursos, poste-os no UserVoice. Compartilhe suas ideias para criar Serviços Cognitivos e as APIs acompanhantes funcionam melhor para os aplicativos desenvolvidos. Use nossa [crescente base de dados de conhecimento](https://cognitive.uservoice.com/knowledgebase) para encontrar respostas a perguntas comuns:
+Para solicitar novos recursos, poste-os no UserVoice. Compartilhe suas ideias para fazer serviços cognitivas e as APIs que o acompanham funcionam melhor para os aplicativos que você desenvolve:
 
 | O Barramento de                       | URL de UserVoice de serviços cognitivas |
 |-------------------------------|---------------|
