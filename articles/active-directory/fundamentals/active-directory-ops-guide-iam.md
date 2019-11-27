@@ -31,7 +31,7 @@ Esta seção do [Guia de referência de operações do Azure ad](active-director
 
 O gerenciamento de Azure Active Directory requer a execução contínua das principais tarefas operacionais e processos que podem não fazer parte de um projeto de distribuição. Ainda é importante que você configure essas tarefas para manter seu ambiente. As principais tarefas e seus proprietários recomendados incluem:
 
-| tarefa | Proprietário |
+| Tarefa | Proprietário |
 | :- | :- |
 | Definir o processo como criar assinaturas do Azure | Varia de acordo com a organização |
 | Decidir quem recebe licenças de Enterprise Mobility + Security | Equipe de operações IAM |
@@ -201,6 +201,6 @@ Há cinco aspectos para uma infraestrutura de identidade segura. Essa lista ajud
 - Simplifique o gerenciamento de licenças e a atribuição de aplicativos.
 - Automatize o provisionamento de usuário para aplicativos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Introdução às [verificações e ações de gerenciamento de autenticação](active-directory-ops-guide-auth.md).

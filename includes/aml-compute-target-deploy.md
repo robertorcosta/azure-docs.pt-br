@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74549344"
 ---
-| Destino de computação | Usadas para | Suporte de GPU | Suporte do FPGA | DESCRIÇÃO |
+| Destino de computação | Usado para | Suporte de GPU | Suporte do FPGA | Descrição |
 | ----- | ----- | ----- | ----- | ----- |
 | [Serviço de&nbsp;da Web&nbsp;local](../articles/machine-learning/service/how-to-deploy-and-where.md#local) | Teste/depuração | &nbsp; | &nbsp; | Use para teste e solução de problemas limitados. A aceleração de hardware depende do uso de bibliotecas no sistema local.
 | [Azure Machine Learning instância de computação&nbsp;serviço Web&nbsp;](../articles/machine-learning/service/how-to-deploy-and-where.md#notebookvm) | Teste/depuração | &nbsp; | &nbsp; | Use para teste e solução de problemas limitados.
@@ -25,9 +25,9 @@ ms.locfileid: "74549344"
 | [Azure Machine Learning clusters de computação](../articles/machine-learning/service/how-to-run-batch-predictions.md) | Apresentação Inferência de&nbsp;do lote | [Sim](../articles/machine-learning/service/how-to-run-batch-predictions.md) (pipeline de Machine Learning) | &nbsp;  | Executar a pontuação de lote em computação sem servidor. Dá suporte a VMs normais e de baixa prioridade. |
 | [Funções do Azure](../articles/machine-learning/service/how-to-deploy-functions.md) | Apresentação Inferência em tempo real | &nbsp; | &nbsp; | &nbsp; |
 | [Azure IoT Edge](../articles/machine-learning/service/how-to-deploy-and-where.md#iotedge) | Apresentação Módulo de&nbsp;de IoT |  &nbsp; | &nbsp; | Implante e sirva modelos de ML em dispositivos IoT. |
-| [Borda da caixa de dados do Azure](../articles/databox-online/data-box-edge-overview.md)   | Via IoT Edge |  &nbsp; | sim | Implante e sirva modelos de ML em dispositivos IoT. |
+| [Borda da caixa de dados do Azure](../articles/databox-online/data-box-edge-overview.md)   | Via IoT Edge |  &nbsp; | SIM | Implante e sirva modelos de ML em dispositivos IoT. |
 
 > [!NOTE]
-> Embora os destinos de computação, como local, Azure Machine Learning instância de computação, e Azure Machine Learning clusters de computação ofereçam suporte à GPU para treinamento e experimentação, usar GPU para inferência __quando implantado como um serviço Web__ tem suporte apenas no Azure Serviço kubernetes.
+> Embora os destinos de computação, como local, Azure Machine Learning instância de computação, e Azure Machine Learning clusters de computação ofereçam suporte à GPU para treinamento e experimentação, usar GPU para inferência __quando implantado como um serviço Web__ tem suporte apenas no serviço kubernetes do Azure.
 >
 > Usar uma GPU para inferência __quando a pontuação com um pipeline de aprendizado de máquina__ tem suporte apenas em Azure Machine Learning computação.
