@@ -51,7 +51,7 @@ O recurso da conta de armazenamento está enfrentando um volume de transações 
 
 No seletor de métrica, selecione sua conta de armazenamento e a métrica **Transações**. Alterne o tipo de gráfico para **Gráfico de barras**. Clique em **Aplicar a divisão** e selecione a dimensão **Nome da API**. Em seguida, clique em **Adicionar filtro** e escolha a dimensão **Nome da API** novamente. Na caixa de diálogo de filtro, selecione as APIs que deseja plotar no gráfico.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre as [Pastas de Trabalho](../../azure-monitor/app/usage-workbooks.md) do Azure Monitor
 * Saiba mais sobre o [Metrics Explorer](metrics-charts.md)

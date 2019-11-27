@@ -195,7 +195,7 @@ Não. Azure Data Box não oferece suporte a Azure NetApp Files no momento.
 
 Não. O serviço de importação/exportação do Azure não oferece suporte a Azure NetApp Files no momento.
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 - [Perguntas frequentes Microsoft Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Perguntas frequentes Rede Virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)

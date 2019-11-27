@@ -38,7 +38,7 @@ Se o aplicativo estiver hospedado em um plano *Básico*, *Standard* ou *Premium*
 
 As cotas para aplicativos Gratuitos ou Compartilhados são:
 
-| Cota | DESCRIÇÃO |
+| Quota | Descrição |
 | --- | --- |
 | **CPU (Curto)** | A quantidade de CPU permitida para esse aplicativo em um intervalo de cinco minutos. Essa cota é definida novamente a cada cinco minutos. |
 | **CPU (Dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
@@ -72,7 +72,7 @@ Métricas fornecem informações sobre o aplicativo ou sobre o comportamento do 
 
 Para um aplicativo, as métricas disponíveis são:
 
-| Métrica | DESCRIÇÃO |
+| Métrica | Descrição |
 | --- | --- |
 | **Tempo Médio de Resposta** | O tempo médio necessário para o aplicativo atender solicitações, em segundos. |
 | **Conjunto de trabalho de memória média** | A quantidade média de memória usada pelo aplicativo em megabytes (MiB). |
@@ -115,7 +115,7 @@ Para um Plano do Serviço de Aplicativo, as métricas disponíveis são:
 > As métricas do Plano do Serviço de Aplicativo só estão disponíveis para os planos *Básico*, *Standard* e *Premium*.
 > 
 
-| Métrica | DESCRIÇÃO |
+| Métrica | Descrição |
 | --- | --- |
 | **Porcentagem de CPU** | A média de CPU usada em todas as instâncias do plano. |
 | **Porcentagem de Memória** | A média de memória usada em todas as instâncias do plano. |

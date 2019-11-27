@@ -346,7 +346,7 @@ identity:
    {'myResourceID1':{}}
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre identidades gerenciadas nas Instâncias de Contêiner do Azure e como:
 

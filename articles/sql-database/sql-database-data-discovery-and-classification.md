@@ -170,7 +170,7 @@ Você pode usar o PowerShell para obter todas as colunas recomendadas em uma ins
 - [Habilitar-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Desabilitar-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
-## <a name="permissions"></a>permissões
+## <a name="permissions"></a>Permissões
 
 As funções internas a seguir podem ler a classificação de dados de um Azure SQL Database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` e `User Access Administrator`.
 

@@ -32,7 +32,7 @@ A seguinte funcionalidade está disponível no fluxo de controle:
 - Você pode usar a saída da atividade obter metadados em expressões condicionais para executar a validação.
 - Você pode disparar um pipeline quando uma condição é satisfeita por meio do until loop.
 
-## <a name="capabilities"></a>Funcionalidades
+## <a name="capabilities"></a>Capacidades
 
 A atividade obter metadados usa um conjunto de dados como uma entrada e retorna informações de metadados como saída. Atualmente, há suporte para os seguintes conectores e metadados recuperáveis correspondentes. O tamanho máximo dos metadados retornados é 1 MB.
 
@@ -73,7 +73,7 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 
 Você pode especificar os seguintes tipos de metadados na lista de campos de atividade obter metadados para recuperar as informações correspondentes:
 
-| Tipo de Metadados | DESCRIÇÃO |
+| Tipo de Metadados | Descrição |
 |:--- |:--- |
 | itemName | Nome do arquivo ou pasta. |
 | itemType | Tipo do arquivo ou pasta. O valor retornado é `File` ou `Folder`. |
@@ -136,10 +136,10 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 
 Atualmente, a atividade obter metadados pode retornar os seguintes tipos de informações de metadados:
 
-Propriedade | DESCRIÇÃO | obrigatórios
+Propriedade | Descrição | obrigatórios
 -------- | ----------- | --------
-fieldList | Os tipos de informações de metadados necessários. Para obter detalhes sobre os metadados com suporte, consulte a seção [Opções de metadados](#metadata-options) deste artigo. | sim 
-conjunto de dados | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | sim
+fieldList | Os tipos de informações de metadados necessários. Para obter detalhes sobre os metadados com suporte, consulte a seção [Opções de metadados](#metadata-options) deste artigo. | SIM 
+dataset | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | SIM
 formatSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
 storeSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
 
@@ -194,7 +194,7 @@ Os resultados de obter metadados são mostrados na saída da atividade. A seguir
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre outras atividades de fluxo de controle com suporte pelo Data Factory:
 
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)

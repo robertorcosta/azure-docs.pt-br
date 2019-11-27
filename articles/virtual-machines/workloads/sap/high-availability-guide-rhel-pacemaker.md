@@ -47,7 +47,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * O software SAP e combinações de SO (sistema operacional) e banco de dados com suporte.
   * A versão do kernel do SAP necessária para Windows e Linux no Microsoft Azure.
 * A Nota SAP [2015553] lista pré-requisitos para implantações de software SAP com suporte do SAP no Azure.
-* Nota SAP [2002167] recomendou configurações do SO para o Red Hat Enterprise Linux
+* Nota SAP [2002167] recomendou configurações do sistema operacional Red Hat Enterprise Linux
 * Nota SAP [2009879] tem diretrizes SAP HANA para Red Hat Enterprise Linux
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramentos relatadas para o SAP no Azure.
 * A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
@@ -58,7 +58,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
 * [Replicação do sistema SAP HANA no cluster de marca-passo](https://access.redhat.com/articles/3004101)
-* Documentação geral RHEL
+* Documentação geral do RHEL
   * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
@@ -274,7 +274,7 @@ Use o seguinte comando para configurar o dispositivo fence.
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

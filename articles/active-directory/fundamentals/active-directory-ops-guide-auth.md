@@ -31,7 +31,7 @@ Esta seção do [Guia de referência de operações do Azure ad](active-director
 
 O gerenciamento de Azure Active Directory requer a execução contínua das principais tarefas e processos operacionais, que podem não fazer parte de um projeto de distribuição. Ainda é importante que você configure essas tarefas para otimizar seu ambiente. As principais tarefas e seus proprietários recomendados incluem:
 
-| tarefa | Proprietário |
+| Tarefa | Proprietário |
 | :- | :- |
 | Gerenciar o ciclo de vida da configuração de SSO (logon único) no Azure AD | Equipe de operações IAM |
 | Criar políticas de acesso condicional para aplicativos do Azure AD | Equipe de arquitetura do batalha |
@@ -141,7 +141,7 @@ Se você estiver gerenciando dispositivos com MDM ou Microsoft Intune, mas não 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Leitura recomendada de políticas de acesso de confiança de dispositivo
 
 - [Como planejar sua implementação de junção de Azure Active Directory híbrida](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-- [Configurações de acesso à identidade e ao dispositivo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurações de acesso ao dispositivo e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello for Business
 
@@ -256,7 +256,7 @@ O acesso condicional é uma ferramenta essencial para melhorar a postura de segu
 #### <a name="conditional-access-recommended-reading"></a>Leitura recomendada de acesso condicional
 
 - [Práticas recomendadas para acesso condicional no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [Configurações de acesso à identidade e ao dispositivo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurações de acesso ao dispositivo e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referência de configurações de acesso condicional Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [Políticas de acesso condicional comum](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
@@ -300,7 +300,7 @@ Abaixo estão as permissões que você pode querer analisar para os serviços de
 - Aplicativos com permissões delegadas podem ler, enviar ou gerenciar email em nome do usuário
 - Aplicativos que recebem o usando as seguintes permissões:
 
-| Recurso | Permissão |
+| Grupos | Permissão |
 | -------------------------- | -------------------- |
 | Office 365 Exchange Online | Estendi. AccessAsUser. All |
 | | EWS. AccessAsUser. All |
@@ -382,6 +382,6 @@ Há 12 aspectos para uma infraestrutura de identidade segura. Esta lista ajudar�
 - Bloquear configurações de usuário e de grupo.
 - Habilite o armazenamento de longo prazo de logs do Azure AD para solução de problemas, análise de uso e investigações forenses.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Introdução às [verificações e ações operacionais de governança de identidade](active-directory-ops-guide-govern.md).

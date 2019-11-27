@@ -22,7 +22,7 @@ Os exemplos apresentados neste artigo usam a CLI do Azure. Você deve ter a CLI 
 
 Quando cria um [grupo de contêineres](container-instances-container-groups.md) nas Instâncias de Contêiner do Azure, você pode especificar uma entre três configurações de política de reinicialização.
 
-| Política de reinicialização   | DESCRIÇÃO |
+| Política de reinicialização   | Descrição |
 | ---------------- | :---------- |
 | `Always` | Contêineres no grupo de contêiner sempre são reiniciados. Este é a configuração **padrão** aplicada quando nenhuma política de reinicialização é especificada na criação do contêiner. |
 | `Never` | Os contêineres no grupo de contêineres nunca reiniciados. Os contêineres são executados no máximo uma vez. |
@@ -89,7 +89,7 @@ Saída:
 
 Este exemplo mostra a saída que o script envia para STDOUT. As tarefas em contêineres, no entanto, podem escrever a saída para o armazenamento persistente para recuperação posterior. Por exemplo, para um [compartilhamento de arquivos do Azure](container-instances-mounting-azure-files-volume.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Cenários baseados em tarefas, como processamento em lote de um grande conjunto de grandes com vários contêineres, podem tirar proveito de [variáveis de ambiente](container-instances-environment-variables.md) personalizadas ou [linhas de comando](container-instances-start-command.md) em tempo de execução.
 

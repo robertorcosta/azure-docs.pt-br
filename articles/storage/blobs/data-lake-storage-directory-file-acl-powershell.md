@@ -25,7 +25,7 @@ Este artigo mostra como usar o PowerShell para criar e gerenciar diretórios, ar
 
 [Gen1 para mapeamento de Gen2](#gen1-gen2-map) | [fornecer comentários](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -61,7 +61,7 @@ Este artigo mostra como usar o PowerShell para criar e gerenciar diretórios, ar
 
 1. Abra uma janela de comando do Windows PowerShell.
 
-2. Inicie sessão na sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela.
+2. Entre na sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela.
 
    ```powershell
    Connect-AzAccount
@@ -380,7 +380,7 @@ A tabela a seguir mostra como os cmdlets usados para Data Lake Storage Gen1 são
 |Remove-AzDataLakeStoreItem|Remove-AzDataLakeGen2Item|
 |Set-AzDataLakeStoreItemOwner <br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Usando o Azure PowerShell com o Armazenamento do Azure](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

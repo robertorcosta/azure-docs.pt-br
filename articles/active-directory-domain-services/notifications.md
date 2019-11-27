@@ -76,11 +76,11 @@ Se um alerta for resolvido, o alerta será removido da portal do Azure. O motivo
 
 Se não for possível acessar a página de configurações de notificação no portal do Azure, você não terá as permissões para editar o domínio gerenciado do Azure AD DS. Você deve entrar em contato com um administrador global para obter permissões para editar o recurso de AD DS do Azure ou ser removido da lista de destinatários.
 
-### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Não parece que estou recebendo notificações por email, embora eu tenha fornecido meu endereço de email. Por quê?
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Apesar de ter fornecido meu endereço de email, não estou recebendo as notificações por email. Por quê?
 
 Verifique sua pasta de spam ou lixo eletrônico em seu email para a notificação e certifique-se de permitir o remetente da `azure-noreply@microsoft.com`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre como solucionar alguns dos problemas que podem ser relatados, consulte [resolver alertas em um domínio gerenciado do Azure AD DS][troubleshoot-alerts].
 

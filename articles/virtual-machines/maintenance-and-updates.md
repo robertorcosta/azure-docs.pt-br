@@ -101,6 +101,6 @@ Uma zona de disponibilidade é uma combinação de um domínio de falha e um dom
 
 Cada atualização de infraestrutura distribui a zona por zona, dentro de uma única região. No entanto, você pode fazer com que a implantação seja ativada em Zona 1, e a implantação diferente entrará em Zona 2, ao mesmo tempo. Implantações não são todas serializadas. Mas, uma única implantação apenas distribui uma zona por vez para reduzir o risco.
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 
 Você pode usar o [CLI do Azure](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md) para gerenciar a manutenção planejada. 

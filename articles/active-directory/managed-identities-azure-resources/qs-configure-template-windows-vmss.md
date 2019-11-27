@@ -32,9 +32,9 @@ Neste artigo, você aprenderá como executar as seguintes identidades gerenciada
 - Habilitar e desabilitar a identidade gerenciada atribuída ao sistema em um conjunto de dimensionamento de máquinas virtuais do Azure
 - Adicionar e remover uma identidade gerenciada atribuída ao usuário em um conjunto de dimensionamento de máquinas virtuais do Azure
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Não deixe de analisar a [diferença entre uma identidade gerenciada atribuída pelo sistema e atribuída pelo usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar as operações de gerenciamento deste artigo, a conta precisa das seguintes atribuições de controle de acesso baseado em função do Azure:
 
@@ -42,10 +42,10 @@ Neste artigo, você aprenderá como executar as seguintes identidades gerenciada
     > Não são necessárias atribuições de função do diretório adicionais do Azure AD.
 
     - [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquinas virtuais e habilitar e remover identidade gerenciada atribuída ao usuário e/ou ao sistema de um conjunto de dimensionamento de máquinas virtuais.
-    - [Função de Contratada de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída pelo usuário.
-    - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade gerenciada atribuída ao usuário de e para um conjunto de dimensionamento de máquinas virtuais.
+    - Função de [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída ao usuário.
+    - [Papel de Operador de Identidade Gerenciado](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade gerenciada atribuída pelo usuário de e para um conjunto de dimensionamento de máquina virtual.
 
-## <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
+## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
 Assim como com o Portal do Azure e o script, os modelos do [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permitem implantar recursos novos ou modificados definidos por um grupo de recursos do Azure. Há várias opções disponíveis para a edição e a implantação do modelo, tanto locais quanto baseadas em portal, incluindo:
 
@@ -72,7 +72,7 @@ Nesta seção, você habilitará e desabilitará a identidade gerenciada atribu�
    ```
 
 > [!NOTE]
-> Opcionalmente, você pode provisionar as identidades gerenciadas para a extensão do conjunto de dimensionamento de máquinas virtuais do Azure, especificando-o no elemento `extensionProfile` do modelo. Esta etapa é opcional, uma vez que você pode usar o ponto de extremidade de identidade do serviço de metadados na instância (IMDS) do Azure para recuperar tokens também.  Para obter mais informações, consulte [migrar da extensão de VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
+> Opcionalmente, você pode provisionar as identidades gerenciadas para a extensão do conjunto de dimensionamento de máquinas virtuais do Azure, especificando-o no elemento `extensionProfile` do modelo. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.  Para obter mais informações, consulte [migrar da extensão de VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
 
 
 4. Quando tiver concluído, as seções a seguir deverão ser adicionadas à seção recurso do modelo e serem semelhantes ao seguinte:
@@ -196,7 +196,7 @@ Nesta seção, você atribui uma identidade gerenciada atribuída ao usuário a 
    }
    ``` 
 > [!NOTE]
-> Opcionalmente, você pode provisionar as identidades gerenciadas para a extensão do conjunto de dimensionamento de máquinas virtuais do Azure, especificando-o no elemento `extensionProfile` do modelo. Esta etapa é opcional, uma vez que você pode usar o ponto de extremidade de identidade do serviço de metadados na instância (IMDS) do Azure para recuperar tokens também.  Para obter mais informações, consulte [migrar da extensão de VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
+> Opcionalmente, você pode provisionar as identidades gerenciadas para a extensão do conjunto de dimensionamento de máquinas virtuais do Azure, especificando-o no elemento `extensionProfile` do modelo. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.  Para obter mais informações, consulte [migrar da extensão de VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
 
 3. Quando terminar, seu modelo deverá ser semelhante ao seguinte:
    
@@ -318,7 +318,7 @@ Se você tiver um conjunto de dimensionamento de máquinas virtuais que não pre
 
    Se você tiver uma identidade gerenciada atribuída ao sistema, mantenha-a no valor `type` no valor `identity`.
    
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Identidades gerenciadas para visão geral dos recursos do Azure](overview.md).
 

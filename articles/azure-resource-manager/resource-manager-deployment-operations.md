@@ -207,7 +207,7 @@ A resposta inclui uma mensagem de erro.
 
 ---
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre como usar os logs de atividades para monitorar outros tipos de ação, confira [View activity logs to manage Azure resources](resource-group-audit.md) (Exibir logs de atividades para gerenciar recursos do Azure).

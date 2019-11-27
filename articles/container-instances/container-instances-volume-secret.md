@@ -111,7 +111,7 @@ Para implantar com o modelo do Resource Manager, salve o JSON anterior em um arq
 az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 ### <a name="volumes"></a>Volumes
 

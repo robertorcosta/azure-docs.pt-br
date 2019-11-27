@@ -139,6 +139,6 @@ Se você editar o aplicativo do Azure AD B2C fora do portal do Azure, ele se tor
 
 Para excluir o aplicativo, acesse o [Portal de Registro de Aplicativos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) e exclua o aplicativo lá. Para que o aplicativo fique visível, você precisa ser o proprietário do aplicativo (e não apenas um administrador do locatário).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as políticas internas fornecidas pelos [fluxos de usuário no Azure Active Directory B2C](active-directory-b2c-reference-policies.md).

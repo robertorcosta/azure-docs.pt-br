@@ -26,7 +26,7 @@ Para opções de implantação, consulte a [Implantação](#deployment). Se voc�
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Implanta dois contêineres do Linux que compartilham um volume emptyDir. |
 | [gitRepo][vol-gitrepo] | Implanta um contêiner do Linux que clona um repositório GitHub e monta-o como um volume. |
-| [segredo][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume de segredo. |
+| [secret][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume de segredo. |
 | **Rede** ||
 | [Contêiner de UDP exposto][net-udp] | Implanta um contêiner do Windows ou Linux que expõe uma porta UDP. |
 | [Contêiner do Linux com IP público][net-publicip] | Implanta um único contêiner do Linux acessível por meio de um IP público. |
@@ -42,9 +42,9 @@ Você tem várias opções para a implantação de recursos com os modelos do Ge
 
 [Azure PowerShell][deploy-powershell]
 
-[Portal do Azure][deploy-portal]
+[Azure portal][deploy-portal]
 
-[API REST][deploy-rest]
+[REST API][deploy-rest]
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav

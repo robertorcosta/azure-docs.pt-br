@@ -23,9 +23,9 @@ O volume *gitRepo* monta um diretório e clona para dentro dele o repositório G
 
 Quando você monta um volume *gitRepo*, você pode definir três propriedades para configurar o volume:
 
-| Propriedade | obrigatórios | DESCRIÇÃO |
+| Propriedade | obrigatórios | Descrição |
 | -------- | -------- | ----------- |
-| `repository` | sim | A URL completa, incluindo `http://` ou `https://`, do repositório Git a ser clonado.|
+| `repository` | SIM | A URL completa, incluindo `http://` ou `https://`, do repositório Git a ser clonado.|
 | `directory` | Não | O diretório no qual o repositório deve ser clonado. O caminho não deve conter nem começar com "`..`".  Se você especificar "`.`", o repositório será clonado no diretório do volume. Caso contrário, o repositório do Git será clonado em um subdiretório com o nome fornecido, dentro do diretório do volume. |
 | `revision` | Não | O hash de confirmação da revisão a ser clonada. Se não for especificado, a revisão `HEAD` será clonada. |
 
@@ -98,7 +98,7 @@ GitHub: [criando um token de acesso pessoal para a linha de comando][pat-github]
 
 Azure Repos: [criar tokens de acesso pessoal para autenticar o acesso][pat-repos]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como montar outros tipos de volume em Instâncias de Contêiner do Azure:
 

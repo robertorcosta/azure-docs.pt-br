@@ -34,7 +34,7 @@ Neste artigo, usando o PowerShell, você aprende como executar as identidades ge
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Lembre-se de revisar a [diferença entre uma identidade atribuída designada pelo sistema e gerenciada pelo usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -44,8 +44,8 @@ Neste artigo, usando o PowerShell, você aprende como executar as identidades ge
     > Não são necessárias atribuições de função do diretório adicionais do Azure AD.
 
     - [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquina virtual e habilitar e remover a identidade gerenciada pelo usuário e / ou atribuída pelo usuário de um conjunto de dimensionamento de máquina virtual.
-    - [Função de Contratada de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída pelo usuário.
-    - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade gerenciada atribuída ao usuário de e para um conjunto de dimensionamento de máquinas virtuais.
+    - Função de [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída ao usuário.
+    - [Papel de Operador de Identidade Gerenciado](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade gerenciada atribuída pelo usuário de e para um conjunto de dimensionamento de máquina virtual.
 - Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não o fez. 
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo sistema
@@ -126,7 +126,7 @@ Para atribuir uma identidade gerenciada usuário atribuído a um conjunto de dim
    Update-AzVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
    ```
 
-### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Remover uma identidade gerenciada atribuída pelo usuário de um conjunto de dimensionamento da máquina virtual do Azure
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Remover uma identidade gerenciada atribuída ao usuário de um conjunto de dimensionamento de máquinas virtuais do Azure
 
 Se o seu conjunto de dimensionamento de máquina virtual tiver várias identidades gerenciadas atribuídas pelo usuário, você poderá remover todas, exceto a última, usando os seguintes comandos. Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VIRTUAL MACHINE SCALE SET NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY NAME>` é a propriedade de nome da identidade gerenciada atribuída pelo usuário, que deve permanecer no conjunto de dimensionamento da máquina virtual. Essas informações podem ser encontradas na seção de identidade do conjunto de dimensionamento de máquinas virtuais usando `az vmss show`:
 
@@ -144,7 +144,7 @@ Se o seu conjunto de dimensionamento de máquina virtual tiver identidades geren
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "SystemAssigned"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Identidades gerenciadas para visão geral de recursos do Azure](overview.md)
 - Para os guias de início rápido completos sobre VM do Azure, consulte:

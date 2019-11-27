@@ -24,7 +24,7 @@ O fluxo de dados Wrangling converte M gerado pelo editor de mashup do Power Quer
 
 Os fluxos de dados do Wrangling são especialmente úteis para engenheiros de dados ou "integradores de dados do cidadão".
 
-## <a name="use-cases"></a>Casos de uso
+## <a name="use-cases"></a>Use casos
 
 ### <a name="fast-interactive-data-exploration-and-preparation"></a>Exploração e preparação rápida de dados interativos
 
@@ -40,7 +40,7 @@ Examine visualmente seus dados de forma livre de código para remover exceções
 
 ## <a name="supported-sources"></a>Fontes com suporte
 
-| Conector | Formato de dados | Tipo de autenticação |
+| Conector | Formato de dados | Tipo de autenticação. |
 | -- | -- | --|
 | [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave de conta |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entidade de Serviço |
@@ -62,6 +62,6 @@ Para obter mais informações sobre as transformações com suporte, consulte [f
 
 Atualmente, o fluxo de dados Wrangling só dá suporte à gravação em um coletor.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [criar um fluxo de dados do Wrangling](wrangling-data-flow-tutorial.md).

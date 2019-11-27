@@ -32,7 +32,7 @@ O Azure agora é apoiado pela infraestrutura que executa o Windows Server 2016. 
 >
 > Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 A precisão de um relógio de computador é medida na proximidade do relógio do computador com o padrão de hora UTC (Tempo Universal Coordenado). O UTC é definido por uma amostra multinacional de relógios atômicos precisos que só pode ser desligada em um segundo em 300 anos. Mas ler o UTC diretamente requer um hardware especializado. Em vez disso, os servidores de horário são sincronizados com o UTC e acessados de outros computadores para fornecer escalabilidade e robustez. Todo computador tem o serviço de sincronização de tempo em execução que sabe a que horas os servidores devem ser usados e verifica periodicamente se o relógio do computador precisa ser corrigido e ajusta o tempo, se necessário. 
 
@@ -174,7 +174,7 @@ Verifique quais sinalizadores estão sendo usados para os servidores NTP utiliza
 w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Abaixo, são apresentados links para mais detalhes sobre a sincronização de data/hora:
 

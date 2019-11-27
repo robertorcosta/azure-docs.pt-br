@@ -25,21 +25,21 @@ Para obter informações sobre cotas e outros limites em suas implantações, co
 
 As regiões e os recursos a seguir estão disponíveis para grupos de contêineres com o Linux e contêineres baseados em Windows Server 2016 com [suporte](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
-| Local padrão | SO | CPU | Memória (GB) |
+| Location | SISTEMA OPERACIONAL | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
 | Ásia Oriental, Canadá Central, Centro-Sul dos EUA, EUA Central, Europa Setentrional, Índia Central, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Sudeste Asiático, Sul do Reino Unido | Linux | 4 | 16 |
 | Oeste da Europa, Oeste dos EUA 2 | Linux | 4 | 14 |
 | Leste da Austrália, Leste do Japão | Linux | 2 | 8 |
 | Centro-Norte dos EUA, Sul da Índia | Linux | 2 | 3,5 |
-| Europa Ocidental | Windows | 4 | 16 |
-| Leste dos EUA, Oeste dos EUA | Windows | 4 | 14 |
+| Oeste da Europa | Windows | 4 | 16 |
+| Leste dos Estados Unidos, Oeste dos Estados Unidos | Windows | 4 | 14 |
 | Ásia Oriental, Canadá Central, Centro-Norte dos EUA, Centro-Sul dos EUA, EUA Central, Europa Setentrional, Índia Central, Leste da Austrália, Leste do Japão, Leste dos EUA 2, Oeste dos EUA 2, Sudeste Asiático, Sul da Índia, Sul do Reino Unido | Windows | 2 | 3,5 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidade – Implantações do Windows Server 2019 LTSC, 1809 (versão prévia)
 
 As regiões e os recursos a seguir estão disponíveis para grupos de contêineres baseados em Windows Server 2019 (versão prévia).
 
-| Local padrão | SO | CPU | Memória (GB) |
+| Location | SISTEMA OPERACIONAL | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
 | Centro dos EUA, Europa Setentrional, Leste dos EUA, Oeste da Europa, Oeste dos EUA, Oeste dos EUA 2, Sudeste Asiático | Windows | 4 | 16 |
 | Leste dos EUA 2 | Windows | 2 | 3,5 |
@@ -58,7 +58,7 @@ As seguintes regiões e recursos estão disponíveis para um grupo de contêiner
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Informe à equipe se você gostaria de ver outras regiões ou uma maior disponibilidade de recursos em [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 

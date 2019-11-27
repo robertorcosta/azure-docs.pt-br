@@ -31,7 +31,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Promapp 
 >
 > Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os Termos de uso gerais do Microsoft Azure para a versão prévia de recursos, confira [Termos de uso adicionais para versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
@@ -101,7 +101,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-promapp-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Promapp no Azure AD:
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -121,11 +121,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Promapp**.
 
@@ -151,14 +151,14 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Promapp.
 
-Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 

@@ -24,7 +24,7 @@ ms.locfileid: "74546282"
 
 Este artigo mostra como configurar a delegação restrita de Kerberos baseada em recursos em um domínio gerenciado AD DS do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa dos seguintes recursos:
 
@@ -89,7 +89,7 @@ Neste cenário, vamos supor que você tenha um aplicativo Web que seja executado
     Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como a delegação funciona em Active Directory Domain Services, consulte [visão geral da delegação restrita de Kerberos][kcd-technet].
 

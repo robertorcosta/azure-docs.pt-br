@@ -20,7 +20,7 @@ Este artigo explica como trabalhar com gatilhos de temporizador no Azure Functio
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
+## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
 
 O gatilho de timer é fornecido no [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/).
 
@@ -211,13 +211,13 @@ public void keepAlive(
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `TimerTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `TimerTrigger` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido como "timerTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direction** | n/d | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | n/d | O nome da variável que representa o objeto de temporizador no código de função. | 
+|**tipo** | N/D | Deve ser definido como "timerTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | N/D | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | N/D | O nome da variável que representa o objeto de temporizador no código de função. | 
 |**schedule**|**ScheduleExpression**|Um [expressão CRON](#ncrontab-expressions) ou um valor [TimeSpan](#timespan). É possível usar um `TimeSpan` somente para um aplicativo de função executado em um Plano do Serviço de Aplicativo. Você pode colocar a expressão de agendamento em uma configuração de aplicativo e definir essa propriedade como o nome da configuração do aplicativo envolvido em sinais **%** , como neste exemplo: "%ScheduleAppSetting%". |
 |**runOnStartup**|**runOnStartup**|Se `true`, a função será invocada quando o runtime for iniciado. Por exemplo, o runtime inicia quando o aplicativo de função desperta depois de ficar ocioso devido à inatividade. Quando o aplicativo de funções é reiniciado devido a alterações de função e quando o aplicativo de funções é dimensionado horizontalmente. Portanto, o **runOnStartup** deve ser raramente, se já estiver definido como `true`, especialmente em produção. |
 |**useMonitor**|**UseMonitor**|Definido como `true` ou `false` para indicar se o agendamento deve ser monitorado. Agendar o monitoramento persiste as ocorrências de agendamento para ajudar a garantir que o agendamento seja mantido corretamente mesmo quando instâncias do aplicativo de função forem reiniciadas. Se não for definido explicitamente, o padrão será `true` para agendas que têm um intervalo de recorrência maior ou igual a 1 minuto. Para agendamentos que disparam mais de uma vez por minuto, o padrão é `false`.
@@ -254,7 +254,7 @@ Azure Functions usa a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|Digite  |Exemplo  |Quando disparado  |
+|Type  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00, em que hh é cada hora (uma vez por hora)|
 |Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 diariamente, em que mm é cada minuto da hora (60 vezes por dia)|
@@ -302,7 +302,7 @@ Ou criar uma configuração de aplicativo para seu aplicativo de funções denom
 
 Quando você usa `WEBSITE_TIME_ZONE`, o horário é ajustado para as alterações de hora no fuso horário específico, como o horário de verão. 
 
-## <a name="timespan"></a>TimeSpan
+## <a name="timespan"></a>timespan
 
  É possível usar um `TimeSpan` somente para um aplicativo de função executado em um Plano do Serviço de Aplicativo.
 
@@ -317,7 +317,7 @@ Expresso como uma cadeia de caracteres, o formato `TimeSpan` é `hh:mm:ss` quand
 |"24:00:00" | a cada 24 horas        |
 |"1,00:00:00" | Todos os dias        |
 
-## <a name="scale-out"></a>Escalabilidade
+## <a name="scale-out"></a>Expansão
 
 Se um aplicativo de funções se expandir para várias instâncias, apenas uma única instância de uma função disparada por temporizador será executada em todas as instâncias.
 
@@ -338,11 +338,11 @@ O gatilho de temporizador usa um bloqueio de armazenamento para garantir que haj
 
 Ao contrário do gatilho de fila, o gatilho de temporizador não tenta novamente após a falha de uma função. Quando uma função falha, ele não é chamado novamente até a próxima vez na agenda.
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Para obter informações sobre o que fazer quando o gatilho de timer não funcionar conforme o esperado, confira [Investigar e relatar problemas com funções disparadas de timer não acionadas](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Vá para um guia de início rápido que use um gatilho de temporizador](functions-create-scheduled-function.md)

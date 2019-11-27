@@ -14,7 +14,7 @@ ms.locfileid: "74533601"
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
-> * [Gerenciador de Recursos](container-instances-multi-container-group.md)
+> * [Resource Manager](container-instances-multi-container-group.md)
 >
 
 As Instâncias de Contêiner do Azure são compatíveis com a implantação de vários contêineres em um único host utilizando um [grupo de contêineres](container-instances-container-groups.md). Um grupo de contêineres é útil ao criar um aplicativo sidecar para registro em log, monitoramento ou qualquer outra configuração em que um serviço precisa de um segundo processo anexado.
@@ -166,7 +166,7 @@ Connection: keep-alive
 
 Como você pode ver, o secundário está periodicamente fazendo uma solicitação HTTP ao aplicativo Web principal por meio da rede local do grupo a fim de garantir que ele esteja em execução. Este exemplo de sidecar poderia ser expandido para disparar um alerta se ele recebeu um código de resposta HTTP diferente de `200 OK`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você usou um arquivo YAML para implantar um grupo de vários contêineres em instâncias de contêiner do Azure. Você aprendeu como:
 

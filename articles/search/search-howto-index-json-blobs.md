@@ -118,7 +118,7 @@ A ordem das operações requer que você crie e chame objetos nesta ordem. Em co
 
 Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único documento JSON ou uma "matriz" JSON. O indexador de blob no Azure Pesquisa Cognitiva pode analisar qualquer construção, dependendo de como você define o parâmetro **parsingMode** na solicitação.
 
-| Documento JSON | parsingMode | DESCRIÇÃO | Disponibilidade |
+| Documento JSON | parsingMode | Descrição | Disponibilidade |
 |--------------|-------------|--------------|--------------|
 | Um por blob | `json` | Analisa blobs JSON como um único bloco de texto. Cada blob JSON se torna um único documento Pesquisa Cognitiva do Azure. | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
 | Múltiplos por blob | `jsonArray` | Analisa uma matriz JSON no BLOB, em que cada elemento da matriz se torna um documento do Azure Pesquisa Cognitiva separado.  | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
@@ -282,7 +282,7 @@ O SDK do .NET tem paridade total com a API REST. É recomendável examinar a se�
 
 Os BLOBs JSON podem assumir vários formulários. O parâmetro **parsingMode** no indexador JSON determina como o conteúdo do blob JSON é analisado e estruturado em um índice de pesquisa cognitiva do Azure:
 
-| parsingMode | DESCRIÇÃO |
+| parsingMode | Descrição |
 |-------------|-------------|
 | `json`  | Indexe cada blob como um único documento. Esse é o padrão. |
 | `jsonArray` | Escolha esse modo se os BLOBs consistirem em matrizes JSON e você precisar que cada elemento da matriz se torne um documento separado no Azure Pesquisa Cognitiva. |
@@ -424,7 +424,7 @@ Você também pode se referir a elementos individuais da matriz usando um índic
 >
 >
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 + [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 + [Indexando o armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva](search-howto-index-json-blobs.md)

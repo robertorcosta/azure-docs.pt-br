@@ -20,7 +20,7 @@ Para saber mais sobre a disponibilidade de recursos das Instâncias de Contêine
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Determinados limites e cotas padrão podem ser aumentados. Para solicitar um aumento de um ou mais recursos que oferecem suporte a esse aumento, envie uma [solicitação de suporte do Azure][azure-support] (selecione "Cota" em **Tipo de problema**).
 

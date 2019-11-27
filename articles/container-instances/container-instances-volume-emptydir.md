@@ -42,7 +42,7 @@ Por exemplo, o modelo do Resource Manager a seguir cria um grupo de contêineres
 
 Para ver um exemplo de implantação de instância de contêiner com um modelo do Azure Resource Manager, consulte [Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure](container-instances-multi-container-group.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como montar outros tipos de volume em Instâncias de Contêiner do Azure:
 

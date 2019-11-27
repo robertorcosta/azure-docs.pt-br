@@ -134,7 +134,7 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 
 |Tipo de assinatura| Número máximo de sub-redes de instância gerenciada | Número máximo de unidades vCore * |
 | :---| :--- | :--- |
-|Pago conforme o uso|3|320|
+|Pós-pago|3|320|
 |CSP |8 (15 em algumas regiões * *)|960 (1440 em algumas regiões * *)|
 |Desenvolvimento/Teste pago conforme o uso|3|320|
 |Desenvolvimento/Teste Enterprise|3|320|
@@ -162,7 +162,7 @@ Para iniciar o processo de obtenção de uma cota maior:
 
      ![Cota de tipo de problema](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Clique em **Avançar**.
+3. Clique em \\**Próximo**.
 4. Na **guia problema** da nova solicitação de suporte:
    - Para **Gravidade**, selecione o nível de gravidade do problema.
    - Para **Detalhes**, forneça informações adicionais sobre o seu problema, incluindo mensagens de erro.
@@ -176,11 +176,11 @@ Para iniciar o processo de obtenção de uma cota maior:
      > - Número necessário de vCores, por camada de serviço em sub-redes existentes após o aumento da cota (se qualquer uma das sub-redes existentes precisar ser expandida.
      > - Número necessário de novas sub-redes e número total de vCores por camada de serviço nas novas sub-redes (se você precisar implantar instâncias gerenciadas em novas sub-redes).
 
-5. Clique em **Avançar**.
+5. Clique em \\**Próximo**.
 6. Na guia Informações de contato da nova solicitação de suporte, insira o método de contato preferencial (email ou telefone) e os detalhes de contato.
 7. Clique em **Criar**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre a instância gerenciada, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md).
 - Para saber mais sobre preços, veja [Preços de instância gerenciada do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

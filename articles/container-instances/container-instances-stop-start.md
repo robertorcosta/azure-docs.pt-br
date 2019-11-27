@@ -14,7 +14,7 @@ ms.locfileid: "74533416"
 
 A configuração de [diretiva de reinicialização](container-instances-restart-policy.md) de um grupo de contêineres determina como as instâncias de contêiner iniciam ou param por padrão. Você pode substituir a configuração padrão interrompendo ou iniciando manualmente um grupo de contêineres.
 
-## <a name="stop"></a>Parar
+## <a name="stop"></a>Interromper
 
 Interrompa manualmente um grupo de contêineres em execução-por exemplo, usando o comando [AZ container Stop][az-container-stop] ou portal do Azure. Para determinadas cargas de trabalho de contêiner, talvez você queira interromper um grupo de contêineres de execução longa após um período definido para economizar nos custos. 
 
@@ -44,7 +44,7 @@ Todos os contêineres em um grupo de contêineres são reiniciados por essa aç�
 
 Depois de reiniciar manualmente um grupo de contêineres, o grupo de contêineres é executado de acordo com a política de reinicialização configurada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [as configurações de política de reinicialização](container-instances-restart-policy.md) nas instâncias de contêiner do Azure.
 

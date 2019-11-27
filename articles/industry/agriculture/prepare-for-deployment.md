@@ -35,21 +35,21 @@ A implantação do Azure FarmBeats cria os recursos listados abaixo em sua assin
 
 |S.Não  |Nome do Recurso  |Componente FarmBeats do Azure  |
 |---------|---------|---------|
-|1  |       BD Cosmos do Azure   |  Hub de dados       |
-|2  |    Application Insights      |     Hub de dados/acelerador     |
+|1  |       Azure Cosmos DB   |  Hub de dados       |
+|2  |    Percepções sobre o Aplicativo      |     Hub de dados/acelerador     |
 |3  |Cache Redis do Azure   |Hub de dados   |
 |4  |       Azure KeyVault    |  Hub de dados/acelerador        |
-|5  |    Análises de Séries Temporais       |     Hub de dados      |
+|5  |    Análises de séries temporais       |     Hub de dados      |
 |6 |      Namespace do EventHub    |  Hub de dados       |
 |7  |    Azure Data Factory V2       |     Hub de dados/acelerador      |
 |8  |Conta do Batch    |Hub de dados   |
-|9  |       Conta de Armazenamento     |  Hub de dados/acelerador        |
-|10  |    Aplicativo Lógico        |     Hub de dados      |
+|9  |       Conta de armazenamento     |  Hub de dados/acelerador        |
+|10  |    Aplicativo lógico        |     Hub de dados      |
 |11  |    Conexão de API        |     Hub de dados      |
 |12|      serviço de aplicativo      |  Hub de dados/acelerador       |
 |13 |    Plano do serviço de aplicativo        |     Hub de dados/acelerador      |
 |14 |Conta do Azure Maps     |Acelerador    |
-|15 |       Análises de Séries Temporais      |  Hub de dados     |
+|15 |       Análises de séries temporais      |  Hub de dados     |
 
 O Azure FarmBeats está disponível para download no Azure Marketplace. Você pode acessá-lo diretamente do portal do Azure.  
 
@@ -72,7 +72,7 @@ A página Termos de uso é exibida. Examine os termos do Marketplace padrão ou 
 > [!NOTE]
 > A conclusão da oferta no Azure Marketplace conclui apenas uma parte da instalação. Siga as instruções abaixo para concluir a implantação do Azure FarmBeats em sua assinatura do Azure.
 
-## <a name="prepare"></a>Preparar
+## <a name="prepare"></a>Prepare-se
 
 Você precisa das seguintes permissões para implantar o Azure FarmBeats:
 
@@ -154,7 +154,7 @@ Esse é o arquivo de entrada para Azure Cloud Shell e parâmetros cujos valores 
 
 Examine os parâmetros antes de preparar o arquivo.
 
-|Comando | DESCRIÇÃO|
+|Command | Descrição|
 |--- | ---|
 |sku  | Fornece uma opção para baixar um ou ambos os componentes do Azure FarmBeats. Especifica quais componentes baixar. Para instalar apenas o Hub de dados, use "onlydatabhub". Para instalar o Hub de dados e o acelerador, use "ambos"|
 |subscriptionId | Especifica a assinatura para instalar o Azure FarmBeats|
@@ -313,7 +313,7 @@ Depois que a instalação do acelerador for concluída, você receberá a URL pa
 1. Para entrar do acelerador, copie e cole a URL no navegador.
 2. Entre com portal do Azure credenciais.
 
-## <a name="upgrade"></a>Atualizar
+## <a name="upgrade"></a>Atualize
 
 As etapas para atualização são semelhantes à primeira instalação. Siga estas etapas:
 
@@ -362,6 +362,6 @@ Por exemplo, se você implantou o Hub de dados e acelerador em dois grupos de re
 5. Como alternativa, você pode excluir cada recurso manualmente, o que não é recomendado.
 7. Para excluir/desinstalar o Hub de dados, vá para o grupo de recursos diretamente no Azure e exclua o grupo de recursos desse local.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você implantou o Azure FarmBeats. Agora, saiba como [criar farms](manage-farms.md#create-farms).

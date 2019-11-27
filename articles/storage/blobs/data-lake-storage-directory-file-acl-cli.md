@@ -24,7 +24,7 @@ Este artigo mostra como usar a [CLI (interface de linha de comando) do Azure](ht
 > A extensão de `storage-preview` que está em destaque neste artigo está atualmente em visualização pública.
 
 [Exemplo](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen1 ao mapeamento Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [fornecer comentários](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -296,7 +296,7 @@ Este exemplo mostra todos os metadados definidos pelo usuário para o diretório
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 * [Amostra](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Mapeamento de Gen1 para Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)

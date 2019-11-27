@@ -21,7 +21,7 @@ ms.locfileid: "74538126"
 
 A transcrição de lote é ideal se você quer transcrever uma grande quantidade de áudio em armazenamento, como Blobs do Azure. Usando a API REST dedicada, você pode apontar para arquivos de áudio por um URI de SAS (assinatura de acesso compartilhado) e transcrições de recebimento de forma assíncrona.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="subscription-key"></a>Chave de Assinatura
 
@@ -84,7 +84,7 @@ Parâmetros de configuração são fornecidos como JSON:
 
 Use essas propriedades opcionais para configurar a transcrição:
 
-| . | DESCRIÇÃO |
+| . | Descrição |
 |-----------|-------------|
 | `ProfanityFilterMode` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `None`, o que desativa a filtragem de profanação, `masked` que substitui a profanidade por asteriscos, `removed` que remove todos os palavrões do resultado ou `tags`, que adiciona tags de "profanidade". A configuração padrão é `masked`. |
 | `PunctuationMode` | Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `None`, o que desativa a pontuação, `dictated` que implica pontuação explícita, `automatic` que permite ao decodificador lidar com pontuação ou `dictatedandautomatic`, o que implica em sinais de pontuação ditados ou automáticos. |
@@ -176,7 +176,7 @@ Um exemplo de saída JSON é semelhante ao seguinte:
 ```
 O recurso usa um modelo de sentimentos, que está atualmente em versão beta.
 
-## <a name="sample-code"></a>Exemplo de código
+## <a name="sample-code"></a>Código de exemplo
 
 Exemplos completos estão disponíveis no [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) dentro do subdiretório `samples/batch`.
 
@@ -204,6 +204,6 @@ Você pode encontrar o exemplo no diretório `samples/batch` do [repositório de
 > [!NOTE]
 > Trabalhos em lotes de transcrição são agendados por melhor esforço, não há nenhum tempo estimado para quando um trabalho será alterado para o estado de execução. Uma vez no estado de execução, a transcrição real é processada mais rapidamente do que o áudio em tempo real.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Obter a assinatura de avaliação do Speech](https://azure.microsoft.com/try/cognitive-services/)

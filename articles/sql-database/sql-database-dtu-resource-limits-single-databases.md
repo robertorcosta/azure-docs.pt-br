@@ -83,7 +83,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 
 | **Tamanho da computação** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
-| Número máximo de DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
+| Número máximo de DTUs | 125 | 250 | 500 | 1\.000 | 1750 | 4000 |
 | Armazenamento incluído (GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
 | Opções de espaço de armazenamento máximo (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
 | Armazenamento máximo OLTP na memória (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
@@ -98,11 +98,11 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 > [!NOTE]
 > Para limites de `tempdb`, consulte [limites de tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para limites de recursos vCore para um único banco de dados, confira [limites de recursos para bancos de dados individuais usando o modelo de compra vCore](sql-database-vcore-resource-limits-single-databases.md)
 - Para limites de recursos vCore para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra vCore](sql-database-vcore-resource-limits-elastic-pools.md)
 - Para os limites de recursos de DTU para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra de DTU](sql-database-dtu-resource-limits-elastic-pools.md)
-- Para limites de recurso das instâncias gerenciadas, confira os [limites de recurso para instâncias gerenciadas](sql-database-managed-instance-resource-limits.md).
+- Para limites de recursos para instâncias gerenciadas, confira [limites de recursos para instâncias gerenciadas](sql-database-managed-instance-resource-limits.md).
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
 - Para se informar sobre os limites de recursos em um servidor de banco de dados, confira a [visão geral dos limites de recursos em um servidor do Banco de Dados SQL](sql-database-resource-limits-database-server.md) para conferir os limites nos níveis do servidor e da assinatura.

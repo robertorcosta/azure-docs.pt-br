@@ -19,7 +19,7 @@ ms.locfileid: "74533160"
 
 Este artigo explora métodos comuns de solução de problemas para conectores no Azure Data Factory.
 
-## <a name="azure-data-lake-storage"></a>Armazenamento do Azure Data Lake
+## <a name="azure-data-lake-storage"></a>Azure Data Lake Store
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Mensagem de erro: o servidor remoto retornou um erro: (403) proibido
 
@@ -47,7 +47,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Resolução**: execute novamente a atividade de cópia após alguns minutos.
 
-## <a name="azure-cosmos-db"></a>BD Cosmos do Azure
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 ### <a name="error-message-request-size-is-too-large"></a>Mensagem de erro: o tamanho da solicitação é muito grande
 
@@ -373,7 +373,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Resolução**: execute a mesma consulta no SSMS e verifique se você vê o mesmo resultado. Em caso afirmativo, abra um tíquete de suporte para o SQL Data Warehouse do Azure e forneça o servidor e o nome do banco de dados do SQL Data Warehouse para prosseguir com a solução de problemas.
             
 
-## <a name="azure-blob-storage"></a>Armazenamento do blob do Azure
+## <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
 ### <a name="error-code--azurebloboperationfailed"></a>Código de erro: AzureBlobOperationFailed
 
@@ -404,11 +404,11 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Recomendação**: pode ser causada por uma falha transitória, tente novamente. Se o problema persistir, entre em contato com o suporte do armazenamento do Azure e forneça a ID da solicitação na mensagem de erro.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda para solução de problemas, Experimente estes recursos:
 
-*  [Blog do Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory solicitações de recursos](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

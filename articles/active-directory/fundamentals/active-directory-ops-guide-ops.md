@@ -31,7 +31,7 @@ Esta seção do [Guia de referência de operações do Azure ad](active-director
 
 O gerenciamento de Azure Active Directory requer a execução contínua das principais tarefas e processos operacionais, que podem não fazer parte de um projeto de distribuição. Ainda é importante que você configure essas tarefas para otimizar seu ambiente. As principais tarefas e seus proprietários recomendados incluem:
 
-| tarefa | Proprietário |
+| Tarefa | Proprietário |
 | :- | :- |
 | Aprimoramentos de unidade na pontuação de segurança de identidade | Equipe de operações do batalha |
 | Manter servidores Azure AD Connect | Equipe de operações IAM |
@@ -132,7 +132,7 @@ Há dois endereços "de" usados pelo Azure AD: <o365mc@email2.microsoft.com>, qu
 - [Revisões de acesso do Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
-- [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
+- [Gerenciamento de identidades com privilégios do AD do Azure](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [Notificações de certificado de expiração do aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
 - Notificações do serviço de provisionamento do Aplicativo Enterprise
 
@@ -184,6 +184,6 @@ Há sete aspectos para uma infraestrutura de identidade segura. Essa lista o aju
 - Bloquear AD FS.
 - Bloquear o acesso a computadores com componentes de identidade local.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os [planos de implantação do Azure ad](active-directory-deployment-plans.md) para obter detalhes de implementação sobre qualquer recurso que você não tenha implantado.

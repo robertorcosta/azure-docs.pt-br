@@ -24,7 +24,7 @@ Este artigo mostra como usar o .NET para criar e gerenciar diretórios, arquivos
 
 [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) | [amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [referência de API](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Storage.Files.DataLake/12.0.0-preview.6/api/index.html) | [mapeamento Gen1 para Gen2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [fornecer comentários](https://github.com/Azure/azure-sdk-for-net/issues)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -288,7 +288,7 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 * [Documentação de referência de API](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Storage.Files.DataLake/12.0.0-preview.6/api/index.html)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6)

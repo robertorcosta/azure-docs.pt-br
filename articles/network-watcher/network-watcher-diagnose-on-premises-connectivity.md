@@ -82,9 +82,9 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de Falha | Motivo | Registro|
+| Tipo de Falha | Motivo | Log|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado. |sim|
+| NoFault | Quando nenhum erro é detectado. |SIM|
 | GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não|
 | PlannedMaintenance |  A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento. | Não |
@@ -92,28 +92,28 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | PlatformInActive | Há um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
 | NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| Não|
-| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| sim|
-| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | sim |
+| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| SIM|
+| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | SIM |
 
 ### <a name="connection"></a>Conexão
 
-| Tipo de Falha | Motivo | Registro|
+| Tipo de Falha | Motivo | Log|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado. |sim|
+| NoFault | Quando nenhum erro é detectado. |SIM|
 | GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento.  | Não |
 | VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não |
 | ConnectionEntityNotFound | A configuração da Conexão está ausente. | Não |
 | ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | sim |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| sim|
-| Autenticação | Incompatibilidade de chave pré-compartilhada. | sim|
-| PeerReachability | O gateway correspondente não está acessível. | sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | sim|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |sim|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | SIM |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| SIM|
+| Authentication | Incompatibilidade de chave pré-compartilhada. | SIM|
+| PeerReachability | O gateway correspondente não está acessível. | SIM|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | SIM|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |SIM|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como verificar a conectividade do Gateway de VPN com o PowerShell e a Automação do Azure consultando [Monitorar gateways de VPN com a solução de problemas do Observador de Rede do Azure](network-watcher-monitor-with-azure-automation.md)
 

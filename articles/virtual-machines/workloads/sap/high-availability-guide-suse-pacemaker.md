@@ -41,7 +41,7 @@ Se você não quiser investir em uma máquina virtual adicional, também poderá
 ![Pacemaker na visão geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Ao planejar e implantar nós de cluster do Linux Pacemaker e dispositivos SBD, é essencial para a confiabilidade geral da configuração completa do cluster que o roteamento entre as VMs envolvidas e a(s) VM(s) que hospeda(m) o(s) dispositivo(s) SBD não esteja passando por nenhum outro dispositivos como [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, problemas e eventos de manutenção com o NVA podem ter um impacto negativo na estabilidade e confiabilidade da configuração geral do cluster. Para evitar esses obstáculos, não defina regras de roteamento de NVAs ou [regras de roteamento definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) que roteiam o tráfego entre nós clusterizados e dispositivos SBD por meio de NVAs e dispositivos semelhantes ao planejar e implantar nós clusterizados do Linux pacemaker e Dispositivos SBD. 
+> Ao planejar e implantar nós de cluster do Linux Pacemaker e dispositivos SBD, é essencial para a confiabilidade geral da configuração completa do cluster que o roteamento entre as VMs envolvidas e a(s) VM(s) que hospeda(m) o(s) dispositivo(s) SBD não esteja passando por nenhum outro dispositivos como [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, problemas e eventos de manutenção com o NVA podem ter um impacto negativo na estabilidade e confiabilidade da configuração geral do cluster. Para evitar esses obstáculos, não defina regras de roteamento de NVAs ou [regras de roteamento definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) que roteiam o tráfego entre nós clusterizados e dispositivos SBD por meio de NVAs e dispositivos semelhantes ao planejar e implantar nós clusterizados do Linux pacemaker e dispositivos SBD. 
 >
 
 ## <a name="sbd-fencing"></a>Isolamento de SBD
@@ -83,7 +83,7 @@ Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI*
 
 Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI** para criar os discos iSCSI para os clusters usados por seus sistemas SAP. No exemplo a seguir, os dispositivos SBD para vários clusters são criados. Ele mostra como você usaria um servidor de destino iSCSI para vários clusters. Os dispositivos SBD são colocados no disco do SO. Certifique-se de que você tenha espaço suficiente.
 
-**`nfs`** é usado para identificar o cluster NFS, o **ascsnw1** é usado para identificar o cluster ASCS de **NW1**, **dbnw1** é usado para identificar o cluster de banco de dados de **NW1**, **NFS-0** e **NFS-1** são os nomes de host do Os nós de cluster NFS, **NW1-xscs-0** e **NW1-xscs-1** são os nomes de host dos nós de cluster **NW1 ASCS e** **NW1-dB-0** e **NW1-DB-1** são os nomes de host dos nós de cluster de banco de dados. Substitua-os pelos nomes do hoste do seus nós de cluster e pelo SID do sistema SAP.
+**`nfs`** é usado para identificar o cluster NFS, **o ascsnw1** é usado para identificar o cluster ASCS de **NW1**, **dbnw1** é usado para identificar o cluster de banco de dados de **NW1**, **NFS-0** e **NFS-1** são os nomes de host dos nós de cluster NFS, **NW1-xscs-0** e **NW1-xscs-1** são os nomes de host dos nós **NW1** ASCS cluster e **NW1-dB-0** e **NW1-DB-1** são os nomes de host dos nós de cluster de banco de dados. Substitua-os pelos nomes do hoste do seus nós de cluster e pelo SID do sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -629,7 +629,7 @@ sudo crm configure property maintenance-mode=false
      Aviso: CIB-Bootstrap-Options: atributo desconhecido ' hostName_ <strong>hostname</strong>'  
    > Essas mensagens de aviso podem ser ignoradas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

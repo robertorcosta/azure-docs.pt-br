@@ -26,7 +26,7 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 A diferença entre esse conector REST, o [conector HTTP](connector-http.md) e o [conector da tabela da Web](connector-web-table.md) é:
 
 - O **conector REST** oferece suporte especificamente à cópia de dados de APIs RESTful; 
-- O **conector HTTP** é genérico para recuperar dados de qualquer ponto de extremidade HTTP, por exemplo, para baixar o arquivo. Antes desse conector REST se tornar disponível, você pode usar o conector HTTP para copiar dados do API RESTful, que é um suporte menos funcional em comparação ao conector REST.
+- O **conector HTTP** é genérico para recuperar dados de qualquer ponto de extremidade HTTP como, por exemplo, para fazer o download. Antes desse conector REST se tornar disponível, você pode usar o conector HTTP para copiar dados do API RESTful, que é um suporte menos funcional em comparação ao conector REST.
 - O **conector da tabela da Web** extrai o conteúdo da tabela de uma página da Web em HTML.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
@@ -43,11 +43,11 @@ Especificamente, esse conector REST genérico dá suporte para:
 > [!TIP]
 > Para testar uma solicitação para recuperação de dados antes de configurar o conector REST no Data Factory, saiba mais sobre a especificação da API para os requisitos de cabeçalho e corpo. Você pode usar ferramentas como o Postman ou um navegador da Web para validar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -57,22 +57,22 @@ As seções a seguir fornecem detalhes sobre propriedades que você pode usar pa
 
 As seguintes propriedades são suportadas para o serviço vinculado REST:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade **Type** deve ser definida como **RestService**. | sim |
-| url | A URL base do serviço REST. | sim |
+| type | A propriedade **Type** deve ser definida como **RestService**. | SIM |
+| URL | A URL base do serviço REST. | SIM |
 | enableServerCertificateValidation | Se o certificado SSL do lado do servidor deve ser validado ao se conectar ao ponto de extremidade. | Não<br /> (o padrão é **verdadeira**) |
-| authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anônimo**, **Básico**, **Windows** e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anônimo**, **Básico**, **Windows** e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | SIM |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
 
 ### <a name="use-basic-authentication"></a>Usar autenticação básica
 
 Defina a **authenticationType** na propriedade **Básico**. Além das propriedades genéricas descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| userName | O nome de usuário a ser usado para acessar o ponto de extremidade REST. | sim |
-| password | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | sim |
+| userName | O nome de usuário a ser usado para acessar o ponto de extremidade REST. | SIM |
+| Senha | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | SIM |
 
 **Exemplo**
 
@@ -102,12 +102,12 @@ Defina a **authenticationType** na propriedade **Básico**. Além das propriedad
 
 Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além das propriedades genéricas descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | sim |
-| servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como  **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | sim |
-| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | sim |
-| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| sim |
+| servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | SIM |
+| servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como  **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | SIM |
+| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | SIM |
+| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| SIM |
 
 **Exemplo**
 
@@ -139,9 +139,9 @@ Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além da
 
 Defina a **authenticationType** na propriedade **ManagedServiceIdentity**. Além das propriedades genéricas descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| sim |
+| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| SIM |
 
 **Exemplo**
 
@@ -171,9 +171,9 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do REST, há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade **tipo** do conjunto de dados deve ser definida como**RestResource**. | sim |
+| type | A propriedade **tipo** do conjunto de dados deve ser definida como**RestResource**. | SIM |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. O conector HTTP copia dados da URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`. | Não |
 
 Se você estivesse Configurando `requestMethod`, `additionalHeaders`, `requestBody` e `paginationRules` no conjunto de uma, ele ainda terá suporte como está, enquanto você deve usar o novo modelo na origem da atividade no futuro.
@@ -207,9 +207,9 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | O **tipo** de propriedade da fonte da atividade de cópia deve ser definida como: **RestSource**. | sim |
+| type | O **tipo** de propriedade da fonte da atividade de cópia deve ser definida como: **RestSource**. | SIM |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (padrão) e **Post**. | Não |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
 | requestBody | O corpo da solicitação HTTP. | Não |
@@ -309,7 +309,7 @@ Esse conector genérico REST suporta os seguintes padrões de paginação:
 
 O **Suporte para chaves** nas regras de paginação:
 
-| Chave | DESCRIÇÃO |
+| Chave | Descrição |
 |:--- |:--- |
 | AbsoluteUrl | Indica a URL para emitir a próxima solicitação. Ele pode ser **uma URL absoluta ou relativa**. |
 | QueryParameters.*request_query_parameter* OU QueryParameters['request_query_parameter'] | O "request_query_parameter" é definido pelo usuário e faz referência a um nome de parâmetro de consulta na URL da próxima solicitação HTTP. |
@@ -317,7 +317,7 @@ O **Suporte para chaves** nas regras de paginação:
 
 Os **Valores com suporte** nas regras de paginação:
 
-| Valor | DESCRIÇÃO |
+| Value | Descrição |
 |:--- |:--- |
 | Headers.*response_header* OU Headers['response_header'] | O "response_header" é definido pelo usuário que faz referência a um nome de cabeçalho na resposta HTTP atual, o valor que será usado para emitir a próxima solicitação. |
 | Uma expressão JSONPath começando com "$" (que representa a raiz do corpo da resposta) | O corpo da resposta deve conter apenas um objeto JSON. A expressão JSONPath deve retornar um único valor primitivo, que será usado para emitir a próxima solicitação. |
@@ -381,6 +381,6 @@ Você pode usar esse conector REST para exportar a resposta JSON de API REST com
 
 Para copiar dados do ponto de extremidade REST para o coletor de tabela, confira o [mapeamento do esquema](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores no Azure Data Factory, consulte [Armazenamentos e formatos de dados compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).

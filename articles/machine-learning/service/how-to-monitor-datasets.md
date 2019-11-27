@@ -34,7 +34,7 @@ As métricas e as informações estão disponíveis por meio do Aplicativo Azure
 > [!Important]
 > Observe que o monitoramento de descompasso de dados com o SDK está disponível em todas as edições, ao passo que monitorar a descompasso de dados por meio do estúdio na Web é apenas a Enterprise Edition.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar e trabalhar com monitores de conjunto de trabalho, você precisa de:
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
@@ -61,7 +61,7 @@ Você pode criar um monitor de conjunto de dados para detectar e alertar sobre a
 
 Conceitualmente, há três cenários principais para configurar monitores de conjuntos de conjunto de Azure Machine Learning.
 
-Cenário | DESCRIÇÃO
+Cenário | Descrição
 ---|---
 Monitorando os dados de serviço de um modelo para descompasso dos dados de treinamento do modelo | Os resultados desse cenário podem ser interpretados como monitoramento de um proxy para a precisão do modelo, Considerando que a precisão do modelo diminui se o fornecimento de dados descompassos dos dados de treinamento.
 Monitoramento de um conjunto de uma série temporal para descompasso de um período de tempo anterior. | Esse cenário é mais geral e pode ser usado para monitorar conjuntos de linhas envolvidos no upstream ou no downstream da construção do modelo.  O conjunto de recursos de destino deve ter uma coluna de carimbo de data/hora, enquanto o conjunto de linha de base pode ser qualquer conjunto de tabelas que tenha recursos em comum com o DataSet de destino.
@@ -129,31 +129,31 @@ As várias configurações do monitor de conjunto de informações são dividida
 
 Esta tabela contém as configurações básicas usadas para o monitor de conjunto de conteúdo.
 
-| Configuração | DESCRIÇÃO | Dicas | Mutável | 
+| Configuração | Descrição | Dicas | Mutável | 
 | ------- | ----------- | ---- | ------- | 
-| NOME | Nome do monitor de DataSet. | | Não |
+| name | Nome do monitor de DataSet. | | Não |
 | Conjunto de linha de base | Conjunto de tabelas que será usado como a linha de base para comparação do conjunto de origem de destino ao longo do tempo. | O conjunto de linha de base deve ter recursos em comum com o DataSet de destino. Em geral, a linha de base deve ser definida como um conjunto de linhas de treinamento do modelo ou uma fatia do conjunto de origem de destino. | Não |
 | DataSet de destino | Conjunto de dados de tabela com coluna de carimbo de data/hora especificada que será analisada quanto à descompasso de | O conjunto de dados de destino deve ter recursos em comum com o conjunto de dados de linha de base, e deve ser um conjunto de dados `timeseries`, ao qual novos são anexados. Os dados de histórico no DataSet de destino podem ser analisados ou novos dados podem ser monitorados. | Não | 
 | Frequência | A frequência que será usada para agendar o trabalho de pipeline e analisar os dados históricos se estiver executando um aterramento. As opções incluem diário, semanal ou mensal. | Ajuste essa configuração para incluir um tamanho comparável de dados para a linha de base. | Não | 
-| Recursos | Lista de recursos que serão analisados para descompasso de dados ao longo do tempo. | Definido como um ou mais recursos de saída do modelo para medir a descompasso de conceito. Não inclua recursos que naturalmente se descompassom ao longo do tempo (mês, ano, índice, etc.). Você pode aterrar e monitorar o descompasso de dados existente depois de ajustar a lista de recursos. | sim | 
-| Destino de computação | Azure Machine Learning o destino de computação para executar os trabalhos do monitor de conjunto de trabalho. | | sim | 
+| Recursos | Lista de recursos que serão analisados para descompasso de dados ao longo do tempo. | Definido como um ou mais recursos de saída do modelo para medir a descompasso de conceito. Não inclua recursos que naturalmente se descompassom ao longo do tempo (mês, ano, índice, etc.). Você pode aterrar e monitorar o descompasso de dados existente depois de ajustar a lista de recursos. | SIM | 
+| Destino de computação | Azure Machine Learning o destino de computação para executar os trabalhos do monitor de conjunto de trabalho. | | SIM | 
 
 ### <a name="monitor-settings"></a>Configurações do monitor
 
 Essas configurações são para o pipeline monitor do conjunto de DataSet agendado, que será criado. 
 
-| Configuração | DESCRIÇÃO | Dicas | Mutável | 
+| Configuração | Descrição | Dicas | Mutável | 
 | ------- | ----------- | ---- | ------- |
-| Habilitar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite a agenda para analisar os dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | sim | 
+| Habilitar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite a agenda para analisar os dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | SIM | 
 | Latência | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL encapsulado, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
-| Endereços de email | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | sim | 
-| Limite | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | sim | 
+| Endereços de email | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | SIM | 
+| Limite | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | SIM | 
 
 ### <a name="backfill-settings"></a>Configurações de aterramento
 
 Essas configurações são para executar um aterramento nos dados anteriores para métricas de descompasso de dados.
 
-| Configuração | DESCRIÇÃO | Dicas |
+| Configuração | Descrição | Dicas |
 | ------- | ----------- | ---- |
 | Data de início | Data de início do trabalho de aterramento. | | 
 | Data de término | Data de término do trabalho de aterramento. | A data de término não pode ter mais de 31 * unidades de frequência de tempo a partir da data de início. Em um monitor de conjunto de dados existente, as métricas podem ser repreenchidas para analisar dados históricos ou substituir métricas por configurações atualizadas. |
@@ -239,7 +239,7 @@ O monitor de dados produz dois grupos de resultados: visão geral da descompasso
 
 A seção **visão geral da descompasso** contém informações de nível superior sobre a magnitude da descompasso de dados e quais recursos devem ser investigados mais detalhadamente. 
 
-| Métrica | DESCRIÇÃO | Dicas | 
+| Métrica | Descrição | Dicas | 
 | ------ | ----------- | ---- | 
 | Magnitude da descompasso de dados | Dado como uma porcentagem entre a linha de base e o conjunto de dados de destino ao longo do tempo. Variando de 0 a 100, em que 0 indica conjuntos de dados idênticos e 100 indica que a funcionalidade de descompasso de Azure Machine Learning pode contar totalmente com os dois conjuntos. | O ruído na porcentagem exata medida é esperado devido a técnicas de aprendizado de máquina que estão sendo usadas para gerar essa magnitude. | 
 | Contribuição de descompasso por recurso | A contribuição de cada recurso no conjunto de recursos de destino para a magnitude de descompasso medida. |  Devido ao deslocamento covariado, a distribuição subjacente de um recurso não necessariamente precisa ser alterada para ter uma importância de recurso relativamente alta. | 
@@ -262,7 +262,7 @@ Essas métricas também podem ser recuperadas no SDK do Python por meio do méto
 
 Os recursos numéricos são profiledos em cada execução do monitor de conjunto de conjuntos. Os itens a seguir são expostos no Azure Machine Learning Studio. A densidade de probabilidade é mostrada para a distribuição.
 
-| Métrica | DESCRIÇÃO |  
+| Métrica | Descrição |  
 | ------ | ----------- |  
 | Distância Wasserstein | Quantidade mínima de trabalho para transformar a distribuição de linha de base na distribuição de destino. |
 | Valor médio | Valor médio do recurso. |
@@ -275,7 +275,7 @@ Os recursos numéricos são profiledos em cada execução do monitor de conjunto
 
 Os recursos numéricos são profiledos em cada execução do monitor de conjunto de conjuntos. Os itens a seguir são expostos no Azure Machine Learning Studio. Um histograma é mostrado para a distribuição.
 
-| Métrica | DESCRIÇÃO |  
+| Métrica | Descrição |  
 | ------ | ----------- |  
 | Distância euclidiana | Distância geométrica entre distribuições de linha de base e destino. |
 | Valores exclusivos | Número de valores exclusivos (cardinalidade) do recurso. |
@@ -307,7 +307,7 @@ Você pode usar um grupo de ações existente ou criar um novo para definir a a�
 
 ![Novo grupo de ação](media/how-to-monitor-datasets/action-group.png)
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Limitações e problemas conhecidos:
 
@@ -323,7 +323,7 @@ Colunas ou recursos, no conjunto de linhas, são classificados como categóricos
 | Categóricos | Cadeia de caracteres, bool, int, float | O número de valores exclusivos no recurso é menor que 100 e menor que 5% do número de linhas. | NULL é tratado como sua própria categoria. | 
 | Numérico | int, float | Os valores no recurso são de um tipo de dados numérico e não atendem à condição de um recurso categórico. | Recurso Descartado se > 15% dos valores forem nulos. | 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Vá para o [Azure Machine Learning Studio](https://ml.azure.com) ou o [Notebook Python](https://aka.ms/datadrift-notebook) para configurar um monitor de conjunto de um DataSet.
 * Veja como configurar a descompasso de dados em [modelos implantados no serviço kubernetes do Azure](how-to-monitor-data-drift.md).

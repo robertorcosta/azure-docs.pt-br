@@ -22,7 +22,7 @@ Para enviar dados eventos e logs do grupo de contêineres para logs do Azure Mon
 > [!NOTE]
 > No momento, você só pode enviar dados de eventos de instâncias de contêiner do Linux para o Log Analytics.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para habilitar o registro em log nas instâncias de contêiner, serão necessários o seguinte:
 
@@ -48,7 +48,7 @@ Agora que você tem a ID e do espaço de trabalho do Log Analytics e a chave pri
 
 Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluente][fluentd] : CLI do Azure e CLI do Azure com um modelo YAML. O contêiner Fluentd produz várias linhas de saída na configuração padrão. Como essa saída é enviada para o espaço de trabalho do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
 
-### <a name="deploy-with-azure-cli"></a>Implantar com a CLI do Azure
+### <a name="deploy-with-azure-cli"></a>Implantar com o Azure CLI
 
 Para implantar com a CLI do Azure, especifique os parâmetros `--log-analytics-workspace` e `--log-analytics-workspace-key` no comando [az container create][az-container-create]. Substitua os dois valores de workspace pelos valores que você obteve na etapa anterior (e atualize o nome do grupo de recursos) antes de executar o comando a seguir.
 
@@ -145,7 +145,7 @@ ContainerInstanceLog_CL
 | where (TimeGenerated > ago(1h))
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 ### <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 

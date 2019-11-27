@@ -43,7 +43,7 @@ Com Azure Machine Learning, você pode monitorar as entradas para um modelo impl
 
 Usando Azure Machine Learning, a descompasso de dados é monitorada por meio de conjuntos ou implantações. Para monitorar a descompasso de dados, é um DataSet de linha de base – geralmente o conjunto de dado de treinamento para um modelo-é especificado. Um segundo conjunto de dados-geralmente modelar os dados de entrada coletados de uma implantação-é testado no conjunto de dado de linha de base. Os dois conjuntos de dados são de perfil e são inseridos para o serviço de monitoramento de descompasso. Um modelo de aprendizado de máquina é treinado para detectar diferenças entre os dois conjuntos de valores. O desempenho do modelo é convertido para o coeficiente de descompasso, que mede a magnitude do descompasso entre os dois conjuntos de valores. Usando a [interpretação de modelo](how-to-machine-learning-interpretability.md), os recursos que contribuem para o coeficiente de descompasso são calculados. No perfil do conjunto de dados, as informações estatísticas sobre cada recurso são rastreadas. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -123,7 +123,7 @@ RunDetails(dd_run).show()
 Depois de enviar sua execução do DataDriftDetector, você poderá ver as métricas de descompasso salvas em cada iteração de execução para uma tarefa de descompasso de dados:
 
 
-|Métrica|DESCRIÇÃO|
+|Métrica|Descrição|
 --|--|
 wasserstein_distance|Distância estatística definida para distribuição numérica unidimensional.|
 energy_distance|Distância estatística definida para distribuição numérica unidimensional.|
@@ -187,7 +187,7 @@ Quando a descompasso de dados afeta negativamente o desempenho do modelo implant
 * Avalie o desempenho do modelo recém-gerado.
 * Implante o novo modelo se o desempenho for melhor do que o modelo de produção.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter um exemplo completo de como usar a descompasso de dados, consulte o [notebook de descompasso de dados do Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb). Este Jupyter Notebook demonstra como usar um conjunto de dados [aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o clima, implantá-lo no AKs e monitorar a descompasso de dados. 
 

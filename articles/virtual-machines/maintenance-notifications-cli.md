@@ -22,7 +22,7 @@ ms.locfileid: "74535854"
 
 Você pode usar a CLI para ver quando as VMs estão agendadas para [manutenção](maintenance-notifications.md). As informações de manutenção planejada estão disponíveis em [AZ VM Get-Instance-View](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
  
-Informações de manutenção são retornadas somente se houver manutenção planejada. 
+As informações de manutenção só serão retornadas se houver manutenção planejada. 
 
 ```azurecli-interactive
 az vm get-instance-view -n myVM -g myResourceGroup --query instanceView.maintenanceRedeployStatus
@@ -59,6 +59,6 @@ Para iniciar a manutenção na VM clássica chamada *myVM* no serviço *myServic
 azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você também pode manipular a manutenção planejada usando o [Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md).

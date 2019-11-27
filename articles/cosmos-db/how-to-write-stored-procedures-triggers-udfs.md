@@ -328,7 +328,7 @@ new RequestOptions { EnableScriptLogging = true } );
 Console.WriteLine(response.ScriptLog);
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda mais conceitos e como escrever ou usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
 

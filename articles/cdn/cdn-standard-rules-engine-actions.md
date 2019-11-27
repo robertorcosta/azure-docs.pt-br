@@ -30,7 +30,7 @@ Use essa ação para substituir o valor de vida útil (TTL) do ponto de extremid
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Comportamento do cache |  DESCRIÇÃO              
+Comportamento do cache |  Descrição              
 ---------------|----------------
 Ignorar cache | Quando essa opção é selecionada e a regra corresponde, o conteúdo não é armazenado em cache.
 Substituição | Quando essa opção é selecionada e a regra corresponde, o valor de TTL retornado de sua origem é substituído pelo valor especificado na ação.
@@ -38,9 +38,9 @@ Definir se ausente | Quando essa opção for selecionada e a regra corresponder,
 
 #### <a name="additional-fields"></a>Campos adicionais
 
-Dias | Horas | minutos | Segundos
+Dias | Horas | Minutos | Segundos
 -----|-------|---------|--------
-int | int | int | int 
+Int | Int | Int | Int 
 
 ### <a name="cache-key-query-string"></a>Cadeia de consulta de chave de cache
 
@@ -48,7 +48,7 @@ Use esta ação para modificar a chave de cache com base em cadeias de caractere
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Comportamento | DESCRIÇÃO
+Comportamento | Descrição
 ---------|------------
 Incluir | Quando essa opção é selecionada e a regra corresponde, as cadeias de caracteres de consulta especificadas nos parâmetros são incluídas quando a chave de cache é gerada. 
 Armazenar em cache todas as URLs exclusivas | Quando essa opção é selecionada e a regra corresponde, cada URL exclusiva tem sua própria chave de cache. 
@@ -61,11 +61,11 @@ Use esta ação para modificar os cabeçalhos que estão presentes nas solicita�
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Ação | Nome do cabeçalho HTTP | Valor
+Ação | Nome do cabeçalho HTTP | Value
 -------|------------------|------
-Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor será anexado ao valor existente. | String
-Substituir | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substituirá o valor existente. | String
-Exclusão | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da solicitação. | String
+Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor será anexado ao valor existente. | string
+Substituir | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substituirá o valor existente. | string
+Excluir | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da solicitação. | string
 
 ### <a name="modify-response-header"></a>Modificar cabeçalho de resposta
 
@@ -73,11 +73,11 @@ Use essa ação para modificar os cabeçalhos que estão presentes nas respostas
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Ação | Nome do cabeçalho HTTP | Valor
+Ação | Nome do cabeçalho HTTP | Value
 -------|------------------|------
-Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** será anexado ao valor existente. | String
-Substituir | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** substituirá o valor existente. | String
-Exclusão | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da resposta. | String
+Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** será anexado ao valor existente. | string
+Substituir | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** substituirá o valor existente. | string
+Excluir | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da resposta. | string
 
 ### <a name="url-redirect"></a>Redirecionamento de URL
 
@@ -85,9 +85,9 @@ Use esta ação para redirecionar clientes para uma nova URL.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Campo | DESCRIÇÃO 
+Campo | Descrição 
 ------|------------
-Digite | Selecione o tipo de resposta para retornar ao solicitante: encontrado (302), movido (301), redirecionamento temporário (307) e redirecionamento permanente (308).
+Type | Selecione o tipo de resposta para retornar ao solicitante: encontrado (302), movido (301), redirecionamento temporário (307) e redirecionamento permanente (308).
 Protocolo | Solicitação de correspondência, HTTP, HTTPS.
 Nome do host | Selecione o nome do host para o qual você deseja que a solicitação seja redirecionada. Deixe em branco para preservar o host de entrada.
 path | Defina o caminho a ser usado no redirecionamento. Deixe em branco para preservar o caminho de entrada.  
@@ -102,13 +102,13 @@ Use essa ação para reescrever o caminho de uma solicitação que é roteada pa
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Campo | DESCRIÇÃO 
+Campo | Descrição 
 ------|------------
 Padrão de origem | Defina o padrão de origem no caminho da URL a ser substituído. Atualmente, o padrão de origem usa uma correspondência baseada em prefixo. Para corresponder a todos os caminhos de URL, use uma barra ( **/** ) como o valor de padrão de origem.
 Destino | Defina o caminho de destino a ser usado na regravação. O caminho de destino substitui o padrão de origem.
 Preservar caminho sem correspondência | Se definido como **Sim**, o caminho restante após o padrão de origem será acrescentado ao novo caminho de destino. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral da CDN do Azure](cdn-overview.md)
 - [Referência do mecanismo de regras padrão](cdn-standard-rules-engine-reference.md)

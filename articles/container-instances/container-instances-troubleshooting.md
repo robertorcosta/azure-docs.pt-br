@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas comuns
+title: Solucionar problemas comuns
 description: Saiba como solucionar problemas comuns ao implantar, executar ou gerenciar instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 09/25/2019
@@ -26,7 +26,7 @@ Ao definir a especificação de contêiner, alguns parâmetros exigem aderência
 | --- | --- | --- | --- | --- | --- |
 | Nome do grupo de contêineres | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome do contêiner | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Portas de contêiner | Entre 1 e 65535 |Inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
+| Portas de contêiner | Entre 1 e 65535 |Número inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
 | Rótulo do nome DNS | 5 a 63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
 | Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
 | Nome do volume | 5 a 63 |Não diferencia maiúsculas de minúsculas |Letras minúsculas, números e hifens em qualquer lugar, exceto o primeiro ou último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
@@ -222,7 +222,7 @@ Se você quiser confirmar que as instâncias de contêiner do Azure podem escuta
     az container delete --resource-group myResourceGroup --name mycontainer
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [recuperar logs de contêiner e eventos](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
 

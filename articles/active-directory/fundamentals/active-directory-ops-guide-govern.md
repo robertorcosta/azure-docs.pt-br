@@ -31,7 +31,7 @@ Esta seção do [Guia de referência de operações do Azure ad](active-director
 
 O gerenciamento de Azure Active Directory requer a execução contínua das principais tarefas e processos operacionais, que podem não fazer parte de um projeto de distribuição. Ainda é importante que você configure essas tarefas para otimizar seu ambiente. As principais tarefas e seus proprietários recomendados incluem:
 
-| tarefa | Proprietário |
+| Tarefa | Proprietário |
 | :- | :- |
 | Arquivar logs de auditoria do Azure AD no sistema SIEM | Equipe de operações do batalha |
 | Descobrir aplicativos que são gerenciados fora de conformidade | Equipe de operações IAM |
@@ -141,6 +141,6 @@ Há oito aspectos para um controle de identidade seguro. Esta lista ajudará voc
 - Bloquear o acesso ao portal de EA do Azure.
 - Implemente o gerenciamento de direitos para fornecer acesso controlado a uma coleção de recursos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Introdução às [verificações e ações operacionais do Azure ad](active-directory-ops-guide-ops.md).

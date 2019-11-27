@@ -35,7 +35,7 @@ As regras podem ser selecionadas e uma nova folha é aberta para mostrar o Grupo
 
 ![busca detalhada][2]
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 
 Saiba como fazer a auditoria das configurações do Grupo de Segurança da Rede visitando [Auditar as configurações do Grupo de Segurança da Rede com o PowerShell](network-watcher-nsg-auditing-powershell.md)
 

@@ -60,7 +60,7 @@ As opções de publicação disponíveis oferecem o envolvimento do cliente dife
 >[!Note]
 >Ao usar a opção de publicação de Transação, é importante entender as considerações de preços, cobrança, faturamento e pagamento antes de selecionar um tipo de oferta e criação de sua oferta. Examine o [artigo Cobrança do Marketplace e Considerações Comerciais para saber mais](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 *   Após decidir sobre uma opção de publicação, você estará pronto para [selecionar o tipo de oferta](./publisher-guide-by-offer-type.md) que será usado para apresentar sua oferta.
 *   Examine os requisitos de qualificação nas opções de publicação pela seção de tipo de oferta para finalizar a seleção e a configuração de sua oferta.

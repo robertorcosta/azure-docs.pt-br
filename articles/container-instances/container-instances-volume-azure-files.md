@@ -13,7 +13,7 @@ ms.locfileid: "74533252"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar um compartilhamento de arquivos do Azure em Instâncias de Contêiner do Azure
 
-Por padrão, as Instâncias de Contêiner do Azure são sem monitoração de estado. Se o contêiner parar ou falhar, todo o seu estado será perdido. Para persistir o estado além do tempo de vida do contêiner, você deve montar um volume de um repositório externo. Conforme mostrado neste artigo, as instâncias de contêiner do Azure podem montar um compartilhamento de arquivos do Azure criado com [os arquivos do Azure](../storage/files/storage-files-introduction.md). Os arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do protocolo SMB padrão do setor. Usar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure fornece recursos de compartilhamento de arquivos semelhantes ao uso de um compartilhamento de arquivos do Azure com máquinas virtuais do Azure.
+Por padrão, as Instâncias de Contêiner do Azure são sem monitoração de estado. Se o contêiner parar ou falhar, todo o seu estado será perdido. Para persistir o estado além do tempo de vida do contêiner, você deve montar um volume de um repositório externo. Conforme mostrado neste artigo, as instâncias de contêiner do Azure podem montar um compartilhamento de arquivos do Azure criado com [os arquivos do Azure](../storage/files/storage-files-introduction.md). Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Usar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure fornece recursos de compartilhamento de arquivos semelhantes ao uso de um compartilhamento de arquivos do Azure com máquinas virtuais do Azure.
 
 > [!NOTE]
 > Montar um Compartilhamento de Arquivos do Azure está atualmente restrito a contêineres do Linux. Encontre as diferenças da plataforma atual na [visão geral](container-instances-overview.md#linux-and-windows-containers).
@@ -264,7 +264,7 @@ Em seguida, para cada contêiner do grupo de contêineres no qual você deseja m
 }]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como montar outros tipos de volume em Instâncias de Contêiner do Azure:
 

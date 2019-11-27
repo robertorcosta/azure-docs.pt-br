@@ -23,7 +23,7 @@ Use a [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/d
 
 ## <a name="get-your-api-key"></a>Obter sua chave de API
 
-Antes de você testar a API no console on-line, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para mais informações, consulte [Visão Geral](overview.md).
+Antes de você pode testar a API no console on-line, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Navegar até a referência da API
 
@@ -41,14 +41,14 @@ Para **Abrir o console de teste da API**, selecione a região que melhor descrev
 
 ## <a name="select-the-inputs"></a>Selecionar entradas
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 Selecione os parâmetros de consulta que você deseja usar em sua tela de texto. Para este exemplo, use o valor padrão para **idioma**. Você também pode deixar em branco porque a operação detectará automaticamente o idioma provável como parte de sua execução.
 
 > [!NOTE]
-> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (versão prévia do recurso). **Esse recurso dá suporte ao inglês apenas**.
+> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
 >
-> Para detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo, ou deixe-o vazio.
+> Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
 Para a **correção automática**, **PII** e **classificar (visualização)** , selecione **true**. Deixe o campo **ListId** vazio.
 
@@ -169,6 +169,6 @@ A resposta a seguir mostra as várias informações da API. Ele contém possíve
 
 Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o guia conceitual de [moderação de texto](text-moderation-api.md) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use a API REST em seu código ou siga o [início rápido do SDK do .net](dotnet-sdk-quickstart.md) para integrar com seu aplicativo.

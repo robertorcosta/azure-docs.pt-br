@@ -71,7 +71,7 @@ Essas propriedades exigem a exclusão do grupo de contêineres antes da reimplan
 
 Ao excluir um grupo de contêineres e recriá-lo, ele não será "reimplantado", mas criado como novo. É efetuado o pull de todas as camadas de imagem atualizadas do registro, não aquelas armazenadas em cache por uma implantação anterior. O endereço IP do contêiner também pode ser alterado por estar sendo implantado em um host subjacente diferente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 **Grupo de contêineres** foi mencionado várias vezes neste artigo. Cada contêiner em Instâncias de Contêiner do Azure é implantado em um grupo de contêineres, sendo que grupos de contêineres podem conter mais de um contêiner.
 

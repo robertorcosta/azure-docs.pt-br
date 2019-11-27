@@ -62,7 +62,7 @@ Não é incomum que 35% de uma chamada de suporte consista no que chamamos de te
 
 Algumas empresas estão experimentando o fornecimento de transcrições traduzidas de chamadas de suporte a idiomas estrangeiros para que os gerentes de entrega possam entender a experiência mundial de seus clientes. Nossas funcionalidades de [tradução](translation.md) são incomparáveis. Podemos traduzir áudio para áudio ou áudio para texto para um grande número de localidades.
 
-### <a name="text-to-speech"></a>Texto em fala
+### <a name="text-to-speech"></a>Conversão de Texto em Fala
 
 A [conversão de texto em fala](text-to-speech.md) é outra área importante na implementação de bots que interagem com os clientes. O caminho típico é o que o cliente fala, sua voz é transcrita em texto, o texto é analisado quanto às intenções, uma resposta é sintetizada com base na intenção reconhecida e, em seguida, um ativo é exposto ao cliente ou uma resposta de voz sintetizada é gerada. É claro que tudo isso deve ocorrer rapidamente – portanto, a baixa latência é um componente importante no sucesso desses sistemas.
 
@@ -70,11 +70,11 @@ Nossa latência de ponta a ponta é consideravelmente baixa para as várias tecn
 
 Nossas novas vozes também são praticamente idênticas às vozes humanas. Você pode usar nossas vozes para dar a seu bot sua personalidade exclusiva.
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Pesquisa
 
 Outro ponto importante da análise é identificar as interações em que uma experiência ou um evento específico tenha ocorrido. Isso normalmente é feito com uma das duas abordagens; uma pesquisa ad hoc em que o usuário simplesmente digita uma frase e o sistema responde, ou uma consulta mais estruturada em que um analista pode criar um conjunto de instruções lógicas que identificam um cenário em uma chamada e, em seguida, cada chamada pode ser indexada em relação a esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade onipresente "esta chamada deve ser registrada para fins de qualidade... ". Muitas empresas desejam ter certeza de que seus agentes estão fornecendo esse aviso aos clientes antes que a chamada seja realmente registrada. A maioria dos sistemas de análise tem a capacidade de tendência dos comportamentos encontrados por algoritmos de consulta/pesquisa, e esse relatório de tendências é, em última instância, uma das funções mais importantes de um sistema de análise. Por meio do [diretório de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/directory/search/), sua solução de ponta a ponta pode ser consideravelmente aprimorada com funcionalidades de indexação e pesquisa.
 
-### <a name="key-phrase-extraction"></a>Extração de Frases-Chave
+### <a name="key-phrase-extraction"></a>Extração de frases-chave
 
 Essa área é um dos aplicativos mais desafiadores de análise e uma que se beneficia da aplicação do ia e do aprendizado de máquina. Nesse caso, o cenário principal é inferir a intenção do cliente. Por que o cliente está ligando? Qual é o problema do cliente? Por que o cliente teve uma experiência negativa? Nosso [serviço de análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) fornece um conjunto de análises prontos para uso para atualizar rapidamente sua solução de ponta a ponta para extrair essas palavras-chave ou frases importantes.
 
@@ -121,14 +121,14 @@ Outro cenário é a integração direta com o SIP (Session Initiation Protocol).
 
  O serviço de fala funciona bem com modelos internos. No entanto, talvez você queira personalizar ainda mais e ajustar a experiência para seu produto ou ambiente. As opções de personalização vão do ajuste do modelo acústico a fontes de voz exclusivas para sua marca. Depois de criar um modelo personalizado, você pode usá-lo com qualquer um dos recursos do serviço de fala em modo em tempo real ou em lote.
 
-| Serviço de Fala | Modelo | DESCRIÇÃO |
+| Serviço de Fala | Modelo | Descrição |
 | -------------- | ----- | ----------- |
 | Conversão de fala em texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Crie um modelo acústico personalizado para aplicativos, ferramentas ou dispositivos usados em ambientes particulares, como um carro ou um chão de fábrica, cada um deles com condições específicas de gravação. Exemplos incluem fala com sotaque, ruídos de fundo específicos ou uso de um microfone específico para gravação. |
 |                | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos de um setor, por exemplo, terminologia médica ou jargão de TI. |
 |                | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e exibir uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é um arquivo de pronúncia, que é um arquivo simples de `.txt`. |
 | Conversão de texto em fala | [Fonte de voz](how-to-customize-voice-font.md) | Fontes de voz personalizadas permitem que você crie uma voz reconhecível exclusiva para sua marca. É necessária apenas uma pequena quantidade de dados para começar a usar. Quanto mais dados que você fornecer, mais natural e humana sua fonte de voz soará. |
 
-## <a name="sample-code"></a>Exemplo de código
+## <a name="sample-code"></a>Código de exemplo
 
 O código de exemplo está disponível no GitHub para cada um dos recursos do serviço de fala. Esses exemplos abordam cenários comuns, como ler áudio de um arquivo ou fluxo, reconhecimento contínuo e único e trabalho com modelos personalizados. Use estes links para exibir exemplos de SDK e REST:
 
@@ -136,7 +136,7 @@ O código de exemplo está disponível no GitHub para cada um dos recursos do se
 - [Exemplos de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 - [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-## <a name="reference-docs"></a>Documentos de Referência
+## <a name="reference-docs"></a>Documentos de referência
 
 - [SDK da fala](speech-sdk-reference.md)
 - [SDK de Dispositivos de Fala](speech-devices-sdk.md)
@@ -144,7 +144,7 @@ O código de exemplo está disponível no GitHub para cada um dos recursos do se
 - [API REST: conversão de texto em fala](rest-text-to-speech.md)
 - [API REST: transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)

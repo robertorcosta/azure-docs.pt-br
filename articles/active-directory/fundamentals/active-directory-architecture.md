@@ -121,6 +121,6 @@ Se algum serviço do Azure AD não estiver funcionando conforme o esperado, uma 
 
 Usando controles operacionais, como a autenticação multifatores (MFA) para qualquer operação, bem como a auditoria de todas as operações. Além disso, usar um sistema de elevação just-in-time para conceder acesso temporário necessário a qualquer tarefa operacional sob demanda de maneira contínua. Para obter mais informações, confira [A nuvem confiável](https://azure.microsoft.com/support/trust-center).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop)

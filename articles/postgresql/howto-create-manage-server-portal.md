@@ -17,7 +17,7 @@ ms.locfileid: "74535685"
 Este artigo mostra como gerenciar seu banco de dados do Azure para servidores PostgreSQL. As tarefas de gerenciamento incluem dimensionamento de computação e armazenamento, redefinição de senha de administrador e detalhes do servidor de exibição.
 
 ## <a name="sign-in"></a>Entrar
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Criar um servidor
 Visite o guia de [início rápido](quickstart-create-server-database-portal.md) para saber como criar e começar a usar um banco de dados do Azure para o servidor PostgreSQL.
@@ -102,6 +102,6 @@ Você pode excluir o servidor se não precisar mais dele.
 3. Selecione **Excluir**.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [backups e restauração do servidor](howto-restore-server-portal.md)
 - Saiba mais sobre [as opções de ajuste e monitoramento no banco de dados do Azure para PostgreSQL](concepts-monitoring.md)

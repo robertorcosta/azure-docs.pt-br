@@ -33,7 +33,7 @@ Logs de fluxo NSG são armazenados em uma conta de armazenamento no [blobs de bl
 
 No cenário a seguir, você tem um exemplo de log de fluxo que é armazenado em uma conta de armazenamento. Vamos ver como ler os eventos mais recentes seletivamente nos logs de fluxo NSG. Neste artigo, você usa o PowerShell, no entanto, os conceitos abordados no artigo não estão limitados à linguagem de programação e são aplicáveis a todas as linguagens com suporte na APIs de Armazenamento do Microsoft Azure.
 
-## <a name="setup"></a>Instalação
+## <a name="setup"></a>Configuração
 
 Antes de começar, você deve habilitar o registro em log de fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Confira o artigo: [Introdução ao registro em log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md) para obter instruções sobre como habilitar os logs de fluxo da segurança de rede.
 
@@ -186,7 +186,7 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 
 Esse cenário é um exemplo de como ler entradas nos logs de fluxo NSG sem precisar analisar o log inteiro. Você pode ler as novas entradas no log conforme elas são gravadas usando a ID do bloco ou acompanhando o tamanho dos blocos armazenados no blob de blocos. Isso permite que você leia apenas as novas entradas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Visite [Usar Pilha Elástica](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usar Grafana](network-watcher-nsg-grafana.md), e [Usar Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre outras maneiras de exibir logs de fluxo NSG. Uma abordagem de função do Azure de software livre para o consumo direto dos BLOBs e a emissão de vários consumidores do log Analytics podem ser encontradas aqui: [conector de logs de fluxo NSG do observador de rede do Azure](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 

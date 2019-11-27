@@ -42,9 +42,9 @@ Use o portal do Azure ou o PowerShell para definir as configurações de sincron
 
 | Ação | | |
 |--|--|--|
-| Criar um domínio gerenciado AD DS do Azure e configurar a sincronização com escopo | [Portal do Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Modificar sincronização com escopo | [Portal do Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Desabilitar sincronização com escopo | [Portal do Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Criar um domínio gerenciado AD DS do Azure e configurar a sincronização com escopo | [Azure portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modificar sincronização com escopo | [Azure portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Desabilitar sincronização com escopo | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > Alterar o escopo da sincronização faz com que o domínio gerenciado AD DS do Azure sincronize novamente todos os dados.
@@ -251,7 +251,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScoped
 
 Alterar o escopo da sincronização faz com que o domínio gerenciado AD DS do Azure sincronize novamente todos os dados. Os objetos que não são mais necessários no domínio gerenciado AD DS do Azure são excluídos e a ressincronização pode levar muito tempo para ser concluída.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o processo de sincronização, consulte [entender a sincronização no Azure AD Domain Services](synchronization.md).
 

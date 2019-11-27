@@ -36,7 +36,7 @@ Algumas recomendações aqui podem não ser aplicáveis ao ambiente de todos os 
 
 Cada seção neste guia de referência recomenda atribuir participantes para planejar e implementar tarefas-chave com êxito. A tabela a seguir descreve a lista de todos os participantes deste guia:
 
-| Stakeholder | DESCRIÇÃO |
+| Stakeholder | Descrição |
 | :- | :- |
 | Equipe de operações IAM | Essa equipe lida com o gerenciamento das operações diárias do sistema de gerenciamento de identidades e acesso |
 | Equipe de produtividade | Essa equipe possui e gerencia os aplicativos de produtividade, como email, compartilhamento de arquivos e colaboração, mensagens instantâneas e conferências. |
@@ -44,6 +44,6 @@ Cada seção neste guia de referência recomenda atribuir participantes para pla
 | Equipe de arquitetura do batalha | Essa equipe planeja e projeta as práticas de segurança de informações de uma organização. |
 | Equipe de operações do batalha | Essa equipe executa e monitora as práticas de segurança de informações implementadas da equipe de arquitetura do batalha. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Introdução às [verificações e ações de gerenciamento de identidade e acesso](active-directory-ops-guide-iam.md).

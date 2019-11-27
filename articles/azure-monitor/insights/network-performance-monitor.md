@@ -37,15 +37,15 @@ Mais informações sobre os diversos recursos de suporte do [Monitor de Desempen
  
 ## <a name="supported-regions"></a>Regiões com Suporte
 O NPM pode monitorar a conectividade entre redes e aplicativos em qualquer parte do mundo, de um workspace que está hospedado em uma das seguintes regiões:
-* Europa Ocidental
+* Oeste da Europa
 * Centro-Oeste dos EUA
 * Centro-Norte dos EUA
 * Leste dos EUA
 * Leste do Japão
-* Sudeste da Ásia
+* Sudeste Asiático
 * Sudeste da Austrália
 * Austrália Central
-* Leste da Austrália
+* Austrália Oriental
 * Sul do Reino Unido
 * Índia Central
 * Virgínia, Governo dos EUA
@@ -146,7 +146,7 @@ Todos os nós que têm um agente instalado neles estão listados na guia **Nós*
 
 1. Marque ou desmarque os nós que você deseja monitorar ou parar de monitorar. 
 2. Selecione **Usar para Monitoramento** ou desmarque essa opção, conforme apropriado. 
-3. Selecione **Salvar**. 
+3. Clique em **Salvar**. 
 
 
 Configure os recursos desejados:
@@ -277,5 +277,5 @@ Informações sobre preços estão disponíveis [online](network-performance-mon
 
 * **Junte-se ao nosso coorte:** Estamos sempre interessados em novos clientes para a nossa coorte. Como parte do coorte, você consegue acesso antecipado a novos recursos e uma oportunidade de ajudar a melhorar o Monitor de Desempenho de Rede. Se você estiver interessado em ingressar, preencha esta [pesquisa rápida](https://aka.ms/npmcohort). 
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 Saiba mais sobre o [Monitor de Desempenho](network-performance-monitor-performance-monitor.md), o [Monitor de Conectividade do Serviço](network-performance-monitor-performance-monitor.md) e o [Monitor do ExpressRoute](network-performance-monitor-expressroute.md). 

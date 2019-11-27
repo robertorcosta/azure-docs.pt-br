@@ -91,7 +91,7 @@ Você pode continuar entrando nos serviços de nuvem usando uma senha sincroniza
 
 ##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Visualização pública do recurso *EnforceCloudPasswordPolicyForPasswordSyncedUsers*
 
-Se houver usuários sincronizados que interagem somente com os serviços integrados do Azure AD e também devem estar em conformidade com uma política de expiração de senha, você poderá forçá-los a cumprir sua política de expiração de senha do Azure AD habilitando o  *Recurso EnforceCloudPasswordPolicyForPasswordSyncedUsers* .
+Se houver usuários sincronizados que interagem somente com os serviços integrados do Azure AD e também devem estar em conformidade com uma política de expiração de senha, você poderá forçá-los a cumprir sua política de expiração de senha do Azure AD habilitando o recurso *EnforceCloudPasswordPolicyForPasswordSyncedUsers* .
 
 Quando *EnforceCloudPasswordPolicyForPasswordSyncedUsers* está desabilitado (que é a configuração padrão), Azure ad Connect define o atributo PasswordPolicies de usuários sincronizados como "DisablePasswordExpiration". Isso é feito toda vez que a senha de um usuário é sincronizada e instrui o Azure AD a ignorar a política de expiração de senha de nuvem para esse usuário. Você pode verificar o valor do atributo usando o módulo do PowerShell do Azure AD com o seguinte comando:
 
@@ -123,7 +123,7 @@ ADVERTÊNCIA: se houver contas sincronizadas que precisam ter senhas que não ex
   
 A funcionalidade de senha temporária ajuda a garantir que a transferência de propriedade da credencial seja concluída na primeira utilização, para minimizar a duração de tempo em que mais de um indivíduo tem conhecimento dessa credencial.
 
-Para dar suporte a senhas temporárias no Azure AD para usuários sincronizados, você pode habilitar o recurso *ForcePasswordResetOnLogonFeature* , executando o seguinte comando no servidor de Azure ad Connect, substituindo <AAD Connector Name> pelo nome do conector específico para seu ambiente:
+Para dar suporte a senhas temporárias no Azure AD para usuários sincronizados, você pode habilitar o recurso *ForcePasswordResetOnLogonFeature* , executando o seguinte comando no servidor de Azure ad Connect, substituindo <AAD Connector Name> pelo nome do conector específico ao seu ambiente:
 
 `Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
 
@@ -230,7 +230,7 @@ Para obter informações sobre segurança e FIPS, consulte [Sincronização de h
 ## <a name="troubleshoot-password-hash-synchronization"></a>Solução de Problemas de Sincronização de hash de Senha
 Caso tenha problemas com a sincronização de hash de senha, veja [Solucionar problemas de sincronização de hash de senha](tshoot-connect-password-hash-synchronization.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Sincronização do Azure AD Connect: personalizando opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 * [Obter um plano de implantação passo a passo para migração do AD FS para sincronização de Hash de senha](https://aka.ms/authenticationDeploymentPlan)

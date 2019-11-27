@@ -34,7 +34,7 @@ Este tópico mostra como executar estas tarefas:
 * Mover sua conta de integração para outra assinatura ou grupo de recursos do Azure.
 * Excluir sua conta de integração.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -56,13 +56,13 @@ Para essa tarefa, você pode usar a portal do Azure seguindo as etapas nesta se�
 
    ![Fornecer detalhes da conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Propriedade | obrigatórios | Valor | DESCRIÇÃO |
+   | Propriedade | obrigatórios | Value | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome** | sim | <*integration-account-name*> | O nome da sua conta de integração, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "fabrikam integração". |
-   | **Assinatura** | sim | <*Azure-subscription-name*> | O nome e a ID da assinatura do Azure |
-   | **Grupo de recursos** | sim | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) a ser usado para organizar os recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome "FabrikamIntegration-RG". |
-   | **Camada de preços** | sim | > <*no nível de preços* | O tipo de preço da conta de integração, que você pode alterar posteriormente. Para este exemplo, selecione **gratuito**. Para saber mais, consulte esses tópicos: <p>[modelo de preços de aplicativos lógicos](../logic-apps/logic-apps-pricing.md#integration-accounts) -  <p>[limites e configuração de - aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>[preços de aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/) -  |
-   | **Localidade** | sim | <*Azure-region*> | A região onde armazenar os metadados da conta de integração. Selecione o mesmo local que seu aplicativo lógico ou crie seus aplicativos lógicos no mesmo local que sua conta de integração. Para este exemplo, use "oeste dos EUA". <p>**Observação**: para criar uma conta de integração dentro de um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selecione esse ISE como o local. Para obter mais informações, consulte [criar contas de integração em um ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Nome** | SIM | <*integration-account-name*> | O nome da sua conta de integração, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "fabrikam integração". |
+   | **Assinatura** | SIM | <*Azure-subscription-name*> | O nome e a ID da assinatura do Azure |
+   | **Grupo de recursos** | SIM | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) a ser usado para organizar os recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome "FabrikamIntegration-RG". |
+   | **Tipo de preço** | SIM | > <*no nível de preços* | O tipo de preço da conta de integração, que você pode alterar posteriormente. Para este exemplo, selecione **gratuito**. Para saber mais, consulte esses tópicos: <p>[modelo de preços de aplicativos lógicos](../logic-apps/logic-apps-pricing.md#integration-accounts) -  <p>[limites e configuração de - aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>[preços de aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/) -  |
+   | **Localidade** | SIM | <*Azure-region*> | A região onde armazenar os metadados da conta de integração. Selecione o mesmo local que seu aplicativo lógico ou crie seus aplicativos lógicos no mesmo local que sua conta de integração. Para este exemplo, use "oeste dos EUA". <p>**Observação**: para criar uma conta de integração dentro de um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selecione esse ISE como o local. Para obter mais informações, consulte [criar contas de integração em um ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | Não | Desligado, ativado | Mantenha a configuração **desativado** para este exemplo. |
    |||||
 
@@ -131,7 +131,7 @@ Para fazer essa alteração, você pode usar a portal do Azure seguindo as etapa
 
 <a name="upgrade-tier-azure-cli"></a>
 
-#### <a name="azure-cli"></a>CLI do Azure
+#### <a name="azure-cli"></a>Azure CLI
 
 1. Se você ainda não fez isso, [Instale os pré-requisitos de CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
@@ -181,7 +181,7 @@ Se você quiser vincular seu aplicativo lógico a outra conta de integração ou
 
 1. Abra a janela do navegador e vá para [Azure Resource Explorer (https://resources.azure.com)](https://resources.azure.com). Entre com as mesmas credenciais de conta do Azure.
 
-   ![Gerenciador de Recursos do Azure](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
+   ![Azure Resource Manager](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
 1. Na caixa de pesquisa, insira o nome do aplicativo lógico para que você possa encontrar e selecionar seu aplicativo lógico.
 
@@ -277,7 +277,7 @@ Para essa tarefa, você pode usar a portal do Azure seguindo as etapas nesta se�
 
    ![Para confirmar a exclusão, selecione "Sim"](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar parceiros comerciais em sua conta de integração](../logic-apps/logic-apps-enterprise-integration-partners.md)
 * [Criar contratos entre parceiros em sua conta de integração](../logic-apps/logic-apps-enterprise-integration-agreements.md)

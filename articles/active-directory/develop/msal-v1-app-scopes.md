@@ -24,11 +24,11 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74532990"
 ---
-# <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Escopos para uma API Web que aceita os tokens v1.0
+# <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Escopos para uma API Web que aceita tokens v1.0
 
 As permissões OAuth2 são escopos de permissão que um Azure Active Directory (Azure AD) para desenvolvedores (v 1.0) aplicativo de API Web (Resource) expõe para aplicativos cliente. Os escopos de permissões podem ser concedidos a aplicativos cliente durante o consentimento. Confira a seção sobre `oauth2Permissions` na [referência do manifesto do aplicativo Azure Active Directory](reference-app-manifest.md#manifest-reference).
 
-## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Os escopos solicitam acesso a permissões específicas de OAuth2 de um aplicativo v1.0
+## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a permissões específicas do OAuth2 de um aplicativo v1.0
 
 Para adquirir tokens para escopos específicos de um aplicativo v 1.0 (por exemplo, o Azure AD Graph, que é https:\//graph.windows.net), você precisa criar escopos concatenando um identificador de recurso desejado com uma permissão OAuth2 desejada para esse recurso.
 
@@ -72,7 +72,7 @@ A lógica usada pelo Azure AD é a seguinte:
 - Para o ponto de extremidade do MSAL (plataforma Microsoft Identity (v 2.0)), solicite um token de acesso para um recurso que aceita tokens v 2.0, `aud=resource.AppId`
 - Para MSAL (ponto de extremidade v 2.0) que solicita um token de acesso para um recurso que aceita um token de acesso v 1.0 (que é o caso acima), o Azure AD analisa o público-alvo desejado do escopo solicitado, levando tudo antes da última barra e usando-o como o identificador de recurso. Portanto, se https:\//database.windows.net esperar um público de "https:\//database.windows.net/", você precisará solicitar um escopo de "https:\//database.windows.net//.default". Veja também o problema [do GitHub #747: a barra à direita da URL do recurso é omitida, o que causou uma falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
-## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Os escopos solicitam acesso a permissões específicas de v1.0
+## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a todas as permissões de um aplicativo v1.0
 
 Se você quiser adquirir um token para todos os escopos estáticos de um aplicativo v1.0, anexe ".default" ao URI da ID do aplicativo da API:
 
@@ -88,4 +88,4 @@ var scopes = [ ResourceId + "/.default"];
 
 ## <a name="scopes-to-request-for-a-client-credential-flowdaemon-app"></a>Escopos a serem solicitados para um aplicativo de fluxo de credencial do cliente/daemon
 
-No caso do fluxo de credenciais do cliente, o escopo para passar também seria `/.default`. Isso informa ao Azure Active Directory: "todas as permissões de nível de aplicativo que o administrador consentiu no registro de aplicativo.
+No caso do fluxo de credencial do cliente, o escopo a ser aprovado também seria `/.default`. Isso informa ao Azure AD: "todas as permissões no nível de aplicativo que o administrador consentiu no registro do aplicativo.

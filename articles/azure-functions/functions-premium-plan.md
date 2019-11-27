@@ -88,7 +88,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de instância.  Você será cobrado pelo número total de núcleos e memória consumida por segundo.  Seu aplicativo pode ser dimensionado automaticamente para várias instâncias, conforme necessário.  
 
-|Sku|Núcleos|Memória|Armazenamento|
+|SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7 GB|250 GB|
@@ -102,11 +102,11 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |--| -- | -- |
 |Austrália Central| ✔<sup>1</sup> | |
 |Austrália Central 2| ✔<sup>1</sup> | |
-|Leste da Austrália| ✔ | |
+|Austrália Oriental| ✔ | |
 |Sudeste da Austrália | ✔ | ✔ |
 |Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |
-|Centro dos EUA| ✔ |  |
+|EUA Central| ✔ |  |
 |Ásia Oriental| ✔ |  |
 |Leste dos EUA | ✔ | ✔ |
 |Leste dos EUA 2| ✔ |  |
@@ -115,13 +115,13 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Oeste do Japão| ✔ | |
 |Coreia Central| ✔ |  |
 |Centro-Norte dos EUA| ✔ |  |
-|Norte da Europa| ✔ | ✔ |
-|Centro-Sul dos Estados Unidos| ✔ |  |
+|Europa Setentrional| ✔ | ✔ |
+|Centro-Sul dos EUA| ✔ |  |
 |Sul da Índia | ✔ | |
 |Sudeste Asiático| ✔ | ✔ |
 |Sul do Reino Unido| ✔ | |
 |Oeste do Reino Unido| ✔ |  |
-|Europa Ocidental| ✔ | ✔ |
+|Oeste da Europa| ✔ | ✔ |
 |Índia Ocidental| ✔ |  |
 |Oeste dos EUA| ✔ | ✔ |
 |Oeste dos EUA 2| ✔ |  |
@@ -130,7 +130,7 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 <sup>2</sup> Expansão máxima limitada a 60 instâncias.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Entender Azure Functions escala e opções de hospedagem](functions-scale.md)

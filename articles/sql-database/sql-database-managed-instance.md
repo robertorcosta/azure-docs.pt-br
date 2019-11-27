@@ -45,7 +45,7 @@ A instância gerenciada combina os melhores recursos disponíveis no Banco de Da
 | **Benefícios de PaaS** | **Continuidade dos negócios** |
 | --- | --- |
 |Sem gerenciamento e compra de hardware <br>Sem sobrecarga de gerenciamento para gerenciar infraestrutura subjacente <br>Rápido provisionamento e dimensionamento de serviço <br>Aplicação de patch automatizado e atualização da versão <br>Integração com outros serviços de dados PaaS |99,99% do SLA de tempo de atividade  <br>Compilado em [alta disponibilidade](sql-database-high-availability.md) <br>Dados protegidos com [backups automatizados](sql-database-automated-backups.md) <br>Período de retenção de backup configurável pelo cliente <br>[Backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) iniciados pelo usuário <br>Capacidade de [restauração pontual do banco de dados](sql-database-recovery-using-backups.md#point-in-time-restore) |
-|**Segurança e conformidade** | **Management**|
+|**Segurança e conformidade** | **Gerenciamento**|
 |Ambiente isolado ([Integração de VNet](sql-database-managed-instance-connectivity-architecture.md), serviço de locatário único, computação e armazenamento dedicados) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), suporte de logon único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de segurança do servidor do Azure AD (logons)</a>  <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>[Auditoria do SQL](sql-database-managed-instance-auditing.md) <br>[Proteção Avançada contra Ameaças](sql-database-managed-instance-threat-detection.md) |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados
 
 > [!IMPORTANT]
@@ -53,18 +53,18 @@ A instância gerenciada combina os melhores recursos disponíveis no Banco de Da
 
 Os principais recursos de instâncias gerenciadas são mostrados na tabela a seguir:
 
-|Recurso | DESCRIÇÃO|
+|Recurso | Descrição|
 |---|---|
 | Compilação/versão do SQL Server | Mecanismo de BD do SQL Server (estável mais recente) |
-| Backups automatizados gerenciados | sim |
-| Métricas e monitoramento de banco de dados e instância interna | sim |
-| Aplicação automática de patches de software | sim |
-| Os recursos mais recentes do mecanismo de banco de dados | sim |
+| Backups automatizados gerenciados | SIM |
+| Métricas e monitoramento de banco de dados e instância interna | SIM |
+| Aplicação automática de patches de software | SIM |
+| Os recursos mais recentes do mecanismo de banco de dados | SIM |
 | Número de arquivos de dados (LINHAS) por banco de dados | Vários |
 | Número de arquivos de log (LOG) por banco de dados | 1 |
-| VNet - Implantação do Azure Resource Manager | sim |
+| VNet - Implantação do Azure Resource Manager | SIM |
 | VNet - Modelo de implantação clássico | Não |
-| Suporte do Portal | sim|
+| Suporte do Portal | SIM|
 | Serviço de Integração Integrado (SSIS) | Não - o SSIS faz parte da [PaaS do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de análise interna (SSAS) | Não - SSAS é separado [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | Serviço interno de relatório (SSRS) | Não - usar o Power BI ou no IaaS do SSRS |
@@ -124,7 +124,7 @@ Encontre mais informações sobre a diferença entre camadas de serviço em [lim
 
 O banco de dados SQL do Azure fornece operações de gerenciamento que você pode usar para implantar automaticamente novas instâncias gerenciadas, atualizar propriedades de instância e excluir instâncias quando não forem mais necessárias. Esta seção fornece informações sobre operações de gerenciamento e suas durações típicas.
 
-Para dar suporte a [implantações em redes virtuais do Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e fornecer isolamento e segurança para clientes, a instância gerenciada depende de [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), que representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro do sub-rede da rede virtual do cliente. Essencialmente, cada implantação de instância gerenciada em uma sub-rede vazia resulta em um novo build-out de cluster virtual.
+Para dar suporte a [implantações em redes virtuais do Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e fornecer isolamento e segurança para clientes, a instância gerenciada depende de [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), que representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede da rede virtual do cliente. Essencialmente, cada implantação de instância gerenciada em uma sub-rede vazia resulta em um novo build-out de cluster virtual.
 
 As operações subsequentes em instâncias gerenciadas implantadas também podem ter efeitos sobre seu cluster virtual subjacente. Isso afeta a duração das operações de gerenciamento, pois a implantação de máquinas virtuais adicionais vem com uma sobrecarga que precisa ser considerada quando você planeja novas implantações ou atualizações em instâncias gerenciadas existentes.
 
@@ -153,14 +153,14 @@ A tabela a seguir resume as operações e as durações gerais típicas:
 |Implantação |Primeira instância de outra geração de hardware em uma sub-rede não vazia (por exemplo, primeira instância de Gen 5 em uma sub-rede com instâncias de Gen 4)|Criação de cluster virtual *|90% das operações terminam em 4 horas|
 |Implantação |Primeira instância de criação de 4 vCores, em uma sub-rede vazia ou não vazia|Criação de cluster virtual * *|90% das operações terminam em 4 horas|
 |Implantação |Criação de instância subsequente dentro da sub-rede não vazia (2ª, 3ª, etc. instância)|Redimensionamento de cluster virtual|90% das operações são concluídas em 2,5 horas|
-|**Atualização** |Alteração da propriedade de instância (senha de administrador, logon do AAD, Benefício Híbrido do Azure Flag)|N/D|Até 1 minuto|
-|Atualização |Expansão/redução do armazenamento de instância (Uso Geral camada de serviço)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
-|Atualização |Expansão/redução do armazenamento de instância (Comercialmente Crítico camada de serviço)|-Redimensionamento de cluster virtual<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 2,5 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
-|Atualização |Expansão e redução da vCores (computação de instância) (Uso Geral)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
-|Atualização |Expansão e redução da vCores (computação de instância) (Comercialmente Crítico)|-Redimensionamento de cluster virtual<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 2,5 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
-|Atualização |Expansão da instância para 4 vCores (Uso Geral)|-Redimensionamento do cluster virtual (se for feito pela primeira vez, pode exigir a criação do cluster virtual * *)<br>-Anexando arquivos de banco de dados|90% das operações terminam em 4 h 5 min * *|
-|Atualização |Expansão da instância para 4 vCores (Uso Geral)|-Redimensionamento do cluster virtual (se for feito pela primeira vez, pode exigir a criação do cluster virtual * *)<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 4 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
-|Atualização |Alteração da camada de serviço de instância (Uso Geral para Comercialmente Crítico e vice-versa)|-Redimensionamento de cluster virtual<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 2,5 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
+|**Atualizar** |Alteração da propriedade de instância (senha de administrador, logon do AAD, Benefício Híbrido do Azure Flag)|N/D|Até 1 minuto|
+|Atualizar |Expansão/redução do armazenamento de instância (Uso Geral camada de serviço)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
+|Atualizar |Expansão/redução do armazenamento de instância (Comercialmente Crítico camada de serviço)|-Redimensionamento de cluster virtual<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 2,5 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
+|Atualizar |Expansão e redução da vCores (computação de instância) (Uso Geral)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
+|Atualizar |Expansão e redução da vCores (computação de instância) (Comercialmente Crítico)|-Redimensionamento de cluster virtual<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 2,5 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
+|Atualizar |Expansão da instância para 4 vCores (Uso Geral)|-Redimensionamento do cluster virtual (se for feito pela primeira vez, pode exigir a criação do cluster virtual * *)<br>-Anexando arquivos de banco de dados|90% das operações terminam em 4 h 5 min * *|
+|Atualizar |Expansão da instância para 4 vCores (Uso Geral)|-Redimensionamento do cluster virtual (se for feito pela primeira vez, pode exigir a criação do cluster virtual * *)<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 4 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
+|Atualizar |Alteração da camada de serviço de instância (Uso Geral para Comercialmente Crítico e vice-versa)|-Redimensionamento de cluster virtual<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 2,5 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
 |**Exclusão**|Exclusão da instância|Backup da parte final do log para todos os bancos de dados|90% de operações concluídas em até 1 minuto.<br>Observação: se a última instância na sub-rede for excluída, esta operação agendará a exclusão do cluster virtual após 12 horas * * *|
 |Exclusão|Exclusão de cluster virtual (como operação iniciada pelo usuário)|Exclusão do cluster virtual|90% das operações terminam em até 1,5 horas|
 
@@ -217,7 +217,7 @@ O Banco de Dados SQL do Azure fornece um conjunto de recursos de segurança avan
 
 Há suporte para a migração de um banco de dados criptografado para a instância gerenciada por meio do DMS (Serviço de Migração de Banco de Dados) do Azure ou restauração nativa. Se você planeja migrar um banco de dados criptografado usando a restauração nativa, a migração do certificado TDE existente do SQL Server local ou SQL Server em uma máquina virtual para uma instância gerenciada é uma etapa necessária. Para obter mais informações sobre as opções de migração consulte [migração da instância do SQL Server para a instância gerenciada](sql-database-managed-instance-migrate.md).
 
-## <a name="azure-active-directory-integration"></a>Integração do Active Directory do Azure
+## <a name="azure-active-directory-integration"></a>Integração do Azure Active Directory
 
 A opção de implantação de instância gerenciada dá suporte a logons e logons do mecanismo de Banco de Dados do SQL Server e logons integrados ao AAD (Azure Active Directory). As entidades de servidor do Azure AD (logons, **versão prévia pública**) são uma versão de nuvem do Azure de logons de banco de dados locais do Windows que você está usando no ambiente local. As entidades de segurança do servidor do Azure AD (logons) permitem que você especifique usuários e grupos do seu locatário Azure Active Directory como entidades de segurança com escopo de instância verdadeiras, capaz de executar qualquer operação em nível de instância, incluindo consultas entre bancos de dados dentro do mesmo gerenciado cópia.
 
@@ -227,7 +227,7 @@ Uma nova sintaxe é introduzida para criar entidades de segurança do servidor d
 
 A opção de implantação de instância gerenciada permite gerenciar centralmente as identidades de usuário do banco de dados e de outros serviços da Microsoft com a [integração do Azure Active Directory](sql-database-aad-authentication.md). Esse recurso simplifica o gerenciamento de permissão e aprimora a segurança. O Azure Active Directory é compatível com [MFA](sql-database-ssms-mfa-authentication-configure.md) (autenticação multifator) para aumentar a segurança de aplicativos e dados e dá suporte a um processo de logon único.
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 A autenticação de instância gerenciada refere-se a como os usuários comprovam a identidade ao conectarem-se ao banco de dados. O Banco de Dados SQL dá suporte a dois tipos de autenticação:  
 
@@ -246,7 +246,7 @@ Autorização refere-se ao que um usuário pode fazer em um Banco de Dados SQL d
 
 A opção de implantação de instância gerenciada destina-se a cenários de usuários com migração de banco de dados em massa de implementações de bancos de dados locais ou IaaS. A instância gerenciada oferece suporte a várias opções de migração de banco de dados:
 
-### <a name="back-up-and-restore"></a>Fazer backup e restauração  
+### <a name="back-up-and-restore"></a>Backup e restauração  
 
 A abordagem de migração aproveita backups do SQL para o Armazenamento de Blobs do Azure. Os backups armazenados no blob de armazenamento do Azure podem ser restaurados diretamente na instância gerenciada usando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -292,17 +292,17 @@ A opção de implantação de instância gerenciada permite que o administrador 
 
 A tabela a seguir mostra várias propriedades, acessíveis por meio do Transact-SQL que podem ser usadas para detectar se o aplicativo está trabalhando com a instância gerenciada e recuperar propriedades importantes.
 
-|Propriedade|Valor|Comentário|
+|Propriedade|Value|Comentário|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 07/03/2018 Copyright (C) 2018 Microsoft Corporation.|Esse valor é o mesmo que no Banco de Dados SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Esse valor é o mesmo que no Banco de Dados SQL.|
 |`SERVERPROPERTY('EngineEdition')`|8|Esse valor identifica exclusivamente a instância gerenciada.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS da instância completo no seguinte formato:`<instanceName>`.`<dnsPrefix>`.database.windows.net, em que `<instanceName>` é o nome fornecido pelo cliente, enquanto `<dnsPrefix>` é a parte gerada automaticamente do nome, garantindo exclusividade de nome DNS global ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como criar sua primeira instância gerenciada, confira o [Guia de início rápido](sql-database-managed-instance-get-started.md).
-- Para um recurso e lista de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
+- Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
 - Para saber mais sobre a configuração de rede virtual, confira [Configuração de VNet de instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).
 - Para obter um início rápido que cria uma Instância Gerenciada e restaura um banco de dados de um arquivo de backup, veja [Criar uma instância gerenciada](sql-database-managed-instance-get-started.md).
 - Para obter um tutorial usando o DMS (Serviço de Migração de Banco de Dados do Azure) para a migração, confira [Migração de instância gerenciada usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).

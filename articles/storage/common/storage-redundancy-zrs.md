@@ -107,7 +107,7 @@ Você pode solicitar a migração ao vivo por meio do [Portal de Suporte do Azur
     - **Detalhes**: digite detalhes adicionais na caixa de **detalhes** , por exemplo, eu gostaria de migrar para ZRS de [lRS, grs] na região do \_\_. 
 5. Selecione **Avançar**.
 6. Verifique se as informações de contato estão corretas na **informações de contato** folha.
-7. Selecione **Criar**.
+7. Clique em **Criar**.
 
 Uma pessoa de suporte entrará em contato com você e fornecerá toda a assistência necessária.
 
@@ -163,7 +163,7 @@ Para atualizar para o ZRS usando a CLI, chame o seguinte comando:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 - [Replicação de Armazenamento do Azure](storage-redundancy.md)
 - [LRS (armazenamento com redundância local): redundância de dados de baixo custo para Armazenamento do Microsoft Azure](storage-redundancy-lrs.md)
 - [GRS (armazenamento com redundância geográfica): replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy-grs.md)

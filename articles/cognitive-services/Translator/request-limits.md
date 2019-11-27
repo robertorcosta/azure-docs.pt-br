@@ -30,8 +30,8 @@ A tabela a seguir lista os limites de elemento e de caracteres de matriz para ca
 | Operação | Tamanho máximo do elemento de matriz |   Número máximo de elementos da matriz |  Tamanho máximo da solicitação (caracteres) |
 |:----|:----|:----|:----|
 | Translate | 5\.000 | 100   | 5\.000 |
-| Transliteração | 5\.000 | 10    | 5\.000 |
-| Detectar | 10.000 | 100 |   50.000 |
+| Transliterate | 5\.000 | 10    | 5\.000 |
+| Detect | 10.000 | 100 |   50.000 |
 | BreakSentence | 10.000    | 100 | 50.000 |
 | Pesquisa no dicionário| 100 |  10  | 1\.000 |
 | Exemplos de dicionário | 100 para texto e 100 para conversão (total de 200)| 10|   2\.000 |
@@ -48,9 +48,9 @@ Se você atingir ou ultrapassar esses limites, ou enviar um grande número de um
 |------|-----------------|
 | F0 | 2 milhões de caracteres por hora |
 | S1 | 40 milhões de caracteres por hora |
-| S2 / C2 | 40 milhões de caracteres por hora |
-| S3 / C3 | 120 milhões de caracteres por hora |
-| S4 / C4 | 200 milhões de caracteres por hora |
+| S2/C2 | 40 milhões de caracteres por hora |
+| S3/C3 | 120 milhões de caracteres por hora |
+| S4/C4 | 200 milhões de caracteres por hora |
 
 Os limites para [assinaturas de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) são os mesmos da camada S1.
 
@@ -64,7 +64,7 @@ A API de Tradução de Texto tem uma latência máxima de 15 segundos usando mod
 
 Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), o comprimento da sentença é limitado a 275 caracteres. Existem exceções para esses idiomas:
 
-| idioma | Código | Limite de caracteres |
+| Idioma | Codificar | Limite de caracteres |
 |----------|------|-----------------|
 | Chinês | zh | 132 |
 | Alemão | de | 290 |
@@ -78,7 +78,7 @@ Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-se
 > [!NOTE]
 > Esse limite não se aplica a traduções.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Disponibilidade regional](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

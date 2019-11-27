@@ -24,7 +24,7 @@ Este artigo mostra como usar o Python para criar e gerenciar diretórios, arquiv
 
 [Pacote (índice de pacote do Python)](https://pypi.org/project/azure-storage-file-datalake/) | [exemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [referência de API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html) | [mapeamento de Gen1 para Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [fornecer comentários](https://github.com/Azure/azure-sdk-for-python/issues)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -268,7 +268,7 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 * [Documentação de referência de API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [Pacote (índice do pacote do Python)](https://pypi.org/project/azure-storage-file-datalake/)

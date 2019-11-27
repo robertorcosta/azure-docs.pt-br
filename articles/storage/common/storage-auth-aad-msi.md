@@ -26,7 +26,7 @@ Este artigo mostra como autorizar o acesso a dados de BLOB ou de fila de uma VM 
 
 Antes de poder usar identidades gerenciadas para recursos do Azure para autorizar o acesso a BLOBs e filas de sua VM, você deve primeiro habilitar identidades gerenciadas para recursos do Azure na VM. Para saber como habilitar identidades gerenciadas para Recursos do Azure, confira um dos seguintes artigos:
 
-- [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modelo do Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -92,7 +92,7 @@ O comando `az ad sp create-for-rbac` retorna uma lista de propriedades da entida
 
 A biblioteca de cliente de identidade do Azure lê valores de três variáveis de ambiente em tempo de execução para autenticar a entidade de serviço. A tabela a seguir descreve o valor a ser definido para cada variável de ambiente.
 
-|Variável de ambiente|Valor
+|Variável de ambiente|Value
 |-|-
 |`AZURE_CLIENT_ID`|A ID do aplicativo para a entidade de serviço
 |`AZURE_TENANT_ID`|A ID de locatário do Azure AD da entidade de serviço
@@ -117,7 +117,7 @@ Os exemplos neste artigo também usam a versão mais recente da [biblioteca de c
 Install-Package Azure.Identity
 ```
 
-## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código .NET: criar um blob de blocos
+## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código .NET: crie um blob de blocos
 
 Adicione as seguintes diretivas `using` ao seu código para usar as bibliotecas de cliente de armazenamento do Azure e identidade do Azure.
 
@@ -172,8 +172,8 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 > [!NOTE]
 > Para autorizar solicitações em dados de BLOB ou de fila com o Azure AD, você deve usar HTTPS para essas solicitações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre as funções RBAC para o armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).
-- Para saber como autorizar o acesso aos contêineres e filas de seus aplicativos de armazenamento, consulte [Use o Microsoft Azure Active Directory com aplicativos de armazenamento](storage-auth-aad-app.md).
+- Para saber como autorizar o acesso aos contêineres e filas de seus aplicativos de armazenamento, consulte [Use o Azure AD com aplicativos de armazenamento](storage-auth-aad-app.md).
 - Para saber como executar comandos do CLI do Azure e do PowerShell com as credenciais do Azure AD, consulte [executar CLI do Azure ou comandos do PowerShell com as credenciais do Azure ad para acessar dados de BLOB ou de fila](storage-auth-aad-script.md).

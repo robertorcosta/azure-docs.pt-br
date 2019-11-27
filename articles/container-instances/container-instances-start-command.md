@@ -52,7 +52,7 @@ A sintaxe da linha de comando varia dependendo da API do Azure ou da ferramenta 
 
 ### <a name="examples"></a>Exemplos
 
-|    |  CLI do Azure   | Portal | Modelo | 
+|    |  Azure CLI   | Portal | Modelo | 
 | ---- | ---- | --- | --- |
 | Comando único | `--command-line "python myscript.py arg1 arg2"` | **Substituição de comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Vários comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Substituição de comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
@@ -110,7 +110,7 @@ Saída:
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Cenários baseados em tarefas, como processamento em lote de um grande conjunto de grandes com vários contêineres, podem se beneficiar de linhas de comando personalizadas em tempo de execução. Para obter mais informações sobre a execução de contêineres baseados em tarefas, consulte [executar tarefas em contêineres com políticas de reinicialização](container-instances-restart-policy.md).
 

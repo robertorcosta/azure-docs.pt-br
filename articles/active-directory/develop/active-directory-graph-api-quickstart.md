@@ -124,7 +124,7 @@ No exemplo a seguir, o Depurador da Web Fiddler é usado para criar um novo grup
 
 Para obter mais informações sobre os tipos e entidades do Azure AD que são expostas pelo grafo e informações sobre as operações que podem ser executadas neles com o Graph, consulte [referência da API REST do Azure ad Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre a [API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 * Saiba mais sobre os [escopos de permissão do Azure AD API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)

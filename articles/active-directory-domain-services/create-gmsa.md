@@ -95,7 +95,7 @@ New-ADServiceAccount -Name WebFarmSvc `
 
 Agora, aplicativos e serviços podem ser configurados para usar o gMSA conforme necessário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o gMSAs, consulte [introdução às contas de serviço gerenciado de grupo][gmsa-start].
 

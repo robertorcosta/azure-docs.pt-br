@@ -22,7 +22,7 @@ ms.lasthandoff: 11/26/2019
 ms.locfileid: "74546211"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Limpar um ponto de extremidade da CDN do Azure
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Os nós de borda da CDN do Azure armazenarão ativos em cache até a TTL (vida útil) do ativo expirar.  Depois que a TTL do ativo expira, quando um cliente solicita o ativo do nó de borda, o nó recupera uma nova cópia atualizada do ativo para atender à solicitação do cliente e atualizar o armazenamento do cache.
 
 A prática recomendada para garantir que os usuários sempre obtenham a cópia mais recente de seus ativos é verter os ativos para cada atualização e publicá-los como novas URLs.  A CDN recuperará imediatamente os novos ativos para as solicitações do próximo cliente.  Às vezes, convém limpar o conteúdo em cache de todos os nós de borda e forçá-los a recuperar novos ativos atualizados.  Isso pode ocorrer devido a atualizações do aplicativo Web ou para atualizar rapidamente ativos que contenham informações incorretas.
@@ -73,7 +73,7 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
 > 
 > 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 * [Pré-carregar ativos em um ponto de extremidade da CDN do Azure](cdn-preload-endpoint.md)
 * [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](/rest/api/cdn/endpoints)
 

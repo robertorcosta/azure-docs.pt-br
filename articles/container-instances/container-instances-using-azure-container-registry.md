@@ -17,7 +17,7 @@ ms.locfileid: "74533282"
 
 O [Registro de Contêiner do Azure](../container-registry/container-registry-intro.md) é um serviço de registro de contêiner gerenciado, baseado no Azure, usado para armazenar imagens de contêiner de Docker particulares. Este artigo descreve como implantar imagens de contêiner armazenadas em um registro de contêiner do Azure nas Instâncias de Contêiner do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 **Registro de contêiner do Azure**: você precisa de um registro de contêiner do Azure – e pelo menos uma imagem de contêiner no registro – para concluir as etapas neste artigo. Se você precisar de um registro, consulte [Criar um registro de contêiner usando a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -150,7 +150,7 @@ Se você mantiver as imagens de contêiner no Registro de Contêiner do Azure, v
 
     ![Exibição de detalhes de grupo de contêineres das Instâncias de Contêiner do Azure][aci-detailsview]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a autenticação do Registro de Contêiner do Azure, consulte [Autenticar com um registro de contêiner do Azure](../container-registry/container-registry-authentication.md).
 

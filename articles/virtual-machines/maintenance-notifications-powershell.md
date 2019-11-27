@@ -24,7 +24,7 @@ ms.locfileid: "74535828"
 
 Você pode usar o Azure PowerShell para ver quando as VMs estão agendadas para [manutenção](maintenance-notifications.md). As informações de manutenção planejadas estão disponíveis no cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) quando você usa o parâmetro `-status`.
   
-Informações de manutenção são retornadas somente se houver manutenção planejada. Se não houver nenhuma manutenção agendada que afete a VM, o cmdlet não retornará nenhuma informação de manutenção. 
+As informações de manutenção só serão retornadas se houver manutenção planejada. Se não houver nenhuma manutenção agendada que afete a VM, o cmdlet não retornará nenhuma informação de manutenção. 
 
 
 ```powershell
@@ -33,7 +33,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 As propriedades a seguir são retornadas em MaintenanceRedeployStatus: 
 
-| Valor | DESCRIÇÃO   |
+| Value | Descrição   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se você pode iniciar a manutenção na máquina virtual neste momento |
 | PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar a manutenção na sua VM |
@@ -102,6 +102,6 @@ Para iniciar a manutenção na VM clássica, digite:
 Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você também pode manipular a manutenção planejada usando o [CLI do Azure](maintenance-notifications-cli.md) ou o [portal](maintenance-notifications-portal.md).

@@ -60,7 +60,7 @@ Os nós virtuais usam o [Kubelet virtual][aci-connector-k8s] de software livre p
 
 Consulte o projeto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) para obter exemplos adicionais de estender a API do Kubernetes em plataformas de contêiner sem servidor.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Crie seu primeiro contêiner com as Instâncias de Contêiner do Azure usando o [guia de início rápido](container-instances-quickstart.md).
 

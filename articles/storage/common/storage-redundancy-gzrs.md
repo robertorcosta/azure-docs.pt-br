@@ -151,11 +151,11 @@ Para solicitar uma migração ao vivo, use o [portal do Azure](https://ms.portal
     - **Detalhes**: digite detalhes adicionais na caixa de **detalhes** , por exemplo, "Eu gostaria de migrar para GZRS de [lRS, grs] na região do \_\_". ou "Eu gostaria de migrar para o RA-GZRS de [LRS, RA-GRS] na região do \_\_."
 5. Selecione **Avançar**.
 6. Verifique se as informações de contato estão corretas na **informações de contato** folha.
-7. Selecione **Criar**.
+7. Clique em **Criar**.
 
 Um representante de suporte entrará em contato com você para fornecer assistência.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 - [Replicação de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [LRS (armazenamento com redundância local): redundância de dados de baixo custo para Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

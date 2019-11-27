@@ -73,8 +73,8 @@ Importe o arquivo baixado e crie a VM.
 3. Em **Localizar Pasta**, especifique a pasta que contém o VHD extraído. Em seguida, clique em **Próximo**.
 1. Em **Selecionar Máquina Virtual**, clique em **Avançar**.
 2. Em **Escolher Tipo de Importação**, clique em **Copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Próximo**.
-3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Avançar**.
-4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em **Avançar**.
+3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em \\**Próximo**.
+4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em \\**Próximo**.
 5. Em **Escolher Rede**, especifique o comutador virtual que será usado pela VM. O comutador precisa de conectividade com a Internet para enviar dados ao Azure.
 6. Em **Resumo**, examine as configurações. Em seguida, clique em **Concluir**.
 7. No Gerenciador do Hyper-V, > **Máquinas Virtuais**, inicie a máquina virtual.
@@ -153,6 +153,6 @@ Após a descoberta terminar, você poderá verificar se as VMs são exibidas no 
 2. Na página **migrações para Azure – servidores** > **migrações para Azure: avaliação do servidor** , clique no ícone que exibe a contagem de **servidores descobertos**.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Experimente a [avaliação do Hyper-V](tutorial-assess-hyper-v.md) com a avaliação do servidor de migrações para Azure.

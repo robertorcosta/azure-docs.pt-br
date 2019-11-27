@@ -26,7 +26,7 @@ Com o Site Recovery, você pode:
 
 Este artigo descreve como proteger as implantações de aplicativos SAP NetWeaver usando o [Azure Site Recovery](site-recovery-overview.md). O artigo aborda as melhores práticas para proteger uma implantação do SAP NetWeaver de três camadas no Azure por meio da replicação para outro datacenter do Azure usando o Site Recovery. Ele descreve os cenário e as configurações com suporte, e como executar failovers de teste (simulações de recuperação de desastre) e failovers reais.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de que você sabe fazer as tarefas a seguir:
 
 * [Replicar uma máquina virtual no Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -163,6 +163,6 @@ Para obter mais informações, consulte [Failover de teste para Azure no Site Re
 
 Para obter mais informações, consulte [Failover no Site Recovery](site-recovery-failover.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para saber mais sobre como criar uma solução de recuperação de desastre para implantações do SAP NetWeaver usando o Site Recovery, confira o white paper para download [SAP NetWeaver: criando uma solução de recuperação de desastre com o Azure Site Recovery](https://aka.ms/asr_sap). O white paper aborda as recomendações para várias arquiteturas do SAP, lista de aplicativos com suporte e tipos de VM para SAP no Azure e descreve opções de planos de teste para a solução de recuperação de desastre.
 * Saiba mais sobre [como replicar outras cargas de trabalho](site-recovery-workload.md) usando o Site Recovery.

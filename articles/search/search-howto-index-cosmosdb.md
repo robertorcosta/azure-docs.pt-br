@@ -58,7 +58,7 @@ Certifique-se de que seu banco de dados do Cosmos DB contenha dado. O [Assistent
 
 ### <a name="2---start-import-data-wizard"></a>2 - Iniciar o Assistente para Importação de Dados
 
-Você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos na página do serviço pesquisa cognitiva do Azure ou se estiver se conectando ao cosmos DB API do SQL, você pode clicar em **Adicionar Azure pesquisa cognitiva** na seção **configurações** da sua conta do cosmos DB à esquerda painel de navegação.
+Você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos na página do serviço pesquisa cognitiva do Azure ou, se estiver se conectando ao cosmos DB API do SQL, você pode clicar em **Adicionar Azure pesquisa cognitiva** na seção **configurações** do painel de navegação esquerdo da sua conta do cosmos DB.
 
    ![Comando importar dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o assistente Importar dados")
 
@@ -170,7 +170,7 @@ Para criar uma fonte de dados, formule uma solicitação POST:
 
 O corpo da solicitação contém a definição da fonte de dados, que deve incluir os seguintes campos:
 
-| Campo   | DESCRIÇÃO |
+| Campo   | Descrição |
 |---------|-------------|
 | **name** | Obrigatório. Escolha qualquer nome para representar o objeto de fonte de dados. |
 |**tipo**| Obrigatório. Deve ser `cosmosdb`. |
@@ -254,7 +254,7 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 | Bool |Edm.Boolean, Edm.String |
 | Números que se parecem com inteiros |Edm.Int32, Edm.Int64, Edm.String |
 | Números que se parecem com pontos flutuantes |Edm.Double, Edm.String |
-| String |Edm.String |
+| string |Edm.String |
 | Matrizes de tipos primitivos, por exemplo, [“a”, “b”, “c”] |Collection(Edm.String) |
 | Cadeias de caracteres que se parecem com datas |Edm.DateTimeOffset, Edm.String |
 | Objetos GeoJSON, por exemplo, { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

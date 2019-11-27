@@ -31,16 +31,16 @@ As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por
 
 Escolher uma camada de serviço depende principalmente da continuidade dos negócios, armazenamento e requisitos de desempenho.
 
-||Básica|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
-|SLA de tempo de atividade|99,99%|99,99%|99,99%|
+|Contrato de Nível de Serviço de tempo de atividade|99,99%|99,99%|99,99%|
 |Retenção de backup máxima|7 dias|35 dias|35 dias|
 |CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|
 |Taxa de transferência de E/S (aproximada) |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |Latência de E/S (aproximada)|5 ms (leitura), 10 ms (gravação)|5 ms (leitura), 10 ms (gravação)|2 ms (leitura/gravação)|
-|Indexação ColumnStore |N/D|S3 e acima|Suportado|
-|OLTP na memória|N/D|N/D|Suportado|
+|Indexação ColumnStore |N/D|S3 e acima|Com suporte|
+|OLTP na memória|N/D|N/D|Com suporte|
 |||||
 
 > [!IMPORTANT]
@@ -56,14 +56,14 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 
 Os tamanhos da computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [modelo de compra baseado em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
-||Básica|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | Máximo de DTUs | 5 | 3000 | 4000 | 
 |||||
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço no arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU de pool elástico, armazenamento e limites de banco de dados em pool
 
@@ -95,7 +95,7 @@ O parâmetro de comparação e sua metodologia são descritos em mais detalhes a
 
 O parâmetro de comparação mede o desempenho de um conjunto de operações básicas do banco de dados que ocorrem com mais frequência em cargas de trabalho de OLPT (transação online). Embora o parâmetro de comparação seja projetado com a computação em nuvem em mente, o esquema do banco de dados, o preenchimento dos dados e as transações foram projetados para ser amplamente representativos dos elementos básicos mais comumente usados em cargas de trabalho OLTP.
 
-### <a name="schema"></a>ESQUEMA
+### <a name="schema"></a>Esquema
 
 O esquema foi projetado para ter variedade e complexidade suficiente para dar suporte a uma ampla gama de operações. O parâmetro de comparação é executado em um banco de dados composto por seis tabelas. As tabelas recaem em três categorias: tamanho fixo, em escala e crescente. Há duas tabelas de tamanho fixo; três tabelas em escala e uma tabela crescente. As tabelas de tamanho fixo têm um número constante de linhas. As tabelas em escala têm uma cardinalidade proporcional ao desempenho do banco de dados, mas não são alteradas durante o parâmetro de comparação. A tabela crescente é dimensionada como uma tabela em escala na carga inicial, mas depois a cardinalidade é alterada no curso da execução do parâmetro de comparação à medida que as linhas são inseridas e excluídas.
 
@@ -109,7 +109,7 @@ O banco de dados é dimensionado com base em um "fator de escala". O fator de es
 
 A carga de trabalho consiste em nove tipos de transação, conforme mostrado na tabela a seguir. Cada transação é projetada para realçar um conjunto de características do sistema em particular no mecanismo de banco de dados e no hardware do sistema, com alto contraste em relação às outras transações. Essa abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho geral. Por exemplo, a transação "Leitura Intensa" gera um número significativo de operações de leitura do disco.
 
-| Tipo de transação | DESCRIÇÃO |
+| Tipo de transação | Descrição |
 | --- | --- |
 | Leitura Simples |SELECT; na memória; somente leitura |
 | Leitura Média |SELECT; maior parte na memória; somente leitura |
@@ -118,7 +118,7 @@ A carga de trabalho consiste em nove tipos de transação, conforme mostrado na 
 | Atualização Intensa |UPDATE; maior parte fora da memória; leitura/gravação |
 | Inserção Simples |INSERT; na memória; leitura/gravação |
 | Inserção Intensa |INSERT; maior parte fora da memória; leitura/gravação |
-| Exclusão |DELETE; combinação de na memória e não na memória; leitura/gravação |
+| Excluir |DELETE; combinação de na memória e não na memória; leitura/gravação |
 | CPU Intensa |SELECT; na memória; carga de CPU relativamente intensa; somente leitura |
 
 ### <a name="workload-mix"></a>Combinação de carga de trabalho
@@ -134,7 +134,7 @@ As transações são selecionadas aleatoriamente em uma distribuição ponderada
 | Atualização Intensa |3 |
 | Inserção Simples |3 |
 | Inserção Intensa |2 |
-| Exclusão |2 |
+| Excluir |2 |
 | CPU Intensa |10 |
 
 ### <a name="users-and-pacing"></a>Usuários e definição
@@ -172,9 +172,9 @@ As principais métricas no parâmetro de comparação são a taxa de transferên
 | --- | --- | --- |
 | Premium |Transações por segundo |95º percentil em 0,5 segundo |
 | Standard |Transações por minuto |90º percentil em 1,0 segundo |
-| Básica |Transações por hora |80º percentil em 2,0 segundos |
+| Basic |Transações por hora |80º percentil em 2,0 segundos |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter detalhes sobre os tamanhos da computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, confira [Limites de recursos baseados em DTU do Banco de Dados SQL para bancos de dados individuais](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
 - Para obter detalhes sobre os tamanhos da computação específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, confira [Limites de recursos baseados em DTU do Banco de Dados SQL](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

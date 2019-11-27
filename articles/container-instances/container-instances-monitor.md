@@ -130,7 +130,7 @@ Timestamp            Name          Containername             Average
 2019-04-23 23:10:00  Memory Usage  aci-tutorial-sidecar  847872.0
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Monitoramento do Azure na [Visão geral do Monitoramento do Azure][azure-monitoring].
 
