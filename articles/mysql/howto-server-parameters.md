@@ -35,23 +35,23 @@ A lista de parâmetros de servidor com suporte está em constante crescimento. U
 
 ## <a name="non-configurable-server-parameters"></a>Parâmetros do servidor não configuráveis
 
-The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
+O tamanho do pool de buffers InnoDB não é configurável e está vinculado ao seu [tipo de preço](concepts-service-tiers.md).
 
-|**Tipo de preço**|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
+|**Camada de preços**|**vCore(s)**|**Tamanho do pool de buffers InnoDB em MB <br>(servidores com suporte para até 4 TB de armazenamento)**| **Tamanho do pool de buffers InnoDB em MB <br>(servidores com suporte para até 16 TB de armazenamento)**|
 |:---|---:|---:|---:|
-|Basic| 1| 832| |
-|Basic| 2| 2560| |
-|Propósito geral| 2| 3584| 7168|
-|Propósito geral| 4| 7680| 15360|
-|Propósito geral| 8| 15360| 30720|
-|Propósito geral| 16| 31232| 62464|
-|Propósito geral| 32| 62976| 125952|
-|Propósito geral| 64| 125952| 251904|
-|Memória Otimizada| 2| 7168| 14336|
-|Memória Otimizada| 4| 15360| 30720|
-|Memória Otimizada| 8| 30720| 61440|
-|Memória Otimizada| 16| 62464| 124928|
-|Memória Otimizada| 32| 125952| 251904|
+|Básica| 1| 832| |
+|Básica| 2| 2560| |
+|Uso geral| 2| 3584| 7168|
+|Uso geral| 4| 7680| 15360|
+|Uso geral| 8| 15360| 30720|
+|Uso geral| 16| 31232| 62464|
+|Uso geral| 32| 62976| 125952|
+|Uso geral| 64| 125952| 251904|
+|Otimizado para memória| 2| 7168| 14336|
+|Otimizado para memória| 4| 15360| 30720|
+|Otimizado para memória| 8| 30720| 61440|
+|Otimizado para memória| 16| 62464| 124928|
+|Otimizado para memória| 32| 125952| 251904|
 
 Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 
@@ -60,7 +60,7 @@ Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 |innodb_file_per_table na camada Básica|DESATIVADO|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512 MB|
+|innodb_log_file_size|512MB|
 
 Outros parâmetros de servidor que não estão listados aqui são configurados com seus valores padrão iniciais MySQL nas versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
@@ -99,6 +99,6 @@ SET time_zone = 'US/Pacific';
 
 Consulte a documentação do MySQL para [Funções de data e hora](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Bibliotecas de conexão para o Banco de Dados do Azure para MySQL](concepts-connection-libraries.md).

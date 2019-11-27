@@ -12,7 +12,7 @@ ms.locfileid: "74463833"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Exibir e gerenciar clientes e recursos delegados
 
-Provedores de serviço que usam o [gerenciamento de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md) podem usar a página **Meus clientes** no [portal do Azure](https://portal.azure.com) para exibir recursos e assinaturas de clientes delegados. Embora possamos nos referir aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
+Provedores de serviço que usam o [gerenciamento de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md) podem usar a página **Meus clientes** no [portal do Azure](https://portal.azure.com) para exibir recursos e assinaturas de clientes delegados. Embora nos refiramos aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
 Para acessar a página **Meus clientes** no portal do Azure, selecione **Todos os serviços**, pesquise **Meus clientes** e selecione-o. Também é possível encontrá-lo inserindo "Meus clientes" na caixa de pesquisa próxima à parte superior do portal do Azure.
 
@@ -60,7 +60,7 @@ Se você acessar um serviço que dá suporte a [experiências de gerenciamento e
 
 Também é possível acessar a funcionalidade relacionada a assinaturas delegadas ou a grupos de recursos de dentro de serviços que dão suporte a experiências de gerenciamento entre locatários selecionando a assinatura ou o grupo de recursos de dentro desse serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
+- Saiba mais sobre [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
 - Saiba como seus clientes podem [exibir e gerenciar provedores de serviço](view-manage-service-providers.md) acessando **Provedores de serviço** no portal do Azure.

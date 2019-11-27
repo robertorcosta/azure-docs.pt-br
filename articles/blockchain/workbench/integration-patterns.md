@@ -1,6 +1,6 @@
 ---
-title: Smart contract integration patterns - Azure Blockchain Workbench
-description: Overview of smart contract integration patterns in Azure Blockchain Workbench Preview.
+title: Padrões de integração do contrato inteligente – Azure Blockchain Workbench
+description: Visão geral dos padrões de integração do contrato inteligente na visualização do Azure Blockchain Workbench.
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
@@ -174,7 +174,7 @@ Neste modelo, quando uma mensagem em um formato padrão não pode ser enviada di
 
 Um cenário de integração comum é a inclusão de dados de telemetria recuperados de sensores em um contrato inteligente. Com base nos dados fornecidos por sensores, contratos inteligentes podem executar ações informadas e alterar o estado do contrato.
 
-Por exemplo, se a temperatura de um caminhão de entrega de medicamentos dispara a 110 graus, pode afetar a eficiência do medicamento e pode causar um problema de segurança pública se não for detectado e removida da cadeia de fornecimento. If a driver accelerated their car to 100 miles per hour, the resulting sensor information could trigger a cancellation of insurance by their insurance provider. Se um carro for um carro alugado, dados de GPS poderão indicar quando o motorista saiu da área coberta pelo seu contrato de aluguel e cobrar uma multa.
+Por exemplo, se a temperatura de um caminhão de entrega de medicamentos dispara a 110 graus, pode afetar a eficiência do medicamento e pode causar um problema de segurança pública se não for detectado e removida da cadeia de fornecimento. Se um driver acelerasse seu carro a 100 milhas por hora, as informações de sensor resultantes podem disparar um cancelamento de seguro por seu provedor de seguros. Se um carro for um carro alugado, dados de GPS poderão indicar quando o motorista saiu da área coberta pelo seu contrato de aluguel e cobrar uma multa.
 
 O desafio é que esses sensores podem fornecer dados de forma constante e não é apropriado enviar todos esses dados para um contrato inteligente. É uma abordagem comum limitar o número de mensagens enviadas para o blockchain enquanto fornece todas as mensagens para um armazenamento secundário. Por exemplo, entregar mensagens recebidas em apenas intervalo fixo, por exemplo, uma vez por hora, e quando um valor contido fica fora de um intervalo estabelecido para um contrato inteligente. Verificar valores que estão fora de tolerância garante que os dados relevantes para a lógica de negócios contratos sejam recebidos e executados. Verificar o valor no intervalo de confirma que o sensor ainda está se comunicando. Todos os dados são enviados para um armazenamento secundário de relatórios para habilitar o relatório, análise e aprendizado de máquina mais amplo. Por exemplo, embora obter as leituras do sensor de GPS pode não seja necessária a cada minuto para um contrato inteligente, eles podem fornecer dados interessantes a serem usados em relatórios ou no mapeamento de rotas.
 

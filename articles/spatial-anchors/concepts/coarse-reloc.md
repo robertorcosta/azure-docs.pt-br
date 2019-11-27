@@ -15,7 +15,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74270143"
 ---
-# <a name="coarse-relocalization"></a>Relocalidade grosseira
+# <a name="coarse-relocalization"></a>Relocalização grosseira
 
 A relocalização de alta disponibilidade é um recurso que fornece uma resposta inicial para a pergunta: *onde está meu dispositivo agora/qual conteúdo devo observar?* A resposta não é precisa, mas, em vez disso, está no formato: *você está perto dessas âncoras, tente localizar uma delas*.
 

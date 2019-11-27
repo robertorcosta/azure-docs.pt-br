@@ -1,5 +1,5 @@
 ---
-title: Tag resources for logical organization
+title: Marcar recursos para a organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
 ms.date: 10/30/2019
@@ -10,7 +10,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484269"
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>Use marcações para organizar seus recursos do Azure
+# <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
@@ -20,7 +20,7 @@ Para aplicar marcas a recursos, o usuário deve ter acesso de gravação a esse 
 
 ## <a name="policies"></a>Políticas
 
-Você pode usar o [Azure Policy](../governance/policy/overview.md) para impor a marcação de regras e convenções. Ao criar uma política, você deve evitar o cenário de recursos implantados em sua assinatura que não são compatíveis com as marcas esperadas para a sua organização. Em vez de aplicar as marcas ou procurar os recursos que não são compatíveis manualmente, você pode criar uma política que aplica automaticamente as marcas necessárias durante a implantação. Tags can also now be applied to existing resources with the new [Modify](../governance/policy/concepts/effects.md#modify) effect and a [remediation task](../governance/policy/how-to/remediate-resources.md). A seção a seguir mostra as políticas de exemplo para marcas.
+Você pode usar o [Azure Policy](../governance/policy/overview.md) para impor a marcação de regras e convenções. Ao criar uma política, você deve evitar o cenário de recursos implantados em sua assinatura que não são compatíveis com as marcas esperadas para a sua organização. Em vez de aplicar as marcas ou procurar os recursos que não são compatíveis manualmente, você pode criar uma política que aplica automaticamente as marcas necessárias durante a implantação. Agora, as marcas também podem ser aplicadas a recursos existentes com o novo efeito [Modificar](../governance/policy/concepts/effects.md#modify) e uma [tarefa de correção](../governance/policy/how-to/remediate-resources.md). A seção a seguir mostra as políticas de exemplo para marcas.
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -89,7 +89,7 @@ $tags.Add("Status", "Approved")
 Set-AzResourceGroup -Tag $tags -Name examplegroup
 ```
 
-Para adicionar marcas a um *recurso sem marcas existentes*, use:
+Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
 
 ```azurepowershell-interactive
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
@@ -104,7 +104,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *não manter as marcas existentes nos recursos*, use o seguinte script:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -114,7 +114,7 @@ foreach ($g in $groups)
 }
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources that aren't duplicates*, use the following script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *manter as marcas existentes nos recursos que não são duplicatas*, use o seguinte script:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -148,7 +148,7 @@ Para remover todas as marcas, passe uma tabela de hash vazio:
 Set-AzResourceGroup -Tag @{} -Name examplegroup
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 
 Para conferir as marcas existentes para um *grupo de recursos*, use:
 
@@ -197,7 +197,7 @@ Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
 az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-Para adicionar marcas a um *recurso sem marcas existentes*, use:
+Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
 
 ```azurecli
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
@@ -211,7 +211,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *não manter as marcas existentes nos recursos*, use o seguinte script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -227,7 +227,7 @@ do
 done
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources*, use the following script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *manter as marcas existentes nos recursos*, use o seguinte script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -247,7 +247,7 @@ done
 
 ## <a name="templates"></a>Modelos
 
-To tag a resource during deployment, add the `tags` element to the resource you're deploying. Forneça o nome e o valor da marca.
+Para marcar um recurso durante a implantação, adicione o elemento `tags` ao recurso que você está implantando. Forneça o nome e o valor da marca.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Aplicar um valor literal ao nome da marca
 
@@ -283,7 +283,7 @@ O exemplo a seguir mostra uma conta de armazenamento com duas marcas (`Dept` e `
 }
 ```
 
-To set a tag to a datetime value, use the [utcNow function](resource-group-template-functions-string.md#utcnow).
+Para definir uma marca para um valor DateTime, use a [função UtcNow](resource-group-template-functions-string.md#utcnow).
 
 ### <a name="apply-an-object-to-the-tag-element"></a>Aplicar um objeto ao elemento da marca
 
@@ -325,7 +325,7 @@ Você pode definir um parâmetro de objeto que armazena várias marcas e aplicar
 
 ### <a name="apply-a-json-string-to-the-tag-name"></a>Aplicar uma cadeia de caracteres JSON ao nome da marca
 
-Para armazenar diversos valores em uma única marca, aplica uma cadeia de caracteres JSON que representa os valores. The entire JSON string is stored as one tag that can't exceed 256 characters. O exemplo a seguir tem uma única marca denominada `CostCenter` que contém vários valores de uma cadeia de caracteres JSON:  
+Para armazenar diversos valores em uma única marca, aplica uma cadeia de caracteres JSON que representa os valores. A cadeia de caracteres JSON inteira é armazenada como uma marca que não pode exceder 256 caracteres. O exemplo a seguir tem uma única marca denominada `CostCenter` que contém vários valores de uma cadeia de caracteres JSON:  
 
 ```json
 {
@@ -356,9 +356,9 @@ Para armazenar diversos valores em uma única marca, aplica uma cadeia de caract
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Apply tags from resource group
+### <a name="apply-tags-from-resource-group"></a>Aplicar marcas do grupo de recursos
 
-To apply tags from a resource group to a resource, use the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags.[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
+Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](resource-group-template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use a sintaxe `tags.[tag-name]` em vez da sintaxe `tags.tag-name`, porque alguns caracteres não são analisados corretamente na notação de ponto.
 
 ```json
 {
@@ -406,7 +406,7 @@ Você pode recuperar as informações sobre as marcações por meio das [APIs Ra
 
 Para operações de API REST, confira [Referência da API REST de cobrança do Azure](/rest/api/billing/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se você pode aplicar uma tag a um tipo de recurso, consulte [Suporte a tags para recursos do Azure](tag-support.md).
 * Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](manage-resource-groups-portal.md).  

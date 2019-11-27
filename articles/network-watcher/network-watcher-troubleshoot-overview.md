@@ -52,7 +52,7 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado |Sim|
+| NoFault | Quando nenhum erro é detectado |sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
 | PlannedMaintenance |  A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento. | Não |
@@ -60,26 +60,26 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | PlatformInActive | Há um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
 | NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| Não|
-| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Sim |
+| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| sim|
+| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | sim |
 
 ### <a name="connection"></a>Conexão
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado |Sim|
+| NoFault | Quando nenhum erro é detectado |sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento.  | Não |
 | VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
 | ConnectionEntityNotFound | A configuração da conexão está ausente | Não |
 | ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Sim |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
-| Autenticação | Incompatibilidade de chave pré-compartilhada | Sim|
-| PeerReachability | O gateway correspondente não está acessível. | Sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| sim|
+| Autenticação | Incompatibilidade de chave pré-compartilhada | sim|
+| PeerReachability | O gateway correspondente não está acessível. | sim|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 

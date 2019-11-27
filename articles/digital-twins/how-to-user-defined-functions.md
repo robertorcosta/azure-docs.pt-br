@@ -1,5 +1,5 @@
 ---
-title: How to create user-defined functions - in Azure Digital Twins | Microsoft Docs
+title: Como criar funções definidas pelo usuário – no Azure digital gêmeos | Microsoft Docs
 description: Como criar funções definidas pelo usuário, correspondentes e atribuições de função com os Gêmeos Digitais do Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -69,7 +69,7 @@ Com o corpo JSON:
 }
 ```
 
-| Value | Substitua por |
+| Valor | Substitua por |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Em qual região do servidor de sua instância está hospedada |
 
@@ -109,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Value | Substitua por |
+| Valor | Substitua por |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Um nome de limite de conteúdo com diversas partes |
 | YOUR_SPACE_IDENTIFIER | O identificador de espaço  |
@@ -214,7 +214,7 @@ Crie uma atribuição de função para que a função definida pelo usuário sej
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Value | Substitua por |
+    | Valor | Substitua por |
     | --- | --- |
     | YOUR_SPACE_NAME | O nome do espaço que você deseja usar |
 
@@ -234,11 +234,11 @@ Crie uma atribuição de função para que a função definida pelo usuário sej
     }
     ```
 
-    | Value | Substitua por |
+    | Valor | Substitua por |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | O identificador para a função desejada |
     | YOUR_USER_DEFINED_FUNCTION_ID | A ID da função definida pelo usuário que você deseja usar |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | A ID que especifica o tipo de função definido pelo usuário (`UserDefinedFunctionId`) |
     | YOUR_ACCESS_CONTROL_PATH | O caminho de controle de acesso |
 
 >[!TIP]
@@ -252,7 +252,7 @@ O sensor definido no gráfico de inteligência espacial envia telemetria. Por su
 1. Dependendo de quais correspondentes foram avaliados com êxito, recupere as funções definidas pelo usuário associadas.
 1. Execute cada função definida pelo usuário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba com [criar pontos de extremidade de Gêmeos Digitais do Azure ](./how-to-egress-endpoints.md) para envio de eventos.
 

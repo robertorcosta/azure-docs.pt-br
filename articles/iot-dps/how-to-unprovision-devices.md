@@ -1,5 +1,5 @@
 ---
-title: Deprovision devices that were provisioned with Azure IoT Hub Device Provisioning Service
+title: Desprovisionar dispositivos que foram provisionados com o serviço de provisionamento de dispositivos no Hub IoT do Azure
 description: Como desprovisionar dispositivos que foram provisionados com Provisionamento de Dispositivos no Hub IoT
 author: wesmc7777
 ms.author: wesmc

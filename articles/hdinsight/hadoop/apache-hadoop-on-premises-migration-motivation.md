@@ -101,7 +101,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Configuração do Nó Mestre|m/y, cpu, disk, etc.|
 |Configuração de Nós de Dados|m/y, cpu, disk, etc.|
 |Configuração de Nós de Borda|m/y, cpu, disk, etc.|
-|Criptografia de HDFS?|Sim|
+|Criptografia de HDFS?|sim|
 |Alta Disponibilidade|HA do HDFS, HA do Metastore|
 |Recuperação de desastre/backup|Realizar backup do cluster?|  
 |Sistemas que dependem do Cluster|SQL Server, Teradata, Power BI, MongoDB|
@@ -167,8 +167,8 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |---|---|---|
 |**Pergunta**|**Exemplo**|**Resposta**|
 | Região preferida|Leste dos EUA||
-|Rede virtual preferida?|Sim||
-|HA/DR necessárias?|Sim||
+|Rede virtual preferida?|sim||
+|HA/DR necessárias?|sim||
 |Integração com outros serviços de nuvem?|ADF, CosmosDB||
 |**Tópico**: **movimentação de dados**  |||
 |Preferência de carregamento inicial|DistCp, Data Box, ADF, WANDisco||
@@ -177,25 +177,25 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |**Tópico**:   **monitoramento e alertas** |||
 |Usar Monitoramento e Alertas do Azure vs. integrar monitoramento de terceiros|Usar Monitoramento e Alertas do Azure||
 |**Tópico**: **preferências de segurança** |||
-|Pipeline de dados privados e protegidos?|Sim||
-|Cluster de domínio ingressado (ESP)?|     Sim||
-|Sincronização do AD Local com a Nuvem?|     Sim||
+|Pipeline de dados privados e protegidos?|sim||
+|Cluster de domínio ingressado (ESP)?|     sim||
+|Sincronização do AD Local com a Nuvem?|     sim||
 |Número de usuários do AD a serem sincronizados?|          100||
-|OK sincronizar senhas com a nuvem?|    Sim||
-|Somente usuários de nuvem?|                 Sim||
+|OK sincronizar senhas com a nuvem?|    sim||
+|Somente usuários de nuvem?|                 sim||
 |MFA necessária?|                       Não|| 
-|Requisitos de autorização de dados?|  Sim||
-|Controle de Acesso Baseado em Função?|        Sim||
-|Auditoria necessária?|                  Sim||
-|Criptografia de dados em repouso?|          Sim||
-|Criptografia de dados em trânsito?|       Sim||
+|Requisitos de autorização de dados?|  sim||
+|Controle de Acesso Baseado em Função?|        sim||
+|Auditoria necessária?|                  sim||
+|Criptografia de dados em repouso?|          sim||
+|Criptografia de dados em trânsito?|       sim||
 |**Tópico**: **preferências de redefinição de arquitetura** |||
 |Único cluster vs. tipos específicos de cluster|Tipos específicos de cluster||
 |Armazenamento Colocalizados vs. Armazenamento Remoto?|Armazenamento Remoto||
 |Menor tamanho de cluster já que os dados são armazenados remotamente?|Menor tamanho de cluster||
 |Usar vários clusters menores em vez de um único cluster grande?|Usar vários clusters menores||
-|Usar um metastore remoto?|Sim||
-|Compartilhar metastores entre clusters diferentes?|Sim||
+|Usar um metastore remoto?|sim||
+|Compartilhar metastores entre clusters diferentes?|sim||
 |Desconstruir cargas de trabalho?|Substituir trabalhos do Hive por trabalhos do Spark||
 |Usar ADF para orquestração de dados?|Não||
 

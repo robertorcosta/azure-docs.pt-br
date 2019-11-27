@@ -1,6 +1,6 @@
 ---
-title: Jenkins build on container instance
-description: Learn how to configure a Jenkins server to run build jobs on-demand in Azure Container Instances
+title: Jenkins Build na instância de contêiner
+description: Saiba como configurar um servidor Jenkins para executar trabalhos de compilação sob demanda em instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 08/31/2018
 ms.openlocfilehash: e63ade82d4efeed40a9fba6f11d16131e8c728e7
@@ -14,7 +14,7 @@ ms.locfileid: "74484062"
 
 As instâncias de contêiner do Azure (ACI) fornecem um ambiente sob demanda, expansível e isolado para executar as cargas de trabalho em contêiner. Devido a esses atributos, ACI faz uma grande plataforma para executar os trabalhos internos de Jenkins em grande escala. Este artigo percorre a implantação e o uso de um servidor Jenkins pré-configurado com o ACI como um destino de compilação.
 
-For more information on Azure Container Instances, see [About Azure Container Instances][about-aci].
+Para obter mais informações sobre as instâncias de contêiner do Azure, consulte [sobre as instâncias de contêiner do Azure][about-aci].
 
 ## <a name="deploy-a-jenkins-server"></a>Implantar um servidor Jenkins
 
@@ -43,7 +43,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    ![Configurações adicionais de implantação do portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. Selecione **Manual** para fornecer as próprias credenciais da entidade de serviço.
+4. Para a integração da entidade de serviço, selecione **automático (MSI)** para que as [identidades gerenciadas dos recursos do Azure][managed-identities-azure-resources] criem automaticamente uma identidade de autenticação para a instância Jenkins. Selecione **Manual** para fornecer as próprias credenciais da entidade de serviço.
 
 5. Agentes de nuvem configuram uma plataforma baseada em nuvem para trabalhos de build do Jenkins. Para o propósito deste documento, selecione **ACI**. Com o agente de nuvem ACI, cada trabalho de build do Jenkins é executado em uma instância de contêiner.
 
@@ -101,7 +101,7 @@ Agora, um trabalho de build do Jenkins é criado para demonstrar builds dos Jenk
 
    ![Guia "Criar" com as seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 ## <a name="run-the-build-job"></a>Executar o trabalho de build
 
@@ -123,13 +123,13 @@ Para testar o trabalho de build e observar as Instâncias de Contêiner do Azure
 
    ![Grupo de recursos com instâncias de contêiner removido](./media/container-instances-jenkins/jenkins-aci-none.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de solução de problemas
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solução de problemas do plug-in do Jenkins
 
 Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-To learn more about Jenkins on Azure, see [Azure and Jenkins][jenkins-azure].
+Para saber mais sobre o Jenkins no Azure, consulte [Azure e Jenkins][jenkins-azure].
 
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md

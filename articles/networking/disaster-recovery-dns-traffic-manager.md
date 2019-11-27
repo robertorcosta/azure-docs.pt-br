@@ -58,7 +58,7 @@ Este artigo é limitado a abordagens por meio de redirecionamento do tráfego de
 O DNS é um dos mecanismos mais eficientes para desviar o tráfego de rede porque o DNS normalmente é global e externo para o data center e é isolado de quaisquer falhas no nível de zona de disponibilidade (AZ) ou regional. É possível usar um mecanismo de failover com base no DNS e no Azure, dois serviços DNS podem fazer o mesmo de certa maneira - o DNS do Azure DNS (DNS autoritativo) e o Gerenciador de Tráfego do Azure (roteamento de tráfego inteligente baseado em DNS). 
 
 É importante compreender alguns conceitos no DNS que são amplamente usados para discutir as soluções fornecidas neste artigo:
-- **DNS A Record** – A Records are pointers that point a domain to an IPv4 address. 
+- **Registro A de DNS** – registros a são ponteiros que apontam um domínio para um endereço IPv4. 
 - **Nome CNAME ou Canonical** - Este tipo de registro é usado para apontar para outro registro de DNS. CNAME não responde com um endereço IP, mas com o ponteiro para o registro que contém o endereço IP. 
 - **Roteamento ponderado** – É possível escolher associar um peso para pontos de extremidade de serviço e, em seguida, distribuir o tráfego com base nos níveis de importância atribuídos. Esse método de roteamento é um dos quatro mecanismos de roteamento de tráfego disponíveis no Gerenciador de Tráfego. Para obter mais informações, consulte [Método de roteamento ponderado](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Roteamento prioritário** – O roteamento prioritário é baseado em verificações de integridade de pontos de extremidade. Por padrão, o Gerenciador de Tráfego do Azure envia todo o tráfego para o ponto de extremidade de prioridade mais alta e, após uma falha ou desastre, o Gerenciador de Tráfego roteia o tráfego para o ponto de extremidade secundário. Para obter mais informações, consulte [Método de roteamento prioritário](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
@@ -72,7 +72,7 @@ A solução de failover manual do DNS do Azure para recuperação de desastre us
 
 As suposições feitas para a solução são:
 - Os pontos de extremidade primários e secundários têm IPs estáticos que não são alterados com frequência. Digamos que para o site primário, o IP é 100.168.124.44 e o IP para o site secundário é 100.168.124.43.
-- Existe uma zona DNS do Azure para o site primário e secundário. Digamos que, para o site primário o ponto de extremidade é prod.contoso.com e para o site de backup é dr.contoso.com. A DNS record for the main application known as www\.contoso.com also exists.   
+- Existe uma zona DNS do Azure para o site primário e secundário. Digamos que, para o site primário o ponto de extremidade é prod.contoso.com e para o site de backup é dr.contoso.com. Um registro DNS para o aplicativo principal conhecido como www\.contoso.com também existe.   
 - O TTL está no limite ou abaixo do SLA de RTO definido na organização. Por exemplo, se uma empresa define o RTO da resposta de desastre do aplicativo para ser de 60 minutos, então o valor TTL deve ser menor que 60 minutos, preferencialmente quanto menor, melhor. 
   Você pode configurar o DNS do Azure para failover manual da seguinte maneira:
 - Criar uma zona DNS
@@ -80,7 +80,7 @@ As suposições feitas para a solução são:
 - Atualizar um registro CNAME
 
 ### <a name="step-1-create-a-dns"></a>Etapa 1: Criar um DNS
-Create a DNS zone (for example, www\.contoso.com) as shown below:
+Crie uma zona DNS (por exemplo, www\.contoso.com), conforme mostrado abaixo:
 
 ![Criar uma zona DNS no Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -88,13 +88,13 @@ Create a DNS zone (for example, www\.contoso.com) as shown below:
 
 ### <a name="step-2-create-dns-zone-records"></a>Etapa 2: Criar registros de zona DNS
 
-Within this zone create three records (for example - www\.contoso.com, prod.contoso.com and dr.consoto.com) as show below.
+Nessa zona, crie três registros (por exemplo, www\.contoso.com, prod.contoso.com e dr.consoto.com), conforme mostrado abaixo.
 
 ![Criar registros de zona DNS](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Figura - Criar registros de zona DNS no Azure*
 
-In this scenario, site, www\.contoso.com has a TTL of 30 mins, which is well below the stated RTO, and is pointing to the production site prod.contoso.com. Essa configuração é aplicável durante operações normais de negócios. O TTL de prod.contoso.com e dr.contoso.com foi definido para 300 segundos ou 5 minutos. Você pode usar o serviço de monitoramento do Azure ou o Aplicativo Azure Insights, ou qualquer solução de monitoramento de parceiros como Dynatrace, você pode até usar soluções personalizadas que podem monitorar ou detectar falhas no nível de infraestrutura virtual ou do aplicativo.
+Nesse cenário, site, www\.contoso.com tem um TTL de 30 minutos, que está bem abaixo do RTO declarado e está apontando para o site de produção prod.contoso.com. Essa configuração é aplicável durante operações normais de negócios. O TTL de prod.contoso.com e dr.contoso.com foi definido para 300 segundos ou 5 minutos. Você pode usar o serviço de monitoramento do Azure ou o Aplicativo Azure Insights, ou qualquer solução de monitoramento de parceiros como Dynatrace, você pode até usar soluções personalizadas que podem monitorar ou detectar falhas no nível de infraestrutura virtual ou do aplicativo.
 
 ### <a name="step-3-update-the-cname-record"></a>Etapa 3: Atualizar o registro CNAME
 
@@ -104,7 +104,7 @@ Depois da falha ser detectada, altere o valor de registro para apontar para dr.c
 
 *Figura - Atualizar o registro CNAME no Azure*
 
-Within 30 minutes, during which most resolvers will refresh the cached zone file, any query to www\.contoso.com will be redirected to dr.contoso.com.
+Dentro de 30 minutos, durante o qual a maioria dos resolvedores atualizará o arquivo de zona armazenado em cache, qualquer consulta ao www\.contoso.com será redirecionada para dr.contoso.com.
 Você também pode executar o seguinte comando na CLI do Azure para alterar o valor CNAME:
  ```azurecli
    az network dns record-set cname set-record \
@@ -140,9 +140,9 @@ As etapas para configurar o failover com o Gerenciador de Tráfego do Azure são
 ### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Etapa 1: Criar um novo perfil do Gerenciador de Tráfego do Azure
 Criar um novo perfil do Gerenciador de Tráfego do Azure com o nome contoso123 e selecione o Método de roteamento como Prioritário. Se você tiver um grupo de recursos já existente que você deseja associar, então você pode selecionar um grupo de recursos existente, caso contrário, crie um novo grupo de recursos.
 
-![Create Traffic Manager profile](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+![Criar perfil do Gerenciador de tráfego](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
-*Figure - Create a Traffic Manager profile*
+*Figura-criar um perfil do Gerenciador de tráfego*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Etapa 2: Criar pontos de extremidade no perfil do Gerenciador de Tráfego
 
@@ -167,7 +167,7 @@ Se Repetição estiver definida como 1 e o TTL estiver definido como 10 segundos
 
 Durante um desastre, o ponto de extremidade primário é analisado e o status é alterado para **degradado** e o site recuperação de desastre permanece **Online**. Por padrão, o Gerenciador de Tráfego envia todo o tráfego para o ponto de extremidade primário (prioridade mais alta). Se o ponto de extremidade primário aparece como degradado, o Gerenciador de Tráfego roteia o tráfego para o segundo ponto de extremidade desde que ele permaneça íntegro. Existe a opção de configurar mais pontos de extremidade no Gerenciador de Tráfego que podem servir como pontos de extremidade de failover adicionais ou, como balanceadores de carga que compartilham a carga entre os pontos de extremidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md).
 - Saiba mais sobre [DNS do Azure](../dns/dns-overview.md).
 

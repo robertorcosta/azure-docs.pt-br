@@ -24,7 +24,7 @@ Se você for um desenvolvedor de Software como Serviço e seu aplicativo sofrer 
 
 A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. Um administrador ou desenvolvedor usa a ferramenta para mover shardlets (dados de um fragmento) entre diferentes bancos de dados (fragmentos). A ferramenta usa o gerenciamento de mapa de fragmentos para manter o banco de dados de metadados de serviço e garantir mapeamentos consistentes.
 
-![Visão Geral][1]
+![Visão geral][1]
 
 ## <a name="download"></a>Baixar
 
@@ -219,7 +219,7 @@ O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
 Para habilitar o monitoramento e diagnóstico usando a configuração de diagnóstico para as funções Web e de trabalho fornecidas pelo pacote NuGet, execute os seguintes comandos usando o Azure PowerShell:
 
@@ -251,7 +251,7 @@ O WADLogsTable destacado na figura acima contém os eventos detalhados do log de
 
 ![Configuração][3]
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Desempenho
 
 Em geral, é esperado um melhor desempenho das camadas de serviço maiores e mais funcionais no Banco de dados SQL do Azure. Alocações de E/S, CPU e memória maiores para camadas de serviço mais altas beneficiarão a cópia em massa e excluirão operações que o serviço de divisão/mesclagem usa internamente. Por esse motivo, aumente a camada de serviço apenas para os bancos de dados por um período definido e limitado.
 

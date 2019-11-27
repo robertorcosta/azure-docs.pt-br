@@ -22,7 +22,7 @@ Após criar os módulos do IoT Edge com a lógica de negócios, você pretende i
 
 Este artigo mostra como criar um manifesto de implantação JSON e usar esse arquivo para enviar a implantação a um dispositivo do IoT Edge. Para obter informações sobre como criar uma implantação voltada a vários dispositivos com base nas marcações compartilhadas, consulte [Implantar e monitorar módulos do IoT Edge em escala](how-to-deploy-monitor.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na assinatura do Azure.
 * Um [Dispositivo do IoT Edge](how-to-register-device.md#register-with-visual-studio-code) com o runtime do IoT Edge instalado.
@@ -119,7 +119,7 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
 
 1. Selecione sua assinatura do Azure.
 
-1. Selecione seu Hub IoT.
+1. Selecione o Hub IoT.
 
 ## <a name="deploy-to-your-device"></a>Implantar no seu dispositivo
 
@@ -148,6 +148,6 @@ Se você implantou recentemente novos módulos em um dispositivo, passe o mouse 
 
 Clique com o botão direito do mouse no nome de um módulo para exibir e editar o módulo gêmeo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [Implantar e monitorar módulos do IoT Edge em escala](how-to-deploy-monitor.md)

@@ -1,5 +1,5 @@
 ---
-title: Enable multitenant applications - Azure Digital Twins | Microsoft Docs
+title: Habilitar aplicativos multilocatários – Azure digital gêmeos | Microsoft Docs
 description: Como configurar aplicativos multilocatário do Azure Active Directory para os Gêmeos Digitais do Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -54,18 +54,18 @@ Para resolver o cenário de problema anterior, as seguintes ações são necess�
 
 - No [portal do Azure](https://portal.azure.com), o administrador do locatário do Azure Active Directory do **CUSTOMER** realiza as seguintes etapas:
 
-  1. Search for **Subscriptions** in the top Azure search field. Selecione **Assinaturas**.
+  1. Procure **assinaturas** no campo de pesquisa superior do Azure. Selecione **Assinaturas**.
   1. Selecione a assinatura que tem um locatário do Azure Active Directory a ser usado no aplicativo do **DEVELOPER**.
 
-     [![Azure Active Directory subscriptions](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
+     [![Azure Active Directory assinaturas](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. Selecione **Provedores de Recursos**.
   1. Pesquise **Microsoft.IoTSpaces**.
   1. Selecione **Registrar**.
 
-     [![Azure Active Directory resource providers](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
+     [provedores de recursos de Azure Active Directory ![](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como usar funções definidas pelo usuário com os Gêmeos Digitais do Azure, leia [Como criar funções definidas pelo usuário dos Gêmeos Digitais do Azure](./how-to-user-defined-functions.md).
 

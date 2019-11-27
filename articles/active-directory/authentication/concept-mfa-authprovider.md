@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Auth Providers - Azure Active Directory
+title: Provedores de autenticação multifator do Azure-Azure Active Directory
 description: Quando você deve usar um Provedor de Autenticação com o Azure MFA?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -25,11 +25,11 @@ A autenticação em duas etapas está disponível por padrão para os administra
 Um Provedor de Autenticação Multifator do Azure é usado para aproveitar os recursos fornecidos pela Autenticação Multifator do Microsoft Azure para usuários que **não têm licenças**.
 
 > [!NOTE]
-> A partir de 1º de setembro de 2018, novos provedores de autenticação não poderão mais ser criados. Existing auth providers may continue to be used and updated, but migration is no longer possible. A autenticação multifator continuará disponível como um recurso nas licenças do Microsoft Azure Active Directory Premium.
+> A partir de 1º de setembro de 2018, novos provedores de autenticação não poderão mais ser criados. Os provedores de autenticação existentes podem continuar sendo usados e atualizados, mas a migração não é mais possível. A autenticação multifator continuará disponível como um recurso nas licenças do Microsoft Azure Active Directory Premium.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Limitações relacionadas ao SDK do Azure MFA
 
-Observe que o SDK foi descontinuado e continuará funcionando até 14 de novembro de 2018. Após essa data, as chamadas para o SDK falharão.
+Observe que o SDK foi descontinuado e continuará funcionando até 14 de novembro de 2018. Depois dessa data, as chamadas para o SDK falharão.
 
 ## <a name="what-is-an-mfa-provider"></a>O que é um Provedor MFA?
 
@@ -43,18 +43,18 @@ Se você comprou licenças suficientes para cobrir todos os usuários que estão
 
 Se o seu provedor de MFA não estiver vinculado a um locatário do Azure AD, ou você vincula o novo provedor de MFA a um locatário diferente do Azure AD, as opções de definições de usuário e de configuração não serão transferidas. Além disso, os servidores MFA existentes do Azure precisarão ser reativados usando as credenciais de ativação geradas por meio do provedor de MFA. Reativar os servidores MFA para vinculá-los ao provedor de MFA não afeta a autenticação de chamada telefônica e de mensagens de texto, mas as notificações de aplicativo móvel deixarão de funcionar para todos os usuários até que eles reativem o aplicativo móvel.
 
-### <a name="removing-an-authentication-provider"></a>Removing an authentication provider
+### <a name="removing-an-authentication-provider"></a>Removendo um provedor de autenticação
 
 > [!CAUTION]
-> There is no confirmation when deleting an authentication provider. Selecting **Delete** is a permanent process.
+> Não há nenhuma confirmação ao excluir um provedor de autenticação. Selecionar **excluir** é um processo permanente.
 
-Authentication providers can be found in the **Azure portal** > **Azure Active Directory** > **MFA** > **Providers**. Click on listed providers to see details and configurations associated with that provider.
+Os provedores de autenticação podem ser encontrados no **portal do Azure** > **Azure Active Directory** > **provedores**de > **MFA** . Clique em provedores listados para ver detalhes e configurações associadas a esse provedor.
 
-Before removing an authentication provider, take note of any customized settings configured in your provider. Decide what settings need to be migrated to general MFA settings from your provider and complete the migration of those settings. 
+Antes de remover um provedor de autenticação, anote todas as configurações personalizadas definidas em seu provedor. Decida quais configurações precisam ser migradas para as configurações gerais do MFA de seu provedor e conclua a migração dessas configurações. 
 
-Azure MFA Servers linked to providers will need to be reactivated using credentials generated under **Azure portal** > **Azure Active Directory** > **MFA** > **Server settings**. Before reactivating, the following files must be deleted from the `\Program Files\Multi-Factor Authentication Server\Data\` directory on Azure MFA Servers in your environment:
+Os servidores do Azure MFA vinculados aos provedores deverão ser reativados usando as credenciais geradas em **portal do Azure** > **Azure Active Directory** > **as configurações do servidor** > **MFA** . Antes de reativar, os seguintes arquivos devem ser excluídos do diretório `\Program Files\Multi-Factor Authentication Server\Data\` nos servidores do Azure MFA em seu ambiente:
 
-- caCert
+- cacerts
 - cert
 - groupCACert
 - groupKey
@@ -62,16 +62,16 @@ Azure MFA Servers linked to providers will need to be reactivated using credenti
 - licenseKey
 - pkey
 
-![Delete an auth provider from the Azure portal](./media/concept-mfa-authprovider/authentication-provider-removal.png)
+![Excluir um provedor de autenticação da portal do Azure](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-When you have confirmed that all settings have been migrated, you can browse to the **Azure portal** > **Azure Active Directory** > **MFA** > **Providers** and select the ellipses **...** and select **Delete**.
+Depois de confirmar que todas as configurações foram migradas, você pode navegar até o **portal do Azure** > **Azure Active Directory** > os **provedores** de > do **MFA** e selecionar as reticências **...** e selecionar **excluir**.
 
 > [!WARNING]
-> Deleting an authentication provider will delete any reporting information associated with that provider. You may want to save activity reports before deleting your provider.
+> A exclusão de um provedor de autenticação excluirá todas as informações de relatório associadas a esse provedor. Talvez você queira salvar os relatórios de atividade antes de excluir seu provedor.
 
 > [!NOTE]
-> Users with older versions of the Microsoft Authenticator app and Azure MFA Server may need to re-register their app.
+> Os usuários com versões mais antigas do aplicativo Microsoft Authenticator e do servidor MFA do Azure podem precisar registrar novamente seu aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Definir as configurações da Autenticação Multifator](howto-mfa-mfasettings.md)

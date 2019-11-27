@@ -1,5 +1,5 @@
 ---
-title: Set up liveness probe on container instance
+title: Configurar investigação de vida na instância de contêiner
 description: Saiba como configurar investigações de atividade para reiniciar contêineres não íntegros em Instâncias de Contêiner do Azure
 ms.topic: article
 ms.date: 06/08/2018
@@ -12,11 +12,11 @@ ms.locfileid: "74481675"
 ---
 # <a name="configure-liveness-probes"></a>Configurar investigações de atividade
 
-Containerized applications may run for extended periods of time, resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes so that you can configure your containers within your container group to restart if critical functionality is not working. The liveness probe behaves like a [Kubernetes liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+Os aplicativos em contêineres podem ser executados por longos períodos de tempo, resultando em Estados desfeitos que talvez precisem ser reparados reiniciando o contêiner. As instâncias de contêiner do Azure dão suporte a investigações de vida para que você possa configurar seus contêineres dentro do grupo de contêineres para reiniciar se a funcionalidade crítica não estiver funcionando. A investigação de tempo de vida se comporta como uma [investigação de vida kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 Este artigo explica como implantar um grupo de contêineres que inclui uma investigação de atividade, demonstrando a reinicialização automática de um contêiner não íntegro simulado.
 
-Azure Container Instances also supports [readiness probes](container-instances-readiness-probe.md), which you can configure to ensure that traffic reaches a container only when it's ready for it.
+As instâncias de contêiner do Azure também dão suporte a [investigações de preparação](container-instances-readiness-probe.md), que podem ser configuradas para garantir que o tráfego atinja um contêiner somente quando ele estiver pronto para ele.
 
 ## <a name="yaml-deployment"></a>Implantação do YAML
 
@@ -60,17 +60,17 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Comando inicial
 
-The deployment defines a starting command to be run when the container first starts running, defined by the `command` property, which accepts an array of strings. Neste exemplo, ela inicia uma sessão de bash e crie um arquivo chamado `healthy` dentro do diretório `/tmp` por meio deste comando:
+A implantação define um comando inicial a ser executado quando o contêiner começa a ser executado pela primeira vez, definido pela propriedade `command`, que aceita uma matriz de cadeias de caracteres. Neste exemplo, ela inicia uma sessão de bash e crie um arquivo chamado `healthy` dentro do diretório `/tmp` por meio deste comando:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- It will then sleep for 30 seconds before deleting the file, then enters a 10-minute sleep.
+ Em seguida, ele será suspenso por 30 segundos antes de excluir o arquivo e, em seguida, entrará em uma suspensão de 10 minutos.
 
 ### <a name="liveness-command"></a>Comando de atividade
 
-This deployment defines a `livenessProbe` that supports an `exec` liveness command that acts as the liveness check. Se a saída desse comando for um valor diferente de zero, o contêiner será interrompido e reiniciado, sinalizando que não foi possível encontrar o arquivo `healthy`. Se a o comando for encerrado com êxito com o código de saída 0, nenhuma ação será executada.
+Essa implantação define um `livenessProbe` que dá suporte a um comando de `exec` de tempo de vida que atua como a verificação de tempo de vida. Se a saída desse comando for um valor diferente de zero, o contêiner será interrompido e reiniciado, sinalizando que não foi possível encontrar o arquivo `healthy`. Se a o comando for encerrado com êxito com o código de saída 0, nenhuma ação será executada.
 
 A propriedade `periodSeconds` indica que o comando deve ser executado a cada cinco segundos.
 
@@ -84,7 +84,7 @@ Esses eventos podem ser exibidos do Portal do Azure ou na CLI do Azure.
 
 ![Evento não íntegro no portal][portal-unhealthy]
 
-Ao exibir os eventos no Portal do Azure, os eventos do tipo `Unhealthy` serão acionados após a falha do comando de atividade. O evento subsequente será do tipo `Killing`, indicando a exclusão do contêiner para que a reinicialização possa começar. The restart count for the container increments each time this event  occurs.
+Ao exibir os eventos no Portal do Azure, os eventos do tipo `Unhealthy` serão acionados após a falha do comando de atividade. O evento subsequente será do tipo `Killing`, indicando a exclusão do contêiner para que a reinicialização possa começar. A contagem de reinicialização para o contêiner é incrementada toda vez que esse evento ocorre.
 
 As reinicializações ocorrem in-loco, portanto, recursos como endereços IP públicos e conteúdo específico ao nó serão preservados.
 
@@ -94,9 +94,9 @@ Se investigação de atividade falhar continuamente e acionar muitas reinicializ
 
 ## <a name="liveness-probes-and-restart-policies"></a>Políticas de investigação de atividade e reinicialização
 
-As políticas de reinicialização substituem o comportamento de reinicialização acionado pelas investigações de atividade. For example, if you set a `restartPolicy = Never` *and* a liveness probe, the container group will not restart because of a failed liveness check. Em vez disso, o grupo de contêineres seguirá a política de reinicialização do grupo de contêineres de `Never`.
+As políticas de reinicialização substituem o comportamento de reinicialização acionado pelas investigações de atividade. Por exemplo, se você definir um `restartPolicy = Never` *e* uma investigação de tempo de vida, o grupo de contêineres não será reiniciado devido a uma verificação de falha de vida. Em vez disso, o grupo de contêineres seguirá a política de reinicialização do grupo de contêineres de `Never`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Cenários com base em tarefas podem exigir que a investigação de atividade permita reinicializações automáticas se uma função pré-requisitada não estiver funcionando corretamente. Para obter mais informações sobre a execução de contêineres com base em tarefas, consulte [Executar tarefas em contêineres nas Instâncias de Contêiner do Azure](container-instances-restart-policy.md).
 

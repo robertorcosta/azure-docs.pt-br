@@ -36,7 +36,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 > [!NOTE]
 > O suporte para Zonas de Disponibilidade está disponível para selecionar recursos e regiões do Azure e famílias de tamanho de VM. Para obter mais informações sobre como começar e com quais recursos, regiões e famílias de tamanhos de VM do Azure você pode experimentar as zonas de disponibilidade, confira [Visão geral das Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, entre em contato em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abra um tíquete de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
-## <a name="create-a-resource-group"></a>Criar um grupos de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Criar um Standard IP público com redundância de zona
-Para acessar seu aplicativo na Internet, você precisará de um endereço IP público para o balanceador de carga. Um front-end com redundância de zona é atendido por todas as zonas de disponibilidade em uma região simultaneamente. Create a zone redundant public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). Quando você cria um endereço IP público Standard, ele é com redundância de zona por padrão.
+Para acessar seu aplicativo na Internet, você precisará de um endereço IP público para o balanceador de carga. Um front-end com redundância de zona é atendido por todas as zonas de disponibilidade em uma região simultaneamente. Crie um endereço IP público com redundância de zona com [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create). Quando você cria um endereço IP público Standard, ele é com redundância de zona por padrão.
 
 O exemplo a seguir cria um endereço IP público com redundância de zona nomeado *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*.
 
@@ -61,7 +61,7 @@ az network public-ip create \
 ```
 
 ## <a name="create-azure-standard-load-balancer"></a>Criar o Azure Standard Load Balancer
-Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
+Esta seção fornece detalhes sobre como criar e configurar os componentes a seguir do balanceador de carga:
 - um pool de IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
 - um pool de IP de back-end no qual o pool de front-end envia o tráfego de rede com a carga balanceada.
 - uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
@@ -112,7 +112,7 @@ az network lb rule create \
 ## <a name="configure-virtual-network"></a>Configurar rede virtual
 Antes de implantar algumas VMs e poder testar o balanceador de carga, crie os recursos de suporte de rede virtual.
 
-### <a name="create-a-virtual-network"></a>Crie uma rede virtual
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Crie uma rede virtual nomeada *myVnet* com uma sub-rede nomeada *mySubnet* no myResourceGroup usando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
@@ -249,7 +249,7 @@ Você pode inserir o endereço IP público em um navegador da Web. Lembre-se - l
 
 Para ver o balanceador de carga distribuir o tráfego nas VMs em todas as três zonas de disponibilidade executando o aplicativo, você pode interromper uma VM em uma determinada zona e atualizar o navegador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [Load Balancer Standard](./load-balancer-standard-overview.md)
 
 

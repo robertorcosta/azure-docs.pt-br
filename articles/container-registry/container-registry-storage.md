@@ -1,5 +1,5 @@
 ---
-title: Container image storage
+title: Armazenamento de imagem de contêiner
 description: Detalhes sobre como as imagens de contêiner do Docker são armazenadas no Registro de Contêiner do Azure, incluindo segurança, redundância e capacidade.
 ms.topic: article
 ms.date: 03/21/2018
@@ -30,7 +30,7 @@ Para cenários que exigem ainda mais garantia de alta disponibilidade, utilize o
 
 A tabela a seguir descreve os limites de armazenamento e imagem de contêiner em vigor para os registros de contêiner do Azure.
 
-| Grupos | Limite |
+| Recurso | Limite |
 | -------- | :---- |
 | Repositórios | Sem limite |
 | Imagens | Sem limite |
@@ -42,9 +42,9 @@ Números muito altos de repositórios e marcas podem afetar o desempenho do regi
 
 ## <a name="storage-cost"></a>Custo de armazenamento
 
-For full details about pricing, see [Azure Container Registry pricing][pricing].
+Para obter detalhes completos sobre os preços, consulte [preços do registro de contêiner do Azure][pricing].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre as diferentes SKUs de Registro de Contêiner do Azure (Básico, Standard e Premium), consulte [SKUs do Registro de Contêiner do Azure](container-registry-skus.md).
 

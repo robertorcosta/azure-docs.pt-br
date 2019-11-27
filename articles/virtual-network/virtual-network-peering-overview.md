@@ -21,102 +21,102 @@ ms.locfileid: "74328371"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
-Virtual network peering enables you to seamlessly connect networks in [Azure Virtual Network](virtual-networks-overview.md). The virtual networks appear as one for connectivity purposes. The traffic between virtual machines uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's *private* network only.
+O emparelhamento de rede virtual permite que você conecte diretamente as redes na [rede virtual do Azure](virtual-networks-overview.md). As redes virtuais aparecem como uma para fins de conectividade. O tráfego entre as máquinas virtuais usa a infraestrutura de backbone da Microsoft. Assim como o tráfego entre as máquinas virtuais na mesma rede, o tráfego é roteado somente pela rede *privada* da Microsoft.
 
-Azure supports the following types of peering:
+O Azure dá suporte aos seguintes tipos de emparelhamento:
 
-* Virtual network peering: Connect virtual networks within the same Azure region.
-* Global virtual network peering: Connecting virtual networks across Azure regions.
+* Emparelhamento de rede virtual: Conecte redes virtuais na mesma região do Azure.
+* Emparelhamento de rede virtual global: conectando redes virtuais em regiões do Azure.
 
 Os benefícios do uso do emparelhamento de rede virtual, seja local ou global, incluem:
 
 * Baixa latência, conexão com largura de banda alta entre os recursos em redes virtuais diferentes.
-* The ability for resources in one virtual network to communicate with resources in a different virtual network.
-* The ability to transfer data between virtual networks across Azure subscriptions, Azure Active Directory tenants, deployment models, and Azure regions.
-* The ability to peer virtual networks created through the Azure Resource Manager.
-* The ability to peer a virtual network created through Resource Manager to one created through the classic deployment model. Para saber mais sobre os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* A capacidade de recursos em uma rede virtual se comunicarem com recursos em uma rede virtual diferente.
+* A capacidade de transferir dados entre redes virtuais entre as assinaturas do Azure, Azure Active Directory locatários, modelos de implantação e regiões do Azure.
+* A capacidade de emparelhar redes virtuais criadas por meio do Azure Resource Manager.
+* A capacidade de emparelhar uma rede virtual criada por meio do Resource Manager para uma criada por meio do modelo de implantação clássico. Para saber mais sobre os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Nenhum tempo de inatividade para recursos em qualquer rede virtual ao criar o emparelhamento ou depois que o emparelhamento é criado.
 
 O tráfego de rede entre redes virtuais emparelhadas é particular. O tráfego entre as redes virtuais é mantido na rede de backbone da Microsoft. Não são necessários a Internet pública, os gateways ou a criptografia na comunicação entre as redes virtuais.
 
 ## <a name="connectivity"></a>Conectividade
 
-For peered virtual networks, resources in either virtual network can directly connect with resources in the peered virtual network.
+Para redes virtuais emparelhadas, os recursos em qualquer rede virtual podem se conectar diretamente com recursos na rede virtual emparelhada.
 
 A latência de rede entre as máquinas virtuais em redes virtuais emparelhadas na mesma região é a mesma latência de uma única rede virtual. A taxa de transferência da rede tem base na largura de banda permitida para a máquina virtual, que é proporcional ao seu tamanho. Não existe restrição adicional quanto à largura de banda no emparelhamento.
 
 O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas é roteado diretamente pela infraestrutura de backbone da Microsoft, não por um gateway ou pela Internet pública.
 
-You can apply network security groups in either virtual network to block access to other virtual networks or subnets.
-When configuring virtual network peering, either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks, you can apply network security groups to block or deny specific access. Full connectivity is the default option. To learn more about network security groups, see [Security groups](security-overview.md).
+Você pode aplicar grupos de segurança de rede em qualquer rede virtual para bloquear o acesso a outras redes virtuais ou sub-redes.
+Ao configurar o emparelhamento de rede virtual, abra ou feche as regras do grupo de segurança de rede entre as redes virtuais. Se você abrir a conectividade completa entre redes virtuais emparelhadas, poderá aplicar grupos de segurança de rede para bloquear ou negar acesso específico. A conectividade completa é a opção padrão. Para saber mais sobre grupos de segurança de rede, consulte [grupos de segurança](security-overview.md).
 
 ## <a name="service-chaining"></a>Encadeamento de serviços
 
-Service chaining enables you to direct traffic from one virtual network to a virtual appliance or gateway in a peered network through user-defined routes.
+O encadeamento de serviços permite direcionar o tráfego de uma rede virtual para um dispositivo virtual ou gateway em uma rede emparelhada por meio de rotas definidas pelo usuário.
 
-To enable service chaining, configure user-defined routes that point to virtual machines in peered virtual networks as the *next hop* IP address. User-defined routes could also point to virtual network gateways to enable service chaining.
+Para habilitar o encadeamento de serviços, configure rotas definidas pelo usuário que apontem para máquinas virtuais em redes virtuais emparelhadas como o endereço IP do *próximo salto* . As rotas definidas pelo usuário também podem apontar para gateways de rede virtual para habilitar o encadeamento de serviços.
 
-You can deploy hub-and-spoke networks, where the hub virtual network hosts infrastructure components such as a network virtual appliance or VPN gateway. Todas as redes virtuais contadas podem emparelhar com a rede virtual do hub. Traffic flows through network virtual appliances or VPN gateways in the hub virtual network.
+Você pode implantar redes Hub e spoke, onde a rede virtual do Hub hospeda componentes de infraestrutura, como uma solução de virtualização de rede ou um gateway de VPN. Todas as redes virtuais contadas podem emparelhar com a rede virtual do hub. O tráfego flui através de dispositivos de virtualização de rede ou gateways de VPN na rede virtual do Hub.
 
-O emparelhamento de redes virtuais permite que o próximo salto em uma rota definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada, ou o gateway de VPN. You can't route between virtual networks with a user-defined route that specifies an Azure ExpressRoute gateway as the next hop type. Para saber mais sobre as rotas definidas pelo usuário, confira [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined). To learn how to create a hub and spoke network topology, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O emparelhamento de redes virtuais permite que o próximo salto em uma rota definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada, ou o gateway de VPN. Não é possível rotear entre redes virtuais com uma rota definida pelo usuário que especifique um gateway de ExpressRoute do Azure como o tipo do próximo salto. Para saber mais sobre as rotas definidas pelo usuário, confira [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined). Para saber como criar uma topologia de rede hub e spoke, confira [topologia de rede hub-spoke no Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways e conectividade local
 
-Each virtual network, including a peered virtual network, can have its own gateway. A virtual network can use its gateway to connect to an on-premises network. You can also configure [virtual network-to-virtual network connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) by using gateways, even for peered virtual networks.
+Cada rede virtual, incluindo uma rede virtual emparelhada, pode ter seu próprio gateway. Uma rede virtual pode usar seu gateway para se conectar a uma rede local. Você também pode configurar [conexões de rede virtual para virtual](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) usando gateways, mesmo para redes virtuais emparelhadas.
 
-When you configure both options for virtual network interconnectivity, the traffic between the virtual networks flows through the peering configuration. The traffic uses the Azure backbone.
+Quando você configura as duas opções para a interconectividade de rede virtual, o tráfego entre as redes virtuais flui por meio da configuração de emparelhamento. O tráfego usa o backbone do Azure.
 
-You can also configure the gateway in the peered virtual network as a transit point to an on-premises network. In this case, the virtual network that is using a remote gateway can't have its own gateway. A virtual network has only one gateway. The gateway is either a local or remote gateway in the peered virtual network, as shown in the following diagram:
+Você também pode configurar o gateway na rede virtual emparelhada como um ponto de trânsito para uma rede local. Nesse caso, a rede virtual que está usando um gateway remoto não pode ter seu próprio gateway. Uma rede virtual tem apenas um gateway. O gateway é um gateway local ou remoto na rede virtual emparelhada, conforme mostrado no diagrama a seguir:
 
 ![trânsito de emparelhamento de rede virtual](./media/virtual-networks-peering-overview/local-or-remote-gateway-in-peered-virual-network.png)
 
-Both virtual network peering and global virtual network peering support gateway transit.
+O emparelhamento de rede virtual e o emparelhamento de rede virtual global dão suporte ao gateway de trânsito.
 
-Gateway transit between virtual networks created through different deployment models is supported. The gateway must be in the virtual network in the Resource Manager model. Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Há suporte para o tráfego de gateway entre redes virtuais criadas por meio de diferentes modelos de implantação. O gateway deve estar na rede virtual no modelo do Resource Manager. Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-When you peer virtual networks that share a single Azure ExpressRoute connection, the traffic between them goes through the peering relationship. That traffic uses the Azure backbone network. Você ainda pode usar gateways locais em cada rede virtual para se conectar ao circuito local. Otherwise, you can use a shared gateway and configure transit for on-premises connectivity.
+Quando você emparelha redes virtuais que compartilham uma única conexão do Azure ExpressRoute, o tráfego entre elas passa pela relação de emparelhamento. Esse tráfego usa a rede de backbone do Azure. Você ainda pode usar gateways locais em cada rede virtual para se conectar ao circuito local. Caso contrário, você pode usar um gateway compartilhado e configurar o trânsito para conectividade local.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-To confirm that virtual networks are peered, you can check effective routes. Check routes for a network interface in any subnet in a virtual network. Se um emparelhamento de rede virtual existir, todas as sub-redes na rede virtual terão rotas com o tipo de próximo salto *Emparelhamento VNet*, para cada espaço de endereço em cada rede virtual emparelhada. For more information, see [Diagnose a virtual machine routing problem](diagnose-network-routing-problem.md).
+Para confirmar se as redes virtuais estão emparelhadas, você pode verificar as rotas efetivas. Verifique as rotas para uma interface de rede em qualquer sub-rede em uma rede virtual. Se um emparelhamento de rede virtual existir, todas as sub-redes na rede virtual terão rotas com o tipo de próximo salto *Emparelhamento VNet*, para cada espaço de endereço em cada rede virtual emparelhada. Para obter mais informações, consulte [diagnosticar um problema de roteamento de máquina virtual](diagnose-network-routing-problem.md).
 
-You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Azure Network Watcher. A connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface. For more information, see [Troubleshoot connections with Azure Network Watcher using the Azure portal](../network-watcher/network-watcher-connectivity-portal.md#check-connectivity-to-a-virtual-machine).
+Você também pode solucionar problemas de conectividade com uma máquina virtual em uma rede virtual emparelhada usando o observador de rede do Azure. Uma verificação de conectividade permite que você veja como o tráfego é roteado do adaptador de rede da máquina virtual de origem para a interface de rede da máquina virtual de destino. Para obter mais informações, consulte [solucionar problemas de conexões com o observador de rede do Azure usando o portal do Azure](../network-watcher/network-watcher-connectivity-portal.md#check-connectivity-to-a-virtual-machine).
 
-You can also try the [Troubleshoot virtual network peering issues](virtual-network-troubleshoot-peering-issues.md).
+Você também pode tentar [solucionar problemas de emparelhamento de rede virtual](virtual-network-troubleshoot-peering-issues.md).
 
-## Constraints for peered virtual networks<a name="requirements-and-constraints"></a>
+## Restrições para redes virtuais emparelhadas<a name="requirements-and-constraints"></a>
 
 As seguintes restrições se aplicam somente quando as redes virtuais são emparelhadas globalmente:
 
-* Resources in one virtual network can't communicate with the front-end IP address of a Basic Internal Load Balancer (ILB)  in a globally peered virtual network.
-* Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+* Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um Load Balancer interno básico (ILB) em uma rede virtual emparelhada globalmente.
+* Alguns serviços que usam um balanceador de carga básico não funcionam em emparelhamento de rede virtual global. Para obter mais informações, consulte [quais são as restrições relacionadas ao emparelhamento de VNet global e aos balanceadores de carga?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
-For more information, see [Requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn more about the supported number of peerings, see [Networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Para obter mais informações, consulte [requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre o número de emparelhamentos com suporte, consulte [limites de rede](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-## <a name="permissions"></a>Permissões
+## <a name="permissions"></a>permissões
 
-To learn about permissions required to create a virtual network peering, see [Permissions](virtual-network-manage-peering.md#permissions).
+Para saber mais sobre as permissões necessárias para criar um emparelhamento de rede virtual, consulte [permissões](virtual-network-manage-peering.md#permissions).
 
 ## <a name="pricing"></a>Preços
 
-There's a nominal charge for ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
+Há um encargo nominal para o tráfego de entrada e saída que usa uma conexão de emparelhamento de rede virtual. Para obter mais informações, consulte [preços de rede virtual](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Gateway Transit is a peering property that enables a virtual network to utilize a VPN/ExpressRoute gateway in a peered virtual network. Gateway transit works for both cross premises and network-to-network connectivity. Traffic to the gateway (ingress or egress) in the peered virtual network incurs virtual network peering charges. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for VPN gateway charges and ExpressRoute Gateway pricing for ExpressRoute gateway charges.
+O tráfego de gateway é uma propriedade de emparelhamento que permite que uma rede virtual utilize um gateway VPN/ExpressRoute em uma rede virtual emparelhada. O trânsito do gateway funciona para a conectividade entre locais e de rede para rede. O tráfego para o gateway (entrada ou saída) na rede virtual emparelhada incorre em encargos de emparelhamento de rede virtual. Para obter mais informações, consulte [preços de gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) para encargos de gateway de VPN e preço de gateway de expressroute para encargos de gateway de
 
 >[!NOTE]
-> A previous version of this document stated that virtual network peering charges would not apply with Gateway Transit. It now reflects accurate pricing per the pricing page.
+> Uma versão anterior deste documento declarava que os encargos de emparelhamento de rede virtual não se aplicam ao tráfego de gateway. Agora, ele reflete os preços precisos de acordo com a página de preços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* You can create a peering between two virtual networks. The networks can belong to the same subscription, different deployment models in the same subscription, or different subscriptions. Conclua um tutorial para um dos seguintes cenários:
+* Você pode criar um emparelhamento entre duas redes virtuais. As redes podem pertencer à mesma assinatura, a modelos de implantação diferentes na mesma assinatura ou a assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 
-    |Modelo de implantação do Azure             | Subscription  |
+    |Modelo de implantação do Azure             | Assinatura  |
     |---------                          |---------|
     |Ambos Resource Manager              |[Idêntica](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|
     |Um Resource Manager, um clássico  |[Idêntica](create-peering-different-deployment-models.md)|
     |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
-* To learn how to create a hub and spoke network topology, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* To learn about all virtual network peering settings, see [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md).
-* For answers to common virtual network peering and global virtual network peering questions, see [VNet Peering](virtual-networks-faq.md#vnet-peering).
+* Para saber como criar uma topologia de rede hub e spoke, confira [topologia de rede hub-spoke no Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Para saber mais sobre todas as configurações de emparelhamento de rede virtual, confira [criar, alterar ou excluir um emparelhamento de rede virtual](virtual-network-manage-peering.md).
+* Para obter respostas para o emparelhamento de rede virtual comum e as perguntas de emparelhamento de rede virtual global, consulte [emparelhamento VNet](virtual-networks-faq.md#vnet-peering).

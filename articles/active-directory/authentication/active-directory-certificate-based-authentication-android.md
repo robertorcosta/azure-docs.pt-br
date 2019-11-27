@@ -1,5 +1,5 @@
 ---
-title: Android certificate-based authentication - Azure Active Directory
+title: Autenticação baseada em certificado do Android-Azure Active Directory
 description: Saiba mais sobre os cenários com suporte e os requisitos para configuração de autenticação baseada em certificado em soluções com dispositivos Android
 services: active-directory
 ms.service: active-directory
@@ -35,16 +35,16 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 
 | Aplicativos | Suporte |
 | --- | --- |
-| Aplicativo de Proteção de Informações do Azure |![Check mark signifying support for this application][1] |
-| Portal da Empresa do Intune |![Check mark signifying support for this application][1] |
-| Microsoft Teams |![Check mark signifying support for this application][1] |
-| OneNote |![Check mark signifying support for this application][1] |
-| OneDrive |![Check mark signifying support for this application][1] |
-| Outlook |![Check mark signifying support for this application][1] |
-| Power BI |![Check mark signifying support for this application][1] |
-| Skype for Business |![Check mark signifying support for this application][1] |
-| Word/Excel/PowerPoint |![Check mark signifying support for this application][1] |
-| Yammer |![Check mark signifying support for this application][1] |
+| Aplicativo de Proteção de Informações do Azure |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Portal da Empresa do Intune |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Equipes da Microsoft |![Marca de seleção que significa suporte para este aplicativo][1] |
+| OneNote |![Marca de seleção que significa suporte para este aplicativo][1] |
+| OneDrive |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Outlook |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Power BI |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Skype for Business |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Word/Excel/PowerPoint |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Yammer |![Marca de seleção que significa suporte para este aplicativo][1] |
 
 ### <a name="implementation-requirements"></a>Requisitos de implementação
 
@@ -75,7 +75,7 @@ Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonl
 
 Há suporte para determinados aplicativos do Exchange ActiveSync no Android 5.0 (Lollipop) ou superior. Para determinar se o aplicativo de email dá suporte a esse recurso, contate o desenvolvedor do aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser configurar a autenticação baseada em certificado em seu ambiente, confira [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) (Introdução à autenticação baseada em certificado no Android) para obter instruções.
 

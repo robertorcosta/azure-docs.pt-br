@@ -46,6 +46,6 @@ Para verificar o status de um incidente que você tiver preenchido, consulte [To
 Se for um usuário do Cloudyn herdado sem uma conta do Azure, você poderá abrir uma solicitação de suporte em https://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre Cloudyn, continue para [Examinar o uso e custos](tutorial-review-usage.md) tutorial para o Cloudyn.

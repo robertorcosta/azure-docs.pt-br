@@ -28,10 +28,10 @@ Ao criar a estrutura de permissões, siga o princípio de privilégios mínimos 
 
 Por exemplo, convém usar uma estrutura como esta:
 
-|Nome do grupo  |Type  |principalId  |Definição de função  |ID de definição de função  |
+|Nome do grupo  |Digite  |principalId  |Definição de função  |ID de definição de função  |
 |---------|---------|---------|---------|---------|
 |Arquitetos     |Grupo de usuários         |\<principalId\>         |Colaborador         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Avaliação     |Grupo de usuários         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|Avaliação     |Grupo de usuários         |\<principalId\>         |leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Especialistas de VM     |Grupo de usuários         |\<principalId\>         |Colaborador de VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
 |Automação     |SPN (nome da entidade de serviço)         |\<principalId\>         |Colaborador         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
@@ -40,7 +40,7 @@ Depois de criar esses grupos, é possível atribuir usuários conforme necessár
 Tenha em mente que, quando você [integrar clientes por meio de uma oferta pública de serviço gerenciado](../how-to/publish-managed-services-offers.md), qualquer grupo (ou entidade de serviço ou usuário) que você incluir terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir grupos diferentes para trabalhar com cada cliente, será necessário publicar um plano privado separado que seja exclusivo para cada cliente ou integrar clientes individualmente usando modelos do Azure Resource Manager. Por exemplo, você pode publicar um plano público com acesso muito limitado e, em seguida, trabalhar com o cliente diretamente para integrar seus recursos para acesso adicional usando um Modelo de Recurso do Azure personalizado que concede acesso adicional, conforme necessário.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Implantar Autenticação Multifator do Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
-- Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
+- Saiba mais sobre [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).

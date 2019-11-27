@@ -20,6 +20,6 @@ Este artigo lista alguns dos termos comuns usados nos artigos do Azure IoT Edge.
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-[IoT Hub glossary](../iot-hub/iot-hub-devguide-glossary.md)
+[Glossário do Hub IoT](../iot-hub/iot-hub-devguide-glossary.md)

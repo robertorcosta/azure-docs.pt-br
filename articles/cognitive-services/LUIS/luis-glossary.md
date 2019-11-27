@@ -1,5 +1,5 @@
 ---
-title: Glossary - LUIS
+title: Glossário-LUIS
 titleSuffix: Azure Cognitive Services
 description: O glossário explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
 services: cognitive-services
@@ -22,36 +22,36 @@ O glossário do LUIS (Reconhecimento vocal) explica os termos que você pode enc
 
 ## <a name="active-version"></a>Versão ativa
 
-A versão ativa do LUIS é a versão que recebe alterações no modelo. In the [LUIS](luis-reference-regions.md) portal, if you want to make changes to a version that is not the active version, you need to first set that version as active.
+A versão ativa do LUIS é a versão que recebe alterações no modelo. No portal do [Luis](luis-reference-regions.md) , se você quiser fazer alterações em uma versão que não seja a versão ativa, primeiro você precisará definir essa versão como ativa.
 
 ## <a name="authoring"></a>Criação
 
-Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), either using the [LUIS](luis-reference-regions.md) portal or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087).
+A criação é a capacidade de criar, gerenciar e implantar um [aplicativo Luis](#luis-app), usando o portal do [Luis](luis-reference-regions.md) ou as [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Chave de criação
 
 Anteriormente denominada chave "programática". Usada para criar o aplicativo. Não usada para consultas de ponto de extremidade no nível de produção. Para obter mais informações, confira [Limites da chave](luis-boundaries.md#key-limits).
 
-## <a name="batch-test-json-file"></a>Batch test JSON file
+## <a name="batch-test-json-file"></a>Arquivo JSON de teste em lote
 
-Batch testing is the ability to validate a current LUIS app's model with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
+O teste em lotes é a capacidade de validar um modelo de aplicativo LUIS atual com um conjunto de teste consistente e conhecido de declarações de usuário. O teste em lotes é definido em um [arquivo formatado em JSON](luis-concept-batch-test.md#batch-file-format).
 
 Consulte também:
 * [Conceitos](luis-concept-batch-test.md)
-* [How-to](luis-how-to-batch-test.md)
+* [Instruções](luis-how-to-batch-test.md)
 * [Tutorial](luis-tutorial-batch-testing.md)
 
 ## <a name="collaborator"></a>Colaborador
 
-A collaborator/contributor, is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances.
+Um colaborador/colaborador, não é o [proprietário](#owner) do aplicativo, mas tem as mesmas permissões para adicionar, editar e excluir as intenções, entidades, declarações.
 
-## <a name="contributor"></a>Contributor
+## <a name="contributor"></a>Simplifica
 
-A contributor is the same thing as a [collaborator](#collaborator).
+Um colaborador é a mesma coisa que um [colaborador.](#collaborator)
 
-## <a name="descriptor"></a>Descriptor
+## <a name="descriptor"></a>Descritor
 
-A descriptor is a [feature](#features) applied to a model at training time, including [phrase lists](#phrase-list) and [entities](#entity). 
+Um descritor é um [recurso](#features) aplicado a um modelo no tempo de treinamento, incluindo [listas de frases](#phrase-list) e [entidades](#entity). 
 
 ## <a name="domain"></a>Domínio
 
@@ -69,17 +69,17 @@ A URL do [ponto de extremidade LUIS](https://go.microsoft.com/fwlink/?linkid=209
 
 No [teste de lote](luis-interactive-test.md#batch-testing), uma medida da precisão do teste.
 
-## <a name="false-negative"></a>False negative (FN)
+## <a name="false-negative"></a>Falso negativo (FN)
 
 No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu incorretamente a ausência de entidade/intenção de destino.
 
-## <a name="false-positive"></a>False positive (FP)
+## <a name="false-positive"></a>Falso positivo (FP)
 
 No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu incorretamente a existência de entidade/intenção de destino.
 
 ## <a name="features"></a>Recursos
 
-No aprendizado de máquina, um [recurso](luis-concept-feature.md) é um traço ou atributo distintivo de dados que seu sistema observa.
+No aprendizado de máquina, um [recurso](luis-concept-feature.md) é um traço ou atributo específico de dados que seu sistema observa.
 
 ## <a name="intent"></a>Intenção
 
@@ -87,11 +87,11 @@ Uma [intenção](luis-concept-intent.md) representa uma tarefa ou ação que o u
 
 ## <a name="labeling"></a>Rotulação
 
-Labeling, or marking, is the process of associating a word or phrase in an intent's [utterance](#utterance) with an [entity](#entity) (datatype).
+Rotular, ou marcar, é o processo de associar uma palavra ou frase no [expressão](#utterance) de uma intenção a uma [entidade](#entity) (DataType).
 
 ## <a name="luis-app"></a>Aplicativo LUIS
 
-A LUIS app is a collection of language models for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](#utterance).
+Um aplicativo LUIS é uma coleção de modelos de linguagem para processamento de linguagem natural, incluindo [intenções](#intent), [entidades](#entity)e rotulada [declarações](#utterance).
 
 ## <a name="owner"></a>Proprietário
 
@@ -121,7 +121,7 @@ Renomeada para [chave de criação](#authoring-key).
 
 ## <a name="publish"></a>Publicar
 
-Publishing means making a LUIS active version available on either the staging or production [endpoint](#endpoint).  
+Publicação significa tornar uma versão LUIS ativa disponível no [ponto de extremidade](#endpoint)de preparo ou de produção.  
 
 ## <a name="quota"></a>Cota
 
@@ -146,15 +146,15 @@ Habilite verificação ortográfica do Bing para corrigir as palavras com ortogr
 
 ## <a name="starter-key"></a>Chave de início
 
-A free key to use when first starting out using LUIS.
+Uma chave gratuita a ser usada ao iniciar pela primeira vez usando LUIS.
 
-## <a name="structure"></a>Structure
+## <a name="structure"></a>Estruturá
 
-Add structure to a machine-learned entity to provide subcomponents with descriptors (features) and constraints (regular expression or list entities).
+Adicione estrutura a uma entidade aprendida por máquina para fornecer subcomponentes com descritores (recursos) e restrições (entidades regulares ou de lista).
 
 ## <a name="subscription-key"></a>Chave de assinatura
 
-The subscription key is the **prediction endpoint** key associated with the LUIS service [you created in Azure](luis-how-to-azure-subscription.md). Essa chave não é a [chave de criação](#programmatic-key). Se você tiver uma chave de ponto de extremidade, ela deverá ser usada para qualquer solicitação de ponto de extremidade, em vez da chave de criação. É possível ver a chave de ponto de extremidade atual dentro da URL do ponto de extremidade na parte inferior da [**página Chaves e pontos de extremidade**](luis-how-to-azure-subscription.md) no site do [LUIS](luis-reference-regions.md). É o valor do par nome/valor de **subscription-key**.
+A chave de assinatura é a chave de **ponto de extremidade de previsão** associada ao serviço Luis [que você criou no Azure](luis-how-to-azure-subscription.md). Essa chave não é a [chave de criação](#programmatic-key). Se você tiver uma chave de ponto de extremidade, ela deverá ser usada para qualquer solicitação de ponto de extremidade, em vez da chave de criação. É possível ver a chave de ponto de extremidade atual dentro da URL do ponto de extremidade na parte inferior da [**página Chaves e pontos de extremidade**](luis-how-to-azure-subscription.md) no site do [LUIS](luis-reference-regions.md). É o valor do par nome/valor de **subscription-key**.
 
 ## <a name="test"></a>Testar
 
@@ -171,7 +171,7 @@ Um token é a menor unidade pode ser rotulada em uma entidade. A geração de to
 
 ## <a name="train"></a>Treinar
 
-Training is the process of teaching LUIS about any changes to the active version since the last training.
+O treinamento é o processo de ensinar LUIS sobre quaisquer alterações na versão ativa desde o último treinamento.
 
 ## <a name="true-negative"></a>Negativo verdadeiro (TN)
 

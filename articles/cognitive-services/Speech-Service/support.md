@@ -1,5 +1,5 @@
 ---
-title: Support and help options - Speech Service
+title: Opções de suporte e ajuda-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Como obter ajuda e suporte para perguntas e problemas ao criar aplicativos que se integram com o Serviço de Fala
 services: cognitive-services
@@ -19,11 +19,11 @@ ms.locfileid: "74422613"
 ---
 # <a name="support-and-help-options"></a>Opções de Ajuda e suporte
 
-Are you just starting to explore the functionality of the Speech Services? Você está implementando um novo recurso para o seu aplicativo? Aqui estão sugestões onde você pode obter ajuda como desenvolvedor.
+Você está apenas começando a explorar a funcionalidade dos serviços de fala? Você está implementando um novo recurso para o seu aplicativo? Aqui estão sugestões onde você pode obter ajuda como desenvolvedor.
 
 > [!div class="checklist"]
 > * Mantenha-se informado sobre novos desenvolvimentos dos *Serviços Cognitivos do Azure*, ou localizar as notícias mais recentes relacionadas ao *Serviço de Fala*.
-> * Release notes contain information for all releases.
+> * As notas de versão contêm informações para todas as versões.
 > * Pesquise para ver se o problema foi discutido pela comunidade, ou se a documentação existente para o recurso que você deseja implementar já existe.
 > * Se você não conseguir encontrar uma resposta satisfatória, faça uma pergunta *Stack Overflow*.
 > * Se você encontrar um problema com um dos exemplos no GitHub, gere um problema *GitHub*.
@@ -31,13 +31,13 @@ Are you just starting to explore the functionality of the Speech Services? Você
 
 ## <a name="stay-informed"></a>Continue informado
 
-Notícias sobre os serviços Cognitivos são coletadas no [blog de Serviços Cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about Speech Services, track the [Speech Services blog](https://azure.microsoft.com/blog/tag/speech-service/).
+Notícias sobre os serviços Cognitivos são coletadas no [blog de Serviços Cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre os serviços de fala, acompanhe o [blog de serviços de fala](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Notas de versão
 
-The [release notes](https://aka.ms/csspeech/whatsnew) are updated as soon as a new release is available. The notes contain information about new features, improvements, and bug fixes.
+As [notas de versão](https://aka.ms/csspeech/whatsnew) são atualizadas assim que uma nova versão estiver disponível. As notas contêm informações sobre novos recursos, aprimoramentos e correções de bugs.
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Pesquisar
 
 Você pode encontrar a resposta de que precisa na documentação, as amostras ou respostas para as perguntas do [Stack Overflow](https://www.stackoverflow.com) ou nas amostras.
 
@@ -55,14 +55,14 @@ No campo *{Seus Termos de Pesquisa}* estão as palavras-chave de pesquisa.
 
 Os clientes do Azure podem criar e gerenciar solicitações de suporte no portal do Azure.
 
-* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal do Azure para o governo dos Estados Unidos](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Postar uma pergunta no Stack Overflow
 
 O Stack Overflow é o canal preferido para o desenvolvimento de questões relacionadas. É onde os membros da comunidade e membros da equipe da Microsoft estão diretamente envolvidos em ajudá-lo a resolver seus problemas.
 
-If you can't find an answer to your problem via search, submit a new question to Stack Overflow by using the [microsoft-cognitive-speech](https://stackoverflow.com/questions/tagged/microsoft-cognitive-speech) tag.
+Se você não encontrar uma resposta para o problema por meio de pesquisa, envie uma nova pergunta para Stack Overflow usando a marca [Microsoft-cognitiva-Speech](https://stackoverflow.com/questions/tagged/microsoft-cognitive-speech) .
 
 > [!TIP]
 > As seguintes postagens do Stack Overflow contêm dicas sobre as perguntas de formulário e adicione o código-fonte. As diretrizes a seguir podem ajudar a aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:  
@@ -76,7 +76,7 @@ Normalmente, os exemplos são lançados como código-fonte aberto. Para pergunta
 * [SDK da fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [SDK de Dispositivos de Fala](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-You can create a bug report, feature request, or ask a general question and share best practices. Para relatórios de bugs, siga o modelo fornecido:
+Você pode criar um relatório de bugs, uma solicitação de recurso ou fazer uma pergunta geral e compartilhar práticas recomendadas. Para relatórios de bugs, siga o modelo fornecido:
 
 **Descrever o bug**
 
@@ -105,7 +105,7 @@ Qual versão do SDK você está usando.
 **Contexto adicional**
 
  - Mensagens de erro, informações de log, rastreamento ...
- - If you report an error for a specific service interaction, report the SessionId and time (incl. timezone) of the reported incidents. A SessionId é informada em todos os retornos de chamada/eventos que você receber.
+ - Se você relatar um erro para uma interação de serviço específica, relate a SessionId e a hora (incluindo o fuso horário) dos incidentes relatados. A SessionId é informada em todos os retornos de chamada/eventos que você receber.
  - Quaisquer outras informações adicionais
 
 

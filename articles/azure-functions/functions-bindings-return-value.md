@@ -1,6 +1,6 @@
 ---
-title: Using return value from an Azure Function
-description: Learn to manage return values for Azure Functions
+title: Usando o valor de retorno de uma função do Azure
+description: Saiba como gerenciar valores de retorno para Azure Functions
 author: craigshoemaker
 ms.topic: reference
 ms.date: 01/14/2019
@@ -12,14 +12,14 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74480583"
 ---
-# <a name="using-the-azure-function-return-value"></a>Using the Azure Function return value
+# <a name="using-the-azure-function-return-value"></a>Usando o valor de retorno da função do Azure
 
-This article explains how return values work inside a function.
+Este artigo explica como os valores de retorno funcionam dentro de uma função.
 
-In languages that have a return value, you can bind a function [output binding](./functions-triggers-bindings.md#binding-direction) to the return value:
+Em idiomas que têm um valor de retorno, você pode associar uma [Associação de saída](./functions-triggers-bindings.md#binding-direction) de função ao valor de retorno:
 
 * Em uma biblioteca de classe C#, aplique o atributo de associação de saída para o valor de retorno do método.
-* In Java, apply the output binding annotation to the function method.
+* Em Java, aplique a anotação de associação de saída ao método de função.
 * Em outras linguagens, defina a propriedade `name` em *function.json* para `$return`.
 
 Se houver várias associações de saída, use o valor de retorno de apenas um deles.
@@ -52,7 +52,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 Aqui está a associação de saída no arquivo *function.json*:
 
@@ -155,7 +155,7 @@ def main(input: azure.functions.InputStream) -> str:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Here's Java code that uses the return value for an output binding:
+Aqui está o código Java que usa o valor de retorno para uma associação de saída:
 
 ```java
 @FunctionName("QueueTrigger")
@@ -173,7 +173,7 @@ public static String run(
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Handle Azure Functions binding errors](./functions-bindings-errors.md)
+> [Manipular erros de associação de Azure Functions](./functions-bindings-errors.md)

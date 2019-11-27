@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot legacy hybrid Azure Active Directory joined devices
+title: Solucionar problemas de dispositivos ingressados Azure Active Directory híbridos herdados
 description: Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior.
 services: active-directory
 ms.service: active-directory
@@ -32,7 +32,7 @@ Para Windows 10 ou Windows Server 2016, confira [Solução de problemas do Azure
 
 Este artigo pressupõe que você tenha [dispositivos configurados e ingressados no Azure Active Directory híbrido](hybrid-azuread-join-plan.md) para dar suporte aos seguintes cenários:
 
-- Device-based Conditional Access
+- Acesso condicional com base no dispositivo
 
 Este artigo fornece orientação para solução de possíveis problemas.  
 
@@ -69,11 +69,11 @@ Se o dispositivo não tiver ingressado no Azure AD híbrido, você poderá tenta
     ![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
    - O Autoworkplace.exe não pode autenticar silenciosamente com o Microsoft Azure Active Directory ou o AD FS. Isso pode ser causado pela ausência de AD FS ou sua configuração incorreta (para domínios federados), ou ausência do Logon único contínuo do Azure AD ou sua configuração incorreta (para domínios gerenciados) ou problemas de rede. 
-   - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
+   - Pode ser que a MFA (autenticação multifator) esteja habilitada/configurada para o usuário e o WIAORMULTIAUTHN não esteja configurado no servidor de AD FS. 
    - Outra possibilidade é que a página de descoberta de domínio doméstico (HRD) esteja aguardando a interação do usuário, o que evita que o **autoworkplace.exe** solicite silenciosamente um token.
    - É possível que o AD FS e as URLs do Azure AD estejam ausentes na zona de intranet do IE no cliente.
    - Problemas de conectividade de rede podem estar impedindo o **autoworkplace.exe** de alcançar o AD FS ou as URLs do Azure AD. 
-   - **Autoworkplace.exe** requires the client to have direct line of sight from the client to the organization's on-premises AD domain controller, which means that hybrid Azure AD join succeeds only when the client is connected to organization's intranet.
+   - O **autoworkplace. exe** exige que o cliente tenha uma linha de visão direta do cliente para o controlador de domínio do AD local da organização, o que significa que a junção híbrida do Azure AD é realizada com sucesso somente quando o cliente está conectado à intranet da organização.
    - Sua organização usa o Logon Único Contínuo do Microsoft Azure Active Directory `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não está presente nas configurações de intranet do Internet Explorer do dispositivo, e **Permitir atualizações à barra de status por meio de script** não está habilitada para a zona da Intranet.
 - Você não está conectado como um usuário de domínio
 
@@ -103,6 +103,6 @@ Também é possível encontrar informações de status no log de eventos em: **L
    - Ou, caso seu domínio seja gerenciado, o SSO contínuo não foi configurado ou não está funcionando.
    - Um usuário atingiu o limite de dispositivos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para perguntas, consulte as [Perguntas frequentes sobre o gerenciamento de dispositivos](faq.md)  

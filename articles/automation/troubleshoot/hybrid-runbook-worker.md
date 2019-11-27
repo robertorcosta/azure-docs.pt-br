@@ -22,7 +22,7 @@ Este artigo fornece informações sobre como solucionar problemas com os trabalh
 
 ## <a name="general"></a>Geral
 
-O operador de Runbook híbrido depende de um agente para se comunicar com sua conta de automação para registrar o trabalho, recebe trabalhos de runbook e status de relatórios. For Windows, this agent is the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)). For Linux, it's the Log Analytics agent for Linux.
+O operador de Runbook híbrido depende de um agente para se comunicar com sua conta de automação para registrar o trabalho, recebe trabalhos de runbook e status de relatórios. Para o Windows, esse agente é o agente Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)). Para o Linux, é o agente Log Analytics para Linux.
 
 ### <a name="runbook-execution-fails"></a>Cenário: a execução do Runbook falha
 
@@ -50,7 +50,7 @@ A seguir estão possíveis causas possíveis:
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se o computador tem acesso de saída para *.azure-automation.net na porta 443.
+Verifique se o computador tem acesso de saída para *.azure automation.net na porta 443.
 
 Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de serem configurados para hospedar esse recurso. Runbooks e os processos em segundo plano usados podem causar que o sistema se sobrecarregue e provocará atrasos ou tempos limite de trabalho de runbook.
 
@@ -58,7 +58,7 @@ Confirme o computador que executará o recurso Hybrid Runbook Worker atende aos 
 
 Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondente com descrição *Processo Win32 Encerrado com o código [4294967295]* . A causa desse erro é que você ainda não configurou a autenticação em seus runbooks ou especificou as credenciais Executar como para o grupo do Hybrid Worker. Analise as [Permissões de runbook](../automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que a autenticação dos runbooks está configurada corretamente.
 
-### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on Hybrid Runbook Worker
+### <a name="no-cert-found"></a>Cenário: nenhum certificado foi encontrado no repositório de certificados no Hybrid Runbook Worker
 
 #### <a name="issue"></a>Problema
 
@@ -83,17 +83,17 @@ Se seu Hybrid Runbook Worker é uma VM do Azure, você pode usar [Identidades ge
 
 ## <a name="linux"></a>Linux
 
-The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro:
+O Hybrid Runbook Worker do Linux depende do [agente de log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md) para se comunicar com sua conta de automação para registrar o trabalho, receber trabalhos de runbook e relatar o status. Se o registro do worker falhar, aqui estão algumas das possíveis causas do erro:
 
-### <a name="oms-agent-not-running"></a>Scenario: The Log Analyics agent for Linux isn't running
+### <a name="oms-agent-not-running"></a>Cenário: o agente análise do log para Linux não está em execução
 
 #### <a name="issue"></a>Problema
 
-The Log Analytics agent for Linux is not running
+O agente de Log Analytics para Linux não está em execução
 
 #### <a name="cause"></a>Causa
 
-If the agent isn't running, it prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. O agente não pode ser executado por vários motivos.
+Se o agente não estiver em execução, ele impedirá que o Hybrid Runbook Worker Linux se comunique com a automação do Azure. O agente não pode ser executado por vários motivos.
 
 #### <a name="resolution"></a>Resolução
 
@@ -114,11 +114,11 @@ A lista a seguir mostra os processos que são iniciados para um Hybrid Runbook W
 
 * **diy/worker.conf** - Este processo é o processo do Hybrid Worker DIY. O processo do Hybrid Worker DIY é usado para executar runbooks de usuário no Hybrid Runbook Worker. Ele é diferente apenas do processo do Hybrid Worker Registrado Automaticamente nos detalhes da chave, visto que usa uma configuração diferente. Esse processo não estará presente se a solução de Automação do Azure estiver desabilitada e o DIY Linux Hybrid Worker não estiver registrado.
 
-If the agent isn't running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+Se o agente não estiver em execução, execute o seguinte comando para iniciar o serviço: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="class-does-not-exist"></a>Cenário: a classe especificada não existe
 
-Se você vir o erro: **A classe especificada não existe..** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the Log Analytics agent for Linux needs to be updated. Run the following command to reinstall the agent:
+Se você vir o erro: **A classe especificada não existe..** no `/var/opt/microsoft/omsconfig/omsconfig.log`, o agente do Log Analytics para Linux precisa ser atualizado. Execute o seguinte comando para reinstalar o agente:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -126,9 +126,9 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro:
+O Windows Hybrid Runbook Worker depende do [agente de log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md) se comunicar com sua conta de automação para registrar o trabalho, receber trabalhos de runbook e relatar o status. Se o registro do worker falhar, aqui estão algumas das possíveis causas do erro:
 
-### <a name="mma-not-running"></a>Scenario: The Microsoft Monitoring Agent isn't running
+### <a name="mma-not-running"></a>Cenário: o Microsoft Monitoring Agent não está em execução
 
 #### <a name="issue"></a>Problema
 
@@ -146,7 +146,7 @@ Verifique se o agente está em execução digitando o seguinte comando no PowerS
 
 #### <a name="issue"></a>Problema
 
-In the **Application and Services Logs\Operations Manager** event log, you see event 4502 and EventMessage that contains **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description: *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.*
+No log de eventos **Application and Services logs Manager** , você vê o evento 4502 e o eventMessage que contém **Microsoft. EnterpriseManagement. HealthService. AzureAutomation. HybridAgent** com a seguinte descrição: *o certificado apresentado pelo serviço \<WSID\>. OMS.opinsights.Azure.com não foi emitido por uma autoridade de certificação usada para os serviços da Microsoft. Entre em contato com seu administrador de rede para ver se eles estão executando um proxy que intercepta a comunicação TLS/SSL.*
 
 #### <a name="cause"></a>Causa
 
@@ -154,7 +154,7 @@ Esse problema poderá ocorrer se seu proxy ou firewall de rede estiver bloqueand
 
 #### <a name="resolution"></a>Resolução
 
-Os logs são armazenados localmente em cada hybrid worker, em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Você pode verificar se há algum aviso ou eventos de erro nos logs de eventos **Logs de Aplicativos e Serviços\Microsoft-SMA\Operações** e **Logs de Aplicativos e Serviços\Operations Manager** que indiquem um problema de conectividade ou outro problema que esteja afetando a integração da função de Automação do Azure ou um problema ao em operações normais. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Os logs são armazenados localmente em cada hybrid worker, em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Você pode verificar se há algum aviso ou eventos de erro nos logs de eventos **Logs de Aplicativos e Serviços\Microsoft-SMA\Operações** e **Logs de Aplicativos e Serviços\Operations Manager** que indiquem um problema de conectividade ou outro problema que esteja afetando a integração da função de Automação do Azure ou um problema ao em operações normais. Para obter ajuda adicional sobre como solucionar problemas com o agente de Log Analytics, consulte [solucionar problemas com o log Analytics agente do Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 [A saída e as mensagens do runbook](../automation-runbook-output-and-messages.md) são enviadas à Automação do Azure do Hybrid Workers assim como os trabalhos do runbook são executados na nuvem. Também é possível habilitar os fluxos Verbose e Progress da mesma forma que você faria para outros runbooks.
 
@@ -188,7 +188,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="already-registered"></a>Scenario: You are unable to add a Hybrid Runbook Worker
+### <a name="already-registered"></a>Cenário: não é possível adicionar um Hybrid Runbook Worker
 
 #### <a name="issue"></a>Problema
 
@@ -208,7 +208,7 @@ Para resolver esse problema, remova a seguinte chave do Registro, reinicie `Heal
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

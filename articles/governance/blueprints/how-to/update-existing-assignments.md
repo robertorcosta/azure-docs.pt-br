@@ -1,6 +1,6 @@
 ---
-title: Update an existing assignment from the portal
-description: Learn about the mechanism for updating an existing blueprint assignment from the portal in Azure Blueprints.
+title: Atualizar uma atribuição existente do portal
+description: Saiba mais sobre o mecanismo de atualização de uma atribuição de Blueprint existente do portal em plantas do Azure.
 ms.date: 11/21/2019
 ms.topic: conceptual
 ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
@@ -24,20 +24,20 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 1. Selecione **Blueprints atribuídos** na página à esquerda.
 
-1. Na lista de planos gráficos, clique em atribuição de planta. Then click the **Update assignment** button OR right-click the blueprint assignment and select **Update assignment**.
+1. Na lista de planos gráficos, clique em atribuição de planta. Em seguida, clique no botão **Atualizar atribuição** ou clique com o botão direito do mouse na atribuição Blueprint e selecione **Atualizar atribuição**.
 
-   ![Update an existing blueprint assignment](../media/update-existing-assignments/update-assignment.png)
+   ![Atualizar uma atribuição de Blueprint existente](../media/update-existing-assignments/update-assignment.png)
 
-1. The **Assign blueprint** page will load pre-filled with all values from the original assignment.
+1. A página **atribuir Blueprint** será carregada previamente preenchida com todos os valores da atribuição original.
    Você pode alterar a **versão de definição do blueprint**, o estado **Bloquear Atribuição** e qualquer um dos parâmetros dinâmicos que existem na definição do blueprint. Clique em **Atribuir** quando terminar de fazer alterações.
 
 1. Na página de detalhes de atribuição atualizada, veja o novo status. Neste exemplo, adicionamos **Bloqueio** à atribuição.
 
-   ![Updated an existing blueprint assignment - lock mode changed](../media/update-existing-assignments/updated-assignment.png)
+   ![Atualizou uma atribuição de Blueprint existente – modo de bloqueio alterado](../media/update-existing-assignments/updated-assignment.png)
 
-1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed resources** updates by selected assignment operation.
+1. Explore os detalhes sobre outras **operações de atribuição** usando a lista suspensa. A tabela de atualizações de **recursos gerenciados** por operação de atribuição selecionada.
 
-   ![Assignment operations of a blueprint assignment](../media/update-existing-assignments/assignment-operations.png)
+   ![Operações de atribuição de uma atribuição de Blueprint](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Regras para atualizar atribuições
 
@@ -50,7 +50,7 @@ A implantação das atribuições atualizadas segue algumas regras importantes. 
   - Se a definição da atribuição de política for alterada, uma nova atribuição de política será criada.
     Atribuições de política implantadas anteriormente são deixadas no lugar.
   - Se o artefato de atribuição de política for removido do plano gráfico, implantado atribuições são deixadas no lugar de política.
-- Modelos do Azure Resource Manager
+- Modelos do Gerenciador de Recursos do Azure
   - O modelo é processado por meio do Resource Manager como **PUT**. Como cada tipo de recurso manipula isso de uma forma diferente, examine a documentação de cada recurso incluído para determinar o impacto dessa ação quando executada por blueprints.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Possíveis erros na atualização de atribuições
@@ -63,7 +63,7 @@ Não há nenhum limite para o número de vezes que uma atribuição pode ser atu
 - Um objeto já existente
 - Uma maudança não suportada pelo Resource Manager do Azure
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).

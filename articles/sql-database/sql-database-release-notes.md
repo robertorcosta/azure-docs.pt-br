@@ -83,7 +83,7 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
 - **Outubro de 2019** -você pode usar **Database Mail** recurso com servidores de email externos (não Azure) usando conexão segura.
 - **2019 de novembro** -a consistência do banco de dados é verificada usando `DBCC CHECKDB` após restaurar o banco de dados do armazenamento de blob do Azure
 
-## <a name="updates"></a>Atualizações
+## <a name="updates"></a>atualizações
 
 Para obter uma lista de atualizações e melhorias do banco de dados SQL, consulte [atualizações do serviço de banco de dados SQL](https://azure.microsoft.com/updates/?product=sql-database).
 

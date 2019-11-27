@@ -1,5 +1,5 @@
 ---
-title: Sending and using API queries and responses - Bing Local Business Search
+title: Enviando e usando respostas e consultas de API – pesquisa de negócios local do Bing
 titleSuffix: Azure Cognitive Services
 description: Use este artigo para aprender como enviar e usar consultas de pesquisa com a API da Pesquisa de empresa local do Bing.
 services: cognitive-services
@@ -61,10 +61,10 @@ Os resultados do JSON retornados pela API incluem os seguintes atributos:
 * entityPresentationInfo
 * área geográfica
 * ID
-* Nome
+* name
 * routeablePoint
-* telefone
-* URL
+* Telefone
+* url
 
 Para obter informações gerais sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a referência da [API de Pesquisa Local do Bing v7](local-search-reference.md).
 
@@ -146,8 +146,8 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
-- [Início rápido de negócios pesquisa Java local](quickstarts/local-search-java-quickstart.md)
+- [Início rápido de Java de pesquisa de local de negócios](quickstarts/local-search-java-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](quickstarts/local-search-node-quickstart.md)
-- [Início rápido do Python para negócios de pesquisa local](quickstarts/local-search-python-quickstart.md)
+- [Início Rápido do Python em Pesquisa de empresa local](quickstarts/local-search-python-quickstart.md)

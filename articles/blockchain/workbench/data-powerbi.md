@@ -17,7 +17,7 @@ O Microsoft Power BI permite gerar facilmente relatórios sofisticados de bancos
 
 Este artigo contém uma explicação passo a passo de como se conectar ao Banco de Dados SQL do Azure Blockchain Workbench no Power BI Desktop, criar um relatório e implantar o relatório em powerbi.com.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Baixe o [Power BI Desktop](https://aka.ms/pbidesktopstore).
 
@@ -49,7 +49,7 @@ Este artigo contém uma explicação passo a passo de como se conectar ao Banco 
 
 Agora, você pode criar e publicar relatórios, como faria normalmente com o Power BI.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Exibições de banco de dados no Azure Blockchain Workbench](database-views.md)

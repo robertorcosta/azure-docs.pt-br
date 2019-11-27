@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server and Active Directory - Azure Active Directory
+title: Servidor e Active Directory do Azure MFA Azure Active Directory
 description: Como integrar o Servidor de Autenticação Multifator do Azure ao Active Directory para sincronizar os diretórios.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -24,18 +24,18 @@ ms.locfileid: "74404224"
 Use a seção Integração de Diretórios do Servidor do Azure MFA para se integrar com o Active Directory ou com outro diretório LDAP. Você pode configurar atributos para corresponder ao esquema de diretório e configurar a sincronização automática de usuários.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 ## <a name="settings"></a>Configurações
 
 Por padrão, o Servidor de Autenticação Multifator do Azure (MFA) é configurado para importar ou sincronizar usuários do Active Directory.  A guia Integração de Diretório permite substituir o comportamento padrão e associar a um diretório LDAP diferente, a um diretório ADAM ou a um controlador de domínio específico do Active Directory.  Ele também permite o uso da autenticação LDAP para proxy LDAP ou associação LDAP como um destino RADIUS, pré-autenticação para autenticação IIS ou autenticação principal para o portal do usuário.  A tabela a seguir descreve as configurações individuais.
 
-![Edit LDAP configuration in MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
+![Editar a configuração de LDAP no servidor MFA](./media/howto-mfaserver-dir-ad/dirint.png)
 
 > [!NOTE]
-> Directory integration is not guaranteed to work with directories other than Active Directory Domain Services.
+> Não há garantia de que a integração de diretórios funcione com diretórios diferentes de Active Directory Domain Services.
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Usar o Active Directory |Selecione a opção Usar o Active Directory para usar o Active Directory na importação e na sincronização.  Esta é a configuração padrão. <br>Observação: para que a integração do Active Directory funcione corretamente, ingresse o computador em um domínio e entre com uma conta de domínio. |
 | Incluir domínios confiáveis |Marque a caixa de seleção **Incluir Domínios Confiáveis** para que o agente tente se conectar a domínios confiáveis pelo domínio atual, a outro domínio na floresta ou a domínios envolvidos em uma relação de confiança de floresta.  Quando não estiver importando ou sincronizando usuários de qualquer um dos domínios confiáveis, desmarque a caixa de seleção para melhorar o desempenho.  O padrão é verificado. |
@@ -45,7 +45,7 @@ Por padrão, o Servidor de Autenticação Multifator do Azure (MFA) é configura
 
 A tabela a seguir descreve as definições de configuração de LDAP.
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Servidor |Insira o nome do host ou o endereço IP do servidor que está executando o diretório LDAP.  Um servidor de backup também pode ser especificado separado por ponto-e-vírgula. <br>Observação: quando o Tipo de Associação for SSL, é necessário um nome de host totalmente qualificado. |
 | DN base |Insira o nome diferenciado do objeto de diretório base do qual todas as consultas de diretório são iniciadas.  Por exemplo, d=abc,dc=com. |
@@ -60,7 +60,7 @@ A tabela a seguir descreve as definições de configuração de LDAP.
 
 Filtros permitem que você defina os critérios para qualificar os registros ao executar uma pesquisa de diretório.  Definindo o filtro, você pode definir o escopo de objetos que você deseja sincronizar.  
 
-![Configure directory filtering in MFA Server](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Configurar a filtragem de diretório no servidor MFA](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 A Autenticação Multifator do Azure tem estas três opções de filtro:
 
@@ -70,17 +70,17 @@ A Autenticação Multifator do Azure tem estas três opções de filtro:
 
 ## <a name="attributes"></a>Atributos
 
-Você pode personalizar atributos como necessário para um diretório específico.  Isso permite que você adicione atributos personalizados e ajuste a sincronização somente para os atributos de que você precisa. Use the name of the attribute as defined in the directory schema for the value of each attribute field. A tabela a seguir fornece informações adicionais sobre cada recurso.
+Você pode personalizar atributos como necessário para um diretório específico.  Isso permite que você adicione atributos personalizados e ajuste a sincronização somente para os atributos de que você precisa. Use o nome do atributo conforme definido no esquema de diretório para o valor de cada campo de atributo. A tabela a seguir fornece informações adicionais sobre cada recurso.
 
 Os atributos podem ser inseridos manualmente e não precisam coincidir com um atributo na lista de atributos.
 
-![Customize directory integration attributes in MFA Server](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Personalizar atributos de integração de diretórios no servidor MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Identificador exclusivo |Digite o nome do atributo que serve como o identificador exclusivo do contêiner, do grupo de segurança e dos registros de usuário.  No Active Directory, isso geralmente é objectGUID. Outras implementações LDAP podem usar entryUUID ou algo semelhante.  O padrão é objectGUID. |
 | Tipo de identificador exclusivo |Selecione o tipo de atributo de identificador exclusivo.  No Active Directory, o atributo objectGUID é do tipo GUID. Outras implementações LDAP podem usar o tipo Cadeia de Caracteres ou Matriz de Bytes ASCII.  O padrão é GUID. <br><br>É importante definir esse tipo corretamente, já que os itens de sincronização são referenciados por seu identificador exclusivo. O tipo de identificador exclusivo é usado para localizar o objeto diretamente no diretório.  Definir esse tipo como Cadeia de Caracteres quando o diretório realmente armazena o valor como uma matriz de bytes de caracteres ASCII e impede que a sincronização funcione corretamente. |
-| Nome distinto |Digite o nome do atributo que contém o nome distinto para cada registro.  No Active Directory, isso geralmente é distinguishedName. Outras implementações LDAP podem usar entryDN ou algo semelhante.  O padrão é distinguishedName. <br><br>If an attribute containing just the distinguished name doesn't exist, the ads path attribute may be used.  A parte do caminho "LDAP://\<servidor\>/" é removida automaticamente, deixando apenas o nome distinto do objeto. |
+| Nome distinto |Digite o nome do atributo que contém o nome distinto para cada registro.  No Active Directory, isso geralmente é distinguishedName. Outras implementações LDAP podem usar entryDN ou algo semelhante.  O padrão é distinguishedName. <br><br>Se um atributo que contém apenas o nome distinto não existir, o atributo de caminho ADs poderá ser usado.  A parte do caminho "LDAP://\<servidor\>/" é removida automaticamente, deixando apenas o nome distinto do objeto. |
 | Nome do contêiner |Insira o nome do atributo que contém o nome em um registro de contêiner.  O valor desse atributo é exibido na hierarquia do contêiner ao importar do Active Directory ou adicionar itens de sincronização.  O padrão é o nome. <br><br>Se contêineres diferentes usarem atributos diferentes para seus nomes, use ponto-e-vírgula para separar vários atributos de nome de contêiner.  O primeiro atributo de nome de contêiner encontrado em um objeto de contêiner é usado para exibir seu nome. |
 | Nome do grupo de segurança |Insira o nome do atributo que contém o nome em um registro de grupo de segurança.  O valor desse atributo é exibido na lista Grupo de segurança ao importar do Active Directory ou adicionar itens de sincronização.  O padrão é o nome. |
 | Nome de Usuário |Digite o nome do atributo que contém o nome de usuário em um registro de usuário.  O valor deste atributo é usado como o nome de usuário do servidor de Autenticação Multifator.  Um segundo atributo pode ser especificado como um backup do primeiro.  O segundo atributo só será usado se o primeiro atributo não contiver um valor para o usuário.  Os padrões são userPrincipalName e sAMAccountName. |
@@ -88,7 +88,7 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 | Sobrenome |Insira o nome do atributo que contém o sobrenome em um registro de usuário.  O padrão é sn. |
 | Endereço de email |Insira o nome do atributo que contém o endereço de email em um registro de usuário.  O endereço de email é usado para enviar boas-vindas e emails de atualização para o usuário.  O padrão é email. |
 | Grupo de usuários |Insira o nome do atributo que contém o grupo de usuários em um registro de usuário.  O grupo de usuários pode ser usado para filtrar usuários no agente e em relatórios no Portal de Gerenciamento do servidor Multi-Factor Authentication. |
-| Descrição |Insira o nome do atributo que contém a descrição em um registro de usuário.  A descrição é usada somente para pesquisa.  O padrão é descrição. |
+| DESCRIÇÃO |Insira o nome do atributo que contém a descrição em um registro de usuário.  A descrição é usada somente para pesquisa.  O padrão é descrição. |
 | Idioma to telefonema |Insira o nome do atributo que contém o nome curto do idioma a ser usado para chamadas de voz para o usuário. |
 | Idioma da mensagem de texto |Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto SMS para o usuário. |
 | Idioma do aplicativo móvel |Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto do aplicativo Telefone do usuário. |
@@ -103,9 +103,9 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 | Extensão |Insira o nome do atributo que contém o ramal do número de telefone em um registro de usuário.  O valor do campo de ramal só será usado como ramal do número de telefone principal.  O padrão é em branco. <br><br>Se o atributo Ramal não for especificado, os ramais poderão ser incluídos como parte do atributo de telefone. Nesse caso, preceda a extensão com um 'x' para que ele é analisado corretamente.  Por exemplo, 3123-4567 x890 resultaria em 3123-4567 como o número de telefone e 890 como o ramal. |
 | Botão Restaurar Padrões |Clique em **Restaurar Padrões** para retornar todos os atributos ao valor padrão.  Os padrões devem funcionar corretamente com o esquema do Active Directory ou do ADAM normal. |
 
-To edit attributes, click **Edit** on the Attributes tab.  This brings up a window where you can edit the attributes. Selecione o **...**  ao lado de qualquer atributo para abrir uma janela onde você pode escolher quais atributos a serem exibidos.
+Para editar atributos, clique em **Editar** na guia atributos.  Isso abre uma janela onde você pode editar os atributos. Selecione o **...**  ao lado de qualquer atributo para abrir uma janela onde você pode escolher quais atributos a serem exibidos.
 
-![Edit directory attribute mapping in MFA Server](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Editar mapeamento de atributo de diretório no servidor MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Sincronização
 
@@ -117,11 +117,11 @@ O serviço ADSync do multi-Factor Auth usa a extensão do servidor DirSync LDAP 
 
 Se o diretório LDAP der suporte e se estiver configurado para DirSync, a sondagem de alterações do grupo de segurança e de usuário funcionam da mesma forma como acontece com o Active Directory.  Se o diretório LDAP não der suporte para o controle DirSync, uma sincronização completa será executada durante cada ciclo.
 
-![Synchronization of directory objects to MFA Server](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Sincronização de objetos de diretório para o servidor MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 A tabela a seguir contém informações adicionais sobre cada uma das configurações de sincronização do guia.
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Habilitar a sincronização com o Active Directory |Quando marcado, o serviço do servidor de Autenticação Multifator sonda periodicamente o Active Directory quanto a alterações. <br><br>Observação: pelo menos um Item de sincronização deve ser adicionado e Sincronizar agora deve ser executado antes que o serviço do servidor Multi-Factor Auth inicie o processamento das alterações. |
 | Sincronizar cada |Especifique o intervalo de tempo que o serviço de servidor Multi-Factor Authentication aguardará entre a sondagem e o processamento de alterações. <br><br> Observação: o intervalo especificado é o tempo entre o início de cada ciclo.  Se o tempo de processamento das alterações exceder o intervalo, o serviço fará a sondagem novamente imediatamente. |
@@ -143,8 +143,8 @@ Os botões Mover para cima e Mover para baixo permitem que o administrador alter
 > [!TIP]
 > Uma sincronização completa deve ser executada após a remoção de itens de sincronização.  Uma sincronização completa deve ser executada após a ordenação dos itens de sincronização.  Clique em **Sincronizar Agora** para executar uma sincronização completa.
 
-## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication servers
+## <a name="multi-factor-authentication-servers"></a>Servidores de autenticação multifator
 
-Additional Multi-Factor Authentication servers may be set up to serve as a backup RADIUS proxy, LDAP proxy, or for IIS Authentication. A configuração da Sincronização será compartilhada entre todos os agentes. However, only one of these agents may have the Multi-Factor Authentication server service running. This tab allows you to select the Multi-Factor Authentication server that should be enabled for synchronization.
+Servidores de autenticação multifator adicionais podem ser configurados para servir como um proxy RADIUS de backup, proxy LDAP ou para autenticação do IIS. A configuração da Sincronização será compartilhada entre todos os agentes. No entanto, apenas um desses agentes pode ter o serviço do servidor de autenticação multifator em execução. Esta guia permite que você selecione o servidor de autenticação multifator que deve ser habilitado para sincronização.
 
-![Related Multi-Factor Authentication Servers](./media/howto-mfaserver-dir-ad/dirint6.png)
+![Servidores de autenticação multifator relacionados](./media/howto-mfaserver-dir-ad/dirint6.png)

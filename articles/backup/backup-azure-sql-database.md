@@ -1,6 +1,6 @@
 ---
 title: Fazer backup de bancos de dados do SQL Server para o Azure
-description: This article explains how to back up SQL Server to Azure. O artigo também explica a recuperação do SQL Server.
+description: Este artigo explica como fazer backup de SQL Server no Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
@@ -51,7 +51,7 @@ Antes de começar, verifique o que está descrito abaixo:
 * O Backup do SQL Server pode ser configurado no portal do Azure ou **PowerShell**. Não oferecemos CLI de suporte.
 * A solução é compatível em ambos os tipos de [implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) – VMs do Azure Resource Manager e VMs clássicas.
 * VM que executa o SQL Server exige conectividade com a Internet para acessar os endereços IP públicos do Azure.
-* SQL Server **Failover Cluster Instance (FCI)** is not supported.
+* Não há suporte para SQL Server **FCI (instância de cluster de failover)** .
 * Não há suporte para as operações de backup e de restauração para bancos de dados de espelho e instantâneos do banco de dados.
 * Usar mais de uma solução de backup para fazer backup de sua instância do SQL Server autônoma ou do grupo de disponibilidade SQL Always On pode levar à falha de backup. Evite fazer isso.
 * Fazer backup de dois nós de um grupo de disponibilidade individualmente com soluções iguais ou diferentes, também poderá levar à falha de backup.
@@ -59,8 +59,8 @@ Antes de começar, verifique o que está descrito abaixo:
 * Bancos de dados com um grande número de arquivos não podem ser protegidos. O número máximo de arquivos com suporte não é **~1000**.  
 * É possível fazer backup de até **~2000** bancos de dados do SQL Server em um cofre. Caso você tenha um número maior de bancos de dados, poderá criar vários cofres.
 * Você pode configurar o backup de até **50** bancos de dados de uma vez; essa restrição ajuda a otimizar cargas de backup.
-* We support databases up to **2 TB** in size; for sizes greater than that performance issues may come up.
-* To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. [Download](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) the resource planner that gives the approximate number of databases you can have per server based on the VM resources and the backup policy.
+* Damos suporte a bancos de dados de até **2 TB** de tamanho; para tamanhos maiores do que os problemas de desempenho podem surgir.
+* Para ter uma noção de quantos bancos de dados podem ser protegidos por servidor, precisamos considerar fatores como largura de banda, tamanho da VM, frequência de backup, tamanho do banco de dados, etc. [Baixe](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o Resource Planner que fornece o número aproximado de bancos de dados que você pode ter por servidor com base nos recursos da VM e na política de backup.
 * No caso de grupos de disponibilidade, os backups são feitos de nós diferentes com base em alguns fatores. O comportamento de backup para um grupo de disponibilidade está resumido abaixo.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Faça backup do comportamento no caso de grupos de disponibilidade Always On
@@ -74,31 +74,31 @@ Antes de começar, verifique o que está descrito abaixo:
 
 Dependendo da preferência de backup e os tipos de backups (completo/diferencial/log/somente cópia completos), os backups serão feitos em um nó específico (primário/secundário).
 
-* **Backup preference: Primary**
+* **Preferência de backup: primária**
 
 **Tipo de backup** | **Node**
     --- | ---
     Completo | Primário
     Diferencial | Primário
-    Log |  Primário
+    Registro |  Primário
     Completo somente de cópia |  Primário
 
-* **Backup preference: Secondary Only**
+* **Preferência de backup: somente secundário**
 
 **Tipo de backup** | **Node**
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Secundário
+Registro |  Secundário
 Completo somente de cópia |  Secundário
 
-* **Backup preference: Secondary**
+* **Preferência de backup: secundária**
 
 **Tipo de backup** | **Node**
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Secundário
+Registro |  Secundário
 Completo somente de cópia |  Secundário
 
 * **Nenhuma preferência de Backup**
@@ -107,7 +107,7 @@ Completo somente de cópia |  Secundário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Log |  Secundário
+Registro |  Secundário
 Completo somente de cópia |  Secundário
 
 ## <a name="set-vm-permissions"></a>Definir permissões da VM
@@ -176,7 +176,7 @@ Adicione logins do **NT AUTHORITY\SYSTEM** e do **NT Service\AzureWLBackupPlugin
 
 7. Clique em OK.
 8. Repita a mesma sequência de etapas (de 1 a 7 acima) para adicionar o logon de NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o logon já existe, verifique se tem a função de servidor sysadmin e, em Status, se tem a permissão de concessão para se conectar ao mecanismo de banco de dados e faça logon como Habilitado.
-9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
+9. Depois de conceder a permissão, **redescubra os bancos** de trabalho no Portal: cofre **->** infraestrutura de backup **->** carga de trabalho na VM do Azure:
 
     ![Redescobrir bancos de dados no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
@@ -215,7 +215,7 @@ catch
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre](backup-sql-server-database-azure-vms.md) como realizar backup de bancos de dados do SQL Server.
 * [Saiba mais sobre](restore-sql-database-azure-vm.md) como restaurar bancos de dados do SQL Server copiados em backup.

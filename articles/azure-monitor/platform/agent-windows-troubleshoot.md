@@ -36,9 +36,9 @@ Verifique se o firewall ou o proxy está configurado para permitir as seguintes 
 
 |Recurso de agente|Portas |Direção |Ignorar a inspeção de HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porta 443 |Saída|Sim |  
-|*.oms.opinsights.azure.com |Porta 443 |Saída|Sim |  
-|*.blob.core.windows.net |Porta 443 |Saída|Sim |  
+|*.ods.opinsights.azure.com |Porta 443 |Saída|sim |  
+|*.oms.opinsights.azure.com |Porta 443 |Saída|sim |  
+|*.blob.core.windows.net |Porta 443 |Saída|sim |  
 
 Para obter informações de firewall necessárias para o Azure governamental, consulte [Gerenciamento do Azure governamental](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Se você planeja usar o Hybrid Runbook Worker de automação do Azure para se conectar e se registrar no serviço de automação para usar runbooks ou soluções de gerenciamento em seu ambiente, ele deve ter acesso ao número da porta e às URLs descritas em [configurar sua rede para o Hybrid runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

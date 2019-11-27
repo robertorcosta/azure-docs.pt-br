@@ -65,7 +65,7 @@ Observe que você não precisa dar suporte a usuários e grupos ou a todos os at
 | displayName |displayName |
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
-| jobTitle |título |
+| jobTitle |title |
 | mail |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |manager |
@@ -232,7 +232,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 #### <a name="get-user"></a>Obter usuário
 
 ###### <a name="request-1"></a>Quest
-*GET /Users/5d48a0a8e9f04aa38008* 
+*OBTER/Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-1"></a>Resposta (usuário encontrado)
 *HTTP/1.1 200 OK*
@@ -280,7 +280,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 
 ##### <a name="request-2"></a>Quest
 
-*GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
+*GET/useres? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
 ##### <a name="response-2"></a>Responde
 
@@ -321,7 +321,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 
 ##### <a name="request-3"></a>Quest
 
-*GET /Users?filter=userName eq "non-existent user"*
+*GET/useres? Filter = userName EQ "usuário não existente"*
 
 ##### <a name="response-3"></a>Responde
 
@@ -510,7 +510,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 #### <a name="get-group-by-displayname"></a>Obter grupo por displayName
 
 ##### <a name="request-9"></a>Quest
-*GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
+*GET/groups? excludeble = Members & Filter = displayName EQ "displayName" HTTP/1.1*
 
 ##### <a name="response-9"></a>Responde
 

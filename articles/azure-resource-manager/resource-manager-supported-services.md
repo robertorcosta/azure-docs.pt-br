@@ -1,5 +1,5 @@
 ---
-title: Resource providers and resource types
+title: Provedores de recursos e tipos de recursos
 description: Descreve os provedores de recursos que oferecem suporte ao Gerenciador de Recursos, aos respectivos esquemas e versões de API disponíveis, bem como às regiões que podem hospedar os recursos.
 ms.topic: conceptual
 ms.date: 08/29/2019
@@ -12,7 +12,7 @@ ms.locfileid: "74422216"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provedores e tipos de recursos do Azure
 
-Ao implantar recursos, com frequência você precisa recuperar informações sobre os provedores e tipos de recursos. For example, if you want to store keys and secrets, you work with the Microsoft.KeyVault resource provider. This resource provider offers a resource type called vaults for creating the key vault.
+Ao implantar recursos, com frequência você precisa recuperar informações sobre os provedores e tipos de recursos. Por exemplo, se você quiser armazenar chaves e segredos, trabalhe com o provedor de recursos Microsoft. keyvault. Este provedor de recursos oferece um tipo de recurso chamado cofres para criar o cofre de chaves.
 
 O nome de um tipo de recurso está no formato: **{provedor-de-recursos}/{tipo-de-recurso}** . O tipo de recurso de um cofre de chaves é **Microsoft.KeyVault/vaults**.
 
@@ -25,16 +25,16 @@ Neste artigo, você aprenderá a:
 * Exibir localizações válidas para um tipo de recurso
 * Exibir versões de API válidas para um tipo de recurso
 
-You can do these steps through the Azure portal, Azure PowerShell, or Azure CLI.
+Você pode executar essas etapas por meio do portal do Azure, Azure PowerShell ou CLI do Azure.
 
-For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
+Para obter uma lista que mapeia os provedores de recursos para os serviços do Azure, consulte [provedores de recursos para serviços do Azure](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
 Para ver todos os provedores de recursos e o status do registro para a sua assinatura:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-2. On the Azure portal menu, select **All services**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu portal do Azure, selecione **todos os serviços**.
 
     ![selecionar assinaturas](./media/resource-manager-supported-services/select-all-services.png)
 
@@ -44,14 +44,14 @@ Para ver todos os provedores de recursos e o status do registro para a sua assin
 
     ![mostrar provedores de recursos](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. Esta operação está incluída nas funções de Colaborador e de Proprietário. Para registrar um provedor de recursos, selecione **Registrar**. Na captura de tela anterior, o link **Registrar** é destacado para **Microsoft.Blueprint**.
+6. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para fazer a operação de `/register/action` para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Para registrar um provedor de recursos, selecione **Registrar**. Na captura de tela anterior, o link **Registrar** é destacado para **Microsoft.Blueprint**.
 
-    You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
+    Não é possível cancelar o registro de um provedor de recursos quando você ainda tem tipos de recursos desse provedor de recursos em sua assinatura.
 
 Para obter informações para um provedor de recursos específico:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-2. On the Azure portal menu, select **All services**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu portal do Azure, selecione **todos os serviços**.
 3. Na caixa **Todos os serviços**, digite **gerenciador de recursos** e, em seguida, selecione **Gerenciador de Recursos**.
 
     ![selecionar Todos os serviços](./media/resource-manager-supported-services/select-resource-explorer.png)
@@ -94,7 +94,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. Esta operação está incluída nas funções de Colaborador e de Proprietário.
+O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para fazer a operação de `/register/action` para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -109,7 +109,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
+Não é possível cancelar o registro de um provedor de recursos quando você ainda tem tipos de recursos desse provedor de recursos em sua assinatura.
 
 Para obter informações para um provedor de recursos específico, use:
 
@@ -179,7 +179,7 @@ West US
 ...
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 
 Para ver todos os provedores de recursos no Azure e o status do registro para a sua assinatura, use:
 
@@ -199,7 +199,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. Esta operação está incluída nas funções de Colaborador e de Proprietário.
+O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para fazer a operação de `/register/action` para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -207,7 +207,7 @@ az provider register --namespace Microsoft.Batch
 
 Que retorna uma mensagem de que o registro está em andamento.
 
-You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
+Não é possível cancelar o registro de um provedor de recursos quando você ainda tem tipos de recursos desse provedor de recursos em sua assinatura.
 
 Para obter informações para um provedor de recursos específico, use:
 
@@ -285,9 +285,9 @@ West US
 ...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md). 
 * Para exibir os esquemas de modelo de provedor de recursos, confira [Referência de modelo](/azure/templates/).
-* For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
+* Para obter uma lista que mapeia os provedores de recursos para os serviços do Azure, consulte [provedores de recursos para serviços do Azure](azure-services-resource-providers.md).
 * Para exibir as operações para um provedor de recursos, consulte [API REST do Azure](/rest/api/).

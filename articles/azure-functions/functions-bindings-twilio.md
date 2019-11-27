@@ -19,7 +19,7 @@ Este artigo explica como enviar mensagens de texto usando-se as associações de
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
 As ligações do Twilio são fornecidas no pacote [ Microsoft.Azure.WebJobs.Extensions.Twilio ](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet, versão 1.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/).
 
@@ -36,7 +36,7 @@ As ligações do Twilio são fornecidas no pacote [ Microsoft.Azure.WebJobs.Exte
 Consulte o exemplo específico a um idioma:
 
 * [C#](#c-example)
-* [Script do C# (. CSx)](#c-script-example)
+* [Script do C# (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Exemplo de C#
@@ -391,9 +391,9 @@ Para ver um exemplo completo, consulte [Exemplo de C#](#c-example).
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `TwilioSms` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `TwilioSms` atributo.
 
-| propriedade function.json v1 | propriedade function.json v2 | Propriedade de atributo |Descrição|
+| propriedade function.json v1 | propriedade function.json v2 | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|---------|----------------------|
 |**tipo**|**tipo**| deve ser definido como `twilioSms`.|
 |**direction**|**direction**| deve ser definido como `out`.|
@@ -406,7 +406,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

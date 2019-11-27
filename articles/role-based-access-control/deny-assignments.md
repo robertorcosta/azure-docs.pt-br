@@ -28,51 +28,51 @@ Semelhante a uma atribuição de função, uma *negação de atribuição* anexa
 
 Este artigo descreve como as atribuições de negação são definidas.
 
-## <a name="how-deny-assignments-are-created"></a>How deny assignments are created
+## <a name="how-deny-assignments-are-created"></a>Como as atribuições de negação são criadas
 
-Deny assignments are created and managed by Azure to protect resources. Azure Blueprints and Azure managed apps use deny assignments to protect system-managed resources. Azure Blueprints and Azure managed apps are the only way that deny assignments can be created. You can't directly create your own deny assignments.  Para obter mais informações, consulte [Proteger novos recursos com bloqueios de recurso do Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
+As atribuições de negação são criadas e gerenciadas pelo Azure para proteger os recursos. Os planos gráficos do Azure e os aplicativos gerenciados do Azure usam atribuições de negação para proteger os recursos gerenciados pelo sistema. Os planos gráficos do Azure e os aplicativos gerenciados do Azure são a única maneira de que as atribuições de negação podem ser criadas. Você não pode criar suas próprias atribuições de negação diretamente.  Para obter mais informações, consulte [Proteger novos recursos com bloqueios de recurso do Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
 
 > [!NOTE]
-> You can't directly create your own deny assignments.
+> Você não pode criar suas próprias atribuições de negação diretamente.
 
-## <a name="compare-role-assignments-and-deny-assignments"></a>Compare role assignments and deny assignments
+## <a name="compare-role-assignments-and-deny-assignments"></a>Comparar atribuições de função e atribuições de negação
 
-Deny assignments follow a similar pattern as role assignments, but also have some differences.
+As atribuições de negação seguem um padrão semelhante como atribuições de função, mas também têm algumas diferenças.
 
-| Capacidade | Atribuição de função | Deny assignment |
+| Recurso | Atribuição de função | Atribuição de negação |
 | --- | --- | --- |
 | Conceder acesso | :heavy_check_mark: |  |
 | Negar acesso |  | :heavy_check_mark: |
-| Can be directly created | :heavy_check_mark: |  |
-| Apply at a scope | :heavy_check_mark: | :heavy_check_mark: |
-| Exclude principals |  | :heavy_check_mark: |
-| Prevent inheritance to child scopes |  | :heavy_check_mark: |
-| Apply to [classic subscription administrator](rbac-and-directory-admin-roles.md) assignments |  | :heavy_check_mark: |
+| Pode ser criado diretamente | :heavy_check_mark: |  |
+| Aplicar em um escopo | :heavy_check_mark: | :heavy_check_mark: |
+| Excluir entidades |  | :heavy_check_mark: |
+| Impedir a herança para escopos filho |  | :heavy_check_mark: |
+| Aplicar a atribuições de [administrador de assinatura clássica](rbac-and-directory-admin-roles.md) |  | :heavy_check_mark: |
 
 ## <a name="deny-assignment-properties"></a>Propriedades de atribuição de negação
 
  Uma atribuição de negação tem as seguintes propriedades:
 
 > [!div class="mx-tableFixed"]
-> | Propriedade | obrigatórios | Type | Descrição |
+> | Propriedade | obrigatórios | Digite | DESCRIÇÃO |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | SIM | string | O nome de exibição da atribuição de negação. Os nomes devem ser exclusivos para um determinado escopo. |
-> | `Description` | Não | string | A descrição da atribuição de negação. |
+> | `DenyAssignmentName` | sim | String | O nome de exibição da atribuição de negação. Os nomes devem ser exclusivos para um determinado escopo. |
+> | `Description` | Não | String | A descrição da atribuição de negação. |
 > | `Permissions.Actions` | Pelo menos um Actions ou um DataActions | String[] | Uma matriz de cadeias de caracteres que especificam as operações de gerenciamento para as quais o acesso é bloqueado pela atribuição de negação. |
 > | `Permissions.NotActions` | Não | String[] | Uma matriz de cadeias de caracteres que especificam as operações de gerenciamento a excluir da atribuição de negação. |
 > | `Permissions.DataActions` | Pelo menos um Actions ou um DataActions | String[] | Uma matriz de cadeias de caracteres que especificam as operações de dados para as quais o acesso é bloqueado pela atribuição de negação. |
 > | `Permissions.NotDataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especificam as operações de dados a excluir da atribuição de negação. |
-> | `Scope` | Não | string | Uma cadeia de caracteres que especifica o escopo ao qual a atribuição de negação se aplica. |
-> | `DoNotApplyToChildScopes` | Não | Booliano | Especifica se a atribuição de negação se aplica a escopos filho. O valor padrão é falso. |
-> | `Principals[i].Id` | SIM | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação se aplica. Defina como um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
-> | `Principals[i].Type` | Não | String[] | An array of object types represented by Principals[i].Id. Set to `SystemDefined` to represent all principals. |
+> | `Scope` | Não | String | Uma cadeia de caracteres que especifica o escopo ao qual a atribuição de negação se aplica. |
+> | `DoNotApplyToChildScopes` | Não | Boolean | Especifica se a atribuição de negação se aplica a escopos filho. O valor padrão é falso. |
+> | `Principals[i].Id` | sim | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação se aplica. Defina como um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
+> | `Principals[i].Type` | Não | String[] | Uma matriz de tipos de objeto representada por entidades de segurança [i]. ID. Defina como `SystemDefined` para representar todas as entidades de segurança. |
 > | `ExcludePrincipals[i].Id` | Não | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação não se aplica. |
 > | `ExcludePrincipals[i].Type` | Não | String[] | Uma matriz de tipos de objeto representados por ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Não | Booliano | Especifica se esta atribuição de negação foi ou não criada pelo Azure e não pode ser editada ou excluída. Atualmente, todas as atribuições de negação são protegidas pelo sistema. |
+> | `IsSystemProtected` | Não | Boolean | Especifica se esta atribuição de negação foi ou não criada pelo Azure e não pode ser editada ou excluída. Atualmente, todas as atribuições de negação são protegidas pelo sistema. |
 
-## <a name="the-all-principals-principal"></a>The All Principals principal
+## <a name="the-all-principals-principal"></a>A entidade de segurança todos os principais
 
-To support deny assignments, a system-defined principal named *All Principals* has been introduced. Essa entidade representa todos os usuários, grupos, entidades de serviço e identidades gerenciadas em um diretório do Microsoft Azure Active Directory. Se o ID principal for um zero GUID `00000000-0000-0000-0000-000000000000` e o tipo principal for `SystemDefined`, o principal representará todos os principais. In Azure PowerShell output, All Principals looks like the following:
+Para dar suporte a atribuições de negação, uma entidade definida pelo sistema denominada *todas as entidades de segurança* foi introduzida. Essa entidade representa todos os usuários, grupos, entidades de serviço e identidades gerenciadas em um diretório do Microsoft Azure Active Directory. Se o ID principal for um zero GUID `00000000-0000-0000-0000-000000000000` e o tipo principal for `SystemDefined`, o principal representará todos os principais. Na saída Azure PowerShell, todas as entidades de segurança são parecidas com as seguintes:
 
 ```azurepowershell
 Principals              : {
@@ -82,12 +82,12 @@ Principals              : {
                           }
 ```
 
-All Principals can be combined with `ExcludePrincipals` to deny all principals except some users. All Principals has the following constraints:
+Todas as entidades de segurança podem ser combinadas com `ExcludePrincipals` para negar todas as entidades de segurança, exceto alguns usuários. Todas as entidades de segurança têm as seguintes restrições:
 
 - Pode ser usada apenas em `Principals` e não pode ser usada em `ExcludePrincipals`.
 - `Principals[i].Type` deve ser definido como `SystemDefined`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [List deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
+* [Listar atribuições de negação para recursos do Azure usando o portal do Azure](deny-assignments-portal.md)
 * [Noções básicas sobre definições de função para recursos do Azure](role-definitions.md)

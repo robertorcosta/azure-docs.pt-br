@@ -1,5 +1,5 @@
 ---
-title: Secure resources with Azure MFA and ADFS - Azure Active Directory
+title: Proteger recursos com o Azure MFA e o ADFS-Azure Active Directory
 description: Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA e o AD FS na nuvem.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -30,11 +30,11 @@ Para proteger seus recursos de nuvem, configure uma regra de declaração para q
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
 3. Clique com o botão direito do mouse na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Declaração**.
 
-   ![ADFS Console - Relying Party Trusts](./media/howto-mfa-adfs/trustedip1.png)
+   ![Console do ADFS-confianças de terceira parte confiável](./media/howto-mfa-adfs/trustedip1.png)
 
 4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.
 
-   ![Editing Issuance Transform Rules](./media/howto-mfa-adfs/trustedip2.png)
+   ![Editando regras de transformação de emissão](./media/howto-mfa-adfs/trustedip2.png)
 
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
 
@@ -58,15 +58,15 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
 1. Abra o gerenciamento do AD FS.
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
-3. Right-click on **Microsoft Office 365 Identity Platform** and select **Edit Claim Rules…** 
-   ![ADFS Console - Edit Claim Rules](./media/howto-mfa-adfs/trustedip1.png)
-4. On Issuance Transform Rules, click **Add Rule.** 
-   ![Adding a Claim Rule](./media/howto-mfa-adfs/trustedip2.png)
+3. Clique com o botão direito do mouse em **Microsoft Office plataforma de identidade 365** e selecione **Editar regras de declaração...** 
+   ![console do ADFS-editar regras de declaração](./media/howto-mfa-adfs/trustedip1.png)
+4. Em regras de transformação de emissão, clique em **Adicionar regra.** 
+   ![adicionar uma regra de declaração](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
    ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfa-adfs/trustedip3.png)
 6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo: InsideCorpNet.
 7. Na lista suspensa, ao lado do tipo de declaração de entrada, selecione **Dentro da rede corporativa**.
-   ![Adding Inside Corporate Network claim](./media/howto-mfa-adfs/trustedip4.png)
+   ![adicionando dentro da declaração de rede corporativa](./media/howto-mfa-adfs/trustedip4.png)
 8. Clique em **Concluir**.
 9. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.
 10. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Enviar Declarações Usando uma Regra Personalizada** da lista suspensa e clique em **Avançar**.
@@ -75,7 +75,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
+    ![Criar uma declaração personalizada para manter os usuários conectados](./media/howto-mfa-adfs/trustedip5.png)
 13. Clique em **Concluir**.
 14. Clique em **Aplicar**.
 15. Clique em **Ok**.
@@ -85,11 +85,11 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
 Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Conditional Access** > **Named locations**.
-3. From the **Conditional Access - Named locations** blade, select **Configure MFA trusted IPs**
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Selecione **Azure Active Directory** > **acesso condicional** > **locais nomeados**.
+3. Na folha **acesso condicional-locais nomeados** , selecione **Configurar IPs confiáveis MFA**
 
-   ![Azure AD Conditional Access named locations Configure MFA trusted IPs](./media/howto-mfa-adfs/trustedip6.png)
+   ![Locais nomeados de acesso condicional do Azure AD configurar IPs confiáveis de MFA](./media/howto-mfa-adfs/trustedip6.png)
 
 4. Na página Configurações de Serviço, em **IPs confiáveis**, selecione **Ignorar autenticação multifator para solicitações de usuários federados na minha intranet**.  
 5. Clique em **Salvar**.

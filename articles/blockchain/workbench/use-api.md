@@ -1,6 +1,6 @@
 ---
-title: Using Azure Blockchain Workbench REST APIs
-description: Scenarios for how to use the Azure Blockchain Workbench Preview REST API
+title: Usando as APIs REST do Azure Blockchain Workbench
+description: Cenários de como usar a API REST de visualização do Azure Blockchain Workbench
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: brendal
@@ -11,9 +11,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74324199"
 ---
-# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Using the Azure Blockchain Workbench Preview REST API
+# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Usando a API REST de visualização do Azure Blockchain Workbench
 
-Azure Blockchain Workbench Preview REST API provides developers and information workers a way to build rich integrations to blockchain applications. Este documento orienta você através de vários métodos de chave da API REST do Workbench. Por exemplo, suponha que um desenvolvedor queira criar um cliente blockchain customizado. Esse cliente blockchain permite que usuários conectados visualizem e interajam com seus aplicativos blockchain atribuídos. O cliente permite aos usuários exibir instâncias de contrato e executar ações em contratos inteligentes. O cliente usa a API REST do Workbench no contexto do usuário conectado para executar as seguintes ações:
+A API REST de visualização do Azure Blockchain Workbench fornece aos desenvolvedores e operadores de informações uma maneira de criar integrações avançadas para aplicativos Blockchain. Este documento orienta você através de vários métodos de chave da API REST do Workbench. Por exemplo, suponha que um desenvolvedor queira criar um cliente blockchain customizado. Esse cliente blockchain permite que usuários conectados visualizem e interajam com seus aplicativos blockchain atribuídos. O cliente permite aos usuários exibir instâncias de contrato e executar ações em contratos inteligentes. O cliente usa a API REST do Workbench no contexto do usuário conectado para executar as seguintes ações:
 
 * Listar aplicativos
 * Listar fluxos de trabalho para um aplicativo
@@ -23,18 +23,18 @@ Azure Blockchain Workbench Preview REST API provides developers and information 
 
 Os aplicativos de blockchain de exemplo usados nos cenários podem ser [baixados do GitHub](https://github.com/Azure-Samples/blockchain).
 
-## <a name="blockchain-workbench-api-endpoint"></a>Blockchain Workbench API endpoint
+## <a name="blockchain-workbench-api-endpoint"></a>Ponto de extremidade da API do Blockchain Workbench
 
-Blockchain Workbench APIs are accessed through an endpoint for your deployment. To get the API endpoint URL for your deployment:
+As APIs do Blockchain Workbench são acessadas por meio de um ponto de extremidade para sua implantação. Para obter a URL do ponto de extremidade da API para sua implantação:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. In the left-hand navigation pane, select **Resource groups**.
-1. Choose the resource group name your deployed Blockchain Workbench.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+1. No painel de navegação à esquerda, selecione **grupos de recursos**.
+1. Escolha o nome do grupo de recursos que você implantou o Blockchain Workbench.
 1. Selecione a coluna **TIPO** para classificar a lista alfabeticamente por tipo.
-1. Há dois recursos com o tipo **Serviço de Aplicativo**. Select the resource of type **App Service** *with* the "-api" suffix.
-1. In the App Service **Overview**, copy the **URL** value, which represents the API endpoint URL to your deployed Blockchain Workbench.
+1. Há dois recursos com o tipo **Serviço de Aplicativo**. Selecione o recurso do tipo **serviço de aplicativo** *com* o sufixo "-API".
+1. Na **visão geral**do serviço de aplicativo, copie o valor da **URL** , que representa a URL do ponto de extremidade da API para o Blockchain Workbench implantado.
 
-    ![App service API endpoint URL](media/use-api/app-service-api.png)
+    ![URL do ponto de extremidade da API do serviço de aplicativo](media/use-api/app-service-api.png)
 
 ## <a name="list-applications"></a>Listar aplicativos
 
@@ -314,7 +314,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Referência de API REST do Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)

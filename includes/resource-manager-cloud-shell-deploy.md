@@ -15,7 +15,7 @@ ms.locfileid: "74451401"
 
 Você pode usar o [Cloud Shell](../articles/cloud-shell/overview.md) para implantar o modelo. Para implantar um modelo externo, forneça o URI do modelo, exatamente como você faria para qualquer implantação externa. Para implantar um modelo local, você deve carregar o modelo primeiro para a conta de armazenamento do seu Cloud Shell. Esta seção descreve como carregar o modelo na sua conta do Cloud Shell e implantá-lo como um arquivo local. Caso ainda não tenha usado o Cloud Shell, confira [Visão geral do Azure Cloud Shell](../articles/cloud-shell/overview.md) para saber mais sobre como configurá-lo.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione o grupo de recursos do Cloud Shell. O nome padrão é `cloud-shell-storage-<region>`.
 

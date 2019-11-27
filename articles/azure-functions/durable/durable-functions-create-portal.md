@@ -17,7 +17,7 @@ A extensão [Funções Duráveis](durable-functions-overview.md) do Azure Functi
 
 > [!NOTE]
 > 
-> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-create-first-csharp.md).
+> * Se você estiver desenvolvendo funções duráveis no C#, considere o desenvolvimento do [Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Se você estiver desenvolvendo funções duráveis em JavaScript, você deve considerar o [Desenvolvimento de código do Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
@@ -130,7 +130,7 @@ Se você estiver criando Durable Functions do JavaScript, precisará instalar o 
 
 A primeira função durável está agora em execução no Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre os padrões comuns de função durável](durable-functions-overview.md#application-patterns)

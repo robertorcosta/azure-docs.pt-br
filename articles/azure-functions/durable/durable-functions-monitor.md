@@ -54,7 +54,7 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 * `E3_GetIsClear`: uma função de atividade que verifica as condições meteorológicas atuais de um local.
 * `E3_SendGoodWeatherAlert`: uma função de atividade que envia uma mensagem SMS via Twilio.
 
-The following sections explain the configuration and code that is used for C# scripting and JavaScript. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
+As seções a seguir explicam a configuração e o código que C# é usado para script e JavaScript. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
 
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A orquestração de monitoramento meteorológico (Código de exemplo do Portal do Azure e Visual Studio Code)
 
@@ -68,7 +68,7 @@ Este é o código que implementa a função:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -79,13 +79,13 @@ Essa função de orquestrador executa as ações a seguir:
 3. Chama **E3_GetIsClear** para determinar se há boas condições climáticas na localização solicitada.
 4. Se o houver boas condições climáticas, chamará **E3_SendGoodWeatherAlert** para enviar uma notificação de SMS para o número do telefone solicitado.
 5. Cria um temporizador durável para retomar a orquestração no próximo intervalo de sondagem. O exemplo usa um valor embutido em código para brevidade.
-6. Continues running until the `CurrentUtcDateTime` (.NET) or `currentUtcDateTime` (JavaScript) passes the monitor's expiration time, or an SMS alert is sent.
+6. Continua em execução até que o `CurrentUtcDateTime` (.NET) ou `currentUtcDateTime` (JavaScript) passe o tempo de expiração do monitor ou um alerta do SMS seja enviado.
 
 Várias instâncias de orquestrador podem ser executadas simultaneamente enviando vários **MonitorRequests**. A localização a ser monitorada e o número do telefone para envio de um alerta por SMS podem ser excluídos.
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Transferência de dados fortemente tipados (somente .NET)
 
-The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:  
+O orquestrador requer várias partes de dados; portanto, os [objetos poco compartilhados](../functions-reference-csharp.md#reusing-csx-code) são usados para transferência de dados com C# rigidez C# de tipos e script:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
@@ -104,7 +104,7 @@ E aqui está a implementação. Tal como os POCOs utilizados para transferência
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -118,13 +118,13 @@ E aqui está o código que envia a mensagem SMS:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 
-Usando as funções disparadas por HTTP incluídas no exemplo, você pode iniciar a orquestração enviando a seguinte solicitação HTTP POST:
+Usando as funções disparadas por HTTP incluídas no exemplo, é possível iniciar a orquestração enviando a seguinte solicitação HTTP POST:
 
 ```
 POST https://{host}/orchestrators/E3_Monitor
@@ -178,7 +178,7 @@ Esta é a orquestração como um único arquivo em C# em um projeto do Visual St
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este exemplo demonstrou como usar as Funções Duráveis para monitorar o status de uma fonte externa usando [temporizadores duráveis](durable-functions-timers.md) e lógica condicional. O próximo exemplo mostra como usar eventos externos e [temporizadores duráveis](durable-functions-timers.md) para lidar com interação humana.
 

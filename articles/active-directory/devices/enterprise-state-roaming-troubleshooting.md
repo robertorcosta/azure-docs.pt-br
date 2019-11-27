@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Enterprise State Roaming in Azure Active Directory
+title: Solucionar problemas de Enterprise State Roaming no Azure Active Directory
 description: Responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo.
 services: active-directory
 ms.service: active-directory
@@ -66,9 +66,9 @@ O Enterprise State Roaming requer que o dispositivo seja registrado com o AD do 
 1. Depois de aberto o prompt de comando, digite “*dsregcmd.exe /status*”.
 1. Para o resultado esperado, o valor do campo **AzureAdJoined** deve ser “YES”, o valor do campo **WamDefaultSet** deve ser “YES” e o valor do campo **WamDefaultGUID** deve ser um GUID com “(AzureAd)” no final.
 
-**Potential issue**: **WamDefaultSet** and **AzureAdJoined** both have “NO” in the field value, the device was domain-joined and registered with Azure AD, and the device does not sync. If it is showing this, the device may need to wait for policy to be applied or the authentication for the device failed when connecting to Azure AD. O usuário pode precisar aguardar algumas horas para que a política a seja aplicada. Outras etapas de solução de problemas podem incluir repetir o registro automático se desconectando e entrando novamente ou iniciar a tarefa no Agendador de tarefas. Em alguns casos, executar "*dsregcmd.exe /leave*" em uma janela de prompt de comando elevado, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
+**Possível problema**: **WamDefaultSet** e **AzureAdJoined** têm "no" no valor do campo, o dispositivo foi ingressado no domínio e registrado no Azure AD, e o dispositivo não é sincronizado. Se ele estiver mostrando isso, talvez o dispositivo precise aguardar a aplicação da política ou a autenticação do dispositivo falhou ao se conectar ao Azure AD. O usuário pode precisar aguardar algumas horas para que a política a seja aplicada. Outras etapas de solução de problemas podem incluir repetir o registro automático se desconectando e entrando novamente ou iniciar a tarefa no Agendador de tarefas. Em alguns casos, executar "*dsregcmd.exe /leave*" em uma janela de prompt de comando elevado, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
 
-**Potential issue**: The field for **SettingsUrl** is empty and the device does not sync. The user may have last logged in to the device before Enterprise State Roaming was enabled in the Azure Active Directory Portal. Reinicie o dispositivo e faça o logon do usuário. Opcionalmente, no portal, peça para que o administrador de TI navegue até **Azure Active Directory** > **Dispositivos** > **Enterprise State Roaming** desabilitar e reabilitar **os usuários podem sincronizar configurações e dados de aplicativo entre dispositivos**. Uma vez reativado, reinicie o dispositivo e faça o login do usuário. Se isso não resolver o problema, **SettingsUrl** poderá estar vazio, no caso de um certificado de dispositivo inválido. Nesse caso, executar “*dsregcmd.exe /leave*” em uma janela de prompt de comandos com privilégios elevados, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
+**Possível problema**: o campo para **SettingsUrl** está vazio e o dispositivo não é sincronizado. O usuário pode ter feito o último logon no dispositivo antes de o Enterprise State Roaming ter sido habilitado no portal de Azure Active Directory. Reinicie o dispositivo e faça o logon do usuário. Opcionalmente, no portal, peça para que o administrador de TI navegue até **Azure Active Directory** > **Dispositivos** > **Enterprise State Roaming** desabilitar e reabilitar **os usuários podem sincronizar configurações e dados de aplicativo entre dispositivos**. Uma vez reativado, reinicie o dispositivo e faça o login do usuário. Se isso não resolver o problema, **SettingsUrl** poderá estar vazio, no caso de um certificado de dispositivo inválido. Nesse caso, executar “*dsregcmd.exe /leave*” em uma janela de prompt de comandos com privilégios elevados, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming e Autenticação Multifator 
 
@@ -76,7 +76,7 @@ Em determinadas condições, o Roaming de Estado de Empresa poderá não sincron
 
 **Possível problema**: se o dispositivo estiver configurado para exigir Autenticação Multifator no portal do Azure Active Directory, você talvez não consiga sincronizar configurações ao entrar em um dispositivo com Windows 10 usando uma senha. Esse tipo de configuração de Autenticação Multifator destina-se a proteger uma conta de administrador do Azure. Os usuários administradores talvez ainda possam executar a sincronização entrando em seus dispositivos Windows 10 com o PIN do Microsoft Passport for Work ou concluindo a Autenticação Multifator durante o acesso a outros serviços do Azure, como o Office 365.
 
-**Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication Conditional Access policy and the access token on the device expires. Certifique-se de entrar e sair usando o PIN do Microsoft Passport for Work ou conclua a Autenticação Multifator durante o acesso a outros serviços do Azure, como o Office 365.
+**Possível problema**: a sincronização poderá falhar se o administrador configurar a política de acesso condicional da autenticação multifator serviços de Federação do Active Directory (AD FS) e o token de acesso no dispositivo expirar. Certifique-se de entrar e sair usando o PIN do Microsoft Passport for Work ou conclua a Autenticação Multifator durante o acesso a outros serviços do Azure, como o Office 365.
 
 ### <a name="event-viewer"></a>Visualizador de Eventos
 
@@ -107,7 +107,7 @@ Verifique se o cliente v1511 do Windows 10 tem a atualização cumulativa de jul
 Para impedir a perda de dados, os dados protegidos com a [Proteção de Informações do Windows](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) não serão sincronizados por meio do Enterprise State Roaming em dispositivos que usam a Atualização de Aniversário do Windows 10.
 
 **Ação recomendada**  
-Nenhuma. Atualizações futuras do Windows poderão resolver esse problema.
+Nenhum. Atualizações futuras do Windows poderão resolver esse problema.
 
 ---
 
@@ -116,7 +116,7 @@ Nenhuma. Atualizações futuras do Windows poderão resolver esse problema.
 Dispositivos associados ao domínio não passarão pela sincronização para a configuração de data, hora e região: horário automático. O uso do horário automático pode substituir as configurações de data, hora e região e fazer com que essas configurações não sincronizem. 
 
 **Ação recomendada**  
-Nenhuma. 
+Nenhum. 
 
 ---
 
@@ -134,7 +134,7 @@ Verifique se o cliente v1511 do Windows 10 tem a atualização cumulativa ([KB31
 Se você tentar entrar em seu dispositivo Windows usando um cartão inteligente ou um cartão inteligente Virtual, a sincronização das configurações vai parar de funcionar.     
 
 **Ação recomendada**  
-Nenhuma. Atualizações futuras do Windows poderão resolver esse problema.
+Nenhum. Atualizações futuras do Windows poderão resolver esse problema.
 
 ---
 
@@ -176,6 +176,6 @@ No Visualizador de Eventos, em logs do AAD/Operacionais, esse erro pode ser vist
 **Ação recomendada**  
 Prossiga com as etapas listadas em [KB3196528](https://support.microsoft.com/kb/3196528).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma visão geral, confira [visão geral do Enterprise State Roaming](enterprise-state-roaming-overview.md).

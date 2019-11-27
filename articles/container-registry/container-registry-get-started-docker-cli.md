@@ -1,5 +1,5 @@
 ---
-title: Push & pull Docker image
+title: Enviar por push & imagem do Docker pull
 description: Envie e obtenha imagens do Docker para um registro de contêiner privado no Azure usando a CLI do Docker
 ms.topic: article
 ms.date: 01/23/2019
@@ -17,7 +17,7 @@ Um registro de contêiner do Azure armazena e gerencia imagens de contêiner pri
 
 Nas etapas a seguir, você baixará uma [imagem Nginx](https://store.docker.com/images/nginx) oficial do registro do Hub do Docker público, a rotulará para seu registro de contêiner do Azure privado, enviará por push para o registro e, em seguida, efetuará pull dela do registro.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Registro de Contêiner do Azure** - crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
 * **CLI do Docker** – você também deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
@@ -57,7 +57,7 @@ Execute o seguinte comando [docker run](https://docs.docker.com/engine/reference
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Browse to `http://localhost:8080` to view the default web page served by Nginx in the running container. Você verá uma página semelhante à seguinte:
+Navegue até `http://localhost:8080` para exibir a página da Web padrão servida pelo Nginx no contêiner em execução. Você verá uma página semelhante à seguinte:
 
 ![Nginx no computador local](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -99,7 +99,7 @@ Use o comando [docker run](https://docs.docker.com/engine/reference/run/) para e
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Browse to `http://localhost:8080` to view the running container.
+Navegue até `http://localhost:8080` para exibir o contêiner em execução.
 
 Para parar e remover o contêiner, pressione `Control`+`C`.
 
@@ -117,7 +117,7 @@ Para remover as imagens de seu registro de contêiner do Azure, você pode usar 
 az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que conhece os fundamentos, você está pronto para começar a usar o registro! Por exemplo, implante as imagens de contêiner do Registro para:
 

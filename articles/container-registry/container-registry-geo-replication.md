@@ -1,6 +1,6 @@
 ---
 title: Replicação geográfica de um registro
-description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-master regional replicas.
+description: Comece a criar e gerenciar um registro de contêiner do Azure com replicação geográfica, que permite que o registro sirva várias regiões com réplicas regionais de vários mestres.
 author: stevelas
 ms.topic: article
 ms.date: 08/16/2019
@@ -59,9 +59,9 @@ Usando o recurso de replicação geográfica do Registro de Contêiner do Azure,
 * Gerenciar uma única configuração de implantações de imagem, porque todas as regiões usavam a mesma URL de imagem:`contoso.azurecr.io/public/products/web:1.2`
 * Enviar por push para um único registro, enquanto o ACR gerencia a replicação geográfica. Você pode configurar [webhooks](container-registry-webhook.md) regionais para receber notificações sobre eventos em réplicas específicas.
 
-## <a name="configure-geo-replication"></a>Configurar replicação geográfica
+## <a name="configure-geo-replication"></a>Configurar a replicação geográfica
 
-Configurar a replicação geográfica é tão fácil quanto clicar em regiões em um mapa. You can also manage geo-replication using tools including the [az acr replication](/cli/azure/acr/replication) commands in the Azure CLI, or deploy a registry enabled for geo-replication with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
+Configurar a replicação geográfica é tão fácil quanto clicar em regiões em um mapa. Você também pode gerenciar a replicação geográfica usando ferramentas que incluem os comandos [AZ ACR Replication](/cli/azure/acr/replication) na CLI do Azure ou implantar um registro habilitado para replicação geográfica com um modelo de [Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
 A replicação geográfica é um recurso de [Registros Premium](container-registry-skus.md) somente. Se seu Registro ainda não é Premium, é possível alterar de Básico e Standard para Premium no [Portal do Azure](https://portal.azure.com):
 
@@ -94,19 +94,19 @@ O ACR começa a sincronizar imagens em réplicas configurados. Depois de conclu�
 * Cada região em um registro com replicação geográfica é independente após a configuração. Os SLAs de Registro de Contêiner do Azure se aplicam a cada região geográfica replicada.
 * Quando você envia imagens por push ou pull de um registro com replicação geográfica, o Gerenciador de Tráfego do Azure em segundo plano envia a solicitação para o registro localizado na região mais próxima de você.
 * Depois que você envia uma atualização de imagem ou marca por push para a região mais próxima, demora algum tempo até o Registro de Contêiner do Azure replicar as camadas e manifestos para as demais regiões que você aceitou. As imagens maiores demoram mais tempo para replicar do que as menores. As imagens e marcas são sincronizadas em todas as regiões de replicação com um modelo de consistência eventual.
-* To manage workflows that depend on push updates to a geo-replicated , we recommend that you configure [webhooks](container-registry-webhook.md) to respond to the push events. Você pode configurar webhooks regionais dentro de um registro com replicação geográfica para acompanhar eventos por push, conforme eles são concluídos em todas as regiões com replicação geográfica.
+* Para gerenciar fluxos de trabalho que dependem de atualizações por push para uma replicação geográfica, recomendamos que você configure [WebHooks](container-registry-webhook.md) para responder aos eventos de push. Você pode configurar webhooks regionais dentro de um registro com replicação geográfica para acompanhar eventos por push, conforme eles são concluídos em todas as regiões com replicação geográfica.
 
 ## <a name="delete-a-replica"></a>Excluir uma réplica
 
-After you've configured a replica for your registry, you can delete it at any time if it's no longer needed. Delete a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) command in the Azure CLI.
+Depois de configurar uma réplica para o registro, você poderá excluí-la a qualquer momento se ela não for mais necessária. Exclua uma réplica usando o portal do Azure ou outras ferramentas, como o comando [AZ ACR Replication Delete](/cli/azure/acr/replication#az-acr-replication-delete) no CLI do Azure.
 
-To delete a replica in the Azure portal:
+Para excluir uma réplica no portal do Azure:
 
-1. Navigate to your Azure Container Registry, and select **Replications**.
-1. Select the name of a replica, and select **Delete**. Confirm that you want to delete the replica.
+1. Navegue até o registro de contêiner do Azure e selecione **replicações**.
+1. Selecione o nome de uma réplica e selecione **excluir**. Confirme que você deseja excluir a réplica.
 
 > [!NOTE]
-> You can't delete the registry replica in the *home region* of the registry, that is, the location where you created the registry. You can only delete the home replica by deleting the registry itself.
+> Não é possível excluir a réplica de registro na *região de início* do registro, ou seja, o local em que você criou o registro. Você só pode excluir a réplica inicial excluindo o registro em si.
 
 ## <a name="geo-replication-pricing"></a>Preços da replicação geográfica
 
@@ -122,7 +122,7 @@ Se esse problema ocorrer, uma solução será aplicar um cache DNS do lado do cl
 
 Para otimizar a resolução DNS para a réplica mais próxima ao efetuar push de imagens, configure um registro com replicação geográfica nas mesmas regiões do Azure da origem das operações de push ou a região mais próxima ao trabalhar fora do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Confira a série de tutoriais em três partes, [Replicação geográfica no Registro de Contêiner do Azure](container-registry-tutorial-prepare-registry.md). Percorra a criação de um Registro com replicação geográfica, criando um contêiner e, em seguida, implantando-o com um único comando `docker push` em várias instâncias regionais dos Aplicativos Web para Contêineres.
 

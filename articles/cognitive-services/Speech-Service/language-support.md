@@ -28,45 +28,45 @@ O SDK do Microsoft Speech e a API REST dão suporte aos seguintes idiomas (local
 
  Localidade | idioma | Suportado | Personalizável
 ------|------------|-----------|-------------
-`ar-EG` | Árabe (Egito), padrão moderno | Sim | Sim
-`ar-SA` | Árabe (Arábia Saudita) | Sim | Sim
-`ar-AE` | Árabe (dos EAU) | Sim | Sim
-`ar-KW` | Árabe (Kuwait) | Sim | Sim
-`ar-QA` | Árabe (catar) | Sim | Sim
-`ca-ES` | Catalão | Sim | Não
-`da-DK` | Dinamarquês (Dinamarca) | Sim | Não
-`de-DE` | Alemão (Alemanha) | Sim | Sim
-`en-AU` | Inglês (Austrália) | Sim | Sim
-`en-CA` | Inglês (Canadá) | Sim | Sim
-`en-GB` | Inglês (Reino Unido) | Sim | Sim
-`en-IN` | Inglês (Índia) | Sim | Sim
-`en-NZ` | Inglês (Nova Zelândia) | Sim | Sim
-`en-US` | Inglês (Estados Unidos) | Sim | Sim
-`es-ES` | Espanhol (Espanha) | Sim | Sim
-`es-MX` | Espanhol (México) | Sim | Sim
-`fi-FI` | Finlandês (Finlândia) | Sim | Não
-`fr-CA` | Francês (Canadá) | Sim | Sim
-`fr-FR` | Francês (França) | Sim | Sim
-`gu-IN` | Guzerate (indiano) | Sim | Sim
-`hi-IN` | Hindi (Índia) | Sim | Sim
-`it-IT` | Italiano (Itália) | Sim | Sim
-`ja-JP` | Japonês (Japão) | Sim | Sim
-`ko-KR` | Coreano (Coreia) | Sim | Sim
-`mr-IN` | Marati (Índia) | Sim | Sim
-`nb-NO` | Norueguês (Bokmål) (Noruega) | Sim | Não
-`nl-NL` | Holandês (Países Baixos) | Sim | Sim
-`pl-PL` | Polonês (Polônia) | Sim | Não
-`pt-BR` | Português (Brasil) | Sim | Sim
-`pt-PT` | Português (Portugal) | Sim | Sim
-`ru-RU` | Russo (Rússia) | Sim | Sim
-`sv-SE` | Sueco (Suécia) | Sim | Não
-`ta-IN` | Tâmil (Índia) | Sim | Sim
-`te-IN` | Télugo (Índia) | Sim | Sim
-`zh-CN` | Chinês (mandarim, simplificado) | Sim | Sim
-`zh-HK` | Chinês (Cantonês, tradicional) | Sim | Sim
-`zh-TW` | Chinês (Mandarim Taiwanês) | Sim | Sim
-`th-TH` | Tailandês (Tailândia) | Sim | Não
-`tr-TR` | Turquia | Sim | Sim
+`ar-EG` | Árabe (Egito), padrão moderno | sim | sim
+`ar-SA` | Árabe (Arábia Saudita) | sim | sim
+`ar-AE` | Árabe (dos EAU) | sim | sim
+`ar-KW` | Árabe (Kuwait) | sim | sim
+`ar-QA` | Árabe (catar) | sim | sim
+`ca-ES` | Catalão | sim | Não
+`da-DK` | Dinamarquês (Dinamarca) | sim | Não
+`de-DE` | Alemão (Alemanha) | sim | sim
+`en-AU` | Inglês (Austrália) | sim | sim
+`en-CA` | Inglês (Canadá) | sim | sim
+`en-GB` | Inglês (Reino Unido) | sim | sim
+`en-IN` | Inglês (Índia) | sim | sim
+`en-NZ` | Inglês (Nova Zelândia) | sim | sim
+`en-US` | Inglês (Estados Unidos) | sim | sim
+`es-ES` | Espanhol (Espanha) | sim | sim
+`es-MX` | Espanhol (México) | sim | sim
+`fi-FI` | Finlandês (Finlândia) | sim | Não
+`fr-CA` | Francês (Canadá) | sim | sim
+`fr-FR` | Francês (França) | sim | sim
+`gu-IN` | Guzerate (indiano) | sim | sim
+`hi-IN` | Hindi (Índia) | sim | sim
+`it-IT` | Italiano (Itália) | sim | sim
+`ja-JP` | Japonês (Japão) | sim | sim
+`ko-KR` | Coreano (Coreia) | sim | sim
+`mr-IN` | Marati (Índia) | sim | sim
+`nb-NO` | Norueguês (Bokmål) (Noruega) | sim | Não
+`nl-NL` | Holandês (Países Baixos) | sim | sim
+`pl-PL` | Polonês (Polônia) | sim | Não
+`pt-BR` | Português (Brasil) | sim | sim
+`pt-PT` | Português (Portugal) | sim | sim
+`ru-RU` | Russo (Rússia) | sim | sim
+`sv-SE` | Sueco (Suécia) | sim | Não
+`ta-IN` | Tâmil (Índia) | sim | sim
+`te-IN` | Télugo (Índia) | sim | sim
+`zh-CN` | Chinês (mandarim, simplificado) | sim | sim
+`zh-HK` | Chinês (Cantonês, tradicional) | sim | sim
+`zh-TW` | Chinês (Mandarim Taiwanês) | sim | sim
+`th-TH` | Tailandês (Tailândia) | sim | Não
+`tr-TR` | Turquia | sim | sim
 
 ## <a name="text-to-speech"></a>Conversão de texto em fala
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Blockchain Workbench Preview
-description: How to deploy Azure Blockchain Workbench Preview
+title: Implantar a visualização do Azure Blockchain Workbench
+description: Como implantar a visualização do Azure Blockchain Workbench
 ms.date: 11/19/2019
 ms.topic: article
 ms.reviewer: brendal
@@ -11,28 +11,28 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326014"
 ---
-# <a name="deploy-azure-blockchain-workbench-preview"></a>Deploy Azure Blockchain Workbench Preview
+# <a name="deploy-azure-blockchain-workbench-preview"></a>Implantar a visualização do Azure Blockchain Workbench
 
-Azure Blockchain Workbench Preview is deployed using a solution template in the Azure Marketplace. O modelo simplifica a implantação de componentes necessários para criar aplicativos de blockchain. Uma vez implantado, o Blockchain Workbench fornece acesso aos aplicativos de cliente para criar e gerenciar usuários e aplicativos de blockchain.
+A versão prévia do Azure Blockchain Workbench é implantada usando um modelo de solução no Azure Marketplace. O modelo simplifica a implantação de componentes necessários para criar aplicativos de blockchain. Uma vez implantado, o Blockchain Workbench fornece acesso aos aplicativos de cliente para criar e gerenciar usuários e aplicativos de blockchain.
 
 Para obter mais informações sobre os componentes do Blockchain Workbench, consulte [Arquitetura do Azure Blockchain Workbench](architecture.md).
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-## <a name="prepare-for-deployment"></a>Preparar para implantação
+## <a name="prepare-for-deployment"></a>Preparar para a implantação
 
 O Workbench Blockchain permite que você implante uma razão blockchain juntamente com um conjunto de serviços do Microsoft Azure relevante geralmente usado para criar um aplicativo baseado em blockchain. Implantar o Blockchain Workbench resulta nos seguintes serviços do Azure que estão sendo provisionados dentro de um grupo de recursos em sua assinatura do Azure.
 
-* App Service Plan (Standard)
-* Percepções sobre o Aplicativo
+* Plano do serviço de aplicativo (padrão)
+* Application Insights
 * Grade de Eventos
-* Azure Key Vault
-* Service Bus
-* SQL Database (Standard S0) + SQL Logical Server
-* Azure Storage account (Standard LRS)
-* Virtual machine scale set with capacity of 1
-* Virtual Network resource group (with Load Balancer, Network Security Group, Public IP Address, Virtual Network)
-* Azure Blockchain Service. If you are using a previous Blockchain Workbench deployment, consider redeploying Azure Blockchain Workbench to use Azure Blockchain Service.
+* Cofre da Chave do Azure
+* BARRAMENTO DE SERVIÇO
+* Banco de dados SQL (Standard S0) + servidor lógico do SQL
+* Conta de armazenamento do Azure (Standard LRS)
+* Conjunto de dimensionamento de máquinas virtuais com capacidade de 1
+* Grupo de recursos de rede virtual (com Load Balancer, grupo de segurança de rede, endereço IP público, rede virtual)
+* Serviço Blockchain do Azure. Se você estiver usando uma implantação anterior do Blockchain Workbench, considere reimplantar o Azure Blockchain Workbench para usar o serviço Blockchain do Azure.
 
 A seguir está um exemplo de implantação criado no grupo de recursos do **myblockchain**.
 
@@ -40,7 +40,7 @@ A seguir está um exemplo de implantação criado no grupo de recursos do **mybl
 
 O custo do Blockchain Workbench é uma agregação do custo de serviços subjacentes do Azure. Informações sobre preços para serviços do Azure podem ser calculadas usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O Azure Blockchain Workbench requer a configuração do Azure AD e os registros de aplicativos. É possível fazer as [configurações do Azure AD](#azure-ad-configuration) manualmente antes da implantação ou executar uma implantação pós-script. Se estiver reimplementando o Blockchain Workbench, consulte as [configurações do Azure AD](#azure-ad-configuration) para verificar a configuração do Azure AD.
 
@@ -51,25 +51,25 @@ O Azure Blockchain Workbench requer a configuração do Azure AD e os registros 
 
 Depois de concluir as etapas de pré-requisito, você estará pronto para implantar o Blockchain Workbench. As seções a seguir descrevem como implantar a estrutura.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Selecione sua conta no canto superior direito e alterne para o locatário desejado do Azure AD em que deseja implantar o Azure Blockchain Workbench.
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-1. Select **Blockchain** > **Azure Blockchain Workbench (preview)** .
+1. Selecione **Blockchain** > **Azure Blockchain Workbench (versão prévia)** .
 
     ![Criar Azure Blockchain Workbench](media/deploy/blockchain-workbench-settings-basic.png)
 
-    | Configuração | Descrição  |
+    | Configuração | DESCRIÇÃO  |
     |---------|--------------|
     | Prefixo de recursos | Identificador exclusivo curto para sua implantação. Esse valor é usado como base para nomear recursos. |
     | Nome de usuário da VM | O nome de usuário é usado como administrador para todas as máquinas virtuais (VM). |
-    | Tipo de autenticação. | Selecione se deseja usar uma senha ou chave para se conectar a VMs. |
+    | Tipo de autenticação | Selecione se deseja usar uma senha ou chave para se conectar a VMs. |
     | Senha | A senha é usada para se conectar a VMs. |
     | SSH | Use uma chave pública RSA no formato de única linha começando com **ssh-rsa** ou use o formato PEM de várias linha. É possível gerar chaves SSH usando `ssh-keygen` no Linux e OS X ou usando PuTTYGen no Windows. Para obter mais informações sobre como usar chaves SSH, veja [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Database and Blockchain password | Especifique a senha a ser usada para acessar o banco de dados criado como parte da implantação. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolumn(;) |
+    | Banco de dados e senha de Blockchain | Especifique a senha a ser usada para acessar o banco de dados criado como parte da implantação. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo (\`), aspas duplas ("), aspas simples ('), hífen (-) e semicolumn (;) |
     | Resultados da implantação | Especifique onde implantar os recursos Blockchain Workbench. Para melhor disponibilidade, isso deve corresponder à configuração do **Local**. |
-    | Subscription | Especifique a assinatura do Azure que você deseja usar para sua implantação. |
+    | Assinatura | Especifique a assinatura do Azure que você deseja usar para sua implantação. |
     | Grupos de recursos | Crie um novo grupo de recursos selecionando **Criar novo** e especifique um nome exclusivo para o grupo de recursos. |
-    | Location | Especifique a região em que você deseja implantar a estrutura. |
+    | Local padrão | Especifique a região em que você deseja implantar a estrutura. |
 
 1. Selecione **OK** para concluir a seção de configuração básica.
 
@@ -77,15 +77,15 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
     Para **Criar novo**:
 
-    The *create new* option deploys an Azure Blockchain Service Quorum ledger with the default basic sku.
+    A opção *criar nova* implanta um razão de quorum do serviço Blockchain do Azure com o SKU básico padrão.
 
     ![Configurações avançadas para nova rede de blockchain](media/deploy/advanced-blockchain-settings-new.png)
 
-    | Configuração | Descrição  |
+    | Configuração | DESCRIÇÃO  |
     |---------|--------------|
-    | Azure Blockchain Service pricing tier | Choose **Basic** or **Standard** Azure Blockchain Service tier that is used for Blockchain Workbench |
+    | Tipo de preço do serviço Blockchain do Azure | Escolha a camada de serviço do Azure Blockchain **básica** ou **padrão** que é usada para o Blockchain Workbench |
     | Configurações do Azure Active Directory | Escolha **Adicionar mais tarde**.</br>Observação: se você escolher [pré-configurar o Azure AD](#azure-ad-configuration) ou estiver reimplantando, escolha *Adicionar Agora*. |
-    | Seleção de VM | Select preferred storage performance and VM size for your blockchain network. Escolha um tamanho menor de VM, como *Standard DS1 v2* se você estiver usando uma assinatura com limites de serviço baixo, como a camada gratuita do Azure. |
+    | Seleção de VM | Selecione o desempenho de armazenamento preferencial e o tamanho da VM para sua rede blockchain. Escolha um tamanho menor de VM, como *Standard DS1 v2* se você estiver usando uma assinatura com limites de serviço baixo, como a camada gratuita do Azure. |
 
     Para **Usar existente**:
 
@@ -100,11 +100,11 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
      ![Configurações avançadas para rede de blockchain existente](media/deploy/advanced-blockchain-settings-existing.png)
 
-     | Configuração | Descrição  |
+     | Configuração | DESCRIÇÃO  |
      |---------|--------------|
      | Ponto de extremidade RPC do Ethereum | Fornecer o ponto de extremidade RPC de uma rede de blockchain de PoA existente. O ponto de extremidade começa com https:// ou http:// e termina com um número de porta. Por exemplo, `http<s>://<network-url>:<port>` |
      | Configurações do Azure Active Directory | Escolha **Adicionar mais tarde**.</br>Observação: se você escolher [pré-configurar o Azure AD](#azure-ad-configuration) ou estiver reimplantando, escolha *Adicionar Agora*. |
-     | Seleção de VM | Select preferred storage performance and VM size for your blockchain network. Escolha um tamanho menor de VM, como *Standard DS1 v2* se você estiver usando uma assinatura com limites de serviço baixo, como a camada gratuita do Azure. |
+     | Seleção de VM | Selecione o desempenho de armazenamento preferencial e o tamanho da VM para sua rede blockchain. Escolha um tamanho menor de VM, como *Standard DS1 v2* se você estiver usando uma assinatura com limites de serviço baixo, como a camada gratuita do Azure. |
 
 1. Selecione **OK** para concluir as configurações avançadas.
 
@@ -119,19 +119,19 @@ A implantação pode levar até 90 minutos. Você pode usar o Portal do Azure pa
 > [!IMPORTANT]
 > Após a implantação, será necessário concluir as configurações do Active Directory. Se você escolheu **Adicionar mais tarde**, será necessário executar o [script de configuração do Azure AD](#azure-ad-configuration-script).  Se você escolheu **Adicionar agora**, deverá [configurar a URL de Resposta](#configuring-the-reply-url).
 
-## <a name="blockchain-workbench-web-url"></a>Blockchain Workbench web URL
+## <a name="blockchain-workbench-web-url"></a>URL da Web do Blockchain Workbench
 
 Concluída a implantação do Blockchain Workbench, um novo grupo de recursos conterá seus recursos do Blockchain Workbench. Os serviços do Blockchain Workbench são acessados por meio de uma URL da Web. As etapas a seguir mostram como recuperar a URL da Web do framework implantado.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. In the left-hand navigation pane, select **Resource groups**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+1. No painel de navegação à esquerda, selecione **grupos de recursos**.
 1. Escolha o nome do grupo de recursos especificado ao implantar o Blockchain Workbench.
 1. Selecione a coluna **TIPO** para classificar a lista alfabeticamente por tipo.
 1. Há dois recursos com o tipo **Serviço de Aplicativo**. Selecione o recurso do tipo **Serviço de Aplicativo** *sem* o sufixo "-api".
 
     ![Lista de Serviços de Aplicativo](media/deploy/resource-group-list.png)
 
-1. In the App Service **Overview**, copy the **URL** value, which represents the web URL to your deployed Blockchain Workbench.
+1. Na **visão geral**do serviço de aplicativo, copie o valor da **URL** , que representa a URL da Web para o Blockchain Workbench implantado.
 
     ![Conceitos básicos do Serviço de Aplicativo](media/deploy/app-service.png)
 
@@ -176,26 +176,26 @@ Se você optar por configurar ou verificar manualmente as configurações do Azu
 A implantação do Blockchain Workbench exige o registro de um aplicativo do Microsoft Azure Active Directory. Você precisa de um locatário do Microsoft Azure Active Directory (Azure AD) para registrar o aplicativo. Você pode usar um locatário existente ou criar um novo locatário. Se estiver usando um locatário do Azure AD existente, você precisará de permissões suficientes para registrar aplicativos, conceder permissões de API do Graph e permitir o acesso de convidado em um locatário do Azure AD. Se você não tiver permissões suficientes em um locatário existente do Azure AD, crie um novo locatário.
 
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione sua conta no canto superior direito e alterne para o locatário desejado do Azure AD. The tenant should be the subscription admin's tenant of the subscription where Azure Blockchain Workbench is deployed and you have sufficient permissions to register applications.
-1. No painel de navegação esquerdo, selecione o serviço do **Azure Active Directory**. Select **App registrations** > **New registration**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Selecione sua conta no canto superior direito e alterne para o locatário desejado do Azure AD. O locatário deve ser o locatário do administrador da assinatura em que o Azure Blockchain Workbench está implantado e você tem permissões suficientes para registrar aplicativos.
+1. No painel de navegação esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **Registros de aplicativo** > **novo registro**.
 
     ![Registro do aplicativo](media/deploy/app-registration.png)
 
-1. Provide a display **Name** and choose **Accounts in this organizational directory only**.
+1. Forneça um **nome** de exibição e escolha **contas neste diretório organizacional somente**.
 
     ![Criar o Registro do aplicativo](media/deploy/app-registration-create.png)
 
-1. Select **Register** to register the Azure AD application.
+1. Selecione **registrar** para registrar o aplicativo do Azure AD.
 
 ### <a name="modify-manifest"></a>Modificar manifesto
 
 Em seguida, será necessário modificar o manifesto para usar as funções do aplicativo no Azure AD e especificar os administradores do Blockchain Workbench.  Para obter mais informações sobre manifestos de aplicativos, consulte [Manifesto de aplicativo do Microsoft Azure Active Directory](../../active-directory/develop/reference-app-manifest.md).
 
 
-1. You need to generate a GUID for the manifest. You can generate a GUID using the PowerShell command `[guid]::NewGuid()` or `New-GUID` cmdlet. Outra opção é usar um site gerador de GUID.
-1. For the application you registered, select **Manifest** in the **Manage** section.
-1. Next, update the **appRoles** section of the manifest. Replace `"appRoles": []` with the provided JSON. Certifique-se de substituir o valor do campo **id** pelo GUID gerado. 
+1. Você precisa gerar um GUID para o manifesto. Você pode gerar um GUID usando o comando do PowerShell `[guid]::NewGuid()` ou `New-GUID` cmdlet. Outra opção é usar um site gerador de GUID.
+1. Para o aplicativo que você registrou, selecione **manifesto** na seção **gerenciar** .
+1. Em seguida, atualize a seção **appRoles** do manifesto. Substitua `"appRoles": []` pelo JSON fornecido. Certifique-se de substituir o valor do campo **id** pelo GUID gerado. 
 
     ![Editar manifesto](media/deploy/edit-manifest.png)
 
@@ -230,9 +230,9 @@ Em seguida, será necessário modificar o manifesto para usar as funções do ap
 
 O aplicativo de API precisa solicitar a permissão do usuário para acessar o diretório. Defina a seguinte permissão necessária para o aplicativo de API:
 
-1. In the *Blockchain API* app registration, select **API permissions**. By default, the Graph API **User.Read** permission is added.
+1. No registro do aplicativo de *API do Blockchain* , selecione **permissões de API**. Por padrão, a permissão API do Graph **User. Read** é adicionada.
 
-1. In **Grant consent**, select **Grant admin consent** for the domain then select **Yes** for the verification prompt.
+1. Em **conceder consentimento**, selecione **conceder consentimento do administrador** para o domínio e, em seguida, selecione **Sim** para o prompt de verificação.
 
    ![Conceder permissões](media/deploy/client-app-grant-permissions.png)
 
@@ -242,14 +242,14 @@ O aplicativo de API precisa solicitar a permissão do usuário para acessar o di
 
 As informações de locatário e ID do aplicativo são necessárias para a implantação. Coletar e armazenar as informações para uso durante a implantação.
 
-1. For the application you registered, select **Overview**.
-1. Copy and store the **Application ID** value for later use during deployment.
+1. Para o aplicativo que você registrou, selecione **visão geral**.
+1. Copie e armazene o valor da **ID do aplicativo** para uso posterior durante a implantação.
 
     ![Propriedades do aplicativo de API](media/deploy/app-properties.png)
 
     | Configurando para armazenar  | Usar na implantação |
     |------------------|-------------------|
-    | Application (client) ID | Configuração do Azure Active Directory > ID do aplicativo |
+    | ID do aplicativo (cliente) | Configuração do Azure Active Directory > ID do aplicativo |
 
 ### <a name="get-tenant-domain-name"></a>Obter nome de domínio do locatário
 
@@ -267,22 +267,22 @@ Se houver usuários convidados no locatário do Azure AD, siga as etapas adicion
 1. Defina **Permissões de usuário convidado são limitadas** para **Não**.
     ![Configuração de colaboração externa](media/deploy/user-collaboration-settings.png)
 
-## <a name="configuring-the-reply-url"></a>Configuring the reply URL
+## <a name="configuring-the-reply-url"></a>Configurando a URL de resposta
 
 Após a implantação do Azure Blockchain Workbench, será necessário configurar a **URL de Resposta** do aplicativo cliente do Azure Active Directory da URL da Web do Blockchain Workbench implantado.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Verifique se que você está no locatário em que registrou o aplicativo cliente do Microsoft Azure Active Directory.
 1. No painel de navegação esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **Registros do Aplicativo**.
 1. Selecione o aplicativo cliente do Microsoft Azure Active Directory registrado na seção de pré-requisitos.
-1. Select **Authentication**.
-1. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the [Blockchain Workbench web URL](#blockchain-workbench-web-url) section. A URL de resposta é prefixada com `https://`. Por exemplo, `https://myblockchain2-7v75.azurewebsites.net`
+1. Selecione **autenticação**.
+1. Especifique a URL da Web principal da implantação do Azure Blockchain Workbench que você recuperou na seção [URL da Web do Blockchain Workbench](#blockchain-workbench-web-url) . A URL de resposta é prefixada com `https://`. Por exemplo, `https://myblockchain2-7v75.azurewebsites.net`
 
-    ![Authentication reply URLs](media/deploy/configure-reply-url.png)
+    ![URLs de resposta de autenticação](media/deploy/configure-reply-url.png)
 
-1. In the **Advanced setting** section, check **Access tokens** and **ID tokens**.
+1. Na seção **Configuração avançada** , verifique **tokens de acesso** e **tokens de ID**.
 
-    ![Authentication advanced settings](media/deploy/authentication-advanced-settings.png)
+    ![Configurações avançadas de autenticação](media/deploy/authentication-advanced-settings.png)
 
 1. Selecione **Salvar** para atualizar o registro do cliente.
 
@@ -295,7 +295,7 @@ Quando uma implantação não é mais necessária, você pode remover uma implan
 
     ![Excluir grupo de recursos](media/deploy/delete-resource-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo de procedimentos, você implantou o Workbench do Azure Blockchain. Para saber como usar o aplicativo blockchain, continue no próximo artigo de instruções.
 

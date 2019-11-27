@@ -30,7 +30,7 @@ Há dois tipos de solicitações CORS, *solicitações simples* e *solicitaçõe
 
 ### <a name="for-simple-requests"></a>Para solicitações simples:
 
-1. O navegador envia a solicitação CORS com adicional **origem** cabeçalho de solicitação HTTP. O valor desse cabeçalho é a origem que serviu a página pai, que é definida como a combinação de *protocolo,* *domínio,* e *porta.*  Quando uma página de https\://www.contoso.com tenta acessar dados de um usuário na origem fabrikam.com, o cabeçalho de solicitação a seguir seria enviado para fabrikam.com:
+1. O navegador envia a solicitação CORS com adicional **origem** cabeçalho de solicitação HTTP. O valor desse cabeçalho é a origem que serviu a página pai, que é definida como a combinação de *protocolo,* *domínio,* e *porta.*  Quando uma página de HTTPS\://www.contoso.com tenta acessar os dados de um usuário na origem fabrikam.com, o seguinte cabeçalho de solicitação é enviado para fabrikam.com:
 
    `Origin: https://www.contoso.com`
 

@@ -1,6 +1,6 @@
 ---
-title: Multi-step task to build, test & patch image
-description: Introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
+title: Tarefa de várias etapas para compilar, testar & imagem de patch
+description: Introdução a tarefas de várias etapas, um recurso de tarefas ACR no registro de contêiner do Azure que fornece fluxos de trabalho baseados em tarefas para criação, teste e aplicação de patch de imagens de contêiner na nuvem.
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 3ed071fa2027e91ee5bc6c07738dc66763454847
@@ -26,7 +26,7 @@ Por exemplo, você pode executar uma tarefa com etapas que automatizam a seguint
 1. Quando os testes são aprovados, compilar um pacote de arquivo morto de gráfico do Helm
 1. Executar um `helm upgrade` usando o novo pacote de arquivo morto do gráfico do Helm
 
-Todas as etapas são executadas no Azure, descarregando o trabalho para os recursos de computação do Azure e liberando você das tarefas de gerenciamento da infraestrutura. Além do Registro de Contêiner do Azure, você paga apenas pelos recursos que usar. For information on pricing, see the **Container Build** section in [Azure Container Registry pricing][pricing].
+Todas as etapas são executadas no Azure, descarregando o trabalho para os recursos de computação do Azure e liberando você das tarefas de gerenciamento da infraestrutura. Além do Registro de Contêiner do Azure, você paga apenas pelos recursos que usar. Para obter informações sobre preços, consulte a seção **Build de contêiner** em [preços do registro de contêiner do Azure][pricing].
 
 
 ## <a name="common-task-scenarios"></a>Cenários comuns de tarefas
@@ -79,13 +79,13 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-See [task examples](container-registry-tasks-samples.md) for multi-step task YAML files and Dockerfiles for several scenarios.
+Consulte [exemplos de tarefas](container-registry-tasks-samples.md) para arquivos de YAML de tarefas de várias etapas e Dockerfiles para vários cenários.
 
 ## <a name="run-a-sample-task"></a>Executar uma tarefa de exemplo
 
 Tarefas dão suporte tanto à execução manual, chamada de "execução rápida", quanto à execução automatizada na confirmação de Git ou atualização de imagem base.
 
-To run a task, you first define the task's steps in a YAML file, then execute the Azure CLI command [az acr run][az-acr-run].
+Para executar uma tarefa, primeiro defina as etapas da tarefa em um arquivo YAML e execute CLI do Azure o comando [AZ ACR Run][az-acr-run].
 
 Aqui está um exemplo de comando da CLI do Azure que executa uma tarefa usando um arquivo YAML de tarefa de exemplo. As etapas compilam uma imagem e, em seguida, enviam-na por push. Antes de executar o comando, atualize `\<acrName\>` com o nome do seu próprio Registro de Contêiner do Azure.
 
@@ -145,12 +145,12 @@ Run ID: yd14 was successful after 19s
 
 Para obter mais informações sobre builds automatizados na confirmação do Git na atualização da imagem base, consulte os artigos de tutorial [Automatizar builds de imagem](container-registry-tutorial-build-task.md) e [Builds de atualização de imagem base](container-registry-tutorial-base-image-update.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode encontrar referências e exemplos de tarefas de várias etapas aqui:
 
 * [Referência de tarefa](container-registry-tasks-reference-yaml.md) – tipos de etapa de tarefa, suas propriedades e uso.
-* [Task examples](container-registry-tasks-samples.md) - Example `task.yaml` and Docker files for several scenarios, simple to complex.
+* [Exemplos de tarefas](container-registry-tasks-samples.md) – exemplo `task.yaml` e arquivos do Docker para vários cenários, simples a complexo.
 * [Repositório de cmd](https://github.com/AzureCR/cmd) -uma coleção de contêineres, como comandos para tarefas ACR.
 
 <!-- IMAGES -->

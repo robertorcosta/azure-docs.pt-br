@@ -52,7 +52,7 @@ Para atribuir marcas em massa para vários recursos:
 
 Para exibir todos os recursos com uma marca:
 
-1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
+1. No menu portal do Azure, selecione **todos os serviços**. Selecione **geral**e, em seguida, **marcas**.
 
      ![Localizar por marca](./media/resource-manager-tag-resources/find-tags-general.png)
 
@@ -70,4 +70,4 @@ Para exibir todos os recursos com uma marca:
 
 1. A exibição está disponível no painel.
 
-     ![painel](./media/resource-manager-tag-resources/dashboard-with-view.png)
+     ![Painel](./media/resource-manager-tag-resources/dashboard-with-view.png)

@@ -21,9 +21,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482500"
 ---
-Before reading this article, you should be familiar with the following concepts:
+Antes de ler este artigo, você deve estar familiarizado com os seguintes conceitos:
 
-- [Microsoft identity platform overview](../articles/active-directory/develop/v2-overview.md)
+- [Visão geral da plataforma Microsoft Identity](../articles/active-directory/develop/v2-overview.md)
 - [Noções básicas de autenticação](../articles/active-directory/develop/authentication-scenarios.md)
 - [Públicos-alvo](../articles/active-directory/develop/v2-supported-account-types.md)
 - [Aplicativo e entidades de serviço](../articles/active-directory/develop/app-objects-and-service-principals.md)

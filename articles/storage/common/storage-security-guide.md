@@ -1,6 +1,6 @@
 ---
 title: Guia de segurança do Armazenamento do Azure | Microsoft Docs
-description: Details methods for securing Azure Storage accounts, including management plane security, authorization, network security, encryption, etc.
+description: Detalhes de métodos para proteger contas de armazenamento do Azure, incluindo segurança do plano de gerenciamento, autorização, segurança de rede, criptografia, etc.
 services: storage
 author: tamram
 ms.service: storage
@@ -18,40 +18,40 @@ ms.locfileid: "72926714"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
 
-Azure Storage provides a comprehensive set of security capabilities that together enable organizations to build and deploy secure applications:
+O armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que juntos permitem que as organizações criem e implantem aplicativos seguros:
 
-- All data (including metadata) written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Tables, and Queues Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for both resource management operations and data plane operations:   
+- Todos os dados (incluindo metadados) gravados no armazenamento do Azure são criptografados automaticamente usando o [criptografia do serviço de armazenamento (SSE)](storage-service-encryption.md). Para obter mais informações, consulte [anunciando criptografia padrão para armazenamento de BLOBs, arquivos, tabelas e filas do Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- O Azure Active Directory (Azure AD) e o RBAC (controle de acesso baseado em função) têm suporte para operações de gerenciamento de recursos e operações do plano de dados:   
     - Você pode atribuir funções RBAC, no escopo da conta de armazenamento, a entidades de segurança e usar o Azure AD para autorizar operações de gerenciamento de recursos, por exemplo, gerenciamento de chaves.
-    - Azure AD integration is supported for blob and queue data operations. RBAC roles can be scoped to a subscription, resource group, storage account, individual container or queue. Roles can be assigned to a security principal or a managed identity for Azure resources. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).
-- Data can be secured in transit between an application and Azure using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
+    - A integração do Azure AD tem suporte para operações de dados de BLOB e de fila. As funções de RBAC podem ser delimitadas a uma assinatura, grupo de recursos, conta de armazenamento, contêiner ou fila individual. As funções podem ser atribuídas a uma entidade de segurança ou a uma identidade gerenciada para recursos do Azure. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).
+- Os dados podem ser protegidos em trânsito entre um aplicativo e o Azure usando [criptografia do lado do cliente](../storage-client-side-encryption.md), HTTPS ou SMB 3,0.  
 - Os discos do SO e de dados usados pelas máquinas virtuais do Azure podem ser criptografados usando o [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).
-- Delegated access to the data objects in Azure Storage can be granted using a shared access signature. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
-- Network-layer security between your application components and storage can be enabled using the storage firewall, service endpoints or private endpoints.
+- O acesso delegado aos objetos de dados no armazenamento do Azure pode ser concedido usando uma assinatura de acesso compartilhado. Para obter mais informações, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)](storage-sas-overview.md).
+- A segurança de camada de rede entre os componentes do aplicativo e o armazenamento pode ser habilitada usando o firewall de armazenamento, pontos de extremidade de serviço ou pontos de extremidade privados.
 
-Este artigo apresenta uma visão geral de cada um desses recursos de segurança que podem ser usados com o Armazenamento do Microsoft Azure. Links are provided to articles provide additional details on each capability.
+Este artigo apresenta uma visão geral de cada um desses recursos de segurança que podem ser usados com o Armazenamento do Microsoft Azure. Os links são fornecidos aos artigos para fornecer detalhes adicionais sobre cada recurso.
 
-Here are the areas covered in this article:
+Aqui estão as áreas abordadas neste artigo:
 
-* [Management Plane Security](#management-plane-security) – Securing resource-level access to your Storage Account
+* [Segurança do plano de gerenciamento](#management-plane-security) – protegendo o acesso em nível de recurso à sua conta de armazenamento
 
-  The management plane consists of the operations used to manage your storage account. Esta seção trata do Modelo de implantação do Azure Resource Manager e de como usar o RBAC (Controle de Acesso Baseado em Função) para controlar o acesso às contas de armazenamento. Também trata de como gerenciar as chaves da conta de armazenamento e como regenerá-las.
+  O plano de gerenciamento consiste nas operações usadas para gerenciar sua conta de armazenamento. Esta seção trata do Modelo de implantação do Azure Resource Manager e de como usar o RBAC (Controle de Acesso Baseado em Função) para controlar o acesso às contas de armazenamento. Também trata de como gerenciar as chaves da conta de armazenamento e como regenerá-las.
 
-* [Network Security](#network-security) - Securing network-level access to your Storage Account
+* [Segurança de rede](#network-security) -protegendo o acesso em nível de rede à sua conta de armazenamento
 
-  This section covers how you can secure the network-level access to the storage services endpoints. It discusses how you can use the storage firewall to allow access to your data from specific virtual networks or IP address ranges. It also covers the use of service endpoints and private endpoints with storage accounts.
+  Esta seção aborda como você pode proteger o acesso em nível de rede aos pontos de extremidade dos serviços de armazenamento. Ele discute como você pode usar o firewall de armazenamento para permitir o acesso aos seus dados de redes virtuais ou intervalos de endereços IP específicos. Ele também aborda o uso de pontos de extremidade de serviço e pontos de extremidade privados com contas de armazenamento.
 
-* [Authorization](#authorization) – Authorizing access to your data
+* [Autorização](#authorization) – autorizando o acesso aos seus dados
 
-  This section describes access to the data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. Vamos abordar a SAS de nível de serviço e de nível de conta. Também veremos como limitar o acesso a um endereço IP específico (ou a um intervalo de endereços IP), como limitar o protocolo usado para HTTPS e como revogar uma Assinatura de Acesso Compartilhado sem esperar que ela expire.
+  Esta seção descreve o acesso aos objetos de dados em sua conta de armazenamento, como BLOBs, arquivos, filas e tabelas, usando assinaturas de acesso compartilhado e políticas de acesso armazenadas. Vamos abordar a SAS de nível de serviço e de nível de conta. Também veremos como limitar o acesso a um endereço IP específico (ou a um intervalo de endereços IP), como limitar o protocolo usado para HTTPS e como revogar uma Assinatura de Acesso Compartilhado sem esperar que ela expire.
 
 * [Criptografia em trânsito](#encryption-in-transit)
 
-  Esta seção ensina a proteger os dados quando você os transfere para dentro ou para fora do Armazenamento do Microsoft Azure. Falaremos sobre o uso recomendado de HTTPS e a criptografia usada pelo SMB 3.0 para compartilhamentos de arquivos do Azure. We will also discuss Client-side Encryption, which enables you to encrypt data before transfer into Storage, and to decrypt the data after it is transferred out of Storage.
+  Esta seção ensina a proteger os dados quando você os transfere para dentro ou para fora do Armazenamento do Azure. Falaremos sobre o uso recomendado de HTTPS e a criptografia usada pelo SMB 3.0 para compartilhamentos de arquivos do Azure. Também discutiremos a criptografia do lado do cliente, que permite que você criptografe os dados antes da transferência para o armazenamento e descriptografe os dados depois que eles são transferidos para fora do armazenamento.
 
 * [Criptografia em repouso](#encryption-at-rest)
 
-  Trataremos da SSE (Criptografia do Serviço de Armazenamento), que agora é habilitada automaticamente para as contas de armazenamento novas e existentes. Também veremos como você pode usar o Azure Disk Encryption e explorar as diferenças básicas e os casos do Disk Encryption em relação à SSE e à Criptografia do cliente. Examinaremos rapidamente a compatibilidade de FIPS com os computadores do governo norte-americano.
+  Trataremos da SSE (Criptografia do Serviço de Armazenamento), que agora é habilitada automaticamente para as contas de armazenamento novas e existentes. Também veremos como você pode usar o Azure Disk Encryption e explorar as diferenças básicas e os casos do Disk Encryption em relação ao SSE e à Criptografia do cliente. Examinaremos rapidamente a compatibilidade de FIPS com os computadores do governo norte-americano.
 
 * Uso da [Análise de Armazenamento](#storage-analytics) para auditar o acesso do Armazenamento do Azure
 
@@ -96,7 +96,7 @@ Veja os principais pontos que você precisa saber sobre como usar o RBAC para ac
 * O usuário deve ser configurado no Azure Active Directory antes de você atribuir uma função a ele.
 * Usando o PowerShell ou a CLI do Azure, você pode criar um relatório de quem concedeu/revogou que tipo de acesso a/de quem e em que escopo.
 
-#### <a name="resources"></a>Implante
+#### <a name="resources"></a>Recursos
 * [Controle de acesso baseado em função do Active Directory do Azure](../../role-based-access-control/role-assignments-portal.md)
 
   Esse artigo explica o Controle de Acesso Baseado em Função do Azure Active Directory.
@@ -120,18 +120,18 @@ Veja os principais pontos que você precisa saber sobre como usar o RBAC para ac
 ### <a name="managing-your-storage-account-keys"></a>Gerenciando as chaves da conta de armazenamento
 As chaves da conta de armazenamento são cadeias de caracteres de 512 bits criadas pelo Azure que, com o nome da conta de armazenamento, podem ser usadas para acessar os objetos de dados armazenados na conta de armazenamento, por exemplo, blobs, entidades em uma tabela, mensagens na fila e arquivos em um compartilhamento de arquivos do Azure. O controle do acesso às chaves da conta de armazenamento controla o acesso ao plano de dados dessa conta de armazenamento.
 
-Cada conta de armazenamento tem duas chaves, conhecidas como "Chave 1" e "Chave 2" no [Portal do Azure](https://portal.azure.com/) e nos cmdlets do PowerShell. Elas podem ser regeneradas manualmente usando um dos vários métodos, incluindo, entre outros, o [Portal do Azure](https://portal.azure.com/), o PowerShell, a CLI do Azure ou, de modo programático, a Biblioteca de Cliente de Armazenamento .NET ou a API REST dos Serviços de Armazenamento do Microsoft Azure.
+Cada conta de armazenamento tem duas chaves, conhecidas como "Chave 1" e "Chave 2" no [Portal do Azure](https://portal.azure.com/) e nos cmdlets do PowerShell. Elas podem ser regeneradas manualmente usando um dos vários métodos, incluindo, entre outros, o [Portal do Azure](https://portal.azure.com/), o PowerShell, a CLI do Azure ou, de modo programático, a Biblioteca de Cliente de Armazenamento .NET ou a API REST dos Serviços de Armazenamento do Azure.
 
-There are various reasons to regenerate your storage account keys.
+Há vários motivos para gerar novamente as chaves da conta de armazenamento.
 
-* You may regenerate them periodically for security.
-* You might regenerate your storage account keys if your application or network security is compromised.
-* Another instance for key regeneration is when team members with access to the keys leave. Shared Access Signatures were designed primarily to address this scenario – you should share an account-level SAS connection string or token, instead of sharing access keys, with most individuals or applications.
+* Você pode gerá-los periodicamente para segurança.
+* Você poderá regenerar as chaves da conta de armazenamento se o aplicativo ou a segurança de rede estiver comprometida.
+* Outra instância para regeneração de chave é quando os membros da equipe com acesso às chaves saem. As assinaturas de acesso compartilhado foram projetadas principalmente para resolver esse cenário – você deve compartilhar uma cadeia de conexão SAS no nível da conta ou um token, em vez de compartilhar chaves de acesso, com a maioria dos indivíduos ou aplicativos.
 
 #### <a name="key-regeneration-plan"></a>Plano de nova geração de chave
-You should not regenerate an access key in use without planning. Abrupt key regeneration can block access to a storage account for existing applications, causing major disruption. Azure Storage accounts provide two keys, so that you can regenerate one key at a time.
+Você não deve regenerar uma chave de acesso em uso sem planejamento. A regeneração de chave abrupta pode bloquear o acesso a uma conta de armazenamento para aplicativos existentes, causando grande interrupção. As contas de armazenamento do Azure fornecem duas chaves, para que você possa regenerar uma chave por vez.
 
-Before you regenerate your keys, be sure you have a list of all applications dependent on the storage account, as well as any other services you are using in Azure. For example, if you are using Azure Media Services use your storage account, you must resync the access keys with your media service after you regenerate the key. If you are using an application such as a storage explorer, you will need to provide new keys to those applications as well. Se você tiver VMs cujos arquivos VHD são armazenados na conta de armazenamento, eles não serão afetados pela regeneração das chaves da conta de armazenamento.
+Antes de regenerar suas chaves, verifique se você tem uma lista de todos os aplicativos dependentes da conta de armazenamento, bem como quaisquer outros serviços que você esteja usando no Azure. Por exemplo, se você estiver usando os serviços de mídia do Azure, use sua conta de armazenamento, você deverá ressincronizar as chaves de acesso com o serviço de mídia depois de regenerar a chave. Se você estiver usando um aplicativo como um Gerenciador de armazenamento, também precisará fornecer novas chaves para esses aplicativos. Se você tiver VMs cujos arquivos VHD são armazenados na conta de armazenamento, eles não serão afetados pela regeneração das chaves da conta de armazenamento.
 
 É possível regenerar suas chaves no Portal do Azure. Depois que as chaves forem regeneradas, pode levar até 10 minutos até serem sincronizadas entre os Serviços de Armazenamento.
 
@@ -145,60 +145,60 @@ Se, no momento, você estiver usando a Chave 2, será possível usar o mesmo pro
 
 É possível fazer a migração em dois dias, alterando cada aplicativo para usar a nova chave e publicando-o. Depois de fazer isso com todos, você deverá voltar e regenerar a chave antiga, pois ela não funciona mais.
 
-Outra opção é colocar a chave de conta de armazenamento em um [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/) como um segredo e fazer com que os aplicativos recuperam a chave de lá. Assim, quando você regenerar a chave e atualizar o Cofre de Chaves do Azure, os aplicativos não precisarão ser reimplantados porque eles selecionarão a nova chave no Cofre de Chaves do Azure automaticamente. You can have the application read the key each time it needs it, or the application can cache it in memory and if it fails when using it, retrieve the key again from the Azure Key Vault.
+Outra opção é colocar a chave de conta de armazenamento em um [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/) como um segredo e fazer com que os aplicativos recuperam a chave de lá. Assim, quando você regenerar a chave e atualizar o Cofre de Chaves do Azure, os aplicativos não precisarão ser reimplantados porque eles selecionarão a nova chave no Cofre de Chaves do Azure automaticamente. Você pode fazer com que o aplicativo Leia a chave cada vez que precisar dela, ou o aplicativo possa armazená-la em cache na memória e se ela falhar ao usá-la, recuperar a chave novamente do Azure Key Vault.
 
-Usar o Cofre de Chaves do Azure também acrescenta outro nível de segurança para suas chaves de armazenamento. Using the Key Vault, enables you to avoid writing storage keys in application configuration files. It also prevents exposure of keys to everyone with access to those configuration files.
+Usar o Cofre de Chaves do Azure também acrescenta outro nível de segurança para suas chaves de armazenamento. Usando o Key Vault, o permite evitar a gravação de chaves de armazenamento em arquivos de configuração do aplicativo. Ele também impede a exposição de chaves a todos com acesso a esses arquivos de configuração.
 
-Azure Key Vault also has the advantage of using Azure AD to control access to your keys. You can grant access to the specific applications that need to retrieve the keys from Key Vault, without exposing them to other applications that do not need access to the keys.
+Azure Key Vault também tem a vantagem de usar o Azure AD para controlar o acesso às suas chaves. Você pode conceder acesso aos aplicativos específicos que precisam recuperar as chaves de Key Vault, sem expô-las a outros aplicativos que não precisam de acesso às chaves.
 
 > [!NOTE]
 > A Microsoft recomenda usar apenas uma das chaves em todos os aplicativos ao mesmo tempo. Se você usar a Chave 1 em alguns lugares e a Chave 2 em outros, nãos será possível alternar as chaves sem que algum aplicativo perca o acesso.
 
-#### <a name="resources"></a>Implante
+#### <a name="resources"></a>Recursos
 
 * [Gerenciar configurações de conta de armazenamento no portal do Azure](storage-account-manage.md)
 * [Azure Storage Resource Provider REST API Reference (Referência à API REST do provedor de recursos de armazenamento do Azure)](https://msdn.microsoft.com/library/mt163683.aspx)
 
-## <a name="network-security"></a>Segurança de Rede
-Network Security enables you to restrict access to the data in an Azure Storage Account from select networks. You can use the Azure Storage firewall to restrict access to clients from specific public IP address ranges, select virtual networks (VNets) on Azure, or to specific Azure resources. You also have the option to create a Private Endpoint for your storage account in the VNet that needs access, and blocking all access through the public endpoint.
+## <a name="network-security"></a>Segurança de rede
+A segurança de rede permite restringir o acesso aos dados em uma conta de armazenamento do Azure de redes selecionadas. Você pode usar o Firewall do armazenamento do Azure para restringir o acesso a clientes de intervalos de endereços IP públicos específicos, selecionar redes virtuais (VNets) no Azure ou para recursos específicos do Azure. Você também tem a opção de criar um ponto de extremidade privado para sua conta de armazenamento na VNet que precisa de acesso e bloquear todo o acesso por meio do ponto de extremidade público.
 
-You can configure the network access rules for your storage account through the [Firewalls and Virtual Networks](storage-network-security.md) tab in the Azure portal. Using the storage firewall, you can deny access for public internet traffic, and grant access to select clients based on the configured network rules.
+Você pode configurar as regras de acesso à rede para sua conta de armazenamento por meio da guia [firewalls e redes virtuais](storage-network-security.md) no portal do Azure. Usando o firewall de armazenamento, você pode negar o acesso ao tráfego de Internet público e conceder acesso a clientes selecionados com base nas regras de rede configuradas.
 
-You can also use [Private Endpoints](../../private-link/private-endpoint-overview.md) to privately and securely connect to a storage account from a VNet using [Private Links](../../private-link/private-link-overview.md).
+Você também pode usar [pontos de extremidade privados](../../private-link/private-endpoint-overview.md) para se conectar de forma privada e segura a uma conta de armazenamento de uma VNet usando [links privados](../../private-link/private-link-overview.md).
 
-Storage firewall rules only apply to the public endpoint for the storage account. The subnet that hosts a private endpoint for a storage account gets implicit access to the account when you approve the creation of that private endpoint.
+As regras de firewall de armazenamento se aplicam somente ao ponto de extremidade público da conta de armazenamento. A sub-rede que hospeda um ponto de extremidade privado para uma conta de armazenamento obtém acesso implícito à conta quando você aprova a criação desse ponto de extremidade privado.
 
 > [!NOTE]
-> The storage firewall rules are not applicable to storage management operations conducted through the Azure portal and the Azure Storage Management API.
+> As regras de firewall de armazenamento não são aplicáveis às operações de gerenciamento de armazenamento realizadas por meio do portal do Azure e da API de gerenciamento de armazenamento do Azure.
 
-### <a name="access-rules-for-public-ip-address-ranges"></a>Access rules for public IP address ranges
-The Azure Storage firewall can be used to restrict access to a storage account from specific public IP address ranges. You can use IP address rules to restrict access to specific internet-based services communicating on a fixed public IP endpoint, or to select on-premises networks.
+### <a name="access-rules-for-public-ip-address-ranges"></a>Regras de acesso para intervalos de endereços IP públicos
+O Firewall do armazenamento do Azure pode ser usado para restringir o acesso a uma conta de armazenamento de intervalos de endereços IP públicos específicos. Você pode usar regras de endereço IP para restringir o acesso a serviços específicos baseados na Internet que se comunicam em um ponto de extremidade IP público fixo ou para selecionar redes locais.
 
-### <a name="access-rules-for-azure-virtual-networks"></a>Access rules for Azure virtual networks
-Storage accounts, by default, accept connections from clients on any network. You can restrict the client access to the data in a storage account to selected networks using the storage firewall. [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) enable routing of traffic from an Azure virtual network to the storage account. 
+### <a name="access-rules-for-azure-virtual-networks"></a>Regras de acesso para redes virtuais do Azure
+Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede. Você pode restringir o acesso do cliente aos dados em uma conta de armazenamento para redes selecionadas usando o firewall de armazenamento. Os [pontos de extremidade de serviço](../../virtual-network/virtual-network-service-endpoints-overview.md) permitem o roteamento de tráfego de uma rede virtual do Azure para a conta de armazenamento. 
 
-### <a name="granting-access-to-specific-trusted-resource-instances"></a>Granting access to specific trusted resource instances
-You can allow a [subset of Azure trusted services](storage-network-security.md#trusted-microsoft-services) to access the storage account through the firewall with strong authentication based on the service resource type, or a resource instance.
+### <a name="granting-access-to-specific-trusted-resource-instances"></a>Concedendo acesso a instâncias específicas de recursos confiáveis
+Você pode permitir que um [subconjunto de serviços confiáveis do Azure](storage-network-security.md#trusted-microsoft-services) acesse a conta de armazenamento por meio do firewall com autenticação forte com base no tipo de recurso de serviço ou em uma instância de recurso.
 
-For the services that support resource instance-based access through the storage firewall, only the selected instance can access the data in the storage account. In this case, the service must support resource-instance authentication using system-assigned [managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
+Para os serviços que dão suporte ao acesso baseado em instância de recurso por meio do firewall de armazenamento, somente a instância selecionada pode acessar os dados na conta de armazenamento. Nesse caso, o serviço deve oferecer suporte à autenticação de instância de recurso usando [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md)atribuídas pelo sistema.
 
-### <a name="using-private-endpoints-for-securing-connections"></a>Using private endpoints for securing connections
-Azure Storage supports private endpoints, which enable secure access of storage account from an Azure virtual network. Private endpoints assign a private IP address from your VNet's address space to the storage service. When using private endpoints, the storage connection string redirects traffic destined for the storage account to the private IP address. The connection between the private endpoint and the storage account uses a private link. Using private endpoints you can block exfiltration of data from your VNet.
+### <a name="using-private-endpoints-for-securing-connections"></a>Usando pontos de extremidade privados para proteger conexões
+O armazenamento do Azure dá suporte a pontos de extremidade privados, que permitem o acesso seguro da conta de armazenamento de uma rede virtual do Azure. Pontos de extremidade privados atribuem um endereço IP privado do espaço de endereço da VNet ao serviço de armazenamento. Ao usar pontos de extremidade privados, a cadeia de conexão de armazenamento redireciona o tráfego destinado à conta de armazenamento para o endereço IP privado. A conexão entre o ponto de extremidade privado e a conta de armazenamento usa um link privado. Usando pontos de extremidade privados, você pode bloquear vazamento de dados de sua VNet.
 
-On-premises networks connected over VPN or [ExpressRoutes](../../expressroute/expressroute-locations.md) private peering and other peered virtual networks can also access the storage account over the private endpoint. Private endpoint for your storage accounts can be created in a VNet in any region, enabling a secure global reach. You may also create private endpoints for storage accounts in other [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenants.
+Redes locais conectadas por meio de emparelhamento privado VPN ou [expressroute ao qual](../../expressroute/expressroute-locations.md) e outras redes virtuais emparelhadas também podem acessar a conta de armazenamento por meio do ponto de extremidade privado. O ponto de extremidade privado para suas contas de armazenamento pode ser criado em uma VNet em qualquer região, permitindo um alcance global seguro. Você também pode criar pontos de extremidade privados para contas de armazenamento em outros locatários [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) .
 
 ## <a name="authorization"></a>Autorização
 A Segurança do Plano de Dados refere-se aos métodos usados para proteger os objetos de dados armazenados no Armazenamento do Azure – blobs, filas, tabelas e arquivos. Já vimos métodos para criptografar os dados e a segurança durante a transferência de dados. Mas e quanto a controlar o acesso aos objetos?
 
 Você tem três opções para autorizar o acesso a objetos de dados no Armazenamento do Azure, incluindo:
 
-- Using Azure AD to authorize access to containers and queues. O Azure AD oferece vantagens em relação a outras abordagens para autorização, incluindo a eliminação da necessidade de armazenar segredos em seu código. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md). 
+- Usando o Azure AD para autorizar o acesso a contêineres e filas. O Azure AD oferece vantagens em relação a outras abordagens para autorização, incluindo a eliminação da necessidade de armazenar segredos em seu código. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md). 
 - Usar as chaves da conta de armazenamento para autorizar o acesso via Chave Compartilhada. A autorização via Chave Compartilhada requer o armazenamento das chaves da conta de armazenamento em seu aplicativo e, portanto, a Microsoft recomenda usar o Azure AD sempre que possível.
 - Usar Assinaturas de Acesso Compartilhado para conceder permissões controladas a objetos de dados específicos por um determinado período de tempo.
 
 Além disso, para o Armazenamento de Blobs, você pode permitir o acesso público aos blobs configurando o nível de acesso para o contêiner que contém os blobs de acordo. Se você definir o acesso de um contêiner para Blob ou Contêiner, isso permitirá acesso público de leitura para os blobs desse contêiner. Isso significa que qualquer pessoa com uma URL apontando para um blob nesse contêiner poderá abri-lo em um navegador sem usar uma Assinatura de Acesso Compartilhado ou sem ter as chaves da conta de armazenamento.
 
-### <a name="storage-account-keys"></a>Chaves de conta de armazenamento
+### <a name="storage-account-keys"></a>Chaves da conta de armazenamento
 As chaves da conta de armazenamento são cadeias de caracteres de 512 bits criadas pelo Azure que, com o nome da conta de armazenamento, podem ser usadas para acessar os objetos de dados armazenados na conta de armazenamento.
 
 Por exemplo, você pode ler blobs, gravar nas filas, criar tabelas e modificar arquivos. Muitas dessas ações podem ser executadas no Portal do Azure ou usando um dos muitos aplicativos do Gerenciador de Armazenamento. Você também pode escrever código para usar a API REST ou uma das Bibliotecas de Cliente de Armazenamento para executar essas operações.
@@ -262,7 +262,7 @@ Se estiver usando uma SAS derivada de uma Política de Acesso Armazenado, você 
 
 Como usar uma SAS derivada de uma Política de Acesso Armazenado dá a possibilidade de revogar essa SAS imediatamente, a prática recomendada é, sempre que possível, usar Políticas de Acesso Armazenado.
 
-#### <a name="resources"></a>Implante
+#### <a name="resources"></a>Recursos
 Obtenha informações mais detalhadas sobre como usar as Assinatura de Acesso Compartilhado e as Políticas de Acesso Armazenado, com exemplos, nos artigos a seguir:
 
 * Estes são os artigos de referência.
@@ -273,12 +273,12 @@ Obtenha informações mais detalhadas sobre como usar as Assinatura de Acesso Co
   * [Constructing a service SAS (Criação de uma SAS de serviço)](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Constructing an account SAS (Criação de uma SAS de conta)](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* This is a tutorial for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
+* Este é um tutorial para usar a biblioteca de cliente .NET para criar assinaturas de acesso compartilhado e políticas de acesso armazenado.
   * [Uso de SAS (Assinaturas de Acesso Compartilhado)](../storage-dotnet-shared-access-signature-part-1.md)
 
     Esse artigo inclui uma explicação do modelo SAS, exemplos de Assinatura de Acesso Compartilhado e recomendações para uso da prática recomendada de SAS. Também é abordada a revogação da permissão concedida.
 
-* Authentication
+* Autenticação
 
   * [Autenticação para os Serviços de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Tutorial de introdução às Assinaturas de Acesso Compartilhado
@@ -327,7 +327,7 @@ A criptografia do cliente é incorporada no Java e nas bibliotecas de cliente de
 
 Para a criptografia em si, você pode gerar e gerenciar suas próprias chaves de criptografia. Você também pode usar as chaves geradas pela Biblioteca de Cliente de Armazenamento do Azure ou fazer com que o Cofre de Chaves do Azure as gere. É possível armazenar as chaves de criptografia em seu armazenamento de chaves local ou armazená-las no Cofre de Chaves do Azure. O Cofre de Chaves do Azure permite conceder a usuários específicos acesso aos segredos do Cofre de Chaves do Azure usando o Azure Active Directory. Isso significa que não é qualquer pessoa que pode ler o Azure Key Vault e recuperar as chaves que você está usando para criptografia do lado do cliente.
 
-#### <a name="resources"></a>Implante
+#### <a name="resources"></a>Recursos
 * [Criptografar e Descriptografar Blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 
   Esse artigo mostra como usar a criptografia do cliente com o Cofre de Chaves do Azure, incluindo como criar o KEK e armazená-lo no cofre usando o PowerShell.
@@ -336,7 +336,7 @@ Para a criptografia em si, você pode gerar e gerenciar suas próprias chaves de
   Esse artigo fornece uma explicação da criptografia do cliente, bem como exemplos de como usar a biblioteca de cliente de armazenamento para criptografar e descriptografar recursos dos quatro serviços de armazenamento. Ele também fala sobre o Cofre de Chaves do Azure.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Usando o Azure Disk Encryption para criptografar discos usados pelas máquinas virtuais
-Azure Disk Encryption allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. No Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. No Linux, os discos são criptografados usando a tecnologia DM-Crypt. Esse recurso é integrado ao Cofre de Chaves do Azure para permitir que você controle e gerencie as chaves de criptografia de disco.
+Azure Disk Encryption permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS. No Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. No Linux, os discos são criptografados usando a tecnologia DM-Crypt. Esse recurso é integrado ao Cofre de Chaves do Azure para permitir que você controle e gerencie as chaves de criptografia de disco.
 
 A solução dá suporte aos seguintes cenários para VMs IaaS quando habilitados no Microsoft Azure:
 
@@ -368,8 +368,8 @@ A solução não dá suporte aos seguintes cenários, recursos e tecnologia na v
 
 Esse recurso garante que todos os dados nos discos da máquina virtual sejam criptografados em repouso no Armazenamento do Microsoft Azure.
 
-#### <a name="resources"></a>Implante
-* [Azure Disk Encryption para VMs IaaS Windows e Linux](../../security/fundamentals/encryption-overview.md)
+#### <a name="resources"></a>Recursos
+* [Criptografia de Disco do Azure para VMs IaaS Windows e Linux](../../security/fundamentals/encryption-overview.md)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparação do Azure Disk Encryption, da SSE e da Criptografia do Cliente
 
@@ -394,11 +394,11 @@ A criptografia do cliente significa mais carga no cliente, e você deve levar is
 
 #### <a name="storage-service-encryption-sse"></a>SSE (Criptografia do Serviço de Armazenamento)
 
-A SSE é gerenciada pelo Armazenamento do Microsoft Azure. A SSE não fornece segurança aos dados em trânsito, mas ela criptografa os dados conforme eles são gravados no Armazenamento do Microsoft Azure. A SSE não afeta o desempenho do Armazenamento do Microsoft Azure.
+A SSE é gerenciada pelo Armazenamento do Azure. A SSE não fornece segurança aos dados em trânsito, mas ela criptografa os dados conforme eles são gravados no Armazenamento do Microsoft Azure. A SSE não afeta o desempenho do Armazenamento do Microsoft Azure.
 
 Você pode criptografar qualquer tipo de dados da conta de armazenamento usando SSE (blobs de blocos, blobs de acréscimo, blobs de página, dados de tabela, dados da fila e arquivos).
 
-Se tiver um arquivo ou uma biblioteca de arquivos VHD que usa como base para a criação de novas máquinas virtuais, você poderá criar uma nova conta de armazenamento e carregar os arquivos VHD nessa conta. Esses arquivos VHD serão criptografados pelo Armazenamento do Microsoft Azure.
+Se tiver um arquivo ou uma biblioteca de arquivos VHD que usa como base para a criação de novas máquinas virtuais, você poderá criar uma nova conta de armazenamento e carregar os arquivos VHD nessa conta. Esses arquivos VHD serão criptografados pelo Armazenamento do Azure.
 
 Se você tiver habilitado o Azure Disk Encryption para os discos em uma VM, todos os dados recém-gravados serão criptografados tanto pela SSE como pela Azure Disk Encryption.
 
@@ -449,7 +449,7 @@ Temos três casos que nos interessam.
 
 Você pode usar o Analisador de Mensagem da Microsoft para exibir e analisar esses logs. Ele inclui recursos de pesquisa e filtro. Por exemplo, talvez você queira procurar instâncias de GetBlob para ver se o uso é o esperado, isto é, para garantir que ninguém esteja acessando a conta de armazenamento indevidamente.
 
-#### <a name="resources"></a>Implante
+#### <a name="resources"></a>Recursos
 * [Análise de Armazenamento](../storage-analytics.md)
 
   Esse artigo é uma visão geral da análise de armazenamento e de como habilitá-la.
@@ -466,7 +466,7 @@ Você pode usar o Analisador de Mensagem da Microsoft para exibir e analisar ess
 
   Esse artigo é a referência do Analisador de Mensagem da Microsoft e inclui links para um tutorial, início rápido e resumo do recurso.
 
-## <a name="cross-origin-resource-sharing-cors"></a>CORS (Compartilhamento de recursos entre origens)
+## <a name="cross-origin-resource-sharing-cors"></a>CORS (Compartilhamento de Recursos entre Origens)
 ### <a name="cross-domain-access-of-resources"></a>Acesso de recursos entre domínios
 Quando um navegador da Web em execução em um domínio faz uma solicitação HTTP a um recurso de outro domínio, isso é chamado de solicitação HTTP entre origens. Por exemplo, uma página HTML no site da contoso.com faz uma solicitação para um jpeg hospedado em fabrikam.blob.core.windows.net. Por motivos de segurança, os navegadores restringem as solicitações HTTP entre origens iniciadas dentro de scripts, como JavaScript. Isso significa que quando algum código JavaScript em uma página da Web de contoso.com solicita esse jpeg em fabrikam.blob.core.windows.net, o navegador não permite a solicitação.
 
@@ -504,7 +504,7 @@ Veja o que cada linha significa:
 * **ExposedHeaders** Informa que os cabeçalhos de resposta devem ser expostos pelo navegador ao emissor da solicitação. Neste exemplo, qualquer cabeçalho que começar com "x-ms-meta-" será exposto.
 * **MaxAgeInSeconds** Essa é a quantidade máxima de tempo que um navegador armazenará em cache a solicitação OPTIONS de simulação. (Para obter mais informações sobre a solicitação de simulação, verifique o primeiro artigo abaixo).
 
-#### <a name="resources"></a>Implante
+#### <a name="resources"></a>Recursos
 Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes recursos.
 
 * [Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure](../storage-cors-support.md)
@@ -531,7 +531,7 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 
    A Microsoft deixa que cada cliente decida se habilita ou não o modo FIPS. Acreditamos que não há nenhum motivo convincente para os clientes que não estão sujeitos a normas governamentais habilitarem o modo FIPS por padrão.
 
-### <a name="resources"></a>Implante
+### <a name="resources"></a>Recursos
 * [Por que não estamos recomendando mais o "Modo FIPS"](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   Esse artigo de blog fornece uma visão geral do FIPS e explica por que o modo FIPS não é habilitado por padrão.

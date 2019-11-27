@@ -21,7 +21,7 @@ Atualmente, há suporte para esses efeitos em uma definição de política:
 - [AuditIfNotExists](#auditifnotexists)
 - [Negar](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Desabilitada](#disabled)
+- [Desabilitado](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (visualização)
 - [EnforceRegoPolicy](#enforceregopolicy) (visualização)
 - [Alterar](#modify)

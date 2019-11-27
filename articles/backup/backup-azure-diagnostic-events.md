@@ -10,7 +10,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74281097"
 ---
-# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Usando configurações de diagnóstico para cofres dos serviços de recuperação
+# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Usar configurações de diagnóstico para os Cofres dos Serviços de Recuperação
 
 O backup do Azure envia eventos de diagnóstico que podem ser coletados e usados para fins de análise, alertas e relatórios. 
 

@@ -1,6 +1,6 @@
 ---
-title: Manage signed images
-description: Learn how to enable content trust for your Azure container registry, and push and pull signed images.
+title: Gerenciar imagens assinadas
+description: Saiba como habilitar a confiança de conteúdo para o registro de contêiner do Azure e enviar por push e receber imagens assinadas.
 ms.topic: article
 ms.date: 09/06/2019
 ms.openlocfilehash: 0418b13c352dc3b81d34501e7e76be6c54615a83
@@ -38,7 +38,7 @@ A confiança de conteúdo é gerenciada usando um conjunto de chaves de assinatu
 
 A primeira etapa é habilitar a confiança de conteúdo no nível do registro. Depois de habilitar a confiança de conteúdo, os clientes (usuários ou serviços) poderão enviar imagens assinadas para o registro. A ativação da confiança de conteúdo em seu registro não restringirá o uso do registro apenas a consumidores que têm a confiança de conteúdo ativada. Os consumidores que não têm a confiança de conteúdo ativada poderão continuar a usar o registro normalmente. No entanto, os consumidores que ativaram a confiança de conteúdo em seus clientes verão *apenas* imagens assinadas em seu registro.
 
-Para habilitar a confiança de conteúdo para o registro, primeiro, navegue até o registro no portal do Azure. Em **Políticas**, selecione **Confiança de Conteúdo** > **Habilitada** > **Salvar**. You can also use the [az acr config content-trust update][az-acr-config-content-trust-update] command in the Azure CLI.
+Para habilitar a confiança de conteúdo para o registro, primeiro, navegue até o registro no portal do Azure. Em **Políticas**, selecione **Confiança de Conteúdo** > **Habilitada** > **Salvar**. Você também pode usar o comando [AZ ACR config Content-Trust Update][az-acr-config-content-trust-update] na CLI do Azure.
 
 ![Habilitar a confiança de conteúdo para um registro no portal do Azure][content-trust-01-portal]
 
@@ -72,7 +72,7 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 Somente os usuários ou sistemas com permissão podem enviar imagens confiáveis para seu registro. Para conceder permissão de envio de imagens confiáveis a um usuário (ou a um sistema usando uma entidade de serviço), conceda às identidades do Azure Active Directory a função `AcrImageSigner`. Isso é um acréscimo à função `AcrPush` (ou equivalente) necessária para enviar imagens por push para o registro. Para obter detalhes, confira [Funções e permissões do Registro de Contêiner do Azure](container-registry-roles.md).
 
 > [!NOTE]
-> You can't grant trusted image push permission to the [admin account](container-registry-authentication.md#admin-account) of an Azure container registry.
+> Você não pode conceder permissão de push de imagem confiável para a [conta de administrador](container-registry-authentication.md#admin-account) de um registro de contêiner do Azure.
 
 Detalhes para a concessão da função `AcrImageSigner` no portal do Azure e na CLI do Azure são os seguintes.
 
@@ -84,7 +84,7 @@ Neste exemplo, duas entidades receberam a função `AcrImageSigner`: uma entidad
 
 ![Habilitar a confiança de conteúdo para um registro no portal do Azure][content-trust-02-portal]
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 Para conceder permissões de assinatura a um usuário com a CLI do Azure, atribua a função `AcrImageSigner` ao usuário no escopo do registro. O formato do comando é:
 
@@ -112,7 +112,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 A `<service principal ID>` pode ser a **appId**, **objectId** da entidade de serviço ou um de seus **servicePrincipalNames**. Para mais informações sobre como trabalhar com entidades de serviço e o Registro de Contêiner do Azure, confira [Autenticação do Registro de Contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Depois de quaisquer alterações de função, execute `az acr login` para atualizar o token de identidade local para a CLI do Azure para que as novas funções entrem em vigor. For information about verifying roles for an identity, see [Manage access to Azure resources using RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md) and [Troubleshoot RBAC for Azure resources](../role-based-access-control/troubleshooting.md).
+> Depois de quaisquer alterações de função, execute `az acr login` para atualizar o token de identidade local para a CLI do Azure para que as novas funções entrem em vigor. Para obter informações sobre como verificar funções para uma identidade, consulte [gerenciar o acesso aos recursos do Azure usando RBAC e CLI do Azure](../role-based-access-control/role-assignments-cli.md) e [solucionar problemas de RBAC para recursos do Azure](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Enviar uma imagem confiável por push
 
@@ -192,7 +192,7 @@ Para desabilitar a confiança de conteúdo do registro, primeiro, navegue até o
 
 ![Desabilitar a confiança de conteúdo de um registro no portal do Azure][content-trust-03-portal]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Confira [Confiança de conteúdo no Docker][docker-content-trust] para ver mais informações sobre a confiança de conteúdo. Apesar de vários pontos importantes terem sido abordados neste artigo, a confiança de conteúdo é um tópico amplo e será abordado com mais detalhes na documentação do Docker.
 

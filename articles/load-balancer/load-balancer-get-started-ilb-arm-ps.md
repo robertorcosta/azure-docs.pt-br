@@ -23,7 +23,7 @@ ms.locfileid: "74225382"
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno usando o módulo do Azure Powershell
 
 > [!div class="op_single_selector"]
-> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -90,7 +90,7 @@ Crie um novo grupo de recursos para o balanceador de carga. Ignore esta etapa se
 New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o padrão para todos os recursos do grupo de recursos em questão. Use sempre o mesmo grupo de recursos para todos os comandos relacionados à criação do balanceador de carga.
+O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o padrão para todos os recursos do grupo de recursos em questão. Use sempre o mesmo grupo de recursos para todos os comandos relacionados à criação do balanceador de carga.
 
 No exemplo anterior, criamos um grupo de recursos chamado **NRP-RG** com o local Oeste dos EUA.
 
@@ -251,7 +251,7 @@ Depois que a máquina virtual tiver sido criada, adicione a interface de rede.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Etapa 1: Armazenar o recurso de balanceador de carga
 
-Armazene o recurso de balanceador de carga em uma variável (se ainda não tiver feito isso). We're using the variable name **$lb**. For the attribute values in the script, use the names for the load balancer resources that were created in the previous steps.
+Armazene o recurso de balanceador de carga em uma variável (se ainda não tiver feito isso). Estamos usando o nome da variável **$lb**. Para os valores de atributo no script, use os nomes para os recursos do balanceador de carga que foram criados nas etapas anteriores.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
@@ -328,7 +328,7 @@ Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 > [!NOTE]
 > Use **-Force** opcional para impedir o prompt de confirmação para a exclusão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 * [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

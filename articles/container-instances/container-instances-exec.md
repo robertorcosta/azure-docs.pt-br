@@ -1,5 +1,5 @@
 ---
-title: Execute commands in running container instance
+title: Executar comandos na instância de contêiner em execução
 description: Saiba como executar um comando em um contêiner que está sendo executado em Instâncias de Contêiner do Azure
 ms.topic: article
 ms.date: 03/30/2018
@@ -16,7 +16,7 @@ As Instâncias de Contêiner do Azure oferecem suporte à execução de um coman
 
 ## <a name="run-a-command-with-azure-cli"></a>Executar um comando com a CLI do Azure
 
-Execute a command in a running container with [az container exec][az-container-exec] in the [Azure CLI][azure-cli]:
+Execute um comando em um contêiner em execução com [AZ container exec][az-container-exec] no [CLI do Azure][azure-cli]:
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
@@ -80,9 +80,9 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>Restrições
 
-Azure Container Instances currently supports launching a single process with [az container exec][az-container-exec], and you cannot pass command arguments. Por exemplo, não é possível encadear comandos, como em `sh -c "echo FOO && echo BAR"`, ou executar `echo FOO`.
+Atualmente, as instâncias de contêiner do Azure dão suporte à inicialização de um único processo com [AZ container exec][az-container-exec], e você não pode passar argumentos de comando. Por exemplo, não é possível encadear comandos, como em `sh -c "echo FOO && echo BAR"`, ou executar `echo FOO`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre outras ferramentas de solução de problemas e problemas comuns de implantação em [Solucionar problemas de contêiner e implantação em Instâncias de Contêiner do Azure](container-instances-troubleshooting.md).
 
