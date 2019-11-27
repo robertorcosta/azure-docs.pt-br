@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 99589a4f11f91afa7d3c9f93d844654ccc69aab1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
-ms.translationtype: HT
+ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322956"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532892"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium do Azure Functions
 
@@ -29,7 +29,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` com um nome para seu plano que seja exclusivo no grupo de recursos. Especifique um [`<REGION>`com suporte ](#regions). Para criar um plano Premium que ofereça suporte ao Linux, inclua a opção `--is-linux`.
 
-Com o plano criado, você pode usar [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) para criar seu aplicativo de funções. No portal, o plano e o aplicativo são criados ao mesmo tempo. 
+Com o plano criado, você pode usar [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) para criar seu aplicativo de funções. No portal, o plano e o aplicativo são criados ao mesmo tempo. Para obter um exemplo de um script de CLI do Azure completo, consulte [criar um aplicativo de funções em um plano Premium](scripts/functions-cli-create-premium-plan.md).
 
 ## <a name="features"></a>Recursos
 
@@ -94,7 +94,7 @@ Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de i
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>Regiões
 
 Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 

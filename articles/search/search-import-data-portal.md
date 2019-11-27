@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793673"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534548"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistente de importação de dados para o Azure Pesquisa Cognitiva
 
@@ -43,7 +43,7 @@ Limitações conhecidas são resumidas da seguinte maneira:
 
 + O assistente não oferece suporte à iteração nem à reutilização. Cada passagem do assistente cria uma nova configuração de índice, habilidades e indexador. Somente as fontes de dados podem ser persistidas e reutilizadas no assistente. Para editar ou refinar outros objetos, você precisa usar as APIs REST ou o SDK do .NET para recuperar e modificar as estruturas.
 
-+ O conteúdo de origem deve residir em uma fonte de dados do Azure com suporte, em um serviço na mesma assinatura.
++ O conteúdo de origem deve residir em uma fonte de dados do Azure com suporte.
 
 + A amostragem é sobre um subconjunto de dados de origem. Para fontes de dados grandes, é possível que o assistente perca campos. Talvez seja necessário estender o esquema ou corrigir os tipos de dados inferidos, se a amostragem for insuficiente.
 
@@ -55,13 +55,13 @@ Limitações conhecidas são resumidas da seguinte maneira:
 
 ## <a name="data-source-input"></a>Entrada da fonte de dados
 
-O assistente de **importação de dados** conecta-se a uma fonte de dados externa usando a lógica interna fornecida pelos indexadores do Azure pesquisa cognitiva, que são equipadas para amostras da origem, leitura de metadados, quebra de documentos para ler conteúdo e estrutura e serializar conteúdo como JSON para importação subsequente para o Azure Pesquisa Cognitiva.
+O assistente de **importação de dados** conecta-se a uma fonte de dados externa usando a lógica interna fornecida pelos indexadores do Azure pesquisa cognitiva, que são equipados para obter amostras da origem, ler metadados, quebrar documentos para ler conteúdo e estrutura e serializar o conteúdo como JSON para importação subsequente para o Azure pesquisa cognitiva.
 
 Você só pode importar de uma única tabela, exibição de banco de dados ou estrutura de dado equivalente, no entanto, a estrutura pode incluir subestruturas hierárquicas ou aninhadas. Para obter mais informações, consulte [como modelar tipos complexos](search-howto-complex-data-types.md).
 
 Você deve criar essa tabela ou exibição única antes de executar o assistente e ela deve conter conteúdo. Por motivos óbvios, não faz sentido executar o assistente de **importação de dados** em uma fonte de dados vazia.
 
-|  Seleção | Descrição |
+|  Seleção | DESCRIÇÃO |
 | ---------- | ----------- |
 | **Fonte de dados existente** |Se você já tiver indexadores definidos em seu serviço de pesquisa, talvez tenha uma definição de fonte de dados existente que possa ser reutilizada. No Azure Pesquisa Cognitiva, os objetos de fonte de dados são usados apenas por indexadores. Você pode criar um objeto de fonte de dados programaticamente ou por meio do assistente de **importação de dados** e reutilizá-los conforme necessário.|
 | **Exemplos**| O Azure Pesquisa Cognitiva fornece duas fontes de dados de exemplo internas que são usadas em tutoriais e guias de início rápido: um banco dados SQL de imóveis e um banco de dados de hotéis hospedados no Cosmos DB. Para obter uma orientação com base no exemplo de hotéis, consulte [criar um índice no guia de](search-get-started-portal.md) início rápido portal do Azure. |
@@ -75,7 +75,7 @@ Você deve criar essa tabela ou exibição única antes de executar o assistente
 
 Nos bastidores, o assistente cria, configura e invoca os objetos a seguir. Depois que o assistente for executado, você poderá encontrar sua saída nas páginas do Portal. A página Visão geral do seu serviço tem listas de índices, indexadores, fontes de dados e habilidades. As definições de índice podem ser exibidas em JSON completo no Portal. Para outras definições, você pode usar a [API REST](https://docs.microsoft.com/rest/api/searchservice/) para obter objetos específicos.
 
-| Objeto | Descrição | 
+| Objeto | DESCRIÇÃO | 
 |--------|-------------|
 | [Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Persiste informações de conexão para dados de origem, incluindo credenciais. Um objeto de fonte de dados é usado exclusivamente com indexadores. | 
 | [Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Estrutura de dados física usada para pesquisa de texto completo e outras consultas. | 
@@ -128,7 +128,7 @@ O assistente gera um índice incompleto, que será preenchido com documentos obt
 1. Você precisa da funcionalidade typeahead na forma de preenchimento automático ou de resultados sugeridos? Selecione a caixa de seleção **Sugestor** para habilitar [sugestões de consulta typeahead e preenchimento automático](index-add-suggesters.md) em campos selecionados. Os sugestores adicionam o número de termos com token no índice e, portanto, consomem mais armazenamento.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A melhor maneira de entender os benefícios e as limitações do assistente é percorrer isso. O guia de início rápido a seguir orienta você em cada etapa.
 

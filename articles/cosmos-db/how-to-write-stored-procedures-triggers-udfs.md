@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ffe002e4dced5b5020eb1436ca6d7d577402b077
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606268"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533163"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 
@@ -51,7 +51,7 @@ Uma vez escrito, o procedimento armazenado deve ser registrado com uma coleção
 
 ### <a id="create-an-item"></a>Criar um item usando o procedimento armazenado
 
-Quando você cria um item usando o procedimento armazenado, o item é inserido no contêiner Cosmos do Azure e uma ID para o item recém-criado é retornada. A criação de um item é uma operação assíncrona e depende das funções de retorno de chamada do JavaScript. A função de retorno de chamada tem dois parâmetros – um para o objeto de erro, caso a operação falhe, e outro para um valor retornado; nesse caso, o objeto criado. Dentro da chamada de retorno, é possível lidar com a exceção ou gerar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o tempo de execução do Azure Cosmos DB gerará um erro. 
+Quando você cria um item usando o procedimento armazenado, o item é inserido no contêiner Cosmos do Azure e uma ID para o item recém-criado é retornada. A criação de um item é uma operação assíncrona e depende das funções de retorno de chamada do JavaScript. A função de retorno de chamada tem dois parâmetros – um para o objeto de erro, caso a operação falhe, e outro para um valor retornado; nesse caso, o objeto criado. Dentro da chamada de retorno, é possível lidar com a exceção ou gerar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o runtime do Azure Cosmos DB gerará um erro. 
 
 O procedimento armazenado também inclui um parâmetro para definir a descrição; é um valor booliano. Quando o parâmetro é definido como true e a descrição está ausente, o procedimento armazenado gerará uma exceção. Caso contrário, o restante do procedimento armazenado continuará em execução.
 
@@ -316,6 +316,17 @@ function tax(income) {
 ```
 
 Para obter exemplos de como registrar e usar uma função definida pelo usuário, confira o artigo [Como usar funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs).
+
+## <a name="logging"></a>Registro em log 
+
+Ao usar procedimentos armazenados, gatilhos ou funções definidas pelo usuário, você pode registrar as etapas usando o comando `console.log()`. Este comando irá concentrar uma cadeia de caracteres para depuração quando `EnableScriptLogging` for definido como true, conforme mostrado no exemplo a seguir:
+
+```javascript
+var response = await client.ExecuteStoredProcedureAsync(
+document.SelfLink,
+new RequestOptions { EnableScriptLogging = true } );
+Console.WriteLine(response.ScriptLog);
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

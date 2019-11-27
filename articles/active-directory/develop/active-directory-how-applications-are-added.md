@@ -14,26 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/04/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: elisol, lenalepa
+ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803444"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532993"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
 
-Há duas representações de aplicativos no Azure Microsoft AD: 
+Há duas representações de aplicativos no Azure Microsoft AD:
+
 * [Objetos de aplicativo](app-objects-and-service-principals.md#application-object) – embora haja [exceções](#notes-and-exceptions), objetos de aplicativos podem ser considerados a definição de um aplicativo.
 * [Entidades de serviço](app-objects-and-service-principals.md#service-principal-object) – podem ser considerados uma instância de um aplicativo. Geralmente, as entidades de serviço fazem referência a um objeto de aplicativo e um objeto de aplicativo pode ser referenciado por várias entidades de serviço nos diretórios.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>O que são objetos de aplicativo e de onde originam-se?
+
 Você pode gerenciar [objetos de aplicativo](app-objects-and-service-principals.md#application-object) no portal do Azure por meio da experiência de [Registros de Aplicativo](https://aka.ms/appregistrations). Objetos de aplicativo descrevem o aplicativo para o Microsoft Azure AD e podem ser considerados a definição do aplicativo, permitindo que o serviço saiba como emitir tokens para o aplicativo baseado nas configurações. O objeto de aplicativo somente existirá no diretório base, mesmo se for um aplicativo multilocatário que dá suporte a entidades de serviço em outros diretórios. O objeto de aplicativo pode incluir qualquer um dos itens a seguir (assim como informações adicionais não mencionadas aqui):
+
 * Nome, logotipo e editor
 * URIs de redirecionamento
 * Segredos (chaves simétricas e/ou assimétricas usadas para autenticar o aplicativo)
@@ -45,13 +48,15 @@ Você pode gerenciar [objetos de aplicativo](app-objects-and-service-principals.
 * Configuração e metadados de proxy
 
 Objetos de aplicativo podem ser criados através de vários caminhos, incluindo:
+
 * Registros de aplicativo no Portal do Azure
 * Criar um novo aplicativo usando o Visual Studio e configurando-o para usar a autenticação do Microsoft Azure AD
 * Quando um administrador adiciona um aplicativo da galeria de aplicativos (isso também cria uma entidade de serviço)
-* Usar a API do Microsoft Graph, Microsoft Azure AD Graph ou o PowerShell para criar um novo aplicativo
+* Usando a API Microsoft Graph ou o PowerShell para criar um novo aplicativo
 * Muitos outras, incluindo várias experiências de desenvolvedor no Azure e em experiências de explorador de APIs em centros de desenvolvedores
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Quais são as entidades de serviço e de onde originam-se?
+
 Você pode gerenciar [entidades de serviço](app-objects-and-service-principals.md#service-principal-object) no portal do Azure por meio da experiência de [Aplicativos Empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Entidades de serviço controlam um aplicativo que se conecta ao Azure AD e podem ser consideradas a instância do aplicativo em seu diretório. Para qualquer aplicativo, é possível ter no máximo um objeto de aplicativo (que é registrado em um diretório "base") e um ou mais objetos de entidade de serviço que representam instâncias do aplicativo em todos os diretórios nos quais atuam. 
 
 A entidade de serviço pode incluir:

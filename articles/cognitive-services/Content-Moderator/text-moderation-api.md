@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 1d147dcee31fa4b84b28ab62e8cd41aebc134a9b
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 5a07f0749b59efc96b67df3ad5ed2fbf353be614
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043956"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538837"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprender os conceitos de moderação de texto
 
@@ -30,9 +30,9 @@ A resposta de serviço inclui as informações a seguir:
 - Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
-- Idioma
+- idioma
 
-## <a name="profanity"></a>Linguagem obscena
+## <a name="profanity"></a>Conteúdo ofensivo
 
 Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text-Moderation-API-Languages.md), esses termos serão incluídos na resposta. A resposta também contém a localização (`Index`) no texto original. O `ListId` no JSON de exemplo a seguir refere-se aos termos encontrados nas [listas de termos personalizadas](try-terms-list-api.md), se disponíveis.
 
@@ -45,13 +45,13 @@ Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text
     }
 
 > [!NOTE]
-> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
+> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (versão prévia do recurso). **Esse recurso dá suporte ao inglês apenas**.
 >
-> Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
+> Para detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo, ou deixe-o vazio.
 
 ## <a name="classification"></a>Classificação
 
-O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para a análise. 
+O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para análise. 
 
 A extração a seguir na extração JSON mostra uma saída de exemplo:
 
@@ -73,8 +73,8 @@ A extração a seguir na extração JSON mostra uma saída de exemplo:
 - `Category1` refere-se à presença potencial de linguagem que pode ser considerada sexualmente explícita ou para adulto em determinadas situações.
 - `Category2` refere-se à presença potencial de linguagem que pode ser considerada sexualmente sugestiva ou para adulto em determinadas situações.
 - `Category3` refere-se à potencial presença de linguagem que pode ser considerada ofensiva em determinadas situações.
-- `Score` fica entre 0 e 1. Quanto maior a pontuação, mais o modelo irá prever que a categoria pode ser aplicável. Esse recurso se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha com seus requisitos.
-- `ReviewRecommended` é verdadeiro ou falso, dependendo dos limites internos da pontuação. Os clientes devem avaliar se é para usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
+- `Score` fica entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Esse recurso se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com o seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
+- `ReviewRecommended` é verdadeiro ou falso, dependendo dos limites internos da pontuação. Os clientes devem avaliar se desejam usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
 
 ## <a name="personal-data"></a>Dados pessoais
 
@@ -109,33 +109,33 @@ O exemplo a seguir mostra uma resposta de exemplo:
   "Phone":[ 
     { 
       "CountryCode":"US",
-      "Text":"6657789887",
+      "Text":"4255550111",
       "Index":56
     },
     { 
       "CountryCode":"US",
-      "Text":"870 608 4000",
+      "Text":"425 555 0111",
       "Index":212
     },
     { 
       "CountryCode":"UK",
-      "Text":"+44 870 608 4000",
+      "Text":"+123 456 7890",
       "Index":208
     },
     { 
       "CountryCode":"UK",
-      "Text":"0344 800 2400",
+      "Text":"0234 567 8901",
       "Index":228
     },
     { 
       "CountryCode":"UK",
-      "Text":"0800 820 3300",
+      "Text":"0456 789 0123",
       "Index":245
     }
   ],
   "Address":[ 
     { 
-      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Text":"1234 Main Boulevard, Panapolis WA 96555",
       "Index":89
     }
   ],
@@ -182,6 +182,6 @@ O exemplo a seguir mostra a ID da lista correspondente:
 
 O Content Moderator fornece uma [API de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) com operações para gerenciar listas de termos personalizadas. Inicie com o [Console de API de Listas de Termos](try-terms-list-api.md) e use os exemplos de código de API REST. Consulte também o [Início rápido do .NET das Listas de Termos](term-lists-quickstart-dotnet.md), se você estiver familiarizado com Visual Studio e C#.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Faça test drive do [Console de API de moderação de texto](try-text-api.md) e use os exemplos de código de API REST. Confira também a seção de moderação de texto do [início rápido do SDK do .net](dotnet-sdk-quickstart.md) se você estiver C#familiarizado com o Visual Studio e o.

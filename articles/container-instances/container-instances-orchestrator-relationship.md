@@ -1,20 +1,15 @@
 ---
-title: Instâncias de Contêiner do Azure e orquestração de contêiner
+title: Instâncias de contêiner e orquestração de contêiner
 description: Entender como as Instâncias de Contêiner do Azure interagem com orquestradores de contêiner.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 044b74e1a8683c6beb0220c1cf9fb97403286a95
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972241"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533654"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de Contêiner do Azure e orquestradores de contêiner
 
@@ -26,16 +21,16 @@ As Instâncias de Contêiner do Azure fornecem alguns dos recursos básicos de a
 
 A definição padrão de orquestração inclui as seguintes tarefas:
 
-- **Agendamento**: Dada uma imagem de contêiner e uma solicitação de recurso, localizar um computador adequado no qual executar o contêiner.
-- **Afinidade/Antiafinidade**: Especificar que um conjunto de contêineres devem ser executados próximo uns aos outros (para desempenho) ou suficientemente distantes (para disponibilidade).
-- **Monitoramento da integridade**: Inspecionar falhas de contêiner e automaticamente reagendá-los.
-- **Failover**: Controlar o que está em execução em cada computador e reagendar contêineres de computadores com falha para nós íntegros.
-- **Dimensionamento**: Adicionar ou remover instâncias de contêiner de acordo com a demanda, manualmente ou automaticamente.
-- **Rede**: Fornecer uma rede de sobreposição a fim de coordenar contêineres para que se comuniquem entre vários computadores host.
-- **Descoberta de serviço**: Habilitar contêineres para localizar uns aos outros automaticamente, mesmo que eles se movam entre computadores host e alterem os endereços IP.
-- **Atualizações de aplicativo coordenadas**: Gerenciar atualizações de contêiner para evitar tempo de inatividade de aplicativo e habilitar a reversão se algo der errado.
+- **Agendamento**: dada uma imagem de contêiner e uma solicitação de recurso, localizar um computador adequado no qual executar o contêiner.
+- **Afinidade/Antiafinidade**: especificar que um conjunto de contêineres devem ser executados próximo uns aos outros (para desempenho) ou suficientemente distantes (para disponibilidade).
+- **Monitoramento de integridade**: inspecionar falhas de contêiner e automaticamente reagendá-los.
+- **Failover**: controlar o que está em execução em cada computador e reagendar contêineres de computadores com falha para nós íntegros.
+- **Dimensionamento**: adicionar ou remover instâncias de contêiner de acordo com a demanda, manualmente ou automaticamente.
+- **Rede**: fornecer uma rede de sobreposição a fim de coordenar contêineres para que se comuniquem entre vários computadores host.
+- **Descoberta de serviço**: habilitar contêineres para localizar uns aos outros automaticamente, mesmo que eles se movam entre computadores host e alterem os endereços IP.
+- **Atualizações de aplicativo coordenadas**: gerenciar atualizações de contêiner para evitar tempo de inatividade de aplicativo e habilitar a reversão se algo der errado.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com Instâncias de Contêiner do Azure: Uma abordagem em camadas
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com Instâncias de Contêiner do Azure: uma abordagem em camadas
 
 As Instâncias de Contêiner do Azure permitem uma abordagem em camadas à orquestração, fornecendo todos os recursos de agendamento e gerenciamento necessários para executar um único contêiner, permitindo ao mesmo tempo que as plataformas de orquestração gerenciem tarefas de vários contêineres sobre elas.
 

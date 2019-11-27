@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 11/25/2019
 ms.author: swmachan
-ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3694c8cb34b2a050c9e18265c8cc0a0198456076
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671962"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533715"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de solicitação para a Tradução de Texto
 
@@ -29,8 +29,8 @@ A tabela a seguir lista os limites de elemento e de caracteres de matriz para ca
 
 | Operação | Tamanho máximo do elemento de matriz |   Número máximo de elementos da matriz |  Tamanho máximo da solicitação (caracteres) |
 |:----|:----|:----|:----|
-| Transladar | 5\.000 | 100   | 5\.000 |
-| Transliterate | 5\.000 | 10    | 5\.000 |
+| Translate | 5\.000 | 100   | 5\.000 |
+| Transliteração | 5\.000 | 10    | 5\.000 |
 | Detectar | 10.000 | 100 |   50.000 |
 | BreakSentence | 10.000    | 100 | 50.000 |
 | Pesquisa no dicionário| 100 |  10  | 1\.000 |
@@ -44,7 +44,7 @@ A cota por hora deve ser consumida uniformemente durante a hora. Por exemplo, no
 
 Se você atingir ou ultrapassar esses limites, ou enviar um grande número de uma parte da cota em um curto período de tempo, provavelmente receberá uma resposta de cota insuficiente. Não há limites em solicitações simultâneas.
 
-| Tipo | Limite de caracteres |
+| Camada | Limite de caracteres |
 |------|-----------------|
 | F0 | 2 milhões de caracteres por hora |
 | S1 | 40 milhões de caracteres por hora |
@@ -58,13 +58,13 @@ Esses limites são restritos aos modelos de tradução padrão da Microsoft. Os 
 
 ## <a name="latency"></a>Latência
 
-A API de Tradução de Texto tem uma latência máxima de 15 segundos usando modelos padrão. A conversão usando modelos personalizados tem uma latência máxima de 25 segundos. Nesse momento você vai ter recebido um resultado ou uma resposta de tempo limite. Normalmente, as respostas são retornadas em 150 milissegundos para 300 milissegundos. Os tempos de resposta variam de acordo com o tamanho da solicitação e do par de idiomas. Se você não receber uma conversão ou uma [resposta de erro](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) dentro desse período, verifique sua conexão de rede e tente novamente.
+A API de Tradução de Texto tem uma latência máxima de 15 segundos usando modelos padrão e 120 segundos ao usar modelos personalizados. Normalmente, as respostas *de texto dentro de 100 caracteres* são retornadas em 150 milissegundos a 300 milissegundos. Os modelos de Tradutor personalizados têm características de latência semelhantes na taxa de solicitação sustentada e podem ter uma latência mais alta quando a taxa de solicitação é intermitente. Os tempos de resposta variam de acordo com o tamanho da solicitação e do par de idiomas. Se você não receber uma conversão ou uma [resposta de erro](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) dentro desse período, verifique seu código, sua conexão de rede e tente novamente. 
 
 ## <a name="sentence-length-limits"></a>Limites de duração de sentença
 
 Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), o comprimento da sentença é limitado a 275 caracteres. Existem exceções para esses idiomas:
 
-| Idioma | Código | Limite de caracteres |
+| idioma | Código | Limite de caracteres |
 |----------|------|-----------------|
 | Chinês | zh | 132 |
 | Alemão | de | 290 |

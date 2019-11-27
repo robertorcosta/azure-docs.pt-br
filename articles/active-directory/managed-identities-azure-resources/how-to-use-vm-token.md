@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14debff8baf4bdeb808b32e64b389ad0f9e2f38
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 443f1eb1576f2d6eb28d0de16f37e37912b707b9
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232206"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547349"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para adquirir um token de acesso 
 
@@ -45,7 +45,7 @@ Se você planeja usar os exemplos do Azure PowerShell neste artigo, instale a ve
 
 ## <a name="overview"></a>Visão geral
 
-Um aplicativo cliente pode solicitar identidades gerenciadas para o [token de acesso somente de aplicativo](../develop/developer-glossary.md#access-token) dos recursos do Azure para acessar um determinado recurso. O token é [com base nas identidades gerenciadas para a entidade de serviço dos recursos do Azure](overview.md#how-does-it-work). Sendo assim, o cliente não precisa se registrar para obter um token de acesso em sua própria entidade de serviço. O token é adequado para uso como um token de portador em [chamadas de serviço a serviço que exigem credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
+Um aplicativo cliente pode solicitar identidades gerenciadas para o [token de acesso somente de aplicativo](../develop/developer-glossary.md#access-token) dos recursos do Azure para acessar um determinado recurso. O token é [com base nas identidades gerenciadas para a entidade de serviço dos recursos do Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Sendo assim, o cliente não precisa se registrar para obter um token de acesso em sua própria entidade de serviço. O token é adequado para uso como um token de portador em [chamadas de serviço a serviço que exigem credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

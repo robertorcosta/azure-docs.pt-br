@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7e4d51701fd8614831585aac03f2c8a909b2b847
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: f1e1ae76c44e66c04baaad110b87264279dfdaf1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112744"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530992"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar dados de Cosmos DB usando um indexador no Azure Pesquisa Cognitiva 
 
@@ -48,7 +48,7 @@ O indexador Cosmos DB no Azure Pesquisa Cognitiva pode rastrear [itens de Azure 
 
 O método mais fácil para indexação de Azure Cosmos DB itens é usar um assistente na [portal do Azure](https://portal.azure.com/). Por amostragem de dados e leitura de metadados no contêiner, o assistente de [**importação de dados**](search-import-data-portal.md) no Azure pesquisa cognitiva pode criar um índice padrão, mapear campos de origem para campos de índice de destino e carregar o índice em uma única operação. Dependendo do tamanho e complexidade da fonte de dados, é possível ter um índice de pesquisa de texto completo operando em minutos.
 
-É recomendável usar a mesma assinatura do Azure para o Azure Pesquisa Cognitiva e Azure Cosmos DB, preferencialmente na mesma região.
+É recomendável usar a mesma região ou local para o Azure Pesquisa Cognitiva e Azure Cosmos DB para latência mais baixa e para evitar encargos de largura de banda.
 
 ### <a name="1---prepare-source-data"></a>1- Preparar dados de origem
 

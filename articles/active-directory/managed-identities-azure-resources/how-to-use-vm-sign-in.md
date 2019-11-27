@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d6d128677d2e82f4750a7771885474bf284fb1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184224"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547379"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para entrar 
 
@@ -41,7 +41,7 @@ Se você planeja usar os exemplos do Azure PowerShell ou da CLI do Azure neste a
 
 ## <a name="overview"></a>Visão geral
 
-Identidades gerenciadas para recursos do Azure fornecem um [objeto principal de serviço](../develop/developer-glossary.md#service-principal-object), que é [criado ao habilitar identidades gerenciadas para recursos do Azure](overview.md#how-does-it-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e pode ser usada como uma identidade pelos clientes de script/linha de comando para entrada e acesso aos recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisa:  
+Identidades gerenciadas para recursos do Azure fornecem um [objeto principal de serviço](../develop/developer-glossary.md#service-principal-object), que é [criado ao habilitar identidades gerenciadas para recursos do Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e pode ser usada como uma identidade pelos clientes de script/linha de comando para entrada e acesso aos recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisa:  
 
    - estar registrado e ter o consentimento do Azure AD como um aplicativo cliente Web/confidencial
    - entrar com sua entidade de serviço, usando as credenciais do aplicativo (que estão provavelmente inseridas no script)
@@ -62,7 +62,7 @@ O script a seguir demonstra como:
    echo The managed identity for Azure resources service principal ID is $spID
    ```
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="azure-powershell"></a>PowerShell do Azure
 
 O script a seguir demonstra como:
 

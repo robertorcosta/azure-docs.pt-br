@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: c691281f1ff0cf88d1ba61af43fad8e7782924aa
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1178c18b29c5e38d33e51ff0da5db683990daed3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278502"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546962"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando o Azure Data Factory
 
@@ -218,7 +218,7 @@ As propriedades a seguir têm suporte na seção **source** da atividade de cóp
 | requestInterval | O tempo de espera antes de enviar a solicitação para a próxima página. O valor padrão é **00:00:01** |  Não |
 
 >[!NOTE]
->O conector REST ignora qualquer cabeçalho "Accept" especificado em `additionalHeaders`. Como o conector REST só dá suporte à resposta em JSON, TT gerará automaticamente um cabeçalho de `Accept: application/json`.
+>O conector REST ignora qualquer cabeçalho "Accept" especificado em `additionalHeaders`. Como o conector REST só dá suporte à resposta em JSON, ele gerará automaticamente um cabeçalho de `Accept: application/json`.
 
 **Exemplo 1: usando o método Get com paginação**
 

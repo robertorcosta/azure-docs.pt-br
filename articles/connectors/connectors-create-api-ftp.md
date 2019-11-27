@@ -11,12 +11,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: conceptual
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: a73fad3097be73e01a7a2a6652129cd7c9db9555
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ac6ae1a3b00a4e7568bd7967105f202fbf2e4f9b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050972"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547484"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorar e gerenciar arquivos FTP usando Aplicativos Lógicos do Azure
 
@@ -45,17 +45,17 @@ Você pode usar gatilhos que obtêm respostas de seu servidor FTP e disponibiliz
 
 Os gatilhos de FTP funcionam sondando o sistema de arquivos FTP e procurando qualquer arquivo que tenha sido alterado desde a última sondagem. Algumas ferramentas permitem preservar o registro de data e hora quando os arquivos são alterados. Nesses casos, você precisa desativar esse recurso para que seu gatilho funcione. Aqui estão algumas configurações comuns:
 
-| Cliente SFTP | Action |
+| Cliente SFTP | Ação |
 |-------------|--------|
 | WinSCP | Vá para **opções** > **preferências** > **transferir** > **editar**  >  **Preservar o carimbo de hora** > **desabilitar** |
-| FileZilla | Ir para **Transferir** > **Preservar registros de data e hora de arquivos transferidos** > **Desativar** |
+| FileZilla | Vá para **transferir** > **preservar os carimbos de hora de arquivos transferidos** > **desabilitar** |
 |||
 
 Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está concluído e não gravado parcialmente. Por exemplo, um arquivo pode ter alterações em andamento quando o gatilho verifica o servidor de arquivos. Para evitar o retorno de um arquivo gravado parcialmente, o gatilho observa o carimbo de data/hora do arquivo que tem alterações recentes, mas não retorna o arquivo imediatamente. O gatilho retorna o arquivo apenas ao executar a sondagem do servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o intervalo de sondagem do gatilho.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Seu endereço de servidor de host FTP e credenciais de conta
 
@@ -73,11 +73,11 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
 1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira "ftp" como filtro. Na lista de gatilhos, selecione o gatilho desejado.
 
-   - ou -
+   -ou-
 
    Para aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, escolha **Nova etapa**e, em seguida, selecione **Adicionar uma ação**. Na caixa de pesquisa, insira “ftp” como filtro. Na lista de ações, selecione a ação desejada.
 
-   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Escolha o sinal de adição **+** () que aparece e selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Escolha o sinal de adição ( **+** ) que aparece e selecione **Adicionar uma ação**.
 
 1. Forneça os detalhes necessários para sua conexão e, em seguida, escolha **Criar**.
 
@@ -87,17 +87,17 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
 <a name="file-added-modified"></a>
 
-### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Gatilho do FTP: Quando um arquivo é adicionado ou modificado
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Gatilho FTP: quando um arquivo é adicionado ou modificado
 
 Esse gatilho inicia um fluxo de trabalho do aplicativo lógico ao detectar quando um arquivo é adicionado ou alterado em um servidor FTP. Por exemplo, você pode adicionar uma condição que verifica o conteúdo do arquivo e decide se deve obter esse conteúdo, com base em se esse conteúdo atende a uma condição especificada. Por fim, você pode adicionar uma ação que obtém o conteúdo do arquivo e colocar esse conteúdo em uma pasta no servidor SFTP.
 
-**Exemplo corporativo**: Use esse gatilho para monitorar uma pasta do FTP em busca de novos arquivos que descrevem os pedidos de clientes. Você pode, então, usar uma ação de FTP como **Obter conteúdo do arquivo**, para que possa obter o conteúdo da ordem para mais processamento e armazenar essa ordem em um banco de dados de ordens.
+**Exemplo empresarial**: você pode usar esse gatilho para monitorar uma pasta de FTP para novos arquivos que descrevem pedidos de clientes. Você pode, então, usar uma ação de FTP como **Obter conteúdo do arquivo**, para que possa obter o conteúdo da ordem para mais processamento e armazenar essa ordem em um banco de dados de ordens.
 
-Este é um exemplo que mostra esse gatilho: **Quando um arquivo é adicionado ou modificado**
+Aqui está um exemplo que mostra esse gatilho: **quando um arquivo é adicionado ou modificado**
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira "ftp" como filtro. Na lista de gatilhos, selecione este gatilho: **Quando um arquivo é adicionado ou modificado – FTP**
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira "ftp" como filtro. Na a lista de gatilhos, selecione este gatilho: **quando um campo é adicionado ou modificado - FTP**
 
    ![Localize e selecione o gatilho de FTP](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
 
@@ -119,15 +119,15 @@ Agora que seu aplicativo lógico tem um gatilho, adicione as ações que você d
 
 <a name="get-content"></a>
 
-### <a name="ftp-action-get-content"></a>Ação do FTP: obter conteúdo
+### <a name="ftp-action-get-content"></a>Ação de FTP: obter o conteúdo
 
 Esta ação obtém o conteúdo de um arquivo em um servidor FTP quando esse arquivo é adicionado ou atualizado. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma ação que obtém o conteúdo do arquivo depois que esse arquivo é adicionado ou editado.
 
-Este é um exemplo que mostra essa ação: **Obter conteúdo**
+Aqui está um exemplo que mostra esta ação: **obter conteúdo**
 
 1. No gatilho ou quaisquer outras ações, escolha **Nova etapa**.
 
-1. Na caixa de pesquisa, insira “ftp” como filtro. Na lista de ações, selecione esta ação: **Obter conteúdo do arquivo – FTP**
+1. Na caixa de pesquisa, insira “ftp” como filtro. Na lista de ações, selecione esta ação: **Obter conteúdo do arquivo - FTP**
 
    ![Selecionar ação FTP](./media/connectors-create-api-ftp/select-ftp-action.png)  
 

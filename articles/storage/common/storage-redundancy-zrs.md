@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 53441f5fedb4fa5e68cd1d8230ffe3ee6122e55b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 46975cf7762e2d92e5112911bd491f372cb22a31
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186670"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544619"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>ZRS (armazenamento com redundância de zona) para criar aplicativos de armazenamento do Azure altamente disponíveis
 
@@ -39,7 +39,7 @@ Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes re
 - Leste dos EUA 2
 - Oeste dos EUA 2
 
-Para contas de armazenamento de arquivo (compartilhamentos de arquivos Premium), o ZRS está geralmente disponível nas seguintes regiões:
+Para contas de armazenamento de arquivo (compartilhamentos de arquivos Premium) e contas de BlockBlobStorage (BLOBs de blocos Premium), o ZRS está geralmente disponível nas seguintes regiões:
 
 - Europa Ocidental
 - Leste dos EUA

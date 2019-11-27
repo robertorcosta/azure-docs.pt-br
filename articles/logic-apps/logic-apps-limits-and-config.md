@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: 5e52d60a6cf1d6c8fc248ca8ad8ab7199f5ce885
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 89b4a08a3ecb85abd56f0b2ae852123ac2883364
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483575"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547542"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -277,7 +277,7 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 
 * Para dar suporte às chamadas que [conectores gerenciados pela Microsoft](../connectors/apis-list.md) fazem, configure seu firewall com *todos* os endereços IP [de saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços são exibidos sob o título **De saída** nesta seção e são classificados por região. 
 
-* Para habilitar a comunicação para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+* Para habilitar a comunicação para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
 * Se seus aplicativos lógicos tiverem problemas para acessar contas de armazenamento do Azure que usam [firewalls e regras de firewall](../storage/common/storage-network-security.md), você terá [várias opções para habilitar o acesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 

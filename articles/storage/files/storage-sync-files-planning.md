@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: a732e80549747f7c683a73bf0f16c40d48decea6
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846742"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546339"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -227,7 +227,7 @@ Se você estiver usando uma solução de backup local, os backups deverão ser e
 > A restauração bare-metal (BMR) pode causar resultados inesperados e não é atualmente suportada.
 
 > [!Note]  
-> Atualmente, não há suporte para instantâneos do VSS (incluindo a guia Versões Anteriores) em volumes com camada de nuvem habilitada. Se a camada de nuvem estiver habilitada, use os instantâneos de compartilhamento do arquivo do Azure para restaurar um arquivo do backup.
+> Com a versão 9 do agente de sincronização de arquivo do Azure, os instantâneos do VSS (incluindo a guia versões anteriores) agora têm suporte em volumes que têm a camada de nuvem habilitada. No entanto, você deve habilitar a compatibilidade de versão anterior por meio do PowerShell. [Saiba como](storage-files-deployment-guide.md).
 
 ### <a name="encryption-solutions"></a>Soluções de criptografia
 O suporte para soluções de criptografia depende de como elas são implementadas. A Sincronização de Arquivo do Azure é conhecida por funcionar com:

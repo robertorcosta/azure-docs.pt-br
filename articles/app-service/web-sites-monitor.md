@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7edff127bb981db985bebb41740744f325306bc8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470127"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546188"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no Serviço de Aplicativo do Azure
 O [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) fornece uma funcionalidade de monitoramento interno para aplicativos Web, back-ends móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
 
-No portal do Azure, você pode revisar *cotas* e *métricas* para um aplicativo, revisar o plano do Serviço de Aplicativo e configurar automaticamente *alertas* e *dimensionamento* baseados nas métricas.
+No portal do Azure, você pode examinar *cotas* e *métricas* para um aplicativo e um plano do serviço de aplicativo, bem como configurar *alertas* e *dimensionamento automático* que são métricas baseadas.
 
 ## <a name="understand-quotas"></a>Entender cotas
 
@@ -46,7 +46,7 @@ As cotas para aplicativos Gratuitos ou Compartilhados são:
 | **Largura de banda** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
 | **Sistema de arquivos** | A quantidade total de armazenamento permitida. |
 
-A única cota aplicável aos aplicativos hospedados no plano *Básico*, *Standard* e *Premium* é Sistema de arquivos.
+A única cota aplicável a aplicativos hospedados em *Basic*, *Standard*e *Premium* é FileSystem.
 
 Para saber mais sobre cotas, limites e recursos específicos disponíveis para os vários SKUs de Serviço de Aplicativo, confira [Limites do serviço de assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits).
 
@@ -64,6 +64,10 @@ Aumente ou remova cotas de seu aplicativo atualizando seu Plano do Serviço de A
 
 ## <a name="understand-metrics"></a>Entender as métricas
 
+> [!NOTE]
+> O **uso do sistema de arquivos** é uma nova métrica sendo distribuída globalmente, nenhum dado é esperado, a menos que você tenha sido na lista de permissões para visualização privada.
+> 
+
 Métricas fornecem informações sobre o aplicativo ou sobre o comportamento do Plano do Serviço de Aplicativo.
 
 Para um aplicativo, as métricas disponíveis são:
@@ -77,6 +81,7 @@ Para um aplicativo, as métricas disponíveis são:
 | **Assemblies Atuais** | O número atual de Assemblies carregados em todos os AppDomains nesse aplicativo. |
 | **Entrada de Dados** | A quantidade de largura de banda de entrada consumida pelo aplicativo em MiB. |
 | **Saída de dados** | A quantidade de largura de banda de saída consumida pelo aplicativo em MiB. |
+| **Uso do sistema de arquivos** | Porcentagem da cota do sistema de arquivos consumida pelo aplicativo. |
 | **Coletas de Lixo da Geração 0** | O número de vezes que os objetos da geração 0 são coletados como lixo desde o início do processo do aplicativo. As coletas de lixo de geração superior incluem todas as coletas da geração inferior.|
 | **Coletas de Lixo da Geração 1** | O número de vezes que os objetos da geração 1 são coletados como lixo desde o início do processo do aplicativo. As coletas de lixo de geração superior incluem todas as coletas da geração inferior.|
 | **Coletas de Lixo da Geração 2** | O número de vezes que os objetos da geração 2 são coletados como lixo desde o início do processo do aplicativo.|
@@ -90,7 +95,7 @@ Para um aplicativo, as métricas disponíveis são:
 | **Http 4xx** | A contagem de solicitações que resultam em um código de status HTTP ≥ 400, mas < 500. |
 | **Erros do Servidor Http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 500, mas < 600. |
 | **E/S de Outros Bytes por Segundo** | A taxa na qual o processo do aplicativo está gerando bytes para operações de E/S que não envolvem dados, como operações de controle.|
-| **E/S de Outras Operações por Segundo** | A taxa na qual o processo do aplicativo está gerando operações de E/S que não sejam de leitura nem gravação.|
+| **E/S de Outras Operações por Segundo** | A taxa na qual o processo do aplicativo está emitindo operações de e/s que não são operações de leitura ou de gravação.|
 | **E/S de Bytes de Leitura por Segundo** | A taxa na qual o processo do aplicativo está lendo bytes das operações de E/S.|
 | **E/S de Operações de Leitura por Segundo** | A taxa na qual o processo do aplicativo está gerando operações de E/S de leitura.|
 | **E/S de Bytes de Gravação por Segundo** | A taxa na qual o processo do aplicativo está gravando bytes nas operações de E/S.|

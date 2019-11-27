@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: db5ac9465e6b897690c54484de25fde462741fb3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823287"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548387"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a instância gerenciada do banco de dados SQL do Azure?
 
@@ -56,15 +56,15 @@ Os principais recursos de instâncias gerenciadas são mostrados na tabela a seg
 |Recurso | DESCRIÇÃO|
 |---|---|
 | Compilação/versão do SQL Server | Mecanismo de BD do SQL Server (estável mais recente) |
-| Backups automatizados gerenciados | Sim |
-| Métricas e monitoramento de banco de dados e instância interna | Sim |
-| Aplicação automática de patches de software | Sim |
-| Os recursos mais recentes do mecanismo de banco de dados | Sim |
+| Backups automatizados gerenciados | sim |
+| Métricas e monitoramento de banco de dados e instância interna | sim |
+| Aplicação automática de patches de software | sim |
+| Os recursos mais recentes do mecanismo de banco de dados | sim |
 | Número de arquivos de dados (LINHAS) por banco de dados | Vários |
 | Número de arquivos de log (LOG) por banco de dados | 1 |
-| VNet - Implantação do Azure Resource Manager | Sim |
+| VNet - Implantação do Azure Resource Manager | sim |
 | VNet - Modelo de implantação clássico | Não |
-| Suporte do Portal | Sim|
+| Suporte do Portal | sim|
 | Serviço de Integração Integrado (SSIS) | Não - o SSIS faz parte da [PaaS do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de análise interna (SSAS) | Não - SSAS é separado [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | Serviço interno de relatório (SSRS) | Não - usar o Power BI ou no IaaS do SSRS |
@@ -77,7 +77,7 @@ O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para 
 No modelo vCore, você pode escolher entre gerações de hardware.
 
 - **Gen4** As CPUs lógicas são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4-GHz, SSD anexado, núcleos físicos, 7 GB de RAM por núcleo e tamanhos de computação entre 8 e 24 vCores.
-- **Gen5** As CPUs lógicas são baseadas em processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz, SSD Fast NVMe, núcleo lógico Hyper-thread e tamanhos de computação entre 4 e 80 núcleos.
+- **Gen5** As CPUs lógicas são baseadas em processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz e Intel SP-8160 (Skylake), SSD Fast NVMe, núcleo lógico Hyper-thread e tamanhos de computação entre 4 e 80 núcleos.
 
 Encontre mais informações sobre a diferença entre gerações de hardware em [limites de recursos da instância gerenciada](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -153,7 +153,7 @@ A tabela a seguir resume as operações e as durações gerais típicas:
 |Implantação |Primeira instância de outra geração de hardware em uma sub-rede não vazia (por exemplo, primeira instância de Gen 5 em uma sub-rede com instâncias de Gen 4)|Criação de cluster virtual *|90% das operações terminam em 4 horas|
 |Implantação |Primeira instância de criação de 4 vCores, em uma sub-rede vazia ou não vazia|Criação de cluster virtual * *|90% das operações terminam em 4 horas|
 |Implantação |Criação de instância subsequente dentro da sub-rede não vazia (2ª, 3ª, etc. instância)|Redimensionamento de cluster virtual|90% das operações são concluídas em 2,5 horas|
-|**Atualizá-lo** |Alteração da propriedade de instância (senha de administrador, logon do AAD, Benefício Híbrido do Azure Flag)|N/D|Até 1 minuto|
+|**Atualização** |Alteração da propriedade de instância (senha de administrador, logon do AAD, Benefício Híbrido do Azure Flag)|N/D|Até 1 minuto|
 |Atualização |Expansão/redução do armazenamento de instância (Uso Geral camada de serviço)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
 |Atualização |Expansão/redução do armazenamento de instância (Comercialmente Crítico camada de serviço)|-Redimensionamento de cluster virtual<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 2,5 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
 |Atualização |Expansão e redução da vCores (computação de instância) (Uso Geral)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
@@ -233,10 +233,10 @@ A autenticação de instância gerenciada refere-se a como os usuários comprova
 
 - **Autenticação do SQL**:
 
-  Esse método de autenticação usa um nome de usuário e senha.
+  Este método de autenticação usa um nome de usuário e senha.
 - **Autenticação do Active Directory do Azure**:
 
-  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory e é suportado para domínios gerenciados e integrados. Use autenticação do Active Directory (segurança integrada) [sempre que possível](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
+  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory e tem suporte para domínios gerenciados e integrados. Use autenticação do Active Directory (segurança integrada) [sempre que possível](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
 ### <a name="authorization"></a>Autorização
 
@@ -302,7 +302,7 @@ A tabela a seguir mostra várias propriedades, acessíveis por meio do Transact-
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como criar sua primeira instância gerenciada, confira o [Guia de início rápido](sql-database-managed-instance-get-started.md).
-- Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
+- Para um recurso e lista de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
 - Para saber mais sobre a configuração de rede virtual, confira [Configuração de VNet de instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).
 - Para obter um início rápido que cria uma Instância Gerenciada e restaura um banco de dados de um arquivo de backup, veja [Criar uma instância gerenciada](sql-database-managed-instance-get-started.md).
 - Para obter um tutorial usando o DMS (Serviço de Migração de Banco de Dados do Azure) para a migração, confira [Migração de instância gerenciada usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).

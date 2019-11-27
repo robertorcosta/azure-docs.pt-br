@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: ff877810cb32d22cffd2af79880b6223c41d7d73
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 1bfbc1b730811e1111a08a957db3a747f90fb587
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593521"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546211"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Limpar um ponto de extremidade da CDN do Azure
 ## <a name="overview"></a>Visão geral
@@ -52,9 +52,9 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
    > 
    > 
 4. Selecione os ativos que você deseja limpar dos nós de borda.  Para limpar todos os ativos, clique na caixa de seleção **Limpar todos** .  Caso contrário, digite o caminho de cada ativo que você quer limpar na caixa de texto **Caminho**. Veja abaixo os formatos com suporte no caminho.
-    1. **Limpeza de URL única**: Limpe o ativo individual especificando a URL completa, com ou sem a extensão de arquivo, por exemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`
-    2. **Limpeza de caracteres curinga**: O asterisco (\*) pode ser usado como um caractere curinga. Limpe todos os arquivos, pastas e subpastas em um ponto de extremidade com `/*` no caminho ou limpe todos os arquivos e subpastas em uma determinada pasta especificando a pasta seguida por `/*`, por exemplo, `/pictures/*`.  Observe que, no momento, a limpeza do caractere curinga não é compatível com a CDN do Azure do Akamai. 
-    3. **Limpeza do domínio raiz**: Limpe a raiz do ponto de extremidade com "/" no caminho.
+    1. **Limpeza de URL única**: limpe o ativo individual especificando a URL completa, com ou sem a extensão de arquivo, por exemplo, `/pictures/strasbourg.png`; `/pictures/strasbourg`
+    2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todos os arquivos, pastas e subpastas em um ponto de extremidade com `/*` no caminho ou limpe todos os arquivos e subpastas em uma determinada pasta especificando a pasta seguida por `/*`, por exemplo, `/pictures/*`.  Observe que, no momento, a limpeza do caractere curinga não é compatível com a CDN do Azure do Akamai. 
+    3. **Limpeza do domínio raiz**: limpe a raiz do ponto de extremidade com "/" no caminho.
    
    > [!TIP]
    > Os caminhos devem ser especificados para limpeza e devem ser uma URL relativa que atenda à [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) a seguir. Atualmente, **Limpar tudo** e **Limpeza de caractere curinga** não têm suporte na **CDN do Azure do Akamai**.
@@ -69,7 +69,7 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
     ![Botão Limpar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Solicitações de limpeza demoram aproximadamente 2 minutos para serem processados com **CDN do Azure da Microsoft** e **Azure CDN da Verizon** (standard e premium) e cerca de 10 segundos com **da CDN do Azure da Akamai**.  A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez no nível do perfil. 
+> As solicitações de limpeza levam cerca de 10 minutos para serem processadas com a **CDN do Azure da Microsoft**, aproximadamente 2 minutos com a **CDN do Azure da Verizon** (Standard e Premium) e aproximadamente 10 segundos com a **CDN do Azure da Akamai**.  A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez no nível do perfil. 
 > 
 > 
 

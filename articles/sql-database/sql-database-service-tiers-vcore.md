@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/25/2019
-ms.openlocfilehash: 94728f2e4be6a16d048b4ff97bedefd5e32957ed
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 11/27/2019
+ms.openlocfilehash: c5c7883295a30aa217e722abd905f54b982761d3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481289"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547564"
 ---
 # <a name="vcore-model-overview"></a>Visão geral do modelo vCore
 
@@ -98,7 +98,7 @@ Para habilitar o hardware da série M para uma assinatura e uma região, uma sol
 |Geração de hardware  |Computação  |Memória  |
 |:---------|:---------|:---------|
 |Gen4     |-Processadores Intel E5-2673 v3 (Haswell) 2,4 GHz<br>-Provisionar até 24 vCores (1 vCore = 1 núcleo físico)  |-7 GB por vCore<br>-Provisionar até 168 GB|
-|Gen5     |**Computação provisionada**<br>-Processadores Intel E5-2673 V4 (Broadwell) 2,3 GHz<br>-Provisionar até 80 vCores (1 vCore = 1 Hyper-thread)<br><br>**Computação sem servidor**<br>-Processadores Intel E5-2673 V4 (Broadwell) 2,3 GHz<br>-Dimensionamento automático para até 16 vCores (1 vCore = 1 Hyper-thread)|**Computação provisionada**<br>-5,1 GB por vCore<br>-Provisionar até 408 GB<br><br>**Computação sem servidor**<br>-Escala automática de até 24 GB por vCore<br>-Escala automática de até 48 GB máx.|
+|Gen5     |**Computação provisionada**<br>-Processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz e Intel SP-8160 (Skylake)<br>-Provisionar até 80 vCores (1 vCore = 1 Hyper-thread)<br><br>**Computação sem servidor**<br>-Processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz e Intel SP-8160 (Skylake)<br>-Dimensionamento automático para até 16 vCores (1 vCore = 1 Hyper-thread)|**Computação provisionada**<br>-5,1 GB por vCore<br>-Provisionar até 408 GB<br><br>**Computação sem servidor**<br>-Escala automática de até 24 GB por vCore<br>-Escala automática de até 48 GB máx.|
 |Série Fsv2     |-Processadores Intel Xeon Platinum 8168 (SkyLake)<br>-Apresentando uma velocidade de clock de Turbo principal de 3,4 GHz e uma velocidade máxima de clock de único núcleo de 3,7 GHz.<br>-Provisionar 72 vCores (1 vCore = 1 Hyper-thread)|-1,9 GB por vCore<br>-Provisionar 136 GB|
 |Série M     |-Processadores Intel Xeon E7-8890 v3 2,5 GHz<br>-Provisionar 128 vCores (1 vCore = 1 Hyper-thread)|-29 GB por vCore<br>-Provisionar 3,7 TB|
 

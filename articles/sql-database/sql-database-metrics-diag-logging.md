@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/15/2019
-ms.openlocfilehash: 27810f2ee1bc95c924003cd8a5944860df40db14
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
-ms.translationtype: HT
+ms.openlocfilehash: 95953b4f052531c9804024410e225bb0b5c62aef
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420812"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539178"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico
 
@@ -79,7 +79,7 @@ Você pode configurar bancos de dados SQL do Azure e bancos de dados de instânc
 > Os pools elásticos e as instâncias gerenciadas têm sua própria telemetria de diagnóstico separada dos bancos de dados que eles contêm. É importante observar que a telemetria de diagnóstico é configurada separadamente para cada um desses recursos, conforme documentado abaixo.
 
 > [!NOTE]
-> Os logs de auditoria de segurança e SQLSecurityAuditEvents não podem ser habilitados nas configurações de diagnóstico de banco de dados (embora sejam mostrados na tela). Para habilitar o streaming de log de auditoria, consulte [Configurar a auditoria para seu banco de dados](sql-database-auditing.md#subheading-2)e [auditar logs em logs de Azure monitor e hubs de eventos do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Para habilitar o streaming de log de auditoria, consulte [Configurar a auditoria para seu banco de dados](sql-database-auditing.md#subheading-2)e [auditar logs em logs de Azure monitor e hubs de eventos do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -145,7 +145,7 @@ Para habilitar o streaming de telemetria de diagnóstico para bancos de dados in
 1. Repita essas etapas para cada banco de dados que você deseja monitorar.
 
 > [!NOTE]
-> Os logs de auditoria de segurança e SQLSecurityAuditEvents não podem ser habilitados nas configurações de diagnóstico de banco de dados (embora sejam mostrados na tela). Para habilitar o streaming de log de auditoria, consulte [Configurar a auditoria para seu banco de dados](sql-database-auditing.md#subheading-2)e [auditar logs em logs de Azure monitor e hubs de eventos do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Para habilitar o streaming de log de auditoria, consulte [Configurar a auditoria para seu banco de dados](sql-database-auditing.md#subheading-2)e [auditar logs em logs de Azure monitor e hubs de eventos do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 > [!TIP]
 > Repita essas etapas para cada Banco de Dados SQL do Azure que você deseja monitorar.

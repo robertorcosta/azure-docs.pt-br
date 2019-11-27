@@ -1,19 +1,14 @@
 ---
-title: Implantar instâncias de contêiner em uma rede virtual do Azure
+title: Implantar grupo de contêineres na rede virtual do Azure
 description: Saiba como implantar grupos de contêiner em uma rede virtual do Azure nova ou existente.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
-ms.author: danlep
-ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034979"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533277"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -62,7 +57,7 @@ A **exclusão de recursos de rede** requer [etapas adicionais](#delete-network-r
 
 Três recursos de Rede Virtual do Azure são necessários para a implantação de grupos de contêineres em uma rede virtual: a [rede virtual](#virtual-network) propriamente dita, uma [sub-rede delegada](#subnet-delegated) dentro da rede virtual e um [perfil de rede](#network-profile). 
 
-### <a name="virtual-network"></a>Rede virtual
+### <a name="virtual-network"></a>rede virtual
 
 Uma rede virtual define o espaço de endereço no qual você cria uma ou mais sub-redes. Em seguida, você implanta recursos do Azure (como grupos de contêineres) nas sub-redes na sua rede virtual.
 
@@ -186,11 +181,11 @@ A saída de log deve mostrar que `wget` conseguiu se conectar e baixar o arquivo
 
 Também é possível implantar um grupo de contêineres em uma rede virtual existente usando um arquivo YAML. Para implantar em uma sub-rede em uma rede virtual, você pode especificar várias propriedades adicionais no YAML:
 
-* `ipAddress`: As configurações de endereço IP para o grupo de contêineres.
-  * `ports`: As portas a serem abertas, se houver.
-  * `protocol`: O protocolo (TCP ou UDP) para a porta aberta.
-* `networkProfile`: Especifica as configurações de rede, como a rede virtual e a sub-rede para um recurso do Azure.
-  * `id`: A ID de recurso completa do Resource Manager do `networkProfile`.
+* `ipAddress`: as configurações de endereço IP para o grupo de contêineres.
+  * `ports`: as portas a serem abertas, se houver.
+  * `protocol`: o protocolo (TCP ou UDP) para a porta aberta.
+* `networkProfile`: especifica as configurações de rede, como a rede virtual e a sub-rede para um recurso do Azure.
+  * `id`: a ID de recurso completa do Resource Manager do `networkProfile`.
 
 Para implantar um grupo de contêineres em uma rede virtual com um arquivo YAML, primeiramente você precisa obter a ID do perfil de rede. Execute o comando [AZ Network Profile List][az-network-profile-list] , especificando o nome do grupo de recursos que contém sua rede virtual e a sub-rede delegada.
 
@@ -236,7 +231,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome de arquivo YAML para o parâmetro `--file`:
+Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome do arquivo YAML para o parâmetro `--file`:
 
 ```azurecli
 az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml

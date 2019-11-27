@@ -2,19 +2,19 @@
 title: Determinar a opção de publicação no Azure Marketplace | Azure
 description: Este artigo descreve os critérios de qualificação e os parceiros de requisitos de publicação tentando entender como publicar aplicativos no Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
+author: ellacroi
 manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ed25b92dc759f687e35a8424558453a830369a57
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825896"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548348"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 A opção de publicação que você escolher para a oferta estará relacionada diretamente aos requisitos de qualificação e benefícios de GTM do Marketplace. O mais importante é que a seleção de opção de publicação e tipo de oferta define como os usuários irão interagir com sua oferta do Marketplace.
@@ -41,7 +41,7 @@ Os aplicativos **AppSource** são soluções de linha de negócios que podem ser
 
 ## <a name="understand-storefront-selection"></a>Entenderá a seleção de vitrines
 
-A vitrine onde sua oferta será apresentada, o Azure Marketplace e/ou AppSource, será automaticamente determinado pelos detalhes da sua oferta e pelo público-alvo, bem como pelas categorias e setores selecionados por você ao criar sua oferta. 
+Cada vitrine atende aos requisitos exclusivos do cliente. A vitrine onde sua oferta será publicada será determinada por tipo de oferta, oferece recursos de transação e a categoria e/ou seleção do setor para direcionar a um público específico. 
 
 >[!Note]
 >"Listagem cruzada" (somente para aplicativos SaaS): quando uma oferta de lista ou de avaliação atende aos critérios para um público de usuário comercial e técnico, sua oferta será listada em ambas as vitrines. Saiba mais sobre as opções de publicação abaixo.

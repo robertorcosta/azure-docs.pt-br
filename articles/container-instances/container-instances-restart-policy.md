@@ -1,19 +1,14 @@
 ---
-title: Usar políticas de reinicialização com tarefas em contêineres nas Instâncias de Contêiner do Azure
+title: Reinicie a política para tarefas de execução única
 description: Saiba como usar as Instâncias de Contêiner do Azure para executar tarefas que são executadas até a conclusão, como na compilação, teste ou trabalhos de renderização de imagem.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f814b1c99827c07f8dadfb0cfd80c87a93377cdc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325672"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533451"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contêineres com políticas de reinício
 
@@ -35,7 +30,7 @@ Quando cria um [grupo de contêineres](container-instances-container-groups.md) 
 
 ## <a name="specify-a-restart-policy"></a>Especificar uma política de reinicialização
 
-Como especificar uma política de reinicialização depende de como você cria suas instâncias de contêiner, como com a CLI do Azure, cmdlets do Azure PowerShell, ou no portal do Azure. Na CLI do Azure, especifique o `--restart-policy` parâmetro ao chamar [AZ container Create][az-container-create].
+Como especificar uma política de reinicialização depende de como você cria suas instâncias de contêiner, como com a CLI do Azure, cmdlets do Azure PowerShell, ou no portal do Azure. Na CLI do Azure, especifique o parâmetro `--restart-policy` ao chamar [AZ container Create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -47,7 +42,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Executar o exemplo de conclusão
 
-Para ver a política de reinicialização em ação, crie uma instância de contêiner da imagem do Microsoft [ACI-WordCount][aci-wordcount-image] e especifique a política de `OnFailure` reinicialização. Este contêiner de exemplo executa um script de Python que, por padrão, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), grava as 10 palavras mais comuns em STDOUT e, em seguida, sai.
+Para ver a política de reinicialização em ação, crie uma instância de contêiner a partir da imagem do Microsoft [ACI-WordCount][aci-wordcount-image] e especifique a política de reinicialização de `OnFailure`. Este contêiner de exemplo executa um script de Python que, por padrão, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), grava as 10 palavras mais comuns em STDOUT e, em seguida, sai.
 
 Execute o contêiner de exemplo com o seguinte comando [AZ container Create][az-container-create] :
 

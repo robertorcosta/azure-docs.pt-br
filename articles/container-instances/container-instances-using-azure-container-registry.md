@@ -1,30 +1,27 @@
 ---
-title: Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
+title: Implantar a imagem de contêiner do registro de contêiner do Azure
 description: Saiba como implantar contêineres em Instâncias de Contêiner do Azure usando imagens de contêiner em um Registro de Contêiner do Azure.
 services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: adc2c95874c1cc20e49506891c9972ebcfe71f94
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325552"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533282"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
 O [Registro de Contêiner do Azure](../container-registry/container-registry-intro.md) é um serviço de registro de contêiner gerenciado, baseado no Azure, usado para armazenar imagens de contêiner de Docker particulares. Este artigo descreve como implantar imagens de contêiner armazenadas em um registro de contêiner do Azure nas Instâncias de Contêiner do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-**Registro de contêiner do Azure**: você precisa de um registro de contêiner do Azure – e de pelo menos uma imagem de contêiner no registro – para concluir as etapas deste artigo. Se você precisar de um registro, consulte [Criar um registro de contêiner usando a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md).
+**Registro de contêiner do Azure**: você precisa de um registro de contêiner do Azure – e pelo menos uma imagem de contêiner no registro – para concluir as etapas neste artigo. Se você precisar de um registro, consulte [Criar um registro de contêiner usando a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
-**CLI do Azure**: os exemplos de linha de comando neste artigo usam a [CLI do Azure](/cli/azure/) e são formatados para o shell de Bash. Você pode [instalar o CLI do Azure](/cli/azure/install-azure-cli) localmente ou usar o [Azure cloud Shell][cloud-shell-bash].
+**CLI do Azure**: os exemplos de linha de comando neste artigo usam a [CLI do Azure](/cli/azure/) e são formatados para shell de Bash. Você pode [instalar o CLI do Azure](/cli/azure/install-azure-cli) localmente ou usar o [Azure cloud Shell][cloud-shell-bash].
 
 ## <a name="configure-registry-authentication"></a>Configurar a autenticação do registro
 
@@ -32,7 +29,7 @@ Em qualquer cenário de produção, o acesso a um registro de contêiner do Azur
 
 Na seção a seguir, você cria um cofre de chaves do Azure e uma entidade de serviço e armazena as credenciais da entidade de serviço no cofre. 
 
-### <a name="create-key-vault"></a>Criar cofre de chaves
+### <a name="create-key-vault"></a>Criar cofre chaves
 
 Se você ainda não tiver um cofre no [Azure Key Vault](../key-vault/key-vault-overview.md), crie um com a CLI do Azure usando os comandos a seguir.
 

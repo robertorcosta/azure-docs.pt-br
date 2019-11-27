@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 943f6cee70367d8a1ff0dc003d06e46b487e3a48
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e194b7070d338e9a5c56e9f0cc913f6e8b20bb52
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898800"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545690"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -37,12 +37,15 @@ Mais informações sobre os diversos recursos de suporte do [Monitor de Desempen
  
 ## <a name="supported-regions"></a>Regiões com Suporte
 O NPM pode monitorar a conectividade entre redes e aplicativos em qualquer parte do mundo, de um workspace que está hospedado em uma das seguintes regiões:
-* Oeste da Europa
+* Europa Ocidental
 * Centro-Oeste dos EUA
+* Centro-Norte dos EUA
 * Leste dos EUA
 * Leste do Japão
-* Sudeste Asiático
+* Sudeste da Ásia
 * Sudeste da Austrália
+* Austrália Central
+* Leste da Austrália
 * Sul do Reino Unido
 * Índia Central
 * Virgínia, Governo dos EUA
@@ -143,7 +146,7 @@ Todos os nós que têm um agente instalado neles estão listados na guia **Nós*
 
 1. Marque ou desmarque os nós que você deseja monitorar ou parar de monitorar. 
 2. Selecione **Usar para Monitoramento** ou desmarque essa opção, conforme apropriado. 
-3. Clique em **Salvar**. 
+3. Selecione **Salvar**. 
 
 
 Configure os recursos desejados:
@@ -274,5 +277,5 @@ Informações sobre preços estão disponíveis [online](network-performance-mon
 
 * **Junte-se ao nosso coorte:** Estamos sempre interessados em novos clientes para a nossa coorte. Como parte do coorte, você consegue acesso antecipado a novos recursos e uma oportunidade de ajudar a melhorar o Monitor de Desempenho de Rede. Se você estiver interessado em ingressar, preencha esta [pesquisa rápida](https://aka.ms/npmcohort). 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 Saiba mais sobre o [Monitor de Desempenho](network-performance-monitor-performance-monitor.md), o [Monitor de Conectividade do Serviço](network-performance-monitor-performance-monitor.md) e o [Monitor do ExpressRoute](network-performance-monitor-expressroute.md). 

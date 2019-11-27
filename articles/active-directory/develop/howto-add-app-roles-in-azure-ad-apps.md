@@ -18,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c838c6fe256e2960842c5b40f58f8a5d5b1fdf3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 84275be5c85570a44d968dca8887b448fce09979
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473787"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546835"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -43,12 +43,8 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 1. Na barra superior, selecione sua conta e, em seguida, **Mudar diretório**.
 1. Quando o painel **Diretório + assinatura** abrir, escolha o locatário do Active Directory em que deseja registrar o aplicativo, na lista **Favoritos** ou **Todos os Diretórios**.
 1. Selecione **Todos os serviços** no navegador esquerdo e escolha **Azure Active Directory**.
-1. No painel de **Azure Active Directory** , selecione **registros de aplicativo (Herdado)** para exibir uma lista de todos os seus aplicativos.
-
-     Se você não vir o aplicativo que deseja mostrar aqui, use os vários filtros na parte superior da lista **registros de aplicativo (herdada)** para restringir a lista ou role para baixo na lista para localizar seu aplicativo.
-
-1. Selecione o aplicativo no qual deseja definir funções.
-1. Na folha de seu aplicativo, selecione **Manifesto**.
+1. No painel **Azure Active Directory**, selecione **Registros de aplicativo** para exibir uma lista com todos os seus aplicativos.
+1. Selecione o aplicativo no qual deseja definir funções. Em seguida, selecione **manifesto**.
 1. Edite o manifesto do aplicativo localizando a configuração `appRoles` e adicionando todas as suas Funções de aplicativo.
 
      > [!NOTE]
@@ -116,8 +112,8 @@ Após adicionar funções de aplicativo em seu aplicativo, você pode atribuir u
      Se não vir o aplicativo desejado na lista, use os diferentes filtros na parte superior da lista **Todos os aplicativos** para restringir a lista ou percorra a lista para localizar o aplicativo.
 
 1. Selecione o aplicativo no qual deseja atribuir funções a usuários ou grupos de segurança.
-1. Escolha o painel **Usuários e grupos** no menu de navegação esquerdo do aplicativo.
-1. Na parte superior da lista **Usuários e grupos**, escolha o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
+1. Selecione o painel **Usuários e grupos** no menu de navegação esquerdo do aplicativo.
+1. Na parte superior da lista **Usuários e grupos**, selecione o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
 1. Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição**.
 
      Uma lista de usuários e grupos de segurança será exibida, em conjunto com uma caixa de texto para pesquisar e localizar um determinado usuário ou grupo. Esta tela permite que você escolha vários usuários e grupos de uma só vez.
