@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Workbench configuration metadata reference
-description: Azure Blockchain Workbench Preview application configuration metadata overview.
+title: Referência de metadados de configuração do Azure Blockchain Workbench
+description: Visão geral dos metadados de configuração do aplicativo Azure Blockchain Workbench Preview.
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
@@ -33,13 +33,13 @@ Cada fluxo de trabalho definido especifica o seguinte:
 
 Um aplicativo blockchain contém regras de configuração para metadados, fluxos de trabalho e usuário que podem funcionar ou participar dentro do aplicativo.
 
-| Campo | Descrição | obrigatórios |
+| Campo | DESCRIÇÃO | obrigatórios |
 |-------|-------------|:--------:|
-| ApplicationName | Nome de aplicativo exclusivo. O contrato inteligente correspondente deve usar o mesmo **ApplicationName** para a classe de contrato aplicável.  | SIM |
-| displayName | O nome de exibição amigável do aplicativo. | SIM |
-| Descrição | Descrição do aplicativo. | Não |
-| ApplicationRoles | Coleção de [ApplicationRoles](#application-roles). Funções de usuário que podem funcionar ou participar no aplicativo.  | SIM |
-| Fluxos de trabalho | Coleção de [Fluxos de trabalho](#workflows). Cada fluxo de trabalho funciona como uma máquina de estado para controlar o fluxo da lógica de negócios. | SIM |
+| ApplicationName | Nome de aplicativo exclusivo. O contrato inteligente correspondente deve usar o mesmo **ApplicationName** para a classe de contrato aplicável.  | sim |
+| displayName | O nome de exibição amigável do aplicativo. | sim |
+| DESCRIÇÃO | Descrição do aplicativo. | Não |
+| ApplicationRoles | Coleção de [ApplicationRoles](#application-roles). Funções de usuário que podem funcionar ou participar no aplicativo.  | sim |
+| Fluxos de trabalho | Coleção de [Fluxos de trabalho](#workflows). Cada fluxo de trabalho funciona como uma máquina de estado para controlar o fluxo da lógica de negócios. | sim |
 
 Para obter um exemplo, consulte [exemplo de arquivo de configuração](#configuration-file-example).
 
@@ -47,37 +47,37 @@ Para obter um exemplo, consulte [exemplo de arquivo de configuração](#configur
 
 Uma lógica de negócios de um aplicativo pode ser modelada como uma máquina de estado em que executar uma ação faz com que o fluxo da lógica de negócios mova de um estado para outro. Um fluxo de trabalho é uma coleção destes estados e ações. Cada fluxo de trabalho consiste em um ou mais contratos inteligentes que representam a lógica de negócios nos arquivos de código. Um contrato executável é uma instância de fluxo de trabalho.
 
-| Campo | Descrição | obrigatórios | Comprimento máximo |
+| Campo | DESCRIÇÃO | obrigatórios | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| name | Nome do fluxo de trabalho exclusivo. O contrato inteligente correspondente deve usar o mesmo **Nome** para a classe de contrato aplicável. | SIM | 50 |
-| displayName | Nome de exibição amigável do fluxo de trabalho. | SIM | 255 |
-| Descrição | Descrição do fluxo de trabalho. | Não | 255 |
-| Iniciadores | Coleção de [ApplicationRoles](#application-roles). Funções que são atribuídas a usuários que estão autorizados a criar contratos no fluxo de trabalho. | SIM | |
-| StartState | Nome do estado inicial do fluxo de trabalho. | SIM | |
-| propriedades | Coleção de [identificadores](#identifiers). Representa os dados que podem ser lidos visualizados em cadeia em uma ferramenta de experiência do usuário. | SIM | |
-| Construtor | Define os parâmetros de entrada para criar uma instância de fluxo de trabalho. | SIM | |
-| Funções | Uma coleção de [funções](#functions) que podem ser executadas no fluxo de trabalho. | SIM | |
-| Estados | Uma coleção de [estados](#states) de fluxo de trabalho. | SIM | |
+| NOME | Nome do fluxo de trabalho exclusivo. O contrato inteligente correspondente deve usar o mesmo **Nome** para a classe de contrato aplicável. | sim | 50 |
+| displayName | Nome de exibição amigável do fluxo de trabalho. | sim | 255 |
+| DESCRIÇÃO | Descrição do fluxo de trabalho. | Não | 255 |
+| Iniciadores | Coleção de [ApplicationRoles](#application-roles). Funções que são atribuídas a usuários que estão autorizados a criar contratos no fluxo de trabalho. | sim | |
+| StartState | Nome do estado inicial do fluxo de trabalho. | sim | |
+| Propriedades | Coleção de [identificadores](#identifiers). Representa os dados que podem ser lidos visualizados em cadeia em uma ferramenta de experiência do usuário. | sim | |
+| Construtor | Define os parâmetros de entrada para criar uma instância de fluxo de trabalho. | sim | |
+| Funções | Uma coleção de [funções](#functions) que podem ser executadas no fluxo de trabalho. | sim | |
+| Estados | Uma coleção de [estados](#states) de fluxo de trabalho. | sim | |
 
 Para obter um exemplo, consulte [exemplo de arquivo de configuração](#configuration-file-example).
 
-## <a name="type"></a>Type
+## <a name="type"></a>Digite
 
 Tipos de dados com suporte.
 
-| Type | Descrição |
+| Digite | DESCRIÇÃO |
 |-------|-------------|
 | endereço  | Tipo de endereço de blockchain, como *contratos* ou *usuários*. |
-| matriz    | Matriz de nível único de tipo inteiro, bool, money ou time. As matrizes podem ser estáticas ou dinâmicas. Use **ElementType** para especificar o tipo de dados dos elementos dentro da matriz. Confira o [exemplo de configuração](#example-configuration-of-type-array). |
+| array    | Matriz de nível único de tipo inteiro, bool, money ou time. As matrizes podem ser estáticas ou dinâmicas. Use **ElementType** para especificar o tipo de dados dos elementos dentro da matriz. Confira o [exemplo de configuração](#example-configuration-of-type-array). |
 | bool     | Tipo de dados Boolean. |
 | contrato | Endereço do contrato de tipo. |
 | enum     | Conjunto enumerado de valores nomeados. Ao usar o tipo de enumeração, você também especifica uma lista de EnumValues. Cada valor é limitado a 255 caracteres. Os caracteres de valor válidos incluem letras maiúsculas e minúsculas (A-Z, a-z) e números (0-9). Confira o [exemplo de configuração e uso em Solidity](#example-configuration-of-type-enum). |
 | int      | Tipo de dados Integer. |
 | money    | Tipo de dados money. |
 | state    | Estado do fluxo de trabalho. |
-| string  | Tipos de dados String. No máximo 4000 caracteres. Confira o [exemplo de configuração](#example-configuration-of-type-string). |
+| cadeia de caracteres  | Tipos de dados String. No máximo 4000 caracteres. Confira o [exemplo de configuração](#example-configuration-of-type-string). |
 | usuário     | Endereços do usuário de tipo. |
-| time     | Tipo de dados time. |
+| tempo real     | Tipo de dados time. |
 |`[ Application Role Name ]`| Qualquer nome especificado na função de aplicativo. Limita os usuários desse tipo de função. |
 
 ### <a name="example-configuration-of-type-array"></a>Exemplo de configuração da matriz de tipos
@@ -168,9 +168,9 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 Define os parâmetros de entrada para uma instância de fluxo de trabalho.
 
-| Campo | Descrição | obrigatórios |
+| Campo | DESCRIÇÃO | obrigatórios |
 |-------|-------------|:--------:|
-| parâmetros | Coleção de [identificadores](#identifiers) necessários para iniciar um contrato inteligente. | SIM |
+| Parâmetros | Coleção de [identificadores](#identifiers) necessários para iniciar um contrato inteligente. | sim |
 
 ### <a name="constructor-example"></a>Exemplo de construtor
 
@@ -201,12 +201,12 @@ Define os parâmetros de entrada para uma instância de fluxo de trabalho.
 
 Define as funções que podem ser executadas no fluxo de trabalho.
 
-| Campo | Descrição | obrigatórios | Comprimento máximo |
+| Campo | DESCRIÇÃO | obrigatórios | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| name | O nome exclusivo da função. O contrato inteligente correspondente deve usar o mesmo **Nome** para a função aplicável. | SIM | 50 |
-| displayName | Nome de exibição amigável da função. | SIM | 255 |
-| Descrição | Descrição da função | Não | 255 |
-| parâmetros | Coleção de [identificadores](#identifiers) correspondente aos parâmetros da função. | SIM | |
+| NOME | O nome exclusivo da função. O contrato inteligente correspondente deve usar o mesmo **Nome** para a função aplicável. | sim | 50 |
+| displayName | Nome de exibição amigável da função. | sim | 255 |
+| DESCRIÇÃO | Descrição da função | Não | 255 |
+| Parâmetros | Coleção de [identificadores](#identifiers) correspondente aos parâmetros da função. | sim | |
 
 ### <a name="functions-example"></a>Exemplo de funções
 
@@ -249,13 +249,13 @@ Define as funções que podem ser executadas no fluxo de trabalho.
 
 Uma coleção de estados exclusivos dentro de um fluxo de trabalho. Cada estado captura uma etapa no fluxo de controle da lógica de negócios. 
 
-| Campo | Descrição | obrigatórios | Comprimento máximo |
+| Campo | DESCRIÇÃO | obrigatórios | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| name | Nome único do estado. O contrato inteligente correspondente deve usar o mesmo **Nome** para o estado aplicável. | SIM | 50 |
-| displayName | Nome de exibição amigável do estado. | SIM | 255 |
-| Descrição | Descrição do estado. | Não | 255 |
-| PercentComplete | Um valor inteiro exibido na interface do usuário Blockchain Workbench para mostrar o progresso dentro do fluxo de controle de lógica de negócios. | SIM | |
-| Estilo | Dica visual que indica se o estado representa um estado de êxito ou falha. Há dois valores válidos: `Success` ou `Failure`. | SIM | |
+| NOME | Nome único do estado. O contrato inteligente correspondente deve usar o mesmo **Nome** para o estado aplicável. | sim | 50 |
+| displayName | Nome de exibição amigável do estado. | sim | 255 |
+| DESCRIÇÃO | Descrição do estado. | Não | 255 |
+| PercentComplete | Um valor inteiro exibido na interface do usuário Blockchain Workbench para mostrar o progresso dentro do fluxo de controle de lógica de negócios. | sim | |
+| Estilo | Dica visual que indica se o estado representa um estado de êxito ou falha. Há dois valores válidos: `Success` ou `Failure`. | sim | |
 | Transições | Coleção de [transições](#transitions) disponíveis do estado atual para o próximo conjunto de estados. | Não | |
 
 ### <a name="states-example"></a>Exemplo de estados
@@ -318,14 +318,14 @@ Uma coleção de estados exclusivos dentro de um fluxo de trabalho. Cada estado 
 
 Ações disponíveis para o próximo estado. Uma ou mais funções de usuário podem executar uma ação em cada estado, onde uma ação transicionar um estado para outro estado no fluxo de trabalho. 
 
-| Campo | Descrição | obrigatórios |
+| Campo | DESCRIÇÃO | obrigatórios |
 |-------|-------------|:--------:|
 | AllowedRoles | Lista de funções de aplicativos permitidos para iniciar a transição. Todos os usuários da função especificada podem ser capazes de executar a ação. | Não |
 | AllowedInstanceRoles | Lista de funções de usuário participante ou especificado no contrato inteligente permitido para iniciar a transição. As funções de instância são definidas em **Propriedades** nos fluxos de trabalho. AllowedInstanceRoles representa um usuário participando de uma instância de um contrato inteligente. AllowedInstanceRoles oferece a capacidade de restringir ao tomar uma medida para uma função de usuário em uma instância do contrato.  Por exemplo, você pode desejar somente permitir que o usuário que criou o contrato (InstanceOwner) possa encerrar em vez de todos os usuários no tipo de função (proprietário), se você especificou a função na AllowedRoles. | Não |
-| displayName | Nome de exibição amigável da transição. | SIM |
-| Descrição | Descrição da transição. | Não |
-| Função | Nome da função para iniciar a transição. | SIM |
-| NextStates | Uma coleção de potenciais próximos estados após uma transição com êxito. | SIM |
+| displayName | Nome de exibição amigável da transição. | sim |
+| DESCRIÇÃO | Descrição da transição. | Não |
+| Função | Nome da função para iniciar a transição. | sim |
+| NextStates | Uma coleção de potenciais próximos estados após uma transição com êxito. | sim |
 
 ### <a name="transitions-example"></a>Exemplo de transições
 
@@ -363,10 +363,10 @@ Ações disponíveis para o próximo estado. Uma ou mais funções de usuário p
 
 Funções de aplicativo definem um conjunto de funções que podem ser atribuídos a usuários que desejam agir ou participar do aplicativo. Funções de aplicativo podem ser usadas para restringir as ações e participação dentro do aplicativo blockchain e fluxos de trabalho correspondente. 
 
-| Campo | Descrição | obrigatórios | Comprimento máximo |
+| Campo | DESCRIÇÃO | obrigatórios | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| name | O nome exclusivo da função do aplicativo. O contrato inteligente correspondente deve usar o mesmo **Nome** para a função aplicável. Nomes de tipo de base são reservados. Você não pode nomear uma função de aplicativo com o mesmo nome como [Tipo](#type)| SIM | 50 |
-| Descrição | Descrição da função do aplicativo. | Não | 255 |
+| NOME | O nome exclusivo da função do aplicativo. O contrato inteligente correspondente deve usar o mesmo **Nome** para a função aplicável. Nomes de tipo de base são reservados. Você não pode nomear uma função de aplicativo com o mesmo nome como [Tipo](#type)| sim | 50 |
+| DESCRIÇÃO | Descrição da função do aplicativo. | Não | 255 |
 
 ### <a name="application-roles-example"></a>Exemplo de funções de aplicativo
 
@@ -386,11 +386,11 @@ Funções de aplicativo definem um conjunto de funções que podem ser atribuíd
 
 Identificadores representam uma coleção de informações usadas para descrever as propriedades de fluxo de trabalho, construtor e parâmetros de função. 
 
-| Campo | Descrição | obrigatórios | Comprimento máximo |
+| Campo | DESCRIÇÃO | obrigatórios | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| name | O nome exclusivo da propriedade ou parâmetro. O contrato inteligente correspondente deve usar o mesmo **Nome** para a propriedade ou parâmetro aplicável. | SIM | 50 |
-| displayName | Nome para exibição amigável para a propriedade ou parâmetro. | SIM | 255 |
-| Descrição | Descrição da propriedade ou do parâmetro. | Não | 255 |
+| NOME | O nome exclusivo da propriedade ou parâmetro. O contrato inteligente correspondente deve usar o mesmo **Nome** para a propriedade ou parâmetro aplicável. | sim | 50 |
+| displayName | Nome para exibição amigável para a propriedade ou parâmetro. | sim | 255 |
+| DESCRIÇÃO | Descrição da propriedade ou do parâmetro. | Não | 255 |
 
 ### <a name="identifiers-example"></a>Exemplo de identificadores
 
@@ -992,7 +992,7 @@ O arquivo de configuração a seguir para a amostra de transferência do ativo:
   ]
 }
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Referência de API REST do Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)

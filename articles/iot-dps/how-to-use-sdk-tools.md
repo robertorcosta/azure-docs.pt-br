@@ -1,5 +1,5 @@
 ---
-title: Use Azure IoT Hub Device Provisioning Service SDKs tools
+title: Usar ferramentas de SDKs do serviço de provisionamento de dispositivos no Hub IoT do Azure
 description: Este documento examina as ferramentas fornecidas nos SDKs do Serviço de Provisionamento de Dispositivos Hub IoT do Azure para desenvolvimento
 author: robinsh
 ms.author: robinsh
@@ -58,12 +58,12 @@ Para gerar um certificado X.509 usando esse gerador:
    cd target
    java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
    ```
-7. Quando solicitado, você pode inserir um _Nome Comum_ para seus certificados.
+7. Quando solicitado, insira opcionalmente um _Nome Comum_ para seus certificados.
 8. A ferramenta gera localmente um **Certificado de Cliente**, a **Chave Privada do Certificado de Cliente**, o **Certificado Intermediário** e o **Certificado Raiz**.
 
 **Certificado de Cliente** é o certificado folha no dispositivo.  **Certificado de Cliente** e a **Chave Privada do Certificado de Cliente** associada são necessários no cliente de dispositivo. Dependendo da linguagem escolhida, o mecanismo para colocar isso em um aplicativo cliente pode ser diferente.  Para obter mais informações, consulte os [Inícios Rápidos](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) sobre como criar um dispositivo simulado usando o X.509.
 
 O certificado raiz ou o intermediário podem ser usados para criar um grupo de registro ou um registro individual [de forma programática](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) ou usando o [portal](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Desenvolver usando o [SDK do IoT do Azure]( https://github.com/Azure/azure-iot-sdks) para o Hub IoT do Azure e o Serviço de Provisionamento de Dispositivos Hub IoT do Azure
