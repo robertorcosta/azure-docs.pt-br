@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 5418b378c2c3cff09dbccbaa7b7240c61bbb583e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 158a99b1691e59fa58207f3c9291ca9d37a6679c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74221522"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538126"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição do lote?
 
@@ -96,12 +96,6 @@ Use essas propriedades opcionais para configurar a transcrição:
 
 A transcrição do lote dá suporte ao [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para leitura de áudio e gravação de transcrições no armazenamento.
 
-## <a name="webhooks"></a>Webhooks
-
-A sondagem do status de transcrição pode não ser a mais eficaz ou fornecer a melhor experiência do usuário. Para sondar o status, você pode registrar retornos de chamada, que notificarão o cliente quando tarefas de transcrição de execução longa forem concluídas.
-
-Para obter mais detalhes, consulte [WebHooks](webhooks.md).
-
 ## <a name="speaker-separation-diarization"></a>Separação de alto-falantes (Diarization)
 
 Diarization é o processo de separar os alto-falantes em um pedaço de áudio. Nosso pipeline de lote dá suporte a Diarization e é capaz de reconhecer dois alto-falantes em gravações de canal mono.
@@ -122,7 +116,7 @@ Para solicitar que sua solicitação de transcrição de áudio seja processada 
 }
 ```
 
-Os carimbos de data/hora de nível de palavra também teriam que ser ' ativados ', uma vez que os parâmetros na solicitação acima indicam.
+Os carimbos de data/hora de nível de palavra também teriam que ser ' ativados ', uma vez que os parâmetros na solicitação acima indicam. 
 
 O áudio correspondente conterá os alto-falantes identificados por um número (atualmente, damos suporte apenas a duas vozes, de modo que os alto-falantes serão identificados como ' orador 1 ' e ' orador 2 ') seguidos da saída da transcrição.
 
