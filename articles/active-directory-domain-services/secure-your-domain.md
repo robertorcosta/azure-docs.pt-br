@@ -24,7 +24,7 @@ Por padrão, Azure Active Directory Domain Services (Azure AD DS) permite o uso 
 
 Este artigo mostra como desabilitar as codificações NTLM v1 e TLS v1 e desabilitar a sincronização de hash de senha NTLM.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa dos seguintes recursos:
 
@@ -75,7 +75,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 
 Leva alguns minutos para que as configurações de segurança sejam aplicadas ao domínio gerenciado AD DS do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o processo de sincronização, confira [como os objetos e as credenciais são sincronizados em um domínio gerenciado do Azure AD DS][synchronization].
 

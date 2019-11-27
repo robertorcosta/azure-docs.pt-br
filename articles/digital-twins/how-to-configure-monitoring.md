@@ -125,7 +125,7 @@ Os logs de Azure Monitor também fornecem serviços de notificação de erro e a
 
 Os Gêmeos Digitais do Azure também dão suporte a registro em log específico de aplicativo e auditoria de segurança. Para obter uma visão completa de todas as opções de registro em log do Azure disponíveis para sua instância de Gêmeos Digitais do Azure, consulte o artigo [Auditoria de log do Azure](../security/fundamentals/log-audit.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [Log de Atividades](../azure-monitor/platform/activity-logs-overview.md) do Azure.
 

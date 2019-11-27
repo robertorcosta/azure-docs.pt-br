@@ -39,7 +39,7 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicativo usando o portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Na barra superior, selecione sua conta e, em seguida, **Mudar diretório**.
 1. Quando o painel **Diretório + assinatura** abrir, escolha o locatário do Active Directory em que deseja registrar o aplicativo, na lista **Favoritos** ou **Todos os Diretórios**.
 1. Selecione **Todos os serviços** no navegador esquerdo e escolha **Azure Active Directory**.
@@ -112,13 +112,13 @@ Após adicionar funções de aplicativo em seu aplicativo, você pode atribuir u
      Se não vir o aplicativo desejado na lista, use os diferentes filtros na parte superior da lista **Todos os aplicativos** para restringir a lista ou percorra a lista para localizar o aplicativo.
 
 1. Selecione o aplicativo no qual deseja atribuir funções a usuários ou grupos de segurança.
-1. Selecione o painel **Usuários e grupos** no menu de navegação esquerdo do aplicativo.
-1. Na parte superior da lista **Usuários e grupos**, selecione o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
+1. Escolha o painel **Usuários e grupos** no menu de navegação esquerdo do aplicativo.
+1. Na parte superior da lista **Usuários e grupos**, escolha o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
 1. Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição**.
 
-     Uma lista de usuários e grupos de segurança será exibida, em conjunto com uma caixa de texto para pesquisar e localizar um determinado usuário ou grupo. Esta tela permite que você escolha vários usuários e grupos de uma só vez.
+     Uma lista de usuários e grupos de segurança será exibida em conjunto com uma caixa de texto para pesquisar e localizar um determinado usuário ou grupo. Esta tela permite que você escolha vários usuários e grupos de uma só vez.
 
-1. Após terminar de selecionar os usuários e grupos, pressione o botão **Selecionar** na parte inferior para passar para a próxima parte.
+1. Após terminar de escolher os usuários e grupos, pressione o botão **Selecionar** na parte inferior para passar para a próxima parte.
 1. Escolha o seletor **Selecionar Função** no painel **Adicionar atribuição**. Todas as funções declaradas anteriormente no manifesto do aplicativo serão exibidas.
 1. Escolha uma função e pressione o botão **Selecionar**.
 1. Pressione o botão **Atribuir** na parte inferior para concluir as atribuições de usuários e grupos ao aplicativo.

@@ -207,7 +207,7 @@ Por exemplo, para definir regras de autorização com escopo para enviar/publica
 
 
 > [!NOTE]
-> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode ser incluído na lista de bloqueios para ser impedido de enviar para esse hub de eventos.
+> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode ser incluído na lista de bloqueados para ser impedido de enviar para esse hub de eventos.
 > 
 > É sempre recomendável fornecer escopos específicos e granulares.
 
@@ -222,7 +222,7 @@ Por exemplo, para definir regras de autorização com escopo para enviar/publica
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autenticando consumidores de hubs de eventos com SAS 
 Para autenticar aplicativos de back-end que consomem dos dados gerados por produtores de hubs de eventos, a autenticação de token dos hubs de eventos exige que seus clientes tenham os direitos **gerenciar** ou os privilégios de **escuta** atribuídos ao namespace de seus hubs de eventos ou à instância ou ao tópico do hub de eventos. Os dados são consumidos dos hubs de eventos usando grupos de consumidores. Embora a política SAS forneça o escopo granular, esse escopo é definido somente no nível da entidade e não no nível do consumidor. Isso significa que os privilégios definidos no nível do namespace ou na instância ou no nível do tópico do hub de eventos serão aplicados aos grupos de consumidores dessa entidade.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira os seguintes artigos:
 
 - [Autorizar usando SAS](authenticate-shared-access-signature.md)

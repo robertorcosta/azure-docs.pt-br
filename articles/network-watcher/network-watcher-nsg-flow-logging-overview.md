@@ -36,7 +36,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 Você pode analisar logs de fluxo e obter percepções sobre seu tráfego de rede usando a [análise de tráfego](traffic-analytics.md).
 
-As mesmas políticas de retenção vistas para outros logs aplicam-se aos logs de fluxo. Você pode definir a política de retenção de log de 1 dia, 2147483647 dias. Se uma política de retenção não for definida, os logs serão mantidos para sempre.
+As mesmas políticas de retenção vistas para outros logs aplicam-se aos logs de fluxo. Você pode definir a política de retenção de log de 1 dia, 2147483647 dias. Se a política de retenção não for configurada, os logs serão mantidos para sempre.
 
 > [!NOTE] 
 > O uso do recurso de política de retenção com o log de fluxo do NSG pode resultar em um alto volume de operações de armazenamento e os custos associados. Se você não precisa do recurso de política de retenção, é recomendável que você defina esse valor como 0.
@@ -292,7 +292,7 @@ O texto que segue é um exemplo de um log de fluxo. Como você pode ver, há vá
         ...
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como habilitar os logs de fluxo, consulte [Habilitar o log de fluxo NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para saber como ler os logs de fluxo, confira [Ler logs de fluxo do NSG](network-watcher-read-nsg-flow-logs.md).

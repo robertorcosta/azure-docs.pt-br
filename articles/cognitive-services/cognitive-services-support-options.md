@@ -36,7 +36,7 @@ Você está apenas começando a explorar a funcionalidade dos serviços cognitiv
 
 Explore a variedade de [Opções de suporte do Azure e escolha o plano](https://azure.microsoft.com/support/plans) que melhor se adapta, seja você um desenvolvedor que esteja apenas iniciando sua jornada na nuvem ou uma grande organização Implantando aplicativos estratégicos e críticos para os negócios. Os clientes do Azure podem criar e gerenciar solicitações de suporte no portal do Azure.
 
-* [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal do Azure para o governo dos Estados Unidos](https://portal.azure.us)
 
 ## <a name="post-a-question-on-stack-overflow"></a>Poste uma pergunta no Stack Overflow
@@ -65,23 +65,23 @@ Se não conseguir encontrar uma resposta para seu problema por meio da pesquisa,
 
 Para solicitar novos recursos, poste-os no UserVoice. Compartilhe suas ideias para fazer serviços cognitivas e as APIs que o acompanham funcionam melhor para os aplicativos que você desenvolve:
 
-| O Barramento de                       | URL de UserVoice de serviços cognitivas |
+| Serviço                       | URL de UserVoice de serviços cognitivas |
 |-------------------------------|---------------|
 | Detector de Anomalias              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
 | Serviços do Bing                 | https://cognitive.uservoice.com/forums/555907-bing-search |
-| Visual Computacional               | https://cognitive.uservoice.com/forums/430309-computer-vision |
+| Visual computacional               | https://cognitive.uservoice.com/forums/430309-computer-vision |
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
-| Custom Vision                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
+| Visão Personalizada                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
 | Face                          | https://cognitive.uservoice.com/forums/430315-face |
-| Formato                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
+| Formulário                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
 | Imersiva                     | https://feedback.azure.com/forums/34192--general-feedback |
 | Reconhecimento Vocal (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
 | Personalizador                  | https://cognitive.uservoice.com/forums/921562-personalizer |
 | QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
 | Serviços de Fala               | https://cognitive.uservoice.com/forums/912208-speech-service |
-| Análise de texto                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Conversor de Texto               | https://cognitive.uservoice.com/forums/558796-translator |
-| Indexador de Vídeo                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+| Análises de texto                | https://cognitive.uservoice.com/forums/555922-text-analytics |
+| Tradução de Texto               | https://cognitive.uservoice.com/forums/558796-translator |
+| Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -93,7 +93,7 @@ As notas de versão são atualizadas conforme novas versões são disponibilizad
 
  - [Serviço de Visão Personalizada](custom-vision-service/release-notes.md)
  - [API de Detecção Facial](face/releasenotes.md)
- - [Reconhecimento Vocal (LUIS)](luis/whats-new.md)
+ - [Reconhecimento vocal (LUIS)](luis/whats-new.md)
  - [Serviços de Fala](speech-service/releasenotes.md)
  - [SDK de serviços de fala](speech-service/devices-sdk-release-notes.md)
  - [Análise de Texto](text-analytics/whats-new.md)
@@ -106,7 +106,7 @@ As notas de versão são atualizadas conforme novas versões são disponibilizad
 
 Notícias sobre serviços cognitivas são compartilhadas no [blog do Azure](https://azure.microsoft.com/blog/topics/cognitive-services/).
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Pesquisa
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
@@ -180,7 +180,7 @@ Detalhe a oferta de serviços cognitivas que você está tentando usar e forneç
 
 O reddit é um site de discussão e classificação de conteúdo da Web orientado pela Comunidade, oferecendo os detalhes mais recentes dos [Serviços cognitivas do Azure](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1). Os membros registrados podem enviar conteúdo e outros podem votar em ti – habilitar de forma orgânica o conteúdo mais relevante aumentará para o topo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [O que são os serviços cognitivas do Azure?](welcome.md)

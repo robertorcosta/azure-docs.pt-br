@@ -69,7 +69,7 @@ A manutenção de autoatendimento não é recomendada para implantações usando
 - Mais de 30 minutos de tempo de recuperação de VM são necessários entre dois domínios de atualização (UDs). Para controlar o tempo entre domínios de atualização, você deve disparar a manutenção em suas VMs um domínio de atualização (UD) por vez.
 
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas Frequentes
 
 
 **P: por que você precisa reinicializar minhas máquinas virtuais agora?**
@@ -123,7 +123,7 @@ Para obter mais informações sobre alta disponibilidade, consulte [disponibilid
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode lidar com a manutenção planejada usando o [CLI do Azure](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).
 

@@ -180,6 +180,6 @@ Qualquer autenticação em que um dispositivo está sendo usado para autenticar-
 - **Dispositivo ingressado no Azure AD** – usuários não podem usar o dispositivo para entrar. 
 - **Dispositivos móveis** – o usuário não pode acessar os recursos do Azure AD como o Office 365. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma visão geral de como gerenciar dispositivos no portal do Azure, consulte [Gerenciar dispositivos usando o portal do Azure](device-management-azure-portal.md)

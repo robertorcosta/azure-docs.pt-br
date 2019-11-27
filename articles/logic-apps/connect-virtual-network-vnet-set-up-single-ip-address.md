@@ -20,7 +20,7 @@ ms.locfileid: "74549239"
 
 Ao trabalhar com os aplicativos lógicos do Azure, você pode configurar um [ISE ( *ambiente do serviço de integração* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar aplicativos lógicos que precisam de acesso a recursos em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Se você tiver várias instâncias do ISE que precisam de acesso a outros pontos de extremidade que têm restrições de IP, implante um [Firewall do Azure](../firewall/overview.md) ou um [dispositivo de rede virtual](../virtual-network/virtual-networks-overview.md#filter-network-traffic) em sua rede virtual e roteie o tráfego de saída por meio desse firewall ou dispositivo de rede virtual. Você pode fazer com que todas as instâncias do ISE em sua rede virtual usem um endereço IP único, previsível e público para se comunicar com os sistemas de destino. Dessa forma, você não precisa configurar aberturas adicionais do firewall nos sistemas de destino para cada ISE. Este tópico mostra como rotear o tráfego de saída por meio de um firewall do Azure, mas você pode aplicar conceitos semelhantes a uma solução de virtualização de rede virtual, como um firewall de terceiros do Azure Marketplace.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um firewall do Azure que é executado na mesma rede virtual que o ISE. Se você não tiver um firewall, primeiro [adicione uma sub-rede](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) denominada `AzureFirewallSubnet` à sua rede virtual. Em seguida, você pode [criar e implantar um firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) em sua rede virtual.
 
@@ -50,7 +50,7 @@ Ao trabalhar com os aplicativos lógicos do Azure, você pode configurar um [ISE
 
    ![Configurar regra para direcionar o tráfego de saída](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Value | Descrição |
    |----------|-------|-------------|
    | **Nome da rota** | <*nome de rota exclusivo*> | Um nome exclusivo para a rota na tabela de rotas |
    | **Prefixo de endereço** | <*endereço de destino*> | O endereço do sistema de destino no qual você deseja que o tráfego vá. Certifique-se de usar a [notação CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para esse endereço. |
@@ -72,7 +72,7 @@ Ao trabalhar com os aplicativos lógicos do Azure, você pode configurar um [ISE
 
    **Propriedades da coleção de regras de rede**
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Value | Descrição |
    |----------|-------|-------------|
    | **Nome** | <*Network-Rule-Collection-name*> | O nome da sua coleção de regras de rede |
    | **Prioridade** | > <*de nível de prioridade* | A ordem de prioridade a ser usada para executar a coleção de regras. Para obter mais informações, consulte [o que são alguns conceitos de firewall do Azure](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
@@ -81,7 +81,7 @@ Ao trabalhar com os aplicativos lógicos do Azure, você pode configurar um [ISE
 
    **Propriedades da regra de rede**
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Value | Descrição |
    |----------|-------|-------------|
    | **Nome** | <*nome da regra de rede*> | O nome da regra de rede |
    | **Protocolo** | <*conexão-protocolos*> | Os protocolos de conexão a serem usados. Por exemplo, se você estiver usando regras NSG, selecione **TCP** e **UDP**, não apenas **TCP**. |
@@ -98,6 +98,6 @@ Ao trabalhar com os aplicativos lógicos do Azure, você pode configurar um [ISE
    * [Azure PowerShell: New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule)
    * [CLI do Azure: AZ Network firewall Network-Rule](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)

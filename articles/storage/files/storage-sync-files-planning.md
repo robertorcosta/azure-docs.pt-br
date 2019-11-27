@@ -15,7 +15,7 @@ ms.lasthandoff: 11/26/2019
 ms.locfileid: "74546339"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
-Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
+Use o Azure File Sync para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure, mantendo a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
 
 Este artigo descreve as considerações importantes para uma implantação da Sincronização de Arquivos do Azure. Recomendamos ler também [Planejando uma implantação dos Arquivos do Azure](storage-files-planning.md). 
 
@@ -60,7 +60,7 @@ Se você adicionar uma localização de servidor que tem um conjunto existente d
 Um ponto de extremidade da nuvem é um compartilhamento de arquivos do Azure que faz parte de um grupo de sincronização. Todo o compartilhamento de arquivos do Azure é sincronizado e um compartilhamento de arquivos do Azure pode ser membro de apenas um ponto de extremidade da nuvem. Portanto, um compartilhamento de arquivos do Azure pode ser membro de apenas um grupo de sincronização. Se você adicionar um compartilhamento de arquivos do Azure que tem um conjunto existente de arquivos como um ponto de extremidade da nuvem a um grupo de sincronização, os arquivos existentes serão mesclados com os outros arquivos que já estão em outros pontos de extremidade no grupo de sincronização.
 
 > [!Important]  
-> A Sincronização de Arquivos do Azure dá suporte a alterações diretamente no compartilhamento de arquivos do Azure. No entanto, as alterações feitas no compartilhamento de arquivos do Azure precisam primeiro ser descobertas por um trabalho de detecção de alteração da Sincronização de Arquivos do Azure. Um trabalho de detecção de alteração é iniciado para um ponto de extremidade da nuvem apenas uma vez a cada 24 horas. Além disso, as alterações feitas em um compartilhamento de arquivos do Azure no protocolo REST não atualizarão a hora da última modificação do SMB e não serão vistas como uma alteração por sincronização. Para obter mais informações, consulte [perguntas frequentes sobre os arquivos do Azure](storage-files-faq.md#afs-change-detection).
+> A Sincronização de Arquivos do Azure dá suporte a alterações diretamente no compartilhamento de arquivos do Azure. No entanto, as alterações feitas no compartilhamento de arquivos do Azure precisam primeiro ser descobertas por um trabalho de detecção de alteração da Sincronização de Arquivos do Azure. Um trabalho de detecção de alteração é iniciado para um Ponto de Extremidade da nuvem apenas uma vez a cada 24 horas. Além disso, as alterações feitas em um compartilhamento de arquivos do Azure no protocolo REST não atualizarão a hora da última modificação do SMB e não serão vistas como uma alteração por sincronização. Para obter mais informações, consulte [perguntas frequentes sobre os arquivos do Azure](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Disposição em camadas de nuvem 
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Confira mais informações em [Noções básicas sobre camadas de nuvem](storage-sync-cloud-tiering.md).
@@ -122,7 +122,7 @@ Para exibir os resultados em CSV:
 
 ### <a name="file-system-features"></a>Recursos do sistema de arquivos
 
-| Recurso | Status de suporte | Observações |
+| Recurso | Status de suporte | Notas |
 |---------|----------------|-------|
 | ACLs (listas de controle de acesso) | Com suporte total | As ACLs do Windows são preservadas pela Sincronização de arquivos do Azure e são impostas pelo Windows Server nos pontos de extremidade do servidor. Não há suporte (ainda) para as ACLs do Windows nos Arquivos do Azure, caso os arquivos sejam acessados diretamente na nuvem. |
 | Links físicos | Ignorado | |
@@ -244,18 +244,18 @@ Em geral, a Sincronização de Arquivos do Azure deve dar suporte à interoperab
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (Gerenciamento de Armazenamento Hierárquico)
 Nenhuma outra solução de HSM deve ser usada com a Sincronização de Arquivos do Azure.
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade na região
 A Sincronização de Arquivos do Azure está disponível apenas nas seguintes regiões:
 
 | Região | Localização do Datacenter |
 |--------|---------------------|
-| Leste da Austrália | Nova Gales do Sul |
+| Austrália Oriental | Nova Gales do Sul |
 | Sudeste da Austrália | Vitória |
 | Sul do Brasil | Estado de São Paulo |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade de Quebec |
 | Índia Central | Pune |
-| Centro dos EUA | Iowa |
+| EUA Central | Iowa |
 | Ásia Oriental | RAE de Hong Kong |
 | Leste dos EUA | Virgínia |
 | Leste dos EUA 2 | Virgínia |
@@ -266,20 +266,20 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 | Leste do Japão | Tóquio |
 | Oeste do Japão | Osaka |
 | Centro-Norte dos EUA | Illinois |
-| Norte da Europa | Irlanda |
+| Europa Setentrional | Irlanda |
 | Norte da África do Sul | Joanesburgo |
 | Oeste da África do Sul * | Cidade do Cabo |
-| Centro-Sul dos Estados Unidos | Texas |
+| Centro-Sul dos EUA | Texas |
 | Sul da Índia | Chennai |
-| Sudeste Asiático | Singapura |
+| Sudeste Asiático | Cingapura |
 | Sul do Reino Unido | Londres |
 | Oeste do Reino Unido | Cardiff |
-| Governo dos EUA do Arizona | Arizona |
-| Governo dos EUA do Texas | Texas |
-| US Gov Virginia | Virgínia |
+| US Gov - Arizona | Arizona |
+| US Gov - Texas | Texas |
+| US Gov - Virgínia | Virgínia |
 | Norte dos EAU | Dubai |
 | EAU Central * | Abu Dhabi |
-| Europa Ocidental | Países Baixos |
+| Oeste da Europa | Holanda |
 | Centro-Oeste dos EUA | Wyoming |
 | Oeste dos EUA | Califórnia |
 | Oeste dos EUA 2 | Washington |
@@ -298,35 +298,35 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 
 | Região primária      | Região emparelhada      |
 |---------------------|--------------------|
-| Leste da Austrália      | Sudeste da Austrália|
-| Sudeste da Austrália | Leste da Austrália     |
-| Sul do Brasil        | Centro-Sul dos Estados Unidos   |
+| Austrália Oriental      | Sudeste da Austrália|
+| Sudeste da Austrália | Austrália Oriental     |
+| Sul do Brasil        | Centro-Sul dos EUA   |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
 | Índia Central       | Sul da Índia        |
-| Centro dos EUA          | Leste dos EUA 2          |
+| EUA Central          | Leste dos EUA 2          |
 | Ásia Oriental           | Sudeste Asiático     |
 | Leste dos EUA             | Oeste dos EUA            |
-| Leste dos EUA 2           | Centro dos EUA         |
+| Leste dos EUA 2           | EUA Central         |
 | França Central      | Sul da França       |
 | Sul da França        | França Central     |
 | Leste do Japão          | Oeste do Japão         |
 | Oeste do Japão          | Leste do Japão         |
 | Coreia Central       | Sul da Coreia        |
 | Sul da Coreia         | Coreia Central      |
-| Norte da Europa        | Europa Ocidental        |
-| Centro-Norte dos EUA    | Centro-Sul dos Estados Unidos   |
+| Europa Setentrional        | Oeste da Europa        |
+| Centro-Norte dos EUA    | Centro-Sul dos EUA   |
 | Norte da África do Sul  | Oeste da África do Sul  |
 | Oeste da África do Sul   | Norte da África do Sul |
-| Centro-Sul dos Estados Unidos    | Centro-Norte dos EUA   |
+| Centro-Sul dos EUA    | Centro-Norte dos EUA   |
 | Sul da Índia         | Índia Central      |
 | Sudeste Asiático      | Ásia Oriental          |
 | Sul do Reino Unido            | Oeste do Reino Unido            |
 | Oeste do Reino Unido             | Sul do Reino Unido           |
-| Governo dos EUA do Arizona      | Governo dos EUA do Texas       |
-| US Gov Iowa         | US Gov Virginia    |
-| US Gov Virginia      | Governo dos EUA do Texas       |
-| Europa Ocidental         | Norte da Europa       |
+| US Gov - Arizona      | US Gov - Texas       |
+| US Gov - Iowa         | US Gov - Virgínia    |
+| US Gov - Virgínia      | US Gov - Texas       |
+| Oeste da Europa         | Europa Setentrional       |
 | Centro-Oeste dos EUA     | Oeste dos EUA 2          |
 | Oeste dos EUA             | Leste dos EUA            |
 | Oeste dos EUA 2           | Centro-Oeste dos EUA    |
@@ -334,7 +334,7 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Considere as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
 * [Implantar os Arquivos do Azure](storage-files-deployment-guide.md)
