@@ -4,23 +4,23 @@ description: Entenda por que você vê os encargos para a sua conta gratuita do 
 author: amberbhargava
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ca685e70fea8d02a16485b135d82575069889bfa
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 9f75b630dd26e2cdef009771ad5e09cc3d230449
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375887"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226448"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evite cobranças com a conta gratuita do Azure
 
-Você recebe US$ 200 em créditos Azure para os primeiros 30 dias e uma quantidade limitada de serviços gratuitos por 12 meses com a [conta gratuita do Azure](https://azure.microsoft.com/free/). Para saber mais sobre limites de serviços gratuitos, confira as [Perguntas frequentes sobre a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/). Desde que tenha crédito não expirado ou use apenas serviços gratuitos dentro dos limites, você não será cobrado. 
+Você recebe US$ 200 em créditos Azure para os primeiros 30 dias e uma quantidade limitada de serviços gratuitos por 12 meses com a [conta gratuita do Azure](https://azure.microsoft.com/free/). Para saber mais sobre limites de serviços gratuitos, confira as [Perguntas frequentes sobre a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/). Desde que tenha crédito não expirado ou use apenas serviços gratuitos dentro dos limites, você não será cobrado.
 
 Vamos examinar algumas das razões pelas quais você pode incorrer em encargos na sua conta gratuita do Azure.
 

@@ -10,19 +10,19 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 5c97648bd11a506d3c818584ed7d82d0a12d2e2c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: d833293d094837c164da855aef197ad927c60ad7
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387505"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286527"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usando Go para chamar o Serviço Cognitivo de Análise de Texto 
 <a name="HOLTop"></a>
 
 Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com Go.
 
-Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

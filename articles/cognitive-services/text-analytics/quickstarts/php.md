@@ -10,19 +10,19 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: a1e3484c544478fa6e9414eea1e139b81652ace3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3b95109ea3389cc8ee7e748e06265870d5f903a4
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135003"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284750"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usando PHP para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
 Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com PHP.
 
-Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

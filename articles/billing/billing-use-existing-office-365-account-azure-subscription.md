@@ -8,19 +8,19 @@ manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: 129cdf7a-2165-483d-83e4-8f11f0fa7f8b
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 44ff08c84b3e95a5b598ebf4279fc2ffc46313e3
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 617f8cd018bb9d2f170d28381e02b4b73376e589
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60369467"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225585"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Inscreva-se para obter uma assinatura do Azure com sua conta do Office 365
 Se você tiver uma assinatura do Office 365, você pode usar sua conta do Office 365 para criar uma assinatura do Azure. Entre no [Portal do Azure](https://portal.azure.com/) usando seu nome de usuário e a senha do Office 365. No entanto, se você desejar configurar máquinas virtuais ou usar outros serviços do Azure, deverá inscrever-se para uma assinatura do Azure. Você pode compartilhar sua assinatura do Azure com outras pessoas e [usar o controle de acesso baseado em função para gerenciar o acesso à sua assinatura e recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

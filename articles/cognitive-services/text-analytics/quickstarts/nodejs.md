@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 2b98949ca93be5ec0324561a053df730705af152
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: fe07290eaa68965e2ebe1f9220fc963c915f48f1
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671870"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284949"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usar Node.js para chamar o Serviço Cognitivo de Análise de Texto  
 <a name="HOLTop"></a>
 
 Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com Node.JS.
 
-Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
