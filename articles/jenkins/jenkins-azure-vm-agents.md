@@ -1,19 +1,15 @@
 ---
 title: Dimensione implantações do Jenkins com agentes de VM do Azure.
 description: Adicione capacidade adicional aos pipelines do Jenkins usando máquinas virtuais do Azure com o plug-in de Agente de VM do Azure do Jenkins.
-ms.service: jenkins
 keywords: jenkins, azure, devops, máquina virtual, agentes
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2e811d628c017316a5bc50a8ddc22ee24d6f744e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074658"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158537"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Dimensionar implantações do Jenkins para atender à demanda com agentes de VM do Azure
 
@@ -52,7 +48,7 @@ Neste tutorial, você irá:
 1. Role até a parte inferior da página e encontre a seção **Nuvem** com a lista suspensa **Adicionar nova nuvem** e escolha **Agentes de VM do Microsoft Azure**.
 1. Selecione uma entidade de serviço existente na lista suspensa **Adicionar**, na seção **Credenciais do Azure**. Se nenhuma estiver listada, execute as seguintes etapas para [criar uma entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) para sua conta do Azure e adicioná-la à configuração do Jenkins:   
 
-     a. Selecione **Adicionar** ao lado de **Credenciais do Azure** e escolha **Jenkins**.   
+    a. Selecione **Adicionar** ao lado de **Credenciais do Azure** e escolha **Jenkins**.   
     b. Na caixa de diálogo **Adicionar Credenciais**, selecione **Entidade de Serviço do Microsoft Azure** na lista suspensa **Tipo**.   
     c. Crie uma Entidade de serviço do Active Directory por meio da CLI do Azure ou do [Cloud Shell](/azure/cloud-shell/overview).
     
@@ -114,7 +110,7 @@ Configure um modelo para usar na definição de um agente de VM do Azure. Esse m
 
 ## <a name="configure-agent-operating-system-and-tools"></a>Configurar o sistema operacional e as ferramentas do agente
 
-Na seção **Configuração de Imagem** da configuração de plug-in, selecione **Ubuntu 16.04 LTS**. Marque as caixas de seleção ao lado de **Instalar o Git (Último)**, **Instalar o Maven (V3.5.0)** e **Instalar o Docker** para instalar essas ferramentas nos agentes recém-criados.
+Na seção **Configuração de Imagem** da configuração de plug-in, selecione **Ubuntu 16.04 LTS**. Marque as caixas de seleção ao lado de **Instalar o Git (Último)** , **Instalar o Maven (V3.5.0)** e **Instalar o Docker** para instalar essas ferramentas nos agentes recém-criados.
 
 ![Configurar o sistema operacional e as ferramentas da VM](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
 

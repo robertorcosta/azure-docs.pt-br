@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 01bf33c3ed50311b031e015b24566f5819ac0857
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1a719b878f3e5fbade3adf453ac7d0604ea85077
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123804"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384072"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Início Rápido: Iniciar um aplicativo Azure Spring Cloud usando o plug-in do Maven
 
@@ -38,16 +38,7 @@ Para concluir este guia de início rápido:
 1. [Instalar o Git](https://git-scm.com/).
 2. [Instale o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Instale o Maven 3.0 ou posterior](https://maven.apache.org/download.cgi).
-4. [Instale a CLI do Azure versão 2.0.67 ou posterior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-5. [Inscreva-se em uma assinatura gratuita do Azure](https://azure.microsoft.com/free/).
-
-## <a name="install-the-azure-cli-extension"></a>Instalar a extensão da CLI do Azure
-
-Instale a extensão Azure Spring Cloud para a CLI do Azure usando o seguinte comando:
-
-```Azure CLI
-az extension add --name spring-cloud
-```
+4. [Inscreva-se em uma assinatura gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Provisionar uma instância de serviço no portal do Azure
 

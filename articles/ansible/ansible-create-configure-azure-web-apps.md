@@ -1,19 +1,15 @@
 ---
 title: Tutorial – Configurar aplicativos no Serviço de Aplicativo do Azure usando o Ansible
-description: Saiba como criar um aplicativo no Serviço de Aplicativo do Azure com Java 8 e o tempo de execução do contêiner Tomcat
+description: Saiba como criar um aplicativo no Serviço de Aplicativo do Azure com Java 8 e o runtime do contêiner Tomcat
 keywords: ansible, azure, devops, bash, guia estratégico, Serviço de Aplicativo do Azure, aplicativo Web, Java
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 5104db6bd7fa57600c7212e041263971ca4c91d4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 2891ff47b17900c4c1c8e1c21f22495b65108fd5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242059"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156560"
 ---
 # <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Tutorial: Configurar aplicativos no Serviço de Aplicativo do Azure usando o Ansible
 
@@ -25,7 +21,7 @@ ms.locfileid: "72242059"
 
 > [!div class="checklist"]
 >
-> * Criar um aplicativo no Serviço de Aplicativo do Azure com Java 8 e o tempo de execução do contêiner Tomcat
+> * Criar um aplicativo no Serviço de Aplicativo do Azure com Java 8 e o runtime do contêiner Tomcat
 > * Criar um perfil do Gerenciador de Tráfego do Azure
 > * Definir um ponto de extremidade do Gerenciador de Tráfego usando o aplicativo criado
 
@@ -39,7 +35,7 @@ ms.locfileid: "72242059"
 O código do guia estratégico nesta seção define os seguintes recursos:
 
 * Grupo de recursos do Azure no qual o plano e o aplicativo do Serviço de Aplicativo são implantados
-* Serviço de aplicativo no Linux com o Java 8 e o tempo de execução do contêiner Tomcat
+* Serviço de aplicativo no Linux com o Java 8 e o runtime do contêiner Tomcat
 
 Salve o guia estratégico a seguir como `firstwebapp.yml`:
 
@@ -112,7 +108,7 @@ O código do guia estratégico nesta seção define os seguintes recursos:
 * Grupo de recursos do Azure no qual o plano do Serviço de Aplicativo é implantado
 * Plano do Serviço de Aplicativo
 * Grupo de recursos do Azure no qual o aplicativo é implantado
-* Serviço de aplicativo no Linux com o Java 8 e o tempo de execução do contêiner Tomcat
+* Serviço de aplicativo no Linux com o Java 8 e o runtime do contêiner Tomcat
 * Perfil do Gerenciador de Tráfego
 * Ponto de extremidade do Gerenciador de Tráfego usando o aplicativo criado
 

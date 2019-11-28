@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cd0fc90988048f98be46370d2c7836d9506cc44a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6d1c2eff9bc9ffe8a0fb2166d39c16360c0a79cc
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475263"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538933"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Tutorial: Autenticar usuários em um cliente de área de trabalho nativo usando o Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
 
 ## <a name="configure-the-sample"></a>Configurar o exemplo
 
-Neste tutorial, você deve configurar um exemplo que pode ser baixado do GitHub. O aplicativo da área de trabalho WPF de exemplo demonstra a inscrição e pode chamar uma API Web protegida no Azure AD B2C. [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [procure no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo do GitHub.
+Neste tutorial, você deve configurar um exemplo que pode ser baixado do GitHub. O aplicativo da área de trabalho WPF de exemplo demonstra a inscrição e pode chamar uma API Web protegida no Azure AD B2C. [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip), [procure no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo do GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
