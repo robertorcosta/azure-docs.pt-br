@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ffe85b6e005d2dc8fe077a5a08d8b0f11c73589
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929644"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228508"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço de automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Caso você tenha um workspace do Azure Machine Learning com uma edição Enterpr
 
 1. Selecione **Designer**.
 
-    ![Captura de tela do workspace visual mostrando como acessar o designer](./media/ui-tutorial-automobile-price-train-score/launch-visual-interface.png)
+    ![Captura de tela do workspace visual mostrando como acessar o designer](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
 
 1. Selecione **Módulos predefinidos e fáceis de usar**.
 
@@ -69,7 +69,7 @@ Há vários conjuntos de dados de exemplo incluídos no designer para que você 
 
 1. Selecione o conjunto de dados **Dados de preços de automóveis (Brutos)** e arraste-o para a tela.
 
-   ![Arraste os dados para a tela](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
+   ![Arraste os dados para a tela](./media/tutorial-designer-automobile-price-train-score/drag-data.gif)
 
 ### <a name="visualize-the-data"></a>Visualizar os dados
 
@@ -81,7 +81,7 @@ Você pode visualizar os dados para entender o conjunto de dados que será usado
 
 1. Selecione o ícone de grafo para visualizar os dados.
 
-    ![Visualizar os dados](./media/ui-tutorial-automobile-price-train-score/visualize-data.png)
+    ![Visualizar os dados](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
 
 1. Selecione as diferentes colunas na janela de dados para exibir informações sobre cada um.
 
@@ -105,7 +105,7 @@ Quando treina um modelo, você precisa fazer algo sobre os dados que estão falt
     > Crie um fluxo de dados por meio do seu pipeline quando você conectar a porta de saída de um módulo a uma porta de entrada de outro.
     >
 
-    ![Conectar módulos](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+    ![Conectar módulos](./media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
 
 1. Selecione o módulo **Selecionar colunas no conjunto de dados**.
 
@@ -119,7 +119,7 @@ Quando treina um modelo, você precisa fazer algo sobre os dados que estão falt
 
 1. No canto inferior direito, selecione **Salvar** para fechar o seletor de coluna.
 
-    ![Excluir uma coluna](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![Excluir uma coluna](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
         
     O painel de propriedades mostra que a coluna **normalized-losses** foi excluída.
 
@@ -144,7 +144,7 @@ Seu conjunto de dados ainda tem valores ausentes após a remoção da coluna **n
 
     Agora, seu pipeline deve ser semelhante ao seguinte:
     
-    ![Select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
+    ![Select-column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
 
 ## <a name="train-a-machine-learning-model"></a>Treinar um modelo de machine learning
 
@@ -188,7 +188,7 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O mod
 
 1. Conecte-se a saída dos dados de treinamento (porta esquerda) do módulo **Dividir Dados** à entrada à direita do módulo **Treinar Modelo**.
 
-    ![Captura de tela mostrando a configuração correta do módulo Treinar Modelo. O módulo Regressão Linear se conecta à porta esquerda do módulo Treinar Modelo e o módulo Dividir Dados se conecta à porta direita do módulo Treinar Modelo](./media/ui-tutorial-automobile-price-train-score/pipeline-train-model.png)
+    ![Captura de tela mostrando a configuração correta do módulo Treinar Modelo. O módulo Regressão Linear se conecta à porta esquerda do módulo Treinar Modelo e o módulo Dividir Dados se conecta à porta direita do módulo Treinar Modelo](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
 1. Selecione o módulo **Treinar Modelo**.
 
@@ -200,7 +200,7 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O mod
 
     Seu pipeline deve ter esta aparência:
 
-    ![Captura de tela mostrando a configuração correta do pipeline após a adição do módulo Treinar Modelo.](./media/ui-tutorial-automobile-price-train-score/pipeline-train-graph.png)
+    ![Captura de tela mostrando a configuração correta do pipeline após a adição do módulo Treinar Modelo.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
 ## <a name="evaluate-a-machine-learning-model"></a>Avaliar um modelo de machine learning
 
@@ -216,7 +216,7 @@ Depois de treinar o modelo usando 70% dos dados, você poderá usá-lo para pont
 
     O pipeline final deve ser semelhante ao seguinte:
 
-    ![Captura de tela mostrando a configuração correta do pipeline.](./media/ui-tutorial-automobile-price-train-score/pipeline-final-graph.png)
+    ![Captura de tela mostrando a configuração correta do pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
 ### <a name="run-the-pipeline"></a>Executar o pipeline
 
@@ -232,7 +232,7 @@ Depois que a execução for concluída, você poderá exibir os resultados da ex
 
     Aqui você poderá ver os preços previstos e os preços reais dos dados de teste.
 
-    ![Captura de tela da visualização de saída realçando a coluna Rótulo Pontuado](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![Captura de tela da visualização de saída realçando a coluna Rótulo Pontuado](./media/tutorial-designer-automobile-price-train-score/score-result.png)
 
 1. Selecione o módulo **Avaliar Modelo** para exibir a saída.
 

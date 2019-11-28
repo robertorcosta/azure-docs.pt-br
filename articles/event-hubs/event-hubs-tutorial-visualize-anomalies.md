@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718001"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307353"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Azure
 
@@ -156,7 +156,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Execute o aplicativo para gerar dados de evento de teste
 
-Os [exemplos no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) para Hubs de Eventos incluem um [aplicativo detector de anomalias](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/AnomalyDetector) que gera dados de teste para você. Ele simula o uso de cartões de crédito gravando transações de cartão de crédito no hub de eventos e isso inclui a gravação ocasional de várias transações do mesmo cartão de crédito em vários locais, de modo que elas sejam marcadas como anomalias. Para executar esse aplicativo, siga estas etapas: 
+Os [exemplos no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) para Hubs de Eventos incluem um [aplicativo detector de anomalias](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) que gera dados de teste para você. Ele simula o uso de cartões de crédito gravando transações de cartão de crédito no hub de eventos e isso inclui a gravação ocasional de várias transações do mesmo cartão de crédito em vários locais, de modo que elas sejam marcadas como anomalias. Para executar esse aplicativo, siga estas etapas: 
 
 1. Baixe os [exemplos dos Hubs de Eventos](https://github.com/Azure/azure-event-hubs/archive/master.zip) do GitHub e descompacte-os localmente.
 

@@ -1,20 +1,15 @@
 ---
 title: Criar uma função Python disparada por HTTP no Azure
 description: Aprenda a criar sua primeira função Python no Azure usando o Azure Functions Core Tools e a CLI do Azure.
-author: ggailey777
-ms.author: glenga
 ms.date: 11/07/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: python
-manager: gwallace
-ms.openlocfilehash: 61465177c98a31a739946097ca615382175df3d4
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 18ae1ed000ffe61ce1ea9ff5c18aae98a0ffae65
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082764"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227182"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Início Rápido: Criar uma função Python disparada por HTTP no Azure
 

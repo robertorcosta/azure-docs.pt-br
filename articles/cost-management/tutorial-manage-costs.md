@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: b72e03f6901fbb2b904328992107e31021c76be6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969131"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229814"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerenciar custos usando Cloudyn
 
@@ -87,9 +87,9 @@ A lista de modelos de custo mostra o novo modelo de custo com o **Status do proc
 
 O Gerenciador de Categorias é uma ferramenta de limpeza de dados que lhe ajudará a mesclar os valores das várias categorias (tags) para criar outros. Ele é uma ferramenta simples baseada em regra em que você seleciona uma categoria e cria regras para mesclar os valores existentes. Por exemplo, você pode ter categorias existentes para **R&amp;D** e **desenvolvimento** em que ambas representam o grupo de desenvolvimento.
 
-No portal do Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Gerenciamento de Categorias**. Para criar uma nova categoria, selecione o símbolo de adição (**+**). Insira um nome para a categoria e, em seguida, em **Chaves**, insira as chaves de categoria que você deseja incluir na nova categoria.
+No portal do Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Gerenciamento de Categorias**. Para criar uma nova categoria, selecione o símbolo de adição ( **+** ). Insira um nome para a categoria e, em seguida, em **Chaves**, insira as chaves de categoria que você deseja incluir na nova categoria.
 
-Quando você define uma regra, você pode adicionar vários valores com uma condição OR. Você também pode fazer algumas operações de cadeia de caracteres básicas. Para ambos os casos, clique no símbolo de reticências (**...**) à direita de **Regra**.
+Quando você define uma regra, você pode adicionar vários valores com uma condição OR. Você também pode fazer algumas operações de cadeia de caracteres básicas. Para ambos os casos, clique no símbolo de reticências ( **...** ) à direita de **Regra**.
 
 Para definir uma nova regra, na área **Regras**, crie uma nova regra. Por exemplo, digite **desenvolvimento** em **Regras** e, em seguida, digite **R&amp;D** em **Ações**. Quando terminar, salve sua nova categoria.
 

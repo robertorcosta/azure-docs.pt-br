@@ -1,19 +1,15 @@
 ---
 title: Visão geral do Jenkins e do Azure
 description: Hospede o servidor de automação de build e implantação do Jenkins no Azure e use os recursos de computação e armazenamento do Azure para estender os pipelines de CI/CD (integração e implantação contínuas).
-ms.service: jenkins
 keywords: jenkins, azure, devops, visão geral
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 9b4ceb144408e0ac1886aa3a7e0e0f48ac4baba3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 84d9a62c432208893ac5ff960a5f7aec743680d1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881961"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479348"
 ---
 # <a name="azure-and-jenkins"></a>Azure e Jenkins
 
@@ -33,7 +29,7 @@ Monitore e gerencie a implantação do Azure Jenkins usando [logs do Azure Monit
 
 ## <a name="scale-your-build-automation-on-demand"></a>Dimensionar a automação de build sob demanda
 
-Adicione agentes de build à implantação existente do Jenkins para dimensionar a capacidade de build do Jenkins conforme o número de builds e a complexidade dos trabalhos e pipelines aumentam. Execute esses agentes de build em máquinas virtuais do Azure usando o [plug-in de Agentes de VM do Azure](jenkins-azure-vm-agents.md). Consulte nosso [tutorial](/azure/jenkins/jenkins-azure-vm-agents) para obter mais detalhes.
+Adicione agentes de build à implantação existente do Jenkins para dimensionar a capacidade de build do Jenkins conforme o número de builds e a complexidade dos trabalhos e pipelines aumentam. Execute esses agentes de build em máquinas virtuais do Azure usando o [plug-in de Agentes de VM do Azure](https://plugins.jenkins.io/azure-vm-agents). Consulte nosso [tutorial](/azure/jenkins/jenkins-azure-vm-agents) para obter mais detalhes.
 
 Depois de configurados com uma [entidade de serviço do Azure](/azure/azure-resource-manager/resource-group-overview), os trabalhos e pipelines do Jenkins podem usar essa credencial para:
 

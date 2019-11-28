@@ -1,5 +1,5 @@
 ---
-title: Visão geral de Âncoras Espaciais do Azure | Microsoft Docs
+title: Visão geral de Âncoras Espaciais do Azure
 description: Saiba como as Âncoras Espaciais do Azure ajudam a desenvolver experiências multiplataforma de realidade misturada.
 author: craigktreasure
 manager: aliemami
@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2451922f0eb49a5ccee036db72eb046760287dca
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 503004cba0d4109adcfee62f7acd108cbcb73eb6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60240470"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277150"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Visão geral de Âncoras Espaciais do Azure
 

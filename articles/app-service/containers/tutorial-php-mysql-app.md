@@ -8,15 +8,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/25/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6d9ef67f39a67fd06a5b42afe4432b5a0156fead
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4fade03d798096e250cb5b56fbb2003ea4b58e1b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549824"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481326"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Criar um aplicativo em PHP e MySQL no Serviço de Aplicativo do Azure no Linux
 
@@ -202,7 +202,7 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql-ser
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Conectar-se ao servidor MySQL de produção localmente
 
-Na janela do terminal, conecte-se ao servidor MySQL no Azure. Use o valor especificado anteriormente para _&lt;admin-user>_ e _&lt;-server-name>_. Quando for solicitada uma senha, use a que você especificou quando criou o banco de dados no Azure.
+Na janela do terminal, conecte-se ao servidor MySQL no Azure. Use o valor especificado anteriormente para _&lt;admin-user>_ e _&lt;-server-name>_ . Quando for solicitada uma senha, use a que você especificou quando criou o banco de dados no Azure.
 
 ```bash
 mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
@@ -262,7 +262,7 @@ Salve as alterações.
 
 ### <a name="configure-ssl-certificate"></a>Configurar o certificado SSL
 
-Por padrão, o Banco de Dados do Azure para MySQL impõe conexões SSL de clientes. Para se conectar ao seu banco de dados MySQL no Azure, você deve usar o certificado [_.pem_ fornecido pelo Banco de Dados do Azure para MySQL](../../mysql/howto-configure-ssl.md).
+Por padrão, o Banco de Dados do Azure para MySQL impõe conexões SSL de clientes. Para se conectar ao seu banco de dados MySQL no Azure, você deve usar o certificado [ _.pem_ fornecido pelo Banco de Dados do Azure para MySQL](../../mysql/howto-configure-ssl.md).
 
 Abra _config/database.php_ e adicione os parâmetros _sslmode_ and _options_ a `connections.mysql`, conforme mostrado no código a seguir.
 
@@ -270,7 +270,7 @@ Abra _config/database.php_ e adicione os parâmetros _sslmode_ and _options_ a `
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
-    'options' => (env('MYSQL_SSL')) ? [
+    'options' => (env('MYSQL_SSL') && extension_loaded('pdo_mysql')) ? [
         PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem',
     ] : []
 ],
@@ -370,7 +370,7 @@ Use `php artisan` para gerar uma nova chave de aplicativo sem salvá-la em _.env
 php artisan key:generate --show
 ```
 
-Defina a chave de aplicativo no aplicativo do Serviço de Aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Substitua os espaços reservados _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+Defina a chave de aplicativo no aplicativo do Serviço de Aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Substitua os espaços reservados _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"

@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: criar um balanceador de carga básico – CLI do Azure'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: O início rápido mostra como criar um balanceador de carga público usando a CLI do Azure
 services: load-balancer
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
-ms.openlocfilehash: 67d137039778b7ec8d5e65acb017b84ad6df5cb2
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 49bd66a5ff3cc9d3cddcb0577e335794550ffd17
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274221"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214855"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: criar um balanceador de carga para balancear carga de VMs usando a CLI do Azure
 

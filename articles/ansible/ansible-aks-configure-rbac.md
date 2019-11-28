@@ -3,17 +3,13 @@ title: Tutorial – Configurar funções de RBAC (controle de acesso baseado em 
 description: Saiba como usar o Ansible para configurar o RBAC no cluster do Serviço de Kubernetes do Azure (AKS)
 keywords: ansible, azure, devops, bash, cloudshell, guia estratégico, aks, contêiner, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 36a6f5ade7a60a989d2e80f2405aaa2d1d50b756
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242348"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156861"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configurar funções de controle de acesso baseado em função (RBAC) no Serviço de Kubernetes do Azure (AKS) usando o Ansible
 

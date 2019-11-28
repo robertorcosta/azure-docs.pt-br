@@ -1,19 +1,15 @@
 ---
 title: Executar CLI do Azure com o Jenkins
 description: Saiba como usar a CLI do Azure para implantar um aplicativo Web do Java no Azure na pipeline do Jenkins
-ms.service: jenkins
 keywords: jenkins, azure, devops, serviço de aplicativo, cli
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 3da18bf50c82a32a9cec70555ac0d051e7660184
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: bd9192974f6860d08d84a9028702ce2203f562e7
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882126"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158824"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implantar o Serviço de Aplicativo do Azure com o Jenkins e a CLI do Azure
 Para implantar um aplicativo Web do Java no Azure, você pode usar a CLI do Azure na [pipeline do Jenkins](https://jenkins.io/doc/book/pipeline/). Neste tutorial, você cria um pipeline de CI/CD em uma VM do Azure, incluindo como:
@@ -115,7 +111,7 @@ Quando a definição do aplicativo Web tiver pronta, a CLI do Azure mostrará in
 
 ### <a name="configure-java"></a>Configurar o Java 
 
-Definir a configuração de tempo de execução Java que seu aplicativo precisa com o comando [az appservice web config update](/cli/azure/webapp/config).
+Definir a configuração de runtime Java que seu aplicativo precisa com o comando [az appservice web config update](/cli/azure/webapp/config).
 
 O comando a seguir configura o aplicativo Web para ser executado em um JDK 8 Java recente e [Apache Tomcat](https://tomcat.apache.org/) 8.0.
 
@@ -174,7 +170,7 @@ Você verá:
 ## <a name="deploy-to-azure-web-app-on-linux"></a>Implantar no Aplicativo Web do Azure no Linux
 Agora que você sabe como usar a CLI do Azure em seu pipeline Jenkins, você pode modificar o script para implantar um aplicativo Web do Azure no Linux.
 
-O aplicativo Web no Linux dá suporte a uma forma diferente de fazer a implantação, que é usar o Docker. Para implantar, você precisa fornecer um Dockerfile que empacote seu aplicativo Web com tempo de execução do serviço em uma imagem do Docker. O plug-in, então, criará a imagem, a enviará por push a um Registro do Docker e a implantará em seu aplicativo Web.
+O aplicativo Web no Linux dá suporte a uma forma diferente de fazer a implantação, que é usar o Docker. Para implantar, você precisa fornecer um Dockerfile que empacote seu aplicativo Web com runtime do serviço em uma imagem do Docker. O plug-in, então, criará a imagem, a enviará por push a um Registro do Docker e a implantará em seu aplicativo Web.
 
 * Siga as etapas [aqui](../app-service/containers/quickstart-nodejs.md) para criar um aplicativo Web do Azure em execução no Linux.
 * Instale o Docker em sua instância do Jenkins seguindo as instruções deste [artigo](https://docs.docker.com/engine/installation/linux/ubuntu/).

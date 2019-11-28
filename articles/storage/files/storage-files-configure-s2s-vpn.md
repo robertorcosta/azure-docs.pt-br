@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 36f85b0906b67c5bee61b9e22101f7a0d117878a
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7762366f68bee2cd8c44e81bb22366c504ff1a73
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73126482"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484421"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configurar uma VPN Site a Site para uso com os Arquivos do Azure
 Você pode usar uma conexão de VPN S2S (Site a Site) para montar compartilhamentos de arquivo do Azure de sua rede local, sem precisar abrir a porta 445. Você pode configurar uma VPN Site a Site usando o [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md), que é um recurso do Azure que oferece serviços de VPN e é implantado em um grupo de recursos em conjunto com contas de armazenamento ou outros recursos do Azure.
@@ -113,5 +113,5 @@ A etapa final da configuração de uma VPN S2S é verificar se ela funciona para
 
 ## <a name="see-also"></a>Consulte também
 - [Visão geral da rede dos Arquivos do Azure](storage-files-networking-overview.md)
-- [Configurar uma VPN P2S (Ponto a Site) no Linux para usar com os Arquivos do Azure](storage-files-configure-p2s-vpn-windows.md)
+- [Configurar uma VPN P2S (ponto a site) no Windows para uso com os Arquivos do Azure](storage-files-configure-p2s-vpn-windows.md)
 - [Configurar uma VPN P2S (Ponto a Site) no Linux para usar com os Arquivos do Azure](storage-files-configure-p2s-vpn-linux.md)

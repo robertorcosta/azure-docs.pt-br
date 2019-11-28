@@ -1,22 +1,17 @@
 ---
-title: Criar uma função usando o Microsoft Azure for Students Starter | Microsoft Docs
+title: Criar uma função usando o Microsoft Azure for Students Starter
 description: Saiba como criar uma função do Azure dentro de uma assinatura do Microsoft Azure for Students Starter
 Customer intent: As a student, I want to be able to create a HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
-services: functions
-documentationcenter: na
 author: alexkarcher-msft
-manager: ggailey777
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: b4a143f14dc4e443570e8eca9ce6ce9e81b1d783
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b86ea2367a17baa8c57b8d0c0331c0cd3cfbb481
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096633"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227110"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando o Microsoft Azure for Students Starter
 
@@ -54,7 +49,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. | 
     | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
    | **[Plano de Serviço de Aplicativo/localização](./functions-scale.md)** | Novo | O plano de hospedagem que controla em qual região o aplicativo de funções é implantado e a densidade de seus recursos. Vários aplicativos de funções implantados no mesmo plano compartilharão a mesma instância única livre. Trata-se de uma restrição do plano Students Starter. As opções de hospedagem completas são [explicadas aqui.](./functions-scale.md)|
-    | **Pilha de tempo de execução** | Linguagem preferencial | Escolha um tempo de execução compatível com sua linguagem de programação de funções favorita. Escolha **.NET** para funções C# e F#. |
+    | **Pilha de runtime** | Linguagem preferencial | Escolha um runtime compatível com sua linguagem de programação de funções favorita. Escolha **.NET** para funções C# e F#. |
     |**[Application Insights](./functions-monitoring.md)**| habilitado | O Application Insights é usado para armazenar e analisar logs do aplicativo de funções. Ele será habilitado por padrão se você escolher uma localização que dá suporte ao Application Insights. O Application Insights pode ser habilitado para qualquer função. Basta escolher manualmente uma região próxima para implantar o Application Insights. Sem o Application Insights, você só poderá exibir os logs de transmissão ao vivo.
 
 3. Selecione **Localização/Plano de Serviço de Aplicativo** acima para escolher uma localização diferente
@@ -126,7 +121,7 @@ No Microsoft Azure for Students Starter, você tem acesso à maioria dos recurso
     * [Veja as linguagens com suporte em planos superiores aqui](supported-languages.md)
 * O Windows é o único sistema operacional com suporte.
 * A escala é restrita aos [uma instância de camada gratuita](https://azure.microsoft.com/pricing/details/app-service/windows/) em execução por até 60 minutos por dia. Haverá uma escala sem servidor de 0 para 1 instância automaticamente à medida que o tráfego HTTP é recebido, mas somente isso.
-* Há suporte apenas para [o tempo de execução 2.x](functions-versions.md).
+* Há suporte apenas para [o runtime 2.x](functions-versions.md).
 * Todas as ferramentas de desenvolvedor têm suporte para as funções de edição e publicação. Isso inclui VS Code, Visual Studio, CLI do Azure e portal do Azure. Se quiser usar algo diferente do portal, você precisará primeiro criar um aplicativo no portal e, em seguida, escolher esse aplicativo como um destino de implantação em sua ferramenta preferencial.
 
 ## <a name="next-steps"></a>Próximas etapas

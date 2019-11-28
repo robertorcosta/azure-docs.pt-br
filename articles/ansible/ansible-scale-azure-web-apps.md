@@ -3,17 +3,13 @@ title: Tutorial – Dimensionar aplicativos no Serviço de Aplicativo do Azure u
 description: Saiba como escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure
 keywords: ansible, azure, devops, bash, guia estratégico, Serviço de Aplicativo do Azure, aplicativo Web, escala, Java
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 0adcddb8afa4f0e3d0b9288f351dae7d77922612
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9eb50922361c817de8047dece4849a9b221677f0
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241482"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155922"
 ---
 # <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Tutorial: Dimensionar aplicativos no Serviço de Aplicativo do Azure usando o Ansible
 

@@ -3,17 +3,13 @@ title: Tutorial – Atualizar a imagem personalizada dos Conjuntos de Dimensiona
 description: Saiba como usar o Ansible para atualizar um conjunto de dimensionamento de máquinas virtuais no Azure com a imagem personalizada
 keywords: ansible, azure, devops, bash, guia estratégico, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 3b7baffe6ce0fadbac2dd56b9c8296c80546fa72
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241339"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155855"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Tutorial: Atualizar a imagem personalizada dos conjuntos de dimensionamento de máquinas virtuais do Azure usando o Ansible
 

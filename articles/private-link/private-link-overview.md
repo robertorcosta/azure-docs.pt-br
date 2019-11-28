@@ -2,17 +2,17 @@
 title: O que é o Link Privado do Azure?
 description: Saiba como usar o Link Privado do Azure para acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/clientes hospedados no Azure em um ponto de extremidade privado em sua rede virtual.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: overview
 ms.date: 11/04/2019
-ms.author: kumud
-ms.openlocfilehash: aa176cb5ffc67ebba826cf13a1a66608301af5e5
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: allensu
+ms.openlocfilehash: e33fce7b3fc19d6dfa83f95b6a9bcb43588945d1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601523"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228067"
 ---
 # <a name="what-is-azure-private-link-preview"></a>O que é o Link Privado do Azure? (Visualização)
 O Link Privado do Azure te habilita a acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um [Ponto de Extremidade Privado](private-endpoint-overview.md) em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Também é possível criar seu próprio [Serviço de Link Privado](private-link-service-overview.md) em sua VNet (rede virtual) e fornecê-lo de forma privada aos seus clientes. A experiência de configuração e consumo usando o Link Privado do Azure é consistente entre os serviços de parceiro de PaaS do Azure, de propriedade do cliente e de parceiros compartilhados.

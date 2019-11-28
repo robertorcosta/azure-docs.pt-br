@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 6af6a6b334d29c6ff813a9b2ff35153aed239b1b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967142"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229854"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -104,7 +104,7 @@ O relatório Impacto de Compra de Instância Reservada pode ajudar a responder a
 
 No portal do Cloudyn, navegue até **Otimizador** > **Comparação de RI** e selecione **Impacto de Compra de Instância Reservada**.
 
-No relatório Impacto de Compra de Instância Reservada, selecione um tamanho de VM (tipo de instância), local (região), prazo de reserva, quantidade e tempo de execução esperado. Em seguida, avalie se sua compra resultará em economias.
+No relatório Impacto de Compra de Instância Reservada, selecione um tamanho de VM (tipo de instância), local (região), prazo de reserva, quantidade e runtime esperado. Em seguida, avalie se sua compra resultará em economias.
 
 Por exemplo, se você comprar uma reserva para uma VM do tipo DS1\_v2 no Leste dos EUA que é executada 24 horas por dia, 7 dias por semana durante um ano inteiro, poderá economizar US$ 369,48 por ano. O ponto de neutralização de custo ocorre em cinco meses. Veja a seguinte imagem:
 

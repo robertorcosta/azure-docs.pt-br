@@ -1,18 +1,14 @@
 ---
 title: Usar o plug-in do Azure Dev Spaces para Jenkins com o Serviço de Kubernetes do Azure
 description: Saiba como usar o plug-in do Azure Dev Spaces em um pipeline de integração contínua.
-author: tomarchermsft
-ms.author: tarcher
-ms.service: jenkins
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 10/23/2019
-ms.openlocfilehash: 7bc2bb63f1382d1c7fd7e436dd5ddfa278262526
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 9dba0307db8ebbf07422fd770ea336b2abc031bd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881876"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209664"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Tutorial: Usar o plug-in do Azure Dev Spaces para Jenkins com o Serviço de Kubernetes do Azure 
 
@@ -131,7 +127,7 @@ Para obter mais informações sobre como usar o Azure Dev Spaces e o desenvolvim
     O comando `azds prep` da CLI do Dev Spaces gera ativos do Docker e do Kubernetes com as configurações padrão. Esses arquivos persistirem pelo tempo de vida do projeto e podem ser personalizados:
 
     * `./Dockerfile` e `./Dockerfile.develop` descrevem a imagem de contêiner do aplicativo e como o código-fonte é compilado e executado no contêiner.
-    * Um [Gráfico Helm](https://helm.sh/docs/developing_charts/) em `./charts/webfrontend` descreve como implantar o contêiner no Kubernetes.
+    * Um [Gráfico Helm](https://helm.sh/docs/topics/charts/) em `./charts/webfrontend` descreve como implantar o contêiner no Kubernetes.
     * `./azds.yaml` é o arquivo de configuração do Azure Dev Spaces.
 
     Para obter mais informações, confira [Como o Azure Dev Spaces funciona e é configurado](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).

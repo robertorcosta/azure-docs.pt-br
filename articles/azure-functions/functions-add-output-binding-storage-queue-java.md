@@ -1,18 +1,14 @@
 ---
 title: Conectar a função Java ao Armazenamento do Azure
 description: Saiba como conectar uma função Java disparada por HTTP ao Armazenamento do Azure usando uma associação de saída do Armazenamento de Filas.
-author: ggailey777
-ms.author: glenga
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: c78630af7d09cc911862c8e823c5dfeee9cabbd9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333398"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231200"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conectar a função Java ao Armazenamento do Azure
 
@@ -69,7 +65,7 @@ Agora, você pode usar o novo parâmetro `msg` para fazer a gravação na associ
 msg.setValue(name);
 ```
 
-Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O tempo de execução do Functions e a associação de saída da fila fazem essas tarefas para você.
+Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O runtime do Functions e a associação de saída da fila fazem essas tarefas para você.
 
 O método `run` agora deverá ser semelhante ao seguinte exemplo:
 

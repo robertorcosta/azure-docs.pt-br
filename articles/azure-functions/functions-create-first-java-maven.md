@@ -2,18 +2,15 @@
 title: Usar o Java e o Maven para publicar uma função no Azure
 description: Crie e publique uma função disparada por HTTP no Azure com o Java e o Maven.
 author: rloutlaw
-manager: gwallace
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: glenga
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5c51e445aaa27f3f83627ccf0da8fb80e01f156c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cb43f558a5c983a8a4cc3823b278b75cb8cde78d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329517"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230738"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Início Rápido: Usar o Java e o Maven para criar e publicar uma função no Azure
 

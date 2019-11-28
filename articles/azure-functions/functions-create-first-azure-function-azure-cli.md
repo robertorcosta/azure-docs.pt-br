@@ -1,20 +1,16 @@
 ---
 title: Criar sua primeira função usando a CLI do Azure
 description: Aprenda a criar sua primeira função do Azure para execução sem servidor usando a CLI do Azure e o Azure Functions Core Tools.
-author: ggailey777
-ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 11/13/2018
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc
-manager: gwallace
-ms.openlocfilehash: 1d0c6edf250e49fe966388253617181ed2b3dff1
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 147ad4bd20ee1c7ae8f1529e1b3bc0e4f3e7dbb0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329650"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230851"
 ---
 # <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Início Rápido: Criar sua primeira função por meio da linha de comando usando a CLI do Azure
 
@@ -52,7 +48,7 @@ Antes de executar este exemplo, você deve ter o seguinte:
 
 Você deve ter um aplicativo de funções para hospedar a execução de suas funções. O aplicativo de funções fornece um ambiente para execução sem servidor do seu código de função. Ele permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos. Crie um aplicativo de funções ao usar o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
-No comando a seguir, substitua um nome de aplicativo de funções exclusivo quando você vir o espaço reservado `<APP_NAME>` e o nome da conta de armazenamento por `<STORAGE_NAME>`. O `<APP_NAME>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. É possível definir o tempo de execução de `<language>` para seu aplicativo de funções, do `dotnet` (C#) ou `node` (JavaScript).
+No comando a seguir, substitua um nome de aplicativo de funções exclusivo quando você vir o espaço reservado `<APP_NAME>` e o nome da conta de armazenamento por `<STORAGE_NAME>`. O `<APP_NAME>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. É possível definir o runtime de `<language>` para seu aplicativo de funções, do `dotnet` (C#) ou `node` (JavaScript).
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westeurope \

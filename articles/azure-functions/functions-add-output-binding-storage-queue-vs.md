@@ -1,19 +1,15 @@
 ---
 title: Conectar funções ao Armazenamento do Azure usando o Visual Studio
 description: Saiba como associar dados de saída para conectar suas funções da biblioteca de classes do C# a uma fila do Armazenamento do Azure usando o Visual Studio.
-author: ggailey777
-ms.author: glenga
 ms.date: 07/22/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc
-manager: gwallace
-ms.openlocfilehash: 383401c1486bcbebc39b64d5794f8bdc660d2778
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bd899c5cc7aafc5b3349cf4cec9098a849665a2d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329628"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227434"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conectar funções ao Armazenamento do Azure usando o Visual Studio
 
@@ -65,7 +61,7 @@ Agora, você pode adicionar a associação de saída do armazenamento ao seu pro
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicionar o código que usa a associação de saída
 
-Depois que a associação é definida, você pode usar o `name` da associação para acessá-la como um atributo na assinatura de função. Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O tempo de execução do Functions e a associação de saída da fila fazem essas tarefas para você.
+Depois que a associação é definida, você pode usar o `name` da associação para acessá-la como um atributo na assinatura de função. Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O runtime do Functions e a associação de saída da fila fazem essas tarefas para você.
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
@@ -73,7 +69,7 @@ Depois que a associação é definida, você pode usar o `name` da associação 
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
-Uma nova fila denominada `outqueue` é criada na conta de armazenamento pelo tempo de execução do Functions quando a associação de saída é usada pela primeira vez. Você usará o Cloud Explorer para verificar se a fila foi criada junto com a nova mensagem.
+Uma nova fila denominada `outqueue` é criada na conta de armazenamento pelo runtime do Functions quando a associação de saída é usada pela primeira vez. Você usará o Cloud Explorer para verificar se a fila foi criada junto com a nova mensagem.
 
 ## <a name="examine-the-output-queue"></a>Examinar a fila de saída
 

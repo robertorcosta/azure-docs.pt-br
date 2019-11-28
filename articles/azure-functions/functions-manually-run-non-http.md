@@ -1,20 +1,16 @@
 ---
 title: Executar manualmente Azure Functions não disparadas por HTTP
 description: Use uma solicitação HTTP para executar Azure Functions não disparadas por HTTP
-services: functions
-keywords: ''
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: cfebe5c783018cfab51f384cce578e43383c3905
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8198ff6579aff839ff9aacb729e2f3f8d3472fae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479820"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230467"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não disparada por HTTP
 

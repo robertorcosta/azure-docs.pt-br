@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/29/2018
-ms.openlocfilehash: 85e2216e39658fde42f298dabc38c737621d6be4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 22b8558c8808afacc6ef92bd0fd41d3adbc92bf5
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178033"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533838"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Visão geral – O que são Aplicativos Lógicos do Azure?
 
@@ -42,7 +42,7 @@ Cada fluxo de trabalho do aplicativo lógico começa com um gatilho, que é acio
 
 Cada vez que o disparador é acionado, o mecanismo de Aplicativo Lógico cria uma instância de aplicativo lógico que executa as ações no fluxo de trabalho. Essas ações também podem incluir conversões de dados e controles de fluxo, como instruções condicionais, instruções de comutação, loops e ramificações. Por exemplo, esse aplicativo lógico começa com um gatilho Dynamics 365 com os critérios internos "Quando um registro é atualizado". Se o gatilho detectar um evento que corresponde a esses critérios, o gatilho será acionado e executará ações do fluxo de trabalho. Aqui, essas ações incluem transformação XML, atualizações de dados, ramificação de decisões e notificações por email.
 
-![Designer de Aplicativos Lógicos - exemplo de aplicativo lógico](./media/logic-apps-overview/azure-logic-apps-overview.png)
+![Designer de Aplicativos Lógicos - exemplo de aplicativo lógico](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
 Você pode criar seus aplicativos lógicos visualmente com o Designer de Aplicativos Lógicos, disponível no portal do Azure através do navegador e no Visual Studio. Para mais aplicativos lógicos personalizados, você pode criar ou editar definições de aplicativo lógico em JavaScript Object Notation (JSON) trabalhando no editor de “exibição de código”. Você também pode usar comandos do Azure PowerShell e modelos do Azure Resource Manager para selecionar tarefas. Os aplicativos lógicos implantam e são executados na nuvem no Azure. Para obter uma introdução mais detalhada, assista a este vídeo: [Usar o Azure Enterprise Integration Services para executar aplicativos de nuvem em escala](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
@@ -52,7 +52,7 @@ Com empresas migrando para a digitalização, os aplicativos lógicos ajudarão 
 
 Em muitos casos, você não precisará codificar nada. Mas se você precisar codificar alguma coisa, poderá criar snippets de código com o [Azure Functions](../azure-functions/functions-overview.md) e executar esse código sob demanda dos aplicativos lógicos. Além disso, se seus aplicativos lógicos precisam interagir com eventos de serviços do Azure, aplicativos personalizados ou soluções de terceiros, você pode usar a [Grade de Eventos do Azure](../event-grid/overview.md) com seus aplicativos lógicos para eventos de monitoramento, roteamento e publicação.
 
-Os Aplicativos Lógicos, o Functions e a Grade de Eventos são totalmente gerenciados pelo Microsoft Azure, o que o livra de preocupações sobre criação, hospedagem, dimensionamento, gerenciamento, monitoramento e manutenção das suas soluções. A capacidade de criar [aplicativos e soluções "sem servidor"](../logic-apps/logic-apps-serverless-overview.md) para que você possa se concentrar na lógica de negócios. Esses serviços são dimensionados automaticamente para atender às suas necessidades, agilizar integrações e ajudá-lo a criar aplicativos de nuvem robustos com o mínimo de código. Além disso, você paga apenas pelo que usa com base no consumo de um [modelo de preços](../logic-apps/logic-apps-pricing.md).
+Os Aplicativos Lógicos, o Functions e a Grade de Eventos são totalmente gerenciados pelo Microsoft Azure, o que o livra de preocupações sobre criação, hospedagem, dimensionamento, gerenciamento, monitoramento e manutenção das suas soluções. A capacidade de criar [aplicativos e soluções "sem servidor"](../logic-apps/logic-apps-serverless-overview.md) para que você possa se concentrar na lógica de negócios. Esses serviços são dimensionados automaticamente para atender às suas necessidades, agilizar integrações e ajudá-lo a criar aplicativos de nuvem robustos com o mínimo de código.
 
 Para saber como as empresas aprimoraram a agilidade e o foco em seus negócios principais ao combinar os aplicativos lógicos com outros serviços do Azure e produtos da Microsoft, confira essas [histórias](https://aka.ms/logic-apps-customer-stories).
 

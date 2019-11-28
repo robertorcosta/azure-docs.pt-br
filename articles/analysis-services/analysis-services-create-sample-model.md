@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f76ec20da73c778d024feea9df113de9e4aa0fe9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573079"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326570"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo do portal
 
@@ -73,6 +73,6 @@ Essas etapas descrevem como excluir um modelo de um servidor usando o SSMS.
 Neste tutorial, você aprendeu como adicionar um modelo de exemplo básico, ao seu servidor. Agora que você tem um modelo de banco de dados, você pode se conectar a ele partir do SQL Server Management Studio e adicionar funções de usuário. Para saber mais, continue com o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configurar funções de administrador do servidor e usuário](analysis-services-database-users.md)
+> [Tutorial: Configurar funções de administrador do servidor e usuário](tutorials/analysis-services-tutorial-roles.md)
 
 

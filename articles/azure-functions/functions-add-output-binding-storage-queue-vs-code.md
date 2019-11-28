@@ -1,18 +1,14 @@
 ---
 title: Conectar funções ao Armazenamento do Azure usando o Visual Studio Code
 description: Saiba como associar dados de saída para conectar suas funções a uma fila do Armazenamento do Azure usando o Visual Studio Code.
-author: ggailey777
-ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: 951e48e591f490ea6321329352fd798fea58855d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: baddb6f02fe3d9c66e3c52d826ffe70c151d313e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329698"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227446"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Conectar funções ao Armazenamento do Azure usando o Visual Studio Code
 
@@ -80,7 +76,7 @@ No Functions, cada tipo de associação requer que um `direction`, `type` e um `
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicionar o código que usa a associação de saída
 
-Depois que a associação é definida, você pode usar o `name` da associação para acessá-la como um atributo na assinatura de função. Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O tempo de execução do Functions e a associação de saída da fila fazem essas tarefas para você.
+Depois que a associação é definida, você pode usar o `name` da associação para acessá-la como um atributo na assinatura de função. Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O runtime do Functions e a associação de saída da fila fazem essas tarefas para você.
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9feb9be5e76f91ab55ec1b3e60eb79ab5e246f4f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aaa03e04167cc579cb19885a66db369a3e11176a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683742"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546915"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
@@ -62,7 +62,7 @@ Crie um Banco de Dados SQL do Azure contendo dados de exemplo do Adventure Works
 
 1. Se você não tiver um SQL Data Warehouse do Azure, veja o artigo [Criar um SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) para conhecer as etapas para criar um.
 
-1. Crie os esquemas de tabela correspondentes no SQL Data Warehouse. Você pode usar o [Utilitário de Migração](https://www.microsoft.com/download/details.aspx?id=49100) para **migrar o esquema** do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure. Você usa o Azure Data Factory para migrar/copiar dados em uma etapa posterior.
+1. Crie os esquemas de tabela correspondentes no SQL Data Warehouse. Você usa o Azure Data Factory para migrar/copiar dados em uma etapa posterior.
 
 ## <a name="azure-services-to-access-sql-server"></a>Permitir que os serviços do Azure acessem o SQL Server
 

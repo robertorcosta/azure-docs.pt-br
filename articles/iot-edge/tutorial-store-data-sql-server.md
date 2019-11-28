@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, seodec18
-ms.openlocfilehash: c03b0dcf6a99611a0261fad7c4ba673c3a8932c9
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: mvc
+ms.openlocfilehash: 5a3133100621cee2e786c4001df02f2316b1e4ec
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122846"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457056"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na borda com os bancos de dados do SQL Server
 
@@ -75,7 +75,7 @@ As etapas a seguir mostram como criar uma função do IoT Edge usando o Visual S
    
 ### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
 
-O arquivo do ambiente armazena as credenciais para o registro de contêiner e as compartilha com o tempo de execução do IoT Edge. O tempo de execução precisa dessas credenciais para efetuar pull de imagens privadas para o dispositivo IoT Edge.
+O arquivo do ambiente armazena as credenciais para o registro de contêiner e as compartilha com o runtime do IoT Edge. O runtime precisa dessas credenciais para efetuar pull de imagens privadas para o dispositivo IoT Edge.
 
 1. No explorador do VS Code, abra o arquivo .env.
 2. Atualize os campos com os valores de **nome de usuário** e **senha** que você copiou do registro de contêiner do Azure.
@@ -202,7 +202,7 @@ No momento, o Visual Studio Code pode desenvolver módulos em C para os disposit
 
 ## <a name="add-the-sql-server-container"></a>Adicionar o contêiner do SQL Server
 
-Um [Manifesto de implantação](module-composition.md) declara quais módulos o tempo de execução do IoT Edge instalará em seu dispositivo IoT Edge. Você forneceu o código para criar um módulo do Function personalizado na seção anterior, mas o módulo do SQL Server já foi criado e está disponível no Azure Marketplace. Você precisa solicitar que o tempo de execução do IoT Edge o inclua. Depois, configure-o em seu dispositivo. 
+Um [Manifesto de implantação](module-composition.md) declara quais módulos o runtime do IoT Edge instalará em seu dispositivo IoT Edge. Você forneceu o código para criar um módulo do Function personalizado na seção anterior, mas o módulo do SQL Server já foi criado e está disponível no Azure Marketplace. Você precisa solicitar que o runtime do IoT Edge o inclua. Depois, configure-o em seu dispositivo. 
 
 1. No Visual Studio Code, abra a paleta de comandos selecionando **Exibição** > **Paleta de Comandos**.
 
