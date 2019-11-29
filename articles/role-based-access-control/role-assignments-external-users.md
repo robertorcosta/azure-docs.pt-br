@@ -16,12 +16,12 @@ ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 5ed9088bcc5776fe1fb0d09e6ae771adabb1b879
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51945940a0f0fd0346e9437c4ad0631f989e0a92
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802681"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555556"
 ---
 # <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Gerenciar o acesso aos recursos do Azure para usuários convidados externos usando o RBAC
 
@@ -201,9 +201,9 @@ Se um usuário convidado tiver recebido acesso a um diretório, mas não vir os 
 
 ![Diretórios + painel de assinaturas no portal do Azure](./media/role-assignments-external-users/directory-subscription.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicionar usuários de colaboração B2B do Azure Active Directory no Portal do Azure](../active-directory/b2b/add-users-administrator.md)
 - [Propriedades de um usuário de colaboração B2B do Azure Active Directory](../active-directory/b2b/user-properties.md)
 - [Os elementos do convite de colaboração B2B email-Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
-- [Adicionando um usuário convidado como um coadministrador](classic-administrators.md#adding-a-guest-user-as-a-co-administrator)
+- [Adicionar um usuário convidado como um coadministrador](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

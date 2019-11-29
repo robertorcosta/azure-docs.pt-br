@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: b17cdb2ec27676d5d20d6f12bad309368fe32aa3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bc6c33762fa572e971fff9dee8988a100e50b07c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006796"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561136"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar o ambiente do Time Series Insights
 
@@ -34,13 +34,13 @@ No entanto, não é permitido alterar a SKU da camada de preços. Por exemplo, u
 
 1. No Portal do Azure, localize e selecione seu ambiente Time Series Insights.
 
-1. No menu de seu ambiente do Time Series Insights, escolha **Configurar**.
+1. No menu de seu ambiente de Time Series Insights, selecione **configuração de armazenamento**.
 
-   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![configurar sua capacidade de Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Ajuste o controle deslizante **Capacidade** para selecionar a capacidade que atenda aos requisitos de suas taxas de entrada e capacidade de armazenamento. Observe que a **Taxa de entrada**, a **Capacidade de armazenamento** e o **Custo estimado** são atualizadas dinamicamente para mostrar o impacto da alteração.
 
-   [Controle deslizante de ![](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [![configurar seu ambiente usando o controle deslizante capacidade](media/scale-your-environment/scale-your-environment-slider.png)](media/scale-your-environment/scale-your-environment-slider.png#lightbox)
 
    Como alternativa, você pode digitar o número do multiplicador de capacidade na caixa de texto à direita do controle deslizante.
 
@@ -48,7 +48,7 @@ No entanto, não é permitido alterar a SKU da camada de preços. Por exemplo, u
 
 1. Verifique se a nova capacidade é [suficiente para evitar a limitação](time-series-insights-diagnose-and-solve-problems.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para mais informações, veja [Noções básicas sobre retenção no Time Series Insights](time-series-insights-concepts-retention.md).
 

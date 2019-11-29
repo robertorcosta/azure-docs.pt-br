@@ -4,12 +4,12 @@ description: Neste artigo, saiba como configurar, iniciar e gerenciar operaçõe
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: c929f820862f5d041b4a63a1ca9c083abf1a1e4c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4f73958a46e408f85d1f23371552aad0d5540184
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173455"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554901"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o Backup do Azure por meio da API REST
 
@@ -41,7 +41,7 @@ A operação “atualizar” é uma [operação assíncrona](https://docs.micros
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|NOME  |Digite  |DESCRIÇÃO  |
+|name  |Type  |Descrição  |
 |---------|---------|---------|
 |204 Sem Conteúdo     |         |  OK sem conteúdo retornado      |
 |202 Aceito     |         |     Aceita    |
@@ -104,7 +104,7 @@ O URI *GET* tem todos os parâmetros necessários. Nenhum corpo da solicitação
 
 #### <a name="responses-1"></a>Response
 
-|NOME  |Digite  |DESCRIÇÃO  |
+|name  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -162,7 +162,7 @@ No exemplo, os valores acima são traduzidos para:
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Habilitar a proteção para a VM do Azure
 
-Após a VM relevante ser "armazenada em cache" e "identificada", selecione a política para proteção. Para saber mais sobre as políticas existentes no cofre, veja a [Lista de políticas de API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Em seguida, selecione a [política relevante](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/get) referindo-se ao nome da política. Para criar políticas, veja o [tutorial de criação de políticas](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" está selecionado no exemplo abaixo.
+Após a VM relevante ser "armazenada em cache" e "identificada", selecione a política para proteção. Para saber mais sobre as políticas existentes no cofre, veja a [Lista de políticas de API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Em seguida, selecione a [política relevante](/rest/api/backup/protectionpolicies/get) referindo-se ao nome da política. Para criar políticas, veja o [tutorial de criação de políticas](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" está selecionado no exemplo abaixo.
 
 A habilitação da proteção é uma operação *PUT* assíncrona que cria um “item protegido”.
 
@@ -180,9 +180,9 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Para criar um item protegido, confira a seguir os componentes do corpo da solicitação.
 
-|NOME  |Digite  |DESCRIÇÃO  |
+|name  |Type  |Descrição  |
 |---------|---------|---------|
-|propriedades     | AzureIaaSVMProtectedItem        |Propriedades do recurso ProtectedItem         |
+|properties     | AzureIaaSVMProtectedItem        |Propriedades do recurso ProtectedItem         |
 
 Para obter uma lista de definições de corpo da solicitação e outros detalhes, veja o [documento sobre a criação de itens protegidos da API REST](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body).
 
@@ -208,7 +208,7 @@ A criação de um item protegido é uma [operação assíncrona](https://docs.mi
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|NOME  |Digite  |DESCRIÇÃO  |
+|name  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 Aceito     |         |     Aceita    |
@@ -235,7 +235,7 @@ Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreie a operação resultante usando o cabeçalho de local ou o cabeçalho Azure-AsyncOperation com um simples comando *GET*.
+Em seguida, rastreie a operação resultante usando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET*.
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
@@ -294,9 +294,9 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Para disparar um backup sob demanda, a seguir estão os componentes do corpo da solicitação.
 
-|NOME  |Digite  |DESCRIÇÃO  |
+|name  |Type  |Descrição  |
 |---------|---------|---------|
-|propriedades     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriedades de BackupRequestResource         |
+|properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriedades de BackupRequestResource         |
 
 Para obter uma lista de definições de corpo da solicitação e outros detalhes, veja o [documento sobre como disparar backups de itens protegidos da API REST](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
 
@@ -319,7 +319,7 @@ Disparar um backup sob demanda é uma [operação assíncrona](https://docs.micr
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|NOME  |Digite  |DESCRIÇÃO  |
+|name  |Type  |Descrição  |
 |---------|---------|---------|
 |202 Aceito     |         |     Aceita    |
 
@@ -345,7 +345,7 @@ Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreie a operação resultante usando o cabeçalho de local ou o cabeçalho Azure-AsyncOperation com um simples comando *GET*.
+Em seguida, rastreie a operação resultante usando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET*.
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
@@ -439,12 +439,12 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 204 (NoContent) quando a operação é concluída.
 
-|NOME  |Digite  |DESCRIÇÃO  |
+|name  |Type  |Descrição  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 Aceito     |         |     Aceita    |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Restaurar dados de um backup de máquina virtual do Azure](backup-azure-arm-userestapi-restoreazurevms.md).
 

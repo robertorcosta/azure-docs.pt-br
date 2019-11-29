@@ -9,18 +9,18 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/12/2019
+ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 5b02b79980ebe5ea91a1cf16d3ea453ebef3bf08
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9b8b3600acc33e177e65002ba69dcf98a20c2253
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279789"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555339"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar pontos de extremidade de serviço de Rede Virtual com Hubs de Eventos do Azure
 
-A integração dos hubs de eventos com [pontos de extremidade de serviço de rede virtual (VNet)][vnet-sep] permite o acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede protegido em ambos lados.
+A integração dos hubs de eventos com [pontos de extremidade de serviço de rede virtual (VNet)][vnet-sep] permite o acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede protegido em ambas as extremidades.
 
 Uma vez configurado para ser associado a pelo menos um ponto de extremidade de serviço de sub-rede de rede virtual, o respectivo namespace de hubs de eventos não aceitará mais o tráfego de qualquer lugar, mas de sub-redes autorizadas em redes virtuais. Da perspectiva da rede virtual, a associação de um namespace de Hubs de Eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens. 
 
@@ -33,7 +33,8 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 > Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas.
 >
 > Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
-> - Stream Analytics do Azure
+> - Integração com o Azure Monitor. Não é possível transmitir logs de diagnóstico de **outros** serviços do Azure para os hubs de eventos. No entanto, você pode habilitar os logs de diagnóstico do Azure no próprio Hub de eventos. É o mesmo caso em que o firewall (filtragem de IP) está habilitado.
+> - Azure Stream Analytics
 > - Integração com a Grade de Eventos do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
@@ -65,21 +66,21 @@ A regra da rede virtual é uma associação do namespace de Hubs de Eventos com 
 
 O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual em um namespace de Hubs de Eventos existente.
 
-Parâmetros do modelo:
+Parâmetros de modelo:
 
 * **namespaceName**: namespace de Hubs de Eventos.
 * **vnetRuleName**: nome da regra da Rede Virtual a ser criada.
 * **virtualNetworkingSubnetId**: caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , o que não restringe as conexões.
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
 > Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
-> from
+> Da
 > ```json
 > "defaultAction": "Allow"
 > ```
-> Para
+> para
 > ```json
 > "defaultAction": "Deny"
 > ```
@@ -185,7 +186,7 @@ Parâmetros do modelo:
 
 Para implantar o modelo, siga as instruções para [Azure Resource Manager][lnk-deploy].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre redes virtuais, consulte os links a seguir:
 

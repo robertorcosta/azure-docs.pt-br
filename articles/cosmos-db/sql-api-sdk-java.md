@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: eb8110c953787d1ebf7f01037808ee77db2eb8b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934153"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561883"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -39,9 +39,12 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 |**Contribuir para o SDK**|[Github](https://github.com/Azure/azure-documentdb-java/)|
 |**Introdução**|[Introdução ao SDK do Java](sql-api-java-get-started.md)|
 |**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-java-application.md)|
-|**Tempo de execução mínimo com suporte**|[Java Development Kit (JDK) 7 +](https://aka.ms/azure-jdks)|
+|**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* Evitando a repetição em um erro de intervalo de chaves de partição inválido, se o usuário fornecer pkRangeId.
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
 * Atualizações otimizadas do cache do intervalo de chaves de partição.

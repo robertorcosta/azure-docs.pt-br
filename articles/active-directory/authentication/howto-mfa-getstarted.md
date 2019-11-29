@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab4b57513f90a5cbe80724d4937f8d0f87b5517
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381775"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558546"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -24,7 +24,7 @@ As pessoas estão se conectando a recursos organizacionais em cenários cada vez
 
 A [autenticação multifator do Azure (MFA)](concept-mfa-howitworks.md) ajuda a proteger o acesso a dados e aplicativos. Ele fornece uma camada adicional de segurança usando uma segunda forma de autenticação. As organizações podem usar o [acesso condicional](../conditional-access/overview.md) para fazer com que a solução atenda às suas necessidades específicas.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar uma implantação da autenticação multifator do Azure, há itens de pré-requisito que devem ser considerados.
 
@@ -277,18 +277,18 @@ Se você já tiver uma instância do NPS implantada e em uso, [a referência int
 
 Escolha o que acontece quando os usuários que não estão registrados com o MFA tentam se autenticar. Use a configuração do registro `REQUIRE_USER_MATCH` no caminho do registro `HKLM\Software\Microsoft\AzureMFA` para controlar o comportamento do recurso. Essa configuração tem uma única opção de configuração.
 
-| Chave | Valor | Padrão |
+| Chave | Value | Padrão |
 | --- | --- | --- |
-| `REQUIRE_USER_MATCH` | TRUE/FALSE | Não definido (equivalente a TRUE) |
+| `REQUIRE_USER_MATCH` | VERDADEIRO/FALSO | Não definido (equivalente a TRUE) |
 
 A finalidade dessa configuração é determinar o que fazer quando um usuário não estiver inscrito na MFA. Os efeitos da alteração dessa configuração são listados na tabela a seguir.
 
 | Configurações | Status de MFA do usuário | Effect |
 | --- | --- | --- |
 | A chave não existe | Não registrado | O desafio de MFA não foi bem-sucedido |
-| Valor definido como True/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
-| Chave definida como False | Não registrado | Autenticação sem MFA |
-| Chave definida como Falsa ou True | Registrados | Deve autenticar com MFA |
+| Valor definido como true/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
+| Chave definida como false | Não registrado | Autenticação sem MFA |
+| Chave definida como falsa ou verdadeira | Registrados | Deve autenticar com MFA |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrar com o Serviços de Federação do Active Directory (AD FS)
 
@@ -347,7 +347,7 @@ Relatórios para o Azure MFA
 
 A autenticação multifator do Azure fornece relatórios por meio do portal do Azure:
 
-| Relatório | Local padrão | DESCRIÇÃO |
+| Relate | Location | Descrição |
 | --- | --- | --- |
 | Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
 
@@ -355,8 +355,8 @@ A autenticação multifator do Azure fornece relatórios por meio do portal do A
 
 Encontre soluções para problemas comuns com o Azure MFA no [artigo solução de problemas da autenticação multifator do Azure](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) no centro de suporte da Microsoft.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Quais são os métodos de autenticação?](concept-authentication-methods.md)
 * [Habilitar registro convergido para a Autenticação Multifator do Microsoft Azure Active Directory e a redefinição de senha por autoatendimento do Microsoft Azure AD](concept-registration-mfa-sspr-converged.md)
-* Por que foi um usuário solicitado ou não é solicitado a executar a MFA? Consulte a seção [relatório de entradas do Microsoft Azure Active Directory nos relatórios do documento de autenticação multifator do Azure](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* Por que foi um usuário solicitado ou não é solicitado a executar a MFA? Consulte a seção [relatório de entradas do Azure AD nos relatórios do documento de autenticação multifator do Azure](howto-mfa-reporting.md#azure-ad-sign-ins-report).

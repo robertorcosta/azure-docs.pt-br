@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: c71fb8a7e18439817023874146e22c29a5af3b12
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: cb37bd0c83956b9858639a78d4995e14811498e5
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123691"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559336"
 ---
 # <a name="hyperscale-service-tier"></a>Tipo de serviço de Hiperescala
 
@@ -166,11 +166,11 @@ Se você precisar restaurar um BD de hiperescala do banco de dados SQL do Azure 
 
 No momento, a camada de hiperescala do banco de dados SQL do Azure está disponível nas seguintes regiões:
 
-- Leste da Austrália
+- Austrália Oriental
 - Sudeste da Austrália
 - Sul do Brasil
 - Canadá Central
-- Centro dos EUA
+- EUA Central
 - Leste da China 2
 - Norte da China 2
 - Ásia Oriental
@@ -182,13 +182,13 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Coreia Central
 - Sul da Coreia
 - Centro-Norte dos EUA
-- Norte da Europa
+- Europa Setentrional
 - Norte da África do Sul
-- Centro-Sul dos Estados Unidos
+- Centro-Sul dos EUA
 - Sudeste Asiático
 - Sul do Reino Unido
 - Oeste do Reino Unido
-- Europa Ocidental
+- Oeste da Europa
 - Oeste dos EUA
 - Oeste dos EUA 2
 
@@ -236,7 +236,7 @@ Para solicitar a capacidade de criar bancos de dados de hiperescala em regiões 
 ## <a name="known-limitations"></a>Limitações conhecidas
 Essas são as limitações atuais da camada de serviço de hiperescala a partir do GA.  Estamos trabalhando ativamente para remover o máximo possível de limitações.
 
-| Problema | DESCRIÇÃO |
+| Problema | Descrição |
 | :---- | :--------- |
 | O painel gerenciar backups de um servidor lógico não mostra que os bancos de dados de hiperescala serão filtrados do SQL Server  | O hiperscale tem um método separado para gerenciar backups e, como tal, a retenção de longo prazo e as configurações de retenção de backup point-in-time não se aplicam/são invalidadas. Da mesma forma, os bancos de dados da Hiperescala não aparecem no painel Gerenciar Backup. |
 | Restauração pontual | Depois que um banco de dados é migrado para a camada de serviço de hiperescala, não há suporte para a restauração para um ponto no tempo antes da migração.|
@@ -246,16 +246,17 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Pools elásticos |  Atualmente, não há suporte para pools elásticos com a hiperescala do banco de dados SQL.|
 | Migração para Hiperescala é, no momento, uma operação unidirecional | Depois que um banco de dados é migrado para Hiperescala, ele não pode ser migrado diretamente para uma camada de serviço que não esteja em Hiperescala. No momento, a única maneira de migrar um banco de dados de hiperescala para não hiperescala é exportar/importar usando um arquivo BACPAC ou outras tecnologias de movimentação de dados (cópia em massa, Azure Data Factory, Azure Databricks, SSIS etc.)|
 | Migração de bancos de dados com objetos na memória persistentes | O hiperscale dá suporte apenas a objetos não persistentes na memória (tipos de tabela, SPs nativos e funções).  As tabelas persistentes na memória e outros objetos devem ser descartados e recriados como objetos não na memória antes de migrar um banco de dados para a camada de serviço de hiperescala.|
-| Controle de Alterações | Você ainda não pode configurar e usar Controle de Alterações com bancos de dados de hiperescala do SQL do Azure. |
+| Alterar acompanhamento | Você ainda não pode configurar e usar Controle de Alterações com bancos de dados de hiperescala do SQL do Azure. |
 | Replicação geográfica  | Você ainda não pode configurar a replicação geográfica para a hiperescala do banco de dados SQL do Azure. |
 | Cópia do banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |
 | Integração do TDE/AKV | A criptografia de banco de dados transparente usando Azure Key Vault (comumente conhecida como traga sua própria chave ou BYOK) ainda não tem suporte para a hiperescala do banco de dados SQL do Azure, no entanto, TDE com chaves gerenciadas por serviço tem suporte total. |
 |Recursos de banco de dados inteligente | Com exceção da opção "forçar plano", todas as outras opções de ajuste automático ainda não têm suporte em hiperescala: as opções podem parecer estar habilitadas, mas não haverá recomendações ou ações feitas. |
+| Reduzir banco de dados | Atualmente, não há suporte para DBCC SHRINKDATABASE ou DBCC SHRINKFILE com bancos de dados de hiperescala do SQL do Azure. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para perguntas frequentes sobre Hiperescala, confira [Perguntas frequentes sobre Hiperescala](sql-database-service-tier-hyperscale-faq.md).
 - Para obter informações sobre as camadas de serviço, consulte [camadas de serviço](sql-database-service-tiers.md)
 - Consulte [Visão geral dos limites de recursos em um servidor lógico](sql-database-resource-limits-logical-server.md) para obter informações sobre limites nos níveis de servidor e assinatura.
 - Para comprar os limites de modelo para um banco de dados individual, confira [Limites de modelo de compra baseado em vCore do Banco de Dados SQL do Azure para um banco de dados individual](sql-database-vcore-resource-limits-single-databases.md).
-- Para um recurso e lista de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
+- Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).

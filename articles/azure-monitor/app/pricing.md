@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 10/28/2019
+ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1749fb4c27a1bfa3048ec0e35c8a09556b0e995b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c08de444b691e7bdc1a378e307637fed15b390c3
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007730"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559088"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -52,9 +52,9 @@ O Application Insights facilita a compreensão de quais são seus custos com bas
 
 ![Escolher preços](./media/pricing/pricing-001.png)
 
-a. Examine o volume de dados do mês. Isso inclui todos os dados recebidos e mantidos (após qualquer [amostragem](../../azure-monitor/app/sampling.md)) de seu servidor e aplicativos cliente e dos testes de disponibilidade.  
+R. Examine o volume de dados do mês. Isso inclui todos os dados recebidos e mantidos (após qualquer [amostragem](../../azure-monitor/app/sampling.md)) de seu servidor e aplicativos cliente e dos testes de disponibilidade.  
 B. Uma cobrança separada é feita pelos [testes na Web de várias etapas](../../azure-monitor/app/availability-multistep.md). (Isso não inclui testes de disponibilidade simples, que são incluídos na cobrança de volume de dados).  
-c. Visualize as tendências do volume de dados do último mês.  
+C. Visualize as tendências do volume de dados do último mês.  
 D. Habilite a [amostragem](../../azure-monitor/app/sampling.md) de ingestão de dados.   
 E. Configure o limite de volume de dados diários.  
 
@@ -69,7 +69,7 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 ### <a name="using-data-volume-metrics"></a>Usando métricas de volume de dados
 <a id="understanding-ingested-data-volume"></a>
 
-Para saber mais sobre seus volumes de dados, selecionando **métricas** para o recurso Application insights, adicione um novo gráfico. Para a métrica do gráfico, em **métricas baseadas em log**, selecione **volume de ponto de dados**. Clique em **aplicar divisão**e selecione Agrupar por **tipo de Telemetryitem**.
+Para saber mais sobre seus volumes de dados, selecionando **métricas** para o recurso Application insights, adicione um novo gráfico. Para a métrica do gráfico, em **métricas baseadas em log**, selecione **volume de ponto de dados**. Clique em **aplicar divisão**e selecione agrupar por **`Telemetryitem` tipo**.
 
 ![Usar métricas para examinar o volume de dados](./media/pricing/10-billing.png)
 
@@ -124,7 +124,7 @@ dependencies
 O Azure fornece uma grande funcionalidade útil no gerenciamento de [custos do Azure +](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) Hub de cobrança. Por exemplo, a funcionalidade de "análise de custo" permite que você exiba seus gastos para os recursos do Azure. A adição de um filtro por tipo de recurso (para Microsoft. insights/componentes para Application Insights) permitirá que você acompanhe seus gastos.
 
 Mais informações sobre seu uso podem ser obtidas [baixando seu uso do portal do Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
-Na planilha baixada, você pode ver o uso por recurso do Azure por dia. Nesta planilha do Excel, o uso de seus recursos de Application Insights pode ser encontrado primeiro filtrando a coluna "categoria do medidor" para mostrar "Application Insights" e "Log Analytics" e, em seguida, adicionar um filtro na coluna "ID da instância" que é "contém Microsoft. insights/Components ".  A maior parte Application Insights uso é relatada em metros com a categoria de medidor de Log Analytics, já que há um único back-end de logs para todos os componentes de Azure Monitor.  Somente Application Insights recursos em tipos de preço herdados e testes na Web de várias etapas são relatados com uma categoria de medidor de Application Insights.  O uso é mostrado na coluna "quantidade consumida" e a unidade de cada entrada é mostrada na coluna "unidade de medida".  Mais detalhes estão disponíveis para ajudá-lo a [entender sua fatura de Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+Na planilha baixada, você pode ver o uso por recurso do Azure por dia. Nesta planilha do Excel, o uso de seus recursos de Application Insights pode ser encontrado primeiro filtrando a coluna "categoria do medidor" para mostrar "Application Insights" e "Log Analytics" e, em seguida, adicionar um filtro na coluna "ID da instância", que é "contém Microsoft. insights/Components".  A maior parte Application Insights uso é relatada em metros com a categoria de medidor de Log Analytics, já que há um único back-end de logs para todos os componentes de Azure Monitor.  Somente Application Insights recursos em tipos de preço herdados e testes na Web de várias etapas são relatados com uma categoria de medidor de Application Insights.  O uso é mostrado na coluna "quantidade consumida" e a unidade de cada entrada é mostrada na coluna "unidade de medida".  Mais detalhes estão disponíveis para ajudá-lo a [entender sua fatura de Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 
 ## <a name="managing-your-data-volume"></a>Gerenciando o volume de dados 
@@ -169,7 +169,7 @@ Para alterar o limite diário, na seção **Configurar** do recurso de Applicati
 
 Para [alterar o limite diário por meio de Azure Resource Manager](../../azure-monitor/app/powershell.md), a propriedade a ser alterada é a `dailyQuota`.  Por meio de Azure Resource Manager você também pode definir o `dailyQuotaResetTime` e a `warningThreshold`do limite diário. 
 
-## <a name="sampling"></a>Amostragem
+## <a name="sampling"></a>amostragem
 [Amostragem](../../azure-monitor/app/sampling.md) é um método de redução da taxa em que a telemetria é enviada para o seu aplicativo, enquanto mantém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico. Você também mantém contagens de eventos corretas.
 
 A amostragem é uma maneira eficiente de reduzir encargos e permanecer dentro de sua cota mensal. O algoritmo de amostragem mantém itens de telemetria relacionados, para que, por exemplo, quando Pesquisar for utilizado, você possa encontrar a solicitação relacionada a uma exceção específica. O algoritmo também mantém contagens corretas, para que você veja os valores corretos no Metrics Explorer referentes a taxas de solicitação, taxas de exceção e outras contagens.
@@ -203,7 +203,7 @@ Para alterar a retenção, de seu Application Insights recurso, vá para a pági
 
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-005.png)
 
-A retenção também pode ser [definida programaticamente usando o PowerShell](powershell.md#set-the-data-retention) usando o parâmetro `retentionInDays`. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de limpeza só é exposta por meio de Azure Resource Manager e deve ser usada com extrema atenção. 
+A retenção também pode ser [definida programaticamente usando o PowerShell](powershell.md#set-the-data-retention) usando o parâmetro `retentionInDays`. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de limpeza só é exposta por meio de Azure Resource Manager e deve ser usada com extrema atenção. A hora de redefinição diária para o limite do volume de dados pode ser configurada usando Azure Resource Manager para definir o parâmetro `dailyQuotaResetTime`. 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Cobranças de transferência de dados usando Application Insights
 
@@ -274,7 +274,7 @@ Como essa camada é aplicável somente a clientes com uma assinatura do Operatio
 Você pode escrever um script para definir o tipo de preço usando o gerenciamento de recursos do Azure. [Saiba como](powershell.md#price).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Amostragem](../../azure-monitor/app/sampling.md)
 

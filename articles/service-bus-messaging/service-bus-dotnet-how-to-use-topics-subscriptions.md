@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/15/2019
+ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991765"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560108"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
 
@@ -32,11 +32,11 @@ Este tutorial cobre as seguintes etapas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar sua [benefícios de assinante do MSDN ou Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou se inscreva em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga as etapas no [guia de início rápido: Usar o portal do Azure para criar um tópico do Barramento de Serviço e assinaturas para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para executar as seguintes tarefas:
-    1. Criar um barramento de serviço **namespace**.
-    2. Obter o **cadeia de caracteres de conexão**.
-    3. Criar uma **tópico** no namespace.
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no [início rápido: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
+    1. Crie um **namespace** do Barramento de Serviço.
+    2. Obtenha a **cadeia de conexão**.
+    3. Crie um **tópico** no namespace.
     4. Crie **uma assinatura** para o tópico no namespace.
 3. [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
 4. [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
@@ -75,16 +75,10 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
     static ITopicClient topicClient;
     ``` 
 
-3. Substitua o conteúdo padrão de `Main()` com a seguinte linha de código:
+3. Substitua o método `Main()` pelo seguinte método **async** `Main` que envia mensagens de forma assíncrona usando o método SendMessagesAsync que será adicionado na próxima etapa. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-   
-4. Diretamente após `Main()`, adicione o método `MainAsync()` assíncrono a seguir que chama o método de envio de mensagens:
-
-    ```csharp
-    static async Task MainAsync()
+    public static async Task Main(string[] args)
     {
         const int numberOfMessages = 10;
         topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
@@ -101,8 +95,7 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
         await topicClient.CloseAsync();
     }
     ```
-
-5. Diretamente após o método `MainAsync()`, adicione o método `SendMessagesAsync()` a seguir que realiza o trabalho de enviar o número de mensagens especificado pelo método `numberOfMessagesToSend` (atualmente definido como 10):
+5. Diretamente após o método `Main`, adicione o método `SendMessagesAsync()` a seguir que realiza o trabalho de enviar o número de mensagens especificado pelo método `numberOfMessagesToSend` (atualmente definido como 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -146,25 +139,20 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
             const string TopicName = "<your_topic_name>";
             static ITopicClient topicClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
+            public static async Task Main(string[] args)
             {
                 const int numberOfMessages = 10;
                 topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
-
+    
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
-
+    
                 // Send messages.
                 await SendMessagesAsync(numberOfMessages);
-
+    
                 Console.ReadKey();
-
+    
                 await topicClient.CloseAsync();
             }
 
@@ -200,7 +188,7 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
 
 ## <a name="receive-messages-from-the-subscription"></a>Receber mensagens da assinatura
 
-Para receber as mensagens enviadas por você, crie outro aplicativo de console .NET Core e instale o **Microsoft.Azure.ServiceBus** pacote NuGet, parecido com o aplicativo de remetente anterior.
+Para receber as mensagens enviadas, crie outro aplicativo de console do .NET Core e instale o pacote NuGet **Microsoft. Azure. ServiceBus** , semelhante ao aplicativo remetente anterior.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Escrever código para receber mensagens da assinatura
 
@@ -222,17 +210,11 @@ Para receber as mensagens enviadas por você, crie outro aplicativo de console .
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Substitua o conteúdo padrão de `Main()` com a seguinte linha de código:
+3. Substitua o método `Main()` pelo seguinte método **async** `Main`. Ele chama o método `RegisterOnMessageHandlerAndReceiveMessages()` que será adicionado na próxima etapa. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-4. Diretamente após `Main()`, adicione o método `MainAsync()` assíncrono a seguir que chama o método `RegisterOnMessageHandlerAndReceiveMessages()`:
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
 
         Console.WriteLine("======================================================");
@@ -244,11 +226,10 @@ Para receber as mensagens enviadas por você, crie outro aplicativo de console .
 
         Console.ReadKey();
 
-        await subscriptionClient.CloseAsync();
+        await subscriptionClient.CloseAsync();    
     }
-    ```
-
-5. Diretamente após o método `MainAsync()`, adicione o método a seguir que registra o manipulador de mensagens e recebe as mensagens enviadas pelo aplicativo do remetente:
+   ```
+5. Diretamente após o método `Main()`, adicione o método a seguir que registra o manipulador de mensagens e recebe as mensagens enviadas pelo aplicativo do remetente:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -322,25 +303,20 @@ Para receber as mensagens enviadas por você, crie outro aplicativo de console .
             const string SubscriptionName = "<your_subscription_name>";
             static ISubscriptionClient subscriptionClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
+            public static async Task Main(string[] args)
+            {    
                 subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
-
+        
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
                 Console.WriteLine("======================================================");
-
-                // Register subscription message handler and receive messages in a loop.
+        
+                // Register subscription message handler and receive messages in a loop
                 RegisterOnMessageHandlerAndReceiveMessages();
-
+        
                 Console.ReadKey();
-
-                await subscriptionClient.CloseAsync();
+        
+                await subscriptionClient.CloseAsync();    
             }
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -397,7 +373,7 @@ Parabéns! Usando a biblioteca .NET padrão, você acabou de criar um tópico e 
 > [!NOTE]
 > É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador de Barramento de Serviço permite que usuários se conectem a um namespace de serviço do Barramento de Serviço e administrem entidades de mensagens de uma maneira fácil. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira o [Repositório GitHub do Barramento de Serviço do Microsoft Azure com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram alguns dos recursos mais avançados de mensagens do Barramento de Serviço.
 

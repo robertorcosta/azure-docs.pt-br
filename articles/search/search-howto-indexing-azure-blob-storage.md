@@ -1,5 +1,5 @@
 ---
-title: Indexar o conteúdo do armazenamento de BLOBs do Azure para pesquisa de texto completo
+title: Pesquisar o conteúdo do armazenamento de BLOBs do Azure
 titleSuffix: Azure Cognitive Search
 description: Saiba como indexar o armazenamento de BLOBs do Azure e extrair texto de documentos com o Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b093525fcabc31074b398444a2fceffd0f6d3493
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4f662df6692e03cf3eb948b0d8e2ae51002e815d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791783"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113014"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva
 
@@ -30,7 +30,7 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 ## <a name="setting-up-blob-indexing"></a>Configuração da indexação de blob
 Você pode configurar um indexador do Armazenamento de Blobs do Azure usando:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Portal do Azure](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) do Azure pesquisa cognitiva
 * SDK do [.net](https://aka.ms/search-sdk) pesquisa cognitiva do Azure
 
@@ -70,7 +70,7 @@ Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Cri
 
 Você pode fornecer as credenciais para o contêiner de blobs de uma das seguintes maneiras:
 
-- **Cadeia de conexão da conta de armazenamento de acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` você pode obter a cadeia de conexão do portal do Azure navegando até a folha da conta de armazenamento > Configurações > chaves (para contas de armazenamento clássicas) ou configurações > chaves de acesso (para o Azure Contas de armazenamento do Gerenciador de recursos).
+- **Cadeia de conexão da conta de armazenamento de acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` você pode obter a cadeia de conexão do portal do Azure navegando até a folha conta de armazenamento > Configurações > chaves (para contas de armazenamento clássicas) ou configurações > chaves de acesso (para contas de armazenamento Azure Resource Manager).
 - Cadeia de conexão da SAS **(assinatura de acesso compartilhado) da conta de armazenamento**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` o SAS deve ter a lista e permissões de leitura para os contêineres e objetos (blobs, neste caso).
 -  **Assinatura de acesso compartilhado do contêiner**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` a SAS deve ter a lista e permissões de leitura para o contêiner.
 
@@ -145,7 +145,7 @@ Dependendo da [configuração do indexador](#PartsOfBlobToIndex), o indexador de
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): último carimbo de data/hora modificado para o blob. O Azure Pesquisa Cognitiva usa esse carimbo de data/hora para identificar BLOBs alterados, para evitar a reindexação de tudo após a indexação inicial.
   * **metadata\_storage\_size** (Edm.Int64): tamanho do blob em bytes.
   * **metadata\_storage\_content\_md5** (Edm.String): hash MD5 do conteúdo do blob, se estiver disponível.
-  * **metadados\_armazenamento\_token de\_SAS** (EDM. String)-um token SAS temporário que pode ser usado por [habilidades personalizadas](cognitive-search-custom-skill-interface.md) para obter acesso ao blob. Esse token não deve ser armazenado para uso posterior, pois ele pode expirar.
+  * **token\_ SAS\_ de armazenamento\_ de metadados** (EDM. String)-um token SAS temporário que pode ser usado por [habilidades personalizadas](cognitive-search-custom-skill-interface.md) para obter acesso ao blob. Esse token não deve ser armazenado para uso posterior, pois ele pode expirar.
 
 * As propriedades de metadados específicas a cada formato de documento são extraídas nos campos listados [aqui](#ContentSpecificMetadata).
 
@@ -163,7 +163,7 @@ No Azure Pesquisa Cognitiva, a chave do documento identifica exclusivamente um d
 Você deve considerar cuidadosamente qual campo extraído deve ser mapeado para o campo de chave de seu índice. Os candidatos são:
 
 * **metadata\_storage\_name**: este pode ser um candidato conveniente, mas observe que 1) talvez os nomes não sejam exclusivos, pois você pode ter blobs com o mesmo nome em pastas diferentes, e 2) o nome pode conter caracteres inválidos em chaves de documento, por exemplo, traços. Você pode lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas à API, como Pesquisa. (Por exemplo, em .NET você pode usar o método [UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
-* **metadata\_storage\_path**: o uso do caminho completo garante a exclusividade, mas o caminho contém definitivamente caracteres `/` que são [inválidos em uma chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como foi mencionado acima, você tem a opção de codificar as chaves usando a [função](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
+* **metadata\_storage\_path**: o uso do caminho completo garante a exclusividade, mas o caminho contém definitivamente caracteres `/` que são [inválidos em uma chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como foi mencionado acima, você tem a opção de codificar as chaves usando a `base64Encode`função[ ](search-indexer-field-mappings.md#base64EncodeFunction).
 * Se nenhuma das opções acima funcionar para você, adicione uma propriedade de metadados personalizada aos blobs. No entanto, essa opção exige que seu processo de carregamento de blob adicione essa propriedade de metadados a todos os blobs. Como a chave é uma propriedade obrigatória, todos os blobs que não tiverem essa propriedade apresentarão falha na indexação.
 
 > [!IMPORTANT]

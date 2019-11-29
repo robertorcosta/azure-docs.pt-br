@@ -1,5 +1,5 @@
 ---
-title: Fluxos de dados IoT em tempo real usando o Stream Analytics
+title: Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
 description: Marcas e dados de sensor de fluxos IoT com o processamento de dados em tempo real e Stream Analytics
 services: stream-analytics
 author: mamccrea
@@ -7,28 +7,28 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: f6a1d5e5a15a2af7db5b6256a6a0c5f19f0e7cf5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 11/26/2019
+ms.openlocfilehash: 1cc9c6dbb700664e732a67245563e9a211456767
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620989"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559802"
 ---
-# <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Stream Analytics do Azure para processar dados de dispositivos IoT
+# <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
 
-Neste tutorial, você aprenderá como criar a lógica de processamento de fluxo para coletar dados de dispositivos Internet das coisas (IoT). Usaremos um caso de uso real da Internet das coisas (IoT) para demonstrar como compilar uma solução rápida e econômica.
+Neste artigo, você aprenderá a criar uma lógica de processamento de fluxo para coletar dados de dispositivos Internet das Coisas (IoT). Você usa um caso de uso de IoT (Internet das Coisas do mundo real) para demonstrar como criar sua solução de forma rápida e econômica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
-* Exemplos de arquivos de consulta e de dados que podem ser baixados de [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
+* Crie uma [assinatura gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Baixe a consulta de exemplo e os arquivos de dados do [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot).
 
 ## <a name="scenario"></a>Cenário
 
-Contoso, que é uma empresa no espaço de automação industrial, automatizou completamente seu processo de fabricação. O maquinário desta fábrica tem sensores capazes de emitir fluxos de dados em tempo real. Nesse cenário, um gerente de chão de fábrica quer ter informações em tempo real dos dados de sensor para procurar por padrões e tomar ações com relação a eles. Nós usaremos a Stream Analytics Query Language (SAQL) sobre os dados do sensor para descobrir padrões interessantes no fluxo de entrada de dados.
+Contoso, que é uma empresa no espaço de automação industrial, automatizou completamente seu processo de fabricação. O maquinário desta fábrica tem sensores capazes de emitir fluxos de dados em tempo real. Nesse cenário, um gerente de chão de fábrica quer ter informações em tempo real dos dados de sensor para procurar por padrões e tomar ações com relação a eles. Você pode usar a linguagem de consulta do Stream Analytics (SAQL) sobre os dados do sensor para encontrar padrões interessantes do fluxo de entrada de dados.
 
-Aqui, os dados estão sendo gerados de um dispositivo de tag de sensor da Texas Instruments. A carga de dados está no formato JSON e é semelhante ao seguinte:
+Neste exemplo, os dados são gerados de um dispositivo de marca de sensor Texas Instruments. A carga de dados está no formato JSON e é semelhante ao seguinte:
 
 ```json
 {
@@ -44,73 +44,114 @@ Em um cenário real, você poderia ter centenas desses sensores gerando eventos 
 Para facilitar o uso, este guia de Introdução fornece um arquivo de dados de exemplo, capturado de dispositivos de tag de sensor reais. Você pode executar consultas nos dados de exemplo e ver os resultados. Nos tutoriais subsequentes, você aprenderá a conectar seu trabalho a entradas e saídas e implantá-lo para o serviço do Azure.
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
-1. No [Portal do Azure](https://portal.azure.com), clique no sinal de adição e, em seguida, digite **STREAM ANALYTICS** na janela de texto à direita. Em seguida, selecione **Trabalho do Stream Analytics** na lista de resultados.
+
+1. Na [portal do Azure](https://portal.azure.com), selecione **+ criar um recurso** no menu de navegação à esquerda. Em seguida, selecione **Stream Analytics trabalho** do **Analytics**.
    
     ![Criar um novo trabalho do Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
-2. Insira um nome exclusivo de trabalho e verifique se a assinatura é a correta para seu trabalho. Em seguida, crie um novo grupo de recursos ou selecione um já existente em sua assinatura.
-3. Selecione um local para seu trabalho. Para velocidade de processamento e redução do custo na transferência de dados, selecione o mesmo local do grupo de recursos e a conta de armazenamento pretendida é recomendada.
+
+1. Insira um nome exclusivo de trabalho e verifique se a assinatura é a correta para seu trabalho. Crie um novo grupo de recursos ou selecione um existente de sua assinatura.
+
+1. Selecione um local para seu trabalho. Use o mesmo local para o grupo de recursos e todos os recursos para aumentar a velocidade de processamento e reduzir os custos. Depois de fazer as configurações, selecione **criar**.
    
     ![Detalhes de Como criar um novo trabalho do Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
-   
-   > [!NOTE]
-   > Você deve criar essa conta de armazenamento apenas uma vez por região. Esse armazenamento será compartilhado entre todos os trabalhos do Stream Analytics que forem criados nessa região.
-   > 
-   > 
-4. Marque a caixa para colocar o trabalho em seu painel e, em seguida, clique em **CRIAR**.
-   
-    ![Criação do trabalho do Stream Analytics em andamento](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-5. Você deve ver uma mensagem 'Implantação iniciada...' exibida no canto superior direito da janela do navegador. Em breve será alterada para uma janela concluída conforme mostrado abaixo.
-   
-    ![Implantação do Stream Analytics com êxito](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
 ## <a name="create-an-azure-stream-analytics-query"></a>Criar uma instância do Azure Stream Analytics
-Depois que o trabalho é criado, é hora de abri-lo e criar uma consulta. Você pode acessar facilmente o trabalho clicando no bloco para ele.
+A próxima etapa após a criação do trabalho é escrever uma consulta. Você pode testar consultas em dados de exemplo sem conectar uma entrada ou saída ao seu trabalho.
 
-![Bloco do trabalho do Stream Analytics no portal do Azure](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+Baixe o [HelloWorldASA-InputStream. JSON](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
+) do github. Em seguida, navegue até seu trabalho de Azure Stream Analytics no portal do Azure.
 
-No painel **Topologia do trabalho**, clique na caixa **CONSULTA** para ir para o Editor de Consultas. O editor **CONSULTA** permite que você insira uma consulta T-SQL que realiza a transformação nos dados de eventos de entrada.
+Selecione **consulta** em **topologia do trabalho** no menu à esquerda. Em seguida, selecione **carregar entrada de exemplo**. Carregue o arquivo de `HelloWorldASA-InputStream.json` e selecione **OK**.
 
 ![Bloco de consulta de painel do Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
-### <a name="query-archive-your-raw-data"></a>Consulta: Arquivar seus dados brutos
-A forma mais simples de consulta é uma consulta passagem que arquiva todos os dados de entrada em suas saídas indicadas. Baixe o arquivo de dados de exemplo do [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) para um local em seu computador. 
+Observe que uma visualização dos dados é preenchida automaticamente na tabela de **visualização de entrada** .
 
-1. Cole a consulta do arquivo PassThrough.txt. 
-   
-    ![Cole a consulta no editor de consultas do Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
-2. Clique nos três pontos ao lado de sua entrada e selecione a caixa **Carregar dados de exemplo do arquivo**.
-   
-    ![Escolha carregar dados de exemplo do arquivo](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
-3. Um painel abre à direita como resultado. Nele, selecione o arquivo de dados de HelloWorldASA-InputStream.json a partir de seu local de download e clique em **OK** na parte inferior do painel.
-   
-    ![Carregar um arquivo de dados de exemplo](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
-4. Em seguida, clique na engrenagem **Teste** na parte superior esquerda da janela e processe a sua consulta de teste no conjunto de dados de exemplo. Será aberta uma janela de resultados abaixo da consulta conforme o processamento é concluído.
-   
-    ![Resultados do teste para consulta do Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+![Visualização de dados de entrada de exemplo](./media/stream-analytics-get-started-with-iot-devices/input-preview.png)
 
-### <a name="query-filter-the-data-based-on-a-condition"></a>Consulta: Filtrar os dados com base em uma condição
-Vamos tentar filtrar os resultados com base em uma condição. Gostaríamos de mostrar resultados apenas dos eventos provenientes de "sensorA." A consulta está no arquivo Filtering.txt.
+### <a name="query-archive-your-raw-data"></a>Consulta: arquivar seus dados brutos
+
+A forma mais simples de consulta é uma consulta passagem que arquiva todos os dados de entrada em suas saídas indicadas. Essa consulta é a consulta padrão populada em um novo trabalho de Azure Stream Analytics.
+
+```sql
+SELECT 
+    *
+INTO
+    Output
+FROM
+    InputStream
+```
+
+Selecione **testar consulta** e exibir os resultados na tabela de **resultados de teste** .
+
+![Resultados do teste para consulta do Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+
+### <a name="query-filter-the-data-based-on-a-condition"></a>Consulta: filtrar os dados com base em uma condição
+
+Vamos tentar filtrar os resultados com base em uma condição. Gostaríamos de mostrar resultados apenas dos eventos provenientes de "sensorA."
+
+```sql
+SELECT 
+    time,
+    dspl AS SensorName,
+    temp AS Temperature,
+    hmdt AS Humidity
+INTO
+   Output
+FROM
+    InputStream
+WHERE dspl='sensorA'
+```
+
+Cole a consulta no editor e selecione **testar consulta** para examinar os resultados.
 
 ![Filtrar um fluxo de dados](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-Observe que a consulta, que diferencia maiúsculas de minúsculas, compara um valor de cadeia de caracteres. Clique na engrenagem **Teste** novamente para executar a consulta. A consulta deve retornar apenas 389 linhas de 1860 eventos.
+### <a name="query-alert-to-trigger-a-business-workflow"></a>Consulta: alerta para disparar o fluxo de trabalho de negócios
 
-![Segundo resultado do teste do teste de consulta](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
+Vamos tornar nossa consulta mais detalhada. Para cada tipo de sensor, se você deseja monitorar a temperatura média por 30 segundos e exibir os resultados somente se a temperatura média estiver acima de 100 graus.
 
-### <a name="query-alert-to-trigger-a-business-workflow"></a>Consulta: Alerta para disparar o fluxo de trabalho de negócios
-Vamos tornar nossa consulta mais detalhada. Para cada tipo de sensor, se você deseja monitorar a temperatura média por 30 segundos e exibir os resultados somente se a temperatura média estiver acima de 100 graus. Escreveremos a consulta a seguir e depois clicaremos em **Teste** para ver os resultados. A consulta está no arquivo ThresholdAlerting.txt.
+```sql
+SELECT 
+    System.Timestamp AS OutputTime,
+    dspl AS SensorName,
+    Avg(temp) AS AvgTemperature
+INTO
+   Output
+FROM
+    InputStream TIMESTAMP BY time
+GROUP BY TumblingWindow(second,30),dspl
+HAVING Avg(temp)>100
+```
 
 ![Consulta de filtro de 30 segundos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Agora, você pode ver os resultados que contêm apenas 245 linhas e nomes dos sensores nos quais a temperatura média é superior a 100. Esta consulta agrupa o fluxo de eventos por **dspl**, que é o nome de sensor, sobre uma **Janela em Cascata** de 30 segundos. Consultas temporais devem declarar como queremos que o tempo progrida. Usando a cláusula **TIMESTAMP BY**, especificamos a coluna **OUTPUTTIME** para associar tempos a todos os cálculos temporais. Para obter informações detalhadas, leia os artigos do MSDN sobre [Gerenciamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e [Funções de janelas](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics).
+Você deve ver os resultados que contêm apenas 245 linhas e nomes de sensores em que a média de temperatura é maior que 100. Esta consulta agrupa o fluxo de eventos por **dspl**, que é o nome de sensor, sobre uma **Janela em Cascata** de 30 segundos. As consultas temporais devem indicar como você deseja o tempo de andamento. Usando a cláusula **timestamp by** , você especificou a coluna **OutputType** para associar tempos a todos os cálculos temporais. Para obter informações detalhadas, leia sobre o [Gerenciamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e as [funções de janela](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics).
 
-### <a name="query-detect-absence-of-events"></a>Consulta: Detectar ausência de eventos
-Como podemos escrever uma consulta para localizar a falta de eventos de entrada? Vamos descobrir a última vez que um sensor enviou dados e, depois, não enviou mais eventos nos cinco segundos seguintes. A consulta está no arquivo AbsenceOfEvent.txt.
+### <a name="query-detect-absence-of-events"></a>Consulta: detectar ausência de eventos
+
+Como podemos escrever uma consulta para localizar a falta de eventos de entrada? Vamos encontrar a última vez que um sensor enviou dados e, em seguida, não enviou eventos para os próximos 5 segundos.
+
+```sql
+SELECT 
+    t1.time,
+    t1.dspl AS SensorName
+INTO
+   Output
+FROM
+    InputStream t1 TIMESTAMP BY time
+LEFT OUTER JOIN InputStream t2 TIMESTAMP BY time
+ON
+    t1.dspl=t2.dspl AND
+    DATEDIFF(second,t1,t2) BETWEEN 1 and 5
+WHERE t2.dspl IS NULL
+```
 
 ![Detectar ausência de eventos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-Aqui, usamos uma junção **EXTERNA ESQUERDA** no mesmo fluxo de dados (autojunção). Para uma junção **INTERNA**, um resultado retorna somente quando uma correspondência é encontrada.  Mas para uma junção **EXTERNA ESQUERDA**, se um evento do lado esquerdo da junção for incomparável, uma linha com NULL para todas as colunas do lado direito retornará. Essa técnica é muito útil para localizar a ausência de eventos. Consulte a documentação do MSDN para saber mais sobre [JUNÇÃO](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics).
+Aqui, usamos uma junção **EXTERNA ESQUERDA** no mesmo fluxo de dados (autojunção). Para uma junção **INTERNA**, um resultado retorna somente quando uma correspondência é encontrada.  Mas para uma junção **EXTERNA ESQUERDA**, se um evento do lado esquerdo da junção for incomparável, uma linha com NULL para todas as colunas do lado direito retornará. Essa técnica é muito útil para localizar a ausência de eventos. Para obter mais informações, consulte [Join](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics).
 
 ## <a name="conclusion"></a>Conclusão
-O objetivo deste tutorial é demonstrar como escrever consultas de linguagem de consulta do Stream Analytics e ver os resultados no navegador. No entanto, isso está apenas começando. Você pode fazer muito mais com Stream Analytics. O Stream Analytics dá suporte a várias entradas e saídas e ainda pode usar as funções no Azure Machine Learning para torná-la uma ferramenta robusta de análise de fluxos de dados. Você pode começar a explorar mais sobre o Stream Analytics usando nosso [Mapa de aprendizagem](https://docs.microsoft.com/azure/stream-analytics/). Para saber mais sobre como escrever consultas, leia o artigo sobre [padrões comuns de consulta](stream-analytics-stream-analytics-query-patterns.md).
+
+A finalidade deste artigo é demonstrar como escrever diferentes consultas de linguagem de consulta Stream Analytics e ver os resultados no navegador. No entanto, isso é apenas para começar. O Stream Analytics dá suporte a várias entradas e saídas e ainda pode usar as funções no Azure Machine Learning para torná-la uma ferramenta robusta de análise de fluxos de dados. Para saber mais sobre como escrever consultas, leia o artigo sobre [padrões comuns de consulta](stream-analytics-stream-analytics-query-patterns.md).
 

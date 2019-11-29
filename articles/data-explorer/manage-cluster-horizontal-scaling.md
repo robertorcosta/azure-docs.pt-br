@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 70e6bdfcf9718244632ad02e09d3ddadee71a617
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: eb204701b42436a5ae95bac97ed6fd97cf272860
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311566"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561876"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gerenciar o dimensionamento horizontal do cluster (scale out) no Azure Data Explorer para acomodar a demanda em alteração
 
@@ -33,7 +33,7 @@ Usando o dimensionamento horizontal, você pode dimensionar a contagem de instâ
 
 1. Na portal do Azure, vá para o recurso de cluster de Data Explorer do Azure. Em **configurações**, selecione **escalar horizontalmente**. 
 
-2. Na janela **escalar horizontalmente** , selecione o método de dimensionamento automático desejado: **Escala manual**, **dimensionamento automático otimizado**ou **dimensionamento automático personalizado**.
+2. Na janela **escalar horizontalmente** , selecione o método de dimensionamento automático desejado: **escala manual**, **dimensionamento automático otimizado**ou **dimensionamento automático personalizado**.
 
 ### <a name="manual-scale"></a>Dimensionamento manual
 
@@ -41,7 +41,7 @@ A escala manual é a configuração padrão durante a criação do cluster. O cl
 
    ![Método de dimensionamento manual](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
-### <a name="optimized-autoscale"></a>Dimensionamento automático otimizado
+### <a name="optimized-autoscale-preview"></a>Dimensionamento automático otimizado (versão prévia)
 
 Dimensionamento automático otimizado é o método de dimensionamento automático recomendado. Esse método otimiza o desempenho e os custos do cluster. Se o cluster se aproximar de um estado de subutilização, ele será dimensionado no. Essa ação reduz os custos, mas mantém o nível de desempenho. Se o cluster se aproximar de um estado de excesso de utilização, ele será escalado horizontalmente para manter o desempenho ideal. Para configurar o dimensionamento automático otimizado:
 
@@ -67,7 +67,7 @@ Usando o dimensionamento automático personalizado, você pode dimensionar seu c
 
 3. Selecione **+ Adicionar uma regra**.
 
-4. Na seção **regra** de dimensionamento à direita, insira valores para cada configuração.
+4. Na seção **regra de dimensionamento** à direita, insira valores para cada configuração.
 
     **Critérios**
 
@@ -105,7 +105,7 @@ Usando o dimensionamento automático personalizado, você pode dimensionar seu c
 
 Agora você configurou o dimensionamento horizontal para o cluster de Data Explorer do Azure. Adicione outra regra para o dimensionamento vertical. Se você precisar de assistência com problemas de dimensionamento de cluster, [abra uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) no portal do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorar o desempenho, a integridade e o uso do Data Explorer do Azure com métricas](using-metrics.md)
 

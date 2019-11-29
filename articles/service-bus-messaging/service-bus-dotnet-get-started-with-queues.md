@@ -12,25 +12,25 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: cecd37c16d34c0cd6cf7a4d98732762d16073864
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884151"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561612"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Barramento de Serviço
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 Neste tutorial, você cria aplicativos de console .NET Core para enviar mensagens e receber mensagens de uma fila do barramento de serviço.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
-- Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se você não tiver uma fila com a qual trabalhar, siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) para criar uma fila.
+- Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Caso você não tenha uma fila para trabalhar, siga as etapas do artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md) para criar uma fila.
 
   - Leia a visão geral rápida das filas do barramento de serviço.
   - Crie um namespace do barramento de serviço.
@@ -74,17 +74,11 @@ Inicie o Visual Studio e crie um novo projeto de **aplicativo de console (.NET C
 
     Insira sua cadeia de conexão para o namespace como a variável `ServiceBusConnectionString`. Insira o nome da fila.
 
-1. Substitua o conteúdo padrão de `Main()` com a seguinte linha de código:
+1. Substitua o método `Main()` pelo seguinte método **async** `Main`. Ele chama o método SendMessagesAsync que será adicionado na próxima etapa para enviar mensagens para a fila. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-1. Diretamente após `Main()`, adicione o método `MainAsync()` assíncrono a seguir que chama o método de envio de mensagens:
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         const int numberOfMessages = 10;
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
@@ -100,7 +94,6 @@ Inicie o Visual Studio e crie um novo projeto de **aplicativo de console (.NET C
         await queueClient.CloseAsync();
     }
     ```
-
 1. Diretamente após o método `MainAsync()`, adicione o seguinte método `SendMessagesAsync()` que faz o trabalho de enviar o número de mensagens especificado por `numberOfMessagesToSend` (atualmente definido como 10):
 
     ```csharp
@@ -147,25 +140,20 @@ namespace CoreSenderApp
         const string QueueName = "<your_queue_name>";
         static IQueueClient queueClient;
 
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        static async Task MainAsync()
-        {
+        public static async Task Main(string[] args)
+        {    
             const int numberOfMessages = 10;
             queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
-
+    
             Console.WriteLine("======================================================");
             Console.WriteLine("Press ENTER key to exit after sending all the messages.");
             Console.WriteLine("======================================================");
-
-            // Send Messages
+    
+            // Send messages.
             await SendMessagesAsync(numberOfMessages);
-
+    
             Console.ReadKey();
-
+    
             await queueClient.CloseAsync();
         }
 
@@ -235,14 +223,8 @@ Para receber as mensagens enviadas, crie outro aplicativo de aplicativo **de con
 1. Substitua o conteúdo padrão de `Main()` com a seguinte linha de código:
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-1. Diretamente após `Main()`, adicione o método `MainAsync()` assíncrono a seguir que chama o método `RegisterOnMessageHandlerAndReceiveMessages()`:
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
         Console.WriteLine("======================================================");
@@ -407,9 +389,9 @@ Execute o programa e verifique o portal novamente. A **contagem de mensagens ati
 Parabéns! Agora você criou uma fila, enviou um conjunto de mensagens para essa fila e recebeu essas mensagens da mesma fila.
 
 > [!NOTE]
-> É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem facilmente a um namespace do barramento de serviço e administrem entidades de mensagens. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos.
+> É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem facilmente a um namespace do barramento de serviço e administrem entidades de mensagens. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram alguns dos recursos mais avançados de mensagens do Barramento de Serviço.
 

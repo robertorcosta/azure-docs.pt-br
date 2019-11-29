@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: fff5ad379aa11a0aae14b33f9f82f6da9c794517
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 5cc473635543a22fd7e7223f4a5715f78457a897
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643685"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561743"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -28,12 +28,12 @@ A tabela a seguir descreve os tipos de cluster e as versões que são compatíve
 
 | Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 sem ESP | Sim | Sim | Não | Não | Não | Não | Não |
-| HDInsight 4,0 sem ESP | Sim | Sim | Não | Não | Não | Não | Não |
-| HDInsight 3,6 com ESP | Sim | Sim | Não | Não | Não | Não | Não |
-| HDInsight 4,0 com ESP | Sim | Sim | Não | Não | Não | Não | Não |
+| HDInsight 3,6 sem ESP | Sim apenas 2,3| SIM | Não | Não | Não | Não | Não |
+| HDInsight 4,0 sem ESP | SIM | SIM | Não | Não | Não | Não | Não |
+| HDInsight 3,6 com ESP | Sim apenas 2,3 | SIM | Não | Não | Não | Não | Não |
+| HDInsight 4,0 com ESP | SIM | SIM | Não | Não | Não | Não | Não |
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 Você pode escolher o dimensionamento baseado em carga ou o dimensionamento baseado em agendamento para o cluster HDInsight. O dimensionamento baseado em carga altera o número de nós no cluster, dentro de um intervalo definido, para garantir a utilização ideal da CPU e minimizar o custo de execução.
 
@@ -70,7 +70,7 @@ Quando as seguintes condições forem detectadas, o dimensionamento automático 
 
 Com base no número de contêineres AM por nó e nos requisitos atuais de CPU e memória, o dimensionamento automático emite uma solicitação para remover um determinado número de nós. O serviço também detecta quais nós são candidatos para remoção com base na execução do trabalho atual. A operação de redução vertical primeiro encerra os nós e, em seguida, remove-os do cluster.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Criar um cluster com dimensionamento automático baseado em carga
 
@@ -261,6 +261,6 @@ Selecione **métricas** em **monitoramento**. Em seguida, clique em **Adicionar 
 
 ![Habilitar métrica de dimensionamento automático baseado em agenda de nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Leia sobre as práticas recomendadas para dimensionar os clusters manualmente em [Práticas recomendadas de dimensionamento](hdinsight-scaling-best-practices.md)

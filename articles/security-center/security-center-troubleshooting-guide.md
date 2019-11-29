@@ -1,6 +1,6 @@
 ---
 title: Guia de solução de problemas da Central de Segurança do Azure | Microsoft Docs
-description: Este documento ajuda a solucionar problemas na central de segurança do Azure.
+description: Este guia destina-se a profissionais de ti, analistas de segurança e administradores de nuvem que precisam solucionar problemas relacionados à central de segurança do Azure.
 services: security-center
 author: v-miegge
 manager: dcscontentpm
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 073e500028634e3c35a482d8efc5f9ae169145e3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b9650c3c30d95c85f505b640564ff416931676ea
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257699"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559203"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 
@@ -21,7 +21,7 @@ Este guia é para os profissionais de TI (tecnologia da informação), analistas
 
 A central de segurança usa o Microsoft Monitoring Agent para coletar e armazenar dados. Veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md) para saber mais. As informações deste artigo representam a funcionalidade da Central de Segurança após a transição para o Microsoft Monitoring Agent.
 
-## <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
+## <a name="troubleshooting-guide"></a>Guia de solução de problemas
 
 Este guia explica como solucionar os problemas relacionados à Central de Segurança.
 
@@ -74,7 +74,7 @@ Há dois cenários de instalação que podem produzir resultados diferentes ao i
 
 * **Agente instalado automaticamente pela Central de Segurança**: neste cenário você poderá exibir os alertas em Locais, na Central de Segurança e na Pesquisa de Logs. Você receberá notificações por email para o endereço de email que foi configurado na política de segurança para a assinatura à qual o recurso pertence.
 
-* **Agente instalado manualmente em uma VM localizada no Azure**: nesse cenário, se você estiver usando agentes baixados e instalados manualmente antes de fevereiro de 2017, você poderá exibir os alertas no portal da central de segurança somente se filtrar a assinatura no espaço de trabalho pertence a. Se você filtrar a assinatura à qual o recurso pertence, você não verá nenhum alerta. Você receberá notificações por email para o endereço de email que foi configurado na política de segurança para a assinatura à qual o espaço de trabalho pertence.
+* **Agente instalado manualmente em uma VM localizada no Azure**: nesse cenário, se você estiver usando agentes baixados e instalados manualmente antes de fevereiro de 2017, você poderá exibir os alertas no portal da central de segurança somente se filtrar a assinatura à qual o espaço de trabalho pertence. Se você filtrar a assinatura à qual o recurso pertence, você não verá nenhum alerta. Você receberá notificações por email para o endereço de email que foi configurado na política de segurança para a assinatura à qual o espaço de trabalho pertence.
 
 > [!NOTE]
 > Para evitar o comportamento explicado no segundo cenário, baixe a versão mais recente do agente.
@@ -83,7 +83,7 @@ Há dois cenários de instalação que podem produzir resultados diferentes ao i
 
 O **estado de monitoramento** define o motivo pelo qual a Central de Segurança não consegue monitorar as VMs e os computadores inicializados para o provisionamento automático. A tabela a seguir mostra os valores do **estado de monitoramento**, descrições e as etapas de resolução.
 
-| Estado do monitoramento | DESCRIÇÃO | Etapas de resolução |
+| Estado do monitoramento | Descrição | Etapas de resolução |
 |---|---|---|
 | Instalação do agente pendente | A instalação do Microsoft Monitoring Agent ainda está em execução.  A instalação pode demorar algumas horas. | Aguarde até que a instalação automática seja concluída. |
 | Estado de energia desativado | A máquina virtual está parada.  O Microsoft Monitoring Agent só pode ser instalado em uma VM em execução. | Reinicie a VM. |
@@ -107,10 +107,10 @@ A tabela a seguir mostra os recursos necessários para comunicação.
 
 | Recurso de agente | Portas | Ignorar a inspeção de HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Sim |
-| *.oms.opinsights.azure.com | 443 | Sim |
-| *.blob.core.windows.net | 443 | Sim |
-| *.azure-automation.net | 443 | Sim |
+| *.ods.opinsights.azure.com | 443 | SIM |
+| *.oms.opinsights.azure.com | 443 | SIM |
+| *.blob.core.windows.net | 443 | SIM |
+| *.azure-automation.net | 443 | SIM |
 
 Se você encontrar problemas de integração com o agente, leia o artigo [Como solucionar problemas de integração do Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
@@ -138,15 +138,15 @@ Alguns problemas podem ser identificados usando as diretrizes fornecidas neste a
 
 ![Suporte da Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 Neste documento, você aprendeu como configurar políticas de segurança na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
-* [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) - saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
+* [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) : saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e responder aos alertas de segurança
 * [Noções básicas de alertas de segurança na Central de Segurança do Azure](security-center-alerts-type.md)
-* [Tutorial: Responder a alertas de segurança](tutorial-security-incident.md)
+* [Tutorial: Responder a incidentes de segurança](tutorial-security-incident.md)
 * [Validação de Alertas na Central de Segurança do Azure](security-center-alert-validation.md)
 * [Notificações de Email na Central de Segurança do Azure](security-center-provide-security-contact-details.md)
 * [Tratando Incidentes de Segurança na Central de Segurança do Azure](security-center-incident.md)

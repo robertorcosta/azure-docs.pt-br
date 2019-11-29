@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: helohr
-ms.openlocfilehash: c5d6c671890f5e036d3f4cce6e880230c01048ed
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 54f2c39260ecaf643b0f2add8758ceb866e71afe
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483817"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561126"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar anexação de aplicativo MSIX
 
@@ -206,7 +206,7 @@ Antes de atualizar os scripts do PowerShell, verifique se você tem o GUID do vo
 
 4.  Abra a pasta pai. Se for expandido corretamente, você verá uma pasta com o mesmo nome que o pacote. Atualize a variável **\$PackageName** para corresponder ao nome dessa pasta.
 
-    Por exemplo: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
+    Por exemplo, `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
 5.  Abra um prompt de comando e insira **Mountvol**. Esse comando exibirá uma lista de volumes e seus GUIDs. Copie o GUID do volume em que a letra da unidade corresponde à unidade na qual você montou o VHD na etapa 2.
 
@@ -307,8 +307,7 @@ Antes de atualizar os scripts do PowerShell, verifique se você tem o GUID do vo
 
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
 
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the
-    pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
 
     $path = ([System.Uri]$path).AbsoluteUri
 
@@ -448,7 +447,7 @@ catch [Exception]
 }  
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Atualmente, não há suporte para esse recurso, mas você pode fazer perguntas para a Comunidade na [área de trabalho virtual do Windows TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 

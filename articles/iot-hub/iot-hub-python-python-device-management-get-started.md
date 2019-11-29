@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: eb5085db10c5763a4173f460eabde6afcccd5aff
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 514f4b26a708a6fec30a1f54cfe6da6d1b58b79d
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000466"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555529"
 ---
 # <a name="get-started-with-device-management-python"></a>Introdução ao gerenciamento de dispositivos (Python)
 
@@ -39,7 +39,7 @@ Ao final deste tutorial, você terá dois aplicativos de console do Python:
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
-## <a name="create-an-iot-hub"></a>Crie um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um Hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -63,10 +63,6 @@ Nesta seção, você:
     pip install azure-iot-device
     ```
 
-   > [!NOTE]
-   > Os pacotes Pip para Azure-iothub-Service-Client está disponível apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
-   >
-
 2. Usando um editor de texto, crie um arquivo chamado **dmpatterns_getstarted_device. py** em seu diretório de trabalho.
 
 3. Adicione as seguintes instruções `import` no início do arquivo **dmpatterns_getstarted_device.py**.
@@ -78,7 +74,7 @@ Nesta seção, você:
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
     ```
 
-4. Adicione a variável **seqüência_conexão** . Substitua o `{deviceConnectionString}` valor do espaço reservado pela cadeia de conexão do dispositivo. Você copiou essa cadeia de conexão anteriormente no [registro de um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).  
+4. Adicione a variável **CONNECTION_STRING** . Substitua o valor do espaço reservado `{deviceConnectionString}` pela cadeia de conexão do dispositivo. Você copiou essa cadeia de conexão anteriormente no [registro de um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -161,7 +157,7 @@ Nesta seção, você criará um aplicativo do console Python que inicia uma rein
     ```
 
    > [!NOTE]
-   > Os pacotes Pip para Azure-iothub-Service-Client e Azure-iothub-Device-Client estão atualmente disponíveis apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
+   > O pacote Pip para Azure-iothub-Service-Client está disponível no momento apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) .
    >
 
 2. Usando um editor de texto, crie um arquivo chamado **dmpatterns_getstarted_service. py** em seu diretório de trabalho.
@@ -175,7 +171,7 @@ Nesta seção, você criará um aplicativo do console Python que inicia uma rein
     from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
     ```
 
-4. Adicione as declarações de variável a seguir. Substitua o `{IoTHubConnectionString}` valor do espaço reservado pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string). Substitua o `{deviceId}` valor do espaço reservado pela ID do dispositivo que você registrou em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
+4. Adicione as declarações de variável a seguir. Substitua o valor do espaço reservado `{IoTHubConnectionString}` pela cadeia de conexão do Hub IoT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string). Substitua o valor do espaço reservado `{deviceId}` pela ID do dispositivo que você registrou em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"

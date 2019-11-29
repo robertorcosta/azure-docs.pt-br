@@ -4,16 +4,16 @@ description: Neste artigo, você aprenderá a criar e gerenciar políticas de ba
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: b6e665b5c71dc5f2e8ebc22e00e1a71237f48bfc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173431"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554900"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup de serviços de recuperação do Azure usando a API REST
 
-As etapas para criar uma política de backup para uma área segura do Azure Recovery Services são descritas no [documento da API REST da política](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate). Vamos usar este documento como referência para criar uma política para o backup de VM do Azure.
+As etapas para criar uma política de backup para uma área segura do Azure Recovery Services são descritas no [documento da API REST da política](/rest/api/backup/protectionpolicies/createorupdate). Vamos usar este documento como referência para criar uma política para o backup de VM do Azure.
 
 ## <a name="backup-policy-essentials"></a>Conceitos básicos de política de backup do Microsoft Azure
 
@@ -44,12 +44,12 @@ O `{policyName}` e `{vaultName}` são fornecidas no URI. Informações adicionai
 
 Por exemplo, para criar uma política para o backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|NOME  |obrigatórios  |Digite  |DESCRIÇÃO  |
+|name  |obrigatórios  |Type  |Descrição  |
 |---------|---------|---------|---------|
-|propriedades     |   verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
-|Marcas     |         | Objeto        |  Marcações de recursos       |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
+|marcas     |         | Objeto        |  Marcações de recursos       |
 
-Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
+Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](/rest/api/backup/protectionpolicies/createorupdate).
 
 ### <a name="example-request-body"></a>Exemplo do corpo de solicitação
 
@@ -152,9 +152,9 @@ A criação/atualização de política de backup é um [operação assíncrona](
 
 Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|NOME  |Digite  |DESCRIÇÃO  |
+|name  |Type  |Descrição  |
 |---------|---------|---------|
-|200 OK     |    [Proteção PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Proteção PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Aceito     |         |     Aceita    |
 
 ### <a name="example-responses"></a>Respostas de exemplo
@@ -179,7 +179,7 @@ Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreie a operação resultante usando o cabeçalho de local ou o cabeçalho Azure-AsyncOperation com um simples comando *GET*.
+Em seguida, rastreie a operação resultante usando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET*.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
@@ -275,7 +275,7 @@ Depois que a operação for concluída, ele retorna 200 (OK) com o conteúdo de 
 
 Se uma política já estiver sendo usada para proteger um item, qualquer atualização na política resultará em [modificar a proteção](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) para todos os itens associados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Habilitar a proteção para uma VM do Azure desprotegidos](backup-azure-arm-userestapi-backupazurevms.md).
 

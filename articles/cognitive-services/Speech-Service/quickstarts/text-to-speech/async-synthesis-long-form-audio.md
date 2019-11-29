@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: d308623a323fecd39efa90639da71fb981936fe5
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6cf6cfb005155b85278935af6f266dfebcbb44c6
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930569"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554955"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Início rápido: síntese assíncrona para áudio de forma longa em Python (versão prévia)
 
@@ -24,13 +24,13 @@ Neste guia de início rápido, você usará a API de áudio longo para converter
 > [!NOTE]
 > A síntese assíncrona para áudio de forma longa só pode ser usada com [vozes neurais personalizadas](../../how-to-custom-voice.md#custom-neural-voices).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
 * Python 2.7. x ou 3. x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download)ou seu editor de texto favorito.
-* Uma assinatura do Azure e uma chave de assinatura do serviço de fala. [Crie uma conta do Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) e [crie um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) para obter a chave. Ao criar o recurso de fala, verifique se o tipo de preço está definido como **S0**e se o local está definido como uma [região com suporte](../../regions.md#standard-and-neural-voices).
+* Uma assinatura do Azure e uma chave de assinatura do serviço de fala. [Crie uma conta do Azure](../../get-started.md#try-the-speech-service-using-a-new-azure-account) e [crie um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) para obter a chave. Ao criar o recurso de fala, verifique se o tipo de preço está definido como **S0**e se o local está definido como uma [região com suporte](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
 
@@ -274,7 +274,7 @@ delete successful
 
 O `voice_synthesis_client.py` completo está disponível para download no [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a API de áudio longo](../../long-audio-api.md)

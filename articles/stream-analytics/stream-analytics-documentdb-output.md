@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 52bbb52b13a3606e3ddc8deca2da8505233c9352
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: aa4ac011a7b6258958ac1ac176fd63b18a4ef856
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062020"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560178"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics para Azure Cosmos DB  
 O Stream Analytics pode direcionar o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para uma saída em JSON, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento aborda algumas práticas recomendadas para implementar essa configuração.
@@ -92,12 +92,22 @@ A criação do Cosmos DB como uma saída no Stream Analytics gera uma solicitaç
 |Campo           | Descrição|
 |-------------   | -------------|
 |Alias de saída    | Um alias para se referir a essa saída em sua consulta do ASA.|
-|Assinatura    | Escolha a assinatura do Azure.|
+|Subscription    | Escolha a assinatura do Azure.|
 |ID da Conta      | O nome ou o URI do ponto de extremidade da conta do Azure Cosmos DB.|
-|Chave da conta     | A chave de acesso compartilhado da conta do Azure Cosmos DB.|
-|Banco de Dados        | O nome do banco de dados do Azure Cosmos DB.|
-|Nome do contêiner | O nome do contêiner a ser usado. `MyContainer`é um exemplo de entrada válida: um contêiner `MyContainer` chamado deve existir.  |
-|ID do Documento     | Opcional. O nome da coluna em eventos de saída usado como a chave exclusiva que inserir ou atualizar as operações que devem ser baseadas. Se deixado vazio, todos os eventos serão inseridos, com nenhuma opção de atualização.|
+|Chave de conta     | A chave de acesso compartilhado da conta do Azure Cosmos DB.|
+|Banco de dados        | O nome do banco de dados do Azure Cosmos DB.|
+|Nome do contêiner | O nome do contêiner a ser usado. `MyContainer` é um contêiner de entrada válido de um recipiente chamado `MyContainer` deve existir.  |
+|ID do documento     | Opcional. O nome da coluna em eventos de saída usado como a chave exclusiva que inserir ou atualizar as operações que devem ser baseadas. Se deixado vazio, todos os eventos serão inseridos, com nenhuma opção de atualização.|
+
+Depois que a saída de Cosmos DB é configurada, ela pode ser usada na consulta como o destino de uma [instrução into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Ao usar um Cosmos DB saída como tal, [uma chave de partição precisa ser definida explicitamente](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). O registro de saída deve conter uma coluna que diferencia maiúsculas de minúsculas, denominada após a chave de partição em Cosmos DB. Para obter maior paralelização, a instrução pode exigir uma [cláusula PARTITION by](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) usando a mesma coluna.
+
+**Consulta de exemplo**:
+
+```SQL
+    SELECT TollBoothId, PartitionId
+    INTO CosmosDBOutput
+    FROM Input1 PARTITION BY PartitionId
+``` 
 
 ## <a name="error-handling-and-retries"></a>Tratamento de erros e novas tentativas
 

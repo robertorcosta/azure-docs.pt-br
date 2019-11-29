@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7ea98baa9cb202e2584c18998c5ab96d1c1f9e5a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f29bd4ab679d734c3acce967a5d60784b9884ba6
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012653"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561348"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e melhorar a limitação para reduzir a latência no Azure Time Series Insights
 
@@ -42,13 +42,13 @@ Provavelmente, você enfrentará latência e limitação quando:
 
 Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência causados por seu ambiente.
 
-1. No portal do Azure, selecione **alertas**.
+1. Na portal do Azure, selecione seu ambiente de Time Series Insights. Em seguida, selecione **alertas**.
 
-   [Alertas de ![](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![adicionar um alerta ao seu ambiente de Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. O painel **criar regra** será exibido. Selecione **Adicionar** em **condição**.
 
-   [![adicionar alerta](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [![adicionar painel de alerta](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
 1. Em seguida, configure as condições exatas para a lógica de sinal.
 
@@ -56,7 +56,7 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência ca
 
    A partir daí, você pode configurar alertas usando algumas das seguintes condições:
 
-   |Métrica  |DESCRIÇÃO  |
+   |Métrica  |Descrição  |
    |---------|---------|
    |**Bytes de Entrada Recebidos**     | Contagem de bytes brutos lidos de origens de evento. A contagem bruta geralmente inclui o nome e o valor da propriedade.  |  
    |**Mensagens de Entrada Inválidas Recebidas**     | Contagem de mensagens inválidas lidas de todas as origens de evento dos Hubs de Eventos do Azure ou do Hub IoT do Azure.      |
@@ -70,7 +70,7 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência ca
 
 1. Depois de configurar a lógica de sinal desejada, examine visualmente a regra de alerta escolhida.
 
-   [Entrada de ![](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [exibição de latência ![e gráfico](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>Limitação e gerenciamento de entrada
 
@@ -92,7 +92,7 @@ Para reduzir a limitação ou a latência enfrentada, a melhor maneira de corrig
 
 É possível evitar a latência e a limitação configurando corretamente o ambiente para a quantidade de dados que você deseja analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, consulte [Dimensionar o ambiente](time-series-insights-how-to-scale-your-environment.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre como [diagnosticar e resolver problemas em seu ambiente de time Series insights](time-series-insights-diagnose-and-solve-problems.md).
 

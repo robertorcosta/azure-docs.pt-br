@@ -9,18 +9,18 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8200c2511d4f85705ff56df43f128034d29b0604
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012710"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561288"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Entender a retenção de dados no Azure Time Series Insights
 
-Este artigo descreve duas configurações que afetam a retenção de dados em seu ambiente de Azure Time Series Insights.
+Este artigo descreve duas configurações principais que afetam a retenção de dados em seu ambiente de Azure Time Series Insights.
 
 ## <a name="video"></a>Vídeo
 
@@ -88,13 +88,13 @@ Quando a entrada é retomada:
 
 Nos hubs de eventos afetados, considere ajustar a propriedade **Retenção de Mensagem** para minimizar a perda de dados quando a entrada é colocada em pausa no Time Series Insights.
 
-[![retenção de mensagens do hub de eventos.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![retenção de mensagens do hub de eventos.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
 Se nenhuma propriedade estiver configurada na origem do evento (`timeStampPropertyName`), Time Series Insights usa como padrão o carimbo de data/hora de chegada no Hub de eventos como o eixo X. Se `timeStampPropertyName` estiver configurado para ser algo mais, o ambiente procurará o `timeStampPropertyName` configurado no pacote de dados quando os eventos forem analisados.
 
 Leia [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md) para dimensionar seu ambiente para acomodar capacidade adicional ou aumentar a duração da retenção.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre como configurar ou alterar as configurações de retenção de dados, examine [Configurando a retenção em time Series insights](time-series-insights-how-to-configure-retention.md).
 

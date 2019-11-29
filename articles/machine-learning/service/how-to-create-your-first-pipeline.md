@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e731ff55aa4b37d0777cf9eefb14bb111b73070
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 329fa301917fec368b0e76ab970d8ece72aa66c5
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173999"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561414"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar pipelines do Machine Learning com o SDK do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Os pipelines ML usam destinos de computação remota para computação e o armaz
 
 Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Crie um [Workspace do Azure Machine Learning](how-to-manage-workspace.md) para manter todos os seus recursos de pipeline.
 
@@ -184,7 +184,7 @@ Para anexar o Azure Databricks como um destino de computação, forneça as segu
 * __Nome do espaço de trabalho do databricks__: o nome do espaço de trabalho Azure Databricks.
 * __Token de acesso do databricks__: o token de acesso usado para autenticar para Azure Databricks. Para gerar um token de acesso, consulte o documento [Autenticação](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
 
-O código a seguir demonstra como anexar o Azure Databricks como um destino de computação com o SDK do Azure Machine Learning:
+O código a seguir demonstra como anexar Azure Databricks como um destino de computação com o SDK do Azure Machine Learning (__o espaço de trabalho do databricks precisa estar presente na mesma assinatura que o seu espaço de trabalho AML__):
 
 ```python
 import os
@@ -540,7 +540,7 @@ step = PythonScriptStep(name="Hello World",
                         hash_paths=['hello_world.ipynb'])
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Use [esses Jupyter Notebooks no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais pipelines de machine learning.
 - Consulte a ajuda de referência do SDK para o pacote [azureml-pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote [azureml-pipelines-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) .

@@ -11,15 +11,15 @@ ms.service: virtual-machines-sql
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2018
+ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 855bd64bc8beb86a1bc62c65f71254f43c7a722a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 00b4647815d8330152ca2dd0b5e137e337e80210
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101968"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561108"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server nas Máquinas Virtuais do Azure? (Windows)
 
@@ -43,7 +43,7 @@ As VMs do Azure do SQL Server podem aproveitar o [Backup Automatizado](virtual-m
 
 Se você precisar de alta disponibilidade, considere configurar grupos de disponibilidade do SQL Server. Isso envolve várias VMs do Azure do SQL Server em uma rede virtual. Você pode configurar manualmente sua solução de alta disponibilidade ou pode usar modelos no portal do Azure para a configuração automática. Para obter uma visão geral de todas as opções de alta disponibilidade, veja [Alta disponibilidade e recuperação de desastre para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
-## <a name="performance"></a>Desempenho
+## <a name="performance"></a>Performance
 
 Máquinas virtuais do Azure oferecem tamanhos de máquinas diferentes para atender às demandas de várias cargas de trabalho. VMs do SQL também fornecem a configuração automatizada de armazenamento, que é otimizada para seus requisitos de desempenho. Para saber mais sobre como configurar o armazenamento para VMs do SQL, consulte [Configuração de armazenamento para VMs do SQL Server](virtual-machines-windows-sql-server-storage-configuration.md). Para ajustar o desempenho, confira as [Práticas recomendadas de desempenho para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md).
 
@@ -57,7 +57,7 @@ Para começar, escolha uma imagem de máquina virtual do SQL Server com a versã
 ### <a id="payasyougo"></a> Pré-pagas
 A tabela a seguir fornece uma matriz de imagens do SQL Server pré-pagas.
 
-| Version | Sistema operacional | Edição |
+| Versão | Sistema operacional | Edição |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2DeveloperWindowsServer2016) |
@@ -75,7 +75,7 @@ Também é possível usar sua própria licença (BYOL). Nesse cenário, você pa
 
 Para usar sua própria licença, converta uma VM existente do SQL de pagamento por uso, ou implante uma imagem com **{BYOL}** prefixado. Para saber mais sobre como alternar seu modelo de licenciamento entre o pagamento por uso e BYOL, confira [Como alterar o modelo de licenciamento para uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
 
-| Version | Sistema operacional | Edição |
+| Versão | Sistema operacional | Edição |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
@@ -114,7 +114,7 @@ Depois de selecionar **+ Adicionar**, exiba informações adicionais sobre as di
 
 ![detalhes do bloco bancos de dados](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
 
-Para obter detalhes, consulte:
+Para obter mais informações, consulte:
 
 - [Criar um banco de dados individual](../../../sql-database/sql-database-single-database-get-started.md)
 - [Criar um pool elástico](../../../sql-database/sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
@@ -128,7 +128,7 @@ O Azure mantém apenas uma imagem de máquina virtual para cada combinação de 
 O CEIP (Programa de Aperfeiçoamento da Experiência do Usuário) está habilitado por padrão. Isso envia relatórios periodicamente à Microsoft a fim de ajudar a aprimorar o SQL Server. Nenhuma tarefa de gerenciamento é necessária com o CEIP, a menos que você queira desabilitá-lo após o provisionamento. Você pode personalizar ou desabilitar o CEIP conectando-se à VM com área de trabalho remota. Em seguida, execute o utilitário **Erro do SQL Server e o Relatório de Uso** . Siga as instruções para desabilitar o relatório. Para saber mais sobre coleta de dados, veja a [Declaração de privacidade do SQL Server](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement).
 
 ## <a name="related-products-and-services"></a>Produtos e serviços relacionados
-### <a name="windows-virtual-machines"></a>Máquinas Virtuais do Windows
+### <a name="windows-virtual-machines"></a>Máquinas virtuais do Windows
 * [Visão geral de Máquinas Virtuais](../overview.md)
 
 ### <a name="storage"></a>Armazenamento
@@ -143,7 +143,7 @@ O CEIP (Programa de Aperfeiçoamento da Experiência do Usuário) está habilita
 * [Documentação do SQL Server](https://docs.microsoft.com/sql/index)
 * [Comparação de Banco de Dados SQL do Azure](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Introdução ao SQL Server em Máquinas Virtuais do Azure:
 
@@ -152,3 +152,8 @@ Introdução ao SQL Server em Máquinas Virtuais do Azure:
 Obtenha respostas para perguntas frequentes sobre máquinas virtuais do SQL:
 
 * [Perguntas frequentes sobre o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-faq.md)
+
+Exibir arquiteturas de referência para executar aplicativos de N camadas no SQL Server no IaaS
+
+* [Aplicativo de N camadas do Windows no Azure com SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Executar um aplicativo de N camadas em várias regiões do Azure para alta disponibilidade](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

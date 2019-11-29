@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/27/2019
 ms.author: spelluru
-ms.openlocfilehash: 6631528c9d1f2dfc6dcd3e9d6da81115a9ece637
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dc61fb8e066c6189b5607a6e1cd479cb812466f7
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832071"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561563"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço com tópico, assinatura e regra usando um modelo do Azure Resource Manager
 
@@ -171,17 +171,15 @@ Para saber mais sobre a sintaxe e as propriedades de JSON, consulte [namespaces]
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 ```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
-Consulte o tópico a seguir que mostra como criar um filtro de assinatura: [criar um namespace do barramento de serviço com tópico, assinatura e regra usando um modelo de Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
-
-Saiba como gerenciar esses recursos exibindo estes artigos:
+## <a name="next-steps"></a>Próximos passos
+Saiba como gerenciar esses recursos analisando estes artigos:
 
 * [Gerenciar o Barramento de Serviço do Azure](service-bus-management-libraries.md)
 * [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-manage-with-ps.md)

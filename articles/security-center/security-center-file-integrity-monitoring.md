@@ -1,6 +1,6 @@
 ---
 title: Monitoramento de Integridade de Arquivo na Central de Segurança do Azure | Microsoft Docs
-description: " Saiba como habilitar o Monitoramento de Integridade de Arquivo na Central de Segurança do Azure. "
+description: Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f7f5c257b23cd273a2cda40f874f5edfc62c0dbd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cfa767a42800ceaf78fe007a8468fe9113a2d412
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202188"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558778"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
@@ -93,7 +93,7 @@ O painel do **Monitoramento de integridade de arquivo** é exibido para workspac
 
 ![Painel do Monitoramento de Integridade de Arquivo][6]
 
-O painel do FIM de um workspace exibe o seguinte:
+O painel do FIM de um espaço de trabalho exibe os seguintes detalhes:
 
 - Número total de computadores conectados ao workspace
 - Número total de alterações que ocorreram durante o período selecionado
@@ -109,9 +109,9 @@ A guia **Computadores** (mostrada acima) lista todos os computadores que se repo
 - Total de alterações que ocorreram durante o período selecionado
 - Uma divisão do total de alterações como alterações de arquivo ou do Registro
 
-**Pesquisa de Logs** abre quando você insere o nome de um computador no campo de pesquisa ou seleciona um computador listado na guia Computadores. A Pesquisa de Logs exibe todas as alterações feitas durante o período selecionado para o computador. Você pode expandir uma alteração para obter mais informações.
+A **pesquisa de logs** é aberta quando você insere um nome de computador no campo de pesquisa ou seleciona um computador listado na guia computadores. a pesquisa de log exibe todas as alterações feitas durante o período de tempo selecionado para o computador. Você pode expandir uma alteração para obter mais informações.
 
-![Pesquisa de Log][8]
+![Pesquisa de log][8]
 
 A guia **Alterações** (mostrada abaixo) lista todas as alterações no workspace durante o período selecionado. Para cada entidade que foi alterado, o painel lista:
 
@@ -132,7 +132,7 @@ A guia **Alterações** (mostrada abaixo) lista todas as alterações no workspa
 
    ![Configurações][11]
 
-   **Configuração do Workspace** é aberta exibindo três guias: **Registro do Windows**, **Arquivos do Windows**, e **Arquivos Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a Central de Segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  Editar a entidade permite que você habilite ou desabilite o FIM.
+   **Configuração do Workspace** abre exibindo três guias: **Registro do Windows**, **Arquivos do Windows** e **Arquivos do Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a Central de Segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  Editar a entidade permite que você habilite ou desabilite o FIM.
 
    ![Configuração do workspace][12]
 
@@ -198,8 +198,8 @@ Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações 
 
 4. Selecione **Remover** para desabilitar.
 
-## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a usar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
+## <a name="next-steps"></a>Próximos passos
+Neste artigo, você aprendeu a usar o FIM (monitoramento de integridade de arquivo) na central de segurança. Para saber mais sobre a central de segurança, consulte as seguintes páginas:
 
 * [Configurando políticas de segurança](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciar recomendações de segurança](security-center-recommendations.md): saiba como as recomendações ajudam a proteger seus recursos do Azure.

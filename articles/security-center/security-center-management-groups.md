@@ -1,6 +1,6 @@
 ---
 title: Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure | Microsoft Docs
-description: Saiba mais sobre como ganhar visibilidade para todo o locatário na Central de Segurança do Azure.
+description: Este artigo explica como gerenciar sua postura de segurança em escala aplicando políticas a todas as assinaturas vinculadas ao seu locatário de Azure Active Directory.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,16 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582920"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559339"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
-Este artigo ajuda você a começar fazendo várias ações que maximizam os benefícios que o Centro de Segurança do Azure oferece. A execução dessas ações permite que você obtenha visibilidade de todas as assinaturas do Azure vinculadas ao locatário do Azure Active Directory e gerencie com eficiência a postura de segurança da organização em escala, aplicando políticas de segurança em várias assinaturas de maneira agregada.
-
+Este artigo explica como gerenciar a postura de segurança de sua organização em escala aplicando políticas de segurança a todas as assinaturas do Azure vinculadas ao seu locatário de Azure Active Directory.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -40,7 +39,7 @@ Para obter mais informações sobre grupos de gerenciamento, consulte [Organizar
 Você organiza assinaturas em grupos de gerenciamento e aplica as políticas de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as políticas aplicadas ao grupo de gerenciamento. Embora os grupos de gerenciamento não precisem integrar a Central de Segurança, é altamente recomendável criar pelo menos um grupo de gerenciamento para que o grupo de gerenciamento raiz seja criado. Depois que o grupo é criado, todas as assinaturas sob o seu locatário Azure AD serão conectadas a ele. Para obter instruções sobre o PowerShell e mais informações, consulte [Criar grupos de gerenciamento para gerenciamento de recursos e organização](../azure-resource-manager/management-groups-create.md).
 
  
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços** > **Grupos de gerenciamento**.
 3. Na página principal, selecione **Novo grupo de gerenciamento.** 
 
@@ -49,11 +48,11 @@ Você organiza assinaturas em grupos de gerenciamento e aplica as políticas de 
     - **ID do Grupo de Gerenciamento** é o identificador exclusivo do diretório usado para enviar comandos nesse grupo de gerenciamento. Esse identificador não é editável após a criação, visto que é usado em todo o sistema do Azure para identificar esse grupo. 
     - O campo de nome de exibição é o nome exibido no portal do Azure. Um nome de exibição separado é um campo opcional ao criar o gerenciamento de grupo e pode ser alterado a qualquer momento.  
 
-      ![Criação](./media/security-center-management-groups/create_context_menu.png)  
+      ![Create](./media/security-center-management-groups/create_context_menu.png)  
 5.  Selecione **Salvar**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Exibir grupos de gerenciamento no Portal do Azure
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Para visualizar grupos de gerenciamento, selecione **Todos serviços** sob o menu principal do Azure.
 3. Sob **Geral**, selecione **Grupos de Gerenciamento**.
 
@@ -94,7 +93,7 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
 
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Atribua funções RBAC aos usuários por meio do portal do Azure: 
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Para exibir grupos de gerenciamento, selecione **Todos os serviços** no menu principal do Azure e, em seguida, selecione **Grupos de Gerenciamento**.
 1.  Selecione um grupo de gerenciamento e clique em **detalhes**.
 
@@ -141,7 +140,7 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
 ### <a name="open-or-refresh-security-center"></a>Abra ou atualize o Centro de Segurança
 Após elevar o acesso, abra ou atualize a Central de Segurança do Azure para verificar se você tem visibilidade de todas as assinaturas do locatário do Azure AD. 
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 2. Certifique-se de selecionar todas as assinaturas no seletor de assinatura que você gostaria de exibir na Central de Segurança.
 
     ![Captura de tela do seletor de assinatura](./media/security-center-management-groups/subscription-selector.png)
@@ -186,7 +185,7 @@ Você consegue adicionar assinaturas a um grupo de gerenciamento que você criou
    > [!NOTE]
    > Grupos de gerenciamento podem conter ambos assinaturas e grupos de gerenciamento criança. Quando você designa a um usuário uma função RBAC a um grupo de gerenciamento pai, o acesso é herdado pelas assinaturas de grupo de gerenciamento criança. Conjunto de políticas no grupo de gerenciamento pai são também herdadas pela criança. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você aprendeu como ganhar visibilidade a nível locatário para Centro de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira estes artigos:
 
 > [!div class="nextstepaction"]

@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: afb06771422b2f8117383b0bde711dc3e1a4d238
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279469"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555187"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -20,9 +20,9 @@ O esquema de definição de política é encontrado aqui: [https://schema.manage
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
 - modo
-- parameters
+- parâmetros
 - nome de exibição
-- Description
+- Descrição
 - regra de política
   - avaliação de lógica
   - efeito
@@ -63,7 +63,7 @@ Por exemplo, o JSON a seguir mostra uma política que limita os locais em que os
 
 Todos os exemplos de Azure Policy estão em [exemplos de Azure Policy](../samples/index.md).
 
-## <a name="mode"></a>Modo
+## <a name="mode"></a>Mode
 
 O **modo** é configurado dependendo de se a política tem como alvo uma propriedade Azure Resource Manager ou uma propriedade de provedor de recursos.
 
@@ -90,7 +90,7 @@ Atualmente, há suporte para os seguintes modos de provedor de recursos durante 
 > [!NOTE]
 > Os modos de provedor de recursos só dão suporte a definições de políticas internas e não oferecem suporte a iniciativas durante a visualização.
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Parâmetros ajudam a simplificar o gerenciamento de política, reduzindo o número de definições de política. Pense em parâmetros como os campos em um formulário – `name`, `address`, `city`, `state`. Esses parâmetros sempre permanecem iguais, porém, seus valores mudam com base no preenchimento individual do formulário.
 Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir parâmetros em uma definição de política, você pode reutilizar essa política para diferentes cenários usando valores diferentes.
@@ -308,7 +308,7 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 }
 ```
 
-### <a name="value"></a>Valor
+### <a name="value"></a>Value
 
 As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
 O **valor** é emparelhado a uma [condição](#conditions) com suporte.
@@ -318,7 +318,7 @@ O **valor** é emparelhado a uma [condição](#conditions) com suporte.
 
 #### <a name="value-examples"></a>Exemplos de valor
 
-Este exemplo de regra de política usa **valor** para comparar o resultado da função `resourceGroup()` e a propriedade **nome** retornada para uma condição **like** de `*netrg`. A regra nega qualquer recurso que não for do `Microsoft.Network/*`tipo em qualquer grupo de recursos cujo nome termine em `*netrg`.
+Este exemplo de regra de política usa **valor** para comparar o resultado da função `resourceGroup()` e a propriedade **nome** retornada para uma condição **like** de `*netrg`. A regra nega qualquer recurso que não for do **tipo** `Microsoft.Network/*` em qualquer grupo de recursos cujo nome termine em `*netrg`.
 
 ```json
 {
@@ -393,6 +393,146 @@ Em vez disso, use a função [If ()](../../../azure-resource-manager/resource-gr
 ```
 
 Com a regra de política revisada, `if()` verifica o comprimento do **nome** antes de tentar obter uma `substring()` em um valor com menos de três caracteres. Se o **nome** for muito curto, o valor "não iniciando com ABC" será retornado em vez disso e comparado com **ABC**. Um recurso com um nome curto que não começa com **ABC** ainda falha na regra de política, mas não causa mais um erro durante a avaliação.
+
+### <a name="count"></a>Contagem
+
+As condições que contam com quantos membros de uma matriz no conteúdo do recurso atendem a uma expressão de condição podem ser formadas usando a expressão de **contagem** . Os cenários comuns verificam se ' pelo menos um de ', ' exatamente um de ', ' todos os ' ou ' nenhum de ' os membros da matriz atendem à condição. a **contagem** avalia cada membro da matriz para uma expressão de condição e soma os resultados _verdadeiros_ , que são então comparados com o operador de expressão.
+
+A estrutura da expressão de **contagem** é:
+
+```json
+{
+    "count": {
+        "field": "<[*] alias>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+As propriedades a seguir são usadas com **Count**:
+
+- **Count. Field** (obrigatório): contém o caminho para a matriz e deve ser um alias de matriz. Se a matriz estiver ausente, a expressão será avaliada como _falsa_ sem considerar a expressão de condição.
+- **Count. Where** (opcional): a expressão de condição para avaliar individualmente cada [\[\*\]](#understanding-the--alias) membro da matriz de alias de **Count. Field**. Se essa propriedade não for fornecida, todos os membros da matriz com o caminho de ' Field ' serão avaliados como _true_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro dessa propriedade.
+  Os [operadores lógicos](#logical-operators) podem ser usados dentro dessa propriedade para criar requisitos complexos de avaliação.
+- **condição de\<\>** (obrigatório): o valor é comparado com o número de itens que atendeu à **contagem.** expressão de condição WHERE. Uma [condição](../concepts/definition-structure.md#conditions) numérica deve ser usada.
+
+#### <a name="count-examples"></a>Exemplos de contagem
+
+Exemplo 1: verificar se uma matriz está vazia
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+    },
+    "equals": 0
+}
+```
+
+Exemplo 2: verificar apenas um membro de matriz para atender à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My unique description"
+        }
+    },
+    "equals": 1
+}
+```
+
+Exemplo 3: verificar pelo menos um membro de matriz para atender à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My common description"
+        }
+    },
+    "greaterOrEquals": 1
+}
+```
+
+Exemplo 4: verificar se todos os membros da matriz de objetos atendem à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "description"
+        }
+    },
+    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+}
+```
+
+Exemplo 5: verificar se todos os membros da matriz de cadeia de caracteres atendem à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+            "like": "*@contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Exemplo 6: usar o **campo** dentro do **valor** para verificar se todos os membros da matriz atendem à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
+            "equals": "contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Exemplo 7: Verifique se pelo menos um membro da matriz corresponde a várias propriedades na expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "allOf": [
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                    "equals": "Inbound"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                    "equals": "Allow"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                    "equals": "3389"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
 
 ### <a name="effect"></a>Efeito
 
@@ -470,7 +610,7 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
-- CLI do Azure
+- Azure CLI
 
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell
@@ -490,14 +630,15 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
 
 ### <a name="understanding-the--alias"></a>Noções básicas sobre o alias [*]
 
-Vários aliases disponíveis têm uma versão que é exibida como um nome "normal" e outra que tem **[\*]** anexado a ela. Por exemplo:
+Vários dos aliases que estão disponíveis têm uma versão que aparece como um nome ' normal ' e outro que tem **\[\*\]** anexado a ele. Por exemplo:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 O alias ' normal ' representa o campo como um único valor. Esse campo é para cenários de comparação de correspondência exata quando o conjunto inteiro de valores deve ser exatamente o mesmo definido, nem mais nem menos.
 
-O alias **[\*]** torna possível comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Essa abordagem possibilita comparar as propriedades do elemento para ' If None of ', ' if any of ', ou ' If All of '. Usando **ipRules [\*]** , um exemplo seria validar se cada _ação_ é _Deny_, mas não se preocupa com quantas regras existem ou qual é o _valor_ de IP. Esta regra de exemplo verifica se há correspondências de **ipRules [\*]. Value** para **10.0.4.1** e aplica o **effecttype** somente se ele não encontrar pelo menos uma correspondência:
+O alias **\[\*\]** torna possível comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Essa abordagem possibilita comparar as propriedades do elemento para ' If None of ', ' if any of ', ou ' If All of '. Para cenários mais complexos, use a expressão de condição de [contagem](#count) . Usando o **ipRules\[\*\]** , um exemplo seria validar que cada _ação_ seja _negada_, mas não se preocupe com quantas regras existem ou qual é o _valor_ de IP.
+Esta regra de exemplo verifica se há correspondências de **ipRules\[\*\]. Value** para **10.0.4.1** e aplica o **effecttype** somente se ele não encontrar pelo menos uma correspondência:
 
 ```json
 "policyRule": {
@@ -518,6 +659,8 @@ O alias **[\*]** torna possível comparar com o valor de cada elemento na matriz
     }
 }
 ```
+
+
 
 Para obter mais informações, consulte [avaliando o alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
@@ -599,7 +742,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revisar [Compreendendo os efeitos da política](effects.md).

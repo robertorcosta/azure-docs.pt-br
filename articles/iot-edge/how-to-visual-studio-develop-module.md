@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 2f8b0fe83e10beb3b65dca08e18b03f4fc11947e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 9cec4c436c6e8ea08e37ec0ddd8a9a01e493447c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457102"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561692"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Visual Studio 2019 para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -28,7 +28,7 @@ As ferramentas do Azure IoT Edge para Visual Studio fornecem os seguintes benef�
 
 Este artigo mostra como usar as ferramentas de Azure IoT Edge para o Visual Studio 2019 para desenvolver seus módulos de IoT Edge. Você também aprenderá como implantar seu projeto no dispositivo Azure IoT Edge. Atualmente, o Visual Studio 2019 fornece suporte para módulos escritos em C C#e. As arquiteturas de dispositivo com suporte são Windows x64 e Linux x64 ou ARM32. Para obter mais informações sobre sistemas operacionais, linguagens e arquiteturas com suporte, consulte [suporte a linguagens e arquitetura](module-development.md#language-and-architecture-support).
   
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo presume que você esteja usando um computador ou uma máquina virtual que executa Windows como seu computador de desenvolvimento. Em computadores com Windows, você pode desenvolver módulos do Windows ou Linux. Para desenvolver módulos do Windows, use um computador Windows executando a versão 1809/Build 17763 ou mais recente. Para desenvolver módulos do Linux, use um computador Windows que atenda aos [requisitos do Docker desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
@@ -106,9 +106,11 @@ O modelo de projeto do Azure IoT Edge no Visual Studio cria um projeto que pode 
 
 Agora você tem um projeto **AzureIoTEdgeApp1. Linux. AMD64** ou um projeto **AzureIoTEdgeApp1. Windows. AMD64** e também um projeto **IotEdgeModule1** em sua solução. Cada projeto **AzureIoTEdgeApp1** tem um arquivo `deployment.template.json`, que define os módulos que você deseja compilar e implantar para sua solução de IOT Edge e também define as rotas entre os módulos. A solução padrão tem um módulo **SimulatedTemperatureSensor** e um módulo **IotEdgeModule1** . O módulo **SimulatedTemperatureSensor** gera dados simulados para o módulo **IotEdgeModule1** , enquanto o código padrão no módulo **IotEdgeModule1** canaliza diretamente as mensagens recebidas para o Hub IOT do Azure.
 
+Para ver como o sensor de temperatura simulado funciona, exiba o [código-fonte SimulatedTemperatureSensor. csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+
 O projeto **IotEdgeModule1** é um aplicativo de console do .net Core 2,1 se for C# um módulo. Ele contém os arquivos do Docker que você precisa para seu dispositivo IoT Edge em execução com o contêiner do Windows ou do Linux. O arquivo `module.json` descreve os metadados de um módulo. O código de módulo real, que usa o SDK do dispositivo IoT do Azure como uma dependência, é encontrado no arquivo de `Program.cs` ou `main.c`.
 
-## <a name="develop-your-module"></a>Desenvolva seu módulo
+## <a name="develop-your-module"></a>Desenvolver seu módulo
 
 O código de módulo padrão que vem com a solução está localizado em **IotEdgeModule1** > **Program.cs** ( C#para) ou **Main. c** (c). O módulo e o arquivo de `deployment.template.json` são configurados para que você possa criar a solução, enviá-la por push para o registro de contêiner e implantá-la em um dispositivo para iniciar o teste sem tocar em nenhum código. O módulo foi criado para pegar a entrada de uma fonte (nesse caso, o módulo **SimulatedTemperatureSensor** que simula dados) e redirecioná-lo para o Hub IOT do Azure.
 
@@ -239,6 +241,6 @@ O artigo de início rápido que você usou para configurar seu dispositivo do Io
 
 1. Para interromper o monitoramento de dados, selecione o dispositivo na lista e, em seguida, selecione **parar monitoramento de ponto de extremidade de evento interno** na janela **ação** .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para desenvolver módulos padronizados para seus dispositivos do IoT Edge, consulte [Entender e usar os SDKs de Hub IoT do Azure](../iot-hub/iot-hub-devguide-sdks.md).

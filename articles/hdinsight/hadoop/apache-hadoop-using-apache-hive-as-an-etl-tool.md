@@ -7,13 +7,13 @@ ms.author: ashishth
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
-ms.openlocfilehash: 71631cd2394efd6743bc0e80a458fed2678d4be0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/22/2019
+ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076239"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561766"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usar o Apache Hive como uma ferramenta de extração, transformação e carregamento (ETL)
 
@@ -21,11 +21,11 @@ Você normalmente precisa limpar e transformar os dados de entrada antes de carr
 
 ## <a name="use-case-and-model-overview"></a>Visão geral de caso de uso e modelo
 
-A figura a seguir mostra uma visão geral de caso de uso e de modelo para a automação de ETL. Dados de entrada são transformados para gerar a saída apropriada.  Durante essa transformação, os dados podem sofrer alterações de forma, tipo de dados e até de idioma.  Processos de ETL podem converter de imperial para métrica, alterar fusos horários e melhorar a precisão para alinhar corretamente com os dados existentes no destino.  Processos de ETL também podem combinar novos dados com os dados existentes para manter relatórios atualizados ou para fornecer mais informações sobre os dados existentes.  Aplicativos, como ferramentas e serviços de relatório podem, então, consumir esses dados no formato desejado.
+A figura a seguir mostra uma visão geral de caso de uso e de modelo para a automação de ETL. Dados de entrada são transformados para gerar a saída apropriada.  Durante essa transformação, os dados podem sofrer alterações de forma, tipo de dados e até de idioma.  Processos de ETL podem converter de imperial para métrica, alterar fusos horários e melhorar a precisão para alinhar corretamente com os dados existentes no destino.  Os processos de ETL também podem combinar novos dados com os dados existentes para manter o relatório atualizado ou para fornecer mais informações sobre os dados existentes.  Aplicativos, como ferramentas e serviços de relatório podem, então, consumir esses dados no formato desejado.
 
 ![Apache Hive como arquitetura de ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
-O Hadoop normalmente é usado em processos de ETL que importam um grande número de arquivos de texto (como CSVs) ou um menor, mas frequentemente alterando o número de arquivos de texto, ou ambos.  O Hive é uma excelente ferramenta para usar para preparar os dados antes de carregá-los para o destino de dados.  O Hive permite que você crie um esquema em CSV e use uma linguagem semelhante a SQL para gerar os programas de MapReduce que interagem com os dados. 
+O Hadoop normalmente é usado em processos de ETL que importam um grande número de arquivos de texto (como CSVs) ou um menor, mas frequentemente alterando o número de arquivos de texto, ou ambos.  O Hive é uma excelente ferramenta para usar para preparar os dados antes de carregá-los para o destino de dados.  O Hive permite que você crie um esquema em CSV e use uma linguagem semelhante a SQL para gerar os programas de MapReduce que interagem com os dados.
 
 As etapas típicas para usar o Hive para executar ETL são as seguintes:
 
@@ -38,14 +38,14 @@ As etapas típicas para usar o Hive para executar ETL são as seguintes:
     DROP TABLE IF EXISTS hvac;
 
     --create the hvac table on comma-separated sensor data stored in Azure Storage blobs
-    
+
     CREATE EXTERNAL TABLE hvac(`date` STRING, time STRING, targettemp BIGINT,
-        actualtemp BIGINT, 
-        system BIGINT, 
-        systemage BIGINT, 
+        actualtemp BIGINT,
+        system BIGINT,
+        systemage BIGINT,
         buildingid BIGINT)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-    STORED AS TEXTFILE LOCATION 'wasb://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    STORED AS TEXTFILE LOCATION 'wasbs://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
     ```
 
 5. Transforme os dados e carregue-os no destino.  Há várias maneiras de usar o Hive durante a transformação e o carregamento:
@@ -73,7 +73,7 @@ Você pode usar o Hive para gerar dados de saída para uma variedade de destinos
 * Excel.
 * Tabela e armazenamento de blob do Azure.
 * Aplicativos ou serviços que exigem que os dados sejam processados em formatos específicos ou como arquivos que contêm tipos específicos de estrutura de informações.
-* Um armazenamento de documentos JSON como <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>.
+* Um repositório de documentos JSON como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 ## <a name="considerations"></a>Considerações
 
@@ -83,11 +83,11 @@ O modelo de ETL normalmente é usado quando você deseja:
 * Limpar, transformar e validar os dados antes de carregá-los, talvez usando mais de uma passagem de transformação pelo cluster.
 * Gere relatórios e visualizações que são atualizadas regularmente.  Por exemplo, se o relatório demora muito para ser gerado durante o dia, você pode agendar para que ele seja executado durante a noite.  Você pode usar o Agendador do Microsoft Azure e o PowerShell para executar automaticamente uma consulta de Hive.
 
-Se o destino para os dados não é um banco de dados, você pode gerar um arquivo no formato apropriado dentro da consulta, por exemplo, um CSV. Esse arquivo pode ser importado para o Excel ou Power BI.
+Se o destino dos dados não for um banco de dado, você poderá gerar um arquivo no formato apropriado dentro da consulta, por exemplo, um CSV. Esse arquivo pode ser importado para o Excel ou Power BI.
 
 Se você precisar executar várias operações nos dados como parte do processo de ETL, considere como você as gerencia. Se as operações são controladas por um programa externo, em vez de como um fluxo de trabalho dentro da solução, você precisa decidir se algumas operações podem ser executadas em paralelo e detectar quando cada trabalho é concluído. Usar um mecanismo de fluxo de trabalho como o Oozie no Hadoop pode ser mais fácil do que tentar orquestrar uma sequência de operações usando scripts externos ou programas personalizados. Para obter mais informações sobre o Oozie, consulte [Fluxo de trabalho e o orquestração de trabalhos](https://msdn.microsoft.com/library/dn749829.aspx).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [ETL em escala](apache-hadoop-etl-at-scale.md)
 * [Operacionalizar um pipeline de dados](../hdinsight-operationalize-data-pipeline.md)

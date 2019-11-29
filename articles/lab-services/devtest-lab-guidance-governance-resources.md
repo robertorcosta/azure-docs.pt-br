@@ -1,6 +1,6 @@
 ---
-title: Governança da infraestrutura do Azure DevTest Labs
-description: Este artigo fornece diretrizes para a governança da infraestrutura do Azure DevTest Labs.
+title: Governança da infraestrutura de Azure DevTest Labs – recurso
+description: Este artigo aborda o alinhamento e o gerenciamento de recursos para Azure DevTest Labs em sua organização.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: c5514a43602106cf045b575d289e02b591468359
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60561636"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561642"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governança da infraestrutura do Azure DevTest Labs – Recursos
 Este artigo aborda o alinhamento e o gerenciamento de recursos para o DevTest Labs em sua organização. 
@@ -76,7 +76,7 @@ Você também pode usar um laboratório para um projeto específico em projetos 
 Como podemos evitar a exclusão de recursos dentro de um laboratório?
 
 ### <a name="answer"></a>Resposta
-É recomendável que você defina permissões apropriadas no nível do laboratório, para que somente usuários autorizados possam excluir recursos ou alterar políticas de laboratório. Os desenvolvedores devem ser colocados dentro do grupo **Usuários do DevTest Labs**. O desenvolvedor líder ou o líder de infraestrutura deve ser o **Proprietário do DevTest Labs**. É recomendável que você tenha apenas dois proprietários de laboratório. Essa política se estende ao repositório de código para evitar corrupção. Usuários do laboratório têm direitos para usar recursos, mas não podem atualizar políticas de laboratório. Confira o artigo a seguir, que lista as funções e os direitos de cada grupo interno tem em um laboratório: [Adicionar proprietários e usuários ao Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+É recomendável que você defina permissões apropriadas no nível do laboratório, para que somente usuários autorizados possam excluir recursos ou alterar políticas de laboratório. Os desenvolvedores devem ser colocados dentro do grupo **Usuários do DevTest Labs**. O desenvolvedor líder ou o líder de infraestrutura deve ser o **Proprietário do DevTest Labs**. É recomendável que você tenha apenas dois proprietários de laboratório. Essa política se estende ao repositório de código para evitar corrupção. Usuários do laboratório têm direitos para usar recursos, mas não podem atualizar políticas de laboratório. Confira o artigo a seguir, que lista as funções e os direitos de cada grupo interno em um laboratório: [Adicionar proprietários e usuários no Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 ## <a name="move-lab-to-another-resource-group"></a>Mover laboratório para outro grupo de recursos 
 
@@ -86,5 +86,5 @@ Mover um laboratório para outro grupo de recursos é uma operação compatível
 ### <a name="answer"></a>Resposta
 Sim. Navegue até a página Grupo de Recursos da home page do seu laboratório. Em seguida, selecione **Mover** na barra de ferramentas e selecione o laboratório que você deseja mover para outro grupo de recursos. Quando você cria um laboratório, um grupo de recursos é criado automaticamente para você. No entanto, talvez você queira mover o laboratório para outro grupo de recursos que segue as convenções de nomenclatura empresariais. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Veja [Gerenciar custo e propriedade](devtest-lab-guidance-governance-cost-ownership.md).

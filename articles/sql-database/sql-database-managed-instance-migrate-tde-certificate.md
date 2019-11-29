@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: 6ef8d49ba7c9ac2c3c60197c11b9bf5936171f9e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0f6e379287323d9353acd887cf30d5c9c0065959
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420748"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555377"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrar o certificado do banco de dados protegido por TDE para a Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -32,12 +32,12 @@ Para uma opção alternativa usando o serviço totalmente gerenciado para migra�
 > [!IMPORTANT]
 > O certificado migrado é usado apenas para a restauração do banco de dados protegido por TDE. Logo após a conclusão da restauração, o certificado migrado é substituído por um protetor diferente, o certificado gerenciado pelo serviço ou a chave assimétrica do cofre de chaves, dependendo do tipo da criptografia de dados transparente definida na instância.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste artigo, você precisa dos seguintes pré-requisitos:
 
 - Ferramenta de linha de comando [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) instalada no servidor local ou em outro computador com acesso ao certificado exportado como arquivo. A ferramenta Pvk2Pfx faz parte do [Kit de drivers corporativos do Windows](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), um ambiente de linha de comando autônomo independente.
-- [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) versão 5.0 ou posterior instalada.
+- [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) versão 5.0 ou posterior instalada.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -60,7 +60,7 @@ Update-Module -Name Az.Sql
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Caso precise instalá-la ou atualizá-la, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 * * *
 
@@ -184,7 +184,7 @@ Primeiro, você precisa [configurar um Azure Key Vault](/azure/key-vault/key-vau
 
 Agora, o certificado está disponível para a Instância Gerenciada especificada e o backup do banco de dados protegido por TDE correspondente pode ser restaurado com êxito.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a migrar a chave de criptografia de proteção de certificado do banco de dados com a Transparent Data Encryption, do SQL Server local ou de IaaS para a Instância Gerenciada do Banco de Dados SQL do Azure.
 

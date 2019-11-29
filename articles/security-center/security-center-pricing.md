@@ -1,6 +1,6 @@
 ---
 title: Preços das camadas da central de segurança do Azure
-description: Este artigo fornece informações sobre os preços para a Central de Segurança do Azure.
+description: A central de segurança do Azure é oferecida em duas camadas – gratuita e Standard. Esta página mostra como atualizar de gratuito para Standard.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0c3fdc48d9b3bc77b629d4d6f1da081d70658c88
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8ffb571d13270ced80426aee3575197cf95d3805
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664255"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559240"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard da Central de Segurança para segurança aprimorada
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar o ritmo veloz da evolução dos ataques cibernéticos.
@@ -42,7 +42,7 @@ Para obter a camada Standard:
 2. Selecione a assinatura que você deseja atualizar para o Padrão.
 3. Selecione **Tipo de preço**.
 4. Selecione **Standard** para atualizar.
-5. Clique em **Salvar**.
+5. Clique em **Save** (Salvar).
 
 (Os preços na imagem são fornecidos apenas para fins ilustrativos) [preços da central de segurança![](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
@@ -54,12 +54,12 @@ Para obter a camada Standard:
 A Central de Segurança oferece maior segurança e proteção contra ameaças para suas cargas de trabalho de nuvem híbrida, incluindo:
 
 - **Segurança híbrida** – Obtenha uma exibição unificada sobre a segurança em todas as suas cargas de trabalho locais e na nuvem. Aplique políticas de segurança e avalie continuamente a segurança de suas cargas de trabalho de nuvem híbrida a fim de garantir a conformidade com padrões de segurança. Colete, pesquise e analise dados de segurança de várias fontes, incluindo firewalls e outras soluções de parceiros.
-- **Detecção avançada de ameaças** – Use análises avançadas e o Grafo de segurança inteligente da Microsoft para obter uma vantagem sobre ataques cibernéticos em evolução. Aproveite a análise comportamental interna e o aprendizado de máquina para identificar ataques e explorações de dia zero. Monitore redes, computadores e serviços de nuvem contra ataques recebidos e atividade pós-violação. Simplifique a investigação com ferramentas interativas e inteligência contextual contra ameaças.
+- **Detecção avançada de ameaças** – Use análises avançadas e o Grafo de segurança inteligente da Microsoft para obter uma vantagem sobre ataques cibernéticos em evolução. Aproveite a análise comportamental interna e o aprendizado de máquina para identificar ataques e explorações de dia zero. Monitore redes, computadores e serviços de nuvem para ataques recebidos e para atividades pós-violação. Simplifique a investigação com ferramentas interativas e inteligência contextual contra ameaças.
 - **Controles de acesso e de aplicativo** – bloquear malware e outros aplicativos indesejados aplicando recomendações de lista de permissões de aprendizado de máquina adaptadas para suas cargas de trabalho específicas. Reduza a superfície de ataque de rede com acesso controlado just-in-time a portas de gerenciamento em VMs do Azure. Isso reduz drasticamente a exposição à força bruta e a outros ataques de rede.
 - **Recursos de segurança do contêiner** -Aproveite o gerenciamento de vulnerabilidades e a detecção de ameaças em tempo real em seus ambientes em contêineres. Ao habilitar o recurso de registros de contêiner, pode levar até 12hrs até que todos os recursos estejam habilitados.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, foram apresentados os preços da Central de Segurança. Para saber mais sobre a segurança aprimorada e a proteção avançada da camada Standard, consulte:
 
 - [Detecção avançada de ameaças](security-center-threat-report.md)

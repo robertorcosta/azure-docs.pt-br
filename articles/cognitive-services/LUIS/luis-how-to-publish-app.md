@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: f213c1d43930075c78cf81de345f612e46bbfb1c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74221716"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554835"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo, treinado em um ponto de extremidade de preparo ou produção
 
@@ -38,14 +38,14 @@ Quando você terminar de criar, treinar e testar seu aplicativo LUIS ativo, disp
 
 Selecione o slot correto quando a janela pop-up for exibida: 
 
-* Staging
+* Preparação
 * Produção 
 
 Usando os dois slots de publicação, isso permite que você tenha duas versões diferentes do seu aplicativo disponíveis nos pontos de extremidade publicados ou na mesma versão em dois pontos de extremidade diferentes. 
 
 ### <a name="publishing-regions"></a>Regiões de publicação
 
-O aplicativo é publicado em todas as regiões associadas aos recursos de ponto de extremidade de previsão de LUIS adicionados no portal do LUIS da página **gerenciar** ->  **[recursos do Azure](/luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
+O aplicativo é publicado em todas as regiões associadas aos recursos de ponto de extremidade de previsão de LUIS adicionados no portal do LUIS da página **gerenciar** ->  **[recursos do Azure](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
 
 Por exemplo, para um aplicativo criado em [www.Luis.ai](https://www.luis.ai), se você criar um recurso de Luis em duas regiões, **westus** e **lesteus**, e adicioná-los ao aplicativo como recursos, o aplicativo será publicado em ambas as regiões. Para obter mais informações sobre as regiões do LUIS, consulte [Regiões](luis-reference-regions.md).
 
@@ -91,7 +91,7 @@ As correções de ortografia são feitas antes da previsão de expressão do usu
 
 A desobstrução de fala é o processo de usar o envio do modelo LUIS para os serviços de fala antes da conversão de texto em fala. Isso permite que o serviço de fala forneça a conversão de fala com mais precisão para seu modelo. Isso permite o bot Speech e solicitações LUIS e respostas em uma chamada fazendo uma chamada de fala e voltando uma resposta LUIS. Ele fornece menos latência geral.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [Gerenciar chaves](./luis-how-to-azure-subscription.md) para adicionar a chave de assinatura do Azure ao LUIS e saber como definir a chave de Verificação Ortográfica do Bing e incluir todas as intenções nos resultados.
 * Veja [Treinar e testar seu aplicativo](luis-interactive-test.md) para obter instruções sobre como testar seu aplicativo publicado no console de teste.

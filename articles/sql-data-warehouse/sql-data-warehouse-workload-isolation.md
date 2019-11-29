@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a31498ec5459604d89fa72a6f2a003dbc1189eed
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 51990e02eada52263006627be803c4073b9361ac
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685362"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555397"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>SQL Data Warehouse o isolamento do grupo de carga de trabalho (versão prévia)
 
@@ -85,8 +85,8 @@ Os recursos do pool compartilhado são os recursos não configurados para isolam
 
 O acesso aos recursos no pool compartilhado é alocado de acordo com a [importância](sql-data-warehouse-workload-importance.md) .  As solicitações com o mesmo nível de importância acessarão os recursos do pool compartilhado em uma base/primeiro a sair.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Início rápido: configurar o isolamento de carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
-- [CRIAR GRUPO DE CARGA DE TRABALHO](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CRIAR GRUPO DE CARGA DE TRABALHO](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [Converter classes de recursos em grupos de cargas de trabalho](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).

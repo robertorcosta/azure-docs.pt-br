@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/23/2019
+ms.date: 11/27/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: c8e0bb50e14467d2950d97da660fc8e6fa176b99
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 456d550659c04b2272c048fcd64fe73b1a11522a
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008914"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566200"
 ---
 O Acelerador de Gravação é uma capacidade de disco máquinas virtuais (VMs) da Série M no Armazenamento Premium com Azure Managed Disks exclusivamente. Como o nome indica, o objetivo da funcionalidade é melhorar a latência de E/S das gravações no Armazenamento Premium do Azure. O Acelerador de Gravação é ideal para quando as atualizações do arquivo de log são necessárias para manter em disco em um modo de alto desempenho para bancos de dados modernos.
 
@@ -46,8 +46,9 @@ Há limites de VHDs de Armazenamento Premium do Azure por VM que podem ter supor
 
 | SKU da VM | Número de discos do Acelerador de Gravação | IOPS do Disco Acelerador de Gravação por VM |
 | --- | --- | --- |
+| M416ms_v2, M416s_v2| 16 | 20000 |
 | M208ms_v2, M208s_v2| 8 | 10000 |
-| M128ms, 128s | 16 | 20000 |
+| M128ms, M128s | 16 | 20000 |
 | M64ms, M64ls, M64s | 8 | 10000 |
 | M32ms, M32ls, M32ts, M32s | 4 | 5\.000 |
 | M16ms, M16s | 2 | 2500 |
@@ -59,7 +60,7 @@ São os limites de IOPS por VM e *não* por disco. Todos os discos do Acelerador
 
 As próximas seções descreverão como o Acelerador de Gravação pode ser habilitado nos VHDs do Armazenamento Premium do Azure.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Os pré-requisitos a seguir são aplicáveis ao uso do Acelerador de Gravação neste momento:
 

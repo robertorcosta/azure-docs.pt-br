@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 0b2ffc00b6c96f2c31a4b711f618e7b87b6f69e0
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 1adfb59843150ffaa6ed76411d07d8ec6cf6a44b
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482098"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555261"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
@@ -39,7 +39,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
       * Carregar, incluindo arrastar & soltar
       * Baixar
       * Copiar & colar #1249
-      * Exclusão
+      * Excluir
    * Blobs de ADLS Gen2
       * Carregar, incluindo arrastar & soltar
       * Baixar
@@ -315,7 +315,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
 * A alteração da camada de acesso ao blob agora funciona com o RBAC. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
 * Agora você pode redefinir rapidamente o acesso rápido por meio de "Help" → "Reset". [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
 
-### <a name="preview-features"></a>Recursos de visualização
+### <a name="preview-features"></a>Recursos de Visualização
 
 * A entrada do fluxo de código do dispositivo agora está disponível para visualização. Para habilitá-lo, vá para "visualização" → "usar entrada de fluxo de código de dispositivo". Incentivamos qualquer usuário que tenha problemas com janelas de entrada em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de entrar.
 * O Gerenciador de Armazenamento integrado ao AzCopy está disponível para visualização no momento. Para habilitá-lo, acesse "visualização" → "usar AzCopy para upload e download de blob aprimorados". As transferências de blob concluídas com AzCopy devem ser mais rápidas e com melhor desempenho.
@@ -373,7 +373,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
 * Para carregamentos do AzCopy, o sinalizador para calcular e definir o hash MD5 agora está habilitado. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Recursos de visualização
+### <a name="preview-features"></a>Recursos de Visualização
 
 * A entrada do fluxo de código do dispositivo agora está disponível para visualização. Para habilitá-lo, vá para "visualização" → "usar entrada de fluxo de código de dispositivo". Incentivamos qualquer usuário que tenha problemas com janelas de entrada em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de entrar.
 * O Gerenciador de Armazenamento integrado ao AzCopy está disponível para visualização no momento. Para habilitá-lo, acesse "visualização" → "usar AzCopy para upload e download de blob aprimorados". As transferências de blob concluídas com AzCopy devem ser mais rápidas e com melhor desempenho.
@@ -425,7 +425,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
 * Para carregamentos do AzCopy, o sinalizador para calcular e definir o hash MD5 agora está habilitado. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Recursos de visualização
+### <a name="preview-features"></a>Recursos de Visualização
 
 * A entrada do fluxo de código do dispositivo agora está disponível para visualização. Para habilitá-lo, vá para "visualização" → "usar entrada de fluxo de código de dispositivo". Incentivamos qualquer usuário que tenha problemas com janelas de entrada em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de entrar.
 * O Gerenciador de Armazenamento integrado ao AzCopy está disponível para visualização no momento. Para habilitá-lo, acesse "visualização" → "usar AzCopy para upload e download de blob aprimorados". As transferências de blob concluídas com AzCopy devem ser mais rápidas e com melhor desempenho.
@@ -478,7 +478,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
 * Agora você pode alterar o proprietário e o grupo proprietário ao gerenciar o acesso para um ADLS Gen2 contêiner, arquivo ou pasta.
 * No Windows, a atualização de Gerenciador de Armazenamento de dentro do produto agora é uma instalação incremental. Isso deve resultar em uma experiência de atualização mais rápida. Se você preferir uma instalação limpa, poderá baixar o [instalador](https://azure.microsoft.com/features/storage-explorer/) por conta própria e, em seguida, instalá-lo manualmente. #1089
 
-### <a name="preview-features"></a>Recursos de visualização
+### <a name="preview-features"></a>Recursos de Visualização
 
 * A entrada do fluxo de código do dispositivo agora está disponível para visualização. Para habilitá-lo, vá para "visualização" → "usar entrada de fluxo de código de dispositivo". Incentivamos qualquer usuário que tenha problemas com janelas de entrada em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de entrar. #938
 * O Gerenciador de Armazenamento integrado ao AzCopy está disponível para visualização no momento. Para habilitá-lo, acesse "visualização" → "usar AzCopy para upload e download de blob aprimorados". As transferências de blob concluídas com AzCopy devem ser mais rápidas e com melhor desempenho.
@@ -519,7 +519,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -591,7 +591,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -660,7 +660,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -677,7 +677,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
     ```
 
 ## <a name="version-160"></a>Versão 1.6.0
-12/5/2018
+05/12/2018
 
 ### <a name="new"></a>Novo
 
@@ -715,7 +715,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -779,7 +779,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -836,7 +836,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -892,7 +892,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -947,7 +947,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -1007,7 +1007,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -1064,7 +1064,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -1121,7 +1121,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -1175,7 +1175,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -1241,7 +1241,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```

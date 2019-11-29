@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes sobre a Central de Segurança do Azure | Microsoft Docs
-description: Encontre respostas para perguntas frequentes sobre a Central de Segurança do Azure.
+description: Essas perguntas FREQUENTEs respondem a perguntas sobre a central de segurança do Azure, um produto que ajuda você a prevenir, detectar e responder a ameaças.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: memildin
-ms.openlocfilehash: bbb34a0a9d8035ce8cbfd3f3283677133370a9f2
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 896db06204188c4347fbdced0b1bb3f216f56ef9
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316733"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558672"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a Central de Segurança do Azure
 Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure, um serviço que ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Microsoft Azure.
@@ -57,7 +57,7 @@ Confira [Permissões na Central de Segurança do Azure](security-center-permissi
 A central de segurança coleta dados de suas VMs (máquinas virtuais) do Azure, conjuntos de dimensionamento de máquinas virtuais, contêineres de IaaS e computadores não Azure (incluindo locais) para monitorar vulnerabilidades de segurança e ameaças. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu workspace para serem analisados.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Sou cobrado pelos logs de Azure Monitor nos espaços de trabalho criados pela central de segurança?
-Nº Os espaços de trabalho criados pela central de segurança, enquanto configurados para Azure Monitor logs por nó, não incorrem em cobranças de Azure Monitor logs. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace:
+Não. Os espaços de trabalho criados pela central de segurança, enquanto configurados para logs de Azure Monitor por nó, não incorrem em cobranças de Azure Monitor logs. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace:
 
 - **Camada gratuita**: a Central de Segurança instala a solução 'SecurityCenterFree' no workspace padrão. Você não será cobrado pela camada gratuita.
 - **Camada Standard**: a Central de Segurança habilita a solução 'Security' no workspace padrão.
@@ -126,7 +126,7 @@ Para obter mais informações, consulte [provisionamento automático em casos de
 ### E se eu tivesse um Microsoft Monitoring Agent estiver instalado diretamente no computador, mas não como uma extensão (agente direto)?<a name="directagentinstalled"></a>
 Se o Microsoft Monitoring Agent for instalado diretamente na VM (não como uma extensão do Azure), a central de segurança instalará a extensão de Microsoft Monitoring Agent e poderá atualizar o Microsoft Monitoring Agent para a versão mais recente.
 O agente instalado continuará a relatar seus espaços de trabalho já configurados e, além disso, relatará ao espaço de trabalho configurado na central de segurança (há suporte para hospedagem múltipla em computadores Windows).
-Se o espaço de trabalho configurado for um espaço de trabalho do usuário (não o espaço de trabalho padrão da central de segurança), você precisará instalar a solução "Security/" SecurityCenterFree "nela para a central de segurança iniciar o processamento de eventos de VMs e computadores que se reportam a isso espaço.
+Se o espaço de trabalho configurado for um espaço de trabalho do usuário (não o espaço de trabalho padrão da central de segurança), você precisará instalar a solução "Security/" SecurityCenterFree "nela para a central de segurança iniciar o processamento de eventos de VMs e computadores que se reportam a esse espaço de trabalho.
 
 Para computadores Linux, o agente de hospedagem múltipla ainda não tem suporte-portanto, se uma instalação de agente existente for detectada, o provisionamento automático não ocorrerá e a configuração da máquina não será alterada.
 
@@ -145,7 +145,7 @@ Você pode desligar o provisionamento automático para suas assinaturas na polí
 
 1. Se sua assinatura estiver configurada para a camada Standard, abra a política de segurança para essa assinatura e selecione a camada **Gratuita**.
 
-   ![Tipo de preço][1]
+   ![tipo de preço][1]
 
 2. Em seguida, desative o provisionamento **automático selecionando** na página **política de segurança – coleta de dados** .
    ![Coleta de dados][2]
@@ -176,7 +176,7 @@ Instale manualmente a extensão de Microsoft Monitoring Agent para que a central
 
 Você pode conectar o agente a qualquer workspace personalizado existente ou a um workspace criado pela Central de Segurança. Se um workspace personalizado não tiver as soluções 'Security' ou 'SecurityCenterFree' habilitadas, você precisará aplicar uma solução. Para aplicar, selecione o espaço de trabalho ou a assinatura personalizada e aplique um tipo de preço por meio da página **política de segurança – tipo de preço** .
 
-   ![Tipo de preço][1]
+   ![tipo de preço][1]
 
 A Central de Segurança habilitará a solução correta no workspace com base no tipo de preço selecionado.
 
@@ -201,7 +201,7 @@ Para remover manualmente o agente:
 >
 >
 ### <a name="how-do-i-disable-data-collection"></a>Como desabilitar a coleta de dados?
-O provisionamento automático é desativado por padrão. Você pode desabilitar o provisionamento automático de recursos a qualquer momento, desativando essa configuração na política de segurança. O provisionamento automático é altamente recomendado para obter alertas de segurança e recomendações sobre atualizações do sistema, vulnerabilidades do sistema operacional e proteção de ponto de extremidade.
+O provisionamento automático está desabilitado por padrão. Você pode desabilitar o provisionamento automático de recursos a qualquer momento, desativando essa configuração na política de segurança. O provisionamento automático é altamente recomendado para obter alertas de segurança e recomendações sobre atualizações do sistema, vulnerabilidades do sistema operacional e proteção de ponto de extremidade.
 
 Para desabilitar a coleta de dados, [Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Selecionar política**. Selecione a assinatura em que você deseja desabilitar o provisionamento automático. Quando você seleciona uma assinatura **Política de segurança - coleta de dados** é exibido. Em **Provisionamento automático**, selecione **Desabilitado**.
 
@@ -306,7 +306,7 @@ A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 
 Além disso, os computadores não Azure (incluindo locais) também podem ser monitorados pela central de segurança do Azure (os computadores com [Windows](./quick-onboard-windows-computer.md) e [Linux](./quick-onboard-linux-computer.md) têm suporte)
 
-## <a name="virtual-machines"></a>Máquinas Virtuais
+## <a name="virtual-machines"></a>Máquinas virtuais
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Quais tipos de máquinas virtuais têm suporte?
 O monitoramento e as recomendações estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Resource Manager](../azure-classic-rm.md).
 

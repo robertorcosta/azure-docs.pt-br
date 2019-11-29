@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 261816e42c8de670cd7888af726a70e1a6e5b228
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d54075da10671bb9a48c84844cab67841fa0aec0
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269369"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560142"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -45,7 +45,7 @@ Se as regras de firewall e de VNET (rede virtual) estiverem configuradas na cont
 
 ### <a name="solution-for-cause-2"></a>Solução para a causa 2
 
-Verifique se regras de firewall e de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtuais estão causando o problema, altere temporariamente a configuração da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, confira [Configurar redes virtuais e firewalls do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verifique se regras de firewall e de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtuais estão causando o problema, altere temporariamente a configuração da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Erro 53, Erro 67 ou Erro 87 ao montar ou desmontar um compartilhamento de arquivos do Azure
@@ -158,7 +158,7 @@ Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azu
 
 ### <a name="solution-for-cause-2"></a>Solução para a causa 2
 
-Verifique se regras de firewall e de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtuais estão causando o problema, altere temporariamente a configuração da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, confira [Configurar redes virtuais e firewalls do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verifique se regras de firewall e de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtuais estão causando o problema, altere temporariamente a configuração da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não é possível excluir um arquivo ou diretório em um compartilhamento de arquivos do Azure
@@ -295,17 +295,29 @@ Para resolver esse problema, ajuste o valor do registro **DirectoryCacheEntrySiz
  
 Por exemplo, você pode defini-lo como 0x100000 e ver se o desempenho se torna melhor.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Erro AadDsTenantNotFound na habilitação da autenticação do Azure Active Directory para Arquivos do Azure, "Não é possível localizar locatários Active Directory com o locatário Id aad-tenant-id"
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Erro AadDsTenantNotFound ao habilitar a autenticação do AAD DS (serviço de domínio Azure Active Directory) para arquivos do Azure "não é possível localizar locatários ativos com a ID de locatário AAD-Tenant-ID"
 
 ### <a name="cause"></a>Causa
 
-O erro AadDsTenantNotFound acontece quando você tenta [habilitar a autenticação do AAD (Azure Active Directory) para Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) em uma conta de armazenamento em que o [AAD DS (Azure Active Directory Domain Services)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) não é criado no locatário do AAD da assinatura associada.  
+O erro AadDsTenantNotFound ocorre quando você tenta [habilitar a autenticação do AAD DS (serviço de domínio Azure Active Directory) para arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) em uma conta de armazenamento em que o [AAD DS (serviço de domínio do AAD)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) não é criado no locatário do AAD da assinatura associada.  
 
 ### <a name="solution"></a>Solução
 
 Habilite o AAD DS no locatário do AAD da assinatura na qual a conta de armazenamento é implantada. Você precisa de privilégios de administrador do locatário do AAD para criar um domínio gerenciado. Se você não for o administrador do locatário do Azure AD, entre em contato com o administrador e siga as orientações passo a passo para [Habilitar os Serviços de Domínio do Active Directory do Azure usando o portal do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
+
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>Erro ' ocorreu o erro de sistema 1359. Um erro interno ' recebido por meio de acesso SMB a compartilhamentos de arquivos com a autenticação AAD DS (Azure Active Directory Domain Service) habilitada
+
+### <a name="cause"></a>Causa
+
+Erro ' ocorreu o erro de sistema 1359. Um erro interno ' ocorre quando você tenta se conectar ao compartilhamento de arquivos com a autenticação do AAD DS habilitada em um AAD DS com um nome DNS de domínio começando com um caractere numérico. Por exemplo, se o nome DNS do domínio do AAD DS for "1domain", você receberá esse erro ao tentar montar o compartilhamento de arquivos usando as credenciais do AAD. 
+
+### <a name="solution"></a>Solução
+
+No momento, você pode considerar reimplantar seu AAD DS usando um novo nome DNS de domínio que se aplica com as regras abaixo:
+- Os nomes não podem começar com um caractere numérico.
+- Os nomes devem ter de 3 a 63 caracteres de comprimento.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Caso ainda precise de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

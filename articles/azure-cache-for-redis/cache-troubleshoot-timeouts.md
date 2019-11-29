@@ -1,25 +1,17 @@
 ---
-title: Solucionar problemas de cache do Azure para tempos limite do Redis | Microsoft Docs
+title: Solucionar problemas de cache do Azure para tempos limite do Redis
 description: Saiba como resolver problemas comuns de tempo limite com o cache do Azure para Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: d6bf0f788f7c71a55a4c3667023d8b1d9f571baf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820968"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121372"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solucionar problemas de cache do Azure para tempos limite do Redis
 
@@ -34,7 +26,7 @@ Esta seção aborda a solução de problemas de tempo limite que ocorrem durante
 
 ## <a name="redis-server-patching"></a>Aplicação de patch do servidor Redis
 
-O cache do Azure para Redis atualiza regularmente seu software de servidor como parte da funcionalidade de serviço gerenciado que ele fornece. Essa atividade de [aplicação de patch](cache-failover.md) ocorre em grande parte por trás da cena. Durante os failovers quando os nós de servidor Redis estão sendo corrigidos, os clientes Redis conectados a esses nós podem experimentar tempos limite temporários conforme as conexões são alternadas entre esses nós. Veja [como um failover afeta meu aplicativo cliente](cache-failover.md#how-does-a-failover-impact-my-client-application) para obter mais informações sobre quais patches de efeitos colaterais podem ter em seu aplicativo e como você pode melhorar sua manipulação de eventos de aplicação de patches.
+O cache do Azure para Redis atualiza regularmente seu software de servidor como parte da funcionalidade de serviço gerenciado que ele fornece. Essa atividade de [aplicação de patch](cache-failover.md) ocorre em grande parte por trás da cena. Durante os failovers quando os nós de servidor Redis estão sendo corrigidos, os clientes Redis conectados a esses nós podem experimentar tempos limite temporários conforme as conexões são alternadas entre esses nós. Veja [como um failover afeta meu aplicativo cliente](cache-failover.md#how-does-a-failover-affect-my-client-application) para obter mais informações sobre quais patches de efeitos colaterais podem ter em seu aplicativo e como você pode melhorar sua manipulação de eventos de aplicação de patches.
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Exceções de tempo limite do StackExchange.Redis
 
@@ -91,7 +83,7 @@ Você pode usar as etapas a seguir para investigar possíveis causas raiz.
 1. Há comandos que levam muito tempo para serem processados no servidor? Comandos de longa execução que estão demorando muito tempo para serem processados no servidor Redis podem causar tempos limite. Para obter mais informações sobre comandos de longa execução, consulte [comandos de longa execução](cache-troubleshoot-server.md#long-running-commands). Você pode se conectar ao cache do Azure para a instância do Redis usando o cliente Redis-CLI ou o [console do Redis](cache-configure.md#redis-console). Em seguida, execute o comando [SLOWLOG](https://redis.io/commands/slowlog) para ver se há solicitações mais lentas do que o esperado. O Servidor do Redis e o StackExchange.Redis são otimizados para várias solicitações pequenas, em vez de menos solicitações grandes. Dividir os dados em partes menores pode melhorar as coisa.
 
     Para obter informações sobre como se conectar ao ponto de extremidade SSL do seu cache usando Redis-CLI e stunnel, consulte a postagem do blog [anunciando o provedor de estado de sessão do ASP.net para a versão de visualização do Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
-1. Uma carga alta no servidor Redis pode resultar em tempos limite. Você pode monitorar a carga do servidor monitorando a [métrica de desempenho de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Redis Server Load`. Uma carga de servidor de 100 (valor máximo) significa que o servidor Redis está ocupado, sem tempo ocioso, processando de solicitações. Para ver se determinadas solicitações estão consumindo toda a capacidade do servidor, execute o comando SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, confira Alto nível de uso da CPU/carga de servidor.
+1. Uma carga alta no servidor Redis pode resultar em tempos limite. Você pode monitorar a carga do servidor monitorando a `Redis Server Load`métrica de desempenho de cache[ ](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor Redis está ocupado, sem tempo ocioso, processando de solicitações. Para ver se determinadas solicitações estão consumindo toda a capacidade do servidor, execute o comando SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, confira Alto nível de uso da CPU/carga de servidor.
 1. Houve qualquer outro evento no lado do cliente que possa ter causado um problema na rede? Os eventos comuns incluem: dimensionamento do número de instâncias do cliente para cima ou para baixo, implantação de uma nova versão do cliente ou dimensionamento automático habilitado. Em nossos testes, descobrimos que o dimensionamento automático ou o dimensionamento/redução podem fazer com que a conectividade de rede de saída seja perdida por vários segundos. O código do StackExchange.Redis é resiliente a tais eventos e se reconectará. Durante a reconexão, qualquer solicitação na fila pode atingir o tempo limite.
 1. Houve uma grande solicitação antes de várias pequenas solicitações ao cache que atingiram o tempo limite? O parâmetro `qs` na mensagem de erro informa quantas solicitações foram enviadas do cliente para o servidor, mas não processaram uma resposta. Esse valor pode continuar crescendo porque o StackExchange.Redis usa uma única conexão TCP e só pode ler uma resposta por vez. Embora a primeira operação tenha expirado, ela não impede que mais dados sejam enviados de ou para o servidor. Outras solicitações serão bloqueadas até que a solicitação grande seja concluída e possa causar tempos limite. Uma solução é minimizar a chance de tempos limite, garantindo que o cache seja grande o suficiente para sua carga de trabalho e dividindo valores grandes em partes menores. Outra solução possível é usar um pool de objetos `ConnectionMultiplexer` no seu cliente e escolher o `ConnectionMultiplexer` menos carregado ao enviar uma nova solicitação. O carregamento em vários objetos de conexão deve impedir que um tempo limite único faça com que outras solicitações também expirem o tempo limite.
 1. Se você estiver usando `RedisSessionStateProvider`, verifique se você definiu o tempo limite de repetição corretamente. `retryTimeoutInMilliseconds` deve ser maior do que `operationTimeoutInMilliseconds`; caso contrário, não há novas tentativas. No exemplo a seguir, `retryTimeoutInMilliseconds` é definido como 3000. Para obter mais informações, consulte [provedor de estado de sessão ASP.NET para Cache do Azure para Redis](cache-aspnet-session-state-provider.md) e [Como usar os parâmetros de configuração do provedor de estado de sessão e do provedor de cache de saída](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).

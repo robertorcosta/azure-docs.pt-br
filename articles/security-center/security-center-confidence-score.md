@@ -1,6 +1,6 @@
 ---
 title: Pontuação de confiança na Central de Segurança do Azure | Microsoft Docs
-description: " Saiba como trabalhar com a pontuação de confiança da Central de Segurança do Azure. "
+description: A central de segurança gera pontuações de confiança para ajudar sua equipe a determinar se uma ameaça é legítima e como fazer a triagem e priorizar alertas.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 0f0380ca4a285d9cb4a8472a40c77130a8f63035
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202383"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558973"
 ---
 # <a name="alert-confidence-score"></a>Pontuação de confiança de alerta 
 
@@ -49,11 +49,11 @@ Para exibir os dados que contribuíram para a confiança da Central de Seguranç
 Use a pontuação de confiança da Central de Segurança para priorizar a triagem de alertas em seu ambiente. A pontuação de confiança economiza tempo e esforço por investigar automaticamente os alertas, aplicando as práticas recomendadas do setor e algoritmos inteligentes e atuando como um analista virtual para determinar quais ameaças são reais e onde você precisa concentrar sua atenção.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Este artigo explicou como usar a pontuação de confiança para priorizar a investigação de alertas. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md)– saiba como monitorar a integridade dos recursos do Azure.
+* [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
 
 
 
