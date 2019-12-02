@@ -1,5 +1,5 @@
 ---
-title: Provisionar automaticamente dispositivos com o DPS usando o atestado de chave simétrica-Azure IoT Edge | Microsoft Docs
+title: Provisionar o dispositivo usando o atestado de chave simétrica-Azure IoT Edge
 description: Usar o atestado de chave simétrica para testar o provisionamento automático de dispositivos para Azure IoT Edge com o serviço de provisionamento de dispositivos
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53b1abca25119f4168aaf12a66c4347c53ed0a62
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c42d13f4d2e00b67a2ef471a07c80e1ef61e9c07
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828074"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666317"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando o atestado de chave simétrica
 
@@ -37,7 +37,7 @@ O atestado de chave simétrica é uma abordagem simples para autenticar o dispos
 
 Criar uma nova instância do Serviço de Provisionamento de Dispositivos no Hub IoT no Microsoft Azure e vincular ao seu hub IoT. Você pode seguir as instruções em [Configurar o DPS do Hub IoT](../iot-dps/quick-setup-auto-provision.md).
 
-Depois de executar o Serviço de Provisionamento de Dispositivo, copie o valor do **Escopo de ID** da página de visão geral. Você usa esse valor ao configurar o tempo de execução do Azure IoT Edge.
+Depois de executar o Serviço de Provisionamento de Dispositivo, copie o valor do **Escopo de ID** da página de visão geral. Você usa esse valor ao configurar o runtime do Azure IoT Edge.
 
 ## <a name="choose-a-unique-registration-id-for-the-device"></a>Escolher uma ID de registro exclusiva para o dispositivo
 
@@ -80,7 +80,7 @@ Ao criar uma inscrição no DPS, tem a oportunidade de declarar um **Estado inic
 
    1. Escolha o **IoT Hub** vinculado que você deseja conectar o dispositivo. Você pode escolher vários hubs e o dispositivo será atribuído a um deles de acordo com a política de alocação selecionada.
 
-   1. Escolha **como você deseja que os dados do dispositivo sejam manipulados** ao reprovisionar quando os dispositivos solicitam o provisionamento após a primeira vez.
+   1. Escolha **como você deseja que os dados do dispositivo sejam manipulados ao reprovisionar** quando os dispositivos solicitam o provisionamento após a primeira vez.
 
    1. Adicionar um valor de marca para o **estado inicial do dispositivo gêmeo** se desejar. Você pode usar marcas para grupos de dispositivos de destino para a implantação do módulo. Por exemplo:
 
@@ -153,9 +153,9 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
-## <a name="install-the-iot-edge-runtime"></a>Instalar o tempo de execução do Azure IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalar o runtime do Azure IoT Edge
 
-O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda.
+O runtime do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda.
 
 Você precisará das seguintes informações ao provisionar seu dispositivo:
 
@@ -168,7 +168,7 @@ Você precisará das seguintes informações ao provisionar seu dispositivo:
 
 ### <a name="linux-device"></a>Dispositivo Linux
 
-Siga as instruções para a arquitetura do dispositivo. Certifique-se de configurar o tempo de execução do IoT Edge para provisionamento automático, não manual.
+Siga as instruções para a arquitetura do dispositivo. Certifique-se de configurar o runtime do IoT Edge para provisionamento automático, não manual.
 
 [Instalar o tempo de execução de Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
 
@@ -186,7 +186,7 @@ provisioning:
       symmetric_key: "{symmetric_key}"
 ```
 
-Substitua os valores de espaço `{scope_id}`reservado `{registration_id}`para, `{symmetric_key}` e pelos dados coletados anteriormente.
+Substitua os valores de espaço reservado para `{scope_id}`, `{registration_id}`e `{symmetric_key}` pelos dados coletados anteriormente.
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
@@ -205,18 +205,18 @@ Para obter informações mais detalhadas sobre como instalar o IoT Edge no Windo
 
 1. Neste ponto, os dispositivos IoT Core podem ser reiniciados automaticamente. Outros dispositivos Windows 10 ou Windows Server podem solicitar a reinicialização. Nesse caso, reinicie o dispositivo agora. Quando o dispositivo estiver pronto, execute o PowerShell como administrador novamente.
 
-1. O comando **Initialize-IoTEdge** configura o tempo de execução do IoT Edge em seu computador. O comando usa como padrão o provisionamento manual com contêineres do Windows, a menos que você use o sinalizador `-Dps` para usar o provisionamento automático.
+1. O comando **Initialize-IoTEdge** configura o runtime do IoT Edge em seu computador. O comando usa como padrão o provisionamento manual com contêineres do Windows, a menos que você use o sinalizador `-Dps` para usar o provisionamento automático.
 
-   Substitua os valores de espaço `{scope_id}`reservado `{registration_id}`para, `{symmetric_key}` e pelos dados coletados anteriormente.
+   Substitua os valores de espaço reservado para `{scope_id}`, `{registration_id}`e `{symmetric_key}` pelos dados coletados anteriormente.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
 
-## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida
+## <a name="verify-successful-installation"></a>Verificar instalação com êxito
 
-Se o tempo de execução foi iniciado com êxito, você pode entrar em seu Hub IoT e iniciar a implantação de módulos do IoT Edge em seu dispositivo. Use os seguintes comandos em seu dispositivo para verificar o tempo de execução instalado e iniciado com êxito.
+Se o runtime foi iniciado com êxito, você pode entrar em seu Hub IoT e iniciar a implantação de módulos do IoT Edge em seu dispositivo. Use os seguintes comandos em seu dispositivo para verificar o runtime instalado e iniciado com êxito.
 
 ### <a name="linux-device"></a>Dispositivo Linux
 
@@ -260,6 +260,6 @@ iotedge list
 
 Você pode verificar se o registro individual criado no serviço de provisionamento de dispositivos foi usado. Navegue até a instância do serviço de provisionamento de dispositivos no portal do Azure. Abra os detalhes de registro para o registro individual que você criou. Observe que o status do registro é **atribuído** e a ID do dispositivo é listada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O processo de registro do serviço de provisionamento de dispositivo permite definir a ID do dispositivo e as marcas do dispositivo gêmeo ao mesmo tempo, como provisionar o novo dispositivo. Você pode usar esses valores para dispositivos individuais ou grupos de dispositivos usando o gerenciamento automático de dispositivo de destino. Saiba como [Implantar e monitorar os módulos de IoT Edge em escala usando o portal do Azure](how-to-deploy-monitor.md) ou [usando a CLI do Azure](how-to-deploy-monitor-cli.md).

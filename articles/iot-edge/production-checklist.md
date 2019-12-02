@@ -1,5 +1,5 @@
 ---
-title: Preparar dispositivos e implantações para produção – Azure IoT Edge | Microsoft Docs
+title: Prepare-se para implantar sua solução em produção – Azure IoT Edge
 description: Saiba como levar sua solução de Azure IoT Edge de desenvolvimento para produção, incluindo a configuração de seus dispositivos com os certificados apropriados e como fazer um plano de implantação para futuras atualizações de código.
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1d8ba8452f5f2d4ab05083e1a97fa0b9ba75017f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457311"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665807"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -224,7 +224,7 @@ Você pode limitar o tamanho de todos os arquivos de log de contêiner nas opç�
 
 Adicione (ou acrescente) essas informações a um arquivo chamado `daemon.json` e coloque-o no local certo para a plataforma do dispositivo.
 
-| Plataforma | Local padrão |
+| Plataforma | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -271,7 +271,7 @@ Você pode fazer isso em **criaroptions** de cada módulo. Por exemplo:
 
 Para o cenário de implantação do IoT Edge mais eficiente, considere a integração de sua implantação de produção em seus pipelines de teste e CI/CD. O Azure IoT Edge suporta várias plataformas de CI/CD, incluindo o DevOps do Azure. Para obter mais informações, consulte [Integração contínua e implantação contínua no Azure IoT Edge](how-to-ci-cd.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [implantação automática do IoT Edge](module-deployment-monitoring.md).
 * Veja como o IoT Edge suporta [Integração contínua e implantação contínua](how-to-ci-cd.md).

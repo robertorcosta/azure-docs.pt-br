@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279705"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664940"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guia de configuração do monitor de integridade de Azure Monitor para contêineres
 
@@ -35,7 +35,7 @@ A integridade geral de um determinado objeto é determinada da integridade de ca
 
 ## <a name="types-of-monitors"></a>Tipos de monitores
 
-|Monitoramento | DESCRIÇÃO | 
+|Monitorar | Descrição | 
 |--------|-------------|
 | Monitor de unidade |Um monitor de unidade mede algum aspecto de um recurso ou aplicativo. Isso pode estar verificando um contador de desempenho para determinar o desempenho do recurso ou sua disponibilidade. |
 |Monitor agregado | Os monitores agregados agrupam vários monitores para fornecer um único estado de integridade agregado de integridade. Os monitores de unidade normalmente são configurados em um monitor de agregação específico. Por exemplo, um monitor agregado de nó acumula o status da utilização de CPU do nó, da utilização de memória e do status do nó.
@@ -82,9 +82,9 @@ Azure Monitor para contêineres inclui vários cenários de monitoramento princi
 |Nós (pai do pool de nós) |Esse é um monitor agregado de todos os pools de nós. Seu estado é baseado no pior estado de seus monitores filho (ou seja, os pools de nós presentes no cluster). |Pior dos |
 |Cluster (pai de nós/<br> Infraestrutura kubernetes) |Esse é o monitor pai que corresponde ao estado do monitor filho com o pior estado de integridade, que é a infraestrutura kubernetes e os nós. |Pior dos |
 |Infraestrutura de kubernetes |Este monitor relata o status de integridade combinado dos componentes de infraestrutura gerenciados do cluster. seu status é calculado como o "pior de" seus Estados de monitor filho, ou seja, cargas de trabalho do sistema Kube e status do servidor de API. |Pior dos|
-|Carga de trabalho do sistema |Esse monitor relata o status de integridade de uma carga de trabalho do Kube. Esse monitor corresponde ao estado do monitor filho com o pior estado de integridade, que é o **pods no monitor de estado pronto** e os contêineres na carga de trabalho). |Pior dos |
+|Carga de trabalho do sistema |Esse monitor relata o status de integridade de uma carga de trabalho do Kube. Esse monitor corresponde ao estado do monitor filho com o pior estado de integridade, que é o **pods no estado pronto** (monitor e os contêineres na carga de trabalho). |Pior dos |
 |Contêiner |Este monitor relata o status de integridade geral de um contêiner em uma determinada carga de trabalho. Esse monitor corresponde ao estado do monitor filho com o pior estado de integridade, que é o **uso da CPU** e os monitores de **utilização de memória** . |Pior dos |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Exiba [monitorar a integridade do cluster](container-insights-health.md) para saber mais sobre como exibir o status de integridade do cluster kubernetes.

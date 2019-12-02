@@ -1,5 +1,5 @@
 ---
-title: Criar implantações automáticas do portal do Azure - Azure IoT Edge | Microsoft Docs
+title: Implantar módulos em escala em portal do Azure Azure IoT Edge
 description: Usar o portal do Azure para criar dispositivos de implantações automáticas para grupos do IoT Edge
 keywords: ''
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 286bab7b7fdbe42190c32dabb42c59d6fc094b2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 068845bf8cda7ce6abf11eefad0ed176688b34c5
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457356"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665841"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implante e monitore módulos de IoT Edge em escala usando o portal do Azure
 
@@ -91,7 +91,7 @@ Depois de configurar todos os módulos para uma implantação, selecione **Avan�
 
 ### <a name="step-3-specify-routes-optional"></a>Etapa 3: Especificar rotas (opcional)
 
-As rotas definem como os módulos se comunicam entre si em uma implantação. Por padrão, o assistente fornece uma rota chamada **rota** e definida como **FROM /\* INTO $upstream**, que significa que quaisquer mensagens de saída por quaisquer módulos são enviadas para o seu Hub IoT.  
+As rotas definem como os módulos se comunicam entre si em uma implantação. Por padrão, o assistente fornece uma rota chamada **rota** e definida como **FROM /* INTO $upstream**, que significa que quaisquer mensagens de saída por quaisquer módulos são enviadas para o seu Hub IoT.  
 
 Adicionar ou atualizar as rotas com informações de [declarar rotas](module-composition.md#declare-routes), em seguida, selecione **próximo** para continuar para a seção de revisão.
 
@@ -192,7 +192,7 @@ Para modificar uma implantação, use as seguintes etapas:
    * Métricas – você pode modificar ou excluir as métricas que definiu ou adicionar novas métricas.
    * Rótulos
    * Prioridade
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Siga as etapas em [monitorar uma implantação](#monitor-a-deployment) para observar as alterações a distribuir. 
 
 ## <a name="delete-a-deployment"></a>Excluir uma implantação
@@ -209,6 +209,6 @@ Quando você exclui uma implantação, todos os dispositivos usam sua próxima i
 1. Selecione **Excluir**.
 1. Um prompt informará que essa ação excluirá essa implantação e reverterá para o estado anterior de todos os dispositivos.  Isso significa que uma implantação com prioridade mais baixa será aplicada.  Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se desejar remover todos os módulos do seu dispositivo, crie uma implantação com zero módulos e implante-a nos mesmos dispositivos. Selecione **Sim** para continuar. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a implantação de módulos em dispositivos IOT Edge](module-deployment-monitoring.md).

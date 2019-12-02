@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090814"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666419"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
 
@@ -38,7 +38,7 @@ O script de automação destina-se à implantação do Azure Resource Manager, n
 
 **Há algum encargo para cópia de dados entre dois compartilhamentos de arquivo na mesma conta de armazenamento dentro da mesma região?**
 
-Nº Não há encargos para esse processo.
+Não. Não há encargos para esse processo.
 
 **Como fazer backup de toda minha conta de armazenamento para outra conta de armazenamento?**
 
@@ -55,10 +55,10 @@ Não há opção para fazer backup direto de uma conta de armazenamento inteira.
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: Fornece o URI para a conta de armazenamento de origem (até o contêiner).  
-    - `/Dest`: Fornece o URI para a conta de armazenamento de destino (até o contêiner).  
-    - `/SourceKey`: Fornece a chave primária para a conta de armazenamento de origem. Você pode copiar essa chave do portal do Azure selecionando a conta de armazenamento.  
-    - `/DestKey`: Fornece a chave primária para a conta de armazenamento de destino. Você pode copiar essa chave do portal selecionando a conta de armazenamento.
+    - `/Source`: fornece o URI para a conta de armazenamento de origem (até o contêiner).  
+    - `/Dest`: fornece o URI para a conta de armazenamento de destino (até o contêiner).  
+    - `/SourceKey`: fornece a chave primária para a conta de armazenamento de origem. Você pode copiar essa chave do portal do Azure selecionando a conta de armazenamento.  
+    - `/DestKey`: fornece a chave primária para a conta de armazenamento de destino. Você pode copiar essa chave do portal selecionando a conta de armazenamento.
 
 Após a execução desse comando, os arquivos do contêiner vão para a conta de armazenamento de destino.
 
@@ -83,7 +83,7 @@ Use o AzCopy para mover os dados de um compartilhamento de arquivo do Azure para
 
 Use o AzCopy para carregar arquivos .csv grandes no armazenamento do Azure. Para saber mais, confira [Transferir dados com o AzCopy no Windows](storage-use-azcopy.md) e [Transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
-**Preciso mover os logs da unidade D para a minha conta de armazenamento do Azure todos os dias. Como faço para automatizar isso?**
+**Preciso mover os logs da unidade D para a minha conta de armazenamento do Azure todos os dias. Como fazer automatizar isso?**
 
 Você pode usar o AzCopy e criar uma tarefa no Agendador de Tarefas. Carregue arquivos em uma conta de armazenamento do Azure usando um script em lotes do AzCopy. Para obter mais informações, consulte [Como configurar e executar tarefas de inicialização para um serviço de nuvem](../../cloud-services/cloud-services-startup-tasks.md).
 
@@ -167,7 +167,7 @@ Use o AzCopy para baixar os dados. Para saber mais, confira [Transferir dados co
 
 **Como alterar o local secundário de uma conta de armazenamento para a região da Europa?**
 
-Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A seleção da região secundária se baseia na região primária e não pode ser alterada. Para obter mais informações sobre o GRS, consulte [Armazenamento com redundância geográfica (GRS): Replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy.md).
+Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A seleção da região secundária se baseia na região primária e não pode ser alterada. Para obter mais informações, consulte [GRS (armazenamento com redundância geográfica): replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy.md).
 
 **Onde posso saber mais sobre o SSE (Criptografia do Serviço de Armazenamento) do Azure?**  
   
@@ -194,7 +194,7 @@ Use o [Gerenciador de Armazenamento](https://azure.microsoft.com/features/storag
 
 **Existem pré-requisitos para alterar a replicação de uma conta de armazenamento, de armazenamento com redundância geográfica para armazenamento com redundância local?**
 
-Nº 
+Não. 
 
 **Como acessar o armazenamento com redundância dos Arquivos do Azure?**
 
@@ -229,7 +229,7 @@ Para verificar se a transferência foi concluída com êxito, examine o contêin
 
 O Armazenamento Premium não é permitido em um Compartilhamento de arquivos do Azure.
 
-**Como fazer para atualizar de uma conta de Armazenamento Standard para uma conta de Armazenamento Premium? Como fazer downgrade de uma conta de Armazenamento Premium para uma conta de Armazenamento Standard?**
+**Como fazer atualizar de uma conta de armazenamento Standard para uma conta de armazenamento Premium? Como fazer fazer downgrade de uma conta de armazenamento Premium para uma conta de armazenamento Standard?**
 
 Você deve criar a conta de armazenamento de destino, copiar os dados da conta de origem para a conta de destino e excluir a conta de origem. Você pode usar uma ferramenta como o AzCopy para executar a cópia dos dados.
 
@@ -277,13 +277,13 @@ Para dar a outras pessoas acesso aos meus recursos de armazenamento:
 
 -   Se você estiver usando armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer hora. Use um dos seguintes métodos:  
       
-    - **AzCopy**: Acrescente **-secundário** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
+    - **AzCopy**: acrescente **-secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **Token SAS**: Use um Token SAS para acessar dados do ponto de extremidade. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](storage-sas-overview.md).
+    - **Token SAS**: use um Token SAS para acessar dados do ponto de extremidade. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](storage-sas-overview.md).
 
-**Como usar um domínio personalizado de HTTPS com minha conta de armazenamento? Por exemplo, como fazer com que "https:\//mystorageaccountname.blob.Core.Windows.net/images/Image.gif" apareça como "https:\//www.contoso.com/images/Image.gif"?**
+**Como fazer usar um domínio personalizado HTTPS com minha conta de armazenamento? Por exemplo, como fazer com que "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" apareça como "https:\//www.contoso.com/images/image.gif"?**
 
 No momento, o SSL não é compatível com contas de armazenamento com domínios personalizados.
 Mas você pode usar domínios personalizados não HTTPS. Para saber mais, confira [Configurar um nome de domínio personalizado para seu ponto de extremidade do Armazenamento de Blobs](../blobs/storage-custom-domain-name.md).

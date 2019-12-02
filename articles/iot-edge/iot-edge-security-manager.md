@@ -1,5 +1,5 @@
 ---
-title: Saiba como o gerenciador de segurança protege dispositivos, software – Azure IoT Edge | Microsoft Docs
+title: Azure IoT Edge Security Manager-Azure IoT Edge
 description: Gerencia a postura de segurança do dispositivo IoT Edge e a integridade dos serviços de segurança.
 services: iot-edge
 keywords: segurança, o elemento seguro, o enclave, TEE, IoT Edge
@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 90cb7cf0a30ea0ebfe00454288de25ddf6e58d52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457539"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666062"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gerenciador de segurança do Azure IoT Edge
 
@@ -77,7 +77,7 @@ O daemon de segurança IoT Edge aproveita qualquer raiz de hardware disponível 
 
 A interface de nuvem permite que o daemon de segurança do IoT Edge acesse serviços de nuvem, como Complementos de nuvem para segurança de dispositivo, como renovação de segurança.  Por exemplo, o daemon de segurança IoT Edge usa atualmente essa interface para acessar o serviço de [provisionamento de dispositivos](https://docs.microsoft.com/azure/iot-dps/) no Hub IOT do Azure para o gerenciamento do ciclo de vida de identidade do dispositivo.  
 
-#### <a name="management-api"></a>API de Gerenciamento
+#### <a name="management-api"></a>API de gerenciamento
 
 IoT Edge daemon de segurança oferece uma API de gerenciamento, que é chamada pelo agente de IoT Edge ao criar/iniciar/interromper/remover um módulo IoT Edge. O daemon de segurança armazena "registros" para todos os módulos ativos. Esses registros mapeiam a identidade de um módulo para algumas propriedades do módulo. Alguns exemplos dessas propriedades são o identificador do processo (pid) do processo em execução no contêiner ou o hash do conteúdo do contêiner do estivador.
 
@@ -119,7 +119,7 @@ O silício seguro é necessário para ancorar a confiança dentro do hardware do
 
 O objetivo do gerenciador de segurança do IoT Edge é identificar e isolar os componentes que defendem a segurança e a integridade da plataforma Azure IoT Edge para proteção personalizada. Terceiros, como fabricantes de dispositivos, devem fazer uso de recursos de segurança personalizados disponíveis com o hardware do dispositivo.  Confira a próxima seção de etapas para links que demonstram como proteger o gerenciador de segurança da IoT do Azure com o TPM (Trusted Platform Module) nas plataformas Linux e Windows. Esses exemplos usam software ou TPMs virtuais, mas se aplicam diretamente ao uso de dispositivos TPM discretos.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia o blog em [ Protegendo a borda inteligente](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
 

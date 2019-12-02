@@ -1,5 +1,5 @@
 ---
-title: Declarar módulos e rotas com manifestos de implantação – Azure IoT Edge | Microsoft Docs
+title: Implantar o módulo & rotas com manifestos de implantação-Azure IoT Edge
 description: Saiba como um manifesto de implantação declara quais módulos para implantar, como implantá-las e como criar rotas de mensagens entre eles.
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 935cdbf54360dc0e2a98936d9c589405040cd85d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 31a83d3edb1bc297fc53b089384ab940482e5b28
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457442"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665824"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Aprenda a implantar módulos e estabelecer rotas no IoT Edge
 
@@ -134,7 +134,7 @@ As rotas são declaradas nas propriedades desejadas do **$edgeHub** com a seguin
 Cada rota precisa de uma origem e um coletor, mas a condição é uma parte opcional que você pode usar para filtrar mensagens. 
 
 
-### <a name="source"></a>Fonte
+### <a name="source"></a>Origem
 
 A origem especifica de onde as mensagens são provenientes. IoT Edge pode rotear mensagens de módulos ou dispositivos folha. 
 
@@ -142,7 +142,7 @@ Usando os SDKs de IoT, os módulos podem declarar filas de saída específicas p
 
 A propriedade da fonte pode ser qualquer um dos valores a seguir:
 
-| Fonte | DESCRIÇÃO |
+| Origem | Descrição |
 | ------ | ----------- |
 | `/*` | Todas as mensagens do dispositivo para a nuvem ou gêmeo alteração as notificações de qualquer módulo ou dispositivo de folha |
 | `/twinChangeNotifications` | Qualquer alteração de gêmeo (propriedades relatadas) proveniente de qualquer dispositivo de módulo ou folha |
@@ -176,7 +176,7 @@ O coletor define onde as mensagens são enviadas. Somente os módulos e o Hub Io
 
 A propriedade da fonte pode ser qualquer um dos valores a seguir:
 
-| Coletor | DESCRIÇÃO |
+| Coletor | Descrição |
 | ---- | ----------- |
 | `$upstream` | Enviar a mensagem para o Hub IoT |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Enviar a mensagem para uma entrada específica de um módulo específico |
@@ -275,7 +275,7 @@ O exemplo a seguir mostra o que pode ser a aparência de um documento de manifes
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter uma lista completa das propriedades que podem ou devem ser incluídas em $edgeAgent e $edgeHub, consulte [Propriedades do agente de IOT Edge e hub IOT Edge](module-edgeagent-edgehub.md).
 

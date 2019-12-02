@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f18e5dbdc257aa1ae647505c323c17f9f197d360
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f1d30ef56350c3e1df796f20e3f9f39fdbc6428a
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150979"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666487"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos criptográficos e os gateways de VPN do Azure
 
@@ -20,7 +20,7 @@ Este artigo discute como é possível configurar os gateways de VPN do Azure par
 
 ## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Sobre IKEv1 e IKEv2 para conexões VPN do Azure
 
-Tradicionalmente, permitimos conexões IKEv1 somente para SKUs básicas e conexões IKEv2 permitidas para todas as SKUs de gateway de VPN diferentes de SKUs básicas. Os SKUs básicos permitem apenas uma conexão e, juntamente com outras limitações, como desempenho, os clientes que usam dispositivos herdados que dão suporte apenas a protocolos IKEv1 têm experiência limitada. Para aprimorar a experiência de clientes que usam protocolos IKEv1, agora estamos permitindo conexões IKEv1 para todas as SKUs de gateway de VPN. Para obter mais informações, consulte [SKUs de gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Tradicionalmente, permitimos conexões IKEv1 somente para SKUs básicas e conexões IKEv2 permitidas para todas as SKUs de gateway de VPN diferentes de SKUs básicas. Os SKUs básicos permitem apenas uma conexão e, juntamente com outras limitações, como desempenho, os clientes que usam dispositivos herdados que dão suporte apenas a protocolos IKEv1 têm experiência limitada. Para aprimorar a experiência de clientes que usam protocolos IKEv1, agora estamos permitindo conexões IKEv1 para todas as SKUs de gateway de VPN, exceto SKU básico. Para obter mais informações, consulte [SKUs de gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
 
 ![Conexões IKEv1 e IKEv2 do gateway de VPN do Azure](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 
@@ -57,7 +57,7 @@ Você pode criar uma política de IPsec/IKE e aplicar a uma conexão nova ou exi
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [Configurar a política de IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter as instruções passo a passo sobre a configuração da política de IPsec/IKE personalizada em uma conexão.
 

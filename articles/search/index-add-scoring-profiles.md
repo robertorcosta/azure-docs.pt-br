@@ -7,7 +7,7 @@ author: Brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/28/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113611"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666300"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de Pontuação a um índice de Pesquisa Cognitiva do Azure
 
@@ -37,7 +37,7 @@ ms.locfileid: "74113611"
  Para dar uma ideia da aparência de um perfil de pontuação, o exemplo a seguir mostra um perfil simples chamado 'geo'. Este aumenta os itens que têm o termo de pesquisa no campo **hotelName**. Ele também usa a função `distance` para favorecer itens que estão em um raio de dez quilômetros do local atual. Se alguém pesquisar o termo "pousada" e "pousada" fizer parte do nome do hotel, os documentos que incluírem hotéis com "pousada" em um raio de 10 KM da localização atual serão exibidos nas posições mais altas nos resultados da pesquisa.  
 
 
-```  
+```json
 "scoringProfiles": [
   {  
     "name":"geo",
@@ -92,7 +92,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Este exemplo mostra o esquema de um índice com dois perfis de pontuação (`boostGenre`, `newAndHighlyRated`). Qualquer consulta em relação a esse índice que inclua um dos perfis como um parâmetro de consulta usará o perfil para pontuar o conjunto de resultados.  
 
-```  
+```json
 {  
   "name": "musicstoreindex",  
   "fields": [  
@@ -169,7 +169,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 |||  
 |-|-|  
 |**Pesos**|Especificar pares de nome-valor que atribuem um peso relativo a um campo. No [Exemplo](#bkmk_ex), os campos albumTitle, genre e artistName recebem 1,5, 5 e 2, respectivamente. Por que o campo gênero aumentou muito mais do que os outros? Se a pesquisa for conduzida sobre dados relativamente homogêneos (como é o caso de 'gênero' em `musicstoreindex`), uma variação maior nos pesos relativos poderá ser necessária. Por exemplo, em `musicstoreindex`, 'rock' é exibido como um gênero e em descrições de gênero escritas de forma idêntica. Se você quiser que gênero tenha um peso maior do que a descrição do gênero, o campo gênero precisará ter um peso relativo muito mais alto.|  
-|**Funções**|Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos são `freshness`, `magnitude`, `distance` e `tag`. Cada função tem parâmetros exclusivos para ela.<br /><br /> -   `freshness` devem ser usados quando você deseja aumentar de acordo com a indicação de que um item é novo ou antigo. Essa função somente pode ser usada com campos `datetime` (edm.DataTimeOffset). Observe que o atributo `boostingDuration` é usado somente com a função `freshness`.<br />-   `magnitude` devem ser usados quando você deseja aumentar de acordo com a indicação de que um valor numérico é alto ou baixo. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro.<br />     Para a função `magnitude`, é possível inverter o intervalo, do maior para o menor, se você quiser o padrão inverso (por exemplo, para dar mais destaque aos itens com preços mais baixos, do que aos itens com preços mais altos). Com um intervalo de preços de $100 a $1, você definiria `boostingRangeStart` como 100 e `boostingRangeEnd` como 1 para aumentar os itens com preço inferior.<br />-   `distance` devem ser usados quando você deseja aumentar de acordo com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos `Edm.GeographyPoint` .<br />-   `tag` devem ser usados quando você deseja aumentar de acordo com marcas em comum entre documentos e consultas de pesquisa. Essa função só pode ser usada com campos `Edm.String` e `Collection(Edm.String)`.<br /><br /> **Regras para usar funções**<br /><br /> O tipo de função (`freshness`, `magnitude`, `distance`), `tag` deve ser em minúsculas.<br /><br /> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo.<br /><br /> As funções só podem ser aplicadas a campos filtráveis. Consulte [criar índice &#40;Azure pesquisa cognitiva&#41; API REST](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter mais informações sobre campos filtráveis.<br /><br /> As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice.|  
+|**Funções**|Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos são `freshness`, `magnitude`, `distance` e `tag`. Cada função tem parâmetros que são exclusivos.<br /><br /> -   `freshness` devem ser usados quando você deseja aumentar de acordo com a indicação de que um item é novo ou antigo. Essa função somente pode ser usada com campos `datetime` (edm.DataTimeOffset). Observe que o atributo `boostingDuration` é usado somente com a função `freshness`.<br />-   `magnitude` devem ser usados quando você deseja aumentar de acordo com a indicação de que um valor numérico é alto ou baixo. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro.<br />     Para a função `magnitude`, é possível inverter o intervalo, do maior para o menor, se você quiser o padrão inverso (por exemplo, para dar mais destaque aos itens com preços mais baixos, do que aos itens com preços mais altos). Com um intervalo de preços de $100 a $1, você definiria `boostingRangeStart` como 100 e `boostingRangeEnd` como 1 para aumentar os itens com preço inferior.<br />-   `distance` devem ser usados quando você deseja aumentar de acordo com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos `Edm.GeographyPoint` .<br />-   `tag` devem ser usados quando você deseja aumentar de acordo com marcas em comum entre documentos e consultas de pesquisa. Essa função só pode ser usada com campos `Edm.String` e `Collection(Edm.String)`.<br /><br /> **Regras para usar funções**<br /><br /> O tipo de função (`freshness`, `magnitude`, `distance`), `tag` deve ser em minúsculas.<br /><br /> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo.<br /><br /> As funções só podem ser aplicadas a campos filtráveis. Consulte [criar índice &#40;Azure pesquisa cognitiva&#41; API REST](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter mais informações sobre campos filtráveis.<br /><br /> As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice.|  
 
  Depois que o índice for definido, crie o índice carregando o esquema de índice, seguido de documentos. Consulte [criar índice &#40;Azure pesquisa cognitiva API&#41; REST](https://docs.microsoft.com/rest/api/searchservice/create-index) e [Adicionar, atualizar ou excluir documentos &#40;Azure pesquisa cognitiva API&#41; REST](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para obter instruções sobre essas operações. Depois que o índice for criado, você deverá ter um perfil de pontuação funcional que funciona com seus dados de pesquisa.  
 
@@ -232,17 +232,17 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 > [!NOTE]  
 >  Uma função de pontuação somente pode ser aplicada a campos filtráveis.  
 
-|Atributo|DESCRIÇÃO|  
+|Atributo|Descrição|  
 |---------------|-----------------|  
-|`Name`|Necessário. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. O nome deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @ e não pode iniciar com a frase "azureSearch" (diferencia maiúsculas de minúsculas).|  
-|`Text`|Contém a propriedade Pesos.|  
-|`Weights`|Opcional. Um par de nome-valor que especifica um nome de campo e o peso relativo. O peso relativo deve ser um inteiro positivo ou o número de ponto flutuante. O valor máximo é int32.MaxValue.<br /><br /> Você pode especificar o nome do campo sem um peso correspondente. Os pesos são usados para indicar a importância de um campo em relação aos outros.|  
-|`Functions`|Opcional. Uma função de pontuação somente pode ser aplicada a campos filtráveis.|  
-|`Type`|Necessário para funções de pontuação. Indica o tipo de função a ser usada. Os valores válidos incluem magnitude, atualização, distância e marca. Você pode incluir mais de uma função em cada perfil de pontuação. O nome da função deve estar em letras minúsculas.|  
-|`Boost`|Necessário para funções de pontuação. Um número positivo usado como multiplicador para pontuação bruta. Não pode ser igual a 1.|  
-|`Fieldname`|Necessário para funções de pontuação. Uma função de pontuação só pode ser aplicada a campos que fazem parte da coleção de campos do índice e que são filtráveis. Além disso, cada tipo de função introduz restrições adicionais (a atualização é usada com campos datetime, a magnitude com campos de inteiro ou duplo, a distância com campos de local e a marca com campos de cadeia de caracteres ou coleção de cadeias de caracteres). Você só pode especificar um único campo por definição de função. Por exemplo, para usar a magnitude duas vezes no mesmo perfil, você precisaria incluir duas definições de magnitude, uma para cada campo.|  
-|`Interpolation`|Necessário para funções de pontuação. Define a inclinação para a qual o aumento de pontuação ocorre, do início ao fim do intervalo. Os valores válidos incluem Linear (padrão), Constante, Quadrática e Logarítmica. Confira [Set interpolations](#bkmk_interpolation) (Definir interpolações) para obter detalhes.|  
-|`magnitude`|A função de pontuação magnitude é usada para alterar a classificação com base no intervalo de valores de um campo numérico. Alguns dos exemplos de uso mais comuns disso são:<br /><br /> -   **classificações de estrelas:** altere a pontuação com base no valor do campo "classificação por estrelas". Quando dois itens são relevantes, o item com a classificação mais alta é exibido primeiro.<br />Margem de -    **:** quando dois documentos são relevantes, um varejista pode desejar aumentar os documentos que têm margens mais altas primeiro.<br />-   **contagens de cliques:** para aplicativos que acompanham ações de cliques em produtos ou páginas, você pode usar a magnitude para impulsionar itens que tendem a obter o máximo de tráfego.<br />-   **contagens de download:** para aplicativos que acompanham downloads, a função de magnitude permite que você aumente os itens que têm mais downloads.|  
+|`name`|Obrigatório. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. O nome deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @ e não pode iniciar com a frase "azureSearch" (diferencia maiúsculas de minúsculas).|  
+|`text`|Contém a propriedade pesos.|  
+|`weights`|Opcional. Contém pares de nome-valor que especificam um nome de campo e um peso relativo. O peso relativo deve ser um inteiro positivo ou o número de ponto flutuante.<br /><br /> Os pesos são usados para indicar a importância de um campo pesquisável em relação a outro.|  
+|`functions`|Opcional. Uma função de pontuação somente pode ser aplicada a campos filtráveis.|  
+|`type`|Necessário para funções de pontuação. Indica o tipo de função a ser usada. Os valores válidos incluem magnitude, atualização, distância e marca. Você pode incluir mais de uma função em cada perfil de pontuação. O nome da função deve estar em letras minúsculas.|  
+|`boost`|Necessário para funções de pontuação. Um número positivo usado como multiplicador para pontuação bruta. Não pode ser igual a 1.|  
+|`fieldname`|Necessário para funções de pontuação. Uma função de pontuação só pode ser aplicada a campos que fazem parte da coleção de campos do índice e que são filtráveis. Além disso, cada tipo de função introduz restrições adicionais (a atualização é usada com campos datetime, a magnitude com campos de inteiro ou duplo, a distância com campos de local e a marca com campos de cadeia de caracteres ou coleção de cadeias de caracteres). Você só pode especificar um único campo por definição de função. Por exemplo, para usar a magnitude duas vezes no mesmo perfil, você precisaria incluir duas definições de magnitude, uma para cada campo.|  
+|`interpolation`|Necessário para funções de pontuação. Define a inclinação para a qual o aumento de pontuação ocorre, do início ao fim do intervalo. Os valores válidos incluem Linear (padrão), Constante, Quadrática e Logarítmica. Confira [Set interpolations](#bkmk_interpolation) (Definir interpolações) para obter detalhes.|  
+|`magnitude`|A função de pontuação magnitude é usada para alterar a classificação com base no intervalo de valores de um campo numérico. Alguns dos exemplos de uso mais comuns disso são:<br /><br /> -   **classificações de estrelas:** altere a pontuação com base no valor do campo "classificação por estrelas". Quando dois itens forem relevantes, o item com a classificação mais alta será exibido primeiro.<br />Margem de -    **:** quando dois documentos são relevantes, um varejista pode desejar aumentar os documentos que têm margens mais altas primeiro.<br />-   **contagens de cliques:** para aplicativos que acompanham ações de cliques em produtos ou páginas, você pode usar a magnitude para impulsionar itens que tendem a obter o máximo de tráfego.<br />-   **contagens de download:** para aplicativos que acompanham downloads, a função de magnitude permite que você aumente os itens que têm mais downloads.|  
 |`magnitude` &#124; `boostingRangeStart`|Define o valor inicial do intervalo em que a magnitude é pontuada. O valor deve ser um inteiro ou um número de ponto flutuante. Para classificações por estrelas de 1 a 4, isso seria 1. Para mais acima de 50% de margens, isso seria 50.|  
 |`magnitude` &#124; `boostingRangeEnd`|Define o valor final do intervalo em que a magnitude é pontuada. O valor deve ser um inteiro ou um número de ponto flutuante. Para classificações por estrelas de 1 a 4, isso seria 4.|  
 |`magnitude` &#124; `constantBoostBeyondRange`|Os valores válidos são true ou false (padrão). Quando definido como true, o aumento completo continuará a ser aplicado a documentos que tenham um valor para o campo de destino maior do que a extremidade superior do intervalo. Se for false, o aumento dessa função não será aplicado a documentos com um valor para o campo de destino que esteja fora do intervalo.|  
@@ -261,10 +261,10 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
 |||  
 |-|-|  
-|`Linear`|Para itens que estão dentro do intervalo máximo e mínimo, o aumento aplicado ao item será feito em uma quantidade constantemente decrescente. Linear é a interpolação padrão para um perfil de pontuação.|  
-|`Constant`|Para itens que estão dentro do intervalo inicial e final, um aumento constante será aplicado aos resultados de classificação.|  
-|`Quadratic`|Em comparação com uma interpolação Linear que tem um aumento constantemente decrescente, a Quadrática inicialmente diminuirá em menor ritmo e, em seguida, à medida que se aproximar do intervalo final, diminuirá em um intervalo muito maior. Essa opção de interpolação não é permitida em funções de pontuação de marca.|  
-|`Logarithmic`|Em comparação com uma interpolação Linear que tem um aumento constantemente decrescente, a Logarítmica inicialmente diminuirá em um ritmo maior e, em seguida, à medida que se aproximar do intervalo final, diminuirá em um intervalo muito menor. Essa opção de interpolação não é permitida em funções de pontuação de marca.|  
+|`linear`|Para itens que estão dentro do intervalo máximo e mínimo, o aumento aplicado ao item será feito em uma quantidade constantemente decrescente. Linear é a interpolação padrão para um perfil de pontuação.|  
+|`constant`|Para itens que estão dentro do intervalo inicial e final, um aumento constante será aplicado aos resultados de classificação.|  
+|`quadratic`|Em comparação com uma interpolação Linear que tem um aumento constantemente decrescente, a Quadrática inicialmente diminuirá em menor ritmo e, em seguida, à medida que se aproximar do intervalo final, diminuirá em um intervalo muito maior. Essa opção de interpolação não é permitida em funções de pontuação de marca.|  
+|`logarithmic`|Em comparação com uma interpolação Linear que tem um aumento constantemente decrescente, a Logarítmica inicialmente diminuirá em um ritmo maior e, em seguida, à medida que se aproximar do intervalo final, diminuirá em um intervalo muito menor. Essa opção de interpolação não é permitida em funções de pontuação de marca.|  
 
  ![Constantes, lineares, quadráticas, log10 linhas no grafo](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
@@ -275,7 +275,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  A tabela a seguir fornece vários exemplos.  
 
-|Duração|boostingDuration|  
+|Duration|boostingDuration|  
 |--------------|----------------------|  
 |1 dia|"P1D"|  
 |2 dias e 12 horas|"P2DT12H"|  
@@ -284,7 +284,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Consulte  
    [REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/)  
  [Criar índice &#40;pesquisa cognitiva API&#41; REST do Azure](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [SDK do .NET Pesquisa Cognitiva do Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

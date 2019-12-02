@@ -3,12 +3,12 @@ title: Referência do desenvolvedor de C# do Azure Functions
 description: Entenda como desenvolver no Azure Functions usando NodeJS.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 20bbf31bc92e49106a94e7a85d3b1541aaa2a34b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9ecaff438eb30e6a05a7e744e17d2d713eef21cd
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230615"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665569"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -324,7 +324,7 @@ As configurações do aplicativo podem ser lidas de variáveis de ambiente ao de
 
 A propriedade [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter os valores de configuração do aplicativo, mas é recomendável que você use `GetEnvironmentVariable` conforme mostrado aqui.
 
-## <a name="binding-at-runtime"></a>Associando no tempo de execução
+## <a name="binding-at-runtime"></a>Associando no runtime
 
 No C# e em outras linguagens .NET, é possível usar um padrão de associação [obrigatório](https://en.wikipedia.org/wiki/Imperative_programming) em vez de associações [*declarativas*](https://en.wikipedia.org/wiki/Declarative_programming) em atributos. A associação obrigatória é útil quando os parâmetros de associação precisam ser calculado no runtime, em vez do tempo de design. Com esse padrão, é possível se vincular a associações de entrada e saída com suporte instantaneamente no código da função.
 
@@ -366,7 +366,7 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define a associação de entrada ou saída do [Armazenamento de Blobs](functions-bindings-storage-blob.md) e [TextWriter](/dotnet/api/system.io.textwriter) é um tipo de associação de saída com suporte.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) define a associação de entrada ou saída do [Armazenamento de Blobs](functions-bindings-storage-blob.md) e [TextWriter](/dotnet/api/system.io.textwriter) é um tipo de associação de saída com suporte.
 
 ### <a name="multiple-attribute-example"></a>Exemplo de atributo múltiplo
 
@@ -399,7 +399,7 @@ public static class IBinderExampleMultipleAttributes
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre gatilhos e associações](functions-triggers-bindings.md)

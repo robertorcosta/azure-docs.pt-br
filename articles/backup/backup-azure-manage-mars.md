@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: edb672f97f467378176bf6cdf04fe8e22cc5e51b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173076"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665586"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -159,12 +159,12 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
 1. Abra o console de gerenciamento do MARS, vá para o **painel Ações**e **selecione agendar backup**.
     ![modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/mars-actions.png)
-1. Na página **selecionar item de política** , selecione **modificar um agendamento de backup para seus arquivos e pastas** clique em **Avançar**.
+1. Na página **selecionar item de política** , selecione **modificar um agendamento de backup para seus arquivos e pastas** e clique em **Avançar**.
     ![modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. Na página **modificar ou parar um backup agendado** , selecione **parar de usar este agendamento de backup, mas mantenha os backups armazenados até que uma agenda seja ativada novamente**. Em seguida, selecione **Avançar**.  
     ![modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. Em **Pausar backup agendado** examine as informações clique em **concluir** ![modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. em **Modificar processo de backup** , verifique seu agendamento backup de pausa status de êxito e clique em **fechar** para concluir.
+1. Em **Pausar backup agendado** examine as informações e clique em **concluir** ![modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. em **Modificar processo de backup** , verifique se a pausa do backup de agenda está em status de êxito e clique em **fechar** para concluir.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Interromper a proteção e excluir dados de backup
 
@@ -194,7 +194,7 @@ Depois de excluir os itens de backup locais, siga as próximas etapas do Portal.
 Se você interrompeu a proteção enquanto retém os dados e decidiu retomar a proteção, você pode reabilitar o agendamento de backup usando modificar política de backup.
 
 1. Em **ações** , selecione **agendar backup**.
-1. Selecione **habilitar novamente o agendamento de backup. Você também pode modificar itens de backup ou Tines** e clicar em **Avançar**.
+1. Selecione **habilitar novamente o agendamento de backup. Você também pode modificar itens ou horários de backup** e clicar em **Avançar**.
     ![excluir a infraestrutura de backup.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. Em **selecionar itens para backup**, clique em **Avançar**.
     ![excluir a infraestrutura de backup.](./media/backup-azure-manage-mars/re-enable-next.png)
@@ -202,7 +202,7 @@ Se você interrompeu a proteção enquanto retém os dados e decidiu retomar a p
 1. Em **selecionar política de retenção**, especifique a duração da retenção e clique em **Avançar**.
 1. Por fim, na tela de **conformidade** , examine os detalhes da política e clique em **concluir**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre cenários e limitações com suporte, consulte a [matriz de suporte para Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
 - Saiba mais sobre o [comportamento de retenção da política de backup sob demanda](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

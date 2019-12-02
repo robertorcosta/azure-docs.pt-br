@@ -1,5 +1,5 @@
 ---
-title: Integração contínua e implantação contínua – Azure IoT Edge | Microsoft Docs
+title: Integração contínua & implantação contínua-Azure IoT Edge
 description: Configurar a integração contínua e a implantação contínua – Azure IoT Edge com Azure DevOps, Azure Pipelines
 author: shizn
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 85f77d1132af63681ee92cfd2bde82a71d8ed999
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 463de1f49ad8fd21c355395bec3a55d9d40474e6
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457248"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666351"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua no Azure IoT Edge
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá como usar as tarefas internas do Azure IoT Edge p
    - **Azure IOT Edge-gerar o manifesto de implantação** Obtém um arquivo Deployment. Template. JSON e as variáveis e, em seguida, gera o arquivo de manifesto de implantação final IOT Edge.
    - **Azure IOT Edge-implantar em dispositivos IOT Edge** ajuda a criar implantações IOT Edge para dispositivos de IOT Edge único/vários.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um repositório do Azure Repos. Se você não tem um, [crie um novo repositório Git no seu projeto](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
 * Uma solução do IoT Edge confirmada e enviada para seu repositório. Se você quiser criar uma nova solução de amostra para testar este artigo, siga as etapas em [Desenvolver e depurar módulos no Visual Studio Code](how-to-vs-code-develop-module.md) ou [Desenvolver e depurar módulos C# no Visual Studio](how-to-visual-studio-develop-csharp-module.md).
@@ -219,7 +219,7 @@ Para disparar um trabalho de build, você pode efetuar push da confirmação do 
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * IoT Edge exemplo de práticas recomendadas do DevOps no [projeto DevOps do Azure para IOT Edge](how-to-devops-project.md)
 * Entenda a implantação do IoT Edge em [Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala](module-deployment-monitoring.md)
 * Siga as etapas para criar, atualizar ou excluir uma implantação em [Implantar e monitorar os módulos do IoT Edge em larga escala](how-to-deploy-monitor.md).

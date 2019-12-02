@@ -2,18 +2,18 @@
 title: 'Migração de dados: Apache Hadoop local para o Azure HDInsight'
 description: Aprenda as melhores práticas de migração de dados para migrar clusters do Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: hrasheed
-ms.openlocfilehash: 30f7ae2eeb928e3f8dc71baed20d9c9b2129d1f9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 11/22/2019
+ms.openlocfilehash: 41112359408497d84243ed9bb06f396acf008dc5
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494988"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665994"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar clusters do Apache Hadoop locais para o Azure HDInsight – melhores práticas de migração de dados
 
@@ -23,16 +23,20 @@ Este artigo fornece recomendações para a migração de dados para o Azure HDIn
 
 Há duas opções principais para migrar dados do local para o ambiente do Azure:
 
-1.  Transferir dados pela rede com TLS
-    1. Pela Internet - Você pode transferir dados para o armazenamento do Azure em uma conexão de Internet normal usando qualquer uma das várias ferramentas, como: o Azure Storage Explorer, o AzCopy, o Azure Powershell e o CLI do Azure.  Consulte [Mover dados de e para o Armazenamento do Azure](../../storage/common/storage-moving-data.md) para obter mais informações.
-    2. Express Route - ExpressRoute é um serviço do Azure que permite criar conexões privadas entre os datacenters e a infraestrutura da Microsoft em suas instalações ou em uma instalação de colocação. As conexões de ExpressRoute não passam pela Internet pública e oferecem mais segurança, confiabilidade e velocidades maiores com latências menores do que conexões típicas pela Internet. Para obter mais informações, consulte [Criar e modificar um circuito da Rota Expressa](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
-    1. Transferência de dados on-line do Data Box - Data Box Edge e Data Box Gateway são produtos de transferência de dados on-line que funcionam como gateways de armazenamento de rede para gerenciar dados entre seu site e o Azure. O Data Box Edge, um dispositivo de rede local, transfere dados de e para o Azure e usa computação de borda habilitada por inteligência artificial (AI) para processar dados. O Data Box Gateway é uma solução de virtualização com recursos de gateway de armazenamento. Para obter mais informações, consulte [Documentação do Azure Data Box - Transferência on-line](https://docs.microsoft.com/azure/databox-online/).
-1.  Envio de dados Offline
-    1. Transferência de dados offline da Caixa de Dados - Os dispositivos Data Box, Data Box Disk e Data Box Heavy ajudam a transferir grandes quantidades de dados para o Azure quando a rede não é uma opção. Esses dispositivos de transferência de dados off-line são enviados entre sua organização e o datacenter do Azure. Eles usam criptografia AES para ajudar a proteger seus dados em trânsito e passam por um processo completo de sanitização pós-upload para excluir seus dados do dispositivo. Para obter mais informações sobre o Data Box dispositivos de transferência offline, consulte [Azure data Box Documentação-transferência offline](https://docs.microsoft.com/azure/databox/). Para obter mais informações sobre a migração de clusters Hadoop, consulte [usar Azure data box para migrar de um repositório HDFS local para o armazenamento do Azure](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+* Transferir dados pela rede com TLS
+    * Pela Internet - Você pode transferir dados para o armazenamento do Azure em uma conexão de Internet normal usando qualquer uma das várias ferramentas, como: o Azure Storage Explorer, o AzCopy, o Azure Powershell e o CLI do Azure. Para obter mais informações, consulte [movendo dados de e para o armazenamento do Azure](../../storage/common/storage-moving-data.md).
+
+    * Express Route - ExpressRoute é um serviço do Azure que permite criar conexões privadas entre os datacenters e a infraestrutura da Microsoft em suas instalações ou em uma instalação de colocação. As conexões do ExpressRoute não passam pela Internet pública e oferecem maior segurança, confiabilidade e velocidades com latências menores do que conexões típicas pela Internet. Para obter mais informações, consulte [Criar e modificar um circuito da Rota Expressa](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+
+    * Transferência de dados on-line do Data Box - Data Box Edge e Data Box Gateway são produtos de transferência de dados on-line que funcionam como gateways de armazenamento de rede para gerenciar dados entre seu site e o Azure. Data Box Edge, um dispositivo de rede local, transfere dados de e para o Azure e usa computação de borda habilitada para IA (inteligência artificial) para processar dados. O Data Box Gateway é uma solução de virtualização com funcionalidades de gateway de armazenamento. Para obter mais informações, consulte [Documentação do Azure Data Box - Transferência on-line](https://docs.microsoft.com/azure/databox-online/).
+
+* Envio de dados Offline
+
+    Transferência de dados offline da Caixa de Dados - Os dispositivos Data Box, Data Box Disk e Data Box Heavy ajudam a transferir grandes quantidades de dados para o Azure quando a rede não é uma opção. Esses dispositivos de transferência de dados offline são enviados entre a sua organização e o datacenter do Azure. Eles usam criptografia AES para ajudar a proteger seus dados em trânsito, e passam por um rigoroso processo de limpeza pós-upload para excluir seus dados do dispositivo. Para obter mais informações sobre o Data Box dispositivos de transferência offline, consulte [Azure data Box Documentação-transferência offline](https://docs.microsoft.com/azure/databox/). Para obter mais informações sobre a migração de clusters Hadoop, consulte [usar Azure data box para migrar de um repositório HDFS local para o armazenamento do Azure](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 A tabela a seguir tem a duração de transferência de dados aproximada com base na largura de banda de rede e no volume de dados. Use um Data Box se for esperado que a migração de dados levará mais de três semanas.
 
-|**Quantidade de dados**|**Largura de banda da rede**||||
+|Qtd de dados|Largura de Banda de Rede||||
 |---|---|---|---|---|
 || **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
 |1 TB|2 dias|1 dia| 2 horas|14 minutos|
@@ -47,9 +51,7 @@ A tabela a seguir tem a duração de transferência de dados aproximada com base
 
 Ferramentas nativas do Azure como DistCp do Apache Hadoop, Azure Data Factory e AzureCp, podem ser usadas para transferir dados pela rede. A ferramenta de terceiros WANDisco também pode ser usada para a mesma finalidade. O Apache Kafka Mirrormaker e o Sqoop podem ser usados para a transferência de dados contínua do local para os sistemas de armazenamento do Azure.
 
-
 ## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Considerações de desempenho ao usar o DistCp do Apache Hadoop
-
 
 O DistCp é um projeto da Apache que usa um trabalho de mapeamento do MapReduce para transferir dados, manipular erros e recuperar esses erros. Ele atribui uma lista de arquivos de origem para cada tarefa de mapeamento. A tarefa de mapeamento, em seguida, copia todos os seus arquivos atribuídos para o destino. Há várias técnicas que podem melhorar o desempenho do DistCp.
 
@@ -57,8 +59,9 @@ O DistCp é um projeto da Apache que usa um trabalho de mapeamento do MapReduce 
 
 O DistCp tenta criar tarefas de mapeamento para que cada uma copie aproximadamente o mesmo número de bytes. Por padrão, os trabalhos do DistCp usam 20 mapeadores. Usar mais mapeadores para o Distcp (com o parâmetro “m” na linha de comando) aumenta o paralelismo durante o processo de transferência de dados e diminui a duração da transferência de dados. No entanto, há duas coisas a considerar ao aumentar o número de mapeadores:
 
-1. A menor granularidade do DistCp é um único arquivo. Especificar um número de mapeadores maior do que o número de arquivos de origem não ajuda e desperdiça os recursos de cluster disponíveis.
-1. Considere a memória YARN disponível no cluster para determinar o número de mapeadores. Cada tarefa de mapeamento é iniciada como um contêiner do YARN. Supondo que não há outras cargas de trabalho pesadas sendo executadas no cluster, o número de mapeadores pode ser determinado pela seguinte fórmula: m = (número de nós de trabalho \* memória de YARN para cada nó de trabalho) / tamanho do contêiner do YARN. No entanto, se outros aplicativos estiverem usando a memória, opte por usar apenas uma parte da memória do YARN para trabalhos do DistCp.
+* A menor granularidade do DistCp é um único arquivo. A especificação de um número de Mapeadores mais do que o número de arquivos de origem não ajuda e perderá os recursos de cluster disponíveis.
+
+* Considere a memória YARN disponível no cluster para determinar o número de mapeadores. Cada tarefa de mapeamento é iniciada como um contêiner do YARN. Supondo que não há outras cargas de trabalho pesadas sendo executadas no cluster, o número de mapeadores pode ser determinado pela seguinte fórmula: m = (número de nós de trabalho \* memória de YARN para cada nó de trabalho) / tamanho do contêiner do YARN. No entanto, se outros aplicativos estiverem usando a memória, opte por usar apenas uma parte da memória do YARN para trabalhos do DistCp.
 
 ### <a name="use-more-than-one-distcp-job"></a>Usar mais de um trabalho do DistCp
 
@@ -102,17 +105,17 @@ O metastore do Hive pode ser migrado usando os scripts ou usando a replicação 
 - Configure a Replicação de Banco de Dados entre o BD do metastore do Hive local e o BD do metastore do HDInsight.
 - Use "Hive MetaTool" para substituir a URL do HDFS com URLs WASB/ADLS/ABFS, por exemplo:
 
-```bash
-./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
-```
+    ```bash
+    ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
+    ```
 
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - Exporte as políticas do Ranger locais para arquivos xml.
-- Transforme caminhos específicos baseados em HDFS no local para WASB/ADLS usando uma ferramenta como XSLT.
+- Transforme caminhos baseados em HDFS específicos de local para WASB/ADLS usando uma ferramenta como XSLT.
 - Importe as políticas no Ranger em execução no HDInsight.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia o próximo artigo desta série:
 

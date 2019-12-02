@@ -1,5 +1,5 @@
 ---
-title: Provisionar automaticamente dispositivos Linux com Azure IoT Edge de DPS | Microsoft Docs
+title: Provisionar dispositivo com um TPM virtual na VM Linux-Azure IoT Edge
 description: Use um TPM simulado em uma VM Linux para testar o Serviço de Provisionamento de Dispositivos do Azure para Azure IoT Edge
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 292ae570d4f2ddd0c09e667860ee2ba01b9fc6b8
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8f664a2c503367410507ccba3bc9078d34acbe17
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457176"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666334"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Criar e provisionar um dispositivo IoT Edge com um TPM virtual em uma máquina virtual Linux
 
@@ -34,7 +34,7 @@ Este artigo mostra como testar o provisionamento automático em um dispositivo I
 >
 > Se você estiver usando um dispositivo físico, poderá pular para a seção [recuperar informações de provisionamento de um dispositivo físico](#retrieve-provisioning-information-from-a-physical-device) neste artigo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um computador de desenvolvimento do Windows com [Hyper-V habilitado](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Este artigo usa o Windows 10 em execução de uma VM do Ubuntu Server.
 * Um Hub IoT ativo.
@@ -189,7 +189,7 @@ Ao criar uma inscrição no DPS, tem a oportunidade de declarar um **Estado inic
       }
       ```
 
-   7. Selecione **Salvar**. 
+   7. Clique em **Salvar**. 
 
 Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. 
 
@@ -276,7 +276,7 @@ Se você vir erros de provisionamento, pode ser que as alterações de configura
    
 Ou então, tente reiniciar sua máquina virtual para ver se as alterações entram em vigor em um novo início. 
 
-## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida
+## <a name="verify-successful-installation"></a>Verificar instalação com êxito
 
 Se o runtime foi iniciado com êxito, você pode entrar em seu Hub IoT e veja que o novo dispositivo foi provisionado automaticamente. Agora seu dispositivo está pronto para executar os módulos do IoT Edge. 
 
@@ -300,6 +300,6 @@ iotedge list
 
 Você pode verificar se o registro individual criado no serviço de provisionamento de dispositivos foi usado. Navegue até a instância do serviço de provisionamento de dispositivos no portal do Azure. Abra os detalhes de registro para o registro individual que você criou. Observe que o status do registro é **atribuído** e a ID do dispositivo é listada. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O processo de registro do serviço de provisionamento de dispositivo permite definir a ID do dispositivo e as marcas do dispositivo gêmeo ao mesmo tempo, como provisionar o novo dispositivo. Você pode usar esses valores para dispositivos individuais ou grupos de dispositivos usando o gerenciamento automático de dispositivo de destino. Saiba como [Implantar e monitorar os módulos de IoT Edge em escala usando o portal do Azure](how-to-deploy-monitor.md) ou [usando a CLI do Azure](how-to-deploy-monitor-cli.md).

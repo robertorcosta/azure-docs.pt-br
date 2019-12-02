@@ -1,5 +1,5 @@
 ---
-title: Criar implantações automáticas do portal da linha de comando - Azure IoT Edge | Microsoft Docs
+title: Implantar módulos em escala usando o CLI do Azure-Azure IoT Edge
 description: Usar a extensão IoT para a CLI do Azure para criar implantações automáticas para grupos dos dispositivos de IoT Edge
 keywords: ''
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 68cc82733bb264eedb96239e7353ac30224bda64
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 14c4ddd5d95abb223fb30e2ce07496e7f2773257
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457402"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666011"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implantar e monitorar módulos do IoT Edge em escala usando a CLI do Azure
 
@@ -216,6 +216,6 @@ O comando de exclusão de implantação usa os seguintes parâmetros:
 * **--deployment-id** - O nome da implantação que existe no hub IoT.
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a implantação de módulos em dispositivos IOT Edge](module-deployment-monitoring.md).

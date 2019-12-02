@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/29/2019
 ms.author: juliako
-ms.openlocfilehash: 255c98965026266348a66bb98a1741eaf04a1d38
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d06be1b5301889a1fcb8ff1390d8618bbb88c03f
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839149"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666470"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -61,15 +61,15 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 - Alteração de estado de indexação: 
     - Propriedades:    
     
-        |Nome|DESCRIÇÃO|
+        |name|Descrição|
         |---|---|
         |ID|A ID do vídeo|
         |state|O estado do vídeo|  
     - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Pessoa identificada no vídeo:
-  - Propriedades
+  - propriedades
     
-      |Nome|DESCRIÇÃO|
+      |name|Descrição|
       |---|---|
       |ID| A ID do vídeo|
       |faceId|A identificação de face que aparece no índice de vídeo|
@@ -78,7 +78,7 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
         
     - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>Observações
+#### <a name="notes"></a>Notas
 
 - O Video Indexer retorna quaisquer parâmetros existentes fornecidos na URL original.
 - A URL fornecida deve ser codificada.
@@ -87,9 +87,10 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 
 Use esse parâmetro se gravações brutas ou externas contiverem ruídos de fundo. Esse parâmetro é usado para configurar o processo de indexação. É possível especificar os seguintes valores:
 
-- `Default` – Indexar e extrair insights usando áudio e vídeo
 - `AudioOnly` – Indexar e extrair insights usando apenas áudio (ignorando vídeo)
+- `Default` – Indexar e extrair insights usando áudio e vídeo
 - `DefaultWithNoiseReduction` – Indexar e extrair insights de áudio e vídeo durante a aplicação de algoritmos de redução de ruído no fluxo de áudio
+- `VideoOnly`-indexar e extrair informações usando somente vídeo 
 
 O preço depende da opção de indexação selecionada.  
 
@@ -285,11 +286,11 @@ public class AccountContractSlim
 
 Os códigos de status listados na tabela a seguir podem ser retornados pela operação de Upload.
 
-|Código de status|ErrorType (no corpo da resposta)|DESCRIÇÃO|
+|Código de status|ErrorType (no corpo da resposta)|Descrição|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|O mesmo vídeo já está em curso de ser processado na conta especificada.|
 |400|VIDEO_ALREADY_FAILED|O mesmo vídeo falhou ao processar na conta informada há menos de duas horas. Os clientes da API devem aguardar pelo menos duas horas antes de carregar novamente um vídeo.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Examinar a saída do Video Indexer do Azure produzida pela API](video-indexer-output-json-v2.md)

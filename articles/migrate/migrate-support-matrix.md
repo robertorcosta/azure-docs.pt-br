@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: raynew
-ms.openlocfilehash: e752d52d0f792d39f417031c26d923fce07ccdf8
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 13a4fbb119ae9aceb8731e53f7123375a6e5c106
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747989"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666266"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte para migrações para Azure
 
@@ -54,7 +54,7 @@ Migração de Servidor das Migrações para Azure | ND | Migre [VMs VMware](tuto
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | ND | Migre SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avalie o Virtual Desktop Infrastructure (VDI) | ND
 [Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Avaliar VMs do VMWare, VMs do Hyper-V, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | ND
-[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | Migrar VMs VMWare, VMs do Hyper-V, VMS Xen, VMs KVM, máquinas físicas, cargas de trabalho de nuvem pública 
+[RackWare](https://www.rackwareinc.com/cloud-migration) | ND | Migrar VMs VMWare, VMs do Hyper-V, VMS Xen, VMs KVM, máquinas físicas, cargas de trabalho de nuvem pública 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. | ND
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública e bancos de dados SQL Server. | ND
 [Assistente de Migração webapp](https://appmigration.microsoft.com/) | Avaliar aplicativos Web | Migre aplicativos Web.
@@ -64,7 +64,7 @@ Migração de Servidor das Migrações para Azure | ND | Migre [VMs VMware](tuto
 
 **Suporte** | **Detalhes**
 --- | ---
-Assinatura | Você pode ter vários projetos de migrações para Azure em uma assinatura.
+Subscription | Você pode ter vários projetos de migrações para Azure em uma assinatura.
 Permissões do Azure | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
 VMs VMware  | Avalie até 35.000 VMs VMware em um único projeto.
 VMs Hyper-V | Avalie até 35.000 VMs do Hyper-V em um único projeto.
@@ -77,7 +77,7 @@ Você pode criar um projeto de migrações para Azure em uma série de geografia
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
-Azure Government | Gov. dos EUA – Virgínia
+Azure Governamental | US Gov - Virgínia
 Pacífico Asiático | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil
@@ -105,7 +105,7 @@ Estados Unidos | EUA Central ou oeste dos EUA 2
 [Revise](migrate-support-matrix-hyper-v.md) a matriz de suporte de migração de servidor e avaliação do Azure migrações para VMs do Hyper-V.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Avalie as VMs do VMware](tutorial-assess-vmware.md) para migração.
 - [Avalie as VMs do Hyper-V](tutorial-assess-hyper-v.md) para migração.
