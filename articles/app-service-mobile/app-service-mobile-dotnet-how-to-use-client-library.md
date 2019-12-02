@@ -1,33 +1,25 @@
 ---
-title: Trabalhando com a biblioteca de cliente gerenciado dos Aplicativos Móveis do Serviço de Aplicativo | Microsoft Docs
+title: Trabalhar com a biblioteca de cliente gerenciado
 description: Saiba como usar a biblioteca de clientes do .NET para os Aplicativos Móveis do Serviço de Aplicativo do Azure com aplicativos do Windows e Xamarin.
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 1a56c6eed8b6a78587ea272c44f01d16e8a2b88d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 741d286126bedb8b92828486927283fa9887658e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388711"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668477"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como usar o cliente gerenciado para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 ## <a name="overview"></a>Visão Geral
 Este guia mostra como executar cenários comuns usando a biblioteca de cliente gerenciado para os Aplicativos Móveis do Serviço de Aplicativo do Azure em aplicativos do Windows e Xamarin. Se você for iniciante nos Aplicativos Móveis, primeiro conclua o tutorial [Início rápido dos Aplicativos Móveis do Azure][1] . Neste guia, abordaremos o SDK gerenciado do lado do cliente. Para saber mais sobre os SDKs do lado do servidor para aplicativos móveis, consulte a documentação do [SDK do servidor .net][2] ou o [SDK do servidor node. js][3].
@@ -73,7 +65,7 @@ Para saber como criar tabelas em seu back-end de aplicativos móveis, consulte o
 Use um dos métodos a seguir para instalar o pacote SDK do cliente gerenciado para Aplicativos Móveis do [NuGet][9]:
 
 * No **Visual Studio**, clique com o botão direito do mouse no projeto, clique em **Gerenciar Pacotes NuGet**, pesquise pelo pacote `Microsoft.Azure.Mobile.Client` e clique em **Instalar**.
-* **Xamarin Studio** Clique com o botão direito do mouse em seu projeto, clique em **adicionar** > **adicionar pacotes NuGet**, procure o pacote `Microsoft.Azure.Mobile.Client` e clique em **Adicionar pacote**.
+* **Xamarin Studio** Clique com o botão direito do mouse em seu projeto, clique em **adicionar** > **adicionar pacotes NuGet**, pesquise o pacote `Microsoft.Azure.Mobile.Client` e, em seguida, clique em **Adicionar pacote**.
 
 No arquivo de atividade principal, lembre-se de adicionar a seguinte instrução **using** :
 
@@ -486,7 +478,7 @@ ListBox lb = new ListBox();
 lb.ItemsSource = items;
 ```
 
-Alguns controles no tempo de execução gerenciado dão suporte a uma interface chamada [ISupportIncrementalLoading]. Essa interface permite que os controles solicitem dados adicionais quando o usuário rola. Há suporte interno para essa interface para aplicativos universais do Windows via [MobileServiceIncrementalLoadingCollection], que processa as chamadas automaticamente por meio dos controles. Use `MobileServiceIncrementalLoadingCollection` em aplicativos do Windows, da seguinte maneira:
+Alguns controles no runtime gerenciado dão suporte a uma interface chamada [ISupportIncrementalLoading]. Essa interface permite que os controles solicitem dados adicionais quando o usuário rola. Há suporte interno para essa interface para aplicativos universais do Windows via [MobileServiceIncrementalLoadingCollection], que processa as chamadas automaticamente por meio dos controles. Use `MobileServiceIncrementalLoadingCollection` em aplicativos do Windows, da seguinte maneira:
 
 ```csharp
 MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
@@ -525,10 +517,10 @@ Tabelas offline usam um armazenamento local do SQLite para armazenamento de dado
 1. No Visual Studio, clique com o botão direito do mouse na solução > **Gerenciar Pacotes NuGet para a Solução...** , procure e instale o pacote NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** para todos os projetos na solução.
 2. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de runtime do SQLite:
 
-   * **Tempo de Execução do Windows 8.1:** instalar o [SQLite para Windows 8.1][3].
+   * **Runtime do Windows 8.1:** instalar o [SQLite para Windows 8.1][3].
    * **Windows Phone 8.1:** instalar o [SQLite para Windows Phone 8.1][4].
    * **Plataforma universal do Windows** Instale [o SQLite para as janelas universais][5].
-3. (Opcional). Para dispositivos Windows, clique com botão direito do mouse em **Referências** > **Adicionar Referência…** , expanda a pasta **Windows** > **Extensões**, habilite o SDK do **SQLite para Windows** apropriado junto com o SDK do **Tempo de Execução do Visual C++ 2013 para Windows**.
+3. (Opcional). Para dispositivos Windows, clique com botão direito do mouse em **Referências** > **Adicionar Referência…** , expanda a pasta **Windows** &gt; **Extensões**, habilite o SDK do **SQLite para Windows** apropriado junto com o SDK do **Runtime do Visual C++ 2013 para Windows**.
     Os nomes do SDK do SQLite variam ligeiramente de acordo com cada plataforma Windows.
 
 Antes que uma referência de tabela possa ser criada, o armazenamento local precisa ser preparado:

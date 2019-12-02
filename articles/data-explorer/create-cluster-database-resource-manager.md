@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 49c55b580abdaea6c876a0fac4e7dd4e73d496af
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: eddfb9a8f2e3c034e50dc3bc1cdf4983a6163079
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643823"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667852"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando um modelo de Azure Resource Manager
 
@@ -22,7 +22,7 @@ ms.locfileid: "73643823"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [Modelo de ARM](create-cluster-database-resource-manager.md)
+> * [Modelo do Azure Resource Manager](create-cluster-database-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Para usar o Azure Data Explorer, primeiro crie um cluster e um ou mais bancos de dados nesse cluster. Em seguida, ingira (carregue) dados em um banco de dados para poder executar consultas nele. 
 
@@ -94,7 +94,7 @@ Neste artigo, você usa um [modelo de início rápido existente](https://raw.git
 }
 ```
 
-Para encontrar mais exemplos de modelo, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/).
+Para encontrar mais exemplos de modelos, consulte [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/).
 
 ## <a name="deploy-the-template-and-verify-template-deployment"></a>Implantar o modelo e verificar a implantação do modelo
 
@@ -121,7 +121,7 @@ Leva alguns minutos para criar um cluster de Data Explorer do Azure e um banco d
 
 #### <a name="deploy-the-template-using-powershell"></a>Implantar o modelo usando o PowerShell
 
-1. Selecione **Experimente** no seguinte bloco de código e siga as instruções para entrar no Azure cloud Shell.
+1. Selecione **Testar** no seguinte bloco de código e, em seguida, siga as instruções para entrar no Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -137,7 +137,7 @@ Leva alguns minutos para criar um cluster de Data Explorer do Azure e um banco d
     ```
 
 1. Selecione **Copiar** para copiar o script do PowerShell.
-1. Clique com o botão direito do mouse no console do Shell e selecione **colar**.
+1. Clique com o botão direito do mouse no console do Shell e selecione **Colar**.
 Leva alguns minutos para criar um cluster de Data Explorer do Azure e um banco de dados.
 
 #### <a name="verify-the-deployment-using-powershell"></a>Verificar a implantação usando o PowerShell
@@ -155,27 +155,8 @@ Get-AzKustoCluster -ResourceGroupName $resourceGroupName -Name $clusterName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+[!INCLUDE [data-explorer-clean-resources](../../includes/data-explorer-clean-resources.md)]
 
-Quando os recursos do Azure já não forem necessários, limpe os recursos implantados excluindo o grupo de recursos. 
-
-### <a name="clean-up-resources-using-the-azure-portal"></a>Limpar recursos usando o portal do Azure
-
-Exclua os recursos no portal do Azure seguindo as etapas em [limpar recursos](create-cluster-database-portal.md#clean-up-resources).
-
-### <a name="clean-up-resources-using-powershell"></a>Limpar recursos usando o PowerShell
-
-Se o Cloud Shell ainda estiver aberto, você não precisará copiar/executar a primeira linha (Read-Host).
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
-$resourceGroupName = "${projectName}rg"
-
-Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
-
-Write-Host "Press [ENTER] to continue ..."
-```
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Ingerir dados no cluster de Data Explorer do Azure e no banco de dados](ingest-data-overview.md)

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 741232bb7ed6ecf3d20711c1f6248f8e6d6215e8
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cf2a274b4f48b31739d6abba5cf87fa2a10d4ca1
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031676"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667688"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-c"></a>Criar uma conexão de dados do hub de eventos para o Azure Data Explorer usandoC#
 
@@ -20,21 +20,17 @@ ms.locfileid: "72031676"
 > * [Portal](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
+> * [Modelo do Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece ingestão (carregamento de dados) de hubs de eventos, hubs IoT e Blobs gravados em contêineres de BLOB. Neste artigo, você cria uma conexão de dados do hub de eventos para o Azure C#data Explorer usando o.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se você não tem o Visual 2019 Studio instalado, baixe e use o **Visual Studio 2019 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
-
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-
 * Criar [um cluster e um banco de dados](create-cluster-database-csharp.md)
-
 * Criar [mapeamento de tabela e coluna](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-
 * Definir [políticas de banco de dados e tabela](database-table-policies-csharp.md) (opcional)
-
 * Crie um [Hub de eventos com dados para ingestão](ingest-data-event-hub.md#create-an-event-hub). 
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]

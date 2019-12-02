@@ -1,5 +1,5 @@
 ---
-title: Dimensionamento automático e gateway de aplicativo com redundância de zona v2
+title: Dimensionamento automático e Gateway de Aplicativo com redundância de zona v2
 description: Este artigo apresenta as Aplicativo Azure Standard_v2 e WAF_v2 SKU, que inclui dimensionamento automático e recursos com redundância de zona.
 services: application-gateway
 author: vhorne
@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847267"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668144"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e gateway de aplicativo com redundância de zona v2 
+# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e Gateway de Aplicativo com redundância de zona v2 
 
 O gateway de aplicativo e o WAF (firewall do aplicativo Web) também estão disponíveis em um Standard_v2 e WAF_v2 SKU. A SKU v2 oferece aprimoramentos de desempenho e adiciona suporte a novos recursos críticos como dimensionamento automático, redundância de zona e suporte para VIPs estáticos. Os recursos existentes no SKU Standard e WAF continuam com suporte no novo SKU v2, com algumas exceções listadas na seção [comparação](#differences-with-v1-sku) .
 
@@ -35,7 +35,7 @@ A nova SKU v2 inclui os seguintes aprimoramentos:
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-O Standard_v2 e o WAF_v2 SKU estão disponíveis nas seguintes regiões: Norte EUA Central, Sul EUA Central, oeste dos EUA, oeste dos EUA 2, leste dos EUA, leste dos EUA 2, EUA Central, Europa Setentrional, Europa Ocidental, Sudeste Asiático, França central, Oeste do Reino Unido, leste do Japão, oeste do Japão, leste da Austrália , Sudeste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, Ásia Oriental, Coreia central, Coreia do Sul, sul da Índia, Sul do Reino Unido, Índia central, Índia ocidental, sul da Índia.
+O Standard_v2 e o WAF_v2 SKU estão disponíveis nas seguintes regiões: Norte EUA Central, Sul EUA Central, oeste dos EUA, oeste dos EUA 2, leste dos EUA, leste dos EUA 2, EUA Central, Europa Setentrional, Europa Ocidental, Sudeste Asiático, França central, Oeste do Reino Unido, leste do Japão, oeste do Japão, leste da Austrália , Sudeste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, Ásia Oriental, Coreia central, sul da Coreia, Sul do Reino Unido, Índia central, Índia ocidental, sul da Índia.
 
 ## <a name="pricing"></a>Preços
 
@@ -150,7 +150,7 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 | Roteamento baseado em URL                                 | &#x2713; | &#x2713; |
 | Hospedagem de vários sites                             | &#x2713; | &#x2713; |
 | Redirecionamento de tráfego                               | &#x2713; | &#x2713; |
-| Firewall do aplicativo Web (WAF)                    | &#x2713; | &#x2713; |
+| WAF (Firewall do Aplicativo Web)                    | &#x2713; | &#x2713; |
 | Regras personalizadas de WAF                                  |          | &#x2713; |
 | Encerramento do protocolo SSL            | &#x2713; | &#x2713; |
 | Criptografia SSL de ponta a ponta                         | &#x2713; | &#x2713; |
@@ -182,7 +182,7 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 
 Um script de Azure PowerShell está disponível na galeria do PowerShell para ajudá-lo a migrar do seu Application Gateway/WAF v1 para o SKU de dimensionamento automático v2. Esse script ajuda a copiar a configuração do seu gateway v1. A migração de tráfego ainda é sua responsabilidade. Para obter mais informações, consulte [migrar aplicativo Azure gateway de v1 para v2](migrate-v1-v2.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Início rápido: tráfego direto da Web com Aplicativo Azure gateway-portal do Azure](quick-create-portal.md)
 - [Criar um gateway de aplicativo com redundância de zona e dimensionamento automático com um endereço IP virtual reservado usando o Azure PowerShell](tutorial-autoscale-ps.md)

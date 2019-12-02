@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8dec673408b706a92a29f418af3bef4cc05a8d2d
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838207"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668565"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Implantar Data Explorer do Azure em sua rede virtual (versão prévia)
 
@@ -64,6 +64,9 @@ O número total de endereços IP:
 Os [pontos de extremidade de serviço do Azure](/azure/virtual-network/virtual-network-service-endpoints-overview) permitem que você proteja seus recursos multilocatários do Azure para sua rede virtual.
 A implantação do cluster Data Explorer do Azure em sua sub-rede permite que você configure conexões de dados com o [Hub de eventos](/azure/event-hubs/event-hubs-about) ou a [grade de eventos](/azure/event-grid/overview) ao restringir os recursos subjacentes para a sub-rede do Azure data Explorer.
 
+> [!NOTE]
+> Ao usar a instalação do EventGrid com o [armazenamento](/azure/storage/common/storage-introduction) e o [Hub de eventos], a conta de armazenamento usada na assinatura pode ser bloqueada com pontos de extremidade de serviço para a sub-rede do Azure data Explorer, enquanto permite serviços confiáveis da plataforma Azure na [configuração do firewall](/azure/storage/common/storage-network-security), mas o Hub de eventos não pode habilitar o ponto de extremidade de serviço, pois ele não dá suporte a serviços confiáveis da [plataforma Azure](/azure/event-hubs/event-hubs-service-endpoints)
+
 ## <a name="dependencies-for-vnet-deployment"></a>Dependências para implantação de VNet
 
 ### <a name="network-security-groups-configuration"></a>Configuração de grupos de segurança de rede
@@ -75,8 +78,8 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | **Uso**   | **De**   | **Para**   | **Protocolo**   |
 | --- | --- | --- | --- |
 | Gerenciamento  |[ADX Management Addresses](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | Sub-rede ADX: 443  | TCP  |
-| Monitoramento da integridade  | [Endereços de monitoramento de integridade do ADX](#health-monitoring-addresses)  | Sub-rede ADX: 443  | TCP  |
-| ADX comunicação interna  | Sub-rede ADX: todas as portas  | Sub-rede ADX: todas as portas  | Todos  |
+| Monitoramento de integridade  | [Endereços de monitoramento de integridade do ADX](#health-monitoring-addresses)  | Sub-rede ADX: 443  | TCP  |
+| ADX comunicação interna  | Sub-rede ADX: todas as portas  | Sub-rede ADX: todas as portas  | Tudo  |
 | Permitir entrada do Azure Load Balancer (investigação de integridade)  | AzureLoadBalancer  | Sub-rede ADX: 80443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>Configuração de NSG de saída
@@ -90,7 +93,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Download de configuração do Azure Monitor  | Sub-rede ADX  | [Endereços do ponto de extremidade de configuração do Azure monitor](#azure-monitor-configuration-endpoint-addresses): 443 | TCP  |
 | Active Directory (se aplicável) | Sub-rede ADX | AzureActiveDirectory: 443 | TCP |
 | Autoridade de certificação | Sub-rede ADX | Internet: 80 | TCP |
-| Comunicação interna  | Sub-rede ADX  | Sub-rede ADX: todas as portas  | Todos  |
+| Comunicação interna  | Sub-rede ADX  | Sub-rede ADX: todas as portas  | Tudo  |
 | Portas que são usadas para plug-ins `sql\_request` e `http\_request`  | Sub-rede ADX  | Internet: personalizado  | TCP  |
 
 ### <a name="relevant-ip-addresses"></a>Endereços IP relevantes
@@ -101,13 +104,13 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | --- | --- |
 | Austrália Central | 20.37.26.134 |
 | Central2 da Austrália | 20.39.99.177 |
-| Leste da Austrália | 40.82.217.84 |
+| Austrália Oriental | 40.82.217.84 |
 | Sudeste da Austrália | 20.40.161.39 |
 | BrazilSouth | 191.233.25.183 |
 | Canadá Central | 40.82.188.208 |
 | Leste do Canadá | 40.80.255.12 |
 | Índia Central | 40.81.249.251 |
-| Centro dos EUA | 40.67.188.68 |
+| EUA Central | 40.67.188.68 |
 | EUA Central EUAP | 40.89.56.69 |
 | Ásia Oriental | 20.189.74.103 |
 | Leste dos EUA | 52.224.146.56 |
@@ -120,16 +123,16 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Coreia Central | 40.82.156.149 |
 | Sul da Coreia | 40.80.234.9 |
 | Centro-Norte dos EUA | 40.81.45.254 |
-| Norte da Europa | 52.142.91.221 |
+| Europa Setentrional | 52.142.91.221 |
 | Norte da África do Sul | 102.133.129.138 |
 | Oeste da África do Sul | 102.133.0.97 |
-| Centro-Sul dos Estados Unidos | 20.45.3.60 |
+| Centro-Sul dos EUA | 20.45.3.60 |
 | Sudeste Asiático | 40.119.203.252 |
 | Sul da Índia | 40.81.72.110 |
 | Sul do Reino Unido | 40.81.154.254 |
 | Oeste do Reino Unido | 40.81.122.39 |
 | Centro-Oeste dos EUA | 52.159.55.120 |
-| Europa Ocidental | 51.145.176.215 |
+| Oeste da Europa | 51.145.176.215 |
 | Índia Ocidental | 40.81.88.112 |
 | Oeste dos EUA | 13.64.38.225 |
 | Oeste dos EUA 2 | 40.90.219.23 |
@@ -140,13 +143,13 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | --- | --- |
 | Austrália Central | 191.239.64.128 |
 | Austrália Central 2 | 191.239.64.128 |
-| Leste da Austrália | 191.239.64.128 |
+| Austrália Oriental | 191.239.64.128 |
 | Sudeste da Austrália | 191.239.160.47 |
 | Sul do Brasil | 23.98.145.105 |
 | Canadá Central | 168.61.212.201 |
 | Leste do Canadá | 168.61.212.201 |
 | Índia Central | 23.99.5.162 |
-| Centro dos EUA | 168.61.212.201 |
+| EUA Central | 168.61.212.201 |
 | EUA Central EUAP | 168.61.212.201 |
 | Ásia Oriental | 168.63.212.33 |
 | Leste dos EUA | 137.116.81.189 |
@@ -159,16 +162,16 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Coreia Central | 138.91.19.129 |
 | Sul da Coreia | 138.91.19.129 |
 | Centro-Norte dos EUA | 23.96.212.108 |
-| Norte da Europa | 191.235.212.69 
+| Europa Setentrional | 191.235.212.69 
 | Norte da África do Sul | 104.211.224.189 |
 | Oeste da África do Sul | 104.211.224.189 |
-| Centro-Sul dos Estados Unidos | 23.98.145.105 |
+| Centro-Sul dos EUA | 23.98.145.105 |
 | Sul da Índia | 23.99.5.162 |
 | Sudeste Asiático | 168.63.173.234 |
 | Sul do Reino Unido | 23.97.212.5 |
 | Oeste do Reino Unido | 23.97.212.5 |
 | Centro-Oeste dos EUA | 168.61.212.201 |
-| Europa Ocidental | 23.97.212.5 |
+| Oeste da Europa | 23.97.212.5 |
 | Índia Ocidental | 23.99.5.162 |
 | Oeste dos EUA | 23.99.5.162 |
 | Oeste dos EUA 2 | 23.99.5.162 | 
@@ -251,7 +254,7 @@ Você também precisa definir a [tabela de rotas](/azure/virtual-network/virtual
 
 Por exemplo, para a região **oeste dos EUA** , o UDRs a seguir deve ser definido:
 
-| Nome | Prefixo de Endereço | Próximo salto |
+| name | Prefixo de Endereço | Próximo salto |
 | --- | --- | --- |
 | ADX_Management | 13.64.38.225/32 | Internet |
 | ADX_Monitoring | 23.99.5.162/32 | Internet |

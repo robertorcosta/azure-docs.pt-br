@@ -1,33 +1,25 @@
 ---
-title: Habilitar sincronização offline para seu aplicativo móvel do Azure (Xamarin.Forms) | Microsoft Docs
-description: Aprenda a usar o aplicativo móvel do Serviço de Aplicativo para armazenar em cache e sincronizar dados offline no aplicativo Xamarin.Forms
-documentationcenter: xamarin
-author: elamalani
-manager: yochayk
-editor: ''
-services: app-service\mobile
+title: Habilitar sincronização offline (Xamarin. Forms) | Microsoft Docs
+description: Saiba como usar o aplicativo móvel do serviço de aplicativo para armazenar em cache e sincronizar dados offline em seu aplicativo Xamarin. Forms.
 ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 65bd619a95b102c4ad4be57f1661a89fbae43e22
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 85cb39de40d72d4fb4629d055d016e8a3dca23bd
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388420"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668291"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Habilite a sincronização offline para seu aplicativo móvel Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 ## <a name="overview"></a>Visão Geral
 Este tutorial apresenta o recurso de sincronização offline de Aplicativos móveis do Azure para Xamarin.Forms. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local. Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o serviço remoto.
@@ -45,13 +37,13 @@ O código de sincronização offline é incluído no projeto usando diretivas de
         #define OFFLINE_SYNC_ENABLED
 3. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de runtime do SQLite:
 
-   * **Tempo de Execução do Windows 8.1:** instalar o [SQLite para Windows 8.1][3].
+   * **Runtime do Windows 8.1:** instalar o [SQLite para Windows 8.1][3].
    * **Windows Phone 8.1:** instalar o [SQLite para Windows Phone 8.1][4].
    * **Plataforma Universal do Windows** Instale o [SQLite para a Plataforma Universal do Windows][5].
 
      Embora o início rápido não contenha um projeto Universal do Windows, a plataforma Universal do Windows tem suporte com formulários do Xamarin.
 4. (Opcional) Em cada projeto de aplicativo do Windows, clique com o botão direito do mouse em **Referências** > **Adicionar referência…** e expanda a pasta **Windows** > **Extensões**.
-    Habilite o SDK do **SQLite para Windows** apropriado, junto com o SDK do **Tempo de execução do Visual C++ 2013 para Windows**.
+    Habilite o SDK do **SQLite para Windows** apropriado, junto com o SDK do **Runtime do Visual C++ 2013 para Windows**.
     Os nomes do SDK do SQLite variam ligeiramente de acordo com cada plataforma Windows.
 
 ## <a name="review-the-client-sync-code"></a>Examine o código de sincronização do cliente

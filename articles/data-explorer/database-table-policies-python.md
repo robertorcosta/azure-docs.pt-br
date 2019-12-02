@@ -7,23 +7,26 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 2afe3da8b4d4bee31b17320ad976e795e91d410a
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: a0fe86e2dcb802b822cb08ed0922b5da9c5cfd1c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71997235"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667288"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Criar políticas de banco de dados e tabela para o Azure Data Explorer usando Python
+
+> [!div class="op_single_selector"]
+> * [C#](database-table-policies-csharp.md)
+> * [Python](database-table-policies-python.md)
+>
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Neste artigo, você cria políticas de banco de dados e de tabela para o Azure Data Explorer usando o Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-
-* [Um cluster de teste e um banco de dados](create-cluster-database-python.md)
-
+* [Cluster em um banco de dados](create-cluster-database-python.md)
 * [Uma tabela de teste](python-ingest-data.md#create-a-table-on-your-cluster)
 
 ## <a name="install-the-data-libraries"></a>Instalar as bibliotecas de dados
@@ -34,8 +37,8 @@ pip install azure-mgmt-kusto
 pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
-## <a name="authentication"></a>Autenticação
-Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Você pode usar o mesmo aplicativo do Azure AD para autenticação de [um cluster de teste e banco de dados](create-cluster-database-csharp.md#authentication). Se você quiser usar um aplicativo diferente do Azure AD, consulte [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter o `Directory (tenant) ID`, `Application ID` e `Client Secret`. Talvez seja necessário adicionar o novo aplicativo do Azure AD como uma entidade de segurança no banco de dados, consulte [gerenciar permissões do banco de dados do azure data Explorer](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
+## <a name="authentication"></a>Authentication
+Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Você pode usar o mesmo aplicativo do Azure AD para autenticação de [um cluster de teste e banco de dados](create-cluster-database-csharp.md#authentication). Se você quiser usar um aplicativo diferente do Azure AD, consulte [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter as `Directory (tenant) ID`, `Application ID`e `Client Secret`. Talvez seja necessário adicionar o novo aplicativo do Azure AD como uma entidade de segurança no banco de dados, consulte [gerenciar permissões do banco de dados do azure data Explorer](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
 
 ## <a name="alter-database-retention-policy"></a>Política de retenção de ALTER DATABASE
 Define uma política de retenção com um período de exclusão reversível de 10 dias.
@@ -163,6 +166,6 @@ kustoManagementClient.databases.add_principals(resource_group_name=resource_grou
                          value=[DatabasePrincipal(role=role, name=principle_name, type=type_name, app_id=client_id_to_add, tenant_name=tenant_id)])
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Leia mais sobre políticas de banco de dados e tabela](https://docs.microsoft.com/azure/kusto/management/policies)
