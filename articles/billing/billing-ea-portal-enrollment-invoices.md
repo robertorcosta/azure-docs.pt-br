@@ -31,7 +31,7 @@ Um número de ordem de compra também pode ser inserido para uma conta ou assina
 1. Selecione **Editar números da OC** no canto superior direito.
 1. Selecione o botão de opção **Serviços do Azure**.
 1. Selecione um **Período da fatura** no menu suspenso com intervalos de datas. Os números da OC podem ser editados por até sete dias após a notificação da fatura ou até que a fatura seja paga, o que vier primeiro.
-1. Insira o novo número da OC no campo **Número da OC**.
+1. Insira o novo número da OC no campo **Número da OC** .
 1. Clique em **Salvar** para enviar as alterações.
 
 ### <a name="to-update-the-marketplace-purchase-order-number"></a>Para atualizar o número da ordem de compra do Marketplace:
@@ -40,7 +40,7 @@ Um número de ordem de compra também pode ser inserido para uma conta ou assina
 1. Selecione **Editar números da OC** no canto superior direito
 1. Selecione o botão de opção do **Marketplace**
 1. Selecione um **Período da fatura** no menu suspenso com intervalos de datas. Os números da OC podem ser editados por até sete dias após a notificação da fatura ou até que a fatura seja paga, o que vier primeiro.
-1. Insira o novo número da OC no campo **Número da OC**.
+1. Insira o novo número da OC no campo **Número da OC** .
 1. Clique em **Salvar** para enviar as alterações.
 
 ## <a name="cadence-of-azure-ea-billing"></a>Periodicidade da cobrança do EA do Azure
@@ -257,7 +257,7 @@ O Relatório de detalhes de uso oferece um resumo mensal dos serviços e das qua
 
 1. Entre no Portal do EA do Azure como um administrador corporativo.
 1. Clique em **Relatórios** na área de navegação à esquerda.
-1. ***Clique na guia **Baixar uso**.
+1. Clique na guia **Baixar uso**.
 1. Selecione o mês apropriado na coluna _Detalhes de uso_ e clique para baixar o relatório.
 
 ## <a name="marketplace-charges-in-azure-ea-portal-reports"></a>Cobranças do Marketplace nos relatórios do Portal do EA do Azure
@@ -572,7 +572,7 @@ Usuários gratuitos do Power BI que usam o pacote de conteúdo do Microsoft Azur
 
 Para se inscrever para a avaliação gratuita, vá para o ícone de engrenagem e selecione **Gerenciar armazenamento pessoal**. Em seguida, selecione **Experimente o Pro gratuitamente** à direita. Confira [Inscrição para autoatendimento do Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-self-service-signup-for-power-bi/#power-bi-pro-60-day-trial) para saber mais sobre a avaliação gratuita do Power BI Pro.
 
-### <a name="microsoft-azure-ea-power-bi-pro-trial-terms"></a>***Períodos da avaliação do Power BI Pro para o Microsoft Azure EA
+### <a name="microsoft-azure-ea-power-bi-pro-trial-terms"></a>Períodos da avaliação do Power BI Pro para o Microsoft Azure EA
 
 - **Uso geral**: O Power BI Pro estendido para a oferta de avaliação do pacote de conteúdo "Microsoft Azure Enterprise" (a "Oferta") está disponível para os usuários qualificados existentes durante o período da oferta, para permitir que eles acessem determinadas informações relacionadas ao consumo do Microsoft Azure usando um pacote de conteúdo do Power BI específico.
 - **Elegibilidade**: Os usuários sob um EA (Enterprise Agreement) poderão participar da oferta se tiverem uma função relacionada à cobrança, serviço ou ao gerenciamento de serviço e/ou custos do Microsoft Azure em sua organização.
