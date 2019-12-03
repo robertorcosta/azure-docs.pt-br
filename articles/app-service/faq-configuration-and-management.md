@@ -1,25 +1,19 @@
 ---
-title: Perguntas frequentes de configuração - Serviço de Aplicativo do Azure | Microsoft Docs
-description: Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento para a funcionalidade do Aplicativos Web do Serviço de Aplicativo do Azure.
-services: app-service\web
-documentationcenter: ''
+title: Perguntas frequentes sobre configuração
+description: Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento para Azure App serviço.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 111ee6cda46677b3b0fc39f5a84268e6ac192da9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc13b0939563f93c31683b432b0410035d892de0
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470539"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672497"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -69,7 +63,7 @@ Para definir o fuso horário do servidor para o meu aplicativo web:
 2. Em **Configurações do aplicativo**, adicionar essa configuração:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 Para os serviços de aplicativos que são executados no Windows, consulte a coluna **timezone** no artigo [fusos horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos. Para os serviços de aplicativos que são executados no Linux, defina o [nome do banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor de fuso horário. Aqui está um exemplo de nome do banco de dados TZ: America/Adak.
 
@@ -280,7 +274,7 @@ Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Gr
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>Como funcionam a autenticação e autorização no Serviço de Aplicativo?
 
 Para obter documentação detalhada para autenticação e autorização no Serviço de Aplicativo, consulte os documentos sobre várias entradas de provedor de identidade:
-* [Active Directory do Azure](configure-authentication-provider-aad.md)
+* [Azure Active Directory](configure-authentication-provider-aad.md)
 * [Facebook](configure-authentication-provider-facebook.md)
 * [Google](configure-authentication-provider-google.md)
 * [Conta da Microsoft](configure-authentication-provider-microsoft.md)
