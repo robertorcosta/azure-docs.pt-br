@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6ab1e3e01f66e071e3d16b196b3ecdcd30c2620
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61363161"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701805"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
 
@@ -176,7 +176,7 @@ O back-end da solução funciona no módulo gêmeo usando as seguintes operaçõ
 
   - propriedades
 
-    | NOME | Value |
+    | name | Value |
     | --- | --- |
     $content-type | aplicativo/json |
     $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -266,7 +266,7 @@ Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com a
 
 ## <a name="module-twin-size"></a>Tamanho do módulo gêmeo
 
-O Hub IoT impõe um limite de tamanho de 8 KB em cada um dos valores totais respectivos de `tags`, `properties/desired` e `properties/reported`, excluindo elementos somente leitura.
+O Hub IoT impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB, cada um com o valor de `properties/desired` e `properties/reported`. Esses totais são exclusivos de elementos somente leitura.
 
 O tamanho é calculado pela contagem de todos os caracteres, exceto caracteres de controle UNICODE (segmentos C0 e C1) e espaços que estão fora das constantes da cadeia de caracteres.
 
@@ -333,7 +333,7 @@ As propriedades desejadas e reportadas do módulo gêmeo não têm as ETags, mas
 
 Versões também são úteis quando um agente observador (por exemplo, o aplicativo do módulo que observa as propriedades desejadas) deve reconciliar corridas entre o resultado de uma operação de recuperação e uma notificação de atualização. A seção [fluxo de reconexão do dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) fornece mais informações. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte os tutoriais do Hub IoT a seguir:
 
