@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: e33a7a1360a837df08725b2e592973b465dff38c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4443d1117d0dd08cbe2fe89b8ca8465c0c7083f8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954216"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706947"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Introdução à identidade do módulo do Hub IoT e ao módulo d (C)
 
@@ -31,13 +31,13 @@ No fim deste tutorial, você tem dois aplicativos de C:
 > [!NOTE]
 > Para obter informações sobre os SDKs de IoT do Azure que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução, consulte [SDKs de IoT do Azure](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta ativa do Azure. (Se não tiver uma conta, você poderá criar uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 * O [SDK C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) mais recente.
 
-## <a name="create-an-iot-hub"></a>Crie um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um Hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -190,7 +190,9 @@ Nesta seção, você criará um aplicativo C no dispositivo simulado que atualiz
 
     ![Detalhes do módulo do Portal do Azure](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
-2. **Criar aplicativo UpdateModuleTwinReportedProperties** Adicione as instruções `using` a seguir na parte superior do arquivo **Program.cs**:
+2. **Criar aplicativo UpdateModuleTwinReportedProperties**
+   
+   Adicione o seguinte ao seu arquivo C:
 
     ```C
     #include <stdio.h>
@@ -381,7 +383,7 @@ int main(void)
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
 

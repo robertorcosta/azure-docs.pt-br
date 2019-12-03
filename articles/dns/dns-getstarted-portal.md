@@ -17,7 +17,7 @@ ms.locfileid: "74082917"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Início Rápido: Criar uma zona DNS do Azure e registrar usando o portal do Azure
 
-Você pode configurar o DNS do Azure para resolver nomes de host em seu domínio público. Por exemplo, se você adquiriu o nome de domínio *contoso.xyz* de um registrador de nomes de domínio, poderá configurar o DNS do Azure para hospedar o domínio *contoso.xyz* e resolver *contoso.xyz* para o endereço IP do servidor Web ou aplicativo Web.
+Você pode configurar o DNS do Azure para resolver nomes de host em seu domínio público. Por exemplo, se você adquiriu o nome de domínio *contoso.xyz* de um registrador de nomes de domínio, poderá configurar o DNS do Azure para hospedar o domínio *contoso.xyz* e resolver *www.contoso.xyz* para o endereço IP do servidor Web ou aplicativo Web.
 
 Neste início rápido, você criará um domínio de teste e depois um registro de endereço para resolver o *www* do endereço IP *10.10.10.10*.
 

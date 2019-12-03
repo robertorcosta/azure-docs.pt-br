@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 33a63b8a887594747aba03e19c107653e438853f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 27d9b3061794e5673d5ab24fe30d44f46e217c64
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217739"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702047"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
 
@@ -30,8 +30,8 @@ O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, 
 * Armazenamento de BLOBs do Azure (JSON, Avro, texto, parquet)
 * Azure Data Lake Storage Gen1 (JSON, Avro, texto, parquet)
 * Azure Data Lake Storage Gen2 (JSON, Avro, texto, parquet)
-* SQL Data Warehouse do Azure
-* Banco de Dados SQL do Azure
+* Azure SQL Data Warehouse
+* Banco de dados SQL do Azure
 * Azure CosmosDB
 
 Azure Data Factory tem acesso a mais de 80 conectores nativos. Para incluir dados dessas outras fontes em seu fluxo de dados, use a atividade de cópia para carregar esses dados em uma das áreas de preparo com suporte.
@@ -123,7 +123,7 @@ Nesse caso, todos os arquivos que foram originados em/data/Sales são movidos pa
 
 Todas as configurações de origem podem ser especificadas como expressões usando a [linguagem de expressão de transformação mapear fluxo de dados](data-flow-expression-functions.md). Para adicionar conteúdo dinâmico, clique ou focalize dentro dos campos no painel configurações. Clique no hiperlink para **adicionar conteúdo dinâmico**. Isso iniciará o construtor de expressões, no qual você pode definir valores dinamicamente usando expressões, valores literais estáticos ou parâmetros.
 
-![Parâmetros](media/data-flow/params6.png "Parâmetros")
+![Parâmetros](media/data-flow/params6.png "parâmetros")
 
 ## <a name="sql-source-options"></a>Opções de origem do SQL
 
@@ -156,7 +156,7 @@ Você pode modificar os tipos de dados de coluna em uma transformação de colun
 
 ### <a name="import-schema"></a>Importar esquema
 
-Conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas, não exigem que definições de esquema existam no DataSet. Portanto, você poderá clicar no botão "importar esquema" na guia projeção desses tipos de fontes.
+Conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas, não exigem que definições de esquema existam no DataSet. Portanto, você poderá clicar no botão **importar esquema** na guia **projeção** para esses tipos de fontes.
 
 ## <a name="cosmosdb-specific-settings"></a>Configurações específicas do CosmosDB
 
@@ -185,6 +185,6 @@ Você pode optar por particionar as conexões com base em uma consulta. Insira o
 
 Para obter mais informações sobre a otimização no fluxo de dados de mapeamento, consulte a [guia otimizar](concepts-data-flow-overview.md#optimize).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Comece a criar uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [transformação selecionar](data-flow-select.md).

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/04/2019
+ms.date: 12/02/2019
 ms.author: swmachan
-ms.openlocfilehash: 25ab298a8b72b3734e41daf66ef5063b8e43a96e
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 62c101751e07d8ee31789191ad45fbdd33a1bc4b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286631"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707972"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 
-A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução de texto em texto. A Neural Machine Translation (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por AI e está disponível como padrão usando a V3 da API de texto do tradutor quando um sistema neural está disponível.
+A API de Tradução de Texto é compatível com os seguintes idiomas para tradução de texto para texto. A Neural Machine Translation (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por AI e está disponível como padrão usando a V3 da API de texto do tradutor quando um sistema neural está disponível.
 
 [Saiba mais sobre como a tradução automática funciona](https://www.microsoft.com/translator/mt.aspx)
 
@@ -40,7 +40,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 > [!NOTE]
 > Atualmente, um subconjunto dos idiomas neurais está disponível no Tradutor personalizado e estamos adicionando gradualmente outros. [Exiba os idiomas disponíveis no momento no Tradutor personalizado](#customization).
 
-|idioma|  Código de idioma|  API V2| API V3|
+|Idioma|  Código de idioma|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
 |Africâner| `af`    |Estatística apenas|  Neural|
 |Árabe|    `ar`    |Neural disponível|  Neural|
@@ -72,7 +72,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Indonésio|    `id`    |Estatística apenas|  Estatística|
 |Italiano|   `it`    |Neural disponível|  Neural|
 |Japonês|  `ja`    |Neural disponível|  Neural|
-|Kiswahili| `sw`    |Estatística apenas|  Estatística|
+|Suaíli| `sw`    |Estatística apenas|  Estatística|
 |Klingon|   `tlh`   |Estatística apenas|  Estatística|
 |Klingon (plqaD)|   `tlh-Qaak`  |Estatística apenas|  Estatística|
 |Coreano |`ko`   |Neural disponível|  Neural|
@@ -80,7 +80,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Lituano|    `lt`    |Neural disponível|  Neural|
 |Malgaxe|  `mg`    |Estatística apenas|  Estatística|
 |Malaio| `ms`    |Estatística apenas   |Estatística|
-|Maltese|   `mt`    |Estatística apenas|  Estatística|
+|Maltês|   `mt`    |Estatística apenas|  Estatística|
 |Maori| `mi`  |Neural apenas| Neural|
 |Norueguês| `nb`    |Neural disponível|  Neural|
 |Persa|   `fa`    |Neural disponível|  Neural|
@@ -97,7 +97,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Espanhol|   `es`    |Neural disponível|  Neural|
 |Sueco|   `sv`    |Neural disponível   |Neural|
 |Taitiano|  `ty`    |Estatística apenas|  Estatística|
-|Tâmil| `ta`    |Estatística apenas|  Estatística|
+|Tâmil| `ta`    |Neural disponível | Neural|
 |Télugo|    `te`    |Neural apenas|   Neural|
 |Tailandês|  `th`    |Neural disponível|  Neural|
 |Tongan|    `to`    |Estatística apenas|  Estatística|
@@ -112,14 +112,14 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 
 O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indica que o idioma pode ser transliterado de ou para qualquer um dos scripts listados. O "->" indica que o idioma só pode ser transliterado de um script para outro.
 
-| idioma    | Código de idioma | Script | Para/De | Script|
+| Idioma    | Código de idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 |Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
-| Chinês (Simplificado) | `zh-Hans` | Chinês (simplificado) `Hans`| <--> | Latim `Latn` |
-| Chinês (Simplificado) | `zh-Hans` | Chinês (simplificado) `Hans`| <--> | Chinês tradicional `Hant`|
-| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
-| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês (simplificado) `Hans` |
+| Chinês (simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Latim `Latn` |
+| Chinês (simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
+| Chinês (tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
+| Chinês (tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
 | Guzerate | `gu`  | Guzerate `Gujr` | --> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
 | Híndi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
@@ -139,7 +139,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 
 O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos Lookup e Examples.
 
-| idioma    | Código de idioma |
+| Idioma    | Código de idioma |
 |:----------- |:-------------:|
 | Africâner      | `af`          |
 | Árabe       | `ar`          |
@@ -166,13 +166,13 @@ O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos
 | Indonésio      | `id`          |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
-| Kiswahili      | `sw`          |
+| Suaíli      | `sw`          |
 | Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
 | Malaio      | `ms`          |
-| Maltese      | `mt`          |
+| Maltês      | `mt`          |
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
 | Polonês      | `pl`          |
@@ -192,7 +192,7 @@ O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos
 | Vietnamita      | `vi`          |
 | Galês      | `cy`          |
 
-## <a name="detect"></a>Detectar
+## <a name="detect"></a>Detect
 
 API de Tradução de Texto detecta todos os idiomas disponíveis para tradução e transliteração.
 
@@ -207,7 +207,7 @@ Você pode recuperar uma lista de idiomas com suporte para a API de Tradução d
 
 Os idiomas a seguir estão disponíveis para personalização de ou para o inglês usando o [Tradutor personalizado](https://aka.ms/CustomTranslator).
 
-| idioma    | Código de idioma |
+| Idioma    | Código de idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
 | Bangla      | `bn`          |
@@ -233,7 +233,7 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Irlandês | `ga`  |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
-|Kiswahili| `sw`    |
+|Suaíli| `sw`    |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |

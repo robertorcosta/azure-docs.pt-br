@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 698ca6736af86358de13f6deae8f1e2dba92f46e
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8826dd51766ee0d1059ab73046e7e078f27a8e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990660"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703315"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -26,7 +26,7 @@ ms.locfileid: "72990660"
 > * [Versão 2 (versão atual)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Atividades personalizadas na V2](../transform-data-using-dotnet-custom-activity.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Atividades personalizadas na V2](../transform-data-using-dotnet-custom-activity.md).
 
 Há dois tipos de atividades que você pode usar em um pipeline do Azure Data Factory.
 
@@ -59,8 +59,8 @@ Para o tutorial, crie uma conta do Lote do Azure com um pool de VMs. Siga estas 
     3. Para usar um pool existente, clique em **Pools** no menu e anote a **ID** do pool. Se você não tiver um pool existente, siga para a próxima etapa.
 2. Crie um pool do **Lote do Azure**.
 
-   1. No [Portal do Azure](https://portal.azure.com), clique em **Procurar** no menu à esquerda e clique em **Contas do Lote**.
-   2. Selecione sua a conta do Lote do Azure para abrir a folha **Conta do Batch** .
+   1. No [Portal do Azure](https://portal.azure.com), clique em **Procurar** no menu à esquerda e clique em **Contas do Batch**.
+   2. Escolha sua conta do Lote do Azure para abrir a folha **Conta do Lote** .
    3. Clique no bloco **Pools** .
    4. Na folha **Pools** , clique no botão Adicionar na barra de ferramentas para adicionar um pool.
       1. Insira uma ID para o pool (ID do Pool). Observe a **ID do pool**; você precisa dela ao criar a solução Data Factory.
@@ -376,7 +376,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
 12. Crie um arquivo zip **MyDotNetActivity.zip** contendo todos os binários na \<pasta do projeto\>\bin\Debug. Inclua o arquivo **MyDotNetActivity.pdb** para obter detalhes adicionais, como número de linha no código-fonte que causou o problema, se houver falha.
 
     > [!IMPORTANT]
-    > Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior** , sem subpastas.
+    > Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível mais elevado**, sem subpastas.
 
     ![Arquivos de saída binários](./media/data-factory-use-custom-activities/Binaries.png)
 14. Crie um contêiner de blob chamado **customactivitycontainer** se ele ainda não existir.
@@ -628,7 +628,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
     ![Bloco do diagrama](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
 2. Na exibição Diagrama, clique em OutputDataset.
 
-    ![Exibição de diagrama](./media/data-factory-use-custom-activities/diagram.png)
+    ![Modo de Exibição de Diagrama](./media/data-factory-use-custom-activities/diagram.png)
 3. Você verá que as cinco fatias de saída estão no estado Pronto. Se não estiverem no estado Pronto, ainda não foram produzidas.
 
    ![Fatias de saída](./media/data-factory-use-custom-activities/OutputSlices.png)
@@ -698,9 +698,9 @@ A solução de problemas consiste em algumas técnicas básicas:
 
    Verifique **system-0.log** para quaisquer mensagens de erro e exceções do sistema.
 4. Inclua o arquivo **PDB** no arquivo zip para que os detalhes do erro tenham informações como **pilha de chamadas** quando ocorrer um erro.
-5. Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior** , sem subpastas.
+5. Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível mais elevado**, sem subpastas.
 6. Verifique se **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) e **packageLinkedService** (devem apontar para o armazenamento de blobs do Azure de **uso geral** que contém o arquivo zip) estão definidos com os valores corretos.
-7. Se você corrigir um erro e quiser reprocessar a fatia, clique com o botão direito do mouse na fatia na folha **OutputDataset** e clique em **Executar**.
+7. Se você corrigir um erro e quiser reprocessar a fatia, clique com o botão direito do mouse na fatia da folha **OutputDataset** e clique em **Executar**.
 8. Se você vir o erro a seguir, você está usando o pacote do armazenamento do Azure de versão > 4.3.0. O iniciador do serviço de Fábrica de Dados requer a versão 4.3 do WindowsAzure.Storage. Consulte a seção [Isolamento de Appdomain](#appdomain-isolation) para ver uma solução alternativa se você precisar usar a versão mais recente do assembly de armazenamento do Azure.
 
     ```
@@ -722,7 +722,7 @@ A solução de problemas consiste em algumas técnicas básicas:
 Se você atualizar o código para a atividade personalizada, compile-o e carregue o arquivo zip que contém os novos binários para o armazenamento de blob.
 
 ## <a name="appdomain-isolation"></a>Isolamento de Appdomain
-Confira [Exemplo de AppDomain Cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) , que mostra como criar uma atividade personalizada que não esteja restrita às versões de assembly usadas pelo iniciador do Data Factory (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x etc.).
+Confira [Exemplo de AppDomain Cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) , que mostra como criar uma atividade personalizada que não esteja restrita às versões de assembly usadas pelo iniciador do Data Factory (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x etc.).
 
 ## <a name="access-extended-properties"></a>Acessar propriedades estendidas
 Você pode declarar propriedades estendidas na atividade JSON, conforme mostrado na amostra a seguir:
@@ -775,7 +775,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 Consulte [Dimensionar automaticamente os nós de computação em um pool de Lotes do Azure](../../batch/batch-automatic-scaling.md) para obter detalhes.
 
-Se o pool estiver usando o padrão [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço Lote poderá demorar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada.  Se o pool estiver usando um autoScaleEvaluationInterval diferente, o serviço de Lote poderá demorar autoScaleEvaluationInterval + 10 minutos.
+Se o pool estiver usando o padrão [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço Lote poderá demorar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada.  Se o pool estiver usando um autoScaleEvaluationInterval diferente, o serviço de lote pode levar autoScaleEvaluationInterval + 10 minutos.
 
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Criar uma atividade personalizada usando o SDK do .NET

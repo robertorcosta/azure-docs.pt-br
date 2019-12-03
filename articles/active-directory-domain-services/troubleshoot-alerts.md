@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 3286d3e786fc5b0e7a772f5b0e3caa3acf38671e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257942"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703949"
 ---
-# <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conhecidos: Alertas e resoluções comuns no Azure Active Directory Domain Services
+# <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas e resoluções comuns no Azure Active Directory Domain Services
 
 Como parte central da identidade e da autenticação para aplicativos, o Azure Active Directory Domain Services (AD DS do Azure) às vezes tem problemas. Se você tiver problemas, há alguns alertas comuns e etapas de solução de problemas associadas para ajudá-lo a fazer as coisas serem executadas novamente. A qualquer momento, você também pode [abrir uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 
@@ -28,7 +28,7 @@ Este artigo fornece informações de solução de problemas para alertas comuns 
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*O diretório do Azure AD associado a seu domínio gerenciado pode ter sido excluído. O domínio gerenciado não está mais em uma configuração com suporte. A Microsoft não pode monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.*
+*O diretório do Azure AD associado ao domínio gerenciado pode ter sido excluído. O domínio gerenciado não está mais em uma configuração com suporte. A Microsoft não pode monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -54,11 +54,11 @@ Para usar o Azure AD DS, você deve recriar seu domínio gerenciado em um diret�
 
 A integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamente dentro de duas horas e remove o alerta.
 
-## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103: Endereço está em um intervalo de IP público
+## <a name="aadds103-address-is-in-a-public-ip-range"></a>ADDS103: Endereço está em um intervalo de IP público
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*O intervalo de endereços IP para a rede virtual na qual você habilitou os serviços de domínio do Azure AD está em um intervalo de IP público. Serviços de domínio do Azure AD devem ser habilitados em uma rede virtual com um intervalo de endereços IP privados. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.*
+*O intervalo de endereços IP para a rede virtual na qual você habilitou Azure AD Domain Services está em um intervalo de IP público. Azure AD Domain Services deve ser habilitado em uma rede virtual com um intervalo de endereços IP privado. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patches e sincronizar seu domínio gerenciado.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -82,11 +82,11 @@ Para resolver esse alerta, exclua seu domínio gerenciado do Azure AD DS existen
 
 A integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamente dentro de duas horas e remove o alerta.
 
-## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Sua assinatura do Azure não foi encontrada
+## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Assinatura do Azure não encontrada
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*Sua assinatura do Azure associada com seu domínio gerenciado foi excluída.  O Azure Active Directory Domain Services requer uma assinatura ativa para continuar funcionando corretamente.*
+*Sua assinatura do Azure associada ao domínio gerenciado foi excluída.  Azure AD Domain Services requer uma assinatura ativa para continuar funcionando corretamente.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -96,11 +96,11 @@ O Azure AD DS requer uma assinatura ativa e não pode ser movido para uma assina
 1. [Exclua o domínio gerenciado AD DS do Azure](delete-aadds.md) do diretório do Azure ad existente.
 1. [Crie um domínio gerenciado AD DS do Azure de substituição](tutorial-create-instance.md).
 
-## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Sua assinatura do Azure está desabilitada
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Sua Assinatura do Azure está desabilitada
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*Sua assinatura do Azure associada ao seu domínio gerenciado não está ativa.  O Azure Active Directory Domain Services requer uma assinatura ativa para continuar funcionando corretamente.*
+*Sua assinatura do Azure associada ao seu domínio gerenciado não está ativa.  Azure AD Domain Services requer uma assinatura ativa para continuar funcionando corretamente.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -111,21 +111,21 @@ O AD DS do Azure requer uma assinatura ativa. Se a assinatura do Azure à qual o
 
 Quando o domínio gerenciado é habilitado novamente, a integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamente dentro de duas horas e remove o alerta.
 
-## <a name="aadds108-subscription-moved-directories"></a>AADDS108: A assinatura mudou de diretório
+## <a name="aadds108-subscription-moved-directories"></a>AADDS108: Diretórios de assinatura movida
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*A assinatura usada pelo Azure Active Directory Domain Services foi movida para outro diretório. O Azure Active Directory Domain Services precisa ter uma assinatura ativa no mesmo diretório para funcionar corretamente.*
+*A assinatura usada pelo Azure AD Domain Services foi movida para outro diretório. Azure AD Domain Services precisa ter uma assinatura ativa no mesmo diretório para funcionar corretamente.*
 
 ### <a name="resolution"></a>Resolução
 
-O Azure AD DS requer uma assinatura ativa e não pode ser movido para uma assinatura diferente. Se a assinatura do Azure à qual o domínio gerenciado do Azure AD DS foi associado for movida, mova a assinatura de volta para o diretório anterior ou [exclua o domínio gerenciado](delete-aadds.md) do diretório existente e [crie um AD DS de substituição gerenciado pelo Azure domínio na assinatura escolhida](tutorial-create-instance.md).
+O Azure AD DS requer uma assinatura ativa e não pode ser movido para uma assinatura diferente. Se a assinatura do Azure à qual o domínio gerenciado do Azure AD DS foi associado for movida, mova a assinatura de volta para o diretório anterior ou [exclua o domínio gerenciado](delete-aadds.md) do diretório existente e [crie um domínio gerenciado do Azure AD DS de substituição na assinatura escolhida](tutorial-create-instance.md).
 
-## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Não foi possível encontrar recursos para seu domínio gerenciado
+## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Recursos para seu domínio gerenciado que não pode ser encontrado
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*Um recurso que é usado para seu domínio gerenciado foi excluído. Esse recurso é necessário para que o Azure Active Directory Domain Services funcione corretamente.*
+*Um recurso que é usado para o domínio gerenciado foi excluído. Esse recurso é necessário para que Azure AD Domain Services funcionem corretamente.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -133,7 +133,7 @@ O Azure AD DS cria recursos específicos para funcionar corretamente, como ender
 
 Esse alerta é gerado quando um desses recursos necessários é excluído. Se o recurso foi excluído há menos de 4 horas, há uma chance de que a plataforma do Azure possa recriar automaticamente o recurso excluído. As etapas a seguir descrevem como verificar o status de integridade e o carimbo de data/hora para a exclusão de recursos:
 
-1. Na portal do Azure, procure e selecione serviços de **domínio**. Escolha seu domínio gerenciado AD DS do Azure, como *contoso.com*.
+1. Na portal do Azure, procure e selecione serviços de **domínio**. Escolha seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*.
 1. No painel de navegação à esquerda, selecione **integridade**.
 1. Na página integridade, selecione o alerta com a ID *AADDS109*.
 1. O alerta tem um carimbo de data/hora para quando ele foi encontrado pela primeira vez. Se esse carimbo de data/hora for inferior a 4 horas, a plataforma do Azure poderá ser capaz de recriar automaticamente o recurso e resolver o alerta por si só.
@@ -152,11 +152,11 @@ A sub-rede da rede virtual para o Azure AD DS precisa de endereços IP suficient
 
 Esse erro é irrecuperável. Para resolver o alerta, [exclua seu domínio gerenciado AD DS do Azure existente](delete-aadds.md) e recrie-o. Se você tiver problemas ao excluir o domínio gerenciado AD DS do Azure, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 
-## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: Entidade de serviço não autorizada
+## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: entidade de serviço não autorizada
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*Uma entidade de serviço que usa o Azure Active Directory Domain Services para atender seu domínio não está autorizada a gerenciar recursos na assinatura do Azure. A entidade de serviço precisa obter permissões para atender seu domínio gerenciado.*
+*Uma entidade de serviço que o Azure AD Domain Services usa para atender seu domínio não está autorizada a gerenciar recursos na assinatura do Azure. A entidade de serviço precisa obter permissões para atender ao domínio gerenciado.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -165,11 +165,11 @@ Algumas entidades de serviço geradas automaticamente são usadas para gerenciar
 1. Leia sobre [o controle de acesso baseado em função e como conceder acesso a aplicativos no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 2. Examine o acesso que a entidade de serviço com a ID *abba844e-bc0e-44b0-947a-dc74e5d09022* tem e conceda o acesso que foi negado em uma data anterior.
 
-## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Não há endereços IP suficientes no domínio gerenciado
+## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Não há endereços IP suficientes disponíveis no domínio gerenciado
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*Identificamos que a sub-rede da rede virtual neste domínio pode não ter endereços IP suficientes. O Azure Active Directory Domain Services precisa de pelo menos dois endereços IP disponíveis dentro da sub-rede que ele está habilitado. É recomendável ter pelo menos 3 a 5 endereços IP sobressalentes dentro da sub-rede. Isso pode ter ocorrido se outras máquinas virtuais são implantadas dentro da sub-rede, esgotar, portanto, o número de endereços IP disponíveis ou se há uma restrição no número de endereços IP disponíveis na sub-rede.*
+*Identificamos que a sub-rede da rede virtual nesse domínio pode não ter endereços IP suficientes. Azure AD Domain Services precisa de pelo menos dois endereços IP disponíveis na sub-rede em que está habilitado. É recomendável ter pelo menos 3-5 endereços IP de reposição na sub-rede. Isso pode ter ocorrido se outras máquinas virtuais forem implantadas na sub-rede, esgotando assim o número de endereços IP disponíveis ou se houver uma restrição no número de endereços IP disponíveis na sub-rede.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -242,7 +242,7 @@ Para verificar as políticas aplicadas nos componentes do AD DS do Azure e atual
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*O domínio gerenciado foi sincronizado pela última vez com o Azure AD em [data]. Os usuários poderão não conseguir entrar no domínio gerenciado ou as associações de grupo poderão não ser sincronizadas com o Microsoft Azure Active Directory.*
+*O domínio gerenciado foi sincronizado pela última vez com o Azure AD em [data]. Os usuários podem não conseguir entrar no domínio gerenciado ou as associações de grupo podem não estar sincronizadas com o Azure AD.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -263,7 +263,7 @@ Os motivos comuns a seguir fazem com que a sincronização pare em um AD DS dom�
 
 [Verifique a integridade de AD DS do Azure](check-health.md) em busca de alertas que indiquem problemas na configuração do domínio gerenciado. Problemas com a configuração de rede podem bloquear a plataforma do Azure de fazer backups com êxito. Se você conseguir resolver alertas que indicam um problema de configuração, aguarde duas horas e verifique novamente se a sincronização foi concluída.
 
-## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Suspensão devido a uma assinatura desabilitada
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Suspensão devido a uma assinatura desativada
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
@@ -285,7 +285,7 @@ Quando o domínio gerenciado é habilitado novamente, a integridade do domínio 
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*O domínio gerenciado está suspenso devido a uma configuração inválida. O serviço foi não tem conseguido gerenciar, aplicar patches ou atualizar os controladores de domínio para seu domínio gerenciado há muito tempo.*
+*O domínio gerenciado está suspenso devido a uma configuração inválida. O serviço não pôde gerenciar, aplicar patches ou atualizar os controladores de domínio para seu domínio gerenciado por um longo tempo.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -294,7 +294,7 @@ Quando o domínio gerenciado é habilitado novamente, a integridade do domínio 
 
 [Verifique a integridade de AD DS do Azure](check-health.md) em busca de alertas que indiquem problemas na configuração do domínio gerenciado. Se você conseguir resolver alertas que indicam um problema de configuração, aguarde duas horas e verifique novamente se a sincronização foi concluída. Quando estiver pronto, [abra uma solicitação de suporte do Azure][azure-support] para reabilitar o domínio gerenciado AD DS do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você ainda tiver problemas, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 

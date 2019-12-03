@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622422"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706373"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastres usando o Azure Site Recovery
 
 Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando o [Azure Site Recovery](site-recovery-overview.md).
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O Microsoft SharePoint é um aplicativo avançado que pode ajudar um grupo ou departamento a organizar, colaborar com e compartilhar informações. O SharePoint pode fornecer portais de intranet, gerenciamento de arquivos e documentos, colaboração, redes sociais, extranets, sites, Enterprise Search e business intelligence. Ele também tem integração de sistemas, integração de processos e funcionalidades de automação de fluxo de trabalho. Normalmente, as organizações o consideram um aplicativo de camada 1, suscetível a tempo de inatividade e perda de dados.
 
@@ -62,10 +62,10 @@ Site Recovery é independente de aplicativo e deve funcionar com qualquer versã
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | Sim | Sim
-**VMware** | Sim | Sim
-**Servidor físico** | Sim | Sim
-**As tabelas** | ND | Sim
+**Hyper-V** | SIM | SIM
+**VMware** | SIM | SIM
+**Servidor físico** | SIM | SIM
+**Azure** | ND | SIM
 
 
 ### <a name="things-to-keep-in-mind"></a>Algumas coisas que se deve manter em mente
@@ -82,7 +82,7 @@ Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para começar a replic
 
 * Para obter diretrizes sobre como proteger o Active Directory e DNS, consulte o documento [Proteger o Active Directory e DNS](site-recovery-active-directory.md).
 
-* Para obter diretrizes sobre como proteger a camada de banco de dados em execução no SQL Server, consulte o documento [Proteger o SQL Server](site-recovery-active-directory.md).
+* Para obter diretrizes sobre como proteger a camada de banco de dados em execução no SQL Server, consulte o documento [Proteger o SQL Server](site-recovery-sql.md).
 
 ## <a name="networking-configuration"></a>Configuração de rede
 
@@ -199,5 +199,5 @@ Siga [estas diretrizes](site-recovery-failover.md) para fazer um failover.
 3.  Clique em 'Failover'.
 4.  Selecione o ponto de recuperação para iniciar o processo de failover.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Você pode saber mais sobre [replicar outros aplicativos](site-recovery-workload.md) usando o Site Recovery.

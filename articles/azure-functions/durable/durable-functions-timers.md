@@ -4,12 +4,12 @@ description: Saiba como implementar temporizadores duráveis na extensão de Fun
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c477a81801c1345d5be5f5f45419bb4776c875e0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 463d5e6c253643c82935c82c7dee5996c8e44b5f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231276"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706114"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas Funções Duráveis (Azure Functions)
 
@@ -48,7 +48,7 @@ public static async Task Run(
 > [!NOTE]
 > O exemplo C# anterior tem como alvo Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
+### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
 
 ```js
 const df = require("durable-functions");
@@ -56,7 +56,6 @@ const moment = require("moment");
 
 module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
-        const dayOfMonth = context.df.currentUtcDateTime.getDate();
         const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
         yield context.df.createTimer(deadline.toDate());
         yield context.df.callActivity("SendBillingEvent");
@@ -105,7 +104,7 @@ public static async Task<bool> Run(
 > [!NOTE]
 > O exemplo C# anterior tem como alvo Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
+### <a name="javascript-functions-20-only"></a>Javascript (somente funções 2.0)
 
 ```js
 const df = require("durable-functions");
@@ -138,7 +137,7 @@ Esse mecanismo de cancelamento não encerra as execuções da função de ativid
 
 Para obter um exemplo mais detalhado de como implementar tempos limite em funções de orquestrador, consulte o artigo sobre a [interação humana & tempos limite-verificação de telefone](durable-functions-phone-verification.md) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como acionar e manipular eventos externos](durable-functions-external-events.md)

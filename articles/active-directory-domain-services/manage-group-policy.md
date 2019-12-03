@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32020341c7ac3bf33082ba365f053a613dcdffc2
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474535"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705095"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrar Política de Grupo em um domínio Azure AD Domain Services gerenciado
 
@@ -53,7 +53,7 @@ Para criar e configurar o objeto de Política de Grupo (GPOs), você precisa ins
 1. No painel *Dashboard* da janela **Gerenciador do Servidor**, selecione **Adicionar Funções e Recursos**.
 1. Na página **Antes de Você Começar** do *Assistente de Adição de Funções e Recursos*, selecione **Avançar**.
 1. Para o *Tipo de Instalação*, deixe a opção **Instalação baseada em função ou recurso** marcada e selecione **Avançar**.
-1. Na página **Seleção de servidor**, escolha a VM atual no pool de servidores, como *myvm.contoso.com* e, em seguida, selecione **Avançar**.
+1. Na página **seleção de servidor** , escolha a VM atual no pool de servidores, como *MyVM.aadds.contoso.com*, e selecione **Avançar**.
 1. Na página **Funções do Servidor**, clique em **Avançar**.
 1. Na página **Recursos**, selecione o recurso **Gerenciamento de Política de Grupo**.
 
@@ -76,7 +76,7 @@ Existem objetos de diretiva de grupo (GPOs) padrão para usuários e computadore
 
 Há dois objetos de Política de Grupo internos (GPOs) em um domínio gerenciado do Azure AD DS-um para o contêiner de *computadores AADDC* e outro para o contêiner de *usuários do AADDC* . Você pode personalizar esses GPOs para configurar a política de grupo conforme necessário em seu domínio gerenciado AD DS do Azure.
 
-1. No console de **Gerenciamento do política de grupo** , expanda o nó **floresta: contoso.com** . Em seguida, expanda os nós **domínios** .
+1. No console de **Gerenciamento do política de grupo** , expanda o nó **floresta: aadds.contoso.com** . Em seguida, expanda os nós **domínios** .
 
     Existem dois contêineres internos para *computadores AADDC* e *usuários do AADDC*. Cada um desses contêineres tem um GPO padrão aplicado a eles.
 
@@ -114,7 +114,7 @@ Para agrupar configurações de política semelhantes, você geralmente cria GPO
 
     Quando terminar, escolha **arquivo > salvar** para salvar a política. Os computadores atualizam Política de Grupo por padrão a cada 90 minutos e aplicam as alterações feitas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as configurações de Política de Grupo disponíveis que você pode configurar usando o Console de Gerenciamento de Política de Grupo, consulte [trabalhar com política de grupo itens de preferência][group-policy-console].
 

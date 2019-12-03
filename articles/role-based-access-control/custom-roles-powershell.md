@@ -1,6 +1,6 @@
 ---
-title: Criar funções personalizadas para recursos do Azure usando o Azure PowerShell | Microsoft Docs
-description: Saiba como criar funções personalizadas com o RBAC (controle de acesso baseado em função) para recursos do Azure usando o Azure PowerShell. Isso inclui como listar, criar, atualizar e excluir funções personalizadas.
+title: Criar ou atualizar funções personalizadas para recursos do Azure usando Azure PowerShell | Microsoft Docs
+description: Saiba como listar, criar, atualizar ou excluir funções personalizadas com RBAC (controle de acesso baseado em função) para recursos do Azure usando Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fa4ff5f35df0f541d8a7e633df024af81676e58b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158463"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703107"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Criar funções personalizadas para recursos do Azure usando o Azure PowerShell
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Criar ou atualizar funções personalizadas para recursos do Azure usando Azure PowerShell
 
-Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como criar e gerenciar o acesso usando o Azure PowerShell.
+Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando Azure PowerShell.
 
-Para obter um tutorial passo a passo sobre como criar uma função personalizada, confira [Tutorial: Criar uma função personalizada para recursos do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md).
+Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [tutorial: criar uma função personalizada para recursos do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -69,9 +69,9 @@ Virtual Machine Operator     True
 
 Se a assinatura selecionada não estiver no `AssignableScopes` da função, a função personalizada não será listada.
 
-## <a name="list-a-custom-role-definition"></a>Listar a definição de uma função personalizada
+## <a name="list-a-custom-role-definition"></a>Listar uma definição de função personalizada
 
-Para listar uma definição de função personalizada, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Isso é o mesmo comando que você usa em uma função interna.
+Para listar uma definição de função personalizada, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Esse é o mesmo comando que você usa para uma função interna.
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
@@ -358,8 +358,8 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Tutorial: Criar uma função personalizada para recursos do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: criar uma função personalizada para recursos do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
 - [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)

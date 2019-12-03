@@ -1,6 +1,6 @@
 ---
-title: Conectar a uma rede ponto a ponto nos serviços de laboratório do Azure | Microsoft Docs
-description: Saiba como conectar sua rede de laboratório com outra rede como um par. Por exemplo, conectar-se a sua rede da escola/Universidade local com a rede virtual do laboratório no Azure.
+title: Conectar-se a uma rede de mesmo nível no Azure Lab Services | Microsoft Docs
+description: Saiba como conectar sua rede de laboratório a outra rede como um par. Por exemplo, conecte sua rede de estudante/Universidade local com a rede virtual do laboratório no Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,47 +13,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c9b305beae1b385d4714e3a80e6843c7e76a4f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3f6acef7491a07f94eec0b2c3b2f3bcd9c01a33
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410987"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701677"
 ---
-# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conectar-se a rede do seu laboratório com uma rede virtual do par no Azure Lab Services 
-Este artigo fornece informações sobre o emparelhamento de rede laboratórios com outra rede. 
+# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório a uma rede virtual de mesmo nível no Azure Lab Services 
+Este artigo fornece informações sobre como emparelhar sua rede de laboratórios com outra rede. 
 
-## <a name="overview"></a>Visão geral
-Emparelhamento de rede virtual permite que você se conecte redes virtuais do Azure. Uma vez emparelhadas, as redes virtuais aparecerão como uma para fins de conectividade. O tráfego entre máquinas virtuais em redes virtuais emparelhadas é roteado por meio da infraestrutura de backbone da Microsoft, assim como o tráfego é roteado entre máquinas virtuais na mesma rede virtual, por meio de apenas endereços IP privados. Para obter mais informações, consulte [Emparelhamento de rede virtual do Azure](../../virtual-network/virtual-network-peering-overview.md).
+## <a name="overview"></a>Visão Geral
+O emparelhamento de rede virtual permite que você conecte diretamente as redes virtuais do Azure. Uma vez emparelhadas, as redes virtuais aparecerão como uma para fins de conectividade. O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas é roteado por meio da infraestrutura de backbone da Microsoft, assim como o tráfego é roteado entre máquinas virtuais na mesma rede virtual, somente por meio de endereços IP privados. Para obter mais informações, consulte [Emparelhamento de rede virtual do Azure](../../virtual-network/virtual-network-peering-overview.md).
 
-Talvez seja necessário conectar-se a rede do seu laboratório com uma rede virtual do par em alguns cenários, incluindo os seguintes:
+Talvez seja necessário conectar a rede do laboratório a uma rede virtual de mesmo nível em alguns cenários, incluindo as seguintes:
 
-- As máquinas virtuais no laboratório têm software que conecta-se a servidores de licença local para adquirir licença
-- As máquinas virtuais no laboratório precisa de acesso a conjuntos de dados (ou quaisquer outros arquivos) em compartilhamentos de rede da Universidade. 
+- As máquinas virtuais no laboratório têm software que se conecta a servidores de licença locais para adquirir licença
+- As máquinas virtuais no laboratório precisam de acesso a conjuntos de dados (ou qualquer outro arquivo) nos compartilhamentos de rede da Universidade. 
 
-Certas redes locais conectadas à rede Virtual do Azure ou por meio [ExpressRoute](../../expressroute/expressroute-introduction.md) ou [Gateway de rede Virtual](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Esses serviços devem ser configurados fora do Azure Lab Services. Para saber mais sobre como conectar uma rede local ao Azure usando o ExpressRoute, consulte [Visão geral do ExpressRoute]) (... /expressroute/expressroute-Introduction.MD). Para conectividade local usar um Gateway de rede Virtual, o gateway especificado rede virtual e a conta de laboratório deve estar na mesma região.
+Determinadas redes locais são conectadas à rede virtual do Azure por meio do [ExpressRoute](../../expressroute/expressroute-introduction.md) ou do [Gateway de rede virtual](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Esses serviços devem ser configurados fora do Azure Lab Services. Para saber mais sobre como conectar uma rede local ao Azure usando o ExpressRoute, consulte [visão geral do expressroute](../../expressroute/expressroute-introduction.md). Para a conectividade local usando um gateway de rede virtual, o gateway, a rede virtual especificada e a conta de laboratório devem estar na mesma região.
 
-## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação da conta de laboratório
-Durante a criação de conta nova do laboratório, você pode escolher uma rede virtual existente que mostra a **rede virtual do par** lista suspensa. A rede virtual selecionada é connected(peered) para os laboratórios criados na conta de laboratório. Todas as máquinas virtuais em laboratórios que são criados após a criação dessa alteração teria acesso aos recursos na rede virtual emparelhada. 
+## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação da conta do laboratório
+Durante a criação da nova conta de laboratório, você pode escolher uma rede virtual existente que é mostrada na lista suspensa **rede virtual par** . A rede virtual selecionada está conectada (emparelhada) a laboratórios criados na conta do laboratório. Todas as máquinas virtuais em laboratórios que são criadas depois de fazer essa alteração teriam acesso aos recursos na rede virtual emparelhada. 
 
-![Selecione a rede virtual para o mesmo nível](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
+![Selecionar VNet para emparelhar](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
 > [!NOTE]
-> Para obter instruções passo a passo para a criação de uma conta de laboratório, consulte [configurar uma conta de laboratório](tutorial-setup-lab-account.md)
+> Para obter instruções passo a passo detalhadas para criar uma conta de laboratório, consulte [Configurar uma conta de laboratório](tutorial-setup-lab-account.md)
 
 
-## <a name="configure-after-the-lab-is-created"></a>Configurar depois que o laboratório for criado
-A mesma propriedade pode ser habilitada no **configuração Labs** guia da **conta de laboratório** página se você não configurou uma rede ponto a ponto no momento da criação da conta de laboratório. Alterações feitas a essa configuração aplica-se somente para os laboratórios criados após a alteração. Como você pode ver na imagem, você pode habilitar ou desabilitar **rede virtual do par** para laboratórios na conta de laboratório. 
+## <a name="configure-after-the-lab-is-created"></a>Configurar após a criação do laboratório
+A mesma propriedade pode ser habilitada na guia **configuração de laboratórios** da página de conta do **laboratório** se você não tiver configurado uma rede de mesmo nível no momento da criação da conta do laboratório. As alterações feitas nessa configuração aplicam-se somente aos laboratórios criados após a alteração. Como você pode ver na imagem, você pode habilitar ou desabilitar a **rede virtual par** para laboratórios na conta do laboratório. 
 
-![Habilitar ou desabilitar a rede virtual emparelhamento depois que o laboratório for criado](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
+![Habilitar ou desabilitar o emparelhamento VNet após a criação do laboratório](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-Quando você seleciona uma rede virtual para o **rede virtual do par** campo, o **permitir que o criador de laboratório para escolher o local do laboratório** opção está desabilitada. É porque os laboratórios na conta de laboratório devem estar na mesma região que a conta de laboratório para que eles possam se conectar com os recursos na rede virtual ponto a ponto. 
+Quando você seleciona uma rede virtual para o campo **rede virtual par** , a opção **permitir que o criador do laboratório selecione o local do laboratório** está desabilitada. É porque os laboratórios na conta do laboratório devem estar na mesma região que a conta do laboratório para que eles se conectem aos recursos na rede virtual do par. 
 
 > [!IMPORTANT]
-> Essa alteração de configuração se aplica somente a laboratórios criados depois que a alteração for feita, não para os laboratórios existentes. 
+> Essa alteração de configuração aplica-se somente a laboratórios criados depois que a alteração é feita, não aos laboratórios existentes. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira os seguintes artigos:
 
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)

@@ -182,8 +182,6 @@
           href: service-bus-end-to-end-tracing.md
         - name: Criar um aplicativo de Barramento de Serviço com várias camadas
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-        - name: Migrar um aplicativo Java Enterprise Edition para o Azure
-          href: migrate-java-apps-wild-fly.md
     - name: Gerenciar
       items:
         - name: Usar Azure PowerShell para provisionar entidades

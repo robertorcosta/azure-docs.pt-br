@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f03d2fba01dadc443da19416871a93a72289c0c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 87179cbce9fa99d4c3422ce88b630312b5080481
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270143"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706250"
 ---
 # <a name="coarse-relocalization"></a>Relocalização grosseira
 
@@ -128,9 +128,9 @@ Em seguida, você precisará decidir quais sensores deseja usar para a relocaliz
 
 |             | Inportações | Externas |
 |-------------|---------|----------|
-| GPS         | Desativar | Por |
-| Wi-Fi        | Por | Ativado (opcional) |
-| Beacons BLE | Em (opcional com advertências, veja abaixo) | Desativar |
+| GPS         | Desligar | Ligar |
+| Wi-Fi        | Ligar | Ativado (opcional) |
+| Beacons BLE | Em (opcional com advertências, veja abaixo) | Desligar |
 
 
 ### <a name="enabling-gps"></a>Habilitando GPS
@@ -495,7 +495,7 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-As âncoras espaciais do Azure rastrearão apenas os beacons Bluetooth que estão na lista. Os beacons mal-intencionados programados para ter UUIDs listados em branco ainda podem afetar negativamente a qualidade do serviço. Por esse motivo, você deve usar beacons somente em espaços na organização em que você pode controlar sua implantação.
+As âncoras espaciais do Azure rastrearão apenas os beacons Bluetooth que estão na lista. Os beacons mal-intencionados programados para ter UUIDs relacionados à permissão ainda podem afetar negativamente a qualidade do serviço. Por esse motivo, você deve usar beacons somente em espaços na organização em que você pode controlar sua implantação.
 
 ## <a name="querying-with-sensor-data"></a>Consultando com dados de sensor
 
@@ -669,7 +669,7 @@ A tabela a seguir resume os dados do sensor coletados em cada uma das plataforma
 | Wi-Fi        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Com suporte. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
 | Beacons BLE | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use a relocalização de alta utilização em um aplicativo.
 

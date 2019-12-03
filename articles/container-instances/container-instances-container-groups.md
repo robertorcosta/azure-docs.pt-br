@@ -4,12 +4,12 @@ description: Saiba mais sobre grupos de contêineres em instâncias de contêine
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 9fbf9fea7da0896ee6c0e248d18e18d52798fbd7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482118"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706323"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contêineres em Instâncias de Contêiner do Azure
 
@@ -48,15 +48,15 @@ As instâncias de contêiner do Azure alocam recursos como CPUs, memória e, opc
 
 ### <a name="resource-usage-by-instances"></a>Uso de recursos por instâncias
 
-Cada instância de contêiner é alocada aos recursos especificados em sua solicitação de recurso. No entanto, o uso de recursos por uma instância de contêiner em um grupo depende de como você configura sua propriedade de [limite de recurso][resource-limits] opcional.
+Cada instância de contêiner é alocada aos recursos especificados em sua solicitação de recurso. No entanto, o uso de recursos por uma instância de contêiner em um grupo depende de como você configura sua propriedade de [limite de recurso][resource-limits] opcional. O limite de recursos deve ser menor que a propriedade obrigatória de [solicitação de recursos][resource-requests] .
 
 * Se você não especificar um limite de recurso, o uso máximo de recursos da instância será o mesmo que sua solicitação de recurso.
 
 * Se você especificar um limite de recurso para uma instância, poderá ajustar o uso de recursos da instância para sua carga de trabalho, reduzindo ou aumentando o uso relativo à solicitação de recurso. O limite máximo de recursos que você pode definir é o total de recursos alocados para o grupo.
     
-    Por exemplo, em um grupo com duas instâncias solicitando 1 CPU, um de seus contêineres pode executar uma carga de trabalho que exige mais CPUs para execução do que a outra.
+Por exemplo, em um grupo com duas instâncias solicitando 1 CPU, um de seus contêineres pode executar uma carga de trabalho que exige mais CPUs para execução do que a outra.
 
-    Nesse cenário, você pode definir um limite de recursos de CPU de 0,5 para uma instância e um limite de 2 CPUs para o segundo. Essa configuração limita o uso de recursos do primeiro contêiner a 0,5 de CPU, permitindo que o segundo contêiner use até as 2 CPUs completas, se disponíveis.
+Nesse cenário, você pode definir um limite de recursos de CPU de 0,5 para uma instância e um limite de 2 CPUs para o segundo. Essa configuração limita o uso de recursos do primeiro contêiner a 0,5 de CPU, permitindo que o segundo contêiner use até as 2 CPUs completas, se disponíveis.
 
 Para obter mais informações, consulte a propriedade [ResourceRequirements][resource-requirements] na API REST dos grupos de contêineres.
 
@@ -87,7 +87,7 @@ Os exemplos de uso podem incluir:
 * Um contêiner de aplicativo e um contêiner de monitoramento. O contêiner de monitoramento faz uma solicitação periódica ao aplicativo para garantir que ele esteja em execução e respondendo corretamente e emite um alerta em caso negativo.
 * Um contêiner de front-end e um contêiner de back-end. O front-end pode servir a um aplicativo Web, com o back-end executando um serviço para recuperar dados. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como implantar um grupo de contêineres com vários contêineres com um modelo do Azure Resource Manager:
 

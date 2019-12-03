@@ -1,5 +1,5 @@
 ---
-title: 'O Azure Cosmos DB: API do SQL .NET Standard, recursos de & do SDK'
+title: 'Azure Cosmos DB: API do SQL .NET Standard, recursos do SDK &'
 description: Saiba tudo sobre a API do SQL e o SDK do .NET, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do .NET Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 07/12/2019
 ms.author: dech
-ms.openlocfilehash: b907ad3206f26ee73a41bf98f349107e0431c802
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 7471544e920266c8d23ccc18f4370bbdf66c11a2
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129477"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707278"
 ---
-# <a name="azure-cosmos-db-net-standard-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET Standard do Azure Cosmos DB para a API do SQL: Downloads e notas sobre a versão
+# <a name="azure-cosmos-db-net-standard-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET Standard Azure Cosmos DB para a API do SQL: download e notas de versão
 > [!div class="op_single_selector"]
 > * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -35,7 +35,7 @@ ms.locfileid: "71129477"
 |---|---|
 |**Baixe o SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
 |**Documentação da API**|[Documentação de referência de API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
-|**Exemplos**|[Exemplos de código .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples)|
+|**Exemplos**|[Exemplos de código .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
 |**Introdução**|[Introdução ao SDK do .NET do Azure Cosmos DB](sql-api-get-started.md)|
 |**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Framework atualmente com suporte**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
@@ -45,5 +45,5 @@ ms.locfileid: "71129477"
 ## <a name="faq"></a>Perguntas Frequentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 

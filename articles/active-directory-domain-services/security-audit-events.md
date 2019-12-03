@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6ff996129cc140c9154edb8fb60840cd48017a5e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569843"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704284"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Habilitar auditorias de segurança para Azure Active Directory Domain Services (versão prévia)
 
@@ -31,7 +31,7 @@ As auditorias de segurança do Azure AD DS se alinham à auditoria tradicional p
 
 As seguintes categorias de evento de auditoria estão disponíveis:
 
-| Nome da categoria de auditoria | DESCRIÇÃO |
+| Nome da categoria de auditoria | Descrição |
 |:---|:---|
 | Logon da conta|As tentativas de auditoria de autenticar dados de conta em um controlador de domínio ou em um SAM (Gerenciador de contas de segurança) local.</p>As configurações e os eventos da política de logon e logoff do controlam as tentativas de acessar um computador específico. As configurações e os eventos nesta categoria se concentram no banco de dados da conta usado. Essa categoria inclui as seguintes subcategorias:<ul><li>[Auditar validação de credenciais](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Auditar serviço de autenticação Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Auditar operações de tíquete de serviço Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Auditar outros eventos de logon/logoff](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | Gerenciamento de Conta|Audita alterações em contas e grupos de usuários e computadores. Essa categoria inclui as seguintes subcategorias:<ul><li>[Auditoria de gerenciamento de grupo de aplicativos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Auditoria de gerenciamento de conta de computador](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Gerenciamento de grupo de distribuição de auditoria](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Auditar o gerenciamento de contas](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Auditoria de gerenciamento de grupo de segurança](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Auditoria de gerenciamento de conta de usuário](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
@@ -71,7 +71,7 @@ A tabela a seguir descreve os cenários para cada tipo de recurso de destino.
 | Recurso de destino | Cenário |
 |:---|:---|
 |Armazenamento do Azure| Esse destino deve ser usado quando a principal necessidade é armazenar eventos de auditoria de segurança para fins de arquivamento. Outros destinos podem ser usados para fins de arquivamento, no entanto, esses destinos fornecem recursos além da principal necessidade de arquivamento. Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie uma conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
-|Hubs de eventos do Azure| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM). Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
+|Hubs de Eventos do Azure| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM). Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
 |Espaço de trabalho Log Analytics do Azure| Esse destino deve ser usado quando a principal necessidade é analisar e revisar as auditorias seguras do portal do Azure diretamente. Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um espaço de trabalho log Analytics no portal do Azure.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Habilitar eventos de auditoria de segurança usando o portal do Azure
@@ -82,7 +82,7 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o por
 > As auditorias de segurança do Azure AD DS não são retroativas. Não é possível recuperar eventos do passado, ou para repetir eventos do passado. O Azure AD DS só pode enviar eventos que ocorrem depois que ele é habilitado.
 
 1. Entre no Portal do Azure em https://portal.azure.com.
-1. Na parte superior da portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado, como *contoso.com*.
+1. Na parte superior da portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha seu domínio gerenciado, como *aadds.contoso.com*.
 1. Na janela AD DS do Azure, selecione **configurações de diagnóstico (versão prévia)** no lado esquerdo.
 1. Nenhum diagnóstico é configurado por padrão. Para começar, selecione **Adicionar configuração de diagnóstico**.
 
@@ -243,7 +243,7 @@ AADDomainServicesAccountLogon
 | summarize count()
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações específicas sobre o Kusto, consulte os seguintes artigos:
 

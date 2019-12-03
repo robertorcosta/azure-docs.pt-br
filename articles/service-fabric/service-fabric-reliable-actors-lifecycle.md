@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: f81fde441a2f0dc2504601f82e5b890eb6e216de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a8e95c634a1d30b7c566fcd907cb06f34043fa9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105285"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706488"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida, coleta automática de lixo e exclusão manual do ator
-Um ator é ativado na primeira vez que uma chamada é feita para qualquer um de seus métodos. Um ator será desativado (lixo coletado pelo tempo de execução dos Atores) se ele não for usado pelo período configurável. Um ator e seu estado também podem ser excluídos manualmente a qualquer momento.
+Um ator é ativado na primeira vez que uma chamada é feita para qualquer um de seus métodos. Um ator será desativado (lixo coletado pelo runtime dos Atores) se ele não for usado pelo período configurável. Um ator e seu estado também podem ser excluídos manualmente a qualquer momento.
 
 ## <a name="actor-activation"></a>Ativação do ator
 Quando um ator é ativado, ocorre o seguinte:
@@ -39,7 +39,7 @@ Quando um ator é desativado, ocorre o seguinte:
 * O método `OnDeactivateAsync` (C#) ou `onDeactivateAsync` (Java) – que pode ser substituído na implementação do ator – é chamado. Isso limpa todos os medidores de tempo do ator. Operações de ator, como alterações de estado, não devem ser chamadas por meio desse método.
 
 > [!TIP]
-> O tempo de execução do Fabric Actors emite alguns [eventos de relacionados à ativação e à desativação de ator](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Eles são úteis no diagnóstico e monitoramento de desempenho.
+> O runtime da malha atores emite alguns eventos de [relacionados à desativação e ativação de ator](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Eles são úteis para diagnóstico e monitoramento de desempenho.
 >
 >
 
@@ -58,7 +58,7 @@ O que conta como "está sendo usado" para fins de desativação e coleta de lixo
 
 Antes de entrar nos detalhes da desativação, é importante definir os seguintes termos:
 
-* *Intervalo de verificação*. É o intervalo no qual o tempo de execução dos Atores verifica a tabela de Atores Ativos para saber se há atores que podem ser desativados e ter o lixo coletado. O valor padrão é 1 minuto.
+* *Intervalo de verificação*. É o intervalo no qual o runtime dos Atores verifica a tabela de Atores Ativos para saber se há atores que podem ser desativados e ter o lixo coletado. O valor padrão é 1 minuto.
 * *Tempo limite de ociosidade*. Este é o período que um ator deve permanecer sem utilização (ocioso) para que possa ser desativado e ter o lixo coletado. O valor padrão é 60 minuto.
 
 Normalmente não é necessário alterar esses padrões. No entanto, se necessário, esses intervalos podem ser alterados por meio de `ActorServiceSettings` ao registrar seu [Serviço de Ator](service-fabric-reliable-actors-platform.md):
@@ -94,7 +94,7 @@ public class Program
     }
 }
 ```
-Para cada ator ativo, o tempo de execução do ator controla por quanto tempo ele permanece ocioso (ou seja, não usado). O tempo de execução do ator verifica cada um dos atores a cada `ScanIntervalInSeconds` para saber se o lixo pode ser coletado e o coleta se ele estiver ocioso por `IdleTimeoutInSeconds`.
+Para cada ator ativo, o runtime do ator controla por quanto tempo ele permanece ocioso (ou seja, não usado). O tempo de execução de ator verifica cada um dos atores a cada `ScanIntervalInSeconds` para ver se ele pode ser coletado por lixo e o marca se ele esteve ocioso por `IdleTimeoutInSeconds`.
 
 Sempre que um ator é usado, seu tempo ocioso é redefinido como 0. Depois disso, o ator só pode ter seu lixo coletado se permanecer ocioso novamente por `IdleTimeoutInSeconds`. Lembre-se de que um ator é considerado como usado se o método de interface de ator ou um retorno de chamada de lembrete de ator for executado. Um ator **não** é considerado usado se seu retorno de chamada do temporizador for executado.
 
@@ -116,7 +116,7 @@ Um ator nunca terá o lixo coletado durante a execução de um de seus métodos,
 ## <a name="manually-deleting-actors-and-their-state"></a>Excluindo manualmente atores e seu estado
 A coleta de lixo dos atores desativados elimina apenas o objeto do ator, mas não remove os dados que são armazenados no Gerenciador de Estado de um ator. Quando um ator é reativado, seus dados são disponibilizados novamente para ele por meio do Gerenciador de Estado. Nos casos em que atores armazenam dados no Gerenciador de Estado e são desativados, mas nunca reativados, pode ser necessário eliminar seus dados.  Para obter exemplos de como excluir atores, leia [Excluir atores e seu estado](service-fabric-reliable-actors-delete-actors.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
 * [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)

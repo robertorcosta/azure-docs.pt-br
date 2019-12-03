@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030591"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705544"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar o firewall do sistema operacional convidado na VM do Azure
 
@@ -27,13 +27,13 @@ Este artigo fornece uma referência para situações em que você suspeita de qu
 
 ## <a name="solution"></a>Solução
 
-O processo descrito neste artigo se destina a ser usado como uma solução alternativa para que você possa se concentrar em corrigir o problema real, que é como configurar as regras de firewall corretamente. It\rquote uma prática recomendada da Microsoft para ter o componente do Firewall do Windows habilitado. A maneira como você configura as regras do firewall \cf3 depende do nível de acesso à VM \rquote necessária.
+O processo descrito neste artigo se destina a ser usado como uma solução alternativa para que você possa se concentrar em corrigir o problema real, que é como configurar as regras de firewall corretamente. É uma prática recomendada da Microsoft ter o componente Firewall do Windows habilitado. A maneira como você configura as regras de firewall depende do nível de acesso à VM necessária.
 
 ### <a name="online-solutions"></a>Soluções on-line 
 
 Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, você poderá fazer as mitigações a seguir usando a outra VM.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigação 1: Extensão de script personalizado ou recurso de executar comando
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigação 1: recurso de Extensão de Script personalizado ou Executar Comando
 
 Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão de Script Personalizado](../extensions/custom-script-windows.md) ou o recurso [Executar Comandos](../windows/run-command.md) (somente VMs do Resource Manager) para executar remotamente os scripts a seguir.
 
@@ -54,7 +54,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 >   ```
 >   No entanto, assim que a política é aplicada novamente, você vai será retirado da sessão remota. A correção permanente para esse problema é modificar a política que é aplicada neste computador.
 
-#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell remoto
+#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell Remoto
 
 1.  Conecte-se a uma VM que está localizada na mesma rede virtual da VM que você não pode acessar por meio de conexão de RDP.
 
@@ -72,7 +72,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 > [!Note]
 > Se o firewall for definido por meio de um objeto Política de Grupo, esse método poderá não funcionar porque esse comando altera apenas as entradas do Registro local. Se uma política estiver em vigor, ela substituirá essa alteração. 
 
-#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: Comandos do PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: comandos do PSTools
 
 1.  Na VM de solução de problemas, baixe [ PSTools ](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
@@ -120,7 +120,7 @@ Se você tiver uma situação em que você não pode alcançar a VM por meio de 
 
 1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Inicie uma conexão de área de trabalho remota para a VM de recuperação.
+2.  Inicie uma conexão de Área de Trabalho Remota à VM de recuperação.
 
 3.  Verifique se o disco está sinalizado como Online no console de Gerenciamento de Disco. Anote a letra da unidade atribuída ao disco do sistema operacional anexado.
 

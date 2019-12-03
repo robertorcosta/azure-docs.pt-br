@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839358"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707248"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
 
@@ -53,7 +53,8 @@ Pré-requisitos para a introdução à análise de código de segurança da Micr
 
 1. Depois que a extensão for compartilhada com sua organização do DevOps do Azure, vá para a página da organização do DevOps do Azure. Uma URL de exemplo para essa página é `https://dev.azure.com/contoso`.
 1. Selecione o ícone de bolsa de compras no canto superior direito ao lado de seu nome e, em seguida, selecione **gerenciar extensões**.
-1. Selecione a extensão de análise de código de segurança da Microsoft e abra o assistente de interface do usuário do Azure DevOps para iniciar a instalação.
+1. Selecione **compartilhado**.
+1. Selecione a extensão análise de código de segurança da Microsoft, selecione **instalar**.
 1. Na lista suspensa, escolha a organização DevOps do Azure na qual instalar a extensão.
 1. Selecione **Instalar**. Após a conclusão da instalação, você pode começar a usar a extensão.
 
@@ -84,7 +85,7 @@ Depois de instalar a extensão, as tarefas de compilação de desenvolvimento se
 > - Algumas tarefas de compilação DevOps do Azure não têm suporte quando executadas por meio de um pipeline de liberação. Mais especificamente, o Azure DevOps não dá suporte a tarefas que publicam artefatos de dentro de um pipeline de lançamento.
 > - Para obter uma lista de variáveis predefinidas no Azure DevOps Team Build que você pode especificar como parâmetros, consulte [variáveis de compilação do DevOps do Azure](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre como configurar as tarefas de compilação, consulte nosso [Guia de configuração](security-code-analysis-customize.md).
 
