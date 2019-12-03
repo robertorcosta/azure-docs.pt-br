@@ -1,28 +1,22 @@
 ---
-title: Criar um Ambiente do Serviço de Aplicativo com um modelo do Resource Manager – Azure
-description: Explica como criar um Ambiente do Serviço de Aplicativo do Azure ILB ou Externo usando um modelo do Resource Manager
-services: app-service
-documentationcenter: na
+title: Criar um ASE com ARM
+description: Saiba como criar um ambiente de serviço de aplicativo ILB ou externo usando um modelo de Azure Resource Manager.
 author: ccompy
-manager: stefsch
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 60c9d89bc0ab7c63e779a7cadece863540e827aa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0dccefa47789b4658a7bca828b5a820db0d448e5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470594"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688666"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE usando um modelo do Azure Resource Manager
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -44,7 +38,7 @@ Para automatizar a criação do ASE:
 
 2. Depois que o ASE ILB for criado, um certificado SSL correspondente ao domínio do ASE ILB será carregado.
 
-3. O certificado SSL carregado é atribuído ao ASE ILB como seu certificado SSL “padrão”.  Esse certificado SSL será usado para o tráfego SSL dos aplicativos no ASE ILB quando eles usam o domínio-raiz comum atribuído ao ASE (por exemplo, https://someapp.mycustomrootdomain.com)).
+3. O certificado SSL carregado é atribuído ao ASE ILB como seu certificado SSL “padrão”.  Esse certificado SSL será usado para o tráfego SSL dos aplicativos no ASE ILB quando eles usam o domínio-raiz comum atribuído ao ASE (por exemplo, https://someapp.mycustomrootdomain.com) ).
 
 
 ## <a name="create-the-ase"></a>Criar o ASE

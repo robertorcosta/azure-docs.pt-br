@@ -1,27 +1,18 @@
 ---
-title: Solucionar problemas de degradação de desempenho – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Este artigo ajuda você a solucionar problemas de desempenho de aplicativo lento no Serviço de Aplicativo do Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Solucionar problemas de degradação do desempenho
+description: Descubra como solucionar problemas de desempenho de aplicativo lento no serviço Azure App, incluindo monitoramento de comportamento do aplicativo, coleta de dados e mitigação do problema.
 tags: top-support-issue
 keywords: desempenho do aplicativo Web, aplicativo lento, lentidão do aplicativo
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3f7389022eaee4268d5d4fc5439b64d7f7f1bf07
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066538"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688310"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo lento no Serviço de Aplicativo do Azure
 Este artigo ajuda você a solucionar problemas de desempenho de aplicativo lento no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -39,7 +30,7 @@ Esse problema geralmente é causado por questões no nível de aplicativo, como:
 * aplicativo usando muita memória/CPU
 * aplicativo falhando devido a uma exceção
 
-## <a name="troubleshooting-steps"></a>Etapas de solução de problemas
+## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 A solução de problemas pode ser dividida em três tarefas distintas, em ordem sequencial:
 
 1. [Observar e monitorar o comportamento do aplicativo](#observe)
@@ -50,9 +41,9 @@ O [Serviço de Aplicativo](overview.md) oferece diversas opções em cada etapa.
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. Observar e monitorar o comportamento do aplicativo
+### <a name="1-observe-and-monitor-application-behavior"></a>1. observar e monitorar o comportamento do aplicativo
 #### <a name="track-service-health"></a>Controlar a integridade do serviço
-O Microsoft Azure publica sempre que há uma degradação no desempenho ou interrupção do serviço. Você pode controlar a integridade do serviço no [Portal do Azure](https://portal.azure.com/). Para obter mais informações, confira [Controlar a integridade do serviço](../monitoring-and-diagnostics/insights-service-health.md).
+O Microsoft Azure publica sempre que há uma degradação no desempenho ou interrupção do serviço. Você pode controlar a integridade do serviço no [Portal do Azure](https://portal.azure.com/). Para saber mais, consulte [Controlar a integridade do serviço](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### <a name="monitor-your-app"></a>Monitorar o aplicativo
 Essa opção permite que você descubra se seu aplicativo está com problemas. Na folha do seu aplicativo, clique no bloco **Solicitações e erros**. A folha **Métrica** mostra todas as métricas que você pode adicionar.
@@ -60,14 +51,14 @@ Essa opção permite que você descubra se seu aplicativo está com problemas. N
 Algumas das métricas que você talvez queira monitorar para o aplicativo são
 
 * Conjunto de trabalho de memória média
-* Tempo médio de resposta
+* Tempo de resposta média
 * Tempo de CPU
 * Conjunto de trabalho de memória
-* Solicitações
+* Requests
 
 ![monitorar o desempenho do aplicativo](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Monitorar aplicativos no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 * [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -95,7 +86,7 @@ Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de
 
 <a name="collect" />
 
-### <a name="2-collect-data"></a>2. Coletar dados
+### <a name="2-collect-data"></a>2. coletar dados
 O Serviço de Aplicativo oferece funcionalidade de diagnóstico para informações de log do servidor Web e do aplicativo Web. As informações estão separadas em diagnóstico de servidor Web e diagnóstico de aplicativos.
 
 #### <a name="enable-web-server-diagnostics"></a>Habilitar o diagnóstico de servidor Web
@@ -150,7 +141,7 @@ Para saber mais sobre recursos disponíveis no Kudu, confira [Ferramentas do Azu
 
 <a name="mitigate" />
 
-### <a name="3-mitigate-the-issue"></a>3. Atenuar o problema
+### <a name="3-mitigate-the-issue"></a>3. atenue o problema
 #### <a name="scale-the-app"></a>Escalar o aplicativo
 No Serviço de Aplicativo do Azure, para um melhor desempenho e taxa de transferência, você pode ajustar a escala na qual você está executando seu aplicativo. Escalar verticalmente aplicativos envolve duas ações relacionadas: alterar seu plano do Serviço de Aplicativo para um tipo de preço mais alto e definir certas configurações depois de ter mudado para o tipo de preço mais alto.
 
@@ -170,4 +161,4 @@ Reiniciar é geralmente a maneira mais simples de se recuperar de problemas de u
 
  ![reiniciar o aplicativo para solucionar problemas de desempenho](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Também é possível gerenciar o aplicativo usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Também é possível gerenciar o aplicativo usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).

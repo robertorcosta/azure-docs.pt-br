@@ -1,25 +1,18 @@
 ---
-title: Recursos de implantação de rede – serviço de Azure App | Microsoft Docs
-description: Como usar os vários recursos de rede do serviço de aplicativo
+title: Recursos de rede
+description: Saiba mais sobre os recursos de rede no serviço Azure App e quais recursos são necessários para a segurança ou a funcionalidade de sua rede.
 author: ccompy
-manager: stefsch
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928497"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672326"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -33,7 +26,7 @@ O serviço de Azure App é um sistema distribuído. As funções que tratam soli
 
 | Recursos de entrada | Recursos de saída |
 |---------------------|-------------------|
-| Endereço atribuído ao aplicativo | Conexões Híbridas |
+| Endereço atribuído ao aplicativo | Conexões híbridas |
 | Restrições de acesso | Integração VNet necessária do gateway |
 | Pontos de extremidade de serviço | Integração VNet (versão prévia) |
 
@@ -62,7 +55,7 @@ Os seguintes casos de uso de saída sugerem como usar os recursos de rede do ser
 | Acessar recursos em um Entrada na Rede virtual do Azure na mesma região | Integração VNet </br> ASE |
 | Acessar recursos em um Entrada na Rede virtual do Azure em uma região diferente | Integração VNet necessária do gateway </br> Emparelhamento de ASE e VNet |
 | Acessar recursos protegidos com pontos de extremidade de serviço | Integração VNet </br> ASE |
-| Acessar recursos em uma rede privada não conectada ao Azure | Conexões Híbridas |
+| Acessar recursos em uma rede privada não conectada ao Azure | Conexões híbridas |
 | Acessar recursos nos circuitos do ExpressRoute | Integração VNet (restrita aos endereços RFC 1918 por enquanto) </br> ASE | 
 
 
@@ -117,7 +110,7 @@ Os pontos de extremidade de serviço permitem bloquear o acesso de **entrada** a
 
 Você pode aprender mais sobre a configuração de pontos de extremidade de serviço com seu aplicativo no tutorial sobre como [Configurar restrições de acesso de ponto final de serviço][serviceendpoints]
  
-### <a name="hybrid-connections"></a>Conexões Híbridas
+### <a name="hybrid-connections"></a>Conexões híbridas
 
 O serviço de aplicativo Conexões Híbridas permite que seus aplicativos façam chamadas de **saída** para pontos de extremidade TCP especificados. O ponto de extremidade pode ser local, em uma VNet ou em qualquer lugar que permita o tráfego de saída para o Azure na porta 443. O recurso requer a instalação de um agente de retransmissão chamado HCM (Gerenciador de Conexões Híbridas) em um host Windows Server 2012 ou mais recente. O HCM precisa ser capaz de alcançar a retransmissão do Azure na porta 443. O HCM pode ser baixado da interface do usuário Conexões Híbridas do serviço de aplicativo no Portal. 
 

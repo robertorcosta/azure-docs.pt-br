@@ -2,24 +2,24 @@
 title: Apache Hive & Data Lake Tools for Visual Studio – Azure HDInsight
 description: Saiba como usar as ferramentas de Data Lake para Visual Studio para executar consultas do Apache Hive com Apache Hadoop no Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5b10cc5a8b7468b222fec3f2e66a8258470047ae
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931875"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687798"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive usando as ferramentas do Data Lake para Visual Studio
 
 Saiba como usar as ferramentas do Data Lake para Visual Studio para consultar o Apache Hive. As ferramentas de Data Lake permitem que você facilmente crie, envie e monitore consultas de Hive para Apache Hadoop no Azure HDInsight.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Hadoop no HDInsight. Para obter informações sobre como criar esse item, consulte [criar Apache Hadoop cluster no Azure HDInsight usando o modelo do Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -38,9 +38,9 @@ Você tem duas opções para criar e executar consultas do Hive:
 
 Consultas ad hoc podem ser executadas no modo de **lote** ou **interativo** .
 
-1. Abra o **Visual Studio**.
+1. Inicie o **Visual Studio** e selecione **continuar sem código**.
 
-2. Em **Gerenciador de servidores**, navegue até **Azure** > **HDInsight**.
+2. Em **Gerenciador de servidores**, clique com o botão direito do mouse em **Azure**, selecione **conectar a Microsoft Azure assinatura...** e conclua o processo de entrada.
 
 3. Expanda **HDInsight**, clique com o botão direito do mouse no cluster em que você deseja executar a consulta e, em seguida, selecione **gravar uma consulta do hive**.
 
@@ -99,7 +99,7 @@ Para executar uma consulta de Hive criando um aplicativo Hive, siga estas etapas
         > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa, como um trabalho MapReduce ou um serviço do Azure.
         >
         > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
-    
+
     * `ROW FORMAT`: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
     * `STORED AS TEXTFILE LOCATION`: informa ao hive que os dados são armazenados no diretório de *exemplo/dados* e que são armazenados como texto.
@@ -138,25 +138,19 @@ O exemplo a seguir depende da tabela de `log4jLogs` criada no procedimento anter
         > Ao contrário das tabelas `EXTERNAL`, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
     * `STORED AS ORC`: armazena os dados no formato *colunar de linhas otimizadas* (ORC). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
-    
+
     * `INSERT OVERWRITE ... SELECT`: seleciona linhas da tabela `log4jLogs` que contêm `[ERROR]` e, então, insere os dados na tabela `errorLogs`.
 
 3. Altere **interativo** para **lote** , se necessário, e selecione **Enviar**.
 
 4. Para verificar se o trabalho criou a tabela, vá para **Gerenciador de servidores** e expanda **Azure** > **HDInsight**. Expanda seu cluster HDInsight e, em seguida, expanda **bancos de dados do Hive** > **padrão**. As tabelas **errorLogs** e **log4jLogs** são listadas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Como você pode ver, as ferramentas do HDInsight para o Visual Studio fornecem uma maneira fácil de trabalhar com as consultas do Hive no HDInsight.
 
-Para obter informações gerais sobre o Hive no HDInsight:
+* Para obter informações gerais sobre o hive no HDInsight, consulte [o que é Apache Hive e HiveQL no Azure HDInsight?](hdinsight-use-hive.md)
 
-* [O que é Apache Hive e HiveQL no Azure HDInsight?](hdinsight-use-hive.md)
+* Para obter informações sobre outras maneiras que você pode trabalhar com o Hadoop no HDInsight, consulte [usar o MapReduce no Apache Hadoop no hdinsight](hdinsight-use-mapreduce.md)
 
-Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
-
-* [Usar MapReduce no Apache Hadoop em HDInsight](hdinsight-use-mapreduce.md)
-
-Para obter mais informações sobre as ferramentas do HDInsight para o Visual Studio:
-
-* [Usar as ferramentas de Data Lake para o Visual Studio para se conectar ao Azure HDInsight e executar consultas de Apache Hive](apache-hadoop-visual-studio-tools-get-started.md)
+* Para obter mais informações sobre as ferramentas do HDInsight para Visual Studio, consulte[usar ferramentas de data Lake para o Visual Studio para se conectar ao Azure HDInsight e executar consultas de Apache Hive](apache-hadoop-visual-studio-tools-get-started.md)

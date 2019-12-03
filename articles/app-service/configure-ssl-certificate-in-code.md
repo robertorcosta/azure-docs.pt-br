@@ -1,25 +1,16 @@
 ---
-title: Usar o certificado SSL no serviço de Azure App de código | Microsoft Docs
-description: Saiba como usar certificados de cliente para se conectar a recursos remotos que necessitam deles.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Usar certificado SSL no código
+description: Saiba como usar certificados de cliente em seu código. Autentique com recursos remotos com um certificado de cliente ou execute tarefas criptográficas com eles.
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271276"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671890"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Usar um certificado SSL em seu código no serviço Azure App
 
@@ -29,7 +20,7 @@ Essa abordagem para usar certificados em seu código usa a funcionalidade SSL no
 
 Ao permitir que o Serviço de Aplicativo gerencie os certificados SSL, é possível manter os certificados e o código do aplicativo separados e proteger seus dados confidenciais.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este guia de instruções, é necessário ter:
 
@@ -159,7 +150,7 @@ var cert = new X509Certificate2(bytes);
 
 Para ver como carregar um certificado SSL de um arquivo em node. js, PHP, Python, Java ou Ruby, consulte a documentação do respectivo idioma ou plataforma da Web.
 
-## <a name="more-resources"></a>Mais Recursos
+## <a name="more-resources"></a>Mais recursos
 
 * [Proteger um nome DNS personalizado com uma associação SSL](configure-ssl-bindings.md)
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)

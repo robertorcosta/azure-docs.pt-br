@@ -1,29 +1,21 @@
 ---
-title: Arquitetura de segurança em camadas com os Ambientes do Serviço de Aplicativo – Azure
-description: Implementando uma arquitetura de segurança em camadas com Ambientes do Serviço de Aplicativo.
-services: app-service
-documentationcenter: ''
+title: Segurança em camadas v1
+description: Saiba como implementar uma arquitetura de segurança em camadas em seu ambiente do serviço de aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2d9eedcdc66dceabdd6506c5b64f0c15c874efee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070139"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688794"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementando uma arquitetura de segurança em camadas com Ambientes do Serviço de Aplicativo
-## <a name="overview"></a>Visão geral
-Como os Ambientes do Serviço de Aplicativo fornecem um ambiente de tempo de execução isolado implantado em uma rede virtual, os desenvolvedores podem criar uma arquitetura de segurança em camadas fornecendo diferentes níveis de acesso à rede para cada camada de aplicativo físico.
+Como os Ambientes do Serviço de Aplicativo fornecem um ambiente de runtime isolado implantado em uma rede virtual, os desenvolvedores podem criar uma arquitetura de segurança em camadas fornecendo diferentes níveis de acesso à rede para cada camada de aplicativo físico.
 
 Um desejo comum é ocultar os back-ends de API do acesso à Internet geral e só permitir que as APIs sejam chamadas por aplicativos Web upstream.  Os [NSGs (grupos de segurança de rede)][NetworkSecurityGroups] podem ser usados em sub-redes que contêm ambientes de serviço de aplicativo para restringir o acesso público a aplicativos de API.
 
@@ -40,7 +32,7 @@ Para saber quais regras de segurança de rede são necessárias, você precisa d
 
 Como os [NSGs (grupos de segurança de rede)][NetworkSecurityGroups] são aplicados a sub-redes e os ambientes de serviço de aplicativo são implantados em sub-redes, as regras contidas em um NSG se aplicam a **todos os** aplicativos em execução em um ambiente do serviço de aplicativo.  Usando a arquitetura de exemplo deste artigo, depois que um grupo de segurança de rede for aplicado à sub-rede contendo “apiase”, todos os aplicativos em execução no Ambiente do Serviço de Aplicativo “apiase” estarão protegidos pelo mesmo conjunto de regras de segurança. 
 
-* **Determine o endereço IP de saída de chamadores upstream:**  O que são os endereços IP dos chamadores upstream?  Esses endereços precisarão receber explicitamente a permissão de acesso no NSG.  Como as chamadas entre os Ambientes do Serviço de Aplicativo são consideradas chamadas da “Internet”, o endereço IP de saída atribuído a cada um dos três Ambientes do Serviço de Aplicativo upstream precisa receber permissão de acesso no NSG para a sub-rede “apiase”.   Para obter mais informações sobre como determinar o endereço IP de saída para aplicativos em execução em um Ambiente do Serviço de Aplicativo, consulte o artigo Visão geral da [arquitetura de rede][NetworkArchitecture] .
+* **Determine o endereço IP de saída dos autores da chamada upstream:** Qual é o endereço IP ou endereços dos autores da chamada upstream?  Esses endereços precisarão receber explicitamente a permissão de acesso no NSG.  Como as chamadas entre os Ambientes do Serviço de Aplicativo são consideradas chamadas da “Internet”, o endereço IP de saída atribuído a cada um dos três Ambientes do Serviço de Aplicativo upstream precisa receber permissão de acesso no NSG para a sub-rede “apiase”.   Para obter mais informações sobre como determinar o endereço IP de saída para aplicativos em execução em um Ambiente do Serviço de Aplicativo, consulte o artigo Visão geral da [arquitetura de rede][NetworkArchitecture] .
 * **O aplicativo de API de back-end precisará chamar a si mesmo?**  Um ponto sutil e às vezes negligenciado é o cenário em que o aplicativo de back-end precisa chamar a si mesmo.  Se um aplicativo de API de back-end em um Ambiente do Serviço de Aplicativo precisar chamar a si mesmo, isso também será tratado como uma chamada da “Internet”.  Na arquitetura de exemplo, isso também requer a permissão de acesso do endereço IP de saída do Ambiente do Serviço de Aplicativo “apiase”.
 
 ## <a name="setting-up-the-network-security-group"></a>Configurando o Grupo de Segurança de Rede

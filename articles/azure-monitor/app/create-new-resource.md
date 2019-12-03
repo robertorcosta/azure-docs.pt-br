@@ -1,22 +1,22 @@
 ---
-title: Criar um novo recurso do insights Aplicativo Azure | Microsoft Docs
-description: Configurar manualmente o monitoramento de Application Insights para um novo aplicativo ao vivo.
+title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
+description: Configure manualmente o monitoramento do Application Insights para um novo aplicativo em tempo real.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/16/2019
-ms.openlocfilehash: be68c70a105737f232741f02994da87c0c628bd7
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.date: 12/02/2019
+ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677497"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689207"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
-Aplicativo Azure insights exibe dados sobre seu aplicativo em um *recurso*de Microsoft Azure. A criação de um novo recurso, portanto, faz parte da [configuração de Application insights para monitorar um novo aplicativo][start]. Depois de criar o novo recurso, você pode obter sua chave de instrumentação e usá-la para configurar o SDK do Application Insights. A chave de instrumentação vincula sua telemetria ao recurso.
+O Azure Application Insights exibe dados sobre o seu aplicativo em um *recurso* do Microsoft Azure. A criação de um novo recurso, portanto, faz parte da [configuração de Application insights para monitorar um novo aplicativo][start]. Depois de criar o novo recurso, você pode obter sua chave de instrumentação e usá-la para configurar o SDK do Application Insights. A chave de instrumentação vincula sua telemetria ao recurso.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Entrar no Microsoft Azure
 
@@ -28,11 +28,14 @@ Entre no [portal do Azure](https://portal.azure.com)e crie um recurso de Applica
 
 ![Clique no sinal ' + ' no canto superior esquerdo. Selecionar Ferramentas para Desenvolvedores seguido por Application Insights](./media/create-new-resource/new-app-insights.png)
 
-   | Configurações        |  Valor           | Descrição  |
+   | Configurações        |  Value           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor global exclusivo | Nome que identifica o aplicativo que você está monitorando. |
+   | **Nome**      | Valor exclusivo | Nome que identifica o aplicativo que você está monitorando. |
    | **Grupo de recursos**     | myResourceGroup      | Nome do grupo de recursos novo ou existente para hospedar dados do App insights. |
    | **Localidade** | Leste dos EUA | Escolha um local perto de você ou próximo do local em que seu aplicativo está hospedado. |
+
+> [!NOTE]
+> Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) , pois ele simplifica a sintaxe necessária.
 
 Insira os valores apropriados nos campos obrigatórios e, em seguida, selecione **revisar + criar**.
 
@@ -48,7 +51,7 @@ A chave de instrumentação identifica o recurso ao qual você deseja associar o
 
 ## <a name="install-the-sdk-in-your-app"></a>Instalar o SDK em seu aplicativo
 
-Instale o SDK do Application Insights em seu aplicativo. Esta etapa depende muito do tipo do seu aplicativo.
+Instale o SDK do Application Insights SDK no aplicativo. Esta etapa depende muito do tipo do seu aplicativo.
 
 Use a chave de instrumentação para configurar [o SDK que você instala em seu aplicativo][start].
 

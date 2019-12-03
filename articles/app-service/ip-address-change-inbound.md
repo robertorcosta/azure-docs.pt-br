@@ -1,22 +1,15 @@
 ---
-title: Preparar-se para uma alteração de endereço IP de entrada – Serviço de Aplicativo do Azure
+title: Preparar para alteração de endereço IP de entrada
 description: Se seu endereço IP de entrada vai ser alterado, saiba o que fazer para que seu aplicativo continue a funcionar após a alteração.
-services: app-service\web
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: aaa89b5a3bb1af6878ed21e0160a534a1c989228
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 999511c4759ee761f028a61fbfaa0310ac93d9b4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61270057"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672409"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Como se preparar para uma alteração de endereço IP de entrada
 
@@ -24,13 +17,13 @@ Se você recebeu uma notificação de que o endereço IP de entrada do seu aplic
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Determinar se você precisa fazer alguma coisa
 
-* Opção 1: se seu aplicativo do Serviço de Aplicativo não tiver um domínio personalizado, nenhuma ação será necessária.
+* Opção 1: se seu aplicativo do Serviço de Aplicativo não tiver um Domínio Personalizado, nenhuma ação é necessária.
 
-* Opção 2: se apenas um registro CNAME (registro DNS que aponta para um URI) estiver configurado no Portal de Registro de Domínio (provedor DNS de terceiros ou DNS do Azure), nenhuma ação será necessária.
+* Opção 2: se apenas um registro CNAME (registro DNS que aponta para um URI) é configurado no Portal de Registro de Domínio (Provedor DNS de terceiros ou DNS do Azure), nenhuma ação é necessária.
 
-* Opção 3: se um registro A (registro DNS que aponta diretamente para o endereço IP) estiver configurado no Portal de Registro de Domínio (provedor DNS de terceiros ou DNS do Azure), substitua o endereço IP existente pelo novo. Você pode encontrar o novo endereço IP seguindo as instruções na próxima seção.
+* Opção 3: se um registro (registro DNS que aponta diretamente para o endereço IP) for configurado no Portal de Registro de Domínio (Provedor DNS de terceiros ou DNS do Azure), substitua o endereço IP existente pelo novo. Você pode encontrar o novo endereço IP seguindo as instruções na próxima seção.
 
-* Opção 4: se seu aplicativo estiver atrás de um balanceador de carga, filtro de IP ou qualquer outro mecanismo de IP que exija um endereço IP do aplicativo, substitua o endereço IP existente pelo novo. Você pode encontrar o novo endereço IP seguindo as instruções na próxima seção.
+* Opção 4: se seu aplicativo estiver atrás de um balanceador de carga, filtro de IP ou qualquer outro mecanismo IP que requer um endereço IP do aplicativo, substitua o endereço IP existente pelo novo. Você pode encontrar o novo endereço IP seguindo as instruções na próxima seção.
 
 ## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>Você pode encontrar o novo Endereço IP de entrada no Portal do Azure.
 
@@ -48,6 +41,6 @@ O novo endereço IP de entrada que está sendo fornecido para o aplicativo está
 
 5. Copie o endereço IP e reconfigure o registro de domínio ou o mecanismo de IP.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pelo Azure. Para obter mais informações sobre endereços IP no Serviço de Aplicativo do Azure, consulte [Entrada e endereços IP de saída no Serviço de Aplicativo do Azure](overview-inbound-outbound-ips.md).

@@ -1,24 +1,17 @@
 ---
-title: Introdução ao WebJobs SDK - Azure
+title: Introdução ao WebJobs SDK
 description: Introdução ao WebJobs SDK para o processamento em segundo plano controlado por evento. Saiba como acessar dados em serviços do Azure e serviços de terceiros.
-services: app-service\web, storage
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2b2b8fe383ff4ee3d4b23c2c6e555b44e0cc088c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390079"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684190"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -44,7 +37,7 @@ Este artigo mostra como implantar trabalhos Web como um aplicativo de console do
 
 ## <a name="webjobs-nuget-packages"></a>Adicionar pacotes WebJobs NuGet
 
-1. Instale a versão mais recente de 3. x estável do pacote NuGet `Microsoft.Azure.WebJobs.Extensions`, que inclui `Microsoft.Azure.WebJobs`.
+1. Instale a última versão estável 3. x do pacote NuGet `Microsoft.Azure.WebJobs.Extensions`, que inclui `Microsoft.Azure.WebJobs`.
 
      Aqui está o comando **Console do Gerenciador de Pacotes** para a versão 3.0.2:
 
@@ -86,7 +79,7 @@ No ASP.NET Core, as configurações de host são definidas chamando métodos na 
 
 Nesta seção, você configura o log de console que usa a [estrutura de log de ASP.NET Core](/aspnet/core/fundamentals/logging).
 
-1. Instale a versão estável mais recente do pacote NuGet `Microsoft.Extensions.Logging.Console`, que inclui `Microsoft.Extensions.Logging`.
+1. Instale a versão estável mais recente do pacote `Microsoft.Extensions.Logging.Console` NuGet, que inclui `Microsoft.Extensions.Logging`.
 
    Aqui está o comando **Console do Gerenciador de Pacotes** para a versão 2.2.0:
 
@@ -182,7 +175,7 @@ A partir da versão 3. x, você deve instalar explicitamente a extensão de asso
    }
    ```
 
-   O atributo `QueueTrigger` informa o tempo de execução para chamar esta função quando uma nova mensagem é gravada em uma fila de Armazenamento do Microsoft Azure chamada `queue`. O conteúdo da mensagem da fila é fornecido para o código do método no parâmetro `message`. O corpo do método é onde você processa os dados de gatilho. Neste exemplo, o código apenas registra a mensagem.
+   O atributo `QueueTrigger` informa o runtime para chamar esta função quando uma nova mensagem é gravada em uma fila de Armazenamento do Microsoft Azure chamada `queue`. O conteúdo da mensagem da fila é fornecido para o código do método no parâmetro `message`. O corpo do método é onde você processa os dados de gatilho. Neste exemplo, o código apenas registra a mensagem.
 
    O parâmetro `message` não precisa ser uma cadeia de caracteres. Você também pode associar a um objeto JSON, uma matriz de bytes ou um objeto [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). [Consulte Uso de gatilho de fila](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Cada tipo de associação (como filas, blobs ou tabelas) tem um conjunto diferente de tipos de parâmetros que você pode associar.
 
@@ -278,9 +271,9 @@ Nesta seção, você compila e executa o projeto localmente e dispara a função
 
 1. Execute o projeto novamente.
 
-   Como você usou o atributo `QueueTrigger` na função `ProcessQueueMessage`, o tempo de execução de WeJobs SDK escuta de mensagens da fila quando ele é iniciado. Ele localiza uma nova mensagem de fila na fila denominada *queue* e chama a função.
+   Como você usou o atributo `QueueTrigger` na função `ProcessQueueMessage`, o runtime de WeJobs SDK escuta de mensagens da fila quando ele é iniciado. Ele localiza uma nova mensagem de fila na fila denominada *queue* e chama a função.
 
-   Devido à [retirada do exponencial de sondagem de fila](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), o tempo de execução poderá levar até 2 minutos para localizar a mensagem e chamar a função. Esse tempo de espera pode ser reduzido com a execução no [modo de desenvolvimento](webjobs-sdk-how-to.md#host-development-settings).
+   Devido à [retirada do exponencial de sondagem de fila](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), o runtime poderá levar até 2 minutos para localizar a mensagem e chamar a função. Esse tempo de espera pode ser reduzido com a execução no [modo de desenvolvimento](webjobs-sdk-how-to.md#host-development-settings).
 
    A saída do console se assemelha a esta:
 
@@ -359,7 +352,7 @@ Nesta seção, execute as seguintes tarefas para configurar o registro em log do
 Para aproveitar o registro em log do [Application Insights](../azure-monitor/app/app-insights-overview.md), atualize seu código de registro em log para fazer o seguinte:
 
 * Adicione um provedor de registro em log do Application Insights com [filtragem](webjobs-sdk-how-to.md#log-filtering) padrão; todas as informações e todos os logs de nível superior agora vão para o console e o Application Insights quando você estiver executando localmente.
-* Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) em um bloco `using` para garantir que a saída do log seja liberada quando o host for encerrado.
+* Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) em um bloco de `using` para garantir que a saída do log seja liberada quando o host for encerrado.
 
 1. Instale a versão 3.x estável mais recente do pacote NuGet para o provedor de registro em log do Application Insights: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 
@@ -469,7 +462,7 @@ As associações de entrada simplificam o código que lê dados. Neste exemplo, 
    }
    ```
 
-   Nesse código, `queueTrigger` é uma [expressão de associação](../azure-functions/functions-bindings-expressions-patterns.md), o que significa que ele resolve para um valor diferente no tempo de execução.  No runtime, ele tem o conteúdo da mensagem da fila.
+   Nesse código, `queueTrigger` é uma [expressão de associação](../azure-functions/functions-bindings-expressions-patterns.md), o que significa que ele resolve para um valor diferente no runtime.  No runtime, ele tem o conteúdo da mensagem da fila.
 
 1. Adicione um `using`:
 

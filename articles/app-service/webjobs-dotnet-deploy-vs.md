@@ -1,21 +1,19 @@
 ---
-title: Desenvolver e implantar o WebJobs usando o Visual Studio – Azure
-description: Saiba como desenvolver e implantar o Azure WebJobs no Serviço de Aplicativo do Azure usando o Visual Studio.
+title: Desenvolver e implantar trabalhos Web usando o VS
+description: Saiba como desenvolver Azure WebJobs no Visual Studio e implantá-los no serviço Azure App, incluindo a criação de uma tarefa agendada.
 author: ggailey777
-manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
-ms.service: app-service
 ms.topic: conceptual
 ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ac458b01135be8628fbf939e310f8bda02b8d290
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: feacd463a10bae66dc8fa88a99b9ea60f399e9ec
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303550"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684164"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implantar o WebJobs usando o Visual Studio – Serviço de Aplicativo do Azure
 
@@ -66,7 +64,7 @@ Você pode usar o Visual Studio para alterar o trabalho Web para ser executado c
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>Trabalhos Web como aplicativos de console .NET Framework  
 
-Quando o Visual Studio implanta um projeto de aplicativo de console .NET Framework habilitado para trabalhos Web, ele copia os arquivos de tempo de execução para a pasta apropriada no aplicativo (*App_Data/Jobs/Continuous* para webjobs contínuos e *App_Data/Jobs/disparados* para Trabalhos Web agendados ou sob demanda).
+Quando o Visual Studio implanta um projeto de aplicativo de console .NET Framework habilitado para trabalhos Web, ele copia os arquivos de tempo de execução para a pasta apropriada no aplicativo (*App_Data/Jobs/Continuous* para webjobs contínuos e *App_Data/Jobs/Triggered* para trabalhos Web agendados ou sob demanda).
 
 Um projeto habilitado para Trabalhos Web tem os seguintes itens adicionados:
 
@@ -233,12 +231,12 @@ As configurações a seguir são suportadas pelos trabalhos Web:
 
 | **Configuração** | **Tipo**  | **Descrição** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Todas | Permite que o trabalho seja executado no local sem ser copiado primeiro para uma pasta temporária. Para saber mais, consulte [diretório de trabalho de trabalhos](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)Web. |
+| `is_in_place` | Tudo | Permite que o trabalho seja executado no local sem ser copiado primeiro para uma pasta temporária. Para saber mais, consulte [diretório de trabalho de trabalhos](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)Web. |
 | `is_singleton` | Contínuo | Só execute os trabalhos Web em uma única instância quando expandido. Para saber mais, consulte [definir um trabalho contínuo como singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Disparado | Execute o WebJob em uma agenda baseada em CRON. PARA saber mais, consulte o [artigo de referência do gatilho de temporizador](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
-| `stopping_wait_time`| Todas | Permite o controle do comportamento de desligamento. Para saber mais, confira [desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `stopping_wait_time`| Tudo | Permite o controle do comportamento de desligamento. Para saber mais, confira [desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o SDK do WebJobs](webjobs-sdk-how-to.md)

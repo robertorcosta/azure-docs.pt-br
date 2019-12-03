@@ -1,25 +1,16 @@
 ---
-title: Restaurar aplicativo – Serviço de Aplicativo do Azure
-description: Saiba como restaurar seu aplicativo de um backup.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: Restaurar aplicativo do backup
+description: Saiba como restaurar seu aplicativo de um backup. Determinados bancos de dados vinculados podem ser restaurados junto com o aplicativo em uma única operação.
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 519cf5388b095c7ca6e0ae7d978608f0824dc3a2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066511"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689240"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar um aplicativo no Serviço de Aplicativo do Azure
 Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/overview.md) do qual você fez backup anteriormente (veja [Fazer backup de seu aplicativo no Azure](manage-backup.md)). É possível restaurar seu aplicativo com seus bancos de dados vinculados sob demanda para um estado anterior ou criar um novo aplicativo com base em um dos backups do seu aplicativo original. O Serviço de Aplicativo do Azure oferece suporte aos seguintes bancos de dados para backup e restauração:

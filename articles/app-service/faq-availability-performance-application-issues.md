@@ -1,26 +1,20 @@
 ---
-title: Perguntas frequentes sobre desempenho de aplicativo – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Obtenha respostas para perguntas frequentes sobre disponibilidade, desempenho e problemas de aplicativo na funcionalidade de Aplicativos Web do Serviço de Aplicativo do Azure.
-services: app-service\web
-documentationcenter: ''
+title: Perguntas frequentes sobre desempenho do aplicativo
+description: Obtenha respostas para perguntas frequentes sobre problemas de disponibilidade, desempenho e aplicativos no serviço Azure App.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a5af98aae420193b8316a48aa60550cef70a9c4a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122063"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671701"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
@@ -42,7 +36,7 @@ Em alguns cenários de alto consumo de CPU, seu aplicativo pode exigir realmente
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Como solucionar problemas de um cenário de alto consumo de memória?
 
-Em alguns cenários de alto consumo de memória, seu aplicativo pode exigir realmente mais recursos de computação. Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, um bug no código pode causar um vazamento de memória. Uma prática de codificação também pode aumentar o consumo de memória. Obter informações sobre o que está causando o aumento de consumo da memória é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Diagnóstico de falha da Galeria de extensão de Site do Azure pode executar com eficiência as seguintes etapas. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo de memória alta intermitente para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+Em alguns cenários de alto consumo de memória, seu aplicativo pode exigir realmente mais recursos de computação. Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, um bug no código pode causar um vazamento de memória. Uma prática de codificação também pode aumentar o consumo de memória. Obter informações sobre o que está disparando o alto consumo de memória é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Diagnóstico de falha da Galeria de extensão de Site do Azure pode executar com eficiência as seguintes etapas. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo de memória alta intermitente para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Como automatizar a Aplicativos Web do Serviço de Aplicativo usando o PowerShell?
 
@@ -87,7 +81,7 @@ Três condições podem causar esse erro:
 * O aplicativo web foi interrompido no portal.
 * O aplicativo web atingiu um limite de cota de recursos que pode se aplicar a um plano de serviço de escala gratuito ou compartilhado.
 
-Para ver o que está causando o erro e resolver o problema, siga as etapas em [Aplicativos Web: "Erro 403 – este aplicativo Web foi interrompido"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Para ver o que está causando o erro e resolver o problema, siga as etapas em [aplicativos web: "Erro 403 – Este aplicativo web foi interrompido"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Onde posso obter mais informações sobre cotas e limites de vários planos do Serviço de Aplicativo?
 
@@ -179,7 +173,7 @@ Esse problema foi corrigido no Kestrel versão 1.0.2. Esta versão está incluí
 
 Se você usar o recurso de Cache Local do Serviço de Aplicativo, a estrutura de pasta de arquivos de log e das pastas de dados para a instância do Serviço de Aplicativo serão afetados. Quando o Cache Local é usado, as subpastas são criadas nas pastas de dados e arquivos de log de armazenamento. As subpastas usam padrão de nomenclatura "identificador exclusivo" + carimbo de data/hora. Cada uma das subpastas corresponde a uma instância de VM na qual o aplicativo Web está executando ou foi executado.
 
-Para determinar se você está usando o Cache Local, verifique sua guia **Configurações de aplicativo** do Serviço de Aplicativo. Se o Cache Local está sendo usado, a configuração de aplicativo `WEBSITE_LOCAL_CACHE_OPTION` é definida como `Always`.
+Para determinar se você está usando o cache local, verifique a guia **configurações do aplicativo** do serviço de aplicativo. Se o cache local estiver sendo usado, a configuração do aplicativo `WEBSITE_LOCAL_CACHE_OPTION` será definida como `Always`.
 
 Se você não estiver usando o Cache Local e estiver enfrentando esse problema, envie uma solicitação de suporte.
 

@@ -1,26 +1,17 @@
 ---
-title: Implantar conteúdo usando FTP/S – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Saiba como implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP ou FTPS.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Implantar conteúdo usando FTP/S
+description: Saiba como implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP ou FTPS. Melhorar a segurança do site desabilitando o FTP não criptografado.
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098045"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671717"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S
 
@@ -72,7 +63,7 @@ No painel FTP, clique em **Copiar** para copiar o ponto de extremidade de FTPS e
 
 Para maior segurança, você deve permitir somente FTP por SSL. Você também pode desabilitar FTP e FTPS se não usa a implantação de FTP.
 
-Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione**configurações gerais** de **configuração** > no painel de navegação esquerdo.
+Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione **configuração** > **configurações gerais** no painel de navegação esquerdo.
 
 Para desabilitar o FTP não criptografado, selecione **FTPS somente** no **estado do FTP**. Para desabilitar totalmente o FTP e a FTPS, selecione **desabilitado**. Ao terminar, clique em **Salvar**. Se estiver usando **apenas FTPS**, você deve impor o TLS 1,2 ou superior navegando até a folha **configurações de TLS/SSL** do seu aplicativo Web. Não há suporte para TLS 1.0 e 1.1 com **FTPS Apenas**.
 
@@ -89,18 +80,18 @@ Para implantação de FTP usando o [Azure PowerShell](/cli/azure), veja [Carrega
 ## <a name="troubleshoot-ftp-deployment"></a>Solucionar problemas de implantação de FTP
 
 - [Como soluciono problemas de implantação de FTP?](#how-can-i-troubleshoot-ftp-deployment)
-- [Não consigo usar FTP e publicar meu código. Como resolvo esse problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [Não consigo fazer o FTP e publicar meu código. Como posso resolver o problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [Como faço para me conectar ao FTP no Serviço de Aplicativo do Azure por meio do modo passivo?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Como soluciono problemas de implantação de FTP?
 
-A primeira etapa para solucionar problemas de implantação de FTP é isolar um problema de implantação de um problema de aplicativo de tempo de execução.
+A primeira etapa para solucionar problemas de implantação de FTP é isolar um problema de implantação de um problema de aplicativo de runtime.
 
 Um problema de implantação normalmente resulta em nenhum arquivo ou arquivos incorretos implantados em seu aplicativo. Você pode resolver isso investigando a implantação de FTP ou selecionando um caminho de implantação alternativo (por exemplo, controle do código-fonte).
 
-Um problema de aplicativo de tempo de execução normalmente resulta no conjunto de arquivos correto implantado no seu aplicativo, mas em comportamento incorreto do aplicativo. Você pode resolver isso concentrando-se no comportamento do código no tempo de execução e investigando os caminhos de falha específicos.
+Um problema de aplicativo de runtime normalmente resulta no conjunto de arquivos correto implantado no seu aplicativo, mas em comportamento incorreto do aplicativo. Você pode resolver isso concentrando-se no comportamento do código no runtime e investigando os caminhos de falha específicos.
 
-Para determinar um problema de implantação ou de tempo de execução, consulte [Problemas de implantação versus problemas de tempo de execução](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
+Para determinar um problema de implantação ou de runtime, consulte [Problemas de implantação versus problemas de runtime](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Não consigo usar FTP e publicar meu código. Como resolvo esse problema?
 Verifique se você inseriu corretamente o nome de host e as [credenciais](#open-ftp-dashboard). Verifique também se as seguintes portas de FTP no seu computador não estão bloqueadas por um firewall:
@@ -111,7 +102,7 @@ Verifique se você inseriu corretamente o nome de host e as [credenciais](#open-
 ### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Como faço para me conectar ao FTP no Serviço de Aplicativo do Azure por meio do modo passivo?
 O Serviço de Aplicativo do Azure é compatível com a conexão por modo Ativo e Passivo. O modo Passivo é preferencial porque seus computadores de implantação geralmente estão atrás de um firewall (no sistema operacional ou como parte de uma rede residencial ou comercial). Veja um [exemplo na documentação do WinSCP](https://winscp.net/docs/ui_login_connection). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para cenários mais avançados de implantação, tente [implantação no Azure com Git](deploy-local-git.md). Implantação baseada em Git no Azure permite o controle de versão, restauração do pacote, MSBuild e muito mais.
 

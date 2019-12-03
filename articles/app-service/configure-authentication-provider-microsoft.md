@@ -1,25 +1,16 @@
 ---
-title: Configurar a autenticação de Conta Microsoft – Serviço de Aplicativo do Azure
-description: Saiba como configurar a autenticação de conta da Microsoft para seu aplicativo do serviço de aplicativo.
-author: mattchenderson
-services: app-service
-documentationcenter: ''
-manager: syntaxc4
-editor: ''
+title: Configurar a autenticação da Microsoft
+description: Saiba como configurar a autenticação da conta da Microsoft como um provedor de identidade para seu aplicativo do serviço de aplicativo.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/08/2019
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 70af534e6bcd0039dbc602a5ebc3fc35fb145e79
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f9158a4094b7d2ec148c2cae85decb3ad959b7c3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176946"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671919"
 ---
 # <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon da conta da Microsoft
 
@@ -31,7 +22,7 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 
 1. Vá para [**registros de aplicativo**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) na portal do Azure. Se necessário, entre com seu conta Microsoft.
 1. Selecione **novo registro**e insira um nome de aplicativo.
-1. Em **URIs de redirecionamento**, selecione **Web**e, em seguida, insira `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Substitua *\<app-domain-name >* pelo nome de domínio do seu aplicativo.  Por exemplo: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Certifique-se de usar o esquema HTTPS na URL.
+1. Em **URIs de redirecionamento**, selecione **Web**e, em seguida, insira `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Substitua *\<app-domain-name >* pelo nome de domínio do seu aplicativo.  Por exemplo, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Certifique-se de usar o esquema HTTPS na URL.
 
 1. Selecione **Registrar**.
 1. Copie a **ID do aplicativo (cliente)** . Você precisará dela mais tarde.
@@ -43,7 +34,7 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 
 ## <a name="secrets"> </a>Adicionar informações da conta da Microsoft ao seu aplicativo de Serviço de Aplicativo
 
-1. Vá para seu aplicativo no [portal do Azure].
+1. Vá para seu aplicativo no [Azure portal].
 1. Selecione **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
 1. Em **provedores de autenticação**, selecione **conta da Microsoft**. Cole a ID do aplicativo (cliente) e o segredo do cliente obtidos anteriormente. Habilite todos os escopos necessários para seu aplicativo.
 1. Selecione **OK**.
@@ -66,4 +57,4 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 <!-- URLs. -->
 
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

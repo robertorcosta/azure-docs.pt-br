@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 389404f59b5a0cba1acd7aa097ddd3dd929d8082
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 14465e918fd4ac4e436e64d468c58e1d2ed83bb3
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821988"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688168"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato do log de auditoria do banco de dados SQL
 
@@ -32,7 +32,9 @@ Por exemplo, para o banco de dados `Database1` em `Server1` o seguinte caminho v
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-### <a name="event-hub"></a>Hub de evento
+Os logs de auditoria de réplica somente leitura são armazenados no mesmo contêiner. A hierarquia de diretórios dentro do contêiner está no formato `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. O nome de arquivo do blob compartilha o mesmo formato.
+
+### <a name="event-hub"></a>Hub de Evento
 
 Os eventos de auditoria são gravados no namespace e no Hub de eventos que foi definido durante a configuração de auditoria e são capturados no corpo de eventos do [Apache Avro](https://avro.apache.org/) e armazenados usando a formatação JSON com codificação UTF-8. Para ler os logs de auditoria, você pode usar as [Ferramentas Avro](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou ferramentas similares que processam esse formato.
 
@@ -42,7 +44,7 @@ Os eventos de auditoria são gravados no espaço de trabalho Log Analytics defin
 
 ## <a id="subheading-1"></a>Campos do log de auditoria
 
-| Nome (BLOB) | Nome (hubs de eventos/Log Analytics) | DESCRIÇÃO | Tipo de BLOB | Tipo de Log Analytics/hubs de eventos |
+| Nome (BLOB) | Nome (hubs de eventos/Log Analytics) | Descrição | Tipo de BLOB | Tipo de Log Analytics/hubs de eventos |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID da ação | varchar (4) | string |
 | action_name | action_name_s | Nome da ação | N/D | string |
@@ -59,7 +61,7 @@ Os eventos de auditoria são gravados no espaço de trabalho Log Analytics defin
 | database_principal_id | database_principal_id_d | ID do contexto de usuário do banco de dados no qual a ação é executada | int | int |
 | database_principal_name | database_principal_name_s | Nome do contexto de usuário do banco de dados no qual a ação é executada | sysname | string |
 | duration_milliseconds | duration_milliseconds_d | Duração da execução da consulta em milissegundos | bigint | int |
-| event_time | event_time_t | Data e hora em que a ação auditável é acionada | datetime2 | datetime |
+| event_time | event_time_t | Data e hora em que a ação auditável é acionada | datetime2 | Datetime |
 | host_name | N/D | Nome do host do cliente | string | N/D |
 | is_column_permission | is_column_permission_s | Sinalizador que indica se esta é uma permissão de nível de coluna. 1 = true, 0 = false | bit | string |
 | N/D | is_server_level_audit_s | Sinalizador indicando se essa auditoria está no nível do servidor | N/D | string |

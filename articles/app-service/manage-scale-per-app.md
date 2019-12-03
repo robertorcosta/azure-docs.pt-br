@@ -1,25 +1,18 @@
 ---
-title: Hospedagem de alta densidade usando o serviço de Azure App de dimensionamento por aplicativo | Microsoft Docs
-description: Hospedagem de alta densidade no Serviço de Aplicativo do Azure
+title: Dimensionamento por aplicativo para hospedagem de alta densidade
+description: Dimensione aplicativos independentemente dos planos do serviço de aplicativo e otimize as instâncias escaladas horizontalmente em seu plano.
 author: btardif
-manager: erikre
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7130c9547e0778ce40a0ad1c1ea41607a02df23e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088097"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672343"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hospedagem de alta densidade no serviço de Azure App usando o dimensionamento por aplicativo
 
@@ -144,7 +137,7 @@ Siga estas etapas para configurar a hospedagem de alta densidade para seus aplic
    - Um aplicativo de alto consumo pode definir o **numberOfWorkers** como **3** para ter mais capacidade de processamento para esse aplicativo.
    - Os aplicativos de baixo consumo definiriam o **numberOfWorkers** como **1**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral detalhada de planos de Serviço de aplicativo do Azure](overview-hosting-plans.md)
 - [Introdução ao ambiente de Serviço de Aplicativo](environment/app-service-app-service-environment-intro.md)

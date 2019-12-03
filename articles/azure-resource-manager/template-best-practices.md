@@ -2,13 +2,13 @@
 title: Práticas recomendadas para modelos
 description: Descreve as abordagens recomendadas para a criação de modelos do Azure Resource Manager. Oferece sugestões para evitar problemas comuns ao usar os modelos.
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/02/2019
+ms.openlocfilehash: d4cf4364b2e835db3d53fa64682a99710ceb2b29
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150307"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689110"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas para modelos do Azure Resource Manager
 
@@ -32,13 +32,13 @@ Você também está limitado a:
 
 Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](resource-manager-objects-as-parameters.md).
 
-## <a name="resource-group"></a>Grupo de recursos
+## <a name="resource-group"></a>Resource group
 
 Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
 
 Se a região do grupo de recursos está temporariamente indisponível, você não pode atualizar os recursos no grupo de recursos porque os metadados não estão disponíveis. Os recursos em outras regiões ainda funcionarão conforme o esperado, mas não será possível atualizá-los. Para minimizar o risco, localize seu grupo de recursos e recursos na mesma região.
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 As informações nesta seção podem ser úteis quando você trabalha com [parâmetros](template-parameters.md).
 
@@ -93,7 +93,7 @@ As informações nesta seção podem ser úteis quando você trabalha com [parâ
 
 * Não use um parâmetro para a versão de API de um tipo de recurso. Os valores e propriedades do recurso podem variar de acordo com o número de versão. O IntelliSense em um editor de código não pode determinar o esquema correto quando a versão da API é definida como um parâmetro. Em vez disso, codifique a versão da API no modelo.
 
-* Use `allowedValues` com moderação. Usá-lo somente quando você deve verificar se alguns valores não estão incluídos nas opções permitidas. Se você usar `allowedValues` muito em larga escala, você pode bloquear implantações válidas por não manter sua lista atualizada.
+* Use `allowedValues` com moderação. Usá-lo somente quando você deve verificar se alguns valores não estão incluídos nas opções permitidas. Se você usar `allowedValues` muito amplamente, poderá bloquear implantações válidas não mantendo sua lista atualizada.
 
 * Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomeação adicionando o sufixo **FromTemplate** para o parâmetro de modelo. Por exemplo, se você incluir um parâmetro nomeado **ResourceGroupName** no modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Durante a implantação, você recebe uma solicitação para fornecer um valor para **ResourceGroupNameFromTemplate**.
 
@@ -140,7 +140,7 @@ As informações nesta seção podem ser úteis quando você trabalha com [parâ
 
 * Para obter recursos que não estão disponíveis em todos os locais, use um parâmetro separado ou especifique um valor de local literal.
 
-## <a name="variables"></a>Variáveis
+## <a name="variables"></a>variáveis
 
 As seguintes informações podem ser úteis quando você trabalha com [variáveis](template-variables.md):
 
@@ -174,7 +174,7 @@ Ao decidir quais são as [dependências](resource-group-define-dependencies.md) 
 
 * Se um valor pode ser determinado antes da implantação, tente implantar o recurso sem uma dependência. Por exemplo, se um valor de configuração precisa do nome de outro recurso, talvez não seja necessário uma dependência. Este guia nem sempre funciona porque alguns recursos verificar a existência de outro recurso. Se você receber um erro, adicione uma dependência.
 
-## <a name="resources"></a>Recursos
+## <a name="resources"></a>Implante
 
 As seguintes informações podem ser úteis quando você trabalha com [recursos](resource-group-authoring-templates.md#resources):
 
@@ -277,24 +277,7 @@ As seguintes informações podem ser úteis quando você trabalha com [recursos]
    > 
    > 
 
-## <a name="outputs"></a>Saídas
-
-Se você usar um modelo para criar endereços IP públicos, inclua uma [seção outputs](template-outputs.md) que retorne detalhes do endereço IP e o FQDN (nome de domínio totalmente qualificado). É possível usar valores de saída para recuperar facilmente detalhes sobre endereços IP públicos e FQDNs após a implantação.
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre a estrutura do arquivo de modelo do Resource Manager, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [Desenvolver modelos do Azure Resource Manager para manter a consistência nuvem](templates-cloud-consistency.md).

@@ -1,26 +1,19 @@
 ---
-title: Implantação Contínua com o Aplicativo Web para Contêineres - Serviço de Aplicativo do Azure | Microsoft Docs
-description: Como configurar a implantação contínua no Aplicativo Web para Contêineres.
+title: CI/CD para contêineres personalizados do Linux
+description: Saiba como configurar a implantação contínua em um contêiner personalizado do Linux no serviço Azure App. A implantação contínua tem suporte para o Hub e ACR do Docker.
 keywords: serviço de aplicativo do azure, linux, docker, across
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1dc776f0a61ac1a29ab3fe3ebdd542469863cd50
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d43491de7500204ed470757a1b744017a8180b57
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071368"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687628"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implantação contínua com o Aplicativo Web para Contêineres
 
@@ -30,7 +23,7 @@ Neste tutorial, você configura a implantação contínua para uma imagem de con
 
 ![Captura de tela de ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione a opção **Serviço de aplicativo do Azure** no lado esquerdo da página.
 3. Selecione o nome do aplicativo para o qual você deseja configurar a implantação contínua.
 4. Na página **Configurações do Contêiner**, selecione **Contêiner Único**
@@ -48,7 +41,7 @@ No seu Registro de Contêiner, clique em Webhooks para visualizar os webhooks at
 
 ## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Ativar a implantação contínua com o Docker Hub (opcional)
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione a opção **Serviço de aplicativo do Azure** no lado esquerdo da página.
 3. Selecione o nome do aplicativo para o qual você deseja configurar a implantação contínua.
 4. Na página **Configurações do Contêiner**, selecione **Contêiner Único**
@@ -60,7 +53,7 @@ No seu Registro de Contêiner, clique em Webhooks para visualizar os webhooks at
 
 Copie a URL do Webhook. Para adicionar um webhook para o Hub do Docker, execute <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks para o Hub do Docker</a>.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Serviço de Aplicativo do Azure no Linux](./app-service-linux-intro.md)
 * [Registro de Contêiner do Azure](https://azure.microsoft.com/services/container-registry/)

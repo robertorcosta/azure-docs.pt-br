@@ -1,26 +1,20 @@
 ---
 title: Perguntas frequentes sobre implantação – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Obtenha respostas para perguntas frequentes sobre a implantação para o recurso Aplicativos Web do Serviço de Aplicativo do Azure.
-services: app-service\web
-documentationcenter: ''
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 0a01f25894d1226466473dec7333859c7415f1fd
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121198"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671679"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação de Aplicativos Web no Azure
 
@@ -39,7 +33,7 @@ Para obter mais informações, consulte [Implantar seu aplicativo no Serviço de
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Recebi uma mensagem de erro ao tentar implantar por meio do Visual Studio. Como fazer resolver esse erro?
 
-Se você vir a seguinte mensagem de erro, talvez você esteja usando uma versão mais antiga do SDK: "Erro durante a implantação do recurso 'YourResourceName' no grupo de recursos 'YourResourceGroup': MissingRegistrationForLocation: A assinatura não está registrada para o tipo de recurso 'components' na localização 'Centro dos EUA'. Registre-se novamente para esse provedor para ter acesso a esse local. " 
+Se você receber a seguinte mensagem de erro, talvez você esteja usando uma versão mais antiga do SDK: “Erro durante a implantação do recurso 'YourResourceName' no grupo de recursos 'YourResourceGroup': MissingRegistrationForLocation: a assinatura não está registrada para o tipo de recurso 'components' na localização 'EUA Central'. Registre-se novamente para esse provedor para ter acesso a esse local. " 
 
 Para resolver esse erro, atualize para o [último SDK](https://azure.microsoft.com/downloads/). Se você receber essa mensagem e tiver o último SDK, envie uma solicitação de suporte.
 
@@ -83,7 +77,7 @@ O Guia de início rápido do Azure foi projetado para ajudá-lo a implantar seu 
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>Por que meu aplicativo às vezes reinicia após a implantação no Serviço de Aplicativo?
 
-Para saber mais sobre as circunstâncias nas quais uma implantação de aplicativo pode resultar em uma reinicialização, consulte [Implantação versus problemas de tempo de execução](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). Como o artigo descreve, o Serviço de Aplicativo implanta arquivos na pasta wwwroot. Ele nunca reinicia o aplicativo diretamente.
+Para saber mais sobre as circunstâncias nas quais uma implantação de aplicativo pode resultar em uma reinicialização, consulte [Implantação versus problemas de runtime](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). Como o artigo descreve, o Serviço de Aplicativo implanta arquivos na pasta wwwroot. Ele nunca reinicia o aplicativo diretamente.
 
 ## <a name="how-do-i-integrate-azure-devops-code-with-app-service"></a>Como integrar o código do Azure DevOps com o Serviço de Aplicativo?
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128771"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672566"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos históricos
 
@@ -21,6 +21,7 @@ A ingestão de dados históricos de Internet das Coisas (IoT) para recursos como
 ## <a name="before-you-begin"></a>Antes de começar
 
 Antes de prosseguir com este artigo, verifique se você instalou o FarmBeats e coletou os dados históricos do IoT.
+Você também precisará habilitar o acesso do parceiro, conforme mencionado nas etapas abaixo.
 
 ## <a name="enable-partner-access"></a>Habilitar o acesso do parceiro
 
@@ -28,8 +29,8 @@ Você precisa habilitar a integração de parceiros à instância do FarmBeats d
 
 - Ponto de extremidade de API – é a URL do hub de dados, por exemplo, https://<datahub>. azurewebsites.net
 - ID do locatário
-- Id do Cliente
-- Segredo do Cliente
+- ID do cliente
+- Segredo do cliente
 - Cadeia de conexão do EventHub
 
 Siga as etapas abaixo para gerá-los:
@@ -80,18 +81,18 @@ Siga as etapas abaixo para gerá-los:
 |          Fabricante            |         2 estrelas     |
 |  ProductCode                    |  Código do produto do dispositivo ou nome/número do modelo. Por exemplo, EnviroMonitor # 6800.  |
 |            Portas          |     Nome da porta e tipo (digital/analógico)
-|     NOME                 |  Nome para identificar o recurso. Por exemplo, nome do modelo/nome do produto.
-      DESCRIÇÃO     | Forneça uma descrição significativa do modelo
-|    Propriedades          |    Propriedades adicionais do fabricante   |
+|     name                 |  Nome para identificar o recurso. Por exemplo, nome do modelo/nome do produto.
+      Descrição     | Forneça uma descrição significativa do modelo
+|    propriedades          |    Propriedades adicionais do fabricante   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID do modelo de dispositivo associado  |
 |  HardwareID          | ID exclusiva para o dispositivo, como endereço MAC, etc.,
 |  ReportingInterval        |   Intervalo de relatórios em segundos
-|  Local padrão            |  Dispositivo latitude (-90 a + 90)/longitude (-180 a 180)/Elevation (em metros)   
+|  Location            |  Dispositivo latitude (-90 a + 90)/longitude (-180 a 180)/Elevation (em metros)   
 |ParentDeviceId       |    ID do dispositivo pai ao qual este dispositivo está conectado. Por exemplo, um nó conectado a um gateway. Um nó terá parentDeviceId como o gateway.  |
-|    NOME            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
-|     DESCRIÇÃO       |      Forneça uma descrição significativa  |
-|     Propriedades    |  Propriedades adicionais do fabricante
+|    name            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
+|     Descrição       |      Forneça uma descrição significativa  |
+|     propriedades    |  Propriedades adicionais do fabricante
 |     **Modelo de sensor**        |          |
 |       Tipo (analógico, digital)          |      tipo de sensor, seja analógico ou digital       |
 |          Fabricante            |       o fabricante do sensor     |
@@ -101,18 +102,18 @@ Siga as etapas abaixo para gerá-los:
 |    Tipo de > SensorMeasures    |Tipo de medição dos dados de telemetria do sensor. A seguir estão os tipos definidos pelo sistema: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, comprimento, LiquidLevel, nitrate, O2, PH, phosphate, PointInTime, Potassium, pressão, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, estado, tempo de duração, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte API do/ExtendedType.|
 |        Unidade de > SensorMeasures              | Unidade de dados de telemetria do sensor. A seguir estão as unidades definidas pelo sistema: nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, mercúrio, PSI, milímetro, centímetro, medidor, polegada, pés, milhar, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, grau, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, porcentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, litro, MilliLiter, segundos, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour para adicionar mais, consulte/ API estendida.|
 |    Agregatype de > SensorMeasures    |  Os valores podem ser nenhum, média, máximo, mínimo ou i  |
-|          NOME            | Nome para identificar o recurso. Por exemplo, nome do modelo/nome do produto.  |
-|    DESCRIÇÃO        | Forneça uma descrição significativa do modelo  |
-|   Propriedades       |  Propriedades adicionais do fabricante  |
+|          name            | Nome para identificar o recurso. Por exemplo, nome do modelo/nome do produto.  |
+|    Descrição        | Forneça uma descrição significativa do modelo  |
+|   propriedades       |  Propriedades adicionais do fabricante  |
 |    **Sensores**      |          |
 | HardwareID          |   ID exclusiva para o sensor definido pelo fabricante |
 |  SensorModelId     |    ID do modelo de sensor associado   |
 | location          |  Sensor latitude (-90 a + 90)/longitude (-180 a 180)/Elevation (em metros)|
 |   nome da > de porta        |  Nome e tipo da porta à qual o sensor está conectado no dispositivo. Isso precisa ser o mesmo nome definido no modelo do dispositivo. |
 |    DeviceID  |    ID do dispositivo ao qual o sensor está conectado     |
-| NOME            |   Nome para identificar o recurso. Por exemplo, nome do sensor/nome do produto e número do modelo/código do produto.|
-|    DESCRIÇÃO      | Forneça uma descrição significativa |
-|    Propriedades        |Propriedades adicionais do fabricante |
+| name            |   Nome para identificar o recurso. Por exemplo, nome do sensor/nome do produto e número do modelo/código do produto.|
+|    Descrição      | Forneça uma descrição significativa |
+|    propriedades        |Propriedades adicionais do fabricante |
 
 Para obter mais informações sobre objetos, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -124,8 +125,8 @@ Para fazer uma solicitação de API, você combina o método HTTP (POST), a URL 
 
 O FarmBeats data Hub usa a autenticação de portador, que precisa das seguintes credenciais que geramos na seção acima.
 
-- Id do Cliente
-- Segredo do Cliente
+- ID do cliente
+- Segredo do cliente
 - ID do locatário  
 
 Usando as credenciais acima, o chamador pode solicitar um token de acesso, que precisa ser enviado nas solicitações de API subsequentes na seção de cabeçalho da seguinte maneira:
@@ -337,6 +338,6 @@ Mensagem de telemetria de exemplo:
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre detalhes de integração baseados na API REST, consulte [REST API](references-for-farmbeats.md#rest-api).

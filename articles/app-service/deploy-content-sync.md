@@ -1,25 +1,17 @@
 ---
-title: Sincronizar o conteúdo de uma pasta de nuvem – Serviço de Aplicativo do Azure
-description: Saiba como implantar seu aplicativo no Serviço de Aplicativo do Azure por meio da sincronização de conteúdo de uma pasta de nuvem.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
+title: Sincronizar o conteúdo de uma pasta de nuvem
+description: Saiba como implantar seu aplicativo no serviço de Azure App por meio da sincronização de conteúdo de uma pasta de nuvem, incluindo o OneDrive ou o dropbox.
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/03/2018
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 033a9adfd81dc52858ab58e3170e69af6f56c323
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c55894bff9501d3ffb9aa843a9eaa240a213180e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070624"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671743"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizar o conteúdo de uma pasta de nuvem para o Serviço de Aplicativo do Azure
 Este artigo mostra como sincronizar seu conteúdo do Dropbox e OneDrive com o [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -68,7 +60,7 @@ No menu à esquerda, clique em **Central de Implantação** > **Desconectar**.
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Implantar do repositório do Git local](deploy-local-git.md)

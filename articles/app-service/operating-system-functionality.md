@@ -1,25 +1,16 @@
 ---
-title: Funcionalidade do sistema operacional no Serviço de Aplicativo – Azure
-description: Saiba mais sobre a funcionalidade do sistema operacional disponível para aplicativos Web, back-ends de aplicativos móveis e aplicativos de API no Serviço de Aplicativo do Azure
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: mollybos
+title: Funcionalidade do sistema operacional
+description: Saiba mais sobre a funcionalidade do sistema operacional no serviço de Azure App no Windows. Descubra os tipos de acesso de arquivo, rede e registro que seu aplicativo obtém.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b108814caaace83cd417dc8858e27ed01d54c39e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066775"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671619"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
 Este artigo descreve a funcionalidade do sistema operacional de linha de base comum disponível a todos os aplicativos Windows em execução no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Essa funcionalidade inclui acesso a arquivos, redes e registros, além de logs de diagnóstico e eventos. 
@@ -64,7 +55,7 @@ Basicamente, o Serviço de Aplicativo é um serviço em execução na infraestru
 
 - O aplicativo pode gerar um erro indicando que não há espaço suficiente no disco.
 - Você poderá ver erros de disco ao navegar para o console do Kudu.
-- A implantação do Azure DevOps ou do Visual Studio pode `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`falhar com.
+- A implantação do Azure DevOps ou do Visual Studio pode falhar com `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Seu aplicativo pode sofrer um desempenho lento.
 
 <a id="NetworkDrives"></a>
@@ -79,7 +70,7 @@ Por conta da maneira como os serviços do Microsoft Azure funcionam, a máquina 
 <a id="TypesOfFileAccess"></a>
 
 ### <a name="types-of-file-access-granted-to-an-app"></a>Tipos de acesso a arquivos concedidos a um aplicativo
-A assinatura de cada cliente tem uma estrutura de diretório reservado em um compartilhamento UNC específico dentro de um data center. Como um cliente pode ter vários aplicativos criados dentro em datacenter específico, todos os diretórios pertencentes a uma única assinatura de cliente são criados no mesmo compartilhamento UNC. O compartilhamento pode incluir diretórios como os de conteúdo, erro e logs de diagnóstico, e versões anteriores do aplicativo criadas pelo controle do código-fonte. Conforme esperado, os diretórios do aplicativo de um cliente estão disponíveis para acesso de leitura e gravação em tempo de execução pelo código do aplicativo.
+A assinatura de cada cliente tem uma estrutura de diretório reservado em um compartilhamento UNC específico dentro de um data center. Como um cliente pode ter vários aplicativos criados dentro em datacenter específico, todos os diretórios pertencentes a uma única assinatura de cliente são criados no mesmo compartilhamento UNC. O compartilhamento pode incluir diretórios como os de conteúdo, erro e logs de diagnóstico, e versões anteriores do aplicativo criadas pelo controle do código-fonte. Conforme esperado, os diretórios do aplicativo de um cliente estão disponíveis para acesso de leitura e gravação em runtime pelo código do aplicativo.
 
 Nas unidades locais conectadas à máquina virtual que executa um aplicativo, o Serviço de Aplicativo reserva uma parte do espaço na unidade C:\ para armazenamento local temporário específico de aplicativos. Embora um aplicativo tenha acesso de leitura/gravação completo em seu próprio armazenamento local temporário, esse armazenamento não se destina, de fato, a ser usado diretamente pelo código do aplicativo. Em vez disso, o objetivo é fornecer um armazenamento de arquivo temporário para o IIS e para as estruturas do aplicativo Web. O Serviço de Aplicativo também limita a quantidade de armazenamento local temporário disponível para cada aplicativo para evitar que aplicativos individuais consumam quantidades excessivas de armazenamento de arquivos local.
 

@@ -1,26 +1,17 @@
 ---
-title: Cadência de patch do SO e tempo de execução - Serviço de Aplicativo do Azure | Microsoft Docs
-description: Descreve como o Serviço de Aplicativo do Azure atualiza o sistema operacional e os tempos de execução e como você pode obter comunicados sobre atualizações.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Cadência da aplicação de patch do sistema operacional e tempo de execução
+description: Saiba como Azure App serviço atualiza o sistema operacional e os tempos de execução, os tempos de execução e o nível de patch que seus aplicativos têm e como você pode obter comunicados de atualização.
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3469c4f11a075ceb958e35e4cfc87a78e60b3882
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1a56fed04399325be315d8d977e5a72223bddac5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074127"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688581"
 ---
-# <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do tempo de execução no Serviço de Aplicativo do Azure
+# <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do runtime no Serviço de Aplicativo do Azure
 
 Este artigo mostra como obter determinadas informações de versão sobre o sistema operacional ou o software no [Serviço de Aplicativo](overview.md). 
 
@@ -28,9 +19,9 @@ O Serviço de Aplicativo é considerado Plataforma como Serviço, o que signific
 
 -   Como e quando as atualizações do sistema operacional são aplicadas?
 -   Como o Serviço de Aplicativo é corrigido contra vulnerabilidades significativas (como ameaça de dia zero)?
--   Quais versões do sistema operacional e do tempo de execução estão executando seus aplicativos?
+-   Quais versões do sistema operacional e do runtime estão executando seus aplicativos?
 
-Por motivos de segurança, algumas informações específicas sobre segurança não são publicadas. No entanto, o artigo tem como alvo reduzir preocupações, aumentando a transparência sobre o processo e demonstrar como você pode permanecer atualizado sobre comunicados ou atualizações de tempo de execução relacionados à segurança.
+Por motivos de segurança, algumas informações específicas sobre segurança não são publicadas. No entanto, o artigo tem como alvo reduzir preocupações, aumentando a transparência sobre o processo e demonstrar como você pode permanecer atualizado sobre comunicados ou atualizações de runtime relacionados à segurança.
 
 ## <a name="how-and-when-are-os-updates-applied"></a>Como e quando as atualizações do sistema operacional são aplicadas?
 
@@ -44,17 +35,17 @@ Quando vulnerabilidades graves exigem aplicação imediata de patches, como [vul
 
 Mantenha-se atualizado com comunicados de segurança críticos no Azure visitando o [Blog de segurança do Azure](https://azure.microsoft.com/blog/topics/security/). 
 
-## <a name="when-are-supported-language-runtimes-updated-added-or-deprecated"></a>Quando os tempos de execução de linguagem compatíveis são atualizados, adicionados ou preteridos?
+## <a name="when-are-supported-language-runtimes-updated-added-or-deprecated"></a>Quando os runtimes de linguagem compatíveis são atualizados, adicionados ou preteridos?
 
-As novas versões estáveis dos tempos de execução de linguagem compatíveis (principal, secundária ou patch) são acrescentadas periodicamente às instâncias do Serviço de Aplicativo. Algumas atualizações substituem a instalação existente, enquanto outras são instaladas lado a lado com as versões existentes. Em uma instalação de substituição, seu aplicativo é executado automaticamente no tempo de execução atualizado. Em uma instalação lado a lado, você deve migrar manualmente seu aplicativo para aproveitar uma nova versão do tempo de execução. Para obter mais informações, consulte uma das subseções.
+As novas versões estáveis dos runtimes de linguagem compatíveis (principal, secundária ou patch) são acrescentadas periodicamente às instâncias do Serviço de Aplicativo. Algumas atualizações substituem a instalação existente, enquanto outras são instaladas lado a lado com as versões existentes. Em uma instalação de substituição, seu aplicativo é executado automaticamente no runtime atualizado. Em uma instalação lado a lado, você deve migrar manualmente seu aplicativo para aproveitar uma nova versão do runtime. Para obter mais informações, consulte uma das subseções.
 
-As substituições e atualizações de tempo de execução são anunciadas aqui:
+As substituições e atualizações de runtime são anunciadas aqui:
 
 - https://azure.microsoft.com/updates/?product=app-service 
 - https://github.com/Azure/app-service-announcements/issues
 
 > [!NOTE] 
-> As informações aqui se aplicam a tempos de execução de linguagem que são criados em um aplicativo do Serviço de Aplicativo. Um tempo de execução personalizado que você carrega no Serviço de Aplicativo, por exemplo, permanece inalterado, a menos que você o atualize manualmente.
+> As informações aqui se aplicam a runtimes de linguagem que são criados em um aplicativo do Serviço de Aplicativo. Um runtime personalizado que você carrega no Serviço de Aplicativo, por exemplo, permanece inalterado, a menos que você o atualize manualmente.
 >
 >
 
@@ -64,7 +55,7 @@ As atualizações de patch para .NET, PHP, SDK do Java ou para a versão Tomcat/
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e secundárias
 
-Quando uma nova versão principal ou secundária é adicionada, ela é instalada lado a lado com as versões existentes. Você pode atualizar manualmente seu aplicativo para a nova versão. Se você configurou a versão do tempo de execução em um arquivo de configuração (como `web.config` e `package.json`), é necessário atualizar com o mesmo método. Se você tiver usado uma configuração do Serviço de Aplicativo para configurar a sua versão do tempo de execução, você poderá alterá-la no [Portal do Azure](https://portal.azure.com) ou por meio da execução de um comando da [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no [Cloud Shell](../cloud-shell/overview.md), como mostrado nos exemplos a seguir:
+Quando uma nova versão principal ou secundária é adicionada, ela é instalada lado a lado com as versões existentes. Você pode atualizar manualmente seu aplicativo para a nova versão. Se você configurou a versão do runtime em um arquivo de configuração (como `web.config` e `package.json`), é necessário atualizar com o mesmo método. Se você tiver usado uma configuração do Serviço de Aplicativo para configurar a sua versão do runtime, você poderá alterá-la no [Portal do Azure](https://portal.azure.com) ou por meio da execução de um comando da [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no [Cloud Shell](../cloud-shell/overview.md), como mostrado nos exemplos a seguir:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -76,13 +67,13 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 
 ### <a name="deprecated-versions"></a>Versões preteridas  
 
-Quando uma versão mais antiga é preterida, a data de remoção é comunicada para que você possa planejar adequadamente a atualização de versão do tempo de execução. 
+Quando uma versão mais antiga é preterida, a data de remoção é comunicada para que você possa planejar adequadamente a atualização de versão do runtime. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Como faço para consultar o status da atualização do sistema operacional e do tempo de execução nas minhas instâncias?  
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Como faço para consultar o status da atualização do sistema operacional e do runtime nas minhas instâncias?  
 
-Embora as informações críticas do sistema operacional tenham acesso bloqueado (consulte [Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure](operating-system-functionality.md)), o [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) permite que você consulte a sua instância do Serviço de Aplicativo em relação à versão do sistema operacional e às versões do tempo de execução. 
+Embora as informações críticas do sistema operacional tenham acesso bloqueado (consulte [Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure](operating-system-functionality.md)), o [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) permite que você consulte a sua instância do Serviço de Aplicativo em relação à versão do sistema operacional e às versões do runtime. 
 
-A tabela a seguir mostra como encontrar informações sobre as versões do Windows e do tempo de execução da linguagem que está executando seus aplicativos:
+A tabela a seguir mostra como encontrar informações sobre as versões do Windows e do runtime da linguagem que está executando seus aplicativos:
 
 | Informações | Onde encontrá-las | 
 |-|-|
@@ -100,5 +91,5 @@ A tabela a seguir mostra como encontrar informações sobre as versões do Windo
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Central de Confiabilidade: Segurança](https://www.microsoft.com/en-us/trustcenter/security)  
+[Central de Confiabilidade: segurança](https://www.microsoft.com/en-us/trustcenter/security)  
 [ASP.NET Core de 64 bits no Serviço de Aplicativo do Azure](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

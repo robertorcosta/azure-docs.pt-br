@@ -1,28 +1,20 @@
 ---
-title: Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo – Azure
-description: Visão geral da arquitetura da topologia de rede dos Ambientes de Serviço de Aplicativo.
-services: app-service
-documentationcenter: ''
+title: Arquitetura de rede v1
+description: Visão geral da arquitetura da topologia de rede dos ambientes do serviço de aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 98eb4d7440126bedb3d2e1de5711141eaac8b07a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070059"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687341"
 ---
-# <a name="network-architecture-overview-of-app-service-environments"></a>Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo
-## <a name="introduction"></a>Introdução
+# <a name="network-architecture-overview-of-app-service-environments"></a>Visão geral da arquitetura de rede de Ambientes de Serviço de Aplicativo
 Os ambientes do serviço de aplicativo são sempre criados dentro de uma sub-rede de uma [rede virtual][virtualnetwork] -os aplicativos em execução em um ambiente do serviço de aplicativo podem se comunicar com pontos de extremidade privados localizados na mesma topologia de rede virtual.  Uma vez que os clientes podem bloquear partes da respectiva infraestrutura de rede virtual, é importante entender os tipos de fluxo de comunicação de rede que ocorrem com um Ambiente de Serviço de Aplicativo.
 
 ## <a name="general-network-flow"></a>Fluxo de rede geral

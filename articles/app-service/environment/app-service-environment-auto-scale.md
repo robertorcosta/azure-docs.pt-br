@@ -1,25 +1,18 @@
 ---
-title: Dimensionamento automático e Ambiente do Serviço de Aplicativo v1 – Azure
-description: Dimensionamento automático e Ambiente de Serviço de Aplicativo
-services: app-service
-documentationcenter: ''
+title: Dimensionamento automático v1
+description: Dimensionamento automático e Ambiente do Serviço de Aplicativo v1. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: btardif
-manager: erikre
-editor: ''
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f0c49e1835412b61817ff3571dd3ee1eaa29f21f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070078"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687290"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Dimensionamento automático e Ambiente de Serviço de Aplicativo v1
 
@@ -68,8 +61,8 @@ O ambiente do Serviço de Aplicativo está configurado para a escala manual da s
 
 * **Front-ends:** 3
 * **Pool de trabalho 1**: 10
-* **Pool de trabalho 2**: 5
-* **Pool de trabalho 3**: 5
+* **Pool de trabalho 2:** 5
+* **Pool de trabalho 3:** 5
 
 O pool de trabalho 1 é usado para cargas de trabalho de produção, embora o pool de trabalho 2 e o pool de trabalho 3 sejam usados para garantia de qualidade (QA) e cargas de trabalho de desenvolvimento.
 
@@ -82,30 +75,30 @@ Matheus está familiarizado com o aplicativo. Eles sabem que o horário de pico 
 | **Perfil de dimensionamento automático – Dias da semana – plano do Serviço de Aplicativo** | **Perfil de dimensionamento automático – Finais de semana – plano do Serviço de Aplicativo** |
 | --- | --- |
 | **Nome:** Perfil de dia da semana |**Nome:** Perfil de final de semana |
-| **Escalar por:** Regras de desempenho e agendamento |**Escalar por:** Regras de desempenho e agendamento |
-| **Perfil:** Dias da semana |**Perfil:** Fim de Semana |
+| **Dimensionar por:** Regras de agendamento e desempenho |**Dimensionar por:** Regras de agendamento e desempenho |
+| **Perfil:** Dias da semana |**Perfil:** Final de semana |
 | **Tipo:** Recorrência |**Tipo:** Recorrência |
 | **Intervalo de destino:** 5 a 20 instâncias |**Intervalo de destino:** 3 a 10 instâncias |
-| **Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |**Dias:** sábado, domingo |
-| **Hora de início:** 9h00 |**Hora de início:** 9h00 |
+| **Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |**Dias:** sábado e domingo |
+| **Hora de início:** 9:00 |**Hora de início:** 9:00 |
 | **Fuso horário:** UTC-08 |**Fuso horário:** UTC-08 |
 |  | |
 | **Regra de dimensionamento automático (Escalar Verticalmente)** |**Regra de dimensionamento automático (Escalar Verticalmente)** |
-| **Recurso:** Produção (Ambiente do Serviço de Aplicativo) |**Recurso:** Produção (Ambiente do Serviço de Aplicativo) |
-| **Métrica:** CPU (%) |**Métrica:** CPU (%) |
-| **Operação:** Maior que 60% |**Operação:** Maior que 80% |
-| **Duração:** 5 Minutos |**Duração:** 10 minutos |
-| **Agregação de tempo:** Average |**Agregação de tempo:** Average |
+| **Recurso:** Produção (ambiente de Serviço de Aplicativo) |**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
+| **Métrica:** % da CPU |**Métrica:** % da CPU |
+| **Operação:** Mais de 60% |**Operação:** Mais de 80% |
+| **Duração:** 5 minutos |**Duração:** 10 minutos |
+| **Agregação de tempo:** Média |**Agregação de tempo:** Média |
 | **Ação:** Aumentar a contagem em 2 |**Ação:** Aumentar a contagem em 1 |
 | **Tempo de resfriamento (minutos):** 15 |**Tempo de resfriamento (minutos):** 20 |
 |  | |
 | **Regra de dimensionamento automático (Reduzir Verticalmente)** |**Regra de dimensionamento automático (Reduzir Verticalmente)** |
-| **Recurso:** Produção (Ambiente do Serviço de Aplicativo) |**Recurso:** Produção (Ambiente do Serviço de Aplicativo) |
-| **Métrica:** CPU (%) |**Métrica:** CPU (%) |
-| **Operação:** Menor que 30% |**Operação:** Menor que 20% |
+| **Recurso:** Produção (ambiente de Serviço de Aplicativo) |**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
+| **Métrica:** % da CPU |**Métrica:** % da CPU |
+| **Operação:** Menos de 30% |**Operação:** Menos de 20% |
 | **Duração:** 10 minutos |**Duração:** 15 minutos |
-| **Agregação de tempo:** Average |**Agregação de tempo:** Average |
-| **Ação:** Diminuir contagem em 1 |**Ação:** Diminuir contagem em 1 |
+| **Agregação de tempo:** Média |**Agregação de tempo:** Média |
+| **Ação:** Reduzir a contagem em 1 |**Ação:** Reduzir a contagem em 1 |
 | **Tempo de resfriamento (minutos):** 20 |**Tempo de resfriamento (minutos):** 10 |
 
 ### <a name="app-service-plan-inflation-rate"></a>Taxa de inflação do plano do Serviço de Aplicativo
@@ -153,30 +146,30 @@ Com essas informações, Matheus pode definir o seguinte perfil e regras de dime
 | **Perfil de dimensionamento automático – Dias da semana** | **Perfil de dimensionamento automático – Finais de semana** |
 | --- | --- |
 | **Nome:** Perfil de dia da semana |**Nome:** Perfil de final de semana |
-| **Escalar por:** Regras de desempenho e agendamento |**Escalar por:** Regras de desempenho e agendamento |
-| **Perfil:** Dias da semana |**Perfil:** Fim de Semana |
+| **Dimensionar por:** Regras de agendamento e desempenho |**Dimensionar por:** Regras de agendamento e desempenho |
+| **Perfil:** Dias da semana |**Perfil:** Final de semana |
 | **Tipo:** Recorrência |**Tipo:** Recorrência |
 | **Intervalo de destino:** 13 a 25 instâncias |**Intervalo de destino:** 6 a 15 instâncias |
-| **Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |**Dias:** sábado, domingo |
-| **Hora de início:** 7h00 |**Hora de início:** 9h00 |
+| **Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |**Dias:** sábado e domingo |
+| **Hora de início:** 7:00 |**Hora de início:** 9:00 |
 | **Fuso horário:** UTC-08 |**Fuso horário:** UTC-08 |
 |  | |
 | **Regra de dimensionamento automático (Escalar Verticalmente)** |**Regra de dimensionamento automático (Escalar Verticalmente)** |
 | **Recurso:** Pool de trabalho 1 |**Recurso:** Pool de trabalho 1 |
 | **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
-| **Operação:** Menor que 8 |**Operação:** Menor que 3 |
+| **Operação:** menos de 8 |**Operação:** menos de 3 |
 | **Duração:** 20 minutos |**Duração:** 30 minutos |
-| **Agregação de tempo:** Average |**Agregação de tempo:** Average |
+| **Agregação de tempo:** Média |**Agregação de tempo:** Média |
 | **Ação:** Aumentar a contagem em 8 |**Ação:** Aumentar a contagem em 3 |
 | **Tempo de resfriamento (minutos):** 180 |**Tempo de resfriamento (minutos):** 180 |
 |  | |
 | **Regra de dimensionamento automático (Reduzir Verticalmente)** |**Regra de dimensionamento automático (Reduzir Verticalmente)** |
 | **Recurso:** Pool de trabalho 1 |**Recurso:** Pool de trabalho 1 |
 | **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
-| **Operação:** Maior que 8 |**Operação:** Maior que 3 |
+| **Operação:** maior que 8 |**Operação:** maior que 3 |
 | **Duração:** 20 minutos |**Duração:** 15 minutos |
-| **Agregação de tempo:** Average |**Agregação de tempo:** Average |
-| **Ação:** Diminuir contagem em 2 |**Ação:** Diminuir contagem em 3 |
+| **Agregação de tempo:** Média |**Agregação de tempo:** Média |
+| **Ação:** Diminuir a contagem em 2 |**Ação:** Diminuir a contagem em 3 |
 | **Tempo de resfriamento (minutos):** 120 |**Tempo de resfriamento (minutos):** 120 |
 
 O intervalo de Destino definido no perfil é calculado pelas instâncias do mínimas definidas no perfil para o plano do Serviço de Aplicativo + buffer.
@@ -198,30 +191,30 @@ Para este cenário, Frank sabe que a taxa de erro aumenta depois que os front-en
 | **Perfil de dimensionamento automático – Front-ends** |
 | --- |
 | **Nome:** Dimensionamento automático – Front-ends |
-| **Escalar por:** Regras de desempenho e agendamento |
+| **Dimensionar por:** Regras de agendamento e desempenho |
 | **Perfil:** Todos os dias |
 | **Tipo:** Recorrência |
 | **Intervalo de destino:** 3 a 10 instâncias |
 | **Dias:** Todos os dias |
-| **Hora de início:** 9h00 |
+| **Hora de início:** 9:00 |
 | **Fuso horário:** UTC-08 |
 |  |
 | **Regra de dimensionamento automático (Escalar Verticalmente)** |
 | **Recurso:** Pool de front-end |
-| **Métrica:** CPU (%) |
-| **Operação:** Maior que 60% |
+| **Métrica:** % da CPU |
+| **Operação:** Mais de 60% |
 | **Duração:** 20 minutos |
-| **Agregação de tempo:** Average |
+| **Agregação de tempo:** Média |
 | **Ação:** Aumentar a contagem em 3 |
 | **Tempo de resfriamento (minutos):** 120 |
 |  |
 | **Regra de dimensionamento automático (Reduzir Verticalmente)** |
 | **Recurso:** Pool de trabalho 1 |
-| **Métrica:** CPU (%) |
-| **Operação:** Menor que 30% |
+| **Métrica:** % da CPU |
+| **Operação:** Menos de 30% |
 | **Duração:** 20 minutos |
-| **Agregação de tempo:** Average |
-| **Ação:** Diminuir contagem em 3 |
+| **Agregação de tempo:** Média |
+| **Ação:** Diminuir a contagem em 3 |
 | **Tempo de resfriamento (minutos):** 120 |
 
 <!-- IMAGES -->

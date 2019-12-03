@@ -1,26 +1,17 @@
 ---
-title: Autenticação e autorização - Serviço de Aplicativo do Azure | Microsoft Docs
-description: Referência conceitual e visão geral do recurso Autenticação/Autorização para o Serviço de Aplicativo do Azure
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
+title: Autenticação e autorização
+description: Saiba mais sobre o suporte interno de autenticação e autorização no Azure App Service e como ele pode ajudar a proteger seu aplicativo contra acesso não autorizado.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2179f4e7d5350cdf9d82413e4f70647c20c3c399
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808761"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672255"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -32,8 +23,10 @@ O Serviço de Aplicativo do Azure dá suporte interno à autenticação e autori
 
 A autenticação e autorização seguras exigem um profundo entendimento de segurança, incluindo federação, criptografia, [gerenciamento JWT (Token Web JSON)](https://wikipedia.org/wiki/JSON_Web_Token), [tipos de concessão](https://oauth.net/2/grant-types/), e assim por diante. O Serviço de Aplicativo disponibiliza esses utilitários para que você possa investir mais tempo e energia no fornecimento de valor comercial ao seu cliente.
 
-> [!NOTE]
-> Você não é necessário usar o Serviço de Aplicativo para autenticação e autorização. Muitas estruturas da Web são agrupadas com recursos de segurança e você poderá utilizá-las, se desejar. Caso precise de mais flexibilidade do que o Serviço de Aplicativo fornece, você também poderá gravar seus próprios utilitários.  
+> [!IMPORTANT]
+> Não é necessário usar o serviço de aplicativo para Authn/autho. Muitas estruturas da Web são agrupadas com recursos de segurança e você poderá utilizá-las, se desejar. Caso precise de mais flexibilidade do que o Serviço de Aplicativo fornece, você também poderá gravar seus próprios utilitários.  
+>
+> No entanto, se você estiver com qualquer uma das opções de serviço de aplicativo para autenticação remota, tenha em mente que o [Chrome 80 está fazendo alterações significativas em sua implementação de SameSite para cookies](https://www.chromestatus.com/feature/5088147346030592) (data de lançamento em relação a 2020 de março) e o mecanismo de autenticação do aplicativo pode ser interrompido quando navegadores cliente são atualizados. A documentação ASP.NET Core tem informações sobre como resolver isso em seu aplicativo, em [http: navegador SameSite alterações de impacto na autenticação](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). Ele contém orientações úteis sobre como testar essa alteração significativa em relação aos principais navegadores, independentemente se você estiver usando ASP.NET Core ou não.
 >
 
 Para informações específicas sobre aplicativos móveis nativos, consulte [Autenticação e autorização de usuários para aplicativos móveis com Serviço de Aplicativo do Azure ](../app-service-mobile/app-service-mobile-auth.md).

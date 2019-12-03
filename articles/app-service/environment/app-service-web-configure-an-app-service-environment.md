@@ -1,33 +1,26 @@
 ---
-title: Como configurar um Ambiente do Serviço de Aplicativo v1 – Azure
-description: Configuração, gerenciamento e monitoramento do Ambiente do Serviço de Aplicativo v1
-services: app-service
-documentationcenter: ''
+title: Configurar ASE v1
+description: Configuração, gerenciamento e monitoramento do Ambiente do Serviço de Aplicativo v1. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b8a05b7e8466187202e6a4d11efce288238cc19b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069945"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687253"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuração de um Ambiente do Serviço de Aplicativo v1
 
 > [!NOTE]
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com [Introdução ao Ambiente do Serviço de Aplicativo](intro.md).
+> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre o novo início de versão com o [Introdução ao Ambiente do Serviço de Aplicativo](intro.md).
 > 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Em um nível elevado, um Ambiente do Serviço de Aplicativo do Azure consiste em vários componentes principais:
 
 * Recursos de computação que estão em execução no serviço hospedado do Ambiente do Serviço de Aplicativo
@@ -44,14 +37,14 @@ Os hosts nos pools de recursos (front-ends e trabalhadores) não podem ser acess
 Você pode definir o tamanho e a quantidade de pools de recursos. Em um ASE, você tem quatro opções de tamanho, que são rotuladas P1 a P4. Para obter detalhes sobre esses tamanhos e seus preços, confira [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 A alteração da quantidade ou do tamanho é chamada de uma operação de escala.  Apenas uma operação de escala pode ocorrer por vez.
 
-**Front-ends**: os front-ends são os pontos de extremidade HTTP/HTTPS para os aplicativos mantidos em seu ASE. Não execute cargas de trabalho nos front-ends.
+**Front-ends**Os front-ends são os pontos de extremidade HTTP/HTTPS para os aplicativos mantidos em seu ASE. Não execute cargas de trabalho nos front-ends.
 
 * Um ASE começa com duas P2s, o que é suficiente para cargas de trabalho de desenvolvimento e teste e para cargas de trabalho de produção de nível baixo. Recomendamos P3 para cargas de trabalho de produção moderada a pesada.
 * Para as cargas de trabalho de produção moderada a pesada, recomendamos que você tenha pelo menos quatro P3s a fim de garantir uma quantidade suficiente de front-ends em execução durante a manutenção agendada. As atividades de manutenção agendada desligarão um front-end de cada vez. Isso reduz a capacidade de front-end disponível no geral durante as atividades de manutenção.
 * Os front-ends podem demorar até uma hora para serem provisionados. 
 * Para obter um ajuste mais fino do dimensionamento, você deve monitorar a porcentagem de CPU, a porcentagem de Memória e as métricas de Solicitações Ativas do pool de front-end. Se os percentuais de memória ou CPU ficam acima de 70% ao executar P3s, adicione mais front-ends. Se a média de valores de Solicitações Ativas for de 15 mil a 20 mil por front-end, você também deverá adicionar mais front-ends. O objetivo geral é manter os percentuais de CPU e de Memória abaixo de 70%, e as Solicitações Ativas com uma média abaixo de 15 mil solicitações por front-end durante a execução de P3s.  
 
-**Trabalhos**: os trabalhos são os locais em que seus aplicativos são realmente executados. Ao escalar verticalmente seus Planos de Serviço de Aplicativo, você usará os trabalhadores no pool de trabalhadores associado.
+**Trabalhos**Os trabalhos são os locais onde seus aplicativos são realmente executados. Ao escalar verticalmente seus Planos de Serviço de Aplicativo, você usará os trabalhadores no pool de trabalhadores associado.
 
 * Não é possível adicionar trabalhadores instantaneamente. Eles podem levar até uma hora para provisionar.
 * O dimensionamento de um recurso de computação para qualquer pool demorará menos de uma hora por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você tiver dimensionado o tamanho da computação de um pool de trabalho com 10 instâncias, talvez demore até 10 horas para a conclusão.
@@ -116,7 +109,7 @@ Para abrir a interface do usuário que lista todos os seus Ambientes de Serviço
 
 A primeira folha mostra algumas propriedades do seu ASE junto com um gráfico de métricas por pool de recursos. Algumas das propriedades mostradas no bloco **Fundamentos** também são hiperlinks que abrirão a folha associada a ele. Por exemplo, você pode selecionar o Nome da **rede virtual** para abrir a interface do usuário associada à rede virtual em que o ASE está sendo executado. Os **Planos do Serviço de Aplicativo** e os **Aplicativos** abrem folhas que listam esses itens em seu ASE.  
 
-### <a name="monitoring"></a>Monitorando
+### <a name="monitoring"></a>Monitoramento
 Os gráficos permitem a você ver uma variedade de métricas de desempenho em cada pool de recursos. Para o pool de front-ends, você pode monitorar a média de memória e de CPU . Para pools de trabalho, você pode monitorar a quantidade usada e a quantidade disponível.
 
 Vários Planos do Serviço de Aplicativo podem usar os trabalhadores em um pool de trabalho. A carga de trabalho não é distribuída da mesma forma que ocorre com servidores front-end. Portanto, o uso de CPU e de memória não oferece muitas informações úteis. É mais importante controlar quantos trabalhadores foram usados e estão disponíveis, especialmente se você estiver gerenciando esse sistema para outros usuários.  

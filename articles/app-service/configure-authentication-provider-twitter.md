@@ -1,25 +1,16 @@
 ---
-title: Configurar a autenticação do Twitter – Serviço de Aplicativo do Azure
-description: Saiba como configurar a autenticação do Twitter para seu aplicativo do serviço de aplicativo.
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: Configurar a autenticação do Twitter
+description: Saiba como configurar a autenticação do Twitter como um provedor de identidade para seu aplicativo do serviço de aplicativo.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/19/2018
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 02008b7dc1609a5f28ac6ba2a582933a96428198
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b5ec17c18cec8053f0732366c0cc5d0c5003e4de
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176951"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670809"
 ---
 # <a name="configure-your-app-service-app-to-use-twitter-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon do Twitter
 
@@ -31,9 +22,9 @@ Para concluir o procedimento neste artigo, você precisa de uma conta do Twitter
 
 ## <a name="register"> </a>Registre seu aplicativo com o Twitter
 
-1. Entre no [portal do Azure] e vá para seu aplicativo. Copie a **URL**. Você o usará para configurar seu aplicativo do Twitter.
-1. Vá para o site de [Desenvolvedores do Twitter,] , entre com suas credenciais de conta do Twitter e selecione **criar novo aplicativo**.
-1. Insira um **nome** e uma **Descrição** para o novo aplicativo. Cole a **URL** do aplicativo no campo **site** . No campo **URL de retorno de chamada** , insira a URL do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/aad/callback`. Por exemplo: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Certifique-se de usar o esquema HTTPS.
+1. Entre no [Azure portal] e vá para seu aplicativo. Copie a **URL**. Você o usará para configurar seu aplicativo do Twitter.
+1. Vá para o site de [desenvolvedores do Twitter] , entre com suas credenciais de conta do Twitter e selecione **criar novo aplicativo**.
+1. Insira um **nome** e uma **Descrição** para o novo aplicativo. Cole a **URL** do aplicativo no campo **site** . No campo **URL de retorno de chamada** , insira a URL do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Certifique-se de usar o esquema HTTPS.
 1. Na parte inferior da página, leia e aceite os termos. Selecione **criar seu aplicativo do Twitter**. Os detalhes do aplicativo são exibidos.
 1. Selecione a guia **configurações** , marque **permitir que este aplicativo seja usado para entrar com o Twitter**e, em seguida, selecione **Atualizar configurações**.
 1. Selecione a guia **Chaves e Tokens de Acesso** .
@@ -47,7 +38,7 @@ Para concluir o procedimento neste artigo, você precisa de uma conta do Twitter
 
 ## <a name="secrets"> </a>Adicione informações do Twitter ao seu aplicativo
 
-1. Vá para seu aplicativo no [portal do Azure].
+1. Vá para seu aplicativo no [Azure portal].
 1. Selecione **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
 1. Selecione **Twitter**.
 1. Cole os valores `API Key` e `API Secret` que você obteve anteriormente.
@@ -77,7 +68,7 @@ Agora você está pronto para usar o Twitter para autenticação em seu aplicati
 
 <!-- URLs. -->
 
-[Desenvolvedores do Twitter,]: https://go.microsoft.com/fwlink/p/?LinkId=268300
+[Desenvolvedores do Twitter]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

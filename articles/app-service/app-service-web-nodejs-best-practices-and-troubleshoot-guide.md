@@ -1,26 +1,19 @@
 ---
-title: Práticas recomendadas e solução de problemas para Node.js - Serviço de Aplicativo do Azure
-description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos de nó no Serviço de Aplicativo do Azure.
-services: app-service\web
-documentationcenter: nodejs
+title: Práticas recomendadas e solução de problemas do node. js
+description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos node. js em execução no serviço Azure App.
 author: ranjithr
-manager: wadeh
-editor: ''
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024237"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672039"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
@@ -264,19 +257,19 @@ Habilite FREB para que o aplicativo veja o código de erro win32 (habilite FREB 
 
 | Status Http | Substatus Http | Razão Possível? |
 | --- | --- | --- |
-| 500 |1000 |Houve algum problema ao expedir a solicitação para IISNODE – Verifique se node.exe foi iniciado. Node.exe pode ter falhado ao inicializar. Verifique se há erros na configuração de web.config. |
+| 500 |1\.000 |Houve algum problema ao expedir a solicitação para IISNODE – Verifique se node.exe foi iniciado. Node.exe pode ter falhado ao inicializar. Verifique se há erros na configuração de web.config. |
 | 500 |1001 |- Win32Error 0x2 - o aplicativo não está respondendo à URL. Verifique as regras de regravação de URL ou se o aplicativo expresso tem as rotas corretas definidas. -Win32Error 0x6d – o pipe nomeado está ocupado – Node.exe não está aceitando solicitações porque o pipe está ocupado. Verifique o alto uso da cpu. - Outros erros – verifique se node.exe falhou. |
 | 500 |1002 |Falha de node.exe – confira d:\\home\\LogFiles\\logging-errors.txt para o rastreamento de pilha. |
 | 500 |1003 |Problema na configuração de pipe – A configuração de pipe nomeado está incorreta. |
 | 500 |1004-1018 |Erro ao enviar a solicitação ou ao processar a resposta de/para node.exe. Verifique se node.exe falhou. verifique d:\\home\\LogFiles\\logging-errors.txt para rastrear a pilha. |
-| 503 |1000 |Não há memória suficiente para alocar mais conexões de pipe nomeado. Verifique por que o aplicativo está consumindo tanta memória. Verifique o valor da configuração maxConcurrentRequestsPerProcess. Se não estiver definido como infinito e houver muitas solicitações, aumente o valor para evitar o erro. |
+| 503 |1\.000 |Não há memória suficiente para alocar mais conexões de pipe nomeado. Verifique por que o aplicativo está consumindo tanta memória. Verifique o valor da configuração maxConcurrentRequestsPerProcess. Se não estiver definido como infinito e houver muitas solicitações, aumente o valor para evitar o erro. |
 | 503 |1001 |Não foi possível expedir a solicitação para node.exe porque o aplicativo está sendo reciclado. Depois que o aplicativo for reciclado, as solicitações deverão ser atendidas normalmente. |
 | 503 |1002 |Verifique o código de erro win32 para obter o motivo real – não foi possível distribuir a solicitação para um node.exe. |
 | 503 |1003 |O pipe nomeado é muito Ocupado – Verifique se o node.exe está consumindo CPU excessiva |
 
 NODE.exe tem uma configuração chamada `NODE_PENDING_PIPE_INSTANCES`. Em Serviço de Aplicativo do Azure, esse valor é definido como 5000. Isso significa que node.exe pode aceitar 5.000 solicitações por vez no pipe nomeado. Esse valor deve ser suficiente para a maioria dos aplicativos de nó em execução no Serviço de Aplicativo do Azure. Você não deve ver 503.1003 no Serviço de Aplicativo do Azure devido ao alto valor para `NODE_PENDING_PIPE_INSTANCES`
 
-## <a name="more-resources"></a>Mais Recursos
+## <a name="more-resources"></a>Mais recursos
 
 Siga estes links para saber mais sobre aplicativos do node.js no Serviço de Aplicativo do Azure.
 
@@ -284,5 +277,5 @@ Siga estes links para saber mais sobre aplicativos do node.js no Serviço de Apl
 * [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro de desenvolvedores do Node.js](../nodejs-use-node-modules-azure-apps.md)
+* [Centro de Desenvolvedores do Node.js](../nodejs-use-node-modules-azure-apps.md)
 * [Explorar o Console de Depuração Super Secret Kudu](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

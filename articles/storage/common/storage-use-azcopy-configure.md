@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7097faa64319a46b1efc91233e30ea992d064246
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595139"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687647"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -22,15 +22,15 @@ AzCopy é um utilitário de linha de comando que você pode usar para copiar BLO
 > [!NOTE]
 > Se você estiver procurando conteúdo para ajudá-lo a começar a usar o AzCopy, consulte qualquer um dos seguintes artigos:
 > - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-> - [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
-> - [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
-> - [Transferir dados com os buckets AzCopy e Amazon S3](storage-use-azcopy-s3.md)
+> - [Transferir dados com o AzCopy e o Armazenamento de Blobs](storage-use-azcopy-blobs.md)
+> - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
+> - [Transferir dados com o AzCopy e os buckets do Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Definir configurações de proxy
 
 Para definir as configurações de proxy para AzCopy, defina a variável de ambiente `https_proxy`. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisa usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
 
-| Sistema operacional | Comando  |
+| Sistema operacional | Command  |
 |--------|-----------|
 | **Windows** | Em um prompt de comando, use: `set https_proxy=<proxy IP>:<proxy port>`<br> No PowerShell, use: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
@@ -60,19 +60,19 @@ Esse comando executa um parâmetro de comparação de desempenho carregando dado
 
 Para exibir as diretrizes de ajuda detalhadas para este comando, digite `azcopy bench -h` e pressione a tecla ENTER.
 
-### <a name="optimize-throughput"></a>Otimizar taxa de transferência
+### <a name="optimize-throughput"></a>Otimizar a taxa de transferência
 
 Você pode usar o sinalizador `cap-mbps` para inserir um teto na taxa de dados da taxa de transferência. Por exemplo, o comando a seguir Caps taxa de transferência para `10` megabits (MB) por segundo.
 
 ```azcopy
-azcopy cap-mbps 10
+azcopy --cap-mbps 10
 ```
 
 A taxa de transferência pode diminuir ao transferir arquivos pequenos. Você pode aumentar a taxa de transferência definindo a variável de ambiente `AZCOPY_CONCURRENCY_VALUE`. Essa variável especifica o número de solicitações simultâneas que podem ocorrer.  
 
 Se o computador tiver menos de 5 CPUs, o valor dessa variável será definido como `32`. Caso contrário, o valor padrão é igual a 16 multiplicado pelo número de CPUs. O valor padrão máximo dessa variável é `3000`, mas você pode definir manualmente esse valor como maior ou menor. 
 
-| Sistema operacional | Comando  |
+| Sistema operacional | Command  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
@@ -87,7 +87,7 @@ Antes de definir essa variável, recomendamos que você execute um teste de par�
 Defina a variável de ambiente `AZCOPY_BUFFER_GB` para especificar a quantidade máxima de memória do sistema que você deseja que o AzCopy use ao baixar e carregar arquivos.
 Expresse esse valor em gigabytes (GB).
 
-| Sistema operacional | Comando  |
+| Sistema operacional | Command  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
@@ -95,14 +95,14 @@ Expresse esse valor em gigabytes (GB).
 
 ## <a name="troubleshoot-issues"></a>Solucionar problemas
 
-O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os logs para investigar e solucionar problemas em potencial. 
+O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os logs para investigar e solucionar problemas potenciais. 
 
-Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED` e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
+Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED`e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
 
 Por padrão, os arquivos de log e de plano estão localizados no diretório `%USERPROFILE$\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux, mas você pode alterar esse local, se desejar.
 
 > [!IMPORTANT]
-> Ao enviar uma solicitação para Suporte da Microsoft (ou solucionar o problema que envolve terceiros), compartilhe a versão redação do comando que você deseja executar. Isso garante que a SAS não seja compartilhada acidentalmente com ninguém. Você pode encontrar a versão redação no início do arquivo de log.
+> Ao enviar uma solicitação para Suporte da Microsoft (ou solucionar o problema que envolve terceiros), compartilhe a versão redação do comando que você deseja executar. Isso garante que a SAS não seja compartilhada acidentalmente com ninguém. Você pode encontrar a versão editada no início do arquivo de log.
 
 ### <a name="review-the-logs-for-errors"></a>Examinar os logs em busca de erros
 
@@ -157,7 +157,7 @@ Por padrão, os arquivos de plano e de log estão localizados no diretório `%US
 
 Use qualquer um desses comandos.
 
-| Sistema operacional | Comando  |
+| Sistema operacional | Command  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
@@ -169,7 +169,7 @@ Use o `azcopy env` para verificar o valor atual dessa variável. Se o valor esti
 
 Use qualquer um desses comandos.
 
-| Sistema operacional | Comando  |
+| Sistema operacional | Command  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
@@ -181,7 +181,7 @@ Use o `azcopy env` para verificar o valor atual dessa variável. Se o valor esti
 
 Por padrão, o nível de log AzCopy é definido como `INFO`. Se você quiser reduzir o detalhamento do log para economizar espaço em disco, substitua essa configuração usando a opção ``--log-level``. 
 
-Os níveis de log disponíveis são: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` e `FATAL`.
+Os níveis de log disponíveis são: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`e `FATAL`.
 
 ## <a name="remove-plan-and-log-files"></a>Remover arquivos de plano e de log
 

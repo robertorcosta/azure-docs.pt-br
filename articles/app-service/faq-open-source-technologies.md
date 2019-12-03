@@ -1,26 +1,20 @@
 ---
-title: Perguntas frequentes sobre tecnologias de software livre – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Obtenha respostas para perguntas frequentes sobre tecnologias de código aberto na funcionalidade Aplicativos Web do Serviço de Aplicativo do Azure.
-services: app-service\web
-documentationcenter: ''
+title: Perguntas frequentes sobre tecnologias de código aberto
+description: Obtenha respostas para perguntas frequentes sobre tecnologias de software livre no Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169678"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672438"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de código aberto para Aplicativos Web do Azure
 
@@ -67,7 +61,7 @@ Para alterar a versão do aplicativo Node.js, você pode usar uma das seguintes 
      ```
      node -v
      ```
-* Modificar o arquivo iisnode.yml. Alterar a versão do Node.js no arquivo iisnode.yml apenas define o ambiente de tempo de execução que iisnode usa. O Kudu cmd e outros ainda usam a versão de Node.js que está definida em **Configurações do aplicativo** no portal do Azure.
+* Modificar o arquivo iisnode.yml. Alterar a versão do Node.js no arquivo iisnode.yml apenas define o ambiente de runtime que iisnode usa. O Kudu cmd e outros ainda usam a versão de Node.js que está definida em **Configurações do aplicativo** no portal do Azure.
 
   Para definir o iisnode.yml manualmente, crie um arquivo de iisnode.yml na pasta raiz do aplicativo. No arquivo, inclua a seguinte linha:
   ```yml
@@ -113,7 +107,7 @@ Para obter informações sobre como instalar Django, consulte [Implantando um ap
 
 Para o Azure Marketplace e implantações personalizadas:
 
-* Localização da pasta: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
+* Local da pasta: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Arquivos de interesse:
     * catalina.*aaaa-mm-dd*.log
     * host-manager.*aaaa-mm-dd*.log
@@ -124,7 +118,7 @@ Para o Azure Marketplace e implantações personalizadas:
 
 Para implantações de **Configurações do aplicativo** do portal:
 
-* Localização da pasta: D:\home\LogFiles
+* Local da pasta: D:\home\LogFiles
 * Arquivos de interesse:
     * catalina.*aaaa-mm-dd*.log
     * host-manager.*aaaa-mm-dd*.log
@@ -189,7 +183,7 @@ Se você ter migrado recentemente no Azure, WordPress pode redirecionar para a U
 
 WordPress Buddy + é uma extensão de Site do Azure que você pode usar para atualizar a URL de redirecionamento diretamente no banco de dados. Para obter mais informações sobre como usar o WordPress Buddy +, consulte [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-Como alternativa, se você preferir atualizar manualmente o redirecionamento de URL usando consultas SQL ou PHPMyAdmin, veja [WordPress: Redirecionamento para a URL errada](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+Como alternativa, se você preferir atualizar manualmente o redirecionamento de URL usando consultas SQL ou PHPMyAdmin, consulte [WordPress: Redirecionamento de URL errado](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Como alterar minha senha de logon do WordPress?
 
@@ -203,8 +197,8 @@ Se você estiver o WordPress bloqueado depois de instalar recentemente um plug-i
 
 Você tem várias opções para migrar o banco de dados MySQL que está conectado ao seu site de WordPress:
 
-* Desenvolvedores: usar o [prompt de comando ou PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Não desenvolvedores: usar [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
+* Desenvolvedores: Usar o [prompt de comando ou PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* Não-desenvolvedores: Usar [WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Como ajudar a proteger melhor o WordPress?
 

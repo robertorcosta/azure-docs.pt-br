@@ -1,24 +1,18 @@
 ---
-title: Usar Ambiente do Serviço de Aplicativo – Azure
-description: Como criar, publicar e dimensionar aplicativos em um ambiente do Serviço de Aplicativo do Azure
-services: app-service
-documentationcenter: na
+title: Usar e gerenciar o ASE
+description: Como criar, publicar e dimensionar aplicativos em um ambiente de serviço Azure App. Encontre as tarefas comuns em um documento.
 author: ccompy
-manager: stefsch
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 841271c474ba8e24bc352bcae1fa037cf382a8ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5c127673e4b0cb6c68aaf0a9790abbf78758670
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470591"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687089"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do Serviço de Aplicativo #
 
@@ -77,7 +71,7 @@ Para criar um aplicativo em um ASE:
     > Os aplicativos Linux e Windows não podem estar no mesmo Plano de Serviço de Aplicativo, mas podem estar no mesmo Ambiente de Serviço de Aplicativo. 
     >
 
-2. Selecione **Criar**.
+2. Clique em **Criar**.
 
 ## <a name="how-scale-works"></a>Como funciona a escala ##
 

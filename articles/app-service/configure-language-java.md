@@ -1,25 +1,20 @@
 ---
-title: Configurar aplicativos Java do Windows – serviço de Azure App | Microsoft Docs
-description: Saiba como configurar aplicativos Java para serem executados nas instâncias padrão do Windows no serviço Azure App.
+title: Configurar aplicativos Java do Windows
+description: Saiba como configurar aplicativos Java para serem executados em instâncias de VM do Windows no serviço Azure App. Este artigo mostra as tarefas de configuração mais comuns.
 keywords: serviço de aplicativo do Azure, aplicativo Web, Windows, OSS, Java
-services: app-service
 author: jasonfreeberg
-manager: jeconnock
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad9ee8a21390126f20da4037a438a2655b8b5d47
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dec5d1c7c7664bf72d92e5aca4333ba64db26d02
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012267"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671904"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Windows para o serviço Azure App
 
@@ -214,7 +209,7 @@ Esta seção mostra como conectar aplicativos Java implantados no serviço de Az
 
 Essas instruções se aplicam a todas as conexões de banco de dados. Você precisará preencher os espaços reservados com nome de classe do driver do banco de dados escolhido e o arquivo JAR. É fornecida uma tabela com nomes de classe e downloads de driver para bancos de dados comuns.
 
-| Banco de dados   | Nome de Classe do Driver                             | Driver JDBC                                                                      |
+| Banco de dados   | Nome de Classe do Driver                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Baixar](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (Selecione "Independente de Plataforma") |
@@ -322,7 +317,7 @@ O suporte ao produto para o [azul Zulu com suporte do Azure](https://www.azul.co
 
 Os desenvolvedores podem [abrir um problema](/azure/azure-supportability/how-to-create-azure-support-request) com o Azul Zulu JDK por meio do Suporte do Azure se tiverem um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este tópico fornece a declaração de suporte do Java em tempo de execução para Azure App serviço no Windows.
 

@@ -1,24 +1,18 @@
 ---
-title: Integrar o Ambiente do Serviço de Aplicativo ILB com o Gateway de Aplicativo – Azure
-description: Instruções passo a passo sobre como integrar um aplicativo no Ambiente do Serviço de Aplicativo do ILB com um Gateway de Aplicativo
-services: app-service
-documentationcenter: na
+title: Integrar no Gateway de Aplicativo
+description: Saiba como integrar um aplicativo em seu ILB Ambiente do Serviço de Aplicativo com um gateway de aplicativo neste passo a passo de ponta a ponta.
 author: ccompy
-manager: stefsch
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 090952a065b8c3b2b25ad737992b68b9bc9aa9ec
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dfb6d72b3f8f61e1350101173ecec6134a614edf
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069479"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687145"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrar o Ambiente do Serviço de Aplicativo do ILB com o Gateway de Aplicativo do Azure #
 

@@ -1,27 +1,20 @@
 ---
-title: Práticas recomendadas - Serviço de Aplicativo do Azure
-description: Aprenda as práticas recomendadas e solução de problemas do Serviço de Aplicativo do Azure.
-services: app-service
-documentationcenter: ''
+title: Práticas recomendadas
+description: Conheça as práticas recomendadas e os cenários de solução de problemas comuns para seu aplicativo em execução no Azure App Service.
 author: dariagrigoriu
-manager: erikre
-editor: mollybos
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: c40191c8682d6ff93f70e0853e767c89248ae887
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 328e0c882ea2fb3860663e04b88488bd54339c75
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071613"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671505"
 ---
-# <a name="best-practices-for-azure-app-service"></a>Práticas Recomendadas para o Serviço de Aplicativo do Azure
+# <a name="best-practices-for-azure-app-service"></a>Melhores Práticas do Serviço de Aplicativo do Azure
 Este artigo resume as práticas recomendadas para usar o [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
 
 ## <a name="colocation"></a>Colocação
@@ -38,7 +31,7 @@ Quando você observar que um aplicativo consome mais memória do que o esperado,
 ## <a name="CPUresources"></a>Quando aplicativos consomem mais CPU do que o esperado
 Quando você observar que um aplicativo consome mais CPU que o esperado ou enfrenta picos de CPU repetidos, conforme indicado pelo monitoramento ou pelas recomendações serviço, considere escalar verticalmente ou horizontalmente o plano de Serviço de Aplicativo. Se seu aplicativo estiver com estado, escalar verticalmente será a única opção, enquanto que, se seu aplicativo estiver sem estado, escalar horizontalmente dará mais flexibilidade e maior potencial de escala. 
 
-Para obter mais informações sobre os aplicativos "com estado" versus "sem estado", assista a este vídeo: [Planejar um aplicativo escalonável de várias camadas e de ponta a ponta no Serviço de Aplicativo do Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para saber mais sobre como as opções de colocação em escala e dimensionamento automático, veja [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](manage-scale-up.md).  
+Para obter mais informações sobre aplicativos "com estado" vs "sem estado", você pode assistir a este vídeo: [planejando um aplicativo de várias camadas de ponta a ponta escalonável no serviço de Azure app](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para saber mais sobre como as opções de colocação em escala e dimensionamento automático, veja [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](manage-scale-up.md).  
 
 ## <a name="socketresources"></a>Quando os recursos de soquete são exauridos
 Uma razão comum para esgotar as conexões TCP de saída é o uso de bibliotecas de cliente que não são implementadas para reutilizar conexões TCP ou quando um protocolo de nível superior como HTTP - Keep-Alive não estiver sendo utilizado. Consulte a documentação para cada uma das bibliotecas referenciadas pelos aplicativos no seu Plano de Serviço de Aplicativo para garantir que eles são configurados ou acessados em seu código para reutilização eficiente de conexões de saída. Além disso, siga as diretrizes de documentação biblioteca de criação correta e versão ou de limpeza para evitar vazamento de conexões. Embora essas investigações de bibliotecas de cliente estejam em andamento, o impacto pode ser reduzido escalando horizontalmente para várias instâncias.

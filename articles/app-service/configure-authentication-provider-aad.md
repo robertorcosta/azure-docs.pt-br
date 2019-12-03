@@ -1,25 +1,16 @@
 ---
-title: Configurar a autenticação do Azure Active Directory – Serviço de Aplicativo do Azure
-description: Saiba como configurar a autenticação Azure Active Directory para seu aplicativo do serviço de aplicativo.
-author: cephalin
-services: app-service
-documentationcenter: ''
-manager: gwallace
-editor: ''
+title: Configurar a autenticação do Azure AD
+description: Saiba como configurar a autenticação Azure Active Directory como um provedor de identidade para seu aplicativo do serviço de aplicativo.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
-ms.service: app-service
-ms.workload: web,mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/03/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6812f99d8433ef318eca37eb2615d43f4749e944
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b833604ce18873e22c22990a26dcbae1d9928628
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886181"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670879"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon do Azure AD
 
@@ -38,7 +29,7 @@ Siga estas práticas recomendadas ao configurar seu aplicativo e a autenticaçã
 
 ## <a name="express"> </a>Configurar com configurações expressas
 
-1. Na [portal do Azure], vá para o aplicativo do serviço de aplicativo.
+1. Na [Azure portal], vá para o aplicativo do serviço de aplicativo.
 1. Selecione **configurações** > **autenticação/autorização** no painel esquerdo e verifique se a autenticação do **serviço de aplicativo** está **ativada**.
 1. Selecione **Azure Active Directory**e, em seguida, selecione **Expresso** no **Modo de Gerenciamento**.
 1. Selecione **OK** para registrar o aplicativo do Serviço de Aplicativo no Azure Active Directory. Um novo registro de aplicativo é criado.
@@ -54,7 +45,7 @@ Siga estas práticas recomendadas ao configurar seu aplicativo e a autenticaçã
 
     > [!CAUTION]
     > Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que têm um home page publicamente disponível, como em muitos aplicativos de página única. Para tais aplicativos, **Permitir solicitações anônimas (nenhuma ação)** pode ser preferível, com o aplicativo iniciando o logon manualmente. Para obter mais informações, consulte [fluxo de autenticação](overview-authentication-authorization.md#authentication-flow).
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="advanced"> </a>Configurar com configurações avançadas
 
@@ -67,18 +58,18 @@ Você pode definir as configurações do aplicativo manualmente se quiser usar u
 
 Você precisará das seguintes informações ao configurar seu aplicativo do serviço de aplicativo:
 
-- Id do Cliente
+- ID do cliente
 - ID do locatário
 - Segredo do cliente (opcional)
 - URI da ID do aplicativo
 
 Execute as seguintes etapas:
 
-1. Entre no [portal do Azure] e vá para o aplicativo do serviço de aplicativo. Anote a **URL**do seu aplicativo. Você o usará para configurar o registro do aplicativo Azure Active Directory.
+1. Entre no [Azure portal] e vá para o aplicativo do serviço de aplicativo. Anote a **URL**do seu aplicativo. Você o usará para configurar o registro do aplicativo Azure Active Directory.
 1. Selecione **Azure Active Directory** > **registros de aplicativo** > **novo registro**.
 1. Na página **registrar um aplicativo** , insira um **nome** para o registro do aplicativo.
-1. Em **URI de redirecionamento**, selecione **Web** e insira a URL do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/aad/callback`. Por exemplo: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
-1. Selecione **Criar**.
+1. Em **URI de redirecionamento**, selecione **Web** e insira a URL do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
+1. Clique em **Criar**.
 1. Depois que o registro do aplicativo for criado, copie a **ID do aplicativo (cliente)** e a **ID do diretório (locatário)** para mais tarde.
 1. Selecione **identidade visual**. Na **URL da Home Page**, insira a URL do seu aplicativo do serviço de aplicativo e selecione **salvar**.
 1. Selecione **expor um conjunto de > de API** . Cole a URL do aplicativo do serviço de aplicativo e selecione **salvar**.
@@ -95,15 +86,15 @@ Execute as seguintes etapas:
 
 ### <a name="secrets"> </a>Adicionar informações do Azure Active Directory ao aplicativo do Serviço de Aplicativo
 
-1. Na [portal do Azure], vá para o aplicativo do serviço de aplicativo. 
+1. Na [Azure portal], vá para o aplicativo do serviço de aplicativo. 
 1. Selecione **configurações > autenticação/autorização** no painel esquerdo e verifique se a autenticação do **serviço de aplicativo** está **ativada**.
 1. Adicional Por padrão, a autenticação do serviço de aplicativo permite o acesso não autenticado ao seu aplicativo. Para impor a autenticação de usuário, defina **a ação a ser tomada quando a solicitação não for autenticada** para **fazer logon com Azure Active Directory**.
 1. Em provedores de autenticação, selecione **Azure Active Directory**.
 1. Em **modo de gerenciamento**, selecione **avançado** e configure a autenticação do serviço de aplicativo de acordo com a tabela a seguir:
 
-    |Campo|DESCRIÇÃO|
+    |Campo|Descrição|
     |-|-|
-    |Id do Cliente| Use a **ID do aplicativo (cliente)** do registro do aplicativo. |
+    |ID do cliente| Use a **ID do aplicativo (cliente)** do registro do aplicativo. |
     |ID do emissor| Use `https://login.microsoftonline.com/<tenant-id>`e substitua *\<> ID do locatário* pela ID do **diretório (locatário)** do registro do aplicativo. |
     |Segredo do cliente (opcional)| Use o segredo do cliente gerado no registro do aplicativo.|
     |Públicos de token permitidos| Se este for um aplicativo de nuvem ou de servidor e você quiser permitir tokens de autenticação de um aplicativo Web, adicione o **URI de ID de aplicativo** do aplicativo Web aqui. |
@@ -118,10 +109,10 @@ Agora você está pronto para usar Azure Active Directory para autenticação em
 
 Você pode registrar clientes nativos para permitir a autenticação usando uma biblioteca de cliente, como o **biblioteca de autenticação do Active Directory**.
 
-1. Na [portal do Azure], selecione **Active Directory** > **registros de aplicativo** > **novo registro**.
+1. Na [Azure portal], selecione **Active Directory** > **registros de aplicativo** > **novo registro**.
 1. Na página **registrar um aplicativo** , insira um **nome** para o registro do aplicativo.
-1. Em **URI de redirecionamento**, selecione **cliente público (Mobile & Desktop)** e insira a URL do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/aad/callback`. Por exemplo: `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Selecione **Criar**.
+1. Em **URI de redirecionamento**, selecione **cliente público (Mobile & Desktop)** e insira a URL do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. Clique em **Criar**.
 
     > [!NOTE]
     > Para um aplicativo do Windows, use o [SID do pacote](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como o URI em vez disso.
@@ -152,5 +143,5 @@ Você já configurou um aplicativo de cliente nativo que pode acessar seu aplica
 
 <!-- URLs. -->
 
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [alternative method]:#advanced

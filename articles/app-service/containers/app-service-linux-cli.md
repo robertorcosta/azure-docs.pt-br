@@ -1,26 +1,18 @@
 ---
-title: Gerenciar o Aplicativo Web para Contêineres usando a CLI do Azure – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Gerenciar aplicativo Web para Contêineres usando a CLI do Azure.
+title: Gerenciar contêineres personalizados do Linux com a CLI
+description: Saiba como gerenciar contêineres personalizados do Linux no serviço Azure App na linha de comando. Automatize o provisionamento ou a manutenção de aplicativos.
 keywords: serviço de aplicativo do azure, aplicativo web, cli, linux, oss
-services: app-service
-documentationCenter: ''
 author: ahmedelnably
-manager: cfowler
-editor: ''
-ms.assetid: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 5481e9f28d8fc47936ad62bd8d974beb5ca85fcd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 773c8036a345383162013f9f7103164b0f382f12
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071304"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689051"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerenciar aplicativo Web para Contêineres usando a CLI do Azure
 
@@ -78,7 +70,7 @@ Com o comando a seguir, você pode habilitar a funcionalidade de CD e obter a UR
 az webapp deployment container config -n sname -g rgname -e true
 ```
 
-## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Criar um aplicativo do Aplicativo Web para Contêineres usando uma das estruturas de tempo de execução internas
+## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Criar um aplicativo do Aplicativo Web para Contêineres usando uma das estruturas de runtime internas
 
 Para criar um aplicativo PHP 5.6 do Aplicativo Web para Contêineres, use o seguinte comando.
 
@@ -102,10 +94,10 @@ Para configurar implantações do Git para seu aplicativo, você pode usar o seg
 az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> --branch <branch>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
 * [Instalar a CLI do Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (versão prévia)](../../cloud-shell/overview.md)
-* [Configurar ambientes de preparo no serviço de aplicativo do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implantação Contínua com o Aplicativo Web para Contêineres](app-service-linux-ci-cd.md)

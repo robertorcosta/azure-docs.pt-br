@@ -1,28 +1,22 @@
 ---
-title: Considerações de rede com um Ambiente do Serviço de Aplicativo – Azure
-description: Explica o tráfego de rede do ASE e como definir NSGs e UDRs com seu ASE
-services: app-service
-documentationcenter: na
+title: Considerações de rede
+description: Saiba mais sobre o tráfego de rede do ASE e como definir os grupos de segurança de rede e as rotas definidas pelo usuário com seu ASE.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470649"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687136"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
-## <a name="overview"></a>Visão geral ##
+## <a name="overview"></a>Visão Geral ##
 
  O Azure [ambiente do serviço de aplicativo][Intro] é uma implantação do serviço de Azure app em uma sub-rede em sua VNet (rede virtual) do Azure. Há dois tipos de implantação para um ASE (ambiente de Serviço de Aplicativo):
 
@@ -59,7 +53,7 @@ Quando você escala ou reduz verticalmente, são adicionadas novas funções de 
 
 Apenas para que o ASE opere, o ASE exige que as seguintes portas sejam abertas:
 
-| Uso | Da | Para |
+| Uso | De | Para |
 |-----|------|----|
 | Gerenciamento | Endereços de gerenciamento do Serviço de Aplicativo | Sub-rede ASE: 454, 455 |
 |  Comunicação interna ASE | Sub-rede ASE: todas as portas | Sub-rede ASE: todas as portas
@@ -119,7 +113,7 @@ Além das dependências funcionais do ASE, há alguns itens adicionais relaciona
 -   Streaming de log
 -   Kudu
 -   Extensões
--   Gerenciador de Processos
+-   Explorador de Processos
 -   Console
 
 Quando você usa um ASE ILB, o site do SCM não é acessível de fora da VNet. Alguns recursos não funcionarão no portal do aplicativo, pois eles exigem acesso ao site do SCM de um aplicativo. Você pode se conectar ao site do SCM diretamente em vez de usar o Portal. 
@@ -148,7 +142,7 @@ Com um ASE externo, você pode atribuir endereços IP a aplicativos individuais.
 
 Quando um aplicativo tem seu próprio endereço SSL com base em IP, o ASE reserva duas portas para mapear para esse endereço IP. Uma porta é para o tráfego HTTP e a outra porta é para HTTPS. Essas portas estão listadas na interface de usuário do ASE na seção de endereços IP. O tráfego deverá ser capaz de alcançar essas portas do VIP ou os aplicativos ficarão inacessíveis. É importante lembrar-se desse requisito ao configurar NSGs (grupos de segurança de rede).
 
-## <a name="network-security-groups"></a>Grupos de segurança de rede ##
+## <a name="network-security-groups"></a>Grupos de Segurança de Rede ##
 
 Os [grupos de segurança de rede][NSGs] fornecem a capacidade de controlar o acesso à rede em uma VNet. Quando você usa o portal, há uma regra de negação implícita a prioridade mais baixa para negar tudo. O que você cria são suas regras de permissão.
 
@@ -206,7 +200,7 @@ Para criar as mesmas rotas manualmente, siga estas etapas:
 
 3. Dentro da interface do usuário da tabela de rota, selecione **Rotas** > **Adicionar**.
 
-4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Selecione **Salvar**.
+4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Clique em **Salvar**.
 
     Então você verá algo semelhante ao que se segue:
 

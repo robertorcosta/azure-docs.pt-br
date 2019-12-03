@@ -1,25 +1,19 @@
 ---
-title: Solucionar problemas de domínio e certificados SSL – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Solucionar problemas de domínio e de certificado SSL nos Serviço de Aplicativo do Azure
-services: app-service\web
-documentationcenter: ''
+title: Solucionar problemas de domínio e certificados SSL
+description: Encontre soluções para os problemas comuns que você pode encontrar ao configurar um domínio ou certificado SSL no serviço Azure App.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470136"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688337"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e de certificado SSL nos Serviço de Aplicativo do Azure
 
@@ -94,7 +88,7 @@ Esse problema pode ocorrer por qualquer um dos seguintes motivos:
 
     **Solução**: se o certificado estiver marcado como fraude e não for resolvido após 24 horas, siga estas etapas:
 
-    1. Entre no [Portal do Azure](https://portal.azure.com).
+    1. Entre no [portal do Azure](https://portal.azure.com).
     2. Vá para **Certificados do Serviço de Aplicativo** e selecione o certificado.
     3. Selecione **Configuração de Certificado** > **Etapa 2: verificar** > **Verificação de domínio**. Essa etapa envia uma notificação de email para o provedor de certificados do Azure para resolver o problema.
 
@@ -196,7 +190,7 @@ O serviço de aplicativo sincroniza automaticamente seu certificado dentro de 48
 
 Você pode forçar uma sincronização do certificado:
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Selecione os **Certificados do Serviço de Aplicativo** e, em seguida, selecione o certificado.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione os **Certificados do Serviço de Aplicativo** e, em seguida, selecione o certificado.
 2. Selecione **rechaveamento e sincronização**e, em seguida, selecione **sincronizar**. A sincronização leva algum tempo para ser concluída. 
 3. Quando a sincronização for concluída, você verá a notificação a seguir: "Todos os recursos atualizados com êxito com o certificado mais recente."
 
@@ -268,11 +262,11 @@ Esse problema ocorre por um dos seguintes motivos:
 
     |Tipo de registro|Host|Apontar para|
     |------|------|-----|
-    |Uma|@|Endereço IP para um aplicativo|
+    |A|@|Endereço IP para um aplicativo|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>Perguntas Frequentes
 
 **É necessário configurar meu domínio personalizado para meu site depois de comprá-lo?**
 
