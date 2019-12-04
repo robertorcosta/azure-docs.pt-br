@@ -127,8 +127,12 @@
           href: security-center-monitoring.md
         - name: Proteger seus computadores e aplicativos
           href: security-center-virtual-machine-protection.md
+        - name: Referência de recomendações de computadores e aplicativos
+          href: recommendations-compute-and-apps.md
         - name: Proteger os recursos da rede
           href: security-center-network-recommendations.md
+        - name: Referência de recomendações de rede
+          href: recommendations-network.md
         - name: Proteger dados e serviços de armazenamento
           href: security-center-sql-service-recommendations.md
         - name: Proteger identidade e acesso

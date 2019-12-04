@@ -40,6 +40,8 @@
       href: virtual-wan-custom-ipsec-portal.md
     - name: Configurar certificados para o VPN de usuário (ponto a site)
       href: certificates-point-to-site.md
+    - name: Configurar a autenticação do Azure AD para a VPN do Usuário (versão prévia)
+      href: virtual-wan-point-to-site-azure-ad.md
     - name: Configurar a automação (parceiros da WAN Virtual)
       href: virtual-wan-configure-automation-providers.md
     - name: Configurar o roteamento

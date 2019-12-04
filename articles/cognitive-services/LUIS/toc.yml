@@ -46,10 +46,10 @@
         - name: 2. Extrair dados de usuário
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
+        - name: 3. Obter sentimento das declarações de usuário
+          href: tutorial-publish-settings.md
     - name: Compilar aplicativo
       items:
-        - name: Obter sentimento das declarações de usuário
-          href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: Obter dados bem formatados com expressões regulares
           href: luis-quickstart-intents-regex-entity.md
         - name: Obter correspondências exatas de texto com listas
