@@ -148,8 +148,6 @@
               href: plan-migrate-adfs-password-hash-sync.md
             - name: Migrar da federação para PTA
               href: plan-migrate-adfs-pass-through-authentication.md
-            - name: Autenticação de nuvem – Distribuição em Etapas (versão prévia pública)
-              href: how-to-connect-staged-rollout.md
         - name: Considerações do Design de Identidade Híbrida
           items:
             - name: Visão geral das considerações do Design de Identidade Híbrida
