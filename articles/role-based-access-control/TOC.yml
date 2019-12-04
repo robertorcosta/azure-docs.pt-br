@@ -28,15 +28,31 @@
       href: tutorial-custom-role-cli.md
 - name: Conceitos
   items:
-    - name: Compreender as definições de função
-      href: role-definitions.md
     - name: PIM para Recursos do Azure
       href: pim-azure-resource.md
     - name: Acesso condicional para o gerenciamento do Azure
       href: conditional-access-azure-management.md
 - name: Guias de instruções
   items:
-    - name: Gerenciar acesso
+    - name: Lista de definições de função
+      items:
+        - name: Visão geral
+          href: role-definitions.md
+        - name: Lista de definições de função
+          href: role-definitions-list.md
+        - name: Funções internas
+          href: built-in-roles.md
+    - name: Listar atribuições de função
+      items:
+        - name: Portal
+          href: role-assignments-list-portal.md
+        - name: PowerShell
+          href: role-assignments-list-powershell.md
+        - name: CLI
+          href: role-assignments-list-cli.md
+        - name: API REST
+          href: role-assignments-list-rest.md
+    - name: Adicionar ou remover atribuições de função
       items:
         - name: Portal
           href: role-assignments-portal.md
@@ -50,9 +66,9 @@
           href: role-assignments-rest.md
         - name: Modelo
           href: role-assignments-template.md
-    - name: Negar acesso
+    - name: Listar atribuições de negação
       items:
-        - name: Negar atribuições
+        - name: Visão geral
           href: deny-assignments.md
         - name: Portal
           href: deny-assignments-portal.md
@@ -60,7 +76,7 @@
           href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
-    - name: Funções personalizadas
+    - name: Criar funções personalizadas
       items:
         - name: Visão geral
           href: custom-roles.md
@@ -72,7 +88,7 @@
           href: custom-roles-rest.md
     - name: Exibir logs de atividade
       href: change-history-report.md
-    - name: Elevar o acesso para gerenciar todas as assinaturas
+    - name: Elevar o acesso
       href: elevate-access-global-admin.md
     - name: Administradores clássicos
       href: classic-administrators.md
@@ -80,8 +96,6 @@
       href: troubleshooting.md
 - name: Referência
   items:
-    - name: Funções internas
-      href: built-in-roles.md
     - name: Operações de provedor de recursos
       href: resource-provider-operations.md
     - name: Limites RBAC

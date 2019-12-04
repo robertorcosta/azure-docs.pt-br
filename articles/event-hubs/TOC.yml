@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Habilitar Integração de Redes Virtuais e Firewalls no Namespace dos Hubs de Eventos
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configurar chaves gerenciadas pelo cliente para criptografia de dados em repouso
+        - name: Configurar chaves gerenciadas pelo cliente para criptografia de dados em repouso (versão prévia)
           href: configure-customer-managed-key.md
     - name: Solucionar problemas
       items:
