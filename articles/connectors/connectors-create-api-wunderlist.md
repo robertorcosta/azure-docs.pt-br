@@ -1,22 +1,18 @@
 ---
-title: Conectar-se com o Wunderlist dos Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar-se ao Wunderlist de aplicativos lógicos do Azure
 description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam listas, tarefas e lembretes, entre outros, em sua conta do Wunderlist usando os Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: d57ab4a7b655a7d49a7120d358dccc627099e5fd
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 5ac13595bd77238aaede5fa3bdc3a35ef69e8504
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050653"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789113"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Monitore e gerencie o Wunderlist usando os Aplicativos Lógicos do Azure
 
@@ -31,7 +27,7 @@ O [Wunderlist](https://www.wunderlist.com/) é um serviço que ajuda você a pla
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * Suas credenciais de usuário e conta do Wunderlist
 
@@ -52,13 +48,13 @@ O [Wunderlist](https://www.wunderlist.com/) é um serviço que ajuda você a pla
    * Para aplicativos lógicos em branco, na caixa de pesquisa, insira "wunderlist" como o filtro. 
    Na lista de gatilhos, selecione o gatilho desejado. 
 
-     - ou -
+     -ou-
 
    * Para aplicativos lógicos existentes: 
    
      * Na última etapa em que você deseja adicionar uma ação, escolha **Nova etapa**. 
 
-       - ou -
+       -ou-
 
      * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
      Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
@@ -79,6 +75,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explic
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

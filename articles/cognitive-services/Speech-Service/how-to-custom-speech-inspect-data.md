@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: cf0deffb6fe484f7e3ee38b95f285bb4b7cc809c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 07426e096858dec61f501581be565dc4137d6316
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072570"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773343"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados de Fala Personalizada
 
@@ -41,6 +41,8 @@ Siga estas instruções para criar um teste:
 
 Depois que um teste tiver sido criado com êxito, você poderá comparar os modelos lado a lado.
 
+[!INCLUDE [service-pricing-advisory](includes/service-pricing-advisory.md)]
+
 ## <a name="side-by-side-model-comparisons"></a>Comparações de modelo lado a lado
 
 Quando o status do teste for _bem-sucedido_, clique no nome do item de teste para ver os detalhes do teste. Essa página de detalhes lista todos os declarações no conjunto de seus conjuntos de anotações, indicando os resultados de reconhecimento dos dois modelos junto com a transcrição do conjunto de resultados enviado.
@@ -49,7 +51,7 @@ Para ajudar a inspecionar a comparação lado a lado, você pode alternar vário
 
 Inspecionar testes de qualidade é útil para validar se a qualidade de um ponto de extremidade de reconhecimento de fala é suficiente para um aplicativo. Para uma medida objetiva de precisão, exigindo áudio transcrita, siga as instruções encontradas em [avaliar exatidão](how-to-custom-speech-evaluate-data.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
 - [Treinar seu modelo](how-to-custom-speech-train-model.md)

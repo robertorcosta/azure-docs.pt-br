@@ -1,17 +1,17 @@
 ---
-title: Compatibilidade de drivers do banco de dados do Azure para MySQL e ferramentas de gerenciamento
+title: Compatibilidade de drivers e ferramentas-banco de dados do Azure para MySQL
 description: Esse artigo descreve os drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.openlocfilehash: 916c02c30f6d54aef44459775a7a437fe96a4ff9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 12/02/2019
+ms.openlocfilehash: 83c1463beec47ed3535811de822348cc7706f757
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720147"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765334"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL
 Esse artigo descreve os drivers e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
@@ -40,7 +40,7 @@ O Banco de Dados do Azure para MySQL usa a edição de comunidade mais popular d
 | Swift | MySQL-Swift | https://github.com/novi/mysql-swift | 0.7.2 + | | |
 | Swift | vapor/MySQL | https://github.com/vapor/mysql-kit | 2.0.1 + | | |
 
-## <a name="management-tools"></a>Ferramentas de gerenciamento
+## <a name="management-tools"></a>Ferramentas de Gerenciamento
 A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de banco de dados também. Suas ferramentas existentes devem continuar trabalhando com o Banco de Dados do Azure para MySQL, contanto que a manipulação do banco de dados seja operada dentro dos limites das permissões de usuário. Três ferramentas comuns de gerenciamento de banco de dados que foram testadas e identificadas como compatíveis com o Banco de Dados do Azure para MySQL 5.6 e 5.7 estão listadas na tabela a seguir:
 
 |                                     | **MySQL Workbench 6.x e superior** | **Navicat 12** | **PHPMyAdmin 4.x e superior** |
@@ -54,6 +54,6 @@ A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de
 | Exibir parâmetros do servidor | X | X | X |
 | Exibir conexões de cliente | X | X | X |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Solucionar problemas de conexão no Banco de Dados do Azure para MySQL](howto-troubleshoot-common-connection-issues.md)

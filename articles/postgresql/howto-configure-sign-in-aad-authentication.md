@@ -1,17 +1,17 @@
 ---
-title: Configurar e entrar com o Azure AD para o banco de dados do Azure para PostgreSQL-servidor único
-description: Saiba mais sobre como configurar o Azure Active Directory para autenticação com o banco de dados do Azure para PostgreSQL-servidor único
+title: Usar o Azure Active Directory-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba mais sobre como configurar o AAD (Azure Active Directory) para autenticação com o banco de dados do Azure para PostgreSQL-servidor único
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d5abfe4cc6aa0679d8009343fa24c1059700bb79
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c929ac1c171547a4ff485fc43f0f329440f9c3b5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516026"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763633"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Usar Azure Active Directory para autenticação com PostgreSQL
 
@@ -201,7 +201,7 @@ GRANT azure_ad_user TO "DBReadUser";
 
 Isso pressupõe que você criou um grupo "DBReadUser" no Azure AD. Os usuários que pertencem a esse grupo agora poderão entrar no banco de dados como esse usuário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Examine os conceitos gerais para [Azure Active Directory autenticação com o banco de dados do Azure para PostgreSQL-servidor único](concepts-aad-authentication.md)
 

@@ -1,19 +1,19 @@
 ---
-title: Otimizar inserções em massa em um banco de dados do Azure para PostgreSQL – servidor único
-description: Este artigo descreve como você pode otimizar as operações de inserção em massa em um banco de dados do Azure para PostgreSQL – servidor único.
+title: Otimizar inserções em massa-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como você pode otimizar operações de inserção em massa em um banco de dados do Azure para PostgreSQL-servidor único.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c1ae29f7c498a79af09aaaf6d7aeae29561aa500
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c4bac16917be0064ebb111328753d378d462a2a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067040"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770128"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Otimizar inserções em massa e usar dados transitórios em um banco de dados do Azure para PostgreSQL – servidor único 
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Otimizar inserções em massa e usar dados transitórios em um banco de dado do Azure para PostgreSQL-servidor único 
 Este artigo descreve como você pode otimizar operações de inserção em massa e usar dados temporários em um servidor do Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="use-unlogged-tables"></a>Usar tabelas não registradas
@@ -34,7 +34,7 @@ Tabelas não registradas não estão livres de falhas. Uma tabela não registrad
 
 Em algumas cargas de trabalho de clientes, observamos um aprimoramento no desempenho de aproximadamente 15% a 20% no uso de tabelas não registradas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Analise sua carga de trabalho para usos de dados transitórios e inserções em massa grandes. Confira a seguinte documentação do PostgreSQL:
  
 - [Criar comandos SQL de tabela](https://www.postgresql.org/docs/current/static/sql-createtable.html)

@@ -1,20 +1,17 @@
 ---
-title: Chamar, disparar ou aninhar aplicativos lógicos-aplicativos lógicos do Azure
+title: Chamar, disparar ou aninhar aplicativos lógicos
 description: Configurar pontos de extremidade HTTP para chamar, disparar ou aninhar fluxos de trabalho de aplicativo lógico em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.workload: integration
-author: ecfan
-ms.author: klam
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: 27a3bf036cce27a5f215068ff71928cb7e181452
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833969"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792023"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTP em aplicativos lógicos do Azure
 
@@ -39,11 +36,11 @@ Se você for novo em aplicativos lógicos, consulte [o que é o início rápido 
 
 ## <a name="create-a-callable-endpoint"></a>Criar um ponto de extremidade que possa ser chamado
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Crie e abra um aplicativo lógico em branco no designer de aplicativo lógico.
+1. Entre no [portal do Azure](https://portal.azure.com). Crie e abra um aplicativo lógico em branco no designer de aplicativo lógico.
 
    Este exemplo usa o gatilho Request, mas você pode usar qualquer gatilho que possa receber solicitações HTTP de entrada. Todos os princípios se aplicam de forma idêntica a esses gatilhos. Para obter mais informações sobre o gatilho de solicitação, consulte [receber e responder a chamadas HTTPS de entrada usando o aplicativo lógico do Azure](../connectors/connectors-native-reqres.md).
 
-1. Na caixa de pesquisa, selecione **interno**. Na caixa de pesquisa, insira `request` como seu filtro. Na lista de gatilhos, selecione **quando uma solicitação HTTP é recebida**.
+1. Na caixa de pesquisa, selecione **interno**. Na caixa de pesquisa, insira `request` como o filtro. Na lista de gatilhos, selecione **quando uma solicitação HTTP é recebida**.
 
    ![Localizar e selecionar o gatilho de solicitação](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
 
@@ -157,7 +154,7 @@ Quando desejar que a URL do ponto de extremidade aceite parâmetros, especifique
 
    1. No gatilho de solicitação, selecione **nova etapa** > **Adicionar uma ação**.
 
-   1. Em **escolher uma ação**, na caixa de pesquisa, insira `response` como filtro.
+   1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro.
 
    1. Na lista ações, selecione a ação **resposta** .
 
@@ -231,7 +228,7 @@ Você pode aninhar os fluxos de trabalho no aplicativo lógico adicionando outro
 
 1. Na etapa em que você deseja chamar outro aplicativo lógico, selecione **nova etapa** > **Adicionar uma ação**.
 
-1. Em **escolher uma ação**, selecione **interno**. Na caixa de pesquisa, insira `logic apps` como seu filtro. Na lista ações, selecione **escolher um fluxo de trabalho de aplicativos lógicos**.
+1. Em **Escolha uma ação**, selecione **Interno**. Na caixa de pesquisa, insira `logic apps` como o filtro. Na lista ações, selecione **escolher um fluxo de trabalho de aplicativos lógicos**.
 
    ![Aninhar aplicativo lógico dentro do aplicativo lógico atual](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -278,7 +275,7 @@ No corpo da resposta, você pode incluir vários cabeçalhos e qualquer tipo de 
 
 As respostas têm estas propriedades:
 
-| Propriedade (exibição) | Propriedade (JSON) | DESCRIÇÃO |
+| Propriedade (exibição) | Propriedade (JSON) | Descrição |
 |--------------------|-----------------|-------------|
 | **Código de status** | `statusCode` | O código de status HTTP a ser usado na resposta para a solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
 | **Cabeçalhos** | `headers` | Um ou mais cabeçalhos a serem incluídos na resposta |
@@ -305,7 +302,7 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 }
 ```
 
-## <a name="q--a"></a>Perguntas e respostas
+## <a name="q--a"></a>P e R
 
 #### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
 
@@ -326,6 +323,6 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 * Configurar seus domínios de gerenciamento de API no [portal do Azure](https://portal.azure.com/)
 * Configurar a política para verificar a autenticação Básica
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure](../connectors/connectors-native-reqres.md)

@@ -1,20 +1,17 @@
 ---
-title: Obter mais itens ou registros com paginação-aplicativos lógicos do Azure
+title: Obter mais itens ou registros com paginação
 description: Configurar paginação para exceder o limite de tamanho de página padrão para ações de conector nos aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: e86600312490c77ed492cb28a359add0fed90596
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 75d9660eb35b5d7ddc644d177c11ae489e2853dc
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679887"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792116"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obter mais dados, itens ou registros usando paginação em aplicativos lógicos do Azure
 
@@ -35,15 +32,15 @@ Aqui está uma lista com apenas alguns dos conectores onde você pode exceder o 
 * [Excel](https://docs.microsoft.com/connectors/excel/)
 * [HTTP](https://docs.microsoft.com/azure/connectors/connectors-native-http)
 * [IBM DB2](https://docs.microsoft.com/connectors/db2/)
-* [Microsoft Teams](https://docs.microsoft.com/connectors/teams/)
-* [Oracle Database](https://docs.microsoft.com/connectors/oracle/)
+* [Equipes da Microsoft](https://docs.microsoft.com/connectors/teams/)
+* [Banco de dados Oracle](https://docs.microsoft.com/connectors/oracle/)
 * [Salesforce](https://docs.microsoft.com/connectors/salesforce/)
 * [SharePoint](https://docs.microsoft.com/connectors/sharepointonline/)
 * [SQL Server](https://docs.microsoft.com/connectors/sql/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você ainda não tiver uma assinatura do Azure, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso ainda não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * O aplicativo lógico e a ação em que você deseja ativar a paginação. Se você não tiver um aplicativo lógico, consulte [início rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -61,7 +58,7 @@ Para determinar se uma ação dá suporte à paginação no designer do aplicati
 
    ![Especificar o número mínimo de resultados a serem retornados](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
-1. Quando estiver pronto, escolha **concluído**.
+1. Quando estiver pronto, escolha **Concluído**.
 
 ## <a name="workflow-definition---pagination"></a>Definição de fluxo de trabalho – paginação
 
@@ -87,4 +84,4 @@ Quando você ativa a paginação para uma ação que dá suporte a esse recurso,
 
 ## <a name="get-support"></a>Obter suporte
 
-Para perguntas, visite o [Fórum de aplicativos lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).

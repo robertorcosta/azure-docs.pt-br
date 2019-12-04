@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 90dc42ed6ca16947902622cba0e5a81a2bc900e3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382016"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785987"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -36,13 +36,16 @@ Este tópico:
 
 Para configurar a autenticação baseada em certificado, as instruções a seguir devem ser verdadeiras:
 
-- A CBA (Autenticação Baseada em Certificado) tem suporte apenas em ambientes Federados para aplicativos de navegador ou clientes nativos que usam autenticação moderna (ADAL). A exceção é EAS (Exchange Active Sync) para EXO, que pode ser usada para contas gerenciadas e federadas.
+- A CBA (autenticação baseada em certificado) só tem suporte em ambientes federados para aplicativos de navegador, clientes nativos que usam a ADAL (autenticação moderna) ou bibliotecas MSAL. A exceção é EAS (Exchange Active Sync) para EXO, que pode ser usada para contas gerenciadas e federadas.
 - A autoridade de certificação raiz e qualquer autoridade de certificação intermediária devem ser configuradas no Azure Active Directory.
 - Cada autoridade de certificação deve ter uma CRL (Lista de Certificados Revogados) que pode ser referenciada por meio de uma URL para a Internet.
 - Você deve ter pelo menos uma autoridade de certificação configurada no Azure Active Directory. Você pode encontrar etapas relacionadas na seção [Configuração de autoridades de certificação](#step-2-configure-the-certificate-authorities).
 - Para clientes do Exchange ActiveSync, o certificado de cliente deve ter o email roteável do usuário no Exchange Online, seja no valor Nome principal ou Nome RFC822 do campo Nome Alternativo da Entidade. O Azure Active Directory mapeia o valor de RFC822 para o atributo Endereço de Proxy no diretório.
 - O dispositivo do cliente deve ter acesso a pelo menos uma autoridade de certificação que emite certificados de cliente.
 - Um certificado de cliente para autenticação de cliente deve ter sido emitido para seu cliente.
+
+>[!IMPORTANT]
+>O tamanho máximo de uma CRL para Azure Active Directory ser baixado com êxito e o cache é 20 MB, e o tempo necessário para baixar a CRL não deve exceder 10 segundos.  Se Azure Active Directory não puder baixar uma CRL, as autenticações baseadas em certificado usando certificados emitidos pela autoridade de certificação correspondente falharão. As práticas recomendadas para garantir que os arquivos de CRL estejam dentro das restrições de tamanho são manter os tempos de vida dos certificados dentro dos limites razoáveis e limpar os certificados expirados. 
 
 ## <a name="step-1-select-your-device-platform"></a>Etapa 1: selecione a plataforma do dispositivo
 
@@ -96,7 +99,7 @@ Para a configuração, você pode usar o [Azure Active Directory PowerShell vers
 
 Como essa é a primeira etapa de configuração, você precisa estabelecer uma conexão com seu locatário. Como existe uma conexão com o seu locatário, você pode revisar, adicionar, excluir e modificar autoridades de certificação confiáveis que são definidas em seu diretório.
 
-### <a name="connect"></a>Connect
+### <a name="connect"></a>Conectar
 
 Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
@@ -202,7 +205,7 @@ Um perfil do EAS pode ser configurado e colocado no dispositivo por meio da util
 1. Configure um perfil EAS no aplicativo que atenda aos requisitos da seção anterior.
 2. Abra o aplicativo e verifique a sincronização de email.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Informações adicionais sobre autenticação baseada em certificado nos dispositivos Android.](active-directory-certificate-based-authentication-android.md)
 

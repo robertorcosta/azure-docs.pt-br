@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: moslake
+author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 11/04/2019
-ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/03/2019
+ms.openlocfilehash: a304b7fb0ba90d4ccf3805f47a5b04a2d3d8765e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818269"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775576"
 ---
 # <a name="azure-sql-database-serverless"></a>Recurso sem servidor do Banco de Dados SQL do Azure
 
@@ -131,7 +131,7 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 |Descoberta e classificação de dados|Adicionar, modificar, excluir ou exibir os rótulos de confidencialidade|
 |Auditoria|Exibir os registros de auditoria.<br>Atualizando ou exibindo a política de auditoria.|
 |Mascaramento de dados|Adicionar, modificar, excluir ou exibir as regras de mascaramento de dados|
-|Transparent Data Encryption|Exibir o estado ou status de Transparent Data Encryption|
+|Criptografia de dados transparente|Exibir o estado ou status de Transparent Data Encryption|
 |Consultar o armazenamento de dados (desempenho)|Modificando ou exibindo configurações do repositório de consultas|
 |Ajuste automático|Aplicação e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como cópia.<br>Exportar para um arquivo BACPAC.|
@@ -145,7 +145,7 @@ O reinício retomado também é disparado durante a implantação de algumas atu
 
 Se um banco de dados sem servidor for pausado, o primeiro logon retomará o banco de dados e retornará um erro informando que o banco de dados está indisponível com o código de erro 40613. Depois que o banco de dados for retomado, o logon deve ser repetido para estabelecer a conectividade. Os clientes do banco de dados com lógica de repetição de conexão não devem ser modificados.
 
-### <a name="latency"></a>Latency
+### <a name="latency"></a>Latência
 
 A latência para retomar e pausar a autopausa em um banco de dados sem servidor geralmente é uma ordem de 1 minuto para retomar e 1-10 minutos para pausar a autopausa.
 
@@ -157,19 +157,19 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
    |Nome do objetivo de serviço|Camada de serviço|Geração de hardware|Máx. vCores|
    |---|---|---|---|
-   |GP_S_Gen5_1|Uso geral|Gen5|1|
-   |GP_S_Gen5_2|Uso geral|Gen5|2|
-   |GP_S_Gen5_4|Uso geral|Gen5|4|
-   |GP_S_Gen5_6|Uso geral|Gen5|6|
-   |GP_S_Gen5_8|Uso geral|Gen5|8|
-   |GP_S_Gen5_10|Uso geral|Gen5|10|
-   |GP_S_Gen5_12|Uso geral|Gen5|12|
-   |GP_S_Gen5_14|Uso geral|Gen5|14|
-   |GP_S_Gen5_16|Uso geral|Gen5|16|
+   |GP_S_Gen5_1|Propósito geral|Gen5|1|
+   |GP_S_Gen5_2|Propósito geral|Gen5|2|
+   |GP_S_Gen5_4|Propósito geral|Gen5|4|
+   |GP_S_Gen5_6|Propósito geral|Gen5|6|
+   |GP_S_Gen5_8|Propósito geral|Gen5|8|
+   |GP_S_Gen5_10|Propósito geral|Gen5|10|
+   |GP_S_Gen5_12|Propósito geral|Gen5|12|
+   |GP_S_Gen5_14|Propósito geral|Gen5|14|
+   |GP_S_Gen5_16|Propósito geral|Gen5|16|
 
 2. Opcionalmente, especifique o mínimo de vCores e o atraso de autopausa para alterar seus valores padrão. A tabela a seguir mostra os valores disponíveis para esses parâmetros.
 
-   |Parâmetro|Opções de valor|Valor padrão|
+   |.|Opções de valor|Valor padrão|
    |---|---|---|---|
    |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|vCores de 0,5|
    |Atraso de pausa automática|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desabilitar pausa automática: -1|60 minutos|
@@ -177,11 +177,11 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Criar novo banco de dados na camada de computação sem servidor 
 
-#### <a name="use-azure-portal"></a>Usar o portal do Azure
+#### <a name="use-azure-portal"></a>Use o Portal do Azure
 
 Consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 
-#### <a name="use-powershell"></a>Usar o PowerShell
+#### <a name="use-powershell"></a>Use o PowerShell
 
 O exemplo a seguir cria um novo banco de dados na camada de computação sem servidor.  Este exemplo especifica explicitamente o mínimo de vCores, o máximo de vCores e o atraso de pausa automática.
 
@@ -211,7 +211,7 @@ Para obter detalhes, consulte [criar banco de dados](/sql/t-sql/statements/creat
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Mover o banco de dados da camada de computação provisionada para a camada de computação sem servidor
 
-#### <a name="use-powershell"></a>Usar o PowerShell
+#### <a name="use-powershell"></a>Use o PowerShell
 
 O exemplo a seguir move um banco de dados da camada de computação provisionada para a camada de computação sem servidor. Este exemplo especifica explicitamente o mínimo de vCores, o máximo de vCores e o atraso de pausa automática.
 
@@ -247,19 +247,19 @@ Um banco de dados sem servidor pode ser movido para uma camada de computação p
 
 ### <a name="maximum-vcores"></a>Máximo de vCores
 
-#### <a name="use-powershell"></a>Usar o PowerShell
+#### <a name="use-powershell"></a>Use o PowerShell
 
 Modificar o vCores máximo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MaxVcore`.
 
 ### <a name="minimum-vcores"></a>Mínimo de vCores
 
-#### <a name="use-powershell"></a>Usar o PowerShell
+#### <a name="use-powershell"></a>Use o PowerShell
 
 Modificar o vCores mínimo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MinVcore`.
 
 ### <a name="autopause-delay"></a>Atraso de pausa automática
 
-#### <a name="use-powershell"></a>Usar o PowerShell
+#### <a name="use-powershell"></a>Use o PowerShell
 
 Modificar o atraso de autopausa é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `AutoPauseDelayInMinutes`.
 
@@ -281,7 +281,7 @@ O pool de recursos do usuário é o limite interno de gerenciamento de recursos 
 
 As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool de usuários de um banco de dados sem servidor são listadas na tabela a seguir:
 
-|Entidade|Métrica|DESCRIÇÃO|Unidades|
+|Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
 |Pacote do Aplicativo|app_cpu_percent|Percentual de vCores usados pelo aplicativo em relação ao máximo de vCores permitido para o aplicativo.|Percentual|
 |Pacote do Aplicativo|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período do relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário de vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo do máximo de CPU usado e a memória usada por segundo. Se o valor usado for menor que a quantidade mínima provisionada conforme definido pelo mínimo de vCores e de memória, a quantidade mínima provisionada será cobrada. Para comparar a CPU com a memória para fins de cobrança, a memória é normalizada em unidades de vCores, redimensionando a quantidade de memória em GB por 3 GB por vCore.|Segundos de vCore|
@@ -352,7 +352,7 @@ Benefício Híbrido do Azure (AHB) e os descontos de capacidade reservada não s
 
 A camada de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Norte do Reino Unido, Sul do Reino Unido 2, Oeste EUA Central e US Gov central (Iowa).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 - Para limites de recursos, consulte [Limites de recursos de camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

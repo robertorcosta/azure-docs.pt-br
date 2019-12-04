@@ -1,21 +1,19 @@
 ---
-title: Decodificar mensagens X12 - Aplicativos Lógicos do Azure | Microsoft Docs
+title: Decodificar mensagens X12
 description: Validar EDI e gerar confirmações com o decodificador de mensagem X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: 4a19462f4f849602fd14fe1204f1c7e3c01e6ec4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701439"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792362"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Decodificar mensagens X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -53,7 +51,7 @@ Veja os itens necessários:
 
 5.  Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
    
-    ![detalhes da conexão com a conta de integração](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
+    ![detalhes da conexão da conta de integração](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 
 6. Após a conexão ter sido criada, conforme mostrado neste exemplo, selecione a mensagem de arquivo simples X12 para decodificação.
 
@@ -89,13 +87,13 @@ O conector de Decodificação X12 executa as seguintes tarefas:
   * Verifica o número de controle de grupo em relação a outros números de controle no intercâmbio.
   * Verifica o número de controle do conjunto de transações em relação a outros números de controle de conjunto de transações nesse grupo.
 * Divide o intercâmbio em conjuntos de transações ou preserva todo o intercâmbio:
-  * Dividir intercâmbio como conjuntos de transação – suspender conjuntos transação com erro: Divide o intercâmbio em transação conjuntos e analisa cada conjunto de transações. 
+  * Dividir o Intercâmbio como conjuntos de transações – suspender conjuntos de transações em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
   A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
-  * Dividir intercâmbio como conjuntos de transação - suspender intercâmbio no erro: Divide o intercâmbio em transação conjuntos e analisa cada conjunto de transações. 
+  * Dividir o Intercâmbio como conjuntos de transações – suspender o intercâmbio em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
   Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
-  * Preservar intercâmbio - suspender conjuntos transação com erro: Preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  * Preservar intercâmbio – suspender conjuntos de transação em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
   A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
-  * Preservar intercâmbio - suspender intercâmbio no erro: Preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  * Preservar intercâmbio – suspender intercâmbio em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
   Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`. 
 * Gera uma confirmação técnica e/ou funcional (se configurado).
   * Uma confirmação técnica é gerada como resultado da validação de cabeçalho. A confirmação técnica relata o status do processamento de um cabeçalho e rodapé de intercâmbio pelo destinatário no endereço.
@@ -104,6 +102,6 @@ O conector de Decodificação X12 executa as seguintes tarefas:
 ## <a name="view-the-swagger"></a>Exibir o swagger
 Consulte os [detalhes do Swagger](/connectors/x12/). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
 

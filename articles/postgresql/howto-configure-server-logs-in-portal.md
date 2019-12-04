@@ -1,17 +1,17 @@
 ---
-title: Configurar e acessar logs de servidor no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure
-description: Este artigo descreve como configurar e acessar os logs de servidor no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure.
+title: Gerenciar logs-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como configurar e acessar os logs do servidor (arquivos. log) no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c77e708e14d34545754ca38095aedb63ff0172a1
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841516"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763677"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configurar e acessar o banco de dados do Azure para PostgreSQL-logs de servidor único do portal do Azure
 
@@ -23,7 +23,7 @@ As etapas neste artigo exigem que você tenha o [banco de dados do Azure para se
 ## <a name="configure-logging"></a>Configurar o registro em log
 Configure o acesso aos logs de consulta e de erros. 
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione seu servidor de Banco de Dados do Azure para PostgreSQL.
 
@@ -63,7 +63,7 @@ Após o início do log, você pode exibir uma lista de logs disponíveis e baixa
 
    ![Captura de tela da página de logs do servidor, com o ícone de seta para baixo realçado](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Consulte [logs do servidor de acesso na CLI](howto-configure-server-logs-using-cli.md) para saber como baixar logs programaticamente.
 - Saiba mais sobre [os logs de servidor](concepts-server-logs.md) no banco de dados do Azure para PostgreSQL. 
 - Para obter mais informações sobre as definições de parâmetro e log do PostgreSQL, consulte a documentação do PostgreSQL sobre [relatório de erros e registro em log](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).

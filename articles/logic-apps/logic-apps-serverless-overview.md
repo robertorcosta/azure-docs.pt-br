@@ -2,19 +2,18 @@
 title: Visão geral – servidor do Azure
 description: Crie soluções poderosas na nuvem sem se preocupar com a infraestrutura
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 363002712bdd06e74360de9af186f5a458a4999d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: d658efd278425358a2a931fe976827c3bae4247d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68385367"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792836"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Visão geral: Azure sem servidor com aplicativos lógicos do Azure e Azure Functions
 
@@ -32,7 +31,7 @@ Os [aplicativos lógicos do Azure](logic-apps-overview.md) fornecem uma maneira 
 
 Para uma introdução aos Aplicativos Lógicos, comece com [criar seu primeiro aplicativo lógico](quickstart-create-first-logic-app-workflow.md). Para obter mais informações técnicas sobre aplicativos lógicos, consulte a [referência do desenvolvedor](logic-apps-workflow-definition-language.md).
 
-## <a name="what-is-azure-functions"></a>O que é Azure Functions?
+## <a name="what-is-azure-functions"></a>O que é o Azure Functions?
 
 Azure Functions é um serviço para executar facilmente partes de código ou "funções" na nuvem. Você pode escrever apenas o código necessário para o problema atual, sem se preocupar com um aplicativo inteiro ou a infraestrutura necessária. Funções podem tornar o desenvolvimento ainda mais produtivo e você pode usar a linguagem de desenvolvimento de sua escolha, por exemplo, C#, F#, Node.js, Python ou PHP. Você paga apenas pelo tempo em que seu código é executado e o Azure é dimensionado conforme necessário.
 
@@ -42,7 +41,7 @@ Para começar a usar o Azure Functions, comece com [criar sua primeira função 
 
 O Azure fornece ferramentas avançadas para o desenvolvimento, implantação e gerenciamento de aplicativos sem servidor. Você pode criar aplicativos diretamente no portal do Azure, com [ferramentas no Visual Studio](logic-apps-serverless-get-started-vs.md)ou [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md). Depois de criar seu aplicativo, você pode [implantar esse aplicativo rapidamente com modelos de Azure Resource Manager](logic-apps-deploy-azure-resource-manager-templates.md). O Azure também fornece monitoramento, que pode ser acessado por meio da portal do Azure, por meio da API ou SDKs, ou com ferramentas integradas para Azure Monitor logs e Application Insights.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um aplicativo sem servidor no Visual Studio](logic-apps-serverless-get-started-vs.md)
 * [Criar um painel do Customer insights sem servidor](logic-apps-scenario-social-serverless.md)

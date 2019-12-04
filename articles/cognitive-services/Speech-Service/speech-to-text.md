@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/03/2019
 ms.author: erhopf
-ms.openlocfilehash: 49bfa4a0dbf0adc498d545a2908c20f0ffa35b4b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f04ad388922ad7f73bf4409f9a846291cbb08da3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075726"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774001"
 ---
 # <a name="what-is-speech-to-text"></a>O que é conversão de fala em texto?
 
@@ -23,26 +23,28 @@ A conversão de fala em texto dos serviços de fala do Azure, também conhecida 
 
 Por padrão, o serviço de fala a texto usa o modelo de linguagem universal. Esse modelo foi treinado usando dados de propriedade da Microsoft e é implantado na nuvem. É ideal para cenários de conversação e de ditado. Se estiver usando a conversão de fala em texto para funcionalidades de reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de idioma e de pronúncia personalizados para lidar com o ruído ambiente ou vocabulário específico do setor.
 
-Você pode facilmente capturar áudio de um microfone, ler de um fluxo ou acessar arquivos de áudio do armazenamento com o SDK de fala e as APIs REST. O SDK de Fala é compatível com WAV/PCM 16 bits, 16 kHz/8 kHz, áudio de canal único para o reconhecimento de fala. Outros formatos de áudio são compatíveis com o uso do [ponto de extremidade REST de conversão de fala em texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o [serviço de transcrição em lote](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Você pode facilmente capturar áudio de um microfone, ler de um fluxo ou acessar arquivos de áudio do armazenamento com o SDK de fala e as APIs REST. O SDK de Fala é compatível com WAV/PCM 16 bits, 16 kHz/8 kHz, áudio de canal único para o reconhecimento de fala. Formatos de áudio adicionais têm suporte usando o [ponto de extremidade REST de fala para texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o [serviço de transcrição do lote](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Principais recursos
 
 Aqui estão os recursos disponíveis por meio do SDK de fala e APIs REST:
 
-| Caso de uso | . | REST |
+| Caso de uso | SDK | REST |
 |--------- | --- | ---- |
-| Transcrever declarações curtos (< 15 segundos). Dá suporte apenas ao resultado final da transcrição. | sim | sim |
-| Transcrição contínua de longa declarações e áudio de streaming (> 15 segundos). Dá suporte a resultados provisórios e finais de transcrição. | sim | Não |
-| Derive tentativas de resultados de reconhecimento com [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | sim | Não\* |
-| Transcrição de lote de arquivos de áudio de forma assíncrona. | Não  | Sim\*\* |
-| Crie e gerencie modelos de fala. | Não | Sim\*\* |
-| Criar e gerenciar implantações de modelo personalizado. | Não  | Sim\*\* |
-| Crie testes de precisão para medir a precisão do modelo de linha de base versus modelos personalizados. | Não  | Sim\*\* |
-| Gerenciar assinaturas. | Não  | Sim\*\* |
+| Transcrever declarações curtos (< 15 segundos). Dá suporte apenas a um resultado final de transcrição. | SIM | Sim\* |
+| Transcrição contínua de longa declarações e áudio de streaming (> 15 segundos). Dá suporte a resultados provisórios e finais de transcrição. | SIM | Não |
+| Derive tentativas de resultados de reconhecimento com [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | SIM | Nenhum\*\* |
+| Transcrição de lote de arquivos de áudio de forma assíncrona. | Não  | Sim\*\*\* |
+| Crie e gerencie modelos de fala. | Não | Sim\*\*\* |
+| Criar e gerenciar implantações de modelo personalizado. | Não  | Sim\*\*\* |
+| Crie testes de precisão para medir a precisão do modelo de linha de base versus modelos personalizados. | Não  | Sim\*\*\* |
+| Gerenciar assinaturas. | Não  | Sim\*\*\* |
 
-\*as _intenções e as entidades do Luis podem ser derivadas usando uma assinatura Luis separada. Com essa assinatura, o SDK pode chamar LUIS para você e fornecer resultados de entidade e de intenção. Com a API REST, você pode chamar o LUIS por conta própria para derivar tentativas e entidades com sua assinatura do LUIS._
+\*_usando a funcionalidade REST, você pode transferir até 60 segundos de áudio e receberá um resultado final de transcrição._
 
-\*\*_esses serviços estão disponíveis usando o ponto de extremidade Cris.ai. Consulte [referência do Swagger](https://westus.cris.ai/swagger/ui/index)._
+\*\*_tentativas e entidades Luis podem ser derivadas usando uma assinatura Luis separada. Com essa assinatura, o SDK chama LUIS para você e fornece resultados de entidade e de intenção. Com a API REST, você chama o LUIS por conta própria para derivar tentativas e entidades com sua assinatura do LUIS._
+
+\*\*\*_esses serviços estão disponíveis usando o ponto de extremidade Cris.ai. Consulte [referência do Swagger](https://westus.cris.ai/swagger/ui/index)._
 
 ## <a name="get-started-with-speech-to-text"></a>Introdução à conversão de fala em texto
 
@@ -78,7 +80,7 @@ Se seus aplicativos, ferramentas ou produtos estiverem usando o Fala do Bing API
 - [Migrar do Fala do Bing para os serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
 - [Migrar do Fala Personalizada para os serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
-## <a name="reference-docs"></a>Documentos de Referência
+## <a name="reference-docs"></a>Documentos de referência
 
 - [SDK da fala](https://aka.ms/csspeech)
 - [SDK de Dispositivos de Fala](speech-devices-sdk.md)
@@ -86,7 +88,7 @@ Se seus aplicativos, ferramentas ou produtos estiverem usando o Fala do Bing API
 - [API REST: conversão de texto em fala](rest-text-to-speech.md)
 - [API REST: transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)
 - [Obtenha o SDK de fala](speech-sdk.md)

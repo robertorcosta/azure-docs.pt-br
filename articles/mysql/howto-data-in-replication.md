@@ -1,17 +1,17 @@
 ---
-title: Configurar a replicação nos dados para replicar dados no Banco de Dados do Azure para MySQL.
+title: Configurar o data-in Replication-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/31/2018
-ms.openlocfilehash: 7d56d7f8fcbd53d4f69863d260591ef80f3d7188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: eaebcf50084223e1c1f4df30294bece96cffda6d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459025"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774289"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
@@ -153,7 +153,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    - master_password: a senha para o servidor mestre
    - master_log_file: nome de arquivo de log binário de `show master status` em execução
    - master_log_pos: posição de log binário de `show master status` em execução
-   - master_ssl_ca: Contexto do Certificado de Autoridade de Certificação. Se não estiver usando SSL, passe em uma cadeia de caracteres vazia.
+   - master_ssl_ca: contexto do certificado de autoridade de certificação. Se não estiver usando SSL, passe em uma cadeia de caracteres vazia.
        - É recomendável passar esse parâmetro como uma variável. Confira os exemplos a seguir para obter mais informações.
 
 > [!NOTE]
@@ -228,5 +228,5 @@ Para ignorar um erro de replicação e permitir que a replicação continue, use
 CALL mysql.az_replication_skip_counter;
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [Replicação no Dados](concepts-data-in-replication.md) parra Banco de Dados do Azure para MySQL. 

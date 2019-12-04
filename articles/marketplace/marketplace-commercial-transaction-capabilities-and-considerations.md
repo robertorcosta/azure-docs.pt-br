@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823015"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791358"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funcionalidades e considerações de transação do Marketplace comercial
 
@@ -66,7 +66,7 @@ Dependendo da opção de transação usada, as taxas de licença de software do 
 
 * Pague conforme o uso: as taxas de licença de software são apresentadas como uma taxa de preços por vCPU (por hora e por núcleo) com base na infraestrutura do Azure usada. Isso se aplica apenas a máquinas virtuais e aplicativos do Azure.
 
-* • Preços de assinatura: as taxas de licença de software são apresentadas como uma taxa recorrente mensal ou anual, cobrada como uma taxa fixa ou por estação. Isso se aplica somente a aplicativos SaaS e aplicativos gerenciados pelo aplicativo do Azure.
+* Preços de assinatura: as taxas de licença de software são apresentadas como uma taxa de recorrência mensal ou anual, cobrada como uma taxa fixa ou por estação. Isso se aplica somente a aplicativos SaaS e aplicativos gerenciados pelo aplicativo do Azure.
 
 * Avaliação gratuita de software: sem cobrança de licenças de software por 30 dias ou 90 dias.
 
@@ -163,7 +163,7 @@ Os clientes também podem pagar usando um cartão de crédito e uma fatura mensa
 
 Por exemplo, se o cliente compra usando um cartão de crédito:
 
-|DESCRIÇÃO    |    Data  |
+|Descrição    |    Data  |
 |----------|----------|
 |Período de ordem   | 15 de agosto de 2018 – 30 de agosto de 2018 |
 |Prazo final (mês)   | 30 de agosto de 2018 |
@@ -177,12 +177,12 @@ Por exemplo, se o cliente compra usando um cartão de crédito:
 
 Se o cliente comprar usando um Enterprise Agreement:
 
-| DESCRIÇÃO |    Data  |
+| Descrição |    Data  |
 |----------|----------|
 |Período de ordem | 15 de agosto de 2018 – 30 de agosto de 2018 |
 |Prazo final (trimestre) | 30 de setembro de 2018 |
 |Data de cobrança | 15 de outubro de 2018 |
-|Efetue a caução de período (cartões de crédito, 30 dias) | n/d |
+|Efetue a caução de período (cartões de crédito, 30 dias) | N/D |
 |Início do período de coleta | 15 de outubro de 2018 |
 |Término do período de coleta (máximo, 90 dias) | 15 de janeiro de 2019 |
 |Data de pagamento do cliente | 30 de dezembro de 2018 |
@@ -238,7 +238,7 @@ Selecione modelos gratuitos, traga sua licença própria ou pague conforme o pre
 
 Deve provisionar uma ou mais máquinas virtuais e pulls por meio da soma dos preços de máquina virtual. Para aplicativos gerenciados em um único plano, uma assinatura mensal de taxa fixa pode ser selecionada como o modelo de preço, em vez do preço da máquina virtual. Em alguns casos, as tarifas de uso da infraestrutura do Azure são passadas para o cliente separadamente de taxas de licença de software, mas no mesmo demonstrativo de cobrança. No entanto, se você configurar uma oferta de aplicativo gerenciado para encargos de infraestrutura de ISV, os recursos do Azure serão cobrados para o Publicador e o cliente receberá uma tarifa fixa que inclui o custo de infraestrutura, licenças de software e serviços de gerenciamento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Examine os requisitos de qualificação nas opções de publicação pela seção de tipo de oferta para finalizar a seleção e a configuração de sua oferta.
 * Examine os padrões de publicação por vitrine eletrônica para obter exemplos de como sua solução é mapeada para uma configuração e tipo de oferta.

@@ -1,22 +1,18 @@
 ---
-title: Conectar ao Office 365 Outlook – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar-se ao Office 365 Outlook
 description: Gerenciar emails, contatos e calendários com as APIs REST do Office 365 e os Aplicativos Lógicos do Azure
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 858366947fe21a20d6f112fc51899d1533a36472
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105047"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789591"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Introdução ao conector do Outlook do Office 365
 O conector do Outlook do Office 365 permite interação com o Outlook no Office 365. Use esse conector para criar, editar e atualizar contatos e itens de calendário, bem como para obter, enviar e responder a emails.
@@ -68,7 +64,7 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 ## <a name="use-an-action"></a>Usar uma ação
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Selecione o sinal de mais. Você tem várias opções: **Adicionar uma ação**, **adicionar uma condição**, ou um dos **mais** opções.
+1. Selecione o sinal de mais. Você tem várias opções: **adicionar uma ação**, **adicionar uma condição** ou uma das opções **Mais**.
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
 2. Escolha **Adicionar uma ação**.
@@ -91,6 +87,6 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/office365connector/). 
 
-## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
+## <a name="next-steps"></a>Próximos passos
 
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

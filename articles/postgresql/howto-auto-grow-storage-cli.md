@@ -1,17 +1,17 @@
 ---
-title: Crescimento automático do banco de dados do Azure para PostgreSQL armazenamento-servidor único usando CLI do Azure
-description: Este artigo descreve como você pode habilitar o armazenamento de crescimento automático usando o CLI do Azure no banco de dados do Azure para PostgreSQL-servidor único.
+title: Aumento automático do armazenamento-CLI do Azure-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como você pode configurar o crescimento automático do armazenamento usando o CLI do Azure no banco de dados do Azure para PostgreSQL-servidor único.
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 8/7/2019
-ms.openlocfilehash: 272b26050288e63181c8d0c71dc2c1851f09f3c9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b0dc2fbb168d9325439ee18a227f71a3b88ef9c8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390838"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767935"
 ---
 # <a name="auto-grow-azure-database-for-postgresql-storage---single-server-using-the-azure-cli"></a>Crescimento automático do banco de dados do Azure para PostgreSQL armazenamento-servidor único usando o CLI do Azure
 Este artigo descreve como você pode configurar um banco de dados do Azure para armazenamento de servidor PostgreSQL para crescer sem afetar a carga de trabalho.
@@ -41,6 +41,6 @@ Habilite o armazenamento de crescimento automático do servidor ao criar um novo
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [como criar alertas sobre métricas](howto-alert-on-metric.md).

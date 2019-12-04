@@ -1,17 +1,17 @@
 ---
-title: Conectar o Azure Kubernetes Service (AKS) ao Banco de Dados do Azure para MySQL
+title: Conectar-se ao serviço kubernetes do Azure-banco de dados do Azure para MySQL
 description: Saiba como conectar o Serviço de Kubernetes do Azure ao Banco de Dados do Azure para MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/28/2018
-ms.openlocfilehash: d9f2e26a2bc89329ca9038c666c0d960289e2670
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 71b266231b7ed3012e5ea7f65fe9487eeb5fb358
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790514"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773604"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Conexão do Serviço de Kubernetes do Azure e Banco de Dados do Azure para MySQL
 
@@ -41,13 +41,13 @@ A saída será o grupo de recursos gerado que o AKS cria contendo o adaptador de
 az network nic list --resource-group nodeResourceGroup -o table
 ```
 
-## <a name="open-service-broker-for-azure"></a>Instalar o Open Service Broker para o Azure 
+## <a name="open-service-broker-for-azure"></a>Service Broker Aberto para Azure 
 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) permite provisionar serviços do Azure diretamente do Kubernetes ou do Cloud Foundry. É uma implementação do [Open Service Broker API](https://www.openservicebrokerapi.org/) para o Azure.
 
 Com o OSBA, você pode criar um Banco de Dados do Azure para MySQL e vinculá-lo ao cluster do AKS usando o idioma nativo do Kubernetes. Aprenda como usar o OSBA e o Banco de Dados do Azure para MySQL juntos na [Página do OSBA no GitHub](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Criar um cluster do Serviço de Kubernetes do Azure](../aks/kubernetes-walkthrough.md)
 - Aprenda como [Instalar o WordPress a partir de um gráfico do Helm usando o OSBA e o Banco de Dados do Azure para MySQL](../aks/integrate-azure.md)

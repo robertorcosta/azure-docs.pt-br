@@ -1,17 +1,17 @@
 ---
-title: Aumento automático do banco de dados do Azure para armazenamento MariaDB usando CLI do Azure
+title: Aumento automático do armazenamento-CLI do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como você pode habilitar o armazenamento de crescimento automático usando o CLI do Azure no banco de dados do Azure para MariaDB.
 author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 8/7/2019
-ms.openlocfilehash: 12ce525514535254637f8cd8f46ec40cc0bd74d0
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.date: 12/02/2019
+ms.openlocfilehash: 4c9677f31128076a80ec168151e74247bdc8bc51
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389863"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771843"
 ---
 # <a name="auto-grow-azure-database-for-mariadb-storage-using-the-azure-cli"></a>Aumento automático do banco de dados do Azure para armazenamento MariaDB usando o CLI do Azure
 Este artigo descreve como você pode configurar um banco de dados do Azure para o armazenamento do MariaDB Server para crescer sem afetar a carga de trabalho.
@@ -41,6 +41,6 @@ Habilite o armazenamento de crescimento automático do servidor ao criar um novo
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.3
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [como criar alertas sobre métricas](howto-alert-metric.md).

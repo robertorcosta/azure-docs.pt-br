@@ -1,17 +1,17 @@
 ---
-title: Arquitetura de conectividade no banco de dados do Azure para MySQL
+title: Arquitetura de conectividade-banco de dados do Azure para MySQL
 description: Descreve a arquitetura de conectividade do banco de dados do Azure para o servidor MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.openlocfilehash: c4fecfadefedf10f7e11534b4efbd197c4d7fdae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/02/2019
+ms.openlocfilehash: 22c77bee95533606156ec6cc337af1d743018005
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213147"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765317"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -28,12 +28,12 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 
 | **Nome da região** | **Endereço IP primário** | **Endereço IP secundário** |
 |:----------------|:-------------|:------------------------|
-| Leste da Austrália | 13.75.149.87 | 40.79.161.1 |
+| Austrália Oriental | 13.75.149.87 | 40.79.161.1 |
 | Sudeste da Austrália | 191.239.192.109 | 13.73.109.251 |
 | Sul do Brasil | 104.41.11.5 | |
 | Canadá Central | 40.85.224.249 | |
 | Leste do Canadá | 40.86.226.166 | |
-| Centro dos EUA | 23.99.160.139 | 13.67.215.62 |
+| EUA Central | 23.99.160.139 | 13.67.215.62 |
 | Leste da China 1 | 139.219.130.35 | |
 | Leste da China 2 | 40.73.82.1 | |
 | Norte da China 1 | 139.219.15.17 | |
@@ -51,31 +51,23 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Coreia Central | 52.231.32.42 | |
 | Sul da Coreia | 52.231.200.86 |  |
 | Centro-Norte dos EUA | 23.98.55.75 | 23.96.178.199 |
-| Norte da Europa | 191.235.193.75 | 40.113.93.91 |
-| Centro-Sul dos Estados Unidos | 23.98.162.75 | 13.66.62.124 |
-| Sudeste da Ásia | 23.100.117.95 | 104.43.15.0 |
+| Europa Setentrional | 191.235.193.75 | 40.113.93.91 |
+| Centro-Sul dos EUA | 23.98.162.75 | 13.66.62.124 |
+| Sudeste Asiático | 23.100.117.95 | 104.43.15.0 |
 | Norte da África do Sul | 102.133.152.0 | |
 | Oeste da África do Sul | 102.133.24.0 | |
 | Norte dos EAU | 65.52.248.0 | |
 | Sul do Reino Unido | 51.140.184.11 | |
 | Oeste do Reino Unido | 51.141.8.11| |
-| Europa Ocidental | 191.237.232.75 | 40.68.37.158 |
+| Oeste da Europa | 191.237.232.75 | 40.68.37.158 |
 | Oeste dos EUA 1 | 23.99.34.75 | 104.42.238.205 |
 | Oeste dos EUA 2 | 13.66.226.202 | |
 ||||
 
 > [!NOTE]
-> O *Leste dos EUA 2* também tem um endereço IP terciário igual a `52.167.104.0`.
+> O *leste dos EUA 2* também tem um endereço IP terciário de `52.167.104.0`.
 
-## <a name="connection-redirection"></a>Redirecionamento de conexão
-
-O banco de dados do Azure para MySQL dá suporte a uma política de conexão adicional, **redirecionamento**, que ajuda a reduzir a latência de rede entre aplicativos cliente e servidores MySQL. Com esse recurso, depois que a sessão TCP inicial é estabelecida com o banco de dados do Azure para o servidor MySQL, o servidor retorna o endereço de back-end do nó que hospeda o servidor MySQL para o cliente. Depois disso, todos os pacotes subsequentes fluem diretamente para o servidor, ignorando o gateway. À medida que os pacotes fluem diretamente para o servidor, a latência e a taxa de transferência têm desempenho aprimorado.
-
-Esse recurso tem suporte no banco de dados do Azure para servidores MySQL com versões do mecanismo 5,6, 5,7 e 8,0.
-
-O suporte de visualização para redirecionamento está disponível na extensão de [mysqlnd_azure do PHP](https://github.com/microsoft/mysqlnd_azure) , desenvolvido pela Microsoft e está disponível em [PECL](https://pecl.php.net/package/mysqlnd_azure). Consulte o artigo [Configurando o redirecionamento](./howto-redirection.md) para obter mais informações sobre como usar o redirecionamento em seus aplicativos. 
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando o Portal do Azure](./howto-manage-firewall-using-portal.md)
 * [Criar e gerenciar regras de firewall do banco de dados do Azure para MySQL usando o CLI do Azure](./howto-manage-firewall-using-cli.md)

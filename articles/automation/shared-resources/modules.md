@@ -3,17 +3,17 @@ title: Gerenciar módulos na automação do Azure
 description: Este artigo descreve como gerenciar módulos na automação do Azure
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 06/05/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 492dd182c782b0f6375c2f857cfa4921b065c546
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65759b32889f9a99b0322823bb8a4924788e8c09
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231584"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786462"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerenciar módulos na automação do Azure
 
@@ -32,6 +32,14 @@ Você pode usar o [New-AzureRmAutomationModule](/powershell/module/azurerm.autom
 
 ```azurepowershell-interactive
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+```
+
+Você também pode usar o mesmo cmdlet para importar um módulo de Galeria do PowerShell diretamente. Certifique-se de pegar **ModuleName** e **ModuleVersion** de [Galeria do PowerShell](https://www.powershellgallery.com).
+
+```azurepowershell-interactive
+$moduleName = <ModuleName>
+$moduleVersion = <ModuleVersion>
+New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -70,7 +78,11 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 Veja a seguir uma lista de cmdlets no módulo `Orchestrator.AssetManagement.Cmdlets` interno que é importado para cada conta de automação. Esses cmdlets podem ser acessados em seus runbooks e configurações DSC e permitem que você interaja com seus ativos na sua conta de automação. Além disso, os cmdlets internos permitem que você recupere segredos de valores de **variáveis** criptografados, **credenciais**e campos de **conexão** criptografados. Os cmdlets Azure PowerShell não podem recuperar esses segredos. Esses cmdlets não exigem que você se conecte implicitamente ao Azure ao usá-los, como usar uma conta Executar como para autenticar no Azure.
 
-|NOME|DESCRIÇÃO|
+>[!NOTE]
+>Esses cmdlets internos não estão disponíveis em um Hybrid Runbook Worker, eles só podem ser acessados de runbooks em execução no Azure. Use os módulos [AzureRM. Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) ou [AZ](../az-modules.md) correspondentes para runbooks em execução diretamente no computador ou em relação a recursos em seu ambiente. 
+>
+
+|name|Descrição|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -252,14 +264,14 @@ A tabela a seguir lista os módulos que são importados por padrão quando uma c
 | AzureRM.Sql | 1.0.3 |
 | AzureRM.Storage | 1.0.3 |
 | ComputerManagementDsc | 5.0.0.0 |
-| GPRegistryPolicyParser | 0.2 |
-| Microsoft.PowerShell.Core | 0 |
-| Microsoft.PowerShell.Diagnostics |  |
-| Microsoft.PowerShell.Management |  |
-| Microsoft.PowerShell.Security |  |
-| Microsoft.PowerShell.Utility |  |
-| Microsoft.WSMan.Management |  |
-| Orchestrator.AssetManagement.Cmdlets | 1 |
+| GPRegistryPolicyParser | 0,2 |
+| Microsoft. PowerShell. Core | 0 |
+| Microsoft. PowerShell. Diagnostics |  |
+| Microsoft. PowerShell. Management |  |
+| Microsoft. PowerShell. Security |  |
+| Microsoft. PowerShell. Utility |  |
+| Microsoft. WSMan. Management |  |
+| Orchestrator. AssetManagement. cmdlets | 1 |
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |
@@ -267,6 +279,6 @@ A tabela a seguir lista os módulos que são importados por padrão quando uma c
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como criar os Módulos do PowerShell, consulte [Escrevendo um Módulo do Windows PowerShell](/powershell/scripting/developer/windows-powershell)

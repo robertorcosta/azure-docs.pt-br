@@ -1,20 +1,19 @@
 ---
-title: Contratos entre parceiros comerciais – aplicativos lógicos do Azure
+title: Contratos entre parceiros comerciais
 description: Criar e gerenciar contratos entre parceiros comerciais usando aplicativos lógicos do Azure e Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 35ebaab47edd110258f537dbbb044387515ed6c4
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680414"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790730"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerenciar contratos de parceiros comerciais em aplicativos lógicos do Azure
 
@@ -31,7 +30,7 @@ Para criar contratos para a troca de mensagens RosettaNet, consulte [Exchange Ro
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você ainda não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso ainda não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para armazenar seu contrato e outros artefatos B2B. Esta conta de integração deve ser associada à sua assinatura do Azure.
 
@@ -41,7 +40,7 @@ Para criar contratos para a troca de mensagens RosettaNet, consulte [Exchange Ro
 
 ## <a name="create-agreements"></a>Criar contratos
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, insira "integração" como seu filtro. Nos resultados, selecione este recurso: **contas de integração**
 
    ![Localizar sua conta de integração](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
@@ -58,14 +57,14 @@ No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesqui
 
    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-   | Propriedade | obrigatórios | Valor | DESCRIÇÃO |
+   | Propriedade | obrigatórios | Value | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome** | Sim | <*agreement-name*> | O nome do seu contrato |
-   | **Tipo de contrato** | Sim | **AS2**, **X12**ou **EDIFACT** | O tipo de protocolo para seu contrato. Quando você cria o arquivo de contrato, o conteúdo desse arquivo deve corresponder ao tipo de contrato. | |  
-   | **Parceiro de host** | Sim | <*host-partner-name*> | O parceiro host representa a organização que especifica o contrato |
-   | **Identidade do host** | Sim | <*host-partner-identifier*> | O identificador do parceiro do host |
-   | **Parceiro convidado** | Sim | <*guest-partner-name*> | O parceiro convidado representa a organização que está fazendo negócios com o parceiro host |
-   | **Identidade de convidado** | Sim | <*guest-partner-identifier*> | O identificador do parceiro convidado |
+   | **Nome** | SIM | *contrato de <-> de nome* | O nome do seu contrato |
+   | **Tipo de contrato** | SIM | **AS2**, **X12**ou **EDIFACT** | O tipo de protocolo para seu contrato. Quando você cria o arquivo de contrato, o conteúdo desse arquivo deve corresponder ao tipo de contrato. | |  
+   | **Parceiro de host** | SIM | <*host-nome do parceiro*> | O parceiro host representa a organização que especifica o contrato |
+   | **Identidade do host** | SIM | <o *identificador de parceiro de host*> | O identificador do parceiro do host |
+   | **Parceiro convidado** | SIM | <*convidado-nome do parceiro*> | O parceiro convidado representa a organização que está fazendo negócios com o parceiro host |
+   | **Identidade de convidado** | SIM | <o *identificador de parceiro convidado*> | O identificador do parceiro convidado |
    | **Configurações de recebimento** | Varia | Varia | Essas propriedades especificam como o parceiro host recebe todas as mensagens de entrada do parceiro convidado no contrato. Para obter mais informações, consulte o respectivo tipo de contrato: <p>- [configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
    | **Configurações de envio** | Varia | Varia | Essas propriedades especificam como o parceiro host envia todas as mensagens de saída para o parceiro convidado no contrato. Para obter mais informações, consulte o respectivo tipo de contrato: <p>- [configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
    |||||
@@ -102,7 +101,7 @@ No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesqui
 
 1. Confirme que você realmente deseja excluir o contrato selecionado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Trocar mensagens AS2](logic-apps-enterprise-integration-as2.md)
 * [Mensagens EDIFACT do Exchange](logic-apps-enterprise-integration-edifact.md)

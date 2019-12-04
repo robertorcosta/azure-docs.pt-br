@@ -1,20 +1,19 @@
 ---
-title: Acompanhar mensagens B2B com logs de Azure Monitor-aplicativos lógicos do Azure | Microsoft Docs
+title: Rastrear mensagens B2B com os logs do Azure Monitor
 description: Rastrear comunicação B2B para sua conta de integração e os Aplicativos Lógicos do Azure com o Azure Log Analytics
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 33c4efb2b783b5071513f069beac9cdf73c373a8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997854"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792922"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Rastrear mensagens B2B com os logs do Azure Monitor
 
@@ -51,7 +50,7 @@ Antes que você possa fazer com que os logs de Azure Monitor acompanhem mensagen
 
 1. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics. 
 
-   ![Selecione o Espaço de Trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
+   ![Selecione o espaço de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
 1. Em **Introdução ao Log Analytics** > **Configurar soluções de monitoramento**, escolha **Exibir soluções**.
 
@@ -67,7 +66,7 @@ Antes que você possa fazer com que os logs de Azure Monitor acompanhem mensagen
 
    ![Escolha "Criar" para B2B de aplicativos lógicos](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
-   Se você não quiser usar um workspace existente, também poderá criar um novo workspace neste momento.
+   Se não quiser usar um workspace existente, você poderá criar um novo workspace neste momento.
 
 1. Quando terminar, volte para a página **Visão geral** do seu workspace. 
 
@@ -150,13 +149,13 @@ Estas são as descrições das propriedades de cada mensagem AS2.
 | --- | --- |
 | Remetente | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do AS2 |
 | Receptor | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado em **Configurações de Envio** de um contrato do AS2 |
-| Aplicativo Lógico | O aplicativo lógico no qual as ações do AS2 são configuradas |
+| Aplicativo de lógica | O aplicativo lógico no qual as ações do AS2 são configuradas |
 | Status | O status da mensagem AS2 <br>Êxito = recebimento ou envio de uma mensagem AS2 válida. Nenhum MDN está configurado. <br>Êxito = recebimento ou envio de uma mensagem AS2 válida. O MDN está configurado e é recebido ou o MDN é enviado. <br>Com Falha = recebimento de uma mensagem AS2 inválida. Nenhum MDN está configurado. <br>Pendente = recebimento ou envio de uma mensagem AS2 válida. O MDN está configurado e o MDN é esperado. |
 | Ack | O status da mensagem MDN <br>Aceito = recebimento ou envio de um MDN positivo. <br>Pendente = aguardando recebimento ou envio de um MDN. <br>Rejeitado = recebimento ou envio de um MDN negativo. <br>Não Obrigatório = o MDN não está configurado no contrato. |
-| Direction | A direção da mensagem AS2 |
+| Direção | A direção da mensagem AS2 |
 | ID de Correlação | A ID que correlaciona todos os gatilhos e todas as ações em um aplicativo lógico |
 | ID da Mensagem | ID da mensagem AS2 dos cabeçalhos da mensagem AS2 |
-| Carimbo de data/hora | A hora em que a ação do AS2 processou a mensagem |
+| Timestamp | A hora em que a ação do AS2 processou a mensagem |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -181,15 +180,15 @@ Estas são as descrições das propriedades de cada mensagem X12.
 | --- | --- |
 | Remetente | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do X12 |
 | Receptor | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado especificado em **Configurações de Envio** de um contrato do X12 |
-| Aplicativo Lógico | O aplicativo lógico no qual as ações do X12 são configuradas |
+| Aplicativo de lógica | O aplicativo lógico no qual as ações do X12 são configuradas |
 | Status | O status da mensagem X12 <br>Êxito = recebimento ou envio de uma mensagem X12 válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebimento ou envio de uma mensagem X12 válida. Uma confirmação funcional está configurada e é recebida ou uma confirmação funcional é enviada. <br>Com Falha = recebimento ou envio de uma mensagem X12 inválida. <br>Pendente = recebimento ou envio de uma mensagem X12 válida. Uma confirmação funcional está configurada e uma confirmação funcional é esperada. |
 | Ack | Status da Confirmação Funcional (997) <br>Aceito = recebimento ou envio de uma confirmação funcional positiva. <br>Rejeitado = recebimento ou envio de uma confirmação funcional negativa. <br>Pendente = aguardando uma confirmação funcional, mas não recebida. <br>Pendente = geração de uma confirmação funcional, mas não foi possível enviá-la ao parceiro. <br>Não Obrigatório = uma confirmação funcional não está configurada. |
-| Direction | A direção da mensagem X12 |
+| Direção | A direção da mensagem X12 |
 | ID de Correlação | A ID que correlaciona todos os gatilhos e todas as ações em um aplicativo lógico |
 | Tipo de mensagem | O tipo de mensagem EDI X12 |
 | ICN | O Número de Controle de Intercâmbio da mensagem X12 |
 | TSCN | O Número de Controle do Conjunto de Transações da mensagem X12 |
-| Carimbo de data/hora | A hora em que a ação do X12 processou a mensagem |
+| Timestamp | A hora em que a ação do X12 processou a mensagem |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -214,15 +213,15 @@ Estas são as descrições das propriedades de cada mensagem EDIFACT.
 | --- | --- |
 | Remetente | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do EDIFACT |
 | Receptor | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado especificado em **Configurações de Envio** de um contrato do EDIFACT |
-| Aplicativo Lógico | O aplicativo lógico no qual as ações do EDIFACT são configuradas |
+| Aplicativo de lógica | O aplicativo lógico no qual as ações do EDIFACT são configuradas |
 | Status | O status da mensagem EDIFACT <br>Êxito = recebimento ou envio de uma mensagem EDIFACT válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebimento ou envio de uma mensagem EDIFACT válida. Uma confirmação funcional está configurada e é recebida ou uma confirmação funcional é enviada. <br>Com Falha = recebimento ou envio de uma mensagem EDIFACT inválida <br>Pendente = recebimento ou envio de uma mensagem EDIFACT válida. Uma confirmação funcional está configurada e uma confirmação funcional é esperada. |
 | Ack | Status de ACK funcional (CONTRL) <br>Aceito = recebimento ou envio de uma confirmação funcional positiva. <br>Rejeitado = recebimento ou envio de uma confirmação funcional negativa. <br>Pendente = aguardando uma confirmação funcional, mas não recebida. <br>Pendente = geração de uma confirmação funcional, mas não foi possível enviá-la ao parceiro. <br>Não Obrigatório = uma confirmação funcional não está configurada. |
-| Direction | A direção da mensagem EDIFACT |
+| Direção | A direção da mensagem EDIFACT |
 | ID de Correlação | A ID que correlaciona todos os gatilhos e todas as ações em um aplicativo lógico |
 | Tipo de mensagem | O tipo da mensagem EDIFACT |
 | ICN | O Número de Controle de Intercâmbio da mensagem EDIFACT |
 | TSCN | O Número de Controle do Conjunto de Transações da mensagem EDIFACT |
-| Carimbo de data/hora | A hora em que a ação do EDIFACT processou a mensagem |
+| Timestamp | A hora em que a ação do EDIFACT processou a mensagem |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
@@ -237,7 +236,7 @@ Estes são os formatos de nome de cada pasta de mensagens e arquivos EDIFACT bai
 | Entrada, saída e, se configurado, os arquivos de confirmação | **Conteúdo de entrada**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Conteúdo de saída**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p></p>**Entradas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p></p>**Saídas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Consulta de mensagens B2B em logs de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Esquemas de acompanhamento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)

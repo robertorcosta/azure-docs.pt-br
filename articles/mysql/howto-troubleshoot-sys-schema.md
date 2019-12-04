@@ -1,35 +1,35 @@
 ---
-title: Usar o sys_schema para ajustar o desempenho e manter o banco de dados do Azure para MySQL
-description: Saiba como usar o sys_schema para encontrar problemas de desempenho e manter o banco de dados no banco de dados do Azure para MySQL.
+title: Utilizar o sys_schema-banco de dados do Azure para MySQL
+description: Saiba como usar sys_schema para encontrar problemas de desempenho e manter o banco de dados no banco de dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 08/01/2018
-ms.openlocfilehash: 7dc6b4744c74c56803127f63a8a6f29ca5a15090
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 50552b87fad9d8f58ff8c48dc03463d4c901bf99
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972784"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775938"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Como usar sys_schema para ajuste de desempenho e manutenção de banco de dados no Banco de Dados do Azure para MySQL
 
-O performance_schema do MySQL, disponível primeiramente no MySQL 5.5, fornece instrumentação para muitos recursos de servidor vitais, como alocação de memória, programas armazenados, bloqueio de metadados e etc. No entanto, o performance_schema contém mais de 80 tabelas e, obter as informações necessárias muitas vezes requer junção de tabelas dentro do performance_schema, assim como tabelas do information_schema. Ao compilar o performance_schema e o information_schema, o sys_schema fornece uma coleção avançada de [exibições amigáveis de usuário](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) em um banco de dados somente leitura e é totalmente habilitado no Banco de Dados do Azure para MySQL versão 5.7.
+O MySQL performance_schema, primeiro disponível no MySQL 5,5, fornece instrumentação para muitos recursos de servidor vitais, como alocação de memória, programas armazenados, bloqueio de metadados, etc. No entanto, o performance_schema contém mais de 80 tabelas, e obter as informações necessárias geralmente requer a União de tabelas dentro do performance_schema, bem como tabelas da information_schema. Ao compilar o performance_schema e o information_schema, o sys_schema fornece uma coleção avançada de [exibições amigáveis de usuário](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) em um banco de dados somente leitura e é totalmente habilitado no Banco de Dados do Azure para MySQL versão 5.7.
 
 ![Exibições do sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
 Há 52 exibições no sys_schema e cada uma tem um dos prefixos a seguir:
 
-- Host_summary ou E/S: Latências relacionadas à E/S.
-- InnoDB: Bloqueios e status do buffer InnoDB.
-- Memória: Uso de memória pelo host e pelos usuários.
-- Esquema: Informações relacionadas ao esquema, como incremento automático, índices e etc.
-- Instrução: Informações sobre instruções SQL; pode ser uma instrução que resultou em verificação de tabela completa ou tempo de consulta longa.
-- Usuário: Recursos consumidos e agrupados pelos usuários. Exemplos são E/S de arquivos, conexões e memória.
-- Aguarde: Aguarda eventos agrupados por host ou usuário.
+- Host_summary ou IO: latências relacionadas à E/S.
+- InnoDB: bloqueios e status do buffer InnoDB.
+- Memory: uso de memória pelo host e pelos usuários.
+- Schema: informações relacionadas ao esquema, como incremento automático, índices e etc.
+- Statement: informações sobre instruções SQL; pode ser uma instrução que resultou em verificação de tabela completa ou tempo de consulta longa.
+- User: recursos consumidos e agrupados pelos usuários. Exemplos são E/S de arquivos, conexões e memória.
+- Wait: aguarda eventos agrupados por host ou usuário.
 
-Agora, vejamos alguns padrões comuns de uso do sys_schema. Para começar, agruparemos os padrões de uso em duas categorias: **Ajuste de desempenho** e **Manutenção de banco de dados**.
+Agora, vejamos alguns padrões comuns de uso do sys_schema. Para começar, agruparemos os padrões de uso em duas categorias: **Ajuste de desempenho** e **Manutenção do banco de dados**.
 
 ## <a name="performance-tuning"></a>Ajuste de desempenho
 
@@ -45,7 +45,7 @@ Como o Banco de Dados do Azure para MySQL escala a E/S em relação ao armazenam
 
 ### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
-Apesar do planejamento cuidadoso, muitas consultas ainda podem resultar em verificações de tabela completas. Para saber mais sobre os tipos de índices e como otimizá-los, confira este artigo: [Como solucionar problemas com o desempenho da consulta](./howto-troubleshoot-query-performance.md). As verificações de tabela completas são tarefas com uso intensivo de recursos e prejudicam o desempenho do banco de dados. A maneira mais rápida de localizar tabelas com verificação de tabela completa é consultar a exibição *sys.schema_tables_with_full_table_scans*.
+Apesar do planejamento cuidadoso, muitas consultas ainda podem resultar em verificações de tabela completas. Para saber mais sobre os tipos de índices e como otimizá-los, confira este artigo: [Como solucionar problemas de desempenho de consultas](./howto-troubleshoot-query-performance.md). As verificações de tabela completas são tarefas com uso intensivo de recursos e prejudicam o desempenho do banco de dados. A maneira mais rápida de localizar tabelas com verificação de tabela completa é consultar a exibição *sys.schema_tables_with_full_table_scans*.
 
 ![Verificações de tabela completas](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 
@@ -79,5 +79,5 @@ Os índices são excelentes ferramentas para melhorar o desempenho de leitura, m
 
 Em resumo, o sys_schema é uma ótima ferramenta para ajuste de desempenho e manutenção de banco de dados. Aproveitar esse recurso no seu Banco de Dados do Azure para MySQL. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Para localizar respostas de pares às suas perguntas mais preocupantes ou publicar uma nova pergunta/resposta, visite o [Fórum do MSDN](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) ou o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

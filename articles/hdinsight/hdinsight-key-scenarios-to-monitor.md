@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 7a7544ef9fe5724d1f6c11918411a76461d908e5
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: c6e60474f74a23add429bf13ca7744afb8e8e1a3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104392"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777523"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
 
@@ -25,15 +25,15 @@ As seções a seguir descrevem como monitorar e otimizar a carga em seus cluster
 
 Os clusters do Hadoop podem oferecer o desempenho mais ideal quando a carga no cluster é distribuída uniformemente em todos os nós. Isso permite que as tarefas de processamento sejam executadas sem serem restringidas por recursos de RAM, CPU ou disco em nós individuais.
 
-Para obter uma visão de alto nível de nós do cluster e os respectivos carregamentos, entrar para o [IU da Web do Ambari](hdinsight-hadoop-manage-ambari.md), em seguida, selecione a guia **Hosts**. Os hosts são listados por seus nomes de domínio totalmente qualificados. O status operacional de cada host é mostrado por um indicador de integridade colorido:
+Para obter uma visão de alto nível dos nós do cluster e do seu carregamento, entre na [interface do usuário da Web do AmAmbari](hdinsight-hadoop-manage-ambari.md)e selecione a guia **hosts** . Seus hosts são listados por seus nomes de domínio totalmente qualificados. O status operacional de cada host é mostrado por um indicador de integridade colorido:
 
 | Cor | Descrição |
 | --- | --- |
 | Vermelho | Pelo menos um componente mestre no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
-| Laranja | Pelo menos um componente secundário no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
-| Amarelo | O Servidor Ambari não recebeu uma pulsação do host há mais de 3 minutos. |
+| Orange | Pelo menos um componente secundário no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
+| Amarelo | O servidor Ambari não recebeu uma pulsação do host por mais de 3 minutos. |
 | Verde | Estado de execução normal. |
-
+ 
 Você também verá colunas mostrando o número de núcleos e a quantidade de RAM para cada host, bem como o uso do disco e a carga média.
 
 ![Visão geral da guia hosts Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
@@ -52,7 +52,7 @@ O YARN divide as duas responsabilidades do JobTracker, o gerenciamento de recurs
 
 O Resource Manager é um *planejador puro* e arbitra unicamente os recursos disponíveis entre todos os aplicativos concorrentes. O Gerenciador de Recursos garante que todos os recursos estejam sempre em uso, otimizando para várias constantes, como SLAs, garantias de capacidade e assim por diante. O ApplicationMaster negocia recursos do Gerenciador de Recursos e trabalha com o NodeManager para executar e monitorar os contêineres e seu consumo de recursos.
 
-Quando vários locatários compartilham um grande cluster, ocorre uma competição pelos recursos do cluster. O CapacityScheduler é um agendador conectável que auxilia no compartilhamento de recurso através do enfileiramento de solicitações. O CapacityScheduler também dá suporte às *filas hierárquicas* a fim de garantir que os recursos sejam compartilhados entre as subfilas de uma organização, antes que outras filas de aplicativos tenham permissão para usar os recursos livres.
+Quando vários locatários compartilham um cluster grande, há a competição pelos recursos do cluster. O CapacityScheduler é um agendador conectável que auxilia no compartilhamento de recurso através do enfileiramento de solicitações. O CapacityScheduler também dá suporte às *filas hierárquicas* a fim de garantir que os recursos sejam compartilhados entre as subfilas de uma organização, antes que outras filas de aplicativos tenham permissão para usar os recursos livres.
 
 O YARN nos permite alocar recursos para essas filas e mostra se todos os recursos disponíveis estão atribuídos. Para visualizar informações sobre suas filas, entre na interface do usuário do Ambari Web e selecione **YARN Queue Manager** no menu superior.
 
@@ -72,17 +72,17 @@ Na interface do usuário do Gerenciador de Recursos, selecione **Agendador** no 
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 
-O gargalo do desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de gargalo geralmente é devido ao *bloqueio* de operações de E/S (entrada/saída), o que ocorre quando as tarefas em execução enviam mais E/S do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de E/S aguardando para serem processadas até que as E/Ss atuais sejam processadas. Os bloqueios são devidos à *limitação de armazenamento*, que não é um limite físico, mas um limite imposto pelo serviço de armazenamento através de um SLA (Contrato de Nível de Serviço). Esse limite serve para garantir que um único cliente ou locatário não monopolize o serviço. O SLA limita o número de IOPS (E/S por segundo) para o Armazenamento do Azure – para mais detalhes, consulte [Escalabilidade e metas de desempenho do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+O gargalo do desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de afunilamento é geralmente causado pelo *bloqueio* de operações de e/s (entrada/saída), que ocorrem quando as tarefas em execução enviam mais e/s do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de E/S aguardando para serem processadas até que as E/Ss atuais sejam processadas. Os blocos são devido à *limitação de armazenamento*, que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um SLA (contrato de nível de serviço). Esse limite serve para garantir que um único cliente ou locatário não monopolize o serviço. O SLA limita o número de IOPS (E/S por segundo) para o Armazenamento do Azure – para mais detalhes, consulte [Escalabilidade e metas de desempenho do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
 
-Caso você esteja usando o Armazenamento do Azure, para obter informações sobre monitoramento de problemas relacionados ao armazenamento, incluindo a limitação, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Se você estiver usando o armazenamento do Azure, para obter informações sobre como monitorar problemas relacionados ao armazenamento, incluindo a limitação, consulte [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Se o repositório de backup do seu cluster for o ADLS (Azure Data Lake Storage), a limitação será provavelmente devida a limites de largura de banda. A limitação, nesse caso, poderia ser identificada pela observação de erros de limitação nos logs de tarefa. Para o ADLS, consulte a seção sobre limitação do serviço apropriado nesses artigos:
+Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), sua limitação provavelmente será devido aos limites de largura de banda. A limitação, nesse caso, poderia ser identificada pela observação de erros de limitação nos logs de tarefa. Para o ADLS, consulte a seção sobre limitação do serviço apropriado nesses artigos:
 
 * [Diretrizes de ajuste do desempenho para o Apache Hive no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Diretrizes de ajuste do desempenho para o MapReduce no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
 * [Diretrizes de ajuste do desempenho para o Apache Storm no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Visite os links a seguir para obter mais informações sobre o monitoramento e a solução de problemas dos seus clusters:
 

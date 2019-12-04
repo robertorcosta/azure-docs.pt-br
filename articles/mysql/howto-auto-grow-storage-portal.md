@@ -1,17 +1,17 @@
 ---
-title: Crescimento automático do armazenamento no banco de dados do Azure para MySQL usando o portal do Azure
+title: Aumento automático do armazenamento-portal do Azure-banco de dados do Azure para MySQL
 description: Este artigo descreve como você pode habilitar o armazenamento de crescimento automático para o banco de dados do Azure para MySQL usando o portal do Azure
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/29/2019
-ms.openlocfilehash: 864bfaefba783d93e795e8780cc02dcf991e38f1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 12/02/2019
+ms.openlocfilehash: 7be3e7e1a0d2e48b37c319f67e3b382f825469df
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142014"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770604"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Crescimento automático do armazenamento no banco de dados do Azure para MySQL usando o portal do Azure
 Este artigo descreve como você pode configurar um armazenamento de banco de dados do Azure para servidor MySQL para crescer sem afetar a carga de trabalho.
@@ -40,6 +40,6 @@ Siga estas etapas para definir o crescimento automático do armazenamento do ser
 
     ![Banco de dados do Azure para MySQL-êxito no crescimento automático](./media/howto-auto-grow-storage-portal/5-auto-grow-success.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [como criar alertas sobre métricas](howto-alert-on-metric.md).

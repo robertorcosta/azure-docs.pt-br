@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0af2d306a5f5923f5e14eb0ebc4707f9c5caee90
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288562"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769023"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura do clima do Azure Maps
 
@@ -30,17 +30,17 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 
 ## <a name="americas"></a>Américas
 
-| País/Região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
+| País/região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguila                                 | ✓ |   |  ✓| 
-| Antártica                               | ✓ |   |  ✓|
+| Antártida                               | ✓ |   |  ✓|
 | Antígua e Barbuda                      | ✓ |   |  ✓| 
 | Argentina                                | ✓ |   |  ✓| 
 | Aruba                                    | ✓ |   |  ✓| 
 | Bahamas                                  | ✓ |   |  ✓| 
 | Barbados                                 | ✓ |   |  ✓| 
 | Belize                                   | ✓ |   |  ✓| 
-| Bermudas                                  | ✓ |   |  ✓| 
+| Bermuda                                  | ✓ |   |  ✓| 
 | Bolívia                                  | ✓ |   |  ✓| 
 | Bonaire                                  | ✓ |   |  ✓| 
 | Brasil                                   | ✓ |   |  ✓| 
@@ -75,11 +75,11 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Peru                                     | ✓ |   |  ✓| 
 | Porto Rico                              | ✓ |   |  ✓| 
 | São Bartolomeu                         | ✓ |   |  ✓| 
-| São Cristóvão e Névis                    | ✓ |   |  ✓| 
+| São Cristóvão e Nevis                    | ✓ |   |  ✓| 
 | Santa Lúcia                              | ✓ |   |  ✓| 
 | Saint Martin                             | ✓ |   |  ✓| 
 | São Pierre e Miquelon                | ✓ |   |  ✓| 
-| São Vincent e Granadinas         | ✓ |   |  ✓| 
+| São Vicente e Granadinas         | ✓ |   |  ✓| 
 | Santo Eustáquio                           | ✓ |   |  ✓|  
 | Sint Maarten                             | ✓ |   |  ✓| 
 | Ilhas Geórgia do Sul e Sandwich do Sul | ✓ |   |  ✓| 
@@ -95,7 +95,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-| País/Região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
+| País/região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Argélia                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
@@ -103,9 +103,9 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Benin                       | ✓               |                              |        ✓| 
 | Botsuana                    | ✓               |                              |        ✓| 
 | Ilha Bouvet               | ✓               |                              |        ✓| 
-| Burkina Faso                | ✓               |                              |        ✓| 
+| Burquina Faso                | ✓               |                              |        ✓| 
 | Burundi                     | ✓               |                              |        ✓| 
-| Camarões                    | ✓               |                              |        ✓| 
+| República dos Camarões                    | ✓               |                              |        ✓| 
 | Cabo Verde                  | ✓               |                              |        ✓| 
 | República Centro-Africana    | ✓               |                              |        ✓| 
 | Chad                        | ✓               |                              |        ✓| 
@@ -174,7 +174,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-| País/Região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
+| País/região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afeganistão                       | ✓ |   |  ✓| 
 | Samoa Americana                    | ✓ |   |  ✓| 
@@ -223,7 +223,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Filipinas                       | ✓ |   |  ✓| 
 | Ilhas Pitcairn                  | ✓ |   |  ✓| 
 | Samoa                             | ✓ |   |  ✓| 
-| Singapura                         | ✓ |   |  ✓| 
+| Cingapura                         | ✓ |   |  ✓| 
 | Ilhas Salomão                   | ✓ |   |  ✓| 
 | Sri Lanka                         | ✓ |   |  ✓| 
 | Taiwan                            | ✓ |   |  ✓| 
@@ -242,7 +242,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 
 ## <a name="europe"></a>Europa
 
-| País/Região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
+| País/região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albânia                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
@@ -281,7 +281,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Moldova                | ✓ | ✓ |  ✓| 
 | Mônaco                 | ✓ | ✓ |  ✓| 
 | Montenegro             | ✓ | ✓ |  ✓| 
-| Países Baixos            | ✓ | ✓ |  ✓| 
+| Holanda            | ✓ | ✓ |  ✓| 
 | Noruega                 | ✓ | ✓ |  ✓| 
 | Polônia                 | ✓ | ✓ |  ✓| 
 | Portugal               | ✓ | ✓ |  ✓| 
@@ -293,7 +293,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Eslovênia               | ✓ | ✓ |  ✓| 
 | Espanha                  | ✓ | ✓ |  ✓| 
 | Svalbard               | ✓ |   |  ✓|
-| Jan Mayen              | ✓ |   |  ✓| 
+| Svalbard              | ✓ |   |  ✓| 
 | Suécia                 | ✓ | ✓ |  ✓| 
 | Suíça            | ✓ | ✓ |  ✓| 
 | Turquia                 | ✓ |   |  ✓| 

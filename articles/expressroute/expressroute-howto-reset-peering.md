@@ -5,14 +5,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 2810dfc4cb41dcf11eb59ce3c87e6f7d6b2d5f65
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b14b8a9a2bc43c33095bf07e7fb7ebcc2d6c1ffa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083491"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769516"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Redefinir emparelhamentos de circuitos do ExpressRoute
 
@@ -20,7 +20,7 @@ Este artigo descreve como desabilitar e habilitar peerings de um circuito da Rot
 
 Há alguns cenários em que você pode achar útil redefinir seus peerings da ExpressRoute.
 * Teste seu design de recuperação de desastres e implementação. Por exemplo, você tem dois circuitos ExpressRoute. Você pode desabilitar os peerings de um circuito e forçar o tráfego de sua rede a falhar no outro circuito.
-* Habilite a detecção de encaminhamento bidirecional (BFD) no emparelhamento privado do Azure ou no emparelhamento da Microsoft do circuito do ExpressRoute. O BFD será habilitado por padrão no emparelhamento privado do Azure se o circuito do ExpressRoute for criado após 1 2018 de agosto e no emparelhamento da Microsoft se o circuito do ExpressRoute for criado após 1 2019 de outubro. Se o circuito foi criado antes dessa, BFD não foi habilitado. Você pode habilitar BFD desabilitando o emparelhamento e reabilitando a ele. 
+* Habilite bidirecional encaminhamento de detecção (BFD) no emparelhamento privado do Azure do seu circuito do ExpressRoute. BFD é habilitado por padrão, se o circuito de ExpressRoute for criado após 1 de agosto de 2018. Se o circuito foi criado antes dessa, BFD não foi habilitado. Você pode habilitar BFD desabilitando o emparelhamento e reabilitando a ele. Deve-se observar BFD tem suporte apenas no emparelhamento privado do Azure.
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
 
@@ -40,7 +40,7 @@ Há alguns cenários em que você pode achar útil redefinir seus peerings da Ex
    ```azurepowershell-interactive
    Get-AzSubscription
    ```
-3. Especifique a assinatura que você quer usar.
+3. Especifique a assinatura que você deseja usar.
 
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
@@ -141,7 +141,7 @@ Há alguns cenários em que você pode achar útil redefinir seus peerings da Ex
    ```
    O emparelhamento deve estar em um estado que você definir. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Se você precisar de ajuda para solucionar um problema do ExpressRoute, confira os seguintes artigos:
 * [Verificando a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Solucionando problemas de desempenho de rede](expressroute-troubleshooting-network-performance.md)

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f05b9ae490ea2b9d8e7b89ce02c7c1eb818bb0a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679937"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769568"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de fluxo de dados no Azure Data Factory
 
@@ -49,12 +49,12 @@ Use a atividade fluxo de dados para transformar e mover dados por meio de fluxos
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | obrigatórios
 -------- | ----------- | -------------- | --------
-Flow | A referência ao fluxo de dados que está sendo executado | DataFlowReference | Sim
-integrationRuntime | O ambiente de computação no qual o fluxo de dados é executado | IntegrationRuntimeReference | Sim
+Flow | A referência ao fluxo de dados que está sendo executado | DataFlowReference | SIM
+integrationRuntime | O ambiente de computação no qual o fluxo de dados é executado | IntegrationRuntimeReference | SIM
 preparo. linkedService | Se você estiver usando uma fonte ou coletor do SQL DW, a conta de armazenamento usada para preparo do polybase | LinkedServiceReference | Somente se o fluxo de dados lê ou grava em um SQL DW
-preparo. folderPath | Se você estiver usando uma fonte ou coletor do SQL DW, o caminho da pasta na conta de armazenamento de BLOBs usada para preparo do polybase | Cadeia de caracteres | Somente se o fluxo de dados lê ou grava em um SQL DW
+preparo. folderPath | Se você estiver usando uma fonte ou coletor do SQL DW, o caminho da pasta na conta de armazenamento de BLOBs usada para preparo do polybase | string | Somente se o fluxo de dados lê ou grava em um SQL DW
 
 ![Executar fluxo de dados](media/data-flow/activity-data-flow.png "Executar fluxo de dados")
 
@@ -99,11 +99,48 @@ O pipeline de depuração é executado no cluster de depuração ativa, não no 
 
 A atividade de fluxo de dados tem uma experiência de monitoramento especial, na qual você pode exibir informações sobre particionamento, tempo de estágio e linhagem de dados. Abra o painel Monitoramento por meio do ícone óculos em **ações**. Para obter mais informações, consulte [monitorando fluxos de dados](concepts-data-flow-monitoring.md).
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Usar resultados de atividade de fluxo de dados em uma atividade subsequente
+
+A atividade de fluxo de dados gera métricas referentes ao número de linhas gravadas em cada coletor e linhas lidas de cada fonte. Esses resultados são retornados na seção `output` do resultado da execução da atividade. As métricas retornadas estão no formato do JSON abaixo.
+
+``` json
+{
+    "runStatus": {
+        "metrics": {
+            "<your sink name1>": {
+                "rowsWritten": <number of rows written>,
+                "sinkProcessingTime": <sink processing time in ms>,
+                "sources": {
+                    "<your source name1>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    "<your source name2>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    ...
+                }
+            },
+            "<your sink name2>": {
+                ...
+            },
+            ...
+        }
+    }
+}
+```
+
+Por exemplo, para chegar ao número de linhas gravadas em um coletor chamado ' sink1 ' em uma atividade denominada ' dataflowActivity ', use `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`.
+
+Para obter o número de linhas lidas de uma fonte denominada ' origem1 ' que foi usada nesse coletor, use `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`.
+
+> [!NOTE]
+> Se um coletor tiver zero linhas gravadas, ele não aparecerá em métricas. A existência pode ser verificada usando a função `contains`. Por exemplo, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` verificará se alguma linha foi gravada em sink1.
+
+## <a name="next-steps"></a>Próximos passos
 
 Consulte atividades de fluxo de controle com suporte pelo Data Factory: 
 
-- [Atividade de Condição If](control-flow-if-condition-activity.md)
+- [Atividade de Condição Se](control-flow-if-condition-activity.md)
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)

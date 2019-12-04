@@ -1,21 +1,19 @@
 ---
-title: Transformar XML entre formatos – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Transformar XML entre formatos
 description: Criar transformações ou mapas que convertem dados XML entre formatos nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427201"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792384"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam dados XML entre formatos nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -38,7 +36,7 @@ Depois de carregar a transformação em sua conta de integração, você poderá
 
 Agora que você cuidou dos pré-requisitos, é hora de criar seu Aplicativo lógico:  
 
-1. Crie um Aplicativo Lógico e [vincule-o à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um Aplicativo lógico") que contém o mapa.
+1. Crie um aplicativo lógico e [vincule-o à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um aplicativo lógico") que contém o mapa.
 2. Adicione um gatilho de **Solicitação** a seu Aplicativo lógico  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Adicione a ação **Transformar XML** selecionando primeiro **Adicionar uma ação**   
@@ -137,5 +135,5 @@ Por padrão, a resposta da transformação iniciará com marca de ordem de byte 
 
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
-* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas da integração corporativa")  
+* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas de integração corporativa")  
 

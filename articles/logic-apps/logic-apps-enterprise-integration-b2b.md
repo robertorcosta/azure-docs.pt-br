@@ -1,21 +1,19 @@
 ---
-title: Criar Enterprise Integrations B2B – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Criar integrações corporativas B2B
 description: Receber dados de B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39966b8171296a8608b9436485f7682d114c8410
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60998963"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793104"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Receber dados de B2B com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 
@@ -55,7 +53,7 @@ Siga estas etapas para criar um aplicativo lógico B2B que usa as ações AS2 e 
 7. Adicione os **cabeçalhos** necessários para AS2, que pode ser encontrado nos cabeçalhos de solicitação HTTP. 
    Neste exemplo, selecione o cabeçalho da solicitação HTTP que disparou o Aplicativo Lógico.
 
-8. Agora, adicione a ação de mensagem X12 de decodificação. Escolha **Adicionar uma ação**.
+8. Agora, adicione a ação de mensagem X12 de decodificação. Selecione **Adicionar uma ação**.
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-9.png)
 

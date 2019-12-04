@@ -1,17 +1,17 @@
 ---
-title: Como configurar parâmetros do servidor no Banco de Dados do Azure para MySQL
+title: Configurar parâmetros do servidor-portal do Azure-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar os parâmetros do MySQL Server no Banco de Dados do Azure para MySQL usando o portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: d589800f62f96510a09d23cb6e8794177121c6dd
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.date: 12/02/2019
+ms.openlocfilehash: f803b7cccf3520c309e6b33d99b5565cfc4fdd01
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419708"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764909"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor no Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -37,21 +37,21 @@ A lista de parâmetros de servidor com suporte está em constante crescimento. U
 
 O tamanho do pool de buffers InnoDB não é configurável e está vinculado ao seu [tipo de preço](concepts-service-tiers.md).
 
-|**Camada de preços**|**vCore(s)**|**Tamanho do pool de buffers InnoDB em MB <br>(servidores com suporte para até 4 TB de armazenamento)**| **Tamanho do pool de buffers InnoDB em MB <br>(servidores com suporte para até 16 TB de armazenamento)**|
+|**Tipo de preço**|**vCore(s)**|**Tamanho do pool de buffers InnoDB em MB <br>(servidores com suporte para até 4 TB de armazenamento)**| **Tamanho do pool de buffers InnoDB em MB <br>(servidores com suporte para até 16 TB de armazenamento)**|
 |:---|---:|---:|---:|
-|Básica| 1| 832| |
-|Básica| 2| 2560| |
-|Uso geral| 2| 3584| 7168|
-|Uso geral| 4| 7680| 15360|
-|Uso geral| 8| 15360| 30720|
-|Uso geral| 16| 31232| 62464|
-|Uso geral| 32| 62976| 125952|
-|Uso geral| 64| 125952| 251904|
-|Otimizado para memória| 2| 7168| 14336|
-|Otimizado para memória| 4| 15360| 30720|
-|Otimizado para memória| 8| 30720| 61440|
-|Otimizado para memória| 16| 62464| 124928|
-|Otimizado para memória| 32| 125952| 251904|
+|Basic| 1| 832| |
+|Basic| 2| 2560| |
+|Propósito geral| 2| 3584| 7168|
+|Propósito geral| 4| 7680| 15360|
+|Propósito geral| 8| 15360| 30720|
+|Propósito geral| 16| 31232| 62464|
+|Propósito geral| 32| 62976| 125952|
+|Propósito geral| 64| 125952| 251904|
+|Memória Otimizada| 2| 7168| 14336|
+|Memória Otimizada| 4| 15360| 30720|
+|Memória Otimizada| 8| 30720| 61440|
+|Memória Otimizada| 16| 62464| 124928|
+|Memória Otimizada| 32| 125952| 251904|
 
 Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 
@@ -60,7 +60,7 @@ Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 |innodb_file_per_table na camada Básica|DESATIVADO|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512MB|
+|innodb_log_file_size|512 MB|
 
 Outros parâmetros de servidor que não estão listados aqui são configurados com seus valores padrão iniciais MySQL nas versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
@@ -99,6 +99,6 @@ SET time_zone = 'US/Pacific';
 
 Consulte a documentação do MySQL para [Funções de data e hora](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Bibliotecas de conexão para o Banco de Dados do Azure para MySQL](concepts-connection-libraries.md).

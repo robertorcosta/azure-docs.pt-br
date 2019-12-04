@@ -1,20 +1,17 @@
 ---
-title: Adicionar instruções condicionais a fluxos de trabalho – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Adicionar instruções condicionais a fluxos de trabalho
 description: Como criar condições que controlam ações em fluxos de trabalho nos Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684724"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793257"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crie instruções condicionais que controlam ações de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
@@ -45,7 +42,7 @@ Por exemplo, suponha que você tenha um aplicativo lógico que envia muitos emai
 
    Quando você quiser adicionar uma condição no final do fluxo de trabalho, na parte inferior do aplicativo lógico, escolha **Nova etapa** > **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, insira "condição" como o filtro. Selecione esta ação: **Condição – Controle**
+1. Na caixa de pesquisa, insira "condição" como o filtro. Selecione esta ação: **Condição - Controle**
 
    ![Adicionar condição](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
@@ -62,7 +59,7 @@ Por exemplo, suponha que você tenha um aplicativo lógico que envia muitos emai
    Neste exemplo, selecione “**contém**”. 
 
    1. Na caixa direita, especifique um valor ou campo como o critério. 
-   Neste exemplo, especifique essa cadeia de caracteres: **Microsoft**
+   Neste exemplo, especifique esta cadeia de caracteres: **Microsoft**
 
    Aqui está a condição completa:
 
@@ -116,7 +113,7 @@ Aqui está a definição de código de alto nível por trás de uma instrução 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Executar e repetir (loops)](../logic-apps/logic-apps-control-flow-loops.md)

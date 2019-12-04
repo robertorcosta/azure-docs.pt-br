@@ -2,19 +2,16 @@
 title: Visão geral-automatizar a implantação para aplicativos lógicos do Azure
 description: Saiba mais sobre modelos de Azure Resource Manager para automatizar a implantação para aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: bc61e39a02d16827521758ca8248488e46c109b5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f5216181efcd6593fc9f85de0792b98a5d7fd0a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838092"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792556"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager
 
@@ -64,7 +61,7 @@ No nível superior, um modelo do Resource Manager segue essa estrutura, que é t
 
 Para um modelo de aplicativo lógico, você trabalha principalmente com estes objetos de modelo:
 
-| Atributo | DESCRIÇÃO |
+| Atributo | Descrição |
 |-----------|-------------|
 | `parameters` | Declara os [parâmetros de modelo](../azure-resource-manager/resource-group-authoring-templates.md#parameters) para aceitar os valores a serem usados ao criar e personalizar recursos para implantação no Azure. Por exemplo, esses parâmetros aceitam os valores para o nome e o local do seu aplicativo lógico, as conexões e outros recursos necessários para a implantação. Você pode armazenar esses valores de parâmetro em um [arquivo de parâmetros](#template-parameter-files), que é descrito posteriormente neste tópico. Para obter detalhes gerais, consulte [parâmetros – estrutura e sintaxe do modelo do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters). |
 | `resources` | Define os [recursos](../azure-resource-manager/resource-group-authoring-templates.md#resources) para criar ou atualizar e implantar em um grupo de recursos do Azure, como seu aplicativo lógico, conexões, contas de armazenamento do Azure e assim por diante. Para obter detalhes gerais, consulte [recursos – estrutura e sintaxe do modelo do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#resources). |
@@ -322,11 +319,11 @@ A definição de recurso do aplicativo lógico começa com o objeto `properties`
 
 Aqui estão os atributos que são específicos para sua definição de recurso de aplicativo lógico:
 
-| Atributo | Obrigatório | Tipo | DESCRIÇÃO |
+| Atributo | obrigatórios | Type | Descrição |
 |-----------|----------|------|-------------|
-| `state` | Sim | Cadeia de caracteres | O estado do aplicativo lógico na implantação em que `Enabled` significa que seu aplicativo lógico está ativo e `Disabled` significa que seu aplicativo lógico está inativo. Por exemplo, se você não estiver pronto para o aplicativo lógico ficar ativo, mas desejar implantar uma versão de rascunho, poderá usar a opção `Disabled`. |
+| `state` | SIM | string | O estado do aplicativo lógico na implantação em que `Enabled` significa que seu aplicativo lógico está ativo e `Disabled` significa que seu aplicativo lógico está inativo. Por exemplo, se você não estiver pronto para o aplicativo lógico ficar ativo, mas desejar implantar uma versão de rascunho, poderá usar a opção `Disabled`. |
 | `integrationAccount` | Não | Objeto | Se seu aplicativo lógico usar uma conta de integração, que armazena artefatos para cenários B2B (entre empresas), esse objeto incluirá o atributo `id`, que especifica a ID da conta de integração. |
-| `definition` | Sim | Objeto | A definição de fluxo de trabalho subjacente do aplicativo lógico, que é o mesmo objeto que aparece na exibição de código e é totalmente descrita no tópico [referência de esquema para linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md) . Nessa definição de fluxo de trabalho, o objeto `parameters` declara parâmetros para os valores a serem usados no tempo de execução do aplicativo lógico. Para obter mais informações, consulte [definição de fluxo de trabalho e parâmetros](#workflow-definition-parameters). <p><p>Para exibir os atributos na definição de fluxo de trabalho do aplicativo lógico, alterne de "modo de exibição de design" para "exibição de código" no portal do Azure ou no Visual Studio ou usando uma ferramenta como [Azure Resource Explorer](https://resources.azure.com). |
+| `definition` | SIM | Objeto | A definição de fluxo de trabalho subjacente do aplicativo lógico, que é o mesmo objeto que aparece na exibição de código e é totalmente descrita no tópico [referência de esquema para linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md) . Nessa definição de fluxo de trabalho, o objeto `parameters` declara parâmetros para os valores a serem usados no tempo de execução do aplicativo lógico. Para obter mais informações, consulte [definição de fluxo de trabalho e parâmetros](#workflow-definition-parameters). <p><p>Para exibir os atributos na definição de fluxo de trabalho do aplicativo lógico, alterne de "modo de exibição de design" para "exibição de código" no portal do Azure ou no Visual Studio ou usando uma ferramenta como [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | Não | Objeto | Os [valores de parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) a serem usados no tempo de execução do aplicativo lógico As definições de parâmetro para esses valores aparecem dentro do [objeto de parâmetros da definição de fluxo de trabalho](#workflow-definition-parameters). Além disso, se seu aplicativo lógico usar [conectores gerenciados](../connectors/apis-list.md) para acessar outros serviços e sistemas, esse objeto incluirá um objeto `$connections` que define os valores de conexão a serem usados no tempo de execução. |
 | `accessControl` | Não | Objeto | Para especificar atributos de segurança para seu aplicativo lógico, como restringir o acesso IP para solicitações de gatilhos ou entradas e saídas de histórico de execução. Para obter mais informações, consulte [proteger o acesso aos aplicativos lógicos](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
@@ -939,7 +936,7 @@ Algumas conexões dão suporte ao uso de uma entidade de [serviço](../active-di
 }
 ```
 
-| Atributo | DESCRIÇÃO |
+| Atributo | Descrição |
 |-----------|-------------|
 | `token:clientId` | A ID do aplicativo ou do cliente associada à sua entidade de serviço |
 | `token:clientSecret` | O valor de chave associado à entidade de serviço |
@@ -1246,7 +1243,7 @@ Este é o modelo de exemplo com parâmetros que é usado pelos exemplos deste t�
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar modelos de aplicativo lógico](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)

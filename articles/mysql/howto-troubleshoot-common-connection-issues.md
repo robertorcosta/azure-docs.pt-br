@@ -1,24 +1,24 @@
 ---
-title: Solucionar problemas de conexão no Banco de Dados do Azure para MySQL
+title: Solucionar problemas de conexão-banco de dados do Azure para MySQL
 description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para MySQL, incluindo erros transitórios que exigem novas tentativas, problemas de firewall e interrupções.
 keywords: conexão do mysql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a0203ceeb36352a16814345f5ecdff8271691fd0
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 8c1c521488270ff0bfe3b306470345bc2cd885ce
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972840"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773523"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Solucionar problemas de conexão no Banco de Dados do Azure para MySQL
 
 Os problemas de conexão podem ser causados por uma variedade de coisas, incluindo:
 
-* Configurações de firewall
+* Configurações de Firewall
 * Tempo limite da conexão
 * Informações de logon incorretas
 * Atingido o limite máximo em alguns recursos do Banco de Dados do Azure para MySQL
@@ -46,9 +46,9 @@ Quando a manutenção é executada, o sistema encontra um erro com o hardware ou
 
 Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azure para MySQL, ele normalmente indicará um problema com um dos seguintes:
 
-* Configuração de firewall do servidor: Certifique-se de que firewall do servidor do Banco de Dados do Azure para MySQL esteja configurado para permitir conexões de seu cliente, incluindo servidores proxy e gateways.
+* Configuração de firewall do servidor: Verifique se o Firewall do servidor do banco de dados do Azure para MySQL está configurado para permitir conexões do cliente, incluindo servidores proxy e gateways.
 * Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Endereços IP e portas do servidor sem permissão devem ser permitidos, bem como nomes de aplicativo, como MySQL, em alguns firewalls.
-* Erro do usuário: Você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo *\@servername* ausente no nome de usuário.
+* Erro do usuário: você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo ausente do *\@ServerName* no nome de usuário.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 
@@ -57,6 +57,6 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azur
 3. Verifique a cadeia de conexão e outras configurações de conexão. Confira [Como conectar aplicativos ao Banco de Dados do Azure para MySQL](howto-connection-string.md).
 4. Verifique a integridade do serviço no painel. Se você achar que há uma interrupção regional, consulte [Visão geral da continuidade dos negócios com o Banco de Dados do Azure para MySQL](concepts-business-continuity.md) para obter as etapas para recuperar para uma nova região.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Tratamento de erros transitórios de conectividade para Banco de Dados do Azure para MySQL](concepts-connectivity.md)

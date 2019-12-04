@@ -1,52 +1,52 @@
 ---
-title: Logs de auditoria do banco de dados do Azure para MariaDB
-description: Descreve os logs de auditoria disponíveis no banco de dados do Azure para MariaDB e os parâmetros disponíveis para habilitar níveis de log.
+title: Logs de auditoria-banco de dados do Azure para MariaDB
+description: Descreve os logs de auditoria disponíveis no banco de dados do Azure para MariaDB e os parâmetros disponíveis para habilitar os níveis de log.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.openlocfilehash: 13ea60c62283db35ce4bf9fde6c3b36ba7f88013
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 12/02/2019
+ms.openlocfilehash: 64662499b4ee782bbf04e9e706cd659e84c90eec
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439212"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773066"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Logs de auditoria no banco de dados do Azure para MariaDB
 
-No banco de dados do Azure para MariaDB, o log de auditoria está disponível aos usuários. O log de auditoria pode ser usado para rastrear a atividade de nível de banco de dados e normalmente é usado para fins de conformidade.
+No banco de dados do Azure para MariaDB, o log de auditoria está disponível para os usuários. O log de auditoria pode ser usado para acompanhar a atividade no nível do banco de dados e é normalmente usado para conformidade.
 
 > [!IMPORTANT]
-> Funcionalidade de log de auditoria está atualmente em visualização.
+> A funcionalidade de log de auditoria está atualmente em visualização.
 
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
 
-Por padrão, o log de auditoria está desabilitado. Para habilitá-lo, defina `audit_log_enabled` como ON.
+Por padrão, o log de auditoria é desabilitado. Para habilitá-lo, defina `audit_log_enabled` como ativado.
 
 Outros parâmetros que você pode ajustar incluem:
 
-- `audit_log_events`: controla os eventos a serem registrados. Consulte a tabela a seguir para eventos de auditoria específicos.
-- `audit_log_exclude_users`: MariaDB usuários a serem excluídos do log. Permite no máximo quatro usuários. O comprimento máximo do parâmetro é de 256 caracteres.
+- `audit_log_events`: controla os eventos a serem registrados. Consulte a tabela abaixo para ver eventos de auditoria específicos.
+- `audit_log_exclude_users`: MariaDB os usuários a serem excluídos do registro em log. Permite no máximo quatro usuários. O comprimento máximo do parâmetro é de 256 caracteres.
 
 | **Evento** | **Descrição** |
 |---|---|
-| `CONNECTION` | -Iniciação de Conexão (bem-sucedidas ou não) <br> -Reautenticação do usuário com usuário/senha diferente durante a sessão <br> -Encerramento da Conexão |
-| `DML_SELECT`| Consultas SELECT |
-| `DML_NONSELECT` | INSERT/DELETE/UPDATE queries |
+| `CONNECTION` | -Início da conexão (bem-sucedido ou malsucedido) <br> -Reautenticação do usuário com usuário/senha diferente durante a sessão <br> -Terminação de conexão |
+| `DML_SELECT`| SELECIONAR consultas |
+| `DML_NONSELECT` | INSERIR/excluir/atualizar consultas |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
-| `DDL` | Consultas como "DROP DATABASE" |
-| `DCL` | Consultas como "CONCEDER permissão de" |
-| `ADMIN` | Consultas como "Mostrar STATUS" |
-| `GENERAL` | Tudo em DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administração |
+| `DDL` | Consultas como "remover banco de dados" |
+| `DCL` | Consultas como "conceder permissão" |
+| `ADMIN` | Consultas como "mostrar STATUS" |
+| `GENERAL` | Tudo em DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administrador |
 
 ## <a name="access-audit-logs"></a>Acesse os logs de auditoria
 
-Os logs de auditoria são integrados com os Logs de diagnóstico do Azure Monitor. Depois de habilitar os logs de auditoria no servidor do MariaDB, você pode emiti-los para o armazenamento do Azure, Hubs de eventos ou logs do Azure Monitor. Para saber mais sobre como habilitar os logs de diagnóstico no portal do Azure, consulte a [artigo portal do log de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Os logs de auditoria são integrados a Azure Monitor logs de diagnóstico. Depois de habilitar os logs de auditoria no servidor MariaDB, você pode emiti-los para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre como habilitar os logs de diagnóstico no portal do Azure, consulte o [artigo portal de log de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
-## <a name="diagnostic-logs-schemas"></a>Esquemas de Logs de diagnóstico
+## <a name="diagnostic-logs-schemas"></a>Esquemas de logs de diagnóstico
 
-As seções a seguir descrevem o que é a saída de logs de auditoria do MariaDB com base no tipo de evento. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
+As seções a seguir descrevem o que é resultado de logs de auditoria do MariaDB com base no tipo de evento. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 
 ### <a name="connection"></a>Conexão
 
@@ -66,16 +66,16 @@ As seções a seguir descrevem o que é a saída de logs de auditoria do MariaDB
 | `OperationName` | `LogEvent` |
 | `event_class_s` | `connection_log` |
 | `event_subclass_s` | `CONNECT`, `DISCONNECT` |
-| `connection_id_d` | ID de conexão exclusiva gerada pelo MariaDB |
+| `connection_id_d` | ID de conexão exclusiva gerada por MariaDB |
 | `host_s` | Em branco |
-| `ip_s` | Endereço IP do cliente conectando-se ao MariaDB |
-| `user_s` | Nome do usuário que executa a consulta |
-| `db_s` | Nome do banco de dados conectado |
+| `ip_s` | Endereço IP do cliente que se conecta ao MariaDB |
+| `user_s` | Nome do usuário executando a consulta |
+| `db_s` | Nome do banco de dados conectado a |
 | `\_ResourceId` | URI de recurso |
 
 ### <a name="general"></a>Geral
 
-Esquema abaixo se aplica a tipos de eventos gerais, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administrador.
+O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administrador.
 
 | **Propriedade** | **Descrição** |
 |---|---|
@@ -94,13 +94,13 @@ Esquema abaixo se aplica a tipos de eventos gerais, DML_SELECT, DML_NONSELECT, D
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
-| `event_time` | Consulta inicie segundos no carimbo de hora do UNIX |
-| `error_code_d` | Código de erro se a falha na consulta. `0` significa que nenhum erro |
+| `event_time` | Segundos de início de consulta no carimbo de data/hora UNIX |
+| `error_code_d` | Código de erro se a consulta falhar. `0` significa sem erro |
 | `thread_id_d` | ID do thread que executou a consulta |
 | `host_s` | Em branco |
-| `ip_s` | Endereço IP do cliente conectando-se ao MariaDB |
-| `user_s` | Nome do usuário que executa a consulta |
-| `sql_text_s` | Texto da consulta completa |
+| `ip_s` | Endereço IP do cliente que se conecta ao MariaDB |
+| `user_s` | Nome do usuário executando a consulta |
+| `sql_text_s` | Texto de consulta completo |
 | `\_ResourceId` | URI de recurso |
 
 ### <a name="table-access"></a>Acesso à tabela
@@ -121,13 +121,13 @@ Esquema abaixo se aplica a tipos de eventos gerais, DML_SELECT, DML_NONSELECT, D
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`, ou `DELETE` |
-| `connection_id_d` | ID de conexão exclusiva gerada pelo MariaDB |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`ou `DELETE` |
+| `connection_id_d` | ID de conexão exclusiva gerada por MariaDB |
 | `db_s` | Nome do banco de dados acessado |
 | `table_s` | Nome da tabela acessada |
-| `sql_text_s` | Texto da consulta completa |
+| `sql_text_s` | Texto de consulta completo |
 | `\_ResourceId` | URI de recurso |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Como configurar logs de auditoria no portal do Azure](howto-configure-audit-logs-portal.md)

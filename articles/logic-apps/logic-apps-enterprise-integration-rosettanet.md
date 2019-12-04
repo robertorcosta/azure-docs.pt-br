@@ -1,20 +1,19 @@
 ---
-title: Mensagens RosettaNet para integração B2B – aplicativos lógicos do Azure
+title: Mensagens RosettaNet para integração B2B
 description: Trocar mensagens RosettaNet em aplicativos lógicos do Azure com Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 570c7907f320b881e2db0bd45cdce311490f4f45
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680326"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792428"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Trocar mensagens RosettaNet para integração de empresas B2B em aplicativos lógicos do Azure
 
@@ -54,7 +53,7 @@ Aqui estão alguns conceitos e termos que são exclusivos para a especificação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você ainda não tiver uma assinatura do Azure, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso ainda não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para armazenar seu contrato e outros artefatos B2B. Esta conta de integração deve ser associada à sua assinatura do Azure.
 
@@ -80,11 +79,11 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
    ![Adicionar detalhes do PIP RosettaNet](media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome** | Sim | Seu nome de PIP |
-   | **Código PIP** | Sim | O código de três dígitos do PIP. Para obter mais informações, consulte [RosettaNet pips](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
-   | **Versão do PIP** | Sim | O número de versão do PIP, que está disponível com base no seu código PIP selecionado |
+   | **Nome** | SIM | Seu nome de PIP |
+   | **Código PIP** | SIM | O código de três dígitos do PIP. Para obter mais informações, consulte [RosettaNet pips](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **Versão do PIP** | SIM | O número de versão do PIP, que está disponível com base no seu código PIP selecionado |
    ||||
 
    Para obter mais informações sobre essas propriedades de PIP, visite o [site do RosettaNet](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg).
@@ -101,27 +100,27 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
 ## <a name="create-rosettanet-agreement"></a>Criar contrato de RosettaNet
 
-1. No [portal do Azure](https://portal.azure.com), localize e abra sua conta de integração, se ainda não estiver aberta.
+1. No [portal do Azure](https://portal.azure.com), localize e abra a conta de integração, caso ainda não esteja aberta.
 
 1. No painel **visão geral** , selecione o bloco **contratos** .
 
    ![Escolher bloco de contratos](media/logic-apps-enterprise-integration-rosettanet/select-agreement-tile.png)
 
-1. Em **contratos**, escolha **Adicionar**. Forneça os detalhes do seu contrato.
+1. Em **Contratos**, escolha **Adicionar**. Forneça os detalhes do seu contrato.
 
    ![Adicionar detalhes do contrato](media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome** | Sim | O nome do contrato |
-   | **Tipo de contrato** | Sim | Selecione **RosettaNet**. |
-   | **Parceiro de host** | Sim | Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que configura o contrato. |
-   | **Identidade do host** | Sim | Um identificador para o parceiro de host |
-   | **Parceiro convidado** | Sim | Um contrato precisa dos parceiros host e convidado. O parceiro convidado representa a organização que está fazendo negócios com o parceiro de host. |
-   | **Identidade de convidado** | Sim | Um identificador para o parceiro convidado |
-   | **Configurações de recebimento** | Consoante | Essas propriedades se aplicam a todas as mensagens recebidas pelo parceiro de host |
-   | **Configurações de envio** | Consoante | Essas propriedades se aplicam a todas as mensagens enviadas pelo parceiro de host |  
-   | **Referências de PIP RosettaNet** | Sim | As referências de PIP para o contrato. Todas as mensagens RosettaNet exigem configurações de PIP. |
+   | **Nome** | SIM | O nome do contrato |
+   | **Tipo de contrato** | SIM | Selecione **RosettaNet**. |
+   | **Parceiro de host** | SIM | Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato. |
+   | **Identidade do host** | SIM | Um identificador para o parceiro host |
+   | **Parceiro convidado** | SIM | Um contrato precisa dos parceiros host e convidado. O parceiro convidado representa a organização que está fazendo negócios com o parceiro host. |
+   | **Identidade de convidado** | SIM | Um identificador para o parceiro convidado |
+   | **Configurações de recebimento** | Varia | Essas propriedades se aplicam a todas as mensagens recebidas pelo parceiro de host |
+   | **Configurações de envio** | Varia | Essas propriedades se aplicam a todas as mensagens enviadas pelo parceiro de host |  
+   | **Referências de PIP RosettaNet** | SIM | As referências de PIP para o contrato. Todas as mensagens RosettaNet exigem configurações de PIP. |
    ||||
 
 1. Para configurar seu contrato para receber mensagens de entrada do parceiro convidado, selecione **configurações de recebimento**.
@@ -130,7 +129,7 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
    1. Para habilitar a assinatura ou criptografia para mensagens de entrada, em **mensagens**, selecione a **mensagem deve ser assinada** ou a **mensagem deve ser criptografada** , respectivamente.
 
-      | Propriedade | Obrigatório | Descrição |
+      | Propriedade | obrigatórios | Descrição |
       |----------|----------|-------------|
       | **A mensagem deve ser assinada** | Não | Assinar mensagens de entrada com o certificado selecionado. |
       | **Certificate** | Sim, se a assinatura estiver habilitada | O certificado a ser usado para assinatura |
@@ -146,7 +145,7 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
    1. Para habilitar a assinatura ou criptografia para mensagens de saída, em **mensagens**, selecione **Habilitar assinatura de mensagem** ou **habilitar criptografia de mensagem** , respectivamente. Em cada seleção, selecione o respectivo algoritmo e [certificado](./logic-apps-enterprise-integration-certificates.md), que você adicionou anteriormente à sua conta de integração, para usar para assinatura ou criptografia.
 
-      | Propriedade | Obrigatório | Descrição |
+      | Propriedade | obrigatórios | Descrição |
       |----------|----------|-------------|
       | **Habilitar assinatura de mensagem** | Não | Assinar mensagens de saída com o algoritmo de assinatura e o certificado selecionados. |
       | **Algoritmo de assinatura** | Sim, se a assinatura estiver habilitada | O algoritmo de assinatura a ser usado com base no certificado selecionado |
@@ -158,10 +157,10 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
    1. Em **pontos de extremidade**, especifique as URLs necessárias a serem usadas para enviar mensagens de ação e confirmações.
 
-      | Propriedade | Obrigatório | Descrição |
+      | Propriedade | obrigatórios | Descrição |
       |----------|----------|-------------|
-      | **URL da ação** |  Sim | A URL a ser usada para enviar mensagens de ação. A URL é um campo obrigatório para mensagens síncronas e assíncronas. |
-      | **URL de confirmação** | Sim | A URL a ser usada para enviar mensagens de confirmação. A URL é um campo obrigatório para mensagens assíncronas. |
+      | **URL da ação** |  SIM | A URL a ser usada para enviar mensagens de ação. A URL é um campo obrigatório para mensagens síncronas e assíncronas. |
+      | **URL de confirmação** | SIM | A URL a ser usada para enviar mensagens de confirmação. A URL é um campo obrigatório para mensagens assíncronas. |
       ||||
 
 1. Para configurar seu contrato com as referências de PIP RosettaNet para parceiros, selecione **referências de Pip RosettaNet**. Em **nome do Pip**, selecione o nome para o Pip criado anteriormente.
@@ -200,11 +199,11 @@ Para acelerar o desenvolvimento e recomendar os padrões de integração, você 
 
    ![Fornecer detalhes da ação](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Mensagem** | Sim | A mensagem RosettaNet a ser decodificada  |
-   | **Conector** | Sim | Os cabeçalhos HTTP que fornecem os valores para a versão, que é a versão RNIF, e o tipo de resposta, que indica o tipo de comunicação entre os parceiros e pode ser síncrono ou assíncrono |
-   | **Função** | Sim | A função do parceiro de host no PIP |
+   | **Mensagem** | SIM | A mensagem RosettaNet a ser decodificada  |
+   | **Cabeçalhos** | SIM | Os cabeçalhos HTTP que fornecem os valores para a versão, que é a versão RNIF, e o tipo de resposta, que indica o tipo de comunicação entre os parceiros e pode ser síncrono ou assíncrono |
+   | **Função** | SIM | A função do parceiro de host no PIP |
    ||||
 
    Da ação de decodificação RosettaNet, a saída, junto com outras propriedades, inclui o **sinal de saída**, que você pode optar por codificar e retornar ao parceiro ou executar qualquer outra ação nessa saída.
@@ -229,16 +228,16 @@ Para acelerar o desenvolvimento e recomendar os padrões de integração, você 
 
    ![Fornecer detalhes da ação](media/logic-apps-enterprise-integration-rosettanet/encode-action-details.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Mensagem** | Sim | A mensagem RosettaNet a ser codificada  |
-   | **Parceiro de host** | Sim | O nome do parceiro de host |
-   | **Parceiro convidado** | Sim | O nome do parceiro convidado |
-   | **Código PIP** | Sim | O código de PIP |
-   | **Versão do PIP** | Sim | A versão do PIP |  
-   | **Identidade da instância de PIP** | Sim | O identificador exclusivo para esta mensagem PIP |  
-   | **Tipo de mensagem** | Sim | O tipo da mensagem a ser codificada |  
-   | **Função** | Sim | A função do parceiro de host |
+   | **Mensagem** | SIM | A mensagem RosettaNet a ser codificada  |
+   | **Parceiro de host** | SIM | O nome do parceiro de host |
+   | **Parceiro convidado** | SIM | O nome do parceiro convidado |
+   | **Código PIP** | SIM | O código de PIP |
+   | **Versão do PIP** | SIM | A versão do PIP |  
+   | **Identidade da instância de PIP** | SIM | O identificador exclusivo para esta mensagem PIP |  
+   | **Tipo de mensagem** | SIM | O tipo da mensagem a ser codificada |  
+   | **Função** | SIM | A função do parceiro de host |
    ||||
 
    A mensagem codificada agora está pronta para ser enviada ao parceiro.
@@ -259,5 +258,5 @@ Para acelerar o desenvolvimento e recomendar os padrões de integração, você 
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Saiba como validar, transformar e outras operações de mensagens com o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)
+* Saiba como validar, transformar e outras operação de mensagem com o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

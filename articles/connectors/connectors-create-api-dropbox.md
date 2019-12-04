@@ -1,22 +1,18 @@
 ---
-title: Conectar-se ao dropbox – aplicativos lógicos do Azure
+title: Conectar-se ao Dropbox
 description: Carregar e gerenciar arquivos com as APIs REST do Dropbox e os Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 4e0689454ec074348fcbc775373a48d6825cfac4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: b38f9b9626e5eec0272256aacc71f7503a006dd6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050985"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789824"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Carregar e gerenciar arquivos no Dropbox usando o aplicativo lógico do Azure
 
@@ -26,7 +22,7 @@ Este artigo mostra como se conectar ao dropbox de seu aplicativo lógico e, em s
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Uma [conta do Dropbox](https://www.dropbox.com/), que você pode assinar gratuitamente. Suas credenciais de conta são necessárias para criar uma conexão entre seu aplicativo lógico e sua conta do dropbox.
 
@@ -54,7 +50,7 @@ Agora, adicione uma ação que obtém o conteúdo de qualquer arquivo novo.
 1. No gatilho, escolha **Próxima etapa**. 
 
 1. Na caixa de pesquisa, escolha **Tudo**. Na caixa de pesquisa, insira "dropbox" como o seu filtro.
-Na lista de ações, selecione esta ação: **Obter o conteúdo do arquivo usando o caminho**
+Na lista ações, selecione esta ação: **obter o conteúdo do arquivo usando o caminho**
 
 1. Se você ainda não tiver autorizado o aplicativo lógico do Azure para acessar o Dropbox, autorize o acesso agora.
 
@@ -70,6 +66,6 @@ Na lista de ações, selecione esta ação: **Obter o conteúdo do arquivo usand
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/dropbox/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

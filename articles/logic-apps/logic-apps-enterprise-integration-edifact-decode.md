@@ -1,21 +1,19 @@
 ---
-title: Decodificar mensagens EDIFACT - Aplicativos Lógicos do Azure | Microsoft Docs
+title: Decodificar mensagens EDIFACT
 description: Validar EDI e gerar confirmações com o decodificador de mensagem EDIFACT para Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.openlocfilehash: ccad6eab68fff0891ba287a076692f9437495a4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78c0d20c0f32a6d63d134e958b30d38fe11fcc5c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696185"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790676"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens EDIFACT para os Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -81,13 +79,13 @@ O conector EDIFACT de decodificação executa as seguintes tarefas:
   * Verifica o número de controle de grupo em relação a outros números de controle no intercâmbio. 
   * Verifica o número de controle do conjunto de transações em relação a outros números de controle de conjunto de transações nesse grupo.
 * Divide o intercâmbio em conjuntos de transações ou preserva todo o intercâmbio:
-  * Dividir intercâmbio como conjuntos de transação – suspender conjuntos transação com erro: Divide o intercâmbio em transação conjuntos e analisa cada conjunto de transações. 
+  * Dividir o Intercâmbio como conjuntos de transações – suspender conjuntos de transações em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
   A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
-  * Dividir intercâmbio como conjuntos de transação - suspender intercâmbio no erro: Divide o intercâmbio em transação conjuntos e analisa cada conjunto de transações. 
+  * Dividir o Intercâmbio como conjuntos de transações – suspender o intercâmbio em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
   Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
-  * Preservar intercâmbio - suspender conjuntos transação com erro: Preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  * Preservar intercâmbio – suspender conjuntos de transação em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
   A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
-  * Preservar intercâmbio - suspender intercâmbio no erro: Preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  * Preservar intercâmbio – suspender intercâmbio em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
   Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
 * Gera uma confirmação técnica (controle) e/ou funcional (se configurado).
   * Uma confirmação técnica ou o CONTRL ACK reporta os resultados de uma verificação sintática do intercâmbio completo recebido.
@@ -96,6 +94,6 @@ O conector EDIFACT de decodificação executa as seguintes tarefas:
 ## <a name="view-swagger-file"></a>Exibir o arquivo do Swagger
 Para exibir os detalhes de Swagger para o conector do EDIFACT, consulte [EDIFACT](/connectors/edifact/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
 

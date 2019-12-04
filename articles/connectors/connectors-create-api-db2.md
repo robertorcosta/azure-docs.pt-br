@@ -1,21 +1,18 @@
 ---
-title: Conectar-se ao IBM DB2 – aplicativos lógicos do Azure
+title: Conectar-se ao IBM DB2
 description: Gerenciar recursos com APIs REST do IBM DB2 e Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
+ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: a7079115b381d094cec77f96015342b5bc568c27
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 3c2bb01254b19c42fdd704544a6812177fecf4ca
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051041"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789911"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gerenciar recursos do IBM DB2 com os Aplicativos Lógicos do Azure
 
@@ -29,7 +26,7 @@ O conector DB2 inclui um cliente Microsoft que se comunica com servidores DB2 re
 
 O conector IBM DB2 dá suporte a essas plataformas e versões do IBM DB2, juntamente com os produtos compatíveis com IBM DB2 que dão suporte à DRDA (Distributed Relacionative Database Architecture) versões 10 e 11:
 
-| Plataforma | Version | 
+| Plataforma | Versão | 
 |----------|---------|
 | IBM DB2 para z/OS | 11.1, 10.1 |
 | IBM DB2 para i | 7.3, 7.2, 7.1 |
@@ -52,7 +49,7 @@ O conector do IBM DB2 é compatível com estas operações de banco de dados, qu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Um banco de dados do IBM DB2, baseado em nuvem ou local
 
@@ -69,7 +66,7 @@ Os exemplos neste artigo usam o gatilho **Recorrência**.
 
 1. No gatilho, escolha **Nova etapa**.
 
-1. Na caixa de pesquisa, insira "db2" como seu filtro. Para este exemplo, na lista ações, selecione esta ação: **Obter tabelas (visualização)**
+1. Na caixa de pesquisa, insira "db2" como seu filtro. Para esse exemplo, na lista de ações, selecione esta ação: **Obter tabelas (versão prévia)**
 
    ![Ação selecionar](./media/connectors-create-api-db2/select-db2-action.png)
 
@@ -83,14 +80,14 @@ Os exemplos neste artigo usam o gatilho **Recorrência**.
 
 Para configurar sua conexão, forneça estes detalhes de conexão quando solicitados. Escolha **Criar** e salve seu aplicativo lógico:
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | obrigatórios | Descrição |
 |----------|----------|-------------|
 | **Conectar por meio do gateway local** | Não | Aplica-se somente para conexões locais. |
-| **Nome da Conexão** | Sim | O nome da sua conexão, por exemplo, "MyLogicApp-DB2-connection" |
-| **Servidor** | Sim | O endereço ou alias dois pontos número da porta para seu servidor DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Observação**: Esse valor é uma cadeia de caracteres que representa um endereço TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP. |
-| **Banco de dados** | Sim | O nome do seu banco de dados <p><p>**Observação**: Esse valor é uma cadeia de caracteres que representa um nome de banco de dados relacional DRDA (RDBNAM): <p>– O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes e que o banco de dados é conhecido como um local "IBM DB2 para z/OS". <br>– O DB2 para i aceita uma cadeia de caracteres de 18 bytes em que o banco de dados é conhecido como um banco de dados relacional "IBM DB2 para i". <br>– O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
-| **Nome de Usuário** | Sim | Seu nome de usuário para o banco de dados <p><p>**Observação**: Esse valor é uma cadeia de caracteres cujo comprimento é baseado no banco de dados específico: <p><p>– O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para i aceita uma cadeia de caracteres de 10 bytes. <br>– O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
-| **Senha** | Sim | Sua senha do banco de dados |
+| **Nome da Conexão** | SIM | O nome da sua conexão, por exemplo, "MyLogicApp-DB2-connection" |
+| **Servidor** | SIM | O endereço ou alias dois pontos número da porta para seu servidor DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Observação**: esse valor é uma cadeia de caracteres que representa um endereço TCP/IP ou alias, em formato IPv4 ou IPv6, seguido de dois pontos e um número da porta TCP/IP. |
+| **Banco de dados** | SIM | O nome do seu banco de dados <p><p>**Observação**: esse valor é uma cadeia de caracteres que representa um RDBNAM (Nome do banco de dados relacional DRDA): <p>– O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes e que o banco de dados é conhecido como um local "IBM DB2 para z/OS". <br>– O DB2 para i aceita uma cadeia de caracteres de 18 bytes em que o banco de dados é conhecido como um banco de dados relacional "IBM DB2 para i". <br>– O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
+| **Nome de Usuário** | SIM | Seu nome de usuário para o banco de dados <p><p>**Observação**: esse valor é uma cadeia de caracteres cujo comprimento baseia-se no banco de dados específico: <p><p>– O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para i aceita uma cadeia de caracteres de 10 bytes. <br>– O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
+| **Senha** | SIM | Sua senha do banco de dados |
 ||||
 
 Por exemplo:
@@ -103,16 +100,16 @@ Por exemplo:
 
 Antes de criar sua conexão, é necessário já ter o gateway de dados local instalado. Caso contrário, não será possível configurar sua conexão. Se você já tiver sua instalação de gateway, continue fornecendo esses detalhes de conexão e escolha **Criar**.
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | obrigatórios | Descrição |
 |----------|----------|-------------|
-| **Conectar por meio do gateway local** | Sim | Aplica-se quando você desejar uma conexão local e mostra as propriedades da conexão local. |
-| **Nome da Conexão** | Sim | O nome da sua conexão, por exemplo, "MyLogicApp-DB2-connection" | 
-| **Servidor** | Sim | O endereço ou alias dois pontos número da porta para seu servidor DB2, por exemplo, "myDB2server:50000" <p><p>**Observação**: Esse valor é uma cadeia de caracteres que representa um endereço TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP. |
-| **Banco de dados** | Sim | O nome do seu banco de dados <p><p>**Observação**: Esse valor é uma cadeia de caracteres que representa um nome de banco de dados relacional DRDA (RDBNAM): <p>– O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes e que o banco de dados é conhecido como um local "IBM DB2 para z/OS". <br>– O DB2 para i aceita uma cadeia de caracteres de 18 bytes em que o banco de dados é conhecido como um banco de dados relacional "IBM DB2 para i". <br>– O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
-| **Autenticação** | Sim | O tipo de autenticação para sua conexão, por exemplo, "Básica" <p><p>**Observação**: Selecione esse valor na lista, que inclui Basic ou Windows (Kerberos). |
-| **Nome de Usuário** | Sim | Seu nome de usuário para o banco de dados <p><p>**Observação**: Esse valor é uma cadeia de caracteres cujo comprimento é baseado no banco de dados específico: <p><p>– O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para i aceita uma cadeia de caracteres de 10 bytes. <br>– O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
-| **Senha** | Sim | Sua senha do banco de dados |
-| **Gateway** | Sim | O nome do seu gateway de dados local instalado <p><p>**Observação**: Selecione esse valor na lista, que inclui todos os gateways de dados instalados em sua assinatura e grupo de recursos do Azure. |
+| **Conectar por meio do gateway local** | SIM | Aplica-se quando você desejar uma conexão local e mostra as propriedades da conexão local. |
+| **Nome da Conexão** | SIM | O nome da sua conexão, por exemplo, "MyLogicApp-DB2-connection" | 
+| **Servidor** | SIM | O endereço ou alias dois pontos número da porta para seu servidor DB2, por exemplo, "myDB2server:50000" <p><p>**Observação**: esse valor é uma cadeia de caracteres que representa um endereço TCP/IP ou alias, em formato IPv4 ou IPv6, seguido de dois pontos e um número da porta TCP/IP. |
+| **Banco de dados** | SIM | O nome do seu banco de dados <p><p>**Observação**: esse valor é uma cadeia de caracteres que representa um RDBNAM (Nome do banco de dados relacional DRDA): <p>– O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes e que o banco de dados é conhecido como um local "IBM DB2 para z/OS". <br>– O DB2 para i aceita uma cadeia de caracteres de 18 bytes em que o banco de dados é conhecido como um banco de dados relacional "IBM DB2 para i". <br>– O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
+| **Autenticação** | SIM | O tipo de autenticação para sua conexão, por exemplo, "Básica" <p><p>**Observação**: selecione esse valor na lista, que inclui Básica ou Windows (Kerberos). |
+| **Nome de Usuário** | SIM | Seu nome de usuário para o banco de dados <p><p>**Observação**: esse valor é uma cadeia de caracteres cujo comprimento baseia-se no banco de dados específico: <p><p>– O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para i aceita uma cadeia de caracteres de 10 bytes. <br>– O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
+| **Senha** | SIM | Sua senha do banco de dados |
+| **Gateway** | SIM | O nome do seu gateway de dados local instalado <p><p>**Observação**: selecione esse valor na lista, que inclui todos os gateways de dados instalados dentro do grupo de recursos e de assinatura do Azure. |
 ||||
 
 Por exemplo:
@@ -154,10 +151,10 @@ Para efetuar fetch de um registro em uma tabela do banco de dados DB2, use a aç
 
 1. Especifique valores para todas as propriedades obrigatórias (*). Após selecionar uma tabela, a ação mostrará as propriedades relevantes específicas para os registros nessa tabela.
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Sim | A tabela que tem o registro desejado, como "AREA" neste exemplo |
-   | **ID de área** | Sim | A ID do registro desejado, como "99999" neste exemplo |
+   | **Nome da tabela** | SIM | A tabela que tem o registro desejado, como "AREA" neste exemplo |
+   | **ID de área** | SIM | A ID do registro desejado, como "99999" neste exemplo |
    ||||
 
    ![Selecionar tabela](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
@@ -234,12 +231,12 @@ Para adicionar um único registro a uma tabela do banco de dados DB2, use a aç�
 
    Para esse exemplo, estas são as propriedades:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Sim | A tabela na qual adicionar o registro, como "AREA" |
-   | **ID de área** | Sim | A ID da área a ser adicionada, como "99999" |
-   | **Descrição da área** | Sim | A descrição da área a ser adicionada, como "Área 99999" |
-   | **ID da região** | Sim | A ID da região a ser adicionada, como "102" |
+   | **Nome da tabela** | SIM | A tabela na qual adicionar o registro, como "AREA" |
+   | **ID de área** | SIM | A ID da área a ser adicionada, como "99999" |
+   | **Descrição da área** | SIM | A descrição da área a ser adicionada, como "Área 99999" |
+   | **ID da região** | SIM | A ID da região a ser adicionada, como "102" |
    |||| 
 
    Por exemplo:
@@ -281,13 +278,13 @@ Para atualizar um único registro em uma tabela do banco de dados DB2, use a aç
 
    Para esse exemplo, estas são as propriedades:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Sim | A tabela na qual atualizar o registro, como "AREA" |
-   | **ID da linha** | Sim | A ID do registro a ser atualizado, como "99999" |
-   | **ID de área** | Sim | A nova ID de área, como "99999" |
-   | **Descrição da área** | Sim | A nova descrição de área, como "99999 atualizada" |
-   | **ID da região** | Sim | A nova ID da região, como "102" |
+   | **Nome da tabela** | SIM | A tabela na qual atualizar o registro, como "AREA" |
+   | **ID da linha** | SIM | A ID do registro a ser atualizado, como "99999" |
+   | **ID de área** | SIM | A nova ID de área, como "99999" |
+   | **Descrição da área** | SIM | A nova descrição de área, como "99999 atualizada" |
+   | **ID da região** | SIM | A nova ID da região, como "102" |
    ||||
 
    Por exemplo:
@@ -329,10 +326,10 @@ Para excluir um único registro de uma tabela do banco de dados DB2, use a açã
 
    Para esse exemplo, estas são as propriedades:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Sim | A tabela na qual excluir o registro, como "AREA" |
-   | **ID da linha** | Sim | A ID do registro a ser excluído, como "99999" |
+   | **Nome da tabela** | SIM | A tabela na qual excluir o registro, como "AREA" |
+   | **ID da linha** | SIM | A ID do registro a ser excluído, como "99999" |
    ||||
 
    Por exemplo:
@@ -364,6 +361,6 @@ Expanda a ação **Excluir linha**.
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/db2/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

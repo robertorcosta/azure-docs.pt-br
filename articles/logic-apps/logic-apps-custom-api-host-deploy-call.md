@@ -1,21 +1,17 @@
 ---
-title: Implantar e chamar APIs Web e APIs REST de Aplicativos Lógicos do Azure | Microsoft Docs
-description: Implantar e chamar APIs Web e APIs REST para fluxos de trabalho de integrações do sistema no Aplicativo Lógico do Azure
+title: Implantar e chamar APIs Web & APIs REST de aplicativos lógicos do Azure
+description: Implantar e chamar APIs Web & APIs REST para fluxos de trabalho de integração do sistema em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, stepsic, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1305be54a22b1460000a357074cbb1f67123bd6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740366"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790759"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implantar e chamar APIs personalizadas de fluxos de trabalho nos Aplicativos Lógicos do Azure
 
@@ -53,6 +49,6 @@ Depois de configurar as propriedades de definição de API e os CORS, os gatilho
 
 *  Para chamar qualquer API, incluindo APIs que não têm ou expõem um documento do OpenAPI, você sempre pode criar uma solicitação com a [ação HTTP](../connectors/connectors-native-http.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do conector personalizado](../logic-apps/custom-connector-overview.md)

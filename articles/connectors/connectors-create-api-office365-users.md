@@ -1,28 +1,24 @@
 ---
-title: Conectar aos Usuários do Office 365 – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar-se aos usuários do Office 365
 description: Gerenciar perfis de usuário com as APIs REST dos Usuários do Office 365 e os Aplicativos Lógicos do Azure
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
-ms.service: logic-apps
-services: logic-apps
-ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 3865fbc4fbc39da0860218565b0a8956b2dad8ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: addb64a9b43c51af8363caa6f0fb3261a618e893
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105864"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789505"
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Introdução ao conector dos Usuários do Office 365
 Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e muito mais. Com os Usuários do Office 365, você pode:
 
 * Criar seu fluxo de negócios baseado nos dados obtidos dos Usuários do Office 365. 
-* Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure. 
+* Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure. 
 
 É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

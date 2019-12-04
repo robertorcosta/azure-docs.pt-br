@@ -1,20 +1,17 @@
 ---
-title: Mover aplicativos lógicos entre assinaturas, grupos de recursos ou regiões-aplicativos lógicos do Azure
+title: Mover aplicativos lógicos entre assinaturas, grupos de recursos ou regiões
 description: Migrar aplicativos lógicos ou contas de integração para outras assinaturas do Azure, grupos de recursos ou locais (regiões)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 8c3bad32943b83cbfe4c96087f3fef1c51f64bb1
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: de646c790fc21ef17bf78789e0531503f2f32052
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679104"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790795"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Mover recursos do aplicativo lógico para outras assinaturas, grupos de recursos ou regiões do Azure
 
@@ -93,7 +90,7 @@ Alguns recursos do Azure, como recursos de gateway de dados locais no Azure, pod
 
 Por exemplo, para vincular um aplicativo lógico a uma conta de integração, ambos os recursos devem existir na mesma região. Em cenários como a recuperação de desastres, geralmente você deseja contas de integração que tenham a mesma configuração e artefatos. Em outros cenários, talvez seja necessário ter contas de integração com diferentes configurações e artefatos.
 
-Os conectores personalizados nos aplicativos lógicos do Azure são visíveis para os autores e usuários dos conectores que têm a mesma assinatura do Azure e o mesmo locatário Azure Active Directory. Esses conectores estão disponíveis na mesma região em que os aplicativos lógicos são implantados. Para obter mais informações, consulte [compartilhar conectores personalizados em sua organização](https://docs.microsoft.com/connectors/custom-connectors/share).
+Os conectores personalizados nos aplicativos lógicos do Azure são visíveis para os autores e usuários dos conectores que têm a mesma assinatura do Azure e o mesmo locatário Azure Active Directory. Esses conectores estão disponíveis na mesma região em que os aplicativos lógicos são implantados. Para obter mais informações, veja [Compartilhar conectores personalizados em sua organização](https://docs.microsoft.com/connectors/custom-connectors/share).
 
 O modelo obtido do Visual Studio inclui apenas as definições de recurso para seu aplicativo lógico e suas conexões. Portanto, se seu aplicativo lógico usar outros recursos, por exemplo, uma conta de integração e artefatos B2B, como parceiros, contratos e esquemas, você deverá exportar o modelo da conta de integração usando o portal do Azure. Este modelo inclui as definições de recursos para a conta de integração e os artefatos. No entanto, o modelo não é totalmente parametrizado. Portanto, você deve parametrizar manualmente os valores que deseja usar para a implantação.
 

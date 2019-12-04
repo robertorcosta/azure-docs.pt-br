@@ -1,20 +1,17 @@
 ---
-title: Adicionar instruções switch a fluxos de trabalho – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Adicionar instruções switch a fluxos de trabalho
 description: Como criar instruções switch que controlam as ações de fluxo de trabalho com base em valores específicos nos Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683062"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793244"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar instruções switch que executam ações de fluxo de trabalho com base em valores específicos nos Aplicativos Lógicos do Azure
 
@@ -32,7 +29,7 @@ Por exemplo, suponhamos que você deseje um aplicativo lógico que execute etapa
 
 * Para seguir o exemplo neste artigo, [crie esse aplicativo lógico de exemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta do Outlook.com ou Office 365 Outlook.
 
-  1. Quando você adiciona a ação para enviar email, localize e selecione esta ação em vez disso: **Enviar um email de aprovação**
+  1. Ao adicionar a ação para enviar email, localize e selecione a seguinte ação: **Enviar um email de aprovação**
 
      ![Selecione "Enviar um e-mail de aprovação"](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -47,7 +44,7 @@ Por exemplo, suponhamos que você deseje um aplicativo lógico que execute etapa
 
    Quando você deseja adicionar uma instrução de comutação entre as etapas, mova o ponteiro sobre a seta onde você deseja adicionar a instrução de comutação. Escolha o **sinal de adição** ( **+** ) que aparece e, em seguida, escolha **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, digite “switch” como filtro. Selecione esta ação: **Comutador - controle**
+1. Na caixa de pesquisa, digite “switch” como filtro. Selecione esta ação: **Switch – Control**
 
    ![Adicionar switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -113,7 +110,7 @@ Agora que você criou um aplicativo lógico usando uma instrução switch, vamos
 }
 ```
 
-| Rotular | DESCRIÇÃO |
+| Rótulo | Descrição |
 |-------|-------------|
 | `"Switch"`         | O nome da instrução de comutação, que pode ser renomeada para facilitar a leitura |
 | `"type": "Switch"` | Especifica que a ação é uma instrução de comutação |
@@ -127,7 +124,7 @@ Agora que você criou um aplicativo lógico usando uma instrução switch, vamos
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar e repetir (loops)](../logic-apps/logic-apps-control-flow-loops.md)

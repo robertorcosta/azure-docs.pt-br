@@ -1,18 +1,18 @@
 ---
-title: Analisar dados de série temporal usando o Data Explorer do Azure
-description: Saiba como analisar dados de série temporal na nuvem usando o Data Explorer do Azure.
+title: Analisar dados de série temporal usando o Azure Data Explorer
+description: Saiba como analisar dados de série temporal na nuvem usando o Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3873b25394f91ce1c1601c348de2098198ba7fdd
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604057"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765476"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análise de série temporal no Data Explorer do Azure
 
@@ -25,6 +25,8 @@ Nesta seção, criaremos um conjunto grande de séries temporais regular de form
 A primeira etapa na análise de séries temporais é particionar e transformar a tabela de telemetria original em um conjunto de séries temporais. A tabela geralmente contém uma coluna de registro de data e hora, dimensões contextuais e métricas opcionais. As dimensões são usadas para particionar os dados. O objetivo é criar milhares de série temporal por partição em intervalos regulares.
 
 A tabela de entrada *demo_make_series1* contém 600.000 registros de tráfego de serviço da Web arbitrário. Use o comando a seguir para 10 registros de exemplo:
+
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03MTo0vTi3KTC02VKhRKAFyFQwNADOyzKUbAAAA) **\]**
 
 ```kusto
 demo_make_series1 | take 10 
@@ -42,11 +44,13 @@ A tabela resultante contém uma coluna de timestamp, três colunas de dimensões
 |   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | República da Lituânia |
 |   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | Índia |
 |   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | Reino Unido |
-|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Países Baixos |
+|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Holanda |
 |   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | Reino Unido |
 |   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | Índia |
 
 Como não há métricas, só podemos criar um conjunto de séries temporais representando a própria contagem de tráfego, particionada por SO usando a seguinte consulta:
+
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5XPwQrCMBAE0Hu/Yo4NVLBn6Td4ULyWtV1tMJtIsoEq/XhbC4J48jgw+5h1rBDrW0UDDakjR7HsWUIrdOM2cbScakxIWYSiffJSL49W+KAkd2N2hVsMGv8yaPw2furFhCVu1gifpelC9loa9Hyh7LTZInh8FFiPSP7K5fufap1UoR4Mzg/s04njjEb2PUfofNYNFPUFtJiguAEBAAA=) **\]**
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -63,7 +67,7 @@ demo_make_series1
     - `byOsVer`: partição de sistema operacional
 - A estrutura de dados da série temporal real é uma matriz numérica do valor agregado para cada intervalo de tempo. Podemos usar `render timechart` para visualização.
 
-Na tabela acima, temos três partições. Podemos criar uma série de tempo separada: Windows 10 (vermelho), 7 (azul) e 8.1 (verde) para cada versão do SO, como visto no gráfico:
+Na tabela acima, temos três partições. Podemos criar uma série temporal separada: Windows 10 (vermelho), 7 (azul) e 8.1 (verde) para cada versão do sistema operacional, como visto no gráfico:
 
 ![Partição de série temporal](media/time-series-analysis/time-series-partition.png)
 
@@ -79,6 +83,8 @@ A filtragem é uma prática comum no processamento de sinais e útil para tarefa
     - [`series_fir()`](/azure/kusto/query/series-firfunction): Aplicando o filtro FIR. Usado para cálculo simples de média móvel e diferenciação da série temporal para detecção de mudança.
     - [`series_iir()`](/azure/kusto/query/series-iirfunction): Aplicando o filtro IIR. Usado para suavização exponencial e soma cumulativa.
 - `Extend` a série temporal definida pela adição de uma nova série de médias móveis de tamanho 5 (denominada *ma_num*) à consulta:
+
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPQavCMBCE7/6KOSYQ4fXgSfobPDx517C2q4bXpLLZQBV/vKkFQTx5WRh25tvZgRUxJK9ooWPuaCAxPcfRR/pnn1kC5wZ35BIjSbjxbDf7EPlXKV6s3a6GmUHTVwya3hkf9tUds1wvEqnEthtLUmPR85HKoO0PxoQXBSFBKJ3YPP9xSyWH5mxxuGKX/1gqlCfl1Neln5EL3R+DmCodhC9MahqHjXVQKbxMW5NScyzQerA7k+gDa1tswzsBAAA=) **\]**
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -98,6 +104,8 @@ O ADX suporta análise de regressão linear segmentada para estimar a tendência
 - Use [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) para detectar alterações de tendência, relativas à linha de base, que são úteis em cenários de monitoramento.
 
 Exemplo de funções `series_fit_line()` e `series_fit_2lines()` em uma consulta de série temporal:
+
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2PL04tykwtNuKqUUitKEnNS1GACMSnZZbEG+Vk5qUWa1Rq6iCLggSBYkAdRUD1qUUKIIHkjMSiEoXyzJIMjYrk/JzS3DzbCk0AUIIJ02EAAAA=) **\]**
 
 ```kusto
 demo_series2
@@ -120,6 +128,8 @@ Muitas métricas seguem padrões sazonais (periódicos). O tráfego de usuários
 
 O exemplo a seguir aplica a detecção de sazonalidade em um tráfego mensal de um serviço da Web (intervalos de 2 horas):
 
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2PL04tykwtNuaqUShKzUtJLVIoycxNTc5ILCoBAHrjE80fAAAA) **\]**
+
 ```kusto
 demo_series3
 | render timechart 
@@ -133,6 +143,8 @@ demo_series3
 > [!NOTE]
 > É uma anomalia se períodos distintos específicos não existe
 
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12OwQ6CMBBE737FHKmpVtAr39IguwkYyzZ0IZj48TZSLx533szOEAfxieeR0/XwRpzlwb2iilkSShapl5mTQYvd5QvxxJqd1bQEi8vZor6RawaLxsA5FewcOjBKBOP0PXUMXL7lyrCeeIvdRPjrzIw35Qyoe6W2GY4qJMv9yb91xtX0AS7N323BAAAA) **\]**
+
 ```kusto
 demo_series3
 | project (periods, scores) = series_periods_detect(num, 0., 14d/2h, 2) //to detect the periods in the time series
@@ -142,7 +154,7 @@ demo_series3
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | períodos | scores | days |
+|   | períodos | scores | dias |
 |   | 84 | 0.820622786055595 | 7 |
 |   | 12 | 0.764601405803502 | 1 |
 
@@ -151,6 +163,8 @@ A função detecta a sazonalidade diária e semanal. As pontuações diárias s�
 ### <a name="element-wise-functions"></a>Funções elemento a elemento
 
 Operações aritméticas e lógicas podem ser feitas em uma série temporal. Usando [series_subtract()](/azure/kusto/query/series-subtractfunction), podemos calcular uma série temporal residual, ou seja, a diferença entre a métrica original e a suavizada, e procurar por anomalias no sinal residual:
+
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WQQU/DMAyF7/sVT5waqWjrgRPqb+AAgmPltR6LSNLJcdhA+/G4izRAnLhEerbfl2cHVkSfBkUPnfNIgaSZOM5DpDceMovn3OGMXGIk8Z+8jDdPPvKjUjw4d78KC4NO/2LQ6Tfjz/jqjEXeVolUYj/OJWnjMPGOStB+gznhSoFPEEqv3Fz2aWukFt3eYfuBh/zMYlA+KafJmsOCrPRh56Ux2UL4wKRN1+LOtVApXF/37RTOfioUfvpz2arQqBVS2Q7rtc6wa4wlkPLVCLXIqE7DHvcsXOOh73Hz4tM0HzO6zQ1gDOx8UOvZrtayst0Y7z4babkkYQxMyQbGPYnCiGIxTS/fXGpfwk+n7uQBAAA=) **\]**
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -173,6 +187,8 @@ demo_make_series1
 
 O exemplo abaixo mostra como essas funções podem ser executadas em escala em milhares de séries temporais em segundos para detecção de anomalias. Para ver alguns registros de telemetria de amostra da métrica de contagem de leitura de um serviço de DB ao longo de quatro dias, execute a seguinte consulta:
 
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03Mq4wvTi3KTC025KpRKEnMTlUwAQArfAiiGgAAAA==) **\]**
+
 ```kusto
 demo_many_series1
 | take 4 
@@ -188,6 +204,8 @@ demo_many_series1
 
 E estatísticas simples:
 
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03Mq4wvTi3KTC025KpRKC7NzU0syqxKVcgrzbVNzi/NK9HQ1FHIzcyLL7EFkhohnr6uwSGOvgEg0cQKkGhiBZIoAEq2dK9VAAAA) **\]**
+
 ```kusto
 demo_many_series1
 | summarize num=count(), min_t=min(TIMESTAMP), max_t=max(TIMESTAMP) 
@@ -199,6 +217,8 @@ demo_many_series1
 |   | 2177472 | 2016-09-08 00:00:00.0000000 | 2016-09-11 23:00:00.0000000 |
 
 Construir uma série temporal em intervalos de 1 hora da métrica de leitura (total de quatro dias * 24 horas = 96 pontos) resulta em uma flutuação padrão normal:
+
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPMQvCMBSE9/6KGxOoYGfpIOjgUBDtXh7twwabFF6ittIfb2rBQSfHg+8+7joOsMZVATlC72vqSFTDtq8subHyLIZ9hgn+Zi2JefKMq/JQ7M/ltjhqvQGSbrbQ8JeFhm/LTyGZInbl1RIhTI3P6X5ROwp0ikmjd/hYYByE3IXV+1G6TEqRtTqahF3DgmAs1y1JwMOEVo0Rzdf6BbBH5FAHAQAA) **\]**
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -214,6 +234,8 @@ O comportamento acima é enganoso, uma vez que a única série temporal normal �
 
 Podemos criar quantas séries de tempo?
 
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03Mq4wvTi3KTC025KpRKC7NzU0syqxKVUiqVPDJT9ZR8C/QUXBxAkol55fmlQAAWEsFxjQAAAA=) **\]**
+
 ```kusto
 demo_many_series1
 | summarize by Loc, Op, DB
@@ -226,6 +248,8 @@ demo_many_series1
 |   | 18339 |
 
 Agora, vamos criar um conjunto de 18339 séries temporais da métrica de contagem de leitura. Adicionamos a cláusula `by` à instrução make-series, aplicamos a regressão linear e selecionamos as duas primeiras séries temporais que apresentaram a tendência decrescente mais significativa:
+
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPsU7DQBBE+3zFdLmTTGHSgFAKUCiQiIKIe2u5rJ0T9l3YWwcH5eO5JBIFVJSzmnmz07Gi96FWzKExOepIzIb7WPcUDnVi8ZxKHJGGvifxX3yym+pp+biu7pcv1t4Bk+5EofFfFBp/U/4EJsdse+eri4QwbdKc9q1ZkNJrVhYx4IcCHyAUWjbnRcXlpQLl1uLtgOfoCqx2BRYPGcyjctjASPoYSLhA6uKObR5waasbr3XnA5tzrc0RjTtcn0hnKyg55KtkDAvU9+y2JIpPr1ujXjueT9cse+8YlVDTeIfVoNQymiiZ5ENSCi4vM3FQxAblzWx2a6f2G2UcBRyWAQAA) **\]**
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -240,6 +264,8 @@ demo_many_series1
 ![Série temporal principais dois](media/time-series-analysis/time-series-top-2.png)
 
 Exiba as instâncias:
+
+**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPvW4CMRCEe55iSlsyBWkjChApIoESAb21udsQg38O26AD8fDx3SEUJVXKWc18s2M5wxmvM6bIIVVkKYqaXdCO/EUnjobTBDekk3MUzZU7u9i+rl4229nqXcpnYGQ7CrX/olD7m/InMLoV24HHg0RkqtOUzjuxoEzroiSCx4MC4xHJ71j0i9TwksLkS+LjgmWoFN4ahcW8gLnN7GuImI4niqyQbGhYlgFDm/40WVvjWfS1skRyaPDUkXorKFXl2MSw5yr/pN9Z31SyxuhbAQAA) **\]**
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -261,7 +287,7 @@ Em menos de dois minutos, o ADX analisou cerca de 20.000 séries temporais e det
 
 Esses recursos avançados combinados com o desempenho rápido do ADX fornecem uma solução exclusiva e poderosa para análise de séries temporais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre [tempo de detecção de anomalias de série e a previsão](/azure/data-explorer/anomaly-detection) no Gerenciador de dados do Azure.
-* Saiba mais sobre [recursos de aprendizado de máquina](/azure/data-explorer/machine-learning-clustering) no Gerenciador de dados do Azure.
+* Saiba mais sobre a [detecção de anomalias de séries temporais e a previsão](/azure/data-explorer/anomaly-detection) no Azure data Explorer.
+* Saiba mais sobre os [recursos de aprendizado de máquina](/azure/data-explorer/machine-learning-clustering) no Azure data Explorer.

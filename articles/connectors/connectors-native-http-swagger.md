@@ -2,20 +2,17 @@
 title: Conectar-se a pontos de extremidade REST de aplicativos lógicos do Azure
 description: Monitorar pontos de extremidade REST em tarefas, processos e fluxos de trabalho automatizados usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824812"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787362"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Chamar pontos de extremidade REST usando aplicativos lógicos do Azure
 
@@ -23,7 +20,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * A URL para o arquivo Swagger (não OpenAPI) que descreve o ponto de extremidade REST de destino
 
@@ -33,7 +30,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
   * O arquivo Swagger deve ter [CORS (compartilhamento de recursos entre origens)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) habilitado.
 
-  Para fazer referência a um arquivo do Swagger que não está hospedado ou que não atende aos requisitos de segurança e entre origens, você pode [carregar o arquivo do Swagger para um contêiner de BLOB em uma conta de armazenamento do Azure](#host-swagger)e habilitar o CORS nessa conta de armazenamento para que você possa fazer referência o arquivo.
+  Para fazer referência a um arquivo do Swagger que não está hospedado ou que não atende aos requisitos de segurança e entre origens, você pode [carregar o arquivo do Swagger para um contêiner de BLOB em uma conta de armazenamento do Azure](#host-swagger)e habilitar o CORS nessa conta de armazenamento para que você possa fazer referência ao arquivo.
 
   Os exemplos neste tópico usam o [API de detecção facial de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/face/overview), que requer uma [conta de serviços cognitivas e uma chave de acesso](../cognitive-services/cognitive-services-apis-create-account.md).
 
@@ -45,7 +42,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
 Esse gatilho interno envia uma solicitação HTTP para uma URL para um arquivo do Swagger que descreve uma API REST e retorna uma resposta que contém o conteúdo desse arquivo.
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
+1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
 1. No designer, na caixa de pesquisa, digite "Swagger" como filtro. Na lista de **gatilhos** , selecione o gatilho **http + Swagger** .
 
@@ -81,7 +78,7 @@ Esse gatilho interno envia uma solicitação HTTP para uma URL para um arquivo d
 
 Essa ação interna faz uma solicitação HTTP para a URL do arquivo Swagger que descreve uma API REST e retorna uma resposta que contém o conteúdo desse arquivo.
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no Logic App Designer.
+1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no Logic App Designer.
 
 1. Na etapa em que você deseja adicionar a ação HTTP + Swagger, selecione **nova etapa**.
 
@@ -125,7 +122,7 @@ Você pode fazer referência a um arquivo do Swagger que não está hospedado ou
 
 1. Agora habilite o CORS para o blob. No menu da sua conta de armazenamento, selecione **CORS**. Na guia **serviço blob** , especifique esses valores e, em seguida, selecione **salvar**.
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    |----------|-------|
    | **Origens permitidas** | `*` |
    | **Métodos permitidos** | `GET`, `HEAD`, `PUT` |
@@ -148,24 +145,24 @@ Você pode fazer referência a um arquivo do Swagger que não está hospedado ou
 
 Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP + Swagger. A chamada HTTP + Swagger retorna estas informações:
 
-| Nome da propriedade | Tipo | DESCRIÇÃO |
+| Nome da propriedade | Type | Descrição |
 |---------------|------|-------------|
-| headers | objeto | Os cabeçalhos da solicitação |
-| corpo | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
+| Cabeçalhos | objeto | Os cabeçalhos da solicitação |
+| Corpo | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
 | código de status | int | O código de status da solicitação |
 |||
 
-| Código de status | DESCRIÇÃO |
+| Código de status | Descrição |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Aceita |
 | 400 | Solicitação incorreta |
-| 401 | Não Autorizado |
+| 401 | Não autorizado |
 | 403 | Proibido |
 | 404 | Não encontrado |
 | 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113592"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790936"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>O que é indexação incremental no Pesquisa Cognitiva do Azure?
 
@@ -47,7 +47,7 @@ Você precisará definir a propriedade `cache` no indexador para iniciar o benef
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters":{}
+    "parameters": {}
 }
 ```
 
@@ -83,7 +83,7 @@ Os indexadores não apenas avançam e processam novos documentos, mas agora são
 
 ### <a name="invalidating-changes"></a>Alterações que causam invalidações
 
-Alterações que causam invalidação são raras, mas têm um efeito significativo sobre o estado de seu pipeline de enriquecimento. Uma alteração que causa invalidação faz com que o cache inteiro deixe de ser válido. Um exemplo de alteração que causa invalidação é aquela em que a fonte de dados é atualizada. Para cenários em que você sabe que a alteração não deve invalidar o cache, como girar a chave na conta de armazenamento, o parâmetro `ignoreResetRequirement` QueryString deve ser definido como `true` na operação de atualização do recurso específico para garantir que a operação seja Não rejeitado.
+Alterações que causam invalidação são raras, mas têm um efeito significativo sobre o estado de seu pipeline de enriquecimento. Uma alteração que causa invalidação faz com que o cache inteiro deixe de ser válido. Um exemplo de alteração que causa invalidação é aquela em que a fonte de dados é atualizada. Para cenários quando você sabe que a alteração não deve invalidar o cache, como girar a chave na conta de armazenamento, o parâmetro `ignoreResetRequirement` QueryString deve ser definido como `true` na operação de atualização do recurso específico para garantir que a operação não seja rejeitada.
 
 Esta é a lista completa de alterações que invalidarão seu cache:
 
@@ -152,7 +152,7 @@ Use o `ignoreResetRequirement` com moderação, pois isso pode levar à inconsis
 
 A indexação incremental é um recurso poderoso que estende o controle de alterações da fonte de dados para todos os aspectos do pipeline de enriquecimento, incluindo a fonte de dados, a versão atual do seu conjunto de qualificações e o indexador. À medida que suas habilidades, conjuntos de habilidades ou enriquecimento evoluem, o pipeline de enriquecimento garante que o mínimo de trabalho possível seja feito e, ao mesmo tempo, leva seus documentos à consistência eventual.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Comece a usar a indexação incremental adicionando um cache a um indexador existente ou adicione o cache ao definir um novo indexador.
 

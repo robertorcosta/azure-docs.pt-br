@@ -2,19 +2,16 @@
 title: Adicionar e chamar o Azure Functions de aplicativos lógicos do Azure
 description: Adicionar e executar o Azure Functions de aplicativos lógicos
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 5b946e36c5da9f122adce1f8e3b99523a789a66f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 8e72cda1965280e0694493e533f49f71c746ebc6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901135"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792565"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chamar o Azure Functions de aplicativos lógicos do Azure
 
@@ -29,7 +26,7 @@ Para executar trechos de código sem criar o Azure functions, saiba como [Adicio
 > [!NOTE]
 > A integração entre aplicativos lógicos e Azure Functions atualmente não funciona com slots habilitados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -313,6 +310,6 @@ Agora você está pronto para configurar a autenticação do Azure AD para seu a
 
 1. Retorne ao designer de aplicativo lógico e siga as [etapas para autenticar o acesso com a identidade gerenciada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [Conectores de Aplicativos Lógicos](../connectors/apis-list.md)

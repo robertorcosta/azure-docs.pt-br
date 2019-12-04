@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014308"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786360"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -50,10 +50,10 @@ A seleção de um item da lista filtrada abre o bloco **Detalhes da atividade: L
 
 Você também pode acessar programaticamente os dados de login usando a [API de relatórios](concept-reporting-api.md).
 
-## <a name="error-codes"></a>Códigos do Erro
+## <a name="error-codes"></a>Códigos de erro
 
 
-|Erro|DESCRIÇÃO|
+|Erro|Descrição|
 |---|---|
 |16000|Este é um detalhe de implementação interna e não uma condição de erro. É possível ignorar essa referência com segurança.|
 |20001|Há um problema com seu provedor de identidade federada. Entre em contato com seu IDP para resolver esse problema.|
@@ -107,7 +107,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50128|Nome de domínio inválido - Nenhuma informação de identificação de inquilino encontrada na solicitação ou implícita por qualquer credencial fornecida.|
 |50129|O dispositivo não está associado ao local de trabalho - **A junção no local de trabalho** é necessária para registrar o dispositivo.|
 |50130|O valor da declaração não pode ser interpretado como um método de autenticação conhecido.|
-|50131|Usado em vários erros de acesso condicional. Por exemplo, Estado de dispositivo Windows inválido, solicitação bloqueada devido a atividades suspeitas, decisões de política de acesso e política de segurança.|
+|50131|Usado em vários erros de acesso condicional. Por exemplo: Estado de dispositivo Windows inválido, solicitação bloqueada devido a atividades suspeitas, decisões de política de acesso e política de segurança.|
 |50132|As credenciais foram revogadas pelos seguintes motivos:<ul><li>O artefato de SSO é inválido ou expirou</li><li>Sessão não atualizada o suficiente para o aplicativo</li><li>Uma solicitação de entrada silenciosa foi enviada, mas a sessão do usuário com o Azure AD é inválida ou expirou.</li></ul>|
 |50133|A sessão é inválida devido à expiração ou alteração de senha recente.|
 |50135|A alteração da senha é necessária devido ao risco da conta.|
@@ -172,7 +172,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |80012|Os usuários tentaram fazer logon fora das horas permitidas (isso é especificado no AD).|
 |80013|A tentativa de autenticação não pôde ser concluída devido à diferença de horário entre o computador executando o agente de autenticação e o AD. Corrija os problemas de sincronização de horário|
 |80014|O agente de autenticação atingiu o tempo limite. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o código de erro, ID de correlação e data e hora para obter mais detalhes sobre esse erro.|
-|81001|O tíquete de Kerberos do usuário é muito grande. Isso pode acontecer se o usuário estiver em muitos grupos e, portanto, o tíquete do Kerberos contém um número excessivo de associações de grupo. Reduza as associações de grupo do usuário e tente novamente.|
+|81001|O tíquete Kerberos do usuário é muito grande. Isso pode acontecer se o usuário estiver em muitos grupos e, portanto, o tíquete do Kerberos contém um número excessivo de associações de grupo. Reduza as associações de grupo do usuário e tente novamente.|
 |81005|Pacote de Autenticação Não Suportado.|
 |81007|Locatário não está habilitado para SSO contínuo.|
 |81012|Isso não é uma condição de erro. Isso indica que o usuário que está tentando entrar no Azure AD é diferente do usuário conectado ao dispositivo. É possível ignorar esse código nos logs com segurança.|
@@ -181,7 +181,8 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |90051| Token de delegação inválido. Foi especificada uma ID de nuvem nacional inválida ({cloudid}).|
 |90072| A conta precisa primeiro ser adicionada como um usuário externo no locatário. Saia e entre novamente com outra conta do Azure AD.|
 |90094| A concessão exige permissões de administrador. Solicite ao administrador de locatários que ele forneça o consentimento para esse aplicativo.|
-|500021|O locatário é restrito pelo proxy da empresa. Negando o acesso aos recursos.|
+|500011| A entidade de recurso chamada <site address> não foi encontrada no locatário denominado <tenant ID>. Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Você pode ter enviado a solicitação de autenticação ao locatário errado.|
+|500021| O locatário é restrito pelo proxy da empresa. Negando o acesso aos recursos.|
 |500121| A autenticação falhou durante uma solicitação de autenticação forte.|
 |500133| A declaração não está dentro de seu intervalo de tempo válido. Certifique-se de que o token de acesso não expirou antes de usá-lo para a declaração de usuário ou antes de solicitar um novo token.|
 |530021|O aplicativo não atende aos requisitos de aplicativo aprovados para acesso condicional.|
@@ -191,7 +192,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |7000218|O corpo da solicitação deve conter o seguinte parâmetro: ' client_assertion ' ou ' client_secret '.|
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral de relatórios de entradas](concept-sign-ins.md)
-* [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)
+* [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)

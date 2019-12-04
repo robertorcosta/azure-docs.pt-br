@@ -1,20 +1,17 @@
 ---
-title: Manipular tipos de conteúdo-aplicativos lógicos do Azure
+title: Lidar com tipos de conteúdo
 description: Saiba como os Aplicativos Lógicos manipulam tipos de conteúdo em tempo de design e tempo de execução
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868925"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791527"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em Aplicativos Lógicos do Azure
 
@@ -29,7 +26,7 @@ Para determinar a maneira apropriada de manipular tipos de conteúdo, os Aplicat
 
 <a name="application-json"></a>
 
-## <a name="applicationjson"></a>application/json
+## <a name="applicationjson"></a>aplicativo/json
 
 Os Aplicativos Lógicos armazenam e manipulam qualquer solicitação com o tipo de conteúdo *aplicativo/json* como um objeto JSON (JavaScript Object Notation). Por padrão, é possível analisar o conteúdo do JSON sem qualquer conversão. Para analisar uma solicitação que tenha um cabeçalho com o tipo de conteúdo "application/json", é possível usar uma expressão. Este exemplo retorna o valor `dog` da matriz `animal-type` sem conversão: 
  
@@ -139,16 +136,16 @@ Para preservar alguns tipos de dados, os Aplicativos Lógicos convertem o conte�
 
 Esta lista descreve como os Aplicativos Lógicos convertem o conteúdo quando você usa as seguintes [funções](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Converte dados em`application/json`
-* `xml()`: Converte dados em`application/xml`
-* `binary()`: Converte dados em`application/octet-stream`
-* `string()`: Converte dados em`text/plain`
-* `base64()`: Converte o conteúdo em uma cadeia de caracteres codificada em base64
-* `base64toString()`: Converte uma cadeia de caracteres codificada em base64 em`text/plain`
-* `base64toBinary()`: Converte uma cadeia de caracteres codificada em base64 em`application/octet-stream`
-* `dataUri()`: Converte uma cadeia de caracteres em um URI de dados
-* `dataUriToBinary()`: Converte um URI de dados em uma cadeia de caracteres binária
-* `dataUriToString()`: Converte um URI de dados em uma cadeia de caracteres
+* `json()`: Converte dados em `application/json`
+* `xml()`: Converte dados em `application/xml`
+* `binary()`: Converte dados em `application/octet-stream`
+* `string()`: Converte dados em `text/plain`
+* `base64()`: converte o conteúdo em uma cadeia de caracteres codificada em base64
+* `base64toString()`: converte uma cadeia de caracteres codificada em base64 em `text/plain`
+* `base64toBinary()`: converte uma cadeia de caracteres codificada em base64 em `application/octet-stream`
+* `dataUri()`: converte uma cadeia de caracteres em um URI de dados
+* `dataUriToBinary()`: converte um URI de dados em uma cadeia de caracteres binária
+* `dataUriToString()`: converte um URI de dados em uma cadeia de caracteres
 
 Por exemplo, se você receber uma solicitação HTTP em que `Content-Type` é definido como `application/xml`, tal como este conteúdo:
 
@@ -187,4 +184,4 @@ Ou então, é possível acessar manualmente os dados usando uma expressão, como
 
 `@string(body('formdataAction'))` 
 
-Se quiser que a solicitação de saída também tenha o cabeçalho de tipo de conteúdo `application/x-www-url-formencoded`, você pode adicionar a solicitação ao corpo da ação sem conversões, usando uma expressão como `@body('formdataAction')`. No entanto, esse método só funciona se o corpo for o único parâmetro na entrada `body`. Se você tentar usar a expressão `@body('formdataAction')` em uma solicitação `application/json`, receberá um erro de tempo de execução porque o corpo é enviado codificado.
+Se quiser que a solicitação de saída também tenha o cabeçalho de tipo de conteúdo `application/x-www-url-formencoded`, você pode adicionar a solicitação ao corpo da ação sem conversões, usando uma expressão como `@body('formdataAction')`. No entanto, esse método só funciona se o corpo for o único parâmetro na entrada `body`. Se você tentar usar a expressão `@body('formdataAction')` em uma solicitação `application/json`, receberá um erro de runtime porque o corpo é enviado codificado.

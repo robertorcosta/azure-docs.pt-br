@@ -1,17 +1,17 @@
 ---
-title: Reiniciar o servidor Banco de Dados do Azure para MySQL usando o portal do Azure
-description: Este artigo descreve como você pode reiniciar um banco de dados do Azure para servidor MySQL usando o portal do Azure.
+title: Reiniciar o servidor-portal do Azure-banco de dados do Azure para MySQL
+description: Este artigo descreve como você pode reiniciar um servidor de banco de dados do Azure para MySQL usando o portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 2/7/2019
-ms.openlocfilehash: a20030a1dc6cd8b89064731c283f9b462d30ec8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 1857c67a77b9600f3d8f7c222a8e06f899fba728
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422516"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774044"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Reiniciar o servidor Banco de Dados do Azure para MySQL usando o portal do Azure
 Este tópico descreve como você pode reiniciar um servidor do Banco de Dados do Azure para MySQL. Você talvez precise reiniciar o servidor por razões de manutenção, o que causa uma breve interrupção, conforme o servidor executa a operação.
@@ -30,7 +30,7 @@ As etapas a seguir reiniciam o servidor MySQL:
 
 1. No Portal do Azure, selecione o servidor do Banco de Dados do Azure para MySQL.
 
-2. Na barra de ferramentas da página de **Visão Geral** do servidor, clique em **Reiniciar**.
+2. Na barra de ferramentas da página de **Visão Geral** do servidor, clique em **Restaurar**.
 
    ![Banco de Dados do Azure para MySQL - Visão geral - botão Reiniciar](./media/howto-restart-server-portal/2-server.png)
 
@@ -46,6 +46,6 @@ As etapas a seguir reiniciam o servidor MySQL:
 
    ![Banco de Dados do Azure para MySQL - Reiniciar status](./media/howto-restart-server-portal/5-restart-success.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-[Início Rápido: Criar Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+[Início rápido: criar e gerenciar um servidor de Banco de Dados do Azure para MySQL usando o Portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)

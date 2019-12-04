@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806447f788b7a394b29ee08e8b562662c2cc3e1b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 420a046ddf66270f52001d4ff4f3ad49895d4c11
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208390"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784537"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -79,7 +79,7 @@ As organizações usam uma variedade de serviços do Azure gerenciados por meio 
 
 - Portal do Azure 
 - Azure PowerShell 
-- CLI do Azure
+- Azure CLI
 
 O uso de Azure Resource Manager para gerenciar seus serviços é uma ação altamente privilegiada. Azure Resource Manager pode alterar configurações de todo o locatário, como configurações de serviço e cobrança de assinatura. A autenticação de fator único é vulnerável a uma variedade de ataques, como phishing e spray de senha. 
 
@@ -102,7 +102,7 @@ Para garantir que a autenticação multifator seja necessária para entrar em um
 > [!WARNING]
 > Antes de habilitar essa configuração, verifique se os administradores não estão usando protocolos de autenticação mais antigos. Para obter mais informações, consulte [como sair da autenticação herdada](concept-conditional-access-block-legacy-authentication.md).
 
-### <a name="conditional-access"></a>Acesso Condicional
+### <a name="conditional-access"></a>Acesso condicional
 
 Você pode usar o acesso condicional para configurar políticas que fornecem o mesmo comportamento habilitado por padrões de segurança. Se você estiver usando o acesso condicional e tiver políticas de acesso condicional habilitadas em seu ambiente, os padrões de segurança não estarão disponíveis para você. Se você tiver uma licença que forneça acesso condicional, mas não tiver políticas de acesso condicional habilitadas em seu ambiente, você poderá usar os padrões de segurança até habilitar as políticas de acesso condicional.
 
@@ -124,9 +124,23 @@ Para habilitar os padrões de segurança em seu diretório:
 1. Navegue até **Azure Active Directory**  **Propriedades**de >de .
 1. Selecione **gerenciar padrões de segurança**.
 1. Defina a alternância **habilitar padrões de segurança** para **Sim**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="disabling-security-defaults"></a>Desabilitando padrões de segurança
+
+As organizações que optam por implementar políticas de acesso condicional que substituem os padrões de segurança devem desabilitar os padrões de segurança. 
+
+![Mensagem de aviso desabilite os padrões de segurança para habilitar o acesso condicional](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+
+Para desabilitar os padrões de segurança em seu diretório:
+
+1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de segurança, administrador de acesso condicional ou administrador global.
+1. Navegue até **Azure Active Directory**  **Propriedades**de >de .
+1. Selecione **gerenciar padrões de segurança**.
+1. Defina a alternância **habilitar padrões de segurança** para **não**.
+1. Clique em **Salvar**.
+
+## <a name="next-steps"></a>Próximos passos
 
 [Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
 

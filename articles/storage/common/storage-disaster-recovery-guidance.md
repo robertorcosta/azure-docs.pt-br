@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d9daff390aa1678c25f4bf9c29b0293d96c43f48
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889778"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775921"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastre e failover de conta de armazenamento (versão prévia) no Armazenamento do Azure
 
@@ -35,7 +35,7 @@ O **Armazenamento com redundância geográfica (GRS)** replica seus dados de for
 
 O **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)** fornece um armazenamento com redundância geográfica com o benefício adicional de acesso de leitura ao ponto de extremidade secundário. Se ocorrer uma interrupção no ponto de extremidade primário, os aplicativos configurados para o RA-GRS e projetados para alta disponibilidade poderão continuar a ler os dados a partir do ponto de extremidade secundário. A Microsoft recomenda o RA-GRS para garantir a máxima resiliência de seus aplicativos.
 
-Outras opções de redundância de armazenamento do Azure incluem o armazenamento com redundância de zona (ZRS), que replica seus dados entre zonas de disponibilidade em uma única região e o armazenamento localmente redundante (LRS), que replica seus dados em um único data center em uma única região. Se sua conta de armazenamento for configurada para o ZRS ou o LRS, será possível converter essa conta para usar o GRS ou o RA-GRS. Configurar sua conta para o armazenamento com redundância geográfica acarretará custos adicionais. Para saber mais, veja [Replicação do Armazenamento do Azure](storage-redundancy.md).
+Outras opções de redundância de armazenamento do Azure incluem o armazenamento com redundância de zona (ZRS), que replica seus dados entre zonas de disponibilidade em uma única região e o armazenamento localmente redundante (LRS), que replica seus dados em um único data center em uma única região. Se sua conta de armazenamento for configurada para o ZRS ou o LRS, será possível converter essa conta para usar o GRS ou o RA-GRS. Configurar sua conta para o armazenamento com redundância geográfica acarretará custos adicionais. Para obter mais informações, consulte [Replicação do Armazenamento do Azure](storage-redundancy.md).
 
 > [!NOTE]
 > O GZRS (armazenamento com redundância de zona geográfica) e o armazenamento com redundância de acesso de leitura (RA-GZRS) estão atualmente em versão prévia, mas ainda não estão disponíveis nas mesmas regiões que o failover de conta gerenciada pelo cliente. Por esse motivo, os clientes não podem atualmente gerenciar eventos de failover de conta com contas GZRS e RA-GZRS. Durante a versão prévia, a Microsoft gerenciará qualquer evento de failover que afete contas GZRS/RA-GZRS.
@@ -121,11 +121,11 @@ O failover de conta está disponível em versão prévia para todos os clientes 
 
 - Leste da Ásia
 - Sudeste da Ásia
-- Leste da Austrália
+- Austrália Oriental
 - Sudeste da Austrália
 - Centro dos EUA
 - Leste dos EUA 2
-- Centro-Oeste dos EUA
+- Centro-oeste dos EUA
 - Oeste dos EUA 2
 
 A versão prévia é destinada apenas para uso não produtivo. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.
@@ -139,7 +139,7 @@ Connect-AzAccount -SubscriptionId <subscription-id>
 Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
-Pode levar de um a dois dias para receber a aprovação para a versão prévia. Para verificar que seu registro foi aprovado, execute o seguinte comando:
+Pode levar de 5-7 dias para receber aprovação para a versão prévia. Para verificar que seu registro foi aprovado, execute o seguinte comando:
 
 ```powershell
 Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
@@ -186,7 +186,7 @@ Se sua conta de armazenamento estiver configurada para o RA-GRS, você terá ace
 
 Em circunstâncias extremas em que uma região for perdida devido a um desastre significativo, a Microsoft poderá iniciar um failover regional. Nesse caso, nenhuma ação sua é necessária. Você não terá acesso para gravação na conta de armazenamento até que o failover gerenciado pela Microsoft seja concluído. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para o RA-GRS. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 * [Iniciar um failover de conta (versão prévia)](storage-initiate-account-failover.md)
 * [Criando aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)

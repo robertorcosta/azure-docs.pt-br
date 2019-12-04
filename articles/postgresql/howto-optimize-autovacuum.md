@@ -1,19 +1,19 @@
 ---
-title: Otimizar autovacuum em um banco de dados do Azure para PostgreSQL – servidor único
-description: Este artigo descreve como você pode otimizar autovacuum em um banco de dados do Azure para PostgreSQL – servidor único
+title: Otimizar o autovácuo-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como você pode otimizar a vácuo autoaspira em um banco de dados do Azure para PostgreSQL-servidor único
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: fb1ab9525974601a8b8c22ccc44e2cf37baf21a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069111"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770179"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimizar autovacuum em um banco de dados do Azure para PostgreSQL – servidor único
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimizar o vácuo autoaspirar em um banco de dados do Azure para PostgreSQL-servidor único
 Este artigo descreve como otimizar de maneira eficaz o vácuo automático em um Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="overview-of-autovacuum"></a>Visão geral do vácuo automático
@@ -44,7 +44,7 @@ Os parâmetros de configuração que controlam o vácuo automático são baseado
 
 A seguir, há alguns parâmetros de configuração de vácuo automático que você pode atualizar com base nas perguntas acima, bem como algumas diretrizes.
 
-Parâmetro|DESCRIÇÃO|Valor padrão
+.|Descrição|Valor padrão
 ---|---|---
 autovacuum_vacuum_threshold|Especifica o número mínimo de tuplas atualizadas ou excluídas necessárias para disparar uma operação de vácuo em qualquer tabela. O padrão é 50 tuplas. Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor. Para substituir a configuração para tabelas individuais, altere os parâmetros de armazenamento da tabela.|50
 autovacuum_vacuum_scale_factor|Especifica uma fração do tamanho da tabela a ser adicionada a autovacuum_vacuum_threshold ao decidir se uma operação de vácuo deve ser disparada. O padrão é 0.2, que é 20% do tamanho da tabela. Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor. Para substituir a configuração para tabelas individuais, altere os parâmetros de armazenamento da tabela.|5%
@@ -75,7 +75,7 @@ O fator de escala padrão de 20 por cento funciona bem em tabelas com um percent
 Com o PostgreSQL, você pode definir esses parâmetros no nível de tabela ou no nível de instância. Atualmente, é possível definir esses parâmetros no nível da tabela apenas no Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="estimate-the-cost-of-autovacuum"></a>Estimar o custo do vácuo automático
-Executar o vácuo automático é "caro" e há parâmetros para controlar o tempo de execução das operações de vácuo. Os parâmetros a seguir ajudam a estimar o custo da execução de vácuo:
+Executar o vácuo automático é "caro" e há parâmetros para controlar o runtime das operações de vácuo. Os parâmetros a seguir ajudam a estimar o custo da execução de vácuo:
 - vacuum_cost_page_hit = 1
 - vacuum_cost_page_miss = 10
 - vacuum_cost_page_dirty = 20
@@ -101,7 +101,7 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 
 O vácuo automático é um processo síncrono por tabela. Quanto maior o percentual de tuplas inativas de uma tabela, maior o "custo" do vácuo automático. Você pode dividir tabelas com alta taxa de atualizações e exclusões em várias tabelas. Dividir tabelas ajuda a paralelizar o vácuo automático e a reduzir o "custo" de concluir o vácuo automático em uma tabela. Você também pode aumentar o número de funções de trabalho de vácuo automático paralelas para garantir que os trabalhos sejam agendados livremente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre como usar e ajustar o vácuo automático, revise a seguinte documentação do PostgreSQL:
 
  - [Capítulo 18, Configuração do servidor](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)

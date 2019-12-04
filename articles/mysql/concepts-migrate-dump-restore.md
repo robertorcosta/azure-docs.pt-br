@@ -1,17 +1,17 @@
 ---
-title: Migrar o banco de dados MySQL usando despejo e restauração no Banco de Dados do Azure para MySQL
+title: Migrar usando despejo e restauração-banco de dados do Azure para MySQL
 description: Este artigo descreve duas maneiras comuns de fazer backup e restaurar bancos de dados no seu Banco de dados do Azure para MySQL, usando ferramentas, como mysqldump, MySQL Workbench e PHPMyAdmin.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/02/2018
-ms.openlocfilehash: a2a879ed677b981adcd50aea0468e0c5976c2a8a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.date: 12/02/2019
+ms.openlocfilehash: 65cd5e637434c717ab9ba1b5598c467eea9b4a74
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390539"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770927"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração
 Este artigo descreve duas maneiras comuns de fazer backup e restaurar bancos de dados no seu Banco de dados do Azure para MySQL
@@ -39,7 +39,7 @@ Você pode usar os utilitários de MySQL como mysqldump e mysqlpump para bancos 
    ```
 - Para evitar problemas de compatibilidade, verifique se a mesma versão do MySQL é usada nos sistemas de origem e de destino ao despejar bancos de dados. Por exemplo, se seu servidor existente do MySQL tem a versão 5.7, então você deve migrar para o banco de dados do Azure para MySQL configurado para executar a versão 5.7. O comando `mysql_upgrade` não funciona em um banco de dados do Azure para o servidor MySQL e não é suportado. Se você precisar fazer upgrade das versões do MySQL, primeiro despeje ou exporte seu banco de dados da versão inferior para uma versão posterior do MySQL no seu ambiente. Em seguida, execute `mysql_upgrade`, antes de tentar migrar para um banco de dados do Azure para MySQL.
 
-## <a name="performance-considerations"></a>Considerações sobre o desempenho
+## <a name="performance-considerations"></a>Considerações de desempenho
 Para otimizar o desempenho, observe essas considerações ao despejar grandes bancos de dados:
 -   Use a opção `exclude-triggers` em mysqldump ao despejar bancos de dados. Exclua os gatilhos de arquivos de despejo para evitar que os comandos de gatilho acionem durante a restauração de dados. 
 -   Use a opção `single-transaction` para definir o modo de isolamento da transação para REPEATABLE READ e enviar uma instrução SQL START TRANSACTION para o servidor antes de despejar os dados. Despejar muitas tabelas em uma única transação pode fazer com que alguns armazenamentos adicionais sejam consumidos durante a restauração. A opção `single-transaction` e a opção `lock-tables` são mutuamente exclusivas, porque LOCK TABLES faz com que as transações pendentes sejam confirmadas implicitamente. Para despejar tabelas grandes, combine a opção `single-transaction` com a opção `quick`. 
@@ -49,7 +49,7 @@ Para otimizar o desempenho, observe essas considerações ao despejar grandes ba
 -   Use tabelas particionadas, quando apropriado.
 -   Carregar dados em paralelo. Evite o excesso de paralelismo que poderá fazer com que você atinja um limite de recursos e monitore os recursos usando as métricas disponíveis no portal do Azure. 
 -   Use a opção `defer-table-indexes` em mysqlpump ao despejar bancos de dados, para que a criação de índice ocorra após os dados de tabelas que são carregados.
--   Use a `skip-definer` opção em mysqlpump para omitir as cláusulas refinadas e de segurança do SQL das instruções CREATE para exibições e procedimentos armazenados.  Quando você recarrega o arquivo de despejo, ele cria objetos que usam os valores de segurança padrão e SQL.
+-   Use a opção `skip-definer` no mysqlpump para omitir as cláusulas refinadas e de segurança do SQL das instruções CREATE para exibições e procedimentos armazenados.  Quando você recarrega o arquivo de despejo, ele cria objetos que usam os valores de segurança padrão e SQL.
 -   Copie os arquivos de backup para um blob/armazenamento do Azure e execute a restauração de lá, o que deve ser muito mais rápido do que executar a restauração pela Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Criar um arquivo de backup a partir da linha de comando usando mysqldump
@@ -119,6 +119,6 @@ Importar o banco de dados é semelhante à exportação. As seguintes ações oc
 5. Use o botão **procurar** para localizar o arquivo do banco de dados. 
 6. Clique no botão **Ir** para exportar o backup, execute os comandos SQL e recrie o banco de dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Conectar aplicativos ao Banco de Dados do Azure para MySQL](./howto-connection-string.md).
 - Para obter mais informações de como migrar bancos de dados para o Banco de Dados do Azure para MySQL, confira o [Guia de Migração de Banco de Dados](https://aka.ms/datamigration).

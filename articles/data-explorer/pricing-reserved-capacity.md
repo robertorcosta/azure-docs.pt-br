@@ -1,18 +1,18 @@
 ---
 title: Pagar antecipadamente pela marcação de Data Explorer do Azure para economizar dinheiro
 description: Saiba como comprar a capacidade reservada do Azure Data Explorer para economizar em seus custos de Data Explorer do Azure.
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 66c5644df7d796669105693d08788548334ae93a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681636"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769091"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Pagar antecipadamente pelas unidades de marcação de Data Explorer do Azure com a capacidade reservada do Azure Data Explorer
 
@@ -36,7 +36,7 @@ O tamanho da reserva deve ser baseado no número total de unidades de marcação
 
 ## <a name="buy-azure-data-explorer-reserved-capacity"></a>Comprar a capacidade reservada do Azure Data Explorer
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione **todos os serviços** > **reservas** > **comprar agora**. Selecione **Adicionar**
 1. No painel **Selecionar tipo de produto** , selecione **Azure data Explorer** para comprar uma nova reserva para as unidades de marcação de data Explorer do Azure. 
 1. Selecione **comprar**
@@ -50,7 +50,7 @@ O tamanho da reserva deve ser baseado no número total de unidades de marcação
 
 ## <a name="cancellations-and-exchanges"></a>Cancelamentos e trocas
 
-Se você precisar cancelar sua reserva de capacidade reservada do Azure Data Explorer, poderá haver uma taxa de rescisão de 12% no início. Os reembolsos são baseados no preço mais baixo do seu preço de compra ou no preço atual da reserva. Os reembolsos são limitados a US$ 50.000 por ano. O reembolso que você recebe é o saldo proporcional restante menos o valor de rescisão antecipada de 12%. Para solicitar um cancelamento, vá até a reserva no portal do Azure e selecione **Reembolso** para criar uma solicitação de suporte.
+Se você precisar cancelar sua reserva de capacidade reservada do Azure Data Explorer, poderá haver uma taxa de rescisão de 12% no início. Os reembolsos são baseados no preço mais baixo do seu preço de compra ou no preço atual da reserva. Os reembolsos são limitados a US$ 50.000 por ano. O reembolso que você recebe é o saldo proporcional restante menos o valor da tarifa de rescisão antecipada de 12%. Para solicitar um cancelamento, vá até a reserva no portal do Azure e selecione **Reembolso** para criar uma solicitação de suporte.
 
 Se você precisar alterar a reserva de capacidade reservada do Azure Data Explorer para outro termo, poderá Exchange para outra reserva que seja de valor igual ou maior. A data de início do prazo da nova reserva não é a mesma da reserva trocada. O prazo de 1 ou 3 anos começa quando você cria a nova reserva. Para solicitar uma troca, vá até a reserva no portal do Azure e selecione **Trocar** para criar uma solicitação de suporte.
 
@@ -65,17 +65,17 @@ O desconto de reserva das unidades de marcação do Azure Data Explorer é aplic
 > * Você pode atualizar o escopo do Azure Data Explorer reserva de capacidade reservada por meio do [portal do Azure](https://portal.azure.com), do PowerShell, da CLI ou da API.
 > * Para saber como gerenciar a reserva de capacidade reservada do Azure Data Explorer, consulte [gerenciar a capacidade reservada do azure data Explorer](../billing/billing-understand-kusto-azuredataexplorer-reservation-charges.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
+Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 
-* [O que são Reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)
+* [Quais são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)
 * [Gerenciar Reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)
 * [Compreender o desconto de Reservas do Azure](../billing/billing-understand-reservation-charges.md)
 * [Entender o uso de reserva para a sua assinatura paga conforme o uso](../billing/billing-understand-reserved-instance-usage.md)
-* [Entenda o uso de reservas para o seu registro Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [Entender o uso de reserva para seu registro de empresa](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center.](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

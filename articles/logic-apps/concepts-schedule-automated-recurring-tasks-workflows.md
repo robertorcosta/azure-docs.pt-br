@@ -2,26 +2,23 @@
 title: Agendando tarefas e fluxos de trabalho recorrentes no aplicativo lógico do Azure
 description: Uma visão geral sobre como agendar tarefas, processos e fluxos de trabalho automatizados recorrentes com aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 31260be6c65f5948eba6b9c6228b5ead695278d1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 972b9360fa95b528bd955a07451e7347f3e1791d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350712"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792738"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas, processos e fluxos de trabalho automatizados recorrentes com aplicativos lógicos do Azure
 
 Os aplicativos lógicos ajudam a criar e executar tarefas e processos recorrentes automatizados em um agendamento. Ao criar um fluxo de trabalho de aplicativo lógico que começa com um gatilho de recorrência interno ou um gatilho de janela deslizante, que são gatilhos de tipo agendado, você pode executar tarefas imediatamente, em um momento posterior ou em um intervalo recorrente. Você pode chamar serviços dentro e fora do Azure, como pontos de extremidade HTTP ou HTTPS, postar mensagens para serviços do Azure, como o armazenamento do Azure e o barramento de serviço do Azure, ou obter arquivos carregados em um compartilhamento de arquivos. Com o gatilho de recorrência, você também pode configurar agendas complexas e recorrências avançadas para executar tarefas. Para saber mais sobre os gatilhos e ações de agendamento internos, consulte [agendar gatilhos](#schedule-triggers) e [ações de agendamento](#schedule-actions). 
 
 > [!TIP]
-> Você pode agendar e executar cargas de trabalho recorrentes sem criar um aplicativo lógico separado para cada um dos trabalhos agendados e para a execução do [limite de fluxo de trabalho por região e assinatura](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Em vez disso, você pode usar o padrão de aplicativo lógico criado pelo [modelo de início rápido do Azure: Agendador de trabalhos dos](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/)aplicativos lógicos.
+> Você pode agendar e executar cargas de trabalho recorrentes sem criar um aplicativo lógico separado para cada um dos trabalhos agendados e para a execução do [limite de fluxo de trabalho por região e assinatura](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Em vez disso, você pode usar o padrão de aplicativo lógico que é criado pelo [modelo de início rápido do Azure: Agendador de trabalhos de aplicativos lógicos](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
 >
 > O modelo do Agendador de trabalhos dos aplicativos lógicos cria um aplicativo lógico CreateTimerJob que chama um aplicativo lógico TimerJob. Em seguida, você pode chamar o aplicativo lógico CreateTimerJob como uma API fazendo uma solicitação HTTP e passando uma agenda como entrada para a solicitação. Cada chamada para o aplicativo lógico CreateTimerJob também chama o aplicativo lógico TimerJob, que cria uma nova instância TimerJob que é executada continuamente com base na agenda especificada ou até atingir um limite especificado. Dessa forma, você pode executar tantas instâncias de TimerJob quanto desejar sem se preocupar com os limites de fluxo de trabalho porque as instâncias não são definições ou recursos de fluxo de trabalho de aplicativo lógico individual.
 
@@ -55,9 +52,9 @@ Você pode iniciar o fluxo de trabalho do aplicativo lógico usando o gatilho de
 
 Estas são as diferenças entre esses gatilhos:
 
-* **Recorrência**: Executa o fluxo de trabalho em intervalos regulares de tempo com base em seu agendamento especificado. Se as recorrências forem perdidas, o gatilho de recorrência não processará as recorrências perdidas, mas reiniciará as recorrências com o próximo intervalo agendado. Você pode especificar uma data e hora de início, bem como o fuso horário. Se você selecionar "dia", poderá especificar horas do dia e minutos da hora, por exemplo, todos os dias às 2:30. Se você selecionar "semana", também poderá selecionar dias da semana, como quarta-feira e sábado. Para obter mais informações, consulte [criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de recorrência](../connectors/connectors-native-recurrence.md).
+* **Recorrência**: executa o fluxo de trabalho em intervalos de tempo regulares com base no agendamento especificado. Se as recorrências forem perdidas, o gatilho de recorrência não processará as recorrências perdidas, mas reiniciará as recorrências com o próximo intervalo agendado. Você pode especificar uma data e hora de início, bem como o fuso horário. Se você selecionar "dia", poderá especificar horas do dia e minutos da hora, por exemplo, todos os dias às 2:30. Se você selecionar "semana", também poderá selecionar dias da semana, como quarta-feira e sábado. Para obter mais informações, consulte [criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de recorrência](../connectors/connectors-native-recurrence.md).
 
-* **Janela deslizante**: Executa o fluxo de trabalho em intervalos de tempo regulares que manipulam dados em partes contínuas. Se as recorrências forem perdidas, o gatilho da janela deslizante voltará e processará as recorrências perdidas. Você pode especificar uma data e hora de início, fuso horário e uma duração para atrasar cada recorrência em seu fluxo de trabalho. Esse gatilho não tem opções para especificar dias, semanas e meses, horas do dia, minutos da hora e dias da semana. Para obter mais informações, consulte [criar, agendar e executar tarefas recorrentes e fluxos de trabalho com o gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md).
+* **Janela deslizante**: executa o fluxo de trabalho em intervalos de tempo regulares que manipulam dados em partes contínuas. Se as recorrências forem perdidas, o gatilho da janela deslizante voltará e processará as recorrências perdidas. Você pode especificar uma data e hora de início, fuso horário e uma duração para atrasar cada recorrência em seu fluxo de trabalho. Esse gatilho não tem opções para especificar dias, semanas e meses, horas do dia, minutos da hora e dias da semana. Para obter mais informações, consulte [criar, agendar e executar tarefas recorrentes e fluxos de trabalho com o gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 
@@ -67,7 +64,7 @@ Após qualquer ação no fluxo de trabalho do aplicativo lógico, você pode usa
 
 * **Atraso**: Aguarde para executar a próxima ação para o número especificado de unidades de tempo, como segundos, minutos, horas, dias, semanas ou meses. Para obter mais informações, consulte [atrasar a próxima ação em fluxos de trabalho](../connectors/connectors-native-delay.md).
 
-* **Atraso até**: Aguarde para executar a próxima ação até a data e hora especificadas. Para obter mais informações, consulte [atrasar a próxima ação em fluxos de trabalho](../connectors/connectors-native-delay.md).
+* **Atraso até**: aguardar para executar a próxima ação até a data e a hora especificadas. Para obter mais informações, consulte [atrasar a próxima ação em fluxos de trabalho](../connectors/connectors-native-delay.md).
 
 ## <a name="patterns-for-start-date-and-time"></a>Padrões para data e hora de início
 
@@ -78,7 +75,7 @@ Aqui estão alguns padrões que mostram como você pode controlar a recorrência
 | Hora de início | Recorrência sem agendamento | Recorrência com agendamento (somente gatilho de recorrência) |
 |------------|-----------------------------|----------------------------------------------------|
 | {none} | Executa a primeira carga de trabalho imediatamente. <p>Executa futuras cargas de trabalho com base na última hora de execução. | Executa a primeira carga de trabalho imediatamente. <p>Executa futuras cargas de trabalho com base no agendamento especificado. |
-| Hora de início no passado | Gatilho de recorrência: Calcula os tempos de execução com base nos horários de início especificados e descarta as horas de execução anteriores. Executa a primeira carga de trabalho na próxima hora de execução no futuro. <p>Executa futuras cargas de trabalho com base em cálculos da última hora de execução. <p><p>Gatilho de **janela deslizante** : Calcula os tempos de execução com base na hora de início especificada e respeita os tempos de execução anteriores. <p>Executa cargas de trabalho futuras com base em cálculos da hora de início especificada. <p><p>Para obter mais explicações, consulte o exemplo após essa tabela. | Executa a primeira carga de trabalho *não antes* da hora de início, com base no agendamento calculado com base na hora de início. <p>Executa futuras cargas de trabalho com base no agendamento especificado. <p>**Observação:** se você especificar uma recorrência com um agendamento, mas não especificar horas ou minutos para esse agendamento, as horas de execução futuras serão calculadas usando as horas ou os minutos, respectivamente, da primeira hora de execução. |
+| Hora de início no passado | Gatilho de **recorrência** : calcula os tempos de execução com base na hora de início especificada e descarta os tempos de execução anteriores. Executa a primeira carga de trabalho na próxima hora de execução no futuro. <p>Executa futuras cargas de trabalho com base em cálculos da última hora de execução. <p><p>Gatilho de **janela deslizante** : calcula os tempos de execução com base na hora de início especificada e respeita os tempos de execução anteriores. <p>Executa cargas de trabalho futuras com base em cálculos da hora de início especificada. <p><p>Para obter mais explicações, consulte o exemplo após essa tabela. | Executa a primeira carga de trabalho *não antes* da hora de início, com base no agendamento calculado com base na hora de início. <p>Executa futuras cargas de trabalho com base no agendamento especificado. <p>**Observação:** se você especificar uma recorrência com um agendamento, mas não especificar horas ou minutos para esse agendamento, as horas de execução futuras serão calculadas usando as horas ou os minutos, respectivamente, da primeira hora de execução. |
 | Hora de início no presente ou no futuro | Executa a primeira carga de trabalho na hora de início especificada. <p>Executa futuras cargas de trabalho com base em cálculos da última hora de execução. | Executa a primeira carga de trabalho *não antes* da hora de início, com base no agendamento calculado com base na hora de início. <p>Executa futuras cargas de trabalho com base no agendamento especificado. <p>**Observação:** se você especificar uma recorrência com um agendamento, mas não especificar horas ou minutos para esse agendamento, as horas de execução futuras serão calculadas usando as horas ou os minutos, respectivamente, da primeira hora de execução. |
 ||||
 
@@ -86,7 +83,7 @@ Aqui estão alguns padrões que mostram como você pode controlar a recorrência
 
 Suponha que a data e a hora atuais sejam 8 de setembro de 2017 às 1:00. Você especifica a data e a hora de início como 7 de setembro de 2017 às 2:00, que está no passado e uma recorrência que é executada a cada dois dias.
 
-| Hora de início | Hora atual | Recorrência | Cronograma |
+| Hora de início | Hora atual | Recorrência | Agenda |
 |------------|--------------|------------|----------|
 | 2017-09-**07**T14:00:00Z <br>(2017-09-**07** às 2:00 PM) | 2017-09-**08**T13:00:00Z <br>(2017-09-**08** às 1:00 PM) | A cada dois dias | {none} |
 |||||
@@ -119,7 +116,7 @@ Portanto, não importa o quanto antes você especifica a hora de início, por ex
 
 Aqui estão várias recorrências de exemplo que você pode configurar para os gatilhos que dão suporte às opções:
 
-| Disparador | Recorrência | Interval | Frequência | Hora de início | Nestes dias | A estas horas | Nestes minutos | Observação |
+| Gatilho | Recorrência | Intervalo | Frequência | Hora de início | Nestes dias | A estas horas | A estes minutos | Observação |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Recurrence <br>Janela Deslizante | Executar a cada 15 minutos (sem data e hora de início) | 15 | Minuto | {none} | {não disponível} | {none} | {none} | Esse agendamento será iniciado imediatamente e, em seguida, calculará as recorrências futuras com base na última hora de execução. |
 | Recurrence <br>Janela Deslizante | Executar a cada 15 minutos (com data e hora de início) | 15 | Minuto | *startDate*T*startTime*Z | {não disponível} | {none} | {none} | Esse agendamento não se inicia *antes* da data e hora de início especificada e, em seguida, calcula as recorrências futuras com base na última hora de execução. |
@@ -127,34 +124,34 @@ Aqui estão várias recorrências de exemplo que você pode configurar para os g
 | Recurrence <br>Janela Deslizante | Executar a cada hora, todos os dias (sem data e hora de início) | 1 | Hora | {none} | {não disponível} | {none} | {none} | Esse agendamento será iniciado imediatamente e calculará as recorrências futuras com base na última hora de execução. <p>Se a frequência for "Semana" ou "Mês", esse agendamento será executado, respectivamente, somente um dia por semana ou um dia por mês. |
 | Recurrence <br>Janela Deslizante | Executar a cada hora, todos os dias (com data e hora de início) | 1 | Hora | *startDate*T*startTime*Z | {não disponível} | {none} | {none} | Esse agendamento não se inicia *antes* da data e hora de início especificada e, em seguida, calcula as recorrências futuras com base na última hora de execução. <p>Se a frequência for "Semana" ou "Mês", esse agendamento será executado, respectivamente, somente um dia por semana ou um dia por mês. |
 | Recurrence <br>Janela Deslizante | Executar a cada 15 minutos após a hora cheia, a cada hora (com data e hora de início) | 1 | Hora | *startDate*T00:15:00Z | {não disponível} | {none} | {none} | Esse agendamento não se inicia *antes* da data e hora de início especificadas. As recorrências futuras são executadas na marca de "15" minutos, que é calculada a partir da hora de início, portanto às 00:15 A.M., 1:15 AM, 2:15 AM e assim por diante. |
-| Recorrência | Executar a cada 15 minutos após a hora cheia, a cada hora (sem data e hora de início) | 1 | Day | {none} | {não disponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Esse agendamento é executado às 00h15, 1h15, 2h15 e assim por diante. Além disso, esse agendamento é equivalente a uma frequência de "Hora" e uma hora de início com "15" minutos. |
-| Recorrência | Executar a cada 15 minutos nas marcas de minuto especificadas (sem data e hora de início). | 1 | Day | {none} | {não disponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esse agendamento não se inicia até a próxima marca de 15 minutos especificada. |
-| Recorrência | Execute diariamente às 8:00 *mais* o minuto-Mark de quando você salva seu aplicativo lógico | 1 | Day | {none} | {não disponível} | 8 | {none} | Sem uma data e hora de início, essa agenda é executada com base no tempo em que você salva o aplicativo lógico (operação PUT). |
-| Recorrência | Executar diariamente às 8:00 (com data e hora de início) | 1 | Day | *startDate*T08:00:00Z | {não disponível} | {none} | {none} | Esse agendamento não se inicia *antes* da data e hora de início especificadas. As ocorrências futuras são executadas diariamente às 8:00. | 
-| Recorrência | Executar diariamente às 8:30 AM (sem data e hora de início) | 1 | Day | {none} | {não disponível} | 8 | 30 | Essa agenda é executada às 8:30, todos os dias. |
-| Recorrência | Executar diariamente às 8:30 AM e 4:30 PM | 1 | Day | {none} | {não disponível} | 8, 16 | 30 | |
-| Recorrência | Executar diariamente às 8:30, 8:45 AM, 4:30 PM e 4:45 PM | 1 | Day | {none} | {não disponível} | 8, 16 | 30, 45 | |
+| Recorrência | Executar a cada 15 minutos após a hora cheia, a cada hora (sem data e hora de início) | 1 | Dia | {none} | {não disponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Esse agendamento é executado às 00h15, 1h15, 2h15 e assim por diante. Além disso, esse agendamento é equivalente a uma frequência de "Hora" e uma hora de início com "15" minutos. |
+| Recorrência | Executar a cada 15 minutos nas marcas de minuto especificadas (sem data e hora de início). | 1 | Dia | {none} | {não disponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esse agendamento não se inicia até a próxima marca de 15 minutos especificada. |
+| Recorrência | Execute diariamente às 8:00 *mais* o minuto-Mark de quando você salva seu aplicativo lógico | 1 | Dia | {none} | {não disponível} | 8 | {none} | Sem uma data e hora de início, essa agenda é executada com base no tempo em que você salva o aplicativo lógico (operação PUT). |
+| Recorrência | Executar diariamente às 8:00 (com data e hora de início) | 1 | Dia | *startDate*T08:00:00Z | {não disponível} | {none} | {none} | Esse agendamento não se inicia *antes* da data e hora de início especificadas. As ocorrências futuras são executadas diariamente às 8:00. | 
+| Recorrência | Executar diariamente às 8:30 AM (sem data e hora de início) | 1 | Dia | {none} | {não disponível} | 8 | 30 | Essa agenda é executada às 8:30, todos os dias. |
+| Recorrência | Executar diariamente às 8:30 AM e 4:30 PM | 1 | Dia | {none} | {não disponível} | 8, 16 | 30 | |
+| Recorrência | Executar diariamente às 8:30, 8:45 AM, 4:30 PM e 4:45 PM | 1 | Dia | {none} | {não disponível} | 8, 16 | 30, 45 | |
 | Recorrência | Executar todos os sábados às 17h (sem data e hora de início) | 1 | Semana | {none} | "Sábado" | 17 | 00 | Esse agendamento é executado todos os sábados às 17h. |
 | Recorrência | Executar todos os sábados às 17h (com data e hora de início) | 1 | Semana | *startDate*T17:00:00Z | "Sábado" | {none} | {none} | Esse agendamento não se inicia *antes* da data e hora de início especificadas, nesse caso, 9 de setembro de 2017 às 17h. As recorrências futuras serão executadas todos os sábados às 17h. |
 | Recorrência | Execute todas as terças-feiras às 17:00, *mais* o minuto-Mark de quando você salva seu aplicativo lógico| 1 | Semana | {none} | "Terça-feira", "Quinta-feira" | 17 | {none} | |
 | Recorrência | Executado a cada hora durante o horário comercial | 1 | Semana | {none} | Selecione todos os dias, exceto sábado e domingo. | Selecione as horas do dia que você deseja. | Selecione os minutos da hora que você deseja. | Por exemplo, se o horário de trabalho é de 8h às 17h, selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia. <p>Se o horário de trabalho é das 8h30 às 17h30, selecione as horas anteriores do dia e selecione também "30" como os minutos da hora. |
 | Recorrência | Executar uma vez por dia aos finais de semana | 1 | Semana | {none} | "Sábado", "Domingo" | Selecione as horas do dia que você deseja. | Selecione os minutos da hora conforme apropriado. | Esse agendamento é executado aos sábados e domingos no agendamento especificado. |
 | Recorrência | Executar a cada 15 minutos, quinzenalmente, somente às segundas-feiras | 2 | Semana | {none} | "Segunda-feira" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esse agendamento é executado em todas as outras segundas-feiras em cada marca de 15 minutos. |
-| Recorrência | Executar todos os meses | 1 | Month | *startDate*T*startTime*Z | {não disponível} | {não disponível} | {não disponível} | Essa agenda não é iniciada *antes* da data e hora de início especificadas e calcula as recorrências futuras na data e hora de início. Se você não especificar uma data e hora de início, esse agendamento usará a data e a hora de criação. |
-| Recorrência | Executar a cada hora durante um dia por mês | 1 | Month | {consulte a observação} | {não disponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {consulte a observação} | Se você não especificar uma data e hora de início, esse agendamento usará a data e a hora de criação. Para controlar os minutos do agendamento da recorrência, especifique os minutos da hora, uma hora de início ou use o tempo de criação. Por exemplo, se a hora de início ou hora de criação for 8h25, esse agendamento será executado às 8h25, 9h25, 10h25 e assim por diante. |
+| Recorrência | Executar todos os meses | 1 | Mês | *startDate*T*startTime*Z | {não disponível} | {não disponível} | {não disponível} | Essa agenda não é iniciada *antes* da data e hora de início especificadas e calcula as recorrências futuras na data e hora de início. Se você não especificar uma data e hora de início, esse agendamento usará a data e a hora de criação. |
+| Recorrência | Executar a cada hora durante um dia por mês | 1 | Mês | {consulte a observação} | {não disponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {consulte a observação} | Se você não especificar uma data e hora de início, esse agendamento usará a data e a hora de criação. Para controlar os minutos do agendamento da recorrência, especifique os minutos da hora, uma hora de início ou use o tempo de criação. Por exemplo, se a hora de início ou hora de criação for 8h25, esse agendamento será executado às 8h25, 9h25, 10h25 e assim por diante. |
 |||||||||
 
 <a name="run-once"></a>
 
 ## <a name="run-one-time-only"></a>Executar apenas uma vez
 
-Se você quiser executar seu aplicativo lógico somente de uma vez no futuro, poderá usar o **Agendador: executar trabalhos uma vez**. Depois de criar um novo aplicativo lógico, mas antes de abrir o designer de aplicativos lógicos, na seção **modelos** , na lista **categoria** , selecione **agenda**e, em seguida, selecione este modelo:
+Se você quiser executar seu aplicativo lógico somente de uma vez no futuro, poderá usar o modelo **Agendador: executar uma vez para trabalhos** . Depois de criar um novo aplicativo lógico, mas antes de abrir o designer de aplicativos lógicos, na seção **modelos** , na lista **categoria** , selecione **agenda**e, em seguida, selecione este modelo:
 
-![Selecione "Agendador: executar trabalhos uma vez"](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
+![Selecione o modelo "Agendador: executar após trabalhos"](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 
 Ou, se você puder iniciar seu aplicativo lógico com o gatilho **quando uma solicitação HTTP é recebida-solicitação** e passar a hora de início como um parâmetro para o gatilho. Para a primeira ação, use a ação **atrasar até-agenda** e forneça o tempo para quando a próxima ação começar a ser executada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de recorrência](../connectors/connectors-native-recurrence.md)
 * [Criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md)

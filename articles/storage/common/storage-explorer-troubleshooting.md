@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124014"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775826"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -89,13 +89,13 @@ Se você não tiver certeza de onde o certificado provém, siga estas etapas par
 
 Se você não encontrar certificados autoassinados seguindo estas etapas, entre em contato conosco por meio da ferramenta de comentários. Você também pode abrir Gerenciador de Armazenamento na linha de comando usando o sinalizador `--ignore-certificate-errors`. Quando aberto com esse sinalizador, Gerenciador de Armazenamento ignora erros de certificado.
 
-## <a name="sign-in-issues"></a>Problemas de credenciais
+## <a name="sign-in-issues"></a>Problemas de entrada
 
 ### <a name="blank-sign-in-dialog-box"></a>Caixa de diálogo de entrada em branco
 
 Caixas de diálogo de entrada em branco ocorrem com mais frequência quando Serviços de Federação do Active Directory (AD FS) (AD FS) solicita Gerenciador de Armazenamento para executar um redirecionamento, o que não é suportado pelo de todos os. Para contornar esse problema, você pode tentar usar o fluxo de código do dispositivo para entrar. Para fazer isso, siga estas etapas:
 
-1. No menu, acesse **visualização** > **usar entrada de código de dispositivo**.
+1. Na barra de ferramentas vertical esquerda, abra **configurações**. No painel configurações, vá para **aplicativo** > **entrar**. Habilitar **usar entrada de fluxo de código de dispositivo**.
 2. Abra a caixa de diálogo **conectar** (por meio do ícone de plugue na barra vertical do lado esquerdo ou selecionando **adicionar conta** no painel de conta).
 3. Escolha o ambiente no qual você deseja entrar.
 4. Selecione **entrar**.
@@ -114,7 +114,7 @@ Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma d
 2. Exclua a pasta .IdentityService do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, você pode encontrar a pasta na raiz do seu diretório de usuário.
 3. Se você estiver executando o Mac ou o Linux, também precisará excluir a entrada Microsoft. Developer. IdentityService do repositório de chaves do seu sistema operacional. No Mac, o keystore é o aplicativo de conjunto de *chaves GNOME* . No Linux, o aplicativo é normalmente chamado de _token_de entrada, mas o nome pode ser diferente dependendo da sua distribuição.
 
-### <a name="conditional-access"></a>Acesso Condicional
+### <a name="conditional-access"></a>Acesso condicional
 
 Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Armazenamento, o acesso condicional não tem suporte quando Gerenciador de Armazenamento está sendo usado no Windows 10, Linux ou macOS.
 
@@ -230,7 +230,7 @@ Se você receber essa mensagem de erro ao tentar adicionar uma conexão personal
         * `StorageExplorer_CustomConnections_Blobs_v2`
     * Compartilhamentos de arquivos
         * `StorageExplorer_CustomConnections_Files_v1`
-    * Filas de
+    * Filas
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tabelas
         * `StorageExplorer_CustomConnections_Tables_v1`
@@ -309,20 +309,20 @@ Esses pacotes são os requisitos mais comuns para Gerenciador de Armazenamento n
 > [!NOTE]
 > Gerenciador de Armazenamento versão 1.7.0 e anteriores exigem o .NET Core 2,0. Se você tiver uma versão mais recente do .NET Core instalada, terá que [corrigir Gerenciador de armazenamento](#patching-storage-explorer-for-newer-versions-of-net-core). Se estiver executando o Gerenciador de Armazenamento 1.8.0 ou posterior, você poderá usar o até o .NET Core 2,2. As versões além de 2,2 não foram verificadas para funcionar neste momento.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19, 4](#tab/1904)
 
 1. Baixar Gerenciador de Armazenamento.
 2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
-3. Execute o seguinte comando:
+3. Execute o comando a seguir:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18, 4](#tab/1804)
 
 1. Baixar Gerenciador de Armazenamento.
 2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
-3. Execute o seguinte comando:
+3. Execute o comando a seguir:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
    ```
@@ -331,7 +331,7 @@ Esses pacotes são os requisitos mais comuns para Gerenciador de Armazenamento n
 
 1. Baixar Gerenciador de Armazenamento.
 2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
-3. Execute o seguinte comando:
+3. Execute o comando a seguir:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
@@ -340,7 +340,7 @@ Esses pacotes são os requisitos mais comuns para Gerenciador de Armazenamento n
 
 1. Baixar Gerenciador de Armazenamento.
 2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
-3. Execute o seguinte comando:
+3. Execute o comando a seguir:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
@@ -366,7 +366,7 @@ Se o botão **abrir no Explorer** na portal do Azure não funcionar, verifique s
 * Google Chrome
 * Microsoft Internet Explorer
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se nenhuma dessas soluções funcionar para você, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Você também pode fazer isso selecionando o botão **relatar o problema no GitHub** no canto inferior esquerdo.
 

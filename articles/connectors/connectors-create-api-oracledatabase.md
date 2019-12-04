@@ -1,22 +1,18 @@
 ---
-title: Conectar ao Oracle Database – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar-se ao Oracle Database
 description: Inserir e gerenciar registros com APIs REST do Oracle Database e os Aplicativos Lógicos do Azure
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 03/29/2017
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 03/29/2017
 tags: connectors
-ms.openlocfilehash: 06f65aef203b4f0d765f21b9d17b90081de85c94
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60453520"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789419"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
 
@@ -36,9 +32,9 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 * Instalar o gateway de dados local. [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md) lista as etapas. O gateway é necessário para se conectar ao Banco de Dados Oracle local, ou uma VM do Azure com o Banco de Dados Oracle instalado. 
 
     > [!NOTE]
-    > O gateway de dados local atua como uma ponte e fornece transferência de dados segura entre dados locais (dados que não estão na nuvem) e seu aplicativo lógico. O mesmo gateway pode ser usado com vários serviços e várias fontes de dados. Assim, você só precisará instalar o gateway uma vez.
+    > O gateway de dados local atua como uma ponte e fornece transferência de dados segura entre dados locais (dados que não estão na nuvem) e seu aplicativo lógico. O mesmo gateway pode ser usado com vários serviços e várias fontes de dados. Portanto, você pode precisar instalar o gateway apenas uma vez.
 
-* Instale o Cliente Oracle no computador onde você instalou o gateway de dados local. Instale o Provedor de Dados do Oracle de 64 bits para .NET a partir do Oracle:  
+* Instale o Cliente Oracle no computador onde você instalou o gateway de dados local. Certifique-se de instalar o Provedor de Dados do Oracle de 64 bits para .NET da Oracle:  
 
   [ODAC 12c Release 4 (12.1.0.2.4) de 64 bits para Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -95,15 +91,15 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
 ## <a name="common-errors"></a>Erros comuns
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: Não é possível acessar o Gateway
+#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: não é possível acessar o Gateway
 
 **Causa**: o gateway de dados local não é capaz de se conectar à nuvem. 
 
-**Atenuação**: verifique se o gateway está em execução no computador local em que ele foi instalado e se ele pode se conectar à Internet.  Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
+**Atenuação**: verifique se o gateway está em execução no computador local onde ele foi instalado e se ele pode se conectar à internet.  Recomendamos não instalar o gateway em um computador que possa ser desligado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'System.Data.OracleClient exige software cliente Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
 
-**Causa**: o SDK do cliente da Oracle não está instalado no computador em que o gateway de dados local está em execução.  
+**Causa**: o SDK do cliente da Oracle não está instalado no computador onde o gateway de dados local está em execução.  
 
 **Resolução**: baixe e instale o SDK do cliente da Oracle no mesmo computador que o gateway de dados local.
 
@@ -111,11 +107,11 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
 **Causa**: a tabela não tem uma chave primária.  
 
-**Resolução**: o conector do Oracle Database exige o uso de uma tabela com uma coluna de chave primária.
+**Resolução**: o conector do Banco de Dados Oracle exige o uso de uma tabela com uma coluna de chave primária.
 
 #### <a name="currently-not-supported"></a>Não há suporte no momento
 
-* Modos de exibição 
+* Exibições 
 * Qualquer tabela com chaves compostas
 * Tipos de objeto aninhados em tabelas
  
@@ -130,5 +126,5 @@ O [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Fo
 Você pode ajudar a melhorar os Aplicativos Lógicos e os conectores vitando e enviando suas ideias em [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) e explore os conectores disponíveis nos Aplicativos Lógicos em nossa [Lista de APIs](apis-list.md).

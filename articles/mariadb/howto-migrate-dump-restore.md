@@ -1,17 +1,17 @@
 ---
-title: Migrar todo o seu banco de dados MariaDB utilizando o descarte e a resconstituição no Banco de Dados do Azure para MariaDB
+title: Migrar com despejo e restauração-banco de dados do Azure para MariaDB
 description: Este artigo explica duas maneiras comuns de fazer backup e restaurar bancos de dados no Banco de Dados do Azure para MariaDB, usando ferramentas como mysqldump, MySQL Workbench e PHPMyAdmin.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 05626535a2ab2d8da29b8c817ebfe84c257c76aa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 12/02/2019
+ms.openlocfilehash: 660b39a063496eb6566d51dbef2c914499dc70c9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845053"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775998"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrar seu banco de dados MariaDB para o banco de dados do Azure para MariaDB usando despejo e restauração
 Este artigo explica duas maneiras comuns de fazer backup e restaurar bancos de dados no banco de dados do Azure para MariaDB
@@ -41,7 +41,7 @@ Você pode usar os utilitários MySQL, como mysqldump e mysqlpump, para despejar
    ```
 - Para evitar problemas de compatibilidade, certifique-se de que a mesma versão do MariaDB seja usada nos sistemas de origem e de destino ao despejar bancos de dados. Por exemplo, se o seu servidor MariaDB existente for a versão 10.2, você deverá migrar para o Banco de Dados do Azure para o MariaDB configurado para executar a versão 10.2. O comando `mysql_upgrade` não funciona em um Banco de Dados do Azure para o servidor MariaDB e não é suportado. Se você precisar atualizar as versões do MariaDB, primeiro descarte ou exporte seu banco de dados de versão inferior para uma versão superior do MariaDB em seu próprio ambiente. Em seguida, execute `mysql_upgrade` antes de tentar migrar para um banco de dados do Azure para MariaDB.
 
-## <a name="performance-considerations"></a>Considerações sobre o desempenho
+## <a name="performance-considerations"></a>Considerações de desempenho
 Para otimizar o desempenho, observe essas considerações ao despejar grandes bancos de dados:
 -   Use a opção `exclude-triggers` em mysqldump ao despejar bancos de dados. Exclua os gatilhos de arquivos de despejo para evitar que os comandos de gatilho acionem durante a restauração de dados. 
 -   Use a opção `single-transaction` para definir o modo de isolamento da transação para REPEATABLE READ e enviar uma instrução SQL START TRANSACTION para o servidor antes de despejar os dados. Despejar muitas tabelas em uma única transação pode fazer com que alguns armazenamentos adicionais sejam consumidos durante a restauração. A opção `single-transaction` e a opção `lock-tables` são mutuamente exclusivas, porque LOCK TABLES faz com que as transações pendentes sejam confirmadas implicitamente. Para despejar tabelas grandes, combine a opção `single-transaction` com a opção `quick`. 
@@ -119,7 +119,7 @@ Importar o banco de dados é semelhante à exportação. As seguintes ações oc
 5. Use o botão **procurar** para localizar o arquivo do banco de dados. 
 6. Clique no botão **Ir** para exportar o backup, execute os comandos SQL e recrie o banco de dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Conecte aplicativos ao Banco de Dados do Azure para MariaDB](./howto-connection-string.md).
  
 <!--

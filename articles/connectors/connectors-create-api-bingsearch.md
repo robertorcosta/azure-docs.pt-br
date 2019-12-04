@@ -1,22 +1,18 @@
 ---
-title: Conectar-se a Pesquisa do Bing-aplicativos lógicos do Azure
+title: Conectar a Pesquisa do Bing
 description: Encontre notícias com APIs REST de Pesquisa do Bing e Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: f7558a5836d8f087e719346fb38bbf24ece2c8fb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026776"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789953"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com a Pesquisa do Bing e os Aplicativos Lógicos do Azure
 
@@ -24,7 +20,7 @@ Este artigo mostra como é possível encontrar notícias, vídeos e outros itens
 
 Por exemplo, é possível encontrar itens de notícias com base em critérios de pesquisa e fazer com que o Twitter publique esses itens como tweets no feed do Twitter.
 
-Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Para obter informações técnicas específicas do conector, consulte a [referência do conector da Pesquisa do Bing](https://docs.microsoft.com/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -45,7 +41,7 @@ Nos Aplicativos Lógicos do Azure, cada aplicativo lógico deve começar com um 
 
 2. Na caixa de pesquisa, insira "Pesquisa do Bing" como seu filtro. Na lista de gatilhos, selecione o gatilho desejado.
 
-   Este exemplo usa este gatilho: **Pesquisa do Bing-no novo artigo de notícias**
+   Este exemplo usa esse gatilho: **Pesquisa do Bing - No novo artigo de notícias**
 
    ![Localizar gatilho de Pesquisa do Bing](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -54,13 +50,13 @@ Ou, se a conexão já existir, forneça as informações necessárias para o gat
 
    Para este exemplo, forneça critérios para retornar artigos de correspondência correspondentes da Pesquisa do Bing.
 
-   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
+   | Propriedade | obrigatórios | Value | Descrição |
    |----------|----------|-------|-------------|
-   | Search Query | Sim | <*search-words*> | Insira os termos de pesquisa que você quer utilizar. |
-   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
-   | Safe Search | Sim | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
-   | Count | Não | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Offset | Não | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Consulta de Pesquisa | SIM | <*search-words*> | Insira os termos de pesquisa que você quer utilizar. |
+   | Mercado | SIM | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Salvar pesquisa | SIM | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
+   | Contagem | Não | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
+   | Deslocamento | Não | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
    Por exemplo:
@@ -105,13 +101,13 @@ Na lista de ações, selecione a ação desejada.
 
    Para este exemplo, forneça os critérios para retornar ao subconjunto dos resultados do gatilho.
 
-   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
+   | Propriedade | obrigatórios | Value | Descrição |
    |----------|----------|-------|-------------|
-   | Search Query | Sim | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
-   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
-   | Safe Search | Sim | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
-   | Count | Não | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Offset | Não | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Consulta de Pesquisa | SIM | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
+   | Mercado | SIM | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Salvar pesquisa | SIM | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
+   | Contagem | Não | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
+   | Deslocamento | Não | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
    Por exemplo, suponha que você queira aqueles resultados cuja categoria inclua a palavra "tech".
@@ -152,11 +148,11 @@ Na lista de ações, selecione a ação desejada.
 
 1. Quando for solicitado a fornecer informações de conexão, forneça estes detalhes:
 
-   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
+   | Propriedade | obrigatórios | Value | Descrição |
    |----------|----------|-------|-------------|
-   | Nome da Conexão | Sim | <*connection-name*> | O nome a criar para a conexão |
-   | Versão da API | Sim | <*API-version*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. |
-   | Chave de API | Sim | <*API-key*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Nome da Conexão | SIM | <*connection-name*> | O nome para criar a conexão |
+   | Versão da API | SIM | <*API-version*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. |
+   | Chave de API | SIM | <*API-key*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Por exemplo:
@@ -169,6 +165,6 @@ Na lista de ações, selecione a ação desejada.
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/bingsearch/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

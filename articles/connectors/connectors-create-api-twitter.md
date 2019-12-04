@@ -1,22 +1,18 @@
 ---
-title: Conectar-se com o Twitter dos Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar-se ao Twitter por meio de aplicativos lógicos do Azure
 description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam tweets, além de obter dados sobre seguidores, usuários seguidos, outros usuários, linhas do tempo e mais em sua conta do Twitter usando os Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 22b75b2d2b47dbd496eda06c09b418ae66f6403a
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 8ffd0fd558cf759fadd912de9dff4acf49d9659f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050695"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789079"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitore e gerencie o Twitter usando os Aplicativos Lógicos do Azure
 
@@ -29,7 +25,7 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Twitter e disponib
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * Suas credenciais de usuário e conta do Twitter
 
@@ -50,13 +46,13 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Twitter e disponib
    * Para aplicativos lógicos em branco, na caixa de pesquisa, insira "twitter" como filtro. 
    Na lista de gatilhos, selecione o gatilho desejado. 
 
-     - ou -
+     -ou-
 
    * Para aplicativos lógicos existentes: 
    
      * Na última etapa em que você deseja adicionar uma ação, escolha **Nova etapa**. 
 
-       - ou -
+       -ou-
 
      * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
      Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
@@ -70,15 +66,15 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Twitter e disponib
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Gatilho do Twitter: Quando um novo tweet é postado
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Gatilho do Twitter: quando um novo tweet é postado
 
 Esse gatilho inicia um fluxo de trabalho do aplicativo lógico quando detecta um novo tweet, por exemplo, com a hashtag #Seattle. Sendo assim, por exemplo, quando esses tweets são encontrados, você pode adicionar um arquivo com o conteúdo dos tweets ao armazenamento, como uma conta do Dropbox, usando o conector do Dropbox. 
 
 Opcionalmente, você pode incluir uma condição segundo a qual tweets qualificados devem vir de usuários com um número mínimo de seguidores especificado.
 
-**Exemplo corporativo**: Você pode usar esse gatilho para monitorar tweets sobre sua empresa e carregar o conteúdo dos tweets em um banco de dados SQL.
+**Exemplo corporativo**: você pode usar esse gatilho para monitorar tweets sobre sua empresa e fazer upload do conteúdo desses tweets em um banco de dados SQL.
 
-### <a name="twitter-action-post-a-tweet"></a>Ação do Twitter: Postar um Tweet
+### <a name="twitter-action-post-a-tweet"></a>Ação do Twitter: postar um tweet
 
 Essa ação posta um tweet, mas você pode configurá-la para que o tweet tenha o conteúdo dos tweets encontrados pelo gatilho descrito anteriormente. 
 
@@ -91,6 +87,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explic
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

@@ -1,20 +1,17 @@
 ---
-title: Adicionar a autenticação a APIs personalizadas – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Adicionar autenticação a APIs personalizadas
 description: Configurar a autenticação para chamadas a APIs personalizadas dos Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f6dfa98550dcfb092ca1fb52a5cf0bed32e697ad
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039121"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793148"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas dos Aplicativos Lógicos do Azure
 
@@ -200,13 +197,13 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 }
 ```
 
-| Propriedade | obrigatórios | DESCRIÇÃO | 
+| Propriedade | obrigatórios | Descrição | 
 | -------- | -------- | ----------- | 
-| locatário | sim | O GUID para o locatário do Azure AD | 
-| audiência | sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
-| clientId | sim | O GUID do cliente que solicita o acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
-| segredo | sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
-| type | sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| locatário | SIM | O GUID para o locatário do Azure AD | 
+| audiência | SIM | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
+| clientId | SIM | O GUID do cliente que solicita o acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
+| segredo | SIM | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
+| type | SIM | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
 Por exemplo:
@@ -251,11 +248,11 @@ Na seção **autorização** , inclua estas propriedades:
 } 
 ```
 
-| Propriedade | obrigatórios | DESCRIÇÃO |
+| Propriedade | obrigatórios | Descrição |
 | -------- | -------- | ----------- |
-| `type` | sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
+| `type` | SIM | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
 | `password` | Não | A senha para acessar o certificado do cliente (arquivo PFX) |
-| `pfx` | sim | O conteúdo codificado por base64 do certificado do cliente (arquivo PFX) |
+| `pfx` | SIM | O conteúdo codificado por base64 do certificado do cliente (arquivo PFX) |
 ||||
 
 <a name="basic"></a>
@@ -274,11 +271,11 @@ Na seção **autorização** , inclua estas propriedades:
 }
 ```
 
-| Propriedade | obrigatórios | DESCRIÇÃO | 
+| Propriedade | obrigatórios | Descrição | 
 | -------- | -------- | ----------- | 
-| type | sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
-| Nome de Usuário | sim | O nome de usuário que você deseja usar para autenticação | 
-| password | sim | A senha que você deseja usar para autenticação | 
+| type | SIM | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
+| Nome de Usuário | SIM | O nome de usuário que você deseja usar para autenticação | 
+| Senha | SIM | A senha que você deseja usar para autenticação | 
 |||| 
 
 <a name="azure-ad-code"></a>
@@ -296,6 +293,6 @@ and not use the Azure portal, learn how to
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Implantar e chamar APIs personalizadas de fluxos de trabalho do aplicativo lógico](../logic-apps/logic-apps-custom-api-host-deploy-call.md)

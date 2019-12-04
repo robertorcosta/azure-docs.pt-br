@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 08549935c7a0651709a08bef61624e4e436d4aad
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084085"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792188"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server em máquinas virtuais do Azure
 
@@ -81,9 +81,7 @@ Você também deve ter uma compreensão geral dessas tecnologias:
 - [Grupos de recursos do Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> Neste momento, SQL Server instâncias de cluster de failover em máquinas virtuais do Azure têm suporte apenas com o modo de gerenciamento [leve](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) da [extensão SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). Desinstale a extensão completa das VMs que participam do cluster de failover e registre-as com o provedor de recursos de VM do SQL no modo leve.
->
-> A extensão completa oferece suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do Portal. Esses recursos não funcionarão para SQL Server VMs depois que o agente for reinstalado no modo de gerenciamento leve.
+> Neste momento, SQL Server instâncias de cluster de failover em máquinas virtuais do Azure só têm suporte com o [modo de gerenciamento leve](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) da [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para alterar do modo de extensão completo para leve, exclua o recurso de **máquina virtual do SQL** para as VMs correspondentes e registre-as com o provedor de recursos de VM do SQL no modo leve. Ao excluir o recurso de **máquina virtual do SQL** usando o portal do Azure, **desmarque a caixa de seleção ao lado da máquina virtual correta**. A extensão completa oferece suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do Portal. Esses recursos não funcionarão para VMs do SQL depois que o agente for reinstalado no modo de gerenciamento leve.
 
 ### <a name="what-to-have"></a>O que é preciso ter
 
@@ -112,7 +110,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
 
    1. Na portal do Azure, selecione **criar um recurso** para abrir o Azure Marketplace. Procure **Conjunto de disponibilidade**.
    1. Selecione **conjunto de disponibilidade**.
-   1. Selecione **Criar**.
+   1. Clique em **Criar**.
    1. Em **criar conjunto de disponibilidade**, forneça estes valores:
       - **Nome**: um nome para o conjunto de disponibilidade.
       - **Assinatura**: sua assinatura do Azure.
@@ -176,7 +174,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
 
    Em cada máquina virtual, abra essas portas no firewall do Windows:
 
-   | Finalidade | Porta TCP | Observações
+   | Finalidade | Porta TCP | Notas
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente.
    | Investigação de integridade | 59999 | Qualquer porta TCP aberta. Em uma etapa posterior, configure a [investigação de integridade](#probe) do balanceador de carga e o cluster para usar essa porta.  
@@ -369,7 +367,7 @@ Para criar o balanceador de carga:
 
 1. Selecione **Adicionar**. Pesquise **Load Balancer**no Azure Marketplace. Selecione **Load Balancer**.
 
-1. Selecione **Criar**.
+1. Clique em **Criar**.
 
 1. Configure o balanceador de carga com:
 
@@ -501,7 +499,7 @@ Em máquinas virtuais do Azure, o MSDTC não tem suporte no Windows Server 2016 
 - O recurso MSDTC clusterizado não pode ser configurado para usar o armazenamento compartilhado. No Windows Server 2016, se você criar um recurso MSDTC, ele não mostrará nenhum armazenamento compartilhado disponível para uso, mesmo que o armazenamento esteja disponível. Esse problema foi corrigido no Windows Server 2019.
 - O balanceador de carga básico não lida com portas RPC.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 [Configurar Espaços de Armazenamento Diretos com a área de trabalho remota (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

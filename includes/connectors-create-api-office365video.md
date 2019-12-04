@@ -1,17 +1,18 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 20729d1e73dd0ff9010201a1c6597b616b364a09
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: c0dcba2dd003dfebdd9ce67bf4d78082c32824ba
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172179"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789471"
 ---
-### <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 * Uma conta do [Vídeo do Office 365](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6)  
 
 Antes de usar a conta do Vídeo do Office 365 em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Vídeo do Office 365. Felizmente, você pode fazer isso facilmente dentro do seu aplicativo lógico no Portal do Azure.  

@@ -1,6 +1,6 @@
 ---
-title: Aplicativo de página única (mover para a produção) – plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo de página única (mover para a produção)
+title: Aplicativo de página única (mover para produção)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo de página única (mover para produção)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,42 +15,38 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a04f5d62ec750cfbe44765e833552bd694654d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2dbb481c75323304d71f85a722fc45a9b634055
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075004"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766099"
 ---
-# <a name="single-page-application---move-to-production"></a>Aplicativo de página única - mover para a produção
+# <a name="single-page-application-move-to-production"></a>Aplicativo de página única: mover para produção
 
-Agora que você sabe como adquirir um token para chamar APIs da Web, saiba como mover para a produção.
+Agora que você sabe como adquirir um token para chamar APIs da Web, saiba como mover para produção.
 
-## <a name="improve-your-app"></a>Melhorar seu aplicativo
+## <a name="improve-your-app"></a>Aprimore seu aplicativo
 
-Siga as etapas necessárias para preparar sua produção de aplicativo.
-
-- [Habilitar registro em log](msal-logging.md) em seu aplicativo.
+[Habilite o registro em log](msal-logging.md) para tornar a produção do aplicativo pronta.
 
 ## <a name="test-your-integration"></a>Testar sua integração
 
-- Teste sua integração seguindo a [lista de verificação de integração da plataforma de identidade da Microsoft](identity-platform-integration-checklist.md).
+Teste sua integração seguindo a [lista de verificação de integração da plataforma de identidade da Microsoft](identity-platform-integration-checklist.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Aqui estão alguns outros exemplos/tutoriais:
+Aprofunde-se no exemplo de início rápido, que explica o código de como conectar usuários e obter um token de acesso para chamar a API de Microsoft Graph usando o MSAL. js:
 
-- Para um mergulho profundo do início rápido de amostra que explica o código para saber como conectar usuários e obter um token de acesso para chamar a API do MS Graph usando msal
+> [!div class="nextstepaction"]
+> [Tutorial do SPA do JavaScript](./tutorial-v2-javascript-spa.md)
 
-    > [!div class="nextstepaction"]
-    > [Tutorial de JavaScript SPA](./tutorial-v2-javascript-spa.md)
+Exemplo que demonstra como obter tokens para sua própria API Web de back-end usando MSAL. js:
 
-- Exemplo que demonstra como obter tokens para sua própria API da web de back-end usando msal
+> [!div class="nextstepaction"]
+> [SPA com um back-end ASP.NET](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
 
-     > [!div class="nextstepaction"]
-     > [SPA com um back-end do ASP.NET](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+Exemplo que mostra como usar MSAL. js para conectar usuários em um aplicativo que está registrado com Azure Active Directory B2C (Azure AD B2C):
 
-- Exemplo para mostrar como usar msal para conectar usuários em um aplicativo registrado com o Azure AD B2C
-
-    > [!div class="nextstepaction"]
-    > [SPA com B2C do AD do Azure](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+> [!div class="nextstepaction"]
+> [SPA com Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)

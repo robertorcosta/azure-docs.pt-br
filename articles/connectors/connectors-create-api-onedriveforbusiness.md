@@ -1,22 +1,18 @@
 ---
-title: Conectar ao OneDrive for Business – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar-se ao OneDrive for Business
 description: Carregar e gerenciar arquivos com as APIs REST do OneDrive for Business e os Aplicativos Lógicos do Azure
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 08/18/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 08/18/2016
 tags: connectors
-ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48c819566db43e2f997309d1bea55a9436ec7085
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104911"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789437"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Introdução ao conector do OneDrive for Business
 Conecte-se ao OneDrive for Business para gerenciar seus arquivos. É possível executar várias ações, como carregar, atualizar, obter e excluir arquivos.
@@ -26,9 +22,9 @@ Conecte-se ao OneDrive for Business para gerenciar seus arquivos. É possível e
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Criar uma conexão com o OneDrive for Business
 Para criar Aplicativos lógicos com o OneDrive for Business, primeiro você deve criar uma **conexão**, em seguida, forneça os detalhes para as seguintes propriedades:
 
-| Propriedade | Obrigatório | DESCRIÇÃO |
+| Propriedade | obrigatórios | Descrição |
 | --- | --- | --- |
-| A criptografia do token |Sim |Fornecer as credenciais do OneDrive for Business |
+| restrição |SIM |Fornecer as credenciais do OneDrive for Business |
 
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 

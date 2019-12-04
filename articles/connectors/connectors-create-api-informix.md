@@ -1,22 +1,20 @@
 ---
-title: Conectar ao banco de dados IBM Informix – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar-se ao banco de dados do IBM Informix
 description: Gerenciar recursos com as APIs REST do IBM Informix e os Aplicativos Lógicos do Azure
-author: gplarsen
-manager: jeconnoc
-ms.author: plarsen
-ms.date: 09/26/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+author: gplarsen
+ms.author: plarsen
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 09/26/2016
 tags: connectors
-ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6f768bc76d19c0aa21a245c008a4b05588f8f43
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60690740"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789738"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introdução ao conector do Informix
 O Microsoft Connector para Informix conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados IBM Informix. O conector Informix inclui um cliente Microsoft para se comunicar com computadores de servidores Informix remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como o IBM Informix para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de plataformas e versões do IBM Informix com suporte (neste tópico).
@@ -47,7 +45,7 @@ Este conector dá suporte às seguintes ações do aplicativo lógico:
 ## <a name="list-tables"></a>Listar tabelas
 A criação de um aplicativo lógico para qualquer operação é composta de várias etapas executadas por meio do portal do Microsoft Azure.
 
-No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um banco de dados Informix. Essa ação instrui o conector a processar uma instrução de esquema do Informix, como `CALL SYSIBM.SQLTABLES`.
+No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um banco de dados Informix. Essa ação instrui o conector a processar uma instrução de esquema Informix, como `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
@@ -80,13 +78,13 @@ No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um
 ## <a name="create-the-connections"></a>Criar as conexões
 Este conector dá suporte às conexões com os bancos de dados no local e na nuvem usando as propriedades de conexão a seguir. 
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 | --- | --- |
 | server |Obrigatório. Aceita um valor da cadeia de caracteres que representa um endereço TCP/IP ou alias no formato IPv4 ou IPv6, seguido de (delimitado por dois pontos) um número de porta TCP/IP. |
 | database |Obrigatório. Aceita um valor da cadeia de caracteres que representa um Nome do Banco de Dados Relacional (RDBNAM) DRDA. O Informix aceita uma cadeia de caracteres de 128 bytes (o banco de dados é conhecido como um nome de banco de dados IBM Informix (dbname)). |
-| Autenticação |Opcional. Aceita um valor de item de lista, Básica ou Windows (kerberos). |
-| username |Obrigatório. Aceita um valor de cadeia de caracteres. |
-| password |Obrigatório. Aceita um valor de cadeia de caracteres. |
+| autenticação |Opcional. Aceita um valor de item de lista, Básica ou Windows (kerberos). |
+| Nome de Usuário |Obrigatório. Aceita um valor de cadeia de caracteres. |
+| Senha |Obrigatório. Aceita um valor de cadeia de caracteres. |
 | Gateway |Obrigatório. Aceita um valor de item da lista, que representa o gateway de dados local definido para os Aplicativos Lógicos no grupo de armazenamento. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Criar a conexão de gateway local
@@ -121,7 +119,7 @@ Você pode criar uma ação de aplicativo lógico para buscar todas as linhas na
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
-2. Insira o **Nome** (por exemplo, "**InformixgetRows**"), **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
+2. Insira o **nome** (por exemplo, "**InformixgetRows**"), a **assinatura**, o **grupo de recursos**, o **local**e o plano do **serviço de aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
 1. No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
@@ -154,7 +152,7 @@ Você pode criar uma ação de aplicativo lógico para buscar todas as linhas na
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
 ## <a name="add-one-row-using-insert"></a>Adicionar uma linha usando INSERT
-Você pode criar uma ação de aplicativo lógico para adicionar uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução INSERT do Informix, como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+Você pode criar uma ação de aplicativo lógico para adicionar uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução de inserção da Informix, como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
@@ -209,7 +207,7 @@ Você pode criar uma ação de aplicativo lógico para buscar uma linha em uma t
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## <a name="change-one-row-using-update"></a>Alterar uma linha usando UPDATE
-Você pode criar uma ação de aplicativo lógico para alterar uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução UPDATE do Informix, como `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
+Você pode criar uma ação de aplicativo lógico para alterar uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução de atualização da Informix, como `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
@@ -272,6 +270,6 @@ Este conector dá suporte às versões do IBM Informix à seguir quando configur
 
 Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/informix/). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 

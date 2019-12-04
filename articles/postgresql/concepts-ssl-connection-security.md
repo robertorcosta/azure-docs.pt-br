@@ -1,22 +1,22 @@
 ---
-title: Configurar conectividade SSL no banco de dados do Azure para PostgreSQL - servidor único
-description: Instruções e informações para configurar o banco de dados do Azure para PostgreSQL – único servidor e aplicativos associados ao uso de conexões SSL adequadamente.
+title: SSL-banco de dados do Azure para PostgreSQL-servidor único
+description: Instruções e informações sobre como configurar a conectividade SSL para o banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 686adfb2998eff10ef4b9f378163b164ba970c56
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 21b4dffa135e1311be8c738c634de22304665695
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461835"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768139"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurar conectividade SSL no banco de dados do Azure para PostgreSQL - servidor único
-O Banco de dados do Azure para PostgreSQL prefere conectar-se seus aplicativos cliente ao serviço PostgreSQL usando o protocolo SSL. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques "man-in-the-middle" criptografando o fluxo de dados entre o servidor e seu aplicativo.
+# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurar a conectividade SSL no banco de dados do Azure para PostgreSQL-servidor único
+O Banco de dados do Azure para PostgreSQL prefere conectar-se seus aplicativos cliente ao serviço PostgreSQL usando o protocolo SSL. A imposição de conexões SSL entre o servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques "Man-in-the-middle" criptografando o fluxo de dados entre o servidor e seu aplicativo.
 
-Por padrão, o serviço de banco de dados do PostgreSQL é configurado para exigir conexão SSL. Você pode optar por desabilitar a exigência de SSL se o aplicativo cliente não dá suporte a conectividade SSL. 
+Por padrão, o serviço de banco de dados do PostgreSQL é configurado para exigir conexão SSL. Você pode optar por desabilitar a exigência de SSL se o aplicativo cliente não oferecer suporte à conectividade SSL. 
 
 ## <a name="enforcing-ssl-connections"></a>Impor conexões SSL
 Para todos os Bancos de Dados do Azure para servidores PostgreSQL provisionados com o Portal e a CLI do Azure, a imposição de conexões SSL está habilitada por padrão. 
@@ -41,23 +41,23 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Verificar se o seu aplicativo ou sua estrutura oferece suporte a conexões SSL
-Algumas estruturas de aplicativo que usam PostgreSQL para seus serviços de banco de dados não habilitam o SSL por padrão durante a instalação. Se seu servidor PostgreSQL impõe conexões SSL, mas o aplicativo não está configurado para SSL, o aplicativo poderá falhar ao se conectar ao seu servidor de banco de dados. Confira a documentação de seu aplicativo para saber como habilitar conexões SSL.
+Algumas estruturas de aplicativo que usam o PostgreSQL para seus serviços de banco de dados não habilitam o SSL por padrão durante a instalação. Se o seu servidor PostgreSQL impõe conexões SSL, mas o aplicativo não está configurado para SSL, o aplicativo pode falhar ao se conectar ao seu servidor de banco de dados. Confira a documentação de seu aplicativo para saber como habilitar conexões SSL.
 
 
 ## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>Aplicativos que exigem a verificação de certificado para conectividade SSL
-Em alguns casos, os aplicativos exigem um arquivo de certificado local gerado de um arquivo de certificado (.cer) de uma Autoridade de Certificação (CA) confiável para se conectar com segurança. O certificado para se conectar a um banco de dados do Azure para servidor PostgreSQL está localizado em https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Baixe o arquivo de certificado e salve-o em seu local preferido. 
+Em alguns casos, os aplicativos exigem um arquivo de certificado local gerado de um arquivo de certificado (.cer) de uma Autoridade de Certificação (CA) confiável para se conectar com segurança. O certificado para se conectar a um servidor de banco de dados do Azure para PostgreSQL está localizado em https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Baixe o arquivo de certificado e salve-o em seu local preferido. 
 
-### <a name="connect-using-psql"></a>Conectar-se usando psql
-O exemplo a seguir mostra como se conectar ao servidor PostgreSQL usando o utilitário de linha de comando do psql. Use o `sslmode=verify-full` configuração da cadeia de conexão para impor a verificação do certificado SSL. Passe o caminho do arquivo de certificado local para o `sslrootcert` parâmetro.
+### <a name="connect-using-psql"></a>Conectar usando psql
+O exemplo a seguir mostra como se conectar ao seu servidor PostgreSQL usando o utilitário de linha de comando psql. Use a configuração `sslmode=verify-full` cadeia de conexão para impor a verificação de certificado SSL. Passe o caminho do arquivo de certificado local para o parâmetro `sslrootcert`.
 
-Abaixo está um exemplo da cadeia de caracteres de conexão psql:
+Abaixo está um exemplo da cadeia de conexão do psql:
 ```
 psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=myusern@mydemoserver"
 ```
 
 > [!TIP]
-> Confirme que o valor passado para `sslrootcert` corresponde ao caminho do arquivo para o certificado que você salvou.
+> Confirme se o valor passado para `sslrootcert` corresponde ao caminho do arquivo para o certificado que você salvou.
 
 
-## <a name="next-steps"></a>Próximas etapas
-Analise as várias opções de conectividade do aplicativo no [bibliotecas de Conexão para o banco de dados do Azure para PostgreSQL](concepts-connection-libraries.md).
+## <a name="next-steps"></a>Próximos passos
+Examine várias opções de conectividade de aplicativo em [bibliotecas de conexões para o banco de dados do Azure para PostgreSQL](concepts-connection-libraries.md).

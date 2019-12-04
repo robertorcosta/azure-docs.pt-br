@@ -1,21 +1,17 @@
 ---
-title: Exemplos de operação de dados – aplicativos lógicos do Azure
+title: Exemplos de operação de dados
 description: Exemplos de código para ações de operação de dados em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: d692d943249c9fc6b46ed6eb1ddff3f07152f5b6
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: d59e461fab52bddf9cb1f881d52a751931c7312b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179161"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793076"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exemplo de código de operação de dados para Aplicativos Lógicos do Azure
 
@@ -185,7 +181,7 @@ Para experimentar a ação [**Criar tabela HTML** do exemplo](../logic-apps/logi
 
 <a name="filter-array-action-example"></a>
 
-## <a name="filter-array"></a>Matriz do filtro
+## <a name="filter-array"></a>Filtrar matriz
 
 Para experimentar a ação [**Matriz do filtro** do exemplo](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), a seguir estão as definições de ação que podem ser utilizadas:
 
@@ -367,6 +363,6 @@ Para experimentar a ação [**Selecionar** do exemplo](../logic-apps/logic-apps-
 },
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Executar operações de dados](../logic-apps/logic-apps-perform-data-operations.md)

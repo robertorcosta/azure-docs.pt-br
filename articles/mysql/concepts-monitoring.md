@@ -1,17 +1,17 @@
 ---
-title: Monitoramento no Banco de Dados do Azure para MySQL
+title: Monitoramento-banco de dados do Azure para MySQL
 description: Este artigo descreve as métricas de monitoramento e alertas para o Banco de Dados do Azure para MySQL, incluindo CPU, armazenamento e estatísticas de conexão.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: df03f8ba0e522aacd305b6337e506f53e309660a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/02/2019
+ms.openlocfilehash: ec99db9406c5c83cdcbf322c45cea40c6643ee8f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384037"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770876"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoramento no Banco de Dados do Azure para MySQL
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MySQL oferece várias métricas que fornecem insights sobre o comportamento do seu servidor.
@@ -22,7 +22,7 @@ Todas as métricas do Azure têm uma frequência de um minuto e cada uma delas f
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 
-|Métrica|Nome de exibição da métrica|Unidade|DESCRIÇÃO|
+|Métrica|Nome de exibição da métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|
@@ -36,8 +36,8 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 |active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
 |connections_failed|Conexões com falha|Contagem|O número de conexões com falha com o servidor.|
 |seconds_behind_master|Retardo de replicação em segundos|Contagem|O número de segundos que o servidor de réplica está atrasando contra o servidor mestre.|
-|network_bytes_egress|Network Out|Bytes|Rede-Out em conexões ativas.|
-|network_bytes_ingress|Network In|Bytes|Entrada de rede em conexões ativas.|
+|network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
+|network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 |backup_storage_used|Backup do Microsoft Azure|Bytes|A quantidade de armazenamento de backup usado.|
 
 ## <a name="server-logs"></a>Logs do servidor
@@ -46,11 +46,11 @@ Você pode habilitar a consulta lenta e o log de auditoria em seu servidor. Esse
 ## <a name="query-store"></a>Repositório de Consultas
 [Repositório de consultas](concepts-query-store.md) é um recurso que controla o desempenho da consulta ao longo do tempo, incluindo estatísticas de tempo de execução de consulta e eventos de espera. O recurso persiste as informações de desempenho de tempo de execução de consulta no esquema **MySQL** . Você pode controlar a coleta e o armazenamento de dados por meio de vários botões de configuração.
 
-## <a name="query-performance-insight"></a>Análise de desempenho de consultas
+## <a name="query-performance-insight"></a>Informações de desempenho de consulta
 [Análise de Desempenho de Consultas](concepts-query-performance-insight.md) funciona em conjunto com o Repositório de Consultas para fornecer visualizações acessíveis do portal do Azure. Esses gráficos permitem que você identifique as principais consultas que afetam o desempenho. Análise de Desempenho de Consultas é acessível na seção de **desempenho inteligente** da página do portal do banco de dados do Azure para o servidor MySQL.
 
 ## <a name="performance-recommendations"></a>Recomendações de desempenho
-O recurso [Recomendações de Desempenho](concepts-performance-recommendations.md) identifica as oportunidades de melhorar o desempenho da carga de trabalho. As recomendações de desempenho fornecem recomendações para a criação de novos índices que têm o potencial de melhorar o desempenho de suas cargas de trabalho. Para produzir recomendações de índice, o recurso leva em consideração várias características do banco de dados, inclusive seu esquema e a carga de trabalho, conforme relatado pelo Repositório de Dados de Consultas. Depois de implementar qualquer recomendação de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações.
+O recurso [Recomendações de Desempenho](concepts-performance-recommendations.md) identifica as oportunidades de melhorar o desempenho da carga de trabalho. As recomendações de desempenho fornecem recomendações para a criação de novos índices que têm o potencial de melhorar o desempenho de suas cargas de trabalho. Para produzir recomendações de índice, o recurso leva em consideração várias características do banco de dados, inclusive seu esquema e a carga de trabalho, conforme relatado pelo Repositório de Consultas. Depois de implementar qualquer recomendação de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações.
 
 ## <a name="service-health"></a>Integridade do serviço
 A [integridade do serviço do Azure](../service-health/overview.md) fornece uma exibição de todas as notificações de integridade do serviço em sua assinatura. Você pode configurar alertas de integridade do serviço para notificá-lo por meio de seus canais de comunicação preferenciais quando houver problemas ou alterações que possam afetar os serviços e as regiões do Azure que você usa.
@@ -60,7 +60,7 @@ Você pode exibir eventos de manutenção agendados para o banco de dados do Azu
 > [!IMPORTANT]
 > As notificações de manutenção planejada estão disponíveis em versão prévia para o leste dos EUA e apenas Sul do Reino Unido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Consulte [Como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 - Leia nosso blog sobre [práticas recomendadas para monitorar seu servidor](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).

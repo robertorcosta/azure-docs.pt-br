@@ -1,22 +1,18 @@
 ---
-title: Conectar-se ao SMTP por meio dos Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar-se ao SMTP de aplicativos lógicos do Azure
 description: Automatizar tarefas e fluxos de trabalho que enviam email por meio de sua conta de protocolo SMTP (SMTP) usando os Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1649f197d4dbd88e2b485ab32f254a2d09696a84
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: fb501a158c839e6d4d71fc2af5ae50e48c248466
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050752"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789147"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Enviar um email de sua conta SMTP com Aplicativos Lógicos do Azure
 
@@ -24,7 +20,7 @@ Com os Aplicativos Lógicos do Azure e o conector de protocolo SMTP (SMTP), voc�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * Suas credenciais de usuário e conta SMTP
 
@@ -53,12 +49,12 @@ Com os Aplicativos Lógicos do Azure e o conector de protocolo SMTP (SMTP), voc�
 
 1. Quando solicitado, forneça essas informações de conexão:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome da Conexão** | Sim | Um nome para a conexão com seu servidor SMTP | 
-   | **Endereço do Servidor SMTP** | Sim | O endereço do seu servidor SMTP | 
-   | **Nome de usuário** | Sim | O nome de usuário da sua conta SMTP | 
-   | **Senha** | Sim | A senha da sua conta SMTP | 
+   | **Nome da Conexão** | SIM | Um nome para a conexão com seu servidor SMTP | 
+   | **Endereço do Servidor SMTP** | SIM | O endereço do seu servidor SMTP | 
+   | **Nome de usuário** | SIM | O nome de usuário da sua conta SMTP | 
+   | **Senha** | SIM | A senha da sua conta SMTP | 
    | **Porta do Servidor SMTP** | Não | Uma porta específica no servidor SMTP que você deseja usar | 
    | **Habilitar SSL?** | Não | Ligar ou desligar a criptografia SSL. | 
    |||| 
@@ -76,6 +72,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explic
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

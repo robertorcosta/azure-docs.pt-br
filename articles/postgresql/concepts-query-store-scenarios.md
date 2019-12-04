@@ -1,17 +1,17 @@
 ---
-title: Cenários de uso de Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único
+title: Cenários de Repositório de Consultas-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve alguns cenários para o Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 3cdb0d4e00e667b0369cdf612662830f18dc5fb8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764267"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768343"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Cenários de uso de Store de consulta
 
@@ -53,9 +53,9 @@ Em qualquer um desses cenários, aplique o seguinte fluxo de trabalho:
 
 
 ## <a name="identify-and-improve-ad-hoc-workloads"></a>Identifique e melhore as cargas de trabalho ad hoc 
-Algumas cargas de trabalho não possuem consultas dominantes que você pode ajustar para melhorar o desempenho geral do aplicativo. Essas cargas de trabalho normalmente são caracterizadas com um número relativamente grande de consultas exclusivas, cada uma consumindo uma parte dos recursos do sistema. Cada consulta exclusiva é executada com pouca frequência, portanto, individualmente, seu consumo em tempo de execução não é crítico. Por outro lado, como o aplicativo está gerando novas consultas o tempo todo, uma parte significativa dos recursos do sistema é gasta na compilação de consultas, o que não é o ideal. Normalmente, essa situação acontece se o aplicativo gerar consultas (em vez de usar procedimentos armazenados ou consultas parametrizadas) ou se depender de estruturas de mapeamento objeto-relacional que geram consultas por padrão. 
+Algumas cargas de trabalho não possuem consultas dominantes que você pode ajustar para melhorar o desempenho geral do aplicativo. Essas cargas de trabalho normalmente são caracterizadas com um número relativamente grande de consultas exclusivas, cada uma consumindo uma parte dos recursos do sistema. Cada consulta exclusiva é executada com pouca frequência, portanto, individualmente, seu consumo em runtime não é crítico. Por outro lado, como o aplicativo está gerando novas consultas o tempo todo, uma parte significativa dos recursos do sistema é gasta na compilação de consultas, o que não é o ideal. Normalmente, essa situação acontece se o aplicativo gerar consultas (em vez de usar procedimentos armazenados ou consultas parametrizadas) ou se depender de estruturas de mapeamento objeto-relacional que geram consultas por padrão. 
  
 Se você estiver no controle do código do aplicativo, considere reescrever a camada de acesso a dados para usar procedimentos armazenados ou consultas parametrizadas. No entanto, essa situação também pode ser melhorada sem alterações de aplicativo, forçando a parametrização de consulta para todo o banco de dados (todas as consultas) ou para os modelos de consulta individuais com o mesmo hash de consulta. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre o [práticas recomendadas para usar a consulta Store](concepts-query-store-best-practices.md)

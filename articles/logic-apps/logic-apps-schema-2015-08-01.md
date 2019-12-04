@@ -1,21 +1,19 @@
 ---
-title: Atualizações de esquema da versão prévia de 1º de agosto de 2015 – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Atualizações de esquema para a versão prévia de agosto de 1-2015
 description: Versão prévia de 2015-08-01 do esquema atualizada para definições de aplicativo lógico nos Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
-ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b6746baaede777eb8c2afcae9eb3fe80b669c468
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553752"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792851"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - visualização de 1º de junho de 2015
 
@@ -72,7 +70,7 @@ Nessa definição, essas ações são denominadas `APIConnection`. Veja um exemp
 }
 ```
 
-O objeto `host` é uma parte das entradas que é exclusiva para conexões de API e contém dessas partes: `api` e `connection`. O objeto `api` especifica a URL de tempo de execução para onde a API gerenciada está hospedada. Você pode ver todas as APIs gerenciadas disponíveis chamando esse método:
+O objeto `host` é uma parte das entradas que é exclusiva para conexões de API e contém dessas partes: `api` e `connection`. O objeto `api` especifica a URL de runtime para onde a API gerenciada está hospedada. Você pode ver todas as APIs gerenciadas disponíveis chamando esse método:
 
 ```text
 GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
@@ -290,7 +288,7 @@ Agora, você pode criar uma ação de HTTP semelhante e deixar a seção `parame
 
 Percorra essas propriedades, uma por vez:
 
-| Propriedade da ação | DESCRIÇÃO |
+| Propriedade da ação | Descrição |
 | --- | --- |
 | `type` | `Http` em vez de `APIapp` |
 | `metadata.apiDefinitionUrl` | Para usar essa ação no Designer de Aplicativos Lógicos, inclua o ponto de extremidade de metadados que é construído com base em: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
@@ -419,7 +417,7 @@ Com essas alterações, os Aplicativos Lógicos substituem a função `@accessKe
 
 ## <a name="call-child-workflows"></a>Chamar fluxos de trabalho secundários
 
-Anteriormente, chamar os fluxos de trabalho secundários exigia ir para esse fluxo de trabalho, obter o token de acesso e colar o token na definição do aplicativo lógico no qual você deseja chamar o fluxo de trabalho secundário. Com o novo esquema, o mecanismo de Aplicativos Lógicos gera automaticamente um SAS em tempo de execução para fluxo de trabalho filho para que você não precise colar informações secretas na definição. Veja um exemplo:
+Anteriormente, chamar os fluxos de trabalho secundários exigia ir para esse fluxo de trabalho, obter o token de acesso e colar o token na definição do aplicativo lógico no qual você deseja chamar o fluxo de trabalho secundário. Com o novo esquema, o mecanismo de Aplicativos Lógicos gera automaticamente um SAS em runtime para fluxo de trabalho filho para que você não precise colar informações secretas na definição. Veja um exemplo:
 
 ``` json
 "myNestedWorkflow": {

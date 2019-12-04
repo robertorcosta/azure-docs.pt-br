@@ -3,19 +3,19 @@ title: Diretrizes de design de divulgação
 titleSuffix: Azure Cognitive Services
 description: Introdução às diretrizes de design de divulgação e à avaliação do nível de divulgação.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: 7dffa3d9f6e96adc6146a1059e7360c77926ece3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837387"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776378"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de design de divulgação
 Saiba como criar e manter a confiança com os clientes ao ser transparente sobre a natureza sintética da sua experiência de voz.
@@ -74,12 +74,12 @@ Use o diagrama a seguir para determinar se sua experiência de voz sintética re
 
   ![Diagrama de avaliação de divulgação](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="reference-docs"></a>Documentos de Referência
+## <a name="reference-docs"></a>Documentos de referência
 
 * [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
 * [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Visão geral da retenção](concepts-gating-overview.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Padrões de design de divulgação](concepts-disclosure-patterns.md)

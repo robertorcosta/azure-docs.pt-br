@@ -1,22 +1,18 @@
 ---
-title: Conectar-se ao Outlook.com – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar ao Outlook.com
 description: Gerenciar email, contatos e calendários com as APIs REST do Outlook.com e os Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/18/2016
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 4586255e96647267bc913f2bc054610163e16bd3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 750efc2cb928bf127c4f3c68d5a58c5f52ca7d51
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050888"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789351"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Gerenciar email, contatos e calendários no Outlook.com com os Aplicativos Lógicos do Azure
 
@@ -32,7 +28,7 @@ Se ainda não estiver familiarizado com o Aplicativo Lógico, veja [O que são o
 
 * Uma [conta do Outlook.com](https://outlook.live.com/owa/)
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * O aplicativo lógico no qual você deseja acessar a conta do Outlook.com. Para iniciar o aplicativo lógico com um gatilho do Outlook, é necessário um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
@@ -53,6 +49,6 @@ Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descri
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

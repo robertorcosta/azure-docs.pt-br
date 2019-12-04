@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3470e27f64a672db0165b0132996db91a1447c08
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aebd7b58a2107ac109a03d3ce12f27d65ba0ab90
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033973"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769805"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Acesso de vários protocolos no Azure Data Lake Storage
 
@@ -48,14 +48,17 @@ Os itens que aparecem nesta tabela serão alterados ao longo do tempo, pois o su
 |Recurso de armazenamento de BLOBs | Nível de suporte |
 |---|---|
 |[Camada de acesso fria](storage-blob-storage-tiers.md)|Disponível para o público geral|
+|APIs REST de BLOB|Disponível para o público geral|
 |SDKs de BLOB |Disponível para o público geral|
-|APIs REST de BLOB|Geralmente disponível|
-|[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Disponível para o público geral|
-|[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Disponível para o público geral|
-|[Logs de diagnóstico](../common/storage-analytics-logging.md)| Visualização|
-|[Políticas de gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md)| Visualização|
-|[Notificações por meio da grade de eventos do Azure](data-lake-storage-events.md)|Visualização|
-|[Camada de acesso aos arquivos](storage-blob-storage-tiers.md)| Visualização|
+|[PowerShell (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Disponível para o público geral|
+|[CLI (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Disponível para o público geral|
+|SDKs de blob com semântica do sistema de arquivos ([.net](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|Versão prévia|
+|[PowerShell com semântica de sistema de arquivos](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|Versão prévia|
+|[CLI com semântica do sistema de arquivos](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|Versão prévia|
+|[Logs de diagnóstico](../common/storage-analytics-logging.md)| Versão prévia|
+|[Políticas de gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md)| Versão prévia|
+|[Notificações por meio da grade de eventos do Azure](data-lake-storage-events.md)|Versão prévia|
+|[Camada de acesso aos arquivos](storage-blob-storage-tiers.md)| Versão prévia|
 |[blobfuse](storage-how-to-mount-container-linux.md)|Ainda não tem suporte|
 |[Armazenamento imutável](storage-blob-immutable-storage.md)|Ainda não tem suporte|
 |[Instantâneos](storage-blob-snapshots.md)|Ainda não tem suporte|
@@ -80,13 +83,13 @@ Assim como a lista de recursos de armazenamento de BLOBs com suporte, os itens q
 |[Stream Analytics do Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Disponível para o público geral|
 |[Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Disponível para o público geral|
 |[Aplicativos lógicos](https://azure.microsoft.com/services/logic-apps/)|Disponível para o público geral|
-|[Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Visualização|
+|[Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Versão prévia|
 
 Para obter a lista completa de suporte a ecossistema do Azure para Data Lake Storage Gen2, consulte [integrar Azure data Lake Storage com os serviços do Azure](data-lake-storage-integrate-with-azure-services.md).
 
 Para saber mais sobre problemas conhecidos e limitações gerais com o Azure Data Lake Storage Gen2, consulte [problemas conhecidos](data-lake-storage-known-issues.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [problemas conhecidos](data-lake-storage-known-issues.md)
 

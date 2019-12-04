@@ -1,19 +1,19 @@
 ---
-title: Reiniciar o banco de dados do Azure para servidor MySQL usando a CLI do Azure
-description: Este artigo descreve como você pode reiniciar um banco de dados do Azure para servidor MySQL usando a CLI do Azure.
+title: Reiniciar o servidor-CLI do Azure-banco de dados do Azure para MySQL
+description: Este artigo descreve como você pode reiniciar um servidor de banco de dados do Azure para MySQL usando o CLI do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/28/2019
-ms.openlocfilehash: d00aa35437f93c010ce48f3036b4a684910702c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 146c531805ff22544797c44c8df32b0e5d1e83b0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160423"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774185"
 ---
-# <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Reiniciar o banco de dados do Azure para servidor MySQL usando a CLI do Azure
+# <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Reinicie o banco de dados do Azure para servidor MySQL usando o CLI do Azure
 Este tópico descreve como você pode reiniciar um servidor do Banco de Dados do Azure para MySQL. Você talvez precise reiniciar o servidor por razões de manutenção, o que causa uma breve interrupção, conforme o servidor executa a operação.
 
 A reinicialização do servidor será bloqueada se o serviço estiver ocupado. Por exemplo, o serviço pode estar processando uma operação solicitada anteriormente como o dimensionamento vCores.
@@ -38,6 +38,6 @@ Reinicie o servidor com o seguinte comando:
 az mysql server restart --name mydemoserver --resource-group myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [como definir parâmetros no banco de dados do Azure para MySQL](howto-configure-server-parameters-using-cli.md)

@@ -1,17 +1,17 @@
 ---
-title: Recomendações de desempenho no banco de dados do Azure para MySQL
+title: Recomendações de desempenho-banco de dados do Azure para MySQL
 description: Este artigo descreve o recurso de recomendação de desempenho no banco de dados do Azure para MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1371b286f5e9bd82345e17c11e910c68fac9fed2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: f957459cf20a018ae53ba6ec90fb478dd0c69044
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603159"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770893"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Recomendações de desempenho no banco de dados do Azure para MySQL
 
@@ -23,7 +23,7 @@ O recurso de recomendações de desempenho analisa seus bancos de dados para cri
 
 **Permissões de Proprietário** ou **Colaborador** necessárias para executar a análise usando o recurso de recomendações de desempenho.
 
-## <a name="performance-recommendations"></a>Recomendações do desempenho
+## <a name="performance-recommendations"></a>Recomendações de desempenho
 
 O recurso das [Recomendações de Desempenho](concepts-performance-recommendations.md) recurso analisa as cargas de trabalho entre seu servidor para identificar os índices com o potencial de melhorar o desempenho.
 
@@ -47,5 +47,5 @@ Atualmente, há suporte apenas para criar recomendações de *índice* .
 
 *Criar* recomendações de índice sugerem novos índices para acelerar a execução com mais frequência ou as consultas demoradas na carga de trabalho. Este tipo de recomendação requer que [repositório de consultas](concepts-query-store.md) seja habilitado. Repositório de Consultas coleta informações de consulta e fornece as estatísticas detalhadas de tempo de execução de consulta e frequência que a análise usa para fazer a recomendação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) no banco de dados do Azure para MySQL.

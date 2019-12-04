@@ -1,19 +1,19 @@
 ---
-title: Configurar os parâmetros do servidor no Banco de Dados do Azure para PostgreSQL por meio do Portal do Azure
-description: Este artigo descreve como configurar os parâmetros de servidor disponíveis no Banco de Dados do Azure para PostgreSQL usando o portal do Azure.
+title: Configurar parâmetros do servidor-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como configurar os parâmetros postgres no banco de dados do Azure para PostgreSQL por meio do portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: ed19083c6a4245a1b4bf7af166ae965d956c9e37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9d078fe9aab12b9044733d17a1437801d5130a4
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067136"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763667"
 ---
-# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configurar parâmetros do servidor no banco de dados do Azure para PostgreSQL - único servidor por meio do portal do Azure 
+# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configurar parâmetros de servidor no banco de dados do Azure para PostgreSQL-servidor único por meio do portal do Azure 
 Você pode listar, exibir e atualizar os parâmetros de configuração de um Banco de Dados do Azure para servidor PostgreSQL via portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,7 +43,7 @@ Para seguir este guia de instruções, você precisa:
 8. Se você tiver salvo os novos valores para os parâmetros, você sempre pode reverter tudo o que fazer com os valores padrão selecionando **Redefinir tudo para o padrão**.
 ![Redefinir tudo para padrão](./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre:
 - [Visão geral dos parâmetros do servidor no Banco de Dados do Azure para PostgreSQL](concepts-servers.md)
 - [Configurando parâmetros usando a CLI do Azure](howto-configure-server-parameters-using-cli.md)

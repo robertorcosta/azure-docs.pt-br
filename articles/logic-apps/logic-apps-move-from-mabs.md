@@ -1,20 +1,19 @@
 ---
-title: Mover aplicativos dos Serviços BizTalk para os Aplicativos Lógicos do Azure | Microsoft Docs
+title: Mover aplicativos dos serviços BizTalk para o aplicativo lógico do Azure
 description: Migrar de MABS (Serviços BizTalk do Azure) para os Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 97b498091451b0bf39741ed4340b8e02517c5447
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273192"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791881"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrar dos Serviços BizTalk para os Aplicativos Lógicos do Azure
 
@@ -33,10 +32,10 @@ As [Conexões Híbridas do Serviço de Aplicativo do Azure](../app-service/app-s
 
 Esta tabela mapeia os recursos de Serviços BizTalk para Aplicativos Lógicos.
 
-| Serviços do BizTalk   | Aplicativos Lógicos            | Finalidade                      |
+| Serviços do BizTalk   | aplicativos Lógicos            | Finalidade                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Conector          | Conector             | Enviar e receber dados   |
-| Ponte             | Aplicativo Lógico             | Processador de pipeline           |
+| Ponte             | Aplicativo de lógica             | Processador de pipeline           |
 | Estágio de validação     | Ação de Validação de XML | Validar um documento XML em relação a um esquema | 
 | Estágio de enriquecimento       | Tokens de Dados           | Promover propriedades em mensagens ou para decisões de encaminhamento |
 | Estágio de transformação    | Ação Transformar      | Converter mensagens XML de um formato em outro |
@@ -56,7 +55,7 @@ Os conectores dos Serviços BizTalk ajudam as pontes a enviar e receber dados, i
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
-Por padrão, cada ponte tem um ponto de extremidade HTTP, que é configurado com o Endereço de Tempo de Execução e as propriedades de Endereço Relativo da ponte. Para obter os mesmos resultados com Aplicativos Lógicos, use as ações de [Solicitação e Resposta](../connectors/connectors-native-reqres.md).
+Por padrão, cada ponte tem um ponto de extremidade HTTP, que é configurado com o Endereço de Runtime e as propriedades de Endereço Relativo da ponte. Para obter os mesmos resultados com Aplicativos Lógicos, use as ações de [Solicitação e Resposta](../connectors/connectors-native-reqres.md).
 
 ## <a name="xml-processing-and-bridges"></a>Pontes e processamento de XML
 
@@ -106,7 +105,7 @@ No processamento dos Serviços BizTalk, o estágio Enriquecer adiciona proprieda
 
 Os Serviços BizTalk permitem [executar código personalizado](https://msdn.microsoft.com/library/azure/dn232389.aspx) carregado em seus próprios assemblies. Essa funcionalidade é implementada pela interface de [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector). Cada estágio na ponte inclui duas propriedades (On Enter Inspector e On Exit Inspector) que fornecem o tipo .NET criado que implementa essa interface. O código personalizado permite executar processamento mais complexo nos dados e permite reutilizar o código existente em assemblies que executam a lógica de negócios comum. 
 
-Os aplicativos lógicos fornecem duas maneiras principais de executar código personalizado: Azure Functions e aplicativos de API. Azure Functions podem ser criadas e chamadas de aplicativos lógicos. Confira [Adicionar e executar código personalizado para aplicativos lógicos por meio de Azure Functions](../logic-apps/logic-apps-azure-functions.md). Use Aplicativos de API, parte do Serviço de Aplicativo do Azure, para criar seus próprios gatilhos e ações. Saiba mais sobre como [criar uma API personalizada para usar com Aplicativos Lógicos](../logic-apps/logic-apps-create-api-app.md). 
+Os Aplicativos Lógicos fornecem duas maneiras principais de executar código personalizado: Azure Functions e Aplicativos de API. Azure Functions podem ser criadas e chamadas de aplicativos lógicos. Confira [Adicionar e executar código personalizado para aplicativos lógicos por meio de Azure Functions](../logic-apps/logic-apps-azure-functions.md). Use Aplicativos de API, parte do Serviço de Aplicativo do Azure, para criar seus próprios gatilhos e ações. Saiba mais sobre como [criar uma API personalizada para usar com Aplicativos Lógicos](../logic-apps/logic-apps-create-api-app.md). 
 
 Se tiver código personalizado em assemblies chamados dos Serviços BizTalk, você poderá mover esse código para Azure Functions ou criar APIs personalizadas com Aplicativos de API, dependendo do que estiver implementando. Por exemplo, se você tiver um código que encapsula outro serviço para o qual os Aplicativos Lógicos não têm um conector, crie um Aplicativo de API e use as ações que o aplicativo de API fornece dentro do aplicativo lógico. Se você tem funções auxiliares ou bibliotecas, as Azure Functions provavelmente são a melhor opção.
 
@@ -134,7 +133,7 @@ Para HA (alta disponibilidade) nos Serviços BizTalk, você pode compartilhar a 
 
 No Serviços BizTalk, a recuperação de desastre fora de região para o processamento B2B exige um processo de backup e restauração. Para continuidade de negócios, os Aplicativos Lógicos fornecem um [recurso de RD](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) ativo/passivo entre regiões, que permite a sincronização de dados B2B entre contas de integração em regiões diferentes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [O que são Aplicativos Lógicos?](../logic-apps/logic-apps-overview.md)
 * [Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) ou comece rapidamente usando um [modelo predefinido](../logic-apps/logic-apps-create-logic-apps-from-templates.md)  

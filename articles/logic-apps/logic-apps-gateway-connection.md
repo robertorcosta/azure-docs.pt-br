@@ -1,20 +1,17 @@
 ---
-title: Acessar fontes de dados locais-aplicativos lógicos do Azure
+title: Acessar fontes de dados locais
 description: Conectar-se a fontes de dados locais de aplicativos lógicos do Azure criando um recurso de gateway de dados local do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: arthii, LADocs
+ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 20cdcfdd3795a7614c054ed96b82cc99fc2c5894
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 5adb342b733563fd0b062dd263a4fdd83259d166
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068906"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792060"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
 
@@ -53,7 +50,7 @@ Nos aplicativos lógicos do Azure, o gateway de dados local dá suporte aos [con
 
 O aplicativo lógico do Azure dá suporte a operações de leitura e gravação por meio do gateway de dados. No entanto, essas operações têm [limites de seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Embora o próprio gateway não incorra em custos adicionais, o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) se aplica a esses conectores e a outras operações nos aplicativos lógicos do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Você já [instalou o gateway de dados local em um computador local](../logic-apps/logic-apps-gateway-install.md).
 
@@ -81,7 +78,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
 
 1. Em **criar gateway de conexão**, forneça essas informações para o recurso de gateway. Quando terminar, selecione **Criar**.
 
-   | Propriedade | DESCRIÇÃO |
+   | Propriedade | Descrição |
    |----------|-------------|
    | **Nome do recurso** | Forneça um nome para o recurso de gateway que contém apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) ou pontos (`.`). |
    | **Assinatura** | Selecione a assinatura do Azure para a conta do Azure que foi usada para a instalação do gateway. A assinatura padrão baseia-se na conta do Azure utilizada para entrar. |
@@ -96,7 +93,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-to-on-premises-data"></a>Conectar-se a dados locais
+## <a name="connect-to-on-premises-data"></a>Conecte-se a dados no local
 
 Após criar o recurso de gateway e associar a assinatura do Azure a esse recurso, será possível criar uma conexão entre o aplicativo lógico e a fonte de dados local usando o gateway.
 
@@ -117,7 +114,7 @@ Após criar o recurso de gateway e associar a assinatura do Azure a esse recurso
 
    Um nome de conexão exclusivo ajuda a localizar facilmente essa conexão mais tarde, especialmente se você criar várias conexões. Se aplicável, também inclua o domínio qualificado para seu nome de usuário.
 
-   Aqui está um exemplo:
+   Veja um exemplo:
 
    ![Criar a conexão entre o aplicativo lógico e o gateway de dados](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 
@@ -172,7 +169,7 @@ Para criar um recurso de gateway diferente, vincule a instalação do gateway a 
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Proteja seus aplicativos lógicos](./logic-apps-securing-a-logic-app.md)
 * [Exemplos comuns e cenários de aplicativos lógicos](./logic-apps-examples-and-scenarios.md)

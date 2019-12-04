@@ -1,17 +1,17 @@
 ---
-title: Configurar e acessar logs de auditoria-banco de dados do Azure para MySQL
+title: Acessar logs de auditoria-portal do Azure-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar e acessar os logs de auditoria no banco de dados do Azure para MySQL no portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 2a2d2a697f0e41fb296c61c01909a814678f8277
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/02/2019
+ms.openlocfilehash: ff1a6c63b6eb99acdef955806a138e3e22b8902a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350401"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773703"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configurar e acessar os logs de auditoria do banco de dados do Azure para MySQL no portal do Azure
 
@@ -30,7 +30,7 @@ Para seguir este guia de instruções, você precisa:
 
 Habilite e configure o log de auditoria.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione seu servidor de Banco de Dados do Azure para MySQL.
 
@@ -67,6 +67,6 @@ Habilite e configure o log de auditoria.
 
 1. Acesse os logs de auditoria explorando-os nos coletores de dados que você configurou. Pode levar até 10 minutos para que os logs sejam exibidos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [os logs de auditoria](concepts-audit-logs.md) no banco de dados do Azure para MySQL.

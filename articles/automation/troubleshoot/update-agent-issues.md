@@ -1,44 +1,44 @@
 ---
-title: Reconheça os resultados da verificação de agente do Windows no Gerenciamento de Atualizações do Azure
-description: Saiba como solucionar problemas do agente de Gerenciamento de Atualizações.
+title: Entender a integridade do Windows Hybrid Runbook Worker no Azure Gerenciamento de Atualizações
+description: Saiba como solucionar problemas com o Hybrid Runbook Worker no Windows que oferece suporte a Gerenciamento de Atualizações.
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480789"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763650"
 ---
-# <a name="understand-the-windows-agent-check-results-in-update-management"></a>Reconheça os resultados da verificação de agente do Windows no Gerenciamento de Atualizações
+# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Entenda a integridade do Windows Hybrid Runbook Worker no Gerenciamento de Atualizações
 
-Pode haver vários motivos pelos quais o computador não mostra o status **Pronto** no Gerenciamento de Atualizações. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente de Hybrid Worker para determinar o problema subjacente. Este artigo descreve como executar a solução de problemas em computadores do Azure no portal do Azure e em computadores não Azure no [cenário offline](#troubleshoot-offline).
+Pode haver vários motivos pelos quais o computador não mostra o status **Pronto** no Gerenciamento de Atualizações. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente de Hybrid Runbook Worker para determinar o problema subjacente. Este artigo discute como executar a solução de problemas para computadores do Azure por meio do portal do Azure e de computadores não Azure no [cenário offline](#troubleshoot-offline).
 
 A lista a seguir é composta pelos três estados de preparação em que um computador pode estar:
 
-* **Pronto** - O agente de atualização foi implantado e visto pela última vez há menos de uma hora.
-* **Desconectado** -  O agente de atualização foi implantado e visto pela última vez há mais de uma hora.
-* **Não configurado** -  O agente de atualização não foi localizado ou não concluiu a integração.
+* **Pronto** -a Hybrid runbook Worker é implantada e foi vista pela última vez há menos de 1 hora.
+* **Desconectado** -a Hybrid runbook Worker é implantada e foi vista pela última vez há uma hora.
+* **Não configurado** -a Hybrid runbook Worker não foi encontrada ou não terminou a integração.
 
 > [!NOTE]
 > Pode haver um pequeno atraso entre o que o portal do Azure mostra e o estado atual do computador.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
 
-Para computadores do Azure, ao clicar no link **Solução de Problemas** na coluna **Preparação do Agente de Atualização** no portal, a página **Solucionar Problemas do Agente de Atualização** será iniciada. Para computadores não Azure, o link levará você para este artigo. Confira as [instruções offline](#troubleshoot-offline) para solucionar problemas de um computador não Azure.
+Para computadores do Azure, ao clicar no link **Solução de Problemas** na coluna **Preparação do Agente de Atualização** no portal, a página **Solucionar Problemas do Agente de Atualização** será iniciada. Para computadores não Azure, o link o leva a este artigo. Consulte as [instruções offline](#troubleshoot-offline) para solucionar problemas em um computador não Azure.
 
 ![Atualizar lista de gerenciamento de máquinas virtuais](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> Para verificar a integridade de um agente, a VM deve estar em execução. Se a VM não estiver em execução, será exibido o botão **Iniciar a VM**.
+> Para verificar a integridade do Hybrid Runbook Worker, a VM deve estar em execução. Se a VM não estiver em execução, será exibido o botão **Iniciar a VM**.
 
-Sobre o **solucionar problemas de atualização de agente** página, selecione **executar verificações de** para iniciar a solução de problemas. O solucionador de problemas usa [ Executar comando ](../../virtual-machines/windows/run-command.md) para executar um script na máquina para verificar as dependências do agente. Quando a solução de problemas é concluída, ela retorna o resultado das verificações.
+Sobre o **solucionar problemas de atualização de agente** página, selecione **executar verificações de** para iniciar a solução de problemas. A solução de problemas usa o [comando executar](../../virtual-machines/windows/run-command.md) para executar um script no computador para verificar as dependências. Quando a solução de problemas é concluída, ela retorna o resultado das verificações.
 
 ![Solucionar problemas de agente de atualização de página](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -50,9 +50,9 @@ Os resultados são mostrados na página quando estão prontos. As seções de ve
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A verificação do sistema operacional verifica se o Hybrid Runbook Worker está executando um desses sistemas operacionais:
+A verificação do sistema operacional verifica se o Hybrid Runbook Worker está executando um dos seguintes sistemas operacionais:
 
-|Sistema operacional  |Observações  |
+|Sistema operacional  |Notas  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Suporta apenas avaliações de atualização.         |
 |Windows Server 2008 R2 SP1 e posterior |.NET Framework 4,6 ou posterior é necessário. ([Fazer o download do .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> O Windows PowerShell 5,1 é necessário.  ([Faça o download do Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
@@ -203,7 +203,6 @@ CheckResultMessageId        : TlsVersionCheck.Passed.EnabledByDefault
 CheckResultMessageArguments : {}
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para solucionar mais problemas com os trabalhadores de runbook híbridos, consulte [Solucionar problemas de trabalhadores de runbook híbridos](hybrid-runbook-worker.md).
-

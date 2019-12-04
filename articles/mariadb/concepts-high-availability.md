@@ -1,17 +1,17 @@
 ---
-title: Conceitos de alta disponibilidade no Banco de Dados do Azure para MariaDB
+title: Alta disponibilidade-banco de dados do Azure para MariaDB
 description: Este tópico fornece informações de alta disponibilidade ao usar o Banco de Dados do Azure para MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: ba561cba21b0b83b6a19fffc2fdfebe8ec8b8ed9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 797a94a561351ac7f5317f2f215b56f6944c023f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042139"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772519"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Conceitos de alta disponibilidade no Banco de Dados do Azure para MariaDB
 O serviço do Banco de Dados do Azure para MariaDB fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.
@@ -31,5 +31,5 @@ Semelhante ao modelo de alta disponibilidade, quando um Banco de Dados do Azure 
 
 Durante a operação de escala, ocorre uma interrupção nas conexões de banco de dados. Os aplicativos cliente são desconectados e as transações abertas não confirmadas são canceladas. Depois que o aplicativo cliente repetir a tentativa ou realizar uma nova conexão, o gateway direcionará a conexão para a instância recém-dimensionada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Para obter uma visão geral do serviço, consulte  [Visão geral do Banco de Dados do Azure para MariaDB](overview.md)

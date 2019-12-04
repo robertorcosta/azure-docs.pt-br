@@ -1,19 +1,19 @@
 ---
-title: Conceitos de alta disponibilidade no banco de dados do Azure para PostgreSQL – servidor único
-description: Este artigo fornece informações de alta disponibilidade ao usar o banco de dados do Azure para PostgreSQL - servidor único.
+title: Alta disponibilidade-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo fornece informações sobre alta disponibilidade no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: f54c83099957b4d8795c4049be52d70e8a0e2a61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80229ff78c4570db583f1218d5d2f72da2dec388
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073446"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768564"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>Conceitos de alta disponibilidade no banco de dados do Azure para PostgreSQL – servidor único
+# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>Conceitos de alta disponibilidade no banco de dados do Azure para PostgreSQL-servidor único
 O serviço do Banco de Dados do Azure para PostgreSQL fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.
 
 ## <a name="high-availability"></a>Alta disponibilidade
@@ -31,6 +31,6 @@ Semelhante ao modelo de alta disponibilidade, quando um Banco de Dados do Azure 
 
 Durante a operação de escala, ocorre uma interrupção nas conexões de banco de dados. Os aplicativos cliente são desconectados e as transações abertas não confirmadas são canceladas. Depois que o aplicativo cliente repetir a tentativa ou realizar uma nova conexão, o gateway direcionará a conexão para a instância recém-dimensionada. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [tratamento de erros de conectividade transitórios](concepts-connectivity.md)
 - Saiba como [replicar seus dados com réplicas de leitura](howto-read-replicas-portal.md)

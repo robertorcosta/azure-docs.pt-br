@@ -1,22 +1,20 @@
 ---
-title: Conectar-se ao Dynamics 365 – aplicativos lógicos do Azure
+title: Conectar-se ao Dynamics 365
 description: Criar e gerenciar registros com as APIs REST do Dynamics 365 (online) e os Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
-manager: carmonm
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: ce83e6b1847a8f08467cb7877e517bdaace27953
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051017"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789879"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerenciar registros do Dynamics 365 com os Aplicativos Lógicos do Azure
 
@@ -27,7 +25,7 @@ Se ainda não estiver familiarizado com aplicativos lógicos, leia [O que é o A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Uma [conta do Dynamics 365](https://dynamics.microsoft.com)
 
@@ -43,7 +41,7 @@ Primeiro, adicione um gatilho do Dynamics 365 que é acionado quando um novo reg
 
 1. No [Portal do Azure](https://portal.azure.com), abra seu aplicativo lógico em branco no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-1. Na caixa de pesquisa, insira “Dynamics 365” como filtro. Para este exemplo, na lista de gatilhos, selecione este gatilho: **Quando um registro é criado**
+1. Na caixa de pesquisa, insira “Dynamics 365” como filtro. Neste exemplo, na lista de gatilhos, selecione este gatilho: **Quando um registro é criado**
 
    ![Selecionar gatilho](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -51,12 +49,12 @@ Primeiro, adicione um gatilho do Dynamics 365 que é acionado quando um novo reg
 
 1. Forneça os seguintes detalhes do gatilho:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome da organização** | Sim | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, “Contoso” |
-   | **Nome da entidade** | Sim | O nome da entidade a ser monitorada, por exemplo, “Clientes potenciais” | 
-   | **Frequência** | Sim | A unidade de tempo a ser usada com intervalos durante a verificação de atualizações relacionadas ao gatilho |
-   | **Intervalo** | Sim | O número de segundos, minutos, horas, dias, semanas ou meses que você deseja que passem antes da próxima verificação |
+   | **Nome da organização** | SIM | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, “Contoso” |
+   | **Nome da entidade** | SIM | O nome da entidade a ser monitorada, por exemplo, “Clientes potenciais” | 
+   | **Frequência** | SIM | A unidade de tempo a ser usada com intervalos durante a verificação de atualizações relacionadas ao gatilho |
+   | **Intervalo** | SIM | O número de segundos, minutos, horas, dias, semanas ou meses que você deseja que passem antes da próxima verificação |
    ||| 
 
    ![Detalhes do gatilho](./media/connectors-create-api-crmonline/trigger-details.png)
@@ -73,10 +71,10 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 
 1. Forneça esses detalhes da ação:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome da organização** | Sim | A instância do Dynamics 365 na qual você deseja criar o registro, que não precisa ser a mesma instância em seu gatilho, mas é “Contoso” neste exemplo |
-   | **Nome da entidade** | Sim | A entidade na qual você deseja criar o registro, por exemplo, “Tarefas” |
+   | **Nome da organização** | SIM | A instância do Dynamics 365 na qual você deseja criar o registro, que não precisa ser a mesma instância em seu gatilho, mas é “Contoso” neste exemplo |
+   | **Nome da entidade** | SIM | A entidade na qual você deseja criar o registro, por exemplo, “Tarefas” |
    | | |
 
    ![Detalhes da ação](./media/connectors-create-api-crmonline/action-details.png)
@@ -95,7 +93,7 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 
 1. Para iniciar manualmente o aplicativo lógico, escolha **Executar** na barra de ferramentas do designer.
 
-   ![Executar aplicativo lógico](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+   ![Executar o aplicativo lógico](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
 1. Agora, crie um registro de cliente potencial no Dynamics 365 para que você possa acionar o fluxo de trabalho do aplicativo lógico.
 
@@ -123,9 +121,9 @@ Esta tabela descreve alguns dos tipos de campo e os tipos de dados exigidos para
 
 | Tipo de campo | Tipo de dados exigido | Descrição | 
 |------------|--------------------|-------------|
-| Campos de texto | Linha única de texto | Esses campos exigem uma única linha de texto ou conteúdo dinâmico que tenha o tipo do texto. <p><p>*Campos de exemplo*: **Descrição** e **categoria** | 
-| Campos de número inteiro | Número inteiro | Alguns campos exigem conteúdo inteiro ou dinâmico que tenha um tipo inteiro. <p><p>*Campos de exemplo*: **Porcentagem concluída** e **duração** | 
-| Campos de data | Data e Hora | Alguns campos exigem a data inserida no formato mm/dd/aaaa ou conteúdo dinâmico que tenha o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **data de início**, **início real**, **fim real**e **data de vencimento** | 
+| Campos de texto | Linha única de texto | Esses campos exigem uma única linha de texto ou conteúdo dinâmico que tenha o tipo do texto. <p><p>*Campos de exemplo*: **Descrição** e **Categoria** | 
+| Campos de número inteiro | Número inteiro | Alguns campos exigem conteúdo inteiro ou dinâmico que tenha um tipo inteiro. <p><p>*Campos de exemplo*: **Percentual concluído** e **Duração** | 
+| Campos de data | Data e hora | Alguns campos exigem a data inserida no formato mm/dd/aaaa ou conteúdo dinâmico que tenha o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **Data de início**, **Início real**, **Término real** e **Data de conclusão** | 
 | Campos que exigem uma ID de registro e um tipo de pesquisa | Chave primária | Alguns campos que fazem referência a outro registro de entidade exigem a ID do registro e um tipo de pesquisa. | 
 ||||
 
@@ -136,9 +134,9 @@ Expandindo esses tipos de campo, vemos aqui os campos de exemplo em gatilhos e a
 | **Proprietário** | É preciso ser uma ID de usuário ou ID de registro de equipe válida. |
 | **Tipo de proprietário** | Deve ser `systemusers` ou `teams`. |
 | **Relação** | Precisa ser uma ID de registro válida, como uma ID de conta ou de registro de contato. |
-| **Tipo de relação** | Deve ser um tipo de pesquisa, `accounts` como ou. `contacts` |
+| **Tipo de relação** | Deve ser um tipo de pesquisa, como `accounts` ou `contacts`. |
 | **Cliente** | Precisa ser uma ID de registro válida, como uma ID de conta ou de registro de contato. |
-| **Tipo de cliente** | Deve ser o tipo de pesquisa, `accounts` como ou. `contacts` |
+| **Tipo de cliente** | Deve ser o tipo de pesquisa, como `accounts` ou `contacts`. |
 |||
 
 Neste exemplo, a ação denominada **Criar um novo registro** cria um novo registro de tarefa:
@@ -190,6 +188,6 @@ Para obter mais informações sobre como solucionar problemas de aplicativos ló
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/dynamicscrmonline/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

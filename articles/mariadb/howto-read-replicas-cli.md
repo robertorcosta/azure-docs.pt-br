@@ -1,23 +1,23 @@
 ---
-title: Criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB – CLI do AZURE, API REST
+title: Gerenciar réplicas de leitura-CLI do Azure, API REST-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o CLI do Azure e a API REST.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.openlocfilehash: 8b3572182832dc7692f6475be44281f56cf58571
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 12/02/2019
+ms.openlocfilehash: e9353bb5d472cc8dc798e7e09aed2183e48124ed
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122769"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765827"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o CLI do Azure e a API REST
 
 Neste artigo, você aprenderá a criar e gerenciar réplicas de leitura no banco de dados do Azure para o serviço MariaDB usando o CLI do Azure e a API REST.
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 Você pode criar e gerenciar réplicas de leitura usando o CLI do Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -41,10 +41,10 @@ O comando `az mariadb server replica create` exige os seguintes parâmetros:
 | Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos para o qual o servidor de réplica será criado.  |
-| name | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
+| Nome | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
 | source-server | mydemoserver | O nome ou a ID do servidor mestre existente para replicar. |
 
-Para criar uma réplica de leitura entre regiões, use `--location` o parâmetro. 
+Para criar uma réplica de leitura entre regiões, use o parâmetro `--location`. 
 
 > [!NOTE]
 > A replicação entre regiões está em versão prévia.
@@ -92,7 +92,7 @@ O comando `az mariadb server replica stop` exige os seguintes parâmetros:
 | Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos em que há o servidor de réplica.  |
-| name | mydemoreplicaserver | O nome do servidor de réplica para interromper a replicação. |
+| Nome | mydemoreplicaserver | O nome do servidor de réplica para interromper a replicação. |
 
 ### <a name="delete-a-replica-server"></a>Excluir um servidor de réplica
 
@@ -136,7 +136,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Para saber mais sobre em quais regiões você pode criar uma réplica, visite o [artigo conceitos de leitura de réplica](concepts-read-replicas.md). 
 
-Se você não tiver definido `azure.replication_support` o parâmetro para **réplica** em um servidor mestre de uso geral ou com otimização de memória e reiniciado o servidor, você receberá um erro. Conclua essas duas etapas antes de criar uma réplica.
+Se você não tiver definido o parâmetro `azure.replication_support` como **réplica** em um servidor mestre com otimização de uso geral ou memória e reiniciado o servidor, você receberá um erro. Conclua essas duas etapas antes de criar uma réplica.
 
 Uma réplica é criada usando as mesmas configurações de computação e armazenamento que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: período de retenção de backup, armazenamento, vCores e geração da computação. O tipo de preço também pode ser alterado de forma independente, exceto de ou para a camada básica.
 
@@ -178,6 +178,6 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [ler réplicas](concepts-read-replicas.md)

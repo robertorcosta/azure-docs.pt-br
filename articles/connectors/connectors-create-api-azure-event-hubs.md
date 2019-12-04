@@ -1,35 +1,31 @@
 ---
-title: Conectar-se aos hubs de eventos do Azure-aplicativos lógicos do Azure
+title: Conectar-se aos Hubs de Eventos do Azure
 description: Gerenciar e monitorar eventos com Hubs de Eventos do Azure e Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 24f66782821f372f5c045dbb82db24fa8b6ad482
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 77ff24f3af77e012b9ae9bc702d6a5a2639a5b11
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051086"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789943"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorar, receber e enviar eventos com Hubs de Eventos do Azure e Aplicativos Lógicos do Azure
 
-Este artigo mostra como é possível monitorar e gerenciar eventos enviados para os [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) a partir de um aplicativo lógico com o conector de Hubs de Eventos do Azure. Dessa forma, é possível aplicativos lógicos que automatizam tarefas e fluxos de trabalho para verificar, enviar e receber eventos do Hub de Eventos. Para obter informações técnicas específicas do conector, consulte a</a> [referência do conector dos hubs de eventos do Azure](https://docs.microsoft.com/connectors/eventhubs/).
+Este artigo mostra como é possível monitorar e gerenciar eventos enviados para os [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) a partir de um aplicativo lógico com o conector de Hubs de Eventos do Azure. Dessa forma, é possível aplicativos lógicos que automatizam tarefas e fluxos de trabalho para verificar, enviar e receber eventos do Hub de Eventos. Para obter informações técnicas específicas do conector, consulte a [referência do conector dos hubs de eventos do Azure](https://docs.microsoft.com/connectors/eventhubs/)</a>.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * Um [namespace dos Hubs de Eventos e Hub de Eventos do Azure](../event-hubs/event-hubs-create.md)
 
 * O aplicativo lógico no qual você deseja acessar o Hub de Eventos. Para iniciar o aplicativo lógico com um gatilho dos Hubs de Eventos do Azure, será necessário um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 
@@ -37,7 +33,7 @@ Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que sã
 
 Para garantir que seu aplicativo lógico possa acessar seu hub de eventos, verifique suas permissões e obtenha a cadeia de conexão para seu namespace de hubs de eventos.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Acesse o *namespace* de seus Hubs de Eventos, não um Hub de Eventos específico. 
 
@@ -68,7 +64,7 @@ Este exemplo mostra como é possível iniciar um fluxo de trabalho de aplicativo
 
 1. No portal do Azure ou no Visual Studio, crie um aplicativo lógico em branco, que abre o Designer de Aplicativos Lógicos. Este exemplo usa o portal do Azure.
 
-1. Na caixa de pesquisa, insira "hubs de eventos" como filtro. Na lista de gatilhos, selecione este gatilho: **Quando os eventos estão disponíveis no Hub de eventos-hubs de eventos**
+1. Na caixa de pesquisa, insira "hubs de eventos" como filtro. Na lista de gatilhos, selecione este gatilho: **quando os eventos estão disponíveis no Hub de eventos-hubs de eventos**
 
    ![Selecionar gatilho](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -78,25 +74,25 @@ Este exemplo mostra como é possível iniciar um fluxo de trabalho de aplicativo
 
    ![Propriedades do gatilho](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome do Hub de Eventos** | Sim | O nome do hub de eventos que você deseja monitorar |
+   | **Nome do Hub de Eventos** | SIM | O nome do hub de eventos que você deseja monitorar |
    | **Tipo de conteúdo** | Não | O tipo de conteúdo do evento. O padrão é `application/octet-stream`. |
    | **Nome do grupo de consumidor** | Não | O [nome do grupo de consumidores do hub de eventos](../event-hubs/event-hubs-features.md#consumer-groups) a ser usado para ler eventos. Se não especificado, será usado o grupo de consumidores padrão. |
    | **Contagem máxima de eventos** | Não | O número máximo de eventos. O gatilho retorna entre um e o número de eventos especificado por essa propriedade. |
-   | **Intervalo** | Sim | Um inteiro positivo que descreve com que frequência o fluxo de trabalho é executado com base na frequência |
-   | **Frequência** | Sim | A unidade de tempo para a recorrência |
+   | **Intervalo** | SIM | Um inteiro positivo que descreve com que frequência o fluxo de trabalho é executado com base na frequência |
+   | **Frequência** | SIM | A unidade de tempo para a recorrência |
    ||||
 
    **Propriedades adicionais**
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
    | **Esquema de conteúdo** | Não | O esquema de conteúdo JSON para os eventos a serem lidos do hub de eventos. Por exemplo, se você especificar o esquema de conteúdo, poderá disparar o aplicativo lógico somente para os eventos que correspondam ao esquema. |
    | **Chave de partição mínima** | Não | Insira a ID de [partição](../event-hubs/event-hubs-features.md#partitions) mínima para leitura. Por padrão, todas as partições são lidas. |
    | **Chave de partição máxima** | Não | Insira a ID de [participação](../event-hubs/event-hubs-features.md#partitions) para leitura. Por padrão, todas as partições são lidas. |
    | **Fuso horário** | Não | Aplica-se somente quando você especifica uma hora de início porque esse gatilho não aceita o deslocamento UTC. Selecione o fuso horário que você deseja aplicar. <p>Para obter mais informações, consulte [criar e executar tarefas e fluxos de trabalho recorrentes com o aplicativo lógico do Azure](../connectors/connectors-native-recurrence.md). |
-   | **Hora de início** | Não | Forneça uma hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário<p>- ou -<p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário<p>Para obter mais informações, consulte [criar e executar tarefas e fluxos de trabalho recorrentes com o aplicativo lógico do Azure](../connectors/connectors-native-recurrence.md). |
+   | **Hora de início** | Não | Forneça uma hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário<p>-ou-<p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário<p>Para obter mais informações, consulte [criar e executar tarefas e fluxos de trabalho recorrentes com o aplicativo lógico do Azure](../connectors/connectors-native-recurrence.md). |
    ||||
 
 1. Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
@@ -124,7 +120,7 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
    Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, insira "hubs de eventos" como filtro.
-Na lista ações, selecione esta ação: **Enviar evento-hubs de eventos**
+Na lista ações, selecione esta ação: **enviar evento-hubs de eventos**
 
    ![Selecione a ação "enviar evento"](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
@@ -134,9 +130,9 @@ Na lista ações, selecione esta ação: **Enviar evento-hubs de eventos**
 
    ![Selecione o nome do Hub de Eventos e forneça o conteúdo do evento](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | obrigatórios | Descrição |
    |----------|----------|-------------|
-   | **Nome do Hub de Eventos** | Sim | O Hub de eventos para o qual você deseja enviar o evento |
+   | **Nome do Hub de Eventos** | SIM | O Hub de eventos para o qual você deseja enviar o evento |
    | **Conteúdo** | Não | O conteúdo do evento que você quer enviar |
    | **Propriedades** | Não | As propriedades e os valores do aplicativo a serem enviados |
    | **Chave de partição** | Não | A ID da [partição](../event-hubs/event-hubs-features.md#partitions) para onde enviar o evento |
@@ -156,10 +152,10 @@ Na lista ações, selecione esta ação: **Enviar evento-hubs de eventos**
 
 1. Quando for solicitado a fornecer informações de conexão, forneça estes detalhes:
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | obrigatórios | Value | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome da Conexão** | Sim | <*connection-name*> | O nome a criar para a conexão |
-   | **Namespace de hubs de eventos** | Sim | <*event-hubs-namespace*> | Selecione o namespace do Hubs de Eventos que você quer usar. |
+   | **Nome da Conexão** | SIM | <*connection-name*> | O nome para criar a conexão |
+   | **Namespace de hubs de eventos** | SIM | <*event-hubs-namespace*> | Selecione o namespace do Hubs de Eventos que você quer usar. |
    |||||  
 
    Por exemplo:
@@ -179,6 +175,6 @@ Na lista ações, selecione esta ação: **Enviar evento-hubs de eventos**
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/eventhubs/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

@@ -1,17 +1,17 @@
 ---
-title: Autenticação Azure Active Directory com o banco de dados do Azure para PostgreSQL-servidor único
+title: Autenticação Active Directory-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba mais sobre os conceitos de Azure Active Directory para autenticação com o banco de dados do Azure para PostgreSQL-servidor único
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 47637396581beeafb0748066cd6a66f011e8eaa1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518730"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769907"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Usar Azure Active Directory para autenticação com PostgreSQL
 
@@ -88,7 +88,7 @@ Depois de autenticado no Active Directory, você recupera um token. Esse token �
 - Se o administrador do Azure AD for removido do servidor, o servidor não será mais associado a um locatário do Azure AD e, portanto, todos os logons do Azure AD serão desabilitados para o servidor. Adicionar um novo administrador do Azure AD do mesmo locatário reativará logons do Azure AD.
 - O banco de dados do Azure para PostgreSQL corresponde aos tokens de acesso para a função de banco de dados do Azure para PostgreSQL usando a ID de usuário exclusiva do Azure AD do usuário, em oposição ao uso de username. Isso significa que, se um usuário do Azure AD for excluído do Azure AD e um novo usuário criado com o mesmo nome, o banco de dados do Azure para PostgreSQL considerará que um usuário diferente. Portanto, se um usuário for excluído do Azure AD e um novo usuário com o mesmo nome for adicionado, o novo usuário não poderá se conectar com a função existente. Para permitir isso, o administrador do banco de dados do Azure para PostgreSQL do Azure AD deve revogar e, em seguida, conceder a função "azure_ad_user" ao usuário para atualizar a ID de usuário do Azure AD.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o banco de dados do Azure para PostgreSQL, consulte [configurar e entrar com o Azure ad para o banco de dados do Azure para PostgreSQL](howto-configure-sign-in-aad-authentication.md).
 - Para obter uma visão geral de logons, usuários e funções de banco de dados do Azure para PostgreSQL, consulte [criar usuários no banco de dados do Azure para PostgreSQL-servidor único](howto-create-users.md).

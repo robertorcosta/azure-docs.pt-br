@@ -1,25 +1,18 @@
 ---
-title: Tratar mensagens grandes - Aplicativos Lógicos do Azure | Microsoft Docs
+title: Processar mensagens grandes
 description: Saiba como tratar tamanhos de mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
 services: logic-apps
-documentationcenter: ''
+ms.suite: integration
 author: shae-hurst
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
+ms.author: shhurst
 ms.topic: article
 ms.date: 4/27/2018
-ms.author: shhurst
-ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: e583bf53021d772db54c30ed5a4c9ea2a029e093
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989916"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792010"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
 
@@ -37,15 +30,15 @@ Para o limite de tamanho de mensagem de cada conector, consulte os [detalhes té
 Os Aplicativos Lógicos não podem usar as saídas diretamente de mensagens divididas em partes que são maiores que o limite de tamanho da mensagem. Somente as ações que são compatíveis com a divisão em partes podem acessar o conteúdo da mensagem nessas saídas. Portanto, uma ação que processe mensagens grandes deve atender a *qualquer um* desses critérios:
 
 * Ser nativamente compatível com a divisão em partes quando essa ação pertence a um conector. 
-* Ter a compatibilidade com a divisão em partes habilitada na configuração de tempo de execução dessa ação. 
+* Ter a compatibilidade com a divisão em partes habilitada na configuração de runtime dessa ação. 
 
-Caso contrário, você recebe um erro de tempo de execução quando tenta acessar a saída de conteúdo grande. Para habilitar a divisão em partes, consulte [Configurar o suporte à divisão em partes](#set-up-chunking).
+Caso contrário, você recebe um erro de runtime quando tenta acessar a saída de conteúdo grande. Para habilitar a divisão em partes, consulte [Configurar o suporte à divisão em partes](#set-up-chunking).
 
 ### <a name="chunked-message-handling-for-connectors"></a>Processamento de mensagens divididas em partes para conectores
 
 Os serviços que se comunicam com os Aplicativos Lógicos podem ter seus próprios limites de tamanho. Esses limites geralmente são menores que o limite de Aplicativos Lógicos. Por exemplo, supondo que um conector é compatível com a divisão em partes, um conector pode considerar que uma mensagem de 30 MB é grande, enquanto os Aplicativos Lógicos não. Para estar em conformidade com o limite desse conector, os Aplicativos Lógicos dividem todas as mensagens maiores que 30 MB em partes menores.
 
-Para os conectores compatíveis com a divisão em partes, o protocolo de divisão em partes subjacente é invisível para os usuários finais. No entanto, nem todos os conectores são compatíveis com a divisão em partes, portanto, esses conectores geram erros de tempo de execução ao receberem mensagens que excedem seus limites de tamanho.
+Para os conectores compatíveis com a divisão em partes, o protocolo de divisão em partes subjacente é invisível para os usuários finais. No entanto, nem todos os conectores são compatíveis com a divisão em partes, portanto, esses conectores geram erros de runtime ao receberem mensagens que excedem seus limites de tamanho.
 
 <a name="set-up-chunking"></a>
 
@@ -117,18 +110,18 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 1. Seu aplicativo lógico envia uma solicitação HTTP POST ou PUT inicial com o corpo da mensagem vazio. O cabeçalho de solicitação, inclui essas informações sobre o conteúdo que seu aplicativo lógico quer carregar em partes:
 
-   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Descrição |
+   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Value | Type | Descrição |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | em partes | String | Indica que o conteúdo é carregado em partes |
-   | **x-ms-content-length** | <*content-length*> | Integer | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
+   | **x-ms-transfer-mode** | em partes | string | Indica que o conteúdo é carregado em partes |
+   | **x-ms-content-length** | <*content-length*> | Número inteiro | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
    ||||
 
 2. O ponto de extremidade responde com o código de status de êxito “200” e essas informações opcionais:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Necessário | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | obrigatórios | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |
-   | **Localidade** | Cadeia | Sim | O local da URL para a qual enviar as mensagens HTTP PATCH |
+   | **x-ms-chunk-size** | Número inteiro | Não | O tamanho da parte sugerido em bytes |
+   | **Localidade** | string | SIM | O local da URL para a qual enviar as mensagens HTTP PATCH |
    ||||
 
 3. Seu aplicativo lógico cria e envia mensagens HTTP PATCH de acompanhamento, cada uma com essas informações:
@@ -137,19 +130,19 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
    * Esses detalhes de cabeçalho sobre a parte do conteúdo enviados em cada mensagem PATCH:
 
-     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Descrição |
+     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Value | Type | Descrição |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | String | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
-     | **Content-Type** | <*content-type*> | String | O tipo de conteúdo em partes |
-     | **Content-Length** | <*content-length*> | String | O comprimento do tamanho em bytes da parte atual |
+     | **Content-Range** | <*range*> | string | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
+     | **Content-Type** | <*content-type*> | string | O tipo de conteúdo em partes |
+     | **Content-Length** | <*content-length*> | string | O comprimento do tamanho em bytes da parte atual |
      |||||
 
 4. Após cada solicitação de PATCH, o ponto de extremidade confirma o recebimento de cada parte respondendo com o código de status "200" e os seguintes cabeçalhos de resposta:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Necessário | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | obrigatórios | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **Range** | Cadeia | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes = 0-1023" |   
-   | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |
+   | **Range** | string | SIM | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes = 0-1023" |   
+   | **x-ms-chunk-size** | Número inteiro | Não | O tamanho da parte sugerido em bytes |
    ||||
 
 Por exemplo, esta definição de ação mostra uma solicitação HTTP POST para carregar o conteúdo em partes para um ponto de extremidade. Na propriedade `runTimeConfiguration` da ação, a propriedade `contentTransfer` define `transferMode` como `chunked`:

@@ -1,27 +1,21 @@
 ---
-title: Adicionar a ação de consulta nos aplicativos lógicos | Microsoft Docs
-description: Visão geral da ação de consulta para executar ações, como filtrar matriz.
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
-ms.service: logic-apps
+title: Adicionar a ação de consulta em aplicativos lógicos
+description: Visão geral da ação de consulta para executar ações como matriz de filtro
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/20/2016
-ms.author: jehollan
-ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+tags: connectors
+ms.openlocfilehash: 2e5c9d371a280b776699b2e10d3e8e94b5f41f6f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973761"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787125"
 ---
 # <a name="get-started-with-the-query-action"></a>Introdução à ação de consulta
+
 Usando a ação de consulta, você pode trabalhar com lotes e matrizes para executar os fluxos de trabalho para:
 
 * Criar uma tarefa para todos os registros de alta prioridade a partir de um banco de dados.
@@ -30,6 +24,7 @@ Usando a ação de consulta, você pode trabalhar com lotes e matrizes para exec
 Para começar a usar a ação de consulta em um aplicativo lógico, consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Usar a ação de consulta
+
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. 
 [Saiba mais sobre ações](../connectors/apis-list.md).  
 
@@ -62,14 +57,14 @@ Veja os detalhes da ação com suporte deste conector. O conector tem uma ação
 ## <a name="action-details"></a>Detalhes da ação
 A ação de consulta vem com uma ação possível. As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais para a ação e os detalhes de saída correspondentes associados ao uso da ação.
 
-### <a name="filter-array"></a>Matriz do filtro
+### <a name="filter-array"></a>Filtrar matriz
 Estes são os campos de entrada para a ação, o que cria uma solicitação HTTP de saída.
 Um * significa que é um campo obrigatório.
 
-| Display name | Nome da propriedade | Descrição |
+| Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| De* |from |A matriz a ser filtrada |
-| Condição* |where |A condição a ser avaliada para cada item |
+| De* |Da |A matriz a ser filtrada |
+| Condição* |onde |A condição a ser avaliada para cada item |
 
 <br>
 
@@ -78,8 +73,8 @@ A seguir, os detalhes de saída para a resposta HTTP.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
-| Matriz filtrada |array |Uma matriz que contém um objeto para cada resultado filtrado |
+| Matriz filtrada |matriz |Uma matriz que contém um objeto para cada resultado filtrado |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 

@@ -1,25 +1,21 @@
 ---
-title: Solucionar problemas e diagnosticar falhas – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Solucionar problemas e diagnosticar falhas
 description: Saiba como solucionar problemas e diagnosticar falhas de fluxo de trabalho nos Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.openlocfilehash: 62a74364939fffb6e06f51f1c0cabb6cce8c10e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60999701"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790772"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solucionar problemas e diagnosticar falhas de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
-Seu aplicativo lógico gera informações que podem ajudar você a diagnosticar e depurar problemas nele. É possível diagnosticar um aplicativo lógico revisando cada etapa no fluxo de trabalho por meio do Portal do Azure. Ou então, você pode adicionar algumas etapas a um fluxo de trabalho para depuração no tempo de execução.
+Seu aplicativo lógico gera informações que podem ajudar você a diagnosticar e depurar problemas nele. É possível diagnosticar um aplicativo lógico revisando cada etapa no fluxo de trabalho por meio do Portal do Azure. Ou então, você pode adicionar algumas etapas a um fluxo de trabalho para depuração no runtime.
 
 ## <a name="review-trigger-history"></a>Examinar histórico de gatilho
 
@@ -28,7 +24,7 @@ Cada aplicativo lógico começa com o gatilho. Se o gatilho não disparar, verif
 1. Para verificar se o gatilho foi disparado, escolha **Visão geral** no menu do aplicativo lógico. Em **Histórico de gatilho**, examine o status do gatilho.
 
    > [!TIP]
-   > Se o menu do aplicativo lógico não aparecer, tente retornar ao painel do Azure e abra novamente o aplicativo lógico.
+   > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
 
    ![Examinar histórico de gatilho](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
 
@@ -38,7 +34,7 @@ Cada aplicativo lógico começa com o gatilho. Se o gatilho não disparar, verif
 
    Aqui estão os possíveis status para uma tentativa de disparo:
 
-   | Status | DESCRIÇÃO | 
+   | Status | Descrição | 
    | ------ | ----------- | 
    | **Êxito** | O gatilho verificou o ponto de extremidade e encontrou dados disponíveis. Normalmente, um status de "Disparado" também é exibida junto com esse status. Caso contrário, a definição do gatilho pode ter uma condição ou comando `SplitOn` que não foi atendido. <p>Esse status pode se aplicar a um gatilho manual, gatilho recorrente ou gatilho de sondagem. Um gatilho pode ser executado com êxito, mas a execução em si ainda pode falhar quando as ações gerarem erros sem tratamento. | 
    | **Ignorado** | O gatilho verificou o ponto de extremidade, mas não encontrou dados disponíveis. | 
@@ -69,7 +65,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 1. No menu do aplicativo lógico, escolha **Visão geral**. Em **Histórico de execuções**, examine a execução do gatilho disparado.
 
    > [!TIP]
-   > Se o menu do aplicativo lógico não aparecer, tente retornar ao painel do Azure e abra novamente o aplicativo lógico.
+   > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
 
    ![Examinar o histórico de execuções](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
 
@@ -79,7 +75,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 
    Estes são os possíveis status para uma execução:
 
-   | Status | DESCRIÇÃO | 
+   | Status | Descrição | 
    | ------ | ----------- | 
    | **Êxito** | Todas as ações foram bem sucedidas. <p>Caso tenha ocorrido alguma falha em uma ação específica, uma ação posterior no fluxo de trabalho a tratou. | 
    | **Com falha** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho estava configurada para tratar essa falha. | 
@@ -99,7 +95,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 
    ![Exibir detalhes da etapa](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 
-## <a name="perform-runtime-debugging"></a>Realizar depuração de tempo de execução
+## <a name="perform-runtime-debugging"></a>Realizar depuração de runtime
 
 Para ajudar na depuração, você pode adicionar etapas de diagnóstico a um fluxo de trabalho, bem como examinar os históricos de gatilho e de execuções. Por exemplo, você pode adicionar etapas que usam o serviço [Webhook Tester](https://webhook.site/) para poder inspecionar solicitações HTTP e determinar seu tamanho, forma e formato exatos.
 
@@ -111,6 +107,6 @@ Para ajudar na depuração, você pode adicionar etapas de diagnóstico a um flu
 
 4. Para examinar como a solicitação é formada quando é gerada pelo mecanismo de Aplicativos Lógicos, execute o aplicativo lógico e atualize seu Webhook Tester.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Monitorar seu aplicativo lógico](../logic-apps/logic-apps-monitor-your-logic-apps.md)

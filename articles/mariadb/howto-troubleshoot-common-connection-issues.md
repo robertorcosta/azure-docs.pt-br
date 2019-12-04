@@ -1,23 +1,23 @@
 ---
-title: Solucionar problemas de conexão ao Banco de Dados do Azure para MariaDB
+title: Solucionar problemas de conexão-banco de dados do Azure para MariaDB
 description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para MariaDB, incluindo erros transitórios que exigem novas tentativas, problemas de firewall e interrupções.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a8354cdc364f221a086f4d2f4ec7da95c55baf6e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 613de96ee58d37e6270266852e513e53857a441a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973527"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765725"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Solucionar problemas de conexão ao Banco de Dados do Azure para MariaDB
 
 Os problemas de conexão podem ser causados por uma variedade de coisas, incluindo:
 
-* Configurações de firewall
+* Configurações de Firewall
 * Tempo limite da conexão
 * Informações de logon incorretas
 * Limite máximo atingido em alguns Banco de Dados do Azure para MariaDB
@@ -46,8 +46,8 @@ Quando a manutenção é executada, o sistema encontra um erro com o hardware ou
 Se o aplicativo persistentemente falhar ao se conectar ao Banco de Dados do Azure para MariaDB, isso geralmente indica um problema com um dos seguintes:
 
 * Configuração do firewall: O Banco de Dados do Azure para MariaDB ou o firewall do lado do cliente está bloqueando as conexões.
-* Reconfiguração de rede no lado do cliente: Foi adicionado um novo endereço IP ou um servidor proxy.
-* Erro do usuário: Por exemplo, você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo de *\@servername* ausente no nome de usuário.
+* Reconfiguração da rede no lado do cliente: um novo endereço IP ou um servidor proxy foi adicionado.
+* Erro do usuário: por exemplo, você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo ausente do *\@ServerName* no nome de usuário.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 
@@ -56,6 +56,6 @@ Se o aplicativo persistentemente falhar ao se conectar ao Banco de Dados do Azur
 3. Verifique a cadeia de conexão e outras configurações de conexão. Analise [Como conectar aplicativos ao Banco de Dados do Azure para MariaDB](howto-connection-string.md).
 4. Verifique a integridade do serviço no painel. Se você acha que há uma paralisação regional, consulte [Visão geral da continuidade de negócios com o Banco de Dados do Azure para MariaDB](concepts-business-continuity.md) para conhecer as etapas da recuperação em uma nova região.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Manipulação de erros de conectividade temporários para o Banco de Dados do Azure para MariaDB](concepts-connectivity.md)

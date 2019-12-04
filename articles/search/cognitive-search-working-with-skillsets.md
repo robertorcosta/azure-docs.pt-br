@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113651"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790890"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceitos e composição do Skills no Azure Pesquisa Cognitiva
 
@@ -43,7 +43,7 @@ Quando um documento está no pipeline de enriquecimento, ele é representado com
 
 |Modo de Source\Parsing de dados|Padrão|JSON, linhas JSON & CSV|
 |---|---|---|
-|Armazenamento de Blob|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|Armazenamento de Blobs|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/D|
 
@@ -65,7 +65,7 @@ Cada habilidade requer um contexto. Um contexto determina:
 
 ### <a name="sourcecontext"></a>SourceContext
 
-O `sourceContext` só é usado em habilidades e [projeções](knowledge-store-projection-overview.md)de [formador](cognitive-search-skill-shaper.md) . Ele é usado para construir objetos aninhados de vários níveis. O `sourceContext` permite que você construa um objeto de tipo anônimo e hierárquico, que exigiria várias habilidades se você estivesse usando apenas o contexto. O uso de `sourceContext` é mostrado na próxima seção.
+O `sourceContext` só é usado em [projeções](knowledge-store-projection-overview.md)e entradas de habilidades. Ele é usado para construir objetos aninhados de vários níveis. Talvez seja necessário criar um novo onexão para passá-lo como uma entrada para uma habilidade ou projeto na loja de conhecimento. Como os nós de enriquecimento podem não ser um objeto JSON válido na árvore de enriquecimento e refrencing um nó na árvore retorna apenas esse estado do nó quando ele foi criado, usando os aprimoramentos como entradas de habilidades ou projeções exige que você crie um objeto JSON bem formado. O `sourceContext` permite que você construa um objeto de tipo anônimo e hierárquico, que exigiria várias habilidades se você estivesse usando apenas o contexto. O uso de `sourceContext` é mostrado na próxima seção. Examine a saída da habilidade que gerou um enriquecimento para determinar se ele é um objeto JSON válido e não um tipo primitivo.
 
 ### <a name="projections"></a>Projeções
 
@@ -297,7 +297,7 @@ A abordagem de modelagem embutida não requer uma habilidade de formador, pois t
   
 Uma observação de ambas as abordagens é como os valores de `"Keyphrases"` são projetados usando o `"sourceContext"`. O nó `"Keyphrases"`, que contém uma coleção de cadeias de caracteres, é, em si, um filho do texto da página. No entanto, como as projeções exigem um objeto JSON e a página é uma primitiva (cadeia de caracteres), a `"sourceContext"` é usada para encapsular a frase-chave em um objeto com uma propriedade nomeada. Essa técnica permite que até mesmo primitivos sejam projetados de forma independente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Como uma próxima etapa, crie seu primeiro Conmy Skill com habilidades cognitivas.
 

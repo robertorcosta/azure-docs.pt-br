@@ -1,17 +1,17 @@
 ---
-title: Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único
+title: Repositório de Consultas-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve o recurso Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 198ef6889ffb7874c44f15338afbd8b3135ae3ef
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331310"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768258"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
@@ -93,7 +93,7 @@ As opções a seguir estão disponíveis para configurar os parâmetros do Repos
 
 | **Parâmetro** | **Descrição** | **Padrão** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Define quais instruções são rastreadas. | nenhum | none, top, all |
+| pg_qs.query_capture_mode | Define quais instruções são rastreadas. | Nenhum | none, top, all |
 | pg_qs.max_query_text_length | Define o comprimento máximo de consulta que pode ser salvo. Consultas mais longas serão truncadas. | 6000 | 100 a 10 mil |
 | pg_qs.retention_period_in_days | Define o período de retenção. | 7 | 1 a 30 |
 | pg_qs.track_utility | Define se os comandos do utilitário são rastreados | em | on, off |
@@ -102,7 +102,7 @@ As opções a seguir se aplicam especificamente às estatísticas de espera.
 
 | **Parâmetro** | **Descrição** | **Padrão** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Define quais instruções são rastreadas para as estatísticas de espera. | nenhum | none, all|
+| pgms_wait_sampling.query_capture_mode | Define quais instruções são rastreadas para as estatísticas de espera. | Nenhum | none, all|
 | Pgms_wait_sampling.history_period | Define a frequência, em milissegundos, com a qual são realizadas amostras dos eventos de espera. | 100 | 1 a 600000 |
 
 > [!NOTE] 
@@ -165,9 +165,9 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 |user_id    |oid    |pg_authid.oid  |OID do usuário que executou a instrução|
 |db_id  |oid    |pg_database.oid    |OID do banco de dados no qual a instrução foi executada|
 |query_id   |bigint     ||Código hash interno, computado da árvore de análise da instrução|
-|event_type |texto       ||O tipo de evento pelo qual o back-end está esperando|
-|evento  |texto       ||O nome do evento de espera se o back-end estiver esperando no momento|
-|chamadas  |Inteiro        ||Número do mesmo evento capturado|
+|event_type |text       ||O tipo de evento pelo qual o back-end está esperando|
+|evento  |text       ||O nome do evento de espera se o back-end estiver esperando no momento|
+|chamadas  |Número inteiro        ||Número do mesmo evento capturado|
 
 
 ### <a name="functions"></a>Funções
@@ -185,6 +185,6 @@ Query_store.staging_data_reset() retorna void
 - As [réplicas de leitura](concepts-read-replicas.md) replicam dados de repositório de consultas do servidor mestre. Isso significa que a Repositório de Consultas de uma réplica de leitura não fornece estatísticas sobre as consultas executadas na réplica de leitura.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [cenários em que o Repositório de Consultas pode ser especialmente útil](concepts-query-store-scenarios.md).
 - Saiba mais sobre as [melhores práticas para usar o Repositório de Consultas](concepts-query-store-best-practices.md).

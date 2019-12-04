@@ -1,21 +1,19 @@
 ---
-title: Validar XML com esquemas – Aplicativos Lógicos do Azure | Microsoft Docs
+title: Validar XML com esquemas
 description: Adicionar esquemas para validar documentos XML nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
-ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cde620b4949da8a6cff4ad89a863c80f0514f1c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60846259"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792408"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -46,7 +44,7 @@ Para obter os limites relacionados aos artefatos e as contas de integração com
 
     * Para obter a versão da área de trabalho, [baixe e instale o Gerenciador de Armazenamento do Azure](https://www.storageexplorer.com/). 
     Em seguida, conecte o Gerenciador de Armazenamento à sua conta de armazenamento seguindo as etapas em [Introdução ao Gerenciador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
-    Para obter mais informações, confira [Início Rápido: criar um blob no armazenamento de objetos com o Gerenciador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+    Para saber mais, consulte [início rápido: criar um blob no armazenamento de objetos com o Gerenciador de armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
 Não é necessário um aplicativo lógico durante a criação e adição de esquemas. No entanto, para usar um esquema, o aplicativo lógico precisa ser vinculado a conta de integração na qual esse esquema está armazenado. Saiba mais [como vincular aplicativos lógicos a contas de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se você ainda não tiver um aplicativo lógico, saiba [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -89,7 +87,7 @@ Com base no tamanho do arquivo de esquema (.xsd), siga as etapas para carregar u
 
 ### <a name="add-schemas-more-than-2-mb"></a>Adicionar esquemas com mais de 2 MB
 
-Para adicionar esquemas maiores, você pode carregar seu esquema em um contêiner de blob do Azure na conta de armazenamento do Azure. As etapas para adicionar esquemas diferem com base se o seu contêiner de blob tem acesso de leitura público. Primeiro, verifique se seu contêiner de blob tem ou não acesso de leitura público seguindo estas etapas: [Definir o nível de acesso público para contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Para adicionar esquemas maiores, você pode carregar seu esquema em um contêiner de blob do Azure na conta de armazenamento do Azure. Suas etapas para adicionar esquemas diferem se o seu contêiner de blob tem acesso de leitura público. Primeiro, verifique se seu contêiner de BLOBs tem acesso de leitura público seguindo estas etapas: [definir o nível de acesso público para o contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Verificar o nível de acesso do contêiner
 
@@ -99,11 +97,11 @@ Para adicionar esquemas maiores, você pode carregar seu esquema em um contêine
 
 1. No menu de atalho do seu contêiner de blob, selecione **Definir o nível de acesso público**.
 
-   * Se seu contêiner de blob tiver pelo menos acesso público, escolha **Cancelar** e siga as etapas posteriores nesta página: [Carregar nos contêineres com acesso público](#public-access)
+   * Se o seu contêiner de blob tiver pelo menos acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres com acesso público](#public-access)
 
      ![Acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se seu contêiner de blob não tiver acesso público, escolha **Cancelar** e siga as etapas posteriores nesta página: [Carregar nos contêineres sem acesso público](#public-access)
+   * Se o seu contêiner de BLOB não tiver acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres sem acesso público](#public-access)
 
      ![Sem acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -186,7 +184,7 @@ Para atualizar um esquema existente, você precisa carregar um novo arquivo de e
 
 1. Clique em **Sim** para confirmar que deseja excluir o esquema.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 * [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md)

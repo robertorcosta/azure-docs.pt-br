@@ -1,20 +1,17 @@
 ---
-title: Agendar tarefas para lidar com dados contíguos-aplicativos lógicos do Azure
+title: Agendar tarefas para lidar com dados contíguos
 description: Criar e executar tarefas recorrentes que lidam com dados contíguos usando janelas deslizantes em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0312d9480d00d4430cd5d42dc22ef9dac005ee2e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ab4bf802772c95d8c48a8cdba48def05e8a2761b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679056"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786904"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Agendar e executar tarefas para dados contíguos usando o gatilho de janela deslizante nos aplicativos lógicos do Azure
 
@@ -41,20 +38,20 @@ Para obter as diferenças entre esse gatilho e o gatilho de recorrência ou para
 
 ## <a name="add-sliding-window-trigger"></a>Adicionar gatilho de janela deslizante
 
-1. Entre no [portal do Azure](https://portal.azure.com). Crie um aplicativo lógico em branco.
+1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
 1. Depois que o designer de aplicativo lógico aparecer, na caixa de pesquisa, digite "janela deslizante" como filtro. Na lista de gatilhos, selecione este gatilho como a primeira etapa no fluxo de trabalho do aplicativo lógico: **janela deslizante**
 
    ![Selecione o gatilho "janela deslizante"](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
-1. Defina o intervalo e a frequência da recorrência. Neste exemplo, defina essas propriedades para executar o fluxo de trabalho a cada semana.
+1. Defina o intervalo e a frequência da recorrência. Neste exemplo, defina essas propriedades para que executem o fluxo de trabalho toda semana.
 
-   ![Definir intervalo e frequência](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
+   ![Definir o intervalo e a frequência](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Propriedade | Obrigatório | Nome JSON | Tipo | Descrição |
+   | Propriedade | obrigatórios | Nome JSON | Type | Descrição |
    |----------|----------|-----------|------|-------------|
-   | **Intervalo** | Sim | intervalo | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimo e máximo: <p>-Hora: 1 a 12000 horas </br>-Minuto: 1 a 72000 minutos </br>-Segundo: 1 a 9999999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "hora", a recorrência será a cada 6 horas. |
-   | **Frequência** | Sim | frequência | Cadeia de caracteres | A unidade de tempo para a recorrência: **segundo**, **minuto**ou **hora** |
+   | **Intervalo** | SIM | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "hora", a recorrência será a cada 6 horas. |
+   | **Frequência** | SIM | frequência | string | A unidade de tempo para a recorrência: **segundo**, **minuto**ou **hora** |
    ||||||
 
    ![Opções de recorrência avançadas](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
@@ -62,11 +59,11 @@ Para obter as diferenças entre esse gatilho e o gatilho de recorrência ou para
    Para obter mais opções de recorrência, abra a lista **Adicionar novo parâmetro** . 
    As opções que você selecionar aparecerão no gatilho após a seleção.
 
-   | Propriedade | Obrigatório | Nome JSON | Tipo | Descrição |
+   | Propriedade | obrigatórios | Nome JSON | Type | Descrição |
    |----------|----------|-----------|------|-------------|
-   | **Retardo** | Não | atrasar | Cadeia de caracteres | A duração para atrasar cada recorrência usando a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
-   | **Fuso horário** | Não | timeZone | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início porque esse gatilho não aceita o [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. |
-   | **Hora de início** | Não | StartTime | Cadeia de caracteres | Forneça uma data e hora de início neste formato: <p>AAAA-MM-DDThh: mm: SS se você selecionar um fuso horário <p>or <p>AAAA-MM-DDThh: mm: ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e selecione um fuso horário como hora padrão do Pacífico. Ou especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início deve seguir a especificação de data e hora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, deverá adicionar a letra "Z" no final sem espaços. Esse "Z" refere-se ao [tempo náuticas](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para recorrências avançadas, o gatilho não é acionado antes da hora de início. [*Quais são as maneiras como posso usar a data e a hora de início?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Retardo** | Não | atrasar | string | A duração para atrasar cada recorrência usando a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
+   | **Fuso horário** | Não | timeZone | string | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. |
+   | **Hora de início** | Não | startTime | string | Forneça uma data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e selecione um fuso horário como hora padrão do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** a hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para recorrências avançadas, o gatilho não é acionado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
 
 1. Agora, crie seu fluxo de trabalho restante com outras ações. Para obter mais ações que você pode adicionar, consulte [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md).
