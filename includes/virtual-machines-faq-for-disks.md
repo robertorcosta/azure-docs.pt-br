@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008594"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795576"
 ---
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos Azure Premium SSD.
 
@@ -137,7 +137,9 @@ Para discos gerenciados, você não pode renomeá-los. No entanto, você pode re
 
 **Posso usar o particionamento de GPT em um Disco do Azure?**
 
-O particionamento GPT pode ser usado apenas em discos de dados, não em discos do sistema operacional. Os discos do sistema operacional devem usar o estilo de partição MBR.
+As imagens de geração 1 só podem usar o particionamento GPT em discos de dados, não OS discos do sistema operacional. Os discos do sistema operacional devem usar o estilo de partição MBR.
+
+As [imagens de geração 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) podem usar o particionamento GPT no disco do sistema operacional, bem como os discos de dados.
 
 **Quais tipos de disco dão suporte a instantâneos?**
 
@@ -251,7 +253,7 @@ A exemplo a seguir mostra a seção *properties.storageProfile.osDisk* de uma VM
 Para obter um exemplo de modelo completo de como criar um disco SSD padrão com um modelo, consulte [Criar uma máquina virtual a partir de uma imagem do Windows com discos de dados padrão SSD](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Posso converter discos existentes em SDD padrão?**
-Sim, pode. Para obter as diretrizes gerais de conversão do serviço Managed Disks, confira o artigo [Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Use o valor a seguir para atualizar o tipo de disco como SDD padrão.
+Sim, você pode. Para obter as diretrizes gerais de conversão do serviço Managed Disks, confira o artigo [Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Use o valor a seguir para atualizar o tipo de disco como SDD padrão.
 -AccountType StandardSSD_LRS
 
 **O que é a vantagem de usar discos SSD padrão em vez de HDD?**
@@ -263,7 +265,7 @@ Não, os discos SSDs Padrão somente estão disponíveis como discos gerenciados
 **Os discos SSD padrão têm suporte para "SLA de VM de Instância Única"?**
 Não. Os discos SSD padrão não são compatíveis com SLA de VM de Instância Única. Use discos SSD premium para SLA de VM de Instância Única.
 
-## <a name="migrate-to-managed-disks"></a>Como migrar para Managed Disks
+## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks
 
 **Há algum impacto da migração sobre o desempenho de Discos Gerenciados?**
 
@@ -299,7 +301,7 @@ Não. Azure Site Recovery proteção do Azure para o Azure para VMs com Managed 
 
 **Posso migrar VMs com discos não gerenciados localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
 
-sim
+SIM
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e Criptografia de Serviço de Armazenamento
 
@@ -340,7 +342,7 @@ Sim. Todos os instantâneos e imagens criados após 9 de junho de 2017 são crip
 
 **Posso converter máquinas virtuais com discos não gerenciados que estão localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
 
-sim
+SIM
 
 **Um VHD exportado de um disco gerenciado ou instantâneo também será criptografado?**
 
@@ -412,7 +414,7 @@ Você não precisa atualizar as ferramentas existentes do Azure para criar, anex
 
 |Ferramentas do Azure      | Versões com suporte                                |
 |-----------------|---------------------------------------------------|
-|PowerShell do Azure | Número de versão 4.1.0: versão de junho de 2017 ou posterior|
+|Azure PowerShell | Número de versão 4.1.0: versão de junho de 2017 ou posterior|
 |CLI do Azure v1     | Número de versão 0.10.13: versão de maio de 2017 ou posterior|
 |CLI do Azure v2     | Número de versão 2.0.12: versão de julho de 2017 ou posterior|
 |AzCopy           | Número de versão 6.1.0: versão de junho de 2017 ou posterior|
