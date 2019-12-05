@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558892"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815420"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Solucionar Problemas do SDK de Fala
 
@@ -107,7 +107,7 @@ Se você inseriu um token de autorização válido, o comando retorna a transcri
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Erro: HTTP 400 (Solicitação Incorreta)
+## <a name="error-http-400-bad-request"></a>Erro: HTTP 400 Solicitação Incorreta
 
 Esse erro normalmente ocorre quando o corpo da solicitação contém dados de áudio inválidos. Só há suporte para o formato WAV. Além disso, verifique os cabeçalhos da solicitação para garantir que você especificou os valores apropriados para `Content-Type` e `Content-Length`.
 
@@ -123,6 +123,6 @@ Geralmente, esse problema é causado por dados de áudio. Você poderá ver esse
 
 * O áudio usa um formato de codec sem suporte, fazendo com que os dados de áudio sejam tratados como silêncio.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Examinar as notas de versão](releasenotes.md)

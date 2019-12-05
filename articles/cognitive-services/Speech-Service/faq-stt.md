@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110710"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814846"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -65,39 +65,6 @@ O conjunto de dados antigo e o novo devem ser combinados em um único arquivo .z
 
 Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa implantação permanecerá como está. Os clientes podem desativar o modelo implantado, readaptar-se usando a versão mais recente da linha de base e reimplantar.
 
-**P: E se eu precisar de maior simultaneidade para o modelo implantado do que o oferecido no portal?**
-
-**Resposta**: você pode dimensionar o modelo em incrementos de 20 solicitações simultâneas.
-
-Contate o [suporte de fala](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) se você precisar de uma escala mais alta.
-
-Para aumentar a simultaneidade para um ***modelo personalizado***, precisamos das seguintes informações:
-
-- A região em que o modelo é implantado,
-- a ID do ponto de extremidade do modelo implantado:
-  - Obtido com o [portal de fala personalizada](https://aka.ms/customspeech),
-  - entrar (se necessário),
-  - Selecione seu projeto e implantação,
-  - Selecione o ponto de extremidade para o qual você precisa do aumento de simultaneidade,
-  - Copie o `Endpoint ID`.
-
-Para aumentar a simultaneidade para um ***modelo base***, precisamos das seguintes informações:
-
-- A região do seu serviço,
-
-e qualquer um
-
-- um token de acesso para sua assinatura (veja [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
-
-ou
-
-- a ID de recurso para sua assinatura:
-  - Vá para a [portal do Azure](https://portal.azure.com),
-  - Selecione `Cognitive Services` na caixa de pesquisa,
-  - nos serviços exibidos, escolha o serviço de fala para o qual você deseja aumentar a simultaneidade,
-  - exibir o `Properties` para este serviço,
-  - Copie o `Resource ID`completo.
-
 **Pergunta: Posso baixar meu modelo e executá-lo localmente?**
 
 **Resposta**: modelos não podem ser baixados e executados localmente.
@@ -116,6 +83,41 @@ ou
 
 > [!IMPORTANT]
 > Se você tiver mais problemas de privacidade que o impeçam de usar o serviço de voz personalizada, entre em contato com um dos canais de suporte.
+
+## <a name="increasing-concurrency"></a>Aumentando a simultaneidade
+
+**P: E se eu precisar de maior simultaneidade para o modelo implantado do que o oferecido no portal?**
+
+**Resposta**: você pode dimensionar o modelo em incrementos de 20 solicitações simultâneas.
+
+Com as informações necessárias, crie uma solicitação de suporte no [portal de suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Não poste as informações em nenhum dos canais públicos (GitHub, stackoverflow,...) mencionados na [página de suporte](support.md).
+
+Para aumentar a simultaneidade para um ***modelo personalizado***, precisamos das seguintes informações:
+
+- A região em que o modelo é implantado,
+- a ID do ponto de extremidade do modelo implantado:
+  - Obtido com o [portal de fala personalizada](https://aka.ms/customspeech),
+  - entrar (se necessário),
+  - Selecione seu projeto e implantação,
+  - Selecione o ponto de extremidade para o qual você precisa do aumento de simultaneidade,
+  - Copie o `Endpoint ID`.
+
+Para aumentar a simultaneidade para um ***modelo base***, precisamos das seguintes informações:
+
+- A região do seu serviço,
+
+e
+
+- um token de acesso para sua assinatura (veja [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+
+ou
+
+- a ID de recurso para sua assinatura:
+  - Vá para a [portal do Azure](https://portal.azure.com),
+  - Selecione `Cognitive Services` na caixa de pesquisa,
+  - nos serviços exibidos, escolha o serviço de fala para o qual você deseja aumentar a simultaneidade,
+  - exibir o `Properties` para este serviço,
+  - Copie o `Resource ID`completo.
 
 ## <a name="importing-data"></a>Importação de dados
 
@@ -193,7 +195,7 @@ ou
 
 As experiências de fala incorporadas ao Office 365, como ditado e legendas do PowerPoint, não são alteradas quando você cria um modelo de locatário para seus aplicativos de serviço de fala.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Solução de problemas](troubleshooting.md)
 - [Notas de versão](releasenotes.md)

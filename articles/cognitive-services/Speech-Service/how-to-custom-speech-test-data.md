@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464550"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816395"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -25,11 +25,11 @@ Se você estiver testando para ver quão precisas o reconhecimento de fala da Mi
 
 Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser usado e a quantidade recomendada. Nem todos os tipos de dados são necessários para criar um modelo. Os requisitos de dados irão variar dependendo se você estiver criando um teste ou treinando um modelo.
 
-| Tipo de dados | Uso de testes | Quantidade | Usado para treinamento | Quantidade |
+| Tipo de dados | Uso de testes | Quantidade recomendada | Usado para treinamento | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | n/a |
-| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1 a 1.000 horas de áudio |
-| [Texto relacionado](#related-text-data-for-training) | Não | n/a | Sim | 1-200 MB de texto relacionado |
+| [Áudio](#audio-data-for-testing) | SIM<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/A |
+| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | SIM<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | SIM | 1 a 1.000 horas de áudio |
+| [Texto relacionado](#related-text-data-for-training) | Não | N/A | SIM | 1-200 MB de texto relacionado |
 
 Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
@@ -52,7 +52,7 @@ Os dados de áudio são ideais para testar a precisão do modelo de fala-para-te
 
 Use esta tabela para garantir que os arquivos de áudio estejam formatados corretamente para uso com Fala Personalizada:
 
-| Propriedade | Valor |
+| Propriedade | Value |
 |----------|-------|
 | Formato de arquivo | RIFF (WAV) |
 | Taxa de amostragem | 8\.000 Hz ou 16.000 Hz |
@@ -64,7 +64,7 @@ Use esta tabela para garantir que os arquivos de áudio estejam formatados corre
 
 Se o seu áudio não atender a essas propriedades ou se você quiser verificar se ele faz isso, sugerimos baixar o [Sox](http://sox.sourceforge.net) para verificar ou converter o áudio. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando:
 
-| Atividade | DESCRIÇÃO | Comando Sox |
+| Atividade | Descrição | Comando Sox |
 |----------|-------------|-------------|
 | Verificar o formato de áudio | Use este comando para verificar o formato do arquivo de áudio. | `sox --i <filename>` |
 | Converter formato de áudio | Use este comando para converter o arquivo de áudio em um único canal, 16 bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -73,7 +73,7 @@ Se o seu áudio não atender a essas propriedades ou se você quiser verificar s
 
 Para medir a precisão da precisão de fala para texto da Microsoft ao processar seus arquivos de áudio, você deve fornecer transcrições com rótulo humano (palavra por palavra) para comparação. Embora a transcrição com rótulo humano sempre seja demorada, é necessário avaliar a precisão e treinar o modelo para seus casos de uso. Tenha em mente que os aprimoramentos no reconhecimento serão tão bons quanto os dados fornecidos. Por esse motivo, é importante que apenas transcrições de alta qualidade sejam carregadas.  
 
-| Propriedade | Valor |
+| Propriedade | Value |
 |----------|-------|
 | Formato de arquivo | RIFF (WAV) |
 | Taxa de amostragem | 8\.000 Hz ou 16.000 Hz |
@@ -117,7 +117,7 @@ Para criar um modelo personalizado usando texto relacionado, você precisará fo
 
 Use esta tabela para garantir que o arquivo de dados relacionado para declarações esteja formatado corretamente:
 
-| Propriedade | Valor |
+| Propriedade | Value |
 |----------|-------|
 | Codificação de texto | BOM para UTF-8 |
 | Nº de enunciados por linha | 1 |
@@ -148,20 +148,20 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês (en-US) e alemão (de-DE). Esta tabela mostra os caracteres com suporte por idioma:
 
-| idioma | Localidade | Caracteres |
+| Idioma | Localidade | Caracteres |
 |----------|--------|------------|
-| Inglês | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, p, r, s, t, u, v, w, x, y, z |
-| Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, p, r, s, t, u, v, w, x, y, z |
+| Inglês | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 Use esta tabela para garantir que o arquivo de dados relacionado para pronúncias esteja formatado corretamente. Os arquivos de pronúncia são pequenos e não devem exceder alguns KBs.
 
-| Propriedade | Valor |
+| Propriedade | Value |
 |----------|-------|
 | Codificação de texto | A BOM UTF-8 (ANSI também tem suporte para inglês) |
 | número de pronúncias por linha | 1 |
 | Tamanho máximo do arquivo | 1 MB (1 KB para camada gratuita) |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
 * [Avalie seus dados](how-to-custom-speech-evaluate-data.md)

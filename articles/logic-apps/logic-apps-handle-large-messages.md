@@ -6,13 +6,13 @@ ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
-ms.date: 4/27/2018
-ms.openlocfilehash: e583bf53021d772db54c30ed5a4c9ea2a029e093
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/03/2019
+ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792010"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815090"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
 
@@ -39,6 +39,9 @@ Caso contrário, você recebe um erro de runtime quando tenta acessar a saída d
 Os serviços que se comunicam com os Aplicativos Lógicos podem ter seus próprios limites de tamanho. Esses limites geralmente são menores que o limite de Aplicativos Lógicos. Por exemplo, supondo que um conector é compatível com a divisão em partes, um conector pode considerar que uma mensagem de 30 MB é grande, enquanto os Aplicativos Lógicos não. Para estar em conformidade com o limite desse conector, os Aplicativos Lógicos dividem todas as mensagens maiores que 30 MB em partes menores.
 
 Para os conectores compatíveis com a divisão em partes, o protocolo de divisão em partes subjacente é invisível para os usuários finais. No entanto, nem todos os conectores são compatíveis com a divisão em partes, portanto, esses conectores geram erros de runtime ao receberem mensagens que excedem seus limites de tamanho.
+
+> [!NOTE]
+> Para ações que usam agrupamento, você não pode passar o corpo do gatilho ou usar expressões como `@triggerBody()?['Content']` nessas ações. Em vez disso, para conteúdo de texto ou arquivo JSON, você pode tentar usar a [ação **compor** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [criar uma variável](../logic-apps/logic-apps-create-variables-store-values.md) para lidar com esse conteúdo. Se o corpo do gatilho contiver outros tipos de conteúdo, como arquivos de mídia, você precisará executar outras etapas para lidar com esse conteúdo.
 
 <a name="set-up-chunking"></a>
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: b6ab1e3e01f66e071e3d16b196b3ecdcd30c2620
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 064bfd7a51f3ccb0252f37fbaa11ebc122a4b97f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701805"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807418"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
 
@@ -186,7 +186,7 @@ O back-end da solução funciona no módulo gêmeo usando as seguintes operaçõ
     moduleId | ID do módulo |
     hubName | Nome do Hub IoT |
     operationTimestamp | Carimbo de data/hora [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) da operação |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" ou "updateTwin" |
 
     As propriedades do sistema de mensagens são fixadas previamente com o símbolo `$`.

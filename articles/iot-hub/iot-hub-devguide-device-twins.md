@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: a800336fb6fda8a0ed0af71f243936d29e8079e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4b80004a3d818e66cc2fb61f3d611bbe3e3ded92
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706840"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807027"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
@@ -191,7 +191,7 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
     deviceId | ID do dispositivo |
     hubName | Nome do Hub IoT |
     operationTimestamp | Carimbo de data/hora [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) da operação |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" ou "updateTwin" |
 
     As propriedades do sistema de mensagens são fixadas previamente com o símbolo `$`.

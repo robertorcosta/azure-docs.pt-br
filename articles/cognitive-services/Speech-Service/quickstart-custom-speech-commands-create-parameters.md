@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: caa1959ec64bb3a123c60763750267b107685b82
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d1c709beb225dff0ae616a23eb67eb57f4643ac9
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111243"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812769"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Início rápido: criar um comando personalizado com parâmetros (versão prévia)
 
@@ -23,7 +23,7 @@ No [artigo anterior](./quickstart-custom-speech-commands-create-new.md), criamos
 
 Neste artigo, estenderemos esse aplicativo com parâmetros para que ele possa lidar com a ativação e a desativação de vários dispositivos.
 
-## <a name="create-parameters"></a>Criar parâmetros
+## <a name="create-parameters"></a>Create Parameters
 
 1. Abrir o projeto [que criamos anteriormente](./quickstart-custom-speech-commands-create-new.md)
 1. Como o comando agora será manipulado e desativado, renomeie o comando para "TurnOnOff"
@@ -34,25 +34,25 @@ Neste artigo, estenderemos esse aplicativo com parâmetros para que ele possa li
    > [!div class="mx-imgBorder"]
    > ![criar](media/custom-speech-commands/create-on-off-parameter.png) de parâmetro
 
-   | Configuração            | Valor sugerido | DESCRIÇÃO                                                                                               |
+   | Configuração            | Valor sugerido | Descrição                                                                                               |
    | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
-   | NOME               | OnOff           | Um nome descritivo para seu parâmetro                                                                     |
-   | É global          | desmarcada       | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
-   | obrigatórios           | check         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
+   | name               | OnOff           | Um nome descritivo para seu parâmetro                                                                     |
+   | É global          | desmarcado       | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
+   | obrigatórios           | verificado         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
    | Modelo de resposta  | Ativar ou desativar?      | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido                                       |
-   | Digite               | String          | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
+   | Type               | string          | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
    | Configuração      | Lista de cadeias de caracteres     | Para cadeias de caracteres, uma lista String limita as entradas a um conjunto de valores possíveis                                      |
    | Valores da lista de cadeia de caracteres | on, off         | Para um parâmetro de lista de cadeia de caracteres, o conjunto de valores possíveis e seus sinônimos                                |
 
    - Em seguida, selecione o ícone de `+` novamente para adicionar um segundo parâmetro para representar o nome dos dispositivos. Para este exemplo, uma TV e um ventilador
 
-   | Configuração            | Valor sugerido   | DESCRIÇÃO                                                                                               |
+   | Configuração            | Valor sugerido   | Descrição                                                                                               |
    | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
-   | NOME               | SubjectDevice     | Um nome descritivo para seu parâmetro                                                                     |
-   | É global          | desmarcada         | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
-   | obrigatórios           | check           | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
+   | name               | SubjectDevice     | Um nome descritivo para seu parâmetro                                                                     |
+   | É global          | desmarcado         | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
+   | obrigatórios           | verificado           | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
    | Modelo de resposta  | Qual dispositivo?     | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido                                       |
-   | Digite               | String            | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
+   | Type               | string            | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
    | Configuração      | Lista de cadeias de caracteres       | Para cadeias de caracteres, uma lista String limita as entradas a um conjunto de valores possíveis                                      |
    | Valores da lista de cadeia de caracteres | TV, ventilador           | Para um parâmetro de lista de cadeia de caracteres, o conjunto de valores possíveis e seus sinônimos                                |
    | Sinônimos (TV)      | televisão, conte | Sinônimos opcionais para cada valor possível de um parâmetro de lista de cadeias de caracteres                                      |
@@ -94,7 +94,7 @@ Modifique a regra de conclusão que você criou no [início rápido anterior](./
    Ok, turning {OnOff} the {SubjectDevice}
    ```
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Faça o teste
 
 Abra o painel Test chat e tente algumas interações.
 
@@ -109,7 +109,7 @@ Abra o painel Test chat e tente algumas interações.
 - Entrada: a TV
 - Saída: Ok, desligando a TV
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Início rápido: conectar a um aplicativo de comando personalizado com o SDK de fala (versão prévia)](./quickstart-custom-speech-commands-speech-sdk.md)
 

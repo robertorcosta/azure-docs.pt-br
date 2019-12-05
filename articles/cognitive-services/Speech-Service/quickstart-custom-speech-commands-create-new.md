@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5c90c91791af8a9a16039e9650765bd24433ff38
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111374"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815822"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Início rápido: criar um comando personalizado (versão prévia)
 
 Neste artigo, você aprenderá a criar e testar um aplicativo de comandos personalizados hospedado.
 O aplicativo reconhecerá um expressão como "ligar a TV" e responderá com uma mensagem simples "Ok, ligando a TV".
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura de fala. [Experimente o serviço de fala gratuitamente](~/articles/cognitive-services/speech-service/get-started.md).
 
@@ -78,10 +78,10 @@ Agora você pode criar um comando. Vamos usar um exemplo que irá pegar um únic
 
 Um comando é um conjunto de:
 
-| Agrupar            | DESCRIÇÃO                                                                                                                 |
+| Agrupar            | Descrição                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Frases de exemplo | Exemplo declarações o usuário pode dizer para disparar esse comando                                                                 |
-| Parâmetros       | Informações necessárias para concluir o comando                                                                                |
+| parâmetros       | Informações necessárias para concluir o comando                                                                                |
 | Regras de conclusão | As ações a serem executadas para atender ao comando. Por exemplo, para responder ao usuário ou comunicar-se com outro serviço Web |
 | Regras avançadas   | Regras adicionais para lidar com situações mais específicas ou complexas                                                              |
 
@@ -102,13 +102,13 @@ Agora, adicione uma regra de conclusão para responder ao usuário indicando que
 > [!div class="mx-imgBorder"]
 > ![criar uma regra de conclusão](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-| Configuração    | Valor sugerido                        | DESCRIÇÃO                                        |
+| Configuração    | Valor sugerido                        | Descrição                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | Nome da Regra  | "ConfirmationResponse"                 | Um nome que descreve a finalidade da regra          |
-| Conditions | nenhum                                   | Condições que determinam quando a regra pode ser executada    |
+| Conditions | Nenhum                                   | Condições que determinam quando a regra pode ser executada    |
 | Ações    | SpeechResponse "Ok, ligando a TV" | A ação a ser tomada quando a condição da regra for verdadeira |
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Faça o teste
 
 Teste o comportamento usando o painel testar chat.
 
@@ -118,6 +118,6 @@ Teste o comportamento usando o painel testar chat.
 - Você digita: "ligar a TV"
 - Resposta esperada: "Ok, ligando a TV"
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Início rápido: criar um comando personalizado com parâmetros (versão prévia)](./quickstart-custom-speech-commands-create-parameters.md)

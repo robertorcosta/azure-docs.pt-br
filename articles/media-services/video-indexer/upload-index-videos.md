@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: juliako
-ms.openlocfilehash: a1fd37b65c3449e7000db6189c8c71def1f96b0a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790050"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815389"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -88,9 +88,9 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 Use esse parâmetro se gravações brutas ou externas contiverem ruídos de fundo. Esse parâmetro é usado para configurar o processo de indexação. É possível especificar os seguintes valores:
 
 - `AudioOnly` – Indexar e extrair insights usando apenas áudio (ignorando vídeo)
+- `VideoOnly`-indexar e extrair informações usando somente vídeo (ignorando áudio)
 - `Default` – Indexar e extrair insights usando áudio e vídeo
 - `DefaultWithNoiseReduction` – Indexar e extrair insights de áudio e vídeo durante a aplicação de algoritmos de redução de ruído no fluxo de áudio
-- `VideoOnly`-indexar e extrair informações usando somente vídeo 
 
 O preço depende da opção de indexação selecionada.  
 
@@ -128,7 +128,7 @@ Depois de copiar esse código em sua plataforma de desenvolvimento, você precis
 
     Para obter sua chave de API, percorra este fluxo:
 
-    * Navegue até https://api-portal.videoindexer.ai/
+    * Navegar para https://api-portal.videoindexer.ai/
     * Logon
     * Ir para **produtos** -> **autorização** -> **assinatura de autorização**
     * Copiar a **chave primária**

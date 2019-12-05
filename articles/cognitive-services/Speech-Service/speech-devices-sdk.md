@@ -1,7 +1,7 @@
 ---
 title: Sobre o SDK de dispositivos de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Introdução ao SDK de Dispositivos de Fala. O Serviço de Fala funciona com uma ampla variedade de dispositivos e fontes de áudio. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico.
+description: Introdução ao SDK de Dispositivos de Fala. O serviço de fala funciona com uma ampla variedade de dispositivos e fontes de áudio. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 31d1a60cc6c1316dcfccb4f9ba2571708fddd991
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7f6793cab3d2d7cc54252bae3a7393f836256bdd
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072387"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815536"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Sobre os dispositivos de fala do SDK
 
-Os [serviços de fala](overview.md) funcionam com uma ampla variedade de dispositivos e fontes de áudio. Agora, você pode levar os aplicativos de fala para o próximo nível com hardware e software correspondentes. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico.
+O [serviço de fala](overview.md) funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora, você pode levar os aplicativos de fala para o próximo nível com hardware e software correspondentes. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico.
 
 O SDK de dispositivos de fala pode ajudá-lo:
 
 - Teste rapidamente novos cenários de voz.
-- Integre mais facilmente os serviços de fala baseados em nuvem em seu dispositivo.
+- Mais fácil integre o serviço de fala baseado em nuvem em seu dispositivo.
 - Crie uma experiência de usuário excepcional para seus clientes.
 
-O SDK de dispositivos de fala consome os [Speech SDK](speech-sdk.md). Ele usa o SDK de fala para enviar o áudio que é processado pelo nosso algoritmo de processamento de áudio avançado da matriz de microfone do dispositivo para os [serviços de fala](overview.md). Usa o áudio multicanal para fornecer um [reconhecimento de fala em campo distante](speech-to-text.md) mais preciso através da supressão de ruído, cancelamento de eco, beamforming e remoção da reverberação.
+O SDK de dispositivos de fala consome os [Speech SDK](speech-sdk.md). Usa o SDK de fala para enviar áudio que é processado pelo nosso algoritmo de processamento de áudio avançada de matriz de microfone do dispositivo para o [Serviço de fala](overview.md). Usa o áudio multicanal para fornecer um [reconhecimento de fala em campo distante](speech-to-text.md) mais preciso através da supressão de ruído, cancelamento de eco, beamforming e remoção da reverberação.
 
 Você também pode usar o SDK de dispositivos de fala para criar dispositivos de ambiente que tenham sua própria [palavra-chave personalizada](speech-devices-sdk-create-kws.md) para que a indicação que inicia uma interação do usuário seja exclusiva à sua marca.
 
@@ -49,9 +49,9 @@ O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v
 Para o Linux, o aplicativo de exemplo é fornecido como um aplicativo Java de plataforma cruzada. Baixe a versão mais recente do [SDK de dispositivos de fala do JRE](https://aka.ms/sdsdk-download-JRE).
 O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v4) no Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Escolha seu dispositivo de fala](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)
+> [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)

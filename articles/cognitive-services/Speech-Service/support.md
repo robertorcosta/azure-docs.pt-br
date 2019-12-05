@@ -1,7 +1,7 @@
 ---
 title: Opções de suporte e ajuda-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Como obter ajuda e suporte para perguntas e problemas ao criar aplicativos que se integram com o Serviço de Fala
+description: Como obter ajuda e suporte para perguntas e problemas ao criar aplicativos que se integram com o serviço de fala
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 925d21d22806ab2854be29b9648aab78138741ec
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 741217cde5068468a7063a64361df8425346b590
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422613"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815446"
 ---
 # <a name="support-and-help-options"></a>Opções de Ajuda e suporte
 
-Você está apenas começando a explorar a funcionalidade dos serviços de fala? Você está implementando um novo recurso para o seu aplicativo? Aqui estão sugestões onde você pode obter ajuda como desenvolvedor.
+Você está apenas começando a explorar a funcionalidade do serviço de fala? Você está implementando um novo recurso para o seu aplicativo? Aqui estão sugestões onde você pode obter ajuda como desenvolvedor.
 
 > [!div class="checklist"]
-> * Mantenha-se informado sobre novos desenvolvimentos dos *Serviços Cognitivos do Azure*, ou localizar as notícias mais recentes relacionadas ao *Serviço de Fala*.
+> * Mantenha-se informado sobre novos desenvolvimentos nos *Serviços cognitivas do Azure*ou encontre as notícias mais recentes relacionadas ao *serviço de fala*.
 > * As notas de versão contêm informações para todas as versões.
 > * Pesquise para ver se o problema foi discutido pela comunidade, ou se a documentação existente para o recurso que você deseja implementar já existe.
 > * Se você não conseguir encontrar uma resposta satisfatória, faça uma pergunta *Stack Overflow*.
@@ -31,13 +31,13 @@ Você está apenas começando a explorar a funcionalidade dos serviços de fala?
 
 ## <a name="stay-informed"></a>Continue informado
 
-Notícias sobre os serviços Cognitivos são coletadas no [blog de Serviços Cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre os serviços de fala, acompanhe o [blog de serviços de fala](https://azure.microsoft.com/blog/tag/speech-service/).
+Notícias sobre os serviços Cognitivos são coletadas no [blog de Serviços Cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre o serviço de fala, acompanhe o [blog do serviço de fala](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Notas de versão
 
 As [notas de versão](https://aka.ms/csspeech/whatsnew) são atualizadas assim que uma nova versão estiver disponível. As notas contêm informações sobre novos recursos, aprimoramentos e correções de bugs.
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Pesquisa
 
 Você pode encontrar a resposta de que precisa na documentação, as amostras ou respostas para as perguntas do [Stack Overflow](https://www.stackoverflow.com) ou nas amostras.
 
@@ -55,7 +55,7 @@ No campo *{Seus Termos de Pesquisa}* estão as palavras-chave de pesquisa.
 
 Os clientes do Azure podem criar e gerenciar solicitações de suporte no portal do Azure.
 
-* [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal do Azure para o governo dos Estados Unidos](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Postar uma pergunta no Stack Overflow

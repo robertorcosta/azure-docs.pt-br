@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1eeb2e7ccf5c365fedd02a8de4c6b442dd3d5bc8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075805"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806055"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
@@ -27,9 +27,9 @@ Um exemplo grande de dados de transcrição é necessário para melhorar o recon
 
 As transcrições com rótulo humano para áudio em inglês devem ser fornecidas como texto sem formatação, apenas usando caracteres ASCII. Evite o uso de caracteres de Pontuação latino-1 ou Unicode. Esses caracteres são frequentemente adicionados inadvertidamente ao copiar texto de um aplicativo de processamento de textos ou recorte de dados de páginas da Web. Se esses caracteres estiverem presentes, certifique-se de atualizá-los com a substituição ASCII apropriada.
 
-Veja alguns exemplos:
+Estes são alguns exemplos:
 
-| Caracteres a evitar | Substituição | Observações |
+| Caracteres a evitar | Substituição | Notas |
 | ------------------- | ------------ | ----- |
 | "Olá, mundo" | "Olá, Mundo" | As marcas de aspas de abertura e fechamento foram substituídas por caracteres ASCII apropriados. |
 | Dia de João | Dia de João | O apóstrofo foi substituído pelo caractere ASCII apropriado. |
@@ -82,9 +82,9 @@ Aqui estão alguns exemplos de normalização executadas automaticamente na tran
 
 As transcrições rotuladas pelo homem para áudio mandarim chinês devem ser codificadas em UTF-8 com um marcador de ordem de byte. Evite o uso de caracteres de pontuação de meia largura. Esses caracteres podem ser incluídos inadvertidamente quando você prepara os dados em um programa de processamento de texto ou recorta dados de páginas da Web. Se esses caracteres estiverem presentes, certifique-se de atualizá-los com a substituição de largura inteira apropriada.
 
-Veja alguns exemplos:
+Estes são alguns exemplos:
 
-| Caracteres a evitar | Substituição   | Observações |
+| Caracteres a evitar | Substituição   | Notas |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | As marcas de aspas de abertura e fechamento foram substituídas pelos caracteres apropriados. |
 | 需要什么帮助? | 需要什么帮助？| O ponto de interrogação foi substituído pelo caractere apropriado. |
@@ -162,7 +162,7 @@ Aqui estão alguns exemplos de normalização executadas automaticamente na tran
 | ¡Eine Frage!     | eine frage               |
 | wir, haben       | wir haben                |
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
 - [Inspecione seus dados](how-to-custom-speech-inspect-data.md)

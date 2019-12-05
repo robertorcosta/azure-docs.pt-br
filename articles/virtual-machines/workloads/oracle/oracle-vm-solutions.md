@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 23e638b1d678e6ecf19c23220828185eb0e25a00
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 3abc09f8c82442e3b24a9edf6ef4fb42f19dfde8
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891447"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806942"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens de VM Oracle e sua implantação no Microsoft Azure
 
@@ -59,7 +59,7 @@ Essas imagens são consideradas "Traga sua própria licença" e como tal, você 
 Pessoas também podem optar por basear suas soluções em uma imagem personalizada, elas criam imagens do zero no Azure ou fazem upload da imagem personalizada de seu ambiente local.
 
 ## <a name="oracle-database-vm-images"></a>Imagens de VM de banco de dados Oracle
-O Oracle dá suporte à execução de Oracle DB 12,1 e superior Standard e Enterprise Editions no Azure em imagens de máquina virtual com base em Oracle Linux.  Para obter o melhor desempenho para cargas de trabalho de produção de Oracle DB no Azure, certifique-se de dimensionar corretamente a imagem da VM e usar SSD Premium ou SSD Ultra Managed Disks. Para obter instruções sobre como obter rapidamente um Banco de dados da Oracle em execução no Azure usando a imagem da VM publicada pela Oracle, [repita o passo a passo do início rápido do Banco de dados da Oracle](oracle-database-quick-create.md).
+O Oracle dá suporte à execução de Oracle Database 12,1 e superior Standard e Enterprise Editions no Azure em imagens de máquina virtual com base em Oracle Linux.  Para obter o melhor desempenho para cargas de trabalho de produção de Oracle Database no Azure, certifique-se de dimensionar corretamente a imagem da VM e usar SSD Premium ou SSD Ultra Managed Disks. Para obter instruções sobre como obter rapidamente um Oracle Database em funcionamento no Azure usando a imagem de VM publicada do Oracle, [Experimente o guia de início rápido do Oracle Database](oracle-database-quick-create.md).
 
 ### <a name="attached-disk-configuration-options"></a>Opções de configuração de disco anexado
 
@@ -79,13 +79,13 @@ Esses recursos são possíveis porque Azure NetApp Files se baseia no NetApp® O
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licenciamento Oracle Database software & no Azure
 Microsoft Azure é um ambiente de nuvem autorizado para execução de Oracle Database. A tabela de fatores básicos do Oracle não é aplicável ao licenciar bancos de dados Oracle na nuvem. Em vez disso, ao usar VMs com a tecnologia Hyper-Threading habilitada para bancos de dados Enterprise Edition, conte duas vCPUs como equivalentes a uma licença de processador Oracle se o hyperthreading estiver habilitado (conforme indicado no documento de política). Os detalhes da política podem ser encontrados [aqui](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Os bancos de dados Oracle geralmente exigem mais memória e e/s. Por esse motivo, as [VMs com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) são recomendadas para essas cargas de trabalho. Para otimizar suas cargas de trabalho ainda mais, as [VCPUs básicas restritas](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) são recomendadas para cargas de trabalho Oracle DB que exigem memória alta, armazenamento e largura de banda de e/s, mas não uma contagem de núcleos alta.
+Os bancos de dados Oracle geralmente exigem mais memória e e/s. Por esse motivo, as [VMs com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) são recomendadas para essas cargas de trabalho. Para otimizar suas cargas de trabalho ainda mais, as [VCPUs básicas restritas](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) são recomendadas para cargas de trabalho Oracle Database que exigem memória alta, armazenamento e largura de banda de e/s, mas não uma contagem de núcleos alta.
 
 Ao migrar o software e as cargas de trabalho do Oracle do local para o Microsoft Azure, a Oracle fornece mobilidade de licenças conforme indicado nas [perguntas frequentes sobre o Oracle no Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
-O RAC da Oracle foi projetado para atenuar a falha de um único nó em uma configuração de cluster de vários nós local. Ele se baseia em duas tecnologias locais que não são nativas em ambientes de nuvem pública de hiperescala: multicast de rede e disco compartilhado. Se sua solução de banco de dados exigir o Oracle RAC no Azure, você precisará de terceiro software de terceiros para habilitar essas tecnologias. Para obter mais informações sobre o Oracle RAC, consulte a [página FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle RAC (Real Application Cluster) foi projetado para atenuar a falha de um único nó em uma configuração de cluster de vários nós local. Ele se baseia em duas tecnologias locais que não são nativas em ambientes de nuvem pública de hiperescala: multicast de rede e disco compartilhado. Se sua solução de banco de dados exigir o Oracle RAC no Azure, você precisará de terceiro software de terceiros para habilitar essas tecnologias. Para obter mais informações sobre o Oracle RAC, consulte a [página FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerações sobre alta disponibilidade e recuperação de desastres
 Ao usar bancos de dados Oracle no Azure, você é responsável por implementar uma solução de alta disponibilidade e recuperação de desastres para evitar qualquer tempo de inatividade. 
@@ -107,20 +107,20 @@ De acordo com a nota de suporte da Oracle, a [ID do documento 2178595,1](https:/
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Imagens de máquina virtual do Oracle WebLogic Server
 
-* **Há suporte para clustering apenas na Enterprise Edition.** Você está licenciado para usar o clustering do WebLogic somente quando usar a Enterprise Edition do WebLogic Server. Não use clustering com a Standard Edition do WebLogic Server.
-* **O multicast de protocolo UDP não tem suporte.** O Azure dá suporte a unicast UDP, mas não a multicast ou difusão. O WebLogic Server pode se basear nos recursos de unicast UDP do Azure. Para obter os melhores resultados que dependem do UDP unicast, recomendamos que o tamanho do cluster WebLogic seja mantido estático ou mantido com no máximo 10 servidores gerenciados.
-* **O WebLogic Server espera que as portas públicas e privadas sejam as mesmas para o acesso T3 (por exemplo, ao usar o Enterprise JavaBeans).** Considere um cenário de várias camadas em que um aplicativo de camada de serviço (EJB) está em execução em um cluster do WebLogic Server que consiste em duas ou mais VMs, em uma rede virtual chamada *SLWLS*. A camada de cliente está em uma sub-rede diferente na mesma rede virtual, executando um programa Java simples tentando chamar o EJB na camada de serviço. Como é necessário balancear a carga da camada de serviço, um ponto de extremidade público com balanceamento de carga precisa ser criado para as máquinas virtuais no cluster do WebLogic Server. Se a porta privada que você especificar for diferente da porta pública (por exemplo, 7006:7008), ocorrerá um erro como o seguinte:
+* **Há suporte para clustering apenas na Enterprise Edition.** Você está licenciado para usar o clustering WebLogic somente ao usar o Enterprise Edition do Oracle WebLogic Server. Não use clustering com a edição Oracle WebLogic Server Standard.
+* **O multicast de protocolo UDP não tem suporte.** O Azure dá suporte a unicast UDP, mas não a multicast ou difusão. O Oracle WebLogic Server é capaz de contar com os recursos unicast UDP do Azure. Para obter os melhores resultados que dependem do UDP unicast, recomendamos que o tamanho do cluster WebLogic seja mantido estático ou mantido com no máximo 10 servidores gerenciados.
+* **O Oracle WebLogic Server espera que as portas públicas e privadas sejam as mesmas para o acesso T3 (por exemplo, ao usar Enterprise JavaBeans).** Considere um cenário de várias camadas em que um aplicativo de camada de serviço (EJB) está em execução em um cluster do Oracle WebLogic Server que consiste em duas ou mais VMs, em uma rede virtual chamada *SLWLS*. A camada de cliente está em uma sub-rede diferente na mesma rede virtual, executando um programa Java simples tentando chamar o EJB na camada de serviço. Como é necessário balancear a carga da camada de serviço, um ponto de extremidade público com balanceamento de carga precisa ser criado para as máquinas virtuais no cluster do Oracle WebLogic Server. Se a porta privada que você especificar for diferente da porta pública (por exemplo, 7006:7008), ocorrerá um erro como o seguinte:
 
        [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
 
        Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-   Isso ocorre porque para qualquer acesso remoto do T3, o WebLogic Server espera que a porta do balanceador de carga e a porta do servidor gerenciado WebLogic sejam iguais. No caso anterior, o cliente está acessando a porta 7006 (a porta do balanceador de carga) e o servidor gerenciado está escutando na 7008 (a porta privada). Essa restrição se aplica somente ao acesso T3, não HTTP.
+   Isso ocorre porque para qualquer acesso de T3 remoto, o Oracle WebLogic Server espera que a porta do balanceador de carga e a porta do servidor gerenciado WebLogic sejam as mesmas. No caso anterior, o cliente está acessando a porta 7006 (a porta do balanceador de carga) e o servidor gerenciado está escutando na 7008 (a porta privada). Essa restrição se aplica somente ao acesso T3, não HTTP.
 
    Para evitar esse problema, use uma das seguintes alternativas:
 
   * Use os mesmos números de porta pública e privada para pontos de extremidade com balanceamento de carga dedicados ao acesso T3.
-  * Inclua o seguinte parâmetro JVM ao iniciar o WebLogic Server:
+  * Inclua o seguinte parâmetro JVM ao iniciar o Oracle WebLogic Server:
 
     ```
     -Dweblogic.rjvm.enableprotocolswitch=true
@@ -128,10 +128,10 @@ De acordo com a nota de suporte da Oracle, a [ID do documento 2178595,1](https:/
 
 Para obter informações relacionadas, consulte o artigo KB **860340.1** em <https://support.oracle.com>.
 
-* **Limitações de balanceamento de carga e clustering dinâmico.** Suponha que você queira usar um cluster dinâmico no WebLogic Server e expô-lo por meio de um ponto de extremidade único, com balanceamento de carga, no Azure. Isso pode ser feito desde que você use um número de porta fixo para cada um dos servidores gerenciados (não atribuídos dinamicamente de um intervalo) e não inicie servidores mais gerenciados do que os computadores que o administrador está controlando. Ou seja, não há mais de um servidor gerenciado por máquina virtual). Se a sua configuração resultar em mais servidores WebLogic sendo iniciados do que há máquinas virtuais (ou seja, onde várias instâncias do WebLogic Server compartilham a mesma máquina virtual), não será possível para mais de uma dessas instâncias de servidores WebLogic para associar a um determinado número de porta. Os outros nessa máquina virtual falham.
+* **Limitações de balanceamento de carga e clustering dinâmico.** Suponha que você deseja usar um cluster dinâmico no Oracle WebLogic Server e expô-lo por meio de um único ponto de extremidade público com balanceamento de carga no Azure. Isso pode ser feito desde que você use um número de porta fixo para cada um dos servidores gerenciados (não atribuídos dinamicamente de um intervalo) e não inicie servidores mais gerenciados do que os computadores que o administrador está controlando. Ou seja, não há mais de um servidor gerenciado por máquina virtual). Se sua configuração resultar em mais servidores Oracle WebLogic sendo iniciados do que há máquinas virtuais (ou seja, onde várias instâncias do Oracle WebLogic Server compartilham a mesma máquina virtual), não será possível para mais de uma dessas instâncias de Servidores Oracle WebLogic a serem associados a um determinado número de porta. Os outros nessa máquina virtual falham.
 
    Se você configurar o servidor de administração para atribuir automaticamente números de porta exclusivos para os servidores gerenciados, o balanceamento de carga não será possível porque o Azure não dá suporte ao mapeamento de uma única porta pública para várias portas privadas, como seria necessário para esta configuração.
-* **Várias instâncias do WebLogic Server em uma máquina virtual.** Dependendo dos requisitos da sua implantação, você pode considerar a execução de várias instâncias do WebLogic Server na mesma máquina virtual, se a máquina virtual for grande o suficiente. Por exemplo, em uma máquina virtual de tamanho médio, que contém dois núcleos, você poderia optar por executar duas instâncias do WebLogic Server. No entanto, ainda recomendamos que você evite introduzir pontos únicos de falha em sua arquitetura, o que seria o caso se você usava apenas uma máquina virtual que esteja executando várias instâncias do WebLogic Server. Usar pelo menos duas máquinas virtuais pode ser uma abordagem melhor, e cada máquina virtual poderia executar várias instâncias do WebLogic Server. Cada instância do WebLogic Server ainda pode fazer parte do mesmo cluster. No entanto, no momento não é possível usar o Azure para balancear a carga de pontos de extremidade expostos por essas implantações do WebLogic Server na mesma máquina virtual, porque o Azure Load Balancer requer que os servidores com balanceamento de carga sejam distribuídos entre os únicos máquinas virtuais.
+* **Várias instâncias do Oracle WebLogic Server em uma máquina virtual.** Dependendo dos requisitos da sua implantação, você pode considerar a execução de várias instâncias do Oracle WebLogic Server na mesma máquina virtual, se a máquina virtual for grande o suficiente. Por exemplo, em uma máquina virtual de tamanho médio, que contém dois núcleos, você pode optar por executar duas instâncias do Oracle WebLogic Server. No entanto, ainda recomendamos que você evite introduzir pontos únicos de falha em sua arquitetura, o que seria o caso se você usava apenas uma máquina virtual que esteja executando várias instâncias do Oracle WebLogic Server. Usar pelo menos duas máquinas virtuais pode ser uma abordagem melhor, e cada máquina virtual poderia então executar várias instâncias do Oracle WebLogic Server. Cada instância do Oracle WebLogic Server ainda pode fazer parte do mesmo cluster. No entanto, no momento não é possível usar o Azure para balancear a carga de pontos de extremidade expostos por essas implantações do Oracle WebLogic Server na mesma máquina virtual, porque o Azure Load Balancer exige que os servidores com balanceamento de carga sejam distribuídos entre os únicos máquinas virtuais.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Imagens de máquina virtual no JDK do Oracle
 * **Atualizações mais recentes do JDK 6 e 7.** Embora seja recomendável usar a versão mais recente com suporte público do Java (atualmente, o Java 8), o Azure também disponibiliza imagens do JDK 6 e 7. Eles são voltados a aplicativos herdados que ainda não estão prontos para serem atualizado para o JDK 8. Enquanto atualizações para imagens do JDK anteriores podem não estar disponíveis para público em geral, devido à parceria da Microsoft com a Oracle, as imagens do JDK 6 e 7 fornecidas pelo Azure devem conter uma atualização mais recente, não pública, que normalmente é oferecida pela Oracle somente para um grupo selecionado de clientes com suporte da Oracle. As novas versões das imagens do JDK ficarão disponíveis com o passar do tempo, com versões atualizadas do JDK 6 e 7.
@@ -139,7 +139,7 @@ Para obter informações relacionadas, consulte o artigo KB **860340.1** em <htt
    O JDK disponível nas imagens do JDK 6 e 7 e as máquinas virtuais e imagens derivadas delas só podem ser usados no Azure.
 * **JDK de 64 bits.** As imagens de máquina virtual do Oracle WebLogic Server e as imagens de máquina virtual do Oracle JDK fornecidas pelo Azure contêm as versões de 64 bits do Windows Server e o JDK.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora você tem uma visão geral das soluções atuais da Oracle com base em imagens de máquina virtual no Microsoft Azure. A próxima etapa é implantar seu primeiro banco de dados Oracle no Azure.
 
 > [!div class="nextstepaction"]

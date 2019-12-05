@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b5cf375b1e5e4c09617dc6ae74513d303a9a6a4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559192"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816664"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Gravar amostras de voz para criar uma voz personalizada
 
@@ -32,7 +32,7 @@ Muitos detalhes pequenos, mas importantes, envolvem a criação de uma gravaçã
 
 Há quatro funções básicas em um projeto de gravação de voz personalizada:
 
-Role|Finalidade
+Função|Finalidade
 -|-
 Ator de voz        |A voz dessa pessoa formará a base da voz personalizada.
 Engenheiro de gravação  |Supervisiona os aspectos técnicos da gravação e opera o equipamento de gravação.
@@ -191,7 +191,7 @@ Grave uns bons cinco segundos de silêncio antes da primeira gravação para cap
 Ouça atentamente, usando fones de ouvido, a performance do ator de voz. Você está procurando uma boa dicção natural, pronúncia correta e ausência de sons indesejados. Não hesite em pedir ao ator de voz para regravar um enunciado que não atenda a esses padrões.
 
 > [!TIP]
-> Se você estiver usando um alto volume de enunciados, um único enunciado poderá não ter um efeito perceptível na voz personalizada resultante. Pode ser mais fácil simplesmente anotar quaisquer enunciados com problemas, excluí-los do conjunto de dados e verificar como a voz personalizada é exibida. Você sempre poderá retornar ao estúdio posteriormente e gravar as amostras com falha.
+> Se você estiver usando um alto volume de enunciados, um único enunciado poderá não ter um efeito perceptível na voz personalizada resultante. Pode ser mais vantajoso simplesmente anotar qualquer declarações com problemas, excluí-los do conjunto de informações e ver como sua voz personalizada se transforma. Você sempre pode voltar para o estúdio e registrar os exemplos perdidos posteriormente.
 
 Observe o número da tomada ou código de tempo no script para cada enunciado. Peça para o engenheiro marcar cada um dos enunciados nos metadados da gravação ou na lista de deixas.
 
@@ -215,7 +215,7 @@ Por fim, crie a *transcrição* que associa cada arquivo WAV a uma versão em te
 
 Arquive as gravações originais em um local seguro, caso precise delas posteriormente. Guarde também o script e as anotações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você está pronto para fazer upload as gravações e criar a voz personalizada.
 

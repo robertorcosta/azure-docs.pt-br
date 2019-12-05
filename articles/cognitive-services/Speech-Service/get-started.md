@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 30bdbf9fa0ea346892622c3e7f24f9f31652a650
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3ddba414ef1801b812d157ad734847099a8a9f25
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280474"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806177"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente
 
@@ -32,7 +32,7 @@ Neste artigo, você escolherá uma dessas opções que atenda melhor às suas ne
 >
 > Se você usar a camada de serviço de fala de baixo volume, gratuita, poderá manter essa assinatura gratuita mesmo depois que a avaliação gratuita ou o crédito de serviço expirar.
 >
-> Para obter mais informações, consulte [preços de serviços cognitivas – serviços de fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Para obter mais informações, consulte [preços de serviços cognitivas – serviço de fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## <a name="try-the-speech-service-without-credit-card-info"></a>Experimente o serviço de fala sem informações de cartão de crédito
 
@@ -64,7 +64,7 @@ Quando você tiver uma conta Microsoft, vá para a [página de inscrição do Az
 
 Para adicionar um recurso de serviço de Fala (camada gratuita ou paga) à sua conta do Azure:
 
-1. Entrar no [portal do Azure](https://portal.azure.com/) usando sua conta da Microsoft.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando sua conta Microsoft.
 
 1. Selecione **Criar um recurso** na parte superior esquerda do portal. Se você não vir **criar um recurso**, você sempre poderá encontrá-lo selecionando o menu recolhido no canto superior esquerdo:
 
@@ -83,7 +83,7 @@ Para adicionar um recurso de serviço de Fala (camada gratuita ou paga) à sua c
    - Escolha a [região](regions.md) em que o recurso será usado.
    - Escolha um tipo de preço gratuito (F0) ou pago (S0). Para obter informações completas sobre cotas de preço e uso para cada camada, selecione **Exibir detalhes de preços completos**.
    - Crie um grupo de recursos para esta assinatura de Fala ou atribua a assinatura a um grupo de recursos existente. Os grupos de recurso ajudam você a manter suas diversas assinaturas do Azure organizadas.
-   - Selecione **Criar**. Isso o levará para a visão geral da implantação e exibirá as mensagens de progresso da implantação.
+   - Clique em **Criar**. Isso o levará para a visão geral da implantação e exibirá as mensagens de progresso da implantação.
 
 Leva alguns minutos para implantar o novo recurso de fala. Após a conclusão da implantação, selecione **ir para o recurso** e, no painel de navegação esquerdo, selecione **chaves** para exibir as chaves de assinatura do serviço de fala. Cada assinatura tem duas chaves; você pode usar uma das chaves em seu aplicativo. Para copiar/colar rapidamente uma chave no editor de código ou em outro local, selecione o botão copiar ao lado de cada chave, alterne o Windows para colar o conteúdo da área de transferência no local desejado.
 
@@ -100,7 +100,7 @@ Para alternar de uma assinatura para outra, por exemplo, quando a avaliação gr
 - Se o aplicativo usar uma das [APIs REST](rest-apis.md) do serviço de Fala, a região fará parte do URI do ponto de extremidade usado ao fazer solicitações.
 - As chaves criadas para uma região são válidas somente nessa região. A tentativa de usá-las com outras regiões resultará em erros de autenticação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Conclua um de nossos inícios rápidos de 10 minutos ou confira nossas amostras de SDK:
 

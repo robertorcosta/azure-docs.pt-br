@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 2da8ef2c29bd6afdaf49e000bf964d119f1e99f1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 39e0a512e42dd861c0ee2c833501c7594204cb8b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110078"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806143"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Como: preencher comandos no cliente com o SDK de fala (versão prévia)
 
@@ -26,10 +26,10 @@ Neste artigo, você vai:
 - Definir e enviar uma carga JSON personalizada de seu aplicativo de comandos personalizados
 - Receber e visualizar o conteúdo da carga JSON personalizada de C# um aplicativo cliente do SDK de fala do UWP
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Uma chave de assinatura do Azure para serviços de fala
+- Uma chave de assinatura do Azure para o serviço de fala
   - [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com)
 - Um aplicativo de comandos personalizados criado anteriormente
   - [Início rápido: criar um comando personalizado com parâmetros (versão prévia)](./quickstart-custom-speech-commands-create-parameters.md)
@@ -49,7 +49,7 @@ Este artigo descreve, passo a passo, como fazer um aplicativo cliente se comunic
    > [!div class="mx-imgBorder"]
    > ![regra de conclusão de atividade de envio](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | Configuração | Valor sugerido | DESCRIÇÃO |
+   | Configuração | Valor sugerido | Descrição |
    | ------- | --------------- | ----------- |
    | Nome da Regra | UpdateDeviceState | Um nome que descreve a finalidade da regra |
    | Conditions | Parâmetro necessário-`OnOff` e `SubjectDevice` | Condições que determinam quando a regra pode ser executada |
@@ -131,7 +131,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Faça o teste
 
 1. Iniciar o aplicativo
 1. Selecione habilitar microfone
@@ -139,7 +139,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Digamos `turn on the tv`
 1. O estado visual da TV deve mudar para "on"
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Como: Adicionar validações a parâmetros de comando personalizados (visualização)](./how-to-custom-speech-commands-validations.md)
