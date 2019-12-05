@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 5bf93980a8be86c77240ab981eb812a738a96204
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673228"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828888"
 ---
 É possível criar uma VNet com um modelo de implantação do Resource Manager e com o portal do Azure seguindo estas etapas. Para obter mais informações sobre redes virtuais, confira [Visão geral da rede virtual](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,15 +22,17 @@ ms.locfileid: "67673228"
 >
 >
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Criar um recurso**. A página **Novo** é aberta.
+1. Entre no [portal do Azure](https://portal.azure.com).  No menu portal do Azure ou na **Home** Page do e selecione **criar um recurso**. A página **Novo** é aberta.
 
-2. No campo **Pesquisar no marketplace**, insira *rede virtual* e selecione **Rede virtual** na lista retornada. A página **Rede virtual** é aberta.
+2. Em **Pesquisar no Marketplace**, insira *rede virtual* e selecione **rede virtual** nos resultados.
 
-   ![Localizar a página de recursos da Rede Virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Localizar a página de recursos da rede virtual")
+   ![Página localizar recurso de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/search-marketplace-for-virtual-network.png "Página localizar recurso de rede virtual")
+
+   A página **Rede virtual** é aberta.
 
 3. Na lista **Selecionar um modelo de implantação** próxima à parte inferior da página, selecione **Resource Manager** e, em seguida, **Criar**. A página **Criar rede virtual** é aberta.
 
-   ![Página Criar rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Página Criar rede virtual")
+   ![Página criar rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Criar página da rede virtual")
 
 4. Na página **Criar rede virtual**, defina as configurações da VNet. Quando preencher os campos, o ponto de exclamação vermelho se tornará um ponto de seleção verde quando os caracteres inseridos no campo forem validados. Alguns valores são preenchidos automaticamente, que podem ser substituídos por seus próprios valores:
 
@@ -40,10 +42,10 @@ ms.locfileid: "67673228"
 
    - **Assinatura**: verifique se a assinatura listada é a correta. Você pode alterar as assinaturas usando o menu suspenso.
 
-   - **Grupo de recursos**: selecione um grupo de recursos existente ou crie um inserindo um nome para seu novo grupo de recursos. Se você estiver criando um novo grupo, dê o nome do grupo de recursos de acordo com seus valores de configuração planejados. Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+   - **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo inserindo um nome para o novo grupo de recursos. Se você estiver criando um novo grupo, dê o nome do grupo de recursos de acordo com seus valores de configuração planejados. Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
 
-   - **Localização**: selecione a localização de sua VNet. A localização determina onde ficarão os recursos que você implanta nessa rede virtual.
+   - **Local**: selecione o local de sua rede virtual. A localização determina onde ficarão os recursos que você implanta nessa rede virtual.
 
-   - **Sub-rede**: adicione o **Nome** da sub-rede e o **Intervalo de endereços** dela. É possível adicionar outras sub-redes posteriormente, depois de criar a VNet. 
+   - **Sub**-rede: Adicione o **nome** da sub-rede e o **intervalo de endereços**da sub-rede. É possível adicionar outras sub-redes posteriormente, depois de criar a VNet. 
      
-5. Selecione **Criar**.
+5. Clique em **Criar**.

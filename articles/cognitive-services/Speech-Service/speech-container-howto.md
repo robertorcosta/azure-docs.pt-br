@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325858"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815363"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar contêineres do serviço de fala (versão prévia)
 
@@ -35,13 +35,13 @@ Os contêineres de fala permitem que os clientes criem uma arquitetura de aplica
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala:
 
 | obrigatórios | Finalidade |
 |--|--|
-| Mecanismo Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
+| Mecanismo Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para uma cartilha no Docker e noções básicas sobre contêineres, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres se conectem e enviem dados de faturamento para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
 | Recurso de fala | Para usar esses contêineres, será necessário ter:<br><br>Um recurso de _fala_ do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas visão geral de **fala** e chaves de portal do Azure. Eles são necessários para iniciar o contêiner.<br><br>**{Api_key}** : uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página **visão geral** |
 
@@ -75,25 +75,25 @@ A tabela a seguir descreve a alocação mínima e recomendada de recursos para c
 
 # <a name="speech-to-texttabstt"></a>[Conversão de fala em texto](#tab/stt)
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="custom-speech-to-texttabcstt"></a>[Fala Personalizada para texto](#tab/cstt)
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="text-to-speechtabtts"></a>[Conversão de texto em fala](#tab/tts)
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Conversão de texto em fala | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
 # <a name="custom-text-to-speechtabctts"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Conversão de texto em fala personalizada | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
@@ -273,7 +273,7 @@ Obtenha a **ID do modelo** para usar como o argumento para o parâmetro `ModelId
 
 A tabela a seguir representa os vários parâmetros `docker run` e suas descrições correspondentes:
 
-| . | DESCRIÇÃO |
+| . | Descrição |
 |---------|---------|
 | `{VOLUME_MOUNT}` | A montagem de [volume](https://docs.docker.com/storage/volumes/)do computador host, que o Docker usa para manter o modelo personalizado. Por exemplo, *C:\CustomSpeech* onde a *unidade C* está localizada no computador host. |
 | `{MODEL_ID}` | A **ID do modelo** de fala personalizada da página de **treinamento** do portal de fala personalizado. |
@@ -335,7 +335,7 @@ Obtenha a **ID do modelo** para usar como o argumento para o `ModelId` parâmetr
 
 A tabela a seguir representa os vários parâmetros `docker run` e suas descrições correspondentes:
 
-| . | DESCRIÇÃO |
+| . | Descrição |
 |---------|---------|
 | `{VOLUME_MOUNT}` | A montagem de [volume](https://docs.docker.com/storage/volumes/)do computador host, que o Docker usa para manter o modelo personalizado. Por exemplo, *C:\CustomSpeech* onde a *unidade C* está localizada no computador host. |
 | `{MODEL_ID}` | A **ID do modelo** de fala personalizada da página de **treinamento** do portal de voz personalizado. |
@@ -367,16 +367,14 @@ Esse comando:
 ***
 
 > [!IMPORTANT]
-> As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para obter mais informações, confira [Cobrança](#billing).
+> As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
-| Contêiner | Ponto de extremidade | Protocolo |
+| Contêineres | URL do host do SDK | Protocolo |
 |--|--|--|
-| Conversão de fala em texto | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Fala Personalizada para texto | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Conversão de texto em fala | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | http |
-| Conversão de texto em fala personalizada | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | http |
+| Conversão de fala em texto e Fala Personalizada em texto | `ws://localhost:5000` | WS |
+| Conversão de texto em fala e Text-to-Speech personalizado | `http://localhost:5000` | http |
 
 Para obter mais informações sobre como usar os protocolos do WSS e HTTPS, consulte [segurança do contêiner](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -398,7 +396,7 @@ Se você pretende executar vários contêineres com portas expostas, execute cad
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Ao iniciar ou executar o contêiner, você poderá ter problemas. Use uma [montagem](speech-container-configuration.md#mount-settings) de saída e habilite o registro em log. Isso permitirá que o contêiner gere arquivos de log que são úteis ao solucionar problemas.
 
@@ -410,7 +408,7 @@ Os contêineres de fala enviam informações de cobrança para o Azure, usando u
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre essas opções, confira [Configurar os contêineres](speech-container-configuration.md).
+Para obter mais informações sobre essas opções, consulte [Configurar contêineres](speech-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 
@@ -433,7 +431,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para baixar, ins
 > [!IMPORTANT]
 >  Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Examinar [definir contêineres](speech-container-configuration.md) para definições de configuração
 * Saiba como [usar contêineres de serviço de fala com kubernetes e Helm](speech-container-howto-on-premises.md)

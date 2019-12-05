@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: fec81e843753656d651c6d5d0b73077a964be9d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828521"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807435"
 ---
 # <a name="azure-service-fabric-security"></a>Segurança do Azure Service Fabric 
 
@@ -63,7 +63,7 @@ Para implantar certificados de um keyvault colocalizado em um Conjunto de dimens
 > [!NOTE]
 > O vault deve ser habilitado para a implantação do modelo do Resource Manager.
 
-## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Aplicar uma Lista de controle de acesso (ACL) em seu certificado para o cluster do Service Fabric
+## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Aplicar uma ACL (Lista de Controle de Acesso) em seu certificado para o cluster do Service Fabric
 
 O publicador das [extensões do Conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) Microsoft.Azure.ServiceFabric é usado para configurar a Segurança dos Nós.
 Para aplicar uma ACL a seus certificados para os processos de cluster do Service Fabric, use as seguintes propriedades de modelo do Resource Manager:
@@ -102,7 +102,7 @@ Para obter detalhes adicionais sobre como configurar o serviço DNS para resolve
 
 > [!NOTE]
 > Após delegar seus servidores de nome de domínios a seus servidores de nome de zona DNS do Azure, adicione os dois registros a seguir na zona DNS:
-> - Um registro 'A' para o domínio APEX que NÃO seja um `Alias record set` em todos os endereços IP que seu domínio personalizado irá resolver.
+> - Um registro 'A' para o domínio APEX que NÃO seja um `Alias record set` em todos os endereços IP que seu domínio personalizado resolverá.
 > - Um registro de 'C' para subdomínios Microsoft que você provisionou que NÃO seja um `Alias record set`. Por exemplo, você pode usar o Gerenciador de Tráfego ou nome DNS do Load Balancer.
 
 Para atualizar seu portal a fim de exibir um nome DNS personalizado de seu cluster do Service Fabric `"managementEndpoint"`, atualize as seguintes propriedades de modelo do Resource Manager do Cluster do Service Fabric:
@@ -166,12 +166,12 @@ Para dar ao seu aplicativo acesso aos segredos, inclua o certificado adicionando
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autenticar aplicativos do Service Fabric para recursos do Azure usando a Identidade de Serviço Gerenciada (MSI)
 
-Para saber mais sobre as identidades gerenciadas para os recursos do Azure, confira o artigo [O que são as identidades gerenciadas para recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
-Os clusters do Azure Service Fabric são hospedados em Conjuntos de Dimensionamento de Máquinas Virtuais que oferece suporte à [Identidade de Serviço Gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
-Para obter uma lista de serviços nos quais a MSI pode ser usada para autenticação, confira os [serviços do Azure que oferecem suporte à autenticação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
+Para saber mais sobre as identidades gerenciadas para os recursos do Azure, confira o artigo [O que são as identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+Os clusters do Azure Service Fabric são hospedados em Conjuntos de Dimensionamento de Máquinas Virtuais que dão suporte à [Identidade de Serviço Gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
+Para obter uma lista de serviços nos quais a MSI pode ser usada para autenticação, confira os [serviços do Azure que dão suporte à autenticação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
 
-Para habilitar a identidade gerenciada atribuída ao sistema durante a criação de um conjunto de dimensionamento de máquinas virtuais ou um conjunto de dimensionamento de máquinas virtuais existente, declare as seguintes propriedades `"Microsoft.Compute/virtualMachinesScaleSets"`:
+Para habilitar a identidade gerenciada atribuída ao sistema durante a criação de um conjunto de dimensionamento de máquinas virtuais ou um conjunto de dimensionamento de máquinas virtuais existente, declare a seguinte propriedade `"Microsoft.Compute/virtualMachinesScaleSets"`:
 
 ```json
 "identity": { 
@@ -191,7 +191,7 @@ Se você tiver criado uma [identidade gerenciada atribuída ao usuário](https:/
 }
 ```
 
-Antes de o aplicativo do Service Fabric poder usar a identidade gerenciada, é necessário conceder permissões aos Recursos do Azure que ele necessita para se autenticar.
+Para que o aplicativo do Service Fabric possa usar a identidade gerenciada, é necessário conceder permissões aos Recursos do Azure de que ele necessita para se autenticar.
 Os comandos a seguir concedem acesso a um Recurso do Azure:
 
 ```bash
@@ -274,7 +274,7 @@ Por padrão, os aplicativos Service Fabric recebem acesso ao próprio Service Fa
 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Crie um cluster em VMs ou computadores executando o Windows Server: [Service Fabric a criação de cluster para o Windows Server](service-fabric-cluster-creation-for-windows-server.md).
 * Criar um cluster em VMs ou computadores executando o Linux: [criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md).

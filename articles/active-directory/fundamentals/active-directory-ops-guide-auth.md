@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 6b9d5eb3adb8cad963ec513d327d237e73f94878
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535581"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803726"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação Azure Active Directory
 
@@ -363,7 +363,7 @@ Ter acesso a atividades de entrada, auditorias e eventos de risco do Azure AD é
 - [Obtenha dados usando a API de relatórios do Microsoft Azure Active Directory com certificados](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Microsoft Graph para Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [Referência de API de atividade de gerenciamento do Office 365](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
-- [Como usar o pacote de conteúdo do Azure Active Directory Power BI](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
+- [Como usar o pacote de conteúdo do Azure Active Directory Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## <a name="summary"></a>Resumo
 

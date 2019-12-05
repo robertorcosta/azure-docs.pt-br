@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e9781d9c277d19257d9b00bea3106adb3b04ffd6
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672515"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806874"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Usando pontos de extremidade privados para o armazenamento do Azure (visualização)
 
@@ -32,7 +32,7 @@ Um ponto de extremidade privado é uma interface de rede especial para um servi�
 
 Os aplicativos na VNet podem se conectar ao serviço de armazenamento por meio do ponto de extremidade privado diretamente, **usando as mesmas cadeias de conexão e mecanismos de autorização que eles usariam de outra forma**. Pontos de extremidade privados podem ser usados com todos os protocolos compatíveis com a conta de armazenamento, incluindo REST e SMB.
 
-Pontos de extremidade privados podem ser criados em sub-redes que usam [pontos de extremidade de serviço](/azure/virtual-network/virtual-network-service-endpoints-overview.md). Os clientes em uma sub-rede podem, portanto, se conectar a uma conta de armazenamento usando o ponto de extremidade privado, ao mesmo tempo que usam pontos de extremidades de serviço para acessar outros.
+Pontos de extremidade privados podem ser criados em sub-redes que usam [pontos de extremidade de serviço](../../virtual-network/virtual-network-service-endpoints-overview.md). Os clientes em uma sub-rede podem, portanto, se conectar a uma conta de armazenamento usando o ponto de extremidade privado, ao mesmo tempo que usam pontos de extremidades de serviço para acessar outros.
 
 Quando você cria um ponto de extremidade privado para um serviço de armazenamento em sua rede virtual, uma solicitação de consentimento é enviada para aprovação para o proprietário da conta de armazenamento. Se o usuário que solicita a criação do ponto de extremidade privado também for um proprietário da conta de armazenamento, essa solicitação de consentimento será aprovada automaticamente.
 
@@ -107,16 +107,16 @@ Os nomes de zona DNS recomendados para pontos de extremidade privados para servi
 | Serviço de Blob           | `privatelink.blob.core.windows.net`  |
 | Data Lake Store Gen2 | `privatelink.dfs.core.windows.net`   |
 | Serviço de arquivo           | `privatelink.file.core.windows.net`  |
-| serviço Fila          | `privatelink.queue.core.windows.net` |
-| Serviço tabela          | `privatelink.table.core.windows.net` |
+| Serviço Fila          | `privatelink.queue.core.windows.net` |
+| Serviço Tabela          | `privatelink.table.core.windows.net` |
 | Sites estáticos        | `privatelink.web.core.windows.net`   |
 
 #### <a name="resources"></a>Implante
 
 Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
 
-- [Resolução de nomes para recursos em redes virtuais do Azure](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuração de DNS para pontos de extremidade privados](/private-link/private-endpoint-overview#dns-configuration)
+- [Resolução de nomes para recursos em redes virtuais do Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Configuração de DNS para pontos de extremidade privados](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>Preços
 

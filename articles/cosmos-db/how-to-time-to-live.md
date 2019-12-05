@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8bae2db08a5279225eba7492c63706dc9fc3df02
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815909"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819504"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
 
@@ -21,7 +21,7 @@ No Azure Cosmos DB, você pode optar por configurar a TTL (vida útil) no nível
 
 Use as etapas a seguir para habilitar a vida útil de um contêiner sem prazo de expiração. Habilite essa opção para permitir que a TTL seja substituída no nível do item. Você também pode definir a TTL inserindo um valor diferente de zero para os segundos.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Crie uma nova conta do Cosmos ou selecione uma conta existente.
 
@@ -86,7 +86,7 @@ Para definir a vida útil de um contêiner, você precisará fornecer um número
 DocumentCollection collectionDefinition = new DocumentCollection();
 collectionDefinition.Id = "myContainer";
 collectionDefinition.PartitionKey.Paths.Add("/myPartitionKey");
-collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24 // expire all documents after 90 days
 
 DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
@@ -133,7 +133,7 @@ Além de definir uma vida útil padrão de um contêiner, você pode definir a v
 
 Use as etapas a seguir para habilitar a vida útil de um item:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Crie uma nova conta do Cosmos ou selecione uma conta existente.
 
@@ -279,7 +279,7 @@ containerResponse.Resource.DefaultTimeToLive = null;
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre vida útil no seguinte artigo:
 

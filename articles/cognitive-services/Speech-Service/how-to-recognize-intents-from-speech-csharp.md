@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: 1c61f8c0fe1c2a04d390567cc0bc94f22bc5e897
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110166"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805885"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Como reconhecer tentativas de fala usando o SDK de fala paraC#
 
@@ -35,7 +35,7 @@ Neste guia, você usa o SDK de fala para desenvolver um C# aplicativo de console
 > - Reconhecer a fala de um arquivo
 > - Usar reconhecimento contínuo, assíncrono e orientado a eventos
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se você tem os seguintes itens antes de iniciar este guia:
 
@@ -44,7 +44,7 @@ Verifique se você tem os seguintes itens antes de iniciar este guia:
 
 ## <a name="luis-and-speech"></a>LUIS e fala
 
-O LUIS integra-se aos Serviços de Fala para reconhecer intenções de fala. Você não precisa de uma assinatura dos Serviços de Fala, apenas do LUIS.
+O LUIS integra-se ao serviço de Fala para reconhecer intenções de fala. Você não precisa de uma assinatura do serviço de Fala, apenas do LUIS.
 
 O LUIS usa três tipos de chaves:
 
@@ -56,7 +56,7 @@ O LUIS usa três tipos de chaves:
 
 Para este guia, você precisa do tipo de chave do ponto de extremidade. Este guia usa o aplicativo de exemplo Home Automation LUIS, que você pode criar seguindo o guia de início rápido [usar aplicativo de automação inicial predefinido](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Se já tiver criado um aplicativo LUIS próprio, você poderá usá-lo.
 
-Ao criar um aplicativo LUIS, o LUIS gera automaticamente uma chave de início para que você possa testar o aplicativo usando consultas de texto. Esta chave não habilita a integração dos serviços de fala e não funcionará com este guia. Crie um recurso LUIS no painel do Azure e atribua-o ao aplicativo LUIS. Você pode usar a camada de assinatura gratuita para este guia.
+Ao criar um aplicativo LUIS, o LUIS gera automaticamente uma chave de início para que você possa testar o aplicativo usando consultas de texto. Esta chave não habilita a integração do serviço de fala e não funcionará com este guia. Crie um recurso LUIS no painel do Azure e atribua-o ao aplicativo LUIS. Você pode usar a camada de assinatura gratuita para este guia.
 
 Após criar o recurso LUIS no painel do Azure, faça logon no [portal do LUIS](https://www.luis.ai/home), escolha seu aplicativo na página **Meus Aplicativos** e alterne para a página **Gerenciar** do aplicativo. Por fim, selecione **Chaves e os pontos de extremidade** na barra lateral.
 
@@ -128,7 +128,7 @@ As seções a seguir incluem uma discussão sobre o código.
 Primeiro, você precisa criar uma configuração de fala em sua chave e região de ponto de extremidade do LUIS. Você pode usar as configurações de fala para criar reconhecedores para as várias funcionalidades do SDK de Fala. A configuração de fala tem várias maneiras de especificar a assinatura que você deseja usar. Aqui, usamos `FromSubscription`, que usa a chave de assinatura e a região.
 
 > [!NOTE]
-> Use a chave e a região de sua assinatura do LUIS, não de uma assinatura dos Serviços de Fala.
+> Use a chave e a região da sua assinatura do LUIS, não uma assinatura do serviço de fala.
 
 Em seguida, crie um reconhecedor de intenção usando `new IntentRecognizer(config)`. Depois que a configuração souber qual assinatura usar, você não precisará especificar a chave de assinatura e o ponto de extremidade novamente ao criar o reconhecedor.
 
@@ -156,7 +156,7 @@ Em vez de adicionar as intenções individuais, você também pode usar o métod
 
 Com o reconhecedor criado e as intenções adicionadas, o reconhecimento pode começar. O SDK de Fala é compatível com reconhecimento pontual e contínuo.
 
-| Modo de reconhecimento | Métodos de chamada | Resultado |
+| Modo de reconhecimento | Métodos de chamada | Result |
 | ---------------- | --------------- | ------ |
 | Pontual | `RecognizeOnceAsync()` | Retorna a intenção reconhecida, se houver, após uma declaração. |
 | Contínuo | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Reconhece vários enunciados; emite eventos (por exemplo, `IntermediateResultReceived`) quando os resultados estão disponíveis. |
@@ -194,7 +194,7 @@ Por exemplo, se você disser “Apague as luzes”, pausar e depois disser “Ac
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure o código neste artigo na pasta **samples/csharp/sharedcontent/console**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Início rápido: reconhecer a fala de um microfone](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

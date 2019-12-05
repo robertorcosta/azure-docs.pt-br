@@ -1,7 +1,7 @@
 ---
 title: Áudio compactado do codec de fluxo com o SDK de fala no Android
 titleSuffix: Azure Cognitive Services
-description: Saiba como transmitir áudio compactado para os serviços de fala do Azure com o SDK de fala no Android.
+description: Saiba como transmitir áudio compactado para o serviço de fala com o SDK de fala no Android.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109910"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805834"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Como usar a entrada de áudio compactado por codec com o SDK de fala no Android
 
@@ -133,7 +133,7 @@ Depois que o objeto compartilhado (libgstreamer_android. so) é criado, o desenv
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo usando a entrada de áudio compactado por codec
 
-Para transmitir em um formato de áudio compactado para os serviços de fala, crie `PullAudioInputStream` ou `PushAudioInputStream`. Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
+Para transmitir em um formato de áudio compactado para o serviço de fala, crie `PullAudioInputStream` ou `PushAudioInputStream`. Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
 
 Vamos supor que você tenha uma classe de fluxo de entrada chamada `myPullStream` e esteja usando OPUS/OGG. Seu código pode ter a seguinte aparência:
 
@@ -157,7 +157,7 @@ SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get()
 String text = result.getText();
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Obter a assinatura de avaliação do Speech](https://azure.microsoft.com/try/cognitive-services/)
 - [Veja como reconhecer a fala em Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

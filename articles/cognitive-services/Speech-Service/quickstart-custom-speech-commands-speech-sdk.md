@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 890d2200a8047bc12c99eed97277e11776806def
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: da90e1fb8ab6241cbe0bfa583e1b4a3fbe338ad8
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111164"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812970"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Início rápido: conectar a um aplicativo de comandos personalizados com o SDK de fala (versão prévia)
 
@@ -36,7 +36,7 @@ Um aplicativo de comandos personalizados é necessário para concluir este artig
 Você também precisará de:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com)
+- Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com)
 
 ## <a name="optional-get-started-fast"></a>Opcional: introdução rápida
 
@@ -414,7 +414,7 @@ Adicione a fonte code-behind da seguinte maneira:
 
 1. Selecione **falar**e fale uma frase ou sentença em inglês no microfone do seu dispositivo. Sua fala será transmitida para o canal de Fala do Direct Line e transcrita em texto, que será exibida na janela.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Como: preencher comandos no cliente com o SDK de fala (versão prévia)](./how-to-custom-speech-commands-fulfill-sdk.md)

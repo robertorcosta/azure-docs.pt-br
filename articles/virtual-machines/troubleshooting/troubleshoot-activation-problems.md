@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: f3ad58c4094e9f39bcf9782b7b98e351e9d7809b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a1c2049d7355ab946dbf426ec71f7f6178b8f153
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058142"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819109"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows Azure
 
@@ -26,7 +26,7 @@ Se você tiver problemas durante a ativação da máquina virtual do Windows Azu
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Noções básicas sobre pontos de extremidade do Azure KMS para ativação do Windows de Máquinas Virtuais do Azure
 
-O Azure usa pontos de extremidade diferentes para ativação do KMS, dependendo da região de nuvem onde a VM reside. Ao usar este guia de solução de problemas, use o ponto de extremidade apropriado do KMS que se aplica à região.
+O Azure usa pontos de extremidade diferentes para a ativação do KMS (serviços de gerenciamento de chaves), dependendo da região da nuvem onde reside a VM. Ao usar este guia de solução de problemas, use o ponto de extremidade apropriado do KMS que se aplica à região.
 
 * Regiões de nuvem pública do Azure: kms.core.windows.net:1688
 * Azure China 21Vianet national cloud regions: kms.core.chinacloudapi.cn:1688
@@ -37,7 +37,7 @@ O Azure usa pontos de extremidade diferentes para ativação do KMS, dependendo 
 
 Quando você tentar ativar uma VM do Windows Azure, você recebe um erro mensagem se parece com o exemplo a seguir:
 
-**Erro: 0xC004F074 O Serviço de Licenciamento do Software relatou que o computador não pode ser ativado. Não foi possível fazer contato com nenhum Serviço de Gerenciamento de Chaves (KMS). Consulte o Log de Eventos do Aplicativo para obter informações adicionais.**
+**Erro: 0xC004F074 o serviço de software relatou que o computador não pôde ser ativado. Nenhum ManagementService de chave (KMS) pôde ser contatado. Consulte o log de eventos do aplicativo para obter informações adicionais.**
 
 ## <a name="cause"></a>Causa
 
@@ -94,7 +94,7 @@ Para a VM que é criada com base em uma imagem personalizada, você deve configu
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-   Na penúltima linha da saída, certifique-se de que você vê: Sent = 4, Received = 4, Lost = 0 (0% loss).
+   Na penúltima linha da saída, certifique-se de que você vê: Sent = 4, Received = 4, Lost = 0 (0% de perda).
 
    Se Lost for maior que 0 (zero), a VM não tem conectividade com o servidor KMS. Nessa situação, se a VM estiver em uma rede virtual e tiver um servidor DNS especificado, certifique-se de que o servidor DNS é capaz de resolver kms.core.windows.net. Ou então, altere o servidor DNS para um que resolva kms.core.windows.net.
 
@@ -117,7 +117,7 @@ Para a VM que é criada com base em uma imagem personalizada, você deve configu
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Criei o Windows Server 2016 a partir do Azure Marketplace. É necessário configurar a chave KMS para ativação do Windows Server 2016? 
 
  
-Nº A imagem no Azure Marketplace já possui a chave de instalação de cliente KMS adequada configurada. 
+Não. A imagem no Azure Marketplace já possui a chave de instalação de cliente KMS adequada configurada. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>A ativação do Windows funciona da mesma maneira independentemente se a VM estiver usando o Benefício de Uso Híbrido do Azure (HUB) ou não? 
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: a1fcc1bec5db3ad64dc045cf5e1a449fce808132
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dc948629784254c9153f7f48ead7ff253e5f4453
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721215"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806381"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Fontes de dados para conteúdo do QnA Maker
 
@@ -30,7 +30,7 @@ A tabela a seguir resume os tipos de conteúdo e formatos de arquivo com suporte
 |Tipo de Fonte|Tipo de conteúdo| Exemplos|
 |--|--|--|
 |URL|Perguntas frequentes<br> (simples, com seções ou com uma página inicial de tópicos)<br>Páginas de suporte <br> (artigos de instrução de uma página, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/en-us/software-download/faq),<br> [Perguntas frequentes com home page de tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF/DOC|Perguntas frequentes,<br> Manual do Produto,<br> Folhetos,<br> Papel,<br> Política de folheto,<br> Guia de suporte,<br> QnA estruturado,<br> etc.|[QnA.doc estruturado](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo produto Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo semi-estruturado.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo White Paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Exemplo de multi-Turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
+|PDF/DOC|Perguntas frequentes,<br> Manual do Produto,<br> Folhetos,<br> Papel,<br> Política de folheto,<br> Guia de suporte,<br> QnA estruturado,<br> etc.|[QnA.doc estruturado](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx),<br> [Exemplo produto Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo semi-estruturado.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo White Paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Exemplo de multi-Turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
 |\* Excel|Arquivo QnA estruturado<br> (incluindo suporte RTF, HTML)|[Exemplo de QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|Arquivo QnA estruturado|[Exemplo de chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
@@ -171,7 +171,7 @@ Depois que o arquivo for importado, o par de perguntas e respostas estará na ba
 
 Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. A importação requer um arquivo .tsv estruturado que contenha informações de fonte de dados. Essas informações ajudam o QnA Maker a agrupar os pares de resposta de pergunta e atribuí-los a uma fonte de dados específico.
 
-| Pergunta  | Resposta  | Fonte| Metadados (1 chave: 1 valor) |          
+| Pergunta  | Resposta  | Origem| Metadados (1 chave: 1 valor) |          
 |-----------|---------|----|---------------------|
 | Pergunta1 | Resposta1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Pergunta2 | Resposta2 | Editorial|    `Key:Value`       |
@@ -190,7 +190,7 @@ Se você adicionar ou editar seu conteúdo diretamente na sua base de dados de c
 
 A seguir está a lista de formatos de redução que você pode usar em QnA Maker: 
 
-|Finalidade|Formatar|Redução de exemplo|Renderização<br>conforme exibido no bot de chat|
+|Finalidade|Formatar|Exemplo de markdown|Renderização<br>conforme exibido no bot de chat|
 |--|--|--|--|
 Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![Formatar nova linha entre duas frases](../media/qnamaker-concepts-datasources/format-newline.png)|
 |Cabeçalhos de H1 a H6, o número de `#` denota qual cabeçalho. 1 `#` é o H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![Formatar com cabeçalhos de redução](../media/qnamaker-concepts-datasources/format-headers.png)<br>![Formatar com cabeçalhos de redução H1 a H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
@@ -198,13 +198,13 @@ Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA M
 |Cadeia de caracteres (negrito)|`**text**`|`How do I create a bot with **QnA Maker**?`|![Formatar com marcação forte para negrito](../media/qnamaker-concepts-datasources/format-strong.png)|
 |URL para o link|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![formato da URL (hiperlink)](../media/qnamaker-concepts-datasources/format-url.png)|
 |\* URL para imagem pública|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![formato da URL da imagem pública ](../media/qnamaker-concepts-datasources/format-image-url.png)|
-|Risca|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato de tachado](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|Tachado|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato de tachado](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
 |Negrito e itálico|`***text***`|`How can I create a ***QnA Maker*** bot?`|![formato para negrito e itálico](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |URL em negrito para o link|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formato para URL em negrito](../media/qnamaker-concepts-datasources/format-bold-url.png)|
 |URL de itálico para o link|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato para URL de itálico](../media/qnamaker-concepts-datasources/format-url-italics.png)|
 |Símbolos de redução de escape|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato para URL de itálico](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Lista ordenada|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>O exemplo anterior usa a numeração automática incorporada à redução.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>O exemplo anterior usa a numeração explícita.|![formato da lista ordenada](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
-|Lista não ordenada|`\n * item1 \n * item2`<br>ou o<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![formato da lista não ordenada](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|Lista não ordenada|`\n * item1 \n * item2`<br>ou<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![formato da lista não ordenada](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
 |Listas aninhadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Você pode aninhar listas ordenadas e não ordenadas juntas. A guia `\t`, indica o nível de recuo do elemento filho.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato da lista não ordenada aninhada](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato da lista ordenada aninhada](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker não processa a imagem de forma alguma. É a função do aplicativo cliente para renderizar a imagem. 
@@ -213,8 +213,8 @@ Se você deseja adicionar conteúdo usando atualizar/substituir APIs da base de 
 
 | Preservar HTML  | Representação na solicitação de API  | Representação em KB |
 |-----------|---------|-------------------------|
-| Sim | \&lt; br\&gt; | &lt;br&gt; |
-| Sim | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;o cabeçalho&gt;H3&lt;/H3&gt; |
+| SIM | \&lt; br\&gt; | &lt;br&gt; |
+| SIM | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;o cabeçalho&gt;H3&lt;/H3&gt; |
 
 Além disso, CR LF (\r\n) são convertidas em \n no KB. A LF (\n) é mantida como está. Se você quiser escapar qualquer sequência de escape como um \t ou \n, poderá usar uma barra invertida, por exemplo: '\\\\r\\\\n ' e '\\\\t '
 
@@ -234,11 +234,11 @@ Use o tutorial **[CommonMark](https://commonmark.org/help/tutorial/index.html)**
 
 O controle de versão para dados é fornecido por meio do [recurso de importação/exportação](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) na página **configurações** . 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Configurar um serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>Confira também 
+## <a name="see-also"></a>Consulte 
 
 [Visão geral do QnA Maker](../Overview/overview.md)

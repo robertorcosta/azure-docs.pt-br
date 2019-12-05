@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: a954118cd0697213674bb9981f0d94100488fb38
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464515"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805970"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparar dados para criar uma voz personalizada
 
-Quando você estiver pronto para criar uma voz personalizada de conversão de texto em fala para seu aplicativo, a primeira etapa é coletar gravações de áudio e scripts associados para começar a treinar o modelo de voz. O serviço usa esses dados para criar uma voz exclusiva ajustada para corresponder à voz nas gravações. Depois de treinar a voz, você pode começar a resumir a fala em seus aplicativos.
+Quando você estiver pronto para criar uma voz personalizada de conversão de texto em fala para seu aplicativo, a primeira etapa é coletar gravações de áudio e scripts associados para começar a treinar o modelo de voz. O serviço de fala usa esses dados para criar uma voz exclusiva ajustada para corresponder à voz nas gravações. Depois de treinar a voz, você pode começar a resumir a fala em seus aplicativos.
 
 Você pode começar com uma pequena quantidade de dados para criar uma prova de conceito. No entanto, quanto mais dados você fornecer, mais natural será o som de sua voz personalizada. Antes de treinar seu próprio modelo de voz de conversão de texto em fala, você precisará de gravações de áudio e das transcrições de texto associadas. Nesta página, examinaremos os tipos de dados, como eles são usados e como gerenciar cada um deles.
 
@@ -31,7 +31,7 @@ Em alguns casos, talvez você não tenha o conjunto de tempo pronto e desejará 
 
 Esta tabela lista os tipos de dados e como cada um é usado para criar um modelo de voz de conversão de texto em fala personalizado.
 
-| Tipo de dados | DESCRIÇÃO | Quando usar | Serviço adicional necessário | Quantidade para treinar um modelo | Localidade (s) |
+| Tipo de dados | Descrição | Quando usar | Serviço adicional necessário | Quantidade para treinar um modelo | Localidade (s) |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
 | **Declarações individuais + transcrição correspondente** | Uma coleção (. zip) de arquivos de áudio (. wav) como declarações individuais. Cada arquivo de áudio deve ter 15 segundos ou menos de comprimento, emparelhado com uma transcrição formatada (. txt). | Gravações profissionais com transcrições de correspondência | Pronto para treinamento. | Nenhum requisito rígido para en-US e zh-CN. Mais de 2.000 declarações diferentes para outras localidades. | [Todas as localidades de voz personalizadas](language-support.md#customization) |
 | **Áudio longo + transcrição (beta)** | Uma coleção (. zip) de arquivos de áudio longos e não segmentados (mais de 20 segundos), emparelhados com uma transcrição (. txt) que contém todas as palavras faladas. | Você tem arquivos de áudio e transcrições correspondentes, mas eles não são segmentados em declarações. | Segmentação (usando a transcrição do lote).<br>Transformação formato de áudio, quando necessário. | Nenhum requisito rígido  | [Todas as localidades de voz personalizadas](language-support.md#customization) |
@@ -57,7 +57,7 @@ Cada arquivo de áudio deve conter um único expressão (uma única frase ou uma
 
 Siga estas diretrizes ao preparar o áudio.
 
-| Propriedade | Valor |
+| Propriedade | Value |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav), agrupado em um arquivo. zip |
 | Taxa de amostragem | Pelo menos 16.000 Hz |
@@ -74,7 +74,7 @@ Siga estas diretrizes ao preparar o áudio.
 
 O arquivo de transcrição é um arquivo de texto sem formatação. Use estas diretrizes para preparar suas transcrições.
 
-| Propriedade | Valor |
+| Propriedade | Value |
 | -------- | ----- |
 | Formato de arquivo | Texto sem formatação (.txt) |
 | Formato de codificação | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE ou UTF-16-is. Para as codificações zh-CN, ANSI/ASCII e UTF-8 não têm suporte. |
@@ -104,7 +104,7 @@ Em alguns casos, talvez você não tenha um áudio segmentado disponível. Forne
 
 Siga estas diretrizes ao preparar o áudio para segmentação.
 
-| Propriedade | Valor |
+| Propriedade | Value |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav) com uma taxa de amostragem de pelo menos 16 kHz-16 bits em PCM ou. mp3 com uma taxa de bits de pelo menos 256 KBps, agrupados em um arquivo. zip |
 | Nome do arquivo | Caracteres ASCII e Unicode com suporte. Nenhum nome duplicado é permitido. |
@@ -118,7 +118,7 @@ Todos os arquivos de áudio devem ser agrupados em um arquivo zip. É OK colocar
 
 Transcrições devem estar preparados para as especificações listadas nesta tabela. Cada arquivo de áudio deve ser correspondido com uma transcrição.
 
-| Propriedade | Valor |
+| Propriedade | Value |
 | -------- | ----- |
 | Formato de arquivo | Texto sem formatação (. txt), agrupado em um. zip |
 | Nome do arquivo | Usar o mesmo nome que o arquivo de áudio correspondente |
@@ -139,7 +139,7 @@ Siga estas diretrizes ao preparar o áudio.
 > [!NOTE]
 > O serviço de segmentação de áudio longo aproveitará o recurso de transcrição do lote de conversão de fala em texto, que dá suporte apenas a usuários de assinatura padrão (S0).
 
-| Propriedade | Valor |
+| Propriedade | Value |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav) com uma taxa de amostragem de pelo menos 16 kHz-16 bits em PCM ou. mp3 com uma taxa de bits de pelo menos 256 KBps, agrupados em um arquivo. zip |
 | Nome do arquivo | Caracteres ASCII e Unicode com suporte. Nenhum nome duplicado é permitido. |
@@ -149,7 +149,7 @@ Siga estas diretrizes ao preparar o áudio.
 
 Todos os arquivos de áudio devem ser agrupados em um arquivo zip. Depois que o conjunto de seus conjuntos de um for carregado com êxito, ajudaremos você a segmentar o arquivo de áudio no declarações com base em nosso serviço de transcrição do lote de fala. As IDs exclusivas serão atribuídas ao declarações segmentado automaticamente. As transcrições correspondentes serão geradas por meio do reconhecimento de fala. Todos os arquivos. mp3 serão transformados no formato. wav após o processamento. Você pode verificar o declarações segmentado e as transcrições correspondentes baixando o conjunto de um.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Criar uma voz personalizada](how-to-custom-voice-create-voice.md)
+- [Criar uma Voz Personalizada](how-to-custom-voice-create-voice.md)
 - [Guia: Registre suas amostras de voz](record-custom-voice-samples.md)

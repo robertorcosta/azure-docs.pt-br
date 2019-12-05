@@ -2,22 +2,22 @@
 title: Use o SDK do .NET HBase - HDInsight do Azure
 description: Use o SDK do .NET HBase para criar e excluir tabelas e para ler e gravar dados.
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/13/2017
-ms.author: ashishth
-ms.openlocfilehash: d998ff44804a2dcd2b3282679a9cb53f893991e3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/02/2019
+ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077159"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806653"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Usar o SDK do .NET para o Apache HBase
 
-O [Apache HBase](apache-hbase-overview.md) fornece duas opções principais para trabalhar com seus dados: [Apache Hive consultas e chamadas para a API RESTful do HBase](apache-hbase-tutorial-get-started-linux.md). Você pode trabalhar diretamente com a API REST usando o comando `curl` ou um utilitário semelhante.
+O [HBase](apache-hbase-overview.md) fornece duas opções principais para trabalhar com seus dados: [consultas no Hive e chamadas à API RESTful do HBase](apache-hbase-tutorial-get-started-linux.md). Você pode trabalhar diretamente com a API REST usando o comando `curl` ou um utilitário semelhante.
 
 Para aplicativos C# e .NET, a [Biblioteca de Cliente do .NET do HBase REST da Microsoft](https://www.nuget.org/packages/Microsoft.HBase.Client/) fornece uma biblioteca de cliente sobre o API REST do HBase.
 
@@ -58,7 +58,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-Essa nova tabela tem duas famílias de colunas, t1 e t2. Como as famílias de colunas são armazenadas separadamente em HFiles diferentes, faz sentido ter uma família de colunas separada para os dados consultados com frequência. No exemplo [Inserir dados](#insert-data) a seguir, colunas são adicionadas à família de colunas t1.
+Essa nova tabela tem famílias de duas colunas, T1 e T2. Como as famílias de colunas são armazenadas separadamente em HFiles diferentes, faz sentido ter uma família de colunas separada para os dados consultados com frequência. No exemplo [Inserir dados](#insert-data) a seguir, colunas são adicionadas à família de colunas t1.
 
 ## <a name="delete-a-table"></a>Excluir uma tabela
 
@@ -112,7 +112,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-O HBase implementa [Cloud BigTable](https://cloud.google.com/bigtable/), portanto, o formato de dados é semelhante ao seguinte:
+O HBase implementa o [Cloud BigTable](https://cloud.google.com/bigtable/), portanto, o formato de dados é semelhante à imagem a seguir:
 
 ![Saída de dados de exemplo do Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
@@ -185,7 +185,7 @@ finally
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução com um exemplo do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md)
 * Crie um aplicativo de ponta a ponta com [Analise o sentimento do Twitter em tempo real com o Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

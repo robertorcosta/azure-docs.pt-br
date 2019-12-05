@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 12/03/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e7b0c379783af2f9131d487f45c0f4e2009e258
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232142"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805095"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -37,7 +37,7 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
 
 Este artigo fornece uma visão geral do relatório de entradas.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 
@@ -47,7 +47,7 @@ Este artigo fornece uma visão geral do relatório de entradas.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
 
-* O locatário deve ter uma licença do Azure AD Premium associada a ele para ver todo o relatório de atividade de entrada. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory. Levará alguns dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium sem atividades de dados antes da atualização.
+* O locatário deve ter uma licença do Azure AD Premium associada a ele para ver todo o relatório de atividade de entrada. Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. Levará alguns dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium sem atividades de dados antes da atualização.
 
 ## <a name="sign-ins-report"></a>Relatório de entradas
 
@@ -81,7 +81,7 @@ Você pode personalizar o modo de exibição de lista clicando em **Colunas** na
 
 Exibe campos adicionais ou remove os campos que já estão exibidos.
 
-![Atividade de entrada](./media/concept-sign-ins/02.png "Atividade de entrada")
+![Atividade de entrada](./media/concept-sign-ins/columns.png "Atividade de entrada")
 
 Selecione um item na exibição de lista para obter informações mais detalhadas.
 
@@ -105,13 +105,13 @@ O filtro **Aplicativo** permite que você especifique o nome do aplicativo desej
 
 O filtro **status de entrada** permite que você selecione:
 
-- Todos
+- Tudo
 - Sucesso
 - Failure
 
 O filtro **Acesso Condicional** permite que você selecione o status da política de Autoridade de Certificação para a entrada:
 
-- Todos
+- Tudo
 - Não aplicado
 - Sucesso
 - Failure
@@ -146,7 +146,7 @@ Se você adicionar outros campos ao modo de exibição de entradas, esses campos
         Office 2013 em sua configuração padrão em que a ADAL não está habilitada e está usando MAPI ou o Office 2016 em que a ADAL foi desabilitada.
     - **POP**  
         Um cliente de email herdado usando POP3 para recuperar email.
-    - **PROTOCOLO**  
+    - **SMTP**  
         Um cliente de email herdado usando SMTP para enviar email.
 
 ## <a name="download-sign-in-activities"></a>Baixar atividades de entrada
@@ -191,9 +191,9 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 - ID do aplicativo
 - Aplicativo
 - Cliente
-- Local padrão
+- Location
 - Endereço IP
-- data
+- Data
 - MFA obrigatório
 - Status de entrada
 
@@ -222,7 +222,7 @@ Os gráficos de uso de aplicativo geram agregações semanais de entradas para o
 
 Se desejar, você pode definir o foco em um aplicativo específico.
 
-![Relatórios](./media/concept-sign-ins/single-app-usage-graph.png "Relatórios")
+![Relatórios](./media/concept-sign-ins/single-app-usage-graph.png "Relatório")
 
 Quando você clica em um dia no grafo de uso do aplicativo, pode obter uma lista detalhada das atividades de entrada.
 
@@ -234,7 +234,7 @@ Você pode exibir os logs de atividade do Office 365 no [centro de administraç�
 
 Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Códigos de erro do relatório de atividade de entrada](reference-sign-ins-error-codes.md)
 * [Políticas de retenção de dados do Azure AD](reference-reports-data-retention.md)

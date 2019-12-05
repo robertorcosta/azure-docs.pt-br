@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278674"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806500"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -25,7 +25,7 @@ ms.locfileid: "74278674"
 - Agendar a instalação de atualizações necessárias
 - Examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito em todas as máquinas virtuais nas quais o Gerenciamento de Atualizações está habilitado
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar o Gerenciamento de Atualizações, você precisa de:
 
@@ -37,7 +37,7 @@ Para usar o Gerenciamento de Atualizações, você precisa de:
 
 O Gerenciamento de Atualizações dá suporte aos seguintes sistemas operacionais:
 
-|Sistema operacional  |Observações  |
+|Sistema operacional  |Notas  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Suporta apenas avaliações de atualização.         |
 |Windows Server 2008 R2 SP1 e posterior     |Windows PowerShell 4.0 ou posterior é necessário. ([Baixar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1é recomendado para maior confiabilidade. ([Baixar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
@@ -99,12 +99,12 @@ Os agentes instalados em máquinas virtuais e computadores coletam dados sobre a
 
 A tabela a seguir descreve as fontes conectadas às quais essa solução dá suporte:
 
-| Fonte conectada | Suportado | DESCRIÇÃO |
+| Fonte conectada | Com suporte | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
-| Grupo de gerenciamento do Operations Manager |sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
-| Conta de armazenamento do Azure |Não |O Armazenamento do Microsoft Azure não inclui informações sobre atualizações do sistema. |
+| Agentes do Windows |SIM |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |SIM |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
+| Grupo de gerenciamento do Operations Manager |SIM |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
+| Conta de Armazenamento do Azure |Não |O Armazenamento do Microsoft Azure não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 
@@ -119,6 +119,10 @@ Pode demorar entre 30 minutos e 6 horas para o painel exibir os dados atualizado
 ## <a name="schedule-an-update-deployment"></a>Agendar uma implantação de atualização
 
 Para instalar atualizações, agende uma implantação que alinhe-se com a agenda de liberação e período de serviço. Você pode escolher quais tipos de atualização deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
+
+>[!NOTE]
+>Quando você agenda uma implantação de atualização, ela cria um recurso de [agendamento](shared-resources/schedules.md) vinculado ao runbook **patch-MicrosoftOMSComputers** que manipula a implantação de atualização nos computadores de destino. Se você excluir o recurso de agenda do portal do Azure ou usando o PowerShell depois de criar a implantação, ele interromperá a implantação de atualização agendada e apresentará um erro quando você tentar reconfigurá-la no Portal. Você só pode excluir o recurso de agendamento excluindo a agenda de implantação correspondente.
+>
 
 Para agendar uma nova implantação de atualização para uma ou mais máquinas virtuais, em **Gerenciamento de Atualizações**, selecione **Agendar implantação de atualizações**.
 
@@ -144,7 +148,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
   - Service packs
   - Atualizações de definição
   - Ferramentas
-  - atualizações
+  - Atualizações
 
 - **Atualizações a serem incluídas/excluídas** – Isso abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para obter informações adicionais sobre como a inclusão é tratada, consulte [agendar uma implantação de atualização](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
@@ -159,17 +163,17 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 
 - **Reinicialize o controle** -essa configuração determina como as reinicializações são tratadas para a implantação de atualização.
 
-   |Opção|DESCRIÇÃO|
+   |Opção|Descrição|
    |---|---|
    |Reinicialização, se necessário| **(Padrão)** Se necessário, uma reinicialização será iniciada se a janela de manutenção permitir.|
    |Sempre reinicializar|Uma reinicialização for iniciada, independentemente se é necessário. |
-   |Nunca reinicialização|Independentemente de uma reinicialização ser ou não necessária, as reinicializações são suprimidas.|
-   |Apenas reinicialize - não instalará atualizações|Essa opção ignora a instalação de atualizações e apenas inicia uma reinicialização.|
+   |Nunca reinicializar|Independentemente de uma reinicialização ser ou não necessária, as reinicializações são suprimidas.|
+   |Somente reinicialização - não instalará as atualizações|Essa opção ignora a instalação de atualizações e apenas inicia uma reinicialização.|
 
 Ao terminar de configurar o agendamento, selecione o botão **Criar** para retornar ao painel de status. A tabela **Agendado** mostra o agendamento de implantação que você criou.
 
 > [!NOTE]
-> O Gerenciamento de Atualizações dá suporte à implantação de atualizações próprias e patches de pré-download. Isso requer alterações nos sistemas a corrigir, consulte [suporte próprio e de pré-download](automation-configure-windows-update.md#pre-download-updates) para saber como definir essas configurações em seus sistemas.
+> O Gerenciamento de Atualizações dá suporte à implantação de atualizações próprias e patches baixados previamente. Isso requer alterações nos sistemas a corrigir, consulte [suporte próprio e de pré-download](automation-configure-windows-update.md#pre-download-updates) para saber como definir essas configurações em seus sistemas.
 
 ## <a name="view-results-of-an-update-deployment"></a>Exibir resultados de uma implantação de atualização
 
@@ -195,7 +199,7 @@ Para ver o fluxo de trabalho do runbook que gerencia a implantação de atualiza
 
 Para ver informações detalhadas sobre quaisquer erros da implantação, selecione **Erros**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Gerenciamento de Atualizações, incluindo logs, saída e erros, consulte [Solução Gerenciamento de Atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).
 

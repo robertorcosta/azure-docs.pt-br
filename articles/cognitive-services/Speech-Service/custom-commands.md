@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd3e27aefe03ee30e721fcbb915d9ad4b3821618
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579697"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806296"
 ---
 # <a name="custom-commands-preview"></a>Comandos personalizados (versão prévia)
 
@@ -41,24 +41,24 @@ Oferecemos guias de início rápido projetados para que você execute códigos e
 * [Criar um aplicativo de comandos personalizados (versão prévia) com parâmetros](quickstart-custom-speech-commands-create-parameters.md)
 * [Conectar-se a um aplicativo de comandos personalizados (versão prévia) com o SDK de fala,C#](quickstart-custom-speech-commands-speech-sdk.md)
 
-## <a name="sample-code"></a>Exemplo de código
+## <a name="sample-code"></a>Código de exemplo
 
 O código de exemplo para a criação de um assistente de voz com comandos personalizados (versão prévia) está disponível no GitHub.
 
-* [Exemplos do assistente de voz (SDK)](https://aka.ms/csspeech/samples)
+* [Exemplos de assistente de voz (SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customization"></a>Personalização
 
-Os assistentes de voz criados com o uso dos serviços de fala do Azure podem usar a gama completa de opções de personalização disponíveis para [conversão](speech-to-text.md)de texto em texto, [Text para fala](text-to-speech.md)e [seleção de palavra-chave personalizada](speech-devices-sdk-create-kws.md).
+Os assistentes de voz criados com o uso do serviço de fala podem usar a gama completa de opções de personalização disponíveis para [a](speech-to-text.md)seleção de [texto para fala](text-to-speech.md)e de [palavra-chave personalizada](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > As opções de personalização variam por idioma/localidade (consulte [idiomas com suporte](supported-languages.md)).
 
-## <a name="reference-docs"></a>Documentos de Referência
+## <a name="reference-docs"></a>Documentos de referência
 
 * [SDK da fala](speech-sdk-reference.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)
+* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 * [Obtenha o SDK de fala](speech-sdk.md)
