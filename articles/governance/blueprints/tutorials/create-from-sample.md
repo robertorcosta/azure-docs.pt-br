@@ -1,14 +1,14 @@
 ---
-title: Criar um ambiente com base em um exemplo de blueprint
-description: Use um exemplo de blueprint para criar uma definição dele que configure dois grupos de recursos e uma atribuição de função para cada grupo.
-ms.date: 03/05/2019
+title: 'Tutorial: Amostra do blueprint para o novo ambiente'
+description: Neste tutorial, você usa um exemplo de blueprint para criar uma definição dele que configure dois grupos de recursos e uma atribuição de função para cada grupo.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960280"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321726"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente com base em um exemplo de blueprint
 
@@ -183,9 +183,7 @@ Quando terminar este tutorial, exclua os seguintes recursos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md)
-- Entenda como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md)
-- Saiba como fazer uso do [bloqueio de recurso de blueprint](../concepts/resource-locking.md)
-- Aprenda a personalizar a [ordem de sequenciamento de blueprint](../concepts/sequencing-order.md)
-- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md)
+Neste tutorial, você aprendeu a criar um novo blueprint com base em uma definição de exemplo. Para saber mais sobre o Azure Blueprints, prossiga para o artigo de ciclo de vida do blueprint.
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o ciclo de vida do blueprint](../concepts/lifecycle.md)

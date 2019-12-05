@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef24d55089938f6721eb6461f57797bca9ed82fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7550ba7f375cb7d8b291c0adf7f0ebded16f0990
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159491"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227508"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Tutorial: Integração do Azure Active Directory com o Lynda.com
 
@@ -189,7 +189,7 @@ Quando um usuário atribuído tenta fazer logon no Lynda.com usando o painel de 
 Se não houver conta de usuário ainda, ela é criada automaticamente pelo Lynda.com.
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do Lynda.com ou APIs fornecidas pelo Lynda.com para provisionar as contas de usuário do AAD.
+> É possível usar qualquer outra ferramenta de criação da conta de usuário do Lynda.com ou APIs fornecidas pelo Lynda.com para provisionar as contas de usuário do Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

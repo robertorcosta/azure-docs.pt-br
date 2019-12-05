@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea9c88f8eb8ac7b72f11ff286d2294df8cb70860
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442768"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232055"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Active Directory com o Bonusly
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o Bonusly, realize as seguintes e
 
 1. Na barra de ferramentas na parte superior, clique em **Configurações** e selecione **Integrações e aplicativos**.
 
-    ![Seção Social Bonusly](./media/bonus-tutorial/ic773686.png "Bonusly")
+    ![Seção Social do Bonusly](./media/bonus-tutorial/ic773686.png "Bonusly")
 1. Em **Logon Único**, selecione **SAML**.
 
 1. Na página do diálogo **SAML** , realize as seguintes etapas:
@@ -207,7 +207,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Para permitir que os usuários do Azure AD se conectem ao Bonusly, eles precisam estar provisionados no Bonusly. No caso do Bonusly, o provisionamento é uma tarefa manual.
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do Bonusly ou as APIs fornecidas pelo Bonusly para provisionar as contas de usuário do AAD. 
+> É possível usar qualquer outra ferramenta de criação da conta de usuário do Bonusly ou as APIs fornecidas pelo Bonusly para provisionar as contas de usuário do Azure AD. 
 
 **Para configurar o provisionamento de usuários, execute as seguintes etapas:**
 
@@ -223,15 +223,15 @@ Para permitir que os usuários do Azure AD se conectem ao Bonusly, eles precisam
 
 1. Clique em **Gerenciar Usuários**.
 
-    ![Gerenciar Usuários](./media/bonus-tutorial/ic781043.png "Gerenciar Usuários")
+    ![Gerenciar usuários](./media/bonus-tutorial/ic781043.png "Gerenciar Usuários")
 
 1. Clique em **Adicionar Usuário**.
 
-    ![Adicionar Usuário](./media/bonus-tutorial/ic781044.png "Adicionar Usuário")
+    ![Adicionar Usuário](./media/bonus-tutorial/ic781044.png "Adicionar usuário")
 
 1. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
 
-    ![Adicionar Usuário](./media/bonus-tutorial/ic781045.png "Adicionar Usuário")  
+    ![Adicionar Usuário](./media/bonus-tutorial/ic781045.png "Adicionar usuário")  
 
     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
@@ -256,4 +256,4 @@ Ao clicar no bloco do Bonusly no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

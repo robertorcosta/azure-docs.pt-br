@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Azure – Criar um perfil do Front Door para alta disponibilidade dos aplicativos que usam o portal do Azure
+title: 'Início Rápido: Criar o perfil do Front Door para alta disponibilidade de aplicativos'
 description: Este artigo de início rápido descreve como criar um Front Door para seu aplicativo Web global altamente disponível e de alto desempenho.
 services: front-door
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461979"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184509"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: Crie um Front Door para um aplicativo Web global altamente disponível
 
@@ -40,9 +40,9 @@ Entre no Portal do Azure em https://portal.azure.com.
      | Configuração         | Valor     |
      | ---              | ---  |
      | NOME           | Insira um nome exclusivo para o aplicativo Web  |
-     | Grupo de recursos          | Selecione **Novo** e, em seguida, digite *myResourceGroupFD1* |
+     | Resource group          | Selecione **Novo** e, em seguida, digite *myResourceGroupFD1* |
      | Plano do Serviço de Aplicativo/Localização         | Selecione **Novo**.  No Plano do Serviço de Aplicativo, insira *myAppServicePlanEastUS*e selecione **OK**. 
-     |      Local padrão  |   Leste dos EUA        |
+     |      Location  |   Leste dos EUA        |
     |||
 
 3. Selecione **Criar**.
@@ -52,9 +52,9 @@ Entre no Portal do Azure em https://portal.azure.com.
      | Configuração         | Valor     |
      | ---              | ---  |
      | NOME           | Insira um nome exclusivo para o aplicativo Web  |
-     | Grupo de recursos          | Selecione **Novo** e, em seguida, digite *myResourceGroupFD2* |
+     | Resource group          | Selecione **Novo** e, em seguida, digite *myResourceGroupFD2* |
      | Plano do Serviço de Aplicativo/Localização         | Selecione **Novo**.  No Plano do Serviço de Aplicativo, insira *myAppServicePlanWestEurope*e selecione **OK**. 
-     |      Local padrão  |   Europa Ocidental      |
+     |      Location  |   Europa Ocidental      |
     |||
 
 

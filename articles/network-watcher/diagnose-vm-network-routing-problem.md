@@ -1,5 +1,6 @@
 ---
-title: Diagnosticar um problema de roteamento de rede de máquina virtual – tutorial – portal do Azure | Microsoft Docs
+title: 'Tutorial: Diagnosticar um problema de roteiros de rede de VMs – portal do Azure'
+titleSuffix: Azure Network Watcher
 description: Neste tutorial, você aprenderá a diagnosticar um problema de roteamento da rede de máquina virtual com a funcionalidade de próximo salto do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684510"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276038"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de roteamento de rede de máquina virtual usando o portal do Azure
 
@@ -53,9 +54,9 @@ Faça logon no Portal do Azure em https://portal.azure.com.
     |NOME|myVm|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Assinatura| Selecione sua assinatura.|
+    |Subscription| Selecione sua assinatura.|
     |Grupo de recursos| Selecione **Criar novo** e insira **myResourceGroup**.|
-    |Local padrão| Selecione **Leste dos EUA**|
+    |Location| Selecione **Leste dos EUA**|
 
 4. Selecione um tamanho para a VM e selecione **Selecionar**.
 5. Em **Configurações**, aceite todos os padrões e selecione **OK**.
@@ -85,7 +86,7 @@ O Azure cria automaticamente as rotas para destinos padrão. Você pode criar ro
 
     |Configuração                  |Valor                                                   |
     |---------                |---------                                               |
-    | Grupo de recursos          | Selecionar myResourceGroup                                 |
+    | Resource group          | Selecionar myResourceGroup                                 |
     | Máquina virtual         | Selecionar myVm                                            |
     | interface de rede       | myvm – o nome do adaptador de rede pode ser diferente.   |
     | Endereço IP de origem       | 10.0.0.4                                               |

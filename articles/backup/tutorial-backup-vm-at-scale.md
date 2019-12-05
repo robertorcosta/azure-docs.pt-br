@@ -1,20 +1,15 @@
 ---
-title: Fazer backup de máquinas virtuais do Azure em escala
+title: Tutorial – Fazer backup de máquinas virtuais do Azure em escala
 description: Neste tutorial, saiba como criar um cofre dos Serviços de Recuperação, definir uma política de backup e fazer backup de várias máquinas virtuais simultaneamente.
-keywords: backup de máquina virtual; backup da máquina virtual, fazer backup de vm, fazer backup da vm, fazer backup de vm do Azure, backup e recuperação de desastre
-author: dcurwin
-manager: carmonm
-ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
-ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747020"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171847"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 
@@ -37,7 +32,7 @@ O cofre dos Serviços de Recuperação contém os dados de backup e a política 
 
 1. No menu à esquerda, selecione **Todos os serviços** e na lista de serviços, digite *Serviços de Recuperação*. A lista de recursos é filtrada enquanto você digita. Quando você vir os Cofres dos Serviços de Recuperação na lista, selecione-os para abrir o menu dos Cofres dos Serviços de Recuperação.
 
-    ![Abrir menu do Cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Abrir menu do Cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
 2. No menu **Cofres dos Serviços de Recuperação**, clique em **Adicionar** para abrir o menu dos Cofres dos Serviços de Recuperação.
 

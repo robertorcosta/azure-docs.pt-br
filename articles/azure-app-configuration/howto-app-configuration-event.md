@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326592"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185169"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início Rápido: Rotear eventos da Configuração de Aplicativos do Azure para um ponto de extremidade da Web com a CLI do Azure
 
@@ -48,7 +48,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration"></a>Criar uma Configuração de Aplicativos
 
-Substitua `<appconfig_name>` por um nome exclusivo para a configuração de aplicativos e `<resource_group_name>` pelo grupo de recursos criado anteriormente. O nome precisa ser exclusivo porque ele é usado como um nome DNS.
+Substitua `<appconfig_name>` por um nome exclusivo para a Configuração de Aplicativos e `<resource_group_name>` pelo grupo de recursos criado anteriormente. O nome precisa ser exclusivo porque ele é usado como um nome DNS.
 
 ```azurecli-interactive
 az appconfig create \
@@ -80,7 +80,7 @@ Você deve ver o site sem mensagens exibidas no momento.
 
 ## <a name="subscribe-to-your-app-configuration"></a>Assinar a Configuração de Aplicativos
 
-Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar e para onde enviar esses eventos. O exemplo a seguir assina a configuração de aplicativos criada e passa a URL do aplicativo Web como o ponto de extremidade para a notificação de eventos. Substitua `<event_subscription_name>` por um nome para a assinatura de evento. Em `<resource_group_name>` e `<appconfig_name>`, use os valores criados anteriormente.
+Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar e para onde enviar esses eventos. O exemplo a seguir assina a Configuração de Aplicativos criada e passa a URL do aplicativo Web como o ponto de extremidade para a notificação de eventos. Substitua `<event_subscription_name>` por um nome para a assinatura de evento. Em `<resource_group_name>` e `<appconfig_name>`, use os valores criados anteriormente.
 
 O ponto de extremidade para seu aplicativo Web deve incluir o sufixo `/api/updates/`.
 
@@ -126,7 +126,7 @@ Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de 
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se você pretende continuar trabalhando com essa configuração de aplicativos e essa assinatura de evento, não limpe os recursos criados neste artigo. Caso contrário, use os comandos a seguir para excluir os recursos criados por você neste artigo.
+Se planejar continuar trabalhando com essa Configuração de Aplicativos e essa assinatura de evento, não limpe os recursos criados neste artigo. Caso contrário, use os comandos a seguir para excluir os recursos criados por você neste artigo.
 
 Substitua `<resource_group_name>` pelo recurso de grupo criado acima.
 

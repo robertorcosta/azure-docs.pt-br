@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970ab9de270b1227884a13ac578d4c439043b20c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089157"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233373"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: Integração do Azure Active Directory com o TalentLMS
 
@@ -143,7 +143,7 @@ Para configurar o logon único do Azure AD com o TalentLMS, siga as seguintes et
 
 1. Na seção de Configurações de Logon Único, execute as seguintes etapas:
 
-    ![Logon Único](./media/talentlms-tutorial/IC777297.png "Logon Único")
+    ![Logon único](./media/talentlms-tutorial/IC777297.png "Logon Único")
 
     a. Na lista **Tipo de integração de SSO**, selecione **SAML 2.0**.
 
@@ -229,7 +229,7 @@ Para permitir que os usuários do Azure AD entre no TalentLMS, eles devem ser pr
 
 1. Na página do diálogo **Adicionar usuário** , realize as seguintes etapas:
 
-    ![Adicionar Usuário](./media/talentlms-tutorial/IC777299.png "Adicionar Usuário")  
+    ![Adicionar Usuário](./media/talentlms-tutorial/IC777299.png "Adicionar usuário")  
 
     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
@@ -240,7 +240,7 @@ Para permitir que os usuários do Azure AD entre no TalentLMS, eles devem ser pr
     d. Clique em **Adicionar Usuário**.
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do TalentLMS ou as APIs fornecidas pelo TalentLMS para provisionar as contas de usuário do AAD.
+> É possível usar qualquer outra ferramenta de criação da conta de usuário do TalentLMS ou as APIs fornecidas pelo TalentLMS para provisionar as contas de usuário do Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
@@ -254,5 +254,5 @@ Ao clicar no bloco do TalentLMS no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

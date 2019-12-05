@@ -1,5 +1,5 @@
 ---
-title: Use uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure usando uma credencial SAS
+title: 'Tutorial: Acessar o Armazenamento do Azure usando uma credencial SAS – Linux – Azure AD'
 description: Um tutorial que mostra como usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure, usando uma credencial SAS em vez de uma chave de acesso à conta de armazenamento.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fa483a34efa3a9486e04d894a3139d17b157b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 670ae329943610ba16411da3782bc1da079c6490
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273950"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183206"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Usar uma identidade atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure por meio de uma credencial SAS
 

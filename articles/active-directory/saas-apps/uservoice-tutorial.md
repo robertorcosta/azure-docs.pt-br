@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a3302f1ca615fe5005be9ed1f09995ebf432eb7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087630"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232013"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integração do Azure Active Directory com o UserVoice
 
@@ -140,11 +140,11 @@ Para configurar o logon único do Azure AD com o UserVoice, execute as seguintes
 
 3. Na guia **Portal da Web**, na seção **Autenticação de usuário**, clique em **Editar** para abrir a página do diálogo **Editar Autenticação de Usuário**.
    
-    ![Guia Portal da Web](./media/uservoice-tutorial/ic777520.png "Portal da Web")
+    ![Guia Portal Web](./media/uservoice-tutorial/ic777520.png "Portal da Web")
 
 4. Na página do diálogo **Editar Autenticação de Usuário** , realize as seguintes etapas:
    
-    ![Editar autenticação de usuário](./media/uservoice-tutorial/ic777521.png "Editar autenticação de usuário")
+    ![Editar autenticação do usuário](./media/uservoice-tutorial/ic777521.png "Editar Autenticação de Usuário")
    
     a. Clique em **SSO (Logon Único)** .
  
@@ -237,7 +237,7 @@ Para permitir que os usuários do Azure AD entrem no UserVoice, eles devem ser p
     b. Clique em **Convidar**.
 
 > [!NOTE]
-> Você pode usar qualquer outra ferramenta de criação de conta de usuário do UserVoice ou APIs fornecidas pelo UserVoice para provisionar contas de usuário do AAD.
+> Você pode usar qualquer outra ferramenta de criação de conta de usuário do UserVoice ou APIs fornecidas pelo UserVoice para provisionar contas de usuário do Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
@@ -251,5 +251,5 @@ Ao clicar no bloco do UserVoice no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

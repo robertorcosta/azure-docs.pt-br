@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f0a684c6a38ba3a95438941f668b36b23d278df
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 772b37816b83c275bae927d825434dc3ca76a35c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227694"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231984"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutorial: Integrar o AirWatch ao Azure Active Directory
 
@@ -138,7 +138,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Execute as seguintes etapas na seção **LDAP**:
 
-    ![Carregar](./media/airwatch-tutorial/ic791924.png "LDAP")   
+    ![Upload](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. Para **Tipo de Diretório**, selecione **Nenhum**.
 
@@ -146,7 +146,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **SAML 2.0**, para carregar o certificado baixado, clique em **Carregar**.
 
-    ![Upload](./media/airwatch-tutorial/ic791932.png "Upload")
+    ![Upload](./media/airwatch-tutorial/ic791932.png "Carregar")
 
 1. Na seção **Solicitar** , realize as seguintes etapas:
 
@@ -228,18 +228,18 @@ Para permitir que os usuários do Azure AD se conectem ao AirWatch, eles devem s
 
 3. No menu **Usuários**, clique em **Exibição de Lista** e em **Adicionar > Adicionar Usuário**.
   
-   ![Adicionar Usuário](./media/airwatch-tutorial/ic791930.png "Adicionar Usuário")
+   ![Adicionar Usuário](./media/airwatch-tutorial/ic791930.png "Adicionar usuário")
 
 4. No diálogo **Adicionar/Editar Usuário** , realize as seguintes etapas:
 
-   ![Adicionar Usuário](./media/airwatch-tutorial/ic791931.png "Adicionar Usuário")
+   ![Adicionar Usuário](./media/airwatch-tutorial/ic791931.png "Adicionar usuário")
 
    a. Digite **Nome**, **Senha**, **Confirmar Senha**, **Nome**, **Sobrenome** e **Endereço de Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
 
    b. Clique em **Save** (Salvar).
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do AirWatch ou as APIs fornecidas pelo AirWatch para provisionar as contas de usuário do AAD.
+> É possível usar qualquer outra ferramenta de criação da conta de usuário do AirWatch ou as APIs fornecidas pelo AirWatch para provisionar as contas de usuário do Azure AD.
 
 ### <a name="test-sso"></a>Testar o SSO
 

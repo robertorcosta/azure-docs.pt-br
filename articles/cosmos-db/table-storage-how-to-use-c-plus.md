@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 48222bf3f964f8c728f980f839c460862a8212ca
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b8fa0a3cebd87f4da1a47c605ba21b0cb10a2517
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818607"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220044"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com C++
 
@@ -49,14 +49,14 @@ Neste guia, você usa os recursos de armazenamento em um aplicativo do C++. Para
 
 Para instalar a Biblioteca de Clientes do Armazenamento do Azure para C++, use os seguintes métodos:
 
-* Linux. Siga as instruções fornecidas na [Biblioteca de Clientes do Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
-* Windows. No Visual Studio, selecione **Ferramentas > Gerenciador de Pacotes NuGet > Console do Gerenciador de Pacotes**. Execute o seguinte comando no **Console de Gerenciamento de Pacotes**:
+* **Linux:** Siga as instruções fornecidas na página [LEIAME da Biblioteca de Clientes do Armazenamento do Microsoft Azure para C++: Introdução ao Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux).
+* **Windows:** No Windows, use [vcpkg](https://github.com/microsoft/vcpkg) como o gerenciador de dependências. Siga o [início rápido](https://github.com/microsoft/vcpkg#quick-start) para inicializar o vcpkg. Em seguir, use este comando para instalar a biblioteca:
 
-  ```powershell
-  Install-Package wastorage
-  ```
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
 
-Para obter mais informações sobre o **Console de Gerenciamento de Pacotes**, confira [Instalar e gerenciar pacotes com o Console do Gerenciador de Pacotes no Visual Studio](/nuget/tools/package-manager-console).
+Você pode encontrar um guia de como criar o código-fonte e exportá-lo para o NuGet no arquivo [LEIAME](https://github.com/Azure/azure-storage-cpp#download--install).
 
 ### <a name="configure-access-to-the-table-client-library"></a>Configurar o acesso à biblioteca de cliente de Tabela
 

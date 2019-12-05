@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar a nuvem para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure no portal'
-description: 'Tutorial: Configurar os recursos de nuvem para provisionamento de dispositivos no [portal do Azure](https://portal.azure.com) usando o DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT'
+title: Configurar a nuvem para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure no portal
+description: Tutorial – Configurar os recursos de nuvem para provisionamento de dispositivos no [portal do Azure](https://portal.azure.com) usando o Serviço de Provisionamento de Dispositivos no Hub IoT
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: bdfe851532383e5a051f43cc4b20772f8053dbfc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112799"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228304"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configurar recursos de nuvem para provisionamento de dispositivos com o Serviço de Provisionamento de Dispositivos no Hub IoT
 

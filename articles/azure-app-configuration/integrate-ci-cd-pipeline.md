@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e2f682a2782eb1a61dd44e02d665175e31c441f8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357023"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185113"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar com um pipeline de CI/CD
 
@@ -29,7 +29,7 @@ Se você tiver um pipeline do Azure DevOps, efetue fetch de valores de chave na 
 
 ## <a name="deploy-app-configuration-data-with-your-application"></a>Implantar dados da Configuração de Aplicativos com seu aplicativo
 
-Seu aplicativo poderá falhar ao executar se depender da Configuração de Aplicativos do Azure e não puder acessá-la. Você pode melhorar a resiliência de seu aplicativo para lidar com um evento desse tipo, embora seja improvável que isso aconteça. Para fazer isso, empacote os dados de configuração atuais em um arquivo que é implantado com o aplicativo e carregado localmente durante sua inicialização. Essa abordagem garante que seu aplicativo tenha, pelo menos, valores de configuração padrão. Esses valores são substituídos por alterações mais recentes em um repositório de configurações de aplicativos quando ele está disponível.
+Seu aplicativo poderá falhar ao executar se depender da Configuração de Aplicativos do Azure e não puder acessá-la. Você pode melhorar a resiliência de seu aplicativo para lidar com um evento desse tipo, embora seja improvável que isso aconteça. Para fazer isso, empacote os dados de configuração atuais em um arquivo que é implantado com o aplicativo e carregado localmente durante sua inicialização. Essa abordagem garante que seu aplicativo tenha, pelo menos, valores de configuração padrão. Esses valores são substituídos por alterações mais recentes em um repositório de Configuração de Aplicativos quando ele está disponível.
 
 Usando a função [Exportar](./howto-import-export-data.md#export-data) da Configuração de Aplicativos do Azure, você pode automatizar o processo de recuperação de dados de configuração atuais como um único arquivo. Em seguida, insira esse arquivo em uma etapa de build ou implantação em seu pipeline de CI/CD (integração contínua e implantação contínua).
 
@@ -43,7 +43,7 @@ Se você compilar localmente, baixe e instale a [CLI do Azure](https://docs.micr
 
 Para fazer um build de nuvem com o Azure DevOps, por exemplo, assegure que a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) esteja instalada em seu sistema de build.
 
-### <a name="export-an-app-configuration-store"></a>Exportar um repositório de configurações de aplicativos
+### <a name="export-an-app-configuration-store"></a>Exportar um repositório de Configuração de Aplicativos
 
 1. Abra seu arquivo *.csproj* e adicione o seguinte script:
 
@@ -54,7 +54,7 @@ Para fazer um build de nuvem com o Azure DevOps, por exemplo, assegure que a [CL
     </Target>
     ```
 
-    Adicione o *ConnectionString* associado a seu repositório de configurações de aplicativos como uma variável de ambiente.
+    Adicione o *ConnectionString* associado a seu repositório de Configuração de Aplicativos como uma variável de ambiente.
 
 2. Abra *Program.cs* e atualize o método `CreateWebHostBuilder` para usar o arquivo JSON exportado chamando o método `config.AddJsonFile()`.
 
@@ -74,7 +74,7 @@ Para fazer um build de nuvem com o Azure DevOps, por exemplo, assegure que a [CL
 
 ### <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
 
-1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de configurações de aplicativo. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de Configuração de Aplicativos. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

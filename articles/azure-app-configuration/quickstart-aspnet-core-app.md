@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 91712b3f730317e65cda7b48c8f5636b2fb9ab2c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299944"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185086"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo ASP.NET Core com a Configuração de Aplicativo do Azure
 
@@ -30,7 +30,7 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [SDK do .NET Core](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
+## <a name="create-an-app-configuration-store"></a>Criar um repositório de Configuração de Aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -81,7 +81,7 @@ Para usar o Gerenciador de Segredos, adicione um elemento `UserSecretsId` ao arq
 
 A ferramenta Gerenciador de Segredos armazena dados confidenciais para o trabalho de desenvolvimento fora da árvore do seu projeto. Essa abordagem ajuda a impedir o compartilhamento acidental de segredos do aplicativo no código-fonte. Para obter mais informações sobre o Gerenciador de Segredos, confira [Armazenamento seguro de segredos do aplicativo em desenvolvimento no ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
-## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de configurações de aplicativo
+## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de Configuração de Aplicativos
 
 1. Adicione uma referência ao pacote NuGet `Microsoft.Azure.AppConfiguration.AspNetCore`, executando o seguinte comando:
 
@@ -95,7 +95,7 @@ A ferramenta Gerenciador de Segredos armazena dados confidenciais para o trabalh
     ```
 3. Adicione um segredo chamado *ConnectionStrings:AppConfig* ao Gerenciador de Segredos.
 
-    Esse segredo contém a cadeia de conexão para acessar o repositório de configurações de aplicativo. Substitua o valor no seguinte comando pela cadeia de conexão do repositório de configurações de aplicativo.
+    Esse segredo contém a cadeia de conexão para acessar o repositório de Configuração de Aplicativos. Substitua o valor no seguinte comando pela cadeia de conexão do repositório de Configuração de Aplicativos.
 
     Este comando deve ser executado no mesmo diretório que o arquivo *.csproj*.
 
@@ -216,7 +216,7 @@ A ferramenta Gerenciador de Segredos armazena dados confidenciais para o trabalh
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um repositório de configurações de aplicativos e o usou com um aplicativo Web do ASP.NET Core via [Provedor de Configuração de Aplicativos](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber mais sobre como usar a Configuração de Aplicativos, prossiga para o próximo tutorial que demonstra como configurar seu aplicativo Web para atualizar dinamicamente as definições de configuração.
+Neste início rápido, você criou um repositório de Configuração de Aplicativos e o usou com um aplicativo Web ASP.NET Core por meio do [Provedor da Configuração de Aplicativos](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber como configurar seu aplicativo ASP.NET Core para atualizar dinamicamente as configurações, passe para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Usar a configuração dinâmica em um aplicativo ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)
+> [Habilitar configuração dinâmica](./enable-dynamic-configuration-aspnet-core.md)

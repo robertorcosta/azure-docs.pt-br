@@ -1,5 +1,6 @@
 ---
-title: Diagnosticar um problema de filtro de tráfego de rede de máquina virtual – início rápido – portal do Azure | Microsoft Docs
+title: 'Início Rápido: Diagnosticar um problema do filtro de tráfego de rede de VMs – portal do Azure'
+titleSuffix: Azure Network Watcher
 description: Neste início rápido, você aprende a diagnosticar um problema no filtro de tráfego de rede da máquina virtual usando a funcionalidade de verificação de fluxo de IP do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6478c82a93cd35eead3972bb4dccf402219d9b7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702911"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276004"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Início Rápido: Diagnosticar um problema de filtro do tráfego de rede da máquina virtual usando o portal do Azure
 
@@ -45,9 +46,9 @@ Faça logon no Portal do Azure em https://portal.azure.com.
     |NOME|myVm|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Assinatura| Selecione sua assinatura.|
+    |Subscription| Selecione sua assinatura.|
     |Grupo de recursos| Selecione **Criar novo** e insira **myResourceGroup**.|
-    |Local padrão| Selecione **Leste dos EUA**|
+    |Location| Selecione **Leste dos EUA**|
 
 4. Selecione um tamanho para a VM e selecione **Selecionar**.
 5. Em **Configurações**, aceite todos os padrões e selecione **OK**.
@@ -78,7 +79,7 @@ Quando você cria uma VM, o Azure permite e nega o tráfego de rede na VM, por p
 
     |Configuração            |Valor                                                                                              |
     |---------          |---------                                                                                          |
-    | Grupo de recursos    | Selecionar myResourceGroup                                                                            |
+    | Resource group    | Selecionar myResourceGroup                                                                            |
     | Máquina virtual   | Selecionar myVm                                                                                       |
     | interface de rede | myvm – o nome do adaptador de rede criado pelo portal no momento da criação da VM é diferente. |
     | Protocolo          | TCP                                                                                               |

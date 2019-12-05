@@ -1,19 +1,16 @@
 ---
 title: Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager | Microsoft Docs
 description: Use modelos do Resource Manager com o Gerenciador de Implantação do Azure para implantar recursos do Azure.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: db130da9943007e647adf77411b456914af9886f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285889"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307024"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager (versão prévia pública)
 
@@ -56,7 +53,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 * Alguma experiência com o desenvolvimento de [modelos do Azure Resource Manager](./resource-group-overview.md).
 * PowerShell do Azure. Para obter mais informações, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Cmdlets do Gerenciador de Implantação. Para instalar esses cmdlets de pré-lançamento, você precisa ter a versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Instalação do PowerShellGet](/powershell/gallery/installing-psget). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma nova janela elevada do PowerShell e use o seguinte comando:
+* Cmdlets do Gerenciador de Implantação. Para instalar esses cmdlets de pré-lançamento, você precisa ter a versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Instalação do PowerShellGet](/powershell/scripting/gallery/installing-psget). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma nova janela elevada do PowerShell e use o seguinte comando:
 
     ```powershell
     Install-Module -Name Az.DeploymentManager
@@ -189,9 +186,6 @@ Posteriormente no tutorial, você implantará uma distribuição. Uma identidade
 
 Você precisa criar uma identidade gerenciada atribuída pelo usuário e configurar o controle de acesso para sua assinatura.
 
-> [!IMPORTANT]
-> A identidade gerenciada atribuída pelo usuário deve estar no mesmo local que a [distribuição](#create-the-rollout-template). Atualmente, os recursos do Gerenciador de Implantação, incluindo a distribuição, só podem ser criados no Centro dos EUA ou no Leste dos EUA 2. No entanto, isso vale apenas para os recursos do Gerenciador de Implantação (como a topologia de serviço, serviços, unidades de serviço, distribuição e etapas). Seus recursos de destino podem ser implantados em qualquer região do Azure com suporte. Neste tutorial, por exemplo, os recursos do Gerenciador de Implantação são implantados no Centro dos EUA, mas os serviços são implantados no Leste dos EUA e no Oeste dos EUA. Essa restrição será eliminada futuramente.
-
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Crie uma [identidade gerenciada atribuída ao usuário](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. No portal, selecione **Assinaturas** no menu à esquerda e, em seguida, selecione sua assinatura.
@@ -214,7 +208,7 @@ Abra **\ADMTemplates\CreateADMServiceTopology.json**.
 O modelo contém os seguintes parâmetros:
 
 * **projectName**: Esse nome é usado para criar os nomes para os recursos do Gerenciador de Implantação. Por exemplo, usando "jdoe", o nome da topologia de serviço será **jdoe**ServiceTopology.  Os nomes de recursos são definidos na seção de variáveis desse modelo.
-* **azureResourcelocation**: Para simplificar o tutorial, todos os recursos compartilham essa localização, a menos que seja especificado o contrário. Atualmente, os recursos de Gerenciador de Implantação do Azure só podem ser criados em **EUA Central** ou **Leste dos EUA 2**.
+* **azureResourcelocation**: Para simplificar o tutorial, todos os recursos compartilham essa localização, a menos que seja especificado o contrário.
 * **artifactSourceSASLocation**: O URI de SAS para o contêiner de Blob em que os arquivos de parâmetros e de modelo de unidade de serviço são armazenados para implantação.  Ver [Preparar os artefatos](#prepare-the-artifacts).
 * **templateArtifactRoot**: O caminho de deslocamento do contêiner de Blob em que os modelos e os parâmetros são armazenados. O valor padrão é **templates/1.0.0.0**. Não altere esse valor, a menos que deseje alterar a estrutura de pastas explicada em [Preparar os artefatos](#prepare-the-artifacts). Caminhos relativos são usados neste tutorial.  O caminho completo é construído por meio da concatenação de **artifactSourceSASLocation**, **templateArtifactRoot** e **templateArtifactSourceRelativePath** (ou **parametersArtifactSourceRelativePath**).
 * **targetSubscriptionID**: A ID da assinatura para a qual os recursos do Gerenciador de Implantação serão implantados e cobrados. Use sua ID da assinatura neste tutorial.
@@ -269,7 +263,7 @@ O modelo contém os seguintes parâmetros:
 ![Gerenciador de Implantação do Azure, tutorial de parâmetros do modelo de distribuição](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
 * **projectName**: Esse nome é usado para criar os nomes para os recursos do Gerenciador de Implantação. Por exemplo, usando "jdoe", o nome de distribuição será **jdoe**Rollout.  Os nomes são definidos na seção de variáveis do modelo.
-* **azureResourcelocation**: Para simplificar o tutorial, todos os recursos do Gerenciador de Implantação compartilham essa localização, a menos que seja especificado o contrário. Atualmente, os recursos de Gerenciador de Implantação do Azure só podem ser criados em **EUA Central** ou **Leste dos EUA 2**.
+* **azureResourcelocation**: Para simplificar o tutorial, todos os recursos do Gerenciador de Implantação compartilham essa localização, a menos que seja especificado o contrário.
 * **artifactSourceSASLocation**: O URI de SAS do diretório raiz (o contêiner de Blob) em que os arquivos de parâmetros e de modelo de unidade de serviço são armazenados para implantação.  Ver [Preparar os artefatos](#prepare-the-artifacts).
 * **binaryArtifactRoot**:  O valor padrão é **binaries/1.0.0.0**. Não altere esse valor, a menos que deseje alterar a estrutura de pastas explicada em [Preparar os artefatos](#prepare-the-artifacts). Caminhos relativos são usados neste tutorial.  O caminho completo é construído concatenando **artifactSourceSASLocation**, **binaryArtifactRoot** e o **deployPackageUri** especificado no CreateWebApplicationParameters.json.  Ver [Preparar os artefatos](#prepare-the-artifacts).
 * **managedIdentityID**: A identidade gerenciada atribuída pelo usuário que executa as ações de implantação. Veja [Criar identidade gerenciada atribuída pelo usuário](#create-the-user-assigned-managed-identity).
@@ -311,7 +305,7 @@ Você cria um arquivo de parâmetros usado com o modelo de distribuição.
 2. Preencha os valores de parâmetro:
 
     * **projectName**: Insira uma cadeia de caracteres com 4 a 5 caracteres. Esse nome é usado para criar nomes exclusivos de recursos do Azure.
-    * **azureResourceLocation**: Atualmente, os recursos de Gerenciador de Implantação do Azure só podem ser criados em **EUA Central** ou **Leste dos EUA 2**.
+    * **azureResourceLocation**: Especifique uma localização do Azure.
     * **artifactSourceSASLocation**: Insira o URI de SAS do diretório raiz (o contêiner de Blob) em que os arquivos de parâmetros e de modelo de unidade de serviço são armazenados para implantação.  Ver [Preparar os artefatos](#prepare-the-artifacts).
     * **binaryArtifactRoot**: A menos que você altere a estrutura de pasta dos artefatos, use **binaries/1.0.0.0** neste tutorial.
     * **managedIdentityID**: Insira a identidade gerenciada atribuída pelo usuário. Veja [Criar identidade gerenciada atribuída pelo usuário](#create-the-user-assigned-managed-identity). A sintaxe do é:

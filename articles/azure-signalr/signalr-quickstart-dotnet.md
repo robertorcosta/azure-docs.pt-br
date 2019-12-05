@@ -1,5 +1,5 @@
 ---
-title: Início rápido para saber como usar o Serviço do Azure SignalR com o ASP.NET
+title: Desenvolver com o ASP.NET Core – Serviço do Azure SignalR
 description: Um início rápido sobre como usar o Serviço do Azure SignalR para criar uma sala de chat com a estrutura ASP.NET.
 author: sffamily
 ms.service: signalr
@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: 8dfb74fc941a9bb6d235093287ac47983c0e0564
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ec5b7a75bced4b7cd81a120925558b8c1be57818
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931834"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158182"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Início Rápido: Criar uma sala de chat com o ASP.NET e o Serviço do SignalR
 
@@ -94,7 +94,7 @@ Durante a implantação do serviço, vamos trabalhar com o código. Clone o [apl
     > [!NOTE]
     > Na implementação, um ponto de extremidade `/signalr/negotiate` é exposto para negociação pelo SDK do Serviço do Azure SignalR. Ele retornará uma resposta de negociação especial quando os clientes tentarem se conectar e redirecionará os clientes ao ponto de extremidade de serviço definido na cadeia de conexão.
 
-1. Pressione **F5** para executar o projeto no modo de depuração. Você poderá ver que o aplicativo é executado localmente. Em vez de hospedar um tempo de execução do SignalR pelo próprio aplicativo, ele agora se conecta ao Serviço do Azure SignalR.
+1. Pressione **F5** para executar o projeto no modo de depuração. Você poderá ver que o aplicativo é executado localmente. Em vez de hospedar um runtime do SignalR pelo próprio aplicativo, ele agora se conecta ao Serviço do Azure SignalR.
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

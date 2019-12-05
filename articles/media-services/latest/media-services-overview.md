@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 61ffd4857ca9a330a4cb0eeace89791fc0973f70
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c17f1094e562960e851204b40281f5b04c1d40ce
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575087"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186072"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos Serviços de Mídia do Azure v3
 
@@ -53,6 +53,10 @@ Saiba como codificar e empacotar conteúdo, transmitir vídeos sob demanda, faze
 
 > [!TIP]
 > Antes de iniciar o desenvolvimento, examine:<br/>* [Conceitos fundamentais](concepts-overview.md) (inclui conceitos importantes, como empacotamento, codificação e proteção).<br/>* [Desenvolvimento com APIs dos Serviços de Mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura etc.).
+
+### <a name="sdks"></a>SDKs
+
+Comece desenvolvendo com os [SDKs de cliente dos Serviços de Mídia do Azure v3](media-services-apis-overview.md#sdks).
 
 ### <a name="quickstarts"></a>Guia de início rápido  
 

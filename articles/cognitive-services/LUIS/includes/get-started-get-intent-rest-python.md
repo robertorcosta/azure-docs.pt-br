@@ -6,29 +6,30 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: b2c840b9de25ff6997037c284c60390e7afa03ec
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 37249cc560d4493c34dd4be6139de03f9c152a08
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125406"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414620"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Python 3.6](https://www.python.org/downloads/) ou posterior.
 * [Visual Studio Code](https://code.visualstudio.com/)
+* ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
 [!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
-## <a name="get-intent--programmatically"></a>Obter a intenção de forma programática
+## <a name="get-intent-from-the-prediction-endpoint"></a>Obter a intenção do ponto de extremidade de previsão
 
-Use Python para consultar a [API](https://aka.ms/luis-apim-v3-prediction) GET do ponto de extremidade de previsão para obter o resultado da previsão.
+Use o Python para consultar o [ponto de extremidade de previsão](https://aka.ms/luis-apim-v3-prediction) para obter o resultado da previsão.
 
-1. Copie um dos seguintes snippets de código em um arquivo chamado `predict.py`:
+1. Copie este snippet de código para um arquivo chamado `predict.py`:
 
     ```python
     ########### Python 3.6 #############
@@ -63,28 +64,28 @@ Use Python para consultar a [API](https://aka.ms/luis-apim-v3-prediction) GET do
 
 1. Substitua os valores a seguir:
 
-    * `YOUR-KEY` com sua chave inicial
-    * `YOUR-ENDPOINT` com seu ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` com sua chave inicial.
+    * `YOUR-ENDPOINT` com seu ponto de extremidade. Por exemplo, `westus2.api.cognitive.microsoft.com`.
 
-1. Instale as dependências com o seguinte comando de console:
+1. Instalar a dependência `requests`. Isto é usado para fazer solicitações HTTP:
 
     ```console
     pip install requests
     ```
 
-1. Execute o script com o comando de console a seguir:
+1. Execute o script com este comando de console:
 
     ```console
     python predict.py
     ``` 
 
-1. Examine a resposta da previsão no formato JSON:
+1. Examine a resposta de previsão, que é retornada como JSON:
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    A resposta em JSON formatada para facilitar a leitura: 
+    Aqui está a resposta em JSON formatada para facilitar a leitura: 
 
     ```JSON
     {

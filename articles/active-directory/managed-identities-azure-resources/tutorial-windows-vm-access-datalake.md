@@ -1,5 +1,5 @@
 ---
-title: Como usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Data Lake Storage
+title: Tutorial`:` Usar uma identidade gerenciada para acessar o Azure Data Lake Storage – Windows – Azure AD
 description: Um tutorial que mostra como usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Data Lake Storage.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd03ccdab6a7120dc59e42ab62c1d3b2d1e5bc3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: f3909e80ea36ed7aab638d717ecf8404d80beb59
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444695"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181892"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Data Lake Storage
 

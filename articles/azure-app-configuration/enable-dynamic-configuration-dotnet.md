@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7e28cdacce8eac4774683013ae1c30ca34ebfaad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821623"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185244"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Usar configuração dinâmica em um aplicativo .NET Framework
 
@@ -31,16 +31,15 @@ Este tutorial mostra como você pode implementar atualizações de configuraçã
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Configure seu aplicativo para atualizar sua configuração com um repositório de configurações de aplicativos sob demanda.
-> * Injetar a configuração mais recente nos controladores do aplicativo.
-
+> * Configure seu aplicativo .NET Framework para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
+> * Injete a configuração mais recente em seu aplicativo.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.1 ou posterior](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
+## <a name="create-an-app-configuration-store"></a>Criar um repositório de Configuração de Aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -52,7 +51,7 @@ Neste tutorial, você aprenderá como:
 
     Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto.
 
-## <a name="create-a-net-console-app"></a>Criar um aplicativo de console do .NET
+## <a name="create-a-net-framework-console-app"></a>Criar um aplicativo de console .NET Framework
 
 1. Inicie o Visual Studio e selecione **Arquivo** > **Novo** > **Projeto**.
 
@@ -99,7 +98,7 @@ Neste tutorial, você aprenderá como:
         PrintMessage().Wait();
     }
     ```
-    O método `ConfigureRefresh` é usado para especificar as configurações usadas para atualizar os dados de configuração com o repositório de configurações de aplicativos quando uma operação de atualização é disparada. Uma instância do `IConfigurationRefresher` pode ser recuperada chamando o método `GetRefresher` nas opções fornecidas ao método `AddAzureAppConfiguration` e o método `Refresh` nessa instância pode ser usado para disparar uma operação de atualização em qualquer lugar no seu código.
+    O método `ConfigureRefresh` é usado para especificar as configurações usadas para atualizar os dados de configuração com o repositório de Configuração de Aplicativos quando uma operação de atualização é disparada. Uma instância do `IConfigurationRefresher` pode ser recuperada chamando o método `GetRefresher` nas opções fornecidas ao método `AddAzureAppConfiguration` e o método `Refresh` nessa instância pode ser usado para disparar uma operação de atualização em qualquer lugar no seu código.
 
     > [!NOTE]
     > O tempo de expiração de cache padrão para um parâmetro de configuração é de 30 segundos, mas pode ser substituído chamando o método `SetCacheExpiration` no inicializador de opções passado como um argumento para o método `ConfigureRefresh`.
@@ -121,7 +120,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
 
-1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de configurações de aplicativo. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de Configuração de Aplicativos. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -135,7 +134,7 @@ Neste tutorial, você aprenderá como:
 
     ![Local de inicialização do aplicativo](./media/dotnet-app-run.png)
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos** e selecione a instância do repositório de configurações do aplicativo que você criou no início rápido.
+1. Entre no [Portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
 
 1. Selecione **Gerenciador de Configurações** e atualize os valores das seguintes chaves:
 
@@ -156,7 +155,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você adicionou uma identidade de serviço gerenciada do Azure para simplificar o acesso à Configuração de Aplicativo e melhorar o gerenciamento de credenciais de seu aplicativo. Para saber como adicionar uma identidade de serviço gerenciada pelo Azure que simplifica o acesso à Configuração de Aplicativos, passe para o próximo tutorial.
+Neste tutorial, você permitiu que seu aplicativo .NET Framework atualizasse dinamicamente configurações da Configuração de Aplicativos. Para saber como usar uma identidade gerenciada pelo Azure para simplificar o acesso à Configuração de Aplicativos, passe para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

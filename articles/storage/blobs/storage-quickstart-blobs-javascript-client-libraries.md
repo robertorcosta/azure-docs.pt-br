@@ -1,6 +1,6 @@
 ---
-title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando JavaScript e HTML no navegador
-description: Aprenda a usar uma instância de BlobService para carregar, listar e excluir blobs usando JavaScript em uma página HTML.
+title: 'Início Rápido: Armazenamento de Blobs do Azure para JavaScript v2 no navegador'
+description: Aprenda a usar uma instância de BlobService para fazer upload, listar e excluir blobs usando o SDK do JavaScript v2 em uma página HTML.
 keywords: armazenamento, javascript, html
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.date: 08/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 3dbd78f9c233515c675cd511924b3d4600b72fbd
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 1bf71f899a38fa4ce36f8f0ffc78de0c64f6c3f3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173114"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270050"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

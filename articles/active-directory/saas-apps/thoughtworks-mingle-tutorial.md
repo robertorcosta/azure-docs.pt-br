@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a12d4dca61734275ef0e56dfe2a800c64dc52540
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088758"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233301"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integração do Azure Active Directory ao Thoughtworks Mingle
 
@@ -130,11 +130,11 @@ Para configurar o logon único do Azure AD com o Thoughtworks Mingle, execute as
 
 2. Clique na guia **Administrador** e em **Config. de SSO**.
    
-    ![Guia Administrador](./media/thoughtworks-mingle-tutorial/ic785157.png "Configuração de SSO")
+    ![Guia Admin](./media/thoughtworks-mingle-tutorial/ic785157.png "Config. de SSO")
 
 3. Na seção **Config. de SSO** , realize as seguintes etapas:
    
-    ![Configuração de SSO](./media/thoughtworks-mingle-tutorial/ic785158.png "Configuração de SSO")
+    ![Config. de SSO](./media/thoughtworks-mingle-tutorial/ic785158.png "Config. de SSO")
     
     a. Para carregar o arquivo de metadados, clique em **Escolher arquivo**. 
 
@@ -208,7 +208,7 @@ Para usuários do Azure AD conseguirem entrar, eles devem ser provisionados para
 
 4. Clique em **Novo Usuário**.
    
-    ![Novo Usuário](./media/thoughtworks-mingle-tutorial/ic785162.png "Novo Usuário")
+    ![Novo usuário](./media/thoughtworks-mingle-tutorial/ic785162.png "Novo Usuário")
 
 5. Na página do diálogo **Novo Usuário** , realize as seguintes etapas:
    
@@ -221,7 +221,7 @@ Para usuários do Azure AD conseguirem entrar, eles devem ser provisionados para
     c. Clique em **Criar este Perfil**.
 
 >[!NOTE]
->É possível usar qualquer outra ferramenta de criação da conta de usuário do Thoughtworks Mingle ou as APIs fornecidas pelo Thoughtworks Mingle para provisionar as contas de usuário do AAD.
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do Thoughtworks Mingle ou as APIs fornecidas pelo Thoughtworks Mingle para provisionar as contas de usuário do Azure AD.
 > 
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
@@ -236,5 +236,5 @@ Ao clicar no bloco do Thoughtworks Mingle no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,6 +1,6 @@
 ---
 title: Transmitir logs de recursos do Azure para um hub de eventos
-description: Saiba como transmitir logs de recursos do Azure para um hub de eventos.
+description: Saiba como transmitir logs de recursos do Azure para um hub de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 1d7a533658b6c72caae9649d7e5a9c4fad117245
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 680570c5102f656b2b2d2e05f9e08f51fe892f44
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262408"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304944"
 ---
 # <a name="stream-azure-resource-logs-to-azure-event-hubs"></a>Transmitir logs de recursos do Azure para os hubs de eventos do Azure
 [Os logs de recursos](resource-logs-overview.md) no Azure fornecem dados avançados e frequentes sobre a operação interna de um recurso do Azure. Este artigo descreve os logs de recursos de streaming para os hubs de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
@@ -25,7 +25,7 @@ Transmita logs de recursos no Azure para hubs de eventos para fornecer a seguint
 * **Transmita logs para sistemas de registro em log e telemetria de terceiros** – transmita todos os seus logs de recursos para um único Hub de eventos para canalizar dados de log para uma ferramenta Siem ou log Analytics de terceiros.
 * **Crie uma plataforma de registro em log e telemetria personalizada** – a natureza altamente escalonável de publicação-assinatura dos hubs de eventos permite ingerir com flexibilidade os logs de recursos em uma plataforma teletry personalizada. Consulte [projetando e dimensionando uma plataforma de telemetria de escala global nos hubs de eventos do Azure](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) para obter detalhes.
 
-* **Exibir a integridade do serviço transmitindo dados para Power bi** – use os hubs de eventos, Stream Analytics e Power bi para transformar os dados de diagnóstico em informações quase em tempo real nos serviços do Azure. Consulte [Stream Analytics e Power bi: Um painel de análise em tempo real para dados](../../stream-analytics/stream-analytics-power-bi-dashboard.md) de streaming para obter detalhes sobre essa solução.
+* **Exibir a integridade do serviço transmitindo dados para Power bi** – use os hubs de eventos, Stream Analytics e Power bi para transformar os dados de diagnóstico em informações quase em tempo real nos serviços do Azure. Consulte [Stream Analytics e Power bi: um painel de análise em tempo real para dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre essa solução.
 
     O código SQL a seguir é um exemplo de consulta do Stream Analytics que você pode usar para analisar todos os dados de log em uma tabela do Power BI:
     
@@ -39,7 +39,7 @@ Transmita logs de recursos no Azure para hubs de eventos para fornecer a seguint
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Você precisará [criar um hub de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se você tiver transmitido anteriormente os logs de recursos para esse namespace de hubs de eventos, esse Hub de eventos será reutilizado.
 
 A política de acesso compartilhado para o namespace define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado no portal do Azure na guia Configurar para seu namespace de hubs de eventos.
@@ -60,12 +60,12 @@ Quando você consumir logs de recursos dos hubs de eventos, será o formato JSON
 | Nome do elemento | DESCRIÇÃO |
 | --- | --- |
 | records |Uma matriz de todos os eventos de log nessa carga. |
-| time |A hora na qual o evento ocorreu. |
-| category |Categoria do log desse evento. |
-| resourceId |ID de recurso do recurso que gerou esse evento. |
+| tempo real |A hora na qual o evento ocorreu. |
+| categoria |Categoria do log desse evento. |
+| ResourceId |ID de recurso do recurso que gerou esse evento. |
 | operationName |Nome da operação. |
 | level |Opcional. Indica o nível do evento de log. |
-| properties |Propriedades do evento. Elas irão variar para cada serviço do Azure, conforme descrito em [](). |
+| propriedades |Propriedades do evento. Elas irão variar para cada serviço do Azure, conforme [ ]()descrito em. |
 
 
 Veja a seguir exemplos de dados de saída dos hubs de eventos:

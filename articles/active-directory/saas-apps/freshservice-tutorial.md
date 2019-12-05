@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3ba2f59799629873553fe261abebf59529ad94d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "73570603"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227528"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Freshservice
 
@@ -95,7 +95,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O Freshservice requer uma impressão digital SHA-256 para que o SSO funcione. Para obter a impressão digital SHA-256, execute as seguintes etapas:
 
-    ![Impressão digital](./media/freshservice-tutorial/ic790821.png "Impressão digital")
+    ![FingerPrint](./media/freshservice-tutorial/ic790821.png "Impressão digital")
 
     1. Abra o [link](https://www.samltool.com/fingerprint.php) em um navegador da Web diferente.
 
@@ -155,7 +155,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 4. No menu na parte superior, clique em **Administrador**.
 
-    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
+    ![Administrador](./media/freshservice-tutorial/ic790814.png "Administrador")
 
 5. No **Portal do Cliente**, clique em **Segurança**.
 
@@ -163,7 +163,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 6. Na seção **Segurança** , realize as seguintes etapas:
 
-    ![Logon Único](./media/freshservice-tutorial/ic790816.png "Logon Único")
+    ![Logon único](./media/freshservice-tutorial/ic790816.png "Logon Único")
 
     a. Ative o **Logon Único**.
 
@@ -187,7 +187,7 @@ Para permitir que os usuários do Azure AD façam logon no FreshService, eles de
 
 2. No menu na parte superior, clique em **Administrador**.
 
-    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
+    ![Administrador](./media/freshservice-tutorial/ic790814.png "Administrador")
 
 3. Na seção **Gerenciamento de Usuários**, clique em **Solicitantes**.
 
@@ -210,7 +210,7 @@ Para permitir que os usuários do Azure AD façam logon no FreshService, eles de
     >  
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do FreshService ou APIs fornecidas pelo FreshService para provisionar as contas de usuário do AAD.
+> É possível usar qualquer outra ferramenta de criação da conta de usuário do FreshService ou APIs fornecidas pelo FreshService para provisionar as contas de usuário do Azure AD.
 
 ## <a name="test-sso"></a>Testar o SSO
 

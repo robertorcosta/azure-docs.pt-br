@@ -1,19 +1,16 @@
 ---
-title: Tutorial – use o arquivo de parâmetro para ajudar a implantar um modelo do Azure Resource Manager
+title: Tutorial – usar um arquivo de parâmetro para implantar o modelo
 description: Use arquivos de parâmetro que contenham os valores a serem usados para implantar seu modelo do Azure Resource Manager.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b01e9ece2d194d76c7184a676f17d626c41a011
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177547"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405982"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: Use arquivos de parâmetro para implantar seu modelo do Resource Manager
 
@@ -25,7 +22,7 @@ Recomendamos que você conclua o [tutorial sobre marcas](template-tutorial-add-t
 
 É necessário ter o Visual Studio Code com a extensão Ferramentas do Resource Manager e o Azure PowerShell ou a CLI do Azure. Para obter mais informações, confira [Ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examinar o modelo
+## <a name="review-template"></a>Examinar modelo
 
 Seu modelo tem muitos parâmetros que você pode fornecer durante a implantação. No final do tutorial anterior, seu modelo tinha a seguinte aparência:
 
@@ -49,7 +46,7 @@ Novamente, crie um arquivo com o conteúdo a seguir. Salve o arquivo com o nome 
 
 Esse arquivo é seu arquivo de parâmetro para o ambiente de produção. Observe que ele usa Standard_GRS para a conta de armazenamento, nomeia recursos com um prefixo **contoso** e define uma tag **Ambiente** como **Produção**. Em um ambiente de produção real, também seria conveniente usar um serviço de aplicativo com um SKU que não seja gratuito, mas continuaremos usando esse SKU para este tutorial.
 
-## <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-template"></a>Implantar modelo
 
 Use a CLI do Azure ou o Azure PowerShell para implantar o modelo.
 
@@ -119,7 +116,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Verificar a implantação
+## <a name="verify-deployment"></a>Verificar implantação
 
 Você pode verificar a implantação explorando os grupos de recursos do portal do Azure.
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea4167f5a8f4e29641a999c72f57b368190a34e0
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 5eb5cedf14af9a013a5b6a1eba5df40d665cbad5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165519"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181292"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao F5
 
@@ -38,7 +38,55 @@ Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O
 Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+
 * Assinatura habilitada para SSO (logon único) do F5.
+
+* Implantar a solução conjunta requer a seguinte licença:
+
+    * Pacote BIG-IP® Best da F5 (ou) 
+
+    * Licença autônoma do BIG-IP Access Policy Manager™ (APM) da F5 
+
+    * Licença de complemento do BIG-IP Access Policy Manager™ (APM) da F5 em um BIG-IP® Local Traffic Manager™ (LTM) da F5.
+
+    * Além da licença acima, o sistema da F5 também pode ser licenciado com: 
+
+        * Uma assinatura de Filtragem de URL para usar o banco de dados de categoria de URL
+
+        * Uma assinatura do IP Intencionado da F5 para detectar e bloquear invasores conhecidos e tráfego mal-intencionado
+     
+        * Um HSM (módulo de segurança de hardware) de rede para proteger e gerenciar chaves digitais para ter uma autenticação forte
+
+* O sistema de BIG-IP da F5 é provisionado com módulos do APM (o LTM é opcional)
+
+* Embora seja opcional, é altamente recomendável implantar os sistemas da F5 em um [S/F DG](https://techdocs.f5.com/content/techdocs/en-us/bigip-14-1-0/big-ip-device-service-clustering-administration-14-1-0.html) (grupo de dispositivos de sincronização/failover), que inclui um par de espera ativo, com um endereço IP flutuante para oferecer HA (alta disponibilidade). A redundância de interface adicional pode ser obtida usando o LACP (Protocolo de Controle de Agregação de Link). O LACP gerencia as interfaces físicas conectadas como uma única interface virtual (grupo de agregação) e detecta falhas de interface dentro do grupo.
+
+* Para aplicativos Kerberos, uma conta de serviço do AD local para delegação restrita.  Veja a [Documentação da F5](https://support.f5.com/csp/article/K43063049) para criar uma conta de delegação do AD.
+
+## <a name="access-guided-configuration"></a>Configuração guiada de acesso
+
+* A configuração guiada de acesso é compatível com o TMOS da F5 versão 13.1.0.8 e superior. Se o sistema BIG-IP estiver executando uma versão inferior à 13.1.0.8, confira a seção **Configuração avançada**.
+
+* A configuração guiada de acesso apresenta uma experiência do usuário completamente nova e simplificada. Essa arquitetura baseada em fluxo de trabalho fornece etapas de configuração reentrantes e intuitivas adaptadas à topologia selecionada.
+
+* Antes de passar para a configuração, atualize a configuração guiada baixando o mais recente pacote de caso de uso de [downloads.f5.com](https://login.f5.com/resource/login.jsp?ctx=719748). Para atualizar, siga o procedimento abaixo.
+
+    >[!NOTE]
+    >As capturas de tela abaixo são para a versão mais recente lançada (BIG-IP 15.0 com AGC versão 5.0). As etapas de configuração a seguir são válidas para esse caso de uso da versão 13.1.0.8 à versão do BIG-IP mais recente.
+
+1. Na interface do usuário da Web de BIG-IP da F5, clique em **Acessar >> Configuração do Guia**.
+
+1. Na página **Configuração Guiada**, clique em **Atualizar Configuração Guiada** no canto superior esquerdo.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure14.png) 
+
+1. Na tela pop-up Atualizar Configuração do Guia, selecione **Escolher Arquivo** para fazer upload do pacote de casos de uso baixado e clique no botão **Fazer Upload e Instalar**.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure15.png) 
+
+1. Quando a atualização for concluída, clique no botão **Continuar**.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure16.png)
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -51,6 +99,20 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 - [Configurar logon único do F5 para aplicativo Kerberos](kerbf5-tutorial.md)
 
 - [Configurar logon único do F5 para aplicativo Kerberos Avançado](advance-kerbf5-tutorial.md)
+
+### <a name="key-authentication-scenarios"></a>Cenários de autenticação de chaves
+
+* Além do suporte à integração nativa do Azure Active Directory para protocolos de autenticação modernos, como Open ID Connect, SAML e WS-Fed, a F5 estende o acesso seguro para aplicativos de autenticação herdados para acesso interno e externo com o Azure AD, habilitando cenários modernos (por exemplo, acesso sem senha) a esses aplicativos. Isso inclui:
+
+* Aplicativos de autenticação baseada em cabeçalho
+
+* Aplicativos de autenticação Kerberos
+
+* Autenticação anônima ou nenhum aplicativo de autenticação interno
+
+* Aplicativos de autenticação NTLM (proteção com prompts duplos para o usuário)
+
+* Aplicativo baseado em formulários (proteção com prompts duplos para o usuário)
 
 ## <a name="adding-f5-from-the-gallery"></a>Adicionar o F5 da galeria
 
@@ -99,7 +161,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
@@ -136,6 +198,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Clique em **Acesso Condicional**.
+1. Clique em **Nova Política**.
+1. Agora você pode ver seu aplicativo da F5 como um recurso para a Política de AC e aplicar qualquer acesso condicional, incluindo a Autenticação Multifator, o controle de acesso baseado em dispositivo ou a Política do Identity Protection.
 
 ## <a name="configure-f5-sso"></a>Configurar o SSO do F5
 
@@ -145,56 +210,244 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ### <a name="configure-f5-single-sign-on-for-header-based-application"></a>Configurar logon único do F5 para aplicativo baseado em cabeçalho
 
+### <a name="guided-configuration"></a>Configuração guiada
+
 1. Abra uma nova janela do navegador da Web, entre no site da empresa F5 (Baseado em Cabeçalho) como administrador e execute as seguintes etapas:
 
-1. Você precisa importar o Certificado de Metadados no F5 (Baseado em Cabeçalho) que será usado posteriormente no processo de instalação. Acesse **Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego >> Lista de Certificados SSL**. Clique em **Importar** do canto direito
+1. Navegue até **Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego > Lista de Certificados SSL**. Selecione **Importar** do lado direito. Especifique um **Nome do Certificado** (será referenciado futuramente na configuração). Na **Origem do Certificado**, selecione Fazer Upload de Arquivo e especifique o certificado baixado do Azure ao configurar o Logon Único do SAML. Clique em **Importar**.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure12.png)
  
-1. Além disso, você também precisa de um **Certificado SSL** para o Nome do host (`headerapp.superdemo.live`); neste exemplo, usamos o Certificado Curinga.
+1. Além disso, você precisará do **Certificado SSL para o Nome do Host do Aplicativo. Navegue até Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego > Lista de Certificados SSL**. Selecione **Importar** do lado direito. O **Tipo de Importação** será **PKCS 12(IIS)** . Especifique um **Nome da Chave** (será referenciado futuramente na configuração) e especifique o arquivo PFX. Especifique a **Senha** do PFX. Clique em **Importar**.
+
+    >[!NOTE]
+    >No exemplo, o nome do aplicativo é `Headerapp.superdemo.live`; estamos usando um Certificado Curinga; nosso keyname é `WildCard-SuperDemo.live`.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure13.png)
 
-1. Acesse – **Acesso de Clique BIG-IP do F5 (Baseado em Cabeçalho) > Configuração Guiada > Federação > Provedor de Serviços SAML**.
+1. Usaremos a Experiência Guiada para configurar a Federação do Azure AD e o Acesso ao Aplicativo. Acesse – **Principal** do BIG-IP da F5 e selecione **Acessar > Configuração Guiada > Federação > Provedor de Serviços SAML**. Clique em **Avançar**; em seguida, clique em **Avançar** para iniciar a configuração.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure01.png)
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure02.png)
  
-1. Especifique a **ID da Entidade** (a mesma que você definiu na Configuração de Aplicativos do Azure AD)
+1. Forneça um **Nome de Configuração**. Especifique a **ID da Entidade** (a mesma que você definiu na Configuração de Aplicativos do Azure AD). Especifique o **Nome do host**. Adicione uma **Descrição** para consultar. Aceite as entradas padrão restantes e selecione e clique em **Salvar e Avançar**.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure03.png) 
 
-1. Crie um Servidor Virtual e especifique o **Endereço de Destino**; a **Porta de Redirecionamento** é opcional. Escolha o **Certificado Curinga** (ou o **Cert** que você carregou para o aplicativo) que carregamos anteriormente e a **Chave Privada Associada**.
+1. Neste exemplo, estamos criando um Servidor Virtual como 192.168.30.20 com a porta 443. Especifique o endereço IP do Servidor Virtual no **Endereço de Destino**. Selecione o **Perfil SSL** do cliente e selecione Criar. Especifique o certificado de aplicativo carregado anteriormente (o certificado curinga neste exemplo) e a chave associada. Em seguida, clique em **Salvar e Avançar**.
+
+    >[!NOTE]
+    >Neste exemplo, nosso webserver interno está sendo executado na porta 888 e queremos publicá-lo com a 443.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure04.png) 
 
-1. Carregue os **metadados** de configuração e especifique um novo **Nome para o conector IDP do SAML**. Também será necessário especificar o Certificado de Federação que foi carregado anteriormente.
+1. Em **Selecione um método para configurar seu conector IdP**, especifique os Metadados, clique em Escolher Arquivo e faça upload do arquivo XML de Metadados baixado anteriormente do Azure AD. Especifique um **Nome** exclusivo para o conector IDP do SAML. Escolha o **Certificado de Autenticação de Metadados** que foi carregado anteriormente. Clique em **Salvar e Avançar**.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure05.png)
  
-1. **Crie** um pool de aplicativos de back-end e especifique os **Endereços IP** dos Servidores de Aplicativo de Back-end.
+1. Em **Selecione um Pool**, especifique **Criar** (ou selecione um pool que já existe). Deixe o outro valor ser o padrão. Em Servidores de Pool, digite o Endereço IP em **Endereço IP/Nome do Nó**. Especifique a **Porta**. Clique em **Salvar e Avançar**.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure06.png)
 
-1. Em Logon Único, escolha **Baseado em cabeçalho HTTP**. Você pode adicionar outros cabeçalhos baseados em seu aplicativo. Confira o apêndice da lista de variáveis de sessão do SAML
+1. Na tela Configurações de Logon Único, selecione **Habilitar Logon Único**. Em Tipo de Logon Único Selecionado, escolha **HTTP baseado em cabeçalho**. Substitua **session.saml.last.Identity** por **session.saml.last.attr.name.Identity** em Origem do Nome de Usuário (esta variável é definida usando o mapeamento de declarações no Azure AD). Em Cabeçalhos de SSO.
+
+    * **HeaderName: MyAuthorization**
+
+    * **Valor do cabeçalho: %{session.saml.last.attr.name.Identity}**
+
+    * Clique em **Salvar e Avançar**
+
+    Confira no Apêndice uma lista completa de variáveis e valores. Você pode adicionar mais cabeçalhos conforme necessário.
+
+    >[!NOTE]
+    >O nome da conta é a conta de delegação de F5 criada (confira a Documentação do F5).
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure07.png) 
 
-1. Contate a [equipe de suporte ao Cliente F5 (Baseado em cabeçalho)](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para obter detalhes sobre a documentação de **Propriedades de Verificação do Ponto de Extremidade**.
+1. Para fins destas diretrizes, ignoraremos as verificações de ponto de extremidade.  Veja a documentação da F5 para ver os detalhes. Selecione **Salvar e Avançar**.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure08.png)
 
-1. Contate a [equipe de suporte ao Cliente F5 (Baseado em cabeçalho)](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para obter detalhes sobre a documentação de **Propriedades de Gerenciamento da Sessão**.
+1. Aceite os padrões e clique em **Salvar e Avançar**. Veja a documentação da F5 para obter detalhes sobre as configurações de gerenciamento de sessão do SAML.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure09.png)
 
-1. **Examine o resumo** e clique em **Implantar**.
+1. Examine a tela de resumo e selecione **Implantar** para configurar o BIG-IP. Clique em **Concluir**.
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure10.png)
 
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure11.png)
 
+## <a name="advanced-configuration"></a>Configuração avançada
+
+Esta seção deverá ser usada se você não puder usar a Configuração guiada ou desejar adicionar/modificar parâmetros adicionais. Você precisará do Certificado SSL para o Nome do Host do Aplicativo.
+
+1. Navegue até **Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego > Lista de Certificados SSL**. Selecione **Importar** do lado direito. O **Tipo de Importação** será **PKCS 12(IIS)** . Especifique um **Nome da Chave** (será referenciado futuramente na configuração) e especifique o arquivo PFX. Especifique a **Senha** do PFX. Clique em **Importar**.
+
+    >[!NOTE]
+    >No exemplo, o nome do aplicativo é `Headerapp.superdemo.live`; estamos usando um Certificado Curinga; nosso keyname é `WildCard-SuperDemo.live`.
+  
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure17.png)
+
+### <a name="adding-a-new-web-server-to-bigip-f5"></a>Como adicionar um novo servidor Web a BigIP-F5
+
+1. Clique em **Principal > IApps > Serviços de Aplicativo > Aplicativo > Criar**.
+
+1. Forneça o **Nome** e, em **Modelo**, escolha **f5.http**.
+ 
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure18.png)
+
+1. Publicaremos nosso HeaderApp2 externamente como HTTPS nesse caso, **como o sistema de BIG-IP deve lidar com o tráfego SSL**? Especificamos **Encerrar o SSL do cliente, texto não criptografado para servidores (descarregamento de SSL)** . Especifique seu certificado e a chave em Qual certificado SSL você deseja usar? e em **Qual chave privada SSL você deseja usar?** . Especifique o IP do servidor virtual em **Qual endereço IP você deseja usar para o servidor virtual?** . 
+
+    * **Especificar outros detalhes**
+
+        * FQDN  
+
+        * Especifique o pool de aplicativos de saída ou crie um.
+
+        * Se estiver criando um servidor de aplicativos, especifique **Endereço IP Interno** e **número da porta**.
+
+        ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure19.png) 
+
+1. Clique em **Concluído**.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure20.png) 
+
+1. Verifique se as propriedades do aplicativo podem ser modificadas. Clique em **Principal > IApps > Serviços de Aplicativo: Aplicativos >> HeaderApp2**. Desmarque **Atualizações Estritas** (modificaremos algumas configurações fora da GUI). Clique no botão **Atualizar**.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure21.png) 
+
+1. Neste ponto, você deve ser capaz de navegar pelo servidor virtual.
+
+### <a name="configuring-f5-as-sp-and-azure-as-idp"></a>Configuração de F5 como SP e Azure como IDP
+
+1.  Clique em **Acessar > Federação > Provedor de Serviços SAML > Serviço SP Local > clique em criar ou + assinar**.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure22.png)
+
+1. Especifique os detalhes para o serviço do provedor de serviços. Especifique **Nome** representando a Configuração de SP F5. Especifique **ID da Entidade** (geralmente igual à URL do aplicativo).
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure23.png)
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure24.png)
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure25.png)
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure26.png)
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure27.png)
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure28.png)
+
+### <a name="create-idp-connector"></a>Criar conector Idp
+
+1. Clique no botão **Associar/Desassociar Conectores IdP**, selecione **Criar Conector IdP** e escolha entre a opção **Metadados** e, em seguida, execute as seguintes etapas:
+ 
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure29.png)
+
+    a. Navegue até o arquivo metadata.xml baixado do Azure AD e especifique um **Nome de Provedor de Identidade**.
+
+    b. Clique em **OK**.
+
+    c. O conector é criado e o certificado fica pronto automaticamente do arquivo XML de metadados.
+    
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure30.png)
+
+    d. Configure o F5BIG-IP para enviar todas as solicitações ao Azure AD.
+
+    e. Clique em **Adicionar Nova Linha**, escolha **AzureIDP** (conforme criado nas etapas anteriores, especifique 
+
+    f. **Fonte correspondente = %{session.server.landinguri}** 
+
+    g. **Valor correspondente = /** *
+
+    h. Clique em **Atualizar**
+
+    i. Clique em **OK**
+
+    j. **A instalação do IDP do SAML foi concluída**
+    
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure31.png)
+
+### <a name="configure-f5-policy-to-redirect-users-to-azure-saml-idp"></a>Configurar a política F5 para redirecionar os usuários para o IDP do SAML Azure
+
+1. Para configurar a política F5 para redirecionar os usuários para o IDP do SAML do Azure, execute as seguintes etapas:
+
+    a. Clique em **Principal > Acessar > Perfil/Políticas > Perfis de Acesso**.
+
+    b. Clique no botão **Criar**.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure32.png)
+ 
+    c. Especifique **Nome** (HeaderAppAzureSAMLPolicy no exemplo).
+
+    d. Você pode personalizar outras configurações. Veja a documentação de F5.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure33.png)
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure34.png) 
+
+    e. Clique em **Concluído**.
+
+    f. Quando a criação da política for concluída, clique na política e vá para a guia **Política de Acesso**.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure35.png)
+ 
+    g. Clique no **Editor de Política Visual**, edite o link **Política de Acesso para Perfil**.
+
+    h. Clique no sinal de + no editor de Política Visual e escolha **Autenticação SAML**.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure36.png)
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure37.png)
+ 
+    i. Clique em **Adicionar Item**.
+
+    j. Em **Propriedades**, especifique **Nome** e, em **Servidor AAA**, selecione o SP configurado anteriormente; clique em **SALVAR**.
+ 
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure38.png)
+
+    k. A política básica está pronta. Você pode personalizá-la para incorporar fontes/armazenamentos de atributos adicionais.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure39.png)
+ 
+    l. Clique no link **Aplicar Política de Acesso** na parte superior.
+
+### <a name="apply-access-profile-to-the-virtual-server"></a>Aplicar perfil de acesso ao servidor virtual
+
+1. Atribua o perfil de acesso ao servidor virtual para que F5 BIG-IP APM aplique as configurações de perfil ao tráfego de entrada e execute a política de acesso definida anteriormente.
+
+    a. Clique em **Principal** > **Tráfego Local** > **Servidores Virtuais**.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure40.png)
+ 
+    b. Clique no servidor virtual, role até a seção **Política de Acesso**, na lista suspensa **Perfil de Acesso** e selecione a política SAML criada (no exemplo HeaderAppAzureSAMLPolicy)
+
+    c. Clique em **Atualizar**
+ 
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure41.png)
+
+    d. Crie um F5 BIG-IP iRule® para extrair os atributos SAML personalizados da declaração de entrada e passá-los como cabeçalhos HTTP para o aplicativo de teste de back-end. Clique em **Principal > Tráfego Local > iRules > Lista do iRule > clique em criar**
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure42.png)
+ 
+    e. Cole o texto F5 BIG-IP iRule abaixo na janela de definição.
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure43.png)
+ 
+    quando RULE_INIT { set static::debug 0 } quando ACCESS_ACL_ALLOWED {
+
+    defina AZUREAD_USERNAME [ACCESS::session data get "session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"] se { $static::debug } { log local0. "AZUREAD_USERNAME = $AZUREAD_USERNAME" } se { !([HTTP::header exists "AZUREAD_USERNAME"]) } { HTTP::header insert "AZUREAD_USERNAME" $AZUREAD_USERNAME }
+
+    defina AZUREAD_DISPLAYNAME [ACCESS::session data get "session.saml.last.attr.name. http://schemas.microsoft.com/identity/claims/displayname"] se { $static::debug } { log local0. "AZUREAD_DISPLAYNAME = $AZUREAD_DISPLAYNAME" } se { !([HTTP::header exists "AZUREAD_DISPLAYNAME"]) } { HTTP::header insert "AZUREAD_DISPLAYNAME" $AZUREAD_DISPLAYNAME }
+
+    defina AZUREAD_EMAILADDRESS [ACCESS::session data get "session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] se { $static::debug } { log local0. "AZUREAD_EMAILADDRESS = $AZUREAD_EMAILADDRESS" } se { !([HTTP::header exists "AZUREAD_EMAILADDRESS"]) } { HTTP::header insert "AZUREAD_EMAILADDRESS" $AZUREAD_EMAILADDRESS }}
+
+    **Saída de exemplo abaixo**
+
+    ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure44.png)
+ 
 ### <a name="create-f5-test-user"></a>Criar usuário de teste do F5
 
 Nesta seção, você criará um usuário chamado B.Fernandes no F5. Trabalhe com a [equipe de suporte ao Cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os usuários à plataforma do F5. Os usuários devem ser criados e ativados antes de usar o logon único. 
