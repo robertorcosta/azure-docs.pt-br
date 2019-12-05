@@ -21,6 +21,8 @@
   items:
     - name: Implantar o FarmBeats
       href: prepare-for-deployment.md
+    - name: Gerenciar usuários
+      href: manage-users.md
     - name: Gerenciar farms
       href: manage-farms.md
     - name: Obter dados de sensor

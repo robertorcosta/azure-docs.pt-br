@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b4e479405a9606a8353785828d0c9c94ef8c32ed
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ada64d6bbce4fe7401bbfc078ba0903a28f06971
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850260"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796177"
 ---
 ### <a name="regions"></a>Quais regiões estão disponíveis?
 
@@ -55,3 +55,7 @@ Uma sessão deve ser iniciada somente por meio do portal do Azure. Entre no port
 
 Atualmente, o Azure Bastion dá suporte ao layout de teclado QWERTY em inglês dentro da VM.  Estamos trabalhando para dar suporte a layouts de teclado de outras localidades.
 
+### <a name="udr"></a>As sub-redes do Azure Bastion tem suporte para UDR (roteamento definido pelo usuário)?
+
+Não. As sub-redes do Azure Bastion não tem suporte para UDR.
+Para cenários que incluem o Azure Bastion e o Firewall do Azure ou a NVA (solução de virtualização de rede) na mesma rede virtual, você não precisa forçar o tráfego de uma sub-rede do Azure Bastion para o Firewall do Azure, pois a comunicação entre o Azure Bastion e suas VMs é privada. Para obter mais detalhes, consulte [Acessar VMs por trás do Firewall do Azure com o Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
