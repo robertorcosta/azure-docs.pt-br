@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 04/26/2019
-ms.author: rosh
-ms.openlocfilehash: 439f775fb6124c847631467caabe3f48cfa6b645
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 2265471001896652a4ce35dbf8bd84aca50000fb
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326704"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665671"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Início Rápido: Enviar uma consulta para a API de Pesquisa de Empresas Locais do Bing em C#
 
@@ -34,7 +34,7 @@ Você deve ter uma [Conta de API dos Serviços Cognitivos](https://docs.microsof
 
 O código a seguir cria um `WebRequest`, define o cabeçalho de chave de acesso e adiciona uma cadeia de caracteres de consulta para “restaurante em Bellevue”.  Em seguida, ele envia a solicitação e atribui a resposta a uma cadeia de caracteres para conter o texto JSON.
 
-```
+```csharp
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -60,7 +60,7 @@ A API de Pesquisa de Empresas Locais do Bing retorna os resultados da pesquisa l
 3. Substitua o valor accessKey por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Text;

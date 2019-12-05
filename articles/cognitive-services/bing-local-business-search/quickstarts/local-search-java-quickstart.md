@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: 46187aa1d4e0670b45aeeafd643f541ab90fb9a7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8ff70bea8d0e4810b6d5a0d35853077ed0a630cd
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326740"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665178"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Início Rápido: enviar uma consulta para a API de Pesquisa do Bing Local Business usando o Java
 
@@ -35,7 +35,7 @@ Este aplicativo de exemplo obtém dados de resposta local da consulta de um *hot
 
 O código a seguir cria um `WebRequest`, define o cabeçalho da chave de acesso e adiciona uma cadeia de caracteres de consulta para "hotel no Bellevue".  Em seguida, ele envia a solicitação e atribui a resposta a uma cadeia de caracteres para conter o texto JSON.
 
-```
+```java
     // construct URL of search request (endpoint + query string)
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -58,7 +58,7 @@ A API de pesquisa de negócios locais do Bing retorna os resultados do mecanismo
 4. Substitua o valor de subscriptionKey por uma chave de acesso válida para a assinatura.
 5. Execute o programa.
 
-```
+```java
 package localSearch;
 import java.net.*;
 import java.util.*;
