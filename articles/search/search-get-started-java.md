@@ -1,20 +1,20 @@
 ---
 title: 'Início Rápido: Criar um índice de pesquisa em Java usando APIs REST'
 titleSuffix: Azure Cognitive Search
-description: Explica como criar um índice, carregar dados e executar consultas usando Java e as APIs REST da Pesquisa Cognitiva do Azure.
+description: Neste início rápido do Java, saiba como criar um índice, carregar dados e executar consultas usando APIs REST do Azure Cognitive Search.
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 9f30c30276db6daa0b4afdf3e6bdd8e617dedc52
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792809"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406723"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Java usando APIs REST
 > [!div class="op_single_selector"]
@@ -817,7 +817,7 @@ Agora que carregou os documentos de hotéis, você pode criar consultas de pesqu
 
     Procure um resumo de cada consulta e seus resultados. A execução deve ser concluída com uma mensagem de SUCESSO NO BUILD seguida de um código de saída igual a zero (0).
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você está trabalhando em sua própria assinatura, no final de um projeto, é uma boa ideia remover os recursos que já não são necessários. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
@@ -827,10 +827,7 @@ Se você estiver usando um serviço gratuito, estará limitado a três índices,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido do Java, você trabalhou com uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Se você estiver familiarizado com os conceitos básicos, recomendamos os seguintes artigos para um aprendizado mais profundo.
+Neste início rápido do Java, você trabalhou com uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Se você estiver familiarizado com os conceitos básicos, recomendamos o seguinte artigo que lista as operações do indexador em REST.
 
-+ [Operações de índice](/rest/api/searchservice/index-operations)
-
-+ [Operações de documento](/rest/api/searchservice/document-operations)
-
-+ [Operações de indexador](/rest/api/searchservice/indexer-operations)
+> [!div class="nextstepaction"]
+> [Operações de indexador](/rest/api/searchservice/indexer-operations)

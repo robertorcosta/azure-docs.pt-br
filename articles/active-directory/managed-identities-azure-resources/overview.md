@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5a9f83a8f6e8d5e83f30d30da2b1c4c0f722dc3
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 7ee30962db230417bf3e20a354614a5ebb8f35a0
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063050"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561905"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -43,7 +43,7 @@ Os seguintes termos são usados em todas as identidades gerenciadas do conjunto 
 - **ID da Entidade de Segurança** – a ID de objeto do objeto da entidade de serviço para a identidade gerenciada usada para permitir acesso baseado em função a um recurso do Azure.
 - **IMDS (Serviço de Metadados de Instância) do Azure** – um ponto de extremidade REST acessível a todas as VMs IaaS criadas por meio do Azure Resource Manager. O ponto de extremidade está disponível em um endereço IP não roteável conhecido (169.254.169.254) que pode ser acessado somente de dentro da VM.
 
-## Como as identidades gerenciadas dos recursos do Azure funcionam?<a name="how-does-it-work"></a>
+## <a name="how-does-the-managed-identities-for-azure-resources-work"></a>Como funcionam as identidades gerenciadas dos recursos do Azure?
 
 Há dois tipos de identidades gerenciadas:
 

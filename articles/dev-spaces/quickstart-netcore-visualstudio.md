@@ -1,10 +1,6 @@
 ---
-title: Depurar e iterar com o Visual Studio e o .NET Core no AKS usando o Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: 'Depurar e iterar no Kubernetes: Visual Studio e .NET Core'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 11/13/2019
 ms.topic: quickstart
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
@@ -12,14 +8,14 @@ keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, cont�
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 5a7ab993c58730594a0c4e10572939d3dccbdf02
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: a151314bef14e302879f4db0f7c0094779bdcfec
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091801"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325618"
 ---
-# <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Início Rápido: Depurar e iterar com o Visual Studio e o .NET Core no Kubernetes usando o Azure Dev Spaces
+# <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes: Visual Studio e .NET Core – Azure Dev Spaces
 
 Neste guia, você aprenderá a:
 

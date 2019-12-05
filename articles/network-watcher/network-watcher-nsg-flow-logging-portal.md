@@ -1,6 +1,7 @@
 ---
-title: Registrar em log o fluxo de tráfego de rede bidirecionalmente em uma VM – tutorial – portal do Azure | Microsoft Docs
-description: Saiba como registrar em log o fluxo de tráfego de rede bidirecionalmente em uma VM usando a funcionalidade de logs de fluxo do NSG do Observador de Rede.
+title: Tutorial – Registrar em log o fluxo de tráfego de rede de e para uma VM usando o portal do Azure
+titleSuffix: Azure Network Watcher
+description: Neste tutorial, saiba como registrar em log o fluxo de tráfego de rede bidirecionalmente em uma VM usando a funcionalidade de logs de fluxo do NSG do Observador de Rede.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -17,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636208"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419624"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registrar em log o tráfego de rede bidirecionalmente em uma máquina virtual usando o portal do Azure
 

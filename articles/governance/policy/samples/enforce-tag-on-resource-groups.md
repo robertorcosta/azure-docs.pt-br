@@ -1,14 +1,14 @@
 ---
 title: Exemplo – Impor tag e valor em grupos de recursos
-description: Esta definição de política de exemplo exige uma marca e um valor em um grupo de recursos.
+description: Esta definição de política de exemplo exige uma tag e um valor definido em um parâmetro em um grupo de recursos.
 ms.date: 01/31/2019
 ms.topic: sample
-ms.openlocfilehash: 1a4bf9d27971b149e3df422987f58d0f184181c2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d04c48e2633e1a23990723c91a66cf8ec219b160
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076268"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463630"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemplo – Impor tag e seu valor em grupos de recursos
 

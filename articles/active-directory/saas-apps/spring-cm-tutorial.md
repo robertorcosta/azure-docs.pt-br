@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1d1973dd51068e6f3e0746ee988a51f375899f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 9bd9ea5565ea64415c00a458236456bed04b6c38
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588011"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233377"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Azure Active Directory com SpringCM
 
@@ -210,7 +210,7 @@ Para permitir que os usuários do Azure Active Directory entrem no SpringCM, ele
 
 1. Clique em **IR PARA** e depois em **CATÁLOGO DE ENDEREÇOS**.
    
-    ![Criar usuário](./media/spring-cm-tutorial/ic797054.png "Criar usuário")
+    ![Criar Usuário](./media/spring-cm-tutorial/ic797054.png "Criar Usuário")
 
 1. Clique em **Criar Usuário**.
 
@@ -225,7 +225,7 @@ Para permitir que os usuários do Azure Active Directory entrem no SpringCM, ele
 1. Clique em **Save** (Salvar).
 
    > [!NOTE]
-   > É possível usar qualquer outra ferramenta de criação da conta de usuário do SpringCM ou as APIs fornecidas pelo SpringCM para provisionar as contas de usuário do AAD.
+   > É possível usar qualquer outra ferramenta de criação da conta de usuário do SpringCM ou as APIs fornecidas pelo SpringCM para provisionar as contas de usuário do Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
@@ -239,5 +239,5 @@ Ao clicar no bloco do SpringCM no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

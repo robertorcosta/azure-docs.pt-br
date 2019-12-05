@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f242b2e33b50aa955446ae2b1f62421d39e58418
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8b1f7590e13be97841aae95ec47eaaa61ab004a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098896"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233485"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integração do Azure Active Directory com o RightAnswers
 
@@ -191,7 +191,7 @@ Para permitir que os usuários do Azure AD entrem no RightAnswers, eles precisam
 Os usuários são criados automaticamente, se necessário, durante a primeira tentativa de logon único.
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do RightAnswers ou as APIs fornecidas pelo RightAnswers para provisionar as contas de usuário do AAD.
+> É possível usar qualquer outra ferramenta de criação da conta de usuário do RightAnswers ou as APIs fornecidas pelo RightAnswers para provisionar as contas de usuário do Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -1,20 +1,15 @@
 ---
-title: Início Rápido – Criar registro no portal – Registro de Contêiner do Azure
+title: Início rápido – Criar registro no portal
 description: Aprenda rapidamente a criar um registro de Docker privado no Registro de Contêiner do Azure com o portal do Azure.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcf0874266aa83a4b4b932670557854c4688d400
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931639"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455229"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início Rápido: criar um registro de contêiner privado usando o portal do Azure
 

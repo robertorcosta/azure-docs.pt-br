@@ -4,22 +4,25 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/08/2019
-ms.openlocfilehash: a7ae6cb1231e4c202dfd0a39602c03b33099d088
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5089af4a4e1714d49b844a1b6823487a3f6a8dcf
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554707"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483004"
 ---
 Comece a usar o serviço Detector de Anomalias criando um dos recursos do Azure abaixo.
 
-* Um [recurso de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) (nenhuma assinatura do Azure é necessária): 
+* <a href="https://azure.microsoft.com/try/cognitive-services/#decision" target="_blank" rel="noopener">Criar um recurso de avaliação (abre em uma nova guia)</a>
+    * Nenhuma assinatura do Azure necessária: 
     * Válido por sete dias, gratuitamente. Após a inscrição, um ponto de extremidade e uma chave de avaliação estarão disponíveis no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
     * Essa é uma ótima opção se você deseja experimentar o Detector de Anomalias, mas não tem uma assinatura do Azure.
 
-* Um [recurso do Detector de Anomalias](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
-    * Disponível por meio do [portal do Azure](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) até que você exclua o recurso.
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank" rel="noopener">Criar um recurso do Detector de Anomalias (abre em uma nova guia)</a>:
+    * Disponível por meio do portal do Azure até que você exclua o recurso.
     * Use o tipo de preço gratuito para experimentar o serviço e atualize mais tarde para uma camada paga para produção.
+
+
 
 ### <a name="create-an-environment-variable"></a>Criar uma variável de ambiente
 
@@ -37,8 +40,8 @@ Use as instruções para seu sistema operacional.
 #### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```console
-setx ANOMALY_DETECTOR_KEY your-anomaly-detector-key
-setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
+setx ANOMALY_DETECTOR_KEY <replace-with-your-anomaly-detector-key>
+setx ANOMALY_DETECTOR_ENDPOINT <replace-with-your-anomaly-detector-endpoint>
 ```
 
 Depois de adicionar a variável de ambiente, reinicie a janela do console.
@@ -46,8 +49,8 @@ Depois de adicionar a variável de ambiente, reinicie a janela do console.
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
-export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+export ANOMALY_DETECTOR_KEY=<replace-with-your-anomaly-detector-key>
+export ANOMALY_DETECTOR_ENDPOINT=<replace-with-your-anomaly-detector-endpoint>
 ```
 
 Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela de console para que as alterações entrem em vigor.
@@ -57,8 +60,8 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir
 Edite seu `.bash_profile` e adicione a variável de ambiente:
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
-export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+export ANOMALY_DETECTOR_KEY=<replace-with-your-anomaly-detector-key>
+export ANOMALY_DETECTOR_ENDPOINT=<replace-with-your-anomaly-detector-endpoint>
 ```
 
 Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela de console para que as alterações entrem em vigor.

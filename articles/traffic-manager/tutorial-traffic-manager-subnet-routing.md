@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o roteamento de tráfego da sub-rede – Gerenciador de Tráfego do Azure'
-description: Este artigo explica como configurar o Gerenciador de Tráfego para rotear o tráfego de sub-redes de usuário para pontos de extremidade específicos.
+title: Tutorial – configurar o roteamento de tráfego da sub-rede com o Gerenciador de Tráfego do Azure
+description: Este tutorial explica como configurar o Gerenciador de Tráfego para rotear o tráfego de sub-redes de usuário para pontos de extremidade específicos.
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: allensu
-ms.openlocfilehash: c2fbb4a85347c8ee68376069474add865cc06c43
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 00bc453ebb0e467f48bd886fc7c6b6c422693864
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048824"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420265"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Tráfego direto para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 

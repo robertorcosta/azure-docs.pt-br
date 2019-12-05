@@ -1,14 +1,14 @@
 ---
 title: Exemplo – Iniciativa de política de marcas de cobrança
-description: Esta definição de política de exemplo exige valores de marca especificados para o centro de custo e o nome do produto.
+description: Esta iniciativa de política de amostra (conjunto de políticas) requer valores de tag especificados definidos em parâmetros para o centro de custo e o nome do produto.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: e2fc9a7251fbe548b22f24356e555f92a3a6e22f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 449909b160c2b811c62cd8c6592e74dd0f714e41
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076362"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463379"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Exemplo – Iniciativa de política de marcas de cobrança
 

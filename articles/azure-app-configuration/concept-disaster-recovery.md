@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 05/29/2019
 ms.author: yegu
-ms.openlocfilehash: c05957cda16c96b841433483a90429aab2b4d22d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 291f6fe48d81397d293ab54a73e777831e25f6ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706497"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185270"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação de desastre
 
@@ -25,7 +25,7 @@ Atualmente, a Configuração de Aplicativos do Azure é um serviço regional. Ca
 
 ## <a name="high-availability-architecture"></a>Arquitetura de alta disponibilidade
 
-Para obter redundância entre regiões, crie vários repositórios de configuração de aplicativos em regiões diferentes. Com essa configuração, seu aplicativo terá, pelo menos, um repositório de configurações adicional para fallback caso o repositório primário fique inacessível. O seguinte diagrama ilustra a topologia entre o aplicativo e seus repositórios de configurações primário e secundário:
+Para obter redundância entre regiões, crie vários repositórios da Configuração de Aplicativos em regiões diferentes. Com essa configuração, seu aplicativo terá, pelo menos, um repositório de configurações adicional para fallback caso o repositório primário fique inacessível. O seguinte diagrama ilustra a topologia entre o aplicativo e seus repositórios de configurações primário e secundário:
 
 ![Repositórios com redundância geográfica](./media/geo-redundant-app-configuration-stores.png)
 
@@ -70,5 +70,5 @@ Para automatizar esse processo de exportação, use a CLI do Azure. O seguinte c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como aumentar seu aplicativo para obter a resiliência geográfica durante o tempo de execução da Configuração de Aplicativos. Você também pode inserir dados de configuração da Configuração de Aplicativos no momento do build ou da implantação. Para saber mais, confira [Integrar com o pipeline de CI/CD](./integrate-ci-cd-pipeline.md).
+Neste artigo, você aprendeu como aumentar seu aplicativo para obter a resiliência geográfica durante o runtime da Configuração de Aplicativos. Você também pode inserir dados de configuração da Configuração de Aplicativos no momento do build ou da implantação. Para saber mais, confira [Integrar com o pipeline de CI/CD](./integrate-ci-cd-pipeline.md).
 

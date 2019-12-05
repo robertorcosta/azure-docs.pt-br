@@ -1,27 +1,28 @@
 ---
-title: Criar política para auditar recursos com o PowerShell
-description: Use o Azure PowerShell para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-ms.date: 03/11/2019
+title: 'Início Rápido: Nova atribuição de política com o PowerShell'
+description: Neste início rápido, use o Azure PowerShell para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 796606e1e34e753e49a9083fca5a441cacf6d03c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960121"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482398"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando o Azure PowerShell
 
-A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos. Neste guia de início rápido, você cria uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados. Ao concluir, você identificará máquinas virtuais que *não estão em conformidade*.
+A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos. Neste guia de início rápido, você cria uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados. Ao concluir, você identificará máquinas virtuais que _não estão em conformidade_.
 
 O módulo do Azure PowerShell é usado para gerenciar recursos do Azure da linha de comando do ou em scripts.
 Este guia explica como usar o módulo Az para criar uma atribuição de política.
 
-Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
+- Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+
 - Antes de começar, verifique se a versão mais recente do Azure PowerShell está instalada. Confira [Instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps) para obter informações detalhadas.
+
 - Registre o provedor de recursos Informações do Azure Policy usando o Azure PowerShell. O registro do provedor de recursos garante o funcionamento da assinatura com ele. Para registrar um provedor de recursos, você deve ter permissão para registrar a operação do provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Execute o seguinte comando para registrar o provedor de recursos:
 
   ```azurepowershell-interactive
@@ -29,11 +30,13 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  Para saber mais sobre como registrar e exibir provedores de recursos, consulte [Provedores de recursos e tipos](../../azure-resource-manager/resource-manager-supported-services.md)
+  Para saber mais sobre como registrar e exibir provedores de recursos, consulte [Provedores de recursos e tipos](../../azure-resource-manager/resource-manager-supported-services.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste início rápido, crie uma atribuição de política para a definição *Auditar VMs sem discos gerenciados*. Esta definição de política identifica máquinas virtuais não usando discos gerenciados.
+Neste início rápido, crie uma atribuição de política para a definição _Auditar VMs sem discos gerenciados_. Esta definição de política identifica máquinas virtuais não usando discos gerenciados.
 
 Execute o comando a seguir para criar uma nova atribuição de política:
 
@@ -50,9 +53,9 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 
 Os comandos anteriores usam as seguintes informações:
 
-- **Nome** - O nome real da atribuição. Neste exemplo, usamos *audit-vm-manageddisks*.
-- **DisplayName** - O nome de exibição da atribuição de política. Nesse caso, você está usando *Auditar VMs sem atribuição de discos gerenciados*.
-- **Definição**: a definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a ID da definição de política *Auditar VMs que não usam discos gerenciados*.
+- **Nome** - O nome real da atribuição. Neste exemplo, usamos _audit-vm-manageddisks_.
+- **DisplayName** - O nome de exibição da atribuição de política. Nesse caso, você está usando _Auditar VMs sem atribuição de discos gerenciados_.
+- **Definição**: a definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a ID da definição de política _Auditar VMs que não usam discos gerenciados_.
 - **Escopo**: um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos. Substitua o &lt;escopo&gt; pelo nome do seu grupo de recursos.
 
 Agora você está pronto para identificar recursos fora de conformidade para entender o estado de conformidade do ambiente.

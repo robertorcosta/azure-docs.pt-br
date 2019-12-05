@@ -1,14 +1,14 @@
 ---
 title: Exemplo – Auditar se a extensão não existir
-description: Esta definição de política de exemplo audita se uma extensão não foi implantada com uma máquina virtual.
+description: Esta definição de política de amostra audita se uma extensão definida em um parâmetro não é implantada em uma máquina virtual.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 72d7728ef89678998a5fc3726d643142e3842635
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0b81a5f7b59d236cd8edb30cf0cb4f59ed9a7eab
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74071441"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463403"
 ---
 # <a name="sample---audit-if-extension-does-not-exist"></a>Exemplo – Auditar se a extensão não existir
 

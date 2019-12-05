@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 28666aaac4ec221acca00d937d54a753a4e6a055
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172628"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407034"
 ---
 ::: zone target="docs"
 
@@ -123,28 +123,7 @@ Datacenters do Azure na Austrália têm uma notificação de segurança adiciona
 2. Verifique se a cópia de dados no dispositivo foi concluída e se a execução de **Preparação para o envio** foi bem-sucedida.
 3. Desligue o dispositivo e remova os cabos.
 4. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte traseira do dispositivo.
-5. Envie um email para a Quantium Solutions para solicitar uma retirada. Veja o número de referência do serviço especificado no portal do Azure. Use o seguinte modelo de email: – *Solicitar a etiqueta de remessa reversa com o código TAU*. Inclua os seguintes detalhes no email: 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. A Quantium Solutions Australia enviará um email a você com uma etiqueta de remessa de devolução.
-7. Imprima a etiqueta de devolução e afixe-a na caixa de envio.
-8. Entregue o pacote para a transportadora.
-
-Se necessário, ligue para o Suporte da Quantium Solutions ou envie um email para Azure@quantiumsolutions.com.
-
-Caso tenha alguma pergunta sobre seu pedido por telefone:
-
-- Envie um email para retirada primeiro.
-- Forneça o nome do pedido no telefone.
+5. Agendar uma coleta online no [Link da DHL](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ::: zone target="chromeless"
 

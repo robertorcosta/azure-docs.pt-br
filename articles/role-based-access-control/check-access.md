@@ -1,6 +1,6 @@
 ---
-title: Início Rápido – Exibir o acesso que um usuário tem aos recursos do Azure | Microsoft Docs
-description: Saiba como exibir o acesso que um usuário ou outra entidade de segurança tem aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o portal do Azure.
+title: Início rápido – Exibir o acesso que um usuário tem aos recursos do Azure
+description: Neste Início rápido, saiba como exibir o acesso que um usuário ou outra entidade de segurança tem aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o portal do Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337938"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419610"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Início rápido: Exibir o acesso que um usuário tem aos recursos do Azure
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Início Rápido: Exibir o acesso que um usuário tem aos recursos do Azure
 
 Use a folha **Controle de acesso (IAM)** no [RBAC (controle de acesso baseado em função)](overview.md) para exibir o acesso que um usuário ou outra entidade de segurança tem aos recursos do Azure. No entanto, às vezes, você apenas precisa exibir rapidamente o acesso de um único usuário ou outra entidade de segurança. A maneira mais fácil de fazer isso é usar o recurso **Verificar acesso** no portal do Azure.
 
@@ -33,7 +33,7 @@ Use a folha **Controle de acesso (IAM)** no [RBAC (controle de acesso baseado em
 
 1. Clique em sua assinatura.
 
-1. Clique em **Controle de acesso (IAM)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Verificar acesso**.
 

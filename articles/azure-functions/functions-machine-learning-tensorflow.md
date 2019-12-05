@@ -1,21 +1,17 @@
 ---
-title: 'Tutorial: usar o Python e o TensorFlow no Azure Functions para fazer inferências de aprendizado de máquina | Microsoft Docs'
+title: Usar o Python e o TensorFlow no Azure Functions para fazer inferências de aprendizado de máquina
 description: Esse tutorial demonstra como aplicar modelos de machine learning do TensorFlow no Azure Functions
-services: functions
 author: anthonychu
-manager: gwallace
-ms.service: azure-functions
-ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: 491adb2719dc7c05a2943634e83027376c9327c3
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e7c4e1bbd23d43d5e11ab8b26c3d4e1215b4946b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082738"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230498"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de machine learning no Azure Functions com o Python e o TensorFlow
 

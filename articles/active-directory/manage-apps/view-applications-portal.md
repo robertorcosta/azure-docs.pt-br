@@ -1,6 +1,6 @@
 ---
-title: Visualizar aplicativos de locatário – Azure Active Directory | Microsoft Docs
-description: Use o portal do Azure para exibir os aplicativos em seu locatário do Azure AD (Azure Active Directory).
+title: Início rápido – Exibir aplicativos de locatário usando o Azure Active Directory
+description: Neste início rápido, use o portal do Azure para exibir os aplicativos em seu locatário do Azure AD (Azure Active Directory).
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,14 +16,14 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 1d40e968bb7079d50e3fa18889ae996c9b59c90f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477191"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421809"
 ---
-# <a name="view-your-azure-active-directory-tenant-applications"></a>Exibir seus aplicativos de locatário do Azure Active Directory
+# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>Início Rápido: Exibir seus aplicativos de locatário do Azure Active Directory
 
 Este início rápido usa o portal do Azure para exibir os aplicativos em seu locatário do Azure AD (Azure Active Directory).
 

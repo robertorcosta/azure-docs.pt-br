@@ -1,24 +1,16 @@
 ---
-title: Modelo do Azure Resource Manager com recursos dependentes
+title: Modelo com recursos dependentes
 description: Saiba como criar um modelo do Azure Resource Manager com vários recursos e como implantá-lo usando o portal do Azure
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0eb4b29ffb8ae0269dbc7efd7e9ef6b720188bce
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: ef26074b0dd6450895c6aa81d5ab8853e652b41e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533493"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325382"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -41,7 +33,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com a extensão de Ferramentas do Resource Manager.  Confira [Instalar a extensão](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](./resource-manager-tools-vs-code.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
 
     ```azurecli-interactive
@@ -92,7 +84,7 @@ Ao explorar o modelo nesta seção, tente responder a essas perguntas:
 3. Expanda o segundo recurso. O tipo de recurso é `Microsoft.Network/publicIPAddresses`. Compare a definição de recurso com a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
 
     ![Definição do endereço IP do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/networkInterfaces`:  
+4. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/networkInterfaces`:
 
     ![DependsOn dos modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -118,14 +110,14 @@ Ao especificar as dependências, o Gerenciador de Recursos implanta a solução 
 
 Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud Shell no portal do Azure.
 
-1. Entrar no [Cloud Shell](https://shell.azure.com). 
+1. Entrar no [Cloud Shell](https://shell.azure.com).
 2. Selecione **PowerShell** no canto superior esquerdo do Cloud Shell e, em seguida, selecione **Confirmar**.  Use o PowerShell neste tutorial.
 3. Selecione **Carregar arquivo** no Cloud Shell:
 
     ![Cloud Shell no portal do Azure carregar arquivo](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Escolha o modelo que você salvou anteriormente no tutorial. O nome padrão é **azuredeploy.json**.  Se você tiver um arquivo com o mesmo nome de arquivo, o arquivo antigo será substituído sem nenhuma notificação.
 
-    Opcionalmente, você pode usar o comando **ls $HOME** e o comando **cat $HOME/azuredeploy.json** para verificar se os arquivos são carregados com êxito. 
+    Opcionalmente, você pode usar o comando **ls $HOME** e o comando **cat $HOME/azuredeploy.json** para verificar se os arquivos são carregados com êxito.
 
 5. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Consulte [Pré-requisitos](#prerequisites).
 

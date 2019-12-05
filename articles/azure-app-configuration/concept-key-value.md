@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 054de294c9edb0fe5b75da4ac7fd54ce987123de
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706465"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185231"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 
@@ -29,7 +29,7 @@ As chaves servem como o nome de pares chave-valor e são usadas para armazenar e
 
 O uso de dados de configuração em estruturas do aplicativo pode exigir esquemas de nomenclatura específicos para valores de chave. Por exemplo, a estrutura Spring Cloud do Java define recursos `Environment` que fornecem configurações a um aplicativo do Spring para que sejam parametrizadas por variáveis, incluindo *nome do aplicativo* e *perfil*. As chaves dos dados de configuração relacionados ao Spring Cloud normalmente começarão com esses dois elementos, separadamente por um delimitador.
 
-As chaves armazenadas na Configuração de Aplicativo são cadeias de caracteres baseadas em Unicode que diferenciam maiúsculas de minúsculas. As chaves *app1* e *App1* são distintas em um repositório de configurações de aplicativo. Tenha isso em mente ao usar definições de configuração em um aplicativo, pois algumas estruturas manipulam as chaves de configuração sem diferenciar maiúsculas de minúsculas. Por exemplo, o sistema de configuração do ASP.NET Core trata as chaves como cadeias de caracteres que não diferenciam maiúsculas de minúsculas. Para evitar comportamentos imprevisíveis ao consultar a Configuração de Aplicativo dentro de um aplicativo ASP.NET Core, não use chaves que diferem somente pelo uso de maiúsculas.
+As chaves armazenadas na Configuração de Aplicativo são cadeias de caracteres baseadas em Unicode que diferenciam maiúsculas de minúsculas. As chaves *app1* e *App1* são distintas em um repositório de Configuração de Aplicativos. Tenha isso em mente ao usar definições de configuração em um aplicativo, pois algumas estruturas manipulam as chaves de configuração sem diferenciar maiúsculas de minúsculas. Por exemplo, o sistema de configuração do ASP.NET Core trata as chaves como cadeias de caracteres que não diferenciam maiúsculas de minúsculas. Para evitar comportamentos imprevisíveis ao consultar a Configuração de Aplicativo dentro de um aplicativo ASP.NET Core, não use chaves que diferem somente pelo uso de maiúsculas.
 
 Você pode usar qualquer caractere unicode nos nomes de chave inseridos na Configuração de Aplicativo, exceto `*`, `,` e `\`. Esses caracteres são reservados. Caso precise incluir um caractere reservado, você precisará fazer escape dele usando `\{Reserved Character}`. Há um limite de tamanho combinado de 10 mil caracteres em um par chave-valor. Esse limite inclui todos os caracteres na chave, seu valor e todos os atributos opcionais associados. Dentro desse limite, você pode ter vários níveis hierárquicos para chaves.
 
@@ -57,7 +57,7 @@ Estes são vários exemplos de como você pode estruturar os nomes de chave em u
 
 ### <a name="label-keys"></a>Chaves de rótulo
 
-Valores de chave na Configuração de Aplicativo podem, opcionalmente, ter um atributo de rótulo. Os rótulos são usados para diferenciar os valores de chave com a mesma chave. Uma chave *app1* com rótulos *A* e *B* forma duas chaves separadas em um repositório de configurações de aplicativos. Por padrão, o rótulo de um valor chave está vazio (ou `null`).
+Valores de chave na Configuração de Aplicativo podem, opcionalmente, ter um atributo de rótulo. Os rótulos são usados para diferenciar os valores de chave com a mesma chave. Uma chave *app1* com rótulos *A* e *B* forma duas chaves separadas em um repositório de Configuração de Aplicativos. Por padrão, o rótulo de um valor chave está vazio (ou `null`).
 
 O rótulo fornece uma maneira conveniente de criar variantes de uma chave. Um uso comum dos rótulos é especificar vários ambientes para a mesma chave:
 
@@ -73,7 +73,7 @@ Você pode usar qualquer caractere unicode em rótulos, exceto para `*`, `,`, e 
 
 ### <a name="query-key-values"></a>Consultar valores de chave
 
-Cada valor de chave é identificado exclusivamente pela sua chave, além de um rótulo que pode ser `null`. Consulte em um repositório de configurações de aplicativo pares valores de chave especificando um padrão. O repositório de configurações de aplicativo retorna todos os pares chave-valor que correspondem ao padrão e seus valores e seus atributos correspondentes. Use os seguintes padrões de chave em chamadas à API REST para a Configuração de Aplicativo:
+Cada valor de chave é identificado exclusivamente pela sua chave, além de um rótulo que pode ser `null`. Consulte em um repositório de Configuração de Aplicativos para pares chave-valor especificando um padrão. O repositório de Configuração de Aplicativos retorna todos os pares chave-valor que correspondem ao padrão e seus valores e atributos correspondentes. Use os seguintes padrões de chave em chamadas à API REST para a Configuração de Aplicativo:
 
 | Chave | |
 |---|---|
@@ -100,7 +100,7 @@ Inclua também os seguintes padrões de rótulo:
 
 Os valores atribuídos às chaves também são cadeias de caracteres Unicode. Use todos os caracteres Unicode para valores. Há um tipo de conteúdo definido pelo usuário opcional associado a cada valor. Use esse atributo para armazenar informações, por exemplo, um esquema de codificação sobre um valor que ajuda o aplicativo para processá-lo corretamente.
 
-Os dados de configuração armazenados em um repositório de configurações de aplicativo, que inclui todas as chaves e todos os valores, são criptografados em repouso e em trânsito. A Configuração de Aplicativo não é uma solução substituta do Azure Key Vault. Não armazene segredos do aplicativo nele.
+Os dados de configuração armazenados em um repositório de Configuração de Aplicativos, que inclui todas as chaves e todos os valores, são criptografados em repouso e em trânsito. A Configuração de Aplicativo não é uma solução substituta do Azure Key Vault. Não armazene segredos do aplicativo nele.
 
 ## <a name="next-steps"></a>Próximas etapas
 

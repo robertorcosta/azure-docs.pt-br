@@ -1,19 +1,15 @@
 ---
-title: Usar o Gerenciador de Dados do Blockchain para atualizar o Azure Cosmos DB
-description: Usar o Gerenciador de Dados do Blockchain para enviar dados de blockchain para o Azure Cosmos DB
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: Usar o Gerenciador de Dados do Blockchain para atualizar o Azure Cosmos DB – Azure Blockchain Service
+description: Usar o Gerenciador de Dados do Blockchain para o Azure Blockchain Service para enviar dados de blockchain para o Azure Cosmos DB
 ms.date: 11/04/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 3f2d0df2c094d8455aa29e79ad3c6acc0aa52dd4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 497652f91d46592212a17a0a22832c02a696df62
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585702"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326253"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: Usar o Gerenciador de Dados do Blockchain para enviar dados para o Azure Cosmos DB
 

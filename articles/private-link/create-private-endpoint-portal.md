@@ -1,20 +1,20 @@
 ---
-title: Gerenciar pontos de extremidade privados no Azure
-description: Saiba como criar um ponto de extremidade privado usando o portal do Azure
+title: Início rápido – Gerenciar pontos de extremidade privados no Azure
+description: Saiba como criar um ponto de extremidade privado usando o portal do Azure neste Início rápido
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.author: allensu
+ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372236"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419771"
 ---
-# <a name="create-a-private-endpoint-using-azure-portal"></a>Criar um ponto de extremidade privado usando portal do Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Início Rápido: Criar um ponto de extremidade privado usando portal do Azure
 
 Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste Início Rápido, você aprenderá a criar uma VM em uma Rede Virtual do Azure, um servidor do banco de dados SQL com um ponto de extremidade privado do Azure usando o portal do Azure. Em seguida, você pode acessar com segurança o servidor do banco de dados SQL na VM.
 
@@ -241,4 +241,3 @@ Quando terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exc
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste início rápido, você criou uma VM em uma rede virtual, um servidor do banco de dados SQL e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM pela Internet e se comunicou com segurança com servidor do banco de dados SQL usando o Link Privado. Para saber mais sobre pontos de extremidade privados, confira [O que é o ponto de extremidade privado do Azure?](private-endpoint-overview.md).
-

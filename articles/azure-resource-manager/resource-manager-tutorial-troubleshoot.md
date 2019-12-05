@@ -1,24 +1,16 @@
 ---
-title: Solucionar problemas de implantações do Resource Manager | Microsoft Docs
+title: Solucionar problemas das implantações
 description: Saiba como monitorar e solucionar problemas de implantações de modelo do Azure Resource Manager. Mostra os logs de atividade e o histórico de implantação.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 32f3f55df2b87b35672d811c63a21b956a8a4b52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390207"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325351"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Tutorial: Solucionar problemas de implantações de modelo do Resource Manager
 
@@ -26,7 +18,7 @@ Saiba como solucionar erros de implantações de modelo do Resource Manager. Nes
 
 Há dois tipos de erros relacionados à implantação de modelo:
 
-- Os **erros de validação** surgem em cenários que podem ser determinados antes da implantação. Eles incluem erros de sintaxe no modelo ou a tentativa de implantar recursos que excederão suas cotas de assinatura. 
+- Os **erros de validação** surgem em cenários que podem ser determinados antes da implantação. Eles incluem erros de sintaxe no modelo ou a tentativa de implantar recursos que excederão suas cotas de assinatura.
 - Os **erros de implantação** surgem em condições que ocorrem durante o processo de implantação. Eles incluem a tentativa de acessar um recurso que está sendo implantado em paralelo.
 
 Ambos os tipos de erro retornam um código de erro que você pode usar para solucionar os problemas de implantação. Os dois tipos de erro aparecem no log de atividades. No entanto, os erros de validação não aparecem no seu histórico de implantações, porque a implantação nunca foi iniciada.
@@ -47,7 +39,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-- [Visual Studio Code](https://code.visualstudio.com/) com a [extensão de Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="create-a-problematic-template"></a>Criar um modelo com problemas
 

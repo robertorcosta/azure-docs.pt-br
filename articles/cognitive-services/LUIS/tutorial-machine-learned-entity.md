@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 36b75f33b4fc9062d09fbc670a509594142f09bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 913fa3c846ea00649a584be02975fdde449dc7cf
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828253"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383273"
 ---
-# <a name="tutorial-extract-structured-data-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados com entidades de aprendizado de máquina no LUIS (Reconhecimento vocal)
+# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados do enunciado do usuário usando entidades de aprendizado de máquina no LUIS (Reconhecimento vocal)
 
 Neste tutorial, extraia dados estruturados de um enunciado usando a entidade de aprendizado de máquina. 
 
@@ -58,11 +58,11 @@ Comece com uma entidade de aprendizado de máquina, que é a entidade inicial e 
 
 Embora você possa não saber o nível de detalhes que deseja que a entidade tenha ao começar seu aplicativo, uma melhor prática é começar com uma entidade de aprendizado de máquina e, em seguida, decompô-la com subcomponentes à medida que o aplicativo amadurecer.
 
-Em termos práticos, você criará uma entidade de aprendizado de máquina para representar um pedido em um aplicativo de pizza. O pedido deve ter todas as partes necessárias para cumprir o pedido. Para começar, a entidade incluirá todo o texto relacionado ao pedido e, especificamente, extrairá o tamanho e a quantidade. 
+Em termos práticos, você criará uma entidade de aprendizado de máquina para representar um pedido em um aplicativo de pizza. O pedido deve ter todas as partes necessárias para cumprir o pedido. Para começar, a entidade extrairá o texto relacionado ao pedido, o tamanho de extração e a quantidade. 
 
-Um enunciado para `deliver one large cheese pizza` deve extrair todo o enunciado como o pedido e, em seguida, extrair também `1` e `large`. 
+Um enunciado para `Please deliver one large cheese pizza to me` deve extrair `one large cheese pizza` como o pedido e, em seguida, extrair também `1` e `large`. 
 
-Há uma decomposição adicional que você pode fazer, como coberturas ou borda. Após este tutorial, você deverá se sentir confiante para adicionar esses subcomponentes à entidade `Order` existente.
+Há uma decomposição adicional que você pode adicionar, como a criação de subcomponentes para coberturas ou massas. Após este tutorial, você deverá se sentir confiante para adicionar esses subcomponentes à entidade `Order` existente.
 
 ## <a name="import-example-json-to-begin-app"></a>Importar .json de exemplo para começar o aplicativo
 
@@ -70,12 +70,12 @@ Há uma decomposição adicional que você pode fazer, como coberturas ou borda.
 
 1. Na [versão prévia do portal do LUIS](https://preview.luis.ai), na página **Meus Aplicativos**, selecione **Importar** e, em seguida, **Importar como JSON**. Localize o arquivo JSON salvo na etapa anterior. Você não precisa alterar o nome do aplicativo. Selecione **Concluído**
 
-1. Na seção **Gerenciar**, na guia **Versões**, selecione a versão e, em seguida, selecione **Clonar** para clonar a versão e nomeie-a `mach-learn`. Em seguida, selecione **Concluído** para concluir o processo de clonagem. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
+1. Na seção **Gerenciar**, na guia **Versões**, selecione a versão e, em seguida, selecione **Clonar** para clonar a versão e nomeie-a `mach-learn`. Depois, selecione **Concluído** para completar o processo de clonagem. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
     > [!TIP] 
-    > A clonagem é uma melhor prática antes de modificar o aplicativo. Quando terminar com uma versão, exporte-a, como um arquivo .json ou .lu, e faça check-in dela no controle do código-fonte.
+    > A clonagem de uma versão em uma nova versão é uma prática recomendada antes de modificar seu aplicativo. Quando terminar com uma versão, exporte-a (como um arquivo .json ou .lu) e faça check-in do arquivo no controle do código-fonte.
 
-1. Selecione **Compilar** e, em seguida, **Intenções** para ver os principais blocos de construção de um aplicativo LUIS, as intenções.
+1. Selecione **Compilar** e, em seguida, **Intenções** para ver as intenções, os principais blocos de construção de um aplicativo LUIS.
 
     ![Altere da página Versões para a página Intenções.](media/tutorial-machine-learned-entity/new-version-imported-app.png)
 
@@ -96,9 +96,9 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
     ![Rotular o início e o fim do texto do pedido concluído](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
     > [!NOTE]
-    > Uma entidade nem sempre será o enunciado inteiro. Nesse caso específico, `pickup` indica como o pedido deve ser recebido para que ele faça parte da entidade rotulada para o pedido. 
+    > Uma entidade nem sempre será o enunciado inteiro. Nesse caso específico, `pickup` indica como o pedido deve ser recebido. Do ponto de vista conceitual, `pickup` deve fazer parte da entidade rotulada para o pedido. 
 
-1. Na caixa **Escolher um tipo de entidade**, selecione **Adicionar Estrutura** e, em seguida, selecione **Avançar**. A estrutura é necessária para permitir subcomponentes, como tamanho e quantidade.
+1. Na caixa **Escolher um tipo de entidade**, selecione **Adicionar Estrutura** e, em seguida, selecione **Avançar**. A estrutura é necessária para adicionar subcomponentes como tamanho e quantidade.
 
     ![Adicionar uma estrutura à entidade](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
@@ -107,7 +107,7 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
 
 1. Na caixa **Criar descritor de lista de frases**, insira o nome `SizeDescriptor` e, em seguida, insira os valores `small`, `medium` e `large`. Quando a caixa **Sugestões** for preenchida, selecione `extra large` e `xl`. Selecione **Concluído** para criar a nova lista de frases. 
 
-    Esse descritor de lista de frases ajuda o subcomponente `Size` a localizar palavras relacionadas ao tamanho fornecendo a ele a palavra de exemplo. Essa lista não precisa incluir todas as palavras de tamanho, mas deve incluir palavras que precisam indicar o tamanho. 
+    Esse descritor de lista de frases ajuda o subcomponente `Size` a localizar palavras relacionadas ao tamanho, fornecendo a ele palavras de exemplo. Essa lista não precisa incluir todas as palavras de tamanho, mas deve incluir palavras que precisam indicar o tamanho. 
 
     ![Criar um descritor para o subcomponente de tamanho](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
 
@@ -133,11 +133,11 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
     ![Crie a entidade e os subcomponentes em todos os enunciados de exemplo restantes.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
 
     > [!CAUTION]
-    > Como tratar dados implícitos, como a letra `a` implicando em uma única pizza? Ou a falta de `pickup` e `delivery` para indicar em que local a pizza é esperada? Ou a falta de um tamanho para indicar o tamanho padrão, pequeno ou grande? Considere tratados os dados implícitos como parte de suas regras empresariais no aplicativo cliente. 
+    > Como tratar dados implícitos, como a letra `a` implicando em uma única pizza? Ou a falta de `pickup` e `delivery` para indicar em que local a pizza é esperada? Ou a falta de um tamanho para indicar o tamanho padrão, pequeno ou grande? Considere tratados os dados implícitos como parte de suas regras empresariais no aplicativo cliente, em vez de ou além de no LUIS. 
 
 1. Para treinar o aplicativo, selecione **Treinar**. O treinamento aplica as alterações, como as novas entidades e os enunciados rotulados, ao modelo ativo.
 
-1. Após o treinamento, adicione um novo enunciado de exemplo para entender o nível de entendimento do LUIS da entidade de aprendizado de máquina. 
+1. Após o treinamento, adicione um novo enunciado de exemplo à intenção para entender o nível de entendimento do LUIS da entidade de aprendizado de máquina. 
 
     |Enunciado de exemplo de pedido|
     |--|
@@ -147,19 +147,19 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
 
     ![Novo enunciado de exemplo previsto com a entidade](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
-    O link pontilhado indica a previsão. 
+    A linha pontilhada indica a previsão. 
 
-1. Em alterar a previsão para uma entidade rotulada, selecione a linha e, em seguida, selecione **Confirmar previsões de entidade**.
+1. Para alterar a previsão para uma entidade rotulada, selecione a linha e, em seguida, selecione **Confirmar previsões de entidade**.
 
     ![Aceite a previsão selecionando Confirmar previsão de entidade.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
-    Neste ponto, a entidade de aprendizado de máquina está funcionando porque pode encontrar a entidade em um novo enunciado de exemplo. Ao adicionar o enunciado de exemplo, se a entidade não for prevista corretamente, rotule a entidade e os subcomponentes. Se a entidade for prevista corretamente, confirme as previsões. 
+    Neste ponto, a entidade de aprendizado de máquina está funcionando porque pode encontrar a entidade em um novo enunciado de exemplo. Ao adicionar o enunciado de exemplo, se a entidade não for prevista corretamente, rotule a entidade e os subcomponentes. Se a entidade for prevista corretamente, você precisará confirmar as previsões. 
 
-## <a name="add-prebuilt-number-to-app-to-help-extract-data"></a>Adicionar um número predefinido ao aplicativo para ajudar a extrair dados
+## <a name="add-prebuilt-number-to-help-extract-data"></a>Adicionar um número predefinido para ajudar a extrair dados
 
-As informações do pedido também devem incluir o número de um item no pedido, como a quantidade de pizzas. Para extrair esses dados, um novo subcomponente de aprendizado de máquina precisa ser adicionado ao `Order` e esse componente precisa de uma restrição de um número predefinido. Ao restringir a entidade a um número predefinido, a entidade encontrará e extrairá números se o texto for um dígito, `2`, ou um texto, `two`.
+As informações do pedido também devem incluir a quantidade de um determinado item no pedido, como a quantidade de pizzas. Para extrair esses dados, um novo subcomponente de aprendizado de máquina precisa ser adicionado ao `Order` e esse componente precisa de uma restrição de um número predefinido. Ao restringir a entidade a um número predefinido, a entidade encontrará e extrairá números se o texto for um dígito, `2`, ou um texto, `two`.
 
-Comece adicionando o número predefinido ao aplicativo. 
+Comece adicionando a entidade de número predefinido ao aplicativo. 
 
 1. Selecione **Entidades** no menu à esquerda e, em seguida, selecione **+ Adicionar entidade predefinida**. 
 
@@ -175,6 +175,8 @@ A entidade `Order` deve ter um subcomponente `Quantity` para determinar a quanti
 
 Uma restrição é aplicada como uma correspondência de texto, seja com a correspondência exata (como uma entidade de lista) ou por meio de expressões regulares (como uma entidade de expressão regular ou uma entidade predefinida). 
 
+Usando uma restrição, somente o texto que corresponde a essa restrição é extraído. 
+
 1. Selecione **Entidades** e, em seguida, a entidade `Order`. 
 1. Selecione **+ Adicionar Componente** e, em seguida, insira o nome `Quantity` e selecione Enter para adicionar a nova entidade ao aplicativo.
 1. Após a notificação de êxito, selecione o subcomponente `Quantity` e, em seguida, selecione o lápis de Restrição.
@@ -182,12 +184,14 @@ Uma restrição é aplicada como uma correspondência de texto, seja com a corre
 
     ![Crie uma entidade de quantidade com um número predefinido como restrição.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
+    A entidade `Quantity` será aplicada se e somente se o texto correspondente à entidade de número predefinido for encontrado.
+
     A entidade com a restrição é criada, mas ainda não foi aplicada aos enunciados de exemplo.
 
     > [!NOTE]
     > Um subcomponente pode ser aninhado em um subcomponente em até cinco níveis. Embora isso não seja mostrado neste artigo, ele está disponível no portal e na API.  
 
-## <a name="label-example-utterance-with-subcomponent-for-quantity-to-teach-luis-about-the-entity"></a>Enunciado de exemplo de rótulo com subcomponente da quantidade para ensinar ao LUIS sobre a entidade
+## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Rotular o enunciado de exemplo para ensinar o LUIS sobre a entidade
 
 1. Selecione **Intenções** no painel de navegação à esquerda e, em seguida, selecione a intenção **OrderPizza**. Os três números nos enunciados a seguir são rotulados, mas estão visualmente abaixo da linha da entidade `Order`. Esse nível inferior significa que as entidades foram encontradas, mas não são consideradas separadas da entidade `Order`.
 

@@ -1,31 +1,29 @@
 ---
-title: 'Início Rápido: Configurar o Serviço de Provisionamento de Dispositivos usando a CLI do Azure'
-description: Início Rápido do Azure – Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando a CLI do Azure
+title: Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando a CLI do Azure
+description: Início Rápido – Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando a CLI do Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ef40d0df630fc369705a1365aa8d95317aa54cb3
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 6406929c3abc3612da2c27edc45e10fd84883d73
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904714"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228557"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Início Rápido: Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com a CLI do Azure
 
-A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este Início Rápido detalha o uso da CLI do Azure para criar um Hub IoT e um Serviço de Provisionamento de Dispositivos no Hub IoT e vincular os dois serviços. 
+A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido detalha o uso da CLI do Azure para criar um Hub IoT e um Serviço de Provisionamento de Dispositivos no Hub IoT e vincular os dois serviços. 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!IMPORTANT]
 > O Hub IoT e o serviço de provisionamento criado neste início rápido serão detectáveis publicamente como pontos de extremidade DNS. Evite usar informações confidenciais se você decidir alterar os nomes usados nesses recursos.
 >
-
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -49,17 +47,17 @@ az group create --name my-sample-resource-group --location westus
 
 Crie um hub IoT com o comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create).
 
-O exemplo a seguir cria um hub IoT denominado *my-sample-hub* no local *westus*.  
+O exemplo a seguir cria um hub IoT denominado *my-sample-hub* no local *westus*. O nome de um Hub IoT deve ser globalmente exclusivo no Azure, de modo que talvez você queira adicionar um prefixo ou sufixo exclusivo ao nome de exemplo ou escolher um novo nome. Certifique-se de que seu nome siga a convenção de nomenclatura adequada do hub IoT: ele deve ter de 3 a 50 caracteres de comprimento e conter somente caracteres alfanuméricos minúsculos ou hifens ('-'). 
 
 ```azurecli-interactive 
 az iot hub create --name my-sample-hub --resource-group my-sample-resource-group --location westus
 ```
 
-## <a name="create-a-provisioning-service"></a>Criar um serviço de provisionamento
+## <a name="create-a-device-provisioning-service"></a>Criar um Serviço de Provisionamento de Dispositivos
 
-Crie um serviço de provisionamento com o comando [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). 
+Crie um Serviço de Provisionamento de Dispositivos com o comando [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). 
 
-O exemplo a seguir cria um serviço de provisionamento denominado *my-sample-dps* no local *westus*.  
+O exemplo a seguir cria um serviço de provisionamento denominado *my-sample-dps* na localização *westus*. Você também precisará escolher um nome globalmente exclusivo para seu próprio serviço de provisionamento. Certifique-se de que ele siga a convenção de nomenclatura adequada para um Serviço de Provisionamento de Dispositivos no Hub IoT: ele deve ter de 3 a 64 caracteres de comprimento e conter somente caracteres alfanuméricos minúsculos ou hifens ('-').
 
 ```azurecli-interactive 
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location westus
@@ -69,12 +67,11 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 > O exemplo cria o serviço de provisionamento no local Oeste dos EUA. Você pode exibir uma lista de locais disponíveis executando o comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` ou acessando a página [Status do Azure](https://azure.microsoft.com/status/) e pesquisando por "Serviço de Provisionamento de Dispositivos". Nos comandos, os locais podem ser especificados em formato de uma ou várias palavras, por exemplo, westus, West US, WEST US, etc. O valor não diferencia maiúsculas de minúsculas. Se você usar o formato de várias palavras para especificar o local, coloque o valor entre aspas, por exemplo, `-- location "West US"`.
 >
 
-
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>Obter a cadeia de conexão para o hub IoT
 
 Você precisa da cadeia de conexão do seu hub IoT para vinculá-lo ao serviço de provisionamento de dispositivos. Use o comando [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) para obter a cadeia de conexão e use a saída para definir uma variável que será usada quando for vincular os dois recursos. 
 
-O exemplo a seguir define a variável *hubConnectionString* como o valor da cadeia de conexão para a chave primária da política *iothubowner* do hub. Você pode especificar uma política diferente com o parâmetro `--policy-name`. O comando usa as opções [consulta](/cli/azure/query-azure-cli) e [saída](/cli/azure/format-output-azure-cli#tsv-output-format) da CLI do Azure para extrair a cadeia de conexão da saída do comando.
+O exemplo a seguir define a variável *hubConnectionString* como o valor da cadeia de conexão para a chave primária da política *iothubowner* do hub (o parâmetro `--policy-name` pode ser usado para especificar uma política diferente). Troque *my-sample-hub* pelo nome exclusivo do Hub IoT escolhido anteriormente. O comando usa as opções [consulta](/cli/azure/query-azure-cli) e [saída](/cli/azure/format-output-azure-cli#tsv-output-format) da CLI do Azure para extrair a cadeia de conexão da saída do comando.
 
 ```azurecli-interactive 
 hubConnectionString=$(az iot hub show-connection-string --name my-sample-hub --key primary --query connectionString -o tsv)
@@ -94,25 +91,30 @@ echo $hubConnectionString
 
 Vincule o hub IoT e o serviço de provisionamento ao comando [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create). 
 
-O exemplo a seguir vincula um hub IoT denominado *my-sample-hub* no local *westus* e um serviço de provisionamento de dispositivos denominado *my-sample-dps*. Ele usa a cadeia de conexão para *my-sample-hub* armazenada na variável *hubConnectionString* na etapa anterior.
+O exemplo a seguir vincula um hub IoT denominado *my-sample-hub* na localização *westus* e um serviço de provisionamento de dispositivos denominado *my-sample-dps*. Troque esses nomes pelos nomes exclusivos do hub IoT e do Serviço de Provisionamento de Dispositivos escolhidos anteriormente. O comando usa a cadeia de conexão para seu hub IoT que foi armazenada na variável *hubConnectionString* na etapa anterior.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus
 ```
 
+O comando pode demorar um pouco para ser concluído.
+
 ## <a name="verify-the-provisioning-service"></a>Verificar o serviço de provisionamento
 
 Obtenha os detalhes do seu serviço de provisionamento com o comando [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show).
 
-O exemplo a seguir obtém os detalhes de um serviço de provisionamento denominado *my-sample-dps*. O hub IoT vinculado é mostrado na coleção *properties.iotHubs*.
+O exemplo a seguir obtém os detalhes de um serviço de provisionamento denominado *my-sample-dps*. Troque esse nome pelo nome de seu Serviço de Provisionamento de Dispositivos.
 
 ```azurecli-interactive
 az iot dps show --name my-sample-dps
 ```
+O hub IoT vinculado é mostrado na coleção *properties.iotHubs*.
+
+![Verificar o Serviço de Provisionamento](./media/quick-setup-auto-provision-cli/verify-provisioning-service.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Outros Guias de Início Rápido na coleção aproveitam este Guia de Início Rápido. Se você planeja continuar trabalhando com Guias de Início Rápido ou tutoriais subsequentes, não limpe os recursos criados neste Guia de Início Rápido. Se você não planeja continuar, pode usar os comandos a seguir para excluir o serviço de provisionamento, o hub IoT ou o grupo de recursos e todos os seus recursos.
+Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja continuar trabalhando com inícios rápidos subsequentes ou com os tutoriais, não limpe os recursos criados nesse início rápido. Se você não planeja continuar, pode usar os comandos a seguir para excluir o serviço de provisionamento, o hub IoT ou o grupo de recursos e todos os seus recursos. Substitua os nomes dos recursos escritos abaixo pelos nomes dos seus recursos.
 
 Para excluir o serviço de provisionamento, execute o comando [az iot dps delete](/cli/azure/iot/dps#az-iot-dps-delete):
 
@@ -133,7 +135,7 @@ az group delete --name my-sample-resource-group
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste Guia de Início Rápido, você implantou um Hub IoT e uma instância do Serviço de Provisionamento de Dispositivos, e vinculou os dois recursos. Para aprender a usar essa configuração a fim de provisionar um dispositivo simulado, prossiga para o Guia de Início Rápido de criação de dispositivo simulado.
+Neste Início Rápido, você implantou um Hub IoT e uma instância do Serviço de Provisionamento de Dispositivos, bem como vinculou os dois recursos. Para aprender a usar essa configuração a fim de provisionar um dispositivo simulado, prossiga para o Início Rápido de criação de dispositivo simulado.
 
 > [!div class="nextstepaction"]
-> [Guia de Início Rápido para criar dispositivo simulado](./quick-create-simulated-device.md)
+> [Início Rápido para criar um dispositivo simulado](./quick-create-simulated-device.md)

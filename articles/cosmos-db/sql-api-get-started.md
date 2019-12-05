@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: a8af36da7b9043492f1ed3c77dcc1b35dc2936fe
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 78b88f4e4e60d1f79263bfd9d7dfaf0cabc70de6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132574"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173903"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Criar um aplicativo de console .NET para gerenciar dados na conta da API do SQL do Azure Cosmos DB
 
@@ -259,7 +259,7 @@ Um banco de dados é o contêiner lógico de itens particionados em contêineres
 1. Selecione F5 para executar seu aplicativo.
 
    > [!NOTE]
-   > Caso você receba uma "exceção 503 de serviço indisponível", é possível que as [portas](performance-tips.md#networking) exigidas para o modo direto estejam bloqueadas por um firewall. Para corrigir esse problema, abra as [portas](performance-tips.md#networking) necessárias ou tente usar o modo de gateway conforme mostrado abaixo.
+   > Caso você receba um erro "exceção 503 de serviço não disponível", é possível que as [portas](performance-tips.md#networking) exigidas para o modo de conectividade direto estejam bloqueadas por um firewall. Para corrigir esse problema, abra as portas necessárias ou use a conectividade do modo de gateway, conforme mostrado no código a seguir:
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

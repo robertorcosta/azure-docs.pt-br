@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 7546d5c6089a7867b1f8b5bf45d23c81bddd0da9
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 660235331c2c2d800b52f6e29d0011b9616a748c
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647897"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158483"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Início Rápido: Biblioteca de clientes do Azure Key Vault para .NET (SDK v3)
 
@@ -46,9 +46,7 @@ Este início rápido pressupõe que você esteja executando `dotnet`, a [CLI do 
 
 ### <a name="create-new-net-console-app"></a>Criar um novo aplicativo de console do .NET
 
-Crie um novo aplicativo .NET Core em seu IDE ou editor preferido.
-
-Em uma janela de console, use o comando `dotnet new` para criar um novo aplicativo do console com o nome `akv-dotnet`.
+Em uma janela de console, use o comando `dotnet new` para criar um aplicativo do console .NET com o nome `akv-dotnet`.
 
 
 ```console
@@ -169,7 +167,7 @@ Atribua essas variáveis de ambiente a cadeias de caracteres em seu código e, e
 
 ### <a name="save-a-secret"></a>Salvar um segredo
 
-Agora que seu aplicativo está autenticado, você pode colocar um segredo em seu cofre de chaves usando o [método SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). Isso requer a URL do cofre de chaves, que está no formato `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Também requer um nome para o segredo – estamos usando "mySecret".  Talvez você queira atribuir essas cadeias de caracteres a variáveis para reutilização.
+Agora que seu aplicativo está autenticado, você pode colocar um segredo em seu cofre de chaves usando o [método SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). Isso requer a URL do cofre de chaves, que está no formato `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Também requer um nome para o segredo – estamos usando "mySecret". 
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 

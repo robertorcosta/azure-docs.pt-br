@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um serviço de pesquisa no portal'
 titleSuffix: Azure Cognitive Search
-description: Provisionar um recurso da Pesquisa Cognitiva do Azure no portal do Azure. Escolha os grupos de recursos, as regiões, o SKU ou o tipo de preço.
+description: Neste guia de início rápido do portal, saiba como configurar um recurso do Azure Cognitive Search no portal do Azure. Escolha os grupos de recursos, as regiões, o SKU ou o tipo de preço.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ec794f66866f9773f8b7c0fc57b644d8a13d697a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112107"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534559"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início Rápido: Criar um serviço da Pesquisa Cognitiva do Azure no portal
 
@@ -41,7 +41,7 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 
 ## <a name="choose-a-subscription"></a>Escolha uma assinatura
 
-Definir a ID da assinatura e o grupo de recursos é sua primeira etapa. Se você tiver mais de uma assinatura, escolha uma que também tenha serviços de armazenamento de arquivos ou dados. A Pesquisa Cognitiva do Azure pode detectar automaticamente o armazenamento de Blobs e de Tabela do Azure, o Banco de Dados SQL e o Azure Cosmos DB para indexação por meio de [*indexadores*](search-indexer-overview.md), mas apenas para os serviços na mesma assinatura.
+Se você tiver mais de uma assinatura, escolha uma para o serviço de pesquisa.
 
 ## <a name="set-a-resource-group"></a>Definir um grupo de recursos
 

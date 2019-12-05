@@ -1,27 +1,19 @@
 ---
 title: O que são o Microsoft Flow, os Aplicativos Lógicos, o Functions e o WebJobs? - Azure
 description: 'Compare os serviços em nuvem da Microsoft otimizados para tarefas de integração: Microsoft Flow, Aplicativos Lógicos, Functions e WebJobs.'
-services: functions, logic-apps
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: microsoft flow, flow, aplicativos lógicos, azure functions, functions, azure webjobs, webjobs, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082743"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278620"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>O que são o Microsoft Flow, os Aplicativos Lógicos, o Functions e o WebJobs?
 
-Este artigo compara os seguintes serviços em nuvem da Microsoft:
-
+Este artigo compara os seguintes serviços em nuvem da Microsoft: 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/)
 * [Funções do Azure](https://azure.microsoft.com/services/functions/)
@@ -57,7 +49,7 @@ O Functions e os Aplicativos Lógicos são os serviços do Azure que permitem as
 Para o Azure Functions, você desenvolve orquestrações escrevendo o código e usando a [extensão Durable Functions](durable/durable-functions-overview.md). Para os Aplicativos Lógicos, você pode criar orquestrações usando uma GUI ou editando arquivos de configuração.
 
 Você pode misturar e fazer a correspondência de serviços quando você compila uma orquestração, chamando funções de aplicativos lógicos e chamando aplicativos lógicos de funções. Escolha como criar cada orquestração com base em recursos dos serviços ou de sua preferência pessoal. A tabela a seguir lista algumas das principais diferenças entre esses serviços:
- 
+
 |  | Funções duráveis | Aplicativos Lógicos |
 | --- | --- | --- |
 | Desenvolvimento | Primeiro o código (obrigatória) | Primeiro o designer (declarativa) |

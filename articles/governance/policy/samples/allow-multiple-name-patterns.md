@@ -1,14 +1,14 @@
 ---
 title: Exemplo – vários padrões de nome
-description: Esta definição de política de exemplo exige que o recurso corresponda a um dos padrões de nome fornecidos.
+description: Esta definição de política de amostra exige que um recurso corresponda a um dos padrões de nome de número ou dígito fornecidos.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 3dcecbf69d4170dd851f1b2678ae0136c86c7e49
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 227b03d0719fcf1a8851213d96b057c9b439a99d
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076511"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463468"
 ---
 # <a name="sample---allow-multiple-name-patterns"></a>Amostra – Permitir vários padrões de nome
 

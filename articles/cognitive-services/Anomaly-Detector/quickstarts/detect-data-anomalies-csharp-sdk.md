@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/15/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 67d6bb0bf880de0b4bf6878128e2ed27e130b18d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 62cf9a03960e895f403ec8fa09407ff61252ecb2
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718995"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483074"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>Início Rápido: biblioteca de clientes do Detector de Anomalias para .NET
 
@@ -26,12 +26,13 @@ Use a biblioteca de cliente do Detector de Anomalias para .NET para:
 * Detectar anomalias em todo o seu conjunto de dados de série temporal, como uma solicitação em lote
 * Detectar o status de anomalias do ponto de dados mais recente em sua série temporal
 
-[Documentação de referência da biblioteca](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Exemplos de código](https://github.com/Azure-Samples/anomalydetector)
+[Documentação de referência da biblioteca](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Localize o código no GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * Versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+* Um ponto de extremidade e uma chave do Detector de Anomalias
 
 ## <a name="setting-up"></a>Configurando
 
@@ -41,15 +42,15 @@ Use a biblioteca de cliente do Detector de Anomalias para .NET para:
 
 ### <a name="create-a-new-net-core-application"></a>Criar um aplicativo .NET Core
 
-Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `new` para criar um novo aplicativo do console com o nome `anomaly-detector-quickstart`. Este comando cria um projeto "Olá, Mundo" simples com um único arquivo de origem C#: *Program.cs*. 
+Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `dotnet new` para criar um novo aplicativo do console com o nome `anomaly-detector-quickstart`. Este comando cria um projeto "Olá, Mundo" simples com um único arquivo de origem C#: *Program.cs*. 
 
-```console
+```dotnetcli
 dotnet new console -n anomaly-detector-quickstart
 ```
 
 Altere o diretório para a pasta do aplicativo recém-criado. É possível criar o aplicativo com:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -67,7 +68,7 @@ Build succeeded.
 
 Dentro do diretório do aplicativo, instale a biblioteca de clientes do Detector de Anomalias para .NET com o seguinte comando:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
 ```
 
@@ -131,24 +132,10 @@ Crie um método para chamar o método [LastDetectAsync()](https://docs.microsoft
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Execute o aplicativo em seu próprio diretório com o comando `run` de dotnet.
+Execute o aplicativo com o comando `dotnet run` do seu próprio diretório de aplicativo.
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados ao grupo de recursos.
-
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## <a name="next-steps"></a>Próximas etapas
-
-> [!div class="nextstepaction"]
->[Detecção de anomalias de streaming com o Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* O que é a [API do Detector de Anomalias](../overview.md)?
-* [Melhores práticas](../concepts/anomaly-detection-best-practices.md) ao usar a API do Detector de Anomalias.
-* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

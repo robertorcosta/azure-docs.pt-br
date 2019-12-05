@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904907"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384275"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implantar uma ferramenta de gerenciamento
 
@@ -63,10 +63,9 @@ Siga estas instruções para implantar o modelo do Azure Resource Manager:
 ### <a name="guidance-for-template-parameters"></a>Orientações sobre parâmetros de modelo
 Veja como inserir parâmetros para configurar a ferramenta:
 
-- Esta é a URL do agente de área de trabalho remota: https:\//rdbroker.wvd.microsoft.com/
-- Esta é a URL do recurso: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- Use suas credenciais do AAD com a MFA desabilitada para entrar no Azure. Confira [O que é necessário para executar o modelo do Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
-- Use um nome exclusivo para o aplicativo que será registrado em seu Azure Active Directory para a ferramenta de gerenciamento; por exemplo, Apr3UX.
+- Para o parâmetro **isServicePrincipal**, selecione **false**.
+- Para as credenciais, insira suas credenciais de Azure Active Directory com a autenticação multifator desabilitada. Essas credenciais serão as que você usará para entrar no Azure e criar o aplicativo do Azure AD e os recursos de aplicativo Web do Azure. Para saber mais, confira [O que é necessário para executar o modelo do Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
+- Para o **applicationName**, use um nome exclusivo para o aplicativo que será registrado no Azure Active Directory. Esse nome também será usado para a URL do aplicativo Web. Por exemplo, você pode usar um nome como "Apr3UX".
 
 ## <a name="provide-consent-for-the-management-tool"></a>Fornecer consentimento para a ferramenta de gerenciamento
 

@@ -1,19 +1,16 @@
 ---
-title: Tutorial – Exportar um modelo do Azure Resource Manager do portal do Azure
+title: Tutorial – exportar modelo do portal do Azure
 description: Saiba como usar um modelo exportado para concluir o desenvolvimento do modelo.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6e4f246cac0ecc1ab5942e522595f59c3625db8f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243203"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406008"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Usar o modelo exportado do portal do Azure
 
@@ -25,7 +22,7 @@ Recomendamos que você conclua o [tutorial sobre saídas](template-tutorial-add-
 
 É necessário ter o Visual Studio Code com a extensão Ferramentas do Resource Manager e o Azure PowerShell ou a CLI do Azure. Para obter mais informações, confira [Ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examinar o modelo
+## <a name="review-template"></a>Examinar modelo
 
 No final do tutorial anterior, o modelo tinha o seguinte JSON:
 
@@ -52,7 +49,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 1. Selecione **Examinar e criar**.
 1. Selecione **Criar**. São necessários alguns instantes para a criação do recurso.
 
-## <a name="export-the-template"></a>Exportar o modelo
+## <a name="export-template"></a>Exportar modelo
 
 1. Selecione **Ir para o recurso**.
 
@@ -71,7 +68,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 > [!IMPORTANT]
 > Normalmente, o modelo exportado é mais detalhado do que o esperado ao criar um modelo. Por exemplo, o objeto do SKU no modelo exportado tem cinco propriedades. Esse modelo funciona, mas você pode simplesmente usar a propriedade **name**. Comece com o modelo exportado e, em seguida, modifique-o como desejar de acordo com suas necessidades.
 
-## <a name="revise-the-existing-template"></a>Revisar o modelo existente
+## <a name="revise-existing-template"></a>Revisar o modelo existente
 
 O modelo exportado fornece a maior parte do JSON necessário, mas você precisará personalizá-lo para o modelo. Preste atenção especial nas diferenças em parâmetros e variáveis entre o modelo e o modelo exportado. Obviamente, o processo de exportação não conhece os parâmetros e as variáveis que você já definiu no modelo.
 
@@ -81,7 +78,7 @@ Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-template"></a>Implantar modelo
 
 Use a CLI do Azure ou o Azure PowerShell para implantar um modelo.
 

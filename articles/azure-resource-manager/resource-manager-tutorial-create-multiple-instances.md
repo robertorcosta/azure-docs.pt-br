@@ -1,24 +1,16 @@
 ---
-title: Criar várias instâncias de recursos – Azure Resource Manager
+title: Criar múltiplas instâncias de recursos
 description: Saiba como criar um modelo do Azure Resource Manager para criar várias instâncias de recurso do Azure.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: df41094d163b8e3ecb78827df1a52dafab0aec1f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528257"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326526"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager
 
@@ -39,7 +31,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com a [extensão de Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -57,7 +49,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-O modelo existente cria uma conta de armazenamento. Você personaliza o modelo para criar três contas de armazenamento.  
+O modelo existente cria uma conta de armazenamento. Você personaliza o modelo para criar três contas de armazenamento.
 
 No Visual Studio Code, faça as quatro alterações a seguir:
 

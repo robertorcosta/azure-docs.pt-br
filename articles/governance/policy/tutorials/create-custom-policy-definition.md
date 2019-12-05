@@ -1,14 +1,14 @@
 ---
-title: Criar uma definição de política personalizada
-description: Crie uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
-ms.date: 04/23/2019
+title: 'Tutorial: Criar uma definição de política personalizada'
+description: Neste tutorial, você cria uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 97a85eb28cd0dbb2586623fda442d87a5790db2a
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128793"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483977"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -31,6 +31,8 @@ A abordagem para criação de uma política personalizada segue estas etapas:
 > - Determinar qual efeito será usado
 > - Redigir a definição de política
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="identify-requirements"></a>Identificar os requisitos
@@ -50,12 +52,17 @@ Com base nos requisitos de negócios, o recurso do Azure para auditoria com o Az
 
 Há várias maneiras de determinar as propriedades de um recurso do Azure. Examinaremos cada uma delas neste tutorial:
 
+- Extensão do Azure Policy para o VS Code
 - Modelos do Gerenciador de Recursos
   - Exportar um recurso existente
   - Experiência de criação
   - Modelos de Início Rápido (GitHub)
   - Documentação de referência de modelo
 - Gerenciador de Recursos do Azure
+
+### <a name="view-resources-in-vs-code-extension"></a>Exibir recursos na extensão do VS Code
+
+A [extensão do VS Code](../how-to/extension-for-vscode.md#search-for-and-view-resources) pode ser usada para procurar recursos em seu ambiente e ver as propriedades do Resource Manager em cada recurso.
 
 ### <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 
@@ -156,9 +163,14 @@ Identificamos a propriedade de recurso, mas precisamos mapear essa propriedade p
 
 Há algumas maneiras de determinar os aliases para um recurso do Azure. Examinaremos cada uma delas neste tutorial:
 
+- Extensão do Azure Policy para o VS Code
 - CLI do Azure
 - Azure PowerShell
 - Gráfico de Recursos do Azure
+
+### <a name="get-aliases-in-vs-code-extension"></a>Obter aliases na extensão do VS Code
+
+A extensão do Azure Policy para a extensão do VS Code facilita a navegação de seus recursos e a [descoberta de aliases](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -188,7 +200,7 @@ Como a CLI do Azure, os resultados mostram um alias compatível com as contas de
 
 ### <a name="azure-resource-graph"></a>Gráfico de Recursos do Azure
 
-O [Azure Resource Graph](../../resource-graph/overview.md) é um novo serviço em versão prévia. Ele permite que outro método encontre as propriedades dos recursos do Azure. Esta é uma consulta de exemplo para examinar uma única conta de armazenamento com o Resource Graph:
+O [Azure Resource Graph](../../resource-graph/overview.md) é um novo serviço. Ele permite que outro método encontre as propriedades dos recursos do Azure. Esta é uma consulta de exemplo para examinar uma única conta de armazenamento com o Resource Graph:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -301,12 +313,11 @@ Esta é uma saída de exemplo de uma conta de armazenamento para aliases:
 }
 ```
 
-O Azure Resource Graph (versão prévia) pode ser usado por meio do [Cloud Shell](https://shell.azure.com), tornando-o uma maneira rápida e fácil para explorar as propriedades de seus recursos.
+O Azure Resource Graph pode ser usado por meio do [Cloud Shell](https://shell.azure.com), tornando-o uma maneira rápida e fácil para explorar as propriedades de seus recursos.
 
 ## <a name="determine-the-effect-to-use"></a>Determinar o efeito a ser usado
 
-Decidir o que fazer com os recursos fora de conformidade é tão importante quanto decidir o que deve ser avaliado em primeiro lugar. Cada resposta possível para um recurso fora de conformidade é chamada de [efeito](../concepts/effects.md).
-O efeito controla se o recurso fora de conformidade está conectado, bloqueado, tem dados acrescentados ou tem uma implantação associada a ele para colocar o recurso novamente em um estado de conformidade.
+Decidir o que fazer com os recursos fora de conformidade é tão importante quanto decidir o que deve ser avaliado em primeiro lugar. Cada resposta possível para um recurso fora de conformidade é chamada de [efeito](../concepts/effects.md). O efeito controla se o recurso fora de conformidade está conectado, bloqueado, tem dados acrescentados ou tem uma implantação associada a ele para colocar o recurso novamente em um estado de conformidade.
 
 Para nosso exemplo, Negar é o efeito que desejamos, pois não queremos os recursos fora de conformidade criados em nosso ambiente do Azure. A auditoria é uma boa primeira escolha para um efeito de política, a fim de determinar o impacto de uma política antes de defini-la como Negar. Uma forma de facilitar a alteração do efeito por atribuição é parametrizar o efeito. Confira [Parâmetros](#parameters) abaixo para obter detalhes sobre como fazer isso.
 
@@ -439,6 +450,16 @@ Com todas as três partes da política definida, esta é a nossa definição con
 ```
 
 A definição concluída pode ser usada para criar uma política. O portal e cada SDK (CLI do Azure, Azure PowerShell e API REST) aceitam a definição de diferentes maneiras. Portanto, examine os comandos de cada um para validar o uso correto. Em seguida, atribua-o, usando o efeito parametrizado, aos recursos adequados para gerenciar a segurança de suas contas de armazenamento.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seguir para excluir qualquer uma das atribuições ou definições criadas acima:
+
+1. Selecione **Definições** (ou **Atribuições** se você estiver tentando excluir uma atribuição) em **Criação** no lado esquerdo da página Azure Policy.
+
+1. Pesquisar pela nova iniciativa ou definição de política (ou atribuição) que você quer remover.
+
+1. Clique com o botão direito na linha e selecione as reticências no final da definição ou da atribuição e selecione **Excluir Definição** (ou **Excluir Atribuição**).
 
 ## <a name="review"></a>Análise
 

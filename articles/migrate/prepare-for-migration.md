@@ -1,19 +1,19 @@
 ---
-title: Preparar computadores locais para migração para Azure com as Migrações para Azure
-description: Este artigo descreve como preparar computadores locais para migração para Azure com as Migrações para Azure.
+title: Preparar computadores para migração com as Migrações para Azure
+description: Saiba como preparar computadores locais para migração com as Migrações para Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480127"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196431"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para Azure
 
@@ -46,8 +46,7 @@ Neste artigo você:
 
 - Para VMs VMware, a Migração de Servidor de Migrações para Azure dá suporte à [migração sem agente ou baseada em agente](server-migrate-overview.md). Verifique os requisitos de migração/suporte da VM VMware para migrações [sem agente](migrate-support-matrix-vmware.md#migration---limitations) e [baseadas em agente](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements).
 - Verifique os [requisitos de migração e suporte](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) para VMs Hyper-V.
-- Verifique [requisitos de migração e suporte](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) for computadores físicos locais ou servidores virtualizados. Esses requisitos são semelhantes aos requisitos de VM VMware.
-
+- Verifique [requisitos de migração e suporte](migrate-support-matrix-physical.md) for computadores físicos locais ou servidores virtualizados. 
 
 
 

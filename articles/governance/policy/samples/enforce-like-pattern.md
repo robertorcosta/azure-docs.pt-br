@@ -1,14 +1,14 @@
 ---
 title: Exemplo – impor padrão de semelhança
-description: Esta definição de política de exemplo exige que os recursos atendam ao padrão de semelhança das convenções de nomenclatura.
+description: Esta definição de política de amostra exige que os recursos cumpram ao padrão de semelhança definido em um parâmetro para convenções de nomenclatura.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 34013753c18ad3b84a29b04fead9ea83aeb03d7b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: df72db59e0370e82ca9f4aff199498ffdf06d834
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076298"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463600"
 ---
 # <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Amostra – Impor padrão de semelhança das convenções de nomenclatura
 

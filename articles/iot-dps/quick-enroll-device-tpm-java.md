@@ -1,21 +1,20 @@
 ---
-title: 'Início Rápido: Inscrever o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando Java'
-description: Início Rápido do Azure – Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço Java. Este início rápido usa registros individuais.
+title: Inscrever o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando Java
+description: Início rápido – Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço Java. Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 88ce16a658e760f69cdf17c9bb4de78fceca927a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 4e6e5eb876bbf93c8228c2440a90aad608a24af9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903459"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422944"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Início Rápido: Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java
 
@@ -136,19 +135,19 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
 
 4. Observe se o registro foi bem-sucedido na janela de saída. 
 
-5. Navegue até seu serviço de provisionamento no Portal do Azure. Clique em **Gerenciar registros** e selecione a guia **Registros individuais**. Observe que a *ID de registro* do dispositivo TPM simulado agora está listada. 
+5. Navegue até seu serviço de provisionamento no Portal do Azure. Selecione **Gerenciar registros** e selecione a guia **Registros individuais**. Observe que a *ID de registro* do dispositivo TPM simulado agora está listada. 
 
     ![Verifique o registro TPM bem-sucedido no portal](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se você planeja explorar o exemplo do serviço Java, não limpe os recursos criados neste guia de início rápido. Caso contrário, use as etapas a seguir para excluir todos os recursos criados por este Guia de Início Rápido.
+Se planejar explorar o exemplo do serviço Java, não limpe os recursos criados neste início rápido. Caso contrário, use as seguintes etapas para excluir todos os recursos criados por este início rápido.
 
 1. Feche a janela de saída de exemplo do Java no computador.
 1. Feche a janela do simulador TPM que você talvez tenha criado para simular seu dispositivo TPM.
-1. Navegue até o serviço de provisionamento do dispositivo no Portal do Azure, clique em **Gerenciar registros** e, em seguida, selecione a guia **Registros individuais**. Selecione a *ID de Registro* do dispositivo registrado usando este Guia de Início Rápido e clique no botão **Excluir** na parte superior da folha. 
+1. Navegue até o Serviço de Provisionamento de Dispositivos no portal do Azure, selecione **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**. Marque a caixa de seleção ao lado da *ID de Registro* para a entrada de registro criada usando este início rápido e pressione o botão **Excluir** na parte superior do painel.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste guia de início rápido, você registrou um dispositivo TPM simulado para seu serviço de provisionamento de dispositivos. Para saber mais sobre os detalhes de configuração do dispositivo, prossiga para o tutorial de configuração do Serviço de Provisionamento de Dispositivos no portal do Azure. 
+Neste início rápido, você registrou um dispositivo TPM simulado para seu serviço de provisionamento de dispositivos. Para saber mais sobre os detalhes de configuração do dispositivo, prossiga para o tutorial de configuração do Serviço de Provisionamento de Dispositivos no portal do Azure. 
 
 > [!div class="nextstepaction"]
 > [Tutoriais do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](./tutorial-set-up-cloud.md)

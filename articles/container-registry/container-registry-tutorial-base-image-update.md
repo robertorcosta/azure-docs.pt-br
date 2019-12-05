@@ -1,20 +1,15 @@
 ---
-title: Tutorial – Disparar um build da imagem na atualização da imagem base – Registro de Contêiner do Azure
+title: Tutorial – disparar o build da imagem na atualização da imagem base
 description: Neste tutorial, você aprenderá a configurar uma Tarefa do Registro de Contêiner do Azure para disparar builds de imagem de contêiner automaticamente na nuvem quando uma imagem base for atualizada.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/12/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1beb66d8491b7dac84e9531558f8967e22086575
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b89bf0364165822368647b4c5b773bf422902aec
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931679"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456130"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: automatizar builds de imagem de contêiner na atualização da imagem base em um Registro de Contêiner do Azure 
 
@@ -272,10 +267,10 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como usar uma tarefa para disparar builds de imagem de contêiner automaticamente quando a imagem base da imagem foi atualizada. Agora, vá para saber mais sobre a autenticação para o registro de contêiner.
+Neste tutorial, você aprendeu como usar uma tarefa para disparar builds de imagem de contêiner automaticamente quando a imagem base da imagem foi atualizada. Agora, vá para o próximo tutorial para saber como disparar tarefas conforme um agendamento definido.
 
 > [!div class="nextstepaction"]
-> [Autenticação no Registro de Contêiner do Azure](container-registry-authentication.md)
+> [Executar uma tarefa em um agendamento](container-registry-tasks-scheduled.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

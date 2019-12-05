@@ -1,22 +1,18 @@
 ---
-title: Criar um espaço de desenvolvimento do Kubernetes na nuvem usando .NET Core e VS Code
-titleSuffix: Azure Dev Spaces
+title: 'Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e .NET Core'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 523c722edd3e76a291ae753ec7c3482e19ca7e24
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2d863fbb5cb14d3a5e61d7b493bca45f21c597db
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845718"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325811"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Introdução ao Azure Dev Spaces com .NET Core
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e .NET Core com Azure Dev Spaces
 
 Neste guia, você aprenderá a:
 

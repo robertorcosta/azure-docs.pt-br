@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o PHP'
+title: 'Início Rápido: Verificar a ortografia com a API REST e o PHP – Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
 description: Este aplicativo PHP simples envia uma solicitação à API de Verificação Ortográfica do Bing e retorna uma lista de correções sugeridas.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4437297c99e346209cf1f7a8973ea0f6f81894af
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8c95f0960c098ad56affc641996f1b52681d473e
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110795"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383858"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o PHP
 

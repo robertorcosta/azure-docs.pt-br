@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 10/29/2019
+ms.date: 11/21/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 92f8aaad1cc3279142d419faa2852406c2956595
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2a6c5ca9f7d2ceaef08b28e78b38b94a459548f5
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685988"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304757"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Início Rápido: Configurar isolamento da carga de trabalho com o T-SQL
 
@@ -77,19 +77,25 @@ Crie um [classificador de cargas de trabalho](/sql/t-sql/statements/create-workl
 
 ```sql
 CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
-WITH (WORKLOAD_GROUP = 'ELTLogin'
-      ,MEMBERNAME = 'DataLoads')
+WITH (WORKLOAD_GROUP = 'DataLoads'
+      ,MEMBERNAME = 'ELTLogin')
 ;
 ```
 
-## <a name="view-existing-workload-groups-and-classifiers"></a>Exibir classificadores e grupos de cargas de trabalho existentes
+## <a name="view-existing-workload-groups-and-classifiers-and-run-time-values"></a>Exibir grupos de cargas de trabalho e classificadores e valores de runtime existentes
 
 ```sql
+--Workload groups
 SELECT * FROM 
 sys.workload_management_workload_groups
 
+--Workload classifiers
 SELECT * FROM 
 sys.workload_management_workload_classifiers
+
+--Run-time values
+SELECT * FROM 
+sys.dm_workload_management_workload_groups_stats
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos

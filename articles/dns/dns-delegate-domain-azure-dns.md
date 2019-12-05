@@ -1,18 +1,18 @@
 ---
-title: Tutorial - Hospedar seu domínio e subdomínio no DNS do Azure
-description: Este tutorial mostra como configurar o DNS do Azure para hospedar suas zonas DNS.
+title: 'Tutorial: Hospedar seu domínio e subdomínio – DNS do Azure'
+description: Neste artigo, saiba como configurar o DNS do Azure para hospedar suas Zonas DNS.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: 99a3ca0115611f45ed080c39767d13e087b8efb8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: allensu
+ms.openlocfilehash: 062a5beaec30d510d37af436e00f4d57785245cd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464234"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212192"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospede seu domínio no DNS do Azure
 

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 1848f7230ed189f139a223020f08db150295132d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 2b095f76eb2c2c9ca420e0049ced3e7af1e742c4
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647477"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405914"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Início Rápido: Biblioteca de clientes de Detecção Facial para .NET
 
@@ -53,13 +53,13 @@ Crie um novo aplicativo .NET Core em seu IDE ou editor preferido.
 
 Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `dotnet new` para criar um novo aplicativo do console com o nome `face-quickstart`. Esse comando cria um projeto simples C# "Olá, Mundo" com um arquivo de origem único: *Program.cs*. 
 
-```console
+```dotnetcli
 dotnet new console -n face-quickstart
 ```
 
 Altere o diretório para a pasta do aplicativo recém-criado. É possível criar o aplicativo com:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -85,7 +85,7 @@ No método `Main` do aplicativo, crie variáveis para a chave e o ponto de extre
 
 Dentro do diretório do aplicativo, instale a biblioteca de clientes de Detecção Facial para .NET com o seguinte comando:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.5.0-preview.1
 ```
 
@@ -174,7 +174,7 @@ O método a seguir detecta rostos em um conjunto de imagens de destino e em uma 
 
 ### <a name="print-matches"></a>Imprimir correspondências
 
-O código a seguir imprime os detalhes de correspondência no console.
+O código a seguir imprime os detalhes de correspondência no console:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_find_similar_print)]
 
@@ -287,7 +287,7 @@ Nesse momento, seu novo objeto **PersonGroup** deve ter os mesmos dados que o or
 
 Execute o aplicativo do seu diretório de aplicativo com o comando `dotnet run`.
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 

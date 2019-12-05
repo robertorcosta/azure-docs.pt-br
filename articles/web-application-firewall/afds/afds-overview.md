@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 09/28/2019
+ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: ce70260c6033d22b20675d6f3872c2ffa6368252
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b646035f6a952f679059abab86d94179f447f9ff
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495627"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406222"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall do Aplicativo Web do Azure no Azure Front Door
 
@@ -92,16 +92,16 @@ O Conjunto de Regras Padrão é habilitado por padrão no modo de detecção em 
 As regras personalizadas sempre são aplicadas antes de as regras no conjunto de regras padrão serem avaliadas. Se uma solicitação corresponder a uma regra personalizada, a ação de regra correspondente será aplicada e a solicitação será bloqueada ou passada para o back-end sem a invocação de mais nenhuma regra personalizada ou das regras no Conjunto de Regras Padrão. Além disso, você tem a opção de remover o Conjunto de Regras Padrão de suas políticas de WAF.
 
 
-### <a name="bot-protection-rule-preview"></a>Regra de proteção contra bots (versão prévia)
+### <a name="bot-protection-rule-set-preview"></a>Conjunto de regras de proteção contra bots (versão prévia)
 
-Um conjunto de regras de proteção contra bots gerenciado pode ser habilitado para que seu WAF execute ações personalizadas em solicitações de endereços IP mal-intencionados conhecidos. Os endereços IP e os domínios são originados do feed de inteligência de ameaças da Microsoft. O [Grafo de Segurança Inteligente](https://www.microsoft.com/security/operations/intelligence) potencializa a inteligência contra ameaças da Microsoft e é usado por vários serviços, incluindo a Central de Segurança do Azure.
+Um conjunto de regras de proteção contra bots gerenciado pode ser habilitado para que seu WAF execute ações personalizadas em solicitações de categorias de bots conhecidas. Há três categorias de bot compatíveis: Bots ruins, bots bons e bots desconhecidos. As assinaturas de bot são gerenciadas e atualizadas dinamicamente pela plataforma WAF. Os endereços IP e os domínios são originados do feed de Inteligência contra Ameaças da Microsoft. O [Grafo de Segurança Inteligente](https://www.microsoft.com/security/operations/intelligence) potencializa a Inteligência contra Ameaças da Microsoft e é usado por vários serviços, incluindo a Central de Segurança do Azure. Os bots bons incluem mecanismos de pesquisa validados. As categorias desconhecidas incluem grupos de bot adicionais. Você pode definir ações personalizadas para bloquear, permitir, registrar ou redirecionar para diferentes tipos de bots.
 
 ![Conjunto de regras de proteção contra bots](../media/afds-overview/botprotect2.png)
 
 > [!IMPORTANT]
 > O conjunto de regras de proteção contra bots está atualmente em versão prévia pública e é fornecido com um contrato de nível de serviço de versão prévia pública. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.  Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
-Se a Proteção contra bots estiver habilitada, as solicitações de entrada que corresponderem a IPs de Bots Mal-Intencionados serão registradas no log FrontdoorWebApplicationFirewallLog. Você pode acessar os logs do WAF da conta de armazenamento, Hub de eventos ou análise de logs. 
+Se a proteção contra bots estiver habilitada, as solicitações de entrada que corresponderem a regras de bots serão registradas no log FrontdoorWebApplicationFirewallLog. Você pode acessar os logs do WAF de uma conta de armazenamento, hub de eventos ou análise de logs.
 
 ## <a name="configuration"></a>Configuração
 

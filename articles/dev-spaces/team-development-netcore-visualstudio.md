@@ -1,8 +1,6 @@
 ---
-title: Desenvolvimento em equipe com o Azure Dev Spaces usando .NET Core e Visual Studio
-titleSuffix: Azure Dev Spaces
+title: Desenvolvimento em equipe usando o .NET Core e o Visual Studio
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 author: DrEsteban
@@ -11,14 +9,14 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 53c870ad135fe13eb3bf7556678cac29352911aa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 895d2edbb268eab9944909ecda7193ce945bbf39
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442921"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325545"
 ---
-# <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipe com Azure Dev Spaces
+# <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Desenvolvimento em equipe usando .NET Core e Visual Studio com o Azure Dev Spaces
 
 Neste tutorial, você aprenderá como uma equipe de desenvolvedores pode colaborar simultaneamente no mesmo cluster Kubernetes usando o Azure Dev Spaces.
 
@@ -123,7 +121,7 @@ Aqui está um diagrama que ajudará você a entender como os diferentes espaços
 
 Essa funcionalidade interna do Azure Dev Spaces permite que você teste o código de ponta a ponta em um ambiente compartilhado, sem a necessidade de cada desenvolvedor recriar a pilha completa de serviços em seus espaços. Esse roteamento exige que cabeçalhos de propagação sejam encaminhados em seu código de aplicativo, conforme ilustrado na etapa anterior deste guia.
 
-### <a name="test-code-running-in-the-devscott-space"></a>Testar o código em execução no espaço _dev/scott_
+### <a name="test-code-running-in-the-_devscott_-space"></a>Testar o código em execução no espaço _dev/scott_
 Para testar a nova versão de *mywebapi* em conjunto com *webfrontend*, abra o navegador na URL de ponto de acesso público de *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eus.azds.io), e acesse a página Sobre. Você deve ver a mensagem original “Hello from webfrontend and Hello from mywebapi”.
 
 Agora, adicione a parte “scott.s.” parte do URL para que leia algo parecido com http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualize o navegador. O ponto de interrupção que você definiu em seu projeto *mywebapi* deverá ser atingido. Clique em F5 para continuar e, em seu navegador, agora você deve ver a nova mensagem “Hello from webfrontend and mywebapi now says something new”. Isso ocorre porque o caminho para o código atualizado em *mywebapi* está em execução no espaço _dev/scott_.

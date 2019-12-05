@@ -8,77 +8,105 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: diberry
-ms.openlocfilehash: 87b7375b2da0effbc18fff6a7e9d67383c93a403
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 58e813d30273db4e011039aa43cd59c61507895e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134117"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74383696"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Rotular uma entidade de aprendizado de máquina em um enunciado de exemplo
 
-A rotulagem de uma entidade em um enunciado de exemplo mostra que o LUIS tem um exemplo de entidade e onde a entidade poderá ser exibida no enunciado. 
+A rotulagem de uma entidade em um enunciado de exemplo dá ao LUIS um exemplo do que é a entidade e de em que parte do enunciado a entidade poderá ser exibida. 
 
 ## <a name="labeling-machine-learned-entity"></a>Rotular a entidade de aprendizado de máquina
 
 Considere a seguinte frase: `hi, please I want a cheese pizza in 20 minutes`. 
 
-1. Escolha o texto mais à esquerda e, em seguida, escolha o texto mais à direita da entidade. O _pedido concluído_ está rotulado na imagem a seguir.
+1. Selecione o texto mais à esquerda, depois selecione o texto mais à direita da entidade e, em seguida, escolha a entidade com a qual você deseja rotular, neste caso, Pedido Completo. O _pedido concluído_ está rotulado na imagem a seguir.
 
     > [!div class="mx-imgBorder"]
     > ![Rotular uma entidade de aprendizado de máquina concluída](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
 
 1. Escolha a entidade na janela pop-up. A entidade de pedido de pizza concluído rotulada inclui todas as palavras (da esquerda para a direita em inglês) rotuladas. 
 
-> [!TIP]
-> As entidades disponíveis na janela pop-up referem-se ao contexto no qual o texto é exibido. Por exemplo, se você tiver uma entidade de aprendizado de máquina de cinco níveis e estiver selecionando texto no terceiro nível (indicado por um nome de entidade rotulada no enunciado de exemplo), as entidades disponíveis na janela pop-up ficarão limitadas ao contexto de subcomponentes do terceiro nível (subcomponentes do 4º nível). 
-
 ## <a name="review-labeled-text"></a>Examinar texto rotulado
 
-Depois de rotular, examine o enunciado de exemplo. O LUIS aplica o modelo atual ao enunciado de exemplo após a rotulagem. A linha sólida indica que o texto foi rotulado. 
+Após a rotulagem, examine o enunciado de exemplo e verifique se o intervalo de texto selecionado foi sublinhado com a entidade escolhida. A linha sólida indica que o texto foi rotulado. 
 
 > [!div class="mx-imgBorder"]
 > ![Entidade de aprendizado de máquina concluída e rotulada](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
 
-## <a name="when-to-train"></a>Quando treinar
-
-Treine seu aplicativo se o modelo atual tiver que dar suporte à entidade rotulada, mas o enunciado de exemplo continuar mostrando o texto como previsto, mas não rotulado.  
-
 ## <a name="confirm-predicted-entity"></a>Confirmar a entidade prevista
 
-Se o indicador visual estiver acima do enunciado, isso indicará que o texto está previsto, mas _ainda não foi rotulado_. Para transformar a previsão em um rótulo, escolha o enunciado e, em seguida, escolha **Confirmar previsões de entidade**.
+Se houver uma caixa com linhas pontilhadas ao longo do intervalo de texto e o nome da entidade estiver acima do enunciado, isso indicará que o texto está previsto, mas não _ainda não rotulado_. Para transformar a previsão em um rótulo, selecione a linha do enunciado e, em seguida, escolha **Confirmar previsões de entidade**.
 
 > [!div class="mx-imgBorder"]
 > ![Prever entidade de aprendizado de máquina concluída](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted.png)
 
-## <a name="label-subcomponent-entity-by-painting-with-entity-palette-cursor"></a>Rotular a entidade do subcomponente pintando com o curso da paleta de entidades
+Como alternativa, você pode selecionar o nome da entidade acima do texto e, em seguida, selecionar **Confirmar Previsão** no menu que aparece.
 
-1. Para corrigir previsões (entidades, exibidas acima do enunciado de exemplo), abra a paleta de entidades. 
+> [!div class="mx-imgBorder"]
+> ![Prever entidade com aprendizado de máquina completa usando o menu](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted-menu.png)
 
-    > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/pizza-entity-palette-with-pizza-type-selected.png)
+## <a name="label-entity-by-painting-with-entity-palette-cursor"></a>Rotular a entidade pintando com o curso da paleta de entidades
 
-1. Escolha o subcomponente da entidade. Essa ação é visualmente indicada com um novo cursor. O cursor segue o mouse à medida que você se move no portal. 
+A paleta de entidades oferece uma alternativa à experiência de rotulagem anterior. Ele permite que você focalize o texto para rotulá-lo instantaneamente com uma entidade.
 
-    > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/pizza-type-entity-palette-cursor.png)
-
-1. No enunciado de exemplo, _pinte_ a entidade com o cursor. 
+1. Abra a paleta de entidades selecionando o ícone de realce na parte superior direita da tabela de enunciado. 
 
     > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/paint-subcomponent-with-entity-palette-cursor.png)
+    > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
 
-## <a name="labeling-matching-text-entities-to-a-machine-learned-entity"></a>Rotular entidades com texto correspondente para uma entidade de aprendizado de máquina
+2. Selecione o componente da entidade. Essa ação é visualmente indicada com um novo cursor. O cursor segue o mouse à medida que você se move no portal. 
 
-As entidades com texto correspondente incluem entidades predefinidas, entidades de expressão regular e entidades de lista. Você adiciona essas entidades a uma entidade de aprendizado de máquina, como restrições para um subcomponente, quando cria ou edita a entidade de aprendizado de máquina. 
+    > [!div class="mx-imgBorder"]
+    > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
 
-**Após as restrições serem adicionadas, não será preciso rotular o texto correspondente no enunciado de exemplo.**
+3. No enunciado de exemplo, _pinte_ a entidade com o cursor.
+
+    > [!div class="mx-imgBorder"]
+    > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+
+## <a name="labeling-subcomponents-of-a-machine-learned-entity"></a>Como rotular subcomponentes de uma entidade aprendida por máquina
+
+Subcomponentes em entidades são rotulados exatamente do mesmo modo que as entidades de nível superior. Ao selecionar texto, as entidades disponíveis na janela pop-up referem-se ao contexto no qual o texto é exibido. Por exemplo, se você tiver uma entidade de aprendizado de máquina de cinco níveis e estiver selecionando texto que foi rotulado no primeiro e no segundo níveis (indicado por um nome de entidade rotulada no enunciado de exemplo), as entidades disponíveis na janela pop-up ficarão limitadas ao contexto de componentes do terceiro nível. Para rotular o texto com outras entidades, selecione a opção **Rotular como outra entidade**.
+
+> [!div class="mx-imgBorder"]
+> ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
+
+Os subcomponentes podem ser rotulados somente se o pai também é rotulado. 
+
+## <a name="unlabel-entities"></a>Remover o rótulo de entidades
+
+Para remover o rótulo de uma entidade, selecione o nome da entidade abaixo do texto e selecione **Remover rótulo**. Se a entidade cujo rótulo você está tentando remover tiver subcomponentes rotulados, os rótulos dos subcomponentes deverão ser removidos primeiro. 
+
+## <a name="editing-labels-using-the-entity-palette"></a>Como editar rótulos usando a paleta da entidade
+
+Caso cometa um erro ao rotular, a paleta da entidade é uma ferramenta fácil e permite edições rápidas. Por exemplo, se um rótulo de entidade abranger uma palavra extra por engano e já tiver subcomponentes rotulados, você poderá usar a paleta da entidade para passar o pincel sobre o intervalo de palavras menor necessário.
+
+Por exemplo:
+
+1. O subcomponente do tipo pizza se estende por "pizza de queijo com", que inclui uma palavra extra incorreta:"com"
+
+    > [!div class="mx-imgBorder"]
+    > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/edit-label-with-palette-1.png)
+
+2. Use a paleta de entidades para escolher o tipo de pizza e usar o pincel sobre "pizza de queijo". O resultado é que agora apenas "pizza de queijo" é usado como rótulo para o tipo de pizza.
+
+    > [!div class="mx-imgBorder"]
+    > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/edit-label-with-palette-2.png)
+
+
+## <a name="labels-for-matching-text-entities"></a>Rótulos para entidades de texto correspondentes
+
+As entidades com texto correspondente incluem entidades predefinidas, entidades de expressão regular, entidades de lista e entidades pattern.any. Elas são rotuladas automaticamente pelo LUIS, então não precisam ser rotuladas manualmente pelos usuários.
 
 ## <a name="entity-prediction-errors"></a>Erros de previsão da entidade
 
-Os erros de previsão da entidade mostram um indicador de cuidado. Isso indica que a entidade prevista não corresponde à entidade rotulada. 
+Erros de previsão de entidade indicam que a entidade prevista não corresponde à entidade rotulada. Isso é visualizado com auxílio de um indicador de cuidado ao lado do enunciado.
 
 > [!div class="mx-imgBorder"]
 > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/example-utterance-indicates-prediction-error.png)

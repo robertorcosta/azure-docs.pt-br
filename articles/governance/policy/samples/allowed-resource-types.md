@@ -1,14 +1,14 @@
 ---
 title: Exemplo – Tipos de recursos permitidos
-description: Esta definição de política de exemplo garante que apenas tipos de recursos aprovados sejam implantados.
+description: Esta definição de política de exemplo garante que apenas tipos de recursos aprovados definidos em um parâmetro sejam implantados.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 16f941cfca419b3fce86101bf8df1b6850858cc9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 5fdf17ff037aaf6f8094bb811e2e6e5a61093250
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076420"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463424"
 ---
 # <a name="sample---allowed-resource-types"></a>Exemplo – Tipos de recursos permitidos
 

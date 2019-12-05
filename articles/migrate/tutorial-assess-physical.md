@@ -5,20 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 9339a03fcb3f67402c0aab030cb69a45e1b42b45
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123499"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280541"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Avaliar servidores físicos com as migrações para Azure: Avaliação de Servidor
-
-> [!NOTE]
-> Se você ainda não vir esse recurso no portal das Migrações para Azure, aguarde. Ele aparecerá na semana seguinte ou em breve.
- 
 
 Este artigo mostra como avaliar os servidores físicos locais usando a ferramenta Migrações para Azure: Avaliação de Servidor.
 
@@ -108,11 +104,12 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
 
-3.  Para a versão 1.19.05.10 do dispositivo, o hash gerado deve corresponder a essas configurações.
+3.  Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas configurações.
 
   **Algoritmo** | **Valor de hash**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
 
@@ -135,7 +132,7 @@ Crie o script da seguinte maneira:
     ```
     PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-O script iniciará o aplicativo Web do dispositivo quando ele for concluído com êxito. 
+O script iniciará o aplicativo Web do dispositivo quando ele for concluído com êxito.
 
 Caso haja algum problema, você poderá acessar os logs do script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Carimbo de data/hora</em>.log para solucionar problemas.
 
@@ -166,7 +163,7 @@ Configure o dispositivo pela primeira vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
 1. Clique em **Fazer Logon**. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-2. Na nova guia, entre usando suas credenciais do Azure. 
+2. Na nova guia, entre usando suas credenciais do Azure.
     - Entre com seu nome de usuário e sua senha.
     - Não há suporte para a entrada com um PIN.
 3. Depois de entrar com êxito, volte para o aplicativo Web.
@@ -188,7 +185,7 @@ Você pode adicionar um conjunto de credenciais para servidores Windows e Linux.
     - Para remover um servidor, selecione > **Excluir**.
 4. Após a validação, clique em **Salvar e iniciar descoberta** para iniciar o processo de descoberta.
 
-Isso iniciará a descoberta. São necessários cerca de 1,5 minutos por servidor para que os metadados dos servidores descobertos sejam exibidos no portal do Azure. 
+Isso iniciará a descoberta. São necessários cerca de 1,5 minutos por servidor para que os metadados dos servidores descobertos sejam exibidos no portal do Azure.
 
 ### <a name="verify-servers-in-the-portal"></a>Verificar servidores no portal
 

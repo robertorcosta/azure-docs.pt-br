@@ -1,24 +1,24 @@
 ---
-title: Preparar VMs do VMware para avaliação e migração para o Azure usando as Migrações para Azure | Microsoft Docs
-description: Descreve como preparar a avaliação e a migração de VMs locais do VMware para o Azure usando as Migrações para Azure.
+title: Preparar VMs VMware para avaliação/migração com as Migrações para Azure
+description: Saiba como se preparar para a avaliação/migração de VMs VMware com as Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4cc04e9ab0acdc9d0cdff77ed1de7bea1c1362d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498482"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196224"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs do VMware para avaliação e migração para o Azure
 
 Este artigo ajuda você a preparar a avaliação e/ou a migração de VMs locais do VMware para o Azure usando as [Migrações para Azure](migrate-services-overview.md).
 
-As [Migrações para Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas das Migrações para Azure e ofertas de ISV (fornecedor independente de software) de terceiros. 
+As [Migrações para Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas das Migrações para Azure e ofertas de ISV (fornecedor independente de software) de terceiros.
 
 
 Este tutorial é o primeiro de uma série que mostra como avaliar e migrar VMs do VMware. Neste tutorial, você aprenderá como:
@@ -38,9 +38,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você precisa dessas permissões.
 
-**Tarefa** | **Permissões** 
---- | --- | ---
-**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões para criar um projeto. 
+**Tarefa** | **Permissões**
+--- | ---
+**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões para criar um projeto.
 **Registrar o dispositivo de Migrações para Azure** | As Migrações para Azure usam um dispositivo leve de migrações para Azure para avaliar VMs do VMware com a avaliação de servidor de migrações para Azure e executar a [migração sem agente](server-migrate-overview.md) de VMs do VMware com migração de servidor de migrações para Azure. Esse dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure.<br/><br/>Durante o registro, as Migrações para Azure criam dois aplicativos Azure AD (Azure Active Directory) que identificam o dispositivo de forma exclusiva e precisa de permissões para criar esses aplicativos.<br/> - O primeiro aplicativo comunica-se com os pontos de extremidade de serviço das Migrações para Azure.<br/> - O segundo aplicativo acessa um Azure Key Vault criado durante o registro para armazenar informações de aplicativo do Azure AD e definições de configuração do dispositivo.
 **Criar um cofre de chaves** | Para migrar VMs do VMware usando a Migração de Servidor de Migrações para Azure, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de armazenamento de replicação em sua assinatura. Para criar o cofre, você precisa de permissões de atribuição de função no grupo de recursos no qual o projeto de Migrações para Azure reside.
 
@@ -62,7 +62,7 @@ Para registrar o dispositivo, você pode atribuir permissões para as Migraçõe
 
 > [!NOTE]
 > - Os aplicativos não têm nenhuma outra permissão de acesso na assinatura diferente daquelas descritas acima.
-> - Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo está configurado. 
+> - Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo está configurado.
 
 
 #### <a name="grant-account-permissions"></a>Conceder permissões da conta
@@ -76,7 +76,7 @@ O locatário/administrador global pode conceder permissões da seguinte maneira
 
 
 
-#### <a name="assign-application-developer-role"></a>Atribuir função de Desenvolvedor de Aplicativos 
+#### <a name="assign-application-developer-role"></a>Atribuir função de Desenvolvedor de Aplicativos
 
 O locatário/administrador global pode atribuir a função de Desenvolvedor de Aplicativos a uma conta. [Saiba mais](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
@@ -90,7 +90,7 @@ Para habilitar a Migrações para Azure para criar um cofre de chaves, atribua p
     - Para executar a avaliação do servidor, permissões de **Colaborador** são suficientes.
     - Para executar a migração de servidor sem agente, você precisa ter permissões de **Proprietário** (ou **Colaborador** e **Administrador de Acesso do Usuário**).
 
-3. Se você não tiver as permissões necessárias, solicite-as do proprietário do grupo de recursos. 
+3. Se você não tiver as permissões necessárias, solicite-as do proprietário do grupo de recursos.
 
 
 
@@ -99,7 +99,7 @@ Para habilitar a Migrações para Azure para criar um cofre de chaves, atribua p
 Para se preparar para avaliação da VM do VMware, você precisa:
 
 - **Verificar as configurações do VMware**. Verifique se as vCenter Server e as VMs que você deseja migrar atendem aos requisitos.
-- **Configurar uma conta de avaliação**. As Migrações para Azure precisam acessar o vCenter Server para descobrir VMs para avaliação. Você precisa de uma conta somente leitura para o acesso de Migrações para Azure.
+- **Configurar uma conta de avaliação**. As Migrações para Azure precisam acessar o vCenter Server para descobrir VMs para avaliação.
 - **Verificar os requisitos do dispositivo**. Verifique os requisitos de implantação para o dispositivo de Migrações para Azure usado para avaliação.
 
 ### <a name="verify-vmware-settings"></a>Verificar as configurações de VMware
@@ -110,7 +110,13 @@ Para se preparar para avaliação da VM do VMware, você precisa:
 
 ### <a name="set-up-an-account-for-assessment"></a>Configurar uma conta para avaliação
 
-As Migrações para Azure precisam acessar o vCenter Server para descobrir VMs para avaliação e migração sem agente. Somente para a avaliação, configure uma conta somente leitura para o vCenter Server.
+As Migrações para Azure precisam acessar o vCenter Server para descobrir VMs para avaliação e migração sem agente.
+
+- Se planejar descobrir aplicativos ou visualizar dependências sem agente, crie uma conta do vCenter Server com acesso somente leitura juntamente com os privilégios habilitados para **Máquinas virtuais** > **Operações de Convidado**.
+
+  ![Privilégios da conta do vCenter Server](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- Se não estiver planejando fazer a descoberta de aplicativos e a visualização de dependências sem agente, configure uma conta somente leitura para o vCenter Server.
 
 ### <a name="verify-appliance-settings-for-assessment"></a>Verifique as configurações do dispositivo para avaliação
 
@@ -120,7 +126,7 @@ Verifique os requisitos do dispositivo antes de implantá-lo.
 2. Se você estiver usando um proxy de firewall baseado em URL, [examine](migrate-support-matrix-vmware.md#assessment-url-access-requirements) as URLs do Azure que o dispositivo precisará acessar. Certifique-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
 3. Examine os [dados de desempenho](migrate-appliance.md#collected-performance-data-vmware)] e os [metadados](migrate-appliance.md#collected-metadata-vmware) que o dispositivo coleta durante a descoberta e avaliação.
 4. [Observe](migrate-support-matrix-vmware.md#assessment-port-requirements) as portas acessadas pelo dispositivo.
-5. No vCenter Server, verifique se sua conta tem permissões para criar uma VM usando um arquivo OVA. Você implanta o dispositivo das Migrações para Azure como uma VM do VMware usando um arquivo OVA. 
+5. No vCenter Server, verifique se sua conta tem permissões para criar uma VM usando um arquivo OVA. Você implanta o dispositivo das Migrações para Azure como uma VM do VMware usando um arquivo OVA.
 
 Se estiver usando um firewall.proxy baseado em URL, permita o acesso às [URLs do Azure](migrate-support-matrix-vmware.md#assessment-url-access-requirements) necessárias.
 
@@ -142,7 +148,7 @@ Examine os requisitos para migração sem agente de VMs do VMware.
 
 Examine os requisitos para [migração de VMs do VMware baseada em agente](server-migrate-overview.md).
 
-1. [Examinar](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) os requisitos do servidor VMware. 
+1. [Examinar](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) os requisitos do servidor VMware.
 2. Configure uma conta com as [permissões necessárias](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions). de modo que as Migrações para Azure possam acessar o vCenter Server para migração baseada em agente usando as Migrações para Azure do servidor de migração.
 3. [Examine](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) os requisitos para as VMs do VMware que você deseja migrar para o Azure usando a migração baseada em agente, incluindo a instalação do serviço de mobilidade em cada VM que deseja migrar.
 4. Observe o [acesso à URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
@@ -151,14 +157,13 @@ Examine os requisitos para [migração de VMs do VMware baseada em agente](serve
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você irá:
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Configurou permissões do Azure.
 > * Preparou o VMware para avaliação e migração.
 
 
 Prossiga para o segundo tutorial para configurar um projeto das Migrações para Azure e avaliar as VMs do VMware para migração para o Azure.
 
-> [!div class="nextstepaction"] 
-> [Avaliar VMs do VMware](./tutorial-assess-vmware.md) 
-
+> [!div class="nextstepaction"]
+> [Avaliar VMs do VMware](./tutorial-assess-vmware.md)

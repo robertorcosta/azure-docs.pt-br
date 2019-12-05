@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a8a25e88d4193562c818f30efd5eb017c372fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089305"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233279"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Tutorial: Integrar o Syncplicity ao Azure Active Directory
 
@@ -152,7 +152,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
 ### <a name="create-syncplicity-test-user"></a>Criar usuário de teste do Syncplicity
 
-Para que os usuários do AAD possam fazer logon, eles devem ser provisionados no aplicativo Syncplicity. Esta seção descreve como criar contas de usuário do AAD no Syncplicity.
+Para que os usuários do Azure AD possam entrar, eles precisam ser provisionados no aplicativo Syncplicity. Esta seção descreve como criar contas de usuário do Azure AD no Syncplicity.
 
 **Para provisionar uma conta de usuário no Syncplicity, execute as seguintes etapas:**
 
@@ -160,18 +160,18 @@ Para que os usuários do AAD possam fazer logon, eles devem ser provisionados no
 
 1. Clique em **admin** e selecione **contas de usuário** e, em seguida, clique em **ADICIONAR UM USUÁRIO**.
 
-    ![Gerenciar Usuários](./media/syncplicity-tutorial/ic769764.png "Gerenciar Usuários")
+    ![Gerenciar usuários](./media/syncplicity-tutorial/ic769764.png "Gerenciar Usuários")
 
 1. Digite os **Endereços de email** de uma conta do Azure AD que você deseja provisionar, selecione **Usuário** como **Função** e clique em **AVANÇAR**.
 
-    ![Dados da Conta](./media/syncplicity-tutorial/ic769765.png "Dados da Conta")
+    ![Informações da conta](./media/syncplicity-tutorial/ic769765.png "Informações da conta")
 
     > [!NOTE]
-    > O titular da conta do AAD receberá um email incluindo um link para confirmar e ativar a conta.
+    > O titular da conta do Azure AD receberá um email com um link para confirmar e ativar a conta.
 
 1. Selecione um grupo em sua empresa do qual o novo usuário deverá se tornar membro e clique em **AVANÇAR**.
 
-    ![Associação a um Grupo](./media/syncplicity-tutorial/ic769772.png "Associação a um Grupo")
+    ![Associação de grupo](./media/syncplicity-tutorial/ic769772.png "Associação de grupo")
 
     > [!NOTE]
     > Se não houver nenhum grupo listado, basta clicar em **AVANÇAR**.
@@ -181,7 +181,7 @@ Para que os usuários do AAD possam fazer logon, eles devem ser provisionados no
     ![Pastas do Syncplicity](./media/syncplicity-tutorial/ic769773.png "Pastas do Syncplicity")
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do Syncplicity ou as APIs fornecidas pelo Syncplicity para provisionar as contas de usuário do AAD.
+> É possível usar qualquer outra ferramenta de criação da conta de usuário do Syncplicity ou as APIs fornecidas pelo Syncplicity para provisionar as contas de usuário do Azure AD.
 
 ### <a name="test-sso"></a>Testar o SSO
 
@@ -193,4 +193,4 @@ Ao selecionar o bloco do Syncplicity no Painel de Acesso, você deverá entrar a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

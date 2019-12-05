@@ -1,21 +1,20 @@
 ---
 title: Visão geral da Política do Azure
 description: A Política do Azure é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
-ms.date: 12/06/2018
+ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: e6b74eb2ffe15256523e46f0c246ba9f4d399c4d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959316"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484014"
 ---
-# <a name="overview-of-the-azure-policy-service"></a>Visão geral do serviço do Azure Policy
+# <a name="what-is-azure-policy"></a>O que é a Política do Azure?
 
 A governança valida que sua organização seja capaz de alcançar suas metas por meio de um uso eficaz e eficiente de TI. Ela atende a essa necessidade gerando clareza entre projetos de TI e metas empresariais.
 
-A empresa tem um número significativo de problemas de TI que parecem nunca ser resolvidos?
-Uma boa governança de TI envolve planejar suas iniciativas e prioridades de configuração em um nível estratégico para ajudar a gerenciar e evitar problemas. É nessa necessidade estratégica que entra o Azure Policy.
+A empresa tem um número significativo de problemas de TI que parecem nunca ser resolvidos? Uma boa governança de TI envolve planejar suas iniciativas e prioridades de configuração em um nível estratégico para ajudar a gerenciar e evitar problemas. É nessa necessidade estratégica que entra o Azure Policy.
 
 O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar políticas. Essas políticas impõem diferentes regras e efeitos sobre os recursos para que esses recursos permaneçam em conformidade com seus padrões corporativos e contratos de nível de serviço. O Azure Policy atende a essa necessidade, avaliando os recursos quanto a não conformidade com políticas atribuídas. Por exemplo, você pode ter uma política para permitir apenas determinado tamanho de SKU de máquinas virtuais em seu ambiente. Depois que essa política é implementada, os recursos novos e existentes são avaliados quanto à conformidade. Com o tipo correto de política, os recursos existentes podem ser colocados em conformidade. Mais adiante nesta documentação, veremos como criar e implementar políticas com o Azure Policy.
 
@@ -35,7 +34,7 @@ O Azure Policy tem diversas permissões, conhecidas como operações, em dois pr
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muitas funções internas concedem permissão aos recursos do Azure Policy. A função **Colaborador da Política de Recursos (versão prévia)** inclui a maioria das operações do Azure Policy. O **proprietário** tem direitos totais. Ambas as funções de **Colaborador** e de **Leitor** podem usar todas as operações de leitura do Azure Policy, mas o **Colaborador** também pode disparar a correção.
+Muitas funções internas concedem permissão aos recursos do Azure Policy. A função **Colaborador da Política de Recursos** inclui a maioria das operações do Azure Policy. O **proprietário** tem direitos totais. Ambas as funções de **Colaborador** e de **Leitor** podem usar todas as operações de leitura do Azure Policy, mas o **Colaborador** também pode disparar a correção.
 
 Se nenhuma das funções internas possui as permissões necessárias, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
@@ -81,6 +80,9 @@ Para obter mais informações sobre parâmetros de política, confira [Estrutura
 
 Uma definição de iniciativa é uma coleção de definições de política que são adaptadas para atingirem uma única meta abrangente. Definições de iniciativa simplificam o gerenciamento e a atribuição de definições da política. Elas simplificam agrupando um conjunto de políticas como um único item. Por exemplo, você pode criar uma iniciativa intitulada **Habilitar Monitoramento na Central de Segurança do Azure**, com uma meta para monitorar todas as recomendações de segurança disponíveis na Central de Segurança do Azure.
 
+> [!NOTE]
+> O SDK, como a CLI do Azure e o Azure PowerShell, usa propriedades e parâmetros chamados **PolicySet** para se referir a iniciativas.
+
 Com essa iniciativa, você teria definições de política como:
 
 - **Monitorar Banco de Dados SQL não criptografado na Central de Segurança** – para monitoramento de servidores e Bancos de Dados SQL não criptografados.
@@ -125,11 +127,12 @@ Aqui estão alguns ponteiros e dicas para ter em mente:
 - É importante manter em mente as hierarquias organizacionais ao criar definições e atribuições. É recomendável criar definições em nível de assinatura ou em níveis superiores, tais como o grupo de gerenciamento. Em seguida, crie a atribuição do próximo nível filho. Se você criar uma definição de um grupo de gerenciamento, a atribuição poderá ser definida para uma assinatura ou grupo de recursos nesse grupo de gerenciamento.
 
 - É recomendável criar e atribuir as definições de iniciativa até mesmo para uma única definição de política.
-Por exemplo, você tem a definição de política *policyDefA* e a cria sob a definição de iniciativa *initiativeDefC*. Se criar outra definição de política mais tarde para *policyDefB* com metas similares às de *policyDefA*, você poderá adicioná-la sob *initiativeDefC* e acompanhá-las juntas.
+  Por exemplo, você tem a definição de política *policyDefA* e a cria sob a definição de iniciativa *initiativeDefC*. Se criar outra definição de política mais tarde para *policyDefB* com metas similares às de *policyDefA*, você poderá adicioná-la sob *initiativeDefC* e acompanhá-las juntas.
 
 - Depois de criar uma atribuição de iniciativa, definições de política adicionadas à iniciativa também se tornam parte dessas atribuições de iniciativas.
 
-- Quando uma atribuição de iniciativa é avaliada, todas as políticas de dentro da iniciativa também são avaliadas. Se for necessário executar uma política individualmente, é melhor não incluí-la em uma iniciativa.
+- Quando uma atribuição de iniciativa é avaliada, todas as políticas de dentro da iniciativa também são avaliadas.
+  Se for necessário executar uma política individualmente, é melhor não incluí-la em uma iniciativa.
 
 ## <a name="video-overview"></a>Visão geral em vídeo
 
@@ -141,8 +144,6 @@ A visão geral do Azure Policy a seguir é da versão 2018. Para download de ví
 
 Agora que você tem uma visão geral da Política do Azure e de alguns dos principais conceitos, aqui estão as próximas etapas sugeridas:
 
-- [Atribuir uma definição de política usando o portal](assign-policy-portal.md).
-- [Atribuir uma definição de política usando a CLI do Azure](assign-policy-azurecli.md).
-- [Atribuir uma definição de política usando o PowerShell](assign-policy-powershell.md).
-- Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](..//management-groups/overview.md).
-- Assista a [Reger seu ambiente do Azure com o Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) no Channel 9.
+- [Atribuir uma definição de política usando o portal](./assign-policy-portal.md).
+- [Atribuir uma definição de política usando a CLI do Azure](./assign-policy-azurecli.md).
+- [Atribuir uma definição de política usando o PowerShell](./assign-policy-powershell.md).

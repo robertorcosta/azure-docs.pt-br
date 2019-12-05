@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6826c1340de16891933b290eb29bd4fb8d120974
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127915"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278084"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparar recursos do produto CDN do Azure
 
@@ -41,11 +41,11 @@ A tabela a seguir compara os recursos disponíveis em cada produto.
 | [GSLB (Balanceamento de carga do servidor global)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Limpeza rápida](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** , A limpeza de tudo e a limpeza de caractere curinga não foram suportadas corretamente na CDN do Azure do Akamai |**&#x2713;** |**&#x2713;** |
 | [Pré-carregamento de ativos](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| Configurações de cache/cabeçalho (usando [regras de cache](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
-| Mecanismo de distribuição de conteúdo personalizável e baseado em regras (usando [mecanismo de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Configurações de cache/cabeçalho (usando o [mecanismo de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Redirecionamento/reconfiguração de URL (usando o [mecanismo de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Regras de dispositivo móvel (usando o [mecanismo de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| Configurações de cache/cabeçalho (usando [regras de cache](cdn-caching-rules.md))  |**&#x2713;** usando o [mecanismo de regras Standard](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
+| Mecanismo de distribuição de conteúdo personalizável e baseado em regras |**&#x2713;** usando o [mecanismo de regras Standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** usando o [mecanismo de regras](cdn-rules-engine.md) |
+| Configurações de cache/cabeçalho  |**&#x2713;** usando o [mecanismo de regras Standard](cdn-standard-rules-engine.md) | | |**&#x2713;** usando o [mecanismo de regras Premium](cdn-rules-engine.md) |
+| Redirecionamento/reescrita de URL |**&#x2713;** usando o [mecanismo de regras Standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** usando o [mecanismo de regras Premium](cdn-rules-engine.md) |
+| Regras de dispositivo móvel  |**&#x2713;** usando o [mecanismo de regras Standard](cdn-standard-rules-engine.md) | | |**&#x2713;** usando o [mecanismo de regras Premium](cdn-rules-engine.md) |
 | [Cache de cadeia de caracteres de consulta](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Pilha dupla IPv4/IPv6 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Suporte do HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

@@ -1,6 +1,6 @@
 ---
 title: O que é a Central de Segurança do Azure? | Microsoft Docs
-description: Saiba mais sobre a Central de Segurança do Azure, seus principais recursos e como ela funciona.
+description: Esta página descreve os principais benefícios da Central de Segurança – descobrindo seu estado de segurança e melhorando-o com a cobertura dos recursos locais e de nuvem.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: e02fd0de00b8feed15fcd51b657afcc015d816f2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202100"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558628"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 

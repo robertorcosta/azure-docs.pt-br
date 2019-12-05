@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 0c5fdc1c937136eb512eccf1d4df02a4fcdc3911
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625355"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533097"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
 
@@ -36,7 +36,7 @@ Com a plataforma de identidade da Microsoft (v2.0), expanda seu alcance para est
 - contas pessoais (como Outlook.com ou Hotmail.com)
 - clientes que trazem seus próprios emails ou identidades sociais (como LinkedIn, Facebook e Google) por meio da oferta do Azure AD B2C
 
-Com a plataforma de identidade unificada da Microsoft, você pode escrever o código uma vez e autenticar qualquer identidade da Microsoft em seu aplicativo. Para várias plataformas, há uma biblioteca open-source com suporte completo, chamada MSAL (Biblioteca de Autenticação da Microsoft). A MSAL é simples de usar, fornece ótimas experiências de SSO (logon único) para seus usuários, ajuda você a alcançar alta confiabilidade e desempenho e foi desenvolvida usando o Microsoft SDL (Secure Development Lifecycle). Ao chamar APIs, você pode configurar seu aplicativo para aproveitar o consentimento incremental, que permite atrasar a solicitação de consentimento para escopos mais invasivos até que o uso do aplicativo garanta isso em tempo de execução.
+Com a plataforma de identidade unificada da Microsoft, você pode escrever o código uma vez e autenticar qualquer identidade da Microsoft em seu aplicativo. Para várias plataformas, há uma biblioteca open-source com suporte completo, chamada MSAL (Biblioteca de Autenticação da Microsoft). A MSAL é simples de usar, fornece ótimas experiências de SSO (logon único) para seus usuários, ajuda você a alcançar alta confiabilidade e desempenho e foi desenvolvida usando o Microsoft SDL (Secure Development Lifecycle). Ao chamar APIs, você pode configurar seu aplicativo para aproveitar o consentimento incremental, que permite atrasar a solicitação de consentimento para escopos mais invasivos até que o uso do aplicativo garanta isso em runtime.
 
 Use o portal do Azure para registrar e configurar seu aplicativo e a API do Microsoft Graph para a configuração programática de aplicativo.
 
@@ -52,7 +52,7 @@ O diagrama a seguir mostra a experiência de identidade da Microsoft de modo ger
 
 A experiência de **[Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908)** do portal do Azure é a experiência de portal para gerenciar em um único portal todos os aplicativos integrados à plataforma de identidade da Microsoft. Se você usar o Portal de Registro de Aplicativo, comece a usar a experiência de registro de aplicativo do portal do Azure.
 
-Para integração ao Azure AD B2C (na autenticação de identidades sociais ou locais), você precisará registrar seu aplicativo em um locatário B2C. Essa experiência também faz parte do portal do Azure.
+Para integração ao Azure AD B2C (na autenticação de identidades sociais ou locais), você precisará registrar seu aplicativo em um locatário do Azure AD B2C. Essa experiência também faz parte do portal do Azure.
 
 Atualmente, a **API de aplicativo no Microsoft Graph** está em versão prévia. Use essa API para configurar de forma programática os aplicativos integrados à plataforma de identidade da Microsoft para autenticar qualquer identidade da Microsoft. No entanto, até que essa API alcance disponibilidade geral, você deverá usar a API do Graph 1.6 do Azure AD e o manifesto do aplicativo.
 

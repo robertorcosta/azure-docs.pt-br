@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Analisar eventos de configuração dos Gêmeos Digitais do Azure'
+title: 'Tutorial: Analisar eventos no Time Series Insights – Gêmeos Digitais do Azure | Microsoft Docs'
 description: Saiba como visualizar e analisar eventos dos espaços dos Gêmeos Digitais do Azure, com o Azure Time Series Insights, usando as etapas neste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107670"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383052"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos dos Gêmeos Digitais do Azure usando o Time Series Insights
 
@@ -54,6 +54,8 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
 
 1. Pesquise e selecione **Hubs de Eventos**. Selecione **Criar**.
 
+    [![Criar um namespace dos Hubs de Eventos](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+
 1. Insira um **Nome** para o namespace dos Hubs de Eventos. Escolha **Standard** como **Tipo de preço**, sua **Assinatura**, o **Grupo de recursos** que você usou para sua instância dos Gêmeos Digitais e o **Local**. Selecione **Criar**.
 
 1. Na implantação de namespace dos Hubs de eventos, selecione o painel **Visão geral** e, em seguida, selecione **Ir para o recurso**.
@@ -77,7 +79,10 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
 
     [![Cadeias de conexão do Hub de Eventos](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
-1. Abra a política ManageSend que você criou e copie os valores da **Cadeia de conexão – chave primária** e **Cadeia de conexão – chave secundária** para um arquivo temporário. Você precisará desses valores para criar um ponto de extremidade para o hub de eventos na próxima seção.
+    > [!TIP]
+    > Verifique se você está criando uma política SAS para sua instância do hub de eventos em vez de seu namespace.
+
+1. Abra a política **ManageSend** que você criou e copie os valores da **Cadeia de conexão – chave primária** e **Cadeia de conexão – chave secundária** para um arquivo temporário. Você precisará desses valores para criar um ponto de extremidade para o hub de eventos na próxima seção.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>Criar um ponto de extremidade para o hub de eventos
 
@@ -105,13 +110,13 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
 
 1. Substitua os espaços reservados `Primary_connection_string_for_your_event_hub` pelo valor da **Cadeia de conexão – chave primária** para o hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte:
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. Substitua os espaços reservados `Secondary_connection_string_for_your_event_hub` pelo valor da **Cadeia de conexão – chave secundária** para o hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte: 
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 

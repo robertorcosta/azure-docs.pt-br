@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 88ff026ea56e5f41b3b124c2d5594822ffeb6830
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 3f37f0f3fe57015cc733d67f16e64bdf58a8a6b7
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529259"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561002"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C# para dispositivos Windows
 
@@ -88,7 +88,7 @@ O Azure IoT Edge Tools fornece modelos de projeto para todas as linguagens de m�
 
 ### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
 
-O manifesto de implantação compartilha as credenciais para seu registro de contêiner com o tempo de execução do IoT Edge. O tempo de execução precisa dessas credenciais para efetuar pull de imagens privadas para o dispositivo IoT Edge. Use as credenciais da seção **Chaves de acesso** do Registro de Contêiner do Azure. 
+O manifesto de implantação compartilha as credenciais para seu registro de contêiner com o runtime do IoT Edge. O runtime precisa dessas credenciais para efetuar pull de imagens privadas para o dispositivo IoT Edge. Use as credenciais da seção **Chaves de acesso** do Registro de Contêiner do Azure. 
 
 1. No gerenciador de soluções do Visual Studio, abra o arquivo **deployment.template.json**. 
 
@@ -149,7 +149,7 @@ O código padrão do módulo recebe mensagens em uma fila de entrada e as passa 
     }
     ```
 
-5. Localize o método **Init**. Esse método cria e configura um objeto **ModuleClient**, que permite que o módulo se conecte ao tempo de execução do IoT Edge do Azure para enviar e receber mensagens. O código também registra um retorno de chamada para receber mensagens de um hub do IoT Edge por meio do ponto de extremidade **input1**.
+5. Localize o método **Init**. Esse método cria e configura um objeto **ModuleClient**, que permite que o módulo se conecte ao runtime do Azure IoT Edge para enviar e receber mensagens. O código também registra um retorno de chamada para receber mensagens de um hub do IoT Edge por meio do ponto de extremidade **input1**.
 
    Substitua todo o método Init pelo seguinte código:
    
@@ -176,7 +176,7 @@ O código padrão do módulo recebe mensagens em uma fila de entrada e as passa 
    }
    ```
    
-   Esse método Init atualizado ainda configura a conexão com o tempo de execução do IoT Edge com o ModuleClient, mas também adiciona uma nova funcionalidade. Ele lê as propriedades desejadas do módulo gêmeo para recuperar o valor **temperatureThreshold**. Em seguida, cria um retorno de chamada que escuta, para as atualizações futuras, as propriedades desejadas do módulo gêmeo. Com esse retorno de chamada, é possível atualizar o limite de temperatura no módulo gêmeo remotamente e as alterações serão incorporadas ao módulo. 
+   Esse método Init atualizado ainda configura a conexão com o runtime do IoT Edge com o ModuleClient, mas também adiciona uma nova funcionalidade. Ele lê as propriedades desejadas do módulo gêmeo para recuperar o valor **temperatureThreshold**. Em seguida, cria um retorno de chamada que escuta, para as atualizações futuras, as propriedades desejadas do módulo gêmeo. Com esse retorno de chamada, é possível atualizar o limite de temperatura no módulo gêmeo remotamente e as alterações serão incorporadas ao módulo. 
 
    O método Init atualizado também altera o método **SetInputMessageHandlerAsync** existente. No código de exemplo, as mensagens de entrada em *input1* são processadas com a função *PipeMessage*, mas podemos alterar isso para usar a função *FilterMessages* que criaremos nas etapas a seguir. 
 
@@ -323,7 +323,7 @@ Verifique se seu dispositivo IoT Edge está em funcionamento.
 
 ## <a name="view-generated-data"></a>Exibir os dados gerados
 
-Depois que você aplica o manifesto de implantação no seu dispositivo IoT Edge, o tempo de execução do IoT Edge no dispositivo coleta as novas informações de implantação e inicia a execução nele. Todos os módulos em execução no dispositivo que não estão incluídos no manifesto de implantação são interrompidos. Todos os módulos ausentes do dispositivo são iniciados. 
+Depois que você aplica o manifesto de implantação no seu dispositivo IoT Edge, o runtime do IoT Edge no dispositivo coleta as novas informações de implantação e inicia a execução nele. Todos os módulos em execução no dispositivo que não estão incluídos no manifesto de implantação são interrompidos. Todos os módulos ausentes do dispositivo são iniciados. 
 
 É possível usar a extensão Ferramentas do IoT Edge para exibir as mensagens conforme elas chegam ao Hub IoT. 
 
@@ -359,7 +359,10 @@ Caso contrário, é possível excluir as configurações locais e os recursos do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou um módulo do IoT Edge com código para filtrar os dados brutos gerados pelo seu dispositivo IoT Edge. Quando você estiver pronto para criar seus próprios módulos, poderá saber mais sobre como [desenvolver seus próprios módulos do IoT Edge](module-development.md) ou como [desenvolver módulos com o Visual Studio](how-to-visual-studio-develop-module.md). É possível passar para os próximos tutoriais para saber como o Azure IoT Edge pode ajudar você a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
+Neste tutorial, você criou um módulo do IoT Edge com código para filtrar os dados brutos gerados pelo seu dispositivo IoT Edge. Quando você estiver pronto para criar seus próprios módulos, poderá saber mais sobre como [desenvolver seus próprios módulos do IoT Edge](module-development.md) ou como [desenvolver módulos com o Visual Studio](how-to-visual-studio-develop-module.md). Para obter exemplos dos módulos do IoT Edge, incluindo o módulo de temperatura simulada, confira [Exemplos do módulo do IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules). 
+
+
+É possível passar para os próximos tutoriais para saber como o Azure IoT Edge pode ajudar você a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 
 > [!div class="nextstepaction"]
 > [Funções](tutorial-deploy-function.md)

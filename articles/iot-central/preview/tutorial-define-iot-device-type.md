@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 5642ce6065c4b76bdbd6d772c74fed894de0888f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 177caaa5400c10ed8de80b04a3305dce7cae77d6
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73892452"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407015"
 ---
-# <a name="tutorial-define-a-new-iot-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central (versões prévias dos recursos)
+# <a name="tutorial-define-a-new-iot-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central (versão prévia dos recursos)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
@@ -28,11 +28,11 @@ Por exemplo, um construtor pode criar um modelo de dispositivo para um ventilado
 - Envia a propriedade de localização
 - Envia os eventos de erro do motor do ventilador
 - Envia o estado operacional do ventilador
-- Propriedade gravável de velocidade do ventilador
-- Comando para reiniciar o dispositivo
-- Painel que oferece uma visão geral do dispositivo
+- Fornece uma propriedade gravável de velocidade do ventilador
+- Fornece um comando para reiniciar o dispositivo
+- Oferece uma visão geral do dispositivo por meio do painel
 
-Nesse modelo de dispositivo, um operador pode criar e conectar dispositivos de ventilador reais. Todos esses ventiladores têm medidas, propriedades e comandos que os operadores usam para monitorá-los e gerenciá-los. Os operadores usam os painéis e os formulários do dispositivo para interagir com os dispositivos de ventilador.
+Nesse modelo de dispositivo, um operador pode criar e conectar dispositivos de ventilador reais. Todos esses ventiladores têm medidas, propriedades e comandos que os operadores usam para monitorá-los e gerenciá-los. Os operadores usam os dashboards e os formulários do dispositivo para interagir com os dispositivos de ventilador.
 
 > [!NOTE]
 > Somente construtores e administradores podem criar, editar e excluir modelos de dispositivo. Qualquer usuário pode criar dispositivos na página **Dispositivos** com base nos modelos de dispositivos existentes.
@@ -42,44 +42,44 @@ O [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) permite que o
 Como um criador, você tem várias opções para criar modelos de dispositivo:
 
 - Crie o modelo de dispositivo no IoT Central e, em seguida, implemente o respectivo modelo de funcionalidade do dispositivo no código do dispositivo.
-- Importe um modelo de funcionalidade do dispositivo do [catálogo de dispositivos Azure Certified para IoT](https://aka.ms/iotdevcat) e adicione todas as propriedades de nuvem, personalizações e painéis de que seu aplicativo do IoT Central precisa.
-- Crie um modelo de funcionalidade do dispositivo usando o Visual Studio Code. Implemente o código do dispositivo do modelo. Importe manualmente o modelo de funcionalidade do dispositivo para o aplicativo do IoT Central e, em seguida, adicione todas as propriedades de nuvem, personalizações e painéis de que seu aplicativo IoT central precisa.
-- Crie um modelo de funcionalidade do dispositivo usando o Visual Studio Code. Implemente o código do dispositivo por meio do modelo e conecte o dispositivo real ao aplicativo do IoT Central usando uma conexão device-first. O IoT Central localiza e importa o modelo de funcionalidade do dispositivo do repositório público para você. Em seguida, você pode adicionar propriedades de nuvem, personalizações e painéis necessários para o aplicativo do IoT Central ao modelo de dispositivo.
+- Importe um modelo de capacidade de dispositivo do [catálogo de dispositivos Certificado para IoT do Azure](https://aka.ms/iotdevcat). Então adicione todas as propriedades de nuvem, personalizações e painéis de que seu aplicativo do IoT Central precisa.
+- Crie um modelo de funcionalidade do dispositivo usando o Visual Studio Code. Implemente o código do dispositivo do modelo. Importe manualmente o modelo de funcionalidade do dispositivo para o aplicativo do IoT Central e, em seguida, adicione todas as propriedades de nuvem, personalizações e painéis de que seu aplicativo do IoT Central precisa.
+- Crie um modelo de funcionalidade do dispositivo usando o Visual Studio Code. Implemente o código do dispositivo por meio do modelo e conecte o dispositivo real ao aplicativo do IoT Central usando uma conexão device-first. O IoT Central localiza e importa o modelo de funcionalidade do dispositivo do repositório público para você. Em seguida, você pode adicionar propriedades de nuvem, personalizações e dashboards necessários para o aplicativo do IoT Central ao modelo de dispositivo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisa de um aplicativo Azure IoT Central. Siga este início rápido para [Criar um aplicativo do Azure IoT Central](quick-deploy-iot-central.md).
+Para concluir este tutorial, você precisa [criar um aplicativo do Azure IoT Central](quick-deploy-iot-central.md).
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Criar um modelo de dispositivo com base no catálogo de dispositivos
 
-Como construtor, você pode começar rapidamente a criar sua solução usando um dispositivo IoT Plug and Play certificado listado no [catálogo de dispositivos IoT do Azure](https://catalog.azureiotsolutions.com/alldevices). O IoT Central integra-se ao catálogo de dispositivos para permitir que você importe um modelo de funcionalidade do dispositivo de um desses dispositivos IoT Plug and Play certificados. Para criar um modelo de dispositivo com base em um desses dispositivos no IoT Central:
+Como um construtor, você pode começar rapidamente a criar sua solução usando um dispositivo IoT Plug and Play certificado. Confira a lista no [Catálogo de Dispositivos IoT do Azure](https://catalog.azureiotsolutions.com/alldevices). O IoT Central integra-se ao catálogo de dispositivos para que você possa importar um modelo de funcionalidade do dispositivo de um desses dispositivos IoT Plug and Play certificados. Para criar um modelo de dispositivo com base em um desses dispositivos no IoT Central:
 
 1. Acesse a página **Modelos de Dispositivo** no aplicativo do IoT Central.
-1. Selecione **+ Novo** e, em seguida, selecione um dos dispositivos IoT Plug and Play certificados no catálogo listado abaixo. O IoT Central criará um modelo de dispositivo com base nesse modelo de funcionalidade do dispositivo.
+1. Selecione **+ Novo** e selecione um dos dispositivos IoT Plug and Play certificados no catálogo. O IoT Central criará um modelo de dispositivo com base nesse modelo de funcionalidade do dispositivo.
 1. Adicione propriedades de nuvem, personalizações ou exibições ao modelo de dispositivo.
-1. Selecione **Publicar** para publicar esse modelo de dispositivo e disponibilizá-lo para os operadores verem e conectarem dispositivos.
+1. Selecione **Publicar** para disponibilizar o modelo para os operadores para exibir e conectar dispositivos.
 
 ## <a name="create-a-device-template-from-scratch"></a>Criar um modelo de dispositivo do zero
 
 Um modelo de dispositivo contém:
 
 - Um _modelo de funcionalidade do dispositivo_ que especifica a telemetria, as propriedades e os comandos implementados pelo dispositivo. Essas funcionalidades são organizadas em uma ou mais interfaces.
-- _Propriedades de nuvem_ que definem as informações que o aplicativo do IoT Central armazena sobre seus dispositivos. Por exemplo, uma propriedade de nuvem pode registrar os dados da última manutenção de um dispositivo. Essas informações nunca são compartilhadas com o dispositivo.
-- As _personalizações_ permitem que o construtor substitua algumas das definições no modelo de funcionalidade do dispositivo. Por exemplo, o construtor pode substituir o nome de uma propriedade de dispositivo. Os nomes de propriedades aparecem em painéis e formulários do IoT Central.
-- Os _painéis e os formulários_ permitem que o construtor crie uma interface do usuário que permita aos operadores monitorar e gerenciar os dispositivos conectados ao seu aplicativo.
+- _Propriedades de nuvem_ que definem as informações que o aplicativo do IoT Central armazena sobre seus dispositivos. Por exemplo, uma propriedade de nuvem pode registrar a data da última manutenção de um dispositivo. Essas informações nunca são compartilhadas com o dispositivo.
+- As _personalizações_ permitem que o construtor substitua algumas das definições no modelo de funcionalidade do dispositivo. Por exemplo, o construtor pode substituir o nome de uma propriedade de dispositivo. Os nomes de propriedades aparecem em dashboards e formulários do IoT Central.
+- Os _dashboards e os formulários_ permitem que o construtor crie uma interface do usuário que permita aos operadores monitorar e gerenciar os dispositivos conectados ao seu aplicativo.
 
 Para criar um modelo de dispositivo no IoT Central:
 
 1. Acesse a página **Modelos de Dispositivo** no aplicativo do IoT Central.
-1. Selecione **+ Novo** e, em seguida, **Personalizado**.
+1. Selecione **+ Novo** > **Personalizado**.
 1. Insira um nome para o modelo, como **Sensor Ambiental**.
 1. Pressione **Enter**. O IoT Central criará um modelo de dispositivo vazio.
 
 ## <a name="manage-a-device-template"></a>Gerenciar um modelo de dispositivo
 
-Renomeie ou exclua um modelo na home page do modelo.
+Renomeie ou exclua um modelo na página inicial do modelo.
 
-Depois de adicionar um modelo de funcionalidade do dispositivo ao modelo, você poderá publicá-lo. Você só poderá conectar um dispositivo com base nesse modelo para que os operadores o vejam na página **Dispositivos** quando publicar o modelo.
+Depois de adicionar um modelo de funcionalidade do dispositivo ao modelo, você poderá publicá-lo. Antes de publicar o modelo, você não pode conectar um dispositivo com base nesse modelo para que os operadores o vejam na página **Dispositivos**.
 
 ## <a name="create-a-capability-model"></a>Criar um modelo de funcionalidade
 
@@ -109,7 +109,7 @@ Para criar uma interface:
 
     - Criar uma interface personalizada do zero.
     - Importar uma interface existente de um arquivo. Um construtor de dispositivo pode ter usado o Visual Studio Code para criar uma interface para seu dispositivo.
-    - Escolher uma das interfaces padrão, como a interface **Informações do Dispositivo**. As interfaces padrão especificam as funcionalidades comuns a muitos dispositivos. Essas interfaces padrão são publicadas pelo Microsoft Azure IoT e não podem ter controle de versão nem ser editadas.
+    - Escolher uma das interfaces padrão, como a interface **Informações do Dispositivo**. As interfaces padrão especificam as funcionalidades comuns a muitos dispositivos. Essas interfaces padrão são publicadas pelo Azure IoT e não podem ter controle de versão nem ser editadas.
 
 1. Depois de criar uma interface, escolha **Editar Identidade** para alterar o nome de exibição da interface.
 
@@ -123,15 +123,15 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 | Campo | DESCRIÇÃO |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do valor de telemetria usado em painéis e formulários. |
+| Nome de exibição | O nome de exibição do valor de telemetria usado em dashboards e formulários. |
 | NOME | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo de funcionalidade | Telemetria. |
+| Tipo de Funcionalidade | Telemetria. |
 | Tipo Semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados telemétricos, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
-| Severity | Disponível somente para o tipo semântico de evento. **Erro**, **Informações** ou **Aviso**. |
-| Valores de estado | Disponível somente para o tipo semântico de estado. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
+| Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
+| Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
 | Unidade | Uma unidade para o valor de telemetria, como **mph**, **%** ou **&deg;C**. |
-| Unidade de exibição | Uma unidade de exibição para uso em painéis e formulários. |
+| Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de telemetria. |
 | DESCRIÇÃO | Uma descrição da funcionalidade de telemetria. |
 
@@ -143,16 +143,16 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 | Campo | DESCRIÇÃO |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do valor da propriedade usado em painéis e formulários. |
+| Nome de exibição | O nome de exibição do valor da propriedade usado em dashboards e formulários. |
 | NOME | O nome da propriedade. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo de funcionalidade | Propriedade. |
+| Tipo de Funcionalidade | Propriedade. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
 | Gravável | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central, e o IoT Central poderá enviar atualizações de propriedade para o dispositivo.
-| Severity | Disponível somente para o tipo semântico de evento. **Erro**, **Informações** ou **Aviso**. |
-| Valores de estado | Disponível somente para o tipo semântico de estado. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
+| Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
+| Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
 | Unidade | Uma unidade para o valor da propriedade, como **mph**, **%** ou **&deg;C**. |
-| Unidade de exibição | Uma unidade de exibição para uso em painéis e formulários. |
+| Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de propriedade. |
 | DESCRIÇÃO | Uma descrição da funcionalidade de propriedade. |
 
@@ -164,10 +164,10 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 | Campo | DESCRIÇÃO |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do comando usado em painéis e formulários. |
+| Nome de exibição | O nome de exibição do comando usado em dashboards e formulários. |
 | NOME | O nome do comando. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo de funcionalidade | Comando |
-| Comando | SynchronousExecutionType. |
+| Tipo de Funcionalidade | Comando. |
+| Comando | `SynchronousExecutionType`. |
 | Comentário | Comentários sobre a funcionalidade de comando. |
 | DESCRIÇÃO | Uma descrição da funcionalidade de comando. |
 | Solicitação | Se habilitada, uma definição do parâmetro de solicitação, incluindo nome, nome de exibição, esquema, unidade e unidade de exibição. |
@@ -175,7 +175,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 ## <a name="manage-an-interface"></a>Gerenciar uma interface
 
-Desde que não tenha publicado a interface, você pode editar as funcionalidades definidas por ela. Depois que a interface for publicada, você precisará criar uma versão do modelo de dispositivo e realizar o controle de versão da interface para fazer alterações. As alterações que não exigem controle de versão, como nomes de exibição ou unidades, podem ser feitas na seção **Personalizar**.
+Se você não tiver publicado a interface, poderá editar as funcionalidades definidas por ela. Depois de publicar a interface, se quiser fazer alterações, você precisará criar uma versão do modelo de dispositivo e realizar o controle de versão da interface. Você pode fazer alterações que não exigem controle de versão, como nomes de exibição ou unidades, na seção **Personalizar**.
 
 Exporte também a interface como um arquivo JSON caso deseje reutilizá-la em outro modelo de funcionalidade.
 
@@ -187,7 +187,7 @@ A seguinte tabela mostra as definições de configuração para uma propriedade 
 
 | Campo | DESCRIÇÃO |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do valor da propriedade de nuvem usado em painéis e formulários. |
+| Nome de exibição | O nome de exibição do valor da propriedade de nuvem usado em dashboards e formulários. |
 | NOME | O nome da propriedade de nuvem. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade de nuvem, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. |
@@ -204,32 +204,36 @@ Você não pode personalizar o nome da funcionalidade ou o tipo de funcionalidad
 
 ### <a name="generate-default-views"></a>Gerar modos de exibição padrão
 
-Gerar modos de exibição padrão é uma maneira rápida de começar a visualizar as informações importantes do dispositivo. Você terá até três exibições padrão geradas para o modelo de dispositivo:
+Gerar modos de exibição padrão é uma maneira rápida de visualizar as informações importantes do dispositivo. Você tem até três modos de exibição padrão geradas para seu modelo de dispositivo:
 
-- **Comandos** fornecerá uma exibição com os comandos do dispositivo e permitirão a expedição deles pelo operador ao dispositivo.
-- **Visão geral** oferecerá uma exibição com a telemetria do dispositivo, exibindo gráficos e métricas.
-- **Sobre** fornecerá uma exibição com informações sobre o dispositivo, exibindo as propriedades dele.
+- **Comandos** fornecem uma exibição com os comandos do dispositivo e permitem a expedição deles pelo operador ao dispositivo.
+- **Visão geral** oferece uma exibição com a telemetria do dispositivo, exibindo gráficos e métricas.
+- **Sobre** oferece uma exibição com informações sobre o dispositivo, exibindo as propriedades do dispositivo.
 
-Depois de selecionar **Gerar exibições padrão**, você verá que elas foram adicionadas automaticamente à seção **Exibições** do modelo de dispositivo.
+Depois de selecionar **Gerar exibições padrão**, você vê que elas foram adicionadas automaticamente à seção **Exibições** do modelo de dispositivo.
 
-## <a name="add-dashboards"></a>Adicionar painéis
+## <a name="add-dashboards"></a>Adicionar dashboards
 
-Adicione painéis a um modelo de dispositivo para permitir que os operadores visualizem um dispositivo usando gráficos e métricas. Você pode ter vários painéis para um modelo de dispositivo.
+Adicione painéis a um modelo de dispositivo para permitir que os operadores visualizem um dispositivo usando gráficos e métricas. Você pode ter vários dashboards para um modelo de dispositivo.
 
 Para adicionar um painel a um modelo de dispositivo:
 
-- Acesse o modelo de dispositivo e selecione **Exibições**.
-- Em seguida, escolha **Visualizando o Dispositivo**.
-- Insira um nome para o painel em **Nome do Painel**.
-- Adicione blocos ao painel na lista de blocos estáticos, de propriedade, de propriedade de nuvem, de telemetria e de comando. Arraste e solte os blocos que deseja adicionar ao painel.
-- Para plotar vários valores de telemetria em um só bloco de gráfico, selecione os valores de telemetria e, em seguida, selecione **Combinar**.
-- Configure cada bloco adicionado para personalizar como ele exibirá os dados selecionando o ícone de engrenagem ou o botão **Alterar configuração** no bloco do gráfico.
-- Organize e redimensione os blocos no painel.
-- Salve as alterações.
+1. Acesse o modelo de dispositivo e selecione **Exibições**.
+1. Escolha **Como visualizar o Dispositivo**.
+1. Insira um nome para o painel em **Nome do Painel**.
+1. Adicione blocos ao painel na lista de blocos estáticos, de propriedade, de propriedade de nuvem, de telemetria e de comando. Arraste e solte os blocos que você deseja adicionar ao painel.
+1. Para plotar vários valores de telemetria em um só bloco de gráfico, selecione os valores de telemetria e, em seguida, selecione **Combinar**.
+1. Configure cada bloco que você adicionar para personalizar a forma como ele exibe os dados. Você pode fazer isso selecionando o ícone de engrenagem ou selecionando **Alterar configuração** no bloco do gráfico.
+1. Organize e redimensione os blocos no painel.
+1. Salve as alterações.
 
 ### <a name="configure-preview-device-to-view-dashboard"></a>Configurar o dispositivo de visualização para exibir o painel
 
-Para exibir e testar o painel, selecione **Configurar o dispositivo de visualização**, que permite ver o painel conforme visto pelo operador depois de publicado. Essa opção permite validar se as exibições mostram os dados corretos. Você pode escolher entre um dispositivo de não visualização, o dispositivo de teste real que você configurou para o modelo de dispositivo ou um dispositivo existente no aplicativo usando a identificação do dispositivo.
+Para exibir e testar seu painel, selecione **Configurar o dispositivo de visualização**. Isso permite que você veja o painel como o operador o vê depois de ser publicado. Use essa opção para validar se as exibições mostram os dados corretos. É possível escolher um das seguintes opções:
+
+- Nenhum dispositivo de visualização.
+- O dispositivo de teste real que você configurou para seu modelo de dispositivo.
+- Um dispositivo existente em seu aplicativo usando a ID do dispositivo.
 
 ## <a name="add-forms"></a>Adicionar formulários
 
@@ -238,7 +242,7 @@ Adicione formulários a um modelo de dispositivo para permitir que os operadores
 Para adicionar um formulário a um modelo de dispositivo:
 
 1. Acesse o modelo de dispositivo e selecione **Exibições**.
-1. Em seguida, escolha **Editando dados de Dispositivo e de Nuvem**.
+1. Escolha **Como editar dados de Dispositivo e de Nuvem**.
 1. Insira um nome para o formulário em **Nome do Formulário**.
 1. Selecione o número de colunas a ser usado para definir o layout do formulário.
 1. Adicione propriedades a uma seção existente no formulário ou selecione propriedades e escolha **Adicionar Seção**. Use seções para agrupar propriedades no formulário. Você pode adicionar um título a uma seção.
@@ -254,119 +258,123 @@ Depois de publicar um modelo de dispositivo, você só poderá fazer alteraçõe
 
 Para publicar um modelo de dispositivo, acesse o modelo de dispositivo e selecione **Publicar**.
 
-Depois que você publicar um modelo de dispositivo, um operador poderá acessar a página **Dispositivos** e adicionar dispositivos reais ou simulados que usam o modelo de dispositivo. Você pode continuar modificando e salvando o modelo de dispositivo enquanto estiver fazendo alterações; no entanto, quando desejar efetuar push dessas alterações para que elas sejam vistas pelo operador na página **Dispositivos**, você precisará selecionar **Publicar** todas as vezes.
+Depois que você publicar um modelo de dispositivo, um operador poderá acessar a página **Dispositivos** e adicionar dispositivos reais ou simulados que usam o modelo de dispositivo. Você pode continuar a modificar e salvar o modelo de dispositivo enquanto estiver fazendo alterações. Quando desejar enviar essas alterações por push para o operador visualizar na página **Dispositivos**, selecione **Publicar** a cada vez.
 
-## <a name="define-a-new-iot-gateway-device-type-preview-features"></a>Definir um novo tipo de dispositivo de gateway IoT (versões prévias dos recursos)
+## <a name="define-a-new-iot-gateway-device-type-preview-features"></a>Definir um novo tipo de dispositivo de gateway IoT (versão prévia dos recursos)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Este tutorial mostra a você, como construtor, as etapas de uso de um modelo de dispositivo de gateway para definir um novo tipo de dispositivo IoT do Azure em seu aplicativo do Azure IoT Central. 
+Este tutorial mostra a você, como construtor, as etapas de uso de um modelo de dispositivo de gateway para definir um novo tipo de dispositivo IoT em seu aplicativo do IoT Central. 
 
 Nesta seção, você criará um modelo de dispositivo de **Edifício Inteligente**. Um dispositivo de gateway de Edifício Inteligente:
 
 * Envia a telemetria como temperatura e ocupação.
-* Responde a propriedades graváveis quando atualizado na nuvem, como o intervalo de envio de telemetria.
-* Responde a comandos, como a redefinição da temperatura.
-* Permite relações com outros modelos de funcionalidade do dispositivo
+* Responde às propriedades graváveis quando atualizado na nuvem, como o intervalo de envio de telemetria.
+* Responde a comandos como a redefinição da temperatura.
+* Permite relações com outros modelos de funcionalidade do dispositivo.
 
 ### <a name="create-iot-device-templates"></a>Criar modelos de dispositivo IoT
 
-Você criará modelos de dispositivo IoT. 
+Veja como criar modelos de dispositivo IoT: 
 
-Clique em Modelos de Dispositivo no painel de navegação à esquerda, clique em **+ Novo**, selecione o bloco **Dispositivo IoT** e selecione o bloco de sensor de ocupação e clique em **Avançar: Personalizar**
+1. No painel de navegação esquerdo, selecione **Modelos de Dispositivo**. Em seguida, selecione **+ Novo** e selecione o bloco **Dispositivo IoT** e o bloco do sensor de ocupação. Selecione **Avançar: Personalizar**.
 
-![Dispositivo IoT](./media/tutorial-define-iot-device-type/gateway-downstream-new.png)
+   ![Captura de tela de opções e página de Modelos de Dispositivo](./media/tutorial-define-iot-device-type/gateway-downstream-new.png)
 
-A página de revisão será apresentada. Clique no botão **Criar**. 
+1. Na página **Examinar**, selecione **Criar**. 
 
-![Dispositivo IoT](./media/tutorial-define-iot-device-type/gateway-downstream-review.png)
+   ![Captura de tela da página Examinar](./media/tutorial-define-iot-device-type/gateway-downstream-review.png)
 
-Um modelo de dispositivo será criado. 
+1. Um novo modelo de dispositivo é criado. 
 
-![Dispositivo IoT](./media/tutorial-define-iot-device-type/occupancy-sensor.png)
+   ![Captura de tela do novo modelo de dispositivo](./media/tutorial-define-iot-device-type/occupancy-sensor.png)
 
-Você criará um modelo de dispositivo para o Sensor S1. 
+É assim que se cria um modelo de dispositivo para o Sensor S1:
 
-Clique em Modelos de Dispositivo no painel de navegação à esquerda, clique em **+ Novo**, selecione o bloco **Dispositivo IoT** e selecione o bloco de sensor de ocupação e clique em **Avançar: Personalizar**
+1. No painel de navegação esquerdo, selecione **Modelos de Dispositivo**. Em seguida, selecione **+ Novo** e selecione o bloco **Dispositivo IoT** e selecione o bloco do sensor de ocupação. Selecione **Avançar: Personalizar**.
 
-![Dispositivo IoT](./media/tutorial-define-iot-device-type/s1-sensor.png)
+   ![Captura de tela de opções e página de Modelos de Dispositivo](./media/tutorial-define-iot-device-type/s1-sensor.png)
 
-A página de revisão será apresentada. Clique no botão **Criar**. 
+1. Na página **Examinar**, selecione **Criar**. 
 
-![Dispositivo downstream](./media/tutorial-define-iot-device-type/s1-review.png)
+   ![Captura de tela da página Examinar](./media/tutorial-define-iot-device-type/s1-review.png)
 
-Um modelo de dispositivo será criado. 
+1. Um novo modelo de dispositivo é criado. 
 
-![Dispositivo downstream](./media/tutorial-define-iot-device-type/s1-template.png)
+   ![Captura de tela do novo modelo de dispositivo](./media/tutorial-define-iot-device-type/s1-template.png)
 
 ## <a name="create-an-iot-gateway-device-template"></a>Criar um modelo de dispositivo de gateway IoT
 
-Você pode optar por criar um modelo de dispositivo de gateway IoT. O dispositivo de gateway terá relações com dispositivos downstream que se conectam ao IoT Central por meio do dispositivo de gateway. 
+Você pode optar por criar um modelo de dispositivo de gateway IoT. O dispositivo de gateway terá relacionamentos com dispositivos downstream que se conectam ao IoT Central por meio do dispositivo de gateway. 
 
 ### <a name="downstream-device-relationships-with-gateway-device"></a>Relações de dispositivo downstream com dispositivo de gateway
 
-Os dispositivos IoT podem se conectar ao dispositivo de gateway IoT do Azure 
+Os dispositivos IoT podem se conectar a um dispositivo de gateway IoT.
 
-![Página Aplicativo do Central](./media/tutorial-define-iot-device-type/gatewaypattern.png)
+![Diagrama de relação entre o dispositivo de gateway e os dispositivos downstream](./media/tutorial-define-iot-device-type/gatewaypattern.png)
 
-Como construtor, você pode criar e editar os modelos de dispositivo de gateway IoT do Azure no seu aplicativo. Depois de publicar um modelo de dispositivo, você pode conectar dispositivos reais que implementam o modelo de dispositivo.
+Como construtor, você pode criar e editar os modelos de dispositivo de gateway IoT no seu aplicativo. Depois de publicar um modelo de dispositivo, você pode conectar dispositivos reais que implementam o modelo de dispositivo.
 
-### <a name="select-device-template-type"></a>Selecionar um tipo de modelo de dispositivo 
+### <a name="select-a-device-template-type"></a>Selecione um tipo de modelo de dispositivo 
 
-Para adicionar um novo modelo de dispositivo ao seu aplicativo, vá até a página **Modelos de Aplicativo**. Para fazer isso, selecione a guia **Modelos de Dispositivo** no painel esquerdo.
+Para adicionar um novo modelo de dispositivo a seu aplicativo:
 
-![Página Aplicativo do Central](./media/tutorial-define-iot-device-type/devicetemplate.png)
+1. No painel esquerdo, selecione a guia **Modelos de Dispositivo**.
 
-Clique em **+ Novo** para começar a criar um modelo de dispositivo.
+   ![Captura de tela da página de Modelos de dispositivo](./media/tutorial-define-iot-device-type/devicetemplate.png)
 
-![Modelos de dispositivo – Novo](./media/tutorial-define-iot-device-type/devicetemplatenew.png)
+1. Selecione **+ Novo** para começar a criar um modelo de dispositivo.
 
-![Seleção de modelos de dispositivo – Gateway](./media/tutorial-define-iot-device-type/gateway-review.png)
+   ![Captura de tela da página Modelos de dispositivo com Novo realçado](./media/tutorial-define-iot-device-type/devicetemplatenew.png)
 
-Você será direcionado à página de seleção do tipo de modelo de dispositivo. Selecione o bloco **IoT do Azure** e clique no botão **Avançar: Personalizar** na parte inferior
+   ![Captura de tela da página Personalizar dispositivo](./media/tutorial-define-iot-device-type/gateway-review.png)
 
-Selecione a caixa de seleção Gateway e clique em **Criar** 
+1. Na página **Selecionar tipo de modelo**, selecione **Azure IoT** e selecione **Avançar: Personalizar**.
 
-![Seleção de modelos de dispositivo – Gateway](./media/tutorial-define-iot-device-type/gateway-customize.png)
+   ![Captura de tela da página Selecionar tipo de modelo](./media/tutorial-define-iot-device-type/gateway-customize.png)
 
-Uma página de revisão será apresentada. Clique em **Criar** 
+1. Marque a caixa de seleção do gateway e selecione **Criar**.
 
-![Modelo de dispositivo – Gateway](./media/tutorial-define-iot-device-type/gateway-review.png)
+   ![Captura de tela da página Personalizar dispositivo, com o gateway realçado](./media/tutorial-define-iot-device-type/gateway-review.png)
 
-Insira o nome do modelo de gateway **Modelo de Gateway de Edifício Inteligente**. Clique em bloco **Personalizado**.
+1. Na página Examinar, selecione **Criar**. 
 
-Adicione uma interface padrão **Informações do Dispositivo**.
+1. Insira o nome do modelo de gateway **Modelo de Gateway de Edifício Inteligente**. Selecione o bloco **Personalizado**.
+
+1. Adicione uma interface padrão **Informações do Dispositivo**.
 
 ### <a name="add-relationships"></a>Adicionar relações
 
-Você pode adicionar relações de downstream aos modelos de funcionalidade do dispositivo para os dispositivos que serão conectados ao dispositivo de gateway.
+Você pode adicionar relações de downstream aos modelos de funcionalidade do dispositivo para os dispositivos conectados a um dispositivo de gateway.
 
-Crie relações com modelos de funcionalidade do dispositivo downstream. Clique em **Salvar**
+Crie relações com modelos de funcionalidade do dispositivo downstream. Clique em **Salvar**.
 
-![Modelo de dispositivo – Gateway](./media/tutorial-define-iot-device-type/gateway-occupancy-s1-rel.png)
+![Captura de tela do Modelo de Gateway de Criação Inteligente, com várias opções realçadas](./media/tutorial-define-iot-device-type/gateway-occupancy-s1-rel.png)
 
 ### <a name="add-cloud-properties"></a>Adicionar propriedades da nuvem
 
-Um modelo de dispositivo pode incluir propriedades de nuvem. As propriedades de nuvem existem somente no aplicativo IoT Central e nunca são enviadas ou recebidas de um dispositivo.
+Um modelo de dispositivo pode incluir propriedades de nuvem. As propriedades de nuvem existem somente no aplicativo IoT Central e nunca são enviadas nem recebidas de um dispositivo.
 
-1. Selecione **Propriedades da Nuvem** e, em seguida, **+ Adicionar Propriedade de nuvem**. Use as informações na tabela a seguir para adicionar uma propriedade de nuvem ao seu modelo de dispositivo.
+1. Selecione **Propriedades de Nuvem** >  **+ Adicionar Propriedade de Nuvem**. Use as informações na tabela a seguir para adicionar uma propriedade de nuvem ao seu modelo de dispositivo.
 
-    | Nome de exibição      | Tipo Semântico | Esquema |
+    | Nome de exibição      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
     | Data do Último Serviço | Nenhum          | Data   |
     | Nome do cliente     | Nenhum          | Cadeia de caracteres |
 
-2. Selecione **Salvar** para salvar as alterações:
+2. Clique em **Salvar**.
 
 ### <a name="add-customizations"></a>Adicionar personalizações
 
-Use personalizações quando precisar modificar uma interface ou adicionar recursos específicos de IoT Central a uma funcionalidade que não exige uma nova versão do seu modelo de funcionalidade do dispositivo. Você pode personalizar os campos quando o modelo de funcionalidade estiver em um rascunho ou em um estado publicado. Você só pode personalizar campos que não interrompem a compatibilidade de interface. Por exemplo, você pode:
+Use personalizações para modificar uma interface ou para adicionar recursos específicos do IoT Central a uma funcionalidade que não exige o controle de versão de seu modelo de funcionalidade do dispositivo. Você pode personalizar os campos quando o modelo de funcionalidade estiver em um rascunho ou em um estado publicado. Você só pode personalizar campos que não interrompem a compatibilidade de interface. Por exemplo, você pode:
 
 - Personalizar o nome de exibição e as unidades de uma funcionalidade.
 - Adicionar uma cor padrão a ser usada quando o valor for exibido em um gráfico.
 - Especificar os valores iniciais, mínimos e máximos, para uma propriedade.
 
-Você não pode personalizar o nome da funcionalidade ou o tipo de funcionalidade. Clique em **Salvar**
+Você não pode personalizar o nome da funcionalidade ou o tipo de funcionalidade.
+
+Quando tiver terminado de personalizar, selecione **Salvar**.
 
 ### <a name="create-views"></a>Criar exibições
 
@@ -377,9 +385,9 @@ Como um construtor, você pode personalizar o aplicativo para exibir informaçõ
 
 ### <a name="generate-default-views"></a>Gerar modos de exibição padrão
 
-Para este tutorial, clique em Gerar exibições padrão. Os painéis Visão geral e Sobre serão gerados. 
+Se você selecionar **Gerar exibições padrão**, poderá gerar os painéis **Visão geral** e **Sobre**. 
 
-## <a name="publish-device-template"></a>Publicar um modelo de dispositivo
+## <a name="publish-a-device-template"></a>Publicar um modelo de dispositivo
 
 Antes de criar um sensor ambiental simulado ou conectar um sensor ambiental real, você precisa publicar o modelo do dispositivo.
 
@@ -389,46 +397,46 @@ Para publicar um modelo de dispositivo:
 
 2. Selecione **Publicar**.
 
-3. Na caixa de diálogo **Publicar um Modelo de Dispositivo** escolha **Publicar**:
+3. Na caixa de diálogo **Publicar um Modelo de Dispositivo**, escolha **Publicar**.
 
-Depois que um modelo de dispositivo é publicado, ele fica visível na página **Dispositivos** e para o operador. Em um modelo de dispositivo publicado, você não pode editar um modelo de funcionalidade do dispositivo sem criar uma nova versão. No entanto, você pode fazer atualizações nas propriedades de nuvem, nas personalizações e nos modos de exibição, em um modelo de dispositivo publicado sem controle de versão. Depois de fazer qualquer alteração, selecione **Publicar** para enviar por push essas alterações para o operador.
+Depois que um modelo de dispositivo é publicado, ele fica visível na página **Dispositivos** e para o operador. Em um modelo de dispositivo publicado, você não pode editar um modelo de funcionalidade do dispositivo sem criar uma nova versão. No entanto, você pode fazer atualizações nas propriedades de nuvem, nas personalizações e nos modos de exibição, em um modelo de dispositivo publicado. Essas atualizações não fazem com que uma nova versão seja criada. Depois de fazer qualquer alteração, selecione **Publicar** para enviar por push essas alterações para o operador.
 
-## <a name="create-gateway-simulated-device"></a>Criar dispositivo simulado de gateway
+## <a name="create-a-gateway-simulated-device"></a>Criar um dispositivo simulado de gateway
 
 No Gerenciador de Dispositivos, crie um gateway de edifício inteligente simulado. 
 
-![Modelo de dispositivo – Gateway](./media/tutorial-define-iot-device-type/smartbuildingdevice.png)
+![Captura de tela da caixa de diálogo Criar dispositivo](./media/tutorial-define-iot-device-type/smartbuildingdevice.png)
 
 ## <a name="create-downstream-simulated-devices"></a>Criar dispositivos simulados downstream
 
 No Gerenciador de Dispositivos, crie um sensor de ocupação simulado. 
 
-![Modelo de dispositivo – ocupação](./media/tutorial-define-iot-device-type/occupancydevice.png)
+![Captura de tela da caixa de diálogo Criar dispositivo](./media/tutorial-define-iot-device-type/occupancydevice.png)
 
-No Gerenciador de Dispositivos, crie um sensor s1 simulado. 
+No Gerenciador de Dispositivos, crie um sensor S1 simulado. 
 
-![Modelo de dispositivo – s1](./media/tutorial-define-iot-device-type/s1device.png)
+![Captura de tela da caixa de diálogo Criar dispositivo](./media/tutorial-define-iot-device-type/s1device.png)
 
-## <a name="add-downstream-devices-relationships-to-gateway-device"></a>Adicionar relações de dispositivos downstream com um dispositivo de gateway
+## <a name="add-downstream-devices-relationships-to-a-gateway-device"></a>Adicionar relações de dispositivos downstream a um dispositivo de gateway
 
-Selecione o Sensor S1 e o Sensor de Ocupação e clique em **Conectar ao gateway**. 
+Selecione Sensor de Ocupação e Sensor S1 e selecione **Conectar ao gateway**. 
 
-![Modelo de dispositivo – s1](./media/tutorial-define-iot-device-type/connecttogateway.png)
+![Captura de tela do sensor de ocupação, com Conectar ao gateway realçado](./media/tutorial-define-iot-device-type/connecttogateway.png)
 
-Selecione o modelo de dispositivo de gateway, a instância de dispositivo de gateway e clique em **Ingressar**.
+Selecione um modelo de dispositivo de gateway e uma instância de dispositivo de gateway e selecione **Unir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu como:
 
-* Criar um gateway IoT como um modelo de dispositivo
+* Criar um gateway IoT como um modelo de dispositivo.
 * Criar propriedades da nuvem.
 * Criar personalizações.
 * Definir uma visualização para a telemetria do dispositivo.
-* Adicionar relações
+* Adicionar relacionamentos.
 * Publicar seu modelo de dispositivo.
 
-Esta é uma sugestão para a próxima etapa:
+Em seguida, você pode:
 
 > [!div class="nextstepaction"]
 > [Conectar um dispositivo](tutorial-connect-pnp-device.md)

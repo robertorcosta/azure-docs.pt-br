@@ -1,19 +1,19 @@
 ---
-title: Como criar e localizar âncoras usando as Âncoras Espaciais do Azure no Unity | Microsoft Docs
+title: Criar e Localizar âncoras no Unity
 description: Explicação detalhada sobre como criar e localizar âncoras usando as Âncoras Espaciais do Azure no Unity.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ade16664ffb3af7a05975c2a8d657aad4f336b06
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 72d25582d15e745b0bdefcde5f68af94eab49293
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650251"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277278"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Como criar e localizar âncoras usando as Âncoras Espaciais do Azure no Unity
 
@@ -141,7 +141,7 @@ Saiba mais sobre o método [ProcessFrame](https://docs.microsoft.com/dotnet/api/
     if (aRCameraManager.subsystem.TryGetLatestFrame(cameraParams, out xRCameraFrame))
     {
         long latestFrameTimeStamp = xRCameraFrame.timestampNs;
-        
+
         bool newFrameToProcess = latestFrameTimeStamp > lastFrameProcessedTimeStamp;
 
         if (newFrameToProcess)

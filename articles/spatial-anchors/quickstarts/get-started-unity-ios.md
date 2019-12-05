@@ -1,19 +1,19 @@
 ---
-title: 'Início Rápido: criar um aplicativo Unity para iOS com as Âncoras Espaciais do Azure | Microsoft Docs'
+title: 'Início Rápido: Criar um aplicativo do Unity para iOS'
 description: Neste Início Rápido, você aprenderá a criar um aplicativo do iOS com o Unity usando as Âncoras Espaciais.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a121cc7bcb9fba3a01c1e71c7b9e6fc67dce0572
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: ca4a36f824c2287e49a202ada2254d4f8a94c562
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092169"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277038"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Início Rápido: criar um aplicativo Unity para iOS com as Âncoras Espaciais do Azure
 

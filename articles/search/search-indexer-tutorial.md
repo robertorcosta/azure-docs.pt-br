@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial do C#: Indexar dados de bancos de dados SQL do Azure'
+title: 'Tutorial: Indexar dados em C# de bancos de dados SQL do Azure'
 titleSuffix: Azure Cognitive Search
-description: Um exemplo de código C# que mostra como se conectar ao banco de dados SQL do Azure, extrair dados pesquisáveis e carregá-los em um índice da Pesquisa Cognitiva do Azure.
+description: Neste tutorial do C#, conecte o Banco de Dados SQL do Azure, extraia os dados pesquisáveis e carregue-os em um índice do Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 4e8097eeb07420bee4ba30eb0fedbe5d4db2db9d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 36215403f99cc86ab4fb111ce95a6b3190063d7b
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113317"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406704"
 ---
-# <a name="c-tutorial-import-azure-sql-database-using-azure-cognitive-search-indexers"></a>Tutorial do C#: Importar um banco de dados SQL do Azure usando indexadores do Azure Cognitive Search
+# <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>Tutorial: Importar um Banco de Dados SQL do Azure em C# usando indexadores do Azure Cognitive Search
 
 Saiba como configurar um indexador para extrair dados pesquisáveis de um Banco de dados SQL do Azure de exemplo. [Indexadores](search-indexer-overview.md) são componentes da Pesquisa Cognitiva do Azure que rastreiam as fontes de dados externas, preenchendo um [índice de pesquisa](search-what-is-an-index.md) com conteúdo. De todos os indexadores, o indexador do Banco de Dados SQL do Azure é o mais amplamente utilizado. 
 

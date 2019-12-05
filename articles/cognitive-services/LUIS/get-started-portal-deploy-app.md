@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 279ec4e8a6d9a9d473cc511b4ec690391cdbd634
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669414"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278537"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
 
@@ -29,6 +29,7 @@ Neste início rápido, você aprenderá a implantar um aplicativo. Crie um recur
 
 * Obtenha uma [assinatura do Azure](https://azure.microsoft.com/free).
 * Conclua o [início rápido do portal anterior](get-started-portal-build-app.md) ou [baixe e importe o aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* Se você tiver aplicativos anteriores à autenticação de recursos do Azure, [migre para um recurso do Azure](luis-migration-authoring.md). Algumas páginas do portal parecem diferentes quando a autenticação de email está em vigor.
 
 ## <a name="create-the-endpoint-resource"></a>Criar o recurso de ponto de extremidade
 
@@ -60,7 +61,7 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
 
 Sempre que você criar um novo recurso para LUIS, será necessário atribuir o recurso para o aplicativo LUIS. Após a atribuição, você não precisará realizar esta etapa novamente, a menos que crie um novo recurso. Você pode criar um novo recurso para expandir as regiões do seu aplicativo ou para dar suporte a um número maior de consultas de previsão.
 
-1. Entre no [portal do LUIS](https://www.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
+1. Entre no [portal do LUIS](https://preview.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
 
 1. Selecione **Gerenciar** no menu superior direito e, em seguida, selecione **Recursos do Azure**.
 
@@ -86,7 +87,7 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 
 ## <a name="prediction-endpoint-request"></a>Solicitação de ponto de extremidade de previsão
 
-O `query=` ao final da URL é onde o enunciado do usuário é anexado à solicitação GET. Após `query=`, insira a mesma expressão de usuário usado no final do guia de início rápido anterior:
+No portal da versão prévia, o `query=` ao final da URL é onde o enunciado do usuário é anexado à solicitação GET. Após `query=`, insira a mesma expressão de usuário usado no final do guia de início rápido anterior:
 
 ```Is there a form named hrf-234098```
 

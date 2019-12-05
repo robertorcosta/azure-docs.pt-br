@@ -1,26 +1,20 @@
 ---
-title: Criar um blueprint no portal
-description: Use o Azure Blueprints para criar, definir e implantar artefatos por meio do portal do Azure.
-ms.date: 03/11/2019
+title: 'Início Rápido: Criar um blueprint no portal'
+description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos por meio do portal do Azure.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 1c2d619a0383cc9542bc6dc3a5f5822f0477237c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: efef8db6086f050829b60b5051ad683bbae9ab75
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960467"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321935"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início Rápido: Definir e atribuir um blueprint no portal
 
 Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Azure Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Azure Blueprints para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização. Essas tarefas incluem:
 
-> [!div class="checklist"]
-> - Criar um novo projeto e adicionar vários artefatos com suporte
-> - Faça alterações em um blueprint existente ainda em **Rascunho**
-> - Marcar um plano gráfico como pronto para atribuir com **publicado**
-> - Atribuir um blueprint a uma assinatura existente
-> - Verificar o status e o progresso de um blueprint atribuído
-> - Remover um blueprint que tenha sido atribuído a uma assinatura
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -296,9 +290,7 @@ Se não for mais necessária, remova uma atribuição de blueprint de uma assina
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [ciclo de vida do blueprint](./concepts/lifecycle.md).
-- Saiba como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
-- Saiba como personalizar a [ordem de sequenciamento de blueprint](./concepts/sequencing-order.md).
-- Saiba como usar o [bloqueio de recurso de blueprint](./concepts/resource-locking.md).
-- Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md).
-- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](./troubleshoot/general.md).
+Neste guia de início rápido, você criou, atribuiu e removeu um blueprint com o portal do Azure. Para saber mais sobre o Azure Blueprints, prossiga para o artigo de ciclo de vida do blueprint.
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o ciclo de vida do blueprint](./concepts/lifecycle.md)

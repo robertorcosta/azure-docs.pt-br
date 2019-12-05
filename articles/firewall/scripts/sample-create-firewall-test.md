@@ -1,19 +1,19 @@
 ---
-title: Exemplo de script do Azure PowerShell - Criar ambiente de teste do Firewall do Azure
-description: Exemplo de script do Azure PowerShell - Criar ambiente de teste do Firewall do Azure.
+title: Criar um ambiente de teste do Firewall do Azure
+description: Este exemplo de script cria um firewall e um ambiente de rede de teste. A rede tem uma VNet com três sub-redes.
 services: virtual-network
 author: vhorne
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 8/13/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: df7897e5b0941f1763f1a10e51d49827bd2ca63d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6cb0eafce354ba54dd161fee52efe46677ad2765
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839275"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195877"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Criar um ambiente de teste do Firewall do Azure
 

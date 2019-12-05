@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 1e39126324de486d118f808b37672c9fd08af711
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d096ee829a425af3763c212daf5049acccf9f19
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822755"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325906"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Criar aplicativo LUIS para determinar as intenções dos usuários
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Criar um aplicativo LUIS para determinar as intenções do usuário
 
 Neste tutorial, você criará um aplicativo personalizado que prevê a intenção de um usuário com base no enunciado (texto). 
 
@@ -58,7 +58,7 @@ Essas intenções são categorizadas em **Intenções**.
 
 ## <a name="create-a-new-intent"></a>Criar uma nova intenção 
 
-1. Na [versão prévia do portal do LUIS](https://preview.luis.ai), na seção **Build** do aplicativo, selecione **+ Criar**. Insira o novo nome de intenção listado abaixo e, em seguida, selecione **Concluído**.
+1. No portal, dentro da seção **Build** do aplicativo, selecione **+ Criar**. Insira o nome da nova intenção, `OrderPizza`, depois selecione **Concluído**.
 
     A intenção `OrderPizza` é prevista quando: um usuário quer pedir uma pizza. 
 
@@ -122,7 +122,7 @@ Essas intenções são categorizadas em **Intenções**.
 
     Isso não é exatamente o mesmo que um enunciado de exemplo, portanto, é um bom teste para ver se o LUIS pode aprender o que deve ser previsto com essa intenção.
 
-    O último parâmetro da cadeia de consulta é `q`, a declaração **query**. Esse enunciado não é o mesmo de nenhum dos enunciados de exemplo. Ele é um bom teste e deve retornar a intenção `OrderPizza` como a intenção com a maior pontuação. 
+    O último parâmetro da cadeia de consulta é `query`, a declaração **query**. Esse enunciado não é o mesmo de nenhum dos enunciados de exemplo. Ele é um bom teste e deve retornar a intenção `OrderPizza` como a intenção com a maior pontuação. 
 
     ```JSON
     {
@@ -148,7 +148,7 @@ Essas intenções são categorizadas em **Intenções**.
     }
     ```
 
-    A matriz de entidades está vazia porque esse aplicativo no momento não tem nenhuma entidade. 
+    A matriz de entidades está vazia porque esse aplicativo no momento não tem nenhuma entidade (unidade de dados dentro do enunciado a ser extraído). 
 
     O resultado em JSON identifica a intenção com a maior pontuação como a propriedade **`prediction.topIntent`** . Todas as pontuações estão entre 1 e 0, com a melhor pontuação mais próxima a 1. 
 
@@ -205,4 +205,4 @@ Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitaç
 Este tutorial criou o aplicativo do LUIS, criou intenções, adicionou enunciados de exemplo a cada intenção, adicionou enunciados de exemplo à intenção Nenhuma, além de treiná-la, publicá-la e testá-la no ponto de extremidade. Essas são as etapas básicas da criação de um modelo LUIS. 
 
 > [!div class="nextstepaction"]
-> [Adicionar intenções e entidades predefinidas a este aplicativo](tutorial-machine-learned-entity.md)
+> [Adicionar uma entidade divisível a este aplicativo](tutorial-machine-learned-entity.md)

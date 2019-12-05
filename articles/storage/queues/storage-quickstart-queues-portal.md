@@ -1,6 +1,6 @@
 ---
-title: Início Rápido do Azure – Criar uma fila no Armazenamento do Azure usando o portal do Azure | Microsoft Docs
-description: Neste início rápido, use o Portal do Azure para criar uma fila. Em seguida, você usa o portal do Azure para adicionar uma mensagem, exiba as propriedades da mensagem e remova a mensagem da fila.
+title: 'Início Rápido: Criar filas do Armazenamento do Azure no portal'
+description: Use o portal do Azure para criar uma fila. Em seguida, use o portal do Azure para adicionar uma mensagem, exibir as propriedades da mensagem e remover a mensagem da fila.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/06/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: d2f7b01c03b877a3dede496fc02f0d0cc9525cef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2876d2a680aa41372557a9f04c1d6a5eed56b8ae
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721325"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269241"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Início Rápido: Criar uma fila e adicionar uma mensagem com o portal do Azure
 

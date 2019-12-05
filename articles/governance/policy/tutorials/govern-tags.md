@@ -1,14 +1,14 @@
 ---
-title: Gerenciar a governança de marcas
-description: Use o efeito Modificar do Azure Policy para criar e impor um modelo de governança de marca em recursos novos e existentes.
-ms.date: 11/04/2019
+title: 'Tutorial: Gerenciar a governança de marcas'
+description: Neste tutorial, use o efeito Modificar do Azure Policy para criar e impor um modelo de governança de tag em recursos novos e existentes.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: edb74bce5758ae040a6170a8e73be75fc228b001
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069668"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482262"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerenciar a governança de marca com o Azure Policy
 
@@ -21,7 +21,16 @@ O efeito [Modificar](../concepts/effects.md#modify) do Azure Policy foi desenvol
 - Você já tem milhares de recursos sem governança de marca
 - Você já tem uma taxonomia que precisa de mudança
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Neste tutorial, você concluirá as seguintes tarefas:
+
+> [!div class="checklist"]
+> - Identificar seus requisitos de negócios
+> - Mapear cada requisito para uma definição de política
+> - Agrupar as políticas de tag em uma iniciativa
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="identify-requirements"></a>Identificar os requisitos
 
@@ -184,6 +193,16 @@ Essa regra de política procura qualquer recurso que não tenha o valor dos grup
 Após a criação das políticas de marca acima, junte-as em uma única iniciativa para governança de marcas e atribua-as a um grupo de gerenciamento ou assinatura. Em seguida, a iniciativa e as políticas incluídas avaliam a conformidade dos recursos existentes e alteram as solicitações de recursos novos ou atualizados que correspondam à propriedade **if** na regra de política. No entanto, a política não atualiza automaticamente os recursos existentes sem conformidade com as alterações de marca definidas.
 
 Assim como as políticas [deployIfNotExists](../concepts/effects.md#deployifnotexists), a política **Modificar** usa tarefas de correção para alterar os recursos existentes sem conformidade. Siga as instruções em [Como corrigir recursos](../how-to/remediate-resources.md) para identificar seus recursos **Modificar** sem conformidade e corrija as marcas em sua taxonomia definida.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seguir para excluir qualquer uma das atribuições ou definições criadas acima:
+
+1. Selecione **Definições** (ou **Atribuições** se você estiver tentando excluir uma atribuição) em **Criação** no lado esquerdo da página Azure Policy.
+
+1. Pesquisar pela nova iniciativa ou definição de política (ou atribuição) que você quer remover.
+
+1. Clique com o botão direito na linha e selecione as reticências no final da definição ou da atribuição e selecione **Excluir Definição** (ou **Excluir Atribuição**).
 
 ## <a name="review"></a>Análise
 

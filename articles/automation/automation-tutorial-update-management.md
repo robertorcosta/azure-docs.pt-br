@@ -1,20 +1,20 @@
 ---
 title: Gerenciar atualizações e patches para as VMs do Azure
-description: Este artigo fornece uma visão geral de como usar o Gerenciamento de Atualizações da Automação do Azure para gerenciar atualizações e patches das VMs Windows do Azure.
+description: Este artigo fornece uma visão geral de como usar o Gerenciamento de Atualizações da Automação do Azure para gerenciar atualizações e patches das VMs do Azure e não Azure.
 services: automation
-author: zjalexander
+author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/04/2018
-ms.author: zachal
+ms.date: 11/20/2019
+ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469735"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278773"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para as VMs do Azure
 
@@ -51,15 +51,15 @@ Primeiro, habilite o Gerenciamento de Atualizações da VM para este tutorial:
 1. Selecione a VM para a qual você deseja habilitar o Gerenciamento de Atualizações.
 1. Na página da VM, em **OPERAÇÕES**, selecione **Gerenciamento de atualização**. O painel **Habilitar Gerenciamento de Atualizações** é aberto.
 
-Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM. Essa validação inclui verificar se há um espaço de trabalho do Azure Log Analytics e uma conta de automação vinculada e se a solução Gerenciamento de Atualizações está no espaço de trabalho.
+Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM. Essa validação inclui verificar se há um workspace do Log Analytics e uma conta da Automação vinculada e se a solução de Gerenciamento de Atualizações está habilitada no workspace.
 
-Um workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações. O workspace fornece um único local para examinar e analisar dados de várias fontes.
+Um workspace do [Log Analytics](../azure-monitor/platform/data-platform-logs.md) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações. O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
-O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Runbook Worker da Automação. Esse agente é usado para comunicar-se com a Automação do Azure e obter informações sobre o status de atualização. O agente requer que a porta 443 esteja aberta para se comunicar com o serviço de automação do Azure e realizar o download de atualizações.
+O processo de validação também verifica se a VM está provisionada com o agente do Log Analytics e o Hybrid Runbook Worker de Automação. Esse agente é usado para comunicar-se com a Automação do Azure e obter informações sobre o status de atualização. O agente requer que a porta 443 esteja aberta para se comunicar com o serviço de automação do Azure e realizar o download de atualizações.
 
 Se algum dos seguintes pré-requisitos estiver ausente durante a integração, ele será adicionado automaticamente:
 
-* Workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
+* Workspace do [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
 * Uma [conta da Automação](./automation-offering-get-started.md)
 * Um [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) (habilitado na VM)
 
@@ -71,9 +71,9 @@ A habilitação da solução pode levar alguns minutos. Durante esse tempo, não
 
 ## <a name="view-update-assessment"></a>Exibir avaliação de atualização
 
-Depois que o Gerenciamento de Atualizações for habilitado, o painel **Gerenciamento de Atualizações** será aberto. Se alguma atualização estiver faltando, uma lista de atualizações ausentes aparece na guia **Atualizações ausentes**.
+Depois que o Gerenciamento de Atualizações for habilitado, o painel **Gerenciamento de Atualizações** será aberto. Se alguma atualização for identificada como ausente, uma lista de atualizações ausentes aparecerá na guia **Atualizações ausentes**.
 
-Em **INFORMATION LINK**, selecione o link de atualização para abrir o artigo de suporte da atualização em uma nova janela. Você pode ver informações importantes sobre a atualização nessa janela.
+Em **LINK DE INFORMAÇÕES**, selecione o link de atualização para abrir o artigo de suporte da atualização. Você pode ver informações importantes sobre a atualização.
 
 ![Exibir o status de atualização](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 

@@ -1,19 +1,19 @@
 ---
-title: Tutorial – Compartilhar Âncoras Espaciais do Azure entre sessões e dispositivos com um back-end do Azure Cosmos DB | Microsoft Docs
+title: 'Tutorial: Compartilhar âncoras com o Azure Cosmos DB'
 description: Neste tutorial, você aprenderá a compartilhar os identificadores de Âncoras Espaciais do Azure entre os dispositivos Android/iOS no Unity com um serviço de back-end e Azure Cosmos DB.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7ddbff563f79992f21aef5182177f4fb60c61dab
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 57bf9c9752cf2203ffcac08c213373fd71a79148
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882157"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276875"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Compartilhar Âncoras Espaciais do Azure entre sessões e dispositivos com um back-end do Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Vale a pena lembrar que, embora você vá usar o Unity e o Azure Cosmos DB neste
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
-Adicione um Banco de Dados do Azure Cosmos ao grupo de recursos criado anteriormente. 
+Adicione um Banco de Dados do Azure Cosmos ao grupo de recursos criado anteriormente.
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 

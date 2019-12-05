@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 5e84b8777fc7671a19b6d8974f1309eb5af35bd3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048023"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479702"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>O que é o Azure IoT Central (versão prévia dos recursos)?
 
@@ -51,7 +51,7 @@ Este artigo descreve os seguintes tópicos do Azure IoT Central:
 - Não há compatibilidade com tipos de esquema de matriz.
 - Não há compatibilidade com exportação de modelo de aplicativo nem com cópia de aplicativo.
 - Somente o SDK do dispositivo C e os SDKs do serviço e do dispositivo Node.js são compatíveis.
-- Ele está disponível somente nas regiões Europa Setentrional e EUA Central.
+- Está disponível apenas em locais dos Estados Unidos e da Europa.
 - Os modelos de funcionalidade do dispositivo precisam ter todas as interfaces definidas embutidas no mesmo arquivo.
 
 ## <a name="personas"></a>Personas
@@ -140,6 +140,10 @@ Como operador, você pode usar o aplicativo IoT Central para gerenciar os dispos
 Como construtor de soluções, você pode definir regras e ações personalizadas que operem em um fluxo de dados dos dispositivos conectados. Um operador pode habilitar ou desabilitar essas regras no nível do dispositivo para controlar e automatizar tarefas dentro do aplicativo.
 
 Os administradores gerenciam o acesso ao seu aplicativo [com funções de usuário e permissões](howto-administer.md).
+
+## <a name="quotas"></a>Cotas
+
+Cada assinatura do Azure tem cota padrão que podem afetar o escopo de sua solução de IoT. No momento, o IoT Central limita o número de aplicativos que você pode implantar em uma assinatura a 10. Se precisar aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

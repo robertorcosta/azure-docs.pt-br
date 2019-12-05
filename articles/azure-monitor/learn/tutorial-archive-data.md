@@ -1,6 +1,6 @@
 ---
 title: Arquivar os dados de log e métrica do Azure usando o Armazenamento do Azure
-description: Arquive dados de log e de métrica produzidos no Azure em uma conta de armazenamento.
+description: Arquivar dados de log e de métrica gerados pelos recursos do Azure para uma conta de armazenamento.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: e784b76af478f834a7d1104650da1cbd3ca2a31f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433332"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304712"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de log e métrica do Azure usando o Armazenamento do Azure
 
@@ -96,7 +96,7 @@ Agora configuramos os dados no nível do recurso (logs de diagnóstico e métric
 
 6. Defina o controle deslizante **Retenção (dias)** como 30. Esse controle deslizante define um número de dias para reter os dados de monitoramento na conta de armazenamento. O Azure Monitor exclui automaticamente os dados mais antigos do que o número de dias especificado. Uma retenção de zero dias armazena os dados por tempo indeterminado.
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 Os dados de monitoramento de seu recurso agora estão fluindo para a conta de armazenamento.
 
@@ -137,7 +137,7 @@ Os dados de monitoramento de seu recurso agora estão fluindo para a conta de ar
 
 9. Na seção exibida, selecione a conta de armazenamento criada na etapa anterior **Criar uma conta de armazenamento**.
 
-10. Clique em **Salvar**.
+10. Clique em **Save** (Salvar).
 
 Os dados de monitoramento de suas máquinas virtuais agora estão fluindo para a conta de armazenamento.
 

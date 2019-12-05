@@ -1,19 +1,16 @@
 ---
-title: Tutorial – Usar modelos de Início Rápido do Azure | Microsoft Docs
+title: Tutorial – usar modelos de início rápido
 description: Saiba como usar os modelos de Início Rápido do Azure para concluir o desenvolvimento do modelo.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a29d86d105579dda7c12b885e2977406f7b598a4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1ddae445fb912b4bb60f257f667784b17b0d6ea5
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001489"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405944"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Usar modelos de Início Rápido do Azure
 
@@ -25,7 +22,7 @@ Recomendamos que você conclua o [tutorial sobre modelos exportados](template-tu
 
 É necessário ter o Visual Studio Code com a extensão Ferramentas do Resource Manager e o Azure PowerShell ou a CLI do Azure. Para obter mais informações, confira [Ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examinar o modelo
+## <a name="review-template"></a>Examinar modelo
 
 No final do tutorial anterior, o modelo tinha o seguinte JSON:
 
@@ -33,7 +30,7 @@ No final do tutorial anterior, o modelo tinha o seguinte JSON:
 
 Esse modelo funciona para implantar contas de armazenamento e planos do Serviço de Aplicativo, mas talvez você queira adicionar um site a ele. Você pode usar modelos predefinidos para descobrir rapidamente o JSON necessário para implantar um recurso.
 
-## <a name="find-a-template"></a>Descobrir um modelo
+## <a name="find-template"></a>Localizar modelo
 
 1. Abra [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
 1. Em **Pesquisar**, insira **implantar aplicativo Web Linux**.
@@ -44,7 +41,7 @@ Esse modelo funciona para implantar contas de armazenamento e planos do Serviço
 
     ![Site de início rápido do modelo do Resource Manager](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-## <a name="revise-the-existing-template"></a>Revisar o modelo existente
+## <a name="revise-existing-template"></a>Revisar o modelo existente
 
 Mescle o modelo de início rápido com o modelo existente:
 
@@ -60,7 +57,7 @@ Você notará que ele tem um elemento chamado **dependsOn** que é definido como
 
 A propriedade **serverFarmId** usa a função [resourceId](resource-group-template-functions-resource.md#resourceid). Essa função obtém o identificador exclusivo de um recurso. Nesse caso, ela obtém o identificador exclusivo para o plano do Serviço de Aplicativo. O aplicativo Web está associado a um plano específico do Serviço de Aplicativo.
 
-## <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-template"></a>Implantar modelo
 
 Use a CLI do Azure ou o Azure PowerShell para implantar um modelo.
 

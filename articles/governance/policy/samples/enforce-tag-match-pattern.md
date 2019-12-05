@@ -1,14 +1,14 @@
 ---
 title: Exemplo – impor padrão de correspondência de tags
-description: Esta definição de política de exemplo exige que os recursos atendam ao padrão de correspondência dos valores de marca.
+description: Esta definição de política de exemplo exige que os recursos atendam ao padrão de correspondência dos valores de tag para um formato de data específico.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: e56d5d401f525f94bce4567204a7f18074fb1a90
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a2d5f85f02a2197e9e213b7e9fd7dfec7adc7813
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076283"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463349"
 ---
 # <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>Amostra – Impor um padrão de correspondência de marca para valores de marca
 

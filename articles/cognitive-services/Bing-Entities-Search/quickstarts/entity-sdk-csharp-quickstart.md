@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pesquisar entidades com o SDK da Pesquisa de Entidade do Bing para o C#'
+title: 'Início Rápido: Pesquisar entidades com o SDK para C# – Pesquisa de Entidade do Bing'
 titleSuffix: Azure Cognitive Services
 description: Use este Início Rápido para pesquisar entidades com o SDK da Pesquisa de Entidade do Bing para o C#.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 20f76c0adfcbd756c71769979214ea975cb5d6d9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: f9036e78934ac14017a0437583109c91732ce4b3
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360590"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323821"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Enviar uma solicitação de pesquisa com o SDK da Pesquisa de Entidade do Bing para o C#
 

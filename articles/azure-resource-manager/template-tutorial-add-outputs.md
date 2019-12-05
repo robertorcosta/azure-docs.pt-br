@@ -1,19 +1,16 @@
 ---
-title: Tutorial – adicionar saídas ao modelo do Azure Resource Manager
+title: Tutorial – adicionar saídas ao modelo
 description: Adicione saídas ao modelo do Azure Resource Manager para simplificar a sintaxe.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 654d3f7cbf6362d982549c86e6f54fea1e890cfc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001527"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405993"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: adicionar saídas ao modelo do Resource Manager
 
@@ -25,7 +22,7 @@ Recomendamos que você conclua o [tutorial sobre variáveis](template-tutorial-a
 
 É necessário ter o Visual Studio Code com a extensão Ferramentas do Resource Manager e o Azure PowerShell ou a CLI do Azure. Para obter mais informações, confira [Ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examinar o modelo
+## <a name="review-template"></a>Examinar modelo
 
 No final do tutorial anterior, o modelo tinha o seguinte JSON:
 
@@ -49,7 +46,7 @@ Ele usa a função [reference](resource-group-template-functions-resource.md#ref
 
 Por fim, ele retorna a propriedade **primaryEndpoints** da conta de armazenamento
 
-## <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-template"></a>Implantar modelo
 
 Você está pronto para implantar o modelo e examinar o valor retornado.
 

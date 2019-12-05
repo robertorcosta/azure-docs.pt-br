@@ -1,20 +1,19 @@
 ---
-title: 'Tutorial: Usar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para provisionar dispositivos entre hubs IoT com balanceamento de carga'
-description: 'Tutorial: Provisionamento automático de dispositivos do serviço de provisionamento de dispositivos entre Hubs IoT com balanceamento de carga no Portal do Azure'
-author: sethmanheim
-ms.author: sethm
+title: Provisionar dispositivos em hubs com balancear carga usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
+description: Tutorial – Provisionamento de dispositivos automático do Serviço de Provisionamento de Dispositivos entre Hubs IoT com balanceamento de carga no Portal do Azure
+author: wesmc7777
+ms.author: wesmc
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6cd5dcb1fd96ac0fda75bf89dcf7259695cf971d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: fb3002e5f195bd3dca32a3500c6789f90e9ea0d6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112770"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229445"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Provisionar dispositivos entre Hubs IoT com balanceamento de carga
 

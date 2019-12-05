@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Criar um índice de pesquisa no Postman usando APIs REST'
 titleSuffix: Azure Cognitive Search
-description: Saiba como chamar as APIs REST da Pesquisa Cognitiva do Azure usando o Postman e exemplos de dados e definições.
+description: Neste início rápido da API REST, saiba como chamar as APIs REST do Azure Cognitive Search usando o Postman e exemplos de dados e definições.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/04/2019
-ms.openlocfilehash: 00d1122a8b56237eeb20892ad05cdbbcbe247510
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9014a83596a3eee71f43d12a73188c1c43b832af
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792278"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406951"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no Postman usando APIs REST
 > [!div class="op_single_selector"]
@@ -288,7 +288,7 @@ A adição de `/stats` à URL retorna informações de índice. No Postman, sua 
 
 Observe que a sintaxe de versão da API é diferente. Para esta solicitação, use `?` para anexar a versão da API. `?` separa o caminho da URL da cadeia de cadeia de consulta, enquanto & separa cada par 'nome=valor' na cadeia de consulta. Para essa consulta, a versão da API é o primeiro e único item na cadeia de consulta.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 

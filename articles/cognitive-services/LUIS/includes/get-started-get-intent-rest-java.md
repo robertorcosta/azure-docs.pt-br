@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: cac3ee99598f8bcb29bd15c60063159b51f71923
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4e2fb81b19694136896b1dee07c3bd74c63fc01b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125403"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414638"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) ou seu IDE favorito
-* ID do aplicativo público: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125403"
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção de forma programática
 
-Use Java para consultar a [API](https://aka.ms/luis-apim-v3-prediction) GET do ponto de extremidade de previsão para obter o resultado da previsão.
+Use o Java para consultar o [ponto de extremidade de previsão](https://aka.ms/luis-apim-v3-prediction) para obter o resultado da previsão.
 
 1. Crie um subdiretório chamado `lib` e copie as seguintes bibliotecas Java:
 
@@ -36,7 +36,6 @@ Use Java para consultar a [API](https://aka.ms/luis-apim-v3-prediction) GET do p
     * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
 1. Copie o código a seguir para criar uma classe em um arquivo chamado `Predict.java`:
-
 
     ```java
     import java.io.*;
@@ -108,7 +107,7 @@ Use Java para consultar a [API](https://aka.ms/luis-apim-v3-prediction) GET do p
 1. Substitua os valores a seguir:
 
     * `YOUR-KEY` com sua chave inicial
-    * `YOUR-ENDPOINT` com o ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-ENDPOINT` com seu ponto de extremidade. Por exemplo, `westus2.api.cognitive.microsoft.com`.
 
 
 1. Compile o programa java na linha de comando: 
@@ -123,7 +122,7 @@ Use Java para consultar a [API](https://aka.ms/luis-apim-v3-prediction) GET do p
     java -cp ":lib/*" Predict
     ```
 
-1. Examine a resposta da previsão no formato JSON:
+1. Examine a resposta de previsão, que é retornada como JSON:
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}

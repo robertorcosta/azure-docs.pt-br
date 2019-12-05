@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933035"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278617"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
@@ -239,4 +239,7 @@ Para tornar a saída mais clara, selecione-a como um gráfico de tempo, mostrand
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [como escrever consultas de pesquisa](search-queries.md)
+- Saiba mais sobre como usar dados de cadeia de caracteres em uma consulta de log com [Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor](string-operations.md).
+- Saiba mais sobre como agregar dados em uma consulta de log com [Agregações avançadas nas consultas de log no Azure Monitor](advanced-aggregations.md).
+- Saiba como unir dados de várias tabelas com [Junções nas consultas de log do Azure Monitor](joins.md).
+- Obtenha a documentação sobre toda a linguagem de consulta Kusto na [referência da linguagem KQL](/azure/kusto/query/).

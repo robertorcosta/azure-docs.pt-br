@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Pipelines de ML para pontuação do lote'
 titleSuffix: Azure Machine Learning
-description: Crie um pipeline de aprendizado de máquina para executar a pontuação de lote em um modelo de classificação de imagens no Azure Machine Learning. Os pipelines de aprendizado de máquina otimizam o fluxo de trabalho com velocidade, portabilidade e reutilização, de modo que você possa se concentrar em seus conhecimentos – aprendizado de máquina –, em vez de na infraestrutura e na automação.
+description: Neste tutorial, você cria um pipeline de aprendizado de máquina para executar a pontuação de lote em um modelo de classificação de imagens no Azure Machine Learning. Os pipelines de aprendizado de máquina otimizam o fluxo de trabalho com velocidade, portabilidade e reutilização, de modo que você possa se concentrar em seus conhecimentos – aprendizado de máquina –, em vez de na infraestrutura e na automação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 11d57031405939e37afade9a9452c5d3a8b9e1e4
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796706"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483300"
 ---
-# <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Criar e usar um pipeline do Azure Machine Learning para pontuação de lote
+# <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Criar um pipeline do Azure Machine Learning para pontuação de lote
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

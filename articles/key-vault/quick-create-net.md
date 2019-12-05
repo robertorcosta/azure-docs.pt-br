@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c789d48656173721432779aeaba0530950527fa1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 61e176314c655ef6380a196043fb3159d003cb6e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646915"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273947"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Início Rápido: biblioteca de clientes do Azure Key Vault para .NET (SDK v4)
 
@@ -25,7 +25,7 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 - Simplificar e automatizar tarefas para certificados SSL/TLS.
 - Usar HSMs validados para os padrões FIPS 140-2 Nível 2.
 
-[Documentação de referência da API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[Documentação de referência da API](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,10 +39,7 @@ Este início rápido pressupõe que você esteja executando `dotnet`, a [CLI do 
 
 ### <a name="create-new-net-console-app"></a>Criar um novo aplicativo de console do .NET
 
-Crie um novo aplicativo .NET Core em seu IDE ou editor preferido.
-
-Em uma janela de console, use o comando `dotnet new` para criar um novo aplicativo do console com o nome `akv-dotnet`.
-
+Em uma janela de console, use o comando `dotnet new` para criar um aplicativo do console .NET com o nome `akv-dotnet`.
 
 ```console
 dotnet new console -n key-vault-console-app
@@ -160,7 +157,7 @@ Adicione as seguintes diretivas à parte superior de seu código:
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
 
-A autenticação no cofre de chaves e a criação de um cliente de cofre de chaves dependem das variáveis ambientais na etapa [Definir variáveis de ambiente](#set-environmental-variables) acima. O nome do cofre de chaves é expandido para o URI do cofre de chaves, no formato "https://<o-nome-do-seu-cofre-de-chaves>.vault.azure.net".
+A autenticação no cofre de chaves e a criação de um cliente de cofre de chaves dependem das variáveis ambientais na etapa [Definir variáveis de ambiente](#set-environmental-variables) acima. O nome do cofre de chaves é expandido para o URI do cofre de chaves, no formato "https://\<o-nome-do-seu-cofre-de-chaves\>.vault.azure.net".
 
 [!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 

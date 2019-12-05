@@ -1,14 +1,14 @@
 ---
 title: Exemplo – Aplicar tag e seu valor padrão
-description: Esta definição de política de exemplo acrescenta um nome e um valor de marca especificados se a marca não é fornecida.
+description: Esta definição de política de exemplo acrescentará um nome e um valor de tag definidos em um parâmetro, se a tag não for fornecida.
 ms.date: 01/26/2019
 ms.topic: sample
-ms.openlocfilehash: 0e5bb38b65f4c302fc5a2c4a0a0d3c2da0082a30
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 33d0580d2f6c231c4cd7e73abdaab6cb14c363d9
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74071484"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463680"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Exemplo – Aplicar tag e seu valor padrão
 

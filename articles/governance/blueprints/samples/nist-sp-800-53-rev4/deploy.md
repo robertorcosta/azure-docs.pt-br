@@ -1,14 +1,14 @@
 ---
-title: Amostra de blueprint do NIST SP 800-53 R4 – etapas de implantação
+title: Implantar amostra de blueprint NIST SP 800-53 R4
 description: Etapas de implantação do modelo de blueprint da NIST SP 800-53 R4, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 06/24/2019
+ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 9923e2923c57224cadfa471753d8c90b98855607
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: db8c2302a6c2311e096be2cdc78935bdab2ef9c7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037306"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546603"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Implantar a amostra de blueprint NIST SP 800-53 R4
 

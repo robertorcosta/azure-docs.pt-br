@@ -1,21 +1,21 @@
 ---
-title: Registrar-se usando as informações do parceiro CSP com a Cloudyn no Azure | Microsoft Docs
+title: Registrar-se usando as informações do Parceiro CSP com o Cloudyn no Azure
 description: Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 11/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
-ms.openlocfilehash: 17f4069e38b4e4f0ee7a4ef4acc4535198b62b02
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4255bfc6a0e51e175bd7cba7102069065b477258
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969188"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229957"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
@@ -30,6 +30,8 @@ Como parceiro CSP, você pode registrar-se com o Cloudyn. O registro fornece ace
 > Para obter mais informações, consulte [Conectar-se à API do Partner Center](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
 >
 > Acesso a Cloudyn pode ficar disponível para revendedores Indiretos CSP depois que seu provedor Indireto CSP registrar com Cloudyn. Revendedores indiretos CSP poderão fornecer acesso Cloudyn para clientes do Azure e assinaturas.
+>
+>O Cloudy é compatível com o Modelo de Aplicativo Seguro da Microsoft. Para obter mais informações, confira [Habilitando a estrutura de Modelo de Aplicativo Seguro](/partner-center/develop/enable-secure-app-model).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

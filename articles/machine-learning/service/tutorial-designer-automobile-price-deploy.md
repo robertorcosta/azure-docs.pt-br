@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Implantar um modelo de machine learning com o designer'
 titleSuffix: Azure Machine Learning
-description: Saiba como criar uma solução de análise preditiva no designer do Azure Machine Learning (versão prévia). Treine, pontue e implante um modelo de machine learning usando módulos do tipo "arrastar e soltar".
+description: Este tutorial mostra como criar uma solução de análise preditiva no designer do Azure Machine Learning (versão prévia). Treine, pontue e implante um modelo de machine learning usando módulos do tipo "arrastar e soltar".
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 31b06f3ad102f39d1a9f95dee2bd98b5d0a3b310
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932041"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483307"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implantar um modelo de machine learning com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Para implantar o pipeline, primeiro, converta o pipeline de treinamento em um pi
 
     Agora, seu pipeline deve ter esta aparência: 
 
-   ![Captura de tela mostrando a configuração esperada do pipeline após sua preparação para implantação](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![Captura de tela mostrando a configuração esperada do pipeline após sua preparação para implantação](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
     Quando você seleciona **Criar pipeline de inferência**, várias coisas acontecem:
     
@@ -70,7 +70,7 @@ Na caixa de diálogo exibida, selecione uma opção entre os clusters existentes
 
 1. Na faixa de opções de navegação, selecione **Clusters de Inferência** >  **+ Novo**.
 
-    ![Captura de tela mostrando como acessar o novo painel do cluster de inferência](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![Captura de tela mostrando como acessar o novo painel do cluster de inferência](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
 1. No painel do cluster de inferência, configure um novo Serviço de Kubernetes.
 
@@ -96,7 +96,7 @@ Após o provisionamento do serviço do AKS, volte para o pipeline de inferência
 
 1. Selecione **Implantar**.
 
-    ![Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
     Uma notificação de êxito acima da tela é exibida após a conclusão da implantação. Isso pode levar alguns minutos.
 
@@ -106,7 +106,7 @@ Após a conclusão da implantação, teste o ponto de extremidade em tempo real 
 
 1. Na página **Pontos de extremidade**, selecione o ponto de extremidade implantado.
 
-    ![Captura de tela mostrando a guia pontos de extremidade em tempo real com o ponto de extremidades recém-criado realçado](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
+    ![Captura de tela mostrando a guia pontos de extremidade em tempo real com o ponto de extremidades recém-criado realçado](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
 1. Selecione **Testar**.
 
@@ -114,7 +114,7 @@ Após a conclusão da implantação, teste o ponto de extremidade em tempo real 
 
     O portal envia uma solicitação de teste para o ponto de extremidade e mostra os resultados. Embora um valor seja gerado para os dados de entrada, ele não é usado para gerar o valor da previsão.
 
-    ![Captura de tela mostrando como testar o ponto de extremidade em tempo real com o rótulo pontuado para o preço realçado](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
+    ![Captura de tela mostrando como testar o ponto de extremidade em tempo real com o rótulo pontuado para o preço realçado](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

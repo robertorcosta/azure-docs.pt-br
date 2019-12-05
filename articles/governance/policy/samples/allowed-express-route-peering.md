@@ -1,14 +1,14 @@
 ---
 title: Exemplo – Localizações de emparelhamento permitidas do ExpressRoute
-description: Esta definição de política de exemplo exige que o ExpressRoute use as localizações de emparelhamento especificadas.
+description: Esta definição de política de exemplo exige que o ExpressRoute use as localizações de emparelhamento especificadas definidas em um parâmetro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 8b991c5b83f5d4ca23963aef089795acd5b96bd6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 915cdc95dc5117e329c2a6af8108a1b157730d7e
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076464"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463460"
 ---
 # <a name="sample---allowed-peering-location-for-expressroute"></a>Amostra – Localização de emparelhamento permitida para o ExpressRoute
 

@@ -1,5 +1,5 @@
 ---
-title: Exemplos de modelo do Azure Resource Manager – Azure Front Door Service | Microsoft Docs
+title: Exemplos de modelo do Azure Resource Manager – Azure Front Door Service
 description: Exemplos de modelo do Azure Resource Manager para o Azure Front Door Service
 services: frontdoor
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: 7e40a847b6ea4daa640a7ae6bc69fd25daa86a5b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2684c9852cb3e946d8ec1840fc166053204dfae0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575803"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184603"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modelo de implantação do Azure Resource Manager para o Front Door
 

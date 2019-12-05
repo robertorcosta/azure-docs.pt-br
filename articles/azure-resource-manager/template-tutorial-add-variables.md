@@ -1,19 +1,16 @@
 ---
-title: Tutorial – adicionar variável ao modelo do Azure Resource Manager
+title: Tutorial – adicionar variável ao modelo
 description: Adicione variáveis ao modelo do Azure Resource Manager para simplificar a sintaxe.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fb577c0c0f00da3735da98fc2e94f3610c9bd80d
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 0598da3c060b8a8055ffb045fe4aae60b3806060
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001473"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406046"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: Adicionar variável ao modelo do Azure Resource Manager
 
@@ -25,7 +22,7 @@ Recomendamos que você conclua o [tutorial sobre as funções](template-tutorial
 
 É necessário ter o Visual Studio Code com a extensão Ferramentas do Resource Manager e o Azure PowerShell ou a CLI do Azure. Para obter mais informações, confira [Ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examinar o modelo
+## <a name="review-template"></a>Examinar modelo
 
 No final do tutorial anterior, o modelo tinha o seguinte JSON:
 
@@ -53,7 +50,7 @@ O parâmetro **storagePrefix** permite que você passe um prefixo que ajuda a id
 
 Por fim, observe que o nome do armazenamento agora está definido como a variável em vez de um parâmetro.
 
-## <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-template"></a>Implantar modelo
 
 Vamos implantar o modelo. A implantação desse modelo é mais fácil do que a dos modelos anteriores, pois você fornece apenas o prefixo para o nome do armazenamento.
 
@@ -82,7 +79,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Verificar a implantação
+## <a name="verify-deployment"></a>Verificar implantação
 
 Você pode verificar a implantação explorando o grupo de recursos no portal do Azure.
 

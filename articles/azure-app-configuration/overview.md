@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01644054868ffc08738e67654ba181c76e7aed39
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129688"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185078"
 ---
 # <a name="what-is-azure-app-configuration"></a>O que é Configuração de Aplicativo do Azure?
 
@@ -58,12 +58,12 @@ A Configuração de Aplicativo complementa o [Azure Key Vault](https://azure.mic
 
 ## <a name="use-app-configuration"></a>Usar Configuração de Aplicativo
 
-A maneira mais fácil de adicionar um repositório de configurações de aplicativo ao seu aplicativo é por meio de uma biblioteca de clientes fornecida pela Microsoft. Com base na linguagem e estrutura de programação, os melhores métodos a seguir estão disponíveis para você.
+A maneira mais fácil de adicionar um repositório de Configuração de Aplicativos é por meio de uma biblioteca de clientes fornecida pela Microsoft. Com base na linguagem e estrutura de programação, os melhores métodos a seguir estão disponíveis para você.
 
 | Estrutura e linguagem de programação | Como conectar-se |
 |---|---|
 | .NET Core e ASP.NET Core | Provedor de Configuração de Aplicativo para .NET Core |
-| .NET e ASP.NET | Construtor de Configuração de Aplicativo para .NET |
+| .NET Framework e ASP.NET | Construtor de Configuração de Aplicativo para .NET |
 | Java Spring | Cliente de Configuração de Aplicativo para Spring Cloud |
 | Outros | API REST de Configuração de Aplicativo |
 
@@ -72,7 +72,7 @@ A maneira mais fácil de adicionar um repositório de configurações de aplicat
 * [Início Rápido do ASP.NET Core](./quickstart-aspnet-core-app.md)
 * [Início Rápido do .NET Core](./quickstart-dotnet-core-app.md)
 * [Início Rápido do .NET Framework](./quickstart-dotnet-app.md)
-* [Início Rápido da Função do Azure](./quickstart-azure-function-csharp.md)
+* [Início rápido do Azure Functions](./quickstart-azure-functions-csharp.md)
 * [Início Rápido do Java Spring](./quickstart-java-spring-app.md)
 * [Início Rápido do sinalizador de recurso do ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
 * [Início rápido do sinalizador de recursos do Spring Boot](./quickstart-feature-flag-spring-boot.md)

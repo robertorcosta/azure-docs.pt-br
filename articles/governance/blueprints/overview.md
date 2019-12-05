@@ -1,16 +1,16 @@
 ---
 title: Visão geral do Azure Blueprint
 description: Entenda como o serviço do Azure Blueprints permite criar, definir e implantar artefatos no seu ambiente do Azure.
-ms.date: 08/26/2019
+ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048285"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321773"
 ---
-# <a name="overview-of-the-azure-blueprints-service"></a>Visão geral do serviço do Azure Blueprints
+# <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
 Assim como um blueprint permite que um engenheiro ou arquiteto desenhe os parâmetros de um projeto, o Azure Blueprints permite que arquitetos de nuvem e grupos centrais de tecnologia da informação definam um conjunto repetitivo de recursos do Azure que implementa e adere aos padrões, padrões e requisitos de uma organização. O Azure Blueprints permite que as equipes de desenvolvimento criem e mantenham novos ambientes rapidamente, sabendo que eles são criados de acordo com as especificações da organização e contêm um conjunto de componentes integrados, como redes, para acelerar o desenvolvimento e a entrega.
 
@@ -62,7 +62,8 @@ Ao criar uma definição de blueprint, você definirá onde o blueprint será sa
 ### <a name="blueprint-parameters"></a>Parâmetros de blueprint
 
 Planos gráficos podem passar parâmetros para uma iniciativa de política/ou um modelo do Azure Resource Manager.
-Ao adicionar um _artefato_ a um blueprint, o criador decide fornecer um valor definido para cada atribuição de blueprint ou permitir que cada atribuição de blueprint forneça um valor na hora da atribuição. Essa flexibilidade fornece a opção para definir um valor predeterminado para todos os usos do plano gráfico ou para habilitar essa decisão a ser feita no momento da atribuição.
+Ao adicionar um _artefato_ a um blueprint, o criador decide fornecer um valor definido para cada atribuição de blueprint ou permitir que cada atribuição de blueprint forneça um valor na hora da atribuição.
+Essa flexibilidade fornece a opção para definir um valor predeterminado para todos os usos do plano gráfico ou para habilitar essa decisão a ser feita no momento da atribuição.
 
 > [!NOTE]
 > Um plano gráfico pode ter seus próprios parâmetros, mas elas atualmente podem ser criado somente se um plano gráfico é gerado da API REST, em vez de por meio do Portal.
@@ -71,7 +72,8 @@ Para obter mais informações, consulte [parâmetros de plano gráfico](./concep
 
 ### <a name="blueprint-publishing"></a>Especificações técnicas de publicação
 
-Quando um plano gráfico é criado, ele é considerado para estar no modo **rascunho**. Quando estiver pronto para ser atribuído, ele precisa ser **Publicado**. A publicação requer a definição de uma cadeia de caracteres **Versão** (letras, números e hifens com um comprimento máximo de 20 caracteres) juntamente com a opção de **Alterar anotações**. A **versão** a diferencia de futuras alterações no mesmo blueprint e permite que cada versão seja atribuída. Esse controle de versão também significa que várias **Versões** do mesmo blueprint podem ser atribuídas à mesma assinatura. Quando há outras alterações no blueprint, a **Versão** **Publicada** ainda existe, assim como as **Alterações não publicadas**. Depois que as alterações forem concluídas, o blueprint atualizado está **publicado** com uma nova e exclusiva **versão** e agora também podem ser atribuídos.
+Quando um plano gráfico é criado, ele é considerado para estar no modo **rascunho**. Quando estiver pronto para ser atribuído, ele precisa ser **Publicado**. A publicação requer a definição de uma cadeia de caracteres **Versão** (letras, números e hifens com um comprimento máximo de 20 caracteres) juntamente com a opção de **Alterar anotações**. A **versão** a diferencia de futuras alterações no mesmo blueprint e permite que cada versão seja atribuída. Esse controle de versão também significa que várias **Versões** do mesmo blueprint podem ser atribuídas à mesma assinatura. Quando há outras alterações no blueprint, a **Versão**
+**Publicada** ainda existe, bem como as **Alterações não publicadas**. Depois que as alterações forem concluídas, o blueprint atualizado está **publicado** com uma nova e exclusiva **versão** e agora também podem ser atribuídos.
 
 ## <a name="blueprint-assignment"></a>Atribuição de planta
 
@@ -135,5 +137,6 @@ A visão geral a seguir do Azure Blueprints é do Azure Fridays. Para baixar um 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um plano gráfico - Portal](create-blueprint-portal.md)
-- [Criar um plano gráfico - API REST](create-blueprint-rest-api.md)
+- [Criar um blueprint – Portal](./create-blueprint-portal.md).
+- [Criar um blueprint – PowerShell](./create-blueprint-powershell.md).
+- [Criar um blueprint – API REST](./create-blueprint-rest-api.md).

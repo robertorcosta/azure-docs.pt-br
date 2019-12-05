@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 6d2955a77c06f371975a7a14675eedceab7c98ae
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 5054ee9a23458944257a8010aaab6268d25042a7
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125404"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414460"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Linguagem de programação [Go](https://golang.org/)  
 * [Visual Studio Code](https://code.visualstudio.com/)
-* ID do aplicativo público: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125404"
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção de forma programática
 
-Use Go para consultar a [API](https://aka.ms/luis-apim-v3-prediction) GET do ponto de extremidade de previsão para obter o resultado da previsão.
+Use o Go para consultar o [ponto de extremidade de previsão](https://aka.ms/luis-apim-v3-prediction) para obter o resultado da previsão.
 
 1. Crie um arquivo chamado `predict.go`. Adicione os códigos a seguir:
     
@@ -85,8 +85,8 @@ Use Go para consultar a [API](https://aka.ms/luis-apim-v3-prediction) GET do pon
 
 1. Substitua os valores a seguir:
 
-    * `YOUR-KEY` com sua chave inicial
-    * `YOUR-ENDPOINT` com o ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` com sua chave inicial.
+    * `YOUR-ENDPOINT` com seu ponto de extremidade. Por exemplo, `westus2.api.cognitive.microsoft.com`.
 
 1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, insira o seguinte comando para compilar o arquivo Go:
 

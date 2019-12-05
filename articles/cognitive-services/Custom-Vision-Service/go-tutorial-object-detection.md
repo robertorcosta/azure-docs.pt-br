@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um projeto de detecção de objeto com o SDK da Visão Personalizada para Go'
+title: 'Início Rápido: criar um projeto de detecção de objetos com o SDK para Go – Visão Personalizada'
 titleSuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcas, carregue imagens, treine o projeto e detecte objetos usando o SDK do Go.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.openlocfilehash: 050d0593f64c939c687601eb25677f2356f4ba51
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d0734763ca1dd5ab3162ca00748361bee29cefc1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73519080"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378733"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK do Go para Visão Personalizada
 

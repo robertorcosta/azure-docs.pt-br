@@ -1,14 +1,14 @@
 ---
-title: Amostra de blueprint da ISO 27001 – etapas de implantação
+title: Implantar amostra de blueprint ISO 27001
 description: Etapas de implantação do modelo de blueprint autônomo da ISO 27001, incluindo detalhes do parâmetro do artefato de blueprint.
 ms.date: 07/22/2019
 ms.topic: sample
-ms.openlocfilehash: 8b12b448d4c218549838b95260fd6b1f874b6b83
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9ea579537ff98d662066ecb8900a62f080b88d3d
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038305"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546648"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Implantar a amostra de blueprint ISO 27001
 

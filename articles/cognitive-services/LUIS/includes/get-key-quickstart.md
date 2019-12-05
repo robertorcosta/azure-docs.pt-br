@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: b74d28aa840079d85c9d798e54107d2ed2d32d6e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6938220cd4f0dc21f188089c8764ab6e18982c17
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499602"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414518"
 ---
-O acesso às chaves e aos pontos de extremidade é fornecido no portal LUIS na seção Gerenciar na página de Recursos do Azure. 
+Chaves e pontos de extremidade são fornecidos no portal LUIS na **Seção Gerenciar** na página **Recursos do Azure**. 
  
-1. Entre no portal do LUIS. 
-1. Selecione o aplicativo na lista.
+1. Entre no portal do [LUIS](https://preview.luis.ai/). 
+1. Crie um aplicativo ou selecione um existente na lista de aplicativos.
 1. Selecione **Gerenciar** e **Recursos do Azure**. 
-1. Copie os valores da chave e do ponto de extremidade para o recurso Inicial.
-
-    A chave **Inicial** permite solicitações gratuitas à API de criação e até 1000 consultas à API do ponto de extremidade de previsão por mês para todos os seus aplicativos LUIS. 
+1. Copie os valores da chave e do ponto de extremidade para o recurso Inicial. Você precisará deles para executar o exemplo abaixo.
+   > [!NOTE]
+   > A chave **Inicial** permite solicitações gratuitas à API de criação e até 1000 consultas à API do ponto de extremidade de previsão por mês para todos os seus aplicativos LUIS. 

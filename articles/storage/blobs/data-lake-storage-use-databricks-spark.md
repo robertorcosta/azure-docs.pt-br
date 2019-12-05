@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Acessar dados do Azure Data Lake Storage Gen2 com o Azure Databricks usando o Spark | Microsoft Docs'
+title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks e Spark | Microsoft Docs'
 description: Este tutorial mostra como executar consultas Spark em um cluster do Azure Databricks para acessar dados em uma conta de armazenamento do Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bbe936fd572a8e23fb6e7c5da4a4bffef1c8bf7e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331825"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327534"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Acessar dados de Data Lake Storage Gen2 com o Azure Databricks usando o Spark
+# <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks e Spark
 
 Este tutorial mostra como conectar seu cluster do Azure Databricks aos dados armazenados em uma conta de Armazenamento do Azure que tenha o Azure Data Lake Storage Gen2 habilitado. Essa conexão permite que você execute nativamente consultas e análises nos dados por meio do cluster.
 
@@ -79,7 +79,7 @@ Nesta seção, você criará um serviço do Azure Databricks usando o portal do 
     |**Localidade**     | Selecione **Oeste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).       |
     |**Tipo de preço**     |  Selecione **Padrão**.     |
 
-    ![Criar um workspace do Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Criar um serviço do Azure Databricks")
+    ![Crie um workspace do Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Criar um serviço do Azure Databricks")
 
 3. A criação da conta leva alguns minutos. Para monitorar o status da operação, veja a barra de progresso na parte superior.
 
@@ -95,7 +95,7 @@ Nesta seção, você criará um serviço do Azure Databricks usando o portal do 
 
 3. Na página **Novo cluster**, forneça os valores para criar um cluster.
 
-    ![Criar cluster do Databricks Spark no Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
+    ![Criar um cluster Spark do Databricks no Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Criar um cluster Spark do Databricks no Azure")
 
     Preencha os valores para os seguintes campos e aceite os valores padrão para os outros campos:
 

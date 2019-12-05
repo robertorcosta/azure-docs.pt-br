@@ -1,6 +1,7 @@
 ---
-title: Diagnosticar um problema de comunicação entre redes – tutorial – portal do Azure | Microsoft Docs
-description: Saiba como diagnosticar um problema de comunicação entre uma rede virtual do Azure conectada a um local ou a outra rede virtual, por meio de um gateway de rede virtual do Azure, usando a funcionalidade de diagnóstico de VPN do Observador de Rede.
+title: Tutorial – Diagnosticar problema de comunicação entre redes usando o portal do Azure
+titleSuffix: Azure Network Watcher
+description: Neste tutorial, saiba como diagnosticar um problema de comunicação entre uma rede virtual do Azure conectada a um local ou a outra rede virtual, por meio de um gateway de rede virtual do Azure, usando a funcionalidade de diagnóstico de VPN do Observador de Rede.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e4dc66a5ca6e18b12586b5b03742fba3d6c3d6c4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e2ec59cf609fcde79d289e321331ca5018401a5e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704211"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419724"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes usando o portal do Azure
 

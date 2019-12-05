@@ -8,18 +8,18 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: 7e07419115a6e9709879c71dfac1234408bda0ee
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 488616ab2068337331d589bbf5c61ae06b299f5d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824069"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173970"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
 Neste artigo, você aprenderá sobre o Azure Machine Learning, um ambiente baseado em nuvem que pode ser usado para treinar, implantar, automatizar, gerenciar e rastrear modelos de ML. 
 
-O Azure Machine Learning pode ser usado para qualquer tipo de aprendizado de máquina, desde ML clássico até aprendizado profundo, aprendizado supervisionado e não supervisionado. Se você preferir escrever código Python ou R ou opções de código zero/código baixo, como o [designer](ui-tutorial-automobile-price-train-score.md), você pode criar, treinar e rastrear modelos de aprendizado de máquina e aprendizado profundo altamente precisos em um workspace do Azure Machine Learning. 
+O Azure Machine Learning pode ser usado para qualquer tipo de aprendizado de máquina, desde ML clássico até aprendizado profundo, aprendizado supervisionado e não supervisionado. Se você preferir escrever código Python ou R ou opções de código zero/código baixo, como o [designer](ui-tutorial-automobile-price-train-score.md), poderá criar, treinar e rastrear modelos de machine learning e aprendizado profundo altamente precisos em um Workspace do Azure Machine Learning. 
 
 Inicie o treinamento do seu computador local e expanda para a nuvem. 
 
@@ -54,7 +54,6 @@ O Azure Machine Learning fornece todas as ferramentas que desenvolvedores de fer
 
 Você pode até mesmo usar [MLflow para controlar as métricas e implantar modelos](how-to-use-mlflow.md) ou Kubeflow para [compilar pipelines de fluxo de trabalho de ponta a ponta](https://www.kubeflow.org/docs/azure/).
 
-
 ## <a name="build-ml-models-in-python-or-r"></a>Criar modelos de ML em Python ou R
 
 Inicie o treinamento em seu computador local usando o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python</a> ou o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK de R</a> do Azure Machine Learning. Em seguida, você pode expandir para a nuvem. 
@@ -69,7 +68,7 @@ Para treinamento e implantação sem código ou com pouco código, experimente:
 
 + **Azure Machine Learning Designer (versão prévia)**
 
-  Use o designer para preparar dados, treinar, testar, implantar, gerenciar e rastrear modelos de aprendizado de máquina sem escrever nenhum código. Não há necessidade de programação; conecte visualmente os conjuntos de dados e módulos para construir seu modelo.   Experimente o [tutorial do designer](tutorial-designer-automobile-price-train-score.md).
+  Use o designer para preparar dados, treinar, testar, implantar, gerenciar e rastrear modelos de aprendizado de máquina sem escrever nenhum código. Não há necessidade de programação; conecte visualmente os conjuntos de dados e módulos para construir seu modelo. Experimente o [tutorial do designer](tutorial-designer-automobile-price-train-score.md).
 
   Saiba mais no [artigo de visão geral do Azure Machine Learning Designer](concept-designer.md). 
 
@@ -98,6 +97,24 @@ E com [pipelines de aprendizado de máquina](concept-ml-pipelines.md) avançados
 Se você quiser usar scripts para automatizar seu fluxo de trabalho de aprendizado de máquina, a [interface de linha de comando de aprendizado de máquina](reference-azure-machine-learning-cli.md) fornecerá ferramentas de linha de comando que executam tarefas comuns, como enviar uma execução de treinamento ou implantar um modelo.
 
 Para começar a usar o Azure Machine Learning, confira [Próximas etapas](#next-steps).
+
+## <a name="integration-with-other-services"></a>Integração com outros serviços
+
+O Azure Machine Learning trabalha com outros serviços na plataforma do Azure e também se integra a ferramentas de software livre, como Git e MLFlow.
+
++ Destinos de computação, como __Serviço de Kubernetes do Azure__, __Instâncias de Contêiner do Azure__, __Azure Databricks__, __Azure Data Lake Analytics__ e __Azure HDInsight__. Para obter mais informações sobre destinos de computação, confira [O que são destinos de computação?](concept-compute-target.md).
++ __Grade de Eventos do Azure__. Para obter mais informações, confira [Consumir eventos do Azure Machine Learning](concept-event-grid-integration.md).
++ __Azure Monitor__. Para obter mais informações, confira [Monitoramento do Azure Machine Learning](monitor-azure-machine-learning.md).
++ Os armazenamentos de dados, como __contas de Armazenamento do Azure__, __Azure Data Lake Storage__, __Banco de Dados SQL do Azure__, __Banco de Dados do Azure para PostgreSQL__ e __Azure Open Datasets__. Para obter mais informações, confira [Acessar dados nos serviços de armazenamento do Azure](how-to-access-data.md) e [Criar conjuntos de dados com os Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
++ __Redes Virtuais do Azure__. Para obter mais informações, confira [Experimentação segura e inferência em uma rede virtual](how-to-enable-virtual-network.md).
++ __Azure Pipelines__. Para obter mais informações, confira [Treinar e implantar modelos de machine learning](/azure/devops/pipelines/targets/azure-machine-learning).
++ __Logs do repositório Git__. Para obter mais informações, confira [Integração do Git](concept-train-model-git-integration.md).
++ __MLFlow__. Para obter mais informações, confira [MLFlow para acompanhar métricas e implantar modelos](how-to-use-mlflow.md) 
++ __Kubeflow__. Para obter mais informações, confira [Criar pipelines de fluxo de trabalho de ponta a ponta](https://www.kubeflow.org/docs/azure/).
+
+### <a name="secure-communications"></a>Comunicações seguras
+
+Sua conta de Armazenamento do Azure, os destinos de computação e outros recursos podem ser usados com segurança dentro de uma rede virtual para treinar modelos e realizar a inferência. Para obter mais informações, confira [Experimentação segura e inferência em uma rede virtual](how-to-enable-virtual-network.md).
 
 ## <a name="sku"></a>Edições Básico e Enterprise
 

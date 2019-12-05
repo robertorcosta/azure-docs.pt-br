@@ -1,22 +1,22 @@
 ---
-title: Guia de início rápido - bloquear acesso quando um risco de sessão é detectado com acesso condicional do Active Directory do Azure | Microsoft Docs
+title: Usar as detecções de risco com o Acesso Condicional do Azure Active Directory
 description: Neste início rápido, você aprenderá como você pode configurar uma política de acesso condicional do Azure Active Directory (Azure AD) para bloquear entradas com base em riscos de sessão.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
-ms.date: 12/14/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 619f1ea3bae001d25eb520f43da33ca94a3160c8
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 9338c1a42737180ec5395f30060b4eed35ce5eda
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880349"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381065"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início Rápido: bloquear o acesso quando um risco de sessão é detectado com acesso condicional do Azure Active Directory  
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 41e61376d12d447dd480a39ef7200db6af7cca89
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 3a1d99ad282190c61f652179dd08a810c9444064
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172854"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481174"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Habilitar sincronização de senha no Azure Active Directory Domain Services para ambientes híbridos
 
@@ -51,6 +51,9 @@ O Azure AD Connect é usado para sincronizar objetos como grupos e contas e usu�
 Para autenticar os usuários no domínio gerenciado, o Azure AD DS precisa de hashes de senha em um formato adequado para a autenticação NTLM e Kerberos. O Azure AD não armazena hashes de senha no formato necessário para a autenticação NTLM ou Kerberos, até que você habilite o Azure AD DS para seu locatário. Por motivos de segurança, o Azure AD também não armazena credenciais de senha no formato de texto não criptografado. Portanto, o Azure AD não pode gerar automaticamente essas hashes de senha NTLM ou Kerberos com base nas credenciais existentes dos usuários.
 
 O Azure AD Connect pode ser configurado para sincronizar os hashes de senha NTLM ou Kerberos necessários para Azure AD DS. Lembre-se de concluir as etapas para [habilitar o Azure AD Connect para sincronização de hash de senha][enable-azure-ad-connect]. Se você tiver uma instância existente do Azure AD Connect, [baixe e atualize para a versão mais recente][azure-ad-connect-download] para verificar se poderá sincronizar os hashes de senha herdados do NTLM e Kerberos. Essa funcionalidade não está disponível em versões anteriores do Azure AD Connect ou com a ferramenta DirSync herdada. A versão *1.1.614.0* ou superior do Azure AD Connect é necessária.
+
+> [!IMPORTANT]
+> O Azure AD Connect só deve ser instalado e configurado para sincronização com ambientes do AD DS locais. Não há suporte para instalar o Azure AD Connect em um domínio gerenciado do Azure AD DS para sincronizar objetos de volta ao Azure AD.
 
 ## <a name="enable-synchronization-of-password-hashes"></a>Habilitar sincronização de hashes de senha
 

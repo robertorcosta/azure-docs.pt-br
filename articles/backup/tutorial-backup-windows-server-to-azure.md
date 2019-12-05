@@ -1,20 +1,15 @@
 ---
-title: Fazer backup do Windows Server para o Azure
+title: Tutorial – Fazer backup do Windows Server para o Azure
 description: Este tutorial oferece detalhes de como fazer backups do Windows Server local para um Cofre dos Serviços de Recuperação.
-author: dcurwin
-manager: carmonm
-keywords: backup do windows server; fazer backup do windows server; backup e recuperação de desastre
-ms.service: backup
 ms.topic: tutorial
 ms.date: 08/22/2018
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: d57d25eff9548bea9d29f8aa908e9e1721495bd9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073938"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226474"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Fazer backup do Windows Server para o Azure
 
@@ -28,7 +23,7 @@ Você pode usar o Backup do Azure para proteger seu Windows Server de corrupçõ
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Microsoft Azure em <https://portal.azure.com.>
+Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 

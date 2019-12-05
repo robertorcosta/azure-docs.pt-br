@@ -5,23 +5,23 @@ author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 312808517c80041cb45e2e8ac46566c1f59884e1
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d68d95619b6aa6e8098c282977866c4bc21a357c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376783"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561045"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA
 
-Para fornecer uma única fatura consolidada para os serviços gerenciados e o consumo do Azure, o CSP (Provedor de Soluções na Nuvem) pode assumir a propriedade de cobrança das assinaturas do Azure dos clientes dele com o EA (Contrato Enterprise).
+A fim de fornecer uma única fatura consolidada para os serviços gerenciados e o consumo do Azure, o CSP (Provedor de Soluções na Nuvem) pode assumir a propriedade de cobrança das assinaturas do Azure dos clientes dele com o EA (Contrato Enterprise) Direto.
 
 Esse recurso só está disponível para Parceiros de Cobrança Direta do CSP certificados como [MSP Especialista do Azure](https://partner.microsoft.com/membership/azure-expert-msp). Ele está sujeito à governança e às políticas da Microsoft e pode exigir análise e aprovação para determinados clientes.
 

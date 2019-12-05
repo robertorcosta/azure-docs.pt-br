@@ -1,14 +1,14 @@
 ---
-title: Proteger recursos novos com bloqueios de blueprint
-description: Neste tutorial, você aprenderá a usar as opções Somente Leitura e Não Excluir dos bloqueios de recursos do Azure Blueprints para proteger recursos recém-implantados.
-ms.date: 03/28/2019
+title: 'Tutorial: Proteger novos recursos com bloqueios'
+description: Neste tutorial, você usa as opções Somente Leitura e Não Excluir dos bloqueios de recursos do Azure Blueprints para proteger recursos recém-implantados.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: e2adbb1e47222055753d4b3690646daa83b32bf1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960264"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327456"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteger recursos novos com bloqueios de recursos do Azure Blueprints
 
@@ -25,7 +25,7 @@ Neste tutorial, você concluirá estas etapas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ## <a name="create-a-blueprint-definition"></a>Criar uma definição de blueprint
 
@@ -53,9 +53,10 @@ Primeiro, crie a definição de blueprint.
    1. Selecione **Adicionar** para adicionar o artefato ao blueprint.
 
 1. Adicionar modelo sob o grupo de recursos:
-   1. Selecione a linha **Adicionar artefato** na entrada **RGtoLock**. 
-   1. Selecione **Modelo do Azure Resource Manager** em **Tipo de artefato**, defina **Nome de exibição do artefato** como **StorageAccount** e deixe **Descrição** em branco. 
-   1. Na guia **Modelo**, cole o seguinte modelo do Resource Manager na caixa do editor. Após colar o modelo, selecione **Adicionar** para adicionar o artefato ao blueprint.
+   1. Selecione a linha **Adicionar artefato** na entrada **RGtoLock**.
+   1. Selecione **Modelo do Azure Resource Manager** em **Tipo de artefato**, defina **Nome de exibição do artefato** como **StorageAccount** e deixe **Descrição** em branco.
+   1. Na guia **Modelo**, cole o seguinte modelo do Resource Manager na caixa do editor.
+      Após colar o modelo, selecione **Adicionar** para adicionar o artefato ao blueprint.
 
    ```json
    {
@@ -224,9 +225,7 @@ Quando concluir este tutorial, exclua estes recursos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
-- Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
-- Descubra como usar o [bloqueio de recurso de blueprint](../concepts/resource-locking.md).
-- Saiba como personalizar a [ordem de sequenciamento de blueprint](../concepts/sequencing-order.md).
-- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
-- [Solucionar problemas](../troubleshoot/general.md) durante a atribuição de um blueprint.
+Neste tutorial, você aprendeu a proteger novos recursos implantados com o Azure Blueprints. Para saber mais sobre o Azure Blueprints, prossiga para o artigo de ciclo de vida do blueprint.
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o ciclo de vida do blueprint](../concepts/lifecycle.md)

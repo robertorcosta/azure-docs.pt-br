@@ -1,14 +1,14 @@
 ---
-title: Criar e gerenciar políticas para impor a conformidade
-description: Use a Política do Azure para impor padrões, atender requisitos de auditoria e regulamentares, controlar custos, manter a consistência de segurança e desempenho e impor princípios de design em toda a empresa.
-ms.date: 02/04/2019
+title: 'Tutorial: Criar políticas para impor conformidade'
+description: Neste tutorial, você usa políticas para impor padrões, controlar custos, manter a segurança e impor princípios de design empresariais.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: abbe4334767a48cf6444ce5aa7822cc8a79f9f69
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 75a1d892a88f2b5bbdbec2a1b8d525245bb1e86f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959537"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482361"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerenciar políticas para impor a conformidade
 
@@ -20,7 +20,11 @@ Compreender como criar e gerenciar políticas no Azure é importante para manter
 > - Resolver um recurso negado ou sem conformidade
 > - Implementar uma nova política em toda a organização
 
-Se você deseja atribuir uma política para identificar o estado atual de conformidade dos recursos existentes, os artigos de início rápido falam sobre como fazer isso. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se você deseja atribuir uma política para identificar o estado atual de conformidade dos recursos existentes, os artigos de início rápido falam sobre como fazer isso.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="assign-a-policy"></a>Atribuir uma política
 
@@ -443,7 +447,7 @@ Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seg
 
 1. Clique com o botão direito na linha e selecione as reticências no final da definição ou da atribuição e selecione **Excluir Definição** (ou **Excluir Atribuição**).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="review"></a>Análise
 
 Neste tutorial, você realizou as seguintes tarefas com sucesso:
 
@@ -452,6 +456,8 @@ Neste tutorial, você realizou as seguintes tarefas com sucesso:
 > - Criou e atribuiu uma definição de iniciativa para acompanhar a conformidade de vários recursos
 > - Resolveu um recurso negado ou sem conformidade
 > - Implementou uma nova política em toda a organização
+
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as estruturas das definições de políticas, consulte este artigo:
 

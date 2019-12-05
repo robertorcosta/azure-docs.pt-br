@@ -1,19 +1,16 @@
 ---
-title: Tutorial – adicionar parâmetros a um modelo do Azure Resource Manager
+title: Tutorial – adicionar parâmetros ao modelo
 description: Adicione parâmetros ao modelo do Azure Resource Manager para torná-lo reutilizável.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f5e631994223d6362512ed0ddc89d1d3c884fbd4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001506"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406082"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Adicionar parâmetros ao modelo do Resource Manager
 
@@ -25,7 +22,7 @@ Recomendamos que você conclua o [tutorial sobre recursos](template-tutorial-add
 
 É necessário ter o Visual Studio Code com a extensão Ferramentas do Resource Manager e o Azure PowerShell ou a CLI do Azure. Para obter mais informações, confira [Ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examinar o modelo
+## <a name="review-template"></a>Examinar modelo
 
 No final do tutorial anterior, o modelo tinha o seguinte JSON:
 
@@ -33,7 +30,7 @@ No final do tutorial anterior, o modelo tinha o seguinte JSON:
 
 Talvez você tenha notado que há um problema com este modelo. O nome da conta de armazenamento está embutido em código. Você só pode usar esse modelo para implantar a mesma conta de armazenamento a cada vez. Para implantar uma conta de armazenamento com um nome diferente, você precisaria criar um novo modelo, o que obviamente não é uma maneira prática de automatizar suas implantações.
 
-## <a name="make-your-template-reusable"></a>Tornar seu modelo reutilizável
+## <a name="make-template-reusable"></a>Tornar o modelo reutilizável
 
 Para tornar seu modelo reutilizável, adicionaremos um parâmetro que você pode usar para passar um nome de conta de armazenamento. O JSON realçado no exemplo a seguir mostra o que mudou no modelo. O parâmetro **storageName** é identificado como uma cadeia de caracteres. O comprimento máximo é definido como 24 caracteres para evitar qualquer nome muito longo.
 
@@ -41,7 +38,7 @@ Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
 
-## <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-template"></a>Implantar modelo
 
 Vamos implantar o modelo. O exemplo a seguir implanta o modelo com a CLI do Azure ou o PowerShell. Observe que você fornece o nome da conta de armazenamento como um dos valores no comando de implantação. Para o nome da conta de armazenamento, forneça o mesmo nome usado no tutorial anterior.
 
@@ -87,7 +84,7 @@ O modelo anterior sempre implantava uma conta de armazenamento Standard_LRS. Tal
 
 O parâmetro **storageSKU** tem um valor padrão. Esse valor é usado quando um valor não é especificado durante a implantação. Ele também tem uma lista de valores permitidos. Esses valores correspondem aos valores necessários para criar uma conta de armazenamento. Você não quer que os usuários do seu modelo transmitam SKUs que não funcionam.
 
-## <a name="redeploy-the-template"></a>Reimplantar o modelo
+## <a name="redeploy-template"></a>Reimplantar o modelo
 
 Você está pronto para implantar novamente. Já que o SKU padrão é definido como **Standard_LRS**, você não precisa fornecer um valor para esse parâmetro.
 

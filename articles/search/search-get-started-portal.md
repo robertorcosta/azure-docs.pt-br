@@ -1,19 +1,19 @@
 ---
 title: Criar um índice de pesquisa no portal do Azure
 titleSuffix: Azure Cognitive Search
-description: Use o assistente de Importação de Dados para criar, carregar e consultar seu primeiro índice de pesquisa na Pesquisa Cognitiva do Azure.
+description: Neste início rápido do portal, saiba como usar o assistente de Importação de Dados para criar, carregar e consultar seu primeiro índice de pesquisa no Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889951"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407008"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
 > [!div class="op_single_selector"]
@@ -25,14 +25,7 @@ ms.locfileid: "73889951"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Use o portal para conhecer rapidamente os conceitos e escrever consultas interessantes em um índice em minutos.
-
-> [!div class="checklist"]
-> * Começar com um conjunto de dados de exemplo público gratuito hospedado no Azure
-> * Execute o assistente de **Importação de dados** na Pesquisa Cognitiva do Azure para carregar dados e gerar um índice
-> * Monitorar o progresso de indexação no portal
-> * Exibir um índice existente e as opções para modificá-lo
-> * Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa e pesquisa geográfica com o **Search Explorer**
+Use o assistente de **Importação de dados** do portal e as ferramentas do **Gerenciador de pesquisa** para aumentar rapidamente os conceitos e escrever consultas interessantes em um índice em minutos.
 
 Se as ferramentas forem muito limitadoras, considere a possibilidade de começar com uma [introdução à programação da Pesquisa Cognitiva do Azure no .NET baseada em código](search-howto-dotnet-sdk.md) ou usar o [Postman para fazer chamadas à API REST](search-get-started-postman.md). 
 
@@ -265,7 +258,7 @@ Usando o **explorador do Search** no portal do Azure, você aprendeu algumas sin
 
 Você também aprendeu a encontrar índices, indexadores e fontes de dados no portal. Considerando novas fonte de dados no futuro, você poderá usar o portal para verificar rapidamente suas definições ou coleções de campos com um mínimo de esforço.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
@@ -275,8 +268,7 @@ Se você estiver usando um serviço gratuito, estará limitado a três índices,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode explorar mais a Pesquisa Cognitiva do Azure usando as ferramentas programáticas:
+Embora o portal seja útil para a exploração inicial e tarefas pequenas, a revisão das APIs logo no início ajudará você a entender os conceitos e o fluxo de trabalho em um nível mais profundo:
 
-* [Criar um índice usando o SDK do .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Criar um índice usando APIs REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Criar um índice usando o Postman ou o Fiddler e as APIs REST da Pesquisa Cognitiva do Azure](search-get-started-postman.md)
+> [!div class="nextstepaction"]
+> [Criar um índice usando o SDK do .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)

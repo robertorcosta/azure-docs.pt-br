@@ -1,14 +1,14 @@
 ---
 title: Exemplo – SKUs do balanceador de carga permitidas
-description: Esta definição de política de exemplo exige que os balanceadores de carga usem um SKU aprovado.
+description: Esta definição de política de exemplo exige que os balanceadores de carga usem uma SKU aprovada definida em um parâmetro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: f3872ffc2fc75445f4f51573474fc359227b431b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3d3425211e44dc87d87a962630dec574a60614e7
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076449"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463483"
 ---
 # <a name="sample---allowed-load-balancer-skus"></a>Exemplo – SKUs do balanceador de carga permitidas
 

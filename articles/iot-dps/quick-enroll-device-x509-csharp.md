@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Como inscrever um dispositivo X.509 no Serviço de Provisionamento de Dispositivos do Azure usando C#'
+title: Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos do Azure usando C#
 description: Este início rápido usa registros em grupo. Neste início rápido, registre dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o C#.
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: e43448337f787115c479f2f53ca57b7a20120108
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 3df9afa35b3ae9f7360a5d4b890d3fce209a4b12
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903428"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423334"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando C#
 
@@ -80,13 +79,13 @@ Esta seção mostra como criar um aplicativo de console .NET Core que adiciona u
 
 1. Abra o Visual Studio e selecione **Criar um projeto**. Em **Criar um projeto**, escolha o modelo de projeto C# **Aplicativo de Console (.NET Core)** e selecione **Avançar**.
 
-1. Nomeie o projeto *CreateEnrollmentGroup* e, em seguida, selecione **Criar**.
+1. Nomeie o projeto *CreateEnrollmentGroup* e, em seguida, pressione **Criar**.
 
     ![Configurar o projeto da Área de Trabalho Clássica do Windows no Visual C#](media//quick-enroll-device-x509-csharp/configure-app-vs2019.png)
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **CreateEnrollmentGroup** e, em seguida, selecione **Gerenciar Pacotes NuGet**.
+1. Quando a solução for aberta no Visual Studio, no painel **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **CreateEnrollmentGroup** e selecione **Gerenciar Pacotes do NuGet**.
 
-1. No **Gerenciador de Pacotes NuGet**, selecione **Procurar**, pesquise e escolha **Microsoft.Azure.Devices.Provisioning.Service** e, em seguida, selecione **Instalar**.
+1. No **Gerenciador de Pacotes NuGet**, selecione **Procurar**, pesquise e escolha **Microsoft.Azure.Devices.Provisioning.Service** e pressione **Instalar**.
 
     ![Janela do Gerenciador de Pacotes NuGet](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
@@ -103,12 +102,12 @@ Esta seção mostra como criar um aplicativo de console .NET Core que adiciona u
 1. Adicione os campos a seguir à classe `Program` e faça as alterações listadas.  
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private static string EnrollmentGroupId = "enrollmentgrouptest";
    private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
    ```
 
-   * Substitua o valor do espaço reservado `ProvisioningConnectionString` pela cadeia de conexão do serviço de provisionamento para o qual deseja criar o registro.
+   * Substitua o valor do espaço reservado `ProvisioningServiceConnectionString` pela cadeia de conexão do serviço de provisionamento para o qual deseja criar o registro.
 
    * Substitua o valor de espaço reservado `X509RootCertPath` pelo caminho para um arquivo .pem ou .cer. Esse arquivo representa a parte pública de um certificado X.509 da AC raiz ou intermediária que foi previamente carregada e verificada com o serviço de provisionamento.
 
@@ -168,7 +167,7 @@ Esta seção mostra como criar um aplicativo de console .NET Core que adiciona u
 
 ## <a name="run-the-enrollment-group-sample"></a>Executar exemplo de grupo de registros
   
-Execute o exemplo no Visual Studio para criar o grupo de registros. Após a criação bem-sucedida, a janela do prompt de comando exibirá as propriedades do novo grupo de registro.
+Execute o exemplo no Visual Studio para criar o grupo de registros. Uma janela de Prompt de Comando será exibida e começará A mostrar as mensagens de confirmação. Após a criação bem-sucedida, a janela do prompt de comando exibirá as propriedades do novo grupo de registro.
 
 Verifique se o grupo de registro foi criado. Acesse o resumo do Serviço de Provisionamento de Dispositivos e selecione **Gerenciar registros** e, em seguida, selecione **Grupos de Registro**. Você deve ver uma nova entrada de registro que corresponda à ID de registro usada no exemplo.
 
@@ -182,9 +181,9 @@ Se pretender explorar a amostra do serviço C#, não limpe os recursos criados n
 
 1. Feche a Janela de Saída da amostra do C# no computador.
 
-1. Navegue até o Serviço de Provisionamento de Dispositivos no portal do Azure, selecione **Gerenciar registros** e, em seguida, selecione **Grupos de Registro**. Selecione a *ID de Registro* da entrada de registro que você criou usando este início rápido e selecione **Excluir**.
+1. Navegue até o Serviço de Provisionamento de Dispositivos no portal do Azure, selecione **Gerenciar registros** e, em seguida, selecione **Grupos de Registro**. Selecione a *ID de Registro* da entrada de registro que você criou usando este início rápido e pressione **Excluir**.
 
-1. No Serviço de Provisionamento de Dispositivos no portal do Azure, selecione **Certificados**, escolha o certificado que você carregou para este início rápido e selecione **Excluir** na parte superior de **Detalhes do Certificado**.  
+1. No Serviço de Provisionamento de Dispositivos no portal do Azure, selecione **Certificados**, escolha o certificado que você carregou para este início rápido e pressione **Excluir** na parte superior de **Detalhes do Certificado**.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

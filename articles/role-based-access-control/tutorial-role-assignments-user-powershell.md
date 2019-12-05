@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o Azure PowerShell | Microsoft Docs
-description: Saiba como permitir acesso a um usuário aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o Azure PowerShell.
+title: Tutorial – Conceder a um usuário acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell
+description: Saiba como conceder acesso a um usuário aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o Azure PowerShell neste tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c5570c6b1d2cdd168dbaeb0a91d80a61e171e5d1
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343469"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418617"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o Azure PowerShell
 
@@ -48,8 +48,8 @@ No RBAC, para conceder acesso, você cria uma atribuição de função. Uma atri
 
 | Entidade de segurança | Definição de função | Escopo |
 | --- | --- | --- |
-| Usuário<br>(Usuário de Tutorial de RBAC) | [Leitor](built-in-roles.md#reader) | Assinatura |
-| Usuário<br>(Usuário de Tutorial de RBAC)| [Colaborador](built-in-roles.md#contributor) | Grupo de recursos<br>(rbac-tutorial-resource-group) |
+| Usuário<br>(Usuário de Tutorial de RBAC) | [Leitor](built-in-roles.md#reader) | Subscription |
+| Usuário<br>(Usuário de Tutorial de RBAC)| [Colaborador](built-in-roles.md#contributor) | Resource group<br>(rbac-tutorial-resource-group) |
 
    ![Atribuições de função de um usuário](./media/tutorial-role-assignments-user-powershell/rbac-role-assignments-user.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Monitorar comunicação de rede – tutorial – portal do Azure | Microsoft Docs
-description: Saiba como monitorar a comunicação de rede entre duas máquinas virtuais com o recurso de monitor de conexão do Observador de Rede do Azure.
+title: Tutorial – monitorar a comunicação de rede usando o portal do Azure
+description: Neste tutorial, saiba como monitorar a comunicação de rede entre duas máquinas virtuais com a funcionalidade de monitor de conexão do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233882"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419701"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre duas máquinas virtuais usando o portal do Azure
 
@@ -54,9 +54,9 @@ Criar duas VMs.
     |NOME|myVm1|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Assinatura| Selecione sua assinatura.|
+    |Subscription| Selecione sua assinatura.|
     |Grupo de recursos| Selecione **Criar novo** e insira **myResourceGroup**.|
-    |Local padrão| Selecione **Leste dos EUA**|
+    |Location| Selecione **Leste dos EUA**|
 
 4. Selecione um tamanho para a VM e selecione **Selecionar**.
 5. Em **Configurações**, selecione **Extensões**. Selecione **Adicionar extensão**e selecione **Agente Observador de Rede para Windows**, conforme mostrado na figura a seguir:
@@ -76,7 +76,7 @@ Conclua as etapas em [Criar a primeira VM](#create-the-first-vm) novamente, com 
 | 1 | Selecionar uma versão do **Ubuntu Server** |                                                                         |
 | 3 | NOME                                  | myVm2                                                                   |
 | 3 | Tipo de autenticação                   | Cole sua chave pública SSH ou selecione **Senha**e digite uma senha. |
-| 3 | Grupo de recursos                        | Selecione **Usar existente** e, em seguida, **myResourceGroup**.                 |
+| 3 | Resource group                        | Selecione **Usar existente** e, em seguida, **myResourceGroup**.                 |
 | 6 | Extensões                            | **Agente do Observador de Rede para Linux**                                             |
 
 A VM demora alguns minutos para implantar. Aguarde até que a VM conclua a implantação antes de continuar com as etapas restantes.

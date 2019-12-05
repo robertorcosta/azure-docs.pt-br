@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Permitir acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell | Microsoft Docs
-description: Saiba como permitir acesso a um grupo aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o Azure PowerShell.
+title: Tutorial – Conceder acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell
+description: Saiba como conceder acesso a um grupo aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o Azure PowerShell neste tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f080682baf42c5852e167a20bfbad7f00fe8bd3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fb26e603ebb867bda47a93162ffef9bf716d3db6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343682"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418597"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Permitir acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell
 
@@ -48,8 +48,8 @@ No RBAC, para conceder acesso, você cria uma atribuição de função. Uma atri
 
 | Entidade de segurança | Definição de função | Escopo |
 | --- | --- | --- |
-| Agrupar<br>(Grupo de Tutorial de RBAC) | [Leitor](built-in-roles.md#reader) | Assinatura |
-| Agrupar<br>(Grupo de Tutorial de RBAC)| [Colaborador](built-in-roles.md#contributor) | Grupo de recursos<br>(rbac-tutorial-resource-group) |
+| Agrupar<br>(Grupo de Tutorial de RBAC) | [Leitor](built-in-roles.md#reader) | Subscription |
+| Agrupar<br>(Grupo de Tutorial de RBAC)| [Colaborador](built-in-roles.md#contributor) | Resource group<br>(rbac-tutorial-resource-group) |
 
    ![Atribuições de função de um grupo](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 

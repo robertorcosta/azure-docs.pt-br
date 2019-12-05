@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o portal do Azure | Microsoft Docs
-description: Saiba como permitir acesso a um usuário aos recursos do Azure usando o RBAC (controle de acesso baseado em função) no portal do Azure.
+title: Tutorial – Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o portal do Azure
+description: Neste tutorial, saiba como conceder acesso a um usuário aos recursos do Azure usando o RBAC (controle de acesso baseado em função) no portal do Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 5786f7b48477fa705b43e3a953ac15b2c768bd71
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854239"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419657"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o portal do Azure
 
@@ -62,7 +62,7 @@ No RBAC, para conceder acesso, você cria uma atribuição de função.
 
 1. Na lista de **Grupos de recursos**, clique no novo grupo de recursos **rbac-resource-group**.
 
-1. Clique em **Controle de acesso (IAM)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Atribuições de função** para ver a lista atual das atribuições de função.
 
@@ -116,4 +116,3 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-

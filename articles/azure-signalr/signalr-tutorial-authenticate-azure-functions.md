@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Autenticação do Serviço Azure SignalR com o Azure Functions'
+title: 'Tutorial: Autenticação com o Azure Functions – Azure SignalR'
 description: Neste tutorial, você aprenderá como autenticar clientes de serviço do Azure SignalR para associação do Azure Functions
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278815"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158138"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticação do Serviço Azure SignalR com o Azure Functions
 
@@ -56,8 +56,8 @@ Você vai compilar e testar o aplicativo do Azure Functions localmente. O aplica
     | NOME | Valor |
     |---|---|
     | Nome do recurso | Um nome exclusivo para a instância do Serviço SignalR |
-    | Grupo de recursos | Crie um novo grupo de recursos e dê a ele um nome exclusivo |
-    | Local padrão | Escolha um local perto de você |
+    | Resource group | Crie um novo grupo de recursos e dê a ele um nome exclusivo |
+    | Location | Escolha um local perto de você |
     | Camada de preços | Grátis |
 
 1. Clique em **Criar**.
@@ -97,7 +97,7 @@ Este tutorial usa as associações do Azure Functions para interagir com o Servi
 
 ### <a name="configure-application-settings"></a>Definir as configurações do aplicativo
 
-Ao executar e depurar o tempo de execução do Azure Functions localmente, as configurações do aplicativo são lidas de **local.settings.json**. Atualize esse arquivo com a cadeia de conexão da instância do Serviço SignalR que você criou anteriormente.
+Ao executar e depurar o Azure Functions runtime localmente, as configurações do aplicativo são lidas de **local.settings.json**. Atualize esse arquivo com a cadeia de conexão da instância do Serviço SignalR que você criou anteriormente.
 
 1. No VS Code, selecione **local.settings.json** no painel do Explorer para abri-lo.
 
@@ -317,10 +317,10 @@ Uma conta de Armazenamento do Microsoft Azure é necessária para um aplicativo 
 
     | NOME | Valor |
     |---|---|
-    | Assinatura | Selecione a assinatura que contém a instância do Serviço do SignalR |
-    | Grupo de recursos | Selecione o mesmo grupo de recursos |
+    | Subscription | Selecione a assinatura que contém a instância do Serviço do SignalR |
+    | Resource group | Selecione o mesmo grupo de recursos |
     | Nome do recurso | Um nome exclusivo para a conta de Armazenamento |
-    | Local padrão | Selecione a mesma localização que os seus outros recursos |
+    | Location | Selecione a mesma localização que os seus outros recursos |
     | Desempenho | Standard |
     | Tipo de conta | StorageV2 (Uso geral V2) |
     | Replicação | Armazenamento com redundância local (LRS) |
@@ -451,7 +451,7 @@ O aplicativo Web será hospedado usando o recurso de sites estáticos do Armazen
 
     | NOME | Valor |
     |---|---|
-    | Assinatura | Selecione sua assinatura |
+    | Subscription | Selecione sua assinatura |
     | Conta de armazenamento | Selecione a conta de armazenamento criada anteriormente |
     | Pasta para implantar | Selecione **Navegar** e selecione a pasta do *conteúdo* |
 

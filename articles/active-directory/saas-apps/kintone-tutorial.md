@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a9245ab5a2d51ee3995ff0c614cafaebdc20d00f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098795"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227574"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integração do Azure Active Directory com o Kintone
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o Kintone, execute as seguintes e
 
 1. Clique em **Usuários e administração do sistema**.
 
-    ![Administração do Sistema e de Usuários](./media/kintone-tutorial/ic785880.png "Administração do Sistema e de Usuários")
+    ![Usuários e administração do sistema](./media/kintone-tutorial/ic785880.png "Usuários e administração do sistema")
 
 1. Em **Administração do Sistema \> Segurança**, clique em **Logon**.
 
@@ -149,11 +149,11 @@ Para configurar o logon único do Azure AD com o Kintone, execute as seguintes e
 
 1. Selecione **Habilitar a autenticação do SAML**.
 
-    ![Autenticação SAML](./media/kintone-tutorial/ic785882.png "Autenticação SAML")
+    ![Autenticação SAML](./media/kintone-tutorial/ic785882.png "Autenticação do SAML")
 
 1. Na seção Autenticação do SAML, execute as seguintes etapas:
 
-    ![Autenticação SAML](./media/kintone-tutorial/ic785883.png "Autenticação SAML")
+    ![Autenticação SAML](./media/kintone-tutorial/ic785883.png "Autenticação do SAML")
 
     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -228,26 +228,26 @@ Para permitir que os usuários do Azure AD entrem no Kintone, eles precisam ser 
 
 1. Clique em **Usuários e administração do sistema**.
 
-    ![Administração do Sistema e de Usuários](./media/kintone-tutorial/ic785880.png "Administração do Sistema e de Usuários")
+    ![Usuário e administração do sistema](./media/kintone-tutorial/ic785880.png "Usuário e administração do sistema")
 
 1. Em **Administração de Usuários**, clique em **Departamentos e Usuários**.
 
-    ![Departamento e Usuários](./media/kintone-tutorial/ic785888.png "Departamento e Usuários")
+    ![Departamento e usuários](./media/kintone-tutorial/ic785888.png "Departamento e usuários")
 
 1. Clique em **Novo Usuário**.
 
-    ![Novos Usuários](./media/kintone-tutorial/ic785889.png "novos Usuários")
+    ![Novos usuários](./media/kintone-tutorial/ic785889.png "Novos usuários")
 
 1. Na seção **Novo Usuário** , realize as seguintes etapas:
 
-    ![Novos Usuários](./media/kintone-tutorial/ic785890.png "novos Usuários")
+    ![Novos usuários](./media/kintone-tutorial/ic785890.png "Novos usuários")
 
     a. Digite **Nome de Exibição**, **Nome de Logon**, **Nova Senha**, **Confirmar Senha**, **Endereço de Email** e outros detalhes de uma conta válida do Azure AD que deseja provisionar nas caixas de texto relacionadas.
 
     b. Clique em **Save** (Salvar).
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do Kintone ou APIs fornecidas pelo Kintone para provisionar as contas de usuário do AAD.
+> É possível usar qualquer outra ferramenta de criação da conta de usuário do Kintone ou APIs fornecidas pelo Kintone para provisionar as contas de usuário do Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
@@ -261,4 +261,4 @@ Ao clicar no bloco do Kintone no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

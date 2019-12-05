@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Permitir acesso a uma API Web do ASP.NET Core de um aplicativo de página única – Azure Active Directory B2C
-description: Saiba como usar o Active Directory B2C para proteger uma API Web do .NET Core e chamar a API de um aplicativo de página única do Node.js.
+description: Neste tutorial, saiba como usar o Active Directory B2C para proteger uma API Web do .NET Core e chamar a API de um aplicativo de página única do Node.js.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 30e7059605ef86e6afd86251db0e416c9143a9ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7dae8bb552fe12d1cdf1f3d8a5fe124491933a87
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475113"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420332"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web ASP.NET Core de um aplicativo de página única usando o Azure Active Directory B2C
 

@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/10/2019
+ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa15e9c50cb5cd694a7a6adad352459536292b85
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 042e969b4a0dfea0910a0ef81fae264792cfd85f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012583"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327653"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights?
 
@@ -84,13 +84,16 @@ Siga estas etapas para começar.
 1. Carregue dados de referência. Isso não é um serviço adicional.
 1. Ver seus dados em minutos com o Gerenciador de Time Series Insights.
 
-## <a name="time-series-insights-explorer"></a>Time Series Insights Explorer
+## <a name="explorer"></a>Explorer
 
-Este diagrama mostra um exemplo de dados do Time Series Insights exibidos pelo gerenciador Azure Time Series Insights.
+Exiba, analise e descubra tendências em seus dados usando o Gerenciador do Azure Time Series Insights.
 
-![Time Series Insights Explorer](media/time-series-insights-explorer/explorer4.png)
+![Time Series Insights Explorer](media/overview/time-series-insights-explorer-panel.png)
+
+Saiba como usar o [Gerenciador do Azure Time Series Insights](time-series-insights-explorer.md) e obter informações com base em seus dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Explore o [ambiente de demonstração gratuito](./time-series-quickstart.md) de disponibilidade geral do Azure Time Series Insights.
+
 - Saiba mais sobre como [planejar seu ambiente do Time Series Insights](time-series-insights-environment-planning.md).

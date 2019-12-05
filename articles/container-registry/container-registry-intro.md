@@ -1,20 +1,17 @@
 ---
-title: Registros de contêiner do Docker privado no Azure – visão geral
+title: Registros de contêiner gerenciado
 description: Introdução ao serviço de Registro de Contêiner do Azure, fornecendo registros Docker privados gerenciados baseados em nuvem.
-services: container-registry
 author: stevelas
-manager: gwallace
-ms.service: container-registry
 ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2262948a8368f9448d876166b712ebaf670b5a56
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: fceaf312f35356acf18c0873a467ed43d11ddd83
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994367"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454932"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registros de contêiner do Docker privado no Azure
 

@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: e56aba81b2e6b8e66aeb2c3e5284843055713826
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316082"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185187"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Usar configuração dinâmica em um aplicativo .NET Core
 
@@ -33,8 +33,8 @@ Você pode usar qualquer editor de código para executar as etapas deste tutoria
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Configure seu aplicativo para atualizar sua configuração com um repositório de configurações de aplicativos sob demanda.
-> * Injetar a configuração mais recente nos controladores do aplicativo.
+> * Configure seu aplicativo .NET Core para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
+> * Consuma a configuração mais recente em seu aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -90,14 +90,14 @@ class Program
 }
 ```
 
-O método `ConfigureRefresh` é usado para especificar as configurações usadas para atualizar os dados de configuração com o repositório de configurações de aplicativos quando uma operação de atualização é disparada. Uma instância do `IConfigurationRefresher` pode ser recuperada chamando o método `GetRefresher` nas opções fornecidas ao método `AddAzureAppConfiguration` e o método `Refresh` nessa instância pode ser usado para disparar uma operação de atualização em qualquer lugar no seu código.
+O método `ConfigureRefresh` é usado para especificar as configurações usadas para atualizar os dados de configuração com o repositório de Configuração de Aplicativos quando uma operação de atualização é disparada. Uma instância do `IConfigurationRefresher` pode ser recuperada chamando o método `GetRefresher` nas opções fornecidas ao método `AddAzureAppConfiguration` e o método `Refresh` nessa instância pode ser usado para disparar uma operação de atualização em qualquer lugar no seu código.
     
 > [!NOTE]
 > O tempo de expiração de cache padrão para um parâmetro de configuração é de 30 segundos, mas pode ser substituído chamando o método `SetCacheExpiration` no inicializador de opções passado como um argumento para o método `ConfigureRefresh`.
 
 ## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
 
-1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de configurações de aplicativo. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de Configuração de Aplicativos. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -119,7 +119,7 @@ O método `ConfigureRefresh` é usado para especificar as configurações usadas
 
     ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos** e selecione a instância do repositório de configurações do aplicativo que você criou no início rápido.
+1. Entre no [Portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
 
 1. Selecione **Gerenciador de Configurações** e atualize os valores das seguintes chaves:
 
@@ -140,7 +140,7 @@ O método `ConfigureRefresh` é usado para especificar as configurações usadas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você adicionou uma identidade de serviço gerenciada do Azure para simplificar o acesso à Configuração de Aplicativo e melhorar o gerenciamento de credenciais de seu aplicativo. Para saber mais sobre como usar a Configuração de Aplicativo, continue para ver as amostras da CLI do Azure.
+Neste tutorial, você habilitou seu aplicativo .NET Core para atualizar dinamicamente as configurações da Configuração de Aplicativos. Para saber como usar uma identidade gerenciada pelo Azure para simplificar o acesso à Configuração de Aplicativos, passe para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Exemplos de CLI](./cli-samples.md)
+> [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

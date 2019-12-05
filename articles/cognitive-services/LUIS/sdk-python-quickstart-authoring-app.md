@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/07/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1b586af569a9406d7fe9fa3d05c198f62f32744f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672012"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422721"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento Vocal) para Python
 
@@ -39,7 +39,46 @@ Use a biblioteca de clientes de criação de LUIS (Reconhecimento Vocal) para Py
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>Obtenha sua chave inicial do LUIS (Reconhecimento vocal)
 
-Obtenha sua [chave inicial](luis-how-to-azure-subscription.md#starter-key) e [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave chamada `LUIS_AUTHORING_KEY` e uma variável de ambiente para a região da chave, `LUIS_REGION`.
+Obtenha sua [chave inicial](luis-how-to-azure-subscription.md#starter-key) criando um recurso de criação do LUIS. Mantenha sua chave e a região da chave para a próxima etapa.
+
+### <a name="create-an-environment-variable"></a>Criar uma variável de ambiente
+
+Usando sua chave e a região da chave, crie duas variáveis de ambiente para autenticação:
+
+* `LUIS_AUTHORING_KEY` – a chave de recurso para autenticar as solicitações.
+* `LUIS_REGION` – a região associada à sua chave. Por exemplo, `westus`.
+
+Use as instruções para seu sistema operacional.
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
+setx LUIS_REGION <replace-with-your-luis-region>
+```
+
+Depois de adicionar a variável de ambiente, reinicie a janela do console.
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela de console para que as alterações entrem em vigor.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+Edite seu `.bash_profile` e adicione a variável de ambiente:
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key> 
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela de console para que as alterações entrem em vigor.
+***
 
 ### <a name="install-the-python-library-for-luis"></a>Instalar a biblioteca do Python para LUIS
 

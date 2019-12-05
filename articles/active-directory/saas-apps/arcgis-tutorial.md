@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4afd7697272775b8d5558d9c091eeea0d2b9adf
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 74cf0c1e055570df7702465df79dcdfbd8ea9e9f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158014"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutorial: Integração do Azure Active Directory ao ArcGIS Online
 
@@ -223,7 +223,7 @@ No caso do ArcGIS Online, o provisionamento é uma tarefa manual.
    
      ![Adicionar e examinar](./media/arcgis-tutorial/ic784749.png "Adicionar e Examinar")
     
-     a. Insira o **Email**, o **Nome** e o **Sobrenome** de uma conta válida do AAD que deseja provisionar.
+     a. Insira o **Email**, o **Nome** e o **Sobrenome** de uma conta válida do Azure AD que você deseja provisionar.
   
      b. Clique em **ADICIONAR E EXAMINAR**.
 5. Examine os dados inseridos e, depois, clique em **ADICIONAR MEMBROS**.

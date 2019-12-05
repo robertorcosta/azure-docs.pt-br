@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32511b638d4674198ce919b8b3a90e67b1c3cfc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96d212df51a58125e3b959a18f5cf2ac9d391d30
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793247"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422382"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restaurar um grupo do Office 365 excluído na visualização do Azure Active Directory
 
@@ -31,7 +31,7 @@ As permissões necessárias para restaurar um grupo podem ser qualquer uma das s
 
 Função | Permissões
 --------- | ---------
-Administrador global, suporte de Camada 2 do Parceiro e Administrador de serviços do InTune | Pode restaurar qualquer grupo do Office 365 excluído
+Administrador global, Administrador de grupo, suporte de Camada 2 do Parceiro e Administrador do Intune | Pode restaurar qualquer grupo do Office 365 excluído
 Administrador de Usuário e suporte de Camada 1 do Parceiro | Pode restaurar qualquer grupo do Office 365 excluído, exceto aqueles atribuídos à função de Administrador de Empresa
 Usuário | Pode restaurar qualquer grupo do Office 365 excluído que era propriedade dele
 

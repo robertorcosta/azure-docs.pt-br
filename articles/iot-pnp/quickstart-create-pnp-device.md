@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4ee9bf218765ea4c3966e7f0a8b20a8108de7655
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 72927dd89a81d2440bf78ba24402f5ce283006da
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931901"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405807"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Início Rápido: usar um modelo de funcionalidade do dispositivo para criar um dispositivo IoT Plug and Play em versão prévia (Windows)
 
@@ -46,46 +46,15 @@ Encontre a _cadeia de conexão do repositório de modelos da empresa_ no portal 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-an-iot-hub"></a>Preparar um hub IoT
-
-Você também precisará de um Hub IoT do Azure em sua assinatura do Azure para concluir este início rápido. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. Caso não tenha um hub IoT, siga [estas instruções para criar um](../iot-hub/iot-hub-create-using-cli.md).
-
-> [!IMPORTANT]
-> Durante a versão prévia pública, os recursos de IoT Plug and Play estão disponíveis apenas em hubs IoT criados nas regiões **Centro dos EUA**, **Europa Setentrional** e **Leste do Japão**.
-
-Execute o seguinte comando para adicionar a Extensão de IoT do Microsoft Azure para a CLI do Azure à instância do Cloud Shell:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Use o comando a seguir para criar uma identidade do dispositivo no Hub IoT. Substitua os espaços reservados **YourIoTHubName** e **YourDevice** pelos nomes reais.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
-```
-
-Execute o seguinte comando para obter a _cadeia de conexão de dispositivo_ do dispositivo que você acabou de registrar:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
-
-Execute o seguinte comando para obter a _cadeia de conexão do hub IoT_ para o seu hub:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
-### <a name="get-azure-iot-device-sdk-for-c"></a>Obter o SDK do dispositivo IoT do Azure para C
-
-Neste início rápido, você preparará um ambiente de desenvolvimento ao instalar o SDK do dispositivo Azure IoT C por meio de [Vcpkg](https://github.com/microsoft/vcpkg).
+Neste início rápido, você usa o gerenciador de biblioteca [Vcpkg](https://github.com/microsoft/vcpkg) para instalar o SDK de dispositivo C do Azure IoT em seu ambiente de desenvolvimento.
 
 1. Abra um prompt de comando. Execute o comando a seguir para instalar o Vcpkg:
 
-    ```cmd/sh
+    ```cmd
     git clone https://github.com/Microsoft/vcpkg.git
     cd vcpkg
 
@@ -94,13 +63,13 @@ Neste início rápido, você preparará um ambiente de desenvolvimento ao instal
 
     Em seguida, para conectar a [integração](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md) dos usuários, execute o seguinte (observação: requer credenciais de administrador no primeiro uso):
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe integrate install
     ```
 
 1. Instalar o Vcpkg do SDK do dispositivo do Azure IoT C:
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
@@ -151,14 +120,14 @@ Use o código-fonte do SDK do dispositivo para criar o stub do código do dispos
 
 1. Crie o subdiretório `cmake` na pasta `sample_device` e navegue até essa pasta:
 
-    ```cmd\sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
 
 1. Execute os seguintes comandos para compilar o stub de código gerado (substituindo o espaço reservado pelo diretório do seu repositório Vcpkg):
 
-    ```cmd\sh
+    ```cmd
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
 
     cmake --build .
@@ -166,7 +135,7 @@ Use o código-fonte do SDK do dispositivo para criar o stub do código do dispos
     
     > [!NOTE]
     > Se você estiver usando o Visual Studio 2017 ou 2015, precisará especificar o gerador de CMake com base nas ferramentas de compilação em uso:
-    >```cmd\sh
+    >```cmd
     ># Either
     >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
     ># or
@@ -178,7 +147,7 @@ Use o código-fonte do SDK do dispositivo para criar o stub do código do dispos
 
 1. Depois que o build for concluído com êxito, execute o aplicativo passando a cadeia de conexão do dispositivo do hub IoT como parâmetro.
 
-    ```cmd\sh
+    ```cmd
     .\Debug\sample_device.exe "<device connection string>"
     ```
 
@@ -212,11 +181,11 @@ Para validar o código do dispositivo com o **Azure IoT Explorer**, você precis
 
 1. Insira a _cadeia de conexão do Hub IoT_ e selecione **Conectar**.
 
-1. Depois de se conectar, você verá a página de visão geral do dispositivo.
+1. Depois de se conectar, você verá a página de visão geral **Dispositivos**.
 
 1. Para adicionar o repositório de sua empresa, selecione **Configurações**, **+ Adicionar fonte de definição do módulo** e, em seguida, **Repositório da empresa**. Adicione a cadeia de conexão do repositório de modelos da empresa e selecione **Salvar e Conectar**.
 
-1. Na página de visão geral do dispositivo, localize a identidade do dispositivo criada anteriormente e selecione-a para exibir mais detalhes.
+1. Novamente na página de visão geral **Dispositivos**, localize a identidade do dispositivo criada anteriormente. Com o aplicativo do dispositivo ainda em execução no prompt de comando, verifique se o **Estado da conexão** do dispositivo no Azure IoT Explorer está sendo relatado como _Conectado_ (caso contrário, clique em **Atualizar** até que ele esteja). Selecione o dispositivo para exibir mais detalhes.
 
 1. Expanda a interface com a ID **urn:<NOME_SUA_INTERFACE>:EnvironmentalSensor:1** para ver os primitivos do IoT Plug and Play, como propriedades, comandos e telemetria. O nome da interface que aparecerá é o nome que você colocou ao criar seu modelo.
 
@@ -226,7 +195,7 @@ Para validar o código do dispositivo com o **Azure IoT Explorer**, você precis
 
 1. Selecione a página **Propriedades (graváveis)** para exibir as propriedades graváveis que podem ser atualizadas.
 
-1. Expanda o **nome** da propriedade, atualize-o com um novo nome e selecione **Atualizar propriedade gravável**.
+1. Expanda o **nome** da propriedade, atualize-o com um novo nome e selecione **Atualizar propriedade gravável**. 
 
 1. Para ver o novo nome exibido na coluna **Propriedade Relatada**, selecione o botão **Atualizar** na parte superior da página.
 
@@ -235,6 +204,8 @@ Para validar o código do dispositivo com o **Azure IoT Explorer**, você precis
 1. Expanda o comando **piscar** e defina um novo intervalo de tempo de intermitência. Selecione **Enviar comando** para chamar o comando no dispositivo.
 
 1. Vá para o prompt de comando do dispositivo simulado e leia as mensagens de confirmação impressas a fim de verificar se os comandos foram executados conforme esperado.
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

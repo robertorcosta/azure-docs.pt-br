@@ -1,28 +1,24 @@
 ---
-title: Criar um blueprint com a API REST
-description: Use o Azure Blueprints para criar, definir e implantar artefatos usando a API REST.
-ms.date: 02/04/2019
+title: 'Início Rápido: Criar um blueprint com a API REST'
+description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a API REST.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9b711a6359ed9ecb45f25c460ece095af46ad8c3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960405"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322165"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início Rápido: Definir e atribuir um Azure Blueprint com a API REST
 
 Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
 
-> [!div class="checklist"]
-> - Criar um novo projeto e adicionar vários artefatos com suporte
-> - Faça alterações em um blueprint existente ainda em **Rascunho**
-> - Marcar um plano gráfico como pronto para atribuir com **publicado**
-> - Atribuir um blueprint a uma assinatura existente
-> - Verificar o status e o progresso de um blueprint atribuído
-> - Remover um blueprint que tenha sido atribuído a uma assinatura
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Introdução à API REST
 
@@ -393,7 +389,8 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
 
    - Identidade gerenciada atribuída pelo usuário
 
-     Uma atribuição de blueprint também pode usar uma [identidade gerenciada atribuída por usuário](../../active-directory/managed-identities-azure-resources/overview.md). Nesse caso, a parte **identidade** do corpo da solicitação é alterada da seguinte maneira.  Substitua `{yourRG}` e `{userIdentity}` pelo nome do grupo de recursos e pelo nome da identidade gerenciada atribuída por usuário, respectivamente.
+     Uma atribuição de blueprint também pode usar uma [identidade gerenciada atribuída por usuário](../../active-directory/managed-identities-azure-resources/overview.md).
+     Nesse caso, a parte **identidade** do corpo da solicitação é alterada da seguinte maneira. Substitua `{yourRG}` e `{userIdentity}` pelo nome do grupo de recursos e pelo nome da identidade gerenciada atribuída por usuário, respectivamente.
 
      ```json
      "identity": {
@@ -432,9 +429,7 @@ Para remover um blueprint em si, use a seguinte operação de API REST:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [ciclo de vida do blueprint](./concepts/lifecycle.md).
-- Saiba como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
-- Saiba como personalizar a [ordem de sequenciamento de blueprint](./concepts/sequencing-order.md).
-- Saiba como usar o [bloqueio de recurso de blueprint](./concepts/resource-locking.md).
-- Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md).
-- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](./troubleshoot/general.md).
+Neste início rápido, você criou, atribuiu e removeu um blueprint com a API REST. Para saber mais sobre o Azure Blueprints, prossiga para o artigo de ciclo de vida do blueprint.
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o ciclo de vida do blueprint](./concepts/lifecycle.md)

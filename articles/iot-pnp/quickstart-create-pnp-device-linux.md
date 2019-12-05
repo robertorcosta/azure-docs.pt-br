@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 087f1d76aaab4b05425262e0c1fb87b168c99b95
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ff8303b6af73605aae82bae4d70f9648154f9744
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931230"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406232"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>Início Rápido: Usar um modelo de funcionalidade do dispositivo para criar um dispositivo IoT Plug and Play em versão prévia (Linux)
 
@@ -57,7 +57,7 @@ Encontre a _cadeia de conexão do repositório de modelos da empresa_ no portal 
 
 ## <a name="prepare-an-iot-hub"></a>Preparar um hub IoT
 
-Você também precisará de um Hub IoT do Azure em sua assinatura do Azure para concluir este início rápido. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. Caso não tenha um hub IoT, veja abaixo as etapas para criar um.
+Você também precisará de um Hub IoT do Azure em sua assinatura do Azure para concluir este início rápido. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. Se você ainda não tiver um hub IoT para usar, siga o restante desta seção para criar um.
 
 Se estiver usando a CLI do Azure no local, a versão do `az` deverá ser **2.0.75** ou posterior. O Azure Cloud Shell usa a versão mais recente. Use o comando `az --version` para verificar a versão instalada no computador.
 
@@ -82,17 +82,33 @@ Os comandos anteriores criam um grupo de recursos chamado `pnpquickstarts_rg` e 
 > [!IMPORTANT]
 > Durante a versão prévia pública, os recursos de IoT Plug and Play estão disponíveis apenas em hubs IoT criados nas regiões **Centro dos EUA**, **Europa Setentrional** e **Leste do Japão**.
 
-Execute o comando a seguir para criar uma identidade do dispositivo no hub IoT. Substitua os espaços reservados **YourIoTHubName** e **YourDevice** pelos nomes reais.
+Execute o comando a seguir para criar uma identidade do dispositivo no hub IoT. Substitua os espaços reservados **YourIoTHubName** e **YourDeviceID** pelo seu próprio _nome do Hub IoT_ e uma _ID do dispositivo_ de sua escolha.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-Execute os seguintes comandos para obter a _cadeia de conexão do dispositivo_ para a dispositivo recém-registrado.
+Execute os seguintes comandos para obter a _cadeia de conexão do dispositivo_ para a dispositivo recém-registrado (anote-a para usá-la depois).
 
 ```azurecli-interactive
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
+
+## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
+
+Neste início rápido, você usa o gerenciador de biblioteca [Vcpkg](https://github.com/microsoft/vcpkg) para instalar o SDK de dispositivo C do Azure IoT em seu ambiente de desenvolvimento.
+
+Abra um shell. Execute o comando a seguir para instalar o Vcpkg:
+
+```bash
+cd ~
+git clone https://github.com/microsoft/vcpkg
+cd vcpkg
+./bootstrap-vcpkg.sh
+./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
+```
+
+Essa operação deve demorar alguns minutos.
 
 ## <a name="author-your-model"></a>Criar o modelo
 
@@ -138,7 +154,7 @@ Agora que você tem um DCM e suas interfaces associadas, é possível gerar o c�
 
 1. Escolha **Projeto do CMake no Linux** como modelo do projeto.
 
-1. Escolha **Por meio de Código-Fonte** como a maneira de incluir o SDK do dispositivo.
+1. Escolha **Via Vcpkg** como a maneira de incluir o SDK do dispositivo.
 
 1. A nova pasta **sample_device** é criada no mesmo local do arquivo DCM, no qual são gerados os arquivos stub de código de dispositivo. O VS Code abre uma nova janela para exibi-los.
     ![Código do dispositivo](media/quickstart-create-pnp-device-linux/device-code.png)
@@ -146,13 +162,6 @@ Agora que você tem um DCM e suas interfaces associadas, é possível gerar o c�
 ## <a name="build-and-run-the-code"></a>Criar e executar o código
 
 Use o código-fonte do SDK do dispositivo para criar o stub do código do dispositivo gerado. O aplicativo criado simula um dispositivo que se conecta a um Hub IoT. O aplicativo envia a telemetria e as propriedades e recebe comandos.
-
-1. Execute os seguintes comandos para baixar o código-fonte do SDK do dispositivo:
-
-    ```bash
-    cd ~/pnp_app/sample_device
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
-    ```
 
 1. Crie uma pasta do build do **CMake** para o aplicativo **sample_device**:
 
@@ -162,10 +171,10 @@ Use o código-fonte do SDK do dispositivo para criar o stub do código do dispos
     cd cmake
     ```
 
-1. Execute o CMake para criar o aplicativo com o SDK:
+1. Execute o CMake para criar o aplicativo com o SDK. O comando a seguir pressupõe que você instalou **vcpkg** em sua pasta base:
 
     ```bash
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -Dskip_samples:BOOL=ON
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
     cmake --build .
     ```
 
@@ -173,7 +182,7 @@ Use o código-fonte do SDK do dispositivo para criar o stub do código do dispos
 
     ```sh
     cd ~/pnp_app/sample_device/cmake
-    ./sample_device "<device connection string>"
+    ./sample_device "<YourDeviceConnectionString>"
     ```
 
 1. O aplicativo do dispositivo iniciará o envio de dados ao Hub IoT.
@@ -213,8 +222,10 @@ az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
 Use o seguinte comando para exibir todas as propriedades enviadas pelo dispositivo:
 
 ```azurecli-interactive
-az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<Your company model repository connection string>"
+az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

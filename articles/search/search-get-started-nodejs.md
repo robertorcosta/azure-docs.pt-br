@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Criar um índice de pesquisa em Node.js usando APIs REST'
 titleSuffix: Azure Cognitive Search
-description: Exemplo de Node.js para a Pesquisa Cognitiva do Azure, que demonstra como criar, carregar dados e consultar no JavaScript.
+description: Neste guia de início rápido do Node.js, saiba como criar um índice, carregar dados e executar consultas no Azure Cognitive Search usando JavaScript e as APIs REST.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 8b7308b5289ba747dba90716b495ca1ba6afb209
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719995"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406928"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Node.js usando APIs REST
 > [!div class="op_single_selector"]
@@ -684,11 +684,12 @@ A classe **AzureSearchClient** encapsula a configuração, as URLs e as solicita
 
 O comportamento geral da função `run` é excluir o índice da Pesquisa Cognitiva do Azure, se ele existir, criar o índice, adicionar alguns dados e executar algumas consultas.  
 
-## <a name="clean-up"></a>Limpar 
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
 Você pode localizar e gerenciar recursos no portal usando o link **Todos os recursos** ou **Grupos de recursos** no painel de navegação à esquerda.
+
 Se você estiver usando um serviço gratuito, estará limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
 ## <a name="next-steps"></a>Próximas etapas
