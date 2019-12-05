@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: d7ceb3acb1d2e3d174f3b665ec6210d3ddac9970
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bdb459a69557269a20d36f05acc2da502064efb9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059158"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851342"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Solução de problemas de máquinas virtuais do Azure
 
 ## <a name="tools-for-troubleshooting"></a>Ferramentas para solução de problemas
 
-- [Console serial](serial-console-windows.md)
+- [Console serial](serial-console-overview.md)
 - [Diagnóstico de inicialização](boot-diagnostics.md)
 - [VM do Windows: Anexe o disco do SO a outra VM para solucionar problemas](troubleshoot-recovery-disks-portal-windows.md)
 - [VM do Linux: Anexe o disco do SO a outra VM para solucionar problemas](troubleshoot-recovery-disks-portal-linux.md)
@@ -46,7 +46,7 @@ ms.locfileid: "71059158"
 
 **Erros de inicialização da VM**
 
-* [Erros de inicialização do BitLocker](troubleshoot-bitlocker-boot-error.md) 
+* [Erros de inicialização do BitLocker](troubleshoot-bitlocker-boot-error.md)
 * [O Windows mostra "Verificando sistema de arquivos" durante a inicialização](troubleshoot-check-disk-boot-error.md)
 * [Erros de tela azul](troubleshoot-common-blue-screen-error.md)
 * [A inicialização da VM está parada em "Preparando o Windows"](troubleshoot-vm-boot-configure-update.md)
