@@ -4,17 +4,17 @@ description: Descreve como migrar runbooks e pacotes de integração do System C
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb5a77668cce96ef45a960908612b502f1520e25
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b34554798130d9741318e0f518c32a41f82a17e3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477595"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849659"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrando do Orchestrator para a Automação do Azure (Beta)
 Os runbooks no [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) são baseados nas atividades de pacotes de integração que são escritos especificamente para o Orchestrator, enquanto os runbooks na Automação do Azure são baseados no Windows PowerShell.  [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na Automação do Azure têm uma aparência semelhante aos runbooks do Orchestrator, com suas atividades representando cmdlets do PowerShell, runbooks filhos e ativos.
@@ -31,7 +31,7 @@ Eis o processo básico para converter runbooks do Orchestrator para a Automaçã
 6. Crie manualmente ativos do Orchestrator necessários na Automação do Azure, já que o Runbook Converter não converte esses recursos.
 7. Configure um [Hybrid Runbook Worker](#hybrid-runbook-worker) em seu data center local para executar runbooks convertidos que acessarão recursos locais.
 
-## <a name="service-management-automation"></a>Automação de Gerenciamento de Serviços
+## <a name="service-management-automation"></a>Service Management Automation
 [Automação de Gerenciamento de Serviços](https://technet.microsoft.com/library/dn469260.aspx) ) armazena e executa runbooks em seu data center local, como o Orchestrator, e usa os mesmo módulos de integração que a Automação do Azure. O [Runbook Converter](#runbook-converter) converte runbooks do Orchestrator em runbooks gráficos, que, no entanto, não têm suporte no SMA.  Você ainda pode instalar o [Módulo de Atividades Standard](#standard-activities-module) e os [Módulos de Integração do System Center Orchestrator](#system-center-orchestrator-integration-modules) no SMA, mas deve [reescrever seus runbooks](https://technet.microsoft.com/library/dn469262.aspx) manualmente.
 
 ## <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker

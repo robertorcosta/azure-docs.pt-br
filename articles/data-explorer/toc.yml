@@ -178,7 +178,7 @@
               href: dealing-with-duplicates.md
     - name: Implantar
       items:
-        - name: Implantar o cluster em sua VNet
+        - name: Implantar o cluster em sua rede virtual
           href: vnet-deployment.md
     - name: Monitoramento
       items:

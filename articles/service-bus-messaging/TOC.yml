@@ -203,6 +203,10 @@
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Criar um namespace com tópico, assinatura e regra'
               href: service-bus-resource-manager-namespace-topic-with-rule.md
+    - name: Segurança
+      items:
+        - name: Configurar chaves gerenciadas pelo cliente para criptografia em repouso (Versão Prévia)
+          href: configure-customer-managed-key.md
     - name: Solucionar problemas
       items:
         - name: Guia de Solução de Problemas

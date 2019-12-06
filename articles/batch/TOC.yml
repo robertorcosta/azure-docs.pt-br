@@ -113,6 +113,8 @@
           href: batch-user-accounts.md
         - name: Enviar muitas tarefas
           href: large-number-tasks.md
+        - name: Verificar se há erros de trabalho e tarefa
+          href: batch-job-task-error-checking.md
     - name: Criar arquivos de recurso
       href: resource-files.md
     - name: Persistir saída de tarefa e de trabalho

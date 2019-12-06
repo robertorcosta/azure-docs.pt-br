@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603464"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848486"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Concluir uma implantação de autenticação com senha
 
@@ -125,18 +125,18 @@ Não há nenhum custo adicional para autenticação sem senha, embora alguns pr�
 
 Considere suas necessidades de negócios e os casos de uso para cada método de autenticação. Em seguida, selecione o método que melhor atenda às suas necessidades.
 
-### <a name="use-cases"></a>Casos de uso
+### <a name="use-cases"></a>Use casos
 
 A tabela a seguir descreve os casos de uso a serem implementados durante este projeto.
 
-| Área | DESCRIÇÃO |
+| Área | Descrição |
 | --- | --- |
 | **Acessar** | A conexão sem senha está disponível em um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de uso estão disponíveis para que os administradores sejam auditados quase em tempo real. <br> Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias ou a ferramenta SIEM é usada. |
-| **Controles** | O ciclo de vida das atribuições de usuário ao método de autenticação apropriado e aos grupos associados é definido e monitorado. |
+| **Governança** | O ciclo de vida das atribuições de usuário ao método de autenticação apropriado e aos grupos associados é definido e monitorado. |
 | **Segurança** | O acesso ao método de autenticação apropriado é controlado por meio de atribuições de usuário e grupo. <br> Somente usuários autorizados podem usar o logon sem senha. |
 | **Desempenho** | As linhas do tempo de propagação de atribuição de acesso são documentadas e monitoradas. <br> As horas de entrada são medidas para facilitar o uso. |
-| **Experiência do usuário** | Os usuários estão cientes da compatibilidade com a mobilidade. <br> Os usuários podem configurar o logon sem senha do aplicativo autenticador. |
+| **Experiência do Usuário** | Os usuários estão cientes da compatibilidade com a mobilidade. <br> Os usuários podem configurar o logon sem senha do aplicativo autenticador. |
 | **Suporte** | Os usuários estão cientes de como encontrar suporte para problemas de conexão sem senha. |
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
@@ -210,7 +210,7 @@ O Azure AD adiciona entradas aos logs de auditoria quando:
 
 A tabela a seguir fornece alguns exemplos de cenários de relatório típicos.
 
-|   | gerenciar riscos | Aumentar a produtividade | Governança e conformidade |
+|   | gerenciar riscos | Aumente a produtividade | Governança e conformidade |
 | --- | --- | --- | --- |
 | **Tipos de relatório** | Métodos de autenticação – usuários registrados para o registro de segurança combinado | Métodos de autenticação – usuários registrados para notificação de aplicativo | Entradas: revise quem está acessando o locatário e como |
 | **Ações potenciais** | Usuários de destino ainda não registrados | Impulsionar a adoção de Microsoft Authenticator aplicativo ou chaves de segurança | Revogar o acesso ou impor políticas de segurança adicionais para administradores |
@@ -245,7 +245,7 @@ Siga as etapas alinhadas ao método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Função do Azure AD | DESCRIÇÃO |
+| Função do Azure AD | Descrição |
 | --- | --- |
 | Administrador de Autenticação | Função menos privilegiada capaz de implementar e gerenciar métodos de autenticação |
 | Usuário | Função com privilégios mínimos para configurar o aplicativo autenticador no dispositivo ou para registrar o dispositivo de chave de segurança para entrada na Web ou no Windows 10. |
@@ -278,7 +278,7 @@ Siga as etapas no artigo habilitar a [entrada de chave de segurança sem senha p
 | O usuário não pode gerenciar minha chave de segurança no Windows 10 versão 1809 | A versão 1809 requer que você use o software de gerenciamento de chaves de segurança fornecido pelo fornecedor de chave FIDO2. Contate o fornecedor para obter suporte. |
 | Acho que minha chave de segurança do FIDO2 pode estar com defeito — como posso testá-la | Navegue até [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), insira as credenciais para uma conta de teste, conecte a chave de segurança suspeita, clique no botão "+" na parte superior direita da tela, clique em criar e passe pelo processo de criação. Se esse cenário falhar, o dispositivo poderá estar com defeito. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Habilitar chaves de segurança sem senha para entrar no Azure AD](howto-authentication-passwordless-security-key.md)
 - [Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
