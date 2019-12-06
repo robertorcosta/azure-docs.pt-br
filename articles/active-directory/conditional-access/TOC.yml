@@ -64,8 +64,6 @@
           href: howto-conditional-access-policy-compliant-device.md
     - name: Bloquear a autenticação herdada
       href: block-legacy-authentication.md
-    - name: Acesso condicional para registro de MFA
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Requer aplicativos de cliente aprovados
       href: app-based-conditional-access.md
     - name: Requer política de proteção do aplicativo
