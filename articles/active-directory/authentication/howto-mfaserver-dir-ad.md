@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b02d6468ede0d5748409a620a6641109cd523a09
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: b51c6284c0d7ee21f67d37465100f84d4b2f5ae2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404224"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848078"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Azure MFA Server e o Active Directory
 
@@ -35,7 +35,7 @@ Por padrão, o Servidor de Autenticação Multifator do Azure (MFA) é configura
 > [!NOTE]
 > Não há garantia de que a integração de diretórios funcione com diretórios diferentes de Active Directory Domain Services.
 
-| Recurso | DESCRIÇÃO |
+| Recurso | Descrição |
 | --- | --- |
 | Usar o Active Directory |Selecione a opção Usar o Active Directory para usar o Active Directory na importação e na sincronização.  Esta é a configuração padrão. <br>Observação: para que a integração do Active Directory funcione corretamente, ingresse o computador em um domínio e entre com uma conta de domínio. |
 | Incluir domínios confiáveis |Marque a caixa de seleção **Incluir Domínios Confiáveis** para que o agente tente se conectar a domínios confiáveis pelo domínio atual, a outro domínio na floresta ou a domínios envolvidos em uma relação de confiança de floresta.  Quando não estiver importando ou sincronizando usuários de qualquer um dos domínios confiáveis, desmarque a caixa de seleção para melhorar o desempenho.  O padrão é verificado. |
@@ -45,7 +45,7 @@ Por padrão, o Servidor de Autenticação Multifator do Azure (MFA) é configura
 
 A tabela a seguir descreve as definições de configuração de LDAP.
 
-| Recurso | DESCRIÇÃO |
+| Recurso | Descrição |
 | --- | --- |
 | Servidor |Insira o nome do host ou o endereço IP do servidor que está executando o diretório LDAP.  Um servidor de backup também pode ser especificado separado por ponto-e-vírgula. <br>Observação: quando o Tipo de Associação for SSL, é necessário um nome de host totalmente qualificado. |
 | DN base |Insira o nome diferenciado do objeto de diretório base do qual todas as consultas de diretório são iniciadas.  Por exemplo, d=abc,dc=com. |
@@ -76,7 +76,7 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 
 ![Personalizar atributos de integração de diretórios no servidor MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
 
-| Recurso | DESCRIÇÃO |
+| Recurso | Descrição |
 | --- | --- |
 | Identificador exclusivo |Digite o nome do atributo que serve como o identificador exclusivo do contêiner, do grupo de segurança e dos registros de usuário.  No Active Directory, isso geralmente é objectGUID. Outras implementações LDAP podem usar entryUUID ou algo semelhante.  O padrão é objectGUID. |
 | Tipo de identificador exclusivo |Selecione o tipo de atributo de identificador exclusivo.  No Active Directory, o atributo objectGUID é do tipo GUID. Outras implementações LDAP podem usar o tipo Cadeia de Caracteres ou Matriz de Bytes ASCII.  O padrão é GUID. <br><br>É importante definir esse tipo corretamente, já que os itens de sincronização são referenciados por seu identificador exclusivo. O tipo de identificador exclusivo é usado para localizar o objeto diretamente no diretório.  Definir esse tipo como Cadeia de Caracteres quando o diretório realmente armazena o valor como uma matriz de bytes de caracteres ASCII e impede que a sincronização funcione corretamente. |
@@ -88,7 +88,7 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 | Sobrenome |Insira o nome do atributo que contém o sobrenome em um registro de usuário.  O padrão é sn. |
 | Endereço de email |Insira o nome do atributo que contém o endereço de email em um registro de usuário.  O endereço de email é usado para enviar boas-vindas e emails de atualização para o usuário.  O padrão é email. |
 | Grupo de usuários |Insira o nome do atributo que contém o grupo de usuários em um registro de usuário.  O grupo de usuários pode ser usado para filtrar usuários no agente e em relatórios no Portal de Gerenciamento do servidor Multi-Factor Authentication. |
-| DESCRIÇÃO |Insira o nome do atributo que contém a descrição em um registro de usuário.  A descrição é usada somente para pesquisa.  O padrão é descrição. |
+| Descrição |Insira o nome do atributo que contém a descrição em um registro de usuário.  A descrição é usada somente para pesquisa.  O padrão é descrição. |
 | Idioma to telefonema |Insira o nome do atributo que contém o nome curto do idioma a ser usado para chamadas de voz para o usuário. |
 | Idioma da mensagem de texto |Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto SMS para o usuário. |
 | Idioma do aplicativo móvel |Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto do aplicativo Telefone do usuário. |
@@ -121,7 +121,7 @@ Se o diretório LDAP der suporte e se estiver configurado para DirSync, a sondag
 
 A tabela a seguir contém informações adicionais sobre cada uma das configurações de sincronização do guia.
 
-| Recurso | DESCRIÇÃO |
+| Recurso | Descrição |
 | --- | --- |
 | Habilitar a sincronização com o Active Directory |Quando marcado, o serviço do servidor de Autenticação Multifator sonda periodicamente o Active Directory quanto a alterações. <br><br>Observação: pelo menos um Item de sincronização deve ser adicionado e Sincronizar agora deve ser executado antes que o serviço do servidor Multi-Factor Auth inicie o processamento das alterações. |
 | Sincronizar cada |Especifique o intervalo de tempo que o serviço de servidor Multi-Factor Authentication aguardará entre a sondagem e o processamento de alterações. <br><br> Observação: o intervalo especificado é o tempo entre o início de cada ciclo.  Se o tempo de processamento das alterações exceder o intervalo, o serviço fará a sondagem novamente imediatamente. |

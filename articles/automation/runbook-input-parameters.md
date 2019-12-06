@@ -1,22 +1,22 @@
 ---
-title: Parâmetros de entrada do Runbook
+title: Parâmetro de entrada do Runbook
 description: Os parâmetros de entrada do runbook aumentam a flexibilidade dos runbooks permitindo transmitir dados para um runbook quando ele é iniciado. Este artigo descreve os diferentes cenários em que os parâmetros de entrada são usados em runbooks.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fb89af0363ddc25f2bccfa1169834aa856e514a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: be7d244f5aa422b2083d35fc56a52318a4379b79
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478243"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850220"
 ---
-# <a name="runbook-input-parameters"></a>Parâmetros de entrada do Runbook
+# <a name="runbook-input-parameters"></a>Parâmetro de entrada do Runbook
 
 Os parâmetros de entrada do runbook aumentam a flexibilidade dos runbooks, permitindo transmitir dados para este quando ele é iniciado. Os parâmetros permitem que as ações de runbook sejam direcionadas para ambientes e cenários específicos. Neste artigo, você é orientado quanto aos diferentes cenários em que os parâmetros de entrada são usados em runbooks.
 
@@ -32,7 +32,7 @@ O PowerShell e os runbooks de Fluxo de Trabalho do PowerShell na Automação do 
 |:--- |:--- |
 | `Type` |Obrigatório. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
 | `Name` |Obrigatório. O nome do parâmetro. Deve ser exclusivo no runbook e pode conter apenas letras, números ou caracteres de sublinhado. Deve começar com uma letra. |
-| `Mandatory` |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se você definir isso como **\$true**, um valor deverá ser fornecido quando o runbook for iniciado. Se você definir isso como **\$false**, um valor será opcional. |
+| `Mandatory` |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se você definir isso como **\$verdadeiro**, um valor deverá ser fornecido quando o runbook for iniciado. Se você definir isso como **\$falso**, um valor será opcional. |
 | `Default value` |Opcional. Especifica um valor que é usado para o parâmetro se um valor não for transmitido ao iniciar o runbook. Um valor padrão pode ser definido para qualquer parâmetro e tornará automaticamente o parâmetro opcional, independentemente da configuração obrigatória. |
 
 O Windows PowerShell dá suporte a mais atributos de parâmetros de entrada do que aqueles listados aqui, como validação, aliases e conjuntos de parâmetros. No entanto, a Automação do Azure atualmente dá suporte apenas aos parâmetros de entrada anteriores.
@@ -146,7 +146,7 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>Como iniciar um runbook publicado usando cmdlets do PowerShell e atribuir parâmetros
 
-* **Cmdlets do Azure Resource Manager:** Você pode iniciar um runbook de Automação criado em um grupo de recursos usando [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook).
+* **Cmdlets do Azure Resource Manager:** você pode iniciar um runbook de Automação criado em um grupo de recursos usando [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook).
   
   **Exemplo:**
 
@@ -156,7 +156,7 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
   Start-AzureRmAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
   ```
 
-* **Cmdlets do modelo de implantação clássico do Azure:** Você pode iniciar um runbook de automação criado em um grupo de recursos padrão usando [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
+* **Cmdlets de modelo de implantação clássico do Azure:** você pode iniciar um runbook de automação criado em um grupo de recursos padrão usando [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
   **Exemplo:**
 
@@ -171,7 +171,7 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>Como uniciar um runbook usando o SDK e atribuir parâmetros
 
-* **Método do Azure Resource Manager:** Você pode iniciar um runbook usando o SDK de uma linguagem de programação. Abaixo está um snippet de código em C# para iniciar um runbook em sua conta de Automação. Você pode exibir todo o código em nosso [repositório do GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+* **Método do Gerenciador de recursos do Azure:** você pode iniciar um runbook usando o SDK de uma linguagem de programação. Abaixo está um snippet de código em C# para iniciar um runbook em sua conta de Automação. Você pode exibir todo o código em nosso [repositório do GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
   ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -191,7 +191,7 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
       }
   ```
 
-* **Método do modelo de implantação clássico do Azure:** Você pode iniciar um runbook usando o SDK de uma linguagem de programação. Abaixo está um snippet de código em C# para iniciar um runbook em sua conta de Automação. Você pode exibir todo o código em nosso [repositório do GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Método de modelo de implantação clássico do Azure:** você pode iniciar um runbook usando o SDK de uma linguagem de programação. Abaixo está um snippet de código em C# para iniciar um runbook em sua conta de Automação. Você pode exibir todo o código em nosso [repositório do GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
 
   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -231,15 +231,15 @@ Um trabalho de runbook pode ser criado e iniciado com a API REST de Automação 
 
 No URI de solicitação, substitua os seguintes parâmetros:
 
-* **subscriptionId:** Sua ID da assinatura do Azure.  
-* **resourceGroupName:** O nome do grupo de recursos para a Conta de Automação.
-* **automationAccountName:** O nome de sua conta de automação hospedada no serviço de nuvem especificado.  
-* **jobName:** O GUID do trabalho. Os GUIDs do PowerShell pode ser criados usando o cmdlet **[GUID]::NewGuid().ToString ()** .
+* **SubscriptionId:** Sua ID de assinatura do Azure.  
+* **resourceGroupName:** O nome do grupo de recursos para a conta de automação.
+* **automationAccountName:** O nome da sua conta de automação que é hospedada no serviço de nuvem especificado.  
+* **JobName:** O GUID do trabalho. Os GUIDs do PowerShell pode ser criados usando o cmdlet **[GUID]::NewGuid().ToString ()** .
 
 Para passar parâmetros para o trabalho de runbook, use o corpo da solicitação. Ele usa as duas seguintes propriedades fornecidas no formato JSON:
 
-* **Nome do runbook:** Obrigatório. O nome do runbook para que o trabalho seja iniciado.  
-* **Parâmetros do runbook:** Opcional. Um dicionário da lista de parâmetros no formato (nome, valor) em que o nome deve ser do tipo cadeia de caracteres e o valor pode ser qualquer valor JSON válido.
+* **Nome do Runbook:** Obrigatório. O nome do runbook para que o trabalho seja iniciado.  
+* **Parâmetros do Runbook:** Opcional. Um dicionário da lista de parâmetros no formato (nome, valor) em que o nome deve ser do tipo cadeia de caracteres e o valor pode ser qualquer valor JSON válido.
 
 Se você quiser iniciar o runbook **Get-AzureVMTextual** criado anteriormente com **VMName** e **resourceGroupName** como parâmetros, use o formato JSON a seguir para o corpo da solicitação.
 
@@ -375,7 +375,7 @@ Execute os seguintes comandos do PowerShell:
    $job = Start-AzureRmAutomationRunbook @RBParams
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter detalhes sobre diferentes maneiras de iniciar um runbook, consulte [Como iniciar um runbook](automation-starting-a-runbook.md).
 * Para editar um runbook textual, consulte [Como editar runbooks textuais](automation-edit-textual-runbook.md).

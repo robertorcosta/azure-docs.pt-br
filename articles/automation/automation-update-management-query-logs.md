@@ -4,17 +4,17 @@ description: Este artigo descreve como consultar os logs para Gerenciamento de A
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d53e41fc902241d796cf8b10ae35c50c090a803a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 4797e3a348b057fa21677649e4cb7de78de0d8b9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377532"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850611"
 ---
 # <a name="query-update-records-for-update-management-in-log-analytics"></a>Registros de atualização de consulta para Gerenciamento de Atualizações em Log Analytics
 
@@ -63,7 +63,7 @@ Para confirmar que um grupo de gerenciamento de Operations Manager está se comu
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>Consultas de Avaliação de VM única do Azure (Windows)
 
-Substitua o valor VMUUID pelo GUID da VM da máquina virtual que você está consultando. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta em logs de Azure Monitor: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Substitua o valor VMUUID pelo GUID da VM da máquina virtual que você está consultando. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta nos logs de Azure Monitor: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Resumo das atualizações ausentes
 
@@ -92,7 +92,7 @@ Update
 
 ### <a name="single-azure-vm-assessment-queries-linux"></a>Consultas de avaliação de VM única do Azure (Linux)
 
-Para alguns distribuições do Linux, há uma incompatibilidade de [endian](https://en.wikipedia.org/wiki/Endianness) com o valor de VMUUID que vem de Azure Resource Manager e o que é armazenado em logs de Azure monitor. A consulta a seguir procura uma correspondência em qualquer endianness. Substitua os valores VMUUID pelo formato big-endian e little-endian do GUID para retornar corretamente os resultados. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta em logs de Azure Monitor: `Update | where Computer == "<machine name>"
+Para alguns distribuições do Linux, há uma incompatibilidade de [endian](https://en.wikipedia.org/wiki/Endianness) com o valor de VMUUID que vem de Azure Resource Manager e o que é armazenado em logs de Azure monitor. A consulta a seguir procura uma correspondência em qualquer endianness. Substitua os valores VMUUID pelo formato big-endian e little-endian do GUID para retornar corretamente os resultados. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta nos logs de Azure Monitor: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Resumo das atualizações ausentes

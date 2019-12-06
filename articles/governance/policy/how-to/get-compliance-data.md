@@ -2,13 +2,13 @@
 title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos recursos do Azure.
 ms.date: 02/01/2019
-ms.topic: conceptual
-ms.openlocfilehash: 8cb95f0a9479da27ea6b9ef8ec6836f915aa4030
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: how-to
+ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132811"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873141"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -22,7 +22,7 @@ Há várias maneiras de acessar as informações de conformidade geradas por sua
 Antes de examinar os métodos de relatório de conformidade, vamos ver quando as informações de conformidade são atualizadas, além da frequência e dos eventos que disparam um ciclo de avaliação.
 
 > [!WARNING]
-> Se o estado de conformidade estiver sendo relatado como **não registrado**, verifique se o provedor de recursos **Microsoft. PolicyInsights** está registrado e se o usuário tem as permissões RBAC (controle de acesso baseado em função) apropriadas, conforme descrito em [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> Se o estado de conformidade estiver sendo relatado como **não registrado**, verifique se o provedor de recursos **Microsoft. PolicyInsights** está registrado e se o usuário tem as permissões RBAC (controle de acesso baseado em função) apropriadas, conforme descrito em [RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Gatilhos de avaliação
 
@@ -53,13 +53,13 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
 
 O exame dá suporte à avaliação de recursos em uma assinatura ou em um grupo de recursos. Inicie uma verificação por escopo com um comando **POST** da API REST usando as seguintes estruturas de URI:
 
-- Assinatura
+- Subscription
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- Grupo de recursos
+- Resource group
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -86,10 +86,10 @@ A tabela a seguir mostra como os diferentes efeitos da política funcionam com a
 
 | Estado do recurso | Efeito | Avaliação da política | Estado de conformidade |
 | --- | --- | --- | --- |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | verdadeiro | Sem conformidade |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | verdadeiro | Sem conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
+| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Sem conformidade |
+| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Em conformidade |
+| Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
+| Novo | Auditoria, AuditIfNotExist\* | False | Em conformidade |
 
 \* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE.
 Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
@@ -268,7 +268,7 @@ Seus resultados devem se parecer com o exemplo a seguir:
 
 Para obter mais informações sobre como consultar eventos de política, consulte o artigo de referência de [eventos de Azure Policy](/rest/api/policy-insights/policyevents) .
 
-### <a name="azure-powershell"></a>PowerShell do Azure
+### <a name="azure-powershell"></a>Azure PowerShell
 
 O módulo Azure PowerShell para Azure Policy está disponível no Galeria do PowerShell como [AZ. PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
 Usando o PowerShellGet, você pode instalar o módulo usando `Install-Module -Name Az.PolicyInsights` (verifique se você tem a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps) instalada):
@@ -399,7 +399,7 @@ Se você tiver um [espaço de trabalho log Analytics](../../../log-analytics/log
 
 ![Azure Policy conformidade usando logs de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

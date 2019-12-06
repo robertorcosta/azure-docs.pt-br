@@ -4,17 +4,17 @@ description: Este artigo descreve como compilar as configurações da DSC (Confi
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d3cca9d8954d9ac158d88b393c46672da3faa19
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fdea8ed9a9e59a169a6ffb525ed286eb7d1ada53
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231710"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850900"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação das configurações DSC na Configuração do Estado de Automação do Azure
 
@@ -189,7 +189,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="working-with-assets-in-azure-automation-during-compilation"></a>Trabalhando com ativos na automação do Azure durante a compilação
 
-As referências de ativos são as mesmas na Configuração do Estado de Automação do Azure e runbooks. Para obter mais informações, consulte o seguinte:
+As referências de ativos são as mesmas na Configuração do Estado de Automação do Azure e runbooks. Para saber mais, confira o seguinte:
 
 - [Certificados](automation-certificates.md)
 - [Conexões](automation-connections.md)
@@ -287,7 +287,7 @@ Use o cmdlet [Import-AzureRmAutomationDscNodeConfiguration](/powershell/module/a
 Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAccount' -ResourceGroupName 'MyResourceGroup' -ConfigurationName 'MyNodeConfiguration' -Path 'C:\MyConfigurations\TestVM1.mof'
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)
 - Para saber como compilar configurações de DSC para que possam ser atribuídas a nós de destino, consulte [Compilar configurações na Configuração de Estado da Automação do Azure](automation-dsc-compile.md)

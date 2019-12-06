@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a76aa0ca7cbda3f2db564c220ba12fec60f60509
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 60a7bf9690b4f50c771afc4745bbc2e5377adbba
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381876"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848469"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)
 
@@ -29,7 +29,7 @@ Em vez de ver um prompt para uma senha depois de inserir um nome de usuário, um
 > [!NOTE]
 > Esse recurso esteve no aplicativo Microsoft Authenticator desde março de 2017, portanto, há a possibilidade de que, quando a política estiver habilitada para um diretório, os usuários possam encontrar esse fluxo imediatamente e ver uma mensagem de erro se eles não tiverem sido habilitados pela política. Esteja atento e prepare seus usuários para essa alteração.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Autenticação multifator do Azure, com notificações por push permitidas como um método de verificação 
 - Versão mais recente do Microsoft Authenticator instalada em dispositivos que executam o iOS 8.0 ou superior ou o Android 6.0 ou superior.
@@ -46,7 +46,7 @@ Os recursos de registro para métodos de autenticação com senha contam com a v
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilitar métodos de autenticação de entrada por telefone sem senha
 
 1. Entre no [Portal do Azure](https://portal.azure.com)
-1. Procurar pelo *Azure Active Directory* e selecioná-lo. Selecionar métodos de **autenticação** de > de **segurança** > **política de método de autenticação (versão prévia)**
+1. Pesquise *Azure Active Directory* e selecione-o. Selecionar métodos de **autenticação** de > de **segurança** > **política de método de autenticação (versão prévia)**
 1. Em **entrada no telefone sem senha**, escolha as seguintes opções
    1. **Habilitar** -Sim ou não
    1. **Destino** -todos os usuários ou Selecionar usuários
@@ -90,14 +90,14 @@ Se um usuário tiver uma verificação de entrada de telefone sem senha não res
 
 Os usuários finais que estão habilitados para MFA por meio do servidor Azure MFA local de uma organização ainda podem criar e usar uma única credencial de entrada de telefone sem senha. Se o usuário tentar atualizar várias instalações (+5) do Microsoft Authenticator com a credencial, essa alteração poderá resultar em um erro.  
 
-### <a name="device-registration"></a>Registro de dispositivos
+### <a name="device-registration"></a>Registro do dispositivo
 
 Um dos pré-requisitos para criar essa nova credencial forte é que o dispositivo, em que o aplicativo Microsoft Authenticator está instalado, também deve ser registrado no locatário do Azure AD para um usuário individual. Devido às restrições de registro do dispositivo atual, um dispositivo só pode ser registrado em um único locatário. Esse limite significa que apenas uma conta corporativa ou de estudante no aplicativo Microsoft Authenticator pode ser habilitada para entrada por telefone.
 
 > [!NOTE]
 > O registro do dispositivo não é o mesmo que o gerenciamento de dispositivos ou "MDM". Ele só associa uma ID de dispositivo e uma ID de usuário ao diretório do Azure AD.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [O que não tem senha?](concept-authentication-passwordless.md)
 

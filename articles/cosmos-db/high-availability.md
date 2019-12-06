@@ -1,18 +1,18 @@
 ---
 title: Alta disponibilidade no Azure Cosmos DB
-description: Este artigo descreve como o Azure Cosmos DB fornece alta disponibilidade
+description: Este artigo descreve como Azure Cosmos DB fornece alta disponibilidade, replicando de forma transparente os dados em todas as regiões associadas à conta do Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ab6544e4535f2d2c2e88284f61251f177d457a84
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 1dab10592c8a34bc9df4425785e6dae95e44f219
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146658"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872087"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com o Azure Cosmos DB
 
@@ -77,11 +77,11 @@ Ao configurar gravações de várias regiões para sua conta do Azure Cosmos, vo
 Esse recurso está disponível nas seguintes regiões do Azure:
 
 * Sul do Reino Unido
-* Sudeste da Ásia 
-* East US
+* Sudeste Asiático 
+* Leste dos EUA
 * Leste dos EUA 2 
 * EUA Central
-* Europa Ocidental
+* Oeste da Europa
 * Oeste dos EUA 2
 
 > [!NOTE] 
@@ -96,17 +96,17 @@ A tabela a seguir resume a capacidade de alta disponibilidade de várias configu
 |Preço  |  Taxa de cobrança de região única |  Taxa de cobrança da zona de disponibilidade de região única |  Taxa de cobrança de várias regiões       |
 |Falhas de zona – perda de dados   |  Perda de dados  |   Sem perda de dados |   Sem perda de dados  |
 |Falhas de zona – disponibilidade |  Perda de disponibilidade  | Sem perda de disponibilidade  |  Sem perda de disponibilidade  |
-|Latência de leitura    |  Entre regiões    |   Entre regiões   |    Baixa  |
-|Latência de gravação    |   Entre regiões   |  Entre regiões    |   Baixa   |
+|Latência de leitura    |  Entre regiões    |   Entre regiões   |    Baixo  |
+|Latência de gravação    |   Entre regiões   |  Entre regiões    |   Baixo   |
 |Interrupção regional – perda de dados    |   Perda de dados      |  Perda de dados       |   Perda de dados <br/><br/> Ao usar a consistência de desatualização limitada com vários mestres e mais de uma região, a perda de dados é limitada à desatualização limitada configurada em sua conta. <br/><br/> A perda de dados durante a interrupção regional pode ser evitada com a configuração de uma forte consistência com várias regiões. Essa opção é obtida com compensações que afetam a disponibilidade e o desempenho.      |
 |Interrupção regional – disponibilidade  |  Perda de disponibilidade       |  Perda de disponibilidade       |  Sem perda de disponibilidade  |
-|Taxa de transferência    |  Taxa de transferência provisionada X RU/s      |  Taxa de transferência provisionada X RU/s       |  taxa de transferência provisionada de 2 RU/s <br/><br/> Esse modo de configuração requer duas vezes a quantidade de taxa de transferência quando comparado a uma única região com Zonas de Disponibilidade porque há duas regiões.   |
+|Produtividade    |  Taxa de transferência provisionada X RU/s      |  Taxa de transferência provisionada X RU/s       |  taxa de transferência provisionada de 2 RU/s <br/><br/> Esse modo de configuração requer duas vezes a quantidade de taxa de transferência quando comparado a uma única região com Zonas de Disponibilidade porque há duas regiões.   |
 
 > [!NOTE] 
 > Para habilitar o suporte à zona de disponibilidade para uma conta do Azure Cosmos de várias regiões, a conta deve ter gravações de vários mestres habilitadas.
 
 
-Você pode habilitar a redundância de zona ao adicionar uma região a contas novas ou existentes do Azure Cosmos. Para habilitar a redundância de zona em sua conta do Azure Cosmos, você deve `isZoneRedundant` definir o `true` sinalizador como para um local específico. Você pode definir esse sinalizador dentro da propriedade Locations. Por exemplo, o seguinte trecho do PowerShell habilita a redundância de zona para a região "sudeste asiático":
+Você pode habilitar a redundância de zona ao adicionar uma região a contas novas ou existentes do Azure Cosmos. Para habilitar a redundância de zona em sua conta do Azure Cosmos, você deve definir o sinalizador `isZoneRedundant` como `true` para um local específico. Você pode definir esse sinalizador dentro da propriedade Locations. Por exemplo, o seguinte trecho do PowerShell habilita a redundância de zona para a região "sudeste asiático":
 
 ```powershell
 $locations = @( 
@@ -142,7 +142,7 @@ Você pode habilitar Zonas de Disponibilidade usando portal do Azure ao criar um
 
 - Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma interrupção em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para o aplicativo se recuperar totalmente é conhecido como RTO (objetivo de tempo de recuperação). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo de atualizações que você pode perder é conhecido como RPO (objetivo de ponto de recuperação). Para ver o RTO e o RPO do Azure Cosmos DB, confira [Níveis de consistência e durabilidade dos dados](consistency-levels-tradeoffs.md#rto)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, você poderá ler os artigos a seguir:
 

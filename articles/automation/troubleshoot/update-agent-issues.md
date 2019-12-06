@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763650"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850118"
 ---
 # <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Entenda a integridade do Windows Hybrid Runbook Worker no Gerenciamento de Atualizações
 
@@ -57,7 +57,7 @@ A verificação do sistema operacional verifica se o Hybrid Runbook Worker está
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Suporta apenas avaliações de atualização.         |
 |Windows Server 2008 R2 SP1 e posterior |.NET Framework 4,6 ou posterior é necessário. ([Fazer o download do .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> O Windows PowerShell 5,1 é necessário.  ([Faça o download do Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-462"></a>4\.6.2 .NET
+### <a name="net-462"></a>.NET 4.6.2
 
 A verificação de .NET Framework verifica se o sistema tem um mínimo de [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) instalado.
 

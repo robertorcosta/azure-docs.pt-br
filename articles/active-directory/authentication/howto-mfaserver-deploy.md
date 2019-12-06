@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e751c7aefe888d16e6d86a0184a1a59437d665f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 11a0dbd28dc798342a24180af430187ac69f61b8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404242"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848129"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor de Autenticação Multifator do Azure
 
@@ -50,15 +50,15 @@ Você precisa configurar vários servidores para alta disponibilidade ou balance
 
 Quando um servidor MFA do Azure mestre fica offline, os servidores subordinados ainda podem processar solicitações de verificação em duas etapas. No entanto, você não pode adicionar novos usuários e os usuários existentes não podem atualizar suas configurações até que o mestre fique novamente online ou um subordinado seja promovido.
 
-### <a name="prepare-your-environment"></a>Prepare o seu ambiente
+### <a name="prepare-your-environment"></a>Preparar seu ambiente
 
 Verifique se o servidor que você está usando para a Autenticação Multifator do Azure atende aos seguintes requisitos:
 
-| Requisitos do Servidor de Autenticação Multifator do Azure | DESCRIÇÃO |
+| Requisitos do Servidor de Autenticação Multifator do Azure | Descrição |
 |:--- |:--- |
 | Hardware |<li>200 MB de espaço em disco rígido</li><li>processador compatível com x32 ou x64</li><li>1 GB ou mais de RAM</li> |
 | Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008 SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003 SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, todas as edições</li><li>Windows 8, todas as edições</li><li>Windows 7, todas as edições</li><li>Windows Vista, todas as edições, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 ou superior se estiver instalando o portal do usuário ou o SDK do serviço Web</li> |
-| permissões | Conta de Administrador Corporativo ou de Administrador de Domínio para registrar-se no Active Directory |
+| Permissões | Conta de Administrador Corporativo ou de Administrador de Domínio para registrar-se no Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Componentes do servidor MFA do Azure
 
@@ -102,7 +102,7 @@ Se você não estiver usando o recurso de Confirmação de Eventos e os usuário
 Siga estas etapas para baixar o Servidor de Autenticação Multifator do Azure do portal do Azure:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Procurar pelo *Azure Active Directory* e selecioná-lo. Selecione **servidor MFA**.
+2. Pesquise *Azure Active Directory* e selecione-o. Selecione **servidor MFA**.
 3. Selecione **Configurações do servidor**.
 4. Selecione **Baixar** e siga as instruções na página de downloads para salvar o instalador. 
 
@@ -202,7 +202,7 @@ O novo servidor está agora configurado e em execução com a configuração e o
 
 Depois que você tiver feito upgrade ou instalado o MFA Server versão 8.x ou superior, é recomendável que os conjuntos de codificação mais antigos ou mais fracos sejam desabilitados ou removidos, a menos que eles sejam exigidos por sua organização. Você pode obter informações sobre como concluir esta tarefa no artigo [Gerenciar protocolos SSL/TLS e conjuntos de codificação para o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Instale e configure o [Portal do Usuário](howto-mfaserver-deploy-userportal.md) para o autoatendimento.
 - Instale e configure o Servidor de MFA do Azure com o [Serviço de Federação do Active Directory](multi-factor-authentication-get-started-adfs.md), [Autenticação RADIUS](howto-mfaserver-dir-radius.md) ou [Autenticação LDAP](howto-mfaserver-dir-ldap.md).

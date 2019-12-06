@@ -1,18 +1,18 @@
 ---
 title: Distribuição global com o Azure Cosmos DB – nos bastidores
 description: Este artigo apresenta detalhes técnicos relacionados à distribuição global do Azure Cosmos DB
-author: dharmas-cosmos
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: ce943fbed0774667100f6de4c60f91c0b02de6c3
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615355"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872121"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição de dados global com o Azure Cosmos DB – nos bastidores
 
@@ -20,7 +20,7 @@ Azure Cosmos DB é um serviço fundamental no Azure, portanto, ele é implantado
 
 ![Topologia do sistema](./media/global-dist-under-the-hood/distributed-system-topology.png)
 
-**A distribuição global no Azure Cosmos DB está pronta para uso:** A qualquer momento, com alguns cliques ou programaticamente com uma única chamada à API, você pode adicionar ou remover as regiões geográficas associadas ao banco de dados Cosmos. Um banco de dados Cosmos, por sua vez, consiste em um conjunto de contêineres Cosmos. No Cosmos DB, os contêineres servem como unidades lógicas de distribuição e escalabilidade. As coleções, as tabelas e os gráficos que você cria são (internamente) apenas contêineres do Cosmos. Os contêineres são completamente independentes de esquema e fornecem um escopo para uma consulta. Os dados em um contêiner do Cosmos são indexados automaticamente após a ingestão. A indexação automática permite que os usuários consultem os dados sem os aborrecimentos do gerenciamento de esquema ou índice, especialmente em uma instalação distribuída globalmente.  
+A **distribuição global no Azure Cosmos DB está pronta** para uso: A qualquer momento, com alguns cliques ou programaticamente com uma única chamada à API, você pode adicionar ou remover as regiões geográficas associadas ao banco de dados Cosmos. Um banco de dados Cosmos, por sua vez, consiste em um conjunto de contêineres Cosmos. No Cosmos DB, os contêineres servem como unidades lógicas de distribuição e escalabilidade. As coleções, as tabelas e os gráficos que você cria são (internamente) apenas contêineres do Cosmos. Os contêineres são completamente independentes de esquema e fornecem um escopo para uma consulta. Os dados em um contêiner do Cosmos são indexados automaticamente após a ingestão. A indexação automática permite que os usuários consultem os dados sem os aborrecimentos do gerenciamento de esquema ou índice, especialmente em uma instalação distribuída globalmente.  
 
 - Em uma determinada região, os dados dentro de um contêiner são distribuídos usando uma chave de partição, que você fornece e é gerenciado de forma transparente pelas partições físicas subjacentes (*distribuição local*).  
 
@@ -32,13 +32,13 @@ Conforme mostrado na imagem a seguir, os dados dentro de um contêiner são dist
 
 ![partições físicas](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
 
-Uma partição física é implementada por um grupo de réplicas, chamado de *conjunto*de réplicas. Cada computador hospeda centenas de réplicas que correspondem a várias partições físicas em um conjunto fixo de processos, conforme mostrado na imagem acima. As réplicas correspondentes às partições físicas são colocadas dinamicamente e com balanceamento de carga entre os computadores dentro de um cluster e os data centers dentro de uma região.  
+Uma partição física é implementada por um grupo de réplicas, chamado de *conjunto de réplicas*. Cada computador hospeda centenas de réplicas que correspondem a várias partições físicas em um conjunto fixo de processos, conforme mostrado na imagem acima. As réplicas correspondentes às partições físicas são colocadas dinamicamente e com balanceamento de carga entre os computadores dentro de um cluster e os data centers dentro de uma região.  
 
 Uma réplica pertence exclusivamente a um locatário do Azure Cosmos DB. Cada réplica hospeda uma instância do [Mecanismo de Banco de Dados](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) do Cosmos DB, que gerencia os recursos, bem como os índices associados. O mecanismo de banco de dados Cosmos opera em um sistema de tipos baseado em ARS (Atom-Record-Sequence). O mecanismo é independente do conceito de um esquema, desfocando o limite entre a estrutura e os valores de instância de registros. O Cosmos DB obtém total independência de esquema indexando tudo automaticamente no momento da ingestão de maneira eficiente, o que permite aos usuários consultar seus dados distribuídos globalmente sem precisarem lidar com gerenciamento de esquema ou índice.
 
 O mecanismo de banco de dados Cosmos consiste em componentes, incluindo a implementação de vários primitivos de coordenação, tempos de execução de linguagem, o processador de consultas e os subsistemas de armazenamento e indexação responsáveis pelo armazenamento transacional e indexação de dados, respectivos. Para fornecer durabilidade e alta disponibilidade, o Mecanismo de Banco de Dados mantém os dados e o índice em SSDs e replica-os entre as instâncias do Mecanismo de Banco de Dados dentro dos conjuntos de réplica, respectivamente. Locatários maiores correspondem a uma escala maior de taxa de transferência e armazenamento e têm maior ou maior réplicas ou ambos. Cada componente do sistema é completamente assíncrono: nenhum thread jamais bloqueia e cada thread faz trabalho de curta duração sem incorrer em nenhuma alternância de thread desnecessária. A limitação de taxa e a contrapressão são inseridas em toda a pilha do controle de admissão para todos os caminhos de E/S. O mecanismo de banco de dados Cosmos foi projetado para explorar a simultaneidade refinada e fornecer alta taxa de transferência enquanto opera em frugal quantidades de recursos do sistema.
 
-A distribuição global de Cosmos DB depende de duas abstrações de chave – *conjuntos* de réplicas e *conjuntos de partições*. Um conjunto de réplicas é um bloco de Lego modular para coordenação, enquanto que um conjunto de partições é uma sobreposição dinâmica de uma ou mais partições físicas distribuídas geograficamente. Para entender como a distribuição global funciona, precisamos entender essas duas abstrações principais. 
+A distribuição global de Cosmos DB depende de duas abstrações de chave – *conjuntos de réplicas* e *conjuntos de partições*. Um conjunto de réplicas é um bloco de Lego modular para coordenação, enquanto que um conjunto de partições é uma sobreposição dinâmica de uma ou mais partições físicas distribuídas geograficamente. Para entender como a distribuição global funciona, precisamos entender essas duas abstrações principais. 
 
 ## <a name="replica-sets"></a>Conjuntos de réplicas
 
@@ -54,7 +54,7 @@ Um grupo de partições físicas, um de cada um dos configurados com as regiões
 
 ![Conjuntos de partição](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
 
-Você pode pensar em um conjunto de partições como um "superconjunto de réplicas" geograficamente disperso composto por vários conjuntos de réplicas com o mesmo conjunto de chaves. Semelhante a um conjunto de réplicas, a associação de um conjunto de partições também é dinâmica – ela flutua com base nas operações de gerenciamento de partição física implícita para adicionar/remover novas partições de/para um determinado conjunto de partições (por exemplo, ao escalar horizontalmente a taxa de transferência em um contêiner, adicionar/remover uma região para o banco de dados Cosmos ou quando ocorreram falhas). Em virtude de ter cada uma das partições (de um conjunto de partição) gerenciar a associação de conjunto de partições em seu próprio conjunto de réplicas, a associação é totalmente descentralizada e altamente disponível. Durante a reconfiguração de um conjunto de partições, a topologia da sobreposição entre as partições físicas também é estabelecida. A topologia é selecionada dinamicamente com base no nível de consistência, distância geográfica e largura de banda de rede disponível entre as partições físicas de origem e de destino.  
+Você pode pensar em um conjunto de partições como um "superconjunto de réplicas" geograficamente disperso composto por vários conjuntos de réplicas com o mesmo conjunto de chaves. Semelhante a um conjunto de réplicas, a associação de um conjunto de partições também é dinâmica – ela flutua com base nas operações de gerenciamento de partição física implícitas para adicionar/remover novas partições de/para um determinado conjunto de partições (por exemplo, quando você dimensiona a taxa de transferência em um contêiner, adiciona/remove uma região ao banco de dados Cosmos ou quando ocorrem falhas). Em virtude de ter cada uma das partições (de um conjunto de partição) gerenciar a associação de conjunto de partições em seu próprio conjunto de réplicas, a associação é totalmente descentralizada e altamente disponível. Durante a reconfiguração de um conjunto de partições, a topologia da sobreposição entre as partições físicas também é estabelecida. A topologia é selecionada dinamicamente com base no nível de consistência, distância geográfica e largura de banda de rede disponível entre as partições físicas de origem e de destino.  
 
 O serviço permite que você configure seus bancos de dados do Cosmos com uma ou várias regiões de gravação e, dependendo da escolha, conjuntos de partições são configurados para aceitar as gravações em exatamente uma ou em todas as regiões. O sistema usa um protocolo de consenso aninhado de dois níveis – um nível opera dentro das réplicas de um conjunto de réplicas de uma partição física que aceita as gravações e o outro opera no nível de um conjunto de partições para fornecer garantias completas de ordenação para todas as gravações confirmadas no conjunto de partições. Esse consenso aninhado em várias camadas é crítico para a implementação de nossos contratos rigorosos de alta disponibilidade, bem como a implementação dos modelos de coerência, que o Cosmos DB oferece a seus clientes.  
 
@@ -69,7 +69,7 @@ Podemos empregar os relógios de vetor codificados (contendo a ID da região e r
 Para os bancos de dados do Cosmos configurados com várias regiões de gravação, o sistema oferece diversas políticas de resolução automática de conflitos para os desenvolvedores escolherem, incluindo: 
 
 - **Last-Write-WINS (LWW)** , que, por padrão, usa uma propriedade Timestamp definida pelo sistema (que é baseada no protocolo de relógio de sincronização de tempo). O Cosmos DB também permite que você especifique qualquer outra propriedade numérica personalizada a ser usada para resolução de conflitos.  
-- **Política de resolução de conflitos definida pelo aplicativo (personalizada)** (expresso por meio de procedimentos de mesclagem), que é projetado para a reconciliação de semânticas definida pelo aplicativo de conflitos. Esses procedimentos são invocados após a detecção de conflitos de entre gravações sob responsabilidade de uma transação de banco de dados no lado do servidor. O sistema fornece exatamente uma vez a garantia para a execução de um procedimento de mesclagem como parte do protocolo de compromisso. Há [várias amostras de resolução de conflitos](how-to-manage-conflicts.md) disponíveis para você brincar com.  
+- **Política de resolução de conflitos (personalizada) definida pelo aplicativo** (expressa por meio de procedimentos de mesclagem), que é projetada para a reconciliação de semântica definida pelo aplicativo de conflitos. Esses procedimentos são invocados após a detecção de conflitos de entre gravações sob responsabilidade de uma transação de banco de dados no lado do servidor. O sistema fornece exatamente uma vez a garantia para a execução de um procedimento de mesclagem como parte do protocolo de compromisso. Há [várias amostras de resolução de conflitos](how-to-manage-conflicts.md) disponíveis para você brincar com.  
 
 ## <a name="consistency-models"></a>Modelos de coerência
 
@@ -79,7 +79,7 @@ A consistência de desatualização limitada garante que todas as leituras estar
 
 A semântica dos cinco modelos de consistência no Cosmos DB é descrita [aqui](consistency-levels.md)e é descrita matematicamente usando uma especificação TLA + de alto nível [aqui](https://github.com/Azure/azure-cosmos-tla).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, saiba como configurar a distribuição global usando os seguintes artigos:
 

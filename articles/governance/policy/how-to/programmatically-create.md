@@ -2,13 +2,13 @@
 title: Cria políticas de maneira programática
 description: Este artigo orienta você pela criação e gerenciamento programático de políticas para Azure Policy com CLI do Azure, Azure PowerShell e API REST.
 ms.date: 01/31/2019
-ms.topic: conceptual
-ms.openlocfilehash: 98af714e5aaf8e103b81e77c9960589fa0ee6b77
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.topic: how-to
+ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463547"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873056"
 ---
 # <a name="programmatically-create-policies"></a>Cria políticas de maneira programática
 
@@ -16,13 +16,13 @@ Este artigo orienta você na criação e gerenciamento por meio de programação
 
 Para obter informações sobre a conformidade, veja [como obter dados de conformidade](get-compliance-data.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se os seguintes pré-requisitos são cumpridos:
 
 1. Caso ainda não tenha feito, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia solicitações HTTP para APIs baseadas no Azure Resource Manager.
 
-1. Atualize seu módulo do Azure PowerShell para a versão mais recente. Consulte [Instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps) para obter informações detalhadas. Para obter mais informações sobre a versão mais recente, consulte o [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+1. Atualize seu módulo do Azure PowerShell para a versão mais recente. Confira [Instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps) para obter informações detalhadas. Para obter mais informações sobre a versão mais recente, consulte o [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
 1. Registre o provedor de recursos do Azure Policy insights usando Azure PowerShell para validar que sua assinatura funciona com o provedor de recursos. Para registrar um provedor de recursos, você precisa ter permissão para executar a operação de ação de registro para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Execute o seguinte comando para registrar o provedor de recursos:
 
@@ -237,7 +237,7 @@ A ID de definição de política para a definição de política que você criou
 
 Para obter mais informações sobre como gerenciar políticas de recursos com a CLI do Azure, consulte [Políticas de Recursos da CLI do Azure](/cli/azure/policy?view=azure-cli-latest).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Examine os seguintes artigos para obter mais informações sobre os comandos e consultas neste artigo.
 

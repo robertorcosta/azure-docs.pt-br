@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98668fc836aa21bdd14831c4a801557cdab5a202
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 24fa03fe12f584e9da32b547f0d8128e5ff28803
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381657"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847721"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Procedimentos operacionais de proteção por senha do Azure AD
 
@@ -62,6 +62,6 @@ Os usuário finais afetados talvez precisem trabalhar com a equipe de TI para en
 
 Essa configuração deve ser deixada em seu estado padrão habilitado (Sim). A definição dessa configuração como desabilitada (Não) fará com que todos os agentes DC de proteção de senha do Azure AD implantados entrem em um modo quiescente em que todas as senhas sejam aceitas como estão e nenhuma atividade de validação seja executada (nem mesmo eventos de auditoria serão executados, por exemplo).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Monitoramento para proteção de senha do Azure AD](howto-password-ban-bad-on-premises-monitor.md)

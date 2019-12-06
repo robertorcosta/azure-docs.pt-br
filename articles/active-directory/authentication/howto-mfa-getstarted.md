@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558546"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848384"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -218,7 +218,7 @@ Para planejar sua estratégia de política de acesso condicional, que determinar
 
 É importante que você impeça o bloqueio inadvertidamente do seu locatário do Azure AD. Você pode mitigar o impacto dessa falta inadvertida de acesso administrativo [criando duas ou mais contas de acesso de emergência em seu locatário](../users-groups-roles/directory-emergency-access.md) e excluindo-as da sua política de acesso condicional.
 
-### <a name="create-conditional-access-policy"></a>Criar política de acesso condicional
+### <a name="create-conditional-access-policy"></a>Criar política de Acesso Condicional
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de administrador global.
 1. Navegue até **Azure Active Directory**, **Acesso Condicional**.
@@ -279,16 +279,16 @@ Escolha o que acontece quando os usuários que não estão registrados com o MFA
 
 | Chave | Value | Padrão |
 | --- | --- | --- |
-| `REQUIRE_USER_MATCH` | VERDADEIRO/FALSO | Não definido (equivalente a TRUE) |
+| `REQUIRE_USER_MATCH` | TRUE/FALSE | Não definido (equivalente a TRUE) |
 
 A finalidade dessa configuração é determinar o que fazer quando um usuário não estiver inscrito na MFA. Os efeitos da alteração dessa configuração são listados na tabela a seguir.
 
-| Configurações | Status de MFA do usuário | Effect |
+| Configurações | Status de MFA do usuário | Efeitos |
 | --- | --- | --- |
 | A chave não existe | Não registrado | O desafio de MFA não foi bem-sucedido |
-| Valor definido como true/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
-| Chave definida como false | Não registrado | Autenticação sem MFA |
-| Chave definida como falsa ou verdadeira | Registrados | Deve autenticar com MFA |
+| Valor definido como True/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
+| Chave definida como False | Não registrado | Autenticação sem MFA |
+| Chave definida como Falsa ou True | Registrado | Deve autenticar com MFA |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrar com o Serviços de Federação do Active Directory (AD FS)
 

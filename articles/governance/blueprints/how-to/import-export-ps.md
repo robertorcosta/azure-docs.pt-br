@@ -2,17 +2,17 @@
 title: Importar e exportar plantas com o PowerShell
 description: Saiba como trabalhar com suas definições de plano gráfico como código. Compartilhe, controle do código-fonte e gerencie-os usando os comandos exportar e importar.
 ms.date: 09/03/2019
-ms.topic: conceptual
-ms.openlocfilehash: 2822fd1aea1911ba264113d43595346a612ebc50
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406346"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873192"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importar e exportar definições de Blueprint com o PowerShell
 
-Os planos gráficos do Azure podem ser totalmente gerenciados por meio de portal do Azure. À medida que as organizações avançam em seu uso de plantas, elas devem começar a pensar em definições de plantas como código gerenciado. Esse conceito é geralmente chamado de infraestrutura como código (IaC). Tratar suas definições de plantas como código oferece vantagens adicionais além do que portal do Azure oferece. Esses benefícios incluem:
+Os planos gráficos do Azure podem ser totalmente gerenciados por meio de portal do Azure. À medida que as organizações avançam em seu uso de plantas, elas devem começar a pensar em definições de plantas como código gerenciado. Esse conceito é geralmente chamado de infraestrutura como código (IaC). Tratar suas definições de plantas como código oferece vantagens adicionais além do que portal do Azure oferece. Essas vantagens incluem:
 
 - Compartilhando definições de plantas
 - Fazendo backup de suas definições de Blueprint
@@ -23,7 +23,7 @@ Os planos gráficos do Azure podem ser totalmente gerenciados por meio de portal
 
 Seja qual for o seu motivo, gerenciar suas definições de plantas como código tem benefícios. Este artigo mostra como usar os comandos `Import-AzBlueprintWithArtifact` e `Export-AzBlueprintWithArtifact` no módulo [AZ. Blueprint](https://powershellgallery.com/packages/Az.Blueprint/) .
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe um conhecimento de trabalho moderado de plantas do Azure. Se você ainda não tiver feito isso, trabalhe nos seguintes artigos:
 
@@ -119,7 +119,7 @@ Para obter informações sobre como criar definições de plantas avançadas, co
 - Proteger implantações com o [bloqueio de recursos do Blueprint](../concepts/resource-locking.md).
 - [Gerencie plantas como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).

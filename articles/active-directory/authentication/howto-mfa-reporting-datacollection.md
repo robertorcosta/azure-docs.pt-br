@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09aa95e55b3d253ef41724298247694b9883e31f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381774"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848282"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Coleta de dados de usuário da Autenticação Multifator do Microsoft Azure
 
@@ -42,7 +42,7 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Modo de mensagem de texto (OTP, OTP + PIN)
 - Modo de aplicativo móvel (Standard, PIN)
 - Modo de Token OATH (Standard, PIN)
-- Tipo de autenticação
+- Tipo de Autenticação
 - Nome do Aplicativo
 - Código do país da chamada primária
 - Número do telefone da chamada primária
@@ -58,14 +58,14 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Resultado geral
 - Resultados
 - Autenticada
-- Resultado
+- Result
 - Iniciar endereço IP
 - Dispositivos
 - Token de dispositivo
 - Tipo de dispositivo
 - Versão do aplicativo móvel
 - Versão do SO
-- Resultado
+- Result
 - Verificar notificação usada
 
 Ativações (tentativas de ativar uma conta no aplicativo móvel Microsoft Authenticator):
@@ -86,8 +86,8 @@ Blocos (usados para determinar o estado bloqueado e para relatório):
 - Bloquear carimbo de data/hora
 - Bloquear por nome de usuário
 - Nome de Usuário
-- Código do país
-- Número do telefone
+- Código do País
+- Telefone
 - Número de telefone formatado
 - Extensão
 - Limpar extensão
@@ -98,7 +98,7 @@ Blocos (usados para determinar o estado bloqueado e para relatório):
 - Bloqueio de conta
 - Alerta de fraude
 - Alerta de fraude não bloqueado
-- idioma
+- Idioma
 
 Bypass (usado para relatórios):
 
@@ -106,8 +106,8 @@ Bypass (usado para relatórios):
 - Segundos do bypass
 - Bypass por nome de usuário
 - Nome de Usuário
-- Código do país
-- Número do telefone
+- Código do País
+- Telefone
 - Número de telefone formatado
 - Extensão
 - Limpar extensão
@@ -188,6 +188,6 @@ Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Micro
 
 - Pode demorar até 30 dias para que os dados sejam totalmente removidos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Relatórios do Servidor MFA](howto-mfa-reporting.md)

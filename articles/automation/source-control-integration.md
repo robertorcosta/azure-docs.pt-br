@@ -4,17 +4,17 @@ description: Este artigo descreve a integração de controle de origem com o Git
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886522"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850152"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração do controle de origem na Automação do Azure
 
@@ -45,16 +45,16 @@ Escolha **Tipo de controle do código-fonte** e clique em **Autenticar**. Uma ja
 
 Na página **Resumo de controle do código-fonte**, preencha as informações e clique em **Salvar**. A tabela a seguir fornece uma descrição dos campos disponíveis.
 
-|Propriedade  |DESCRIÇÃO  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |Nome do controle do código-fonte     | Um nome amigável para o controle do código-fonte. *Esse nome deve conter apenas letras e números.*        |
 |Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> GitHub</br>Azure Repos (git)</br> Azure Repos (TFVC)        |
 |Repositório     | O nome do repositório ou projeto. Os primeiros 200 repositórios são retornados. Para pesquisar um repositório, digite o nome no campo e clique em **Pesquisar no GitHub**.|
-|Branch     | O branch do qual o pull dos arquivos de origem é efetuado. O direcionamento de Branch não está disponível para o tipo de controle do código-fonte TFVC.          |
+|Filial     | O branch do qual o pull dos arquivos de origem é efetuado. O direcionamento de Branch não está disponível para o tipo de controle do código-fonte TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo:/Runbooks </br>*Somente runbooks na pasta especificada são sincronizados. Não há suporte para recursão.*        |
 |Sincronização automática<sup>1</sup>     | Ativa ou desativa a sincronização automática quando uma confirmação é feita no repositório de controle do código-fonte         |
 |Publicar runbook     | Se definido como **on**, após os runbooks serem sincronizados do controle do código-fonte, eles serão publicados automaticamente.         |
-|DESCRIÇÃO     | Um campo de texto para fornecer detalhes adicionais        |
+|Descrição     | Um campo de texto para fornecer detalhes adicionais        |
 
 <sup>1</sup> para habilitar a sincronização automática ao configurar a integração do controle do código-fonte com o Azure Repos, você deve ser um administrador do projeto.
 
@@ -93,7 +93,7 @@ O controle do código-fonte requer algumas permissões mínimas para tokens de a
 
 Para obter mais informações sobre como criar um token de acesso pessoal no GitHub, visite [criando um token de acesso pessoal para a linha de comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Escopo  |DESCRIÇÃO  |
+|Escopo  |Descrição  |
 |---------|---------|
 |**repositório**     |         |
 |repo:status     | Acessar status de confirmação         |
@@ -180,6 +180,6 @@ Atualmente, não há nenhuma maneira de atualizar o token de acesso no controle 
 * Por meio da [API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
 * Usando o cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Para aprender mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)

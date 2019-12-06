@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1acda877ecadc8ad0abd09b78d5453743e2470b1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 67737aed3bd9961a37dc761fddf608d9bcfe3ffe
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381150"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847245"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instruções: Configurar write-back de senha
 
@@ -53,7 +53,7 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 * Microsoft 365 E3 ou A3
 * Microsoft 365 E5 ou A5
 * Microsoft 365 F1
-* Microsoft 365 Business
+* Microsoft 365 Empresarial
 
 > [!WARNING]
 > Os planos de licenciamento do Office 365 autônomo *não oferecem suporte à/ao "Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que esse recurso funcione.
@@ -101,7 +101,7 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 
 Como a origem da autoridade está no local, as políticas de complexidade de senha se aplicam da mesma fonte de dados conectada. Verifique se você alterou as políticas de grupo existentes para "duração mínima da senha". A política de grupo não deve ser definida como 1, o que significa que a senha deve ter pelo menos um dia de idade antes de ser atualizada. Você precisa ter certeza de que ele está definido como 0. Essas configurações podem ser encontradas em `gpmc.msc` em **configuração do computador > políticas > configurações do Windows > configurações de segurança > políticas de conta**. Execute `gpupdate /force` para garantir que a alteração entra em vigor. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [O que é write-back de senha?](concept-sspr-writeback.md)
 

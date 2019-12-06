@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ca6d82b80a9ed77a842b638ff8e9ff346342e8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 756c45541907c52448805376e1b054180c31fdf5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988551"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848095"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o último Servidor de Autenticação Multifator do Azure
 
@@ -110,7 +110,7 @@ Essas instruções se aplicarão apenas se você executar o Servidor de Autentic
 9. Repita a etapa 2 para atualizar os servidores agora removidos do farm do AD FS e reinicie o serviço do AD FS nesses servidores.
 10. Adicione esses servidores novamente ao farm do AD FS.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Obtenha exemplos de [Cenários avançados com a Autenticação Multifator do Azure e VPNs de terceiros](howto-mfaserver-nps-vpn.md)
 

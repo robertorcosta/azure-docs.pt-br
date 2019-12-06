@@ -1,5 +1,5 @@
 ---
-title: Criar relatórios interativos com visualizações de Azure Monitor pastas de trabalho | Microsoft docs
+title: Azure Monitor visualizações da pasta de trabalho
 description: Saiba mais sobre todos os componentes de visualizações de pasta de trabalho do Azure Monitor, incluindo-texto, gráficos, grades, árvores e grafos.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d878e8b5dd49ba517f85ebb74332bc6a245c33ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165050"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872784"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor visualizações da pasta de trabalho
 
@@ -149,7 +149,7 @@ Suporte a blocos da pasta de trabalho mostrando um título, subtítulo, texto gr
 
 ![Captura de tela da exibição de resumo do bloco](./media/workbooks-visualizations/tiles-read-mode.png)
 
-## <a name="trees"></a>Tree
+## <a name="trees"></a>Árvores
 
 As pastas de trabalho dão suporte a exibições hierárquicas por meio de grades de árvore. As árvores permitem que algumas linhas sejam expansíveis no próximo nível para uma experiência de busca detalhada.
 
@@ -205,7 +205,7 @@ O gráfico abaixo mostra dados que fluem para dentro/para fora de um computador 
 
 ![Captura de tela da exibição de resumo do bloco](./media/workbooks-visualizations/graph.png)
 
-### <a name="adding-a-graph"></a>Adicionando um grafo
+### <a name="adding-a-graph"></a>Adicionando um gráfico
 1. Alterne a pasta de trabalho para o modo de edição clicando no item _Editar_ barra de ferramentas.
 2. Use o link **Adicionar consulta** para adicionar um controle de consulta de log à pasta de trabalho. 
 3. Selecione o tipo de consulta como **log**, tipo de recurso (por exemplo, Application insights) e os recursos a serem direcionados.

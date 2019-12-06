@@ -5,17 +5,17 @@ keywords: runbook, modelo de runbook, automação de runbook, runbook do azure
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 043a39fbcb908e4c277e5eba9972a2a17ca23813
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 1cdd015d9f29c3fb672d626f32a485271e2757c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478676"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850305"
 ---
 # <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
 
@@ -224,10 +224,10 @@ Agora, modifique o runbook para que ele tente iniciar a máquina virtual apenas 
 1. Salve o runbook e abra o Painel de teste.
 1. Inicie o runbook com a máquina virtual parada e ela deve ser iniciada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a Criação Gráfica, veja [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
 * Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
-* Para começar a usar os runbooks do fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
+* Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 
 

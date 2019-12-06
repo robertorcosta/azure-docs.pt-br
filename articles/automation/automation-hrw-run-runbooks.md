@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre a execução de runbooks em
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9c7084954fe58351a6f9af40552714faa34685ad
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c8da5736869a39815d9abf33cf4a03353681b193
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887059"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849710"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -310,7 +310,7 @@ O runbook assinado terá o nome `<runbook name>.asc`.
 
 O runbook assinado agora pode ser carregado na Automação do Azure e pode ser executado como um runbook normal.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre os diferentes métodos que podem ser usados para iniciar um runbook, confira [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md).
 * Para entender as várias maneiras de trabalhar com runbooks do PowerShell na Automação do Azure usando o editor de texto, confira [Editar um runbook na Automação do Azure](automation-edit-textual-runbook.md)

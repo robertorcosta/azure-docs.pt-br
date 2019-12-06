@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 74de621f88d9af65f8894319729f902bf11e57ce
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035936"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873005"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
@@ -66,7 +66,20 @@ No momento, há suporte para as seguintes regiões do Azure durante a versão pr
 > Para usar esse recurso de versão prévia, somente implante uma distribuição do Linux com suporte em uma região do Azure com suporte. Não há suporte para o recurso no Azure Governamental nem nas nuvens soberanas.
 
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que a CLI do Azure versão 2.0.31 ou posterior esteja em execução. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+
+## <a name="network-requirements"></a>Requisitos de rede
+
+Para habilitar a autenticação do Azure AD para suas VMs do Linux no Azure, você precisa garantir que sua configuração de rede de VMs permita o acesso de saída aos seguintes pontos de extremidade pela porta TCP 443:
+
+* https://login.microsoftonline.com
+* https://device.login.microsoftonline.com
+* https://pas.windows.net
+* https://management.azure.com
+* https://packages.microsoft.com
+
+> [!NOTE]
+> Atualmente, os grupos de segurança de rede do Azure não podem ser configurados para VMs habilitadas com a autenticação do Azure AD.
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual Linux
 
@@ -198,6 +211,6 @@ Ao concluir com êxito a etapa de autenticação em um navegador da Web, você p
 
 Compartilhe seus comentários sobre este recurso de visualização ou informe problemas usando-o no [Fórum de comentários do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

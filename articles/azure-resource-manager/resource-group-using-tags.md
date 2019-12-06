@@ -2,21 +2,42 @@
 title: Marcar recursos para a organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
-ms.date: 10/30/2019
-ms.openlocfilehash: f3fca2030d33ba5a52d43924ff542801d435e4de
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/04/2019
+ms.openlocfilehash: c0a34204b5eb7080c6444e69def9d82d0193783b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484269"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850594"
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
+# <a name="use-tags-to-organize-your-azure-resources"></a>Use marcações para organizar seus recursos do Azure
 
-[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+Você aplica marcas aos recursos do Azure para organizá-los logicamente em uma taxonomia. Cada marca consiste em um par de nome/valor. Por exemplo, você pode aplicar o nome "Ambiente" e o valor "Produção" a todos os recursos na produção.
 
-Para aplicar marcas a recursos, o usuário deve ter acesso de gravação a esse tipo de recurso. Para aplicar marcas a todos os tipos de recursos, use a função [Colaborador](../role-based-access-control/built-in-roles.md#contributor). Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Depois de aplicar marcas, você pode recuperar todos os recursos em sua assinatura com esse nome e valor de marca. As marcas permitem que você recupere recursos relacionados de diferentes grupos de recursos. Esta abordagem será útil quando você precisar organizar os recursos de gerenciamento ou de cobrança.
+
+Sua taxonomia deve considerar uma estratégia de marcação de metadados de autoatendimento, além de uma estratégia de marcação automática para reduzir a carga sobre os usuários e aumentar a precisão.
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
+## <a name="limitations"></a>Limitações
+
+As seguintes limitações se aplicam a marcas:
+
+* Nem todos os tipos de recursos suportam tags. Para determinar se você pode aplicar uma tag a um tipo de recurso, consulte [Suporte a tags para recursos do Azure](tag-support.md).
+* Cada recurso ou grupo de recursos pode ter um máximo de 50 pares de nome/valor de marca. Se você precisar aplicar mais marcas do que o número máximo permitido, use uma cadeia de caracteres JSON para o valor da marca. A cadeia de caracteres JSON pode conter diversos valores que são aplicados a um único nome de marca. Um grupo de recursos pode conter muitos recursos que têm um número de 50 pares de nome/valor de marca.
+* O nome da marca é limitado a 512 caracteres e o valor da marca é limitado a 256 caracteres. Para contas de armazenamento, o nome da marca é limitado a 128 caracteres e o valor da marca é limitado a 256 caracteres.
+* As VMs generalizadas não dão suporte a marcas.
+* Marcas aplicadas ao grupo de recursos não são herdadas pelos recursos desse grupo de recursos.
+* As marcas não podem ser aplicadas a recursos clássicos como Serviços de Nuvem.
+* Os nomes das marcas não podem conter esses caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > Atualmente, as zonas DNS do Azure e os serviços do Gerenciador de tráfego também não permitem o uso de espaços na marca. 
+
+## <a name="required-access"></a>Acesso necessário
+
+Para aplicar marcas a recursos, o usuário deve ter acesso de gravação a esse tipo de recurso. Para aplicar marcas a todos os tipos de recursos, use a função [Colaborador](../role-based-access-control/built-in-roles.md#contributor). Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="policies"></a>Políticas
 
@@ -25,8 +46,6 @@ Você pode usar o [Azure Policy](../governance/policy/overview.md) para impor a 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para conferir as marcas existentes para um *grupo de recursos*, use:
 
@@ -89,7 +108,7 @@ $tags.Add("Status", "Approved")
 Set-AzResourceGroup -Tag $tags -Name examplegroup
 ```
 
-Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
+Para adicionar marcas a um *recurso sem marcas existentes*, use:
 
 ```azurepowershell-interactive
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
@@ -148,7 +167,7 @@ Para remover todas as marcas, passe uma tabela de hash vazio:
 Set-AzResourceGroup -Tag @{} -Name examplegroup
 ```
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Para conferir as marcas existentes para um *grupo de recursos*, use:
 
@@ -197,7 +216,7 @@ Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
 az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
+Para adicionar marcas a um *recurso sem marcas existentes*, use:
 
 ```azurecli
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
@@ -406,7 +425,7 @@ Você pode recuperar as informações sobre as marcações por meio das [APIs Ra
 
 Para operações de API REST, confira [Referência da API REST de cobrança do Azure](/rest/api/billing/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se você pode aplicar uma tag a um tipo de recurso, consulte [Suporte a tags para recursos do Azure](tag-support.md).
 * Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](manage-resource-groups-portal.md).  

@@ -2,13 +2,13 @@
 title: Atualizar uma atribuição existente do portal
 description: Saiba mais sobre o mecanismo de atualização de uma atribuição de Blueprint existente do portal em plantas do Azure.
 ms.date: 11/21/2019
-ms.topic: conceptual
-ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406390"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873158"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
 
@@ -50,7 +50,7 @@ A implantação das atribuições atualizadas segue algumas regras importantes. 
   - Se a definição da atribuição de política for alterada, uma nova atribuição de política será criada.
     Atribuições de política implantadas anteriormente são deixadas no lugar.
   - Se o artefato de atribuição de política for removido do plano gráfico, implantado atribuições são deixadas no lugar de política.
-- Modelos do Gerenciador de Recursos do Azure
+- Modelos do Azure Resource Manager
   - O modelo é processado por meio do Resource Manager como **PUT**. Como cada tipo de recurso manipula isso de uma forma diferente, examine a documentação de cada recurso incluído para determinar o impacto dessa ação quando executada por blueprints.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Possíveis erros na atualização de atribuições
@@ -63,7 +63,7 @@ Não há nenhum limite para o número de vezes que uma atribuição pode ser atu
 - Um objeto já existente
 - Uma maudança não suportada pelo Resource Manager do Azure
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).

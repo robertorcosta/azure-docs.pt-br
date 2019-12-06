@@ -4,17 +4,17 @@ description: Saiba como disparar um runbook para executar quando um alerta do Az
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c818114df436dbbd3ac1a51b6eeec00b9eec4d3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: c4afcbced2879a2a6d50112b6388cdf5c8098b1d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915722"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850373"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usar um alerta para disparar um runbook de Automação do Azure
 
@@ -175,7 +175,7 @@ Use este exemplo para criar um runbook chamado **Stop-AzureVmInResponsetoVMAlert
 Os alertas usam grupos de ações, que são coleções de ações disparadas pelo alerta. Runbooks são apenas uma das muitas ações que você pode usar com grupos de ações.
 
 1. Em sua conta de automação, selecione **alertas** em **monitoramento**.
-1. Selecione **+ nova regra de alerta**.
+1. Selecione **+ Nova regra de alerta**.
 1. Clique em **selecionar** em **recurso**. Na página **selecionar um recurso** , selecione sua VM para alertar e clique em **concluído**.
 1. Clique em **Adicionar condição** em **condição**. Selecione o sinal que você deseja usar, por exemplo, **percentual de CPU** e clique em **concluído**.
 1. Na página **Configurar lógica de sinal** , insira o **valor limite** em **lógica de alerta**e clique em **concluído**.
@@ -193,7 +193,7 @@ Os alertas usam grupos de ações, que são coleções de ações disparadas pel
 
 1. Em **detalhes do alerta**, adicione um nome e uma descrição da regra de alerta e clique em **criar regra de alerta**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre como iniciar um runbook da Automação usando um webhook, veja [Iniciar um runbook com base em um webhook](automation-webhooks.md).
 * Para obter detalhes sobre diferentes maneiras de iniciar um runbook, consulte [Como iniciar um runbook](automation-starting-a-runbook.md).

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f1ac530fe4e20fe26f3a6b7d0111b0bd432928
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c74ea99d3a0e39729bb4d89f012d7b790bf0568b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381687"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847704"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoramento e o logon na Proteção de Senha do Azure AD
 
@@ -235,7 +235,7 @@ O log de texto é desabilitado por padrão. Uma reinicialização do serviço do
 
 O software de serviço do agente DC instala um objeto de contador de desempenho denominado **Proteção de senha do Microsoft Azure Active Directory**. Atualmente, estão disponíveis os contadores de desempenho a seguir:
 
-|Nome do contador de desempenho | DESCRIÇÃO|
+|Nome do contador de desempenho | Descrição|
 | --- | --- |
 |Senhas processadas |Esse contador exibe o número total de senhas processadas (aceitas ou rejeitadas) desde o último reinício.|
 |Senhas aceitas |Esse contador exibe o número total de senhas aceitas desde o último reinício.|
@@ -382,7 +382,7 @@ O evento acima não especifica a versão do software mais recente. Você deve ir
 
 Esse evento será emitido mesmo se o agente de proxy estiver configurado com a atualização autohabilitada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Solução de problemas de Proteção de Senha do Azure AD](howto-password-ban-bad-on-premises-troubleshoot.md)
 

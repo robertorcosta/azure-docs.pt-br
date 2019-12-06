@@ -1,22 +1,22 @@
 ---
-title: RDG e servidor Azure MFA usando RADIUS - Azure Active Directory
-description: Esta é a página da Autenticação Multifator do Azure que ajudará na implantação do Gateway de Área de Trabalho Remota e do Servidor de Autenticação Multifator do Azure usando RADIUS.
+title: RDG e servidor MFA do Azure usando RADIUS-Azure Active Directory
+description: Esta é a página do Autenticação Multifator do Azure que ajudará na implantação do Gateway de Área de Trabalho Remota e do Servidor de Autenticação Multifator do Azure usando RADIUS.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a129030e8071dc590562ca5ca203d8d735f0449e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ef90ce9e6d3849a4c778326b02040f0b1fc764a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052545"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848010"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway de Área de Trabalho Remota e Servidor de Autenticação Multifator do Azure usando RADIUS
 
@@ -27,7 +27,7 @@ Como não há suporte para a Autenticação do Windows para serviços de termina
 Instale o Servidor de Autenticação Multifator em um servidor separado, que envia a solicitação RADIUS de volta ao NPS no Servidor de Gateway de Área de Trabalho Remota. Após o NPS validar o nome de usuário e a senha, ele retorna uma resposta para o Servidor de Autenticação Multifator. Em seguida, o servidor MFA realiza o segundo fator de autenticação e retorna um resultado para o gateway.
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, Microsoft não oferecerá o servidor MFA para novas implantações. Novos clientes que gostariam de exigir a autenticação multifator de seus usuários devem usar a autenticação de multifator do Azure baseado em nuvem. Os clientes existentes que ativaram o servidor de MFA antes de 1 de julho será capazes de baixar a versão mais recente, as atualizações futuras e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -82,9 +82,9 @@ O Servidor de Autenticação Multifator do Azure é configurado como um proxy RA
 3. Acesse a guia **Destino** e escolha o botão de opção **Servidores RADIUS**.
 4. Selecione **Adicionar** e insira o endereço IP, o segredo compartilhado e as portas do servidor NPS. A não ser que esteja usando um NPS central, o cliente RADIUS e o destino de RADIUS serão iguais. O segredo compartilhado deve corresponder ao configurado na seção do cliente RADIUS no servidor NPS.
 
-![Autenticação de RADIUS no servidor MFA](./media/howto-mfaserver-nps-rdg/radius.png)
+![Autenticação RADIUS no servidor MFA](./media/howto-mfaserver-nps-rdg/radius.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Integrar o Azure MFA e [aplicativos web do IIS](howto-mfaserver-iis.md)
 

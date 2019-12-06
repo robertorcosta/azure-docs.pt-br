@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0158b99d10b426efb02ca31cef2bc0053a976f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404685"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848367"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -72,7 +72,7 @@ Quando a extensão NPS para o Azure é integrada ao NPS, há um fluxo de autenti
 7. Após a tentativa de conexão ser autenticada e autorizada, o NPS no qual a extensão está instalada envia uma mensagem de *Aceitação de Acesso* RADIUS ao servidor VPN (cliente RADIUS).
 8. O usuário tem acesso à porta virtual no servidor VPN e estabelece um túnel VPN criptografado.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Esta seção detalha os pré-requisitos que devem ser concluídos para que você possa integrar o MFA à VPN. Antes de começar, você deverá ter os seguintes pré-requisitos em vigor:
 
@@ -424,7 +424,7 @@ No servidor no qual você instalou a extensão NPS para a Autenticação Multifa
 
 ![Exemplo Visualizador de Eventos painel de logs do AuthZ](./media/howto-mfa-nps-extension-vpn/image46.png)
 
-## <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
+## <a name="troubleshooting-guide"></a>Guia de solução de problemas
 
 Se a configuração não estiver funcionando conforme o esperado, inicie a solução de problemas verificando se o usuário está configurado para usar MFA. Peça ao usuário para conectar-se ao [Portal do Azure](https://portal.azure.com). Se o usuário for solicitado a realizar uma verificação secundária e conseguir fazer a autenticação com sucesso, você poderá eliminar uma configuração incorreta de MFA como um problema.
 
@@ -450,7 +450,7 @@ Para mais solução de problemas, você pode usar um analisador de protocolo, co
 
 Para obter mais informações, consulte [Integrar sua infraestrutura existente do NPS à Autenticação Multifator do Azure ](howto-mfa-nps-extension.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Obter Autenticação Multifator do Azure](concept-mfa-licensing.md)
 

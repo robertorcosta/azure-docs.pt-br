@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1d53d63b40ad62a4d21cbad22a67e9e9781b1f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381710"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847859"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implantar proteção de senha do Azure AD
 
@@ -92,11 +92,11 @@ Depois que o recurso estiver sendo executado no modo de auditoria por um períod
 
 O diagrama a seguir mostra como os componentes básicos da proteção de senha do Azure AD funcionam juntos em um ambiente de Active Directory local.
 
-![Como os componentes de proteção de senha do Azure AD trabalham juntos](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![Como os componentes de proteção por senha do Azure AD trabalham em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 É uma boa ideia examinar como o software funciona antes de implantá-lo. Consulte [visão geral conceitual da proteção de senha do Azure ad](concept-password-ban-bad-on-premises.md).
 
-### <a name="download-the-software"></a>Baixe o software
+### <a name="download-the-software"></a>Baixar o software
 
 Há dois instaladores necessários para a proteção de senha do Azure AD. Eles estão disponíveis no [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -340,14 +340,14 @@ Não há requisitos adicionais para implantar a proteção de senha do Azure AD 
 
 As alterações/conjuntos de senhas não são processados e persistidos em controladores de domínio somente leitura (RODCs). Eles são encaminhados para controladores de domínio graváveis. Portanto, você não precisa instalar o software do agente de DC em RODCs.
 
-## <a name="high-availability"></a>alta disponibilidade
+## <a name="high-availability"></a>Alta disponibilidade
 
 A principal preocupação de disponibilidade para proteção por senha é a disponibilidade de servidores proxy quando os controladores de domínio em uma floresta tentam baixar novas políticas ou outros dados do Azure. Cada agente de DC usa um algoritmo simples de estilo Round Robin ao decidir qual servidor proxy deve ser chamado. O agente ignora os servidores proxy que não estão respondendo. Para implantações de Active Directory totalmente conectadas que têm replicação íntegra de diretório e estado de pasta SYSVOL, dois servidores proxy são suficientes para garantir a disponibilidade. Isso resulta no download oportuno de novas políticas e outros dados. Mas você pode implantar servidores proxy adicionais.
 
 O design do software do agente de DC atenua os problemas comuns associados à alta disponibilidade. O agente de DC mantém um cache local da política de senha baixada mais recentemente. Mesmo se todos os servidores proxy registrados ficarem indisponíveis, os agentes de DC continuarão impõem a política de senha armazenada em cache. Uma frequência de atualização razoável para diretivas de senha em uma implantação grande geralmente é dias, não horas ou menos. Portanto, poucas interrupções dos servidores proxy não afetam significativamente a proteção de senha do Azure AD.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você instalou os serviços necessários para a proteção de senha do Azure AD nos servidores locais, [Execute a configuração pós-instalação e colete as informações de relatório](howto-password-ban-bad-on-premises-operations.md) para concluir a implantação.
 
-[ Visão geral conceitual da proteção por senha do Azure AD ](concept-password-ban-bad-on-premises.md)
+[Visão geral conceitual de proteção por senha do Azure AD](concept-password-ban-bad-on-premises.md)

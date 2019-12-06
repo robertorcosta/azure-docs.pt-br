@@ -2,13 +2,13 @@
 title: Extensão de Azure Policy para Visual Studio Code
 description: Saiba como usar a extensão de Azure Policy para Visual Studio Code para pesquisar aliases do Gerenciador de recursos.
 ms.date: 11/04/2019
-ms.topic: conceptual
-ms.openlocfilehash: cbc0e14ed70fbacc297126aef58cd722d2235a3d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.topic: how-to
+ms.openlocfilehash: 48ef098cf970b5128185c40c92f8bb02ad8d9698
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072046"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873107"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usar extensão de Azure Policy para Visual Studio Code
 
@@ -21,7 +21,7 @@ A extensão de Azure Policy para Visual Studio Code pode ser instalada em todas 
 > [!NOTE]
 > As alterações feitas localmente nas políticas exibidas na extensão de Azure Policy para Visual Studio Code não são sincronizadas com o Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os itens a seguir são necessários para concluir as etapas neste artigo:
 
@@ -66,7 +66,7 @@ Para avaliar os recursos e os aliases de pesquisa, você deve se conectar à sua
 
      ![Entrada na nuvem do Azure para Visual Studio Code da extensão Azure Policy](../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png)
 
-   - Paleta de comandos
+   - Paleta de Comandos
 
      Na barra de menus, acesse **exibir** > **paleta de comandos**e insira **Azure: entrar**.
 
@@ -153,7 +153,7 @@ Ao selecionar uma política ou atribuição, seja por meio da interface de pesqu
 
 Na barra de menus, acesse **exibir** > **paleta de comandos**e, em seguida, insira **Azure: sair**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

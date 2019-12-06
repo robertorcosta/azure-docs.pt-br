@@ -2,13 +2,13 @@
 title: Como criar políticas de configuração de convidado
 description: Saiba como criar uma política de configuração de convidado Azure Policy para VMs Windows ou Linux com Azure PowerShell.
 ms.date: 11/21/2019
-ms.topic: conceptual
-ms.openlocfilehash: 2e653d07e783425afdcd71f9d58e3569692faaf9
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407050"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873073"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Como criar políticas de configuração de convidado
 
@@ -409,7 +409,7 @@ Uma ferramenta está disponível na visualização para auxiliar na solução de
 
 Para obter mais informações sobre os cmdlets nesta ferramenta, use o comando Get-Help no PowerShell para mostrar as diretrizes internas. Como a ferramenta está obtendo atualizações frequentes, essa é a melhor maneira de obter as informações mais recentes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as VMs de auditoria com a [configuração de convidado](../concepts/guest-configuration.md).
 - Entenda como [criar políticas programaticamente](programmatically-create.md).

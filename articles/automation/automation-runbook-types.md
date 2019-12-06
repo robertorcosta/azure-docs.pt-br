@@ -4,23 +4,23 @@ description: 'Descreve os diferentes tipos de runbook que você pode usar na Aut
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c29015e2fd327d74183d5fbbd6214152507e517
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1991b7c227e62efcd8c0b637f3e732d737cabb34
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886778"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850679"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da Automação do Azure
 
 A Automação do Azure dá suporte a vários tipos de runbooks descritos brevemente na tabela a seguir.  As seções abaixo fornecem mais informações sobre cada tipo, incluindo considerações sobre quando usar cada um.
 
-| Digite | DESCRIÇÃO |
+| Type | Descrição |
 |:--- |:--- |
 | [Gráfico](#graphical-runbooks)|Com base no Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
 | [Fluxo de Trabalho Gráfico do PowerShell](#graphical-runbooks)|Com base no Fluxo de Trabalho do Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
@@ -114,7 +114,7 @@ Leve em conta as considerações adicionais a seguir ao determinar qual tipo usa
 * Você não pode converter runbooks de tipo de gráfico para texto ou vice-versa.
 * Há limitações ao usar runbooks de tipos diferentes, como um runbook filho. Para obter mais informações, confira [Runbooks filho na Automação do Azure](automation-child-runbooks.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a criação de runbooks Gráficos, veja [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
 * Para entender as diferenças entre o PowerShell e o os fluxos de trabalho do PowerShell para runbooks, consulte [Aprendendo sobre o fluxo de trabalho do Windows PowerShell](automation-powershell-workflow.md)

@@ -2,13 +2,13 @@
 title: Políticas de autor para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos com regras de definição de Azure Policy.
 ms.date: 11/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.topic: how-to
+ms.openlocfilehash: 915f50945e0c2520fbda09c4db1b581c9381073b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555160"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873090"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz nos recursos do Azure
 

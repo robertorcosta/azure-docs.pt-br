@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ef15bd1fe922aa44227d2fea3d882d4320146f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786724"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847211"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -81,7 +81,7 @@ Os tipos de atividade a seguir aparecem na categoria de evento de auditoria **Ge
 * [Redefinição de senha (pelo administrador)](#activity-type-reset-password-by-admin): indica que um administrador executou uma redefinição em nome do usuário no Portal do Azure.
 * [Redefinição de senha (autoatendimento)](#activity-type-reset-password-self-service): indica que um usuário redefiniu sua senha com êxito no [Portal de Redefinição de Senha do Azure AD](https://passwordreset.microsoftonline.com).
 * [Progresso da atividade do fluxo de autoatendimento de redefinição de senha](#activity-type-self-serve-password-reset-flow-activity-progress): indica cada etapa específica que um usuário realiza (como a passagem em uma porta específica de autenticação de redefinição de senha) como parte do processo de redefinição de senha.
-* [Desbloquear conta de usuário (autoatendimento)](#activity-type-unlock-a-user-account-self-service)): indica que um usuário desbloqueou sua conta de Active Directory com êxito sem redefinir a senha do [portal de redefinição de senha do Azure ad](https://passwordreset.microsoftonline.com) usando o recurso de Active Directory de desbloqueio de conta sem redefinição.
+* [Desbloquear conta de usuário (autoatendimento)](#activity-type-unlock-a-user-account-self-service)): indica que um usuário desbloqueou com êxito sua conta de Active Directory sem redefinir a senha no [portal de redefinição de senha do Azure ad](https://passwordreset.microsoftonline.com) usando o recurso Active Directory de desbloqueio de conta sem redefinição.
 * [Usuário registrado para autoatendimento de redefinição de senha](#activity-type-user-registered-for-self-service-password-reset): indica que um usuário registrou todas as informações necessárias para redefinir sua senha de acordo com a política de redefinição de senha do locatário especificada no momento.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo de atividade: redefinição de senha de autoatendimento bloqueada

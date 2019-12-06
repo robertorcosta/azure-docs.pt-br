@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20e9f0b9a993d2a8af9b9d91399fdd49f9a06eaa
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f1cc696e6351281ec9bd84cc6611d81d9148cda1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381840"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848418"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS
 
@@ -58,8 +58,8 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
 1. Abra o gerenciamento do AD FS.
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
-3. Clique com o botão direito do mouse em **Microsoft Office plataforma de identidade 365** e selecione **Editar regras de declaração...** 
-   ![console do ADFS-editar regras de declaração](./media/howto-mfa-adfs/trustedip1.png)
+3. Clique duas vezes em **plataforma de identidade do Microsoft Office 365** e selecione **editar regras de declaração...** 
+   ![Console - editar regras de declaração do ADFS](./media/howto-mfa-adfs/trustedip1.png)
 4. Em regras de transformação de emissão, clique em **Adicionar regra.** 
    ![adicionar uma regra de declaração](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
@@ -85,7 +85,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
 Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** > **acesso condicional** > **locais nomeados**.
 3. Na folha **acesso condicional-locais nomeados** , selecione **Configurar IPs confiáveis MFA**
 

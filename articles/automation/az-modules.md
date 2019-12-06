@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre como usar módulos Az na Au
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f81c0affb78d5944b8ba910cccfa0be655f1a6f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 23869647b5ad04d24f0b700a1433482d4ae15fd3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097946"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850526"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Suporte ao módulo Az na Automação do Azure
 
@@ -71,6 +71,6 @@ Uma maneira de testar os runbooks antes de modificar o seu runbook para usar os 
 
 Depois que a migração é concluída, não inicie mais runbooks usando módulos `AzureRM` na conta. Também é recomendável não importar nem atualizar módulos `AzureRM` nessa conta. A partir de agora, considere essa conta migrada para `Az` e opere-a apenas com módulos `Az`. Quando uma nova Conta de Automação for criada, os módulos `AzureRM` existentes continuarão sendo instalados e os runbooks de tutorial continuarão sendo criados com cmdlets `AzureRM`. Esses runbooks não devem ser executados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como usar módulos Az, consulte [Introdução ao módulo Az](/powershell/azure/get-started-azureps?view=azps-1.1.0).

@@ -4,18 +4,18 @@ description: Como implantar um modelo do Azure Resource Manager armazenado no Ar
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, automação do azure
-ms.openlocfilehash: d9fab97c8c42c7ff7993c3d7203deb8a58a10bc9
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 922a4e8d98405de9e2b8420da4abf0e157011546
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476705"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850917"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure
 
@@ -242,7 +242,7 @@ Get-AzureRmStorageAccount
 
 É isso! Agora você pode usar modelos de Resource Manager, Automação do Azure e Armazenamento do Azure para implantar todos os seus recursos do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre os modelos do Resource Manager, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * Para começar a usar o Armazenamento do Azure, consulte [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md).

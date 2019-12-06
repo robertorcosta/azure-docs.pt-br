@@ -1,29 +1,29 @@
 ---
-title: Atualizar o PhoneFactor para o servidor MFA do Azure - Active Directory do Azure
+title: Atualizar PhoneFactor para o servidor MFA do Azure-Azure Active Directory
 description: Introdução ao servidor Azure MFA ao atualizar do phonefactor agent mais antigo.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb1bf4996e381db933eac91135093a101e504bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd000f4b2a462e9bc9d2c54b57834b346688e6b5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055987"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848112"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Atualizar o PhoneFactor Agent para o Servidor de Autenticação Multifator do Azure
 
 Para atualizar o PhoneFactor Agent v5.x ou mais antigo para o Servidor de Autenticação Multifator do Azure, desinstale o Agente PhoneFactor e os componentes afiliados primeiro. Em seguida, o Servidor de Autenticação Multifator e seus componentes afiliados podem ser instalados.
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, Microsoft não oferecerá o servidor MFA para novas implantações. Novos clientes que gostariam de exigir a autenticação multifator de seus usuários devem usar a autenticação de multifator do Azure baseado em nuvem. Os clientes existentes que ativaram o servidor de MFA antes de 1 de julho será capazes de baixar a versão mais recente, as atualizações futuras e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 ## <a name="uninstall-the-phonefactor-agent"></a>Desinstale o agente PhoneFactor
 
@@ -66,14 +66,14 @@ O caminho de instalação é obtido do registro da instalação anterior do Phon
 
    2. Para instalar o Portal do Usuário no servidor Web, abra um prompt de comando como administrador e execute MultiFactorAuthenticationUserPortalSetupXX.msi.
 
-      O nome do diretório virtual padrão agora é **MultiFactorAuth** em vez de **PhoneFactor**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, clique no ícone do Portal do usuário no Servidor de Autenticação Multifator e atualize a URL do Portal do Usuário na guia Configurações. Os usuários existentes precisarão ser informados sobre a nova URL.
+      O nome do diretório virtual padrão agora é **MultiFactorAuth** em vez de **PhoneFactor**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, clique no ícone do portal do usuário na Servidor de Autenticação Multifator e atualize a URL do portal do usuário na guia Configurações. os usuários existentes precisam ser informados sobre a nova URL.
 
    3. Vá para o local de instalação do Portal do Usuário (por exemplo, C:\inetpub\wwwroot\MultiFactorAuth) e edite o arquivo web.config. Copie os valores nas seções appSettings e applicationSettings do arquivo web.config original que foi salvo em backup antes da atualização para o novo arquivo web.config. Se o novo nome do diretório virtual padrão foi mantido ao instalar o SDK do Serviço Web, altere a URL na seção applicationSettings para apontar para o local correto. Se outros padrões foram alterados no arquivo web.config anterior, aplique as mesmas alterações ao novo arquivo web.config.
 
 > [!NOTE]
 > Ao fazer upgrade de uma versão do Azure MFA Server mais antiga do que 8.0 a 8.0+ que o serviço Web de aplicativos móveis pode ser desinstalado após o upgrade
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Instale o portal dos usuários](howto-mfaserver-deploy-userportal.md) para o Servidor de Autenticação Multifator do Azure.
 

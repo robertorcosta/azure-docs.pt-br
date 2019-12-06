@@ -4,17 +4,17 @@ description: Os runbooks e os módulos da Microsoft e da comunidade estão dispo
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 86eebf33f870780871e4c873936e491772c73b63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231621"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850713"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de runbook e de módulos para a Automação do Azure
 
@@ -50,7 +50,7 @@ Você só pode importar diretamente do Galeria do PowerShell usando o portal do 
 
 ### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Adicionando um runbook do PowerShell à Galeria
 
-A Microsoft incentiva você a adicionar runbooks ao Galeria do PowerShell que você considera úteis para outros clientes. O Galeria do PowerShell aceita módulos do PowerShell e scripts do PowerShell. Você pode adicionar um runbook [carregando-o no Galeria do PowerShell](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
+A Microsoft incentiva você a adicionar runbooks ao Galeria do PowerShell que você considera úteis para outros clientes. A Galeria do PowerShell aceita módulos do PowerShell e scripts do PowerShell. Você pode adicionar um runbook [carregando-o no Galeria do PowerShell](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
 
 > [!NOTE]
 > Não há suporte para runbooks gráficos no Galeria do PowerShell.
@@ -109,7 +109,7 @@ A lista a seguir contém alguns runbooks que fornecem soluções para cenários 
 * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) -este runbook copia um arquivo remoto de uma máquina virtual do Windows Azure.
 * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) -este runbook copia um arquivo local para uma máquina virtual do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para se familiarizar com os runbooks, confira [Gerenciar runbook na Automação do Azure](manage-runbooks.md)
 * Para entender as diferenças entre o PowerShell e o os fluxos de trabalho do PowerShell com runbooks, confira [Aprendendo sobre o fluxo de trabalho do PowerShell](automation-powershell-workflow.md)

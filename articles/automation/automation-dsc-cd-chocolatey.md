@@ -4,19 +4,19 @@ description: Implantação contínua do Azure DevOps usando Configuração de Es
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f4512b79873d7f770b32a452a02c53bc5575bdac
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: ddbf652c35c4f1504e3253838a983fd0f6039401
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243598"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850356"
 ---
-# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de uso: Implantação contínua em Máquinas Virtuais usando a Configuração de Estado da Automação e o Chocolatey
+# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de uso: implantação contínua em Máquinas Virtuais usando Configuração de Estado da Automação e Chocolatey
 
 Em um mundo de DevOps, há várias ferramentas para ajudá-lo em vários pontos no pipeline de Integração Contínua. A Configuração de Estado da Automação do Azure é uma nova adição bem-vinda às opções que as equipes do DevOps pode empregar. Este artigo demonstra a configuração da CD (Implantação Contínua) para um computador com Windows. Você pode facilmente ampliar a técnica para incluir tantos computadores com Windows quantos forem necessários na função (um site, por exemplo) e também para funções adicionais.
 
@@ -54,13 +54,13 @@ Começando pela parte superior, você escreve o código, compila e testa e, depo
 O Chocolatey pode manipular vários tipos de pacotes de instalação, como MSI, MSU e ZIP. Você conta com toda a capacidade do PowerShell para realizar a instalação real, caso os recursos nativos do Chocolatey não sejam suficientes. Coloque o pacote em algum lugar acessível – um repositório de pacotes. Este exemplo de uso usa uma pasta pública em uma conta de armazenamento de blob do Azure, mas pode estar em qualquer outro lugar. O Chocolatey funciona nativamente com servidores do NuGet e alguns outras para o gerenciamento de metadados de pacote. [Este artigo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descreve as opções. Este exemplo de uso usa o NuGet. Um Nuspec consiste em metadados sobre seus pacotes. O Nuspec é "compilado" no NuPkg e armazenado em um servidor do NuGet. Quando a configuração solicita um pacote por nome e faz referência a um servidor do NuGet, o Recurso DSC do Chocolatey (agora na VM) obtém o pacote e o instala para você. Você também pode solicitar uma versão específica de um pacote.
 
 Na parte inferior esquerda da imagem, há um modelo do Azure Resource Manager. Nesse exemplo de uso, a extensão da VM registra a VM com o Servidor de Pull da Configuração de Estado da Automação do Azure (ou seja, um servidor de pull) como um Nó. A configuração é armazenada no servidor de recepção.
-Na verdade, ela é armazenada duas vezes: uma vez como texto sem formatação e uma vez compilada como um arquivo MOF (para aqueles que os conhecem.) No portal, o MOF é uma "configuração de nó" (em vez de simplesmente uma "configuração"). É o artefato associado a um nó para que o nó conheça a configuração. Os detalhes a seguir mostram como atribuir a configuração de nó ao nó.
+Na verdade, ele é armazenado duas vezes: uma vez como texto sem formatação e uma vez compilado como um arquivo MOF (para aqueles que conhecem tais coisas.) No portal, o MOF é uma "configuração de nó" (em vez de simplesmente "configuração"). É o artefato associado a um nó para que o nó conheça a configuração. Os detalhes a seguir mostram como atribuir a configuração de nó ao nó.
 
 Provavelmente, você já está realizando a ação na parte superior, ou a maior parte dela. Criar o nuspec, compilá-lo e armazená-lo em um servidor do NuGet é uma tarefa pequena. E você já está gerenciando VMs. O próximo passo para a implantação contínua requer a configuração do servidor de recepção (uma vez), o registro dos nós (uma vez) e a criação e o armazenamento da configuração neles (inicialmente). Em seguida, à medida que os pacotes forem atualizados e implantados no repositório, atualize a Configuração e a Configuração de Nó no servidor de recepção (repita conforme necessário).
 
-Se você não está iniciando com um modelo do Resource Manager, também está tudo bem. Há cmdlets do PowerShell projetados para ajudá-lo a registrar suas VMs no servidor de recepção e todo o restante. Para obter mais detalhes, confira este artigo: [Integrando computadores para gerenciamento pela Configuração de Estado da Automação do Azure](automation-dsc-onboarding.md).
+Se você não está iniciando com um modelo do Resource Manager, também está tudo bem. Há cmdlets do PowerShell projetados para ajudá-lo a registrar suas VMs no servidor de recepção e todo o restante. Para obter mais detalhes, consulte este artigo: [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](automation-dsc-onboarding.md).
 
-## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Etapa 1: Configuração do servidor de pull e da conta de automação
+## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Etapa 1: configurar o servidor de recepção e a conta de automação
 
 Em uma linha de comando do PowerShell autenticada (`Connect-AzureRmAccount`): (pode demorar alguns minutos enquanto o servidor de pull é configurado)
 
@@ -69,14 +69,14 @@ New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-
 New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 ```
 
-Coloque sua conta de automação em uma das seguintes regiões (também conhecidas como localizações): Leste dos EUA 2, Centro-Sul dos EUA, US Gov – Virgínia, Europa Ocidental, Sudeste Asiático, Leste do Japão, Índia Central e Sudeste da Austrália, Canadá Central e Europa Setentrional.
+É possível colocar a conta de automação em qualquer uma das seguintes regiões (também conhecido como local): Leste dos EUA 2, Centro-Sul dos EUA, US Gov - Virgínia, Europa Ocidental, Sudeste Asiático, Leste do Japão, Índia Central e Sudeste da Austrália, Canadá Central e Europa Setentrional.
 
 ## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Etapa 2: Ajustes de extensão da VM para o modelo do Resource Manager
 
 Detalhes do registro de VM (usando a extensão de VM de DSC do PowerShell) são fornecidos neste [Modelo de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
 Esta etapa registra a nova VM com o servidor de pull na lista de Nós da Configuração de Estado. Parte do registro especifica a configuração de nó a ser aplicada ao nó. Essa configuração de nó não precisa existir ainda no servidor pull, portanto, não há problemas se isso for feito pela primeira vez apenas na Etapa 4. Mas aqui na Etapa 2, é necessário decidir o nome do nó e o nome da configuração. Neste exemplo de uso, o nó é “isvbox” e a configuração é “ISVBoxConfig”. Portanto, o nome da configuração de nó (a ser especificado em DeploymentTemplate.json) é “ISVBoxConfig.isvbox”.
 
-## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>Etapa 3: Adicionando recursos de DSC necessários para o servidor de pull
+## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>Etapa 3: adicionar recursos de DSC necessários para o servidor de recepção
 
 A Galeria do PowerShell é instrumentada para instalar recursos de DSC em sua conta da Automação do Azure.
 Navegue até o recurso desejado e clique no botão "Implantar na Automação do Azure".
@@ -86,7 +86,7 @@ Navegue até o recurso desejado e clique no botão "Implantar na Automação do 
 Outra técnica recentemente adicionada ao Portal do Azure permite criar novos módulos ou atualizar módulos existentes. Clique no recurso Conta de Automação, no bloco Ativos e, por fim, no bloco Módulos. O ícone Procurar na Galeria permite ver a lista de módulos na galeria, filtrar para ver detalhes e, por fim, importar para sua Conta de Automação. Isso é uma ótima maneira de manter atualizados os módulos periodicamente. Além disso, o recurso de importação verifica dependências com outros módulos para garantir que nada esteja fora de sincronização.
 
 Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integração do PowerShell para um computador com Windows é um pouco diferente da estrutura de pastas esperada pela Automação do Azure.
-Isso exige que você faça alguns ajustes. Mas não é difícil e é feito apenas uma vez por recurso (exceto se você quiser atualizá-lo futuramente.) Para obter mais informações sobre como criar Módulos de Integração do PowerShell, confira este artigo: [Criando Módulos de Integração para a Automação do Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+Isso exige que você faça alguns ajustes. Mas não é difícil, e isso é feito apenas uma vez por recurso (a menos que você queira atualizá-lo no futuro). Para obter mais informações sobre a criação de módulos de integração do PowerShell, consulte este artigo: [criando módulos de integração para a automação do Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Instale o módulo necessário na estação de trabalho, da seguinte maneira:
   - Instale o [Windows Management Framework, v5](https://aka.ms/wmf5latest) (não é necessário para o Windows 10)
@@ -105,7 +105,7 @@ Isso exige que você faça alguns ajustes. Mas não é difícil e é feito apena
 
 O exemplo incluído executa estas etapas para cChoco e xNetworking. Veja as [Observações](#notes) para obter o tratamento especial para o cChoco.
 
-## <a name="step-4-adding-the-node-configuration-to-the-pull-server"></a>Etapa 4: Adicionando a configuração de nó ao servidor de pull
+## <a name="step-4-adding-the-node-configuration-to-the-pull-server"></a>Etapa 4: adicionar a configuração de nó ao servidor de recepção
 
 Não há nada de especial na primeira vez que você importa a configuração para o servidor de pull e compila. Todas as importações/compilações subsequentes da mesma configuração têm exatamente a mesma aparência. Sempre que atualiza o pacote e precisa enviá-lo para produção, você realiza esta etapa após garantir que o arquivo de configuração está correto, incluindo a nova versão do pacote. Aqui está o arquivo de configuração e o PowerShell:
 
@@ -175,17 +175,17 @@ Get-AzureRmAutomationDscCompilationJob `
 
 Essas etapas resultam em uma nova configuração de nó chamada “ISVBoxConfig.isvbox” colocada no servidor de recepção. O nome da configuração de nó é compilado como “configurationName.nodeName”.
 
-## <a name="step-5-creating-and-maintaining-package-metadata"></a>Etapa 5: Criando e mantendo metadados de pacote
+## <a name="step-5-creating-and-maintaining-package-metadata"></a>Etapa 5: criar e manter metadados de pacote
 
 Para cada pacote que você coloca no repositório de pacotes, é necessário um nuspec que o descreve.
 Esse nuspec deve ser compilado e armazenado em seu servidor do NuGet. Este processo é descrito [aqui](https://docs.nuget.org/create/creating-and-publishing-a-package). Você pode usar MyGet.org como um servidor do NuGet. Esse serviço é vendido, porém, há uma SKU inicial que é gratuita. No NuGet.org, você encontrará instruções sobre como instalar seu próprio servidor NuGet para os pacotes privados.
 
-## <a name="step-6-tying-it-all-together"></a>Etapa 6: Reunindo tudo isso
+## <a name="step-6-tying-it-all-together"></a>Etapa 6: reunir tudo isso
 
 Sempre que uma versão passar na garantia de qualidade e for aprovada para implantação, o pacote será criado e o nuspec e o nupkg serão atualizados e implantados no servidor do NuGet. Além disso, a configuração (Etapa 4 acima) deve ser atualizada de acordo com o novo número de versão. Ela deve ser enviada para o servidor de recepção e compilada.
 Daí em diante, as VMs que dependem dessa configuração serão responsáveis por receber a atualização e instalá-la. Cada uma dessas atualizações é simples - apenas uma ou duas linhas do PowerShell. No caso do Azure DevOps, algumas delas são encapsuladas em tarefas de compilação que podem ser encadeadas juntas em uma compilação. Este [artigo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) fornece mais detalhes. Este [repositório GitHub](https://github.com/Microsoft/vso-agent-tasks) fornece detalhes das várias tarefas de compilação disponíveis.
 
-## <a name="notes"></a>Observações
+## <a name="notes"></a>Notas
 
 Este exemplo de uso começa com uma VM de uma imagem genérica do Windows Server 2012 R2 da galeria do Azure. Você poderá iniciar de qualquer imagem armazenada e ajustá-la com a configuração da DSC.
 No entanto, é muito mais difícil alterar a configuração incorporada a uma imagem do que atualizar de forma dinâmica a configuração usando a DSC.
@@ -201,7 +201,7 @@ O código-fonte completo deste exemplo de uso está [neste projeto do Visual Stu
 * [cmdlets da DSC de Automação do Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
 * [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral, consulte [Configuração de Estado da Automação do Azure](automation-dsc-overview.md)
 - Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)

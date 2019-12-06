@@ -1,17 +1,17 @@
 ---
 title: Expressões escalares em consultas do Azure Cosmos DB SQL
-description: Saiba mais sobre a sintaxe SQL de expressão escalar para Azure Cosmos DB.
+description: Saiba mais sobre a sintaxe SQL de expressão escalar para Azure Cosmos DB. Este artigo também descreve como combinar expressões escalares em expressões complexas usando operadores.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: c35ad65a584f8ee95142e9bc85a58b5b6cd99744
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003537"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870727"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Expressões escalares em consultas do Azure Cosmos DB SQL
 
@@ -63,7 +63,7 @@ A [cláusula SELECT](sql-query-select.md) oferece suporte a expressões escalare
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   Representa um valor da propriedade com o nome `property_name` ou elemento de matriz com `array_index` o índice de uma matriz. Se o índice de propriedade/matriz não existir ou o índice de propriedade/matriz for referenciado em um valor que não seja um objeto/matriz, a expressão será avaliada como um valor indefinido.  
+   Representa um valor da propriedade com o nome `property_name` ou elemento de matriz com `array_index` de índice de uma matriz. Se o índice de propriedade/matriz não existir ou o índice de propriedade/matriz for referenciado em um valor que não seja um objeto/matriz, a expressão será avaliada como um valor indefinido.  
   
 - `unary_operator <scalar_expression>`  
   
@@ -139,7 +139,7 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)

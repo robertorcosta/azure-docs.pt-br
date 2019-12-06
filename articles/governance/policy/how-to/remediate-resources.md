@@ -2,13 +2,13 @@
 title: Corrigir recursos sem conformidade
 description: Este guia orienta você pela correção de recursos que não são compatíveis com as políticas no Azure Policy.
 ms.date: 09/09/2019
-ms.topic: conceptual
-ms.openlocfilehash: 8f1d263286a7504e7a8234ebd944bbbee69c5303
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.topic: how-to
+ms.openlocfilehash: 341a325aa7a82c8b1f6366c3a674848c60a8fb5e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267353"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873039"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
@@ -181,7 +181,7 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 Para obter outros cmdlets de correção e exemplos, consulte o módulo [AZ. PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

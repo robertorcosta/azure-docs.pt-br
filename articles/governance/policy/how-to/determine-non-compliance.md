@@ -2,13 +2,13 @@
 title: Determinar as causas de não conformidade
 description: Quando um recurso não está em conformidade, há muitos motivos possíveis. Saiba como descobrir o que causou a não conformidade.
 ms.date: 04/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 839e6c61c4a44ba7c7581290408bb997b53b8f96
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.topic: how-to
+ms.openlocfilehash: 213797a1eafda10d5e97fbc60fc143de975fe221
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279406"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873124"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas de não conformidade
 
@@ -210,7 +210,7 @@ A _comparação visual_ ajuda a identificar alterações em um recurso. As alter
 
 Os dados do histórico de alterações são fornecidos pelo [grafo de recursos do Azure](../../resource-graph/overview.md). Para consultar essas informações fora do portal do Azure, consulte [obter alterações de recurso](../../resource-graph/how-to/get-resource-changes.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

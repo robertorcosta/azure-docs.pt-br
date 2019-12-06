@@ -1,17 +1,17 @@
 ---
 title: Trabalhando com matrizes e objetos no Azure Cosmos DB
-description: Saiba mais sobre a sintaxe SQL de criação de objetos e de matriz para Azure Cosmos DB.
+description: Aprenda a sintaxe do SQL para criar matrizes e objetos no Azure Cosmos DB. Este artigo também fornece alguns exemplos para executar operações em objetos de matriz
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 17a0e4ddf5acd267a4cfbb68c218fe9409a91d57
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003933"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870914"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhando com matrizes e objetos no Azure Cosmos DB
 
@@ -90,7 +90,7 @@ Os resultados são:
     ]
 ```
 
-A próxima consulta executa a iteração `children` `Families` no contêiner. A matriz de saída é diferente da consulta anterior. Este exemplo divide `children`e mescla os resultados em uma única matriz:  
+A próxima consulta executa a iteração sobre `children` no contêiner de `Families`. A matriz de saída é diferente da consulta anterior. Este exemplo divide `children`e mescla os resultados em uma única matriz:  
 
 ```sql
     SELECT *
@@ -155,8 +155,8 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Guia de Introdução](sql-query-getting-started.md)
+- [Introdução](sql-query-getting-started.md)
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Junções](sql-query-join.md)

@@ -4,17 +4,17 @@ description: Este artigo descreve como implementar a lógica de tratamento de er
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ed6620333382a1e43ee1b38a009c91e8d7038233
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cb4f6827f58b882b8b1ae0ef8c093a09e090f17a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476944"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850696"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Tratamento de erros em runbooks gráficos na Automação do Azure
 
@@ -30,7 +30,7 @@ Os tipos de erros do PowerShell que podem ocorrer durante a execução são de f
 
 * **Erro não fatal**: um erro não grave que permite que a execução continue, apesar da falha. Os exemplos incluem erros operacionais como erros de arquivo não encontrado e problemas de permissões.
 
-Runbooks gráficos de automação do Azure foram aprimorados com a capacidade de incluir o tratamento de erro. Agora você pode ativar exceções em erros de não finalização e criar links de erro entre atividades. Esse processo permite que um autor de runbook capture erros e gerencie condições percebidas ou inesperadas.  
+Runbooks gráficos de automação do Azure foram aprimorados com a capacidade de incluir o tratamento de erro. Agora você pode ativar exceções em erros de não finalização e criar links de erro entre atividades. Esse processo permite que um autor de runbook Capture erros e gerencie condições percebidas ou inesperadas.  
 
 ## <a name="when-to-use-error-handling"></a>Quando usar o tratamento de erros
 
@@ -64,7 +64,7 @@ A atividade **Get-AutomationVariable** e **Start-AzureRmVm** são configurados p
 Links de erro de fluxo dessas atividades em uma única **gerenciamento erro** atividade (uma atividade code). Essa atividade é configurada com uma expressão simple do PowerShell que usa o *lançar* palavra-chave para parar o processamento, juntamente com *$Error.Exception.Message* para obter a mensagem que descreve a exceção atual.<br><br> ![Exemplo de código de tratamento de erros de runbook de automação](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre links e tipos de link em runbooks gráficos, confira [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 

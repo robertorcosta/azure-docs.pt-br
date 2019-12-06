@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee5d6328c6a3e4ea0b4a6359d4a21494e3ae62c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c7b4c941272906e7ff5a017c78c8bc7c5084a667
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381696"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847823"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
 
@@ -38,7 +38,7 @@ O portal do AD do Azure permite a modificação da configuração de "proteção
 
 **P: como posso aplicar os benefícios da proteção de senha do Azure AD a um subconjunto de meus usuários locais?**
 
-Não compatível. Depois de implantada e habilitada, a proteção por senha do Azure AD não discrimina, todos os usuários recebem benefícios de segurança iguais.
+Sem suporte. Depois de implantada e habilitada, a proteção por senha do Azure AD não discrimina, todos os usuários recebem benefícios de segurança iguais.
 
 **P: Qual é a diferença entre uma alteração de senha e um conjunto de senhas (ou redefinição)?**
 
@@ -62,11 +62,11 @@ Sim. Suporte para várias dlls de filtro de senha registrada é um recurso impor
 
 **P: como posso implantar e configurar a proteção de senha do Azure AD no meu ambiente de Active Directory sem usar o Azure?**
 
-Não compatível. A proteção de senha do Azure AD é um recurso do Azure que dá suporte a ser estendido para um ambiente local do Active Directory.
+Sem suporte. A proteção de senha do Azure AD é um recurso do Azure que dá suporte a ser estendido para um ambiente local do Active Directory.
 
 **P: como posso modificar o conteúdo da política no nível de Active Directory?**
 
-Não compatível. A política só pode ser administrada usando o portal do AD do Azure. Confira também a pergunta anterior.
+Sem suporte. A política só pode ser administrada usando o portal do AD do Azure. Confira também a pergunta anterior.
 
 **P: por que o DFSR é necessário para a replicação de sysvol?**
 
@@ -157,7 +157,7 @@ Os links a seguir não fazem parte da principal documentação da Proteção de 
 
 Se você estiver interessado em aprender mais sobre a proteção por senha do Azure AD e como implantá-la em seu ambiente, poderá aproveitar um serviço proativo da Microsoft disponível para clientes com um contrato de suporte Premier ou Unified. O serviço é chamado de Azure Active Directory: proteção por senha. Para obter mais informações, entre em contato com seu Gerente Técnico de Conta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você tiver uma pergunta sobre proteção de senha do Azure AD local que não foi respondida aqui, envie um item de Comentário abaixo. Obrigado!
 
