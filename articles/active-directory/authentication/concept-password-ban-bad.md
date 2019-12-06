@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27530b143e46acad4152e8333836cbe9c79fab17
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168087"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848605"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas incorretas na organização
 
@@ -65,7 +65,7 @@ Por exemplo: Considere um cliente chamado "contoso", que se baseia em Londres e 
 
 Em vez disso, é muito mais eficiente e seguro Bloquear apenas os termos básicos da chave:
 
-- Funcionam
+- "Contoso"
 - Londres
 - Widget
 
@@ -174,7 +174,7 @@ Quando um usuário tentar redefinir uma senha para alguma que seria proibida, a 
 
 Infelizmente, sua senha contém uma palavra, uma frase ou um padrão que pode ser facilmente adivinhado. Tente novamente com uma senha diferente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar a lista de senhas proibidas personalizada](howto-password-ban-bad.md)
 - [Habilitar agentes de proteção por senha do Azure AD local](howto-password-ban-bad-on-premises-deploy.md)

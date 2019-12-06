@@ -2,7 +2,6 @@
 title: Diretrizes para desenvolvedores para Azure Active Directory acesso condicional
 description: Diretrizes para desenvolvedores e cenários para acesso condicional do Azure AD
 services: active-directory
-keywords: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
@@ -11,17 +10,15 @@ ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91947c243b521e970a89152f76abe9a99142b89d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 69fcb50cb8273fa9e6606e1d071249ed17c78786
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373998"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843726"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Diretrizes para desenvolvedores para Azure Active Directory acesso condicional
 
@@ -114,7 +111,7 @@ A solicitação de token inicial para a API Web 1 não solicita ao usuário fina
 O Azure AD retorna uma resposta HTTP com alguns dados interessantes:
 
 > [!NOTE]
-> Nessa instância, é uma descrição de erro de autenticação multifator, mas há uma grande variedade de `interaction_required` possível pertencente ao acesso condicional.
+> Nessa instância, é uma descrição de erro de autenticação multifator, mas há uma ampla variedade de `interaction_required` possíveis pertencentes ao acesso condicional.
 
 ```
 HTTP 400; Bad Request
@@ -146,7 +143,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![Aplicativo acessando vários serviços que solicitam um novo token](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Se o aplicativo estiver usando a biblioteca ADAL, uma falha ao adquirir o token será sempre repetida interativamente. Quando essa solicitação interativa ocorre, o usuário final tem a oportunidade de cumprir o acesso condicional. Isso é verdadeiro, a menos que a solicitação seja um `AcquireTokenSilentAsync` ou `PromptBehavior.Never`, nesse caso, o aplicativo precisa executar uma solicitação ```AcquireToken``` interativa para dar ao usuário final a oportunidade de cumprir a política.
+Se o aplicativo estiver usando a biblioteca ADAL, uma falha ao adquirir o token será sempre repetida interativamente. Quando essa solicitação interativa ocorre, o usuário final tem a oportunidade de cumprir o acesso condicional. Isso é verdadeiro, a menos que a solicitação seja uma `AcquireTokenSilentAsync` ou `PromptBehavior.Never` nesse caso, o aplicativo precisa executar uma solicitação de ```AcquireToken``` interativa para dar ao usuário final a oportunidade de cumprir a política.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Cenário: SPA (aplicativo de página única) usando ADAL.js
 
@@ -162,7 +159,7 @@ Quando um aplicativo precisa de um token de acesso para chamar uma API Web, ele 
 
 ![Diagrama do fluxo de aplicativo de página única usando ADAL](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
-Vamos examinar um exemplo com nosso cenário de acesso condicional. O usuário final apenas aterrissou no site e não tem uma sessão. Executamos uma chamada `login()`, obtemos um token de ID sem autenticação multifator. Em seguida, o usuário pressiona um botão que requer que o aplicativo solicite dados de uma API Web. O aplicativo tenta fazer uma chamada `acquireToken()`, mas falha, pois o usuário ainda não executou a autenticação multifator e precisa estar em conformidade com a política de acesso condicional.
+Vamos examinar um exemplo com nosso cenário de acesso condicional. O usuário final apenas aterrissou no site e não tem uma sessão. Executamos uma chamada `login()`, obtemos um token de ID sem autenticação multifator. Em seguida, o usuário pressiona um botão que requer que o aplicativo solicite dados de uma API Web. O aplicativo tenta fazer uma chamada de `acquireToken()`, mas falha, pois o usuário ainda não executou a autenticação multifator e precisa estar em conformidade com a política de acesso condicional.
 
 O Azure AD envia a seguinte resposta HTTP:
 

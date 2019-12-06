@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 41e1228d127ddbbf0749036fc6f0129da1208bc7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077130"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851767"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure
 
@@ -46,15 +46,17 @@ O recurso de gerenciamento do ciclo de vida está disponível em todas as regiõ
 
 Você pode adicionar, editar ou remover uma política usando qualquer um dos seguintes métodos:
 
-* [Portal do Azure](https://portal.azure.com)
+* [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
-Este artigo mostra como gerenciar a política usando os métodos do portal e do PowerShell.  
+Uma política pode ser lida ou gravada por completo. Não há suporte para atualizações parciais. 
 
 > [!NOTE]
 > Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções para serviços confiáveis da Microsoft. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+Este artigo mostra como gerenciar a política usando os métodos do portal e do PowerShell.  
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -65,7 +67,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 #### <a name="azure-portal-list-view"></a>Exibição de lista de portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
 
@@ -86,7 +88,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 9. Selecione **Adicionar** para adicionar a nova política.
 
 #### <a name="azure-portal-code-view"></a>Exibição de código portal do Azure
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
 
@@ -122,7 +124,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
    }
    ```
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 6. Para obter mais informações sobre este exemplo de JSON, consulte as seções [política](#policy) e [regras](#rules) .
 
@@ -224,18 +226,18 @@ Uma política de gerenciamento do ciclo de vida é uma coleção de regras em um
 
 Uma política é uma coleção de regras:
 
-| Nome do parâmetro | Tipo de parâmetro | Observações |
+| Nome do parâmetro | Tipo de parâmetro | Notas |
 |----------------|----------------|-------|
 | `rules`        | Uma matriz de objetos de regra | Pelo menos uma regra é necessária em uma política. Você pode definir até 100 regras em uma política.|
 
 Cada regra na política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Observações | obrigatórios |
+| Nome do parâmetro | Tipo de parâmetro | Notas | obrigatórios |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | verdadeiro |
-| `enabled`      | Boolean | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
-| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle`. | verdadeiro |
-| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | verdadeiro |
+| `name`         | string |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | True |
+| `enabled`      | Booliano | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | False | 
+| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle`. | True |
+| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | True |
 
 ## <a name="rules"></a>Regras
 
@@ -282,11 +284,11 @@ A regra de exemplo a seguir filtra a conta para executar as ações em objetos q
 
 Os filtros limitam as ações de regra a um subconjunto de blobs na conta de armazenamento. Se mais de um filtro for definido, um `AND` lógico será executado em todos os filtros.
 
-Os filtros incluem:
+Filtros incluem:
 
-| Nome do filtro | Tipo do filtro | Observações | Obrigatório |
+| Nome do filtro | Tipo do filtro | Notas | Obrigatório |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual oferece suporte a `blockBlob`. | sim |
+| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual oferece suporte a `blockBlob`. | SIM |
 | prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs em `https://myaccount.blob.core.windows.net/container1/foo/...` para uma regra, o prefixMatch será `container1/foo`. | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento.  | Não |
 
 ### <a name="rule-actions"></a>Ações de regra
@@ -299,14 +301,14 @@ O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs e ex
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Dá suporte aos blobs atualmente presentes na camada frequente         | Sem suporte |
 | tierToArchive | Dá suporte aos blobs atualmente presentes na camada frequente ou esporádica | Sem suporte |
-| excluir        | Suportado                                   | Suportado     |
+| excluir        | Com suporte                                   | Com suporte     |
 
 >[!NOTE]
 >Se você definir mais de uma ação no mesmo blob, o gerenciamento do ciclo de vida aplicará a ação mais barata ao blob. Por exemplo, a ação `delete` é mais barata do que a ação `tierToArchive`. A ação `tierToArchive` é mais barata do que a ação `tierToCool`.
 
 As condições de execução se baseiam na idade. Os blobs base usam a hora da última modificação para acompanhar a idade, enquanto os instantâneos de blob usam a hora de criação do instantâneo para executar a mesma tarefa.
 
-| Condição de execução de ação             | Valor de condição                          | DESCRIÇÃO                             |
+| Condição de execução de ação             | Valor de condição                          | Descrição                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | Valor inteiro que indica a idade em dias | A condição para ações de blob de base     |
 | daysAfterCreationGreaterThan     | Valor inteiro que indica a idade em dias | A condição para ações de instantâneo de BLOB |
@@ -427,7 +429,7 @@ Para dados que são modificados e acessados regularmente durante seu ciclo de vi
 }
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas Frequentes
 
 **Eu criei uma nova política, por que as ações não são executadas imediatamente?**  
 A plataforma executa a política de ciclo de vida uma vez por dia. Depois de configurar uma política, pode levar até 24 horas para que algumas ações sejam executadas pela primeira vez.  
@@ -438,7 +440,7 @@ A política atualizada leva até 24 horas para entrar em vigor. Depois que a pol
 **Eu resalimentava manualmente um blob arquivado, como impedir que ele fosse movido de volta para a camada de arquivamento temporariamente?**  
 Quando um blob é movido de uma camada de acesso para outra, sua hora da última modificação não é alterada. Se você reidratar manualmente um blob arquivado na camada quente, ele seria movido de volta para a camada de arquivo pelo mecanismo de gerenciamento do ciclo de vida. Desabilite a regra que afeta esse blob temporariamente para impedir que ele seja arquivado novamente. Habilite novamente a regra quando o blob puder ser movido com segurança de volta para a camada de arquivo morto. Você também poderá copiar o blob para outro local se ele precisar permanecer na camada quente ou fria permanentemente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como recuperar dados após uma exclusão acidental:
 

@@ -1,22 +1,22 @@
 ---
-title: Requisitos de dados do Azure AD SSPR - Azure Active Directory
+title: Requisitos de dados do Azure AD SSPR-Azure Active Directory
 description: Requisitos de dados para autoatendimento de redefinição de senha do Azure AD e como atendê-los
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1c00d0f4ba365442762df6e041f02ea0a39f099
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358015"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847296"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
@@ -47,7 +47,7 @@ Quando um usuário confirma o número de telefone celular, o campo de telefone e
 
 Um Administrador Global pode definir manualmente as informações de contato de autenticação para um usuário conforme exibido na captura de tela a seguir.
 
-![Informações em um usuário de contato de autenticação do AD do Azure][Contact]
+![Informações de contato de autenticação em um usuário no Azure AD][Contact]
 
 Se o campo de telefone for preenchido e o telefone celular estiver habilitado na política de SSPR, o usuário verá o número na página de registro de redefinição de senha e a senha durante a redefinição de fluxo de trabalho.
 
@@ -77,7 +77,7 @@ Os campos a seguir podem ser definidos usando o PowerShell:
 
 * **Email alternativo**
 * **Celular**
-* **Telefone comercial**: Só poderá ser definido se você não estiver sincronizando com um diretório local
+* **Telefone comercial**: só poderá ser definido se não for sincronizar com um diretório local
 
 ### <a name="use-powershell-version-1"></a>Usar o PowerShell versão 1
 
@@ -153,7 +153,7 @@ Get-AzureADUser -ObjectID user@domain.com | select TelephoneNumber
 Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,TelephoneNumber | Format-Table
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
@@ -164,7 +164,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo está quebrado. Como fazer solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
 [Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Os administradores globais podem modificar informações de contato de autenticação de um usuário"

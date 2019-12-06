@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: effa03f042b44890fccd474128e75bd1c0f782a3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f9f38c160a72b6c414cdde7d29e4056a4068cdc6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381979"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848809"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação baseada em certificado do Azure Active Directory no Android
 
@@ -37,7 +37,7 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 | --- | --- |
 | Aplicativo de Proteção de Informações do Azure |![Marca de seleção que significa suporte para este aplicativo][1] |
 | Portal da Empresa do Intune |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Equipes da Microsoft |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Microsoft Teams |![Marca de seleção que significa suporte para este aplicativo][1] |
 | OneNote |![Marca de seleção que significa suporte para este aplicativo][1] |
 | OneDrive |![Marca de seleção que significa suporte para este aplicativo][1] |
 | Outlook |![Marca de seleção que significa suporte para este aplicativo][1] |
@@ -75,7 +75,7 @@ Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonl
 
 Há suporte para determinados aplicativos do Exchange ActiveSync no Android 5.0 (Lollipop) ou superior. Para determinar se o aplicativo de email dá suporte a esse recurso, contate o desenvolvedor do aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você quiser configurar a autenticação baseada em certificado em seu ambiente, confira [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) (Introdução à autenticação baseada em certificado no Android) para obter instruções.
 

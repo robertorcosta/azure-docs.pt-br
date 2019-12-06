@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6ad5bafe66e6e39503d3987aa6ddd9159c532fa0
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: cdcbe993bd1100b2060a1f8d38eb82ac97121c0d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72237273"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851614"
 ---
-Você é cobrado pelo Armazenamento do Microsoft Azure com base no seu uso da conta de armazenamento. Todos os objetos em uma conta de armazenamento são cobrados juntos como um grupo. 
+Você será cobrado pelo armazenamento do Azure com base no uso da sua conta de armazenamento. Todos os objetos em uma conta de armazenamento são cobrados juntos como um grupo. 
 
-Os custos de armazenamento são calculados de acordo com os seguintes fatores: região/local, tipo de conta, camada de acesso, capacidade de armazenamento, esquema de replicação, transações de armazenamento e saída de dados.
+Os custos de armazenamento são calculados de acordo com os seguintes fatores: 
 
 * **Região** refere-se à região geográfica na qual sua conta está baseada.
 * **Tipo de conta** refere-se ao tipo de conta de armazenamento que você está usando. 
-* **Camada de acesso** refere-se ao padrão de uso de dados que você especificou para sua v2 de uso geral ou a conta de armazenamento de Blobs.
-* A **capacidade** do armazenamento refere-se a quanto de sua alocação de conta de armazenamento você está usando para armazenar dados.
+* **Camada de acesso** refere-se ao padrão de uso de dados que você especificou para sua conta de armazenamento de BLOBs v2 ou de uso geral.
+* A **capacidade** de armazenamento refere-se à quantidade de alocação de sua conta de armazenamento que você está usando para armazenar dados.
 * A **replicação** determina quantas cópias dos seus dados serão mantidas de uma só vez e em quais locais.
 * As **transações** referem-se a todas as operações de leitura e gravação no Armazenamento do Microsoft Azure.
 * A **saída de dados** refere-se a dados transferidos para fora de uma região do Azure. Quando os dados em sua conta de armazenamento são acessados por um aplicativo que não está sendo executado na mesma região, você é cobrado pela saída de dados. Para obter informações sobre como usar grupos de recursos para agrupar seus dados e serviços na mesma região para limitar os encargos de saída, consulte [O que é um grupo de recursos do Azure?](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group). 

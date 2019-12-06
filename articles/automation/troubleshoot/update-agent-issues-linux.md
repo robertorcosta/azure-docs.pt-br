@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: def0ac11edfa5a17a8e506c79d91885dd3c9ab66
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770366"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849252"
 ---
 # <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>Entenda a integridade do Linux Hybrid Runbook Worker no Gerenciamento de Atualizações
 
@@ -179,4 +179,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para solucionar outros problemas de Hybrid Runbook Workers, confira [Solução de problemas ‒ Hybrid Runbook Workers](hybrid-runbook-worker.md)
+Para solucionar problemas adicionais com os Hybrid runbook Workers, consulte [solução de problemas-Hybrid runbook Workers](hybrid-runbook-worker.md).

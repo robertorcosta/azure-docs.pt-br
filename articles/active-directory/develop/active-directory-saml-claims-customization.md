@@ -3,27 +3,24 @@ title: Personalizar declarações de token SAML para aplicativos empresariais no
 titleSuffix: Microsoft identity platform
 description: Aprenda a personalizar as declarações emitidas no token SAML para aplicativos empresariais no Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1490a25e69ff22fde1f5c870868f20ea6f9a1cf7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f5e9dd48695ab28879b151c4b3a37b72c551f9c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046982"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844780"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -59,7 +56,7 @@ Se a solicitação SAML não contiver um elemento para NameIDPolicy, o Azure AD 
 
 Na lista suspensa **escolher formato do identificador de nome** , você pode selecionar uma das opções a seguir.
 
-| Formato NameID | DESCRIÇÃO |
+| Formato NameID | Descrição |
 |---------------|-------------|
 | **Padrão** | O Azure AD usará o formato de origem padrão. |
 | **Persistente** | O Azure AD usará persistente como o formato NameID. |
@@ -73,7 +70,7 @@ A NameID transitória também tem suporte, mas não está disponível na lista s
 
 Selecione a fonte desejada para a declaração `NameIdentifier` (ou NameID). Você pode selecionar entre as opções a seguir.
 
-| NOME | DESCRIÇÃO |
+| name | Descrição |
 |------|-------------|
 | Email | Endereço de email do usuário |
 | userprincipalName | UPN (nome principal do usuário) do usuário |
@@ -103,7 +100,7 @@ Você também pode atribuir qualquer valor constante (estático) a qualquer decl
 
 Você também pode usar as funções de transformações de declarações.
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de email ou do nome principal do usuário. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
 | **Join()** | Une um atributo a um domínio verificado. Se o valor do identificador de usuário selecionado tiver um domínio, ele extrairá o nome de usuário para anexar o domínio verificado selecionado. Por exemplo, se você selecionar o email (joe_smith@contoso.com) como o valor de identificador de usuário e selecionar contoso.onmicrosoft.com como o domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com. |
@@ -130,7 +127,7 @@ Para aplicar uma transformação a um atributo de usuário:
 
 Você pode usar as funções a seguir para transformar declarações.
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de email ou do nome principal do usuário. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
 | **Join()** | Cria um novo valor unindo dois atributos. Opcionalmente, você pode usar um separador entre os dois atributos. Para a transformação declaração NameID, a junção é restrita a um domínio verificado. Se o valor do identificador de usuário selecionado tiver um domínio, ele extrairá o nome de usuário para anexar o domínio verificado selecionado. Por exemplo, se você selecionar o email (joe_smith@contoso.com) como o valor de identificador de usuário e selecionar contoso.onmicrosoft.com como o domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com. |
@@ -180,7 +177,7 @@ Primeiro, o Azure AD verifica se o tipo de usuário do Brenda é `All guests`. C
 
 ![Configuração condicional de declarações](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerenciamento de aplicativos no Azure AD](../manage-apps/what-is-application-management.md)
 * [Configurar logon único para aplicativos que não estão na galeria de aplicativos do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)

@@ -4,23 +4,23 @@ description: Este artigo fornece informações sobre a solução de problemas do
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: beb0b89bdbf143c89a83c0813313a8bbda7235d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564857"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849387"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Solucionar problemas do Controle de Alterações e do Inventário
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Cenário: Os registros do Controle de Alterações não estão sendo exibidos em computadores Windows
+### <a name="records-not-showing-windows"></a>Cenário: registros de Controle de Alterações não estão sendo exibidos para computadores Windows
 
 #### <a name="issue"></a>Problema
 
@@ -60,7 +60,7 @@ net start healthservice
 > [!NOTE]
 > Por padrão, o rastreamento de erros está habilitado. Se você quiser habilitar mensagens de erro detalhadas, como no exemplo anterior, use o parâmetro `VER`. Para rastreamentos de informações, use `INF` ao invocar `StartTracing.cmd`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

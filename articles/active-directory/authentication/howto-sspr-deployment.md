@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9f340ad12fbf26190a17bc4df97bfc95473093c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bc2c68c53a7c03d1de08e5cde528f27aa61b0096
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381297"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847262"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Implantar a redefinição de senha por autoatendimento do Azure AD
 
@@ -31,7 +31,7 @@ Ajude os usuários a se registrarem rapidamente implantando SSPR junto com outro
 
 Antes de implantar o SSPR, as organizações podem querer determinar a quantidade de redefinição de senha relacionada às chamadas de suporte técnico que ocorrem ao longo do tempo e o custo médio de cada chamada. Eles podem usar esses dados após a implantação para mostrar o valor que o SSPR está trazendo para sua organização.  
 
-## <a name="how-sspr-works"></a>Como o SSPR funciona
+## <a name="how-sspr-works"></a>Como a SSPR funciona
 
 1. Quando um usuário tenta redefinir uma senha, ele deve verificar seu método de autenticação registrado anteriormente ou métodos para provar sua identidade.
 1. Em seguida, o usuário insere uma nova senha.
@@ -56,19 +56,19 @@ A experiência de registro combinada não exige que as organizações habilitem 
 
 As configurações a seguir são necessárias para habilitar o SSPR juntamente com os valores recomendados.
 
-| Área | Configuração | Valor |
+| Área | Configuração | Value |
 | --- | --- | --- |
 | **Propriedades de SSPR** | Redefinição de senha de autoatendimento habilitada | Grupo **selecionado** para o piloto/ **tudo** para produção |
 | **Métodos de autenticação** | Métodos de autenticação necessários para registrar | Sempre 1 mais do que o necessário para redefinir |
 |   | Métodos de autenticação necessários para redefinir | Um ou dois |
-| **Registro** | Exigir que os usuários se registrem ao entrar | sim |
-|   | Número de dias antes que os usuários sejam solicitados a confirmar novamente suas informações de autenticação | 90 – 180 dias |
-| **Notificações** | Notificar os usuários sobre as redefinições de senha | sim |
-|   | Notificar todos os administradores quando outros administradores redefinirem suas próprias senhas | sim |
-| **Personalização** | Personalizar link de assistência técnica | sim |
+| **Registro** | Exigir que os usuários se registrem ao entrar | SIM |
+|   | Número de dias antes que os usuários precisem reconfirmar suas informações de autenticação | 90 – 180 dias |
+| **Notificações** | Notificar os usuários de redefinições de senha | SIM |
+|   | Notificar todos os administradores quando outros administradores redefinirem suas próprias senhas | SIM |
+| **Personalização** | Personalizar o link de assistência técnica | SIM |
 |   | URL ou email de assistência técnica personalizado | Site de suporte ou endereço de email |
-| **Integração local** | Write-back de senhas para o AD local | sim |
-|   | Permitir que os usuários desbloqueiem a conta sem redefinir a senha | sim |
+| **Integração local** | Write-back de senhas para o AD local | SIM |
+|   | Permitir que os usuários desbloqueiem a conta sem redefinir a senha | SIM |
 
 ### <a name="sspr-properties-recommendations"></a>Recomendações de propriedades de SSPR
 
@@ -183,7 +183,7 @@ Os grupos que você vai implementar devem ter a licença do Azure AD Premium atr
 
 Informações sobre a atribuição de licenças a grupos de usuários podem ser encontradas no artigo [atribuir licenças a usuários por associação de grupo no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
-### <a name="configure-sspr"></a>Configurar o SSPR
+### <a name="configure-sspr"></a>Configurar a SSPR
 
 #### <a name="enable-groups-for-sspr"></a>Habilitar grupos para SSPR
 
@@ -225,7 +225,7 @@ Funções necessárias para gerenciar recursos associados à redefinição de se
 
 Para habilitar o sucesso da equipe de suporte, você pode criar perguntas frequentes com base nas perguntas que você recebe dos usuários. A tabela a seguir contém cenários de suporte comuns.
 
-| Cenários | DESCRIÇÃO |
+| Cenários | Descrição |
 | --- | --- |
 | O usuário não tem nenhum método de autenticação registrado disponível | Um usuário está tentando redefinir sua senha, mas não tem nenhum dos métodos de autenticação que eles registraram disponíveis (exemplo: elas deixaram seu telefone celular em casa e não podem acessar o email) |
 | O usuário não está recebendo um texto ou uma chamada em seu escritório ou telefone celular | Um usuário está tentando verificar sua identidade por meio de texto ou chamada, mas não está recebendo um texto/chamada. |
@@ -242,7 +242,7 @@ Talvez você também queira incluir informações como as seguintes para soluç�
 
 Você também pode consultar nossa documentação online sobre solução de problemas de redefinição de senha de autoatendimento para entender as etapas gerais de solução de problemas para os cenários de SSPR mais comuns.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Considere implementar a proteção de senha do Azure AD](concept-password-ban-bad.md)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167868"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842655"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuários
 
@@ -35,7 +35,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no G Suite 
 - Atualizado os nomes de atributo de destino do G Suite para corresponder ao que está definido [aqui](https://developers.google.com/admin-sdk/directory).
 - Mapeamentos de atributo padrão atualizados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Microsoft Azure AD com o G Suite, você precisará dos seguintes itens:
 
@@ -134,7 +134,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o G Suite no Azure AD:
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -160,11 +160,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. No Portal do Azure, selecione **Testar Conectividade** para verificar se o Azure AD pode se conectar a seu aplicativo. Se a conexão falhar, verifique se sua conta do G Suite tem permissões de Administrador de Equipe. Em seguida, tente a etapa **Autorizar** novamente.
 
-8. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+8. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o G Suite**.
 
@@ -178,7 +178,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Mapeamentos do Grupo G Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. Examine os atributos de grupo que são sincronizados do Azure AD para o G Suite na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no G Suite para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+12. Examine os atributos de grupo que são sincronizados do Azure AD para o G Suite na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no G Suite para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações. A interface do usuário exibe o conjunto padrão de mapeamentos de atributo entre o Azure AD e o G Suite. Você pode optar por adicionar atributos adicionais, como a unidade org, clicando em Adicionar novo mapeamento. 
 
     ![Atributos do Grupo G Suite](media/google-apps-provisioning-tutorial/groupattributes.png)
 
@@ -198,14 +198,17 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no G Suite.
 
-Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="common-issues"></a>Problemas comuns
+* As falhas de autorização podem ocorrer quando a conta usada para estabelecer uma conexão não é para um administrador no GSuite. Verifique se a conta usada para autorizar o acesso tem permissões de administrador em **todos os domínios** aos quais os usuários precisam ser provisionados. 
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 

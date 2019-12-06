@@ -4,17 +4,17 @@ description: As agendas de automação são usadas para agendar o início autom�
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 348c54abadef8b7c289501e21a2d314764c9e99c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8daa87eca74570f5b1fdf1537b83dae60d292128
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476017"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849455"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendando um runbook na Automação do Azure
 
@@ -27,7 +27,7 @@ Para agendar um runbook na Automação do Azure para iniciar em um horário espe
 
 Os cmdlets na tabela a seguir são usados para criar e gerenciar agendas com o PowerShell na automação do Azure. Eles são enviados como parte do [módulo do PowerShell do Azure](/powershell/azure/overview).
 
-| Cmdlets | DESCRIÇÃO |
+| Cmdlets | Descrição |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Recupera uma agenda. |
 | [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Cria uma nova agenda. |
@@ -39,7 +39,7 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar agendas com o P
 
 ## <a name="creating-a-schedule"></a>Criando uma agenda
 
-Você pode criar uma nova agenda para runbooks no portal do Azure ou com o PowerShell.
+Você pode criar um novo agendamento para runbooks no portal do Azure ou com o PowerShell.
 
 > [!NOTE]
 > A Automação do Azure usa os módulos mais recentes de sua conta de Automação quando um novo trabalho agendado é executado.  Para evitar o impacto em seus runbooks e os processos que eles automatizam, primeiro você deve testar quaisquer runbooks que tenham agendas vinculadas com uma conta de Automação dedicada a teste.  Isso valida que seus runbooks agendados continuam funcionando corretamente e, caso não continuem, você pode solucionar problemas e aplicar as alterações necessárias antes de migrar a versão atualizada do runbook para produção.
@@ -51,23 +51,23 @@ Você pode criar uma nova agenda para runbooks no portal do Azure ou com o Power
 2. Clique em **Adicionar um agendamento** na parte superior da página.
 3. No painel **Novo agendamento**, digite um **Nome** e, opcionalmente, uma **Descrição** para a nova agenda.
 4. Selecione se o agendamento é executado uma vez ou em um agendamento recorrente selecionando **Once** ou **Recurring**. Se você selecionar **Uma vez**, especifique uma **Hora de início** e clique em **Criar**. Se você selecionar **Recorrente**, especifique um **Horário de início** e para **Recorrente a cada**, selecione a frequência com que o runbook deve repetir - por **horas**, **dia**, **semana** ou pelo **mês**.
-    1. Se você selecionar **semana**, você terá uma lista dos dias da semana para sua escolha. Selecione quantos dias você desejar. A primeira execução da agenda de ocorrerá no primeiro dia selecionado após a hora de início. Por exemplo, para escolher uma agenda de fim de semana, escolha **sábado** e **domingo**.
+    1. Se você selecionar **semana**, será fornecida uma lista dos dias da semana para sua escolha. Selecione quantos dias você desejar. A primeira execução da agenda de ocorrerá no primeiro dia selecionado após a hora de início. Por exemplo, para escolher uma agenda de fim de semana, escolha **sábado** e **domingo**.
 
-       ![Agendamento recorrente de fim de semana de configuração](../media/schedules/week-end-weekly-recurrence.png)
+       ![Definindo agendamento recorrente de fim de semana](../media/schedules/week-end-weekly-recurrence.png)
 
-    2. Se você selecionar **mês**, você recebe opções diferentes. Para o **ocorrências mensais** opção, selecione **dias do mês** ou **dias da semana**. Se você escolher **dias do mês**, um calendário é mostrado, que permite que você escolha quantos dias você desejar. Se você escolher uma data como o dia 31 que não ocorre no mês atual, a agenda não será executado. Se você quiser que a programação seja executada no último dia, escolha **Sim** em **Executar no último dia do mês**. Se você escolher **dias da semana**, o **repetir cada** opção for apresentada. Escolher **primeira**, **segundo**, **terceira**, **quarto**, ou **último**. Finalmente escolha um dia para repetir.
+    2. Se você selecionar **mês**, terá opções diferentes. Para a opção **ocorrências mensais** , selecione **dias do mês** ou **dias da semana**. Se você escolher **dias do mês**, será mostrado um calendário que permite que você escolha quantos dias desejar. Se você escolher uma data como o dia 31 que não ocorre no mês atual, a agenda não será executada. Se você quiser que a programação seja executada no último dia, escolha **Sim** em **Executar no último dia do mês**. Se você escolher **dias da semana**, o **repetir cada** opção for apresentada. Escolher **primeira**, **segundo**, **terceira**, **quarto**, ou **último**. Finalmente escolha um dia para repetir.
 
-       ![Agendamento mensal, o décimo quinto e o último dia do mês](../media/schedules/monthly-first-fifteenth-last.png)
+       ![Agendamento mensal no primeiro, décimo-quinto e no último dia do mês](../media/schedules/monthly-first-fifteenth-last.png)
 
 5. Quando terminar, clique em **criar**.
 
 ### <a name="to-create-a-new-schedule-with-powershell"></a>Para criar uma nova agenda com o PowerShell
 
-Você usa o cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) criar agendas. Especifique a hora de início para a agenda e a frequência de execução. Os exemplos a seguir mostram como criar muitos cenários de programação diferentes.
+Você usa o cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) criar agendas. Especifique a hora de início para a agenda e a frequência de execução. Os exemplos a seguir mostram como criar vários cenários de agendamento diferentes.
 
-#### <a name="create-a-one-time-schedule"></a>Crie um cronograma
+#### <a name="create-a-one-time-schedule"></a>Criar um agendamento de uma vez
 
-Os comandos de exemplo a seguir criam um agendamento de tempo.
+Os comandos de exemplo a seguir criam um agendamento de uma vez.
 
 ```azurepowershell-interactive
 $TimeZone = ([System.TimeZoneInfo]::Local).Id
@@ -76,7 +76,7 @@ New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "
 
 #### <a name="create-a-recurring-schedule"></a>Criar um agendamento recorrente
 
-Os comandos de exemplo a seguir mostram como criar uma agenda recorrente que é executado diariamente às 1:00 por um ano.
+Os comandos de exemplo a seguir mostram como criar uma agenda recorrente que é executada todos os dias em 1:13h por um ano.
 
 ```azurepowershell-interactive
 $StartTime = Get-Date "13:00:00"
@@ -86,7 +86,7 @@ New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "
 
 #### <a name="create-a-weekly-recurring-schedule"></a>Criar uma agenda recorrente semanal
 
-Os comandos de exemplo a seguir mostram como criar uma agenda semanal que é executado somente em dias úteis.
+Os comandos de exemplo a seguir mostram como criar um agendamento semanal que é executado somente em dias da semana.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "13:00:00").AddDays(1)
@@ -94,9 +94,9 @@ $StartTime = (Get-Date "13:00:00").AddDays(1)
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Schedule03" -StartTime $StartTime -WeekInterval 1 -DaysOfWeek $WeekDays -ResourceGroupName "ResourceGroup01"
 ```
 
-#### <a name="create-a-weekly-recurring-schedule-for-weekends"></a>Criar uma agenda recorrente semanal para fins de semana
+#### <a name="create-a-weekly-recurring-schedule-for-weekends"></a>Criar um agendamento recorrente semanal para fins de semana
 
-Os comandos de exemplo a seguir mostram como criar uma agenda semanal que é executado nos finais de semana somente.
+Os comandos de exemplo a seguir mostram como criar um agendamento semanal que é executado somente em fins de semana.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
@@ -104,9 +104,9 @@ $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Weekends 6PM" -StartTime $StartTime -WeekInterval 1 -DaysOfWeek $WeekendDays -ResourceGroupName "ResourceGroup01"
 ```
 
-#### <a name="create-a-recurring-schedule-for-first-15th-and-last-days-of-the-month"></a>Criar um agendamento recorrente para primeiro, 15 e o último dia do mês
+#### <a name="create-a-recurring-schedule-for-first-15th-and-last-days-of-the-month"></a>Criar um agendamento recorrente para o primeiro, o 15º e o último dia do mês
 
-Os comandos de exemplo a seguir mostram como criar uma agenda recorrente que é executado no dia 1º, 15 e o sobrenome de um mês.
+Os comandos de exemplo a seguir mostram como criar uma agenda recorrente que é executada no 1º, no 15º e no último dia de um mês.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
@@ -121,10 +121,10 @@ Um runbook pode ser vinculado a várias agendas, e uma agenda pode ter vários r
 
 1. No portal do Azure, em sua conta da Automação, selecione **Runbooks** na seção **Automação de Processos** à esquerda.
 2. Clique no nome do runbook para agendar.
-3. Se o runbook não estiver atualmente vinculado a uma agenda, você está oferecida a opção de criar uma nova agenda ou vincular a uma agenda existente.
-4. Se o runbook tiver parâmetros, você pode selecionar a opção **modificar configurações de execução (padrão: Azure)** e o **parâmetros** painel é apresentado onde você pode inserir as informações.
+3. Se o runbook não estiver atualmente vinculado a um agendamento, você terá a opção de criar uma nova agenda ou vincular a uma agenda existente.
+4. Se o runbook tiver parâmetros, você poderá selecionar a opção **Modificar configurações de execução (padrão: Azure)** e o painel de **parâmetros** será apresentado onde você pode inserir as informações.
 
-### <a name="to-link-a-schedule-to-a-runbook-with-powershell"></a>Para vincular uma agenda a um runbook com o PowerShell
+### <a name="to-link-a-schedule-to-a-runbook-with-powershell"></a>Para vincular um agendamento a um runbook com o PowerShell
 
 Você pode usar o cmdlet [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) para vincular um agendamento. Você pode especificar valores para os parâmetros do runbook com o parâmetro Parameters. Para obter mais informações sobre os valores do parâmetro, confira [Como iniciar um Runbook na Automação do Azure](../automation-starting-a-runbook.md).
 Os comandos de exemplo a seguir mostram como vincular uma agenda a um runbook usando um cmdlet do Gerenciador de Recursos do Azure com parâmetros.
@@ -149,7 +149,7 @@ O intervalo mais frequente que a Automação do Azure pode ser configurada é um
 
 ## <a name="disabling-a-schedule"></a>Desabilitando uma agenda
 
-Quando você desabilita uma agenda, qualquer runbook vinculados a ela deixam de ser executados segundo ela. Você pode desabilitar manualmente uma agenda ou definir uma hora de expiração para agendas com uma frequência ao criá-las. Quando o tempo de expiração é atingido, a agenda é desabilitada.
+Quando você desabilita uma agenda, qualquer runbook vinculados a ela deixam de ser executados segundo ela. Você pode desabilitar manualmente uma agenda ou definir uma hora de expiração para agendas com uma frequência ao criá-las. Depois que o tempo de expiração for atingido, o agendamento será desabilitado.
 
 ### <a name="to-disable-a-schedule-from-the-azure-portal"></a>Para desabilitar uma agenda no portal do Azure
 
@@ -158,7 +158,7 @@ Quando você desabilita uma agenda, qualquer runbook vinculados a ela deixam de 
 3. Altere **Habilitado** para **Não**.
 
 > [!NOTE]
-> Se você quiser desabilitar um agendamento que tem uma hora de início no passado, você deve alterar a data de início para um momento no futuro antes de salvá-lo.
+> Se desejar desabilitar uma agenda que tenha uma hora de início no passado, você deverá alterar a data de início para uma hora no futuro antes de salvá-la.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>Para desabilitar uma agenda com o PowerShell
 
@@ -173,7 +173,7 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para começar a usar runbooks na Automação do Azure, confira [Iniciar um Runbook na Automação do Azure](../automation-starting-a-runbook.md)
 

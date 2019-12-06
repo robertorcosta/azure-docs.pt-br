@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
-ms.openlocfilehash: 83ee78d369af7fe99de8e7236fe1eb0bc63a942f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 4839ce7a0188c782656fd3a4c42cbdd116b165e9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301744"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849370"
 ---
 # <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Dados a serem coletados quando você abre um caso para a Automação do Microsoft Azure
 
@@ -102,7 +102,7 @@ Além dos itens em "coleta de dados básica", reúna as seguintes informações:
 * Uma captura de tela de qualquer mensagem de erro.
 * Uma captura de tela dos módulos atuais e seus números de versão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/).
 

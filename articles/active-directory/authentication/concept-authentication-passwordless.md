@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e073b4ff366c05cdf429f81d46647cd330604057
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 28d4dd3f0d4432930d62bb499fe72533b79d2a08
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081572"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848724"
 ---
 # <a name="passwordless-authentication-options"></a>Opções de autenticação com senha
 
@@ -94,7 +94,7 @@ As chaves de segurança do FIDO2 são uma ótima opção para empresas que são 
    - Microsoft Authenticator aplicativo: funcionará em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do OOBE (Windows 10) e com aplicativos móveis integrados em qualquer sistema operacional.
    - Chaves de segurança: funcionarão na tela de bloqueio para o Windows 10 e a Web em navegadores com suporte, como o Microsoft Edge.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Habilitar as opções de passwordlesss de chave de segurança do FIDO2 em sua organização](howto-authentication-passwordless-security-key.md)
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e88669b5453069d9f6bb64e803adc65baf8afc6b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420708"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848571"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -90,7 +90,7 @@ Ao usar um aplicativo móvel, como o aplicativo Microsoft Authenticator, como um
 
 | Número de métodos necessários para redefinir | Um | Dois |
 | :---: | :---: | :---: |
-| Recursos de aplicativos para dispositivos móveis disponíveis | Código | Código ou notificação |
+| Recursos de aplicativos para dispositivos móveis disponíveis | Codificar | Código ou notificação |
 
 Usuários não têm a opção de registrar seu aplicativo móvel ao se registrar para redefinição de senha de autoatendimento do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Os usuários podem registrar seu aplicativo móvel em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou na nova visualização do registro de informações de segurança em[https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
@@ -107,7 +107,7 @@ Usuários não têm a opção de registrar seu aplicativo móvel ao se registrar
 
 Se você iniciar com uma política que tenha apenas um método de autenticação requerido para reiniciar ou desbloquear registrado e você alterar esse número para dois métodos, o que acontece?
 
-| Número de métodos registrados | Número de métodos necessários | Resultado |
+| Número de métodos registrados | Número de métodos necessários | Result |
 | :---: | :---: | :---: |
 | 1 ou mais | 1 | **Capaz** de redefinir ou desbloquear |
 | 1 | 2 | **Incapaz** de redefinir ou desbloquear |
@@ -120,7 +120,7 @@ Exemplo:
 2. O administrador altera a política para não usar perguntas de segurança, mas permite o uso de telefone celular e um email alternativo.
 3. Os usuários sem o telefone celular ou os campos de e-mail alternativos preenchidos não podem redefinir suas senhas.
 
-## <a name="registration"></a>Registro
+## <a name="registration"></a>Inscrição
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os usuários se cadastram ao entrarem
 
@@ -147,7 +147,7 @@ Os valores válidos são de 0 a 730 dias, com "0", o que significa que os usuár
 
 ## <a name="notifications"></a>Notificações
 
-### <a name="notify-users-on-password-resets"></a>Notificar os usuários sobre as redefinições de senha
+### <a name="notify-users-on-password-resets"></a>Notificar os usuários de redefinições de senha
 
 Se esta opção estiver definida para **Sim**, os usuários que redefinirem suas senhas receberão um e-mail notificando-os de que sua senha foi alterada. O email é enviado por meio do portal de SSPR em seus endereços de email primários e alternativos que estão no arquivo no Azure Active Directory. Ninguém mais é notificado sobre o evento de redefinição.
 
@@ -203,9 +203,9 @@ Para testar este cenário, acesse https://passwordreset.microsoftonline.com com 
 > [!NOTE]
 > Contas Microsoft que receberam acesso de convidado a seu locatário do Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de email pessoal, não podem usar a SSPR do Azure AD. É necessário que definam a senha, utilizando as informações localizadas no artigo [Quando não for possível entrar na sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure AD:
+Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure Active Directory:
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)

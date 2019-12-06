@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b72f0675569ea6f683e8e1f8d2e4bc468f82c71f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a22c0cc922e021edc37dfbb2d89fdd20c77b2c87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382046"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848758"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
 
@@ -97,7 +97,7 @@ Uma prática recomendada ao solucionar problemas com o Write-back de senha é in
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Se a origem do evento é ADSync
 
-| Código | Nome ou mensagem | DESCRIÇÃO |
+| Codificar | Nome ou mensagem | Descrição |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "uma restrição impede que a senha seja alterada para a atual especificada." | Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha no diretório local que não atende à idade, ao histórico, à complexidade da senha ou aos requisitos de filtragem do domínio. <br> <br> Se você tiver uma duração mínima da senha e tiver alterado a senha recentemente nessa janela de tempo, não poderá alterar a senha novamente até que ela atinja a duração especificada no domínio. Para fins de teste, a idade mínima deve ser definida como 0. <br> <br> Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas *X* vezes, em que *X* é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas *X* vezes, verá uma falha. Para fins de teste, o histórico de senha deve ser definido como 0. <br> <br> Se você tiver requisitos de complexidade de senha, todos eles serão impostos quando o usuário tentar alterar ou redefinir uma senha. <br> <br> Se você tiver filtros de senha habilitados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará. |
 | 6329 | MMS(3040): admaexport.cpp(2837): o servidor não contém o controle da política de senha do LDAP. | Esse problema ocorre se o controle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) não está habilitado nos controladores de domínio. Para usar o recurso de write-back de senha, é necessário habilitar o controle. Para fazer isso, os DCs devem estar no Windows Server 2008R2 ou posterior. |
@@ -105,7 +105,7 @@ Uma prática recomendada ao solucionar problemas com o Write-back de senha é in
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se a origem do evento é PasswordResetService
 
-| Código | Nome ou mensagem | DESCRIÇÃO |
+| Codificar | Nome ou mensagem | Descrição |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Esse evento indica que o serviço local detectou uma solicitação de redefinição de senha de um usuário federado, com autenticação de passagem ou sincronizado com hash de senha proveniente da nuvem. Esse evento é o primeiro evento em cada operação de write-back de redefinição de senha. |
 | 31002 | PasswordResetSuccess | Esse evento indica que o usuário selecionou uma nova senha durante uma operação de redefinição de senha. Determinamos que essa senha atende aos requisitos de senha corporativa. A senha foi gravada com êxito novamente no ambiente do Active Directory local. |
@@ -167,7 +167,7 @@ O ponto mais comum de falha é que o firewall e ou tempos-limite de ociosidade e
 
 Para o Azure AD Connect versão 1.1.443.0 e posterior, você precisa do acesso a HTTPS de saída ao seguinte:
 
-* \*. passwordreset.microsoftonline.com
+* \*.passwordreset.microsoftonline.com
 * \*.servicebus.windows.net
 
 Para ter mais granularidade, confira a lista atualizada de [Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), que é atualizada toda quarta-feira e entra em vigor na segunda-feira seguinte.
@@ -284,7 +284,7 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reiniciar o serviço Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "O código de suporte está localizado no canto inferior direito da janela"
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure AD:
 

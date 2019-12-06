@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dffdffdfa80d940c4a50d0a6630c665164f24d5c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230450"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849183"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
@@ -25,7 +25,7 @@ Este artigo explica como configurar e trabalhar com proxies do Azure Functions. 
 
 Esta seção mostra como criar um proxy no portal do Functions.
 
-1. Abra o [Portal do Azure] e navegue até seu aplicativo de funções.
+1. Abra o [Azure portal] e navegue até seu aplicativo de funções.
 2. No painel esquerdo, selecione **Novo proxy**.
 3. Forneça um nome para seu proxy.
 4. Configurar o ponto de extremidade exposto no aplicativo de função especificando o **modelo de rota** e **Métodos HTTP**. Esses parâmetros se comportam de acordo com as regras de [gatilhos HTTP].
@@ -184,7 +184,7 @@ Os proxies leem todas as cadeias de caracteres de um arquivo JSON, usando \ como
 O objeto requestOverrides define as alterações feitas à solicitação quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
 * **backend.request.method**: O método HTTP que é usado para chamar o back-end.
-* **backend.request.querystring.\<ParameterName\>** : Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada ao back-end. Substitua *\<ParameterName\>* pelo nome do parâmetro que você deseja definir. Se a cadeia de caracteres vazia for fornecida, o parâmetro não será incluído na solicitação de back-end.
+* **backend.request.querystring.\<ParameterName\>** : Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada ao back-end. Substitua *\<ParameterName\>* pelo nome do parâmetro que você deseja definir. Observe que, se a cadeia de caracteres vazia for fornecida, o parâmetro ainda estará incluído na solicitação de back-end.
 * **backend.Request.headers.\<HeaderName\>** : Um cabeçalho que pode ser definido para a chamada ao back-end. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na solicitação de back-end.
 
 Os valores podem referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente.
@@ -243,7 +243,7 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 > [!NOTE] 
 > Neste exemplo, o corpo da resposta é definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
 
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Gatilhos HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44e25efcb068fe51f05dbbde50e8a96da492a735
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381239"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847279"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como habilitar a redefinição de senha na tela de logon do Windows
 
@@ -113,7 +113,7 @@ Quando os usuários redefinem sua senha na tela de logon de um dispositivo Windo
 > [!WARNING]
 > O TLS 1,2 deve ser habilitado, não apenas definido como negociação automática
 
-### <a name="install"></a>Instalar
+### <a name="install"></a>Instale
 
 1. Baixe o instalador correto para a versão do Windows que você quer habilitar.
    - O software está disponível no Centro de Download da Microsoft em [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
@@ -152,7 +152,7 @@ Quando os usuários tentam entrar, eles agora veem um link **Redefinir senha** o
 
 Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](../user-help/active-directory-passwords-update-your-own-password.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Planejar métodos de autenticação para permitir](concept-authentication-methods.md)
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 758d7122a991309504c5cac18b9aaf1268808887
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 151e7b2ab091959c8b6c08d366318a49987aefd9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420664"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848520"
 ---
 # <a name="what-is-password-writeback"></a>O que é write-back de senha?
 
@@ -58,7 +58,7 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 * Microsoft 365 E3 ou A3
 * Microsoft 365 E5 ou A5
 * Microsoft 365 F1
-* Microsoft 365 Business
+* Microsoft 365 Empresarial
 
 > [!WARNING]
 > Os planos de licenciamento do Office 365 autônomo *não oferecem suporte à/ao "Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que esse recurso funcione.
@@ -166,6 +166,6 @@ O tamanho de cada mensagem descrita anteriormente normalmente é inferior a 1 KB
 > [!WARNING]
 > Use a caixa de seleção "o usuário deve alterar a senha no próximo logon" no local Active Directory ferramentas administrativas como Active Directory usuários e computadores ou o Centro Administrativo do Active Directory tem suporte como um recurso de visualização do Azure AD Connect. Para obter mais informações, consulte o artigo [implementar a sincronização de hash de senha com Azure ad Connect sincronização](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Habilitar write-back de senha usando o Tutorial: [Habilitar write-back de senha](tutorial-enable-writeback.md)

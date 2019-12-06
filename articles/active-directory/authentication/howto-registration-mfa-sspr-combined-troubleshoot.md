@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f2a60367a8b76464611878e850fff0c4ba8803
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381394"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847381"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Solucionando problemas de registro de informações de segurança combinadas (versão prévia)
 
@@ -35,7 +35,7 @@ Os eventos registrados para registro combinado estão na categoria métodos de a
 
 A tabela a seguir lista todos os eventos de auditoria gerados pelo registro combinado:
 
-| Atividade | Status | Motivo | DESCRIÇÃO |
+| Atividade | Status | Motivo | Descrição |
 | --- | --- | --- | --- |
 | Usuário registrou todas as informações de segurança necessárias | Sucesso | Usuário registrou todas as informações de segurança necessárias. | Esse evento ocorre quando um usuário concluiu o registro com êxito.|
 | Usuário registrou todas as informações de segurança necessárias | Failure | O usuário cancelou o registro das informações de segurança. | Esse evento ocorre quando um usuário cancela o registro do modo de interrupção.|
@@ -73,7 +73,7 @@ Se você, como administrador, quiser redefinir as configurações de autenticaç
 
 As etapas a seguir irão ajudá-lo a reverter um usuário ou grupo de usuários.
 
-#### <a name="prerequisites"></a>pré-requisitos
+#### <a name="prerequisites"></a>Pré-requisitos
 
 1. Instale os módulos apropriados do PowerShell do Azure AD. Em uma janela do PowerShell, execute estes comandos para instalar os módulos:
 
@@ -160,6 +160,6 @@ Para desabilitar a experiência de visualização para seus usuários, conclua e
 
 Os usuários não serão mais solicitados a se registrar usando a experiência de visualização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre a visualização pública do registro combinado para redefinição de senha de autoatendimento e autenticação multifator do Azure](concept-registration-mfa-sspr-combined.md)

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828244"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851512"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 Tem perguntas? Confira as perguntas frequentes a seguir para obter mais informações.
@@ -88,7 +88,7 @@ As tarefas de compilação podem baixar os pacotes NuGet das ferramentas do [fee
 
 Após a instalação, as tarefas de compilação de segurança fornecidas pela extensão ficam disponíveis para todos os usuários em sua organização. Quando você cria ou edita um pipeline do Azure, essas tarefas estão disponíveis na lista coleção de tarefas de compilação. Caso contrário, instalar a extensão em sua organização DevOps do Azure não terá nenhum efeito. A instalação não modifica nenhuma configuração de conta, configurações de projeto ou pipelines.
 
-### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>A instalação da extensão modifica meus pipelines do Azure existentes? 
+### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>A instalação da extensão modifica o Azure Pipelines existente? 
 
 Não. A instalação da extensão torna as tarefas de compilação de segurança disponíveis para adição aos seus pipelines. Você ainda precisa adicionar ou atualizar definições de compilação, para que as ferramentas possam trabalhar com o processo de compilação.
 
@@ -154,7 +154,7 @@ Exemplos de regras de supressão válidas:
 
 Os recursos a seguir ajudam você a gerenciar com segurança segredos e acessar informações confidenciais de dentro de seus aplicativos:
 
- - [Cofre de Chaves do Azure](../../key-vault/index.yml)
+ - [Cofre da Chave do Azure](../../key-vault/index.yml)
  - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
  - [Identidade de Serviço Gerenciada do Azure AD (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identidades gerenciadas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
@@ -184,7 +184,7 @@ Um pesquisador de conteúdo é definido da seguinte maneira:
 
   ![XML mostrando a instalação do verificador de credenciais](./media/security-tools/6-credscan-customsearchers.png)
 
-### <a name="roslyn-analyzers"></a>Analisadores de Roslyn
+### <a name="roslyn-analyzers"></a>Analisadores Roslyn
 
 #### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Quais são os erros comuns ao usar a tarefa analisadores de Roslyn?
 
@@ -192,7 +192,7 @@ Um pesquisador de conteúdo é definido da seguinte maneira:
 
 A mensagem de erro completa:
 
-"Erro: o projeto foi restaurado usando Microsoft. NetCore. app versão *x.* x, mas com as configurações atuais, a *versão y. y* seria usada em seu lugar. Para resolver esse problema, verifique se as mesmas configurações são usadas para restauração e para operações subsequentes, como compilar ou publicar. Normalmente, esse problema pode ocorrer se a propriedade RuntimeIdentifier for definida durante a compilação ou publicação, mas não durante a restauração. "
+"Erro: o projeto foi restaurado usando Microsoft. NetCore. app versão *x.* x, mas com as configurações atuais, a *versão y. y* seria usada em seu lugar. Para resolver esse problema, verifique se as mesmas configurações são usadas para restauração e para as operações seguintes, como build ou publicação. Normalmente, esse problema pode ocorrer se a propriedade RuntimeIdentifier é definida durante o build ou a publicação, mas não durante a restauração."
 
 Como as tarefas de analisadores Roslyn são executadas como parte da compilação, a árvore de origem no computador de compilação precisa estar em um estado compilável.
 
@@ -218,13 +218,10 @@ Para obter as versões mais recentes do C# compilador, vá para [Microsoft.net. 
 
 A tarefa de compilação de analisadores Roslyn precisa consultar o Azure DevOps para o log do MSBuild da tarefa de compilação do MSBuild. Se a tarefa do analisador for executada imediatamente após a tarefa do MSBuild, o log ainda não estará disponível. Coloque outras tarefas entre a tarefa do MSBuild e a tarefa analisadores de Roslyn. Exemplos de outras tarefas incluem o BinSkim e o scanner antimalware.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você precisar de assistência adicional, o suporte à análise de código de segurança da Microsoft estará disponível de segunda a sexta-feira, de 9:00 às 5:00, hora oficial do Pacífico.
 
-  - Integração: entre em contato com seus gerentes de contas técnicas para começar.
+- Integração: consulte nossa [documentação de integração](security-code-analysis-onboard.md)
   
-  - Suporte: envie a equipe por email com [o suporte à análise de código de segurança da Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
-
-  >[!NOTE] 
-  >Talvez você não tenha um relacionamento de suporte pago com a Microsoft. Ou talvez você tenha uma oferta de suporte que impeça a compra de serviços do catálogo de Phoenix. Se uma dessas condições for verdadeira, visite nossos serviços de [suporte Home Page](https://www.microsoft.com/enterprise/services/support) para obter mais informações.
+- Suporte: envie a equipe por email [para o suporte da análise de código de segurança da Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

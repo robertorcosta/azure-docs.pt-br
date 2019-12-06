@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas de gráfico de recursos e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o grafo de recursos do Azure.
-ms.date: 10/21/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a3503ce8d83b5bd47872db4b1de0eadb88be432c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959046"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851206"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -24,9 +24,9 @@ Este artigo aborda os componentes de linguagem com suporte no grafo de recursos:
 
 O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre os tipos de recursos do Resource Manager e suas propriedades. Essas tabelas podem ser usadas com operadores `join` ou `union` para obter propriedades de tipos de recursos relacionados. Aqui está a lista de tabelas disponíveis no grafo de recursos:
 
-|Tabelas do grafo de recursos |DESCRIÇÃO |
+|Tabelas do grafo de recursos |Descrição |
 |---|---|
-|Recursos |A tabela padrão se nenhuma for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
+|Implante |A tabela padrão se nenhuma for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
 |ResourceContainers |Inclui a assinatura (em visualização `Microsoft.Resources/subscriptions`) e os tipos de recurso e os dados do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AlertsManagementResources |Inclui recursos _relacionados_ a `Microsoft.AlertsManagement`. |
 |SecurityResources |Inclui recursos _relacionados_ a `Microsoft.Security`. |
@@ -65,14 +65,15 @@ O grafo de recursos dá suporte a todos os [tipos de dados](/azure/kusto/query/s
 
 Aqui está a lista de operadores de tabela KQL com suporte do grafo de recursos com exemplos específicos:
 
-|KQL |Consulta de exemplo de grafo de recursos |Observações |
+|KQL |Consulta de exemplo de grafo de recursos |Notas |
 |---|---|---|
 |[count](/azure/kusto/query/countoperator) |[Contar cofres de chaves](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um alias específico](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contagem de máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de junção com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta. Estratégias de junção personalizadas, como junção de difusão, não são permitidas. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
 |[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `take` |
-|[MV-expandir](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_Limite_ máximo de 400 |
+|[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador herdado, use `mv-expand` em vez disso. _Limite_ máximo de 400. O padrão é 128. |
+|[MV-expandir](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_Limite_ máximo de 400. O padrão é 128. |
 |[Ordene](/azure/kusto/query/orderoperator) |[Listar recursos classificados por nome](../samples/starter.md#list-resources) |Sinônimo de `sort` |
 |[project](/azure/kusto/query/projectoperator) |[Listar recursos classificados por nome](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[Remover colunas dos resultados](../samples/advanced.md#remove-column) | |
@@ -115,7 +116,7 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).

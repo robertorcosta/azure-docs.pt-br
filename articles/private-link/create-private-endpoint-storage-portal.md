@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: cfe0caaf199821358f8a66ac65ae75c38336c725
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228088"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851155"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.
@@ -24,7 +24,7 @@ Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtu
 
 Entre no Portal do Azure em https://portal.azure.com.
 
-## <a name="create-a-vm"></a>Criar uma máquina virtual
+## <a name="create-a-vm"></a>Criar uma VM
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM que é usada para acessar seu recurso de link privado (uma conta de armazenamento neste exemplo).
 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
@@ -34,13 +34,13 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Rede virtual**.
 1. Em **Criar rede virtual**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
-    | NOME | Insira *MyVirtualNetwork*. |
+    | name | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
-    | Assinatura | Selecione sua assinatura.|
-    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Local padrão | Selecione **WestCentralUS**.|
+    | Subscription | Selecione sua assinatura.|
+    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
+    | Location | Selecione **WestCentralUS**.|
     | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -53,11 +53,11 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da máquina virtual | Insira *myVm*. |
     | Região | Selecione **WestCentralUS**. |
@@ -80,9 +80,9 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
-    | rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
+    | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
     | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
     | Sub-rede | Deixar o padrão **mySubnet (10.1.0.0/24)** .|
     | IP público | Deixe o padrão **(novo) myVm-ip**. |
@@ -101,15 +101,15 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
 
 1. Em **criar conta de armazenamento-noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.|
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da conta de armazenamento  | Insira *mystorageaccount*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     | Região | Selecione **WestCentralUS**. |
-    | Desempenho| Deixe o padrão **Standard**. |
+    | Performance| Deixe o padrão **Standard**. |
     | Tipo de conta | Deixe o **armazenamento padrão (uso geral v2)** . |
     | Replicação | Selecione **armazenamento com redundância geográfica com acesso de leitura (ra-grs)** . |
     |||
@@ -119,16 +119,16 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
 5. Em **criar uma conta de armazenamento – rede**, selecione **Adicionar ponto de extremidade privado**. 
 6. Em **criar ponto de extremidade privado**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    |Local padrão|Selecione **WestCentralUS**.|
-    |NOME|Insira *myPrivateEndpoint*.  |
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
+    |Location|Selecione **WestCentralUS**.|
+    |name|Insira *myPrivateEndpoint*.  |
     |Subrecurso de armazenamento|Deixe o **blob**padrão. |
     | **REDE** |  |
-    | rede virtual  | Selecione *MyVirtualNetwork* no grupo de recursos *MyResource*Group. |
+    | Rede virtual  | Selecione *MyVirtualNetwork* no grupo de recursos *MyResource*Group. |
     | Sub-rede | Selecione  *mySubnet*. |
     | **INTEGRAÇÃO DE DNS PRIVADO**|  |
     | Integrar com a zona DNS privado  | Deixe o padrão **Sim**. |
@@ -141,9 +141,9 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
 11. Selecione **chaves de acesso** no menu conteúdo à esquerda.
 12. Selecione **copiar** na cadeia de conexão para key1.
  
-## <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Conectar uma VM a partir da Internet
 
-Conecte-se à VM *myVm* da Internet da seguinte maneira:
+Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Na barra de pesquisa do portal, insira *myVm*.
 
@@ -169,9 +169,6 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 ## <a name="access-storage-account-privately-from-the-vm"></a>Acessar a conta de armazenamento de forma privada da VM
 
 Nesta seção, você se conectará de forma privada à conta de armazenamento usando o ponto de extremidade privado.
-
-> [!IMPORTANT]
-> A configuração de DNS para armazenamento precisa de uma modificação manual no arquivo de hosts para incluir o FQDN da conta específica. modifique o seguinte arquivo usando permissões de administrador no Windows: c:\Windows\System32\Drivers\etc\hosts ou Linux/etc/hosts inclua as informações de DNS para a conta da etapa anterior no seguinte formato [endereço IP privado] myaccount.blob.core.windows.net
 
 1. Na Área de Trabalho Remota de  *myVM*, abra o PowerShell.
 2. Insira `nslookup mystorageaccount.blob.core.windows.net` você receberá uma mensagem semelhante a esta:
@@ -207,5 +204,5 @@ Quando você terminar de usar o ponto de extremidade privado, a conta de armazen
 2. Selecione **Excluir grupo de recursos**. 
 3. Insira o grupo de *recursos* de para **digite o nome** e selecione **excluir**. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste guia de início rápido, você criou uma VM em uma rede virtual e uma conta de armazenamento e um ponto de extremidade privado. Você se conectou a uma VM da Internet e se comunica com segurança à conta de armazenamento usando o link privado. Para saber mais sobre o ponto de extremidade privado, consulte [o que é o ponto de extremidade privado do Azure?](private-endpoint-overview.md).
