@@ -15,38 +15,40 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: d372b94ac0df4cef3c43fab10686e9bf20633bfe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c522af44be51eb89ee9f64bae2dc4e9e7b24123
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034242"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873940"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init para máquinas virtuais no Azure
 Este artigo explica o suporte que existe para [Cloud-init](https://cloudinit.readthedocs.io) para configurar uma VM (máquina virtual) ou conjuntos de dimensionamento de máquinas virtuais no tempo de provisionamento no Azure. Esses scripts cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure.  
 
 ## <a name="cloud-init-overview"></a>Visão geral da inicialização de nuvem
-[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como o cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config` são arquivos de texto codificados em base64.
+[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config` são arquivos de texto codificados em base64.
 
 A inicialização de nuvem também funciona em distribuições. Por exemplo, você não usa **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, você pode definir uma lista de pacotes para instalar. Inicialização de nuvem usa automaticamente a ferramenta de gerenciamento de pacote nativo de distribuição que você selecionar.
 
 Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que suas implantações e configurações de Cloud-init funcionem de forma integrada com VMs e conjuntos de dimensionamento de máquinas virtuais. A tabela a seguir descreve a disponibilidade de imagens habilitadas de cloud-init na plataforma do Azure:
 
-| Publicador | Oferta | Sku | Versão | Cloud-init pronto |
+| Publicador | Oferta | SKU | Versão | Cloud-init pronto |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |mais recente |sim | 
-|Canonical |UbuntuServer |16.04-LTS |mais recente |sim | 
-|Canonical |UbuntuServer |14.04.5-LTS |mais recente |sim |
-|CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |preview |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sim |
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
+|Canônico |UbuntuServer |18.04-LTS |mais recente |Sim | 
+|Canônico |UbuntuServer |16.04-LTS |mais recente |Sim | 
+|Canônico |UbuntuServer |14.04.5-LTS |mais recente |Sim |
+|CoreOS |CoreOS |Estável |mais recente |Sim |
+|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |versão prévia |
+|Oracle 7,7 |Oracle-Linux |77-CI |7.7.01|versão prévia |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Sim |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |versão prévia |
     
 Atualmente Azure Stack não oferece suporte ao provisionamento do RHEL 7. x e do CentOS 7. x usando Cloud-init.
 
 * Para o RHEL 7,6, pacote Cloud-init, o pacote com suporte é: *18.2-1. el7_6.2* 
 * Para o RHEL 7,7 (versão prévia), o pacote Cloud-init, o pacote de visualização é: *18.5 -3. EL7*
 * Para o CentOS 7,7 (versão prévia), o pacote Cloud-init, o pacote de visualização é: *18.5 -3. EL7. centos*
+* Para o Oracle 7,7 (versão prévia), o pacote Cloud-init, o pacote de visualização é: *18.5-3.0.1. EL7*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Qual é a diferença entre cloud-init e o Agente do Linux (WALA)?
 WALA é um agente específico da plataforma do Azure usado para provisionar e configurar VMs e lidar com extensões do Azure. Estamos aprimorando a tarefa de configuração de VMs para usar cloud-init em vez do agente do Linux, para permitir que os clientes existentes de cloud-init usem seus scripts atuais de cloud-init.  Se você tiver investimentos existentes em scripts de cloud-init para configurar os sistemas Linux, não há **nenhuma configuração adicional necessária** para habilitá-los. 
@@ -98,7 +100,7 @@ Depois que a VM tiver sido provisionada, o cloud-init será executado em todos o
 
 Para obter mais detalhes de registro do cloud-init, consulte a [documentação do cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter exemplos de alterações de configuração do cloud-init, consulte os seguintes documentos:
  
 - [Adicionar um usuário do Linux adicional a uma VM](cloudinit-add-user.md)

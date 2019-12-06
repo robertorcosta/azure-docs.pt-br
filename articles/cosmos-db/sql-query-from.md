@@ -1,27 +1,27 @@
 ---
 title: Cláusula FROM em Azure Cosmos DB
-description: Saiba mais sobre a cláusula SQL FROM para Azure Cosmos DB
+description: Saiba mais sobre a sintaxe SQL e o exemplo da cláusula FROM para Azure Cosmos DB. Este artigo também mostra exemplos de escopo de resultados e obter subitens usando a cláusula FROM.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 79bb17277a041f71c095ed724737012f9501f16f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4f6d7580ea7ff0e8968c0c3ce4b3ca6111c86ac8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326988"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873362"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM em Azure Cosmos DB
 
-A cláusula FROM (`FROM <from_specification>`) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta como `SELECT * FROM Families` enumera em todo o contêiner `Families`. Você também pode usar a raiz do identificador especial para o contêiner em vez de usar o nome do contêiner.
+A cláusula FROM (`FROM <from_specification>`) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta como `SELECT * FROM Families` enumera em todo o contêiner de `Families`. Você também pode usar a raiz do identificador especial para o contêiner em vez de usar o nome do contêiner.
 
 A cláusula FROM impõe as seguintes regras por consulta:
 
 * O contêiner pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` é o alias para `Families`. Como é uma palavra-chave opcional para [alias](sql-query-aliasing.md) do identificador.  
 
-* Depois de alias, o nome de origem original não pode ser associado. Por exemplo, `SELECT Families.id FROM Families f` é sintaticamente inválido porque o identificador `Families` tem um alias e não pode mais ser resolvido.  
+* Depois de alias, o nome de origem original não pode ser associado. Por exemplo, `SELECT Families.id FROM Families f` é sintaticamente inválido porque o identificador `Families` foi alias e não pode mais ser resolvido.  
 
 * Todas as propriedades referenciadas devem ser totalmente qualificadas para evitar associações ambíguas na ausência da adesão estrita ao esquema. Por exemplo, `SELECT id FROM Families f` é sintaticamente inválido porque a propriedade `id` não está associada.
 
@@ -147,7 +147,7 @@ Os resultados são:
     ]
 ```
 
-A consulta anterior usou uma matriz como a origem, mas você também pode usar um objeto como a origem. A consulta considera qualquer valor JSON válido e definido na fonte para inclusão no resultado. O exemplo a seguir excluirá `Families` que não têm um valor de `address.state`.
+A consulta anterior usou uma matriz como a origem, mas você também pode usar um objeto como a origem. A consulta considera qualquer valor JSON válido e definido na fonte para inclusão no resultado. O exemplo a seguir excluiria `Families` que não têm um valor de `address.state`.
 
 ```sql
     SELECT *

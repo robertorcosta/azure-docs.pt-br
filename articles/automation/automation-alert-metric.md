@@ -3,17 +3,17 @@ title: Monitorar runbooks de Automação do Azure com alertas de métrica
 description: Este artigo orienta como monitorar os runbooks de Automação do Azure com base em métricas
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 142fb84624c2b0d3d92868aae5794792ed90b577
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: bea99820bee107b8329dd3c36ac3ceb84a042b86
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478021"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850968"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitorando runbooks com alertas de métrica
 
@@ -38,7 +38,7 @@ No portal do Azure, navegue até sua conta de automação. Sob **Monitoring**, s
    Se você deseja alertar sobre um status ou um runbook que não é mostrado na lista suspensa, clique no **\+** ao lado da dimensão. Esta ação abre uma caixa de diálogo que permite inserir um valor personalizado, que não foi emitido para essa dimensão recentemente. Se você inserir um valor que não existe para uma propriedade, seu alerta não será acionado.
 
    > [!NOTE]
-   > Se você não aplicar um nome para o **RunbookName** da dimensão, se houver quaisquer runbooks que atendem aos critérios de status, que inclui runbooks de sistema oculta, você receberá um alerta.
+   > Se você não aplicar um nome para a dimensão **RunbookName** , se houver algum runbook que atenda aos critérios de status, que inclui runbooks de sistema ocultos, você receberá um alerta.
 
 3. Em **Lógica de alerta**, defina a condição e o limite para o alerta. Uma visualização da sua condição definida é mostrada abaixo.
 
@@ -48,13 +48,13 @@ No portal do Azure, navegue até sua conta de automação. Sob **Monitoring**, s
 
 ### <a name="define-alert-details"></a>Definir os detalhes do alerta
 
-1. Em **2. Definir os detalhes do alerta**, dê ao alerta um nome e descrição fáceis. Defina a **Gravidade** para coincidir com a condição de alerta. Há cinco gravidades variando de 0 a 5. Os alertas são tratados da mesma forma, independentemente da gravidade, e você pode combinar a gravidade para que corresponda à sua lógica de negócios.
+1. Em **2. Definir detalhes do alerta**, dê ao alerta um nome amigável e uma descrição. Defina a **Gravidade** para coincidir com a condição de alerta. Há cinco gravidades variando de 0 a 5. Os alertas são tratados da mesma forma, independentemente da gravidade, e você pode combinar a gravidade para que corresponda à sua lógica de negócios.
 
 1. Na parte inferior da seção, há um botão que permite ativar a regra após a conclusão. Por padrão, as regras são habilitadas no momento da criação. Se você selecionar Não, poderá criar o alerta e ele será criado em um estado **Desativado**. Dos **regras** página no Azure Monitor, você pode selecioná-lo e clique em **habilitar** para habilitar o alerta quando estiver pronto.
 
 ### <a name="define-the-action-to-take"></a>Definir a ação a ser executada
 
-1. Em **3. Definir o grupo de ação**, clique em **+ Novo grupo de ação**. Um grupo de ação é um grupo de ações que você pode usar em mais de um alerta. Estes podem incluir, mas não estão limitados a, notificações de email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
+1. Menos de **3. Definir grupo de ações**, clique em **+ novo grupo de ações**. Um grupo de ação é um grupo de ações que você pode usar em mais de um alerta. Estes podem incluir, mas não estão limitados a, notificações de email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 
 1. Na caixa **Nome do grupo de ação** caixa, dê a ele um nome fácil e curto. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
 
@@ -79,7 +79,7 @@ Quando os critérios de alerta são atendidos, o grupo de ações executa a aç�
 
 Depois que a métrica não estiver mais fora do limite definido, o alerta será desativado, e o grupo de ações executará a ação definida. Se um tipo de ação de email for selecionado, um email de resolução será enviado informando que ele foi resolvido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Continue e avance para o seguinte artigo para saber mais sobre as outras maneiras como você pode integrar alertas à sua Conta de Automação.
 

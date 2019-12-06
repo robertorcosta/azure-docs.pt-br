@@ -4,17 +4,17 @@ description: Este artigo demonstra como usar a Automação do Azure para automat
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 31eda5a293f7154d32c508b7b9c1bf0f9f604f2e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d2a58d3e79301f277143d8c4b6e810a377a211b9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476905"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849625"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Cenário de Automação do Azure – provisionar uma máquina virtual do AWS
 Neste artigo, você aprenderá a usar a Automação do Azure para provisionar uma máquina virtual na sua assinatura do AWS (Amazon Web Services) e dar um nome específico à VM – o que o AWS chama de "marcar" a VM.
@@ -87,7 +87,7 @@ Após implantar o Módulo do PowerShell do AWS, você poderá criar um runbook p
 9. Salve o runbook, clique em **Publicar** para publicá-lo e em **Sim** quando solicitado.
 
 ### <a name="testing-the-aws-vm-runbook"></a>Testando o runbook de VM do AWS
-Antes de continuar testando o runbook, você precisa verificar algumas coisas. Especificamente:  
+Antes de continuar testando o runbook, você precisa verificar algumas coisas. Mais especificamente:  
 
 * Um ativo para se autenticar no AWS foi criado chamado **AWScred** ou o script foi atualizado para referenciar o nome do seu ativo de credencial.    
 * O módulo do PowerShell do AWS foi importado para a Automação do Azure  
@@ -100,10 +100,10 @@ Antes de continuar testando o runbook, você precisa verificar algumas coisas. E
 4. Você pode exibir o andamento do trabalho e **Fluxos** de saída selecionando o bloco **Todos os Logs** na página do trabalho do runbook.<br><br> ![Saída de fluxo](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 5. Para confirmar que a VM está sendo provisionada, faça logon no Console de Gerenciamento do AWS se não estiver conectado.<br><br> ![VM implantada por console do AWS](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-* Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+* Para saber mais sobre os tipos de runbook, suas vantagens e limitações, consulte [Tipos de runbook de Automação do Azure](automation-runbook-types.md)
 * Para saber mais sobre o recurso de suporte de script do PowerShell, veja [Native PowerShell script support in Azure Automation (Suporte a scripts nativos do PowerShell na Automação do Azure)](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
 

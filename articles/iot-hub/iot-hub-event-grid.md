@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151305"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851693"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do Hub IoT usando a Grade de Eventos para disparar ações
 
@@ -31,7 +31,7 @@ A integração da Grade de Eventos está disponível para os hubs IoT localizado
 
 Hub IoT publica os seguintes tipos de evento:
 
-| Tipo de evento | DESCRIÇÃO |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo é registrado para um Hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é excluído de um Hub IoT. |
@@ -184,13 +184,11 @@ Para filtrar mensagens antes que os dados de telemetria sejam enviados, você po
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitações para eventos de conexão e desconexão de dispositivo
 
-Para receber eventos de conexão e desconexão de dispositivo, você precisa abrir o link D2C ou o link C2D para o dispositivo. Se o dispositivo estiver usando o protocolo MQTT, o Hub IoT manterá o link C2D aberto. Para AMQP, você pode abrir o link C2D chamando a [API assíncrona Receive](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
+Para receber eventos de estado de conexão do dispositivo, um dispositivo deve fazer uma operação "C2D Receive telemetria" ou "mensagem de recebimento" com o Hub IOT. No entanto, observe que, se um dispositivo estiver usando o protocolo AMQP para se conectar ao Hub IOT, é recomendável que eles façam uma operação "C2D receber mensagem", caso contrário, suas notificações de estado de conexão poderão ser atrasadas em alguns minutos. Se o dispositivo estiver usando o protocolo MQTT, o Hub IoT manterá o link C2D aberto. Para AMQP, você pode abrir o link C2D chamando a [API assíncrona de recebimento](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet), para o C# SDK do Hub IOT ou [para o cliente do dispositivo para AMQP](iot-hub-amqp-support.md#device-client).
 
 Se você está enviando telemetria, o link D2C está aberto. 
 
-Se a conexão do dispositivo estiver piscando, o que significa que o dispositivo se conecta e desconecta com frequência, não enviaremos todos os Estados de conexão única, mas publicaremos o *último* estado de conexão, que é eventualmente consistente. Por exemplo, se o dispositivo esteve no estado conectado inicialmente, então os movimentos de conectividade por alguns segundos e, em seguida, voltam ao estado conectado. Nenhum evento de estado de conexão de dispositivo novo será publicado desde o estado de conexão inicial. 
-
-Em caso de uma interrupção do Hub IoT, publicaremos o estado de conexão do dispositivo assim que a interrupção acabar. Se o dispositivo for desconectado durante essa interrupção, o evento de dispositivo desconectado será publicado em até dez minutos.
+Se a conexão do dispositivo estiver piscando, o que significa que o dispositivo se conecta e desconecta com frequência, não enviaremos todos os Estados de conexão única, mas publicaremos o estado de conexão atual feito em um instantâneo periódico, até que a cintilação continue. O recebimento do mesmo evento de estado de conexão com números de sequência diferentes ou eventos de estado de conexão diferentes significam que houve uma alteração no estado de conexão do dispositivo.
 
 ## <a name="tips-for-consuming-events"></a>Dicas para o consumo de eventos
 
@@ -202,11 +200,11 @@ Aplicativos que tratam os eventos de Hub IoT devem seguir essas práticas sugeri
 
 * As mensagens podem chegar fora de ordem ou após um atraso. Use o campo ETag para entender se suas informações sobre objetos estão atualizadas para dispositivos criados pelo dispositivo ou eventos excluídos do dispositivo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Tente o tutorial de eventos do Hub IoT](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
-* [Saiba como solicitar o dispositivo conectado e os eventos desconectados](iot-hub-how-to-order-connection-state-events.md)
+* [Saiba como ordenar os eventos de conexão e desconexão de dispositivo](iot-hub-how-to-order-connection-state-events.md)
 
 * [Saiba mais sobre a Grade de Eventos](../event-grid/overview.md)
 

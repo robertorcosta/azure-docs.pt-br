@@ -2,25 +2,22 @@
 title: Práticas recomendadas de tratamento de erros para clientes da biblioteca de autenticação do Azure AD (ADAL)
 description: Apresenta diretrizes e práticas recomendadas em tratamento de erro para aplicativos cliente ADAL.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 04ffeb85dc424396593d13f2cdc2681e26bd2db3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374202"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845188"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Práticas recomendadas em tratamento de erro para clientes da Biblioteca de autenticação do Azure Active Directory (ADAL)
 
@@ -542,7 +539,7 @@ adb logcat > "C:\logmsg\logfile.txt";
 
 Para explorar erros ADAL específicos, o código-fonte no [repositório azure-activedirectory-library-for-objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295) é a melhor referência de erro.
 
-#### <a name="operating-system-errors"></a>Erros de sistema operacional
+#### <a name="operating-system-errors"></a>Erros do sistema operacional
 
 Os erros de iOS podem surgir durante a entrada quando os usuários utilizam exibições da Web e a natureza da autenticação. Isso pode ser causado por condições como erros SSL, tempos limite ou erros de rede:
 
@@ -577,6 +574,7 @@ window.Logging = {
     }
 };
 ```
+
 ## <a name="related-content"></a>Conteúdo relacionado
 
 * [Guia do desenvolvedor do Azure AD][AAD-Dev-Guide]
@@ -586,7 +584,7 @@ window.Logging = {
 
 Use a seção de comentários a seguir para fazer comentários e nos ajudar a refinar e modelar o conteúdo.
 
-[![Shows o botão "Entrar com a conta da Microsoft"][AAD-Sign-In]][AAD-Sign-In]
+[![mostra o botão "Entrar com a conta da Microsoft"][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

@@ -4,17 +4,17 @@ description: Este artigo descreve como migrar as implantações de atualização
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2cc05dc0970211b066d9e431cc7aba06cbd126eb
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478296"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849489"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implantações de atualização do OMS para Azure
 
@@ -35,9 +35,9 @@ No portal do Azure, clique em **Conta de Automação**
 
 ![Logs do Azure Monitor](media/migrate-oms-update-deployments/log-analytics.png)
 
-Na Conta de Automação, clique em **Gerenciamento de Atualizações** para abrir o Gerenciamento de Atualizações.
+Na Conta de Automação, clique em **	Gerenciamento de Atualizações** para abrir o Gerenciamento de Atualizações.
 
-![Gerenciamento de atualizações](media/migrate-oms-update-deployments/azure-automation.png)
+![Gerenciamento de atualização](media/migrate-oms-update-deployments/azure-automation.png)
 
 Futuramente, será possível acessar diretamente o portal do Azure, em **Todos os serviços**, selecionar **Contas de Automação**  em **Ferramentas de Gerenciamento**, selecionar a Conta de Automação apropriada e clicar em **Gerenciamento de Atualizações**.
 
@@ -45,7 +45,7 @@ Futuramente, será possível acessar diretamente o portal do Azure, em **Todos o
 
 Todas as implantações de atualização criadas no portal do OMS têm uma [pesquisa salva](../azure-monitor/platform/computer-groups.md) também conhecida como grupo de computadores, com o mesmo nome da implantação de atualização existente. A pesquisa salva contém a lista de computadores que foram agendados na implantação de atualizações.
 
-![Gerenciamento de atualizações](media/migrate-oms-update-deployments/oms-deployment.png)
+![Gerenciamento de atualização](media/migrate-oms-update-deployments/oms-deployment.png)
 
 Para usar essa pesquisa salva existente, siga estas etapas:
 
@@ -59,14 +59,14 @@ Para que os Computadores atualizem, selecione a pesquisa salva usada pela implan
 
 | Propriedade | Descrição |
 | --- | --- |
-|Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
+|name |Nome exclusivo para identificar a Implantação de Atualizações. |
 |Sistema operacional| Selecione **Linux** ou **Windows**.|
 |Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Classificações de origem|Selecione todas as classificações de atualização que você precisa. CentOS não oferece suporte para isso fora da caixa.|
 |Atualizações para excluir|Insira as atualizações a serem excluídas. Para Windows, insira o artigo KB sem o prefixo **KB**. Para o Linux, insira o nome do pacote ou use um caractere curinga.  |
 |Configurações de agendamento|Selecione o tempo para iniciar e selecione **Uma Vez** ou **Recorrente** para a recorrência. | 
 | Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou superior a 6 horas. |
-| Reinicialize o controle| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reinicialização, se necessário (Padrão)</br>Sempre reinicializar</br>Nunca reinicializar</br>Somente reinicialização - não instalará as atualizações|
+| Reinicialize o controle| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reinicialização, se necessário (padrão)</br>Sempre reinicializar</br>Nunca reinicializar</br>Somente reinicialização - não instalará as atualizações|
 
 Clique em **Implantações de atualização agendadas** para exibir o status da implantação da atualização criada recentemente.
 
@@ -74,6 +74,6 @@ Clique em **Implantações de atualização agendadas** para exibir o status da 
 
 Conforme mencionado anteriormente, quando as novas implantações forem configuradas por meio do portal do Azure, as implantações existentes poderão ser removidas pelo portal do OMS.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Gerenciamento de Atualizações no Azure, consulte [Gerenciamento de Atualizações](automation-update-management.md)

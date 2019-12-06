@@ -2,18 +2,18 @@
 title: Solucionar erros com o Gerenciamento de Atualizações
 description: Saiba como solucionar problemas com o Gerenciamento de Atualizações.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786053"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849234"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
@@ -68,7 +68,7 @@ Você pode ter definido uma cota em seu espaço de trabalho que foi atingido e q
   | where OperationCategory == 'Data Collection Status'
   | sort by TimeGenerated desc
   ```
-  Se você obtiver um resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, haverá uma cota definida em seu espaço de trabalho que foi atingida e que parou os dados de serem salvos. Em seu espaço de trabalho, acesse **uso e custos estimados**  > **Gerenciamento de volume de dados** e verifique sua cota ou remova-o.
+  Se você obtiver um resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, haverá uma cota definida em seu espaço de trabalho que foi atingida e que parou os dados de serem salvos. Em seu espaço de trabalho, acesse **uso e custos estimados** > **Gerenciamento de volume de dados** e verifique sua cota ou remova-o.
 
 * Se essas etapas não resolverem o problema, siga as etapas em [implantar um Hybrid runbook Worker do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker para Windows. Ou, para Linux, [implante um Hybrid runbook Worker do Linux](../automation-linux-hrw-install.md).
 
@@ -108,7 +108,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 ### <a name="cause"></a>Causa
 
-Esse erro pode ocorrer pelos seguintes motivos:
+Esse erro pode ocorrer por um dos seguintes motivos:
 
 - A comunicação com a conta de automação está sendo bloqueada.
 - A VM que está sendo integrada pode ter vindo de um computador clonado que não foi Sysprep com o Microsoft Monitoring Agent (MMA) instalado.
@@ -187,7 +187,7 @@ Esse problema pode ocorrer por um dos seguintes motivos:
 
 ### <a name="resolution"></a>Resolução
 
-Quando aplicável, use [grupos dinâmicos](../automation-update-management-groups.md) para suas implantações de atualização. Além disso
+Quando aplicável, use [grupos dinâmicos](../automation-update-management-groups.md) para suas implantações de atualização. Adicionalmente:
 
 * Verifique se o computador ainda existe e acessível. Se ele não existir, edite a implantação e remova o computador.
 * Consulte a seção [planejamento de rede](../automation-update-management.md#ports) para obter uma lista de portas e endereços necessários para gerenciamento de atualizações e, em seguida, verifique se o computador atende a esses requisitos.

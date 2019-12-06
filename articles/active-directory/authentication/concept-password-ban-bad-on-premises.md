@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/18/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 013a14505f7ac1382bce369e161fdae834f605fc
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1b9d07099f8de996181948921330ef6744b302a8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200220"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848639"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
 
@@ -87,9 +87,9 @@ A implantação da proteção de senha do Azure AD em uma floresta Active Direct
 
 A floresta Active Directory e todos os serviços de proxy implantados em uma floresta devem ser registrados com o mesmo locatário. Não há suporte para ter uma floresta Active Directory ou quaisquer serviços de proxy na floresta que estão sendo registrados em locatários diferentes do Azure AD. Os sintomas de tal implantação mal configurada incluem a incapacidade de baixar políticas de senha.
 
-## <a name="download"></a>Download
+## <a name="download"></a>Baixar
 
 Os dois instaladores de agente necessários para a proteção de senha do Azure AD estão disponíveis no [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Implantar proteção de senha do Azure AD](howto-password-ban-bad-on-premises-deploy.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac52fa7eab055a2b2e9154481019d49acdca65d9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420544"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842400"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -43,7 +43,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 
 No momento, há suporte para as seguintes distribuições do Windows durante a versão prévia deste recurso:
 
-- Windows Server 2019 datacenter
+- Windows Server 2019 Datacenter
 - Windows 10 1809 e posterior
 
 No momento, há suporte para as seguintes regiões do Azure durante a versão prévia desse recurso:
@@ -116,6 +116,9 @@ az vm create \
     --admin-username azureuser \
     --admin-password yourpassword
 ```
+
+> [!NOTE]
+> É necessário que você habilite a identidade gerenciada atribuída pelo sistema em sua máquina virtual antes de instalar a extensão de VM de logon do Azure AD.
 
 A criação da VM e dos recursos de suporte demora alguns minutos.
 
@@ -230,24 +233,24 @@ A extensão AADLoginForWindows deve ser instalada com êxito para que a VM concl
 
    | Comando a ser executado | Saída esperada |
    | --- | --- |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Informações corretas sobre a VM do Azure |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | ID de locatário válida associada à assinatura do Azure |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Token de acesso válido emitido por Azure Active Directory para a identidade gerenciada atribuída a esta VM |
+   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | Informações corretas sobre a VM do Azure |
+   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | ID de locatário válida associada à assinatura do Azure |
+   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | Token de acesso válido emitido por Azure Active Directory para a identidade gerenciada atribuída a esta VM |
 
    > [!NOTE]
    > O token de acesso pode ser decodificado usando uma ferramenta como [http://calebb.net/](http://calebb.net/). Verifique se "AppID" no token de acesso corresponde à identidade gerenciada atribuída à VM.
 
 1. Verifique se os pontos de extremidade necessários estão acessíveis da VM usando a linha de comando:
    
-   - ondulação https://login.microsoftonline.com/-D –
-   - ondulação de https://login.microsoftonline.com/`<TenantID>`/-D –
+   - ondulação https://login.microsoftonline.com/ -D –
+   - ondulação de https://login.microsoftonline.com/`<TenantID>` /-D –
 
    > [!NOTE]
    > Substitua `<TenantID>` pela ID de locatário do Azure AD associada à assinatura do Azure.
 
-   - ondulação https://enterpriseregistration.windows.net/-D-
-   - ondulação https://device.login.microsoftonline.com/-D-
-   - ondulação https://pas.windows.net/-D-
+   - ondulação https://enterpriseregistration.windows.net/ -D-
+   - ondulação https://device.login.microsoftonline.com/ -D-
+   - ondulação https://pas.windows.net/ -D-
 
 1. O estado do dispositivo pode ser exibido executando `dsregcmd /status`. O objetivo é que o estado do dispositivo seja mostrado como `AzureAdJoined : YES`.
 
@@ -274,15 +277,15 @@ Esse código de saída é convertido para DSREG_AUTOJOIN_DISC_FAILED porque a ex
 
 1. Verifique se os pontos de extremidade necessários estão acessíveis da VM usando a linha de comando:
 
-   - ondulação https://login.microsoftonline.com/-D –
-   - ondulação de https://login.microsoftonline.com/`<TenantID>`/-D –
+   - ondulação https://login.microsoftonline.com/ -D –
+   - ondulação de https://login.microsoftonline.com/`<TenantID>` /-D –
    
    > [!NOTE]
    > Substitua `<TenantID>` pela ID de locatário do Azure AD associada à assinatura do Azure. Se você precisar localizar a ID do locatário, passe o mouse sobre o nome da sua conta para obter a ID do diretório/locatário ou selecione Azure Active Directory > Propriedades > ID do diretório no portal do Azure.
 
-   - ondulação https://enterpriseregistration.windows.net/-D-
-   - ondulação https://device.login.microsoftonline.com/-D-
-   - ondulação https://pas.windows.net/-D-
+   - ondulação https://enterpriseregistration.windows.net/ -D-
+   - ondulação https://device.login.microsoftonline.com/ -D-
+   - ondulação https://pas.windows.net/ -D-
 
 1. Se qualquer um dos comandos falhar com "não foi possível resolver o host `<URL>`", tente executar esse comando para determinar o servidor DNS que está sendo usado pela VM.
    
@@ -355,5 +358,5 @@ Se você não tiver implantado o Windows Hello para empresas e se isso não for 
 
 Compartilhe seus comentários sobre este recurso de visualização ou relate problemas usando-os no [Fórum de comentários do Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)

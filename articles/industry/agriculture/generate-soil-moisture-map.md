@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 61deb5361c9857956318f8b9b4ca836fcfa65d48
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e11f560c2b101d86d41feb3f6c93cffe7c1a748d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798122"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851444"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Gerar calor de umidade de solo
 
@@ -91,6 +91,6 @@ Use as seguintes etapas:
 
     ![Batidas no farm de projetos](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Agora que você gerou com êxito um calor de umidade de solo, saiba como [gerar o posicionamento do sensor](generate-maps.md#sensor-placement-maps) e [ingerir dados de telemetria históricos](ingest-historical-telemetry-data.md). 
+Agora que você gerou com êxito um calor de umidade de solo, saiba como [gerar o posicionamento do sensor](generate-maps.md#sensor-placement-map) e [ingerir dados de telemetria históricos](ingest-historical-telemetry-data.md). 

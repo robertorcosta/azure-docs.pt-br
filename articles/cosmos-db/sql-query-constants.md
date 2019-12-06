@@ -1,17 +1,17 @@
 ---
 title: Constantes do SQL no Azure Cosmos DB
-description: Saiba mais sobre as constantes do SQL no Azure Cosmos DB
+description: Saiba mais sobre como as constantes de consulta SQL no Azure Cosmos DB são usadas para representar um valor de dados específico
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: 41cafeb76b7b9481a78ffcff179676d0aa7bf6fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002041"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873413"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de consulta do Azure Cosmos DB SQL  
 
@@ -27,7 +27,7 @@ ms.locfileid: "71002041"
 |**Número**|Um número de ponto flutuante de precisão dupla, padrão IEEE 754.|  
 |**Cadeia de caracteres**|Uma sequência de zero ou mais caracteres Unicode. As cadeias de caracteres devem ser colocadas entre aspas simples ou duplas.|  
 |**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
-|**Object**|Um conjunto ordenado de zero ou mais pares de nome/valor. Nome é uma cadeia de caracteres Unicode; o valor pode ser de qualquer tipo de dados escalares, exceto **Indefinido**.|  
+|**Objeto**|Um conjunto ordenado de zero ou mais pares de nome/valor. Nome é uma cadeia de caracteres Unicode; o valor pode ser de qualquer tipo de dados escalares, exceto **Indefinido**.|  
   
 ## <a name="bk_syntax"></a>Sintaxe
   
@@ -59,7 +59,7 @@ ms.locfileid: "71002041"
   
 ```  
   
-##  <a name="bk_arguments"></a>Argumentos
+##  <a name="bk_arguments"></a> Argumentos
   
 * `<undefined_constant>; Undefined`  
   
@@ -116,7 +116,7 @@ ms.locfileid: "71002041"
 |\t|tab|U+0009|  
 |\uXXXX|Um caractere Unicode definido por 4 dígitos hexadecimais.|U+XXXX|  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Dados de documento de modelo](modeling-data.md)

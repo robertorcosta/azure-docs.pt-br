@@ -5,17 +5,17 @@ keywords: dsc do powershell, configuração de estado desejada, powershell dsc a
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9d16d9d9967af5bf8f9e13406e13d5637325f52
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e9552adad1f15422eb60c34f2548324aeb03ee74
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243363"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849557"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compor configurações de DSC na configuração do estado de automação do Azure (DSC) usando recursos compostos
 
@@ -28,7 +28,7 @@ Depois que os recursos compostos tiverem sido importados para sua conta de autom
 
 Antes de atribuir uma configuração feita a partir de recursos compostos no portal do Azure, você deve escrevê-la. Isso pode ser feito usando **Configuração do Compose** na página **Configuração de Estado (DSC)** enquanto estiver nas guias **Configurações** ou  **Configuração Compilada**.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na página **Conta de Automação**, selecione **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)** , clique na guia **Configurações** ou **Configurações compiladas** e clique em **Compor configuração** no menu em o topo da página.
@@ -41,9 +41,9 @@ Antes de atribuir uma configuração feita a partir de recursos compostos no por
 
 Depois que a nova configuração é salva, ela é enviada para compilação. O status do trabalho de compilação pode ser visualizado como qualquer configuração importada. Para mais informações, consulte [Visualizando um trabalho de compilação](automation-dsc-getting-started.md#viewing-a-compilation-job).
 
-Quando a compilação é completada com sucesso, a nova configuração aparece na aba  **Configuração Compilada**. Quando estiver visível nessa guia, ele poderá ser atribuído a um nó gerenciado usando as etapas em [Reatribuindo um nó a uma configuração de nó diferente](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+Quando a compilação for concluída com êxito, a nova configuração aparecerá na guia **configurações compiladas** . Quando estiver visível nessa guia, ela poderá ser atribuída a um nó gerenciado usando as etapas em [reatribuir um nó a uma configuração de nó diferente](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)
 - Para saber mai sobre nós de integração, veja [Máquinas de integração para o gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md)

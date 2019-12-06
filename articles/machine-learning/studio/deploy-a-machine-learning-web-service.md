@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 4324d33a9da66c5f49645e1c8014bd5f57d37bd9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837738"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851087"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implantar um serviço Web Azure Machine Learning Studio (clássico)
 
@@ -33,7 +33,7 @@ A entrada para BES é como os dados de entrada que RRS usa. A principal diferen�
 Em um ponto de exibição de alto nível, implante seu modelo em três etapas:
 
 * **[Criar um teste de treinamento]** -na versão clássica do Studio, você pode treinar e testar um modelo de análise preditiva usando dados de treinamento fornecidos por você, usando um grande conjunto de algoritmos de aprendizado de máquina internos.
-* **[Convertê-lo em um teste preditivo]** : depois que o modelo tiver sido treinado com os dados existentes e você estiver pronto para usá-lo para pontuar novos dados, prepare e simplifique seu teste de previsões.
+* **[Convertê-lo em um teste preditivo]** : depois que o modelo tiver sido treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, prepare e simplifique seu teste de previsões.
 * **Implante-o** como um **[novo serviço Web]** ou um **[serviço Web clássico]** – Quando você implanta seu teste preditivo como um serviço Web do Azure, os usuários podem enviar dados para seu modelo e receber previsões dele.
 
 ## <a name="create-a-training-experiment"></a>Criar um teste de treinamento
@@ -121,7 +121,7 @@ Para obter mais informações sobre como acessar um serviço Web Machine Learnin
 
 ### <a name="manage-your-new-web-service"></a>Gerenciar seu Novo serviço Web
 
-Você pode gerenciar seus novos serviços Web Machine Learning Studio portal de serviços Web (clássico). Na [página principal do portal](https://services.azureml-test.net/) clique em **serviços Web**. Na página de serviços Web, você pode excluir ou copiar um serviço. Para monitorar um serviço específico, clique no serviço e, em seguida, clique em **Painel**. Para monitorar trabalhos em lotes associados ao serviço Web, clique em **Log de solicitações em lote**.
+Você pode gerenciar seus novos serviços Web usando o portal de serviços da Web Machine Learning Studio (clássico). Na [página principal do portal](https://services.azureml.net/) clique em **serviços Web**. Na página de serviços Web, você pode excluir ou copiar um serviço. Para monitorar um serviço específico, clique no serviço e, em seguida, clique em **Painel**. Para monitorar trabalhos em lotes associados ao serviço Web, clique em **Log de solicitações em lote**.
 
 ### <a id="multi-region"></a> Implantar o novo serviço Web em várias regiões
 
@@ -175,7 +175,7 @@ Para testar o serviço de execução em lote, clique no link de visualização d
 
 ![Testar o serviço Web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-Na página **CONFIGURAÇÃO**, você pode alterar o nome de exibição do serviço e fornecer uma descrição. O nome e a descrição são exibidos no [Portal do Azure](https://portal.azure.com/), no qual você gerencia seus serviços Web.
+Na página **CONFIGURAÇÃO** , você pode alterar o nome de exibição do serviço e fornecer uma descrição. O nome e a descrição são exibidos no [Portal do Azure](https://portal.azure.com/), no qual você gerencia seus serviços Web.
 
 Você pode fornecer uma descrição dos dados de entrada, dados de saída e parâmetros de serviço Web inserindo uma cadeia de caracteres para cada coluna em **INPUT SCHEMA**, **OUTPUT SCHEMA**, e **Web SERVICE PARAMETER**. Essas descrições são usadas na documentação do código de exemplo fornecida para o serviço Web.
 
@@ -211,7 +211,7 @@ Como você já implantou esse teste antes, será solicitado se deseja substituir
 
 Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [readaptação de modelos de Machine Learning Studio (clássico) programaticamente](/azure/machine-learning/studio/retrain-machine-learning-model).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais detalhes técnicos sobre como funciona a implantação, consulte [como um modelo de Machine Learning Studio (clássico) progride de um experimento para um serviço Web operacional](model-progression-experiment-to-web-service.md).
 

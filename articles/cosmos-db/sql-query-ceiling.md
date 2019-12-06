@@ -1,18 +1,18 @@
 ---
 title: TETO na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre o teto da função do sistema SQL no Azure Cosmos DB.
+description: Saiba mais sobre como a função de sistema SQL de teto em Azure Cosmos DB retorna o valor principal da tangente de arco de y/x, expressa em radianos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 7056cfd1773e0d98fa134c9fdec3ad6a43af1bcf
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 18462b152b698e7c6bc4c6c1e59511b4bacaa611
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351107"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873430"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>TETO (Azure Cosmos DB)
  Retorna o menor valor de número inteiro maior ou igual à expressão numérica especificada.  
@@ -46,7 +46,7 @@ SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3
 [{c1: 124, c2: -123, c3: 0}]  
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

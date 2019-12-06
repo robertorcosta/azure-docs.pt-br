@@ -1,17 +1,17 @@
 ---
 title: Consultas do SQL JOIN para Azure Cosmos DB
-description: Saiba mais sobre a sintaxe de junção SQL para Azure Cosmos DB.
+description: Saiba como unir várias tabelas em Azure Cosmos DB para consultar os dados
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: d78904fde53da0e800a69d2148a9c4e3acf57307
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494406"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871135"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junções no Azure Cosmos DB
 
@@ -252,8 +252,8 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Guia de Introdução](sql-query-getting-started.md)
+- [Introdução](sql-query-getting-started.md)
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Subconsultas](sql-query-subquery.md)

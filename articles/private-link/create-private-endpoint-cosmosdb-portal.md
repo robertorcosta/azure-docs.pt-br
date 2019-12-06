@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229414"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851189"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conectar-se de forma privada a uma conta do Azure Cosmos usando o link privado do Azure
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá a criar uma VM em uma rede virtual do Azure e uma
 
 Entre no [portal do Azure.](https://portal.azure.com)
 
-## <a name="create-a-vm"></a>Criar uma máquina virtual
+## <a name="create-a-vm"></a>Criar uma VM
 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 
@@ -33,13 +33,13 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar rede virtual**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
-    | NOME | Insira *MyVirtualNetwork*. |
+    | name | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
-    | Assinatura | Selecione sua assinatura.|
-    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Local padrão | Selecione **WestCentralUS**.|
+    | Subscription | Selecione sua assinatura.|
+    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
+    | Location | Selecione **WestCentralUS**.|
     | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -52,11 +52,11 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da máquina virtual | Insira *myVm*. |
     | Região | Selecione **WestCentralUS**. |
@@ -79,9 +79,9 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
-    | rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
+    | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
     | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
     | Sub-rede | Deixar o padrão **mySubnet (10.1.0.0/24)** .|
     | IP público | Deixe o padrão **(novo) myVm-ip**. |
@@ -101,9 +101,9 @@ Crie uma [conta da API do SQL do Azure Cosmos](../cosmos-db/create-cosmosdb-reso
 
 Crie um link privado para sua conta do Azure Cosmos, conforme descrito na seção [criar um link privado usando a Portal do Azure](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) do artigo vinculado.
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Conectar uma VM a partir da Internet
 
-Conecte-se à VM *myVm* da Internet da seguinte maneira:
+Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Na barra de pesquisa do portal, insira *myVm*.
 
@@ -129,9 +129,6 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 ## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Acessar a conta do Azure Cosmos de forma privada da VM
 
 Nesta seção, você se conectará de forma privada à conta do Azure Cosmos usando o ponto de extremidade privado. 
-
-> [!IMPORTANT]
-> A configuração de DNS para a conta do Azure Cosmos precisa de uma modificação manual no arquivo de hosts para incluir o FQDN da conta específica. Em cenários de produção, você configurará o servidor DNS para usar os endereços IP privados. No entanto, para fins de demonstração, você pode usar permissões de administrador na VM e modificar o arquivo de `c:\Windows\System32\Drivers\etc\hosts` (no Windows) ou `/etc/hosts` arquivo (no Linux) para incluir o endereço IP e o mapeamento DNS.
 
 1. Para incluir o endereço IP e o mapeamento DNS, entre na sua máquina virtual *myVM*, abra o arquivo `c:\Windows\System32\Drivers\etc\hosts` e inclua as informações de DNS da etapa anterior no seguinte formato:
 
@@ -174,7 +171,7 @@ Quando você terminar de usar o ponto de extremidade privado, a conta do Azure C
 
 1. Insira o grupo de *recursos* de para **digite o nome** e selecione **excluir**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você criou uma VM em uma rede virtual, uma conta do Azure Cosmos e um ponto de extremidade privado. Você se conectou à VM da Internet e se comunica com segurança à conta do Azure Cosmos usando o link privado.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidade em recursos de conectividade de back-end do Azure: Análise do plano de dados | Microsoft Docs'
+title: 'Interoperabilidade em recursos de conectividade de back-end do Azure: análise do plano de dados | Microsoft Docs'
 description: Este artigo fornece a análise do plano de dados da configuração do teste que é possível usar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site a site e o emparelhamento de rede virtual no Azure.
 documentationcenter: na
 services: networking
@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: f4d94536a8c1b509e0ce435a764e69984b5d415e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11c964bedce7a8b979434b888d756c2121d06a60
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425449"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873821"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidade em recursos de conectividade de back-end do Azure: Análise do plano de dados
+# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidade em recursos de conectividade de back-end do Azure: análise do plano de dados
 
-Este artigo descreve a análise do plano de dados da [configuração do teste][Setup]. Também é possível examinar a [configuração do teste][Configuration] e a [análise do plano de controle][Control-Analysis] da configuração do teste.
+Este artigo descreve a análise do plano de dados da [configuração do teste][Setup]. Você também pode examinar a [configuração][Configuration] de configuração de teste e a [análise do plano de controle][Control-Analysis] da configuração do teste.
 
 A análise do plano de dados examina o caminho percorrido pelos pacotes que atravessam de uma rede local (LAN ou rede virtual) para outra dentro de uma topologia. O caminho de dados entre duas redes locais não é necessariamente simétrico. Portanto, neste artigo, analisamos um caminho de encaminhamento de uma rede local para outra separada do caminho inverso.
 
@@ -40,7 +40,7 @@ O emparelhamento da VNet (rede virtual) emula uma funcionalidade de ponte de red
 A figura a seguir mostra a exibição da conexão gráfica da VNet do hub e da VNet do spoke da perspectiva do Observador de Rede do Azure:
 
 
-[![1]][1]
+![1][1]
 
 ### <a name="path-to-the-branch-vnet"></a>Caminho para a VNet do branch
 
@@ -60,11 +60,11 @@ Neste rastreamento de rotas, o primeiro salto é o gateway VPN no Gateway de VPN
 
 A figura a seguir mostra a exibição da conexão gráfica da VNet do hub e da VNet do branch da perspectiva do Observador de Rede:
 
-[![2]][2]
+![2][2]
 
 Para a mesma conexão, a seguinte figura mostra a exibição de grade no Observador de Rede:
 
-[![3]][3]
+![3][3]
 
 ### <a name="path-to-on-premises-location-1"></a>Caminho para a Localização local 1
 
@@ -302,7 +302,7 @@ O Observador de Rede fornece apenas uma exibição centrada no Azure. Para uma p
 
 A figura a seguir mostra a exibição de topologia da conectividade da VM de Localização local 1 para a VM na VNet do hub via ExpressRoute:
 
-[![4]][4]
+![4][4]
 
 Conforme discutido anteriormente, a configuração do teste usa uma VPN site a site como conectividade de backup para o ExpressRoute entre a Localização local 1 e a VNet do hub. Para testar o caminho de dados de backup, induziremos uma falha do link do ExpressRoute entre o principal roteador de CE da Localização local 1 e o MSEE correspondente. Para induzir uma falha de link do ExpressRoute, desligue a interface de CE voltada para o MSEE:
 
@@ -318,7 +318,7 @@ Conforme discutido anteriormente, a configuração do teste usa uma VPN site a s
 
 A figura a seguir é a exibição de topologia da conectividade da VM da Localização local 1 para a VM na VNet do hub por meio da conectividade VPN de site a site quando a conectividade do ExpressRoute está inativa:
 
-[![5]][5]
+![5][5]
 
 ### <a name="path-to-the-spoke-vnet"></a>Caminho para a VNet do spoke
 
@@ -356,7 +356,7 @@ Mostramos a saída do rastreamento de rotas da Localização local 1 para uma VM
 
 ### <a name="path-to-on-premises-location-2"></a>Caminho para a Localização local 2
 
-Conforme discutimos na [análise do plano de controle][Control-Analysis], a Localização local 1 não tem visibilidade para a Localização local 2 de acordo com a configuração de rede. Os seguintes resultados ping confirmam: 
+À medida que discutimos na [análise do plano de controle][Control-Analysis], o local 1 não tem visibilidade no local 2 de acordo com a configuração de rede. Os seguintes resultados ping confirmam: 
 
     C:\Users\rb>ping 10.1.31.10
     
@@ -420,7 +420,7 @@ Mostramos a saída do rastreamento de rotas da Localização local 2 para uma VM
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Caminho para a VNet do branch, para a Localização local 1 e para a VNet remota
 
-Como discutimos na [análise do plano de controle][Control-Analysis], a Localização local 1 não tem visibilidade para a VNet do branch, para a Localização local 1 ou para a VNet remota de acordo com a configuração de rede. 
+Conforme discutimos na [análise do plano de controle][Control-Analysis], o local 1 não tem visibilidade para a vnet do Branch, para o local 1 ou para a vnet remota por configuração de rede. 
 
 ## <a name="data-path-from-the-remote-vnet"></a>Caminho de dados da VNet remota
 
@@ -454,7 +454,7 @@ Mostramos a saída do rastreamento de rotas da VNet remota para uma VM na VNet d
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Caminho para a VNet do branch e para a Localização local 2
 
-Como discutimos na [análise do plano de controle][Control-Analysis], a VNet remota não tem visibilidade para a VNet do branch ou para a Localização local 2 de acordo com a configuração de rede. 
+À medida que discutimos na [análise do plano de controle][Control-Analysis], a vnet remota não tem visibilidade para a VNet da ramificação ou para o local 2 de acordo com a configuração de rede. 
 
 ### <a name="path-to-on-premises-location-1"></a>Caminho para a Localização local 1
 
@@ -472,11 +472,11 @@ Mostramos a saída do rastreamento de rotas da VNet remota para uma VM na Locali
     Trace complete.
 
 
-## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Conectividade do ExpressRoute e VPN site a site em conjunto
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute e conectividade VPN site a site em conjunto
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN site a site pelo ExpressRoute
 
-É possível configurar uma VPN site a site, usando emparelhamento do Microsoft ExpressRoute para trocar dados em modo privado entre a rede local e as VNets do Azure. Com essa configuração, é possível trocar dados com confidencialidade, autenticidade e integridade. A troca de dados também é antirreprodução. Para obter mais informações sobre como configurar uma VPN IPsec site a site no modo de túnel usando emparelhamento do ExpressRoute da Microsoft, consulte [VPN site a site sobre emparelhamento do Microsoft Azure ExpressRoute][S2S-Over-ExR]. 
+É possível configurar uma VPN site a site, usando emparelhamento do Microsoft ExpressRoute para trocar dados em modo privado entre a rede local e as VNets do Azure. Com essa configuração, é possível trocar dados com confidencialidade, autenticidade e integridade. A troca de dados também é antirreprodução. Para obter mais informações sobre como configurar uma VPN IPsec site a site no modo de túnel usando o emparelhamento da Microsoft do ExpressRoute, consulte [VPN site a site sobre o emparelhamento da Microsoft do expressroute][S2S-Over-ExR]. 
 
 A principal limitação da configuração de uma VPN site a site que usa o emparelhamento da Microsoft é a taxa de transferência. A taxa de transferência no túnel IPsec é limitada pela capacidade do gateway de VPN. A taxa de transferência do gateway de VPN é menor que a taxa de transferência do ExpressRoute. Nesse cenário, o uso do túnel IPsec para tráfego altamente seguro e o uso de emparelhamento privado para todos os outros tráfegos ajuda a otimizar a utilização da largura de banda do ExpressRoute.
 
@@ -490,7 +490,7 @@ Para obter mais informações sobre como configurar conexões coexistentes para 
 
 ### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividade de VNet do spoke usando emparelhamento VNet
 
-A arquitetura da VNet do hub e do spoke é amplamente usada. O hub é uma VNet no Azure que funciona como um ponto central de conectividade entre as VNets do spoke e a rede local. Os spokes são VNets que emparelham-se com o hub e que podem ser utilizadas para isolar as cargas de trabalho. O tráfego flui entre o datacenter local e o hub por meio de uma conexão de VPN ou ExpressRoute. Para obter mais informações sobre a arquitetura, confira [Implementar uma topologia de rede hub-spoke no Azure][Hub-n-Spoke].
+A arquitetura da VNet do hub e do spoke é amplamente usada. O hub é uma VNet no Azure que funciona como um ponto central de conectividade entre as VNets do spoke e a rede local. Os spokes são VNets que emparelham-se com o hub e que podem ser utilizadas para isolar as cargas de trabalho. O tráfego flui entre o datacenter local e o hub por meio de uma conexão ExpressRoute ou VPN. Para obter mais informações sobre a arquitetura, consulte [implementar uma topologia de rede hub-spoke no Azure][Hub-n-Spoke].
 
 Em emparelhamento VNet dentro de uma região, as VNets do spoke podem usar gateways de VNet do hub (ambos gateways de VPN e ExpressRoute) para comunicarem-se com redes remotas.
 
@@ -498,23 +498,23 @@ Em emparelhamento VNet dentro de uma região, as VNets do spoke podem usar gatew
 
 Talvez você queira que as VNets de branch, que estão em regiões diferentes, e as redes locais comuniquem-se entre si por meio de uma VNet de hub. A solução nativa do Azure para essa configuração é a conectividade de VPN site a site usando uma VPN. Uma alternativa é usar uma NVA (solução de virtualização de rede) para roteamento no hub.
 
-Para obter mais informações, consulte [O que é Gateway de VPN? ][VPN] e [Implantar um NVA altamente disponível][Deploy-NVA].
+Para obter mais informações, consulte [o que é o gateway de VPN?][VPN] e [implantar um NVA altamente disponível][Deploy-NVA].
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte as [Perguntas frequentes sobre o ExpressRoute][ExR-FAQ] para:
+Consulte as [perguntas frequentes sobre o ExpressRoute][ExR-FAQ] para:
 -   Saber quantos circuitos do ExpressRoute podem ser conectados a um gateway do ExpressRoute.
 -   Saiba quantos gateways do ExpressRoute podem ser conectados a um circuito do ExpressRoute.
--   Saber mais sobre outros limites de escala do ExpressRoute.
+-   Saiba mais sobre outros limites de escala do ExpressRoute.
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Exibição do Observador de Rede de uma conectividade do VNet do hub para o VNet do spoke"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Exibição do Observador de Rede de uma conectividade do VNet do hub para o VNet do branch"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Exibição em grade do Observador de Rede de uma conectividade do VNet do hub para o VNet do branch"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Exibição do Monitor de Desempenho de Rede de conectividade da VM da localização 1 para a VNet do hub por meio do ExpressRoute 1"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Exibição do Monitor de Desempenho de Rede de conectividade da VM da localização 1 para a VNet do hub por meio da VPN site a site"
+[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Exibição de conectividade do observador de rede de uma VNet do hub para uma VNet do spoke"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Exibição do observador de rede de conectividade de uma VNet de Hub para uma VNet de ramificação"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Exibição em grade do observador de rede de conectividade de uma VNet de Hub para uma VNet de ramificação"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Monitor de Desempenho de Rede exibição de conectividade da VM local 1 para a VNet do hub por meio do ExpressRoute 1"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Monitor de Desempenho de Rede exibição de conectividade da VM local 1 para a VNet do hub por meio de uma VPN site a site"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

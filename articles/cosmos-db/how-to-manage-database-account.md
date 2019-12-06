@@ -1,23 +1,23 @@
 ---
 title: Aprender a gerenciar contas de banco de dados no Azure Cosmos DB
-description: Aprender a gerenciar contas de banco de dados no Azure Cosmos DB
+description: Saiba como gerenciar recursos de Azure Cosmos DB usando os modelos portal do Azure, PowerShell, CLI e Azure Resource Manager
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582631"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873668"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerenciar uma conta do Azure Cosmos
 
 Este artigo descreve como gerenciar várias tarefas em uma conta do Azure Cosmos usando o portal do Azure, o Azure PowerShell, a CLI do Azure e modelos do Azure Resource Manager.
 
-## <a name="create-an-account"></a>Criar uma conta
+## <a name="create-an-account"></a>Crie uma conta
 
 ### <a id="create-database-account-via-portal"></a>Portal do Azure
 
@@ -27,7 +27,7 @@ Este artigo descreve como gerenciar várias tarefas em uma conta do Azure Cosmos
 
 Consulte [criar uma conta de Azure Cosmos DB com CLI do Azure](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
-### <a id="create-database-account-via-ps"></a>PowerShell do Azure
+### <a id="create-database-account-via-ps"></a>Azure PowerShell
 
 Consulte [criar uma conta de Azure Cosmos DB com o PowerShell](manage-with-powershell.md#create-account)
 
@@ -59,7 +59,7 @@ Em um modo de gravação de várias regiões, você poderá adicionar ou remover
 
 Consulte [Adicionar ou remover regiões com CLI do Azure](manage-with-cli.md#add-or-remove-regions)
 
-### <a id="add-remove-regions-via-ps"></a>PowerShell do Azure
+### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
 Consulte [Adicionar ou remover regiões com o PowerShell](manage-with-powershell.md#update-account)
 
@@ -75,7 +75,7 @@ Abra a guia **Replicar Dados Globalmente** e selecione **Habilitar** para habili
 
 Consulte [habilitar regiões de várias gravações com CLI do Azure](manage-with-cli.md#enable-multiple-write-regions)
 
-### <a id="configure-multiple-write-regions-ps"></a>PowerShell do Azure
+### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
 Consulte [habilitar regiões de várias gravações com o PowerShell](manage-with-powershell.md#multi-master)
 
@@ -153,7 +153,7 @@ A opção Failover automático permite que o Azure Cosmos DB faça failover para
 
 3. No painel **Failover Automático**, verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**. 
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
    ![Menu do portal Failover automático](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -161,7 +161,7 @@ A opção Failover automático permite que o Azure Cosmos DB faça failover para
 
 Consulte [habilitar failover automático com CLI do Azure](manage-with-cli.md#enable-automatic-failover)
 
-### <a id="enable-automatic-failover-via-ps"></a>PowerShell do Azure
+### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
 Consulte [habilitar failover automático com o PowerShell](manage-with-powershell.md#enable-automatic-failover)
 
@@ -184,7 +184,7 @@ Depois que uma conta do Cosmos for configurada para failover automático, a prio
 
 4. Para modificar a prioridade de failover, arraste as regiões de leitura nos três pontos à esquerda da linha que aparecem quando o mouse é passado sobre ela.
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
    ![Menu do portal Failover automático](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -192,7 +192,7 @@ Depois que uma conta do Cosmos for configurada para failover automático, a prio
 
 Consulte [definir a prioridade de failover com CLI do Azure](manage-with-cli.md#set-failover-priority)
 
-### <a id="set-failover-priorities-via-ps"></a>PowerShell do Azure
+### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
 Consulte [definir a prioridade de failover com o PowerShell](manage-with-powershell.md#modify-failover-priority)
 
@@ -224,11 +224,11 @@ O processo de execução de um failover manual envolve a alteração da região 
 
 Consulte [disparar failover manual com CLI do Azure](manage-with-cli.md#trigger-manual-failover)
 
-### <a id="enable-manual-failover-via-ps"></a>PowerShell do Azure
+### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
 Consulte [disparar failover manual com o PowerShell](manage-with-powershell.md#trigger-manual-failover)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações e exemplos sobre como gerenciar a conta do Azure Cosmos, bem como o banco de dados e contêineres, leia os seguintes artigos:
 

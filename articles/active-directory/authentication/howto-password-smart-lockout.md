@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 066c4cb598d9a8c14ab5d6ee893376266e104d15
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 30006d0dcccdd1b160289c72769340d141198d3c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381525"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847585"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Sync smart lockout
 
@@ -67,8 +67,8 @@ Baseado nos seus requisitos organizacionais, os valores de bloqueio inteligente 
 
 Para verificar ou modificar os valores de bloqueio inteligente para a sua organização, use os seguintes passos:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Procurar pelo *Azure Active Directory* e selecioná-lo. Selecione os **métodos de autenticação** > proteção por **senha**.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Pesquise *Azure Active Directory* e selecione-o. Selecione os **métodos de autenticação** > proteção por **senha**.
 1. Coloque o **limite de bloqueio**, baseado em quantas vezes de logins falhados é permitido em uma conta antes do primeiro bloqueio. O padrão é 10.
 1. Coloque a **duração do bloqueio em segundos**, para a duração em segundos de cada bloqueio. O padrão é 60 segundos (um minuto).
 
@@ -83,7 +83,7 @@ Quando o limite de bloqueio inteligente for disparado, você receberá a seguint
 
 **Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente mais tarde e, se você ainda tiver problemas, entre em contato com seu administrador.**
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Descubra como banir senhas ruins na sua organização usando Azure AD.](howto-password-ban-bad.md)
 * [Configure reset de senhas self-service para permitir usuários desbloquearem suas próprias contas.](quickstart-sspr.md)

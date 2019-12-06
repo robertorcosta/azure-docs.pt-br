@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c3e22b34dbb770af2b4a719f8b4eaf040b724c47
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695422"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851461"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Sobre a análise de código de segurança da Microsoft
 
@@ -75,7 +75,7 @@ As senhas e outros segredos armazenados no código-fonte são um problema signif
 
 A MSRD (detecção de riscos de segurança da Microsoft) é um serviço baseado em nuvem para teste de fuzzing. Ele identifica bugs de segurança exploráveis no software. Esse serviço requer uma assinatura e ativação separadas. Para obter mais informações, consulte o [centro de desenvolvedores do MSRD](https://docs.microsoft.com/security-risk-detection/).
 
-### <a name="roslyn-analyzers"></a>Analisadores de Roslyn
+### <a name="roslyn-analyzers"></a>Analisadores Roslyn
 
 Analisadores de Roslyn é a ferramenta integrada ao compilador da Microsoft para analisar estaticamente C# o código gerenciado e Visual Basic. Para obter mais informações, consulte [analisadores baseados em Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/).
 
@@ -108,10 +108,10 @@ Você pode configurar essa tarefa para interromper a compilação em busca de pr
 >[!NOTE]
 >Por design, cada tarefa de compilação é bem-sucedida se a tarefa for concluída com êxito. Isso é verdadeiro se uma ferramenta encontra ou não problemas, para que a compilação possa ser executada até a conclusão, permitindo que todas as ferramentas sejam executadas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter instruções sobre como carregar e instalar a análise de código de segurança da Microsoft, consulte nosso [Guia de integração e instalação](security-code-analysis-onboard.md).
 
-Para obter mais informações sobre como configurar as tarefas de compilação, consulte nosso [Guia de configuração](security-code-analysis-customize.md).
+Para obter mais informações sobre como configurar as tarefas de compilação, consulte nosso [Guia de configuração](security-code-analysis-customize.md) ou o guia de [configuração do YAML](yaml-configuration.md).
 
 Se você tiver mais dúvidas sobre a extensão e as ferramentas oferecidas, Confira nossa [página de perguntas frequentes](security-code-analysis-faq.md).

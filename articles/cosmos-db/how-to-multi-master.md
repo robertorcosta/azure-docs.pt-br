@@ -1,17 +1,17 @@
 ---
 title: Como configurar vários mestres no Azure Cosmos DB
-description: Saiba como configurar vários mestres nos aplicativos no Azure Cosmos DB.
+description: Saiba como configurar vários mestres para seus aplicativos usando SDKs diferentes no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: e86cacbd76a70c8b114d65a77ff013d32327a2d0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093095"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873634"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurar vários mestres nos aplicativos que usam o Azure Cosmos DB
 
@@ -102,7 +102,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
                                     'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia os seguintes artigos:
 
@@ -114,4 +114,4 @@ Leia os seguintes artigos:
 * [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
 * [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
 * [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
-* [Distribuição global: Nos bastidores](global-dist-under-the-hood.md)
+* [Distribuição global: nos bastidores](global-dist-under-the-hood.md)

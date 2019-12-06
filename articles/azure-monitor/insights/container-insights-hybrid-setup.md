@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: d25b9b3bb155dced973d415b396ebfaa4403b011
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/04/2019
+ms.openlocfilehash: 0d6615d832059a8b58c0d5d52533b8c8c962640d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514609"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841567"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurar clusters kubernetes híbridos com Azure Monitor para contêineres
 
@@ -85,7 +85,7 @@ Esse método inclui dois modelos JSON. Um modelo especifica a configuração par
 - **workspaceResourceId** -a ID de recurso completa do seu espaço de trabalho log Analytics.
 - **workspaceRegion** -a região em que o espaço de trabalho é criado, que também é conhecido como **local** nas propriedades do espaço de trabalho ao exibir da portal do Azure.
 
-Para identificar primeiro a ID de recurso completo do seu espaço de trabalho de Log Analytics necessário para o valor do parâmetro `workspaceResourceId` no arquivo **containerSolutionParams. JSON** , execute as etapas a seguir e execute o cmdlet do PowerShell ou o comando CLI do Azure para adicionar o soluções.
+Para identificar primeiro a ID de recurso completo do seu espaço de trabalho de Log Analytics necessário para o valor do parâmetro `workspaceResourceId` no arquivo **containerSolutionParams. JSON** , execute as etapas a seguir e execute o cmdlet do PowerShell ou o comando CLI do Azure para adicionar a solução.
 
 1. Liste todas as assinaturas às quais você tem acesso usando o seguinte comando:
 
@@ -283,6 +283,25 @@ Depois de ter implantado com êxito o gráfico, você pode examinar os dados par
 >[!NOTE]
 >A latência de ingestão é de cerca de cinco a dez minutos do agente para ser confirmada no espaço de trabalho Log Analytics do Azure. O status do cluster mostra o valor **sem dados** ou **desconhecido** até que todos os dados de monitoramento necessários estejam disponíveis no Azure monitor. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="troubleshooting"></a>Solução de Problemas
+
+Se você encontrar um erro ao tentar habilitar o monitoramento para o cluster kubernetes híbrido, copie o script do PowerShell [TroubleshootError_nonAzureK8s. ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) e salve-o em uma pasta no computador. Esse script é fornecido para ajudar a detectar e corrigir os problemas encontrados. Os problemas projetados para detectar e tentar a correção do são os seguintes:
+
+* O espaço de trabalho de Log Analytics especificado é válido 
+* O espaço de trabalho Log Analytics é configurado com a Azure Monitor para a solução de contêineres. Caso contrário, configure o espaço de trabalho.
+* O Pod do OmsAgent réplicaset está em execução
+* O Pod OmsAgent daemonset está em execução
+* O serviço de integridade do OmsAgent está em execução 
+* A ID e a chave do espaço de trabalho Log Analytics configuradas no agente em contêiner correspondem ao espaço de trabalho com o qual a percepção está configurada.
+* Valide se todos os nós de trabalho do Linux têm `kubernetes.io/role=agent` rótulo para agendar o Pod RS. Se ele não existir, adicione-o.
+* Validar `cAdvisor port: 10255` é aberto em todos os nós no cluster.
+
+Para executar com Azure PowerShell, use os seguintes comandos na pasta que contém o script:
+
+```powershell
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile>
+```
+
+## <a name="next-steps"></a>Próximos passos
 
 Com o monitoramento habilitado para coletar a utilização de recursos e de integridade do seu cluster kubernetes híbrido e cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) Azure monitor para contêineres.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 17100769bac2e7af08e0bcba6ca2eb129b621013
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: de59edc2e2c702993efd6187a590264d9aac16a7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037521"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841924"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM por meio de uma imagem gerenciada
 
@@ -29,8 +29,7 @@ Antes de criar uma nova VM, você precisará [criar uma imagem de VM gerenciada]
 
 ## <a name="use-the-portal"></a>Usar o portal
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
-2. No menu do lado esquerdo, selecione **Todos os recursos**. Você pode classificar os recursos por **Tipo** localizar facilmente as suas imagens.
+1. Vá para a [portal do Azure](https://portal.azure.com) para localizar uma imagem gerenciada. Procure e selecione **imagens**.
 3. Selecione a imagem que você deseja usar a partir da lista. A imagem da página **Visão geral** será aberta.
 4. Clique em **Criar VM** no menu.
 5. Insira as informações da máquina virtual. O nome do usuário e a senha inseridos aqui serão usados para fazer logon na máquina virtual. Quando concluir, selecione **OK**. Você pode criar a nova VM em um grupo de recursos existente ou escolher **Criar novo** para criar um novo grupo de recursos para armazenar a VM.
@@ -39,7 +38,7 @@ Antes de criar uma nova VM, você precisará [criar uma imagem de VM gerenciada]
 8. Na página de resumo, você deve ver o nome da sua imagem listado como uma **Imagem privada**. Selecione **OK** para iniciar a implantação da máquina virtual.
 
 
-## <a name="use-powershell"></a>Usar o PowerShell
+## <a name="use-powershell"></a>Use o PowerShell
 
 Você pode usar o PowerShell para criar uma VM por meio de uma imagem usando o conjunto de parâmetro simplificado definido para o novo cmdlet do [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). A imagem precisa estar no mesmo grupo de recursos no qual você criará a VM.
 
@@ -65,6 +64,6 @@ New-AzVm `
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Criar e gerenciar VMs do Windows com o módulo do Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

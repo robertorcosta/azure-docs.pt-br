@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d14b81075d1e1f98449ef655c3e00f172c7f407b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530966"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873770"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para a recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -89,12 +89,11 @@ Windows Server 2019 | Com suporte para Server Core, servidor com experiência de
 Windows Server 2016  | Server Core com suporte, servidor com experiência desktop.
 Windows Server 2012 R2 | Com suporte.
 Windows Server 2012 | Com suporte.
-Windows Server 2008 R2 com SP1/SP2 | Com suporte.<br/><br/> Da versão 9.30. x. x (liberação esperada a partir de novembro de 2019) da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4490628) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows Server 2008 R2 SP1/SP2.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
-Windows Server 2008 com SP2 | Da versão 9.30. x. x (liberação esperada a partir de novembro de 2019) da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4493730) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows Server 2008 com SP2.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 R2 com SP1/SP2 | Com suporte.<br/><br/> Da versão [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4490628) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows Server 2008 R2 SP1/SP2.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Com suporte.
 Windows 8.1 (x64) | Com suporte.
 Windows 8 (x64) | Com suporte.
-Windows 7 (x64) com SP1 em diante | Da versão 9.30. x. x (liberação esperada a partir de novembro de 2019) da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4490628) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows 7 com SP1.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado.. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows 7 (x64) com SP1 em diante | Da versão [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4490628) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows 7 com SP1.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado.. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
 
 
 
@@ -213,7 +212,7 @@ Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | Com
 ADE (Azure Disk Encryption) para sistema operacional Linux | Com suporte |
 Adição a quente | Com suporte | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada tem suporte para VMs que usam discos gerenciados.
 Disco de remoção quente | Sem suporte | Se você remover o disco de dados na VM, será necessário desabilitar a replicação e habilitar a replicação novamente para a VM.
-Exclusão de disco | Support. Você deve usar o [PowerShell](azure-to-azure-exclude-disks.md) para configurar o. |  Os discos temporários são excluídos por padrão.
+Exclusão de disco | Suporte. Você deve usar o [PowerShell](azure-to-azure-exclude-disks.md) para configurar o. |  Os discos temporários são excluídos por padrão.
 Espaços de Armazenamento Diretos  | Com suporte para pontos de recuperação de falha consistentes. Sem suporte para pontos de recuperação de aplicativo consistentes. |
 Servidor de Arquivos de Expansão  | Com suporte para pontos de recuperação de falha consistentes. Sem suporte para pontos de recuperação de aplicativo consistentes. |
 LRS | Com suporte |

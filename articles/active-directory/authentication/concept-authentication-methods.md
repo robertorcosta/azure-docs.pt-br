@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a7110ad3e6c9c66179c90c02c1572ee83cb9f15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420774"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848741"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -33,9 +33,9 @@ A Microsoft recomenda que os administradores habilitem os usuários a selecionar
 | Endereço de email | Somente o SSPR |
 | Aplicativo Microsoft Authenticator | MFA e o SSPR |
 | Token OATH de hardware | Versão prévia pública para MFA e SSPR |
-| sms | MFA e o SSPR |
+| SMS | MFA e o SSPR |
 | Chamada de voz | MFA e o SSPR |
-| Senhas de aplicativo | MFA somente em determinados casos |
+| Senhas do aplicativo | MFA somente em determinados casos |
 
 ![Métodos de autenticação em uso na tela de login](media/concept-authentication-methods/overview-login.png)
 
@@ -257,7 +257,7 @@ Se sua organização for federada para o SSO com o Azure AD e você pretender us
 * Alguns projetos arquitetônicos avançados podem exigir o uso de uma combinação de nome de usuário e senhas da organização e senhas de aplicativo ao usar a verificação em duas etapas com os clientes, dependendo de onde eles se autenticam. Para clientes que fazem a autenticação em uma infraestrutura local, você usaria um nome de usuário e senha organizacional. Para clientes que se autenticam no Azure AD, você usaria a senha de aplicativo.
 * Por padrão, os usuários não podem criar senhas de aplicativo. Se você precisar permitir que os usuários criem senhas de aplicativos, selecione a opção **Permitir que usuários criem senhas de aplicativos para fazer login em aplicativos que não são de navegador** em configurações de serviço.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Ativar redefinição de senha de autoatendimento para sua organização](quickstart-sspr.md)
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d4b89f7416847e01cad8cb4f9bc52248d09170d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 57ac23bbb0465be2f15e0a35bb4fd7c331e83988
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381996"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848707"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando usar um Provedor de Autenticação Multifator do Microsoft Azure
 
@@ -29,7 +29,7 @@ Um Provedor de Autenticação Multifator do Azure é usado para aproveitar os re
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Limitações relacionadas ao SDK do Azure MFA
 
-Observe que o SDK foi descontinuado e continuará funcionando até 14 de novembro de 2018. Depois dessa data, as chamadas para o SDK falharão.
+Observe que o SDK foi descontinuado e continuará funcionando até 14 de novembro de 2018. Após essa data, as chamadas para o SDK falharão.
 
 ## <a name="what-is-an-mfa-provider"></a>O que é um Provedor MFA?
 
@@ -72,6 +72,6 @@ Depois de confirmar que todas as configurações foram migradas, você pode nave
 > [!NOTE]
 > Os usuários com versões mais antigas do aplicativo Microsoft Authenticator e do servidor MFA do Azure podem precisar registrar novamente seu aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Definir as configurações da Autenticação Multifator](howto-mfa-mfasettings.md)

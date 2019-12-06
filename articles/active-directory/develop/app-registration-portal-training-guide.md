@@ -1,31 +1,27 @@
 ---
-title: Transição do portal de registro de aplicativos para a nova experiência de Registros de aplicativo no portal do Azure
+title: Transição do Portal de Registro de aplicativo para a nova experiência de Registros de aplicativo no portal do Azure
 titleSuffix: Microsoft identity platform
 description: Uma introdução à nova experiência de registro de aplicativo no portal do Azure
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e9c09ce2d997c58e2725c411fff0b87a0f5071b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013018"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844509"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transição do portal de registro de aplicativos para a nova experiência de Registros de aplicativo no portal do Azure
+# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transição do Portal de Registro de aplicativo para a nova experiência de Registros de aplicativo no portal do Azure
 
 Há muitas melhorias na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver mais familiarizado com a experiência do apps.dev.microsoft.com (portal de registro de aplicativos) para registrar ou gerenciar aplicativos convergidos, chamados de experiência antiga, este guia de treinamento o ajudará a começar a usar a nova experiência.
 
@@ -55,7 +51,7 @@ Há muitas melhorias na nova experiência de [registros de aplicativo](https://g
 
 -   A nova lista de aplicativos tem duas colunas adicionais: **criado em** coluna e **certificados & coluna segredos** que mostra o status (atual, expirando em breve ou expirado) de credenciais que foram registradas no aplicativo.
 
-## <a name="new-app-registration"></a>Novo registro de aplicativo
+## <a name="new-app-registration"></a>Registro de novo aplicativo
 
 Na antiga experiência, para registrar um aplicativo convergido, você só precisa fornecer um nome. Os aplicativos que foram criados foram registrados como aplicativos convergidos que dão suporte a todos os diretórios organizacionais (multilocatário), bem como a contas pessoais da Microsoft.  Isso não pode ser modificado com a experiência antiga, dificultando a criação de aplicativos que têm suporte apenas para contas organizacionais (multilocatário ou locatário único). [Saiba mais sobre os tipos de conta com suporte](v2-supported-account-types.md)
 

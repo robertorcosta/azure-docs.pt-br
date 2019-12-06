@@ -2,27 +2,24 @@
 title: Opções de suporte e ajuda para desenvolvedores do de aplicativos do Azure AD | Microsoft Docs
 description: Saiba como obter ajuda e suporte para problemas e dúvidas relacionados ao desenvolvimento ao criar aplicativos que se integram com as identidades da Microsoft (conta Azure Active Directory e Microsoft)
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a160f78f69ed559c576147e9758c837d5ae9b77e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3f1c6d89af1d88be9a241c94462b17edf0c93de2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429971"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843182"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores
 
@@ -84,7 +81,7 @@ Se encontrar um bug ou problema relacionado às nossas bibliotecas, gere um prob
 Para obter uma lista de bibliotecas e seus repositórios GitHub, consulte o seguinte:
 
 * Bibliotecas [ADAL](active-directory-authentication-libraries.md) e seus repositórios do GitHub
-* [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. ](https://github.com/AzureAD/microsoft-authentication-library-for-android)Bibliotecas do Android e [MSAL. obj _C](https://github.com/AzureAD/microsoft-authentication-library-for-objc) e repositórios github
+* [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. ](https://github.com/AzureAD/microsoft-authentication-library-for-android)Bibliotecas do Android e [MSAL. obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) e repositórios github
 
 ## <a name="open-a-support-request"></a>Abrir uma solicitação de suporte
 

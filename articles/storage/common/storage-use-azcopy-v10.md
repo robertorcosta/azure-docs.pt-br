@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111762"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873923"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -73,7 +73,7 @@ Use esta tabela como um guia:
 | Tipo de armazenamento | Método de autorização atualmente com suporte |
 |--|--|
 |**Armazenamento de Blobs** | SAS do Azure AD & |
-|**Armazenamento de BLOBs (namespace de hierarquia)** | SAS do Azure AD & |
+|**Armazenamento de BLOBs (namespace hierárquico)** | SAS do Azure AD & |
 |**Armazenamento de arquivos** | Somente SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opção 1: usar Azure Active Directory
@@ -98,8 +98,8 @@ Essas funções podem ser atribuídas à entidade de segurança em qualquer um d
 
 - Contêiner (sistema de arquivos)
 - Conta de armazenamento
-- Grupo de recursos
-- Assinatura
+- Resource group
+- Subscription
 
 Para saber como verificar e atribuir funções, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -278,7 +278,7 @@ Para evitar esses problemas, obtenha um link estático (sem alteração) para a 
 
 Para obter o link, execute este comando:
 
-| Sistema operacional  | Comando |
+| Sistema operacional  | Command |
 |--------|-----------|
 | **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
@@ -288,7 +288,7 @@ Para obter o link, execute este comando:
 
 A URL aparece na saída deste comando. O script pode então baixar o AzCopy usando essa URL.
 
-| Sistema operacional  | Comando |
+| Sistema operacional  | Command |
 |--------|-----------|
 | **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
@@ -325,6 +325,6 @@ Se você precisar usar a versão anterior do AzCopy (AzCopy v 8.1), consulte um 
 
 Consulte [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você tiver dúvidas, problemas ou comentários gerais, envie-os [na página do GitHub](https://github.com/Azure/azure-storage-azcopy) .

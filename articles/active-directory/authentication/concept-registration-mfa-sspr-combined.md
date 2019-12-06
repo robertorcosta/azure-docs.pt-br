@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3221e6424b449066510667f8067e3bc6d8aec12a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381952"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848622"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de informações de segurança combinadas (versão prévia)
 
@@ -47,17 +47,17 @@ Minhas páginas de perfil são localizadas com base nas configurações de idiom
 
 O registro combinado dá suporte aos seguintes métodos e ações de autenticação:
 
-|   | Registrar | Alterar | Exclusão |
+|   | Registrar | Alterar | Excluir |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sim (no máximo 5) | Não | sim |
-| Outro aplicativo autenticador | Sim (no máximo 5) | Não | sim |
-| Token de hardware | Não | Não | sim |
-| Phone | sim | sim | sim |
-| Telefone alternativo | sim | sim | sim |
+| Microsoft Authenticator | Sim (no máximo 5) | Não | SIM |
+| Outro aplicativo autenticador | Sim (no máximo 5) | Não | SIM |
+| Token de hardware | Não | Não | SIM |
+| Telefone | SIM | SIM | SIM |
+| Telefone alternativo | SIM | SIM | SIM |
 | Telefone comercial | Não | Não | Não |
-| Email | sim | sim | sim |
-| Perguntas de segurança | sim | Não | sim |
-| Senhas de aplicativo | sim | Não | sim |
+| Email | SIM | SIM | SIM |
+| Perguntas de segurança | SIM | Não | SIM |
+| Senhas do aplicativo | SIM | Não | SIM |
 
 > [!NOTE]
 > As senhas de aplicativo estão disponíveis somente para usuários que foram impostos para a autenticação multifator. As senhas de aplicativo não estão disponíveis para usuários que estão habilitados para autenticação multifator por meio de uma política de acesso condicional.
@@ -136,7 +136,7 @@ Um usuário que configurou anteriormente pelo menos um método navega para [http
 
 Um usuário que configurou anteriormente pelo menos um método que pode ser usado para a autenticação multifator navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). O usuário altera o método padrão atual para um método padrão diferente. Quando terminar, o usuário verá o novo método padrão na página informações de segurança.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Forçar os usuários a registrar novamente os métodos de autenticação](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 5557028304d0e2bd5940dd9b01dddf525806d0c6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033672"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842051"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
@@ -44,11 +44,11 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 1. Entre na VM do Windows.
    
-2. Abra uma janela de Prompt de comando como administrador. Altere o diretório para % windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
+2. Abra uma janela de Prompt de comando como administrador. Mude para o diretório para %windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
    
 3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na OOBE (configuração inicial pelo usuário) do sistema** e marque a caixa de seleção **Generalizar**.
    
-4. Para **Opções de Desligamento**, selecione **Desligamento**.
+4. Para **Opções de Desligamento**, selecione **Desligar**.
    
 5. Selecione **OK**.
    
@@ -70,9 +70,9 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Criação de uma imagem gerenciada no portal 
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar a imagem da VM. Pesquise e selecione **máquinas virtuais**.
 
-2. No menu à esquerda, selecione **Máquinas virtuais** e, em seguida, selecione a VM na lista.
+2. Selecione sua VM na lista.
 
 3. Na página **Máquina virtual** da VM, no menu superior, selecione **Capturar**.
 
@@ -80,7 +80,7 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 4. Para **Nome**, aceite o nome já preenchido ou insira um nome que você deseje usar para a imagem.
 
-5. Para **Grupo de recursos**, selecione **Criar** e insira um nome ou selecione **Usar existente** e, na lista suspensa, selecione um grupo de recursos a ser usado.
+5. Para o **grupo de recursos**, selecione **criar novo** e insira um nome ou selecione um grupo de recursos a ser usado na lista suspensa.
 
 6. Se você quiser excluir a VM de origem depois que a imagem foi criada, selecione **Excluir automaticamente esta máquina virtual após criar a imagem**.
 
@@ -88,7 +88,7 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 8. Selecione **Criar** para criar a imagem.
 
-9. Depois que a imagem for criada, você poderá encontrá-la como um recurso de **imagem** na lista de recursos no grupo de recursos.
+Depois que a imagem for criada, você poderá encontrá-la como um recurso de **imagem** na lista de recursos no grupo de recursos.
 
 
 
@@ -218,7 +218,7 @@ Você pode criar uma imagem gerenciada usando um instantâneo de uma VM generali
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Criar uma imagem de uma VM que usa uma conta de armazenamento
 
-Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, você precisa do URI do VHD do sistema operacional na conta de armazenamento, no seguinte formato: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. vhd* . Neste exemplo, o VHD está em *mystorageaccount*, em um contêiner denominado *vhdcontainer*, e o nome do arquivo do VHD é *vhdfilename.vhd*.
+Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, você precisa do URI do VHD do sistema operacional na conta de armazenamento, no seguinte formato: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. vhd*. Neste exemplo, o VHD está em *mystorageaccount*, em um contêiner denominado *vhdcontainer*, e o nome do arquivo do VHD é *vhdfilename.vhd*.
 
 
 1.  Defina algumas variáveis.
@@ -250,6 +250,6 @@ Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, voc�
     ```
 
     
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Criar uma VM de uma imagem gerenciada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
 
