@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3611e61b303997a4291f4436403bb0a95e647e65
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686027"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851274"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Memória e limites simultâneos para SQL Data Warehouse do Azure
 Exiba os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no SQL Data Warehouse do Azure.  
@@ -24,7 +24,7 @@ Exiba os limites de memória e simultaneidade alocados para os vários níveis d
 ## <a name="data-warehouse-capacity-settings"></a>Configurações de capacidade do banco de dados de data warehouse
 As tabelas a seguir mostram a capacidade máxima para o data warehouse em diferentes níveis de desempenho. Para alterar o nível de desempenho, consulte [escala de computação - portal](quickstart-scale-compute-portal.md).
 
-### <a name="service-levels"></a>Níveis de serviço
+### <a name="service-levels"></a>Níveis de Serviço
 
 Os níveis de serviço variam de DW100c a DW30000c.
 
@@ -50,13 +50,13 @@ Os níveis de serviço variam de DW100c a DW30000c.
 O nível de serviço máximo é DW30000c, que tem 60 nós de computação e uma distribuição por nó de computação. Por exemplo, um data warehouse de 600 TB a DW30000c processa aproximadamente 10 TB por nó de Computação.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Máximos de simultaneidade para grupos de carga de trabalho
-Com a introdução dos grupos de carga de trabalho – LINK TBD, o conceito de Slots de simultaneidade não se aplica mais.  Os recursos por solicitação são alocados em uma base percentual e especificados na definição do grupo de carga de trabalho.  No entanto, mesmo com a remoção de Slots de simultaneidade, há uma quantidade mínima de recursos necessários por consultas com base no nível de serviço.  A tabela abaixo definiu a quantidade mínima de recursos necessários por consulta nos níveis de serviço e a simultaneidade associada que pode ser obtida. 
+Com a introdução dos [grupos de cargas de trabalho](sql-data-warehouse-workload-isolation.md), o conceito de Slots de simultaneidade não se aplica mais.  Os recursos por solicitação são alocados em uma base percentual e especificados na definição do grupo de carga de trabalho.  No entanto, mesmo com a remoção de Slots de simultaneidade, há uma quantidade mínima de recursos necessários por consultas com base no nível de serviço.  A tabela abaixo definiu a quantidade mínima de recursos necessários por consulta nos níveis de serviço e a simultaneidade associada que pode ser obtida. 
 
-|Nível de Serviço|Máximo de consultas simultâneas|Mínimo de% com suporte para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Nível do serviço|Máximo de consultas simultâneas|Mínimo de% com suporte para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
 |DW100c|4|25%|
 |DW200c|8|12,5%|
-|DW300c|12|8|
+|DW300c|12|8%|
 |DW400c|16|6,25%|
 |DW500c|20|5%|
 |DW1000c|32|3%|
@@ -79,7 +79,7 @@ Para garantir que cada consulta tenha recursos suficientes para executar com efi
 
 A tabela a seguir mostra o número máximo de consultas simultâneas e slots de simultaneidade para cada [classe de recurso estático](resource-classes-for-workload-management.md).  
 
-| Nível de Serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis | Slots usados pelo staticrc10 | Slots usados pelo staticrc20 | Slots usados pelo staticrc30 | Slots usados pelo staticrc40 | Slots usados pelo staticrc50 | Slots usados pelo staticrc60 | Slots usados pelo staticrc70 | Slots usados pelo staticrc80 |
+| Nível do serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis | Slots usados pelo staticrc10 | Slots usados pelo staticrc20 | Slots usados pelo staticrc30 | Slots usados pelo staticrc40 | Slots usados pelo staticrc50 | Slots usados pelo staticrc60 | Slots usados pelo staticrc70 | Slots usados pelo staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -102,7 +102,7 @@ A tabela a seguir mostra o número máximo de consultas simultâneas e slots de 
 
 A tabela a seguir mostra o número máximo de consultas simultâneas e slots de simultaneidade para cada [classe de recurso dinâmico](resource-classes-for-workload-management.md). As classes de recursos dinâmicos usam uma alocação de porcentagem de memória de 3-10-22-70 para classes de recursos de XLarge pequeno e médio porte em todos os níveis de serviço.
 
-| Nível de Serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis | Slots usados pelo smallrc | Slots usados pelo mediumrc | Slots usados pelo largerc | Slots usados pelo xlargerc |
+| Nível do serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis | Slots usados pelo smallrc | Slots usados pelo mediumrc | Slots usados pelo largerc | Slots usados pelo xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
 | DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
@@ -124,7 +124,7 @@ A tabela a seguir mostra o número máximo de consultas simultâneas e slots de 
 
 Quando não há slots de simultaneidade suficientes livres para iniciar a execução da consulta, as consultas são enfileiradas e executadas com base na importância.  Se houver importância equivalente, as consultas serão executadas em uma base primeiro a entrar, primeiro a sair.  À medida que uma consulta é concluída e o número de consultas e slots ficam abaixo do limite, o SQL Data Warehouse libera as consultas em fila. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como usar as classes de recursos para otimizar ainda mais a carga de trabalho, examine os seguintes artigos:
 * [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md)

@@ -1,18 +1,18 @@
 ---
 title: CONTÉM na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL contém no Azure Cosmos DB.
+description: Saiba mais sobre como a função contém o sistema SQL no Azure Cosmos DB retorna um valor booleano que indica se a primeira expressão de cadeia de caracteres contém a segunda
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5d5018d0173c316a0a31bd2f70e15e5ff972d153
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 59c0e2628bfde24200bd386adc858ba778790231
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351098"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871526"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS (Azure Cosmos DB)
  Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda.  
@@ -26,7 +26,7 @@ CONTAINS(<str_expr1>, <str_expr2>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr1*  
-   É a expressão de cadeia de caracteres a ser pesquisada.  
+   É a expressão da cadeia de caracteres a ser pesquisada.  
   
 *str_expr2*  
    É a expressão de cadeia de caracteres a ser localizada.  
@@ -49,7 +49,7 @@ SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 [{"c1": true, "c2": false}]  
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

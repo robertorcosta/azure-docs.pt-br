@@ -1,17 +1,17 @@
 ---
 title: Consultar contêineres no Azure Cosmos DB
-description: Aprenda a consultar contêineres no Azure Cosmos DB
+description: Saiba como consultar contêineres em Azure Cosmos DB usando consultas de partição cruzada na partição, entre partições e parciais
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 799fa43ad6ff12e5fa84326cbb41842e76daff12
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 88ebb8bb80ec3406c98b77db481994d415b04373
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092961"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872019"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consultar um contêiner do Azure Cosmos
 
@@ -65,7 +65,7 @@ Você pode gerenciar a execução de consulta paralela ajustando os seguintes pa
 
 Com o mesmo estado da coleção, uma consulta paralela retorna resultados na mesma ordem de uma execução serial. Ao executar uma consulta entre partições que inclui operadores de classificação (ORDER BY, TOP), o SDK do Azure Cosmos DB emite a consulta paralelamente entre partições. Ela mescla parcialmente os resultados classificados no lado do cliente para produzir resultados ordenados globalmente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos para saber mais sobre o particionamento no Azure Cosmos DB:
 

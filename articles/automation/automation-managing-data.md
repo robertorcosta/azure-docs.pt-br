@@ -4,17 +4,17 @@ description: Este artigo contém vários tópicos sobre o gerenciamento de um am
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9de5909ddca5fd36f3fafcb79e2a4ad519402c9c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: da1b151a150dfbf602593451d3d68043352b73eb
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476593"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850764"
 ---
 # <a name="managing-azure-automation-data"></a>Gerenciando dados da Automação do Azure
 Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure.
@@ -26,7 +26,7 @@ A Automação do Azure exclui de forma automática e remove de forma permanente 
 
 A tabela a seguir resume a política de retenção para diferentes recursos.
 
-| Data | Política |
+| Dados | Política |
 |:--- |:--- |
 | Contas |Removidas permanentemente 90 dias depois que a conta é excluída por um usuário. |
 | Ativos |Removidos permanentemente 90 dias depois que o ativo é excluído por um usuário ou 90 dias depois que a conta que contém o ativo é excluída por um usuário. |
@@ -39,9 +39,9 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 
 A política de retenção se aplica a todos os usuários e, atualmente não, pode ser personalizada.
 
-No entanto, se você precisar reter dados por um período de tempo maior, você poderá encaminhar runbook logs de trabalho aos logs do Azure Monitor.  Para obter mais informações, examine [encaminhar dados de trabalho de automação do Azure para logs do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
+No entanto, se você precisar reter dados por um período de tempo maior, poderá encaminhar logs de trabalho de runbook para logs de Azure Monitor.  Para obter mais informações, examine [encaminhar dados de trabalho de automação do Azure para Azure monitor logs](automation-manage-send-joblogs-log-analytics.md).   
 
-## <a name="backing-up-azure-automation"></a>Fazendo backup da Automação do Azure
+## <a name="backing-up-azure-automation"></a>Backup de automação do Azure
 Quando você exclui uma conta de automação no Microsoft Azure, todos os objetos na conta são excluídos, incluindo runbooks, módulos, configurações, trabalhos e ativos. Os objetos não podem ser recuperados depois que a conta é excluída.  Você pode usar as informações a seguir para fazer backup do conteúdo de sua conta de automação antes de excluí-la. 
 
 ### <a name="runbooks"></a>Runbooks
@@ -67,12 +67,12 @@ A replicação geográfica, padrão em contas da Automação do Azure, faz o bac
 
 A tabela a seguir mostra os emparelhamentos disponíveis das regiões primárias e secundárias.
 
-| Primária | Secundário |
+| Primário | Secundário |
 | --- | --- |
-| Centro-Sul dos Estados Unidos |Centro-Norte dos EUA |
-| Leste dos EUA 2 |Centro dos EUA |
-| Europa Ocidental |Norte da Europa |
-| Sudeste da Ásia |Ásia Oriental |
+| Centro-Sul dos EUA |Centro-Norte dos EUA |
+| Leste dos EUA 2 |EUA Central |
+| Oeste da Europa |Europa Setentrional |
+| Sudeste Asiático |Ásia Oriental |
 | Leste do Japão |Oeste do Japão |
 
 No evento improvável de os dados de uma região primária serem perdidos, a Microsoft tentará recuperá-los. Se não for possível recuperar os dados primários, o failover geográfico será executado e os clientes afetados receberão uma notificação em suas assinaturas.

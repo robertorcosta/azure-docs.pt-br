@@ -1,17 +1,17 @@
 ---
 title: Criar um contêiner no Azure Cosmos DB
-description: Saiba como criar um contêiner no Azure Cosmos DB
+description: Saiba como criar um contêiner em Azure Cosmos DB usando portal do Azure, .net, Java, Python, Node. js e outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 911f56cef58e5d9c161a3ba947850bcfff073200
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242404"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873702"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um contêiner do Azure Cosmos
 
@@ -21,7 +21,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
 
 ### <a id="portal-sql"></a>API do SQL
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma existente.
 
@@ -37,7 +37,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
 
 ### <a id="portal-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) ou selecione uma existente.
 
@@ -53,7 +53,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
 
 ### <a id="portal-cassandra"></a>API do Cassandra
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma conta do Azure Cosmos](create-cassandra-dotnet.md#create-a-database-account) ou selecione uma existente.
 
@@ -72,7 +72,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
 
 ### <a id="portal-gremlin"></a>API do Gremlin
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma conta do Azure Cosmos](create-graph-dotnet.md#create-a-database-account) ou selecione uma existente.
 
@@ -89,7 +89,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
 
 ### <a id="portal-table"></a>API de Tabela
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma conta do Azure Cosmos](create-table-dotnet.md#create-a-database-account) ou selecione uma existente.
 
@@ -164,7 +164,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=1000);
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Solicitação no Azure Cosmos DB](request-units.md)

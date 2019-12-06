@@ -2,27 +2,23 @@
 title: Agentes de autorização e como habilitá-los | Azure
 description: Saiba mais sobre os diferentes agentes de autorização que a MSAL (biblioteca de autenticação da Microsoft) permite que seu aplicativo Android use e como habilitá-los.
 services: active-directory
-documentationcenter: dev-center-name
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/05/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7daf40d6c6e552d6b76e424359f57f031641039
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 44a0e93c87c50fbc63cddad349ec9b5fbf45d91f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679809"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843896"
 ---
 # <a name="authorization-agents-android"></a>Agentes de autorização (Android)
 
@@ -83,15 +79,15 @@ Os seguintes navegadores foram testados para ver se eles são redirecionados cor
 
 | | Navegador interno | Chrome | Opera  | Microsoft Edge | Navegador de UC | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
-| Nexus 4 (API 17) | passá | passá |Não aplicável |Não aplicável |Não aplicável |Não aplicável |
-| Samsung S7 (API 25) | passá | passá | passá | passá | Recuperação |passá |
-| Huawei (API 26) |Pass * * | passá | Recuperação | passá | passá |passá |
-| Vivo (API 26) |passá|passá|passá|passá|passá|Recuperação|
-| Pixel 2 (API 26) |passá | passá | passá | passá | Recuperação |passá |
-| Oppo | passá | Não aplicável * * * |Não aplicável  |Não aplicável |Não aplicável | Não aplicável|
-| OnePlus (API 25) |passá | passá | passá | passá | Recuperação |passá |
-| Nexus (API 28) |passá | passá | passá | passá | Recuperação |passá |
-|MILHAS | passá | passá | passá | passá | Recuperação |passá |
+| Nexus 4 (API 17) | passagem | passagem |não aplicável |não aplicável |não aplicável |não aplicável |
+| Samsung S7 (API 25) | passá | passagem | passagem | passagem | fail |passagem |
+| Huawei (API 26) |Pass * * | passagem | fail | passagem | passagem |passagem |
+| Vivo (API 26) |passagem|passagem|passagem|passagem|passagem|fail|
+| Pixel 2 (API 26) |passagem | passagem | passagem | passagem | fail |passagem |
+| Oppo | passagem | Não aplicável * * * |não aplicável  |não aplicável |não aplicável | não aplicável|
+| OnePlus (API 25) |passagem | passagem | passagem | passagem | fail |passagem |
+| Nexus (API 28) |passagem | passagem | passagem | passagem | fail |passagem |
+|MI | passagem | passagem | passagem | passagem | fail |passagem |
 
 \* O navegador interno da Samsung é a Samsung Internet.  
 \* * O navegador interno do Huawei é o navegador Huawei.  

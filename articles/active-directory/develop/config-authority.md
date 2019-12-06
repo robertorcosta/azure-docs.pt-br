@@ -3,27 +3,23 @@ title: Configurar o MSAL para iOS e macOS para usar provedores de identidade dif
 titleSuffix: Microsoft identity platform
 description: Saiba como usar autoridades diferentes, como B2C, nuvens soberanas e usuários convidados, com MSAL para iOS e macOS.
 services: active-directory
-documentationcenter: ''
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4df5067317170e18a52fbac53bc02a2ba7d35aba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: feea11dfa8e199d4c1c01ba7ec09003233574fbe
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473793"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843624"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Como configurar o MSAL para iOS e macOS para usar provedores de identidade diferentes
 
@@ -251,6 +247,6 @@ Veja a seguir as subclasses de `MSALAuthority` que você pode instanciar depende
 
 `MSALB2CAuthority` representa uma autoridade B2C. Por padrão, a URL da autoridade B2C deve estar no seguinte formato, em que `<port>` é opcional: `https://<host>:<port>/tfp/<tenant>/<policy>`. No entanto, o MSAL também dá suporte a outros formatos de autoridade B2C arbitrárias.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre os [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md)
+Saiba mais sobre os [Fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md)

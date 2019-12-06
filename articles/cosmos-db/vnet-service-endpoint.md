@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 791821fbfe5854c27b7e3e6927a56a66ac1f1dc2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b91e235824085977f1570e664b43d028a905407b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819092"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869792"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acessar o Azure Cosmos DB de VNets (redes virtuais)
 
@@ -40,6 +40,12 @@ Quando o firewall IP ou as regras de acesso à rede virtual são adicionadas, so
 
 Depois que o ponto de extremidade de serviço do Azure Cosmos DB é habilitado em uma sub-rede, a origem do tráfego que chega à conta muda de IP público para rede virtual e sub-rede. Se a sua conta do Azure Cosmos tiver somente firewall baseado em IP, o tráfego da sub-rede habilitada para serviço não corresponderá mais às regras de firewall de IP e, portanto, será rejeitado. Siga os passos para migrar sem problemas do firewall baseado em IP para o controle de acesso baseado em rede virtual.
 
+### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>As permissões RBAC adicionais são necessárias para contas do Azure cosmos com pontos de extremidade de serviço de VNET?
+
+Depois de adicionar os pontos de extremidade do serviço de VNET a uma conta do Azure Cosmos, para fazer alterações nas configurações da conta, você precisa ter acesso à ação de `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` para todos os VNETs configurados em sua conta do cosmos do Azure. Essa ação é necessária porque o processo de autorização valida as ações correspondentes ao banco de dados e aos recursos da rede virtual antes de avaliar as propriedades.
+ 
+A autorização é validada para ações, mesmo que o usuário não especifique as ACLs de VNET usando CLI do Azure. Atualmente, o plano de controle da conta do Azure Cosmos dá suporte à definição do estado completo da conta do Azure Cosmos. Um dos parâmetros para as chamadas do plano de controle é `virtualNetworkRules`. Se esse parâmetro não for especificado, o CLI do Azure fará uma chamada Get Database para recuperar o `virtualNetworkRules` e usará esse valor na chamada Update.
+
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>As redes virtuais emparelhadas também têm acesso à conta do Azure Cosmos? 
 Apenas a rede virtual e suas sub-redes adicionadas à conta do Azure Cosmos têm acesso. Suas VNets emparelhadas não podem acessar a conta até que as sub-redes em redes virtuais separadas sejam adicionadas à conta.
 
@@ -59,8 +65,8 @@ Não, somente as redes virtuais do Azure Resource Manager podem ter o ponto de e
 Isso é necessário apenas quando você deseja que sua conta de Azure Cosmos DB seja acessada por outros serviços de terceiros do Azure, como o Azure data Factory, o Azure Pesquisa Cognitiva ou qualquer serviço implantado em determinada região do Azure.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Como limitar o acesso de conta do Azure Cosmos às sub-redes em redes virtuais](how-to-configure-vnet-service-endpoint.md)
-* [Como configurar o firewall de IP para a conta do Azure Cosmos](how-to-configure-firewall.md)
+* [Como configurar o firewall de IP para sua conta do Azure Cosmos](how-to-configure-firewall.md)
 

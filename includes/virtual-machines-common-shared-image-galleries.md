@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74085217"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875483"
 ---
 A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens gerenciadas. As galerias de imagens compartilhadas fornecem:
 
@@ -31,7 +31,7 @@ Se você tiver um grande número de imagens gerenciadas que precisa manter e des
 
 O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos:
 
-| Recurso | DESCRIÇÃO|
+| Grupos | Descrição|
 |----------|------------|
 | **Imagem gerenciada** | Uma imagem básica que pode ser usada sozinha ou usada para criar uma **versão de imagem** em uma galeria de imagens. As imagens gerenciadas são criadas a partir de VMs [generalizadas](#generalized-and-specialized-images) . Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para criar várias VMs e agora pode ser usado para criar versões de imagem compartilhada. |
 | **Instantâneo** | Uma cópia de um VHD que pode ser usado para criar uma **versão de imagem**. Os instantâneos podem ser obtidos de uma VM [especializada](#generalized-and-specialized-images) (uma que não tenha sido generalizada) em seguida, usados sozinhos ou com instantâneos de discos de dados, para criar uma versão de imagem especializada.
@@ -49,7 +49,7 @@ As definições de imagem são um agrupamento lógico de versões de uma imagem.
 
 Há três parâmetros para cada definição de imagem que são usados em combinação- **Publicador**, **oferta** e **SKU**. Eles são usados para localizar uma definição de imagem específica. Você pode ter versões de imagem que compartilham um ou dois, mas não todos os três valores.  Por exemplo, aqui estão três definições de imagem e seus valores:
 
-|Definição de imagem|Publicador|Oferta|Sku|
+|Definição de imagem|Publicador|Oferta|SKU|
 |---|---|---|---|
 |myImage1|Contoso|Finanças|Back-end|
 |myImage2|Contoso|Finanças|Front-end|
@@ -93,15 +93,15 @@ As regiões de origem são listadas na tabela a seguir. Todas as regiões públi
 
 | Regiões de origem        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
-| Austrália Central     | Leste da China        | Sul da Índia        | Europa Ocidental        |
+| Austrália Central     | Leste da China        | Sul da Índia        | Oeste da Europa        |
 | Austrália Central 2   | Leste da China 2      | Sudeste Asiático     | Sul do Reino Unido           |
-| Leste da Austrália        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
-| Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | DoD Central dos EUA     |
-| Sul do Brasil          | Ásia Oriental         | Coreia Central      | DoD do Leste dos EUA        |
-| Canadá Central        | Leste dos EUA           | Sul da Coreia        | Governo dos EUA do Arizona     |
-| Leste do Canadá           | Leste dos EUA 2         | Centro-Norte dos EUA   | Governo dos EUA do Texas       |
-| Índia Central         | Leste dos EUA 2 EUAP    | Norte da Europa       | US Gov Virginia    |
-| Centro dos EUA            | França Central    | Centro-Sul dos Estados Unidos   | Índia Ocidental         |
+| Austrália Oriental        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
+| Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | US DoD Central     |
+| Sul do Brasil          | Ásia Oriental         | Coreia Central      | US DoD Leste        |
+| Canadá Central        | Leste dos EUA           | Sul da Coreia        | US Gov - Arizona     |
+| Leste do Canadá           | Leste dos EUA 2         | Centro-Norte dos EUA   | US Gov - Texas       |
+| Índia Central         | Leste dos EUA 2 EUAP    | Europa Setentrional       | US Gov - Virgínia    |
+| EUA Central            | França Central    | Centro-Sul dos EUA   | Índia Ocidental         |
 | EUA Central EUAP       | Sul da França      | Centro-Oeste dos EUA    | Oeste dos EUA            |
 |                       |                   |                    | Oeste dos EUA 2          |
 
@@ -113,6 +113,7 @@ Há limites, por assinatura, para implantar recursos usando galerias de imagens 
 - 100 galerias de imagens compartilhadas, por assinatura, por região
 - 1\.000 definições de imagem, por assinatura, por região
 - 10.000 versões de imagem, por assinatura, por região
+- Qualquer disco anexado à imagem deve ser menor ou igual a 1 TB de tamanho
 
 Para obter mais informações, consulte [verificar o uso de recursos em relação aos limites](https://docs.microsoft.com/azure/networking/check-usage-against-limits) para obter exemplos de como verificar seu uso atual.
  
@@ -143,35 +144,35 @@ As regiões para as quais uma versão de Imagem compartilhada é replicada podem
 
 ![Gráfico mostrando como você pode replicar imagens](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Acesso
 
 Como a Galeria de imagens compartilhadas, a definição de imagem e a versão de imagem são todos os recursos, elas podem ser compartilhadas usando controles nativos do Azure RBAC internos. Usando o RBAC, você pode compartilhar esses recursos para outros usuários, entidades de serviço e grupos. Você pode até compartilhar o acesso a pessoas fora do locatário em que foram criadas. Quando um usuário tem acesso à versão da imagem compartilhada, ele pode implantar uma VM ou um conjunto de dimensionamento de máquinas virtuais.  Aqui está a matriz de compartilhamento que ajuda a entender ao que o usuário obtém acesso:
 
-| Compartilhado com o usuário     | Galeria de imagens compartilhadas | Definição de imagem | Versão da imagem |
+| Compartilhado com o usuário     | Galeria de Imagens Compartilhadas | Definição de imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de imagens compartilhadas | sim                  | sim          | sim                  |
-| Definição de imagem     | Não                   | sim          | sim                  |
+| Galeria de Imagens Compartilhadas | SIM                  | SIM          | SIM                  |
+| Definição de imagem     | Não                   | SIM          | SIM                  |
 
 É recomendável compartilhar no nível da galeria para obter a melhor experiência. Não recomendamos o compartilhamento de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
 As imagens também podem ser compartilhadas, em escala, mesmo entre locatários usando um registro de aplicativo multilocatário. Para obter mais informações sobre como compartilhar imagens entre locatários, consulte [compartilhar imagens de VM de galeria entre locatários do Azure](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Cobrança
-Não há custo adicional para usar o serviço de Galeria de Imagens Compartilhadas. Você será cobrado pelos seguintes recursos:
+não há preço adicional para usar o serviço de Galeria de Imagens Compartilhadas. Você será cobrado pelos seguintes recursos:
 - Custos de armazenamento do armazenamento das versões de imagem compartilhada. O custo depende do número de réplicas da versão da imagem e do número de regiões para as quais a versão é replicada. Por exemplo, se você tiver duas imagens e ambas forem replicadas para três regiões, você será alterado para 6 discos gerenciados com base em seu tamanho. Para obter mais informações, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Encargos de saída de rede para replicação da primeira versão de imagem da região de origem para as regiões replicadas. As réplicas subsequentes são tratadas dentro da região, portanto, não há encargos adicionais. 
 
-## <a name="updating-resources"></a>Atualizando recursos
+## <a name="updating-resources"></a>Atualização de recursos
 
 Depois de criado, você pode fazer algumas alterações nos recursos da Galeria de imagens. Elas são limitadas a:
  
 Galeria de imagens compartilhadas:
-- DESCRIÇÃO
+- Descrição
 
 definição da imagem:
 - vCPUs recomendadas
 - Memória recomendada
-- DESCRIÇÃO
+- Descrição
 - Data de fim da vida útil
 
 Versão da imagem:

@@ -5,17 +5,17 @@ keywords: azure powershell, tutorial de script do powershell, automação do pow
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae9daaf797d3d82200ee094b63bad1f5c1ff68cc
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f950a2fed2fbd355fc99453f09b655463e67102d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743812"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850866"
 ---
 # <a name="my-first-powershell-runbook"></a>Meu primeiro runbook do PowerShell
 
@@ -53,7 +53,7 @@ Você pode digitar o código diretamente no runbook, ou você pode selecionar cm
 
 1. O seu runbook está vazio no momento. Digite *Write-Output "Olá, Mundo”.* no corpo do script.
 
-   ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)
+   ![Olá Mundo](media/automation-first-runbook-textual-powershell/automation-helloworld.png)
 
 2. Salve o runbook clicando em **Salvar**.
 
@@ -85,11 +85,11 @@ O runbook criado ainda está em modo de Rascunho. Deve ser publicado antes de po
 1. Uma página de trabalho é aberto para o trabalho de runbook criado. Você pode fechar esse painel, mas neste caso, deixe-o averto para acompanhar o progresso do trabalho.
 1. O status do trabalho é mostrado em **Resumo do trabalho** e corresponde aos status que você viu quando testou o runbook.
 
-   ![Resumo do Trabalho](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
+   ![Resumo do trabalho](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
 
 1. Assim que o status do runbook mostrar *Concluído*, em **Visão Geral** clique em **Saída**. O painel Saída é aberto e você pode ver seu *Olá, Mundo*.
 
-   ![Saída do Trabalho](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
+   ![Saída do trabalho](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
 1. Feche a página de Saída.
 1. Clique em **Todos os Logs** para abrir o painel Fluxos do trabalho do runbook. Você só deve ver *Olá, Mundo* no fluxo de saída, mas isso pode mostrar outros fluxos de um trabalho do runbook como Detalhado e Erro se o runbook gravar neles.
@@ -99,7 +99,7 @@ O runbook criado ainda está em modo de Rascunho. Deve ser publicado antes de po
 1. Feche a página Fluxos e a página Trabalho para retornar à página MyFirstRunbook-PowerShell.
 1. Em **Detalhes**, clique em **Trabalhos** para abrir o painel de trabalhos para este runbook. Esta página lista todos os trabalhos criados por esse runbook. Você deve ver apenas um trabalho listado, já que executou o trabalho apenas uma vez.
 
-   ![Lista de Trabalhos](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
+   ![Lista de trabalhos](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
 
 1. Você pode clicar nesse trabalho para abrir o mesmo painel do Trabalho exibido ao iniciar o runbook. Esta ação permite que você volte no tempo e veja os detalhes de qualquer trabalho que foi criado para um determinado runbook.
 
@@ -242,10 +242,10 @@ Os runbooks do PowerShell têm o mesmo ciclo de vida, os mesmos recursos e o mes
 3. Os runbooks de fluxo de trabalho do PowerShell dão suporte a execução paralela e serial. Os runbooks do PowerShell só podem executar comandos em série.
 4. Em um runbook de fluxo de trabalho do PowerShell, uma atividade, um comando ou um script de bloco pode ter seu próprio espaço de execução. Em um runbook do PowerShell, tudo em um script é executado em um único espaço de execução. Também há algumas [diferenças sintáticas](https://technet.microsoft.com/magazine/dn151046.aspx) entre um runbook nativo do PowerShell e um runbook do Fluxo de Trabalho do PowerShell.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](/powershell/scripting/overview).
 * Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-* Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+* Para saber mais sobre os tipos de runbook, suas vantagens e limitações, consulte [Tipos de runbook de Automação do Azure](automation-runbook-types.md)
 * Para saber mais sobre o recurso de suporte de script do PowerShell, veja [Native PowerShell script support in Azure Automation (Suporte a scripts nativos do PowerShell na Automação do Azure)](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

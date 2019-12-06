@@ -1,30 +1,26 @@
 ---
-title: Termos de serviço e a declaração de privacidade para aplicativos | Azure
+title: Termos de serviço e política de privacidade para aplicativos | Azure
 description: Saiba como você pode configurar os termos de declaração de privacidade e de serviço de aplicativo registrado para usar o AD do Azure.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ca59120bcfadc6c75e3687be84a0e70f97fc3c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482859"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842792"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar os termos de serviço e a declaração de privacidade para um aplicativo
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: configurar os termos de serviço e a política de privacidade para um aplicativo
 
 Os desenvolvedores que criam e gerenciar aplicativos que se integram ao Azure Active Directory (AD do Azure) e contas da Microsoft devem incluir links para os termos do aplicativo de serviço e declarações de privacidade. Os termos de serviço e a declaração de privacidade são revelados aos usuários por meio da experiência de consentimento do usuário. Eles ajudam seus usuários a saberem que podem confiar em seu aplicativo. Os termos da declaração de privacidade e de serviço são especialmente importantes para aplicativos de multilocação voltadas para o usuário – aplicativos que são usados por vários diretórios ou estão disponíveis para qualquer conta da Microsoft.
 
@@ -44,7 +40,7 @@ Os exemplos a seguir mostram o usuário experiência de consentimento quando as 
 
 Antes de adicionar links aos termos de serviço e aos documentos da declaração de privacidade do seu aplicativo, verifique se os URLs seguem essas diretrizes.
 
-| Diretriz     | DESCRIÇÃO                           |
+| Diretriz     | Descrição                           |
 |---------------|---------------------------------------|
 | Formatar        | URL Válida                             |
 | Esquemas válidos | HTTP e HTTPS<br/>Recomendamos HTTPS |
@@ -61,15 +57,15 @@ Quando os termos de serviço e a declaração de privacidade estiverem prontos, 
 * [ Usando a API REST do MSGraph beta ](#msgraph-beta-rest-api)
 
 ### <a name="azure-portal"></a>Usando o portal do Azure
-Siga estas etapas no portal do Azure.
+Siga estas etapas na portal do Azure.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Navegue até a seção **Registros de aplicativo** e selecione seu aplicativo.
-3. Abra o **Branding** painel.
+3. Abra o painel de **identidade visual** .
 4. Preencha os campos da **URL de termos de serviço** e **Política de privacidade**.
 5. Salve suas alterações.
 
-    ![Propriedades do aplicativo contém termos de serviço e a privacidade URLs de instrução](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![As propriedades do aplicativo contêm termos de serviço e URLs de política de privacidade](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"> </a> Usando o objeto de aplicativo JSON
 

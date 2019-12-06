@@ -4,17 +4,17 @@ description: Este artigo é concebido como uma lição rápida para autores fami
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 085fcd6269663cb0055aaefe11ddc9434e8da7a1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d656e97448bebe7019a63824b9de6e322b787a92
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476990"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850730"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprender sobre os principais conceitos de Fluxo de Trabalho do Windows PowerShell para runbooks de Automação
 
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Pontos de verificação
 
-Um *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual de variáveis e as saídas geradas para aquele ponto. Se um fluxo de trabalho terminar com erro ou se for suspenso, na próxima vez que for executado, ele iniciará em seu último ponto de verificação e não no início do fluxo de trabalho.  Você pode definir um ponto de verificação em um fluxo de trabalho com a atividade **Checkpoint-Workflow** . A automação do Azure tem um recurso chamado [justa](automation-runbook-execution.md#fair-share), onde qualquer runbook que é executado por 3 horas é descarregado para permitir que outros runbooks para serem executados. Eventualmente, o runbook descarregado será recarregado e quando ele estiver, ele retomará a execução do último ponto de verificação executada no runbook. Para garantir que o runbook será concluída, você deve adicionar os pontos de verificação em intervalos que são executados por menos de 3 horas. Se durante cada execução de um novo ponto de verificação é adicionado, e se o runbook obtém removido após três horas devido a um erro, em seguida, o runbook será retomado indefinidamente.
+Um *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual de variáveis e as saídas geradas para aquele ponto. Se um fluxo de trabalho terminar com erro ou se for suspenso, na próxima vez que for executado, ele iniciará em seu último ponto de verificação e não no início do fluxo de trabalho.  Você pode definir um ponto de verificação em um fluxo de trabalho com a atividade **Checkpoint-Workflow** . A automação do Azure tem um recurso chamado [Fair share](automation-runbook-execution.md#fair-share), em que qualquer runbook executado por 3 horas é descarregado para permitir que outros runbooks sejam executados. Eventualmente, o runbook descarregado será recarregado e, quando for, ele continuará a execução do último ponto de verificação feito no runbook. Para garantir que o runbook seja concluído eventualmente, você deve adicionar pontos de verificação em intervalos executados por menos de 3 horas. Se, durante cada execução, um novo ponto de verificação for adicionado, e se o runbook for removido após três horas devido a um erro, o runbook será retomado indefinidamente.
 
 No código de exemplo a seguir, uma exceção ocorre após Activity2, fazendo com que o fluxo de trabalho seja encerrado. Quando o fluxo de trabalho é executado novamente, ele começa pela execução de Activity2, já que isso foi logo após o último ponto de verificação definido.
 
@@ -258,7 +258,7 @@ Workflow Copy-Files
 }
 ```
 
-Como as credenciais do nome de usuário não são mantidas depois de chamar a atividade [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) ou após o último ponto de verificação, você precisa definir as credenciais para null e recuperá-las novamente no armazenamento de ativos após **Suspend-Workflow** ou o ponto de verificação ser chamado.  Caso contrário, a seguinte mensagem de erro será exibida: *O trabalho de fluxo de trabalho não pode ser retomado porque os dados de persistência não puderam ser salvos completamente, ou os dados de persistência salvos foram corrompidos. Você deve reiniciar o fluxo de trabalho.*
+Como as credenciais do nome de usuário não são mantidas depois de chamar a atividade [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) ou após o último ponto de verificação, você precisa definir as credenciais para null e recuperá-las novamente no armazenamento de ativos após **Suspend-Workflow** ou o ponto de verificação ser chamado.  Caso contrário, você pode receber a seguinte mensagem de erro: *não é possível retomar a tarefa de fluxo de trabalho porque os dados de persistência não puderam ser salvos completamente ou os dados de persistência salvos foram corrompidos. Você deve reiniciar o fluxo de trabalho.*
 
 O mesmo código a seguir demonstra como lidar com isso em seus runbooks do Fluxo de Trabalho do PowerShell.
 
@@ -293,7 +293,7 @@ Isso não é necessário se você estiver autenticando usando uma conta Executar
 
 Para saber mais sobre pontos de verificação, confira [Adicionando pontos de verificação a um Fluxo de Trabalho de script](https://technet.microsoft.com/library/jj574114.aspx).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Para começar a usar os runbooks do fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
+* Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 

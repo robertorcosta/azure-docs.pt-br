@@ -1,31 +1,31 @@
 ---
-title: Benefícios de vários mestres do Azure Cosmos DB
-description: Compreenda os benefícios de vários mestres no Azure Cosmos DB.
+title: Azure Cosmos DB benefícios de vários mestres
+description: Entenda os benefícios de vários mestres no Azure Cosmos DB, a comparação de requisitos de latência e SLA em locais de gravação únicos e múltiplos.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: c78e5e4f8d396d777738bddfd6baf086c0b2ecf4
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: b21b6ba82ba1ada0103501b8beeca270df86abd9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789287"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872002"
 ---
-# <a name="understand-multi-master-benefits-in-azure-cosmos-db"></a>Entender os benefícios de vários mestres no Azure Cosmos DB
+# <a name="understand-multi-master-benefits-in-azure-cosmos-db"></a>Entenda os benefícios de vários mestres no Azure Cosmos DB
 
-Operadores de conta do cosmos DB devem escolher a configuração global de distribuição apropriados para garantir que a latência, disponibilidade e requisitos de RTO para seus aplicativos. Contas do Cosmos do Azure configuradas com vários locais de gravação oferecem benefícios significativos em contas com o local de gravação única incluindo, 99,999% de gravação do SLA de disponibilidade, < SLA de latência no 99 º percentil e RTO de gravação de 10 ms = 0 em caso de desastre regional.
+Cosmos DB operadores de conta devem escolher a configuração de distribuição global apropriada para garantir a latência, a disponibilidade e os requisitos de RTO para seus aplicativos. As contas do Azure Cosmos configuradas com vários locais de gravação oferecem benefícios significativos em relação às contas com um único local de gravação, incluindo o SLA de disponibilidade de gravação de 99,999%, < o SLA de latência de gravação de 10 ms no 99 º percentil e RTO = 0 em um desastre regional.
 
 ## <a name="comparison-of-features"></a>Comparação de recursos
 
 |Requisito de aplicativo|Vários locais de gravação|Local de gravação única|Observação|
 |---|---|---|---|
-|Gravar o SLA de latência de < 10 ms em P99|**Sim**|Não|Contas com um único local de gravação incorrerá em latência de rede de região cruzada adicionais para cada gravação.|
-|Leia o SLA de latência de < 10 ms em P99|**Sim**|Sim| |
-|SLA de 99,999% de gravação|**Sim**|Não|Contas com um único local de gravação garantem SLA de 99,99%|
-|RTO = 0|**Sim**|Não|Zero tempo de inatividade para gravações em caso de desastres regionais. Contas com o local de gravação única têm RTO é de 15 minutos.|
+|SLA de latência de gravação de < 10 ms em P99|**Sim**|Não|Contas com local de gravação única incorrem em latência de rede entre regiões adicional para cada gravação.|
+|SLA de latência de leitura de < 10 ms em P99|**Sim**|SIM| |
+|Gravar SLA de 99,999%|**Sim**|Não|Contas com local de gravação única garantem SLA de 99,99%|
+|RTO = 0|**Sim**|Não|Tempo de inatividade zero para gravações em caso de desastres regionais. As contas com um único local de gravação têm o RTO de 15 min.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda desejar desabilitar EnableMultipleWriteLocations em sua conta do Cosmos do Azure, por favor [abrir um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/).
+Se você ainda quiser desabilitar o EnableMultipleWriteLocations em sua conta do cosmos do Azure, [abra um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/).

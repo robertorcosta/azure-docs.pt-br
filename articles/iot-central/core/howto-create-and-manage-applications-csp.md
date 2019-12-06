@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1588a27453dbc223e6aa1dd993905d274e5e1242
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480343"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851325"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Criar e gerenciar um aplicativo de IoT Central do Azure no portal do CSP
 
@@ -74,7 +74,7 @@ Para saber mais, consulte [Assinaturas do Azure](https://docs.microsoft.com/azur
 Escolha a região ou [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde você gostaria de criar seu aplicativo de IOT central do Azure. Normalmente, você deve escolher a região mais próxima fisicamente em seus dispositivos para obter o desempenho ideal.
 
 > [!NOTE]
-> Os modelos de aplicativo de visualização atualmente só estão disponíveis nos locais da **Europa** e **dos EUA** .
+> Os modelos de aplicativo de visualização atualmente só estão disponíveis nos locais da **Europa** e **Estados Unidos** .
 
 Para saber mais, confira [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/) e [geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 
@@ -85,15 +85,15 @@ Para saber mais, confira [regiões do Azure](https://azure.microsoft.com/global-
 
 ## <a name="application-template"></a>Modelo de aplicativo
 
-Você pode escolher um dos modelos de aplicativo disponíveis para o novo aplicativo Azure IoT Central. Um modelo de aplicativo pode conter itens predefinidos, como modelos de dispositivo e dashboards, para ajudá-lo a começar.
+Você pode escolher um dos modelos de aplicativo disponíveis para o novo aplicativo Azure IoT Central. Um modelo de aplicativo pode conter itens predefinidos, como modelos de dispositivo e painéis, para ajudá-lo a começar.
 
-| Modelo de aplicativo | DESCRIÇÃO |
+| Modelo de aplicativo | Descrição |
 | -------------------- | ----------- |
 | Aplicativo personalizado   | Cria um aplicativo vazio para você preencher com seus próprios dispositivos e modelos de dispositivos. |
 | Exemplo Contoso       | Cria um aplicativo que inclui um modelo de dispositivo para um dispositivo conectado simples. Use esse modelo para começar a explorar o Azure IoT Central. |
 | Exemplo Devkits       | Cria um aplicativo com modelos de dispositivos prontos para você conectar um dispositivo MXChip ou Raspberry Pi. Use esse modelo se você for um desenvolvedor de dispositivos que está experimentando o código em um desses dispositivos. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como criar um aplicativo Azure IoT Central como um CSP, a próxima etapa sugerida é apresentada:
 

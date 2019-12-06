@@ -2,18 +2,18 @@
 title: Resolver problemas de integração de gerenciamento de atualizações, controle de alterações e inventário
 description: Aprenda a solucionar erros de integração com as soluções Gerenciamento de atualizações, Controle de alterações e Inventário
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516410"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849302"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Resolver erros quando soluções de integração
 
@@ -21,7 +21,7 @@ Você pode encontrar erros ao integrar soluções como o Gerenciamento de Atuali
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="node-rename"></a>Cenário: Renomear um nó registrado requer cancelar o registro/registro novamente
+### <a name="node-rename"></a>Cenário: renomear um nó registrado requer cancelar o registro/registro novamente
 
 #### <a name="issue"></a>Problema
 
@@ -36,7 +36,7 @@ Renomear nós registrados não atualiza o nome do nó na automação do Azure.
 Cancele o registro do nó da configuração de estado da automação do Azure e registre-o novamente.  Os relatórios publicados no serviço antes dessa hora não estarão mais disponíveis.
 
 
-### <a name="resigning-cert"></a>Cenário: Não há suporte para a assinatura de certificados novamente por meio do proxy HTTPS
+### <a name="resigning-cert"></a>Cenário: não há suporte para assinar certificados novamente por meio do proxy HTTPS
 
 #### <a name="issue"></a>Problema
 
@@ -52,7 +52,7 @@ Não há nenhuma solução alternativa para esse problema.
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="missing-write-permissions"></a>Cenário: A integração falhará com a mensagem – a solução não pode ser habilitada
+### <a name="missing-write-permissions"></a>Cenário: a integração falha com a mensagem-a solução não pode ser habilitada
 
 #### <a name="issue"></a>Problema
 
@@ -72,9 +72,9 @@ Esse erro é causado por permissões incorretas ou ausentes na máquina virtual,
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se que você tem as permissões corretas para integrar a máquina virtual. Examine as [permissões necessárias para integrar máquinas](../automation-role-based-access-control.md#onboarding) e tente integrar a solução novamente. Se você receber o erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, verifique se `Microsoft.OperationalInsights/workspaces/read` tem permissão para encontrar se a VM está integrada a um espaço de trabalho.
+Verifique se que você tem as permissões corretas para integrar a máquina virtual. Examine as [permissões necessárias para integrar máquinas](../automation-role-based-access-control.md#onboarding) e tente integrar a solução novamente. Se você receber o erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, verifique se você tem a permissão `Microsoft.OperationalInsights/workspaces/read` para poder encontrar se a VM está integrada a um espaço de trabalho.
 
-### <a name="diagnostic-logging"></a>Cenário: A integração falha com a mensagem-falha ao configurar a conta de automação para o log de diagnóstico
+### <a name="diagnostic-logging"></a>Cenário: a integração falha com a mensagem-falha ao configurar a conta de automação para o log de diagnóstico
 
 #### <a name="issue"></a>Problema
 
@@ -126,9 +126,9 @@ Para implantar a solução com êxito, você precisa considerar alterar a polít
   * Refazer a segmentação da política para um recurso específico (como para uma conta de automação específica).
   * Revisando o conjunto de recursos ao qual a política foi configurada para negar.
 
-Verifique as notificações no canto superior direito do portal do Azure ou navegue até o grupo de recursos que contém sua conta de automação e selecione implantações em **configurações** para exibir a implantação com falha. Para saber mais sobre o Azure Policy visite: [Visão geral do Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Verifique as notificações no canto superior direito do portal do Azure ou navegue até o grupo de recursos que contém sua conta de automação e selecione **implantações** em **configurações** para exibir a implantação com falha. Para saber mais sobre o Azure Policy, consulte: [Visão geral do Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-### <a name="unlink"></a>Cenário: Erros ao tentar desvincular um espaço de trabalho
+### <a name="unlink"></a>Cenário: erros ao tentar desvincular um espaço de trabalho
 
 #### <a name="issue"></a>Problema
 
@@ -146,17 +146,17 @@ Esse erro ocorre quando você ainda tem soluções ativas em seu espaço de trab
 
 Para resolver isso, você precisará remover as seguintes soluções do seu espaço de trabalho se você as estiver usando:
 
-* Gerenciamento de Atualizações
-* Controle de Alterações
-* Iniciar/Parar VMs durante os horários inativos
+* Gerenciamento de atualização
+* Alterar acompanhamento
+* Inicie/pare VMs durante os horários inativos
 
 Depois de remover as soluções, você pode desvincular seu espaço de trabalho. É importante limpar todos os artefatos existentes dessas soluções do seu espaço de trabalho e conta de automação também.  
 
-* Gerenciamento de Atualizações
+* Gerenciamento de atualização
   * Remover implantações de atualização (agendas) de sua conta de automação
-* Iniciar/Parar VMs durante os horários inativos
+* Inicie/pare VMs durante os horários inativos
   * Remova os bloqueios nos componentes da solução em sua conta de automação em **configurações** > **bloqueios**.
-  * Para obter etapas adicionais para remover a solução iniciar/parar VMs fora do horário comercial, consulte [remover a solução iniciar/parar VM fora do horário comercial](../automation-solution-vm-management.md##remove-the-solution).
+  * Para obter etapas adicionais para remover a solução Iniciar/Parar VMs fora do horário comercial consulte, [remova a solução iniciar/parar VM fora do horário comercial](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>falhas de extensão do MMA
 
@@ -168,7 +168,7 @@ A instalação do Agente MMA ou do Log Analytics para Linux pode falhar por dive
 
 A seção a seguir descreve vários problemas que você pode percorrer ao realizar a integração que causa uma falha na implantação da extensão MMA.
 
-### <a name="webclient-exception"></a>Cenário: Ocorreu uma exceção durante uma solicitação do WebClient
+### <a name="webclient-exception"></a>Cenário: ocorreu uma exceção durante uma solicitação de WebClient
 
 A extensão do MMA na máquina virtual não consegue se comunicar com recursos externos e a implantação falha.
 
@@ -196,7 +196,7 @@ Algumas causas possíveis para esse erro são:
 
 Certifique-se de ter as portas e os endereços adequados abertos para comunicação. Para obter uma lista de portas e endereços, consulte [planejando sua rede](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Cenário: A instalação falhou devido a problemas de um ambiente transitório
+### <a name="transient-environment-issue"></a>Cenário: falha na instalação devido a problemas de um ambiente transitório
 
 Falha na instalação da extensão de Microsoft Monitoring Agent durante a implantação devido a outra instalação ou ação que está bloqueando a instalação
 
@@ -227,7 +227,7 @@ Algumas causas possíveis para esse erro são:
 
 Este erro é um erro transitório na natureza. Repita a implantação para instalar a extensão.
 
-### <a name="installation-timeout"></a>Cenário: Tempo limite de instalação
+### <a name="installation-timeout"></a> Cenário: tempo limite de instalação
 
 A instalação da extensão MMA não foi concluída devido a um tempo limite.
 
@@ -247,7 +247,7 @@ Esse erro ocorre porque a máquina virtual está sob uma carga pesada durante a 
 
 Tente instalar a extensão MMA quando a VM estiver sob uma carga menor.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

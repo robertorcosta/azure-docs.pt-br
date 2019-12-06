@@ -1,22 +1,22 @@
 ---
 title: Chaves exclusivas no Azure Cosmos DB
-description: Saiba como usar chaves exclusivas no banco de dados do Azure Cosmos
+description: Saiba como definir e usar chaves exclusivas para um banco de dados Cosmos do Azure. Este artigo também descreve como as chaves exclusivas adicionam uma camada de integridade de dados.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/02/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4a929566d464f8548c4bffeb9f89099e77722e67
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756785"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869826"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restrições de chaves exclusivas no Azure Cosmos DB
 
-Chaves exclusivas adicionam uma camada de integridade dos dados a um contêiner do Azure Cosmos. Você cria uma política de chave exclusiva ao criar um contêiner do Azure Cosmos. Com chaves exclusivas, você certifica-se de que um ou mais valores em uma partição lógica são exclusivos. Também é possível garantir exclusividade por [chave de partição](partition-data.md). 
+Chaves exclusivas adicionam uma camada de integridade dos dados a um contêiner do Azure Cosmos. Você cria uma política de chave exclusiva ao criar um contêiner do Azure Cosmos. Com chaves exclusivas, você certifica-se de que um ou mais valores em uma partição lógica são exclusivos. Também é possível garantir exclusividade por [chave de partição](partition-data.md).
 
 Depois de criar um contêiner com uma política de chave exclusiva, a criação de uma nova ou de uma atualização de um item existente, resultando em uma duplicata dentro de uma partição lógica, é impedida, conforme especificado pela restrição UNIQUE KEY. A chave de partição combinada com a chave exclusiva garante a exclusividade de um item dentro do escopo do contêiner.
 
@@ -45,7 +45,7 @@ Se você tentar inserir outro item com as combinações listadas na tabela anter
 
 * Para definir uma chave exclusiva para um contêiner existente, crie um novo contêiner com a restrição de chave exclusiva. Use a ferramenta de migração de dados apropriada para mover os dados do contêiner existente para o novo contêiner. Para contêineres SQL, use a [ferramenta de Migração de Dados](import-data.md) para mover dados. Para contêineres MongoDB, use [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md) para mover dados.
 
-* Uma política de chave exclusiva pode ter no máximo 16 valores do caminho. Por exemplo, os valores podem ser `/firstName`, `/lastName` e `/address/zipCode`. Cada política de chave exclusiva pode ter um máximo de 10 restrições ou combinações de chave exclusiva. Os caminhos combinados para cada restrição de índice exclusivo não devem exceder 60 bytes. No exemplo anterior, o nome, sobrenome e endereço de email juntos são uma restrição. Essa restrição usa 3 dentre os 16 caminhos possíveis.
+* Uma política de chave exclusiva pode ter no máximo 16 valores do caminho. Por exemplo, os valores podem ser `/firstName`, `/lastName`e `/address/zipCode`. Cada política de chave exclusiva pode ter um máximo de 10 restrições ou combinações de chave exclusiva. Os caminhos combinados para cada restrição de índice exclusivo não devem exceder 60 bytes. No exemplo anterior, o nome, sobrenome e endereço de email juntos são uma restrição. Essa restrição usa 3 dentre os 16 caminhos possíveis.
 
 * Quando um contêiner tem uma política de chave exclusiva, os encargos da [unidade de solicitação (ru)](request-units.md) para criar, atualizar e excluir um item são um pouco mais altos.
 
