@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 418324ea0d50cb2f8ff4a30018a31e7807d52eac
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602592"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901205"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar bate-papo à base de dados de conhecimento
 
@@ -39,13 +39,13 @@ Para a consulta do usuário de `When is your birthday?`, cada personalidade tem 
 ||
 
 
-## <a name="language-support"></a>Suporte ao idioma
+## <a name="language-support"></a>Suporte de idiomas
 
 Chit-os conjuntos de dados de chat têm suporte nos seguintes idiomas:
 
-|idioma|
+|Idioma|
 |--|
-|Chinesa|
+|Chinês|
 |Inglês|
 |Francês|
 |Alemanha|
@@ -72,7 +72,7 @@ Ao editar sua KB, você verá uma nova fonte para bate-papo, com base na persona
 Para exibir os metadados, selecione **Exibir opções** na barra de ferramentas e selecione **Mostrar metadados**.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Adicionar perguntas e respostas adicionais ao bate-papo
-É possível adicionar novas perguntas e respostas ao bate-papo que não estão presentes no conjunto predefinido. Verifique se você não está duplicando um par de pergunta e resposta já abordado no conjunto de bate-papo. Ao adicionar novas perguntas e respostas ao bate-papo, elas são adicionadas à fonte **Editorial**. Para garantir que o classificador compreenda que se trata de bate-papo, adicione o par chave-valor de metadados "Editorial: chit-chat", como mostrado na imagem a seguir:
+É possível adicionar novas perguntas e respostas ao bate-papo que não estão presentes no conjunto predefinido. Verifique se você não está duplicando um par de pergunta e resposta já abordado no conjunto de bate-papo. Ao adicionar novas perguntas e respostas ao bate-papo, elas são adicionadas à fonte **Editorial**. Para garantir que o classificador entenda que se trata de Chit, adicione o par chave/valor de metadados "editorial: Chitchat", como mostrado na imagem a seguir:
    
 ![! [Adicionar Chit-Chat QnAs] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
@@ -81,11 +81,11 @@ Selecione sua KB e, em seguida, navegue para a página **Configurações**. Sua 
 
 ![Excluir o bate-papo da KB](../media/qnamaker-how-to-chit-chat/delete-chit-chat.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Importar uma base de dados de conhecimento](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Confira também 
+## <a name="see-also"></a>Consulte 
 
 [Visão geral do QnA Maker](../Overview/overview.md)

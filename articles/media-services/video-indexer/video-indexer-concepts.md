@@ -1,7 +1,7 @@
 ---
 title: Conceitos do Video Indexer
 titleSuffix: Azure Media Services
-description: Este tópico descreve alguns conceitos do serviço do Video Indexer.
+description: Este artigo descreve alguns conceitos do serviço de Video Indexer de serviços de mídia do Azure.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e3795b699f5518efdbef117fb24d118041ed3e78
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 73dad1db4f44134f871c9f3d6e7edcdd3bd1e2ea
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839569"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900686"
 ---
 # <a name="video-indexer-concepts"></a>Conceitos do Video Indexer
  
@@ -33,10 +33,10 @@ TimeRange é o intervalo de tempo no vídeo original. AdjustedTimeRange é o int
 
 Os blocos destinam-se a tornar mais fácil percorrer os dados. Por exemplo, o bloco pode ser dividido com base em quando os locutores mudam ou quando há uma longa pausa.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre como começar, consulte [How to sign up and upload your first video](video-indexer-get-started.md) (Como inscrever-se e carregar seu primeiro vídeo).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte
 
 [Visão geral do indexador vídeo](video-indexer-overview.md)

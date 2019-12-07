@@ -1,22 +1,22 @@
 ---
-title: Carregar dados no Azure Data Lake Storage Gen1, usando o Azure Data Factory
+title: Carregar dados em Azure Data Lake Storage Gen1
 description: Usar o Azure Data Factory para copiar dados no Azure Data Lake Storage Gen1
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: b8e5841e6869bd6f19b07bf71434de809cdcb74f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: adad770926b23e0529d5a6e08605a338d958ae09
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672726"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892950"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados no Azure Data Lake Storage Gen1, usando o Azure Data Factory
 
@@ -58,10 +58,10 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
     * **Versão**: selecione **V2**.
     * **Local**: selecione um local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados que são usados pela data factory podem estar em outros locais e regiões. Esses armazenamentos de dados incluem Azure Data Lake Storage Gen1, Azure Storage, Banco de Dados SQL do Azure e assim por diante.
 
-3. Selecione **Criar**.
+3. Clique em **Criar**.
 4. Após a conclusão da criação, vá para o seu data factory. Você verá a home page **Data Factory** conforme mostrado na imagem a seguir: 
    
-   ![Página inicial da data factory](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
+   ![Página inicial do data factory](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
    Selecione o bloco **Autor & Monitor** para iniciar o aplicativo de integração de dados em uma guia separada.
 
@@ -142,7 +142,7 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
 
     ![Verifique a saída do Data Lake Storage Gen1](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira o seguinte artigo para saber mais sobre o suporte do Data Lake Storage Gen1: 
 

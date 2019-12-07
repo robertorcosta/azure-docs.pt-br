@@ -1,7 +1,7 @@
 ---
 title: Gerenciar uma conta do Video Indexer
 titleSuffix: Azure Media Services
-description: Este artigo mostra como gerenciar uma conta do Video Indexer conectada ao Azure.
+description: Este artigo demonstra como gerenciar uma conta de Video Indexer conectada ao Azure.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: a8221cdcf7afe82ee969f645d7f459c69519711d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838979"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892763"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerenciar uma conta do Video Indexer conectada ao Azure
 
@@ -56,7 +56,7 @@ A página **Configurações** permite que você defina o dimensionamento automá
 
 O dimensionamento automático não ajusta a escala abaixo de 1 RU ou acima do limite padrão da conta dos Serviços de Mídia. Para aumentar o limite, crie uma solicitação de serviço. Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de suporte, consulte [Cotas e limitações](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Inscrição](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Inscrever-se](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Erros e avisos
 
@@ -70,11 +70,11 @@ Se sua conta precisar de alguns ajustes, você verá avisos e erros relevantes s
 
     Verifique se a conta de Serviços de Mídia subjacente tem o padrão **Ponto de Extremidade de Streaming** em um estado iniciado. Caso contrário, você não poderá assistir a vídeos dessa conta de Serviços de Mídia ou no Video Indexer.
 
-* Unidades reservadas de mídia 
+* Unidades Reservadas de Mídia 
 
     Você deve alocar unidades reservadas de mídia em seu recurso de serviço de mídia para indexar vídeos. Para obter o desempenho ideal da indexação, é recomendável alocar pelo menos 10 Unidades Reservadas S3. Para obter informações de preço, consulte a seção Perguntas frequentes da página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).   
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode interagir programaticamente com sua conta de avaliação e / ou com suas contas do Video Indexer conectadas ao azure seguindo as instruções em: [Use APIs](video-indexer-use-apis.md).
 

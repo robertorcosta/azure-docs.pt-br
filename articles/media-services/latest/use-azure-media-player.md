@@ -1,6 +1,6 @@
 ---
 title: Reprodução com o Player de Mídia do Azure – Azure | Microsoft Docs
-description: Este tópico oferece uma visão geral do Player de Mídia do Azure.
+description: O Player de Mídia do Azure é um player de vídeo da Web criado para reproduzir conteúdo de mídia dos Serviços de Mídia do Microsoft Azure em uma grande variedade de navegadores e dispositivos.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 6157f59d96770298d947a1cf6ca28aa343e1a0d4
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 8f1639a21e3783f587904c2a8085fd2f555ff5b8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311817"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900346"
 ---
 # <a name="azure-media-player-overview"></a>Visão geral do Player de Mídia do Azure
 
@@ -51,7 +51,7 @@ Você pode usar a página de demonstração do [Player de Mídia do Azure](https
 
 O Player de Mídia do Azure é fácil de configurar. São necessários apenas alguns minutos para obter a reprodução básica de conteúdo de mídia de sua conta dos Serviços de Mídia. Consulte a [Documentação do Player de Mídia do Azure](https://aka.ms/ampdocs) para obter detalhes de como instalar e configurar o Player de Mídia do Azure. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Documentação do Player de Mídia do Azure](https://aka.ms/ampdocs)
 - [Amostras do Player de Mídia do Azure](https://aka.ms/ampsamples)

@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: ebe362be49995ce2cd1f4c43a5cfbee408396976
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275733"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900398"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificar o status do provisionamento do usuário
 
@@ -74,13 +74,13 @@ A tabela a seguir resume os tempos de sincronização para cenários comuns de p
 | Configuração de escopo | Usuários, grupos e membros no escopo | Tempo de ciclo inicial | Tempo de ciclo incremental |
 | -------- | -------- | -------- | -------- |
 | Sincronizar somente usuários e grupos atribuídos |  Menos de 1.000 |  Menos de 30 minutos | Menos de 30 minutos |
-| Sincronizar somente usuários e grupos atribuídos |  1\.000 a 10.000 | 142 a 708 minutos | Menos de 30 minutos |
+| Sincronizar somente usuários e grupos atribuídos |  1\.000 - 10.000 | 142 a 708 minutos | Menos de 30 minutos |
 | Sincronizar somente usuários e grupos atribuídos |   10.000 a 100.000 | 1\.170 a 2.340 minutos | Menos de 30 minutos |
 | Sincronizar todos os usuários e grupos no Azure AD |  Menos de 1.000 | Menos de 30 minutos  | Menos de 30 minutos |
-| Sincronizar todos os usuários e grupos no Azure AD |  1\.000 a 10.000 | Menos de 30 minutos a 120 minutos | Menos de 30 minutos |
+| Sincronizar todos os usuários e grupos no Azure AD |  1\.000 - 10.000 | Menos de 30 minutos a 120 minutos | Menos de 30 minutos |
 | Sincronizar todos os usuários e grupos no Azure AD |  10.000 a 100.000  | 713 minutos a 1.425 minutos | Menos de 30 minutos |
 | Sincronizar todos os usuários no Azure AD|  Menos de 1.000  | Menos de 30 minutos | Menos de 30 minutos |
-| Sincronizar todos os usuários no Azure AD | 1\.000 a 10.000  | 43 a 86 minutos | Menos de 30 minutos |
+| Sincronizar todos os usuários no Azure AD | 1\.000 - 10.000  | 43 a 86 minutos | Menos de 30 minutos |
 
 
 Para a sincronização de configuração, **somente usuários e grupos atribuídos**, você pode usar as fórmulas a seguir para determinar os tempos de **ciclo inicial** mínimo e máximo aproximado:
@@ -102,5 +102,7 @@ Resumo dos fatores que influenciam o tempo necessário para concluir um **ciclo 
 
 - O número e os tamanhos de grupos atribuídos. A sincronização de grupos atribuídos demora mais do que a sincronização de usuários. O número e os tamanhos dos grupos atribuídos afetam o desempenho. Se um aplicativo tiver [mapeamentos habilitados para sincronização de objeto de grupo](customize-application-attributes.md#editing-group-attribute-mappings), propriedades de grupo como nomes de grupo e associações serão sincronizadas, além dos usuários. Essas sincronizações adicionais tomarão mais tempo do que apenas sincronizar os objetos de usuário.
 
-## <a name="next-steps"></a>Próximas etapas
+- Se o desempenho se tornar um problema e você estiver tentando provisionar a maioria dos usuários e grupos em seu locatário, use filtros de escopo. Filtros de escopo permitem ajustar os dados que o serviço de provisionamento extrai do Azure AD filtrando usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de escopo, consulte [Provisionamento de aplicativos com base em atributo com filtros de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+
+## <a name="next-steps"></a>Próximos passos
 [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)

@@ -1,7 +1,7 @@
 ---
 title: Usar a API do Video Indexer
 titleSuffix: Azure Media Services
-description: Um tutorial para introdução aos serviços de mídia do Azure Video Indexer API.
+description: Este artigo descreve como começar a usar a API Video Indexer dos serviços de mídia do Azure.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e1fcfcd9e6bcb6108573f032d81f10ccc2be1e57
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4da437fecf0529194d72b2d403302ff81055ec0f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839630"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892678"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Usar a API do Video Indexer
 
@@ -207,11 +207,11 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte
 
 - [Visão geral do indexador vídeo](video-indexer-overview.md)
 - [Regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Examinar os detalhes da saída JSON](video-indexer-output-json-v2.md).

@@ -1,7 +1,7 @@
 ---
 title: Perguntas frequentes sobre o Video Indexer - Azure
 titleSuffix: Azure Media Services
-description: Obtenha respostas às perguntas frequentes sobre o Video Indexer.
+description: Este artigo fornece respostas para as perguntas frequentes sobre os serviços de mídia do Azure Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fc5457fd44bd27731cad6269ee95aed838a3d755
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838223"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892780"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -59,7 +59,7 @@ Não, o Video Indexer fornece a integração de vários modelos de machine learn
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Para quais formatos de mídia o Video Indexer oferece suporte?
 
-O Video Indexer dá suporte aos formatos de mídia mais comuns. Consulte a lista [Formatos padrão do Codificador de Mídia do Azure](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) para saber mais.
+O Video Indexer é compatível com os formatos de mídia mais comuns. Consulte a lista [Formatos padrão do Codificador de Mídia do Azure](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) para saber mais.
 
 ### <a name="how-to-do-i-upload-a-media-into-video-indexer"></a>Como posso carregar uma mídia no Video Indexer?
 
@@ -167,6 +167,6 @@ Ao enviar um vídeo para ser indexado, o usuário definirá a indexação como a
 
 Sim, o Video Indexer oferece uma avaliação gratuita que fornece o serviço e a funcionalidade de API completos. Há uma cota de 600 minutos de vídeos para usuários da interface Web e de 2.400 minutos para usuários da API. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral](video-indexer-overview.md)

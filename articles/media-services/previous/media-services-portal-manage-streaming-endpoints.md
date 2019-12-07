@@ -1,6 +1,6 @@
 ---
 title: Gerenciar pontos de extremidade de streaming com o portal do Azure | Microsoft Docs
-description: Este tópico mostra como gerenciar pontos de extremidade de streaming usando o portal do Azure.
+description: Este artigo demonstra como gerenciar pontos de extremidade de streaming com o portal do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1775bbb2913f6b1a985ca7ec9e89bafed42fd0e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129659"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900876"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gerenciar pontos de extremidade de streaming com o portal do Azure 
 
@@ -38,7 +38,7 @@ Para começar a gerenciar pontos de extremidade de streaming para sua conta, fa�
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Na folha **Configurações**, selecione **Pontos de extremidade de streaming**.
    
-    ![ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    ![Ponto de Extremidade de Streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > Você será cobrado apenas quando seu ponto de extremidade de streaming estiver em estado de execução.
@@ -57,7 +57,7 @@ Para adicionar\excluir um ponto de extremidade de streaming usando o portal do A
 2. Para excluir um ponto de extremidade de streaming, pressione o botão **Excluir** .      
 3. Clique no botão **Iniciar** para iniciar o ponto de extremidade de streaming.
    
-    ![ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    ![Ponto de Extremidade de Streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a id="configure_streaming_endpoints"></a>Configurando o ponto de extremidade de streaming
@@ -113,10 +113,10 @@ Assim que estiver habilitada, as configurações **Controle de Acesso**, **Nome 
 
 Você pode configurar o perfil de CDN escolhendo o botão **Gerenciar CDN** na parte superior.
 
-![ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
+![Ponto de Extremidade de Streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
 
-## <a name="next-steps"></a>Próximas etapas
-Examine os roteiros de aprendizagem dos Serviços de Mídia.
+## <a name="next-steps"></a>Próximos passos
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

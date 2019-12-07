@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: fauhse
 ms.subservice: files
 description: O StorSimple é um produto de fim de vida e Sincronização de Arquivos do Azure é a solução para a qual migrar. Saiba mais sobre o conceito de migração e entre em contato com a AzureFiles@microsoft.com para obter ajuda de migração personalizada.
-ms.openlocfilehash: edad4d1c6be2c39dbf8150b6ab8979ae3924fb53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1cc88080522a62085d9a515223512ef25c20a9e4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666657"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895090"
 ---
 # <a name="storsimple-migration-to-azure-file-sync"></a>Migração do StorSimple para Sincronização de Arquivos do Azure
 
@@ -26,7 +26,7 @@ Este artigo descreve o conceito de como uma migração começará.
 É imperativo observar que os clientes que precisam de migração do StorSimple e para o Sincronização de Arquivos do Azure não precisam continuar por conta própria.
 
 > [!IMPORTANT]
-> A Microsoft está comprometida em auxiliar os clientes em sua migração. AzureFiles@microsoft.com de email para um plano de migração personalizado, bem como assistência durante a migração.
+> A Microsoft está comprometida em auxiliar os clientes em sua migração. Envie um email AzureFiles@microsoft. com para um plano de migração personalizado, bem como assistência durante a migração.
 
 ## <a name="migration-approach"></a>Abordagem de migração
 A migração para Sincronização de Arquivos do Azure começará no lado da nuvem com impacto mínimo sobre o tempo de inatividade local e limitado.
@@ -35,7 +35,7 @@ Se você estiver em necessidade de migração do StorSimple 7000 Series, a prime
 Entre em contato com AzureFiles@microsoft.com e ajudaremos você a organizar um número apropriado de dispositivos de empréstimo.
 
 ### <a name="general-approach"></a>Abordagem geral
-![Pressionando](media/storage-sync-files-storsimple-migration/storsimple-docs-overview-concept.png "Ilustrando a migração do lado da nuvem por meio de um dispositivo virtual temporário e do Windows Server para um novo Windows Server local, substituindo o dispositivo StorSimple local")
+![Alt](media/storage-sync-files-storsimple-migration/storsimple-docs-overview-concept.png "Ilustrando a migração do lado da nuvem por meio de um dispositivo virtual temporário e do Windows Server para um novo Windows Server local, substituindo o dispositivo StorSimple local")
 
 1. Faça um clone de volume do seu dispositivo StorSimple local e monte-o em um dispositivo virtual StorSimple temporário.
 2. Conecte o dispositivo virtual via iSCSI a uma VM do Azure temporária.
@@ -61,13 +61,13 @@ Além disso, o dispositivo local do StorSimple pode ser desprovisionado, pois os
 O que você está usando é representado na imagem abaixo. Uma implantação de Sincronização de Arquivos do Azure padrão apresenta vários compartilhamentos de arquivos do Azure e servidores Windows conectados a eles por meio de Sincronização de Arquivos do Azure. Lembre-se de que um único servidor pode conectar diferentes pastas locais a diferentes compartilhamentos de arquivos ao mesmo tempo.
 Além disso, um compartilhamento de arquivos do Azure pode ser sincronizado com vários servidores diferentes, caso você precise de dados armazenados em cache em filiais. Verifique também se você pode otimizar suas políticas de camadas de nuvem para um uso mais eficiente do seu espaço de armazenamento local.
 
-![Pressionando](media/storage-sync-files-storsimple-migration/storsimple-docs-goal.PNG "Uma ilustração que mostra a meta após a conclusão da migração. Ele descreve vários compartilhamentos de arquivos sincronizando para um Windows Server local com usuários e aplicativos que acessam arquivos na nuvem ou no Windows Server.")
+![Alt](media/storage-sync-files-storsimple-migration/storsimple-docs-goal.PNG "Uma ilustração que mostra a meta após a conclusão da migração. Ele descreve vários compartilhamentos de arquivos sincronizando para um Windows Server local com usuários e aplicativos que acessam arquivos na nuvem ou no Windows Server.")
 
 ## <a name="next-steps"></a>Próximos passos
 Familiarize-se com os arquivos e Sincronização de Arquivos do Azure do Azure. É importante entender a terminologia de Sincronização de Arquivos do Azure e o padrão de implantação para uma migração bem-sucedida. Há informações mais detalhadas disponíveis para cada etapa neste artigo de visão geral. Certifique-se de entrar em contato com a Microsoft para obter ajuda personalizada durante o planejamento e a execução da sua migração.
 
 > [!IMPORTANT]
-> A Microsoft está comprometida em auxiliar os clientes em sua migração. AzureFiles@microsoft.com de email para um plano de migração personalizado, bem como assistência durante a migração.
+> A Microsoft está comprometida em auxiliar os clientes em sua migração. Envie um email AzureFiles@microsoft. com para um plano de migração personalizado, bem como assistência durante a migração.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 Sincronização de Arquivos do Azure, como o serviço de destino, tem dois documentos fundamentais que recomendamos que você leia, se você for novo no Sincronização de Arquivos do Azure.

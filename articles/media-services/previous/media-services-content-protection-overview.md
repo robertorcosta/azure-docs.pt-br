@@ -1,6 +1,6 @@
 ---
 title: Proteger seu conteúdo com os Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral da proteção de conteúdo com os Serviços de Mídia.
+description: Este artigo fornece uma visão geral da proteção de conteúdo com os serviços de mídia do Azure v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8259b58c7f30b63084e970bd9aed99642a43226f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0d71a7b010e91776a28330cfc32278c7060aab6
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61216162"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901261"
 ---
 # <a name="content-protection-overview"></a>Visão geral de proteção do conteúdo 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
+É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (Gerenciamento de Direitos Digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
 
 A seguinte imagem ilustra o fluxo de trabalho de proteção de conteúdo dos Serviços de Mídia: 
 
@@ -48,7 +48,7 @@ Você também precisa configurar a política de entrega do ativo. Se deseja faze
 
 Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a chave não criptografada AES ou a criptografia DRM. Para descriptografar o streaming, o player solicita a chave do serviço de entrega de chaves dos Serviços de Mídia. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-## <a name="aes-128-clear-key-vs-drm"></a>Chave AES-128 não criptografada vs. DRM
+## <a name="aes-128-clear-key-vs-drm"></a>Chave de limpeza AES-128 vs. DRM
 Geralmente, os clientes se perguntam se devem utilizar criptografia AES ou um sistema DRM. A principal diferença entre os dois sistemas é que, com a criptografia AES, a chave de conteúdo é transmitida ao cliente em um formato não criptografado. Como resultado, a chave usada para criptografar o conteúdo pode ser exibida em um rastreamento de rede no cliente em texto sem formatação. A criptografia de chave AES-128 não criptografada é adequada para casos de uso em que o visualizador é uma parte confiável (por exemplo, criptografar vídeos corporativos distribuídos em uma empresa para serem visualizados pelos funcionários).
 
 PlayReady, Widevine e FairPlay fornecem um maior nível de criptografia em comparação com a criptografia de chave não criptografada AES-128. A chave de conteúdo é transmitida em um formato criptografado. Além disso, a descriptografia é identificada em um ambiente seguro no nível do sistema operacional, no qual é mais difícil para um usuário mal-intencionado atacar. O DRM é recomendado para casos de uso em que o visualizador pode não ser uma parte confiável e você exige o mais alto nível de segurança.
@@ -84,11 +84,11 @@ As seguintes considerações se aplicam:
 * O tipo de criptografia não precisa ser especificado na URL se apenas uma criptografia foi aplicada no ativo.
 * O tipo de criptografia diferencia as letras maiúsculas de minúsculas.
 * Os seguintes tipos de criptografia podem ser especificados:
-  * **cenc**: Para PlayReady ou Widevine (criptografia comum)
-  * **cbcs-aapl**: Para FairPlay (criptografia AES CBC)
-  * **cbc**: Para criptografia de envelope AES
+  * **cenc**: para PlayReady ou Widevine (criptografia comum)
+  * **cbcs-aapl**: para FairPlay (criptografia AES CBC)
+  * **cbc**: para criptografia de envelope AES
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Os artigos a seguir descrevem as próximas etapas para ajudar na introdução à proteção de conteúdo:
 
 * [Proteger com criptografia de armazenamento](media-services-rest-storage-encryption.md)

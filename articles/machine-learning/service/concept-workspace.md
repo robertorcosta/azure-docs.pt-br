@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 14fc91feb16fb45eee1fe2e757a717e04ef07f99
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580759"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894733"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -71,10 +71,10 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 
 | Tarefa de gerenciamento de espaço de trabalho   | Portal              | Estúdio | SDK/R do SDK do Python       | CLI        |
 |---------------------------|---------|---------|------------|------------|
-| Criar um workspace        | **&check;**     | | **&check;** | **&check;** |
+| Crie um workspace        | **&check;**     | | **&check;** | **&check;** |
 | Gerenciar o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    |
-| Atualizar para o Enterprise Edition    | **&check;** |  | |     |
-| Criar e gerenciar recursos de computação    |   | **&check;** | **&check;** |  **&check;**   |
+| Atualizar para o Enterprise Edition    | **&check;** | **&check;**  | |     |
+| Criar e gerenciar recursos de computação    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Criar uma VM do notebook |   | **&check;** | |     |
 
 
@@ -105,7 +105,7 @@ Quando você cria um novo workspace, ele automaticamente cria vários recursos d
 > [!NOTE]
 > Além de criar novas versões, você também pode usar os serviços existentes do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a usar o Azure Machine Learning, consulte:
 

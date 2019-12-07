@@ -1,18 +1,19 @@
 ---
-title: Gerenciar configurações de conta de armazenamento no portal do Azure – Armazenamento do Azure | Microsoft Docs
+title: Gerenciar configurações de conta de armazenamento no portal do Azure
+titleSuffix: Azure Storage
 description: Saiba como gerenciar as configurações de conta de armazenamento no portal do Azure, incluindo a configuração das definições do controle de acesso, a regeneração das chaves de acesso de conta, a alteração da camada de acesso ou a modificação do tipo de replicação usado pela conta. Saiba também como excluir uma conta de armazenamento no portal.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/06/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 3c01cc870b20c8256b215eb700548e6cd69ad0d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 93d3bf3d17348a0f5ad62118fcb9c9a0c6f2f656
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748999"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892372"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gerenciar configurações de conta de armazenamento no portal do Azure
 
@@ -74,7 +75,7 @@ Para remover uma conta de armazenamento que você não está mais usando, navegu
 
 Se você tentar excluir uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro indicando que a conta de armazenamento ainda está em uso. Para obter ajuda com a solução desse erro, confira [Solucionar erros ao excluir contas de armazenamento](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral da conta de armazenamento do Azure](storage-account-overview.md)
 - [Criar uma conta de armazenamento](storage-quickstart-create-account.md)

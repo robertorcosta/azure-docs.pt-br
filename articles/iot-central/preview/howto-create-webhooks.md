@@ -3,21 +3,21 @@ title: Criar webhooks em regras no Microsoft Azure IoT Central | Microsoft Docs
 description: Crie webhooks no Microsoft Azure IoT Central para notificar automaticamente outros aplicativos ao acionar regras.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/21/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: d1f99be5f21cbf8f1dcfe4a32595a639d3760494
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 206c93c291654d22e945c3064e3c581dceb50cea
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929927"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895479"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central-preview-features"></a>Criar ações de webhook em regras no Azure IoT Central (recursos de visualização)
 
-*Este tópico se aplica a construtores e administradores.*
+*Este tópico aplica-se a construtores e administradores.*
 
 Webhooks permitem que você conecte o aplicativo IoT Central a outros aplicativos e serviços de monitoramento remoto e notificações. Webhooks notificam automaticamente os outros aplicativos e serviços conectados sempre que uma regra é acionada no aplicativo IoT Central. Seu aplicativo IoT Central envia uma solicitação POST para o ponto de extremidade HTTP do outro aplicativo sempre que uma regra é disparada. A carga contém detalhes do dispositivo e detalhes do gatilho da regra.
 
@@ -84,6 +84,6 @@ Atualmente não há nenhuma maneira programática de assinar/cancelar a assinatu
 
 Se você tiver algumas ideias para melhorar esse recurso, poste suas sugestões em nosso [fórum Uservoice](https://feedback.azure.com/forums/911455-azure-iot-central).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como configurar e usar WebHooks, a próxima etapa sugerida é explorar a [configuração Azure monitor grupos de ação](howto-use-action-groups.md).

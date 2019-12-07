@@ -9,13 +9,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
-ms.date: 10/19/2019
-ms.openlocfilehash: a068ea3f51e4faa6497c7b1a93192a924753c7c9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 11/27/2019
+ms.openlocfilehash: 9be8fbad8811d758f9ac4205c0d1e60e0d82e07f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895092"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895483"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Conectar um sensor RuuviTag ao seu aplicativo IoT Central do Azure
 
@@ -29,7 +29,7 @@ RuuviTag comunica-se em BLE (Bluetooth de baixa energia) e requer um dispositivo
 
 Siga as [instruções aqui](./howto-connect-rigado-cascade-500.md) se desejar configurar um dispositivo de gateway 500 em cascata rigado.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para conectar sensores do RuuviTag, você precisa dos seguintes recursos:
 
@@ -70,8 +70,8 @@ Para criar um RuuviTag simulado:
 1. Selecione **+ Novo**.
 1. Especifique uma **ID de dispositivo** exclusiva e um **nome de dispositivo**amigável.  
 1. Habilite a configuração **simulada** .
-1. Selecione **Criar**.  
+1. Clique em **Criar**.  
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como conectar um RuuviTag ao seu aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender a [personalizar seu aplicativo IOT central](../retail/tutorial-in-store-analytics-customize-dashboard-pnp.md) para criar uma solução de ponta a ponta.

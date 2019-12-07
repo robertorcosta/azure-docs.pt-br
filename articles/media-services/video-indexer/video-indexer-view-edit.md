@@ -1,7 +1,7 @@
 ---
 title: Exibir e editar informações do Video Indexer
 titlesuffix: Azure Media Services
-description: Este tópico demonstra como exibir e editar insights do Video Indexer.
+description: Este artigo demonstra como exibir e editar os serviços de mídia do Azure Video Indexer insights.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 24a723bd32cb40807da1757b3fffb925d4ba1fef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9bb516d498d989b97f1069af9a9f4cb673ea96d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799174"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892661"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Exibir e editar informações do Video Indexer
 
@@ -27,7 +27,7 @@ Este tópico mostra como exibir e editar os insights do Video Indexer de um víd
 
     A página mostra os insights resumidos do vídeo. 
 
-    ![Insights](./media/video-indexer-view-edit/video-indexer-summarized-insights.png)
+    ![Visões](./media/video-indexer-view-edit/video-indexer-summarized-insights.png)
 
 4. Veja os insights resumidos do vídeo. 
 
@@ -35,11 +35,11 @@ Este tópico mostra como exibir e editar os insights do Video Indexer de um víd
 
     O player e os insights são sincronizados. Por exemplo, se clicar em uma palavra-chave ou em linha de transcrição, o player direcionará você a esse momento no vídeo. É possível obter a exibição do player/insights e a sincronização no seu aplicativo. Para obter mais informações, consulte [Embed Azure Indexer widgets into your application](video-indexer-embed-widgets.md) (Inserir widgets do Azure Indexer em seu aplicativo). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-[Use o aprofundamento dos seus vídeos](use-editor-create-project.md)
+[Use as ideias aprofundadas de seus vídeos](use-editor-create-project.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 [Visão geral do indexador vídeo](video-indexer-overview.md)
 

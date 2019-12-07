@@ -1,7 +1,7 @@
 ---
 title: Coletar dados em seus modelos de produção
 titleSuffix: Azure Machine Learning
-description: Aprenda a coletar dados do modelo de entrada do Aprendizado no Azure Machine em um armazenamento de Blobs do Azure.
+description: Saiba como coletar Azure Machine Learning dados de modelo de entrada no armazenamento de BLOBs do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,39 +11,42 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18b92fe090895c3aa08c3c931dfa8bd12db0f2d3
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 10a150a64a058a4bf346f07e2ef298c974641256
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406462"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901313"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> Este SDK está sendo desativado em breve. Esse SDK ainda é apropriado para os desenvolvedores que monitoram a descompasso de dados em modelos, mas a maioria dos desenvolvedores deve usar o monitoramento de dados simplificado [com o Application insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
+> O SDK de monitoramento de Azure Machine Learning será desativado em breve. O SDK ainda é apropriado para os desenvolvedores que monitoram a descompasso de dados em modelos. Mas a maioria dos desenvolvedores deve usar o monitoramento de dados simplificado [com o Application insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
 
-Neste artigo, você pode aprender a coletar dados de modelo de entrada de Azure Machine Learning implantado no AKS (cluster kubernetes do Azure) em um armazenamento de BLOBs do Azure. 
+Este artigo mostra como coletar dados de modelo de entrada de Azure Machine Learning. Ele também mostra como implantar os dados de entrada em um cluster AKS (serviço kubernetes do Azure) e armazenar os dados de saída no armazenamento de BLOBs do Azure.
 
-Depois de ativado, esses dados coletados ajudam você a:
-* [Monitorar descompassos de dados](how-to-monitor-data-drift.md) como dados de produção insira seu modelo
+Quando a coleção estiver habilitada, os dados coletados ajudarão você a:
 
-* Tome melhores decisões sobre quando treinar ou otimizar seu modelo
+* [Monitore descompassos de dados](how-to-monitor-data-drift.md) como dados de produção insira seu modelo.
 
-* Treine novamente seu modelo com os dados coletados
+* Tome decisões melhores sobre quando treinar novamente ou otimizar seu modelo.
 
-## <a name="what-is-collected-and-where-does-it-go"></a>O que é coletado e para onde vai?
+* Retreine seu modelo com os dados coletados.
+
+## <a name="what-is-collected-and-where-it-goes"></a>O que é coletado e onde ele vai
 
 Os dados a seguir podem ser coletados:
-* Dados de **entrada** do modelo  de serviços da Web implantados no Azure Kubernetes Cluster (AKS) (voz, imagens e vídeo **não** coletadas) 
+
+* Modelar dados de entrada de serviços Web implantados em um cluster AKS. Áudio de voz, imagens e vídeo *não* são coletados.
   
-* Previsões de modelo usando dados de entrada de produção
+* Predições de modelo usando dados de entrada de produção.
 
-> [!Note]
-> Pré-agregação ou pré-cálculos sobre esses dados não fazem parte do serviço no momento.   
+>[!NOTE]
+> A preagregação e os precálculos desses dados não fazem parte do serviço de coleta no momento.
 
-A saída é salva em um Blob do Azure. Como os dados são adicionados a um Blob do Azure, você pode escolher sua ferramenta favorita para executar a análise. 
+A saída é salva no armazenamento de BLOBs. Como os dados são adicionados ao armazenamento de BLOBs, você pode escolher sua ferramenta favorita para executar a análise.
 
 O caminho para os dados de saída no blob segue esta sintaxe:
 
@@ -52,27 +55,28 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
->[!Note]
-> Em versões do SDK antes de `0.1.0a16` o argumento `designation` foi nomeado `identifier`. Se seu código foi desenvolvido com uma versão anterior, você precisará atualizar de acordo.
+>[!NOTE]
+> Em versões do SDK do Azure Machine Learning para Python anteriores à versão 0.1.0 A16, o argumento `designation` é denominado `identifier`. Se você desenvolveu seu código com uma versão anterior, precisará atualizá-lo adequadamente.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree)
+- Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
 
-- Um workspace do Azure Machine Learning, um diretório local contendo seus scripts e o SDK de Aprendizado de Máquina do Azure para Python instalado. Saiba como obter esses pré-requisitos usando o documento [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md)
+- Um espaço de trabalho do AzureMachine Learning, um diretório local que contém seus scripts e o SDK do Azure Machine Learning para Python deve ser instalado. Para saber como instalá-los, consulte [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md).
 
-- Um modelo de aprendizado de máquina treinado para ser implantado para o serviço de Kubernetes do Azure (AKS). Se você não tiver um, consulte o tutorial [treinar modelo de classificação de imagem](tutorial-train-models-with-aml.md)
+- Você precisa de um modelo de aprendizado de máquina treinado para ser implantado no AKS. Se você não tiver um modelo, consulte o tutorial [treinar modelo de classificação de imagem](tutorial-train-models-with-aml.md) .
 
-- Um cluster do Serviço de Kubernetes do Azure. Para obter informações sobre como criar e implantar em um, consulte o documento [como implantar e onde](how-to-deploy-and-where.md)
+- Você precisa de um cluster AKS. Para obter informações sobre como criar um e implantá-lo, consulte [como implantar e onde](how-to-deploy-and-where.md).
 
-- [Configurar seu ambiente](how-to-configure-environment.md) e instalar o [SDK de monitoramento](https://aka.ms/aml-monitoring-sdk)
+- [Configure seu ambiente](how-to-configure-environment.md) e instale o [SDK de monitoramento de Azure Machine Learning](https://aka.ms/aml-monitoring-sdk).
 
 ## <a name="enable-data-collection"></a>Habilitar coleta de dados
-A coleta de dados pode ser habilitada independentemente do modelo que está sendo implantado por meio de Azure Machine Learning ou outras ferramentas. 
 
-Para habilitá-lo, você precisa:
+Você pode habilitar a coleta de dados independentemente do modelo implantado por meio de Azure Machine Learning ou outras ferramentas.
 
-1. Abrir o arquivo de Pontuação
+Para habilitar a coleta de dados, você precisa:
+
+1. Abra o arquivo de pontuação.
 
 1. Adicione o [seguinte código](https://aka.ms/aml-monitoring-sdk) na parte superior do arquivo:
 
@@ -80,7 +84,7 @@ Para habilitá-lo, você precisa:
    from azureml.monitoring import ModelDataCollector
    ```
 
-2. Declare suas variáveis de coleta de dados na sua função `init()`:
+1. Declare suas variáveis de coleta de dados na sua função `init`:
 
     ```python
     global inputs_dc, prediction_dc
@@ -88,11 +92,11 @@ Para habilitá-lo, você precisa:
     prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* é um parâmetro opcional, você não precisa configurá-lo se seu modelo não exigir isso. Ter uma correlação em vigor ajuda você a mapear com mais facilidade outros dados. (Exemplos incluem: LoanNumber, CustomerId, etc.)
+    *CorrelationId* é um parâmetro opcional. Você não precisará usá-lo se seu modelo não exigir. O uso de *CorrelationId* o ajuda a mapear com mais facilidade com outros dados, como *LoanNumber* ou *CustomerID*.
     
-    O *identificador* é usado posteriormente para criar a estrutura de pastas em seu BLOB, ele pode ser usado para dividir dados "brutos" versus "processados"
+    O parâmetro *Identifier* é usado posteriormente para criar a estrutura de pastas em seu BLOB. Você pode usá-lo para diferenciar dados brutos dos dados processados.
 
-3.  Adicione as seguintes linhas de código à função `run(input_df)`:
+1. Adicione as seguintes linhas de código à função `run(input_df)`:
 
     ```python
     data = np.array(data)
@@ -101,146 +105,145 @@ Para habilitá-lo, você precisa:
     prediction_dc.collect(result) #this call is saving our input data into Azure Blob
     ```
 
-4. A coleta de dados é **não** automaticamente definida como **verdadeiro** quando você implanta um serviço no AKS, portanto, você deve atualizar seu arquivo de configuração, como: 
+1. A coleta de dados *não* é definida automaticamente como **true** quando você implanta um serviço no AKs. Atualize seu arquivo de configuração, como no exemplo a seguir:
 
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True)
     ```
-    O AppInsights para monitoramento de serviço também pode ser ativado alterando essa configuração:
+
+    Você também pode habilitar Application Insights para o monitoramento de serviço alterando essa configuração:
+
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
-    ``` 
+    ```
 
-5. Para criar uma nova imagem e implantar o serviço, consulte o documento [como implantar e onde](how-to-deploy-and-where.md)
+1. Para criar uma nova imagem e implantar o modelo de aprendizado de máquina, consulte [como implantar e onde](how-to-deploy-and-where.md).
 
+Se você já tiver um serviço com as dependências instaladas em seu arquivo de ambiente e arquivo de pontuação, habilite a coleta de dados seguindo estas etapas:
 
-Se você já tiver um serviço com as dependências instaladas no **arquivo de ambiente** e no **arquivo de pontuação**, ative a coleta de dados:
+1. Vá para [Azure Machine Learning](https://ml.azure.com).
 
-1. Ir para [Azure Machine Learning Studio](https://ml.azure.com)
+1. Abra seu workspace.
 
-1. Abra seu espaço de trabalho
+1. Selecione **Implantações** > **selecione serviço** > **Editar**.
 
-1. Vá para **Implantações** -> **selecione serviço** -> **Editar**
+   ![Editar o serviço](media/how-to-enable-data-collection/EditService.PNG)
 
-   ![Editar serviço](media/how-to-enable-data-collection/EditService.PNG)
+1. Em **Configurações avançadas**, selecione **habilitar coleta de dados de modelo**.
 
-1. Em **Configurações avançadas**, selecione **habilitar coleta de dados de modelo**
+    [![selecionar coleta de dados](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
-    [![Rápida verificação de dados](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
+   Você também pode selecionar **habilitar diagnóstico de AppInsights** para acompanhar a integridade do serviço.
 
-   Nessa janela, você também pode optar por "habilitar o diagnóstico de Appinsights" para acompanhar a integridade do serviço
-
-1. Selecione **Atualizar** para aplicar a alteração
-
+1. Selecione **Atualizar** para aplicar as alterações.
 
 ## <a name="disable-data-collection"></a>Desativar coleta de dados
-Você pode parar de coletar dados a qualquer momento. Use o código Python ou o Azure Machine Learning Studio para desabilitar a coleta de dados.
 
-+ Opção 1-desabilitar no Azure Machine Learning Studio: 
-  1. Entrar no [Azure Machine Learning Studio](https://ml.azure.com)
+Você pode interromper a coleta de dados a qualquer momento. Use o código Python ou Azure Machine Learning para desabilitar a coleta de dados.
 
-  1. Abra seu espaço de trabalho
+### <a name="option-1---disable-data-collection-in-azure-machine-learning"></a>Opção 1-desabilitar a coleta de dados no Azure Machine Learning
 
-  1. Vá para **Implantações** -> **selecione serviço** -> **Editar**
+1. Entre no [Azure Machine Learning](https://ml.azure.com).
 
-     [![Opções de edição](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+1. Abra seu workspace.
 
-  1. Em **Configurações avançadas**, desmarque **habilitar coleta de dados de modelo**
+1. Selecione **Implantações** > **selecione serviço** > **Editar**.
 
-     [![Desmarque a opção de coleta de dados](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+   [![selecionar a opção Editar](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-  1. Selecione **Atualizar** para aplicar a alteração
+1. Em **Configurações avançadas**, desmarque **habilitar coleta de dados de modelo**.
 
-  Você também pode acessar essas configurações em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com).
+    [![desmarcar a caixa de seleção de coleta de dados](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
-+ Opção 2 - Use o Python para desabilitar a coleta de dados:
+1. Selecione **Atualizar** para aplicar a alteração.
+
+Você também pode acessar essas configurações em seu espaço de trabalho em [Azure Machine Learning](https://ml.azure.com).
+
+### <a name="option-2---use-python-to-disable-data-collection"></a>Opção 2-usar o Python para desabilitar a coleta de dados
 
   ```python 
   ## replace <service_name> with the name of the web service
   <service_name>.update(collect_model_data=False)
   ```
 
-## <a name="validate-your-data-and-analyze-it"></a>Validar seus dados e analisá-los
-Você pode escolher qualquer ferramenta de sua preferência para analisar os dados coletados para o Blob do Azure.
+## <a name="validate-and-analyze-your-data"></a>Validar e analisar seus dados
 
-Para acessar rapidamente os dados do blob:
+Você pode escolher uma ferramenta de sua preferência para analisar os dados coletados no armazenamento de BLOBs.
 
-1. Entrar no [Azure Machine Learning Studio](https://ml.azure.com)
+### <a name="quickly-access-your-blob-data"></a>Acesse rapidamente seus dados de BLOB
 
-1. Abra seu espaço de trabalho
-1. Clique em **armazenamento**
+1. Entre no [Azure Machine Learning](https://ml.azure.com).
 
-    [![Armazenamento](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
+1. Abra seu workspace.
 
-1. Siga o caminho para os dados de saída no blob com esta sintaxe:
+1. Selecione **Armazenamento**.
 
-```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
-# example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
-```
+    [![selecionar a opção de armazenamento](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
+1. Siga o caminho para os dados de saída do blob com esta sintaxe:
 
-### <a name="analyzing-model-data-through-power-bi"></a>Analisando dados do modelo por meio do Power BI
+   ```
+   /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
+   # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
+   ```
 
-1. Baixar e abrir [Power bi desktop](https://www.powerbi.com)
+### <a name="analyze-model-data-using-power-bi"></a>Analisar dados de modelo usando Power BI
 
-1. Selecione **obter dados** e clique em [**armazenamento de BLOBs do Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources)
+1. Baixe e abra [Power bi desktop](https://www.powerbi.com).
 
-    [![Instalação de Blob do PBI](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
+1. Selecione **obter dados** e selecione [**armazenamento de BLOBs do Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
+    [![configuração de blob Power BI](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. Adicione o nome da sua conta de armazenamento e insira sua chave de armazenamento. Você pode encontrar essas informações nas **configurações** do blob > > chaves de acesso
+1. Adicione o nome da sua conta de armazenamento e insira sua chave de armazenamento. Você pode encontrar essas informações selecionando **configurações** > **chaves de acesso** em seu BLOB.
 
-1. Selecione o contêiner **modeldata** e clique em **Editar**
+1. Selecione o contêiner de **dados do modelo** e selecione **Editar**.
 
-    [![Navegador PBI](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
+    [![Power BI Navigator](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. No editor de consultas, clique na coluna "Nome" e adicione sua conta de armazenamento 1. Caminho do modelo para o filtro. Nota: se você quiser apenas examinar arquivos de um ano ou mês específico, basta expandir o caminho do filtro. Por exemplo, basta examinar os dados de março:/modeldata/SubscriptionId >/resourcegroupname >/WorkspaceName >/WebServiceName >/ModelName >/modelversion >/designation >/year >/3
+1. No editor de consultas, clique na coluna **nome** e adicione sua conta de armazenamento.
 
-1. Filtre os dados relevantes para você com base no **Nome**. Se você armazenou **previsões** e **entradas**, precisará criar uma consulta para cada
+1. Insira o caminho do modelo no filtro. Se você quiser procurar apenas os arquivos de um ano ou mês específico, basta expandir o caminho do filtro. Por exemplo, para procurar apenas dados de março, use este caminho de filtro:
 
-1. Clique na seta dupla ao lado da coluna **conteúdo** para combinar os arquivos
+   /modeldata/\<SubscriptionId >/\<resourcegroupname >/\<espaços de trabalho >/\<WebServiceName >/\<ModelName >/\<modelversion >/\<designação >/\<ano >/3
 
-    [![Conteúdo do PBI](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
+1. Filtre os dados que são relevantes para você com base nos valores de **nome** . Se você armazenou previsões e entradas, precisará criar uma consulta para cada uma.
 
-1. Clique em OK e os dados serão pré-carregados
+1. Selecione as setas duplas para baixo ao lado do título de coluna de **conteúdo** para combinar os arquivos.
 
-    [![pbiCombine](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
+    [![Power BI conteúdo](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
-1. Agora você pode clicar em **fechar e aplicar**
+1. Selecione **OK**. Os dados são pré-carregados.
 
-1.  Se você adicionou entradas e previsões, suas tabelas corresponderão automaticamente por **RequestId**
+    [![Power BI combinar arquivos](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
 
-1. Comece a criar seus relatórios personalizados em seus dados de modelo
+1. Selecione **fechar e aplicar**.
 
+1. Se você adicionou entradas e previsões, suas tabelas serão automaticamente ordenadas por valores **RequestId** .
 
-### <a name="analyzing-model-data-using-databricks"></a>Analisando dados do modelo usando Databricks
+1. Comece a criar relatórios personalizados em seus dados de modelo.
 
-1. Criar um [espaço de trabalho do databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+### <a name="analyze-model-data-using-azure-databricks"></a>Analisar dados de modelo usando Azure Databricks
 
-1. Ir para o espaço de trabalho do databricks
+1. Crie um [espaço de trabalho Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 
-1. No espaço de trabalho do databricks, selecione **carregar dados**
+1. Vá para seu workspace do Databricks.
 
-    [![Carregamento de banco de dados](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
+1. No espaço de trabalho do databricks, selecione **carregar dados**.
 
-1. Criar nova tabela e selecionar **outras fontes de dados** -> armazenamento de BLOBs do Azure-> criar tabela no bloco de anotações
+    [![selecionando a opção de dados de carregamento do databricks](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-    [![Tabela de banco de dados](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+1. Selecione **criar nova tabela** e selecione **outras fontes de dados** > **armazenamento de BLOBs do Azure** > **criar tabela no bloco de anotações**.
 
-1. Atualize o local dos seus dados. Aqui está um exemplo:
+    [criação de tabela do ![databricks](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+
+1. Atualize o local dos seus dados. Veja um exemplo:
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 
     file_type = "csv"
     ```
- 
-    [![DBsetup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
-1. Siga as etapas no modelo para exibir e analisar seus dados
+    [instalação do ![databricks](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
-## <a name="example-notebook"></a>Caderno de exemplo
-
-O notebook [how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) demonstra os conceitos neste artigo.  
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+1. Siga as etapas no modelo para exibir e analisar seus dados.

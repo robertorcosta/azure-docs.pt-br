@@ -10,20 +10,20 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 27eb4d827c1488b0d051505e62286fd66d6a286b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671514"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894756"
 ---
-# <a name="simple-entity"></a>Entidade simples 
+# <a name="simple-entity"></a>Entidade simples
 
-Uma entidade simples é uma entidade genérica que descreve um único conceito e é aprendida pelo contexto de aprendizado de máquina. Como entidades simples geralmente são nomes como nomes de empresas, nomes de produtos ou outras categorias de nomes, adicione uma [lista de frases](luis-concept-feature.md) ao usar uma entidade simples para aumentar o sinal dos nomes usados. 
+Uma entidade simples é uma entidade genérica que descreve um único conceito e é aprendida pelo contexto de aprendizado de máquina. Como entidades simples geralmente são nomes como nomes de empresas, nomes de produtos ou outras categorias de nomes, adicione uma [lista de frases](luis-concept-feature.md) ao usar uma entidade simples para aumentar o sinal dos nomes usados.
 
 **A entidade é uma boa opção quando:**
 
-* Os dados não são formatados consistentemente, mas indicam a mesma coisa. 
+* Os dados não são formatados consistentemente, mas indicam a mesma coisa.
 
 ![entidade simples](./media/luis-concept-entities/simple-entity.png)
 
@@ -35,7 +35,7 @@ Na declaração anterior, `Bob Jones` é rotulado como uma entidade `Customer` s
 
 Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto descoberto da declaração, o local do texto descoberto e a pontuação:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -49,7 +49,7 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto 
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
 Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consulta:
 
@@ -86,12 +86,13 @@ This is the JSON if `verbose=true` is set in the query string:
 }
 ```
 
-* * * 
+* * *
 
-|Objeto de dados|Nome da entidade|Valor|
+|Objeto de dados|Nome da entidade|Value|
 |--|--|--|
 |Entidade simples|`Customer`|`bob jones`|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Neste [tutorial](luis-quickstart-primary-and-secondary-data.md), extraia os dados aprendidos por máquina de nome do trabalho de emprego de um expressão usando a **entidade simples**. Para aumentar a precisão de extração, adicione uma [lista de frases](luis-concept-feature.md) de termos específicos à entidade simples.
+> [!div class="nextstepaction"]
+> [Aprenda a sintaxe do padrão](reference-pattern-syntax.md)

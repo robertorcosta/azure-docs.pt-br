@@ -1,20 +1,21 @@
 ---
-title: Criar uma SAS de delegação de usuário para um contêiner ou BLOB com a CLI do Azure (versão prévia) – armazenamento do Azure
-description: Saiba como criar uma SAS de delegação de usuário usando as credenciais de Azure Active Directory no armazenamento do Azure usando o CLI do Azure.
+title: Usar CLI do Azure para criar uma SAS de delegação de usuário para um contêiner ou BLOB
+titleSuffix: Azure Storage
+description: Saiba como criar uma SAS de delegação de usuário (versão prévia) com Azure Active Directory credenciais usando CLI do Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 077fe69d80ec433d8e37f18e04120102fc8ca390
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673315"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892542"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com a CLI do Azure (versão prévia)
 
@@ -40,7 +41,7 @@ Se você não tiver permissões suficientes para atribuir funções de RBAC a um
 
 O exemplo a seguir atribui a função de **colaborador de dados de blob de armazenamento** , que inclui a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** . A função tem o escopo no nível da conta de armazenamento.
 
-Lembre-se de substituir valores de espaço reservado entre colchetes angulares por seus próprios valores:
+Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
 
 ```azurecli-interactive
 az role assignment create \
@@ -57,7 +58,7 @@ Quando você cria uma SAS de delegação de usuário com a CLI do Azure, a chave
 
 Como o intervalo máximo em que a chave de delegação de usuário é válida é de 7 dias a partir da data de início, você deve especificar um tempo de expiração para a SAS que está dentro de 7 dias da hora de início. A SAS é inválida depois que a chave de delegação do usuário expira, portanto, uma SAS com um tempo de expiração superior a 7 dias ainda será válida por sete dias.
 
-Ao criar uma SAS de delegação de usuário, o `--auth-mode login` e o `--as-user parameters` são necessários. Especifique o *logon* para o parâmetro `--auth-mode` para que as solicitações feitas ao armazenamento do Azure sejam autorizadas com suas credenciais do Azure AD. Especifique o parâmetro `--as-user` para indicar que a SAS retornada deve ser uma SAS de delegação de usuário.
+Ao criar uma SAS de delegação de usuário, o `--auth-mode login` e `--as-user parameters` são necessários. Especifique o *logon* para o parâmetro `--auth-mode` para que as solicitações feitas ao armazenamento do Azure sejam autorizadas com suas credenciais do Azure AD. Especifique o parâmetro `--as-user` para indicar que a SAS retornada deve ser uma SAS de delegação de usuário.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Criar uma SAS de delegação de usuário para um contêiner
 
@@ -117,7 +118,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 Para revogar uma SAS de delegação de usuário do CLI do Azure, chame o comando [AZ Storage Account REVOKE-Delegation-Keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) . Esse comando revoga todas as chaves de delegação de usuário associadas à conta de armazenamento especificada. Todas as assinaturas de acesso compartilhado associadas a essas chaves são invalidadas.
 
-Lembre-se de substituir valores de espaço reservado entre colchetes angulares por seus próprios valores:
+Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
 
 ```azurecli-interactive
 az storage account revoke-delegation-keys \
@@ -128,7 +129,7 @@ az storage account revoke-delegation-keys \
 > [!IMPORTANT]
 > Tanto a chave de delegação do usuário quanto as atribuições de função do RBAC são armazenadas em cache pelo armazenamento do Azure, portanto, pode haver um atraso entre quando você inicia o processo de revogação e quando uma SAS de delegação de usuário existente se torna inválida.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas)
 - [Operação de obtenção de chave de delegação de usuário](/rest/api/storageservices/get-user-delegation-key)

@@ -9,13 +9,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
-ms.date: 10/19/2019
-ms.openlocfilehash: 4559bb87369309882ebdaa0d3b408786feb586b5
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 11/27/2019
+ms.openlocfilehash: 164fc4eef245a2b9ea610179c3cf2e78b7b1b389
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896028"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895694"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo de gateway rigado Cascade 500 em cascata ao seu aplicativo IoT Central do Azure
 
@@ -68,6 +68,6 @@ Essa atualização aplicará os detalhes de conexão do IoT Central no dispositi
 
 Agora você está pronto para usar seu dispositivo C500 em seu aplicativo IoT Central!
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como conectar uma rigado em cascata 500 a seu aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender a [criar um aplicativo de análise no repositório](../retail/tutorial-in-store-analytics-create-app-pnp.md) para criar uma solução de ponta a ponta. 

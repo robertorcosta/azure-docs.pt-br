@@ -1,20 +1,21 @@
 ---
-title: Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura (RA-GZRS ou RA-GRS) | Microsoft Docs
-description: Como usar o armazenamento RA-GZRS ou RA-GRS do Azure para arquitetar um aplicativo altamente disponível e flexível o suficiente para lidar com interrupções.
+title: Criar aplicativos altamente disponíveis usando o armazenamento com redundância geográfica
+titleSuffix: Azure Storage
+description: Saiba como usar o armazenamento com redundância geográfica com acesso de leitura para arquitetar um aplicativo altamente disponível que seja flexível o suficiente para lidar com interrupções.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673125"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895333"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura
 
@@ -27,7 +28,7 @@ As contas de armazenamento configuradas para replicação com redundância geogr
 
 Este artigo mostra como projetar seu aplicativo para lidar com uma interrupção na região primária. Se a região primária ficar indisponível, seu aplicativo poderá se adaptar para executar operações de leitura em vez da região secundária. Verifique se sua conta de armazenamento está configurada para RA-GRS ou RA-GZRS antes de começar.
 
-Para obter informações sobre quais regiões primárias são emparelhadas com quais regiões secundárias, consulte [BCDR (continuidade dos negócios e recuperação de desastres): Regiões Combinadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Para obter informações sobre quais regiões primárias são emparelhadas com quais regiões secundárias, consulte [Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Há snippets de código incluídos neste artigo e um link para um exemplo completo no fim, que você pode baixar e executar.
 
@@ -74,7 +75,7 @@ Essas são as outras considerações que discutiremos no restante deste artigo.
 
 * Dados eventualmente consistentes e a Hora da Última Sincronização
 
-* Testes
+* Testando
 
 ## <a name="running-your-application-in-read-only-mode"></a>Executando o aplicativo no modo somente leitura
 
@@ -204,7 +205,7 @@ A tabela a seguir mostra um exemplo do que pode acontecer quando você atualiza 
 | T0       | Transação A: <br> Inserir funcionário <br> entidade no principal |                                   |                    | Transação A inserida no primário,<br> ainda não replicada. |
 | T1       |                                                            | Transação A <br> replicada para<br> secundário | T1 | A transação A foi replicada para o secundário. <br>Hora da Última Sincronização atualizada.    |
 | T2       | Transação B:<br>Atualizar<br> entidade de funcionário<br> no principal  |                                | T1                 | Transação B gravada no principal,<br> ainda não replicada.  |
-| T3       | Transação C:<br> Atualizar <br>administrador<br>entidade de função em<br>primary |                    | T1                 | Transação C gravada no principal,<br> ainda não replicada.  |
+| T3       | Transação C:<br> Atualizar <br>administrator<br>entidade de função em<br>primary |                    | T1                 | Transação C gravada no principal,<br> ainda não replicada.  |
 | *T4*     |                                                       | Transação C <br>replicada para<br> secundário | T1         | Transação C replicada para o secundário.<br>LastSyncTime não atualizado porque <br>a transação B ainda não foi replicada.|
 | *T5*     | Ler entidades <br>de secundário                           |                                  | T1                 | Você obtém o valor obsoleto para a entidade de funcionário <br> porque a transação B não foi <br> replicada ainda. Você obtém o novo valor para<br> a entidade de função de administrador porque C foi<br> replicada. A Hora da Última Sincronização ainda não<br> foi atualizada porque a transação B<br> não foi replicada. Você pode ver que a<br>entidade da função de administrador está inconsistente <br>porque a data/hora da entidade é posterior <br>à Hora da Última Sincronização. |
 | *T6*     |                                                      | Transação B<br> replicada para<br> secundário | T6                 | *T6* – todas as transações até C <br>foram replicadas; a Hora da Última Sincronização<br> foi atualizada. |
@@ -233,7 +234,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
     -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
 ```
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Para obter a hora da última sincronização para a conta de armazenamento usando CLI do Azure, verifique a propriedade **geoReplicationStats. lastSyncTime** da conta de armazenamento. Use o parâmetro `--expand` para retornar valores para as propriedades aninhadas em **geoReplicationStats**. Lembre-se de substituir os valores de espaço reservado pelos seus próprios valores:
 
@@ -246,7 +247,7 @@ $lastSyncTime=$(az storage account show \
     --output tsv)
 ```
 
-## <a name="testing"></a>Testes
+## <a name="testing"></a>Testando
 
 É importante testar se o aplicativo se comporta conforme o esperado ao encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e o modo somente leitura ao detectar um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 

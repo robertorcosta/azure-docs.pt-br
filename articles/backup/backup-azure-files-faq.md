@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre fazer backup de Arquivos do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivo do Azure com o serviço de Backup do Azure.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173102"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892559"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 
@@ -70,6 +70,18 @@ O backup para compartilhamentos de arquivos do Azure está atualmente em versão
 - US Gov – Arizona (UGA)
 - US Gov – Texas (UGT)
 - US Gov – Virgínia (UGV)
+- Central da Austrália (ACL)
+- Índia ocidental (INW)
+- Norte da África do Sul (SAN)
+- Norte dos EAU (UAN)
+- França central (FRC)
+- Norte da Alemanha (GN)                       
+- Centro-oeste da Alemanha (GWC)
+- Oeste da África do Sul (visto)
+- EAU Central (UAC)
+- NÉ (leste da Noruega)     
+- NWW (oeste da Noruega)
+- SZN (Norte da Suíça)
 
 Escreva para [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) caso precise usá-lo em uma área geográfica específica que não esteja listada acima.
 
@@ -79,7 +91,7 @@ Durante a versão prévia, é possível proteger compartilhamentos de arquivos d
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Posso proteger dois compartilhamentos de arquivo diferentes da mesma conta de armazenamento em cofres diferentes?
 
-Nº Os compartilhamentos de arquivos em uma mesma Conta de Armazenamento só podem ser protegidos pelo mesmo Cofre.
+Não. Os compartilhamentos de arquivos em uma mesma Conta de Armazenamento só podem ser protegidos pelo mesmo Cofre.
 
 ## <a name="backup"></a>Backup
 
@@ -123,7 +135,7 @@ O backup para compartilhamentos de arquivos do Azure oferece a capacidade de con
 
 Quando uma nova política for aplicada em compartilhamento de arquivos, a agenda e a retenção da nova política serão seguidas. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para mantê-los de acordo com a nova política. Se a retenção for reduzida, eles são marcados para remoção no próximo trabalho de limpeza e excluídos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre outras áreas do Backup do Azure, confira algumas destas outras perguntas frequentes sobre backups:
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e3a9b733b055469e22d3b107c0f9f49b768756c4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775826"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895254"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -98,7 +98,7 @@ Caixas de diálogo de entrada em branco ocorrem com mais frequência quando Serv
 1. Na barra de ferramentas vertical esquerda, abra **configurações**. No painel configurações, vá para **aplicativo** > **entrar**. Habilitar **usar entrada de fluxo de código de dispositivo**.
 2. Abra a caixa de diálogo **conectar** (por meio do ícone de plugue na barra vertical do lado esquerdo ou selecionando **adicionar conta** no painel de conta).
 3. Escolha o ambiente no qual você deseja entrar.
-4. Selecione **entrar**.
+4. Escolha **Entrar**.
 5. Siga as instruções no painel seguinte.
 
 Se você não puder entrar na conta que deseja usar porque seu navegador padrão já está conectado a uma conta diferente, siga um destes procedimentos:
@@ -301,7 +301,7 @@ Você também pode baixar o aplicativo como um arquivo. tar. gz, mas precisará 
 
 Esses pacotes são os requisitos mais comuns para Gerenciador de Armazenamento no Linux:
 
-* [Tempo de execução do .NET Core 2,0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [Tempo de execução do .NET Core 2,2](https://docs.microsoft.com/en-us/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` ou `libgnome-keyring-dev`
 * `libgnome-keyring-common`
@@ -309,7 +309,7 @@ Esses pacotes são os requisitos mais comuns para Gerenciador de Armazenamento n
 > [!NOTE]
 > Gerenciador de Armazenamento versão 1.7.0 e anteriores exigem o .NET Core 2,0. Se você tiver uma versão mais recente do .NET Core instalada, terá que [corrigir Gerenciador de armazenamento](#patching-storage-explorer-for-newer-versions-of-net-core). Se estiver executando o Gerenciador de Armazenamento 1.8.0 ou posterior, você poderá usar o até o .NET Core 2,2. As versões além de 2,2 não foram verificadas para funcionar neste momento.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19, 4](#tab/1904)
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
 
 1. Baixar Gerenciador de Armazenamento.
 2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
@@ -318,7 +318,7 @@ Esses pacotes são os requisitos mais comuns para Gerenciador de Armazenamento n
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18, 4](#tab/1804)
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Baixar Gerenciador de Armazenamento.
 2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).

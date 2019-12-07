@@ -1,31 +1,32 @@
 ---
-title: Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o Azure PowerShell | Microsoft Docs
-description: Gerenciamento do armazenamento na nuvem da China, na nuvem do Governo e na nuvem alemã usando o Azure PowerShell
+title: Usar o PowerShell para gerenciar dados em nuvens independentes do Azure
+titleSuffix: Azure Storage
+description: Gerenciamento de armazenamento na nuvem da China, na nuvem governamental e na nuvem alemã usando o Azure PowerShell.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 10/24/2017
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 69707eec0ea1f2260ee50a48ce1dcb82dc9ddd8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fa515515c06466e121a5c0ee925fd4d14245363
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145875"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895228"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
 
 A maioria das pessoas usa a nuvem pública do Azure em suas implantações globais do Azure. Há também algumas implantações independentes do Microsoft Azure por motivos de soberania e assim por diante. Essas implantações independentes são chamadas de “ambientes”. A lista a seguir fornece detalhes sobre as nuvens independentes disponíveis no momento.
 
 * [Nuvem do Azure Governamental](https://azure.microsoft.com/features/gov/)
-* [Nuvem do Azure na China operada pela 21Vianet na China](http://www.windowsazure.cn/)
+* [Nuvem do Azure China 21Vianet operada pela 21Vianet na China](http://www.windowsazure.cn/)
 * [Nuvem alemã do Azure](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="using-an-independent-cloud"></a>Utilização de uma nuvem independente 
+## <a name="using-an-independent-cloud"></a>Utilização de uma nuvem independente
 
 Para utilizar o Armazenamento do Azure em uma das nuvens independentes, você deve se conectar àquela nuvem em vez de se conectar à nuvem pública do Azure. Para usar uma das nuvens independentes em vez da nuvem pública do Azure:
 
@@ -33,12 +34,12 @@ Para utilizar o Armazenamento do Azure em uma das nuvens independentes, você de
 * Determine e use as regiões disponíveis.
 * Use o sufixo do ponto de extremidade correto, que é diferente do da nuvem pública do Azure.
 
-Estes exemplos exigem a versão 0.7 ou posterior do módulo do Azure PowerShell. Em uma janela do PowerShell, execute `Get-Module -ListAvailable Az` para localizar a versão. Se nada for listado ou você precisar atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). 
+Estes exemplos exigem a versão 0.7 ou posterior do módulo do Azure PowerShell. Em uma janela do PowerShell, execute `Get-Module -ListAvailable Az` para localizar a versão. Se nada for listado ou você precisar atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
 Execute o cmdlet [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) para ver os ambientes do Azure disponíveis:
-   
+
 ```powershell
 Get-AzEnvironment
 ```
@@ -59,19 +60,21 @@ Get-AzLocation | select Location, DisplayName
 
 A tabela a seguir mostra os locais retornados para a Nuvem alemã.
 
-|Local padrão | DisplayName |
+|Location | Nome de exibição |
 |----|----|
-| germanycentral | Alemanha Central|
-| germanynortheast | Nordeste da Alemanha | 
+| `germanycentral` | Alemanha Central|
+| `germanynortheast` | Nordeste da Alemanha |
 
 
 ## <a name="endpoint-suffix"></a>Sufixo de ponto de extremidade
 
-O sufixo de ponto de extremidade para cada um desses ambientes é diferente do ponto de extremidade da nuvem pública do Azure. Por exemplo, o sufixo de ponto de extremidade do blob da nuvem pública do Azure é **blob.core.windows.net**. Para a nuvem do governo, o sufixo de ponto de extremidade do blob é **blob.core.usgovcloudapi.net**. 
+O sufixo de ponto de extremidade para cada um desses ambientes é diferente do ponto de extremidade da nuvem pública do Azure. Por exemplo, o sufixo de ponto de extremidade do blob da nuvem pública do Azure é **blob.core.windows.net**. Para a nuvem do governo, o sufixo de ponto de extremidade do blob é **blob.core.usgovcloudapi.net**.
 
-### <a name="get-endpoint-using-get-azenvironment"></a>Obter o ponto de extremidade usando Get-AzEnvironment 
+### <a name="get-endpoint-using-get-azenvironment"></a>Obter o ponto de extremidade usando Get-AzEnvironment
 
-Recupere o sufixo de ponto de extremidade usando [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). O ponto de extremidade é a propriedade *StorageEndpointSuffix* do ambiente. Os snippets de código a seguir mostram como fazer isso. Todos esses comandos retornam algo como “core.cloudapp.net” ou “core.cloudapi.de”, etc. Acrescente-o ao serviço de armazenamento para acessar esse serviço. Por exemplo, “queue.core.cloudapi.de” acessará o serviço Fila na nuvem alemã.
+Recupere o sufixo de ponto de extremidade usando [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). O ponto de extremidade é a propriedade *StorageEndpointSuffix* do ambiente.
+
+Os trechos de código a seguir mostram como recuperar o sufixo do ponto de extremidade. Todos esses comandos retornam algo como "core.cloudapp.net" ou "core.cloudapi.de", etc. Acrescente o sufixo ao serviço de armazenamento para acessar esse serviço. Por exemplo, “queue.core.cloudapi.de” acessará o serviço Fila na nuvem alemã.
 
 Este snippet de código recupera todos os ambientes e o sufixo do ponto de extremidade para cada um.
 
@@ -81,7 +84,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Esse comando retorna os seguintes resultados.
 
-| Name| StorageEndpointSuffix|
+| name| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -91,41 +94,38 @@ Esse comando retorna os seguintes resultados.
 Para recuperar todas as propriedades para o ambiente especificado, chame **Get-AzEnvironment** e especifique o nome da nuvem. Este snippet de código retorna uma lista de propriedades. Procure por **StorageEndpointSuffix** na lista. O exemplo a seguir é para a nuvem alemã.
 
 ```powershell
-Get-AzEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud
 ```
 
-Os resultados são semelhantes ao seguinte:
+Os resultados são semelhantes aos seguintes valores:
 
-|Nome da Propriedade|Value|
+|Nome da propriedade|Value|
 |----|----|
-| Name | AzureGermanCloud |
-| EnableAdfsAuthentication | False |
-| ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
-| GalleryURL | https://gallery.cloudapi.de/ |
-| ManagementPortalUrl | https://portal.microsoftazure.de/ | 
-| ServiceManagementUrl | https://manage.core.cloudapi.de/ |
-| PublishSettingsFileUrl| https://manage.microsoftazure.de/publishsettings/index |
-| ResourceManagerUrl | http://management.microsoftazure.de/ |
-| SqlDatabaseDnsSuffix | .database.cloudapi.de |
-| **StorageEndpointSuffix** | core.cloudapi.de |
-| ... | ... | 
-
+| name | `AzureGermanCloud` |
+| EnableAdfsAuthentication | `False` |
+| ActiveDirectoryServiceEndpointResourceI | `http://management.core.cloudapi.de/` |
+| GalleryURL | `https://gallery.cloudapi.de/` |
+| ManagementPortalUrl | `https://portal.microsoftazure.de/` |
+| ServiceManagementUrl | `https://manage.core.cloudapi.de/` |
+| PublishSettingsFileUrl| `https://manage.microsoftazure.de/publishsettings/index` |
+| ResourceManagerUrl | `http://management.microsoftazure.de/` |
+| SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
+| **StorageEndpointSuffix** | `core.cloudapi.de` |
+| ... | ... |
 Para recuperar apenas a propriedade de sufixo de ponto de extremidade do armazenamento, recupere a nuvem específica e solicite somente aquela propriedade.
 
 ```powershell
 $environment = Get-AzEnvironment -Name AzureGermanCloud
-Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
+Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix
 ```
 
-Isso retornará as seguintes informações.
+Esse comando retorna as informações a seguir:
 
-```
-Storage Endpoint Suffix = core.cloudapi.de
-```
+`Storage Endpoint Suffix = core.cloudapi.de`
 
 ### <a name="get-endpoint-from-a-storage-account"></a>Obter o ponto de extremidade de uma conta de armazenamento
 
-Você também pode examinar as propriedades de uma conta de armazenamento para recuperar os pontos de extremidade. Isso poderá ser útil se você já estiver usando uma conta de armazenamento em seu script do PowerShell. Desse modo, você poderá recuperar apenas o ponto de extremidade que precisa. 
+Você também pode examinar as propriedades de uma conta de armazenamento para recuperar os pontos de extremidade:
 
 ```powershell
 # Get a reference to the storage account.
@@ -141,7 +141,7 @@ Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
 Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
 
-Para uma conta de armazenamento na Nuvem do Governo, os itens a seguir serão retornados: 
+Para uma conta de armazenamento na nuvem governamental, esse comando retorna a seguinte saída:
 
 ```
 blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
@@ -156,16 +156,16 @@ Daqui em diante, você poderá usar o mesmo PowerShell utilizado para gerenciar 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se tiver criado um novo grupo de recursos e uma conta de armazenamento para este exercício, você poderá remover todos os ativos ao remover o grupo de recursos. Isso também exclui todos os recursos contidos no grupo. Nesse caso, ele remove a conta de armazenamento criada e o próprio grupo de recursos.
+Se você criou um novo grupo de recursos e uma conta de armazenamento para este exercício, você pode remover ambos os ativos excluindo o grupo de recursos. A exclusão do grupo de recursos exclui todos os recursos contidos nele.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Persistência de logons de usuário nas sessões do PowerShell](/powershell/azure/context-persistence)
 * [Armazenamento do Azure Governamental](../../azure-government/documentation-government-services-storage.md)
 * [Guia do Desenvolvedor do Microsoft Azure Governamental](../../azure-government/documentation-government-developer-guide.md)
-* [Notas do desenvolvedor para aplicativos do Azure China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [Notas do desenvolvedor para aplicativos da 21Vianet do Azure na China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Documentação do Azure Alemanha](../../germany/germany-welcome.md)

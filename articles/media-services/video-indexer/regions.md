@@ -1,7 +1,7 @@
 ---
 title: Regiões nas quais o Video Indexer está disponível – Azure
 titleSuffix: Azure Media Services
-description: Este artigo aborda as regiões do Azure nas quais o Video Indexer está disponível.
+description: Este artigo fala sobre regiões do Azure nas quais os serviços de mídia do Azure Video Indexer estão disponíveis.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: b67c89e02091d57b4f2dc901005c2dae36deafc2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6ba6f189f4290bb2751adf9b44135eeda7266ca0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838193"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892746"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Regiões do Azure nas quais existe um Video Indexer
 
@@ -44,7 +44,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
     }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Personalizar o modelo de Linguagem usando APIs](customize-language-model-with-api.md)
 - [Personalizar o modelo de Marcas usando APIs](customize-brands-model-with-api.md)

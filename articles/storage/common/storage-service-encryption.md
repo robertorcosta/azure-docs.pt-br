@@ -4,17 +4,17 @@ description: O armazenamento do Azure protege seus dados criptografando-os autom
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 11/26/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 63fa30b4cf4c5887e8fb44b357eb22e55fe230e7
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: a09d2c0c2a393acd4882842dc023b0f5f682e813
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666130"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895142"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia de armazenamento do Azure para dados em repouso
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre os módulos de criptografia subjacentes à c
 
 Você pode contar com chaves gerenciadas pela Microsoft para a criptografia da sua conta de armazenamento ou pode gerenciar a criptografia com suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, terá duas opções:
 
-- Você pode especificar uma *chave gerenciada pelo cliente* com Azure Key Vault a ser usada para criptografar e descriptografar todos os dados na conta de armazenamento. Uma chave gerenciada pelo cliente é usada para criptografar todos os dados em todos os serviços em sua conta de armazenamento.
+- Você pode especificar uma *chave gerenciada pelo cliente* com Azure Key Vault a ser usada para criptografar e descriptografar dados no armazenamento de BLOBs e em arquivos do Azure.
 - Você pode especificar uma *chave fornecida pelo cliente* em operações de armazenamento de BLOBs. Um cliente que faz uma solicitação de leitura ou gravação no armazenamento de blob pode incluir uma chave de criptografia na solicitação de controle granular sobre como os dados de blob são criptografados e descriptografados.
 
 A tabela a seguir compara as principais opções de gerenciamento de criptografia do armazenamento do Azure.
@@ -62,7 +62,7 @@ Por padrão, sua conta de armazenamento usa chaves de criptografia gerenciadas p
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves gerenciadas pelo cliente com Azure Key Vault
 
-Você pode gerenciar a criptografia de armazenamento do Azure no nível da conta de armazenamento com suas próprias chaves. Quando você especifica uma chave gerenciada pelo cliente no nível da conta de armazenamento, essa chave é usada para criptografar e descriptografar todos os dados na conta de armazenamento, incluindo dados de BLOB, fila, arquivo e tabela. Chaves gerenciadas pelo cliente oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
+Você pode gerenciar a criptografia de armazenamento do Azure no nível da conta de armazenamento com suas próprias chaves. Quando você especifica uma chave gerenciada pelo cliente no nível da conta de armazenamento, essa chave é usada para criptografar e descriptografar todos os dados de BLOB e arquivo na conta de armazenamento. Chaves gerenciadas pelo cliente oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
 
 Você deve usar Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. A conta de armazenamento e o cofre de chaves devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
@@ -159,9 +159,9 @@ As operações de armazenamento de blob a seguir dão suporte ao envio de chaves
 - [Definir propriedades de Blob](/rest/api/storageservices/set-blob-properties)
 - [Definir Metadados de Blob](/rest/api/storageservices/set-blob-metadata)
 - [Obter blob](/rest/api/storageservices/get-blob)
-- [Obter propriedades de BLOB](/rest/api/storageservices/get-blob-properties)
+- [Obter propriedades do blob](/rest/api/storageservices/get-blob-properties)
 - [Obter metadados de BLOB](/rest/api/storageservices/get-blob-metadata)
-- [Blob de instantâneo](/rest/api/storageservices/snapshot-blob)
+- [Criar instantâneo do blob](/rest/api/storageservices/snapshot-blob)
 
 ### <a name="rotate-customer-provided-keys"></a>Girar chaves fornecidas pelo cliente
 

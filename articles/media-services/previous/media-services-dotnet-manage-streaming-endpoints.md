@@ -1,6 +1,6 @@
 ---
 title: Gerenciar pontos de extremidade de streaming com o SDK .NET. | Microsoft Docs
-description: Este artigo mostra como gerenciar pontos de extremidade de streaming usando o portal do Azure.
+description: Este artigo demonstra como gerenciar pontos de extremidade de streaming com o portal do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 0222450e1b85c255f2028adff750b9257f109be7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464956"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901267"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerenciar pontos de extremidade de streaming com o SDK .NET  
 
@@ -143,8 +143,8 @@ namespace AMSStreamingEndpoint
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
-Examine os roteiros de aprendizagem dos Serviços de Mídia.
+## <a name="next-steps"></a>Próximos passos
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
