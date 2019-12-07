@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555187"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894297"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -597,6 +597,31 @@ Este exemplo de regra de política usa a função de recurso `resourceGroup` par
 Você pode usar aliases de propriedade para acessar propriedades específicas para um tipo de recurso. Os aliases permitem restringir quais valores ou condições são permitidas para uma propriedade em um recurso. Cada alias é mapeado para caminhos em diferentes versões de API para um tipo de recurso específico. Durante a avaliação de política, o mecanismo de políticas obtém o caminho de propriedade para essa versão de API.
 
 A lista de aliases sempre está aumentando. Para descobrir quais aliases atualmente são compatíveis com o Azure Policy, use um dos seguintes métodos:
+
+- Extensão de Azure Policy para Visual Studio Code (recomendado)
+
+  Use a [extensão Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md) para exibir e descobrir aliases para propriedades de recurso.
+
+  ![Extensão de Azure Policy para Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+
+- Gráfico de Recursos do Azure
+
+  Use o operador `project` para exibir o **alias** de um recurso.
+
+  ```kusto
+  Resources
+  | where type=~'microsoft.storage/storageaccounts'
+  | limit 1
+  | project aliases
+  ```
+  
+  ```azurecli-interactive
+  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
+  
+  ```azurepowershell-interactive
+  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
 
 - Azure PowerShell
 

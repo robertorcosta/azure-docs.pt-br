@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851155"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899817"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.
@@ -132,7 +132,7 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
     | Sub-rede | Selecione  *mySubnet*. |
     | **INTEGRAÇÃO DE DNS PRIVADO**|  |
     | Integrar com a zona DNS privado  | Deixe o padrão **Sim**. |
-    | Zona DNS privada  | Deixe o padrão * * (New) privatelink.blob.core.windows.net * *. |
+    | Zona DNS privada  | Deixe o padrão **(novo) privatelink.blob.Core.Windows.net**. |
     |||
 7. Selecione **OK**. 
 8. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
@@ -151,7 +151,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo downloaded.rdp*.
+1. Abra o arquivo *. rdp baixado* .
 
     1. Se solicitado, selecione **Conectar**.
 

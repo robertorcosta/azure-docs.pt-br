@@ -1,7 +1,7 @@
 ---
 title: Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
 titleSuffix: Azure Media Services
-description: Saiba como usar as saídas dinâmicas e de mudança de tempo para registrar fluxos ao vivo e criar a reprodução sob demanda.
+description: Este artigo descreve como usar as saídas dinâmicas e de mudança de tempo para registrar fluxos ao vivo e criar a reprodução sob demanda.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: juliako
-ms.openlocfilehash: acba251a57f39c07d690d0c55665b8914feaf06c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4c7618b60e5fd86a9b8b3f22fb3333c00cfdfa61
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186237"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899788"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
 
@@ -53,7 +53,7 @@ Para obter mais informações, veja:
 > [!NOTE]
 > Quando você exclui a saída dinâmica, não está excluindo o ativo subjacente e o conteúdo no ativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Subclipe seus vídeos](subclip-video-rest-howto.md).
 * [Defina filtros para seus ativos](filters-dynamic-manifest-rest-howto.md).

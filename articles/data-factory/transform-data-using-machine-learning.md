@@ -1,5 +1,5 @@
 ---
-title: Criar pipelines de dados de previsão usando Azure Data Factory
+title: Criar pipelines de dados de previsão
 description: Saiba como criar um pipeline de previsão usando Azure Machine Learning – atividade de execução em lotes do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 24568940a0f6e550ae0fe7658b81ba1c3b3d3556
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dc2104495f231a316a1354100ecc105e8fda5bb4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683770"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893834"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -124,12 +124,12 @@ O snippet JSON a seguir define uma atividade de execução em lotes do Azure Mac
 }
 ```
 
-| Propriedade          | DESCRIÇÃO                              | Obrigatório |
+| Propriedade          | Descrição                              | obrigatórios |
 | :---------------- | :--------------------------------------- | :------- |
-| Nome              | Nome da atividade no pipeline     | Sim      |
+| Nome              | Nome da atividade no pipeline     | SIM      |
 | Descrição       | Texto que descreve o que a atividade faz.  | Não       |
-| Tipo              | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **AzureMLBatchExecution**. | Sim      |
-| linkedServiceName | Serviços vinculados ao serviço vinculado do Azure Machine Learning. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
+| type              | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **AzureMLBatchExecution**. | SIM      |
+| linkedServiceName | Serviços vinculados ao serviço vinculado do Azure Machine Learning. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | SIM      |
 | webServiceInputs  | Pares chave-valor, mapeando os nomes das entradas do serviço Web do Azure Machine Learning. A chave deve corresponder aos parâmetros de entrada definidos no serviço Web do Azure Machine Learning publicado. Valor é um par de propriedades FilePath e serviços vinculados do Armazenamento do Azure especificando os locais de Blob de entrada. | Não       |
 | webServiceOutputs | Pares chave-valor, mapeando os nomes das saídas do serviço Web do Azure Machine Learning. A chave deve corresponder aos parâmetros de saída definidos no serviço Web do Azure Machine Learning publicado. Valor é um par de propriedades FilePath e serviços vinculados do Armazenamento do Azure especificando os locais de Blob de saída. | Não       |
 | globalParameters  | Pares de chave/valor a serem passados ao ponto de extremidade do Serviço de Execução em Lotes do Azure Machine Learning Studio. As chaves devem corresponder aos nomes dos parâmetros do serviço Web definidos no serviço Web do Azure Machine Learning Studio publicado. Os valores são passados na propriedade GlobalParameters da solicitação de execução em lotes do Azure Machine Learning Studio | Não       |
@@ -191,7 +191,7 @@ Nesse cenário, o serviço Web de Azure Machine Learning faz previsões usando d
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário 2: testes usando módulos de leitura/gravação para referenciar dados em vários armazenamentos
 Outro cenário comum ao criar experimentos do Azure Machine Learning Studio é usar os módulos Importação de Dados e Dados de Saída. O módulo de Importar Dados é usado para carregar dados em um teste e o módulo Exportar Dados é usado para salvar os dados dos testes. Para obter detalhes sobre os módulos Importar Dados e Exportar Dados, consulte os tópicos [Importar Dados](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Exportar Dados](https://msdn.microsoft.com/library/azure/dn905984.aspx) na biblioteca MSDN.
 
-Ao usar os módulos Importar Dados e Exportar Dados, recomenda-se usar um parâmetro de serviço Web para cada propriedade desses módulos. Esses parâmetros da Web permitem que você configure os valores durante o tempo de execução. Por exemplo, você pode criar um teste com um módulo Importar Dados que use um Banco de Dados SQL do Azure: XXX.database.windows.net. Depois que o serviço Web for implantado, você precisará habilitar os consumidores do serviço Web para especificar outro SQL Server do Azure chamado `YYY.database.windows.net`. Você pode usar um parâmetro de serviço Web para permitir que esse valor seja configurado.
+Ao usar os módulos Importar Dados e Exportar Dados, recomenda-se usar um parâmetro de serviço Web para cada propriedade desses módulos. Esses parâmetros da Web permitem que você configure os valores durante o runtime. Por exemplo, você pode criar um teste com um módulo Importar Dados que use um Banco de Dados SQL do Azure: XXX.database.windows.net. Depois que o serviço Web for implantado, você precisará habilitar os consumidores do serviço Web para especificar outro SQL Server do Azure chamado `YYY.database.windows.net`. Você pode usar um parâmetro de serviço Web para permitir que esse valor seja configurado.
 
 > [!NOTE]
 > A saída e entrada de serviço Web são diferentes dos parâmetros de serviço Web. No primeiro cenário, você viu como uma entrada e saída podem ser especificadas para um serviço Web do Azure Machine Learning Studio. Nesse cenário, você pode passar parâmetros para um serviço Web que correspondam às propriedades dos módulos Importar Dados e Exportar Dados.
@@ -217,7 +217,7 @@ Vejamos um cenário para o uso de parâmetros de serviço Web. Você tem um serv
 
 Depois de concluir a reciclagem de treinamento, atualize o serviço Web de pontuação (experimento preditivo exposto como um serviço Web) com o modelo recém-treinado usando a **Atividade de recurso de Atualização do Azure Machine Learning Studio**. Veja o artigo [Atualização de modelos usando a Atividade do Recurso de Atualização](update-machine-learning-models.md) para obter detalhes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)

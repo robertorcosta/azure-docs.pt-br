@@ -1,6 +1,6 @@
 ---
 title: Visão geral da API REST das Operações dos Serviços de Mídia | Microsoft Docs
-description: Visão geral da API de REST de serviços de mídia
+description: A API "REST de operações de serviços de mídia" é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de serviços de mídia. Este artigo fornece uma visão geral da API REST dos serviços de mídia do Azure v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 29b995d722cd304cc85580ac4f2f38a0b0d9cecd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014859"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895806"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia 
 
@@ -58,7 +58,7 @@ As seguintes considerações se aplicam ao usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Os cabeçalhos de solicitação HTTP padrão suportados pelos serviços de mídia
 Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir na solicitação e também um conjunto de cabeçalhos opcionais você talvez queira incluir. A tabela abaixo lista os cabeçalhos necessários:
 
-| Cabeçalho | Tipo | Valor |
+| Cabeçalho | Type | Value |
 | --- | --- | --- |
 | Autorização |Portador |Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo Microsoft Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (ou versão mais recente)|
@@ -72,26 +72,26 @@ Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeç
 
 Este é um conjunto de cabeçalhos opcional:
 
-| Cabeçalho | Tipo | Valor |
+| Cabeçalho | Type | Value |
 | --- | --- | --- |
-| Date |Data do RFC 1123 |Carimbo de hora da solicitação |
+| Data |Data do RFC 1123 |Carimbo de hora da solicitação |
 | Aceitar |Tipo de conteúdo |O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida contém o fluxo de blob como carga. |
-| Codificação aceita |Gzip, deflate |Codificar GZIP e DEFLATE, quando aplicável. Observação: Para recursos grandes, os Serviços de Mídia podem ignorar esse cabeçalho e retornar dados não compactados. |
+| Codificação aceita |Gzip, deflate |Codificar GZIP e DEFLATE, quando aplicável. Observação: para grandes recursos, os Serviços de Mídia podem ignorar esse cabeçalho e retornar dados não compactados. |
 | Idioma aceito |"en", "es", e assim por diante. |Especifica o idioma preferencial para a resposta. |
 | Conjunto de caracteres aceito |Tipo de conjunto de caracteres como "UTF-8" |Padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que os clientes ou firewalls que não suportam métodos HTTP como PUT ou DELETE usem esses métodos, desviados via uma chamada GET. |
-| Content-Type |Tipo de conteúdo |Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST. |
-| ID da solicitação de cliente |Cadeia |Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2K). |
+| Tipo de conteúdo |Tipo de conteúdo |Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST. |
+| ID da solicitação de cliente |string |Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2K). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 Este é um conjunto de cabeçalhos que podem ser retornados para você, dependendo do recurso que você solicitou e da ação que você pretende executar.
 
-| Cabeçalho | Tipo | Valor |
+| Cabeçalho | Type | Value |
 | --- | --- | --- |
-| ID da solicitação |Cadeia |Um identificador exclusivo para a operação atual, serviço gerado. |
-| ID da solicitação de cliente |Cadeia |Um identificador especificado pelo chamador na solicitação original, se presente. |
-| Date |Data do RFC 1123 |A data/hora em que a solicitação foi processada. |
-| Content-Type |Varia |O tipo de conteúdo do corpo da resposta. |
+| ID da solicitação |string |Um identificador exclusivo para a operação atual, serviço gerado. |
+| ID da solicitação de cliente |string |Um identificador especificado pelo chamador na solicitação original, se presente. |
+| Data |Data do RFC 1123 |A data/hora em que a solicitação foi processada. |
+| Tipo de conteúdo |Varia |O tipo de conteúdo do corpo da resposta. |
 | Codificação de conteúdo |Varia |Gzip ou deflate, conforme apropriado. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Verbos HTTP padrão suportados pelos serviços de mídia.
@@ -99,10 +99,10 @@ A seguir está uma lista completa de verbos HTTP que podem ser usados quando faz
 
 | Verbo | Descrição |
 | --- | --- |
-| OBTER |Retorna o valor atual de um objeto. |
-| POSTAR |Cria um objeto com base nos dados fornecidos ou envia um comando. |
+| GET |Retorna o valor atual de um objeto. |
+| POST |Cria um objeto com base nos dados fornecidos ou envia um comando. |
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
-| DELETE |Exclui um objeto. |
+| EXCLUIR |Exclui um objeto. |
 | MESCLAR |Atualiza um objeto existente com alterações de propriedade nomeada. |
 | HEAD |Retorna metadados de um objeto para uma resposta GET. |
 
@@ -120,7 +120,7 @@ Para obter detalhes sobre como obter os detalhes de autenticação necessários 
 
 Para obter detalhes sobre como gravar um código que se conecte à API REST usando a autenticação do Azure AD, consulte o artigo [Usar a autenticação do Microsoft Azure Active Directory para acessar a API de Serviços de Mídia do Microsoft Azure com REST](media-services-rest-connect-with-aad.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber como usar a autenticação do Azure AD com a API REST de Serviços de Mídia do Microsoft Azure, consulte [Usar a autenticação do Microsoft Azure Active Directory para acessar a API de Serviços de Mídia do Microsoft Azure com REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia

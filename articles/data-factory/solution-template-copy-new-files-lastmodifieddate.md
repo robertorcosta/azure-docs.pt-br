@@ -1,5 +1,5 @@
 ---
-title: Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
+title: Copiar arquivos novos e alterados por LastModifiedDate
 description: Saiba como usar um modelo de solução para copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ca752fb75b8e151de925d3b5604a7e7182d82e92
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684221"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896286"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
 
 Este artigo descreve um modelo de solução que você pode usar para copiar arquivos novos e alterados somente pelo LastModifiedDate de um repositório baseado em arquivo para um repositório de destino. 
 
-## <a name="about-this-solution-template"></a>Sobre o modelo de solução
+## <a name="about-this-solution-template"></a>Sobre esse modelo de solução
 
 Esse modelo primeiro seleciona os arquivos novos e alterados somente por seus atributos **LastModifiedDate**e, em seguida, copia esses arquivos selecionados do repositório de fonte de dados para o repositório de destino de dados.
 
@@ -37,7 +37,7 @@ O modelo define quatro parâmetros:
 -  *LastModified_From* é usado para selecionar os arquivos cujo atributo LastModifiedDate é posterior ou igual a esse valor DateTime.  Para selecionar somente os novos arquivos, que não foram copiados pela última vez, esse valor DateTime pode ser o horário em que o pipeline foi disparado pela última vez. Você pode substituir o valor padrão ' 2019-02-01T00:00:00Z ' para o seu LastModifiedDate esperado no fuso horário UTC. 
 -  *LastModified_To* é usado para selecionar os arquivos cujo atributo LastModifiedDate é anterior a esse valor DateTime. Para selecionar somente os novos arquivos, que não foram copiados pela última vez, esse valor DateTime pode ser o tempo atual.  Você pode substituir o valor padrão ' 2019-02-01T00:00:00Z ' para o seu LastModifiedDate esperado no fuso horário UTC. 
 
-## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
+## <a name="how-to-use-this-solution-template"></a>Como usar esse modelo de solução
 
 1. Ir para o modelo **copiar novos arquivos somente por LastModifiedDate**. Crie uma **nova** conexão com o repositório de armazenamento de origem. O repositório de armazenamento de origem do qual você deseja copiar arquivos.
 
@@ -51,7 +51,7 @@ O modelo define quatro parâmetros:
 
     ![Criar uma nova conexão para o destino](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
 
-4. Selecione **usar este modelo**.
+4. Selecione **Usar este modelo**.
 
     ![Usar esse modelo](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
     
@@ -61,7 +61,7 @@ O modelo define quatro parâmetros:
 
 6. Selecione **depurar**, grave o valor para os **parâmetros** e selecione **concluir**.  Na imagem abaixo, definimos os parâmetros como a seguir.
    - **FolderPath_Source** =  **/Source/**
-   - **FolderPath_Destination** =  **/Destination/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
@@ -107,6 +107,6 @@ O modelo define quatro parâmetros:
 
     ![Revisar o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução ao Azure Data Factory](introduction.md)

@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c13e7b507291d7671ac861fc7a8683c87be947a1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725594"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896659"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre os gateways de rede virtual com redundância de zona em Zonas de Disponibilidade do Azure
 
@@ -39,21 +39,9 @@ Para implantar gateways em uma zona específica, você pode usar gateways em zon
 
 ## <a name="gwskus"></a>SKUs do Gateway
 
-Os gateways zonais e com redundância de zona estão disponíveis como novas SKUs de gateway. Adicionamos novas SKUs de gateway de rede virtual em regiões do Azure AZ. Essas SKUs são semelhantes às SKUs existentes correspondentes para o Gateway de VPN e ExpressRoute, exceto que eles são específicos para gateways com redundância de zona e em zona.
+Os gateways zonais e com redundância de zona estão disponíveis como novas SKUs de gateway. Adicionamos novas SKUs de gateway de rede virtual em regiões do Azure AZ. Essas SKUs são semelhantes às SKUs existentes correspondentes para o Gateway de VPN e ExpressRoute, exceto que eles são específicos para gateways com redundância de zona e em zona. Você pode identificar essas SKUs pelo "AZ" no nome do SKU.
 
-As novas SKUs de gateway são:
-
-### <a name="vpn-gateway"></a>Gateway de VPN
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### <a name="expressroute"></a>ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+Para obter informações sobre SKUs de gateway, consulte [SKUs de gateway de VPN](vpn-gateway-about-vpngateways.md#gwsku) e SKUs de gateway de [ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="pipskus"></a>SKUs de IP público
 
@@ -76,7 +64,7 @@ Quando você cria um endereço IP público usando a SKU de IP público **Básica
 
 ## <a name="faq"></a>Perguntas frequentes
 
-### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que mudará quando eu implantar essas novas SKUs?
+### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que mudará ao implantar essas novas SKUs?
 
 Da sua perspectiva, você poderá implantar seus gateways com redundância de zona. Isso significa que todas as instâncias dos gateways serão implantadas em Zonas de Disponibilidade do Azure e cada Zona de Disponibilidade será um domínio de atualização e falha diferente. Isso torna seus gateways mais confiáveis, disponíveis e resilientes a falhas de zona.
 
@@ -96,6 +84,6 @@ No momento, a migração de gateways de rede virtual existentes para gateways co
 
 A coexistência de gateways de VPN e do ExpressRoute na mesma rede virtual é compatível. No entanto, reserve um intervalo de endereços IP /27 para a sub-rede de gateway.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Criar um gateway de rede virtual com redundância de zona](create-zone-redundant-vnet-gateway.md)

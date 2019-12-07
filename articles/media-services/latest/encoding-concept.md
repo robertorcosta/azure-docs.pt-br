@@ -1,7 +1,7 @@
 ---
 title: Codificando vídeo e áudio com os serviços de mídia
 titleSuffix: Azure Media Services
-description: Saiba mais sobre codificação de vídeo e áudio com os serviços de mídia do Azure.
+description: Este artigo explica sobre a codificação de vídeo e áudio com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d3de307b1dadf302004fa9fd02c8cf23e36b3046
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574274"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896082"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificando vídeo e áudio com os serviços de mídia
 
@@ -26,7 +26,7 @@ O termo codificação nos serviços de mídia se aplica ao processo de conversã
 
 Os vídeos normalmente são entregues a dispositivos e aplicativos por [download progressivo](https://en.wikipedia.org/wiki/Progressive_download) ou por meio de [streaming de taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
 
-* Para fornecer por download progressivo, você pode usar os serviços de mídia do Azure para converter um arquivo de mídia digital (mezanino) em um arquivo [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) , que contém vídeo que foi codificado com o codec [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) e áudio que foi codificado com o [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. Esse arquivo MP4 é gravado em um ativo em sua conta de armazenamento. Você pode usar as APIs de armazenamento do Azure ou SDKs (por exemplo, [API REST de armazenamento](../../storage/common/storage-rest-api-auth.md) ou [SDK do .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para baixar o arquivo diretamente. Se você criou o ativo de saída com um nome de contêiner específico no armazenamento, use esse local. Caso contrário, você pode usar os serviços de mídia para [listar as URLs do contêiner de ativos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Para entregar por download progressivo, você pode usar os serviços de mídia do Azure para converter um arquivo de mídia digital (mezanino) em um arquivo [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) , que contém vídeo que foi codificado com o codec [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) e áudio que foi codificado com o codec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) . Esse arquivo MP4 é gravado em um ativo em sua conta de armazenamento. Você pode usar as APIs de armazenamento do Azure ou SDKs (por exemplo, [API REST de armazenamento](../../storage/common/storage-rest-api-auth.md) ou [SDK do .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para baixar o arquivo diretamente. Se você criou o ativo de saída com um nome de contêiner específico no armazenamento, use esse local. Caso contrário, você pode usar os serviços de mídia para [listar as URLs do contêiner de ativos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
 * Para preparar o conteúdo para entrega por streaming de taxa de bits adaptável, o arquivo de mezanino precisa ser codificado em várias taxas de bits (alta para baixa). Para garantir a transição normal de qualidade, a resolução do vídeo é reduzida à medida que a taxa de bits é reduzida. Isso resulta em uma chamada de escada de codificação – uma tabela de resoluções e taxas de bits (consulte a [escada de taxa de bits adaptável gerada automaticamente](autogen-bitrate-ladder.md)). Você pode usar os serviços de mídia para codificar seus arquivos de mezanino em várias taxas de bits. Ao fazer isso, você obterá um conjunto de arquivos MP4 e arquivos de configuração de streaming associados gravados em um ativo em sua conta de armazenamento. Em seguida, você pode usar o recurso de [empacotamento dinâmico](dynamic-packaging-overview.md) nos serviços de mídia para entregar o vídeo por meio de protocolos de streaming como [MPEG-Dash](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) e [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Isso exige que você crie um [localizador de streaming](streaming-locators-concept.md) e crie URLs de streaming correspondentes aos protocolos com suporte, que podem ser entregues a dispositivos/aplicativos com base em seus recursos.
 
 O diagrama a seguir mostra o fluxo de trabalho para a codificação sob demanda com o empacotamento dinâmico.
@@ -140,9 +140,9 @@ Para dimensionar o processamento de mídia, consulte [dimensionar com a CLI](med
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Carregue, codifique e transmita usando os serviços de mídia](stream-files-tutorial-with-api.md).
 * [Codifique a partir de uma URL https usando predefinições internas](job-input-from-http-how-to.md).
 * [Codifique um arquivo local usando predefinições internas](job-input-from-local-file-how-to.md).
-* [Crie uma predefinição personalizada para direcionar seus requisitos específicos de cenário ou dispositivo](customize-encoder-presets-how-to.md).
+* [Criar uma predefinição personalizada para segmentar um cenário específico ou requisitos de dispositivo](customize-encoder-presets-how-to.md).

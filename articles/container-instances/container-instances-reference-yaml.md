@@ -3,12 +3,12 @@ title: Referência de YAML para grupo de contêineres
 description: Referência do arquivo YAML com suporte das instâncias de contêiner do Azure para configurar um grupo de contêineres
 ms.topic: article
 ms.date: 08/12/2019
-ms.openlocfilehash: 5603f2e0f63c4f83a6d3761feb540abb8b8b7d5c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8497330a327201c4c64e9f7ae57e6fc4225b52de
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533498"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896562"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Referência de YAML: instâncias de contêiner do Azure
 
@@ -38,7 +38,7 @@ properties: # Properties of container group
       image: string # Container image used to create the instance
       command:
       - string
-      ports: # Exposed ports on the instance
+      ports: # External-facing ports exposed on the instance, must also be set in group ipAddress property 
       - protocol: string
         port: integer
       environmentVariables:
@@ -166,7 +166,7 @@ As tabelas a seguir descrevem os valores necessários para definir no esquema.
 |  containers | matriz | SIM | Os contêineres dentro do grupo de contêineres.[objeto contêiner](#Container)  -  |
 |  imageRegistryCredentials | matriz | Não | As credenciais de registro de imagem pelas quais o grupo de contêineres é criado. - [objeto ImageRegistryCredential](#ImageRegistryCredential) |
 |  restartPolicy | enum | Não | Reinicie a política para todos os contêineres dentro do grupo de contêineres. - `Always` sempre reiniciar-`OnFailure` reiniciar em caso de falha-`Never` nunca reiniciar. -Sempre, OnFailure, nunca |
-|  IP | objeto | Não | O tipo de endereço IP do grupo de contêineres. - [objeto IPAddress](#IpAddress) |
+|  ipAddress | objeto | Não | O tipo de endereço IP do grupo de contêineres. - [objeto IPAddress](#IpAddress) |
 |  osType | enum | SIM | O tipo de sistema operacional exigido pelos contêineres no grupo de contêineres. -Windows ou Linux |
 |  volumes | matriz | Não | A lista de volumes que podem ser montados por contêineres neste grupo de contêineres. - [objeto de volume](#Volume) |
 |  diagnóstico | objeto | Não | As informações de diagnóstico para um grupo de contêineres. - [objeto ContainerGroupDiagnostics](#ContainerGroupDiagnostics) |

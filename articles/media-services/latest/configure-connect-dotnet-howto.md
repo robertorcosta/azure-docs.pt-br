@@ -1,6 +1,6 @@
 ---
 title: Conectar-se à API dos serviços de mídia do Azure v3-.NET
-description: Saiba como se conectar à API dos serviços de mídia v3 com .NET.
+description: Este artigo demonstra como se conectar à API dos serviços de mídia v3 com .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b2cfe8014e6ffbd7a6d5449192acde9780a2d303
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122878"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899900"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conectar-se à API dos serviços de mídia v3-.NET
 
@@ -38,12 +38,12 @@ Este artigo mostra como se conectar ao SDK do .NET dos serviços de mídia do Az
 1. No menu **arquivo** , clique em **novo** > **projeto**. 
 1. Crie um aplicativo de console do **.NET Core** .
 
-O aplicativo de exemplo neste tópico, targets `netcoreapp2.0`. O código usa ' async Main ', que está disponível a partir C# de 7,1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para obter mais detalhes.
+O aplicativo de exemplo neste tópico é destinado a `netcoreapp2.0`. O código usa ' async Main ', que está disponível a partir C# de 7,1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para obter mais detalhes.
 
-## <a name="add-required-nuget-packages"></a>Adicionar pacotes NuGet necessários
+## <a name="add-required-nuget-packages"></a>Adicionar os pacotes NuGet necessários
 
-1. No Visual Studio, selecione **ferramentas** > **Gerenciador** > de pacotes NuGet**console do Gerenciador do NuGet**.
-2. Na janela do **console do Gerenciador** de pacotes `Install-Package` , use o comando para adicionar os seguintes pacotes NuGet. Por exemplo: `Install-Package Microsoft.Azure.Management.Media`.
+1. No Visual Studio, selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador do NuGet**.
+2. Na janela do **console do Gerenciador de pacotes** , use `Install-Package` comando para adicionar os seguintes pacotes NuGet. Por exemplo, `Install-Package Microsoft.Azure.Management.Media`.
 
 |Pacote|Descrição|
 |---|---|
@@ -57,13 +57,13 @@ O aplicativo de exemplo neste tópico, targets `netcoreapp2.0`. O código usa ' 
 
 ### <a name="create-appsettingsjson"></a>Criar appSettings. JSON
 
-1. Ir para o**arquivo de texto** **geral** > .
+1. Acesse o **arquivo de texto** > **geral** .
 1. Nomeie-o como "appSettings. JSON".
 1. Defina a propriedade "copiar para o diretório de saída" do arquivo. JSON como "copiar se for mais recente" (para que o aplicativo possa acessá-lo quando publicado).
 
 ### <a name="set-values-in-appsettingsjson"></a>Definir valores em appSettings. JSON
 
-Execute o `az ams account sp create` comando conforme descrito em [APIs de acesso](access-api-cli-how-to.md). O comando retorna JSON que você deve copiar em "appSettings. JSON".
+Execute o comando `az ams account sp create` conforme descrito em [APIs de acesso](access-api-cli-how-to.md). O comando retorna JSON que você deve copiar em "appSettings. JSON".
  
 ## <a name="add-configuration-file"></a>Adicionar arquivo de configuração
 
@@ -226,11 +226,11 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Tutorial: Carregar, codificar e transmitir vídeos – .NET](stream-files-tutorial-with-api.md) 
-- [Tutorial: Transmissão ao vivo com os Serviços de Mídia v3 – .NET](stream-live-tutorial-with-api.md)
-- [Tutorial: Analisar vídeos com os Serviços de Mídia v3 – .NET](analyze-videos-tutorial-with-api.md)
+- [Tutorial: carregar, codificar e transmitir vídeos-.NET](stream-files-tutorial-with-api.md) 
+- [Tutorial: transmitir ao vivo com os serviços de mídia v3-.NET](stream-live-tutorial-with-api.md)
+- [Tutorial: analisar vídeos com os serviços de mídia v3-.NET](analyze-videos-tutorial-with-api.md)
 - [Criar uma entrada de trabalho com base em um arquivo local – .NET](job-input-from-local-file-how-to.md)
 - [Criar uma entrada de trabalho com base em uma URL HTTPS – .NET](job-input-from-http-how-to.md)
 - [Codificação com uma transformação personalizada – .NET](customize-encoder-presets-how-to.md)
@@ -240,7 +240,7 @@ namespace ConsoleApp1
 - [Criar filtros com os Serviços de Mídia – .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Exemplos de vídeos sob demanda avançados do Azure Functions v2 com Serviços de Mídia v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 * [Referência do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Para obter mais exemplos de código, consulte o repositório de [exemplos do SDK do .net](https://github.com/Azure-Samples/media-services-v3-dotnet) .
