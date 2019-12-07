@@ -1,6 +1,6 @@
 ---
 title: Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits-Azure | Microsoft Docs
-description: Este tópico mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits com base na resolução de entrada e na taxa de bits. A resolução de entrada e a taxa de bits nunca serão excedidas. Por exemplo, se a entrada for 720p em 3Mbps, a saída continuará 720p na melhor das hipóteses e iniciará com taxas menores que 3Mbps.
+description: Este tópico mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits com base na resolução de entrada e na taxa de bits.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543543"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896011"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits  
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este artigo mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits (pares de resolução de taxa de bits) com base na resolução de entrada e na taxa de bits. A predefinição gerada automaticamente nunca excederá a resolução de entrada e a taxa de bits. Por exemplo, se a entrada for 720p em 720p, a saída continuará 720p na melhor das hipóteses e iniciará com taxas menores que 3 Mbps.
 
@@ -40,7 +40,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 - Crie um trabalho de codificação.
 - Obtenha uma referência para o Codificador de Mídia Padrão.
-- Adicione uma tarefa de codificação ao trabalho e especifique para usar a predefinição do **Streaming Adaptável**. 
+- Adicione uma tarefa de codificação ao trabalho e especifique para usar o **Streaming Adaptável** predefinido. 
 - Crie um ativo de saída contendo o ativo codificado.
 - Adicione um manipulador de eventos para verificar o progresso do trabalho.
 - Enviar o trabalho.
@@ -194,7 +194,7 @@ Fonte com altura "720" e taxa de quadros "23.970" produz cinco camadas de vídeo
 |4|270|480|600|
 |5|180|320|320|
 
-### <a name="example-3"></a>Exemplo 3:
+### <a name="example-3"></a>Exemplo 3
 Fonte com altura "360" e taxa de quadros "29.970" produz três camadas de vídeo:
 
 |Camada|Altura|Largura|Taxa de bits (Kbps)|

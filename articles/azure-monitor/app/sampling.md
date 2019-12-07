@@ -4,16 +4,16 @@ description: Como manter o volume de telemetria sob controle.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: c124e6c433f83212c0db815a2fd06cfcfdf86253
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4b0dca1215cfecea5c9943bd27ee8a5c1de45311
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884722"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893358"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -28,7 +28,7 @@ A amostragem reduz os custos de tráfego e de dados e ajuda a evitar a limitaç�
 * A amostragem adaptável é habilitada por padrão em todas as versões mais recentes do ASP.NET e ASP.NET Core SDKs (Software Development Kits).
 * Você também pode definir a amostragem manualmente. Isso pode ser configurado no portal na *página uso e custos estimados*, no sdk do ASP.net no arquivo ApplicationInsights. config, no sdk do ASP.NET Core por meio de código ou no SDK do Java no arquivo ApplicationInsights. xml.
 * Se você registrar eventos personalizados e precisar garantir que um conjunto de eventos seja mantido ou descartado em conjunto, os eventos deverão ter o mesmo valor operationId.
-* O divisor de amostragem *n* é relatado em cada registro na propriedade `itemCount`, que, na Pesquisa, aparece sob o nome amigável "contagem de solicitação" ou "contagem de eventos". `itemCount==1`quando a amostragem não está na operação.
+* O divisor de amostragem *n`itemCount` é relatado em cada registro na propriedade* , que, na Pesquisa, aparece sob o nome amigável "contagem de solicitação" ou "contagem de eventos". `itemCount==1`quando a amostragem não está na operação.
 * Se você escrever consultas de Análise, deverá [levar em conta a amostragem](../../azure-monitor/log-query/aggregations.md). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipos de amostragem
@@ -58,7 +58,7 @@ As contagens de métrica, como a taxa de solicitações e a taxa de exceções s
 
 [Saiba mais](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) sobre como configurar a amostragem adaptável para aplicativos ASP.NET Core. 
 
-Em [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), é possível ajustar diversos parâmetros no nó `AdaptiveSamplingTelemetryProcessor`. Os números mostrados são os valores padrão:
+Em [ApplicationInsights.config`AdaptiveSamplingTelemetryProcessor`, é possível ajustar diversos parâmetros no nó ](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Os números mostrados são os valores padrão:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
@@ -549,7 +549,7 @@ Siga as instruções [deste para configurar a amostragem para aplicativos](https
       }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [filtragem](../../azure-monitor/app/api-filtering-sampling.md) pode fornecer um controle mais restrito do que o SDK envia.
 * Leia o artigo rede do desenvolvedor [otimizar a telemetria com Application insights](https://msdn.microsoft.com/magazine/mt808502.aspx).

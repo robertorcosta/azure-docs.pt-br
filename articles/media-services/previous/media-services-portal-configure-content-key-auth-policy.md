@@ -1,6 +1,6 @@
 ---
 title: Configurar política de autorização de chave de conteúdo usando o portal do Azure | Microsoft Docs
-description: Saiba como configurar uma política de autorização para uma chave de conteúdo.
+description: Este artigo demonstra como configurar uma política de autorização para uma chave de conteúdo.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b046ce5a8647abe601a6327667241d98445ce1e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f5afdc8eb24758fac6faa0cc6d1e4e1002b5db
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61130521"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895844"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurar uma política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
  É possível usar os Serviços de Mídia do Azure para distribuir streams MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protegidos com a criptografia AES por meio do uso de chaves de criptografia de 128 bits ou do [gerenciamento de direitos digitais (DRM) do PlayReady](https://www.microsoft.com/playready/overview/). Com os Serviços de Mídia, também é possível distribuir streams DASH criptografados com o DRM do Widevine. O PlayReady e o Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC).
 
 Os Serviços de Mídia também fornecem um Serviço de Entrega de Chaves/Licenças por meio do qual os clientes podem obter chaves AES ou licenças do PlayReady/Widevine para reproduzir o conteúdo criptografado.
@@ -33,7 +33,7 @@ Este artigo mostra como usar o Portal do Azure para configurar a política de au
 
 Quando um player solicita um stream definido para ser criptografado dinamicamente, os Serviços de Mídia usam a chave configurada para criptografar dinamicamente o conteúdo usando a criptografia AES ou DRM. Para descriptografar o fluxo, o player solicita a chave do serviço de distribuição de chaves. Para determinar se o usuário está autorizado a obter a chave, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-Se você pretende ter várias chaves de conteúdo ou se deseja especificar uma URL de serviço de entrega de chave/licença diferente do serviço de entrega de chaves dos Serviços de Mídia, use o SDK do .NET dos Serviços de Mídia ou as APIs REST. Para obter mais informações, consulte:
+Se você pretende ter várias chaves de conteúdo ou se deseja especificar uma URL de serviço de entrega de chave/licença diferente do serviço de entrega de chaves dos Serviços de Mídia, use o SDK do .NET dos Serviços de Mídia ou as APIs REST. Para obter mais informações, veja:
 
 * [Configurar uma política de autorização de chave de conteúdo usando o SDK do .NET dos Serviços de Mídia](media-services-dotnet-configure-content-key-auth-policy.md)
 * [Configurar uma política de autorização de chave de conteúdo usando a API REST dos Serviços de Mídia](media-services-rest-configure-content-key-auth-policy.md)
@@ -80,7 +80,7 @@ Ao proteger o conteúdo com PlayReady, uma das coisas que você precisa especifi
 
 Você pode selecionar o botão **importar política xml** e fornecer um XML diferente em conformidade com o esquema XML definido na [visão geral do modelo de licença PlayReady dos Serviços de Mídia](media-services-playready-license-template-overview.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

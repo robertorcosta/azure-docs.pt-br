@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 230b79a5062262a85d3090e15ed52d67c38ed3e9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928469"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888777"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorando recursos do Azure com o Azure Monitor
 Quando você tem aplicativos críticos e processos de negócios que dependem de recursos do Azure, você deseja monitorar esses recursos para sua disponibilidade, desempenho e operação. Este artigo descreve os dados de monitoramento gerados pelos recursos do Azure e como você pode usar os recursos do Azure Monitor para analisar e alertar sobre esses dados.
@@ -52,7 +52,7 @@ Pode haver Azure Monitor custos associados ao seguinte. Consulte [Azure monitor 
 ## <a name="monitoring-data"></a>Dados de monitoramento
 Os recursos no Azure geram [logs](../platform/data-platform-logs.md) e [métricas](../platform/data-platform-metrics.md) mostrados no diagrama a seguir. Consulte a documentação de cada serviço do Azure para obter os dados específicos que eles geram e quaisquer soluções ou informações adicionais que eles fornecem.
 
-![Visão geral](media/monitor-azure-resource/logs-metrics.png)
+![Visão Geral](media/monitor-azure-resource/logs-metrics.png)
 
 
 
@@ -90,8 +90,8 @@ Siga o procedimento em [criar configuração de diagnóstico para coletar logs e
 ## <a name="monitoring-in-the-azure-portal"></a>Monitoramento no portal do Azure
  Você pode acessar os dados de monitoramento para a maioria dos recursos do Azure no menu do recurso na portal do Azure. Isso dará acesso a dados de um único recurso usando ferramentas de Azure Monitor padrão. Alguns serviços do Azure fornecerão opções diferentes, portanto, você deve consultar a documentação desse serviço para obter informações adicionais. Use o menu **Azure monitor** para analisar dados de todos os recursos monitorados. 
 
-### <a name="overview"></a>Visão geral
-Muitos serviços incluirão dados de monitoramento em sua página de **visão geral** como uma visão rápida de sua operação. Normalmente, isso será baseado em um subconjunto de métricas de plataforma armazenadas em métricas de Azure Monitor. Outras opções de monitoramento normalmente estarão disponíveis em uma seção **monitoramento** dos serviços. AdicionarMenu.
+### <a name="overview"></a>Visão Geral
+Muitos serviços incluirão dados de monitoramento em sua página de **visão geral** como uma visão rápida de sua operação. Normalmente, isso será baseado em um subconjunto de métricas de plataforma armazenadas em métricas de Azure Monitor. Outras opções de monitoramento normalmente estarão disponíveis em uma seção **monitoramento** dos serviços. .
 
 ![Página de visão geral](media/monitor-azure-resource/overview-page.png)
 
@@ -101,7 +101,7 @@ Alguns serviços fornecerão ferramentas além dos recursos padrão do Azure Mon
 
 Se um serviço tiver um insight Azure Monitor, você poderá acessá-lo do **monitoramento** no menu de cada recurso. Acesse todas as informações e soluções no menu **Azure monitor** .
 
-![Insights](media/monitor-azure-resource/insights.png)
+![Visões](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>Métricas
 Analise as métricas no portal do Azure usando o [Metrics Explorer](../platform/metrics-getting-started.md) , que está disponível no item de menu **métricas** para a maioria dos serviços. Essa ferramenta permite que você trabalhe com métricas individuais ou combine várias para identificar correlações e tendências. 
@@ -112,7 +112,7 @@ Analise as métricas no portal do Azure usando o [Metrics Explorer](../platform/
 ![Métricas](media/monitor-azure-resource/metrics.png)
 
 
-### <a name="activity-log"></a>Log de atividades 
+### <a name="activity-log"></a>Logs de atividades 
 Exiba entradas no log de atividades no portal do Azure com o filtro inicial definido como o recurso atual. Copie o log de atividades em um espaço de trabalho Log Analytics para acessá-lo para usá-lo em consultas de log e pastas de trabalho. 
 
 - Consulte [Exibir e recuperar eventos do log de atividades do Azure](../platform/activity-log-view.md) para obter detalhes sobre como exibir o log de atividades e recuperar entradas usando uma variedade de métodos.
@@ -162,6 +162,6 @@ Use **alertas** do menu de um recurso para exibir alertas e gerenciar regras de 
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](../platform/diagnostic-logs-schema.md) para obter detalhes dos logs de recursos para diferentes serviços do Azure.  
+* Consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../platform/diagnostic-logs-schema.md) para obter detalhes dos logs de recursos para diferentes serviços do Azure.  

@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade de procedimento armazenado no Azure Data Factory
+title: Transformar dados usando a atividade de procedimento armazenado
 description: Explica como usar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado em um Banco de Dados SQL do Azure/Data Warehouse do Azure de um pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 5ebb2b9cdcbef59e07476dbebd289bb4402ca5fa
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 59bfdc5d2d57b2c05a2c7676d83d8771142ca285
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683712"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893766"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de procedimento armazenado do SQL Server no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -29,8 +29,8 @@ Use atividades de transformação de dados em um [pipeline](concepts-pipelines-a
 
 Use a Atividade de Procedimento Armazenado para invocar um procedimento armazenado em um dos seguintes armazenamentos de dados em sua empresa ou em uma VM (máquina virtual) do Azure: 
 
-- Banco de Dados SQL do Azure
-- SQL Data Warehouse do Azure
+- Banco de dados SQL do Azure
+- Azure SQL Data Warehouse
 - Banco de Dados do SQL Server.  Se estiver usando o SQL Server, instale o Integration Runtime (auto-hospedado) no mesmo computador que hospeda o banco de dados ou em um computador separado com acesso ao banco de dados. O Integration Runtime (auto-hospedado) é um componente que conecta fontes de dados locais ou em uma VM do Azure aos serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
 
 > [!IMPORTANT]
@@ -65,13 +65,13 @@ Aqui está o formato JSON para definir uma Atividade de Procedimento Armazenado:
 
 A seguinte tabela descreve essas propriedades JSON:
 
-| Propriedade                  | DESCRIÇÃO                              | Obrigatório |
+| Propriedade                  | Descrição                              | obrigatórios |
 | ------------------------- | ---------------------------------------- | -------- |
-| Nome                      | Nome da atividade                     | Sim      |
+| Nome                      | Nome da atividade                     | SIM      |
 | Descrição               | Texto que descreve qual a utilidade da atividade | Não       |
-| Tipo                      | Para a atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
-| linkedServiceName         | Referência ao **Banco de Dados SQL do Azure** ou ao **SQL Data Warehouse do Azure** ou ao **SQL Server** registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
-| storedProcedureName       | Especifique o nome do procedimento armazenado para invocar. | Sim      |
+| type                      | Para a atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | SIM      |
+| linkedServiceName         | Referência ao **Banco de Dados SQL do Azure** ou ao **SQL Data Warehouse do Azure** ou ao **SQL Server** registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | SIM      |
+| storedProcedureName       | Especifique o nome do procedimento armazenado para invocar. | SIM      |
 | storedProcedureParameters | Especifique os valores para parâmetros de procedimento armazenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para passar os valores de parâmetro e seu tipo com suporte da fonte de dados. Se você precisar passar null para um parâmetro, use `"param1": { "value": null }` (tudo em letras minúsculas). | Não       |
 
 ## <a name="parameter-data-type-mapping"></a>Mapeamento de tipo de dados de parâmetro
@@ -79,8 +79,8 @@ O tipo de dados especificado para o parâmetro é o tipo de Azure Data Factory q
 
 | Fonte de dados          | Mapeamento de tipo de dados |
 | ---------------------|-------------------|
-| SQL Data Warehouse do Azure | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
-| Banco de Dados SQL do Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Banco de dados SQL do Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
@@ -89,7 +89,7 @@ O tipo de dados especificado para o parâmetro é o tipo de Azure Data Factory q
 
 Quando um procedimento armazenado falha e retorna detalhes do erro, não é possível capturar as informações de erro diretamente na saída da atividade. No entanto, o Data Factory bombeia todos os seus eventos de execução de atividade para o Azure Monitor. Entre os eventos que o Data Factory bombeia para o Azure Monitor, ele envia detalhes do erro para lá. Você pode, por exemplo, configurar alertas de e-mail desses eventos. Para obter mais informações, consulte [Alertar e monitorar os data factories usando o Azure Monitor](monitor-using-azure-monitor.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
 
 * [U-SQL Activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)

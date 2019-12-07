@@ -1,5 +1,5 @@
 ---
-title: Cópia em massa de um banco de dados usando uma tabela de controle com Azure Data Factory
+title: Cópia em massa de um banco de dados usando uma tabela de controle
 description: Saiba como usar um modelo de solução para copiar dados em massa de um banco de dado usando uma tabela de controle externo para armazenar uma lista de partições de tabelas de origem usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.openlocfilehash: b651721e9b833c02e4789c79ff5ad0b49ce31343
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f50a6067eb38e920c32079c140785f397ee6698
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684284"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896249"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia em massa de um banco de dados com uma tabela de controle
 
@@ -26,7 +26,7 @@ Para copiar dados de um data warehouse no Oracle Server, Netezza, Teradata ou SQ
 
  >! Observação Se você quiser copiar dados de um pequeno número de tabelas com volume de dados relativamente pequeno para SQL Data Warehouse, será mais eficiente usar a ferramenta de [copiar dados de Azure data Factory](copy-data-tool.md). O modelo descrito neste artigo é mais do que você precisa para esse cenário.
 
-## <a name="about-this-solution-template"></a>Sobre o modelo de solução
+## <a name="about-this-solution-template"></a>Sobre esse modelo de solução
 
 Este modelo recupera uma lista de partições de banco de dados de origem para copiar de uma tabela de controle externa. Em seguida, ela faz a iteração em cada partição no banco de dados de origem e a copia para o destino.
 
@@ -42,7 +42,7 @@ O modelo define cinco parâmetros:
 - *Control_Table_Schema_FilterQuery* é o nome da coluna na tabela de controle externo que armazena a consulta de filtro para obter os dados de cada partição no banco de dados de origem. Por exemplo, se você particionou os dados por ano, a consulta armazenada em cada linha pode ser semelhante a ' Select * from DataSource, em que LastModifytime > = ' ' ' 2015-01-01 00:00:00 ' ' e LastModifytime < = ' ' 2015-12-31 23:59:59.999 ' ' '.
 - *Data_Destination_Folder_Path* é o caminho no qual os dados são copiados para o armazenamento de destino. Esse parâmetro só será visível se o destino escolhido for um armazenamento baseado em arquivo. Se você escolher SQL Data Warehouse como o armazenamento de destino, esse parâmetro não será necessário. Mas os nomes de tabela e o esquema em SQL Data Warehouse devem ser iguais aos do banco de dados de origem.
 
-## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
+## <a name="how-to-use-this-solution-template"></a>Como usar esse modelo de solução
 
 1. Crie uma tabela de controle no SQL Server ou no banco de dados SQL do Azure para armazenar a lista de partições de banco de dados de origem para cópia em massa. No exemplo a seguir, há cinco partições no banco de dados de origem. Três partições são para o *datasource_table*e duas são para o *project_table*. A coluna *LastModifytime* é usada para particionar os dados na tabela *datasource_table* do banco de dados de origem. A consulta usada para ler a primeira partição é ' Select * from datasource_table em que LastModifytime > = ' ' 2015-01-01 00:00:00 ' ' e LastModifytime < = ' ' 2015-12-31 23:59:59.999 ' ' '. Você pode usar uma consulta semelhante para ler dados de outras partições.
 
@@ -76,7 +76,7 @@ O modelo define cinco parâmetros:
 
     ![Criar uma nova conexão com o armazenamento de destino](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
-5. Selecione **usar este modelo**.
+5. Selecione **Usar este modelo**.
 
     ![Usar esse modelo](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
     
@@ -96,6 +96,6 @@ O modelo define cinco parâmetros:
     
     ![Configuração do Polybase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução ao Azure Data Factory](introduction.md)

@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Amazon Redshift usando o Azure Data Factory
+title: Copiar dados do Amazon redshift
 description: Saiba mais sobre como copiar dados do Amazon Redshift para armazenamentos de dados de coletor com suporte por meio do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: jingwang
-ms.openlocfilehash: 57152c7d4aa558c2d6dd7c4ef0ad2c62311fc0c6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8cb604996f6cde5c55098fd3fdc51d0d061dbcd1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681381"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891211"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -56,14 +56,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte para o serviço vinculado do Amazon Redshift:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AmazonRedshift** | Sim |
-| server |Endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
+| type | A propriedade type deve ser definida como: **AmazonRedshift** | SIM |
+| server |Endereço IP ou nome do host do servidor Amazon Redshift. |SIM |
 | porta |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não, o padrão é 5439 |
-| database |Nome do banco de dados do Amazon Redshift. |Sim |
-| Nome de Usuário |Nome de usuário que tem acesso ao banco de dados. |Sim |
-| Senha |Senha para a conta de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| database |Nome do banco de dados do Amazon Redshift. |SIM |
+| Nome de Usuário |Nome de usuário que tem acesso ao banco de dados. |SIM |
+| Senha |Senha para a conta de usuário. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 **Exemplo:**
@@ -98,9 +98,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Amazon redshift, há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **AmazonRedshiftTable** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **AmazonRedshiftTable** | SIM |
 | schema | Nome do esquema. |Não (se "query" na fonte da atividade for especificada)  |
 | tabela | Nome da tabela. |Não (se "query" na fonte da atividade for especificada)  |
 | tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "query" na fonte da atividade for especificada) |
@@ -133,9 +133,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Amazon Redshift, defina o tipo de fonte na atividade de cópia como **AmazonRedshiftSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AmazonRedshiftSource** | Sim |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **AmazonRedshiftSource** | SIM |
 | query |Utiliza a consulta personalizada para ler os dados. Por exemplo: select * from MyTable. |Não (se "tableName" no conjunto de dados for especificado) |
 | redshiftUnloadSettings | Grupo de propriedades ao usar UNLOAD do Amazon Redshift. | Não |
 | s3LinkedServiceName | Refere-se a um Amazon S3 que será usado como um repositório provisório especificando um nome de serviço vinculado do tipo "AmazonS3". | Sim se estiver usando UNLOAD |
@@ -220,21 +220,21 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são usados de tipo
 | Tipo de dados do Amazon Redshift | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |Cadeia de caracteres |
-| CHAR |Cadeia de caracteres |
+| BOOLEAN |string |
+| CHAR |string |
 | DATE |DateTime |
 | DECIMAL |Decimal |
-| DOUBLE PRECISION |Duplo |
+| DOUBLE PRECISION |DOUBLE |
 | INTEGER |Int32 |
-| REAL |Single |
+| REAL |Individual |
 | SMALLINT |Int16 |
-| TEXT |Cadeia de caracteres |
+| TEXT |string |
 | TIMESTAMP |DateTime |
-| VARCHAR |Cadeia de caracteres |
+| VARCHAR |string |
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

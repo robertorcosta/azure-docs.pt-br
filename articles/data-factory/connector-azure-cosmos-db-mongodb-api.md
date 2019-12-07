@@ -1,23 +1,22 @@
 ---
-title: Copiar dados de ou para a API do Azure Cosmos DB para o MongoDB usando Data Factory
+title: Copiar dados da API do Azure Cosmos DB para o MongoDB
 description: Saiba como copiar dados de armazenamentos de dados de origem com suporte de ou para a API do Azure Cosmos DB para MongoDB para armazenamentos de coletor com suporte usando o Data Factory.
 services: data-factory, cosmosdb
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: multiple
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.author: jingwang
-ms.openlocfilehash: 0da3452964a7c4bb7d2a22ce4cd5164ad8c1e3fb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bc69864cd1db62ba685201416965e64430c2d027
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280700"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891075"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copiar dados de e para o Azure Cosmos DB (API do MongoDB) usando o Azure Data Factory
 
@@ -36,7 +35,7 @@ Você pode usar o conector da API do Azure Cosmos DB para MongoDB para:
 - Gravar no Azure Cosmos DB como **insert** ou **upsert**.
 - Importar e exportar documentos JSON no estado em que se encontram, ou copiar dados de ou para um conjunto de dados tabular. Exemplos incluem um Banco de Dados SQL e um arquivo CSV. Para copiar documentos no estado em que se encontram para ou de arquivos JSON de outra coleção do Azure Cosmos DB, confira Importar ou exportar documentos JSON.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -46,11 +45,11 @@ As seções a seguir fornecem detalhes sobre propriedades que podem ser usadas p
 
 As propriedades a seguir têm suporte no serviço vinculado da API do Azure Cosmos DB para MongoDB:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | O **tipo** de propriedade deve ser definido como **CosmosDbMongoDbApi**. | sim |
-| connectionString |Especifique a cadeia de conexão da API do Azure Cosmos DB para MongoDB. Encontre-a no portal do Azure -> sua folha Cosmos DB -> cadeia de caracteres de conexão primária ou secundária, com o padrão de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). |sim |
-| banco de dados | O nome do banco de dados que você deseja criar. | sim |
+| type | O **tipo** de propriedade deve ser definido como **CosmosDbMongoDbApi**. | SIM |
+| connectionString |Especifique a cadeia de conexão da API do Azure Cosmos DB para MongoDB. Encontre-a no portal do Azure -> sua folha Cosmos DB -> cadeia de caracteres de conexão primária ou secundária, com o padrão de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). |SIM |
+| database | O nome do banco de dados que você deseja criar. | SIM |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você poderá usar o Azure Integration Runtime ou um tempo de execução da integração auto-hospedada (se o armazenamento de dados estiver localizado em uma rede privada). Se essa propriedade não for especificada, o Azure Integration Runtime padrão será usado. |Não |
 
 **Exemplo**
@@ -79,10 +78,10 @@ As propriedades a seguir têm suporte no serviço vinculado da API do Azure Cosm
 
 Para obter uma lista completa de seções e propriedades disponíveis para definição de conjuntos de dados, consulte [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md). As propriedades a seguir são compatíveis com o conjunto de dados da API do Azure Cosmos DB para MongoDB:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | O **tipo** de propriedade do conjunto de dados deve ser definido como **CosmosDbMongoDbApiCollection**. |sim |
-| collectionName |O nome da coleção do Azure Cosmos DB. |sim |
+| type | O **tipo** de propriedade do conjunto de dados deve ser definido como **CosmosDbMongoDbApiCollection**. |SIM |
+| collectionName |O nome da coleção do Azure Cosmos DB. |SIM |
 
 **Exemplo**
 
@@ -113,9 +112,9 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | O **tipo** de propriedade da fonte da atividade de cópia deve ser definido como **CosmosDbMongoDbApiSource**. |sim |
+| type | O **tipo** de propriedade da fonte da atividade de cópia deve ser definido como **CosmosDbMongoDbApiSource**. |SIM |
 | filtro | Especifica o filtro de seleção usando operadores de consulta. Para retornar todos os documentos em uma coleção, omita esse parâmetro ou passe um documento vazio ({}). | Não |
 | cursorMethods.project | Especifica os campos a serem retornados nos documentos para projeção. Para retornar todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
 | cursorMethods.sort | Especifica a ordem na qual a consulta retorna documentos correspondentes. Consulte [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
@@ -168,9 +167,9 @@ As seguintes propriedades são suportadas na seção **source** da atividade de 
 
 As seguintes propriedades são suportadas na seção Copy Activity **sink**:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | O **tipo** de propriedade do coletor de atividade de cópia deve ser definido como **CosmosDbMongoDbApiSink**. |sim |
+| type | O **tipo** de propriedade do coletor de atividade de cópia deve ser definido como **CosmosDbMongoDbApiSink**. |SIM |
 | writeBehavior |Descreve como gravar dados no Azure Cosmos DB. Valores permitidos são **insert** e **upsert**.<br/><br/>O comportamento de **Upsert** é substituir o documento se já existir um documento com o mesmo `_id`; caso contrário, insira o documento.<br /><br />**Observação**: data Factory gera automaticamente um `_id` para um documento se um `_id` não é especificado no documento original ou no mapeamento de coluna. Isso significa que, para **upsert** funcionar conforme esperado, o documento deve ter uma ID. |Não<br />(o padrão é **insert**) |
 | writeBatchSize | A propriedade **writeBatchSize** controla o tamanho dos documentos que escrevemos em cada lote. Você pode tentar aumentar o valor de **writeBatchSize** para melhorar o desempenho e diminuir o valor se o tamanho do documento for grande. |Não<br />(o padrão é **10.000**) |
 | writeBatchTimeout | O tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite. O valor permitido é TimeSpan. | Não<br/>(o padrão é **30:00:00** - 30 minutos) |
@@ -236,6 +235,6 @@ Após a cópia de execução da atividade, o ObjectId BSON abaixo é gerado no c
 }
 ``` 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista de armazenamentos de dados compatíveis com a Atividade de Cópia como fontes e coletores no Azure Data Factory, confira [armazenamentos de dados compatíveis](copy-activity-overview.md##supported-data-stores-and-formats).

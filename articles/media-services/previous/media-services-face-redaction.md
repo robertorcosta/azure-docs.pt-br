@@ -1,6 +1,6 @@
 ---
 title: Edição facial com o Azure Media Analytics | Microsoft Docs
-description: Este tópico demonstra como editar rostos com o Azure Media Analytics.
+description: Azure Media Redactor é um processador de mídia Análise de Mídia do Azure que oferece uma edição facial escalonável na nuvem. Este artigo demonstra como redigir rostos com a análise de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e350b6ed90324e7ed645d85c046fd74c0a089452
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016027"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900310"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 **Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-redactor/)blog.
 
 Este artigo fornece detalhes sobre o **Azure Media Redactor** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET.
@@ -34,7 +34,7 @@ Além de um modo totalmente automatizado, há um fluxo de trabalho de duas etapa
 ### <a name="combined-mode"></a>Modo Combinado
 Esse procedimento produz um mp4 editado automaticamente sem qualquer entrada manual.
 
-| Estágio | Nome do Arquivo | Observações |
+| Estágio | Nome do Arquivo | Notas |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MOV ou MP4 |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -49,7 +49,7 @@ Esse procedimento produz um mp4 editado automaticamente sem qualquer entrada man
 ### <a name="analyze-mode"></a>Modo Analisar
 A etapa **Analisar** do fluxo de trabalho de duas etapas utiliza uma entrada de vídeo e produz um arquivo JSON com a localização dos rostos, e imagens jpg de cada rosto detectado.
 
-| Estágio | Nome do Arquivo | Observações |
+| Estágio | Nome do Arquivo | Notas |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4 |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -114,7 +114,7 @@ Isso inclui uma lista de IDs a serem desfocados, o vídeo original e o JSON de a
 
 O resultado da etapa Analisar não inclui o vídeo original. O vídeo precisa ser carregado no ativo de entrada para a tarefa do modo Editar e selecionado como o arquivo primário.
 
-| Estágio | Nome do Arquivo | Observações |
+| Estágio | Nome do Arquivo | Notas |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4. O mesmo vídeo da etapa 1. |
 | Ativo de entrada |foo_annotations.json |arquivo de metadados de anotações da fase 1, com modificações opcionais. |
@@ -135,7 +135,7 @@ foo_IDList.txt de exemplo
 
 ## <a name="blur-types"></a>Tipos de desfoque
 
-No modo **Combinado** ou **Edição**, há cinco modos diferentes de desfoque para escolher na configuração de entrada JSON: **Baixo**, **Méd**, **Alto**, **Caixa** e **Preto**. Por padrão, **Med** é usado.
+No modo **Combinado** ou **Redação**, há cinco modos de desfoque diferentes para escolher por meio da configuração de entrada JSON: **Baixo**, **Med**, **Alto**, **Caixa** e **Preto**. Por padrão, **Med** é usado.
 
 Encontre exemplos dos tipos de desfoque abaixo.
 
@@ -147,7 +147,7 @@ Encontre exemplos dos tipos de desfoque abaixo.
 
 #### <a name="low"></a>Baixo
 
-![Baixa](./media/media-services-face-redaction/blur1.png)
+![Baixo](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
@@ -157,9 +157,9 @@ Encontre exemplos dos tipos de desfoque abaixo.
 
 ![Alto](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Quadrado
+#### <a name="box"></a>Box
 
-![Quadrado](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Preto
 
@@ -363,7 +363,7 @@ namespace FaceRedaction
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

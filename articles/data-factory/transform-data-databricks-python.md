@@ -1,5 +1,5 @@
 ---
-title: Transformar dados com o netbricks Python – Azure
+title: Transformar dados com o Python do databricks
 description: Saiba como processar ou transformar dados executando um Python do Databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 47654e8183dab120376f94df63d7664ead5dd580
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1acc484b8843fc1fe1acae5759a24f923396e003
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683941"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893936"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformar dados executando uma atividade de Python no Azure Databricks
 
-A atividade de Python do Azure Databricks em um [pipeline do Data Factory](concepts-pipelines-activities.md) executa um arquivo de Python em seu cluster do Azure Databricks. Este documento se baseia no artigo sobre as  [atividades de transformação de dados](transform-data.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação permitidas. Azure Databricks é uma plataforma gerenciada para executar o Apache Spark.
+A atividade de Python do Azure Databricks em um [pipeline do Data Factory](concepts-pipelines-activities.md) executa um arquivo de Python em seu cluster do Azure Databricks. Este documento baseia-se no artigo sobre  [atividades de transformação de dados](transform-data.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação permitidas. Azure Databricks é uma plataforma gerenciada para executar o Apache Spark.
 
 Para ver uma introdução de 11 minutos e uma demonstração desse recurso, assista ao seguinte vídeo:
 
@@ -62,14 +62,14 @@ A seguir está a definição JSON de exemplo de uma Atividade de Python do Datab
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
-|Propriedade|DESCRIÇÃO|obrigatórios|
+|Propriedade|Descrição|obrigatórios|
 |---|---|---|
-|name|Nome da atividade no pipeline.|Sim|
-|Description|Texto que descreve o que a atividade faz.|Não|
-|type|Para a Atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|Sim|
-|linkedServiceName|Nome do serviço vinculado ao Databricks no qual a atividade de Python é executado. Saiba mais sobre esse serviço vinculado no artigo  [Serviços de computação vinculados](compute-linked-services.md) .|Sim|
-|pythonFile|O URI do arquivo Python a ser executado. Há suporte para apenas os caminhos DBFS.|Sim|
-|parameters|Parâmetros de linha de comando que serão passados para o arquivo Python. Isto é uma matriz de cadeias de caracteres.|Não|
+|Nome|Nome da atividade no pipeline.|SIM|
+|Descrição|Texto que descreve o que a atividade faz.|Não|
+|type|Para a Atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|SIM|
+|linkedServiceName|Nome do serviço vinculado ao Databricks no qual a atividade de Python é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo  [Serviços de computação vinculados](compute-linked-services.md) .|SIM|
+|pythonFile|O URI do arquivo Python a ser executado. Há suporte para apenas os caminhos DBFS.|SIM|
+|parâmetros|Parâmetros de linha de comando que serão passados para o arquivo Python. Isto é uma matriz de cadeias de caracteres.|Não|
 |bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster, que executará o trabalho. Ele pode ser uma matriz de <string, object>|Não|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas com suporte para atividades do databricks

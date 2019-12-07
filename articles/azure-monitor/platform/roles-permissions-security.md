@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d223c3483becdc8ba44bc14ec16150cf1b001943
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305156"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894531"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
 
@@ -71,7 +71,7 @@ Pessoas atribuídas à função de Colaborador de monitoramento podem exibir tod
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Monitoramento de permissões e funções RBAC personalizadas
 Se as funções internas acima não atenderem às necessidades exatas de sua equipe, você poderá [criar uma função personalizada de RBAC](../../role-based-access-control/custom-roles.md) com permissões mais granulares. A seguir estão as operações RBAC do Azure Monitor e suas descrições.
 
-| Operação | DESCRIÇÃO |
+| Operação | Descrição |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Grupos de ações de leitura/gravação/exclusão. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Alertas de log de atividades de leitura/gravação/exclusão. |
@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 Dados de monitoramento — especialmente os arquivos de log — podem conter informações confidenciais, como endereços IP ou nomes de usuário. Os dados de monitoramento do Azure vêm em três formas básicas:
 
 1. O Log de atividades, que descreve todas as ações do plano de controle na sua assinatura do Azure.
-2. Logs de diagnóstico, que são logs emitidos por um recurso.
+2. logs de recursos, que são logs emitidos por um recurso.
 3. Métricas, que são emitidas pelos recursos.
 
 Todos esses três tipos de dados podem ser armazenados em uma conta de armazenamento ou transmitidos ao Hub de eventos, que são recursos do Azure para fins gerais. Como esses são recursos de finalidade geral, criar, excluir e acessá-los são operações privilegiadas, reservadas para o administrador. Sugerimos que você use as seguintes práticas para recursos relacionados ao monitoramento para evitar o uso indevido:
@@ -182,12 +182,12 @@ O Azure Monitor precisa de acesso aos seus recursos do Azure para fornecer os se
 ### <a name="secured-storage-accounts"></a>Contas de Armazenamento protegidas 
 
 Os dados de monitoramento costumam ser gravados em uma conta de armazenamento. Convém verificar se os dados copiados para uma Conta de Armazenamento não podem ser acessados por usuários não autorizados. Para obter mais segurança, bloqueie o acesso à rede para permitir que somente os recursos autorizados e os serviços de confiança da Microsoft acessem uma conta de armazenamento restringindo uma conta de armazenamento para usar "redes selecionadas".
-![Caixa de diálogo de Configurações de Armazenamento do Azure](./media/roles-permissions-security/secured-storage-example.png) O Azure Monitor é considerado um desses "serviços de confiança da Microsoft". Se você permitir que serviços confiáveis da Microsoft acessem seu Armazenamento Protegido, o Azure Monitor terá acesso à sua conta de Armazenamento Protegido, habilitando a gravação de logs de diagnóstico do Azure Monitor, log de atividades e métricas em sua Conta de Armazenamento sob essas condições protegidas. Isso também permitirá que o Log Analytics leia os logs do armazenamento protegido.   
+![](./media/roles-permissions-security/secured-storage-example.png) de diálogo Configurações do armazenamento do Azure Azure Monitor é considerado um destes "serviços confiáveis da Microsoft" se você permitir que serviços da Microsoft confiáveis acessem seu armazenamento protegido, o Azure monitor terá acesso à sua conta de armazenamento protegido; habilitar a gravação Azure Monitor logs de recursos, o log de atividades e as métricas para sua conta de armazenamento nessas condições protegidas. Isso também permitirá que o Log Analytics leia os logs do armazenamento protegido.   
 
 
 Para saber mais, confira [Segurança de rede e Armazenamento do Azure](../../storage/common/storage-network-security.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Leia sobre RBAC e permissões no Gerenciador de Recursos](../../role-based-access-control/overview.md)
 * [Leia a visão geral do monitoramento no Azure](../../azure-monitor/overview.md)
 

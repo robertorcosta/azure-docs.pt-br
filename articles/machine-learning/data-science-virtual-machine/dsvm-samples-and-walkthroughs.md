@@ -1,5 +1,5 @@
 ---
-title: Amostras & passo a passos
+title: Exemplos de programas & instruções do ML
 titleSuffix: Azure Data Science Virtual Machine
 description: Por meio desses exemplos e orientações, saiba como lidar com as tarefas e cenários comuns com o Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802450"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900041"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemplos em máquinas virtuais de ciência de dados do Azure
 
@@ -28,7 +28,7 @@ As DSVMs (máquinas virtuais de ciência de dados) do Azure incluem um conjunto 
 Para executar esses exemplos, você deve ter provisionado um Máquina Virtual de Ciência de Dados. Consulte os guias de início rápido para [Windows](./provision-vm.md) e [Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Exemplos disponíveis
-| Categoria de exemplos | Descrição | Localizações |
+| Categoria de exemplos | Descrição | Locais |
 | ------------- | ------------- | ------------- |
 | Linguagem R  | Os exemplos ilustram cenários como a conexão com armazenamentos de dados de nuvem baseados no Azure e como comparar o R e o Microsoft Machine Learning Server de código aberto. Eles também explicam como colocar em operação modelos em Microsoft Machine Learning Server e SQL Server. <br/> [Linguagem R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Linguagem Python  | Os exemplos explicam cenários como a conexão com armazenamentos de dados de nuvem baseados no Azure e como trabalhar com Azure Machine Learning.  <br/> [Linguagem Python](#python-language) | <br/>`~notebooks` <br/><br/>|

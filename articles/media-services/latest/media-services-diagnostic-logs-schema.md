@@ -1,6 +1,6 @@
 ---
 title: Esquemas de logs de diagnóstico dos serviços de mídia do Azure – Azure
-description: Este artigo mostra os esquemas dos logs de diagnóstico dos serviços de mídia do Azure.
+description: Este artigo demonstra os esquemas de logs de diagnóstico dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: f95258368664aabeb89426afb83854378c0e4429
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 2f5fcf4d9106bf37bcc81388e48afe689f4ef4d6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261094"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896054"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas de logs de diagnóstico
 
@@ -34,11 +34,11 @@ Para obter uma descrição detalhada do esquema de logs de diagnóstico de níve
 
 ## <a name="key-delivery-log-schema"></a>Esquema do log de distribuição de chaves
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>propriedades
 
 Essas propriedades são específicas para o esquema de log de distribuição de chaves.
 
-|NOME|DESCRIÇÃO|
+|name|Descrição|
 |---|---|
 |keyId|A ID da chave solicitada.|
 |keyType|Pode ser um dos seguintes valores: "Clear" (sem criptografia), "FairPlay", "PlayReady" ou "Widevine".|
@@ -108,6 +108,6 @@ Propriedades do esquema de solicitações de entrega de chave.
 } 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Monitorar as métricas dos serviços de mídia e os logs de diagnóstico](media-services-metrics-diagnostic-logs.md)

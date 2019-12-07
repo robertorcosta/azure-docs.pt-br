@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca38ebb015552042591fb4cc6b7edfe99527e79f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007060"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900239"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no ambiente do Time Series Insights
 
@@ -38,7 +38,7 @@ O Azure Time Series Insights dá suporte somente a dados JSON. Para obter exempl
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a chave de origem do evento não tem uma permissão necessária
 
-* Para um hub IoT no Hub IoT do Azure, você precisa fornecer a chave com as permissões de **conexão de serviço**. Qualquer uma das políticas **iothubowner** ou **serviço** funcionará porque ambas têm permissões de **conexão de serviço**.
+* Para um hub IoT no Hub IoT do Azure, você precisa fornecer a chave com as permissões de **conexão de serviço**. Selecione as políticas de **iothubowner** ou de **serviço** , pois ambas têm permissões de **conexão de serviço** .
 
    [![permissões de conexão do serviço do Hub IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
@@ -50,13 +50,17 @@ O Azure Time Series Insights dá suporte somente a dados JSON. Para obter exempl
 
 Quando você registra um hub IoT ou um hub de eventos, é importante definir o grupo de consumidores que deseja usar para ler os dados. Esse grupo de consumidores *não pode ser compartilhado*. Se o grupo de consumidores for compartilhado, o hub IoT ou o hub de eventos subjacente desconectará de forma automática e aleatória um dos leitores. Forneça um grupo de consumidores exclusivo para o Time Series Insights para leitura.
 
+### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Causa D: o ambiente acabou de ser provisionado
+
+Os dados aparecerão em seu Time Series Insights Explorer dentro de alguns minutos depois que o ambiente e seus dados forem criados primeiro.
+
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problema: alguns dados são mostrados, mas os dados estão ausentes
 
 Quando dados são exibidos apenas parcialmente e parecem estar apresentando retardo, você deve considerar várias possibilidades.
 
 ### <a name="cause-a-your-environment-is-being-throttled"></a>Causa um: seu ambiente está sendo limitado
 
-A limitação é um problema comum quando os ambientes são provisionados após você criar uma origem do evento que tem dados. Os Hubs de Eventos do Azure e o Hub IoT do Azure armazenam dados por até sete dias. O Time Series Insights sempre começa com o evento mais antigo na origem do evento (primeiro a entrar, primeiro a sair ou *PEPS*).
+A [limitação](time-series-insights-environment-mitigate-latency.md) é um problema comum quando os ambientes são provisionados depois que você cria uma origem de evento com dados. Os Hubs de Eventos do Azure e o Hub IoT do Azure armazenam dados por até sete dias. O Time Series Insights sempre começa com o evento mais antigo na origem do evento (primeiro a entrar, primeiro a sair ou *PEPS*).
 
 Por exemplo, se você tiver 5 milhões de eventos em uma origem do evento quando se conecta a um ambiente do Time Series Insights S1, de unidade única, o Time Series Insights lerá aproximadamente 1 milhão de eventos por dia. Pode parecer que o Time Series Insights está apresentando cinco dias de latência. No entanto, o que está acontecendo é que o ambiente está sendo limitado.
 
@@ -113,7 +117,7 @@ Você não deverá ver os seguintes valores:
 - *Ícone de calendário*: indica que Time Series insights está lendo o valor de dados como *DateTime*.
 - *#* : indica que Time Series insights está lendo os valores de dados como um número inteiro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre [como mitigar a latência no Azure Time Series insights](time-series-insights-environment-mitigate-latency.md).
 

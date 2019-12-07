@@ -1,5 +1,5 @@
 ---
-title: Mover arquivos entre o armazenamento baseado em arquivo usando Azure Data Factory
+title: Mover arquivos entre o armazenamento baseado em arquivo
 description: Saiba como usar um modelo de solução para mover arquivos entre o armazenamento baseado em arquivo usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e0f9179918016b9eaec04b0d559e25ed7973f18a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684129"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896213"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mover arquivos com Azure Data Factory
 
@@ -26,7 +26,7 @@ Este artigo descreve um modelo de solução que você pode usar para mover arqui
 > [!NOTE]
 > Lembre-se de que esse modelo foi projetado para mover arquivos em vez de mover pastas.  Se você quiser mover a pasta alterando o conjunto de um para que ela contenha apenas um caminho de pasta e, em seguida, usando a atividade de cópia e excluir a referência ao mesmo conjunto de um que representa uma pasta, você precisa ter muito cuidado. Isso porque você tem que ter certeza de que NÃO haverá novos arquivos entrando na pasta entre as operações de cópia e exclusão. Se houver novos arquivos chegando à pasta no momento em que a atividade de cópia tiver acabado o trabalho de cópia, mas a atividade de exclusão ainda não tiver sido iniciada, é possível que a atividade Excluir exclua esse novo arquivo que esteja entrando e que ainda NÃO foi copiado para o destino ao excluir a pasta inteira.
 
-## <a name="about-this-solution-template"></a>Sobre o modelo de solução
+## <a name="about-this-solution-template"></a>Sobre esse modelo de solução
 
 Este modelo obtém os arquivos do armazenamento baseado em arquivo de origem. Em seguida, ele move cada um deles para o repositório de destino.
 
@@ -41,7 +41,7 @@ O modelo define dois parâmetros:
 - *FolderPath_SourceStore* é o caminho da pasta do seu repositório de origem para o qual você deseja mover arquivos. 
 - *FolderPath_DestinationStore* é o caminho da pasta do armazenamento de destino para o qual você deseja mover os arquivos. 
 
-## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
+## <a name="how-to-use-this-solution-template"></a>Como usar esse modelo de solução
 
 1. Vá para o modelo **mover arquivos** . Selecione conexão existente ou crie uma **nova** conexão com o repositório de arquivos de origem para o qual você deseja mover arquivos. Lembre-se de que **DataSource_Folder** e **DataSource_File** são referências à mesma conexão do seu repositório de arquivos de origem.
 
@@ -51,7 +51,7 @@ O modelo define dois parâmetros:
 
     ![Criar uma nova conexão para o destino](media/solution-template-move-files/move-files2.png)
 
-3. Selecione **usar este modelo**.
+3. Selecione **Usar este modelo**.
 
     ![Usar esse modelo](media/solution-template-move-files/move-files3.png)
     
@@ -67,7 +67,7 @@ O modelo define dois parâmetros:
 
     ![Revisar o resultado](media/solution-template-move-files/move-files6.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory](solution-template-copy-new-files-lastmodifieddate.md)
 

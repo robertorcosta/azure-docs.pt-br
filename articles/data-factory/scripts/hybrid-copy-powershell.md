@@ -1,22 +1,21 @@
 ---
-title: 'Script do PowerShell: copiar dados do local para o Azure usando Data Factory '
+title: Copiar dados do local para o Azure com o PowerShell
 description: O script do PowerShell copia dados de um banco de dados do SQL Server local para outro no Armazenamento de Blobs do Azure.
 services: data-factory
-author: linda33wj
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: d7f8d67291c0b6b2a384331c014fdd5cd247ceae
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: linda33wj
+manager: shwang
+ms.date: 10/31/2017
+ms.openlocfilehash: f75c4316383120e198ab57501e31c0c42a8917f2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684353"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890837"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Usar o PowerShell para criar um pipeline do data factory para copiar dados do local para o Azure
 
@@ -30,7 +29,7 @@ Este script de exemplo do PowerShell cria um pipeline no Azure Data Factory que 
 
 - **SQL Server**. Um banco de dados do SQL Server local é usado como um armazenamento de dados de **origem** neste exemplo.
 - **Conta de Armazenamento do Azure**. O Armazenamento de Blobs do Azure é usado como um armazenamento de dados de **destino/coletor** neste exemplo. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar um.
-- **Tempo de execução de integração auto-hospedada**. Baixe o arquivo MSI do [Centro de Download](https://www.microsoft.com/download/details.aspx?id=39717) e execute-o para instalar um tempo de execução de integração auto-hospedado no seu computador.  
+- **runtime de integração auto-hospedada**. Baixe o arquivo MSI do [Centro de Download](https://www.microsoft.com/download/details.aspx?id=39717) e execute-o para instalar um runtime de integração auto-hospedada no seu computador.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Criar o banco de dados de exemplo no SQL Server
 1. No banco de dados do SQL Server local, crie uma tabela chamada **emp** usando o seguinte script SQL: 
@@ -61,7 +60,7 @@ Este script de exemplo do PowerShell cria um pipeline no Azure Data Factory que 
 [!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from on-premises SQL Server -> Azure Blob Storage")]
 
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Depois de executar o exemplo de script, use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele:
 
@@ -78,10 +77,10 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 Este script usa os seguintes comandos: 
 
-| Command | Observações |
+| Command | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Criar uma fábrica de dados. |
+| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Criar um data factory. |
 | [New-AzDataFactoryV2LinkedServiceEncryptCredential](/powershell/module/az.datafactory/new-Azdatafactoryv2linkedserviceencryptedcredential) | Criptografa as credenciais em um serviço vinculado e gera uma nova definição de serviço vinculado com a credencial criptografada. 
 | [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/Set-Azdatafactoryv2linkedservice) | Cria um serviço vinculado no data factory. Um serviço vinculado vincula um armazenamento de dados ou uma computação a um data factory. |
 | [Set-AzDataFactoryV2Dataset](/powershell/module/az.datafactory/Set-Azdatafactoryv2dataset) | Cria um conjunto de dados no data factory. Um conjunto de dados representa a entrada/saída para uma atividade em um pipeline. | 
@@ -91,7 +90,7 @@ Este script usa os seguintes comandos:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/05/2019
 ms.author: b-juche
-ms.openlocfilehash: 84496fbc8a415171172d0a138f647ecb0310b6c7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7f1e9500a9268e0fba054f7065e858cd801aca7b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173576"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894089"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montar ou desmontar um volume para máquinas virtuais do Windows ou do Linux 
 
@@ -42,7 +42,13 @@ Você pode montar ou desmontar um volume para máquinas virtuais do Windows ou d
     * `$FILEPATH` é o caminho de exportação do volume de Azure NetApp Files.
     * `$MOUNTPOINT` é o diretório criado no host do Linux usado para montar a exportação do NFS.
 
-## <a name="next-steps"></a>Próximas etapas
+4. Se você quiser montar o volume para o Windows usando NFS:
+
+    a. Monte o volume em uma VM UNIX ou Linux primeiro.  
+    b. Execute um comando `chmod 777` ou `chmod 775` no volume.  
+    c. Monte o volume por meio do cliente NFS no Windows.
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar o domínio padrão do NFSv 4.1 para Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Perguntas frequentes sobre NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)

@@ -1,5 +1,5 @@
 ---
-title: Cópia Delta de um banco de dados usando uma tabela de controle com Azure Data Factory
+title: Cópia Delta de um banco de dados usando uma tabela de controle
 description: Saiba como usar um modelo de solução para copiar linhas novas ou atualizadas de maneira incremental de um banco de dados apenas com o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.openlocfilehash: c9ab1d005cf71dbe03546ce5b6014f616a872f8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 22723033b59fafc0b9dfd1ae4fc08e5f6e9145ed
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684218"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896227"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia Delta de um banco de dados com uma tabela de controle
 
@@ -29,7 +29,7 @@ Este modelo requer que o esquema do banco de dados de origem contenha uma coluna
 >[!NOTE]
 > Se você tiver uma coluna de carimbo de data/hora em seu banco de dados de origem para identificar linhas novas ou atualizadas, mas não quiser criar uma tabela de controle externo para usar para cópia Delta, você poderá usar a [ferramenta Azure Data Factory copiar dados](copy-data-tool.md) para obter um pipeline. Essa ferramenta usa um tempo agendado para o gatilho como uma variável para ler novas linhas do banco de dados de origem.
 
-## <a name="about-this-solution-template"></a>Sobre o modelo de solução
+## <a name="about-this-solution-template"></a>Sobre esse modelo de solução
 
 Esse modelo primeiro recupera o valor antigo da marca d' água e o compara com o valor da marca d' água atual. Depois disso, ele copia apenas as alterações do banco de dados de origem, com base em uma comparação entre os dois valores de marca d' água. Por fim, ele armazena o novo valor de marca d' água alta em uma tabela de controle externo para carregamento de dados Delta na próxima vez.
 
@@ -46,7 +46,7 @@ O modelo define cinco parâmetros:
 - *Control_Table_Table_Name* é a tabela de controle externo que armazena o valor de marca d' água alta.
 - *Control_Table_Column_Name* é a coluna na tabela de controle externo que armazena o valor de marca d' água alta.
 
-## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
+## <a name="how-to-use-this-solution-template"></a>Como usar esse modelo de solução
 
 1. Explore a tabela de origem que deseja carregar e defina a coluna de marca d' água alta que pode ser usada para identificar linhas novas ou atualizadas. O tipo dessa coluna pode ser *DateTime*, *int*ou semelhante. O valor dessa coluna aumenta conforme novas linhas são adicionadas. Na tabela de origem de exemplo a seguir (data_source_table), podemos usar a coluna *LastModifytime* como a coluna de marca d' água alta.
 
@@ -100,7 +100,7 @@ O modelo define cinco parâmetros:
 
     ![Criar uma nova conexão para o armazenamento de dados na tabela de controle](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
-7. Selecione **usar este modelo**.
+7. Selecione **Usar este modelo**.
 
      ![Usar esse modelo](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
@@ -143,7 +143,7 @@ O modelo define cinco parâmetros:
     
     ![Configurar o Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Cópia em massa de um banco de dados usando uma tabela de controle com Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 - [Copiar arquivos de vários contêineres com Azure Data Factory](solution-template-copy-files-multiple-containers.md)
