@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 9f933a9ad63af11bcfee7c90f17318f5a237b962
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/05/2019
+ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792103"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893649"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -86,14 +86,6 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
 1. [Baixe e execute o instalador do gateway em um computador local](https://aka.ms/on-premises-data-gateway-installer).
 
-1. Depois que o instalador for aberto, selecione **Avançar**.
-
-   ![Tela de introdução para o instalador do gateway](./media/logic-apps-gateway-install/gateway-intro-screen.png)
-
-1. Selecione **Gateway de dados local (recomendado)** , que é o modo padrão e, em seguida, selecione **Avançar**.
-
-   ![Selecione o modo de execução para o gateway de dados](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
-
 1. Examine os requisitos mínimos, mantenha o caminho de instalação padrão, aceite os termos de uso e, em seguida, selecione **instalar**.
 
    ![Revise os requisitos e aceite os termos de uso](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
@@ -104,7 +96,7 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
    A instalação do gateway pode ser vinculada a apenas uma conta do Azure.
 
-1. Selecione **registrar um novo gateway neste computador** > **Avançar**. Essa etapa registra a instalação do gateway com o [serviço de nuvem do gateway](#gateway-cloud-service).
+1. Selecione **Registrar um novo gateway neste computador** > **Avançar**. Essa etapa registra a instalação do gateway com o [serviço de nuvem do gateway](#gateway-cloud-service).
 
    ![Registrar gateway no computador local](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -150,7 +142,7 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 O gateway de dados local depende do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) para conectividade de nuvem e estabelece as conexões de saída correspondentes à região do Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para acessar a Internet, essa restrição poderá impedir que o gateway de dados local se conecte ao serviço de nuvem do gateway e ao barramento de serviço do Azure. O gateway tem várias configurações de comunicação que você pode ajustar. Para saber mais, consulte esses tópicos:
 
 * [Ajustar as configurações de comunicação para o gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Definir configurações de proxy para o gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Definir as configurações de proxy do gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -234,7 +226,7 @@ Estas etapas descrevem o que acontece quando você interage com um elemento que 
 
 1. Os resultados são enviados da fonte de dados de volta ao gateway e, em seguida, para o serviço de nuvem do gateway. O serviço de nuvem do gateway então usa os resultados.
 
-### <a name="authentication-to-on-premises-data-sources"></a>Autenticação para fontes de dados locais
+### <a name="authentication-to-on-premises-data-sources"></a>Autenticação em fontes de dados locais
 
 Uma credencial armazenada é usada para se conectar do gateway para fontes de dados locais. Independentemente do usuário, o gateway usa a credencial armazenada para se conectar. Pode haver exceções de autenticação para serviços específicos, como DirectQuery e LiveConnect para Analysis Services em Power BI.
 

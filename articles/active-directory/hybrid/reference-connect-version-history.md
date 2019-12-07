@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73944220"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891772"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -70,7 +70,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 
 
 ### <a name="release-status"></a>Status de liberação
-9/25/2019: removido do download manual até que a investigação de incidentes seja concluída.
+9/25/2019: liberado somente para atualização automática.
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 - Novas ferramentas de solução de problemas ajudam a solucionar os cenários "usuário não sincronizando", "grupo não sincronizando" ou "membros do grupo não sincronizando".
@@ -469,18 +469,18 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Digite     | NOME                          | Access               | Aplica-se A
+Type     | name                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
-Permitir    | SYSTEM                        | Controle Total         | Este objeto  |
-Permitir    | Administradores Corporativos             | Controle Total         | Este objeto  |
-Permitir    | Administradores de Domínio                 | Controle Total         | Este objeto  |
-Permitir    | Administradores                | Controle Total         | Este objeto  |
-Permitir    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
-Permitir    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
-Permitir    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
-Permitir    | Usuários Autenticados           | Listar Conteúdo        | Este objeto  |
-Permitir    | Usuários Autenticados           | Ler Todas as Propriedades  | Este objeto  |
-Permitir    | Usuários Autenticados           | Permissões de Leitura     | Este objeto  |
+PERMITIR    | SYSTEM                        | Controle Total         | Este objeto  |
+PERMITIR    | Administradores Corporativos             | Controle Total         | Este objeto  |
+PERMITIR    | Administradores de Domínio                 | Controle Total         | Este objeto  |
+PERMITIR    | Administradores                | Controle Total         | Este objeto  |
+PERMITIR    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
+PERMITIR    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
+PERMITIR    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
+PERMITIR    | Usuários Autenticados           | Listar Conteúdo        | Este objeto  |
+PERMITIR    | Usuários Autenticados           | Ler Todas as Propriedades  | Este objeto  |
+PERMITIR    | Usuários Autenticados           | Permissões de Leitura     | Este objeto  |
 
 Para reforçar as configurações para a conta do AD DS você pode executar [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell atribuirá as permissões mencionadas acima para a conta do AD DS.
 
@@ -812,9 +812,9 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Escolha|
+    |CertVersion|CertSignatureAlgorithmOid|Selecionar|
     |CertKeyAlgorithmParams|CertHashString|Where|
-    |||With|
+    |||Com|
 
 * As seguintes alterações de esquema foram introduzidas para permitir que os clientes criem regras de sincronização personalizadas para transmitir sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como transmitir distinguishedName para objetos de usuário:
 
@@ -1233,7 +1233,7 @@ Nome alterado de Azure AD Sync para Azure AD Connect.
 * Instalação das [configurações expressas](how-to-connect-install-express.md)
 * Pode [configurar o AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * É possível [atualizar do DirSync](how-to-dirsync-upgrade-get-started.md)
-* [Evitar exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)
+* [Impedir exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 * Apresentação do [modo de preparo](how-to-connect-sync-staging-server.md)
 
 **Novos recursos de visualização:**
@@ -1331,5 +1331,5 @@ Lançamento: setembro de 2014
 
 **Versão inicial do Azure AD Sync.**
 
-## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md).
+## <a name="next-steps"></a>Próximos passos
+Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md).

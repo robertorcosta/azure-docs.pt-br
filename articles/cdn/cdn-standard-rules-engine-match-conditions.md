@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: c4c2b1f334e37691655b18d2c629fbd8edc95382
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171601"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900187"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condições de correspondência no mecanismo de regras padrão para a CDN do Azure
 
@@ -36,17 +36,17 @@ Identifica solicitações feitas de um dispositivo móvel ou dispositivo de desk
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Valores com suporte
+operador | Valores com suporte
 ---------|----------------
 Equals, não é igual a | Móvel, área de trabalho
 
-### <a name="http-version"></a>Versão de HTTP
+### <a name="http-version"></a>Versão do HTTP
 
 Identifica solicitações com base na versão HTTP da solicitação.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Valores com suporte
+operador | Valores com suporte
 ---------|----------------
 Equals, não é igual a | 2,0, 1,1, 1,0, 0,9, todos
 
@@ -56,13 +56,13 @@ Identifica solicitações com base nas informações de cookie na solicitação 
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Nome do cookie | Operador | Valor do cookie | Transformação de caso
+Nome do cookie | operador | Valor do cookie | Transformação de caso
 ------------|----------|--------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+string | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 #### <a name="key-information"></a>Principais informações
 
-- Você não pode usar valores curinga (incluindo asteriscos (\*)) ao especificar um nome de cookie; Você usa um nome de cookie exato.
+- Você não pode usar valores curinga (incluindo asteriscos (\*)) ao especificar um nome de cookie; Você deve usar um nome de cookie exato.
 - Você pode especificar apenas um único nome de cookie por instância dessa condição de correspondência.
 - Comparações de nome de cookie diferenciam maiusculas de minúsculas.
 - Para especificar vários valores de cookie, use um único espaço entre cada valor de cookie. 
@@ -75,9 +75,9 @@ Identifica solicitações com base em argumentos definidos para o método POST R
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Nome do argumento | Operador | Valor do argumento | Transformação de caso
+Nome do argumento | operador | Valor do argumento | Transformação de caso
 --------------|----------|----------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+string | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="query-string"></a>Cadeia de consulta
 
@@ -85,7 +85,7 @@ Identifica solicitações que contêm um parâmetro de cadeia de caracteres de c
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Cadeia de consulta | Transformação de caso
+operador | Cadeia de consulta | Transformação de caso
 ---------|--------------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
@@ -95,7 +95,7 @@ Identifica solicitações com base no local ou endereço IP do solicitante.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Valores com suporte
+operador | Valores com suporte
 ---------|-----------------
 Qualquer | N/D
 Correspondência geográfica | Código do país
@@ -109,7 +109,7 @@ Não correspondência de IP | Endereço IP (separado por espaços)
 - Use a notação CIDR.
 - Para especificar vários endereços IP e blocos de endereço IP, use um único espaço entre os valores:
   - **Exemplo de IPv4**: *1.2.3.4 10.20.30.40* corresponde a todas as solicitações que chegam de um endereço 1.2.3.4 ou 10.20.30.40.
-  - **Exemplo de IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:8*0 corresponde a todas as solicitações que chegam de um dos endereços 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
+  - **Exemplo de IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* corresponde a todas as solicitações que chegam de um dos endereços 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo:
   - **Exemplo de IPv4**: *5.5.5.64/26* corresponde a todas as solicitações que chegam de endereços 5.5.5.64 por meio de 5.5.5.127.
   - **Exemplo de IPv6**: *1:2:3:/48* corresponde a todas as solicitações que chegam de endereços 1:2:3:0:0:0:0:0 a 1:2: 3: ffff: ffff: ffff: ffff: ffff.
@@ -120,7 +120,7 @@ Identifica solicitações com base em um texto específico que aparece no corpo 
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Corpo da solicitação | Transformação de caso
+operador | Corpo da solicitação | Transformação de caso
 ---------|--------------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
@@ -130,9 +130,9 @@ Identifica as solicitações que usam um cabeçalho específico na solicitação
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Nome do cabeçalho | Operador | Valor do cabeçalho | Transformação de caso
+Nome do cabeçalho | operador | Valor do cabeçalho | Transformação de caso
 ------------|----------|--------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+string | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="request-method"></a>Método de solicitação
 
@@ -140,7 +140,7 @@ Identifica as solicitações que usam o método de solicitação especificado.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Valores com suporte
+operador | Valores com suporte
 ---------|----------------
 Equals, não é igual a | OBTER, POSTAR, COLOCAR, EXCLUIR, CABEÇALHO, OPÇÕES, RASTREAMENTO
 
@@ -154,7 +154,7 @@ Identifica as solicitações que usam o protocolo especificado usado.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Valores com suporte
+operador | Valores com suporte
 ---------|----------------
 Equals, não é igual a | HTTP, HTTPS
 
@@ -164,7 +164,7 @@ Identifica as solicitações que correspondem à URL especificada.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | URL de Solicitação | Transformação de caso
+operador | URL de Solicitação | Transformação de caso
 ---------|-------------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
@@ -178,7 +178,7 @@ Identifica solicitações que incluem a extensão de arquivo especificada no nom
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Extensão | Transformação de caso
+operador | Extensão | Transformação de caso
 ---------|-----------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
@@ -192,7 +192,7 @@ Identifica solicitações que incluem o nome de arquivo especificado na URL soli
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Nome do arquivo | Transformação de caso
+operador | Nome do arquivo | Transformação de caso
 ---------|-----------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
@@ -206,7 +206,7 @@ Identifica solicitações que incluem o caminho especificado na URL solicitante.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | Valor | Transformação de caso
+operador | Value | Transformação de caso
 ---------|-------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
@@ -221,7 +221,7 @@ Operador | Valor | Transformação de caso
 Para regras que aceitam valores da lista de operadores padrão, os seguintes operadores são válidos:
 
 - Qualquer
-- É igual a 
+- Igual a 
 - Contém: 
 - Começa com 
 - Termina com 
@@ -240,7 +240,7 @@ Para regras que aceitam valores da lista de operadores padrão, os seguintes ope
 
 Para operadores numéricos como *menor* que e *maior ou igual*a, a comparação usada é baseada no comprimento. Nesse caso, o valor na condição de correspondência deve ser um inteiro igual ao comprimento que você deseja comparar. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral da CDN do Azure](cdn-overview.md)
 - [Referência do mecanismo de regras padrão](cdn-standard-rules-engine-reference.md)

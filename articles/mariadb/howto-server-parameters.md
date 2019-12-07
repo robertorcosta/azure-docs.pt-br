@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 3477820cb20d856c2e979cdfbe5528113bf4b562
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: 59d18ea11699ed77763c162e4930b159fcd19fe2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769397"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888658"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Como configurar os parâmetros do servidor no banco de dados do Azure para MariaDB usando o portal do Azure
 
@@ -77,6 +77,8 @@ As tabelas de fuso horário no servidor podem ser preenchidas, chamando o proced
 CALL mysql.az_load_timezone();
 ```
 
+> [!IMPORTANT]
+> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário sejam populadas corretamente. Para reiniciar o servidor, use o [portal do Azure](howto-restart-server-portal.md) ou a [CLI](howto-restart-server-cli.md).
 Para exibir os valores de fuso horário disponíveis, execute o comando a seguir:
 
 ```sql

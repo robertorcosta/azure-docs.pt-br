@@ -1,22 +1,21 @@
 ---
-title: Funções de expressão no recurso de fluxo de dados de mapeamento do Azure Data Factory
+title: Funções de expressão no fluxo de dados de mapeamento
 description: Saiba mais sobre as funções de expressão no fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: dc742fc625604e71909f49c7453a9215dce71e35
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f384c440dab06660c95f635dde02ced5b3e54d94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596975"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896305"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento 
-
-
 
 ## <a name="expression-functions"></a>Funções de expressão
 
@@ -41,7 +40,7 @@ Calcula um valor inverso do cosseno
 ___
 ### <code>add</code>
 <code><b>add(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Adiciona um par de cadeias de caracteres ou números. Adiciona uma data a um número de dias. Adiciona uma duração a um carimbo de data/hora. Acrescenta uma matriz de tipo semelhante para outra. Mesmo que o operador +
+Adiciona um par de cadeias de caracteres ou números. Adiciona uma data a um número de dias. Adiciona uma duração a um carimbo de data/hora. Acrescenta uma matriz de tipo semelhante a outra. Mesmo que o operador +
 
 * ``add(10, 20) -> 30``
 
@@ -62,7 +61,7 @@ Adiciona um par de cadeias de caracteres ou números. Adiciona uma data a um nú
 ___
 ### <code>addDays</code>
 <code><b>addDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to add&gt;</i> : integral) => datetime</b></code><br/><br/>
-Adicione dias a uma data ou carimbo de hora. O mesmo que o operador + para data
+Adiciona dias a uma data ou carimbo de data/hora. O mesmo que o operador + para data
 
 * ``addDays(toDate('2016-08-08'), 1) -> toDate('2016-08-09')``
 
@@ -78,7 +77,7 @@ Adicione meses a uma data ou timestamp. Opcionalmente, você pode passar um fuso
 ___
 ### <code>and</code>
 <code><b>and(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador AND lógico. O mesmo que & &
+Operador lógico AND. O mesmo que & &
 
 * ``and(true, false) -> false``
 
@@ -154,7 +153,7 @@ Seleciona um valor de coluna por sua posição relativa (1 com base) no fluxo. S
 ___
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
-Com base em condições alternativas, aplica-se um valor ou outro. Se o número de entradas for par, o outro será padronizado como nulo para a última condição
+Com base em condições alternadas, aplica-se um valor ou o outro. Se o número de entradas for par, o outro será padronizado como nulo para a última condição
 
 * ``case(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``
 
@@ -198,7 +197,7 @@ Compara dois valores do mesmo tipo. Retorna um inteiro negativo se value1 < valu
 ___
 ### <code>concat</code>
 <code><b>concat(<i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
-Concatena um número variável de cadeias de caracteres em conjunto. O mesmo que o operador + com cadeias de caracteres
+Concatena um número variável de cadeias de caracteres juntas. O mesmo que o operador + com cadeias de caracteres
 
 * ``concat('dataflow', 'is', 'awesome') -> 'dataflowisawesome'``
 
@@ -209,7 +208,7 @@ Concatena um número variável de cadeias de caracteres em conjunto. O mesmo que
 ___
 ### <code>concatWS</code>
 <code><b>concatWS(<i>&lt;separator&gt;</i> : string, <i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
-Concatena um número variável de cadeias de caracteres junto com um separador. O primeiro parâmetro é o separador
+Concatena um número variável de cadeias de caracteres juntamente com um separador. O primeiro parâmetro é o separador
 
 * ``concatWS(' ', 'dataflow', 'is', 'awesome') -> 'dataflow is awesome'``
 
@@ -243,7 +242,7 @@ Calcula um cosseno hiperbólico de um valor
 ___
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
-Obtém a contagem de valores agregados. Se a coluna (s) opcional for especificada, ela ignorará valores nulos na contagem
+Obtém a contagem agregada de valores. Se a coluna (s) opcional for especificada, ela ignorará valores nulos na contagem
 
 * ``count(custId)``
 
@@ -298,21 +297,21 @@ Com base em critérios, obtém a covariância de exemplo de duas colunas
 ___
 ### <code>crc32</code>
 <code><b>crc32(<i>&lt;value1&gt;</i> : any, ...) => long</b></code><br/><br/>
-Calcula o hash CRC32 do conjunto de colunas de tipos de dados primitivos variados de acordo com um comprimento de bit que só pode ser de valores 0 (256), 224, 256, 384, 512. Ele pode ser usado para calcular uma impressão digital de uma linha
+Calcula o hash CRC32 do conjunto de colunas de diferentes tipos de dados primitivos dado um comprimento de bits, que pode ser apenas de valores 0 (256), 224, 256, 384, 512. Ele pode ser usado para calcular uma impressão digital de uma linha
 
 * ``crc32(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 3630253689L``
 
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
-A função CumeDist computa a posição de um valor em relação a todos os valores na partição. O resultado é o número de linhas precedentes ou iguais à linha atual na ordenação da partição dividida pelo número total de linhas na partição da janela. Os valores de ligação na ordenação serão avaliados como a mesma posição.
+A função CumeDist calcula a posição de um valor relativo a todos os valores na partição. O resultado é o número de linhas anteriores ou iguais à linha atual na ordenação da partição, dividido pelo número total de linhas na partição de janela. Os valores de ligação na ordenação serão avaliados como a mesma posição.
 
 * ``cumeDist()``
 
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Obtém a data atual em que esse trabalho começa a ser executado. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Obtém a data atual quando este trabalho começa a ser executado. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``currentDate() == toDate('2250-12-31') -> false``
 
@@ -349,7 +348,7 @@ Obtém o dia do mês de acordo com uma data
 ___
 ### <code>dayOfWeek</code>
 <code><b>dayOfWeek(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Obtém o dia da semana de acordo com uma data. 1-domingo, 2-segunda-feira..., 7-sábado
+Obtém o dia da semana de uma determinada data. 1-domingo, 2-segunda-feira..., 7-sábado
 
 * ``dayOfWeek(toDate('2018-06-08')) -> 6``
 
@@ -377,7 +376,7 @@ Converte radianos em graus
 ___
 ### <code>denseRank</code>
 <code><b>denseRank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Computa a classificação de um valor em um grupo de valores. O resultado é um mais o número de linhas precedentes ou iguais à linha atual na ordenação da partição. Os valores não produzirão lacunas na sequência. A classificação densa funciona mesmo quando os dados não são classificados e procura alterações nos valores
+Calcula a classificação de um valor em um grupo de valores. O resultado é 1 mais o número de linhas anteriores ou iguais à linha atual na ordenação da partição. Os valores não produzirão lacunas na sequência. A classificação densa funciona mesmo quando os dados não são classificados e procura alterações nos valores
 
 * ``denseRank(salesQtr, salesAmt)``
 
@@ -400,7 +399,7 @@ Verifica se a cadeia de caracteres termina com a cadeia de caracteres fornecida
 ___
 ### <code>equals</code>
 <code><b>equals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Operador de comparação de Equals. Mesmo que o operador = =
+Operador de comparação equals. Mesmo que o operador = =
 
 * ``equals(12, 24) -> false``
 
@@ -415,7 +414,7 @@ Operador de comparação de Equals. Mesmo que o operador = =
 ___
 ### <code>equalsIgnoreCase</code>
 <code><b>equalsIgnoreCase(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => boolean</b></code><br/><br/>
-Operador EQUAL de comparação ignorando maiúsculas e minúsculas. Mesmo que < = operador >
+Operador de comparação equals ignorando maiúsculas e minúsculas. Mesmo que < = operador >
 
 * ``'abc'<=>'Abc' -> true``
 
@@ -431,7 +430,7 @@ Calcular o fatorial de um número
 ___
 ### <code>false</code>
 <code><b>false() => boolean</b></code><br/><br/>
-Sempre retorna um valor falso. Use a sintaxe da função (false ()) se houver uma coluna chamada ' false '
+Sempre retorna um valor false. Use a sintaxe da função (false ()) se houver uma coluna chamada ' false '
 
 * ``(10 + 20 > 30) -> false``
 
@@ -474,7 +473,7 @@ Converte para o carimbo de data/hora do UTC. Opcionalmente, você pode passar o 
 ___
 ### <code>greater</code>
 <code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Operador maior de comparação. O mesmo que > operador
+Operador de comparação greater. O mesmo que > operador
 
 * ``greater(12, 24) -> false``
 
@@ -486,7 +485,7 @@ HH:mm:ss.SSS')) -> true``
 ___
 ### <code>greaterOrEqual</code>
 <code><b>greaterOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Comparação de operador maior ou igual a. Mesmo que > = Operator
+Operador de comparação greater than or equal. Mesmo que > = Operator
 
 * ``greaterOrEqual(12, 12) -> true``
 
@@ -515,7 +514,7 @@ Verifica o valor de uma coluna por nome no fluxo. Você pode passar um nome de f
 ___
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtém o valor de hora de um timestamp. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Obtém o valor da hora de um carimbo de data/hora. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
 
@@ -538,7 +537,7 @@ Mapeia cada elemento da matriz para um novo elemento usando a expressão forneci
 ___
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-Com base em uma condição, aplica-se um valor ou outro. Se outro não for especificado, ele será considerado nulo. Ambos os valores devem ser compatíveis (Numeric, String...)
+Com base em uma condição, aplica-se um valor ou o outro. Se outro não for especificado, ele será considerado nulo. Ambos os valores devem ser compatíveis (Numeric, String...)
 
 * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``
 
@@ -569,14 +568,14 @@ Verifica se um item está na matriz
 ___
 ### <code>initCap</code>
 <code><b>initCap(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Converte a primeira letra de cada palavra em maiúsculas. As palavras são identificadas como separadas por espaço em branco
+Converte a primeira letra de cada palavra em maiúscula. As palavras são identificadas como separadas por espaço em branco
 
 * ``initCap('cool iceCREAM') -> 'Cool Icecream'``
 
 ___
 ### <code>instr</code>
 <code><b>instr(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string) => integer</b></code><br/><br/>
-Localiza a posição (1 com base) da subcadeia de caracteres em uma cadeia de caracteres. 0 será retornado se não for encontrado
+Localiza a posição (baseada em 1) da subcadeia de caracteres dentro de uma cadeia de caracteres. 0 será retornado se não for encontrado
 
 * ``instr('dumbo', 'mbo') -> 3``
 
@@ -698,7 +697,7 @@ Obtém a última data do mês em que uma data foi determinada
 ___
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Obtém o valor do primeiro parâmetro avaliado n linhas após a linha atual. O segundo parâmetro é o número de linhas a serem examinadas e o valor padrão é 1. Se não houver tantas linhas, um valor de NULL será retornado, a menos que um valor padrão seja especificado
+Obtém o valor do primeiro parâmetro avaliado n linhas depois da linha atual. O segundo parâmetro é o número de linhas a serem examinadas e o valor padrão é 1. Se não houver tantas linhas, um valor de NULL será retornado, a menos que um valor padrão seja especificado
 
 * ``lead(amount, 2)``
 
@@ -707,7 +706,7 @@ Obtém o valor do primeiro parâmetro avaliado n linhas após a linha atual. O s
 ___
 ### <code>least</code>
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-Comparação menor ou igual a operador. O mesmo que <= operator
+Operador de comparação lesser than or equal. O mesmo que <= operator
 
 * ``least(10, 30, 15, 20) -> 10``
 
@@ -716,7 +715,7 @@ Comparação menor ou igual a operador. O mesmo que <= operator
 ___
 ### <code>left</code>
 <code><b>left(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
-Extrai uma subcadeia de caracteres de início no índice 1 com número de caracteres. Mesmo que substring (Str, 1, n)
+Extrai um início de subcadeia de caracteres no índice 1 com o número de caracteres. Mesmo que substring (Str, 1, n)
 
 * ``left('bojjus', 2) -> 'bo'``
 
@@ -743,7 +742,7 @@ Operador de comparação less. O mesmo que < operador
 ___
 ### <code>lesserOrEqual</code>
 <code><b>lesserOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Comparação menor ou igual a operador. O mesmo que <= operator
+Operador de comparação lesser than or equal. O mesmo que <= operator
 
 * ``lesserOrEqual(12, 12) -> true``
 
@@ -759,15 +758,15 @@ Obtém a distância Levenshtein entre duas cadeias de caracteres
 ___
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
-O padrão é uma cadeia de caracteres que corresponde literalmente. As exceções são os seguintes símbolos especiais: _ corresponde a um caractere na entrada (semelhante a. em expressões regulares de POSIX),% corresponde a zero ou mais caracteres na entrada (semelhante a. * em expressões regulares de POSIX).
-O caractere de escape é ' '. Se um caractere de escape precede um símbolo especial ou outro caractere de escape, o caractere a seguir será correspondido literalmente. É inválido escapar de qualquer outro caractere.
+O padrão é uma cadeia de caracteres que corresponde literalmente. As exceções são os seguintes símbolos especiais: _ corresponde a um caractere na entrada (semelhante a. em expressões regulares do posix) % corresponde a zero ou mais caracteres na entrada (semelhante a .* em expressões regulares do posix).
+O caractere de escape é ''. Se um caractere de escape precede um símbolo especial ou outro caractere de escape, o caractere seguinte será correspondido literalmente. Não é válido para escape de qualquer outro caractere.
 
 * ``like('icecream', 'ice%') -> true``
 
 ___
 ### <code>locate</code>
 <code><b>locate(<i>&lt;substring to find&gt;</i> : string, <i>&lt;string&gt;</i> : string, [<i>&lt;from index - 1-based&gt;</i> : integral]) => integer</b></code><br/><br/>
-Localiza a posição (1 com base) da subcadeia de caracteres em uma cadeia de caracteres que inicia uma determinada posição. Se a posição for omitida, ela será considerada do início da cadeia de caracteres. 0 será retornado se não for encontrado
+Localiza a posição (baseada em 1) da subcadeia de caracteres dentro de uma cadeia de caracteres começando de uma certa posição. Se a posição for omitida, será considerada desde o começo da cadeia de caracteres. 0 será retornado se não for encontrado
 
 * ``locate('mbo', 'dumbo') -> 3``
 
@@ -778,7 +777,7 @@ Localiza a posição (1 com base) da subcadeia de caracteres em uma cadeia de ca
 ___
 ### <code>log</code>
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
-Calcula o valor do log. Uma base opcional pode ser fornecida mais um número Euler, se usado
+Calcula o valor de log. Uma base opcional pode ser fornecida mais um número Euler, se usado
 
 * ``log(100, 10) -> 2``
 
@@ -799,7 +798,7 @@ Minúsculas uma cadeia de caracteres
 ___
 ### <code>lpad</code>
 <code><b>lpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-A esquerda pads a cadeia de caracteres pelo preenchimento fornecido até que seja de um determinado comprimento. Se a cadeia de caracteres for igual ou maior que o comprimento, ela será cortada para o comprimento
+Preenche à esquerda a cadeia de caracteres com o preenchimento fornecido até que esta alcance um determinado comprimento. Se a cadeia de caracteres for igual ou maior que o comprimento, ela será cortada para o comprimento
 
 * ``lpad('dumbo', 10, '-') -> '-----dumbo'``
 
@@ -810,7 +809,7 @@ A esquerda pads a cadeia de caracteres pelo preenchimento fornecido até que sej
 ___
 ### <code>ltrim</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-A esquerda corta uma cadeia de caracteres da entrelinha. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele apara qualquer caractere especificado no segundo parâmetro
+Corta uma cadeia de caracteres inicial à esquerda. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele apara qualquer caractere especificado no segundo parâmetro
 
 * ``ltrim('  dumbo  ') -> 'dumbo  '``
 
@@ -842,28 +841,28 @@ Com base em um critério, obtém o valor máximo de uma coluna
 ___
 ### <code>md5</code>
 <code><b>md5(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calcula o resumo MD5 do conjunto de colunas de tipos de datavariantes primitivos e retorna uma cadeia de caracteres hexadecimal de 32 caracteres. Ele pode ser usado para calcular uma impressão digital de uma linha
+Calcula o digest MD5 do conjunto de colunas de diferentes tipos de dados primitivos e retorna uma cadeia hexadecimal de 32 caracteres. Ele pode ser usado para calcular uma impressão digital de uma linha
 
 * ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '4ce8a880bd621a1ffad0bca905e1bc5a'``
 
 ___
 ### <code>mean</code>
 <code><b>mean(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Obtém a média de valores de uma coluna. Igual ao AVG
+Obtém a média dos valores de uma coluna. Igual ao AVG
 
 * ``mean(sales)``
 
 ___
 ### <code>meanIf</code>
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Com base em um critério, obtém a média de valores de uma coluna. O mesmo que avgIf
+Com base em um critério, obtém a média dos valores de uma coluna. O mesmo que avgIf
 
 * ``meanIf(region == 'West', sales)``
 
 ___
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtém o valor de milissegundo de uma data. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Obtém o valor de milissegundo de uma data. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
 
@@ -891,7 +890,7 @@ Com base em um critério, obtém o valor mínimo de uma coluna
 ___
 ### <code>minus</code>
 <code><b>minus(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Subtrai números. Subtraia de um número de data de dias. Duração de Substract de um carimbo de data/hora. Substract dois carimbos de data/hora para obter a diferença em milissegundos. Mesmo que o operador-
+Subtrai números. Subtrai a partir de um número de data de dias. Duração de Substract de um carimbo de data/hora. Substract dois carimbos de data/hora para obter a diferença em milissegundos. Mesmo que o operador-
 
 * ``minus(20, 10) -> 10``
 
@@ -908,7 +907,7 @@ Subtrai números. Subtraia de um número de data de dias. Duração de Substract
 ___
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtém o valor de minuto de um carimbo de data/hora. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Obtém o valor do minuto de um carimbo de data/hora. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``
 
@@ -924,7 +923,7 @@ Duração em milissegundos para o número de minutos
 ___
 ### <code>mod</code>
 <code><b>mod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Módulo de um par de números. O mesmo que o operador%
+Módulo de par de números. O mesmo que o operador%
 
 * ``mod(20, 8) -> 4``
 
@@ -956,7 +955,7 @@ Multiplica o par de números. Mesmo que o operador *
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-A função NTile divide as linhas de cada partição de janela em `n` buckets variando de 1 para no máximo `n`. Os valores de Bucket serão diferentes por no máximo 1. Se o número de linhas na partição não dividir uniformemente o número de buckets, os valores restantes serão distribuídos um por Bucket, começando com o primeiro Bucket. A função NTile é útil para o cálculo de tertiles, quartils, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: o tamanho de um Bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função controla o número da linha atual, o número do Bucket atual e o número da linha na qual o Bucket será alterado (bucketThreshold). Quando o número da linha atual atingir o limite de Bucket, o valor do Bucket será aumentado em um e o limite será aumentado pelo tamanho do Bucket (mais um extra, se o Bucket atual for preenchido).
+A função NTile divide as linhas de cada partição de janela em `n` buckets que variam de 1 a no máximo `n`. Os valores de bucket vão diferir em no máximo 1. Se o número de linhas na partição não se dividir uniformemente em um número de buckets, os valores restantes serão distribuídos um por bucket, começando com o primeiro bucket. A função NTile é útil para o cálculo de tertiles, quartils, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: o tamanho de um Bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função acompanha o número da linha atual, o número do bucket atual e o número da linha em que o bucket será alterado (bucketThreshold). Quando o número da linha atual atinge o limite do bucket, o valor do bucket é aumentado em um e o limite é aumentado pelo tamanho do bucket (mais um extra se o bucket atual for preenchido).
 
 * ``nTile()``
 
@@ -965,7 +964,7 @@ A função NTile divide as linhas de cada partição de janela em `n` buckets va
 ___
 ### <code>negate</code>
 <code><b>negate(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Nega um número. Transforma números positivos em negativos e vice-versa
+Torna um número negativo. Transforma números positivos em negativos e vice-versa
 
 * ``negate(13) -> -13``
 
@@ -986,7 +985,7 @@ Normalizar o valor da cadeia para separar caracteres Unicode acentuados
 ___
 ### <code>not</code>
 <code><b>not(<i>&lt;value1&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador de negação lógica
+Operador de negação lógico
 
 * ``not(true) -> false``
 
@@ -995,7 +994,7 @@ Operador de negação lógica
 ___
 ### <code>notEquals</code>
 <code><b>notEquals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Operador de comparação não é igual a. Mesmo que o operador! =
+Operador de comparação not equals. Mesmo que o operador! =
 
 * ``12 != 24 -> true``
 
@@ -1004,7 +1003,7 @@ Operador de comparação não é igual a. Mesmo que o operador! =
 ___
 ### <code>null</code>
 <code><b>null() => null</b></code><br/><br/>
-Retorna um valor nulo. Use a sintaxe da função (NULL ()) se houver uma coluna chamada ' NULL '. Qualquer operação que usa resultará em um valor nulo
+Retorna um valor NULL. Use a função syntax(null()) se houver uma coluna chamada 'null'. Qualquer operação que usa resultará em um valor nulo
 
 * ``isNull('dumbo' + null) -> true``
 
@@ -1019,7 +1018,7 @@ Retorna um valor nulo. Use a sintaxe da função (NULL ()) se houver uma coluna 
 ___
 ### <code>or</code>
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador OR lógico. Mesmo que | |
+Operador lógico OR. Mesmo que | |
 
 * ``or(true, false) -> true``
 
@@ -1028,7 +1027,7 @@ Operador OR lógico. Mesmo que | |
 ___
 ### <code>pMod</code>
 <code><b>pMod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Módulo positivo do par de números.
+Módulo positivo de par de números.
 
 * ``pmod(-20, 8) -> 4``
 
@@ -1049,7 +1048,7 @@ Eleva um número à potência de outro
 ___
 ### <code>rank</code>
 <code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Computa a classificação de um valor em um grupo de valores. O resultado é um mais o número de linhas precedentes ou iguais à linha atual na ordenação da partição. Os valores produzirão lacunas na sequência. A classificação funciona mesmo quando os dados não são classificados e procura alterações nos valores
+Calcula a classificação de um valor em um grupo de valores. O resultado é 1 mais o número de linhas anteriores ou iguais à linha atual na ordenação da partição. Os valores produzirão lacunas na sequência. A classificação funciona mesmo quando os dados não são classificados e procura alterações nos valores
 
 * ``rank(salesQtr, salesAmt)``
 
@@ -1067,7 +1066,7 @@ Acumula elementos em uma matriz. A redução espera uma referência a um acumula
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Extraia uma subcadeia de caracteres correspondente para um determinado padrão de Regex. O último parâmetro identifica o grupo de correspondência e é padronizado como 1 se omitido. Use ' <regex> ' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
+Extrai uma subcadeia de caracteres correspondente a um determinado padrão regex. O último parâmetro identifica o grupo de correspondências e será padronizado como 1 se omitido. Use '<regex>' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
 
 * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``
 
@@ -1076,7 +1075,7 @@ Extraia uma subcadeia de caracteres correspondente para um determinado padrão d
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-Verifica se a cadeia de caracteres corresponde ao padrão Regex fornecido. Use ' <regex> ' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
+Verifica se a cadeia de caracteres corresponde ao determinado padrão regex. Use '<regex>' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
 
 * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``
 
@@ -1085,7 +1084,7 @@ Verifica se a cadeia de caracteres corresponde ao padrão Regex fornecido. Use '
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Substituir todas as ocorrências de um padrão Regex por outra subcadeia na cadeia de caracteres fornecida use ' <regex> ' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
+Substituir todas as ocorrências de um padrão Regex por outra subcadeia na cadeia de caracteres fornecida use '<regex>' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
 
 * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``
 
@@ -1125,7 +1124,7 @@ Inverte uma cadeia de caracteres
 ___
 ### <code>right</code>
 <code><b>right(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
-Extrai uma Subcadeia com o número de caracteres à direita. Igual a subcadeia de caracteres (Str, LENGTH (Str)-n, n)
+Extrai uma subcadeia de caracteres com o número de caracteres à direita. Igual a subcadeia de caracteres (Str, LENGTH (Str)-n, n)
 
 * ``right('bojjus', 2) -> 'us'``
 
@@ -1143,7 +1142,7 @@ Verifica se a cadeia de caracteres corresponde ao padrão Regex fornecido
 ___
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
-Arredonda um número de acordo com uma escala opcional e um modo de arredondamento opcional. Se a escala for omitida, o padrão será 0.  Se o modo for omitido, ele será padronizado como ROUND_HALF_UP (5). Os valores para arredondamento incluem 1-ROUND_UP 2-ROUND_DOWN 3-ROUND_CEILING 4-ROUND_FLOOR 5-ROUND_HALF_UP 6-ROUND_HALF_DOWN 7-ROUND_HALF_EVEN 8-ROUND_UNNECESSARY
+Arredonda um número de acordo com uma escala opcional e um modo de arredondamento opcional. Se a escala for omitida, o padrão será 0.  Se o modo for omitido, o padrão será ROUND_HALF_UP (5). Os valores de arredondamento incluem 1-ROUND_UP 2-ROUND_DOWN 3-ROUND_CEILING 4-ROUND_FLOOR 5-ROUND_HALF_UP 6-ROUND_HALF_DOWN 7-ROUND_HALF_EVEN 8-ROUND_UNNECESSARY
 
 * ``round(100.123) -> 100.0``
 
@@ -1161,7 +1160,7 @@ Atribui uma numeração de linha sequencial para linhas em uma janela que começ
 ___
 ### <code>rpad</code>
 <code><b>rpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-A direita pads a cadeia de caracteres pelo preenchimento fornecido até que seja de um determinado comprimento. Se a cadeia de caracteres for igual ou maior que o comprimento, ela será cortada para o comprimento
+Preenche à direita a cadeia de caracteres com o preenchimento fornecido até que esta alcance um determinado comprimento. Se a cadeia de caracteres for igual ou maior que o comprimento, ela será cortada para o comprimento
 
 * ``rpad('dumbo', 10, '-') -> 'dumbo-----'``
 
@@ -1172,7 +1171,7 @@ A direita pads a cadeia de caracteres pelo preenchimento fornecido até que seja
 ___
 ### <code>rtrim</code>
 <code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-A direita corta uma cadeia de caracteres à esquerda. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele apara qualquer caractere especificado no segundo parâmetro
+Corta uma cadeia de caracteres final à direita. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele apara qualquer caractere especificado no segundo parâmetro
 
 * ``rtrim('  dumbo  ') -> '  dumbo'``
 
@@ -1181,7 +1180,7 @@ A direita corta uma cadeia de caracteres à esquerda. Se o segundo parâmetro n�
 ___
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtém o segundo valor de uma data. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Obtém o segundo valor de uma data. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``
 
@@ -1195,7 +1194,7 @@ Duração em milissegundos para o número de segundos
 ___
 ### <code>sha1</code>
 <code><b>sha1(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calcula o resumo SHA-1 do conjunto de colunas de tipos de dataprimitivos variantes e retorna uma cadeia de caracteres hexadecimal de 40 caracteres. Ele pode ser usado para calcular uma impressão digital de uma linha
+Calcula o digest SHA-1 do conjunto de colunas de diferentes tipos de dados primitivos e retorna uma cadeia hexadecimal de 40 caracteres. Ele pode ser usado para calcular uma impressão digital de uma linha
 
 * ``sha1(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '46d3b478e8ec4e1f3b453ac3d8e59d5854e282bb'``
 
@@ -1237,7 +1236,7 @@ Com base em critérios, obtém a distorção de uma coluna
 ___
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
-Extrai um subconjunto de uma matriz de uma posição. A posição é baseada em 1. Se o comprimento for omitido, o padrão será o fim da cadeia de caracteres
+Extrai um subconjunto de uma matriz a partir de uma posição. A posição é baseada em 1. Se o comprimento for omitido, o padrão será o fim da cadeia de caracteres
 
 * ``slice([10, 20, 30, 40], 1, 2) -> [10, 20]``
 
@@ -1359,7 +1358,7 @@ Subtrair meses de uma data ou timestamp
 ___
 ### <code>substring</code>
 <code><b>substring(<i>&lt;string to subset&gt;</i> : string, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of characters&gt;</i> : integral]) => string</b></code><br/><br/>
-Extrai uma subcadeia de caracteres de um determinado comprimento de uma posição. A posição é baseada em 1. Se o comprimento for omitido, o padrão será o fim da cadeia de caracteres
+Extrai uma subcadeia de caracteres de um determinado comprimento a partir de uma posição. A posição é baseada em 1. Se o comprimento for omitido, o padrão será o fim da cadeia de caracteres
 
 * ``substring('Cat in the hat', 5, 2) -> 'in'``
 
@@ -1386,7 +1385,7 @@ Obtém a soma agregada de valores distintos de uma coluna numérica
 ___
 ### <code>sumDistinctIf</code>
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Com base em critérios, obtém a soma agregada de uma coluna numérica. A condição pode ser baseada em qualquer coluna
+Com base em um critério, obtém a soma agregada de uma coluna numérica. A condição pode ser baseada em qualquer coluna
 
 * ``sumDistinctIf(state == 'CA' && commission < 10000, sales)``
 
@@ -1395,7 +1394,7 @@ Com base em critérios, obtém a soma agregada de uma coluna numérica. A condi�
 ___
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Com base em critérios, obtém a soma agregada de uma coluna numérica. A condição pode ser baseada em qualquer coluna
+Com base em um critério, obtém a soma agregada de uma coluna numérica. A condição pode ser baseada em qualquer coluna
 
 * ``sumIf(state == 'CA' && commission < 10000, sales)``
 
@@ -1445,7 +1444,7 @@ Converte a cadeia de caracteres de data de entrada em data usando um formato de 
 ___
 ### <code>toDecimal</code>
 <code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
-Converte qualquer número ou cadeia de caracteres em um valor decimal. Se a precisão e a escala não forem especificadas, o padrão será (10, 2). Um formato decimal do Java opcional pode ser usado para a conversão. Um formato de localidade opcional na forma de linguagem BCP47, como en-US, de, zh-CN
+Converte qualquer numérico ou cadeia de caracteres em um valor decimal. Se a precisão e escala não forem especificados, ele é padronizado para (10,2). Um formato decimal opcional do Java pode ser usado para a conversão. Um formato de localidade opcional na forma de linguagem BCP47, como en-US, de, zh-CN
 
 * ``toDecimal(123.45) -> 123.45``
 
@@ -1458,7 +1457,7 @@ Converte qualquer número ou cadeia de caracteres em um valor decimal. Se a prec
 ___
 ### <code>toDouble</code>
 <code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></code><br/><br/>
-Converte qualquer número ou cadeia de caracteres em um valor duplo. Um formato decimal do Java opcional pode ser usado para a conversão. Um formato de localidade opcional na forma de linguagem BCP47, como en-US, de, zh-CN
+Converte qualquer numérico ou cadeia de caracteres em um valor duplo. Um formato decimal opcional do Java pode ser usado para a conversão. Um formato de localidade opcional na forma de linguagem BCP47, como en-US, de, zh-CN
 
 * ``toDouble(123.45) -> 123.45``
 
@@ -1471,7 +1470,7 @@ Converte qualquer número ou cadeia de caracteres em um valor duplo. Um formato 
 ___
 ### <code>toFloat</code>
 <code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
-Converte qualquer número ou cadeia de caracteres em um valor float. Um formato decimal do Java opcional pode ser usado para a conversão. Trunca qualquer duplo
+Converte qualquer numérico ou cadeia de caracteres em um valor flutuante. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer duplo
 
 * ``toFloat(123.45) -> 123.45f``
 
@@ -1482,7 +1481,7 @@ Converte qualquer número ou cadeia de caracteres em um valor float. Um formato 
 ___
 ### <code>toInteger</code>
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
-Converte qualquer número ou cadeia de caracteres em um valor inteiro. Um formato decimal do Java opcional pode ser usado para a conversão. Trunca qualquer longo, float, Double
+Converte qualquer número ou cadeia de caracteres em um valor inteiro. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer longo, float, Double
 
 * ``toInteger(123) -> 123``
 
@@ -1493,7 +1492,7 @@ Converte qualquer número ou cadeia de caracteres em um valor inteiro. Um format
 ___
 ### <code>toLong</code>
 <code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></code><br/><br/>
-Converte qualquer número ou cadeia de caracteres em um valor longo. Um formato decimal do Java opcional pode ser usado para a conversão. Trunca qualquer float, Double
+Converte qualquer numérico ou cadeia de caracteres em um valor longo. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer float, Double
 
 * ``toLong(123) -> 123``
 
@@ -1504,7 +1503,7 @@ Converte qualquer número ou cadeia de caracteres em um valor longo. Um formato 
 ___
 ### <code>toShort</code>
 <code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></code><br/><br/>
-Converte qualquer número ou cadeia de caracteres em um valor curto. Um formato decimal do Java opcional pode ser usado para a conversão. Trunca qualquer inteiro, longo, flutuante, duplo
+Converte qualquer numérico ou cadeia de caracteres em um valor resumido. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer inteiro, longo, flutuante, duplo
 
 * ``toShort(123) -> 123``
 
@@ -1515,7 +1514,7 @@ Converte qualquer número ou cadeia de caracteres em um valor curto. Um formato 
 ___
 ### <code>toString</code>
 <code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
-Converte um tipo de dados primitivo em uma cadeia de caracteres. Para números e datas, um formato pode ser especificado. Se não for especificado, o padrão do sistema será escolhido. O formato decimal do Java é usado para números. Consulte Java SimpleDateFormat para todos os formatos de data possíveis; o formato padrão é AAAA-MM-DD
+Converte um tipo de dados primitivo em uma cadeia de caracteres. Para números e data, um formato pode ser especificado. Se não for especificado, o padrão do sistema será selecionado. O formato decimal Java é usado para números. Consulte Java SimpleDateFormat para todos os formatos de data possíveis; o formato padrão é AAAA-MM-DD
 
 * ``toString(10) -> '10'``
 
@@ -1549,7 +1548,7 @@ Converte uma cadeia de caracteres em um timestamp dado um formato de carimbo de 
 ___
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converte o carimbo de data/hora em UTC. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Converte o carimbo de data/hora em UTC. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
 
@@ -1558,7 +1557,7 @@ Converte o carimbo de data/hora em UTC. Você pode passar um fuso horário opcio
 ___
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
-Substituir um conjunto de caracteres por outro conjunto de caracteres na cadeia de caracteres. Os caracteres têm de 1 a 1 substituição
+Substitui um conjunto de caracteres por outro conjunto de caracteres na cadeia de caracteres. Os caracteres têm de 1 a 1 substituição
 
 * ``translate('(bojjus)', '()', '[]') -> '[bojjus]'``
 
@@ -1567,7 +1566,7 @@ Substituir um conjunto de caracteres por outro conjunto de caracteres na cadeia 
 ___
 ### <code>trim</code>
 <code><b>trim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Corta uma cadeia de caracteres de caractere à esquerda e à direita. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele apara qualquer caractere especificado no segundo parâmetro
+Apara uma cadeia de caracteres inicial e final. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele apara qualquer caractere especificado no segundo parâmetro
 
 * ``trim('  dumbo  ') -> 'dumbo'``
 
@@ -1576,7 +1575,7 @@ Corta uma cadeia de caracteres de caractere à esquerda e à direita. Se o segun
 ___
 ### <code>true</code>
 <code><b>true() => boolean</b></code><br/><br/>
-Sempre retorna um valor verdadeiro. Use a sintaxe da função (true ()) se houver uma coluna chamada ' true '
+Sempre retorna um valor true. Use a sintaxe da função (true ()) se houver uma coluna chamada ' true '
 
 * ``(10 + 20 == 30) -> true``
 
@@ -1664,7 +1663,7 @@ Duração em milissegundos para o número de semanas
 ___
 ### <code>xor</code>
 <code><b>xor(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador XOR lógico. Mesmo que o operador ^
+Operador lógico XOR. Mesmo que o operador ^
 
 * ``xor(true, false) -> true``
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 8b40d89920208eaf15e01b3519b667a77baf8671
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bd6590ebbd33dc5c9b65fc193679f4bf99760c3a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932576"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894140"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo de ingestão de dados de log no Azure Monitor
 O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. Frequentemente, há dúvidas sobre o tempo necessário para que os dados de log fiquem disponíveis após a coleta. Este artigo explica os diferentes fatores que afetam essa latência.
@@ -40,10 +40,10 @@ Os agentes e as soluções de gerenciamento usam estratégias diferentes para co
 ### <a name="agent-upload-frequency"></a>Frequência de upload de agente
 Para garantir que o agente do Log Analytics seja leve, o agente armazena em buffer os logs e carrega-os periodicamente no Azure Monitor. A frequência de upload varia entre 30 segundos e 2 minutos, dependendo do tipo de dados. A maioria dos dados é carregada em menos de 1 minuto. As condições de rede podem afetar negativamente a latência com a qual esses dados são recebidos no ponto de ingestão do Azure Monitor.
 
-### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Logs de atividades, logs de diagnóstico e métricas do Azure
+### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Logs de atividades do Azure, logs de recursos e métricas
 Os dados do Azure adicionam tempo extra para se tornarem disponíveis no ponto de ingestão do Log Analytics para processamento:
 
-- Os dados dos logs de diagnóstico levam de 2 a 15 minutos, dependendo do serviço do Azure. Confira a [consulta abaixo](#checking-ingestion-time) para examinar essa latência em seu ambiente
+- Os dados dos logs de recursos levam 2-15 minutos, dependendo do serviço do Azure. Confira a [consulta abaixo](#checking-ingestion-time) para examinar essa latência em seu ambiente
 - As métricas de plataforma do Azure levam 3 minutos para serem enviadas ao ponto de ingestão do Log Analytics.
 - Os dados do log de atividades levarão cerca de 10 a 15 minutos para serem enviados ao ponto de ingestão do Log Analytics.
 
@@ -80,7 +80,7 @@ O tempo de ingestão pode variar para recursos diferentes em circunstâncias dif
 |:---|:---|:---|
 | Registro criado na fonte de dados | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir esse valor, ela será definida para o mesmo horário que _TimeReceived. |
 | Registro recebido por Azure Monitor ponto de extremidade de ingestão | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| Registro armazenado no espaço de trabalho e disponível para consultas | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| Registro armazenado no espaço de trabalho e disponível para consultas | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Atrasos de latência de ingestão
 Você pode medir a latência de um registro específico comparando o resultado da função [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) com a propriedade _TimeGenerated_ . Esses dados podem ser usados com várias agregações para descobrir como a latência de ingestão se comporta. Examine alguns percentil do tempo de ingestão para obter insights para uma grande quantidade de dados. 

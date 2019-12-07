@@ -1,6 +1,6 @@
 ---
 title: Gerenciar entidades dos Serviços de Mídia com REST | Microsoft Docs
-description: Saiba como gerenciar entidades de serviços de mídia com API REST.
+description: Este artigo demonstra como gerenciar entidades de serviços de mídia com a API REST.
 author: juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ffbf30f2bfdf0a175513a8d2b9182b35c39f6aae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ecbca99a65d99cc3b8d842a7b61d858398a80ff
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761702"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885697"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gerenciar entidades dos Serviços de Mídia com REST  
 
@@ -40,7 +40,7 @@ Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure
 
 Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
+## <a name="connect-to-media-services"></a>Conectar aos Serviços de Mídia
 
 Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 

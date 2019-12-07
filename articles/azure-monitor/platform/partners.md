@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144455"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894596"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -89,7 +89,7 @@ O OneAgent do Dynatrace integra-se com as VMs do Azure e Serviços de Aplicativo
 
 [Vá para a documentação.][dynatrace-doc]
 
-## <a name="elastic"></a>Elástico
+## <a name="elastic"></a>Elasticidade
 
 ![Logotipo elástico](./media/partners/elastic.png)
 
@@ -178,7 +178,7 @@ OpsGenie age como um distribuidor para os alertas gerados pelo Azure. OpsGenie d
 
 [Vá para a documentação.][opsgenie-doc]
 
-## <a name="pagerduty"></a>Pagerduty
+## <a name="pagerduty"></a>PagerDuty
 
 ![Logotipo do PagerDuty](./media/partners/pagerduty.png)
 
@@ -251,11 +251,11 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 
 [Saiba mais.][turbonomic-doc]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Saiba mais sobre o Azure Monitor](../../azure-monitor/overview.md)
 - [Acessar métricas usando a API REST](rest-api-walkthrough.md)
 - [Transmitir o Log de Atividades para um serviço que não seja da Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Transmitir o Log de Diagnóstico para um serviço que não seja da Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Transmitir logs de recursos para um serviço que não seja da Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

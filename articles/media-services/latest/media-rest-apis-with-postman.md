@@ -1,6 +1,6 @@
 ---
 title: Configurar Postman para chamadas de API de REST dos Serviços de Mídia do Azure
-description: Saiba como configurar Postman para chamadas de API de REST dos Serviços de Mídia.
+description: Este artigo mostra como configurar o postmaster para que ele possa ser usado para chamar as APIs REST dos serviços de mídia do Azure (AMS).
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839594"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888097"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar Postman para chamadas de API de REST dos Serviços de Mídia
 
@@ -32,7 +32,7 @@ Antes de começar a desenvolver, examine o [desenvolvimento com as APIs dos serv
 - Obtenha as informações necessárias para [acessar as APIs](access-api-cli-how-to.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as APIs de REST mostradas em alguns dos tutoriais do REST AMS. 
 
-    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Código do Visual Studio** com o plug-in do REST ou **Telerik Fiddler**. 
+    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
 
 > [!IMPORTANT]
 > Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
@@ -49,7 +49,7 @@ Clone um repositório GitHub que contenha os arquivos do ambiente e coleção Po
 
 ### <a name="configure-the-environment"></a>Configure o ambiente 
 
-1. Abra o aplicativo do **postmaster** .
+1. Abra o aplicativo **Postman**.
 2. À direita da tela, selecione a opção **Gerenciar ambiente**.
 
     ![Gerenciar ambiente](./media/develop-with-postman/postman-import-env.png)
@@ -92,18 +92,18 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 
     ![Obter token do AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="troubleshooting"></a>Solucionar problemas 
+## <a name="troubleshooting"></a>Solução de Problemas 
 
 * Se seu aplicativo falhar com "HTTP 504: tempo limite do gateway", verifique se a variável de local não foi definida explicitamente com um valor diferente do local esperado da conta dos serviços de mídia. 
 * Se você receber um erro "conta não encontrada", verifique também se a propriedade local na mensagem JSON do corpo está definida como o local em que a conta dos serviços de mídia está. 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte
 
 - [Carregar arquivos em uma conta dos Serviços de Mídia – REST](upload-files-rest-how-to.md)
 - [Criar filtros com os Serviços de Mídia – REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Transmitir arquivos com REST](stream-files-tutorial-with-rest.md).  
 - [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST](stream-files-tutorial-with-rest.md)

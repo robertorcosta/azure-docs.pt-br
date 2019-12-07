@@ -1,6 +1,6 @@
 ---
-title: Notas de versão dos Serviços de Mídia | Microsoft Docs
-description: Notas de versão dos Serviços de Mídia
+title: Notas de versão dos serviços de mídia do Azure | Microsoft Docs
+description: Este artigo fala sobre as notas de versão do Serviços de Mídia do Microsoft Azure v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7c6cac925ad53e08ecc10c828765153c905f1c1d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f798a1eff8d9c90a58856a12b84061ece7e3720d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423894"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885664"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 
@@ -32,7 +32,7 @@ Queremos ouvir nossos clientes para que possamos focar na correção de problema
 ## <a name="a-idissuesknown-issues"></a><a id="issues"/>problemas conhecidos
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas gerais dos Serviços de Mídia
 
-| Problema | DESCRIÇÃO |
+| Problema | Descrição |
 | --- | --- |
 | Vários cabeçalhos HTTP comuns não são fornecidos na API REST. |Se você desenvolver aplicativos de Serviços de Mídia usando a API REST, verá que não há compatibilidade com alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID). Os cabeçalhos serão adicionados em uma atualização futura. |
 | Não é permitida a codificação por porcentagem. |Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao criar URLs para o conteúdo de streaming (por exemplo, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter quaisquer dos seguintes [caracteres reservados para codificação por porcentagem](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um "." para a extensão de nome de arquivo. |
@@ -74,7 +74,7 @@ O recurso de visualização de hiperlapsação de mídia dos serviços de mídia
 
 ### <a name="cmaf-support"></a>Suporte CMAF
 
-Suporte de criptografia CMAF e 'cbcs' para players Apple HLS (iOS 11+) e MPEG-DASH que dão suporte a CMAF.
+Suporte de criptografia CMAF e 'cbcs' para players Apple HLS (iOS 11+) e MPEG-DASH que suportam CMAF.
 
 ### <a name="web-vtt-thumbnail-sprites"></a>Sprites em miniatura do Web VTT
 
@@ -122,7 +122,7 @@ Para obter uma visão geral desse novo processador consulte [esta postagem no bl
 Os Serviços de Mídia agora são compatíveis com a [autenticação baseada no Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 > [!IMPORTANT]
-> Atualmente, os Serviços de Mídia são compatíveis com o modelo de autenticação do Serviço de Controle de Acesso do Azure. A autorização do Serviço de Controle de Acesso será preterida em 1º de junho de 2018. Recomendamos que você migre para o modelo de autenticação do Azure AD assim que possível.
+> Atualmente, os Serviços de Mídia são compatíveis com o modelo de autenticação do Serviço de Controle de Acesso do Azure. A autorização do Serviço de Controle de Acesso será preterida em 1º de junho de 2018. É recomendável que você migre para o modelo de autenticação do Azure AD assim que possível.
 
 ## <a name="march-2017-release"></a>Versão de março de 2017
 
@@ -232,7 +232,7 @@ Os Serviços de Mídia agora oferecem a capacidade de proteger tanto vídeo por 
 
 Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
-Você pode usar o [SDK do .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration ao uso do Widevine. 
+Você pode usar o [SDK do .NET dos Serviços de Mídia](https://www.nuget.org/packages/windowsazure.mediaservices/) (começando da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration ao uso do Widevine. 
 * Os Serviços de Mídia adicionaram compatibilidade com vídeos ProRes da Apple. Agora você pode carregar os arquivos de vídeos de origem do QuickTime que usam Apple ProRes ou outros codecs. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 * Agora você pode usar um Media Encoder Standard para fazer sub-recortes e extração de arquivos dinâmicos. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Foram feitas as seguintes atualizações de filtragem: 
@@ -474,7 +474,7 @@ As alterações mencionadas a seguir nesta seção são atualizações incluída
 * Entidades e propriedades relacionadas à notificação: 
     * JobNotificationSubscription
     * NotificationEndPoint
-    * trabalho
+    * Trabalho
 * Asset.Uri 
 * Locator.Name 
 
@@ -591,7 +591,7 @@ A funcionalidade a seguir era nova na versão de novembro do SDK:
 [Connect to Media Services with the Media Services SDK for .NET]: https://msdn.microsoft.com/library/azure/jj129571.aspx
 [Media Services .NET SDK extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [Azure SDK tools]: https://github.com/Azure/azure-sdk-tools
-[GitHub]: https://github.com/Azure/azure-sdk-for-media-services
+[Github]: https://github.com/Azure/azure-sdk-for-media-services
 [Manage Media Services assets across multiple Storage accounts]: https://msdn.microsoft.com/library/azure/dn271889.aspx
 [Handle Media Services job notifications]: https://msdn.microsoft.com/library/azure/dn261241.aspx
 

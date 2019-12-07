@@ -1,6 +1,6 @@
 ---
 title: Reagir aos eventos dos Serviços de Mídia do Azure | Microsoft Docs
-description: Use a Grade de Eventos do Azure para assinar os eventos dos Serviços de Mídia.
+description: Este artigo descreve como usar a grade de eventos do Azure para assinar eventos de serviços de mídia.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 07ad39bdcec6e4b00d3b47553930fc05694ca2af
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e24bacb0ea7ab406442022915872fc77e9cc1a5e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026628"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887877"
 ---
 # <a name="handling-event-grid-events"></a>Lidando com os eventos da Grade de Eventos
 
@@ -42,7 +42,7 @@ Aplicativos que manipulam eventos de Serviços de Mídia devem seguir algumas pr
 > [!NOTE]
 > Os eventos estão sujeitos à Contrato de Nível de Serviço de grade de eventos [(SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Se você quiser obter notificações de eventos usando APIs, consulte exemplos de como consumir eventos, com o SDK do [.net](https://github.com/Azure-Samples/media-services-v3-dotnet) ou o [SDK do Java](https://github.com/Azure-Samples/media-services-v3-java).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorar eventos-Portal](monitor-events-portal-how-to.md)
 * [Eventos de monitor-CLI](job-state-events-cli-how-to.md)

@@ -1,6 +1,6 @@
 ---
 title: Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico | Microsoft Docs
-description: A moderação de vídeos ajuda a detectar possível conteúdo adulto e erótico em vídeos.
+description: O processador de mídia do Azure Media Content Moderator ajuda a detectar possíveis conteúdos de conteúdo adulto e erótico em vídeos.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465670"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895993"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O processador de mídia (MP) do **Azure Media Content Moderator** possibilita usar a moderação auxiliada por computador para seus vídeos. Por exemplo, você talvez queira detectar possível conteúdo adulto e erótico em vídeos e revisar o conteúdo sinalizado por suas equipes de moderação humanas.
 
 O MP do **Azure Media Content Moderator** está atualmente em fase de Visualização.
@@ -31,7 +31,7 @@ O MP do **Azure Media Content Moderator** está atualmente em fase de Visualiza�
 Este artigo fornece detalhes sobre o **Azure Media Content Moderator** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET.
 
 ## <a name="content-moderator-input-files"></a>Arquivos de entrada do Content Moderator
-Arquivos de vídeo. Atualmente, há suporte para os formatos a seguir: MP4, MOV e WMV.
+Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
 
 ## <a name="content-moderator-output-files"></a>Arquivos de saída do Content Moderator
 O resultado moderado no formato JSON inclui quadros-chave e capturas detectados automaticamente. Os quadros-chave são retornados com pontuações de confiança para o possível conteúdo adulto ou erótico. Também incluem um sinalizador booliano que indica se uma revisão é recomendada. O sinalizador de recomendação de revisão recebe valores com base nos limites internos para pontuações de conteúdo adulto ou erótico.
@@ -44,7 +44,7 @@ O JSON de saída contém os seguintes elementos:
 
 ### <a name="root-json-elements"></a>Elementos raiz JSON
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | --- | --- |
 | version |A versão do Content Moderator. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
@@ -57,21 +57,21 @@ O JSON de saída contém os seguintes elementos:
 
 ### <a name="fragments-json-elements"></a>Elementos JSON de fragmentos
 
-|Elemento|DESCRIÇÃO|
+|Elemento|Descrição|
 |---|---|
-| start |A hora de início do primeiro evento em "tiques". |
+| iniciar |A hora de início do primeiro evento em "tiques". |
 | duration |A duração do fragmento, em “tiques”. |
 | intervalo |O intervalo de cada entrada de evento dentro do fragmento, em “tiques”. |
 | [events](#events-json-elements) |Cada evento representa um clipe e cada clipe contém quadros-chave detectados e rastreados dentro dessa duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é composta por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
 
 ### <a name="events-json-elements"></a>Elementos JSON de eventos
 
-|Elemento|DESCRIÇÃO|
+|Elemento|Descrição|
 |---|---|
 | reviewRecommended | `true` ou `false` dependendo de **adultScore** ou **racyScore** exceder os limites internos. |
 | adultScore | Pontuação de confiança para o possível conteúdo adulto, em uma escala de 0,00 a 0,99. |
 | racyScore | Pontuação de confiança para o possível conteúdo erótico, em uma escala de 0,00 a 0,99. |
-| index | Índice do quadro em uma escala desde o primeiro quadro do índice até o último quadro do índice. |
+| índice | Índice do quadro em uma escala desde o primeiro quadro do índice até o último quadro do índice. |
 | timestamp | O local do quadro, em "tiques". |
 | shotIndex | O índice da captura pai. |
 
@@ -228,7 +228,7 @@ The following example of a Content Moderator JSON output was truncated.
 
 [Demonstrações do Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a [solução de revisão e moderação de vídeos](../../cognitive-services/Content-Moderator/video-moderation-human-review.md) do Content Moderator.
 

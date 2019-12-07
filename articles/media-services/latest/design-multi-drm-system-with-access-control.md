@@ -1,6 +1,6 @@
 ---
 title: Criação de um sistema de proteção de conteúdo multi-DRM com controle de acesso – Serviços de Mídia do Azure | Microsoft Docs
-description: Aprenda a licenciar o Kit de Portabilidade de Cliente do Smooth Streaming da Microsoft.
+description: Este artigo fornece uma descrição detalhada de como criar um sistema de proteção de conteúdo de vários DRM com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ffbf53c0bb0aaf2832afecc2d0df935f04eeff19
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310321"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896164"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso 
 
@@ -27,7 +27,7 @@ O design e a criação de um subsistema de Microsoft Ad Rights Management (geren
 
 Este documento se destina a engenheiros que trabalham em subsistemas de DRM de soluções multitela/streaming OTT ou online, ou a leitores interessados em subsistemas de DRM. Pressupõe-se que os leitores estejam familiarizados com pelo menos uma das tecnologias de DRM do mercado, como o PlayReady, o Widevine, o FairPlay ou o Adobe Access.
 
-Nessa discussão, por vários DRMs, incluímos 3 DRMs que têm suporte dos Serviços de Mídia do Azure: Criptografia comum (CENC) para PlayReady e Widevine, FairPlay, além de criptografia do tipo Clear Key AES-128. Uma das principais tendências no setor de streaming online e OTT é o uso de CENC com DRM múltiplo nativo em várias plataformas de cliente. Essa tendência é uma mudança da anterior, que usava um único DRM e seu SDK de cliente para várias plataformas de cliente. Quando você usa CENC com DRM múltiplo nativo, tanto o PlayReady quanto o Widevine são criptografados de acordo com a especificação [Criptografia comum (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
+Nesta discussão, por vários DRM incluímos 3 DRMs compatíveis com os serviços de mídia do Azure: Criptografia Comum (CENC) para PlayReady e Widevine, FairPlay, bem como limpar chave de criptografia AES-128. Uma das principais tendências no setor de streaming online e OTT é o uso de CENC com DRM múltiplo nativo em várias plataformas de cliente. Essa tendência é uma mudança da anterior, que usava um único DRM e seu SDK de cliente para várias plataformas de cliente. Quando você usa CENC com DRM múltiplo nativo, tanto o PlayReady quanto o Widevine são criptografados de acordo com a especificação [Criptografia comum (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
 
 Os benefícios do uso de vários DRM nativos para proteção de conteúdo são:
 
@@ -162,7 +162,7 @@ Esta é a saída da ferramenta de gerenciamento de conteúdo:
 * O Streamingpolicy descreve as várias combinações de formato de contêiner - modo de criptografia - protocolo de transmissão - DRM, para streaming
 * O StreamingLocator descreve a chave de conteúdo/IV usada para criptografia e as URLs de streaming 
 
-Aqui está o fluxo durante o tempo de execução:
+Aqui está o fluxo durante o runtime:
 
 * Após a autenticação de usuário, um JWT é gerado.
 * Uma das declarações contidas no JWT é uma declaração grupos que contém o EntitledUserGroup da ID de objeto do grupo. Esta declaração é usada para passar a verificação de autorização.
@@ -286,7 +286,7 @@ Entre em contato com qualquer um dos autores para que criem ou adicionem uma con
 
 As capturas de tela a seguir mostram as diferentes páginas de entrada usadas por diferentes contas de domínio:
 
-**Conta de domínio do locatário do AD do Azure personalizada**: a página de entrada personalizada do domínio de locatário do AD do Azure personalizado.
+**Conta de domínio de locatário do Azure AD personalizado**: a página de entrada personalizada do domínio de locatário do Azure AD personalizado.
 
 ![Conta de domínio do locatário do AD do Azure personalizada 1](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
@@ -294,7 +294,7 @@ As capturas de tela a seguir mostram as diferentes páginas de entrada usadas po
 
 ![Conta de domínio do locatário do AD do Azure personalizada 2](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
-**Conta Microsoft**: a página de entrada da conta Microsoft para consumidores.
+**Conta da Microsoft**: a página de entrada da conta da Microsoft para consumidores.
 
 ![Conta de domínio do locatário do AD do Azure personalizada 3](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
@@ -350,7 +350,7 @@ A captura de tela a seguir mostra um cenário que usa uma chave assimétrica por
 
 Nos dois casos anteriores, a autenticação do usuário permanece a mesma. Ela ocorre por meio do Azure AD. A única diferença é que os JWTs são emitidos pelo STS personalizado em vez do Azure AD. Ao configurar a proteção por CENC dinâmica, a restrição do serviço de entrega de licença especifica o tipo de JWT, sendo uma chave simétrica ou assimétrica.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Perguntas frequentes](frequently-asked-questions.md)
 * [Visão geral da proteção de conteúdo](content-protection-overview.md)

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 21f4e0aa339eb0c746f9b9b06f8aaada6c4d4b71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f00a99a31a4543ef45c90a86820e627134d8963
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043368"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888692"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Trabalhar com recursos no grupo de recursos gerenciado do aplicativo gerenciado do Azure
 
 Este artigo descreve como atualizar os recursos implantados como parte de um aplicativo gerenciado. Como fornecedor de um aplicativo gerenciado, você tem acesso aos recursos no grupo de recursos gerenciado. Para atualizar esses recursos, você precisa localizar o grupo de recurso gerenciado associado a um aplicativo gerenciado, e acessar o recurso nesse grupo de recursos.
 
-Este artigo pressupõe que você implantou o aplicativo gerenciado no projeto de exemplo [IaaS (Aplicativo Web gerenciado) com os serviços de gerenciamento do Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app). Se o aplicativo gerenciado incluir uma máquina virtual **Standard_D1_v2**. Se você não tiver implantado o aplicativo gerenciado, ainda poderá usar este artigo para se familiarizar com as etapas de atualização de um grupo de recursos gerenciado.
+Este artigo pressupõe que você implantou o aplicativo gerenciado no projeto de exemplo [IaaS (Aplicativo Web gerenciado) com os serviços de gerenciamento do Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app). Se o aplicativo gerenciado incluir uma máquina virtual **Standard_D1_v2**. Se você não tiver implantado o aplicativo gerenciado, ainda poderá usar este artigo para se familiarizar com as etapas de atualização de um grupo de recursos gerenciado.
 
 A imagem a seguir mostra o aplicativo gerenciado implantado.
 
@@ -94,7 +94,7 @@ A atribuição de política é exibida no portal.
 
 ![Exibir atribuição de política](./media/update-managed-resources/assignment.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados](overview.md).
 * Para obter os projetos de exemplo, consulte [Projetos de exemplo para aplicativos gerenciados do Azure](sample-projects.md).

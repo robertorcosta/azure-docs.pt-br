@@ -7,14 +7,15 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: 857188ebb5ddc3c24f6a225819c47fc1643417e6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a1e299f195a148ebd1bdbda91e5a56e297f34d31
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887528"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889168"
 ---
-# <a name="troubleshooting-no-data---application-insights-for-net"></a>Solução de problemas de ausência de dados - Application Insights para .NET
+# <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solução de problemas sem dados-Application Insights para .NET/.NET Core
+
 ## <a name="some-of-my-telemetry-is-missing"></a>Parte da minha telemetria está ausente
 *No Application Insights, vejo apenas uma fração dos eventos que são gerados pelo meu aplicativo.*
 
@@ -212,7 +213,7 @@ Siga estas instruções para capturar logs de solução de problemas para sua es
 
 1. Instale o pacote [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) do NuGet. A versão que você instala deve corresponder à versão instalada atual do `Microsoft.ApplicationInsights`
 
-A versão mais recente de Microsoft. ApplicationInsights. AspNetCore é 2.7.1 e se refere à Microsoft. ApplicationInsights versão 2,10. Portanto, a versão de Microsoft. AspNet. ApplicationInsights. HostingStartup a ser instalada deve ser 2.10.0
+A versão mais recente de Microsoft. ApplicationInsights. AspNetCore é 2.8.2 e se refere à Microsoft. ApplicationInsights versão 2.11.2. Portanto, a versão de Microsoft. AspNet. ApplicationInsights. HostingStartup a ser instalada deve ser 2.11.2
 
 2. Modifique o método `ConfigureServices` na sua classe `Startup.cs`:
 

@@ -1,6 +1,6 @@
 ---
 title: Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits – Azure | Microsoft Docs
-description: 'Este tópico descreve como configurar um canal que recebe um fluxo ao vivo com múltiplas taxas de bits de um codificador local. Em seguida, o fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de streaming, usando um destes protocolos de streaming adaptáveis: HLS, Smooth Streaming, DASH.'
+description: Este tópico descreve como configurar um canal que recebe um fluxo ao vivo com múltiplas taxas de bits de um codificador local.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,19 +14,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "69015476"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887075"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo de múltiplas taxas de bits de codificadores locais
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Nos Serviços de Mídia do Azure, um *Canal* representa um pipeline para processamento de conteúdo de streaming ao vivo. Um canal recebe fluxos de entrada ao vivo de uma das duas maneiras a seguir:
 
 * Um codificador ativo local envia um fluxo RTMP ou Smooth Streaming (MP4 fragmentado) com múltiplas taxas de bits para o canal que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam pelos canais sem qualquer processamento adicional. Esse método é chamado *passagem*. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, não recomendamos isso. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
@@ -35,12 +35,12 @@ Nos Serviços de Mídia do Azure, um *Canal* representa um pipeline para process
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
 
 
-* Um codificador dinâmico local envia um fluxo de taxa de bits única para o canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
+* Um codificador ativo local envia uma transmissão de taxa de bits adaptável única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
 
 A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, pode especificar como deseja que o canal receba o fluxo de entrada. Você também pode especificar se quer que o canal execute a codificação ativa de seu fluxo. Você tem duas opções:
 
 * **Passagem**: especifique esse valor caso pretenda usar um codificador dinâmico local que tem um fluxo de múltiplas taxas de bits (um fluxo de passagem) como saída. Nesse caso, o fluxo de entrada é transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Este artigo fornece detalhes sobre como trabalhar com canais desse tipo.
-* **Codificação Ativa**: escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Deixar um canal de codificação ativa em um estado **Executando** incorre em encargos de cobrança. Recomendamos parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
+* **Codificação ativa**: escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Deixar um canal de codificação ativa em um estado **Executando** incorre em encargos de cobrança. Recomendamos parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
 
 > [!NOTE]
 > Este artigo aborda os atributos de canais que não estão habilitados para executar a codificação ativa. Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
@@ -115,7 +115,7 @@ Você pode obter as URLs de ingestão ao criar o canal. Para obter essas URLs, o
 Você tem a opção de ingerir uma transmissão ao vivo de MP4 fragmentado (Smooth Streaming) em uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS. No momento, você não pode ingerir RTMP sobre SSL.
 
 #### <a id="keyframe_interval"></a>Intervalo de quadro-chave
-Quando você usa um codificador ativo local para gerar um fluxo com múltiplas taxas de bits, o intervalo de quadro-chave especifica a duração de GOP (grupo de imagens), conforme usado pelo codificador externo. Depois que o canal recebe esse fluxo de entrada, você pode enviar sua transmissão ao vivo para os aplicativos cliente de reprodução em qualquer um dos seguintes formatos: Smooth Streaming, DASH (Dynamic Adaptive Streaming sobre HTTP) e HLS (HTTP Live Streaming). Ao fazer streaming ao vivo, o HLS é sempre empacotado dinamicamente. Por padrão, os Serviços de Mídia calculam automaticamente a taxa de empacotamento de segmento HLS (fragmentos por segmento) com base no intervalo de quadros-chave que é recebido do codificador ativo.
+Quando você usa um codificador ativo local para gerar um fluxo com múltiplas taxas de bits, o intervalo de quadro-chave especifica a duração de GOP (grupo de imagens), conforme usado pelo codificador externo. Após o canal receber esse fluxo de entrada, você poderá entregar sua transmissão ao vivo aos aplicativos de reprodução de cliente em qualquer um dos seguintes formatos: Smooth Streaming, Dynamic Adaptive Streaming sobre HTTP (DASH) e HTTP Live Streaming (HLS). Ao fazer streaming ao vivo, o HLS é sempre empacotado dinamicamente. Por padrão, os Serviços de Mídia calculam automaticamente a taxa de empacotamento de segmento HLS (fragmentos por segmento) com base no intervalo de quadros-chave que é recebido do codificador ativo.
 
 A tabela a seguir mostra como a duração do segmento é calculada:
 
@@ -176,25 +176,25 @@ Mesmo após a interrupção e exclusão do programa, os usuários poderão trans
 ## <a id="states"></a>Estados de canal e cobrança
 Os valores possíveis para o estado atual de um canal incluem:
 
-* **Parado**: este é o estado inicial do canal após sua criação. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
-* **Iniciando**: o canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retornará ao estado **Parado**.
-* **Executando**: o canal pode processar transmissões ao vivo.
-* **Parando**: o canal está sendo parado. Nenhuma atualização ou streaming é permitido durante esse estado.
-* **Excluindo**: o canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante esse estado.
+* **Parado**: este é o estado inicial do canal após sua criação. Neste estado, as propriedades do canal podem ser atualizadas, mas o streaming não é permitido.
+* **Iniciando**: o canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante este estado. Se ocorrer um erro, o canal retornará ao estado **Parado**.
+* **Executando**: o canal pode processar fluxos ao vivo.
+* **Parando**: o canal está sendo interrompido. Nenhuma atualização ou streaming é permitido durante este estado.
+* **Excluindo**: o canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante este estado.
 
-A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança.
+A tabela a seguir mostra como é o mapeamento dos estados do canal para o modo de cobrança.
 
-| Estado de canal | Indicadores de interface do usuário do portal | Cobrado? |
+| Estado do Canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- |
-| **Iniciando** |**Iniciando** |Nenhum (estado transitório) |
-| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (há pelo menos um programa em execução) |Sim |
-| **Parando** |**Parando** |Nenhum (estado transitório) |
+| **Iniciando** |**Iniciando** |Não (estado transitório) |
+| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (há pelo menos um programa em execução) |SIM |
+| **Parando** |**Parando** |Não (estado transitório) |
 | **Interrompido** |**Interrompido** |Não |
 
 ## <a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncios
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
-| Standard | Observações |
+| Standard | Notas |
 | --- | --- |
 | CEA-708 e EIA-608 (708/608) |CEA-708 e EIA-608 são padrões de legendagem oculta para os Estados Unidos e o Canadá.<p><p>Atualmente, as legendas têm suporte somente se incluídas no fluxo de entrada codificado. Você precisa usar um codificador de mídia ativo que possa inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Serviços de Mídia. Os Serviços de Mídia entregam o conteúdo com legendas inseridas a seus usuários. |
 | TTML em ismt (faixas de texto de Smooth Streaming) |O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você pode entregar o fluxo apenas a clientes de Smooth Streaming. |

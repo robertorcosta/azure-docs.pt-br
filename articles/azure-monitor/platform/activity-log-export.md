@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 33302d7252c56badfed1dc7adea6a4f7cbf961b6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f2366d60868dd1db52fd8bfc2149756ed4b1b0d1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048262"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893613"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure
 
@@ -30,16 +30,16 @@ Os [hubs de eventos do Azure](/azure/event-hubs/) são uma plataforma de streami
 * **Transmitir para sistemas de registro em log e telemetria de terceiros**: ao longo do tempo, a transmissão de Hubs de Eventos do Azure se tornará o mecanismo para direcionar seus Logs de Atividade para SIEMs e soluções de análise de logs de terceiros.
 * **Compilar uma plataforma de registro em log e telemetria personalizada**: se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos Hubs de Eventos permite a flexibilidade de ingestão de log de atividade. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="storage-account"></a>Conta de Armazenamento
-Se você estiver arquivando o log de atividades, precisará [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) se ainda não tiver uma. Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados de monitoramento. Se você também estiver arquivando os logs de diagnóstico e as métricas em uma conta de armazenamento, poderá optar por usar essa mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
+### <a name="storage-account"></a>Conta de armazenamento
+Se você estiver arquivando o log de atividades, precisará [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) se ainda não tiver uma. Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados de monitoramento. Se você também estiver arquivando logs e métricas em uma conta de armazenamento, poderá optar por usar essa mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
 
 A conta de armazenamento não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 > [!NOTE]
 >  Atualmente, você não pode arquivar dados em uma conta de armazenamento que esteja atrás de uma rede virtual protegida.
 
-### <a name="event-hubs"></a>Hubs de Eventos
+### <a name="event-hubs"></a>Hubs de evento
 Se você estiver enviando o log de atividades para um hub de eventos, você precisará [criar um hub de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se você tiver transmitido anteriormente eventos do log de atividades para esse namespace de hubs de eventos, esse Hub de eventos será reutilizado.
 
 A política de acesso compartilhado define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado para o namespace de hubs de eventos na portal do Azure na guia Configurar para seu namespace de hubs de eventos.
@@ -111,13 +111,13 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Propriedade | obrigatórios | DESCRIÇÃO |
+    | Propriedade | obrigatórios | Descrição |
     | --- | --- | --- |
-    | NOME |sim |Nome de seu perfil de log. |
+    | name |SIM |Nome de seu perfil de log. |
     | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
     | serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Local padrão |sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
-    | RetentionInDays |sim |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
+    | Location |SIM |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
+    | RetentionInDays |SIM |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
     | Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
 
 ### <a name="example-script"></a>Script de exemplo
@@ -154,14 +154,14 @@ Se um perfil de log já existir, primeiro será necessário remover o perfil de 
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Propriedade | obrigatórios | DESCRIÇÃO |
+    | Propriedade | obrigatórios | Descrição |
     | --- | --- | --- |
-    | name |sim |Nome de seu perfil de log. |
-    | storage-account-id |sim |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
-    | locais |sim |Lista separada por espaço de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `az account list-locations --query [].name`. |
-    | dias |sim |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro Enabled deverá ser definido como false. |
-    |habilitado | sim |Verdadeiro ou falso.  Usado para habilitar ou desabilitar a política de retenção.  Se for Verdadeiro, o parâmetro de dias deverá ser um valor maior que 0.
-    | Categorias |sim |Lista separada por espaço de categorias de eventos que devem ser coletadas. Os valores possíveis são Gravação, Exclusão e Ação. |
+    | Nome |SIM |Nome de seu perfil de log. |
+    | storage-account-id |SIM |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
+    | Locais |SIM |Lista separada por espaço de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `az account list-locations --query [].name`. |
+    | dias |SIM |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro Enabled deverá ser definido como false. |
+    |habilitado | SIM |Verdadeiro ou falso.  Usado para habilitar ou desabilitar a política de retenção.  Se for Verdadeiro, o parâmetro de dias deverá ser um valor maior que 0.
+    | Categorias |SIM |Lista separada por espaço de categorias de eventos que devem ser coletadas. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 
 
@@ -169,7 +169,7 @@ Se um perfil de log já existir, primeiro será necessário remover o perfil de 
 Seja enviado para o armazenamento do Azure ou Hub de eventos, os dados do log de atividades serão gravados em JSON com o formato a seguir.
 
 
-> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de diagnóstico arquivados em uma conta de armazenamento](diagnostic-logs-append-blobs.md) para obter detalhes sobre essa alteração de formato.
+> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de recursos arquivados em uma conta de armazenamento](diagnostic-logs-append-blobs.md) para obter detalhes sobre essa alteração de formato.
 
 ``` JSON
 {
@@ -228,29 +228,29 @@ Seja enviado para o armazenamento do Azure ou Hub de eventos, os dados do log de
 ```
 Os elementos neste JSON são descritos na tabela a seguir.
 
-| Nome do elemento | DESCRIÇÃO |
+| Nome do elemento | Descrição |
 | --- | --- |
-| tempo real |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
+| time |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
 | ResourceId |ID de recurso do recurso afetado. |
 | operationName |Nome da operação. |
-| categoria |Categoria da ação, por exemplo, Gravação, Leitura e Ação. |
+| category |Categoria da ação, por exemplo, Gravação, Leitura e Ação. |
 | resultType |O tipo do resultado, por exemplo, Êxito, Falha e Início |
 | resultSignature |Depende do tipo de recurso. |
 | durationMs |Duração da operação em milissegundos |
 | callerIpAddress |Endereço IP do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. |
 | correlationId |Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
 | identidade |Blob JSON que descreve a autorização e as declarações. |
-| autorização |Blob de propriedades RBAC do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
+| authorization |Blob de propriedades RBAC do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
 | level |Nível do evento. Um dos seguintes valores: _crítico_, _erro_, _aviso_, _informativo_e _detalhado_ |
 | location |Região na qual ocorreu o local (ou global). |
-| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, Dicionário) que descreve os detalhes do evento. |
+| properties |Conjunto de pares de `<Key, Value>` (ou seja, Dicionário) que descreve os detalhes do evento. |
 
 > [!NOTE]
 > As propriedades e o uso dessas propriedades podem variar dependendo do recurso.
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Leia mais sobre o Log de Atividades](../../azure-resource-manager/resource-group-audit.md)
 * [Coletar log de atividades em logs de Azure Monitor](activity-log-collect.md)

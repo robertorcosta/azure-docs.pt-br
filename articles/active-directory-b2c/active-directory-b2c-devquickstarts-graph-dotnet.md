@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74119976"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900007"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar a API do Graph do Azure AD
 
@@ -33,7 +33,7 @@ Neste artigo, você aprenderá a executar o caso de uso automatizado. Você vai 
 >[!IMPORTANT]
 > Você **deve** usar o [API do Graph do Azure ad](../active-directory/develop/active-directory-graph-api-quickstart.md) para gerenciar usuários em um diretório Azure ad B2C. O API do Graph do Azure AD é diferente da API do Microsoft Graph. Saiba mais nesta postagem no blog do MSDN: [Microsoft Graph ou Azure ad Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de criar aplicativos ou usuários, é necessário um locatário do Azure AD B2C. Se você ainda não tiver uma, [crie um locatário Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -356,13 +356,12 @@ Você pode usar o nome completo, como `extension_55dc0861f9a44eb999e0a8a872204ad
 B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Usando `B2CGraphClient`, você terá um aplicativo de serviço que pode gerenciar os usuários de locatário B2C de forma programática. `B2CGraphClient` usa sua própria identidade de aplicativo para se autenticar na API do Graph do Azure AD. Ele também adquire tokens usando um segredo do cliente.
 
 Ao incorporar essa funcionalidade em seu próprio aplicativo, lembre-se de alguns pontos-chave para aplicativos B2C:
 
 * Conceda ao aplicativo as permissões necessárias no locatário.
-* Por enquanto, você precisa usar ADAL (não MSAL) para obter tokens de acesso. (Você também pode enviar mensagens de protocolo diretamente, sem usar uma biblioteca.)
 * Ao chamar a API do Graph, use `api-version=1.6`.
 * Quando você cria e atualiza usuários consumidores, algumas propriedades são obrigatórias, conforme descrito acima.

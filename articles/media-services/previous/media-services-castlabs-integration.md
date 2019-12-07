@@ -1,6 +1,6 @@
 ---
 title: Usando o castLabs para fornecer licenças Widevine aos Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine. A licença do PlayReady vem do servidor de licenças do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licenças do castLabs.
+description: Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine.
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 9c61fad333037074f392b019ae61c161673e4008
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c038480c9a49c96aaba7c7ff7299c8ebea31b81f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016682"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887774"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "69016682"
 > 
 > 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine. A licença do PlayReady vem do servidor de licenças do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licenças do **castLabs** .
 
@@ -58,7 +58,7 @@ A tabela a seguir descreve o token JWT no AMS.
 
 | Emissor | Cadeia de caracteres do emissor do Secure Token Service (STS) escolhido |
 | --- | --- |
-| Audiência |Cadeia de caracteres do público-alvo do STS usado |
+| Público |Cadeia de caracteres do público-alvo do STS usado |
 | Declarações |Um conjunto de declarações |
 | NotBefore |Validade inicial do token |
 | Expira |Validade final do token |
@@ -68,7 +68,7 @@ A tabela a seguir descreve o token JWT no AMS.
 
 A tabela a seguir descreve o token JWT no castLabs. 
 
-| Nome | Descrição |
+| name | Descrição |
 | --- | --- |
 | optData |Uma cadeia de caracteres JSON que contém informações sobre você. |
 | crt |Uma cadeia de caracteres JSON que contém informações sobre o ativo, suas informações de licença e seus direitos de reprodução. |

@@ -1,6 +1,6 @@
 ---
 title: Códigos de erro dos Serviços de Mídia do Azure | Microsoft Docs
-description: Este tópico oferece uma visão geral dos códigos de erro dos Serviços de Mídia do Azure.
+description: Você pode receber códigos de erro HTTP do serviço dependendo de problemas como tokens de autenticação expirando para ações que não têm suporte nos serviços de mídia. Este artigo fornece uma visão geral dos códigos de erro da API do Azure Media Services v2.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f3c362730e7908e88b363659b7fa580b6f2cddf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217138"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887060"
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de erro dos Serviços de Mídia do Azure
 Ao usar os Serviços de Mídia do Microsoft Azure, você pode receber códigos de erro HTTP do serviço dependendo dos problemas, como tokens de autenticação expirando a ações que não são compatíveis nos Serviços de Mídia. Veja a seguir uma lista de **códigos de erros HTTP** que podem ser retornados pelos Serviços de Mídia e suas possíveis causas.  
@@ -116,10 +116,10 @@ Para resolver esse erro, é recomendável usar a lógica de repetição de retir
 > 
 > 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Códigos de erro do gerenciamento dos Serviços de Mídia](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

@@ -1,6 +1,6 @@
 ---
 title: Implementar streaming de failover com os Serviços de Mídia do Azure | Microsoft Docs
-description: Este tópico mostra como implementar um cenário de streaming de failover.
+description: Este artigo mostra como implementar um cenário de streaming de failover com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ea5238df50ff050140453ce655ea041669f6080c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 195f7f089b84e1665f4dd078a7da141d531c2185
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051641"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887150"
 ---
 # <a name="implement-failover-streaming-with-media-services"></a>Implementar streaming de failover com os serviços de mídia 
 
@@ -52,7 +52,7 @@ As seguintes considerações se aplicam:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Duas contas dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Confira [Criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
-* Sistema operacional: Windows 7, Windows 2008 R2 ou Windows 8.
+* Sistemas operacionais: Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5 ou .NET Framework 4.
 * Visual Studio 2010 SP1 ou versão posterior (Professional, Premium, Ultimate ou Express).
 
@@ -62,7 +62,7 @@ Nesta seção, você cria e configura um projeto de aplicativo de console em C#.
 1. Use o Visual Studio para criar uma nova solução que inclua o projeto de Aplicativo de Console em C#. Insira **HandleRedundancyForOnDemandStreaming** como o Nome e clique em **OK**.
 2. Crie a pasta **SupportFiles** no mesmo nível que o arquivo de projeto **HandleRedundancyForOnDemandStreaming.csproj**. Na pasta **SupportFiles**, crie as pastas **OutputFiles** e **MP4Files**. Copie um arquivo. mp4 para a pasta **MP4Files**. (Neste exemplo, o arquivo **bigbuckbunny. Mp4** é usado.) 
 3. Use o **Nuget** para adicionar referências às DLLs relacionadas aos Serviços de Mídia. No **Menu Principal do Visual Studio**, selecione **FERRAMENTAS** > **Gerenciador de Pacotes da Biblioteca** > **Console do Gerenciador de Pacotes**. Na janela do console, digite **Install-Package windowsazure.mediaservices** e pressione Enter.
-4. Adicione outras referências que são necessárias para este projeto: System.Configuration, System.Runtime.Serialization e System.Web.
+4. Adicione outras referências necessárias a este projeto: System.Configuration, System.Runtime.Serialization e System.Web.
 5. Substitua as instruções **using** que foram adicionadas ao arquivo **Programs.cs** por padrão pelas seguintes:
    
         using System;
@@ -930,7 +930,7 @@ Nesta seção, você cria a capacidade de manipular a redundância.
             return request;
         }
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora você pode usar um gerenciador de tráfego para rotear solicitações entre dois datacenters e, portanto, realizar o failover no caso de qualquer interrupção.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia

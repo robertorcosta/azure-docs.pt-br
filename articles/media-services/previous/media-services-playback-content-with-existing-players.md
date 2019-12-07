@@ -1,6 +1,6 @@
 ---
 title: Usar players existentes para reproduzir seu conteúdo - Azure | Microsoft Docs
-description: Este tópico lista os players existentes que você pode usar para reproduzir conteúdo.
+description: Este artigo lista os players existentes que você pode usar para reproduzir o conteúdo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69015287"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895867"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reprodução de seu conteúdo com players existentes
 Os serviços de mídia do Microsoft Azure suporta muitos formatos populares de streaming, como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta para players existentes que você pode usar para testar os fluxos.
@@ -60,7 +60,7 @@ Use o [Player de Mídia do Azure](https://aka.ms/azuremediaplayer) para reproduz
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Outros
+### <a name="other"></a>outro
 Para testar as URLs de HLS, você também pode usar:
 
 * **Safari** em um dispositivo iOS ou

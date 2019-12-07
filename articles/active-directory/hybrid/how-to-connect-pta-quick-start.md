@@ -16,14 +16,14 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fe38b434c4e54b375b22d76c573d3bbe88b0e16
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243619"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889933"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: Início rápido
+# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: início rápido
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Implantar a autenticação de passagem do Azure AD
 
@@ -49,7 +49,7 @@ Verifique se os pré-requisitos a seguir estão em vigor.
 2. Instale a [última versão do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) no servidor identificado na etapa anterior. Se o Azure AD Connect já está em execução, verifique se a versão é a 1.1.750.0 ou posterior.
 
     >[!NOTE]
-    >As versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 do Azure AD Connect têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a Autenticação de passagem, leia as [Notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
+    >O Azure AD Connect versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a Autenticação de passagem, leia as [Notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
 3. Identifique um ou mais servidores adicionais (que execute o Windows Server 2012 R2 ou posterior, com o TLS 1.2 habilitado) no qual você possa executar Agentes de Autenticação autônomos. Esses servidores adicionais são necessários para garantir a alta disponibilidade de solicitações de entrada. Adicione os servidores à mesma floresta do Active Directory dos usuários cujas senhas você precisa validar.
 
@@ -68,7 +68,7 @@ Verifique se os pré-requisitos a seguir estão em vigor.
      Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
    - Se o seu firewall ou proxy permitirem lista de permissões de DNS, adicione as conexões a **\*msappproxy.net** e **\*servicebus.windows.net** à lista de permissões. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
    - Os seus Agentes de autenticação devem acessar **login.windows.net** e **login.microsoftonline.net** para o registro inicial. Abra seu firewall para essas URLs também.
-   - Para validação de certificado, desbloqueie as seguintes URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, e **www \.microsoft.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
+   - Para a validação de certificado, desbloqueie as seguintes URLs: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**e **www\.Microsoft.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
 
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 
@@ -79,16 +79,16 @@ Habilite a Autenticação de passagem por meio do [Azure AD Connect](whatis-hybr
 
 Se estiver instalando o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](how-to-connect-install-custom.md). Na página **Entrada de usuário** escolha **Autenticação de Passagem** como o **Método de logon**. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor do Azure AD Connect. Além disso, o recurso de autenticação de passagem estará habilitado em seu locatário.
 
-![Azure AD Connect: Entrada do usuário](./media/how-to-connect-pta-quick-start/sso3.png)
+![Azure AD Connect: conexão do usuário](./media/how-to-connect-pta-quick-start/sso3.png)
 
 Se já tiver instalado o Azure AD Connect usando o caminho de [instalação expressa](how-to-connect-install-express.md) ou de [instalação personalizada](how-to-connect-install-custom.md), selecione a tarefa **Alterar entrada do usuário** no Azure AD Connect e selecione **Avançar**. Depois selecione **Autenticação de Passagem** como o método de entrada. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor que o Azure AD Connect, e o recurso estará habilitado em seu locatário.
 
-![Azure AD Connect: Alterar a entrada do usuário](./media/how-to-connect-pta-quick-start/changeusersignin.png)
+![Azure AD Connect: alterar entrada do usuário](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
 >A Autenticação de Passagem é um recurso no nível do locatário. A ativação desse recurso afeta a entrada de usuários em _todos_ os domínios gerenciados no seu locatário. Se estiver alternando dos Serviços de Federação do Active Directory (AD FS) para Autenticação de passagem, você deve esperar pelo menos 12 horas antes de desligar a infraestrutura do AD FS. Esse tempo de espera é para garantir que os usuários continuem entrando no Exchange ActiveSync durante a transição. Para obter mais ajuda sobre a migração do AD FS para Autenticação de Passagem, veja o nosso plano detalhado de implantação publicado [aqui](https://aka.ms/adfstoptadpdownload).
 
-## <a name="step-3-test-the-feature"></a>Etapa 3: Testar o recurso
+## <a name="step-3-test-the-feature"></a>Etapa 3: testar o recurso
 
 Siga estas instruções para verificar se você habilitou a Autenticação de passagem corretamente:
 
@@ -100,18 +100,18 @@ Siga estas instruções para verificar se você habilitou a Autenticação de pa
 
 ![Centro de administração do Azure Active Directory: painel do Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Centro de administração do Azure Active Directory: painel de autenticação de passagem](./media/how-to-connect-pta-quick-start/pta8.png)
+![Centro de administração do Azure Active Directory: painel da Autenticação de passagem](./media/how-to-connect-pta-quick-start/pta8.png)
 
 Nesse momento, os usuários de todos os domínios gerenciados no seu locatário podem entrar usando a Autenticação de passagem. No entanto, os usuários de domínios federados continuam a entrar usando o AD FS ou outro provedor de federação que já esteja configurado. Se você converter um domínio de federado para gerenciado, todos os usuários nesse domínio passarão automaticamente a entrar usando a Autenticação de passagem. O recurso de Autenticação de passagem os não afeta os usuários somente de nuvem.
 
-## <a name="step-4-ensure-high-availability"></a>Etapa 4: garantir a alta disponibilidade
+## <a name="step-4-ensure-high-availability"></a>Etapa 4: Verificar a alta disponibilidade
 
 Se você planeja implantar autenticação de passagem em um ambiente de produção, instale um Agente de Autenticação autônomo. Instale esses Agentes de Autenticação no(s) servidor(es) _diferente(s)_ do que está executando o Azure AD Connect. Esta configuração fornece alta disponibilidade para solicitações de entrada de usuário.
 
 >[!IMPORTANT]
 >Em ambientes de produção, recomendamos ter um mínimo de três Agentes de Autenticação em execução no seu locatário. Há um limite do sistema de 40 Agentes de Autenticação por locatário. Como melhor prática, trate todos os servidores que estão executando Agentes de Autenticação como sistemas de Camada 0 (veja a [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-Instalar vários agentes de autenticação de passagem garante a alta disponibilidade, mas não determinística balanceamento de carga entre os agentes de autenticação. Para determinar quantos agentes de autenticação que você precisa para seu locatário, considere a carga média de solicitações de entrada que você espera ver no seu locatário e de pico. Como um parâmetro de comparação, um único Agente de autenticação pode manipular de 300 a 400 autenticações por segundo em um servidor padrão com CPU de 4 núcleos e 16 GB de RAM.
+A instalação de vários agentes de autenticação de passagem garante a alta disponibilidade, mas não o balanceamento de carga determinístico entre os agentes de autenticação. Para determinar quantos agentes de autenticação você precisa para seu locatário, considere o pico e a carga média de solicitações de entrada que você espera ver em seu locatário. Como um parâmetro de comparação, um único Agente de autenticação pode manipular de 300 a 400 autenticações por segundo em um servidor padrão com CPU de 4 núcleos e 16 GB de RAM.
 
 Para estimar o tráfego de rede, use as seguintes diretrizes de tamanho:
 - Cada solicitação tem um tamanho de payload (0,5 K + 1 K * num_of_agents) bytes. Ou seja, dados do Azure AD para o Agente de autenticação. Aqui, "num_of_agents" indica o número de Agentes de autenticação registrado no seu locatário.
@@ -126,7 +126,7 @@ Para começar, siga estas instruções para baixar o software do agente de auten
 3. Selecione **Azure AD Connect**, **Autenticação de passagem** e depois **Baixar Agente**.
 4. Selecione o botão **Aceitar termos e baixar**.
 
-![Centro de administração do Azure Active Directory: botão Baixar o Agente de Autenticação](./media/how-to-connect-pta-quick-start/pta9.png)
+![Centro de administração do Azure Active Directory: botão de Baixar Agente de Autenticação](./media/how-to-connect-pta-quick-start/pta9.png)
 
 ![Centro de administração do Azure Active Directory: painel Baixar Agente](./media/how-to-connect-pta-quick-start/pta10.png)
 
@@ -145,25 +145,25 @@ Segundo, você pode criar e executar um script de implantação autônomo. Isso 
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
 3. Vá para **C:\Arquivos de Programas\Microsoft Azure AD Connect Authentication Agent** e execute o seguinte script usando o objeto `$cred` que você criou:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 >[!IMPORTANT]
->Se um agente de autenticação estiver instalado em uma máquina Virtual, você não pode clonar a máquina Virtual para configurar outro agente de autenticação. Esse método é **sem suporte**.
+>Se um agente de autenticação estiver instalado em uma máquina virtual, você não poderá clonar a máquina virtual para configurar outro agente de autenticação. Não há **suporte para**este método.
 
-## <a name="step-5-configure-smart-lockout-capability"></a>Etapa 5: Configurar a funcionalidade do bloqueio inteligente
+## <a name="step-5-configure-smart-lockout-capability"></a>Etapa 5: configurar o recurso de bloqueio inteligente
 
-Bloqueio inteligente ajuda a bloquear atores ruins que estão tentando adivinhar as senhas dos usuários ou usando métodos de força bruta para entrar. Ao configurar as configurações de bloqueio inteligente no Azure AD e / ou as configurações de bloqueio apropriado no Active Directory no local, ataques podem ser filtradas antes que elas atinjam o Active Directory. Leia [deste artigo](../authentication/howto-password-smart-lockout.md) para saber mais sobre como definir as configurações de bloqueio inteligente em seu locatário para proteger suas contas de usuário.
+O bloqueio inteligente ajuda a bloquear atores ruins que estão tentando adivinhar as senhas de seus usuários ou usar métodos de força bruta para entrar. Ao definir as configurações de bloqueio inteligente no Azure AD e/ou configurações de bloqueio apropriadas no Active Directory local, os ataques podem ser filtrados antes de alcançarem Active Directory. Leia [Este artigo](../authentication/howto-password-smart-lockout.md) para saber mais sobre como definir as configurações de bloqueio inteligente em seu locatário para proteger suas contas de usuário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Migrar do AD FS para Autenticação de Passagem](https://aka.ms/adfstoptadp) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
-- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar o recurso Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
+- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte na Autenticação de passagem e quais não têm.
-- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): entenda como funciona o recurso Autenticação de passagem.
-- [Perguntas frequentes](how-to-connect-pta-faq.md): encontre respostas para as perguntas frequentes.
-- [Solucionar problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso Autenticação de passagem.
-- [Análise aprofundada sobre segurança](how-to-connect-pta-security-deep-dive.md): obtenha informações técnicas sobre o recurso Autenticação de passagem.
-- [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre este recurso complementar.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para gerar novas solicitações de recursos.
+- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): entenda como funciona o recurso de Autenticação de passagem.
+- [Perguntas frequentes](how-to-connect-pta-faq.md): encontre respostas para perguntas frequentes.
+- [Solução de problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.
+- [Aprofundamento em segurança](how-to-connect-pta-security-deep-dive.md): obtenha informações técnicas sobre o recurso de Autenticação de passagem.
+- [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre esse recurso complementar.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para arquivar novas solicitações.

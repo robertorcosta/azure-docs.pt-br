@@ -1,6 +1,6 @@
 ---
 title: Usar a criptografia dinâmica AES-128 e o serviço de distribuição de chaves | Microsoft Docs
-description: Entregue o conteúdo criptografado com chaves de criptografia AES de 128 bits usando os Serviços de Mídia do Microsoft Azure. Os Serviços de Mídia também fornecem o serviço de distribuição de chaves, que distribui chaves de criptografia para usuários autorizados. Este tópico mostra como criptografar dinamicamente com o AES-128 e usar o serviço de distribuição de chaves.
+description: Este tópico mostra como criptografar dinamicamente com o AES-128 e usar o serviço de distribuição de chaves.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 2b96d968cb1ad2ec903dbf9788e1fbae22bd2b7d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014964"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895828"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Use a criptografia dinâmica AES-128 e o serviço de distrbuição de chaves
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "69014964"
 
 Você pode usar os Serviços de Mídia para a distribuição HTTP Live Streaming (HLS) e Smooth Streaming criptografado com o AES usando chaves de criptografia de 128 bits. Os Serviços de Mídia também fornecem o serviço de distribuição de chaves, que distribui chaves de criptografia para usuários autorizados. Se você desejar que os Serviços de Mídia criptografem um ativo, você associa uma chave de criptografia ao ativo e também configurar políticas de autorização para a chave. Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES. Para descriptografar o fluxo, o player solicita a chave do serviço de distribuição de chaves. Para determinar se o usuário está autorizado a obter a chave, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de Mídia oferecem suporte a tokens nos formatos [Simple Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para saber mais, veja [Configure a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token. A política restrita de token deve ser acompanhada por um token emitido por um STS (serviço de token de segurança). Os Serviços de Mídia oferecem suporte a tokens nos formatos [Simple Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para saber mais, veja [Configure a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
 Para tirar proveito da criptografia dinâmica, você precisa ter um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Você também precisa configurar a política de entrega para o ativo (descrita mais adiante neste artigo). Em seguida, com base no formato especificado na URL de streaming, o servidor de streaming sob demanda garante que você receba o fluxo no protocolo escolhido. Como resultado, você precisa armazenar e pagar por arquivos em um único formato de armazenamento. Os Serviços de Mídia criam e fornecem a resposta apropriada com base nas solicitações de um cliente.
 
@@ -55,9 +55,9 @@ Execute as seguintes etapas gerais ao criptografar seus ativos com AES usando o 
 
 4. [Configure a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy). Você deve configurar a política de autorização da chave de conteúdo. O cliente deve estar em conformidade com a política antes de a chave de conteúdo ser entregue ao cliente.
 
-5. [Configure a política de entrega para um ativo](media-services-protect-with-aes128.md#configure_asset_delivery_policy). A configuração de política de entrega inclui a URL de aquisição de chave e um vetor de inicialização (IV). (AES-128 exige o mesmo IV para criptografia e descriptografia). A configuração também inclui o protocolo de entrega (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos) e o tipo de criptografia dinâmica (por exemplo, envelope ou sem criptografia dinâmica).
+5. [Configure a política de entrega para um ativo](media-services-protect-with-aes128.md#configure_asset_delivery_policy). A configuração de política de entrega inclui a URL de aquisição de chave e um vetor de inicialização (IV). (O AES-128 requer o mesmo IV para criptografia e descriptografia.) A configuração também inclui o protocolo de entrega (por exemplo, MPEG-DASH, HLS, Smooth Streaming ou All) e o tipo de criptografia dinâmica (por exemplo, envelope ou sem criptografia dinâmica).
 
-    Você pode aplicar uma política diferente a cada protocolo no mesmo ativo. Por exemplo, você poderia aplicar a criptografia PlayReady a Smooth/DASH e aplicar Envelope de AES a HLS. Todos os protocolos que não estão definidos em uma política de entrega são impedidos de fazer transmissão por streaming. (Um exemplo é se você adicionar uma única política que especifica somente HLS como o protocolo). Só há exceção se você não tiver nenhuma política de entrega de ativos definida. Em seguida, todos os protocolos podem ser criptografados.
+    Você pode aplicar uma política diferente a cada protocolo no mesmo ativo. Por exemplo, você poderia aplicar a criptografia PlayReady a Smooth/DASH e aplicar Envelope de AES a HLS. Todos os protocolos que não estão definidos em uma política de entrega são impedidos de fazer transmissão por streaming. (Um exemplo é se você adicionar uma única política que especifica apenas HLS como o protocolo.) A exceção será se você não tiver nenhuma política de entrega de ativos definida. Em seguida, todos os protocolos podem ser criptografados.
 
 6. [Criar um localizador OnDemand](media-services-protect-with-aes128.md#create_locator) para obter uma URL de streaming.
 
@@ -159,7 +159,7 @@ O cliente precisa extrair o valor da URL (que também contém a ID da chave de c
 
 No caso de HLS, o manifesto raiz é dividido em arquivos de segmento. 
 
-Por exemplo, o manifesto raiz é: http:\//test001.Origin.mediaservices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/manifest (Format = M3U8-AAPL). Ele contém uma lista de nomes de arquivo de segmento.
+Por exemplo, o manifesto raiz é: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest (Format = M3U8-AAPL). Ele contém uma lista de nomes de arquivo de segmento.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -168,7 +168,7 @@ Por exemplo, o manifesto raiz é: http:\//test001.Origin.mediaservices.Windows.n
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Se você abrir um dos arquivos de segmento em um editor de texto (por exemplo, http\/:/test001.Origin.mediaservices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (vídeo, Format = M3U8-AAPL), Ele contém #EXT-X-KEY, que indica que o arquivo está criptografado.
+Se você abrir um dos arquivos de segmento em um editor de texto (por exemplo, http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels (514369)/manifest (vídeo, Format = M3U8-AAPL), ele conterá #EXT-X-KEY, o que indica que o arquivo está criptografado.
 
     #EXTM3U
     #EXT-X-VERSION:4

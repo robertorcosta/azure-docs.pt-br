@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 43f11bb73578187bd851f58cb6311c95b8648d08
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 26f3dde0bb20443753e2b443ffc00ee23c9124c4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74194997"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893970"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -31,10 +31,10 @@ Suas opções de backup dependem de onde o agente está instalado. Para obter ma
 --- | ---
 Baixe o agente MARS mais recente | Você pode baixar do cofre a versão mais recente do agente ou [baixá-lo diretamente](https://aka.ms/azurebackup_agent).
 Instalar diretamente em um computador | Você pode instalar o agente MARS diretamente em um Windows Server local ou em uma VM do Windows que esteja executando qualquer um dos [sistemas operacionais com suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
-Instalar em um servidor de backup | Quando você configura o DPM ou MABS para fazer backup no Azure, você baixa e instala o agente MARS no servidor. Você pode instalar o agente em [sistemas operacionais com suporte](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte do servidor de backup.
+Instalar em um servidor de backup | Ao configurar o DPM ou MABS para fazer backup no Azure, você baixa e instala o agente MARS no servidor. Você pode instalar o agente em [sistemas operacionais com suporte](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte do servidor de backup.
 
 > [!NOTE]
-> Por padrão, as VMs do Azure que estão habilitadas para backup têm uma instalação de extensão de backup do Azure. Essa extensão faz backup de toda a VM. Você poderá instalar e executar o agente MARS em uma VM do Azure junto com a extensão se você quiser fazer backup de pastas e arquivos específicos, em vez da VM completa.
+> Por padrão, as VMs do Azure que estão habilitadas para backup têm uma instalação de extensão de backup do Azure. Essa extensão faz backup de toda a VM. Você poderá instalar e executar o agente MARS em uma VM do Azure junto com a extensão se quiser fazer backup de pastas e arquivos específicos, em vez da VM completa.
 > Quando você executa o agente MARS em uma VM do Azure, ele faz backup de arquivos ou pastas que estão no armazenamento temporário na VM. Os backups falharão se os arquivos ou pastas forem removidos do armazenamento temporário ou se o armazenamento temporário for removido.
 
 ## <a name="cache-folder-support"></a>Suporte a pasta de cache
@@ -44,8 +44,8 @@ Quando você usa o agente MARS para fazer backup de dados, o agente tira um inst
 **Cache** | **Detalhes**
 --- | ---
 Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
-Local padrão | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
-Pasta | A pasta de cache deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
+Location | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
+Pasta | A pasta de cache não deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
 Alterações de local | Você pode alterar o local do cache interrompendo o mecanismo de backup (`net stop bengine`) e copiando a pasta de cache para uma nova unidade. (Verifique se a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registro em **HKLM\Software\Microsoft\Windows Azure backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) para o novo local e reinicie o mecanismo.
 
 ## <a name="networking-and-access-support"></a>Suporte de rede e acesso
@@ -88,17 +88,17 @@ Os sistemas operacionais devem ser de 64 bits e devem estar executando os servi�
 
 **Sistema operacional** | **Arquivos/pastas** | **Estado do sistema** | **Requisitos de software/módulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | sim | Não |  Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 8.1 (Enterprise, Pro)| sim |Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 8 (Enterprise, Pro) | sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Básico, Starter) | sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows Server 2016 (Standard, Datacenter, Essentials) | sim | sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | sim | sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
-Windows Server 2012 (Standard, Datacenter, Foundation) | sim | sim |-.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | sim | sim | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | sim | Não | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe) <br> -Servidor virtual 2005 base + KB KB948515 para O
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | sim | Não | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
-Windows Server 2019 (Standard, Datacenter, Essentials) | sim | sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows 10 (Enterprise, Pro, Home) | SIM | Não |  Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 8.1 (Enterprise, Pro)| SIM |Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 8 (Enterprise, Pro) | SIM | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Básico, Starter) | SIM | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows Server 2016 (Standard, Datacenter, Essentials) | SIM | SIM | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | SIM | SIM | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows Server 2012 (Standard, Datacenter, Foundation) | SIM | SIM |-.NET 4,5 <br> \- Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | SIM | SIM | -.NET 3,5, .NET 4,5 <br> \- Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | SIM | Não | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe) <br> -Servidor virtual 2005 base + KB KB948515 para O
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | SIM | Não | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows Server 2019 (Standard, Datacenter, Essentials) | SIM | SIM | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 
 Para obter mais informações, consulte [supported mAbs and DPM Operating Systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
@@ -122,12 +122,12 @@ Criptografado| Com suporte.
 Compactado | Com suporte.
 Esparsos | Com suporte.
 Compactados e esparsos |Com suporte.
-Links físicos| Não compatível. Ignorada.
-Ponto de nova análise| Não compatível. Ignorada.
-Criptografados e esparsos |Não compatível. Ignorada.
-Fluxo compactado| Não compatível. Ignorada.
-Fluxo esparso| Não compatível. Ignorada.
-OneDrive (arquivos sincronizados são fluxos esparsos)| Não compatível.
+Links físicos| Sem suporte. Ignorada.
+Ponto de nova análise| Sem suporte. Ignorada.
+Criptografados e esparsos |Sem suporte. Ignorada.
+Fluxo compactado| Sem suporte. Ignorada.
+Fluxo esparso| Sem suporte. Ignorada.
+OneDrive (arquivos sincronizados são fluxos esparsos)| Sem suporte.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades ou volumes com suporte para backup
 
@@ -139,7 +139,7 @@ Compartilhamento de rede| Sem suporte |O volume deve ser local no servidor.
 Volumes bloqueados pelo BitLocker| Sem suporte |O volume deve ser desbloqueado antes do início do backup.
 Identificação do sistema de arquivos| Sem suporte |Há suporte apenas para NTFS.
 Mídia removível| Sem suporte |Todas as fontes de itens de backup devem ter um status *fixo* .
-Unidades com eliminação de duplicação | Suportado | O Backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
+Unidades com eliminação de duplicação | Com suporte | O Backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
 
 ## <a name="support-for-initial-offline-backup"></a>Suporte para o backup offline inicial
 
@@ -156,7 +156,7 @@ Usando o recurso de [restauração instantânea](backup-instant-restore-capabili
 
 Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito de um computador que executa o Windows 7 pode ser restaurado no Windows 8 ou posterior. Mas um backup feito de um computador que executa o Windows 8 não pode ser restaurado em um computador que esteja executando o Windows 7.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a arquitetura de backup que usa o agente Mars](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Saiba o que tem suporte quando você [executa o agente Mars no mAbs ou em um servidor DPM](backup-support-matrix-mabs-dpm.md).
