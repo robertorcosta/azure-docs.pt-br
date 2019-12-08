@@ -43,8 +43,6 @@
       items:
         - name: Como funciona o MFA
           href: concept-mfa-howitworks.md
-        - name: Habilitar MFA
-          href: concept-mfa-get-started.md
         - name: Autorize seus usuários
           href: concept-mfa-licensing.md
         - name: Gerenciar um Provedor de Autenticação
