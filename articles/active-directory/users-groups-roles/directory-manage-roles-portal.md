@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ac62a4f318690a1e8156d619c82e9b936973159
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027897"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900894"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Exibir e atribuir funções de administrador no Azure Active Directory
 
@@ -26,11 +26,11 @@ Agora você pode ver e gerenciar todos os membros das funções de administrador
 
 ## <a name="view-all-roles"></a>Exibir todas as funções
 
-No Azure Active Directory, selecione **funções e os administradores** para ver a lista de todas as funções disponíveis. 
+Pesquise **Azure Active Directory** e selecione-o. Selecione **funções e administradores** para ver a lista de todas as funções disponíveis.
 
 Clique nas reticências à direita de cada linha para abrir a descrição detalhada da função.
 
-![lista de funções no portal do Azure AD](./media/directory-manage-roles-portal/role-list.png)
+![lista de funções no portal do Azure AD](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
 ## <a name="view-my-roles"></a>Exibir minhas funções
 
@@ -51,7 +51,7 @@ Quando você estiver exibindo os membros da função, selecione **descrição** 
 ![lista de permissões para uma função de administrador](./media/directory-manage-roles-portal/role-description.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Fique à vontade para compartilhar seus comentários conosco no [fórum de funções administrativas do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 * Para obter mais informações sobre funções e a atribuição de função de Administrador, confira [Atribuir funções de administrador](directory-assign-admin-roles.md).
