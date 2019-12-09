@@ -1,5 +1,5 @@
 ---
-title: Análise de aplicativo Web Java com o Azure Application Insights | Microsoft Docs
+title: Análise de aplicativo Web Java com insights Aplicativo Azure
 description: 'Monitoramento de desempenho de aplicativos usando o Application Insights para aplicativos Web Java. '
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 28fbb5fcfba2b346d0519dec79e538b1e513b7dd
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 0686cea590ca26096b443dba21b05dc3335c7add
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817133"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927250"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights em um projeto Web de Java
 

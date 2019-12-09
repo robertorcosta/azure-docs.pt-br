@@ -2,19 +2,19 @@
 title: Formato de texto delimitado no Azure Data Factory
 description: Este tópico descreve como lidar com o formato de texto delimitado no Azure Data Factory.
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a1a019e7dea2f0c71b40530baaffff79d003774
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 77d2daf3fa17632d8a1c633c23815e0035e45481
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548294"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931251"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado no Azure Data Factory
 
@@ -103,7 +103,7 @@ As propriedades a seguir têm suporte na seção de ***\*do coletor*** de ativid
 | Propriedade      | Descrição                                                  | obrigatórios                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | O tipo de formatSettings deve ser definido como **DelimitedTextWriteSetting**. | SIM                                                   |
-| FileExtension | A extensão de arquivo usada para nomear os arquivos de saída, por exemplo, `.csv`, `.txt`. Ele deve ser especificado quando o `fileName` não é especificado no conjunto de DelimitedText de saída. | Sim quando o nome do arquivo não é especificado no conjunto de resultados de saída |
+| fileExtension | A extensão de arquivo usada para nomear os arquivos de saída, por exemplo, `.csv`, `.txt`. Ele deve ser especificado quando o `fileName` não é especificado no conjunto de DelimitedText de saída. | Sim quando o nome do arquivo não é especificado no conjunto de resultados de saída |
 
 ## <a name="mapping-data-flow-properties"></a>Mapeando Propriedades de fluxo de dados
 

@@ -2,21 +2,21 @@
 title: Gerenciar recurso de computação
 description: Saiba mais sobre os recursos de escala horizontal de desempenho no SQL Data Warehouse do Azure. Escalar horizontalmente ajustando DWUs, ou reduzir os custos pausando o data warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 11/12/2019
-ms.author: kevin
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 936d92d085420e1386e29a924470b9bac9200d43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039093"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923595"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerenciar computação no SQL Data Warehouse do Azure
 Saiba mais sobre como gerenciar recursos de computação no SQL Data Warehouse do Azure. Reduzir os custos pausando o data warehouse, ou dimensionar o data warehouse para atender às demandas de desempenho. 
@@ -59,7 +59,7 @@ Para ver os benefícios de desempenho de escalamento horizontal, especialmente p
 
 Recomendações para localizar o melhor número de unidades de data warehouse:
 
-- Para um data warehouse em desenvolvimento, comece selecionando um número menor de unidades de data warehouse.  Um bom ponto de partida é DW400 ou DW200.
+- Para um data warehouse em desenvolvimento, comece selecionando um número menor de unidades de data warehouse.  Um bom ponto de partida é DW400c ou DW200c.
 - Monitore o desempenho do aplicativo, observando o número de unidades de data warehouse selecionadas em comparação com o desempenho observado.
 - Suponha uma escala linear e determine quanto é necessário para aumentar ou diminuir as unidades do data warehouse. 
 - Continue fazendo ajustes até alcançar um nível de desempenho ideal para seus requisitos de negócios.
@@ -114,10 +114,10 @@ Cada operação de escala horizontal, pausa e retomada pode demorar vários minu
 Para verificar o estado do data warehouse, consulte o início rápido do [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). Você também pode verificar o estado do data warehouse com uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
-## <a name="permissions"></a>permissões
+## <a name="permissions"></a>Permissões
 
 Escalar o data warehouse exige as permissões descritas em [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Pausar e Retomar exige a permissão [Contribuidor do DB SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor), especificamente Microsoft.Sql/servers/databases/action.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte o guia de instruções para [gerenciar computação](manage-compute-with-azure-functions.md) outro aspecto do gerenciamento de recursos de computação que está alocando diferentes recursos de computação para consultas individuais. Para obter mais informações, consulte [Classes de recurso para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).

@@ -2,24 +2,22 @@
 title: Ferramenta de dados para copiar arquivos novos e atualizados incrementalmente
 description: Crie um data factory do Azure e, em seguida, use a ferramenta Copiar Dados para carregar incrementalmente novos arquivos com base em LastModifiedDate.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 5c20196bd243d025d58f7cc08e015e1e0038e178
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5ff3ade800b2a3474a68a34dc77d0c9b009e8822
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217796"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923133"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
 
@@ -30,14 +28,14 @@ Ao fazer isso, o ADF examinará todos os arquivos do repositório de origem, apl
 > [!NOTE]
 > Se estiver se familiarizando com o Azure Data Factory, confira [Introdução ao Azure Data Factory](introduction.md).
 
-Neste tutorial, você executará as seguintes tarefas:
+Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar um data factory.
 > * Usar a ferramenta Copy Data para criar um pipeline.
 > * Monitore as execuções de pipeline e de atividade.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ e de _coletor_ . Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
@@ -75,7 +73,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 5. Em **versão**, selecione **v2**.
 6. Em **local**, selecione o local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) que seu data factory usa podem estar em outros locais e regiões.
 7. Selecione **Fixar no painel**. 
-8. Selecione **Criar**.
+8. Clique em **Criar**.
 9. No painel, consulte o bloco **Implantando data Factory** para ver o status do processo.
 
     ![Implantando Data Factory bloco](media/tutorial-copy-data-tool/deploying-data-factory.png)
@@ -203,7 +201,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     ![Verificar arquivos usando Gerenciador de Armazenamento do Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 
     
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Avance para o tutorial a seguir para saber mais sobre como transformar dados usando um cluster Apache Spark no Azure:
 
 > [!div class="nextstepaction"]
