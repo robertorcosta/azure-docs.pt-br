@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: a8ac5bdaab915e46f5d5074c991703790d429e50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b83c61d05cbc9d84c74d03004839a21505519fa
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218240"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928455"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um tempo de execução de integração auto-hospedado compartilhado no Azure Data Factory
 
@@ -47,18 +46,18 @@ Para criar um IR compartilhado auto-hospedado usando Azure Data Factory interfac
 
 Para criar um IR compartilhado auto-hospedado usando Azure PowerShell, você pode executar as seguintes etapas: 
 1. Criar um data factory. 
-1. Crie um Integration Runtime auto-hospedado.
+1. Criar um runtime de integração auto-hospedada.
 1. Compartilhe o runtime de integração auto-hospedada com outros data factories.
 1. Crie um runtime de integração vinculado.
 1. Revogue o compartilhamento.
 
-### <a name="prerequisites"></a>pré-requisitos 
+### <a name="prerequisites"></a>Pré-requisitos 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **PowerShell do Azure**. Siga as instruções em [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um runtime de integração auto-hospedada que pode ser compartilhado com outros data factories. 
+- **Azure PowerShell**. Siga as instruções em [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um runtime de integração auto-hospedada que pode ser compartilhado com outros data factories. 
 
 > [!NOTE]  
 > Para obter uma lista de regiões do Azure nas quais o Data Factory está atualmente disponível, selecione as regiões que lhe interessam em [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -215,7 +214,7 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 
 - Revise os [conceitos de runtime de integração no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
 

@@ -1,5 +1,6 @@
 ---
-title: API Web que chama APIs da Web downstream (configuração de código do aplicativo)-plataforma de identidade da Microsoft
+title: Configurar uma API Web que chama APIs da Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web que chama APIs da Web (configuração de código do aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bae9f565dd37fbd3bcae38833662e13e0b7ac6d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 219724186e3fa69fec35e89435af495b662c871d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960642"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919742"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>API Web que chama as APIs da Web-configuração de código
 
@@ -76,7 +77,7 @@ O método AddAccountToCacheFromJwt () precisa:
 
 Esse fluxo só está disponível no fluxo de cliente confidencial para que a API Web protegida forneça credenciais de cliente (segredo do cliente ou certificado) para o [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) por meio dos métodos `WithClientSecret` ou `WithCertificate`, respectivos.
 
-![imagem](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
+![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
 ```CSharp
 IConfidentialClientApplication app;
@@ -103,7 +104,7 @@ A chamada em nome de (OBO) é feita chamando o método [AcquireTokenOnBehalf](ht
 
 A `UserAssertion` é criada a partir do token de portador recebido pela API da Web de seus próprios clientes. Há [dois construtores](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), um que usa um token de portador JWT e um que usa qualquer tipo de declaração de usuário (outro tipo de token de segurança, que tipo é especificado em um parâmetro adicional chamado `assertionType`).
 
-![imagem](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
+![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
 Na prática, o fluxo de obo geralmente é usado para adquirir um token para uma API downstream e armazená-lo no cache de tokens de usuário MSAL.net para que outras partes da API da Web possam, posteriormente, chamar as [substituições](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) de ``AcquireTokenOnSilent`` para chamar as APIs de downstream. Essa chamada tem o efeito de atualizar os tokens, se necessário.
 
@@ -147,7 +148,7 @@ Você também pode ver um exemplo de em nome da implementação do Flow em [Node
 
 Para obter mais informações sobre o protocolo em nome de, consulte [plataforma de identidade da Microsoft e fluxo em nome de OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adquirindo um token para o aplicativo](scenario-web-api-call-api-acquire-token.md)

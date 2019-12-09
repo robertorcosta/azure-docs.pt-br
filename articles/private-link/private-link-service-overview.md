@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8ac93e7ed1638137e70086ac22fa9bb97606830e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228058"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912992"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
@@ -42,7 +42,7 @@ Depois que um consumidor inicia uma conexão, o provedor de serviços pode aceit
 
 Se o serviço de vínculo privado não estiver mais em uso, você poderá excluí-lo. No entanto, antes de excluir o serviço, verifique se não há nenhuma conexão de ponto de extremidade privada associada a ele. Você pode rejeitar todas as conexões e excluir o serviço.
 
-## <a name="properties"></a>Propriedades
+## <a name="properties"></a>propriedades
 
 Um serviço de vínculo privado especifica as seguintes propriedades: 
 
@@ -101,10 +101,9 @@ A seguir estão as limitações conhecidas ao usar o serviço de link privado:
 - Com suporte apenas em Standard Load Balancer 
 - Dá suporte apenas ao tráfego IPv4
 - Dá suporte apenas ao tráfego TCP
-- Acessível somente de pontos de extremidade privados na mesma região
 - Não há suporte para criar e gerenciar a experiência do portal do Azure
 - As informações de conexão dos clientes usando o protocolo proxy não estão disponíveis para o provedor de serviços
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Criar um serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)
 - [Criar um serviço de vínculo privado usando CLI do Azure](create-private-link-service-cli.md)

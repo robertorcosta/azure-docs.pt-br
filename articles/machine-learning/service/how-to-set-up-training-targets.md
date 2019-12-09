@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 1755d5bf3338694f53da7021579cb4c0aee623f3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305322"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912475"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Saiba mais sobre [enviar experimentos](#submit) no final deste artigo.
 
 ## <a name="whats-an-estimator"></a>O que é um estimador?
 
-Para facilitar o treinamento de modelo usando estruturas populares, o SDK do Python Azure Machine Learning fornece uma abstração alternativa de nível superior, a classe do estimador. Essa classe permite que você construa facilmente configurações de execução. Você pode criar e usar um [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de treinamento que usam qualquer estrutura de aprendizado que você escolher (como scikit-learn).
+Para facilitar o treinamento de modelo usando estruturas populares, o SDK do Python Azure Machine Learning fornece uma abstração alternativa de nível superior, a classe do estimador. É recomendável usar um estimador para treinamento, pois a classe contém métodos que permitem que você construa e personalize facilmente as configurações de execução. Você pode criar e usar um [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de treinamento que usam qualquer estrutura de aprendizado que você escolher (como scikit-learn). Se você precisar disponibilizar seus arquivos de dados para seu destino de computação, consulte [treinar com conjuntos de Azure Machine Learning](how-to-train-with-datasets.md).
 
 Para as tarefas PyTorch, TensorFlow e Chainer, Azure Machine Learning também fornece os respectivos estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar o uso dessas estruturas.
 
@@ -312,7 +312,7 @@ Siga as etapas anteriores para exibir a lista de destinos de computação. Em se
 
 1. Preencha o formulário. Forneça valores para as propriedades necessárias, especialmente **Família de VMs**e o **máximo de nós** utilizado para acelerar a computação.  
 
-1. Selecione __Criar__.
+1. Clique em __Criar__.
 
 
 1. Exiba o status da operação de criação, selecionando o destino de computação na lista:
@@ -509,7 +509,7 @@ Veja estes notebooks para obter exemplos de treinamento com vários destinos de 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
 * Saiba como [ajustar os hiperparâmetros com eficiência](how-to-tune-hyperparameters.md) para criar modelos melhores.

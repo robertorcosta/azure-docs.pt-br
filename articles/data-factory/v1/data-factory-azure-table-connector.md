@@ -4,21 +4,20 @@ description: Saiba como mover dados para/do Armazenamento de Tabela do Azure usa
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 83f3a34a9b902b3a0e3b3ded34e36c8cbf50ed89
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683068"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918718"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados para e da Tabela do Azure | Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -26,9 +25,9 @@ ms.locfileid: "73683068"
 > * [Versão 2 (versão atual)](../connector-azure-table-storage.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do Armazenamento de Tabelas do Azure na V2](../connector-azure-table-storage.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do Armazenamento de Tabelas do Azure na V2](../connector-azure-table-storage.md).
 
-Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados bidirecionalmente no Armazenamento de Tabelas do Azure. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia. 
+Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados bidirecionalmente no Armazenamento de Tabelas do Azure. Ele se baseia no artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia. 
 
 Você pode copiar dados de qualquer repositório de dados de origem com suporte para o Armazenamento de Tabelas do Azure ou do Armazenamento de Tabelas do Azure para qualquer repositório de dados do coletor com suporte. Para obter uma lista de repositórios de dados com suporte como fontes ou coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
 
@@ -61,7 +60,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **AzureTable** tem as propriedades a seguir.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância do Banco de Dados da Tabela do Azure à qual o serviço vinculado se refere. |Sim. Quando um nome de tabela é especificado sem uma azureTableSourceQuery, todos os registros da tabela são copiados para o destino. Se uma azureTableSourceQuery também for especificada, os registros da tabela que atende à consulta são copiados para o destino. |
 
@@ -80,7 +79,7 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 **AzureTableSource** dá suporte às seguintes propriedades na seção typeProperties:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | obrigatórios |
 | --- | --- | --- | --- |
 | AzureTableSourceQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta de tabela do Azure. Veja exemplos na próxima seção. |Não. Quando um nome de tabela é especificado sem uma azureTableSourceQuery, todos os registros da tabela são copiados para o destino. Se uma azureTableSourceQuery também for especificada, os registros da tabela que atende à consulta são copiados para o destino. |
 | azureTableSourceIgnoreTableNotFound |Indique se assimilar a exceção da tabela não existe. |TRUE<br/>FALSE |Não |
@@ -100,12 +99,12 @@ Se a coluna Tabela do Azure é do tipo datetime:
 
 **AzureTableSink** dá suporte às seguintes propriedades na seção typeProperties:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | obrigatórios |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Valor de chave de partição padrão que pode ser utilizado pelo coletor. |Um valor de cadeia de caracteres. |Não |
 | azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são usados como chaves de partição. Se não especificado, AzureTableDefaultPartitionKeyValue será utilizado como a chave da partição. |Um nome de coluna. |Não |
 | azureTableRowKeyName |Especifique o nome da coluna cujos valores são usados como chaves de linha. Se não especificado, um GUID é usado para cada linha. |Um nome de coluna. |Não |
-| azureTableInsertType |O modo para inserir dados na tabela do Azure.<br/><br/>Essa propriedade controla se linhas existentes na tabela de saída com a partição correspondente e as chaves de linha terão seus valores substituídos ou mesclados. <br/><br/>Para saber mais sobre como essas configurações (mesclagem e substituição) funcionam, consulte os tópicos [Inserir ou Mesclar Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Inserir ou Substituir Entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx). <br/><br> Essa configuração se aplica ao nível de linha e não ao nível de tabela e nenhuma das opções excluirá as linhas na tabela de saída que não existirem na entrada. |mesclar (padrão)<br/>substituir |Não |
+| azureTableInsertType |O modo para inserir dados na tabela do Azure.<br/><br/>Essa propriedade controla se linhas existentes na tabela de saída com a partição correspondente e as chaves de linha terão seus valores substituídos ou mesclados. <br/><br/>Para saber mais sobre como essas configurações (mesclagem e substituição) funcionam, consulte os tópicos [Inserir ou Mesclar Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Inserir ou Substituir Entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx). <br/><br> Essa configuração se aplica ao nível de linha e não ao nível de tabela e nenhuma das opções excluirá as linhas na tabela de saída que não existirem na entrada. |mesclar (padrão)<br/>substitui |Não |
 | writeBatchSize |Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido. |Inteiro (número de linhas) |Não (padrão: 10000) |
 | writeBatchTimeout |Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido |timespan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento) |
 
@@ -480,11 +479,11 @@ Quando dados forem movidos para e da Tabela do Azure, os seguintes [mapeamentos 
 | Edm.Binary |byte[] |Uma matriz de bytes de até 64 KB. |
 | Edm.Boolean |bool |Um valor booliano. |
 | Edm.DateTime |DateTime |Um valor de 64 bits expressado como Tempo Universal Coordenado (UTC). O intervalo de data e hora com suporte começa à 00:00 de 1º de janeiro de 1601 D.C. (C.E.), UTC. O intervalo termina em 31 de dezembro de 9999. |
-| Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
-| Edm.Guid |Guid |Um identificador global exclusivo de 128 bits. |
+| Edm.Double |Duplo |Um valor de ponto flutuante de 64 bits. |
+| Edm.Guid |GUID |Um identificador global exclusivo de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
-| Edm.String |Cadeia de caracteres |Um valor codificado em UTF-16. Valores de cadeia de caracteres podem ter até 64 KB. |
+| Edm.String |string |Um valor codificado em UTF-16. Valores de cadeia de caracteres podem ter até 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Exemplo de conversão de tipo
 O exemplo a seguir é para copiar dados de um Blob do Azure para Tabela do Azure com conversões de tipo.
@@ -535,7 +534,7 @@ Dado o mapeamento de tipo OData da Tabela do Azure para o tipo .NET, você defin
 
 **Esquema da tabela do Azure:**
 
-| Nome da coluna | Tipo |
+| Nome da coluna | Type |
 | --- | --- |
 | userid |Edm.Int64 |
 | Nome |Edm.String |
@@ -563,7 +562,7 @@ Em seguida, defina o conjunto de dados de Tabela do Azure conforme demonstrado a
 Nesse caso, o Data Factory fará automaticamente as conversões de tipo, inclusive o campo Data e hora com o formato de data e hora personalizado usando a cultura "fr-fr" ao mover dados de Blob para a Tabela do Azure.
 
 > [!NOTE]
-> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Consulte o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

@@ -1,23 +1,22 @@
 ---
-title: Copiar e transformar dados em Azure Cosmos DB (API do SQL) usando Data Factory
+title: Copiar e transformar dados no Azure Cosmos DB (API do SQL)
 description: Saiba como copiar dados de e para Azure Cosmos DB (API do SQL) e transformar dados em Azure Cosmos DB (API do SQL) usando Data Factory.
 services: data-factory, cosmosdb
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: multiple
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/13/2019
-ms.author: jingwang
-ms.openlocfilehash: 5e9db7c63e1493e1de5593262515040f071186e8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bf24c12e8f1e5b7ee5c529ebffa6c15dd8acbcfc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076804"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913415"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Cosmos DB (API do SQL) usando Azure Data Factory
 
@@ -49,7 +48,7 @@ O Data Factory integra-se com a [biblioteca de executor em massa do Azure Cosmos
 > [!TIP]
 > O [vídeo de Migração de Dados](https://youtu.be/5-SRNiC_qOU) orienta você pelas etapas de copiar dados do Armazenamento de Blobs do Azure para o Azure Cosmos DB. O vídeo também descreve considerações de ajuste de desempenho para a ingestão de dados para o Azure Cosmos DB em geral.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,10 +58,10 @@ As seções a seguir fornecem detalhes sobre propriedades que você pode usar pa
 
 As propriedades a seguir têm suporte no serviço vinculado do Azure Cosmos DB (API do SQL):
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade **type** deve ser definida como **CosmosDb**. | sim |
-| connectionString |Especifique as informações necessárias para se conectar ao banco de dados do Azure Cosmos DB.<br />**Observação**: você deve especificar informações de banco de dados na cadeia de conexão conforme mostrado nos exemplos a seguir. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar a chave de conta no Azure Key Vault e efetuar pull da configuração `accountKey` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |sim |
+| type | A propriedade **type** deve ser definida como **CosmosDb**. | SIM |
+| connectionString |Especifique as informações necessárias para se conectar ao banco de dados do Azure Cosmos DB.<br />**Observação**: você deve especificar informações de banco de dados na cadeia de conexão conforme mostrado nos exemplos a seguir. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar a chave de conta no Azure Key Vault e efetuar pull da configuração `accountKey` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que oferece mais detalhes. |SIM |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você poderá usar o Azure Integration Runtime ou um tempo de execução da integração auto-hospedada (se o armazenamento de dados estiver localizado em uma rede privada). Se essa propriedade não for especificada, o Azure Integration Runtime padrão será usado. |Não |
 
 **Exemplo**
@@ -121,10 +120,10 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 As propriedades a seguir têm suporte para o conjunto de Azure Cosmos DB (API do SQL): 
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade **Type** do conjunto de conjuntos deve ser definida como **CosmosDbSqlApiCollection**. |sim |
-| collectionName |O nome da coleção de documentos do Azure Cosmos DB. |sim |
+| type | A propriedade **Type** do conjunto de conjuntos deve ser definida como **CosmosDbSqlApiCollection**. |SIM |
+| collectionName |O nome da coleção de documentos do Azure Cosmos DB. |SIM |
 
 Se você usar o conjunto de dados do tipo "DocumentDbCollection", ainda terá suporte como está para compatibilidade com versões anteriores para a atividade de cópia e pesquisa, não há suporte para o fluxo de dados. Você é sugerido para usar o novo modelo no futuro.
 
@@ -167,9 +166,9 @@ Para copiar dados do Azure Cosmos DB (API do SQL), defina o tipo **source** na A
 
 As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **CosmosDbSqlApiSource**. |sim |
+| type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **CosmosDbSqlApiSource**. |SIM |
 | query |Especifique a consulta do Azure Cosmos DB para ler dados.<br/><br/>Exemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificada, esta instrução SQL será executada: `select <columns defined in structure> from mycollection` |
 | preferredRegions | A lista preferencial de regiões a serem conectadas quando recuperar dados de Cosmos DB. | Não |
 | pageSize | O número de documentos por página do resultado da consulta. O padrão é "-1", que significa usar o tamanho de página dinâmico do lado do serviço até 1000. | Não |
@@ -217,9 +216,9 @@ Para copiar dados para o Azure Cosmos DB (API do SQL), defina o tipo **sink** na
 
 As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade **Type** do coletor da atividade de cópia deve ser definida como **CosmosDbSqlApiSink**. |sim |
+| type | A propriedade **Type** do coletor da atividade de cópia deve ser definida como **CosmosDbSqlApiSink**. |SIM |
 | writeBehavior |Descreve como gravar dados no Azure Cosmos DB. Valores permitidos são **insert** e **upsert**.<br/><br/>O comportamento de **upsert** é substituir o documento se um documento com a mesma ID já existir; caso contrário, inserir o documento.<br /><br />**Observação**: o Data Factory gerará automaticamente uma ID para um documento se uma ID não for especificada no documento original ou pelo mapeamento de coluna. Isso significa que, para **upsert** funcionar conforme esperado, o documento deve ter uma ID. |Não<br />(o padrão é **insert**) |
 | writeBatchSize | O Data Factory usa a [biblioteca de executor em massa do Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para gravar dados no Azure Cosmos DB. A propriedade **writeBatchSize** controla o tamanho dos documentos fornecidos pelo ADF à biblioteca. Você pode tentar aumentar o valor de **writeBatchSize** para melhorar o desempenho e diminuir o valor se o tamanho do documento for grande - veja as dicas abaixo. |Não<br />(o padrão é **10.000**) |
 | disableMetricsCollection | Data Factory coleta métricas como Cosmos DB RUs para otimização e recomendações de desempenho de cópia. Se você estiver preocupado com esse comportamento, especifique `true` para desativá-lo. | Não (o padrão é `false`) |
@@ -282,6 +281,6 @@ Para obter uma cópia independente de esquema:
 * Quando você usa a ferramenta Copiar Dados, selecione a opção **Exportar no estado em que se encontram para arquivos JSON ou uma coleção do Cosmos DB**.
 * Ao usar a criação de atividade, escolha o formato JSON com o repositório de arquivos correspondente para a origem ou o coletor.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista de armazenamentos de dados compatíveis com a Atividade de Cópia como fontes e coletores no Azure Data Factory, confira [armazenamentos de dados compatíveis](copy-activity-overview.md##supported-data-stores-and-formats).

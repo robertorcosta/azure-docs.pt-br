@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9bb22a564f52dfcdb3fbec6d842e452ca416059f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ce1076446fb704bb64bac98c7afe53e63d3b3450
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961706"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912415"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Treinar modelos com o Azure Machine Learning usando o estimador
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -58,7 +58,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Este snippet de código especifica os seguintes parâmetros para o `Estimator` construtor.
 
-. | DESCRIÇÃO
+. | Descrição
 --|--
 `source_directory`| O diretório local que contém todo o código necessário para o trabalho de treinamento. Essa pasta é copiada do computador local para a computação remota.
 `script_params`| Dicionário que especifica os argumentos de linha de comando a serem passados para o script de treinamento `entry_script`, na forma de pares de `<command-line argument, value>`. Para especificar um sinalizador detalhado em `script_params`, use `<command-line argument, "">`.
@@ -110,7 +110,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 O código acima expõe os seguintes novos parâmetros para o `Estimator` construtor:
 
-. | DESCRIÇÃO | Padrão
+. | Descrição | Padrão
 --|--|--
 `custom_docker_image`| O nome da imagem que você deseja usar. Fornece somente as imagens disponíveis em repositórios do docker público (no Hub do Docker neste caso). Para usar uma imagem de um repositório privado do docker, use o parâmetro `environment_definition` do construtor em vez disso. [Confira o exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| O número de nós a serem usados no seu trabalho de treinamento. | `1`
@@ -122,6 +122,16 @@ Por fim, envie o trabalho de treinamento:
 ```Python
 run = experiment.submit(estimator)
 print(run.get_portal_url())
+```
+
+## <a name="registering-a-model"></a>Registro de um modelo
+
+Depois de treinar o modelo, você poderá salvá-lo e registrá-lo em seu espaço de trabalho. O registro de modelo permite que você armazene e versione seus modelos em seu espaço de trabalho para simplificar o [Gerenciamento e a implantação de modelos](concept-model-management-and-deployment.md).
+
+Executar o código a seguir registrará o modelo em seu espaço de trabalho e o disponibilizará para referência por nome em contextos de computação remota ou scripts de implantação. Consulte [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) nos docs de referência para obter mais informações e parâmetros adicionais.
+
+```python
+model = run.register_model(model_name='sklearn-sample')
 ```
 
 ## <a name="github-tracking-and-integration"></a>Acompanhamento e integração do GitHub
@@ -141,10 +151,10 @@ Para blocos de anotações em modelos de treinamento usando avaliadores específ
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Executar as métricas de durante o treinamento de faixa](how-to-track-experiments.md)
 * [Treinar modelos de PyTorch](how-to-train-pytorch.md)
 * [Treinar modelos de TensorFlow](how-to-train-tensorflow.md)
-* [Ajustar os hiperparâmetros](how-to-tune-hyperparameters.md)
+* [Ajustar hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Implantar um modelo treinado](how-to-deploy-and-where.md)
