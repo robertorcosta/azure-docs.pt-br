@@ -1,5 +1,5 @@
 ---
-title: Implementar o Azure Databricks com um ponto de extremidade do Cosmos DB
+title: Tutorial – Implementar o Azure Databricks com um ponto de extremidade do Cosmos DB
 description: Este tutorial descreve como implementar o Azure Databricks em uma rede virtual com um Ponto de Extremidade de Serviço habilitado para o Cosmos DB.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054610"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706158"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar o Azure Databricks com um ponto de extremidade do Cosmos DB
 
@@ -57,11 +57,11 @@ Antes de começar, faça o seguinte:
 
    |Configuração|Valor|
    |-------|-----|
-   |Assinatura|*sua assinatura*|
+   |Subscription|*sua assinatura*|
    |Grupo de recursos|*seu grupo de recursos*|
    |Nome da conta|db-vnet-service-endpoint|
    |API|Núcleo (SQL)|
-   |Local padrão|Oeste dos EUA|
+   |Location|Oeste dos EUA|
    |Redundância geográfica|Desabilitar|
    |Gravações de várias regiões|Habilitar|
 

@@ -18,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: afa1d2ca59bacec2695aaff0cacb119a8fbf787b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419624"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766592"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registrar em log o tráfego de rede bidirecionalmente em uma máquina virtual usando o portal do Azure
 
@@ -127,7 +127,7 @@ O log de fluxo do NSG exige o provedor **Microsoft.Insights**. Para registrar o 
    ![Baixar logs de fluxo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecione a conta de armazenamento que você configurou na etapa 2 de [Habilitar o log de fluxo do NSG](#enable-nsg-flow-log).
-4. Em **Serviço Blob**, selecione **Blobs** e, em seguida, selecione o contêiner **insights-logs-networksecuritygroupflowevent**.
+4. Em **Serviço Blob**, selecione **Contêineres** e, em seguida, selecione o contêiner **insights-logs-networksecuritygroupflowevent**.
 5. No contêiner, navegue na hierarquia de pastas até chegar a um arquivo PT1H.json, conforme mostrado na figura a seguir. Arquivos de log são gravados em uma hierarquia de pastas que segue a seguinte convenção de nomenclatura: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![Log de fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)

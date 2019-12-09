@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Traduzir uma fala para vários idiomas, C# (.NET Framework Windows) - Serviço de Fala'
+title: 'Início Rápido: Traduzir uma fala para vários idiomas, C# (.NET Framework Windows) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: erhopf
-ms.openlocfilehash: af3a070b714a9f86c8120f9bfd81bd41b8295f97
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2750ba0336830d84f969a333a5aa30e9f10f8e6
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504816"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817275"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -117,7 +117,7 @@ Antes de começar:
 
 1. Escolha **Depurar** > **Iniciar depuração** (ou pressione **F5**) para iniciar o aplicativo **Olá Mundo**.
 
-1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para os Serviços de Fala, que a traduzem e transcrevem em texto (neste caso, para francês e alemão). Em seguida, os Serviços de Fala enviam o texto de volta para o aplicativo para exibição.
+1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para o serviço de Fala, que a traduz e transcreve em texto (neste caso, para francês e alemão). Em seguida, o serviço de Fala enviam o texto de volta para o aplicativo para exibição.
 
 ````
 Say something...

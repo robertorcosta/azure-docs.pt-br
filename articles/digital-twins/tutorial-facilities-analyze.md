@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383052"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790324"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos dos Gêmeos Digitais do Azure usando o Time Series Insights
 
@@ -82,7 +82,7 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
     > [!TIP]
     > Verifique se você está criando uma política SAS para sua instância do hub de eventos em vez de seu namespace.
 
-1. Abra a política **ManageSend** que você criou e copie os valores da **Cadeia de conexão – chave primária** e **Cadeia de conexão – chave secundária** para um arquivo temporário. Você precisará desses valores para criar um ponto de extremidade para o hub de eventos na próxima seção.
+1. Abra a política **ManageSend** que você criou e copie os valores da **Cadeia de conexão – chave primária** e da **Cadeia de conexão – chave secundária** para um arquivo temporário. Você precisará desses valores para criar um ponto de extremidade para o hub de eventos na próxima seção.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>Criar um ponto de extremidade para o hub de eventos
 
@@ -108,13 +108,13 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
       path: Name_of_your_Event_Hub
     ```
 
-1. Substitua os espaços reservados `Primary_connection_string_for_your_event_hub` pelo valor da **Cadeia de conexão – chave primária** para o hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte:
+1. Substitua os espaços reservados `Primary_connection_string_for_your_event_hub` pelo valor da **Cadeia de conexão – chave primária** do hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte:
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Substitua os espaços reservados `Secondary_connection_string_for_your_event_hub` pelo valor da **Cadeia de conexão – chave secundária** para o hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte: 
+1. Substitua os espaços reservados `Secondary_connection_string_for_your_event_hub` pelo valor da **Cadeia de conexão – chave secundária** do hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte: 
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
@@ -145,7 +145,7 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
 
     [![Seleções para criar uma instância do Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
-1. Na guia **Origem do evento**, insira um **nome**, selecione **Hub de eventos** como o **Tipo de fonte** e verifique se os outros valores estão selecionados corretamente. Selecione **ManageSend** como o **Nome de política de acesso do hub de eventos** e selecione o grupo de consumidores criado na seção anterior como o **Grupo de consumidores do hub de eventos**. Selecione **Examinar + criar**.
+1. Na guia **Origem do Evento**, insira um **Nome**, selecione **Hub de Eventos** como o **Tipo de fonte** e verifique se os outros valores estão selecionados corretamente para referenciar o hub de eventos criado. Selecione **ManageSend** como o **Nome de política de acesso do hub de eventos** e selecione o grupo de consumidores criado na seção anterior como o **Grupo de consumidores do hub de eventos**. Selecione **Examinar + criar**.
 
     [![Seleções para criar uma fonte de evento](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 

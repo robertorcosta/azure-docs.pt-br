@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fd03072f4e69fac43874e822ebb06063436ef72c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e8d7e7764a01dbd0169efae093bac4d984982108
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646141"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708662"
 ---
 # <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integração e implantação contínuas para o SQL Data Warehouse do Azure
 
@@ -25,12 +25,8 @@ Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT 
 
 - Percorra o [tutorial de integração de controle do código-fonte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration)
 
-- Crie um [agente auto-hospedado](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops#install) que tenha os Bits de Versão Prévia do SSDT (16.3 versão prévia 2 e superior) instalados para o SQL Data Warehouse (versão prévia)
-
 - Configurar e conectar ao Azure DevOps
 
-  > [!NOTE]
-  > No momento, o SSDT está em versão prévia, em que você precisará usar um agente auto-hospedado. Os agentes hospedados pela Microsoft serão atualizados nos próximos meses.
 
 ## <a name="continuous-integration-with-visual-studio-build"></a>Integração contínua ao build do Visual Studio
 
@@ -49,13 +45,13 @@ Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT 
 Neste momento, você tem um ambiente simples no qual qualquer check-in em seu branch mestre do repositório de controle do código-fonte deve disparar automaticamente um build do Visual Studio bem-sucedido do seu projeto de banco de dados. Confirme se a automação está funcionando de ponta a ponta fazendo uma alteração em seu projeto de banco de dados local e fazendo check-in dessa alteração no branch mestre.
 
 
-## <a name="continuous-deployment-with-the-azure-sql-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do Banco de Dados SQL do Azure
+## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do SQL Data Warehouse (ou Banco de Dados) do Azure
 
-1. Adicione uma nova tarefa usando a [tarefa de implantação do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) e preencha os campos obrigatórios para se conectar ao seu data warehouse de destino. Quando essa tarefa é executada, o DACPAC gerado com base no processo de build anterior é implantado no data warehouse de destino.
+1. Adicione uma nova tarefa usando a [tarefa de implantação do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) e preencha os campos obrigatórios para se conectar ao seu data warehouse de destino. Quando essa tarefa é executada, o DACPAC gerado com base no processo de build anterior é implantado no data warehouse de destino. Você também pode usar a [tarefa de implantação do SQL Data Warehouse do Azure](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment) 
 
       ![Tarefa de Implantação](media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tarefa de implantação")
 
-2. Ao usar um agente auto-hospedado, verifique se você definiu sua variável de ambiente para usar o SqlPackage.exe correto para o SQL Data Warehouse. O caminho deve ter a seguinte aparência:
+2. Se você estiver usando um agente auto-hospedado, verifique se você definiu sua variável de ambiente para usar o SqlPackage.exe correto para o SQL Data Warehouse. O caminho deve ter a seguinte aparência:
 
       ![Variável de Ambiente](media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variável de ambiente")
 

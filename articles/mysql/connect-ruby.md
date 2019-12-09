@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao Banco de Dados do Azure para MySQL usando Ruby
+title: Conectar-se usando Ruby – Banco de Dados do Azure para MySQL
 description: Este guia de início rápido fornece vários exemplos de código Ruby que podem ser usados para conectar e consultar dados do banco de dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 5dbb2226e33928d9d79358a84192b57c44841de4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: dc8c7352856b11cb6cc4c9c404eb567cb72b720d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351619"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770638"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar o Ruby para se conectar e consultar dados
 Este guia de início rápido mostra como se conectar a um banco de dados do Azure para MySQL usando um aplicativo [Ruby](https://www.ruby-lang.org) e o [mysql2](https://rubygems.org/gems/mysql2) gem de plataformas Mac, Ubuntu Linux e Windows. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Ruby e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
@@ -26,7 +26,7 @@ Este guia de início rápido usa os recursos criados em um destes guias como pon
 ## <a name="install-ruby"></a>Instalar Ruby
 Instale o Ruby, o Gem e a biblioteca MySQL2 no seu computador. 
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 1. Baixe e instale a versão 2.3 do [Ruby](https://rubyinstaller.org/downloads/).
 2. Inicie um novo prompt de comando (cmd) no menu Iniciar.
 3. Altere o diretório para a versão 2.3 do diretório Ruby. `cd c:\Ruby23-x64\bin`

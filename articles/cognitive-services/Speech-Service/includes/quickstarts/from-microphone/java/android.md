@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer a fala de um microfone, Java (Android) - Serviço de Fala'
+title: 'Início Rápido: Reconhecer a fala de um microfone, Java (Android) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em Java no Android usando o SDK de Fala
 services: cognitive-services
@@ -10,20 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f0d9a4d2a86b13d5e2d37a900f27d2977f63de14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e492381c4ab2f7ab41b5363ed70f9c5c6b12ce99
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505776"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818647"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=android)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=android)
+> * Verificar se você tem acesso a um microfone para captura de áudio
 
 ## <a name="create-a-user-interface"></a>Criar uma interface do usuário
 
@@ -71,7 +72,7 @@ O texto e a representação gráfica da sua interface do usuário agora devem se
 
    ![Captura de tela da janela Selecionar Destino da Implantação](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Selecione o botão no aplicativo para iniciar uma seção de reconhecimento de fala. Os próximos 15 segundos de fala em inglês serão enviados para os Serviços de Fala e serão transcritos. O resultado é exibido no aplicativo Android e na janela logcat no Android Studio.
+Selecione o botão no aplicativo para iniciar uma seção de reconhecimento de fala. Os próximos 15 segundos de fala em inglês serão enviados para o serviço de Fala e transcritos. O resultado é exibido no aplicativo Android e na janela logcat no Android Studio.
 
 ![Captura de tela do aplicativo Android](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 

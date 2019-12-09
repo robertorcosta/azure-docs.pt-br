@@ -1,18 +1,17 @@
 ---
-title: Criar um aplicativo Web Node.js – Serviço de Aplicativo do Azure
-description: Como implantar um aplicativo Node.js no Serviço de Aplicativo do Azure
-author: msangapu
+title: 'Início Rápido: Criar um aplicativo Node.js do Linux'
+description: Comece a usar os aplicativos do Linux no Serviço de Aplicativo do Azure implantando seu primeiro aplicativo Node.js em um contêiner do Linux no Serviço de Aplicativo.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
-ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: 32e141cae98e3fe34c8207f1565a82d2d76bdd25
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439214"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688982"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Criar um aplicativo Node.js no Azure
 

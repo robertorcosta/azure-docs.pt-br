@@ -1,22 +1,16 @@
 ---
-title: PHP (Laravel) com o MySQL no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Saiba como executar um aplicativo PHP no Serviço de Aplicativo do Azure no Linux, com uma conexão com um banco de dados MySQL no Azure. O Laravel é usado no tutorial.
-services: app-service\web
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: 'Tutorial: Aplicativo PHP do Linux com o MySQL'
+description: Saiba como executar um aplicativo Node.js do Linux no Serviço de Aplicativo do Azure, com uma conexão com um banco de dados MySQL no Azure. O Laravel é usado neste tutorial.
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4fade03d798096e250cb5b56fbb2003ea4b58e1b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: be8bbfde7e9873f9cef3a85cacc2dfcf4db9039b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481326"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687425"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Criar um aplicativo em PHP e MySQL no Serviço de Aplicativo do Azure no Linux
 

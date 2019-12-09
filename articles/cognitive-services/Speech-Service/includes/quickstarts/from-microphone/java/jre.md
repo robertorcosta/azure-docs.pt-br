@@ -4,19 +4,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: bcf353fa0783429702143b2bf0bdf2114dd4bed6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ebabeccc43998c229bcd28063b6cbabae4b046ea
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505736"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795662"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
+Antes de começar:
+
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=jre)
+> * Verificar se você tem acesso a um microfone para captura de áudio
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -35,6 +38,9 @@ ms.locfileid: "73505736"
 1. Substitua a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
 
 1. Salve as alterações no projeto.
+
+> [!NOTE]
+> O SDK de Fala estabelecerá como padrão o reconhecimento do uso de en-us para o idioma, confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar o aplicativo
 

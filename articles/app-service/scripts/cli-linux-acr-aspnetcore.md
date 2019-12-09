@@ -1,27 +1,20 @@
 ---
-title: Exemplo de Script da CLI do Azure – criar o aplicativo ASP.NET Core no Registro de Contêiner do Azure | Microsoft Docs
-description: Amostra de script da CLI do Azure – Criar um aplicativo ASP.NET Core em um contêiner do Docker no Serviço de Aplicativo por meio do Registro de Contêiner do Azure
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Criar um aplicativo ASP.NET Core por meio do ACR'
+description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como criar um aplicativo ASP.NET Core do Linux por meio do ACR.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/13/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c05572d4962eca042a807be3eec94462d0830e1b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9733475753cb9d7fae5f452b33842602f56eff52
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653366"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685966"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Criar um aplicativo ASP.NET Core em um contêiner do Docker no Serviço de Aplicativo por meio do Registro de Contêiner do Azure
 

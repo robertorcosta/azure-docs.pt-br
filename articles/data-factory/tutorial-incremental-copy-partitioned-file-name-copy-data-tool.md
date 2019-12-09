@@ -9,17 +9,16 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 746b5cbcc58f6c722623446227417e6c94dd0a80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9c72bc9c0862820b72fbecee7966e946f4ba0001
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217441"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928044"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copiar incrementalmente novos arquivos com base no nome do arquivo particionado usando a ferramenta de Copiar Dados
 
@@ -35,7 +34,7 @@ Neste tutorial, você executa as seguintes etapas:
 > * Usar a ferramenta Copy Data para criar um pipeline.
 > * Monitore as execuções de pipeline e de atividade.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ e de _coletor_ . Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
@@ -78,7 +77,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 5. Em **versão**, selecione **V2** para a versão.
 6. Em **local**, selecione o local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo seu data factory podem estar em outros locais e regiões.
 7. Selecione **Fixar no painel**. 
-8. Selecione **Criar**.
+8. Clique em **Criar**.
 9. No painel, o bloco **Implantando o Data Factory** mostra o status do processo.
 
     ![Bloco Como implantar o Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)
@@ -155,7 +154,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     
     ![Escolha o arquivo ou a pasta de saída](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    c. Clique em **Avançar**.
+    c. Clique em \\**Próximo**.
     
     ![Escolha o arquivo ou a pasta de saída](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. Na página **Configurações**, selecione **Avançar**. 
@@ -171,7 +170,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 10. Observe que a guia **Monitor** à esquerda é selecionada automaticamente.  Você precisa aguardar a execução do pipeline quando ele é disparado automaticamente (aproximadamente uma hora).  Quando ele é executado, a coluna **Actions** inclui links para exibir detalhes da execução da atividade e executar novamente o pipeline. Selecione **Atualizar** para atualizar a lista e selecione o link **Exibir execuções de atividade** na coluna **ações** . 
 
     ![Monitorar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
-11. Há apenas uma atividade (atividade de cópia) no pipeline, assim, você vê apenas uma entrada. Você pode ver o arquivo de origem (file1. txt) foi copiado de **Source/2019/02/26/14/** para **Destination/2019/02/26/14/** com o mesmo nome de arquivo.  
+11. Há apenas uma atividade (atividade de cópia) no pipeline. Assim, você vê apenas uma entrada. Você pode ver o arquivo de origem (file1. txt) foi copiado de **Source/2019/02/26/14/** para **Destination/2019/02/26/14/** com o mesmo nome de arquivo.  
 
     ![Monitorar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     
@@ -202,7 +201,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     ![Monitorar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 
     
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Avance para o tutorial a seguir para saber mais sobre como transformar dados usando um cluster Spark no Azure:
 
 > [!div class="nextstepaction"]

@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark
 description: Mapeamento de recomendação da amostra de blueprint do CIS Microsoft Azure Foundations Benchmark para o Azure Policy.
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544540"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707422"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra de blueprint do CIS Microsoft Azure Foundations Benchmark
 
@@ -40,6 +40,12 @@ Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.m
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
 - As contas externas com permissões de leitura devem ser removidas de sua assinatura
 - As contas externas com permissões de gravação devem ser removidas de sua assinatura
+
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Garantir que nenhuma função personalizada de proprietário de assinatura seja criada
+
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a monitorar as funções de proprietário de assinatura que possam precisar ser removidas.
+
+- Não devem existir funções personalizadas de proprietário de assinatura
 
 ## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 Verificar se o tipo de preço Standard foi selecionado
 
@@ -243,11 +249,35 @@ Esse blueprint atribui uma definição de política do [Azure Policy](../../../p
 
 - 'Impor conexão SSL' deve ser habilitada para servidores de banco de dados MySQL
 
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4.12 Garantir que o parâmetro de servidor 'log_checkpoints' seja definido como 'ON' para o servidor de banco de dados PostgreSQL
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a garantir que os servidores de banco de dados PostgreSQL registrem os pontos de verificação em log.
+
+- Os pontos de verificação de log devem ser habilitados para os servidores de banco de dados PostgreSQL
+
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Garantir que a opção 'Impor conexão SSL' esteja definida para 'HABILITADO' para o servidor de banco de dados PostgreSQL
 
 Esse blueprint atribui uma definição de política do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados PostgreSQL imponham conexões SSL.
 
 - 'Impor conexão SSL' deve ser habilitada para servidores de banco de dados PostgreSQL
+
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4.14 Garantir que o parâmetro de servidor 'log_connections' seja definido como 'ON' para o servidor de banco de dados PostgreSQL
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a garantir que os servidores de banco de dados PostgreSQL registrem conexões em log.
+
+- As conexões de log devem ser habilitadas para os servidores de banco de dados PostgreSQL
+
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4.15 Garantir que o parâmetro de servidor 'log_disconnections' seja definido como 'ON' para o servidor de banco de dados PostgreSQL
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a garantir que os servidores de banco de dados PostgreSQL registrem desconexões em log.
+
+- As desconexões devem ser registradas em log para os servidores de banco de dados PostgreSQL.
+
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4.16 Garantir que o parâmetro de servidor 'log_duration' seja definido como 'ON' para o servidor de banco de dados PostgreSQL
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a garantir que os servidores de banco de dados PostgreSQL registrem a duração das instruções concluídas em log.
+
+- A duração do log deve ser habilitada para os servidores de banco de dados PostgreSQL
 
 ## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 Garantir que o parâmetro de servidor 'connection_throttling' seja definido como 'ON' para o servidor de banco de dados PostgreSQL
 
@@ -350,6 +380,71 @@ Esse blueprint atribui uma definição de política do [Azure Policy](../../../p
 Esse blueprint atribui uma definição de política do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que aplicativos Web sejam acessíveis somente por conexões seguras.
 
 - Aplicativo Web deve ser acessível somente por HTTPS
+
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9.3 Garantir que o aplicativo Web esteja usando a última versão da criptografia TLS
+
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que os aplicativos Web estejam usando a última versão do TLS.
+
+- A última versão do TLS deve ser usada no aplicativo de API
+- A última versão do TLS deve ser usada no aplicativo de funções
+- A última versão do TLS deve ser usada no aplicativo Web
+
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9.4 Garantir que o aplicativo Web tenha a opção 'Certificados de Cliente (Certificados de cliente de entrada)' definida como 'Ativado'
+
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que só os clientes com certificados válidos possam acessar um aplicativo Web.
+
+- Garantir que o aplicativo de API tenha a opção 'Certificados de Cliente (Certificados de cliente de entrada)' definida como 'Ativado'
+- Garantir que o aplicativo de funções tenha a opção 'Certificados de Cliente (Certificados de cliente de entrada)' definida como 'Ativado'
+- Garantir que o aplicativo Web tenha a opção 'Certificados de Cliente (Certificados de cliente de entrada)' definida como 'Ativado'
+
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9.5 Garantir que o Registro com o Azure Active Directory esteja habilitado no Serviço de Aplicativo
+
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que os aplicativos Web estejam usando uma identidade gerenciada.
+
+- Garantir que o Registro com o Azure Active Directory esteja habilitado no aplicativo de API
+- Garantir que o Registro com o Azure Active Directory esteja habilitado no aplicativo de funções
+- Garantir que o Registro com o Azure Active Directory esteja habilitado no aplicativo Web
+
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9.6 Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo Web
+
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que os aplicativos Web estejam usando a última versão do .NET Framework.
+
+- Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo de API
+- Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo de funções
+- Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo Web
+
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9.7 Garantir que a 'versão do PHP' seja a última, se usada para executar o aplicativo Web
+
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que os aplicativos Web estejam usando a última versão do PHP.
+
+- Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de API
+- Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de funções
+- Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo Web
+
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9.8 Garantir que a 'versão do Python' seja a última, se usada para executar o aplicativo Web
+
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que os aplicativos Web estejam usando a última versão do Python.
+
+- Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de API
+- Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de funções
+- Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo Web
+
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9.9 Garantir que a 'versão do Java' seja a última, se usada para executar o aplicativo Web
+
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que os aplicativos Web estejam usando a última versão do Java.
+
+- Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo de API
+- Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo de funções
+- Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo Web
+
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 Garantir que a 'versão do HTTP' seja a última, se usada para executar o aplicativo Web
+
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que os aplicativos Web estejam usando a última versão do HTTP.
+
+- Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de API
+- Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de funções
+- Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo Web
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

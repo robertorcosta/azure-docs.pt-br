@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Executar o SDK de Dispositivos de Fala no Windows'
+title: 'Início Rápido: Executar o SDK de Dispositivos de Fala no Windows – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Pré-requisitos e instruções para começar a trabalhar com um SDK de Dispositivos de Fala do Windows.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: e4da99d895ba7a6d9ce537ab513ce4cc248aff7a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e3764dbfa7de52bf210a1e6cc8bd240d64d64aeb
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111676"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815549"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Windows
 
@@ -23,7 +23,7 @@ Neste início rápido, você aprenderá a usar o SDK de Dispositivos de Fala par
 
 O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v4) no Windows de 64 bits. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
-Este guia exige uma conta dos [Serviços Cognitivos do Azure](get-started.md) com um recurso dos Serviços de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+Este guia exige uma conta dos [Serviços Cognitivos do Azure](get-started.md) com o recurso do Serviço de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
 
 O código-fonte para o [aplicativo de exemplo](https://aka.ms/sdsdk-download-JRE) é incluído com o SDK de Dispositivos de Fala. Também está [disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -36,7 +36,7 @@ Este início rápido requer:
 * [Java IDE do Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) apenas.
 * [Microsoft Visual C++ redistribuível](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-* Uma chave de assinatura do Azure para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
 * Baixe a última versão do [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-download-JRE) para Java e extraia o arquivo .zip para seu diretório de trabalho.
    > [!NOTE]
    > O arquivo JRE-Sample-Release.zip inclui o aplicativo de exemplo do JRE e este início rápido pressupõe que o aplicativo seja extraído para C:\SDSDK\JRE-Sample-Release

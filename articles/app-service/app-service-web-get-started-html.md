@@ -1,25 +1,18 @@
 ---
-title: Criar um aplicativo Web HTML estático – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure ao implantar um aplicativo de exemplo HTML estático.
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'Início Rápido: Criar um aplicativo Web HTML estático'
+description: Implante seu primeiro Olá, Mundo em HTML no Serviço de Aplicativo do Azure em minutos. Você fará a implantação usando o Git, que é um dos vários modos de implantação no Serviço de Aplicativo.
+author: msangapu-msft
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 12c034e6521a1afd25e2390502faec39461bf5b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5c2aca1996d1ec764dcdca30c7657ee360b9c355
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471520"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671482"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar um aplicativo Web HTML estático no Azure
 

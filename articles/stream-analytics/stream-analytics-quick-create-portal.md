@@ -1,5 +1,5 @@
 ---
-title: Criar um trabalho do Stream Analytics usando o portal do Azure | Microsoft Docs
+title: Início Rápido – criar um trabalho do Stream Analytics usando o portal do Azure
 description: Este início rápido mostra como começar com a criação de um trabalho do Stream Analytics, a configuração das entradas e saídas e a definição de uma consulta.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449225"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707365"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure
 
@@ -37,8 +37,8 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados de
    
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Assinatura  | \<Sua assinatura\> |  Selecione a assinatura do Azure que você deseja usar. |
-   |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
+   |Subscription  | \<Sua assinatura\> |  Selecione a assinatura do Azure que você deseja usar. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
    |Região  |  \<Selecione a região mais próxima de seus usuários\> | Selecione uma localização geográfica na qual você possa hospedar o Hub IoT. Use a localização mais próxima dos usuários. |
    |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o Hub IoT.   |
 
@@ -89,9 +89,9 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados de
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Nome do trabalho   |  MyASAJob   |   Insira um nome para identificar o trabalho do Stream Analytics. O nome do trabalho do Stream Analytics pode conter somente caracteres alfanuméricos, hifens e sublinhados e deve ter entre 3 e 63 caracteres. |
-   |Assinatura  | \<Sua assinatura\> |  Selecione a assinatura do Azure que você deseja usar para este trabalho. |
-   |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione o mesmo grupo de recursos do Hub IoT. |
-   |Local padrão  |  \<Selecione a região mais próxima de seus usuários\> | Selecione a localização geográfica onde você pode hospedar seu trabalho do Stream Analytics. Use o local mais próximo de seus usuários para melhorar o desempenho e reduzir o custo de transferência dos dados. |
+   |Subscription  | \<Sua assinatura\> |  Selecione a assinatura do Azure que você deseja usar para este trabalho. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Selecione o mesmo grupo de recursos do Hub IoT. |
+   |Location  |  \<Selecione a região mais próxima de seus usuários\> | Selecione a localização geográfica onde você pode hospedar seu trabalho do Stream Analytics. Use o local mais próximo de seus usuários para melhorar o desempenho e reduzir o custo de transferência dos dados. |
    |Unidades de transmissão  | 1  |   As unidades de streaming representam os recursos de computação necessários para executar um trabalho. Por padrão, esse valor é definido como 1. Para saber mais sobre como dimensionar unidades de streaming, consulte o artigo [Entendendo e ajustando as unidades de streaming](stream-analytics-streaming-unit-consumption.md).   |
    |Ambiente de hospedagem  |  Nuvem  |   Os trabalhos do Stream Analytics podem ser implantados na nuvem ou na borda. O Cloud permite que você implante no Azure Cloud e o Edge permite que você implante em um dispositivo IoT Edge. |
 
@@ -114,7 +114,7 @@ Nesta seção, você configurará uma entrada de dispositivo do Hub IoT para um 
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de entrada  |  IoTHubInput   |  Insira um nome para identificar a entrada do trabalho.   |
-   |Assinatura   |  \<Sua assinatura\> |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
+   |Subscription   |  \<Sua assinatura\> |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
    |Hub IoT  |  MyASAIoTHub |  Insira o nome do Hub IoT criado na seção anterior. |
 
 4. Deixe as outras opções com os valores padrão e selecione **Salvar** para salvar as configurações.  
@@ -132,7 +132,7 @@ Nesta seção, você configurará uma entrada de dispositivo do Hub IoT para um 
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de saída |   BlobOutput   |   Insira um nome para identificar a saída do trabalho. |
-   |Assinatura  |  \<Sua assinatura\>  |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
+   |Subscription  |  \<Sua assinatura\>  |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
    |Conta de armazenamento |  asaquickstartstorage |   Escolha ou insira o nome da conta de armazenamento. Os nomes das contas de armazenamento são detectados automaticamente quando elas são criadas na mesma assinatura.       |
    |Contêiner |   container1  |  Selecione o contêiner existente que você criou em sua conta de armazenamento.   |
 
@@ -193,4 +193,3 @@ Para saber mais sobre como configurar outras fontes de entrada e executar detec�
 
 > [!div class="nextstepaction"]
 > [Detecção de fraude em tempo real usando o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10445aba9c52c5367a8ea03729462d14e2d51085
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467170"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707192"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer a autenticação do Key Vault com uma política de controle de acesso
 
@@ -220,6 +220,7 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 
 Por fim, conceda ao grupo do AD permissões no cofre de chaves usando o comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) da CLI do Azure ou o cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) do Azure PowerShell. Para obter exemplos, confira a seção [Fornecer ao aplicativo, ao grupo do Azure AD ou ao usuário o acesso ao cofre de chaves](#give-the-principal-access-to-your-key-vault) acima.
 
+O aplicativo também precisa de pelo menos uma função de IAM (Gerenciamento de Identidades e Acesso) atribuída ao cofre de chaves. Caso contrário, ele não poderá fazer logon e falhará ao acessar a assinatura, devido a direitos insuficientes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Configuração da plataforma do SDK de Fala para .NET Framework do Windows – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para instalar a plataforma para C# no .NET Framework para Windows com o SDK dos Serviços de Fala.
+description: Use este guia para configurar a plataforma para C# no .NET Framework para Windows com o SDK dos serviço de Fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: efd4339f55f2b5454e3ad9853b9c8d833763ea86
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7073791a9ad1da910ee0811478b86840211d9a14
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111009"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818579"
 ---
 # <a name="quickstart-speech-sdk-for-net-framework-windows-platform-setup"></a>Início Rápido: SDK de fala para instalação na plataforma .NET Framework (Windows)
 

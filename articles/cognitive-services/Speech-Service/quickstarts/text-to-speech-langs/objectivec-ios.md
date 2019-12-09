@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 460d2069bea8809b7d453bbe1cf27284109df9b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 09ee7f0918bce469186688a5d0e82441bb2e5457
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505520"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817780"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início Rápido: Sintetizar fala em Objective-C no iOS usando o SDK de Fala
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá a criar um aplicativo iOS em Objective-C usando o
 
 Antes de começar, aqui está uma lista de pré-requisitos:
 
-* Uma [chave de assinatura](~/articles/cognitive-services/Speech-Service/get-started.md) para o Serviço de Fala
+* Uma [chave de assinatura](~/articles/cognitive-services/Speech-Service/get-started.md) para o serviço de Fala
 * Um computador macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior
 * O destino definido para o iOS versão 9.3 ou posterior
 

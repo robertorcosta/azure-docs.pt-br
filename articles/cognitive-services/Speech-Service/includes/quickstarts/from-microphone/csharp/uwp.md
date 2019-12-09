@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer a fala de um microfone, C# (UWP) - Serviço de Fala'
+title: 'Início Rápido: Reconhecer a fala de um microfone, C# (UWP) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d1da9a9ef32aed1975595bb15909b9531ab2400
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5f83f249228c96021979edc14c092eded03b96e4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505616"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818631"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=uwp)
+> * Verificar se você tem acesso a um microfone para captura de áudio
 
 Se você já fez isso, ótimo. Vamos continuar.
 
@@ -50,19 +51,19 @@ Vamos adicionar um código que funciona como um esqueleto para o projeto.
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Fala
 
-Antes de inicializar um objeto `SpeechRecognizer`, é preciso criar uma configuração que use a sua região e chave de assinatura. Insira esse código no método `RecognizeSpeechAsync()`.
+Antes de inicializar um objeto `SpeechRecognizer`, é preciso criar uma configuração que use a região e a chave de assinatura. Insira esse código no método `RecognizeSpeechAsync()`.
 
 > [!NOTE]
 > Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para obter uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/)[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
 
 ## <a name="initialize-a-speechrecognizer"></a>Inicializar um SpeechRecognizer
 
-Agora, vamos criar um `SpeechRecognizer`. Esse objeto é criado dentro de uma instrução using para garantir a liberação adequada de recursos não gerenciados. Insira esse código no método `RecognizeSpeechAsync()`, logo abaixo da configuração de Fala.
+Agora, vamos criar um `SpeechRecognizer`. Esse objeto é criado dentro de uma instrução using a fim de garantir a liberação adequada de recursos não gerenciados. Insira esse código no método `RecognizeSpeechAsync()`, logo abaixo da configuração de Fala.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=58,59,93)]
 
 ## <a name="recognize-a-phrase"></a>Reconhecer uma frase
 
-No objeto `SpeechRecognizer`, você chamará o método `RecognizeOnceAsync()`. Esse método permite que o Serviço de Fala saiba que você está enviando uma única expressão para reconhecimento e permite parar o reconhecimento, assim que a frase é identificada.
+No objeto `SpeechRecognizer`, chame o método `RecognizeOnceAsync()`. Esse método permite que o Serviço de Fala saiba que você está enviando uma única expressão para reconhecimento e permite parar o reconhecimento, assim que a frase é identificada.
 
 Dentro da instrução using, adicione este código: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
 
@@ -86,7 +87,7 @@ Agora, você está pronto para criar e testar seu aplicativo.
 
    ![Solicitação de permissão de acesso ao microfone](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Selecione **Reconhecimento de fala com a entrada do microfone** e fale uma frase ou uma oração em inglês no microfone do dispositivo. Sua fala será transmitida para o Serviço de Fala e transcrita para texto, que será exibida na janela.
+1. Selecione **Reconhecimento de fala com a entrada do microfone** e fale uma frase ou uma oração em inglês no microfone do dispositivo. Sua fala será transmitida para o serviço de Fala e transcrita para texto, que será exibida na janela.
 
    ![Interface do usuário do reconhecimento de fala](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-11-ui-result.png)
 

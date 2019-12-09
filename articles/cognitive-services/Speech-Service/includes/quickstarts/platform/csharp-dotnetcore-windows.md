@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: SDK de Fala para instalação da plataforma C# .NET Core – Serviço de fala'
+title: 'Início Rápido: SDK de Fala para instalação da plataforma C# .NET Core – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Use este guia para instalar a plataforma para C# em .NET Core no Windows ou macOS com o SDK dos Serviços de Fala.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ff18fb372d5feb96369d5d51d386520665302c78
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6bcbf56fd3248098e012d0c56700432ab7594440
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504408"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816348"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) no C# .NET Core.
 
@@ -35,7 +35,7 @@ Este início rápido requer:
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
 
-Agora você pode avançar para as [Próximas etapas](#next-steps) abaixo.
+Agora é possível avançar para as [Próximas etapas](#next-steps) abaixo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

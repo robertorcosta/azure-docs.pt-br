@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65526fe501b190f9bf76c58ab1c14b5ec35fe49d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 52b3b7ea34d48c37a4e07ab073e611d5a60399a9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376018"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706929"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ServiceNow
 
@@ -97,7 +97,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon e o Identificador reais, que são explicados mais adiante no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação do SAML**, localize **Certificado (Base64)** . Selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação do SAML**, localize **Certificado (Base64)** . 
 
    ![Captura de tela da seção do Certificado de Autenticação do SAML, com o Download realçado](common/certificatebase64.png)
 
@@ -172,7 +172,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
 7. No formulário **Configurar logon**, insira o nome da instância, o nome de usuário do administrador e a senha de administrador do ServiceNow. Selecione **Configurar agora**. O nome de usuário do administrador informado deve ter a função **security_admin** atribuída no ServiceNow para que isso funcione. Caso contrário, para configurar manualmente o ServiceNow para usar o Azure AD como um provedor de identidade do SAML, selecione **Configurar manualmente o logon único**. Copie **a URL de logoff, o identificador do Azure AD e a URL de logon** da seção Referência Rápida.
 
-    ![Captura de tela do formulário Configurar logon, com Configurar agora realçado](./media/servicenow-tutorial/configure.png "Configurar URL do aplicativo")
+    ![Captura de tela do formulário Configurar logon, com "Configurar Agora" realçado](./media/servicenow-tutorial/configure.png "Configurar a URL do aplicativo")
 
 ## <a name="configure-servicenow"></a>Configurar o ServiceNow
 
@@ -182,27 +182,27 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     a. No painel esquerdo, pesquise a seção **Definição de Sistema** na caixa de pesquisa e, em seguida, selecione **plug-ins**.
 
-    ![Captura de tela da seção Definição de Sistema, com Definição de Sistema e plug-ins realçados](./media/servicenow-tutorial/tutorial_servicenow_03.png "Ativar plug-in")
+    ![Captura de tela da seção Definição de Sistema, com "Definição de Sistema" e "Plug-ins" realçados](./media/servicenow-tutorial/tutorial_servicenow_03.png "Ativar plug-in")
 
     b. Procure **Integração – Instalador de Logon Único de Vários Provedores**.
 
-     ![Captura de tela da página Plug-ins do sistema, com Integração – Instalador de logon único para vários provedores realçado](./media/servicenow-tutorial/tutorial_servicenow_04.png "Ativar plug-in")
+     ![Captura de tela da página Plug-ins do Sistema, com "Integração – Instalador de Logon Único de Vários Provedores" realçado](./media/servicenow-tutorial/tutorial_servicenow_04.png "Ativar plug-in")
 
     c. Selecione o plug-in. Clique com o botão direito do mouse e selecione **Ativar/Atualizar**.
 
-     ![Captura de tela do menu do plug-in acionado ao clicar com o botão direito do mouse, com Ativar/Atualizar realçado](./media/servicenow-tutorial/tutorial_activate.png "Ativar plug-in")
+     ![Captura de tela do menu do plug-in acionado ao clicar com o botão direito do mouse, com "Ativar/Atualizar" realçado](./media/servicenow-tutorial/tutorial_activate.png "Ativar plug-in")
 
     d. Selecione **Ativar**.
 
-     ![Captura de tela da caixa de diálogo Ativar plug-in, com Ativar realçado](./media/servicenow-tutorial/tutorial_activate1.png "Ativar plug-in")
+     ![Captura de tela da caixa de diálogo Ativar plug-in, com "Ativar" realçado](./media/servicenow-tutorial/tutorial_activate1.png "Ativar plug-in")
 
 3. No painel à esquerda, pesquise a seção **SSO para vários provedores** na barra de pesquisa e, em seguida, selecione **Propriedades**.
 
-    ![Captura de tela da seção de SSO para vários provedores, com Propriedades e SSO para vários provedores realçado](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configurar URL do aplicativo")
+    ![Captura de tela da seção de SSO para vários provedores, com "Propriedades" e "SSO para Vários Provedores" realçados](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configurar a URL do aplicativo")
 
 4. Na caixa de diálogo **Propriedades de SSO para vários provedores**, execute as seguintes etapas:
 
-    ![Captura de tela da caixa de diálogo Propriedades de SSO para vários provedores](./media/servicenow-tutorial/ic7694981.png "Configurar a URL do aplicativo")
+    ![Captura de tela da caixa de diálogo Propriedades de SSO para Vários Provedores](./media/servicenow-tutorial/ic7694981.png "Configurar a URL do aplicativo")
 
     * Para **Habilitar SSO para vários provedores**, selecione **Sim**.
   
@@ -224,7 +224,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     1. No formulário **Configurar logon**, insira o nome da instância, o nome de usuário do administrador e a senha de administrador do ServiceNow. Selecione **Configurar agora**. O nome de usuário do administrador informado deve ter a função **security_admin** atribuída no ServiceNow para que isso funcione. Caso contrário, para configurar manualmente o ServiceNow para usar o Azure AD como um provedor de identidade do SAML, selecione **Configurar manualmente o logon único**. Copie **a URL de saída, a ID da Entidade do SAML e a URL do serviço de logon único do SAML** da seção de Referência Rápida.
 
-        ![Captura de tela do formulário Configurar logon, com Configurar agora realçado](./media/servicenow-tutorial/configure.png "Configurar URL do aplicativo")
+        ![Captura de tela do formulário Configurar logon, com "Configurar Agora" realçado](./media/servicenow-tutorial/configure.png "Configurar a URL do aplicativo")
 
     1. Entre no seu aplicativo ServiceNow como administrador.
 
@@ -232,7 +232,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
          1. No painel à esquerda, pesquise a seção **SSO para vários provedores** na caixa de pesquisa e selecione **Provedores de identidade**.
 
-            ![Captura de tela da seção de SSO para vários provedores, com Provedores de identidade realçado](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configurar logon único")
+            ![Captura de tela da seção de SSO para Vários Provedores, com "Provedores de Identidade" realçado](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configurar o logon único")
 
          1. Selecione o provedor de identidade gerado automaticamente.
 
@@ -240,7 +240,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
          1.  Na seção **Provedor de Identidade**, execute as seguintes etapas:
 
-             ![Captura de tela da seção do Provedor de Identidade](./media/servicenow-tutorial/automatic_config.png "Configurar logon único")
+             ![Captura de tela da seção Provedor de Identidade](./media/servicenow-tutorial/automatic_config.png "Configurar o logon único")
 
                * Para **Nome**, insira um nome para a configuração (por exemplo, **Logon Único Federado do Microsoft Azure**).
 
@@ -257,7 +257,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
          1. Role para baixo até a seção **Certificado X.509** e selecione **Editar**.
 
-             ![Captura de tela da seção do certificado X.509, com Editar realçado](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configurar o logon único")
+             ![Captura de tela da seção Certificado X.509, com "Editar" realçado](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configurar o logon único")
 
          1. Selecione o certificado e clique no ícone de seta à direita para adicionar o certificado
 
@@ -267,11 +267,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
           1. Selecione **Testar conexão**, no canto superior direito da página.
 
-             ![Captura de tela da página, com Testar conexão realçado](./media/servicenow-tutorial/tutorial_activate2.png "Ativar plug-in")
+             ![Captura de tela da página, com "Testar Conexão" realçado](./media/servicenow-tutorial/tutorial_activate2.png "Ativar plug-in")
 
           1. Quando suas credenciais forem solicitadas, insira-as. Você verá a página a seguir. O erro nos **Resultados de Teste de Logoff do SSO** é esperado. Ignore o erro e selecione **Ativar**.
 
-             ![Captura de tela da página de Resultados de Teste](./media/servicenow-tutorial/servicenowactivate.png "Configurar o logon único")
+             ![Captura de tela da página Resultados de Teste](./media/servicenow-tutorial/servicenowactivate.png "Configurar o logon único")
   
 6. Para configurar o **ServiceNow** manualmente, execute as seguintes etapas:
 
@@ -279,19 +279,19 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     1. No painel esquerdo, selecione **Provedores de Identidade**.
 
-        ![Captura de tela do SSO para vários provedores, com Provedores de identidade realçado](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configurar o logon único")
+        ![Captura de tela de SSO para Vários Provedores, com "Provedores de Identidade" realçado](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configurar o logon único")
 
     1. Na caixa de diálogo **Provedores de Identidade**, selecione **Novo**.
 
-        ![Captura de tela da caixa de diálogo Provedores de identidade, com Novo realçado](./media/servicenow-tutorial/ic7694977.png "Configurar o logon único")
+        ![Captura de tela da caixa de diálogo Provedores de Identidade, com "Novo" realçado](./media/servicenow-tutorial/ic7694977.png "Configurar o logon único")
 
     1. Na caixa de diálogo **Provedores de Identidade**, selecione **SAML**.
 
-        ![Captura de tela da caixa de diálogo Provedores de identidade, com o SAML realçado](./media/servicenow-tutorial/ic7694978.png "Configurar o logon único")
+        ![Captura de tela da caixa de diálogo Provedores de Identidade, com "SAML" realçado](./media/servicenow-tutorial/ic7694978.png "Configurar o logon único")
 
     1. Em **Importar metadados do Provedor de Identidade**, execute as seguintes etapas:
 
-        ![Captura de tela de importar metadados do provedor de identidade, com URL e importação realçado](./media/servicenow-tutorial/idp.png "Configurar logon único")
+        ![Captura de tela de Importar Metadados do Provedor de Identidade, com "URL" e "Importar" realçados](./media/servicenow-tutorial/idp.png "Configurar o logon único")
 
         1. Insira a **URL de Metadados de Federação de Aplicativos** que você copiou do portal do Azure.
 
@@ -299,7 +299,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     1. A URL de metadados do IdP será lida e todas as informações dos campos serão populadas.
 
-        ![Captura de tela do Provedor de Identidade](./media/servicenow-tutorial/ic7694982.png "Configurar logon único")
+        ![Captura de tela de Provedor de Identidade](./media/servicenow-tutorial/ic7694982.png "Configurar o logon único")
 
         * Para **Nome**, insira um nome para a configuração (por exemplo, **Logon Único Federado do Microsoft Azure**).
 
@@ -323,7 +323,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
         * Quando suas credenciais forem solicitadas, insira-as. Você verá a página a seguir. O erro nos **Resultados de Teste de Logoff do SSO** é esperado. Ignore o erro e selecione **Ativar**.
 
-          ![Captura de tela da página de Resultados de Teste](./media/servicenow-tutorial/servicenowactivate.png "Configurar o logon único")
+          ![Captura de tela da página Resultados de Teste](./media/servicenow-tutorial/servicenowactivate.png "Configurar o logon único")
 
 ### <a name="create-servicenow-test-user"></a>Criar um usuário de teste do ServiceNow
 
@@ -338,11 +338,11 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no ServiceNow.
 
 2. No painel à esquerda, selecione **Logon Único**.
 
-    ![Captura de tela do aplicativo ServiceNow Express, com o Logon Único realçado](./media/servicenow-tutorial/ic7694980ex.png "Configurar URL do aplicativo")
+    ![Captura de tela do aplicativo ServiceNow Express, com "Logon Único" realçado](./media/servicenow-tutorial/ic7694980ex.png "Configurar a URL do aplicativo")
 
 3. Na caixa de diálogo **Logon Único**, selecione o ícone de configuração no canto superior direito e defina as seguintes propriedades:
 
-    ![Captura de tela da caixa de diálogo de Logon Único](./media/servicenow-tutorial/ic7694981ex.png "Configurar URL do aplicativo")
+    ![Captura de tela da caixa de diálogo Logon Único](./media/servicenow-tutorial/ic7694981ex.png "Configurar a URL do aplicativo")
 
     a. Ative/desative **Habilitar SSO de vários provedores** à direita.
 
@@ -352,11 +352,11 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no ServiceNow.
 
 4. Na caixa de diálogo **Logon Único**, selecione **Adicionar Novo Certificado**.
 
-    ![Captura de tela da caixa de diálogo Logon Único, com Adicionar novo certificado realçado](./media/servicenow-tutorial/ic7694973ex.png "Configurar o logon único")
+    ![Captura de tela da caixa de diálogo Logon Único, com "Adicionar Novo Certificado" realçado](./media/servicenow-tutorial/ic7694973ex.png "Configurar o logon único")
 
 5. Na caixa de diálogo **Certificados X.509**, execute as seguintes etapas:
 
-    ![Captura de tela da caixa de diálogo dos Certificados X.509](./media/servicenow-tutorial/ic7694975.png "Configurar o logon único")
+    ![Captura de tela da caixa de diálogo Certificados X.509](./media/servicenow-tutorial/ic7694975.png "Configurar o logon único")
 
     a. Para **Nome**, insira um nome para a configuração (por exemplo: **TestSAML2.0**).
 
@@ -372,11 +372,11 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no ServiceNow.
 
 6. Na caixa de diálogo **Logon Único**, selecione **Adicionar Novo IdP**.
 
-    ![Captura de tela da caixa de diálogo Logon Único, com Adicionar novo IdP realçado](./media/servicenow-tutorial/ic7694976ex.png "Configurar o logon único")
+    ![Captura de tela da caixa de diálogo Logon Único, com "Adicionar Novo IdP" realçado](./media/servicenow-tutorial/ic7694976ex.png "Configurar o logon único")
 
 7. Na caixa de diálogo **Adicionar Novo Provedor de Identidade**, em **Configurar Provedor de Identidade**, execute as seguintes etapas:
 
-    ![Captura de tela da caixa de diálogo Adicionar novo provedor de identidade](./media/servicenow-tutorial/ic7694982ex.png "Configurar o logon único")
+    ![Captura de tela da caixa de diálogo Adicionar Novo Provedor de Identidade](./media/servicenow-tutorial/ic7694982ex.png "Configurar o logon único")
 
     a. Para **Nome**, insira um nome para a configuração (por exemplo: **SAML 2.0**).
 
@@ -390,7 +390,7 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no ServiceNow.
 
 8. Selecione **Configurações avançadas**. Em **Propriedades Adicionais do Provedor de Identidade**, execute as seguintes etapas:
 
-    ![Captura de tela da caixa de diálogo Adicionar Novo Provedor de Identidade, com Configurações Avançadas realçado](./media/servicenow-tutorial/ic7694983ex.png "Configurar o logon único")
+    ![Captura de tela da caixa de diálogo Adicionar Novo Provedor de Identidade, com "Configurações Avançadas" realçado](./media/servicenow-tutorial/ic7694983ex.png "Configurar o logon único")
 
     a. Para **Associação de protocolo para o SingleLogoutRequest do IDP**, insira **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
@@ -402,7 +402,7 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no ServiceNow.
 
 9. Em **Propriedades Adicionais do Provedor de Serviço**, execute as seguintes etapas:
 
-    ![Captura de tela da caixa de diálogo Adicionar Novo Provedor de Identidade, com várias propriedades realçadas](./media/servicenow-tutorial/ic7694984ex.png "Configurar o logon único")
+    ![Captura de tela da caixa de diálogo Adicionar Novo Provedor de Identidade, com diversas propriedades realçadas](./media/servicenow-tutorial/ic7694984ex.png "Configurar o logon único")
 
     a. Para **Página Inicial do ServiceNow**, insira a URL da página inicial da sua instância do ServiceNow.
 

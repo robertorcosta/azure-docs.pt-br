@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala de um microfone, Swift – Serviço de Fala'
+title: 'Início Rápido: Reconhecer a fala de um microfone, Swift – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em Swift no iOS usando o SDK de Fala
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 661dd94caa2a1998b26ec1270688c0729011c15a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 53ddf18c0ea102968db03bc4435b7615e724892a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505696"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818513"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Swift no iOS usando o SDK de Fala
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a criar um aplicativo iOS em Swift usando o SDK d
 
 Antes de começar, você precisará do seguinte:
 
-* Uma [chave de assinatura](~/articles/cognitive-services/Speech-Service/get-started.md) para o Serviço de Fala.
+* Uma [chave de assinatura](~/articles/cognitive-services/Speech-Service/get-started.md) do serviço de Fala.
 * Um computador macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior e [CocoaPods](https://cocoapods.org/) instalado.
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obter o SDK de Fala para iOS
@@ -36,7 +36,7 @@ Antes de começar, você precisará do seguinte:
 
 Este tutorial não funcionará com uma versão do SDK anterior à 1.6.0.
 
-O SDK de Fala dos Serviços Cognitivos para iOS é distribuído como um quadro de estrutura. Ele pode ser usado em projetos do Xcode como um [CocoaPod](https://cocoapods.org/) ou baixados em https://aka.ms/csspeech/macosbinary e vinculados manualmente. Este artigo usa um CocoaPod.
+O SDK de Fala dos Serviços Cognitivos para iOS é distribuído como um quadro de estrutura. Ele pode ser usado em projetos do Xcode como um [CocoaPod](https://cocoapods.org/) ou baixados em https://aka.ms/csspeech/iosbinary e vinculados manualmente. Este artigo usa um CocoaPod.
 
 ## <a name="create-an-xcode-project"></a>Criar um projeto do Xcode
 

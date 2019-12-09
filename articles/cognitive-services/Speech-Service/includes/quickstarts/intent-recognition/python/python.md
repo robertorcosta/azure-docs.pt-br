@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala, intenções e entidades, Python - Serviço de Fala'
+title: 'Início Rápido: Reconhecer uma fala, intenções e entidades, Python – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f39ddc8a3460bc026bdac96c18b5bea4d6ecfc0f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a4c7f24a2e28743679e312e3dce0bc605db6749
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280439"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815966"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,6 +43,7 @@ Vamos adicionar um código que funciona como um esqueleto para o projeto.
 Antes de inicializar um objeto `IntentRecognizer`, é preciso criar uma configuração que use a região e a chave de ponto de extremidade LUIS. Em seguida, insira este código.
 
 A amostra constrói o objeto `SpeechConfig` usando a chave e a região LUIS. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
+O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
 > [!NOTE]
 > É importante usar a chave de ponto de extremidade LUIS, e não as chaves de Início ou de Criação porque apenas a chave do ponto de extremidade é válida para o reconhecimento de conversão de fala em intenção. Confira o artigo [Criar um aplicativo LUIS e obter uma chave de ponto de extremidade](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para ver instruções sobre como obter a chave correta.

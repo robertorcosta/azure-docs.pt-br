@@ -1,20 +1,18 @@
 ---
-title: Compilar um aplicativo Web do Java no Linux – Serviço de Aplicativo do Azure
-description: Compilar, implantar e dimensionar aplicativos Web de Spring Boot Java com o Serviço de Aplicativo do Azure no Linux e Azure Cosmos DB.
+title: 'Tutorial: Aplicativo Java do Linux com o MongoDB'
+description: Saiba como executar um aplicativo Java do Linux controlado por dados no Serviço de Aplicativo do Azure, com uma conexão com um MongoDB em execução no Azure (Cosmos DB).
 author: rloutlaw
 ms.author: routlaw
-manager: angerobe
-ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 077c9b22dbb629c8408d431de3e2e621b79c9c48
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a3e9c05fbe68bf1b03f45d045afd8754753fecd3
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747681"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688822"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutorial: Compilar um aplicativo Web do Spring Boot Java com o Serviço de Aplicativo do Azure no Linux e o Azure Cosmos DB
 

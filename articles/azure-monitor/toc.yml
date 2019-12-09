@@ -563,7 +563,7 @@
                           href: platform/collect-custom-metrics-guestos-vm-classic.md
                         - name: serviço de nuvem
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-                    - name: Formato de logs de diagnóstico Linhas JSON
+                    - name: Formato de logs de recurso de linhas JSON
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: solução de problemas
                       href: platform/diagnostics-extension-troubleshooting.md
@@ -1163,7 +1163,7 @@
           href: platform/metrics-supported.md
         - name: Métricas com suporte para alertas mais recentes
           href: platform/alerts-metric-near-real-time.md
-    - name: 'Serviços de log de recursos, categorias e esquemas'
+    - name: 'Serviços, categorias e esquemas de log de plataforma'
       href: platform/diagnostic-logs-schema.md
     - name: CLI do Azure
       href: /cli/azure/monitor?view=azure-cli-latest

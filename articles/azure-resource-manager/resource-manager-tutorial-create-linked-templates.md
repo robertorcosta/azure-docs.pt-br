@@ -2,15 +2,15 @@
 title: Criar modelos vinculados
 description: Saiba como criar modelos do Azure Resource Manager vinculados para criar máquinas virtuais
 author: mumian
-ms.date: 10/04/2019
+ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9764edb986b2ee847e3fcecda228f53551b462c3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e8964335d8c436cc590c36c3ea01fac02ed2280a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325418"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815259"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos do Azure Resource Manager vinculados
 
@@ -45,6 +45,7 @@ Para concluir este artigo, você precisa do seguinte:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para obter mais informações, confira [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
@@ -55,42 +56,46 @@ Modelos de Início Rápido do Azure é um repositório de modelos do Gerenciador
 * **O modelo vinculado**: crie a conta de armazenamento.
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
-2. Em **Nome do arquivo**, cole a seguinte URL:
+1. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. Escolha **Abrir** para abrir o arquivo.
-4. Há cinco recursos definidos pelo modelo:
+
+1. Escolha **Abrir** para abrir o arquivo.
+1. Há seis recursos definidos pelo modelo:
 
    * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
    * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/networkSecurityGroups`](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)
    * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
      É útil ter algumas noções básicas do modelo antes de personalizá-lo.
-5. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
-6. Selecione **Arquivo**>**Salvar como** para criar outra cópia do arquivo com o nome **linkedTemplate.json**.
+1. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
+1. Selecione **Arquivo**>**Salvar como** para criar outra cópia do arquivo com o nome **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Criar o modelo vinculado
 
 O modelo vinculado cria uma conta de armazenamento. O modelo vinculado pode ser usado como um modelo autônomo para criar uma conta de armazenamento. Neste tutorial, o modelo vinculado usa dois parâmetros e precisa retornar um valor ao modelo principal. Esse valor de "retorno" é definido no elemento `outputs`.
 
 1. Abra **linkedTemplate.json** no Visual Studio Code, se o arquivo não estiver aberto.
-2. Faça as seguintes alterações:
+1. Faça as seguintes alterações:
 
     * Remova todos os parâmetros que não sejam **localização**.
     * Adicione um parâmetro chamado **storageAccountName**.
-        ```json
-        "storageAccountName":{
-          "type": "string",
-          "metadata": {
-              "description": "Azure Storage account name."
-          }
-        },
-        ```
-        O nome e a localização da conta de armazenamento são transmitidos do modelo principal para o modelo vinculado como parâmetros.
+
+      ```json
+      "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+      },
+      ```
+
+      O nome e a localização da conta de armazenamento são transmitidos do modelo principal para o modelo vinculado como parâmetros.
 
     * Remova o elemento **variáveis** e todas as definições de variável.
     * Remova todos os recursos que não sejam a conta de armazenamento. Você removerá, no total, quatro recursos.
@@ -110,6 +115,7 @@ O modelo vinculado cria uma conta de armazenamento. O modelo vinculado pode ser 
             }
         }
         ```
+
        **storageUri** é exigido pela definição de recurso de máquina virtual no modelo principal.  Retorne o valor para o modelo principal como um valor de saída.
 
         Quando você terminar, o modelo deverá ser semelhante a:
@@ -138,7 +144,7 @@ O modelo vinculado cria uma conta de armazenamento. O modelo vinculado pode ser 
               "type": "Microsoft.Storage/storageAccounts",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
-              "apiVersion": "2018-07-01",
+              "apiVersion": "2018-11-01",
               "sku": {
                 "name": "Standard_LRS"
               },
@@ -154,7 +160,8 @@ O modelo vinculado cria uma conta de armazenamento. O modelo vinculado pode ser 
           }
         }
         ```
-3. Salve as alterações.
+
+1. Salve as alterações.
 
 ## <a name="upload-the-linked-template"></a>Carregar o modelo vinculado
 
@@ -208,9 +215,10 @@ $templateURI = New-AzStorageBlobSASToken `
     -ExpiryTime (Get-Date).AddHours(8.0) `
     -FullUri
 
-echo "You need the following values later in the tutorial:"
-echo "Resource Group Name: $resourceGroupName"
-echo "Linked template URI with SAS token: $templateURI"
+Write-Host "You need the following values later in the tutorial:"
+Write-Host "Resource Group Name: $resourceGroupName"
+Write-Host "Linked template URI with SAS token: $templateURI"
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 1. Selecione o botão verde **Experimentar** para abrir o painel do Azure Cloud Shell.
@@ -226,22 +234,7 @@ Na prática, você gera um token SAS quando implanta o modelo principal e dá ao
 O modelo principal se chama azuredeploy.json.
 
 1. Abra **azuredeploy.json** no Visual Studio Code, se não estiver aberto.
-2. Exclua a definição de recurso de conta de armazenamento do modelo:
-
-    ```json
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    },
-    ```
-3. Adicione o seguinte snippet de json ao local em que você tinha a definição da conta de armazenamento:
+1. Substitua a definição de recurso da conta de armazenamento pelo seguinte snippet JSON:
 
     ```json
     {
@@ -251,7 +244,7 @@ O modelo principal se chama azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
+              "uri":""
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -268,8 +261,8 @@ O modelo principal se chama azuredeploy.json.
     * Você só pode usar o modo de implantação [Incremental](./deployment-modes.md) quando chama modelos vinculados.
     * `templateLink/uri` contém o URI do modelo vinculado. Atualize o valor para o URI que você obtém ao carregar o modelo vinculado (aquele com um token SAS).
     * Use `parameters` para passar valores do modelo principal para o modelo vinculado.
-4. Verifique se você atualizou o valor do elemento `uri` para o valor que você obteve ao carregar o modelo vinculado (aquele com um token SAS). Na prática, se você quiser fornecer ao URI um parâmetro.
-5. Salve o modelo revisado
+1. Verifique se você atualizou o valor do elemento `uri` para o valor que você obteve ao carregar o modelo vinculado (aquele com um token SAS). Na prática, se você quiser fornecer ao URI um parâmetro.
+1. Salve o modelo revisado
 
 ## <a name="configure-dependency"></a>Configurar dependência
 
@@ -290,6 +283,7 @@ Como a conta de armazenamento agora está definida no modelo vinculado, você de
             }
     }
     ```
+
     Esse valor é exigido pelo modelo principal.
 
 1. Abra o azuredeploy.json no Visual Studio Code se já não estiver aberto.

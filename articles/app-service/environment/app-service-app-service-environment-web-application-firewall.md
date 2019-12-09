@@ -1,25 +1,18 @@
 ---
-title: Configurar um WAF (firewall do aplicativo Web) para o Ambiente do Serviço de Aplicativo – Azure
-description: Saiba como configurar um firewall de aplicativo Web no Ambiente do Serviço de Aplicativo.
-services: app-service\web
-documentationcenter: ''
-author: naziml
-manager: erikre
-editor: jimbe
+title: Configurar um WAF
+description: Saiba como configurar um WAF (firewall do aplicativo Web) na frente do Ambiente do Serviço de Aplicativo, com o Gateway de Aplicativo do Azure ou um WAF de terceiros.
+author: ccompy
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/03/2018
-ms.author: naziml
+ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 01224e4270ba8a7c7df4a311823dd6156038438a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ba53438eb5ae1870cb180b169348ab0f92e5f305
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070057"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688766"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral

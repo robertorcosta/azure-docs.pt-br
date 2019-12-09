@@ -1,6 +1,6 @@
 ---
-title: Criar um banco de dados do Azure Cosmos usando o portal do Azure.
-description: Criar um banco de dados, um contêiner e itens do Azure Cosmos usando o portal do Azure.
+title: Início Rápido – Criar um banco de dados do Azure Cosmos usando o portal do Azure
+description: Este início rápido mostra como criar um banco de dados, um contêiner e itens do Azure Cosmos usando o portal do Azure.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/01/2019
-ms.openlocfilehash: b42a442564812f4386eb94b9bd7b7c9aff9e9f29
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0f7102081d5ccd29507917068893b484902a4fb3
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220722"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708195"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Início Rápido: Criar uma conta, um banco de dados, um contêiner e itens do Azure Cosmos usando o portal do Azure
 

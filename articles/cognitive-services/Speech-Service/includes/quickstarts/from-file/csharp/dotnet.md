@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: fdb747212914769b8551d9cd12f1fbc8a01245dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7fc7edcb37b31022afb989199bd54e55589e1849
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506344"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819407"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,6 +25,8 @@ Antes de começar, é preciso:
 > * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=dotnet)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="open-your-project-in-visual-studio"></a>Abra o projeto no Visual Studio
 
@@ -60,18 +62,19 @@ namespace helloworld
 
 ````
 
-## <a name="create-a-speech-configuration"></a>Criar uma configuração de fala
+## <a name="create-a-speech-configuration"></a>Criar uma configuração de Fala
 
 Antes de inicializar um objeto `SpeechRecognizer`, é preciso criar uma configuração que use a região e a chave de assinatura. Insira esse código no método `RecognizeSpeechAsync()`.
 
 > [!NOTE]
 > Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+> O SDK de Fala estabelecerá como padrão o reconhecimento do uso de en-us para o idioma, confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
 ````C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ````
 
-## <a name="create-an-audio-configuration"></a>Criar uma configuração de áudio
+## <a name="create-an-audio-configuration"></a>Criar uma configuração de Áudio
 
 Agora, é preciso criar um objeto ````AudioConfig```` que indique o arquivo de áudio. Esse objeto é criado dentro de uma instrução using para garantir a liberação adequada de recursos não gerenciados. Insira esse código no método `RecognizeSpeechAsync()`, logo abaixo da configuração de fala.
 
@@ -103,7 +106,7 @@ var result = await recognizer.RecognizeOnceAsync();
 
 ## <a name="display-the-recognition-results-or-errors"></a>Exibir os resultados do reconhecimento (ou os erros)
 
-Quando o serviço de fala retornar o resultado do reconhecimento, você poderá utilizá-lo. Para manter a simplicidade, vamos imprimir o resultado no console.
+Quando o Serviço de Fala retornar o resultado do reconhecimento, você poderá utilizá-lo. Para manter a simplicidade, vamos imprimir o resultado no console.
 
 Dentro da instrução using, abaixo de `RecognizeOnceAsync()`, adicione este código:
 ````C#
@@ -131,7 +134,7 @@ else if (result.Reason == ResultReason.Canceled)
 
 ## <a name="check-your-code"></a>Verificar o código
 
-Neste momento, seu código deverá ter a seguinte aparência:
+Neste momento, seu código deverá se parecer com o seguinte:
 
 ````C#
 //
@@ -194,7 +197,7 @@ namespace helloworld
 
 Agora está tudo pronto para você compilar o aplicativo e testar o reconhecimento de fala usando o serviço de fala.
 
-1. **Compilar o código**: na barra de menus do Visual Studio, escolha **Compilar** > **Compilar solução**.
+1. **Compilar o código**: na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução**.
 2. **Iniciar o aplicativo**: na barra de menus, escolha **Depurar** > **Iniciar depuração** ou pressione **F5**.
 3. **Iniciar reconhecimento**: a fala é enviada ao serviço de fala, transcrita como texto e renderizada no console.
 

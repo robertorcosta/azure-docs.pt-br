@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer uma fala de um arquivo de áudio, C++ (Windows) – Serviço de fala'
+title: 'Início Rápido: Reconhecer uma fala de um arquivo de áudio, C++ (Windows) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em C++ no Windows Desktop usando o SDK de Fala
 services: cognitive-services
@@ -10,21 +10,23 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 09e0b6fbfcb8541a0756a855d4548e456a7b5c90
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 005d3c36525546443f96ec2134a2c8f9ad44b4dd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506376"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819437"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Criar um Azure Speech Resource](../../../../get-started.md)
-> * [Configurar o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=windows)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -84,13 +86,16 @@ Antes de começar, é preciso:
 
 1. Na barra de menus, escolha **Arquivo** > **Salvar tudo**.
 
+> [!NOTE]
+> O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
+
 ## <a name="build-and-run-the-application"></a>Compile e execute o aplicativo
 
 1. Na barra de menus, selecione **Compilar** > **Compilar solução** para compilar o aplicativo. Agora, o código deve compilar sem erros.
 
 1. Escolha **Depurar** > **Iniciar depuração** (ou pressione **F5**) para iniciar o aplicativo **Olá Mundo**.
 
-1. O arquivo de áudio é transmitido para os Serviços de Fala, e o primeiro enunciado no arquivo é convertido em texto, o qual aparece na mesma janela.
+1. O arquivo de áudio é transmitido para o serviço de Fala e o primeiro enunciado no arquivo é convertido em texto, que aparece na mesma janela.
 
    ```text
    Recognizing first result...

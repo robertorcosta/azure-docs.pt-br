@@ -1,25 +1,20 @@
 ---
-title: Exemplo de Script da CLI do Azure – Fazer backup de um aplicativo | Microsoft Docs
-description: Exemplo de Script da CLI do Azure – Fazer backup de um aplicativo
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Fazer backup de um aplicativo'
+description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como fazer backup de um aplicativo.
+author: msangapu-msft
 tags: azure-service-management
-ms.service: app-service-web
-ms.workload: web
+ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 07ca1a167a2c7bf2f2946772b97cca4d2c1bd9c9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ed9975d33259678defd34582e00294def7ce3467
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098501"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686845"
 ---
 # <a name="back-up-an-app-using-cli"></a>Fazer backup de um aplicativo usando a CLI
 

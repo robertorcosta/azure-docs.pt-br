@@ -1,17 +1,17 @@
 ---
-title: Preparar um aplicativo Spring para implantação no Azure Spring Cloud | Microsoft Docs
-description: Neste início rápido, você prepara um aplicativo Spring Java para implantação.
+title: Tutorial – Preparar um aplicativo Spring para implantação no Azure Spring Cloud
+description: Neste tutorial, você prepara um aplicativo Spring Java para implantação.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6c3048fd27c3d3d4fdba0841fb4ab21bd10e15fe
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3c567c54f887afe9ac112970a682b9466515d949
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721239"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708723"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Tutorial: Preparar um aplicativo Spring Java para implantação no Azure Spring Cloud
 
@@ -176,4 +176,3 @@ Neste tutorial, você aprendeu a configurar o aplicativo Java Spring para implan
 
 > [!div class="nextstepaction"]
 > [Saiba como configurar o Servidor de Configuração](spring-cloud-tutorial-config-server.md).
-

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: c9175f1f592c72e047b02a06a174d3013b0c7ef6
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090438"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815316"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Linux
 
@@ -23,7 +23,7 @@ Neste início rápido, você aprenderá a usar o SDK de Dispositivos de Fala par
 
 O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v4) no Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
-Este guia exige uma conta dos [Serviços Cognitivos do Azure](get-started.md) com um recurso dos Serviços de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+Este guia exige uma conta dos [Serviços Cognitivos do Azure](get-started.md) com o recurso do Serviço de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
 
 O código-fonte para o [aplicativo de exemplo](https://aka.ms/sdsdk-download-JRE) é incluído com o SDK de Dispositivos de Fala. Também está [disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -35,7 +35,7 @@ Este início rápido requer:
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Java IDE do Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) apenas.
-* Uma chave de assinatura do Azure para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
 * Baixe a última versão do [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-download-JRE) para Java e extraia o arquivo .zip para seu diretório de trabalho.
    > [!NOTE]
    > O arquivo JRE-Sample-Release.zip inclui o aplicativo de exemplo do JRE e este início rápido pressupõe que o aplicativo seja extraído para /home/wcaltest/JRE-Sample-Release

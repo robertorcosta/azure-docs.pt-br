@@ -1,18 +1,18 @@
 ---
-title: Conectar-se ao Banco de Dados do Azure para MySQL no PHP
+title: Conectar-se usando PHP – Banco de Dados do Azure para MySQL
 description: Este guia de início rápido fornece vários exemplos de código PHP que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/02/2019
+ms.openlocfilehash: b8923000b0bbc75e6d96b1b27a1154ef8ff87f24
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608759"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770706"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar PHP para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para MySQL usando aplicativo [PHP](https://secure.php.net/manual/intro-whatis.php). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando PHP e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
@@ -33,7 +33,7 @@ Instalar o PHP em seu próprio servidor ou crie um [aplicativo Web](../app-servi
 - Baixar o [PHP 7.1.4 versão protegida não thread (x64)](https://secure.php.net/downloads.php).
 - Instalar o PHP e consultar o [manual do PHP](https://secure.php.net/manual/install.unix.php) para outras configurações.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - Baixar o [PHP 7.1.4 versão protegida não thread (x64)](https://windows.php.net/download#php-7.1).
 - Instalar o PHP e consultar o [manual do PHP](https://secure.php.net/manual/install.windows.php) para outras configurações.
 

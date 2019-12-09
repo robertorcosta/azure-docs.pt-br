@@ -1,22 +1,18 @@
 ---
-title: Automatizar tarefas com vários serviços do Azure – Aplicativos Lógicos do Azure
+title: Automatizar tarefas com vários serviços do Azure
 description: Tutorial – Criar fluxos de trabalho automatizados para processar emails com Aplicativos Lógicos do Azure, Armazenamento do Azure e o Azure Functions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 52c9a23e3e00075e934b9f9f22a835090e02f1b9
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 6486427753543e0f4fe9a197b6825a555ef2fc70
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820222"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793475"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar emails usando os Aplicativos Lógicos do Azure, o Azure Functions e o Armazenamento do Azure
 
@@ -150,7 +146,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
    | **SO** | <*seu-sistema-operacional*> | Selecione o sistema operacional que dá suporte à sua linguagem de programação de função favorita. Para este exemplo, selecione **Windows**. |
    | **Plano de hospedagem** | Plano de consumo | Essa configuração determina como alocar e dimensionar recursos, como capacidade de computação, para executar seu aplicativo de funções. Confira [Comparação entre planos de hospedagem](../azure-functions/functions-scale.md). |
    | **Localidade** | Oeste dos EUA | A mesma região que você usou anteriormente |
-   | **Pilha de Runtime** | Linguagem preferencial | Selecione um tempo de execução que dê suporte à sua linguagem de programação de funções favorita. Selecione **.NET** para as funções C# e F#. |
+   | **Pilha de Runtime** | Linguagem preferencial | Selecione um runtime que dê suporte à sua linguagem de programação de funções favorita. Selecione **.NET** para as funções C# e F#. |
    | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para seu aplicativo de funções. Use apenas letras minúsculas e números. <p>**Observação:** esta conta de armazenamento contém seus aplicativos de funções e é diferente da conta de armazenamento criada anteriormente para anexos de email. |
    | **Application Insights** | Desabilitar | Ativa o monitoramento do aplicativo com [Application Insights](../azure-monitor/app/app-insights-overview.md), mas, para este tutorial, selecione **Desabilitar** > **Aplicar**. |
    ||||

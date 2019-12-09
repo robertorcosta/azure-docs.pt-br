@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer a fala a partir de um microfone, C++ – Serviço de fala'
+title: 'Início Rápido: Reconhecer a fala de um microfone, C++ – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: erhopf
-ms.openlocfilehash: 51c3d67a04805c8cc411af812755f3c4e0213dee
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 692ed0b758cd33471b02b71d8434c6fc5337f6a0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260637"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818830"
 ---
 **Escolha o ambiente de destino**
 

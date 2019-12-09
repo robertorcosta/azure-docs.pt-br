@@ -1,5 +1,5 @@
 ---
-title: Script da CLI do Azure – Criar um Banco de Dados do Azure para MySQL
+title: Script da CLI – Criar servidor – Banco de Dados do Azure para MySQL
 description: Este exemplo de script da CLI cria um Banco de Dados do Azure para servidor MySQL e configura uma regra de firewall no nível do servidor.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 02/28/2018
-ms.openlocfilehash: 6a73041218ab6182d8aa3df6261697cc8dd4efe7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 12/02/2019
+ms.openlocfilehash: a210d2d11c9d9fccd000a6dffbf1f8730bda0c8b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535467"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765780"
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Criar um servidor MySQL e configurar uma regra de firewall usando a CLI do Azure
 Este exemplo de script da CLI cria um Banco de Dados do Azure para servidor MySQL e configura uma regra de firewall no nível do servidor. Após o script ser executado com êxito, o servidor MySQL será acessível por todos os serviços do Azure e pelo endereço IP configurado.

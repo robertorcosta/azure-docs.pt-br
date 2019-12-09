@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Sintetizar uma fala em um arquivo de áudio, C# (.NET) - Serviço de Fala'
+title: 'Início Rápido: Sintetizar uma fala em um arquivo de áudio, C# (.NET) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 24f44d02170866645711cb302453a009d2935fbf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505096"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818045"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>Abra o projeto no Visual Studio
 
@@ -33,7 +33,7 @@ A primeira etapa é verificar se o projeto está aberto no Visual Studio.
 1. Inicie o Visual Studio 2019.
 2. Carregue o projeto e abra o `Program.cs`.
 
-## <a name="start-with-some-boilerplate-code"></a>Começar com código de texto clichê
+## <a name="start-with-some-boilerplate-code"></a>Comece com código de texto clichê
 
 Vamos adicionar um código que funciona como um esqueleto para o projeto. Lembre-se de que você criou um método assíncrono chamado `SynthesisToAudioFileAsync()`.
 
@@ -62,7 +62,7 @@ namespace helloworld
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Fala
 
-Antes de inicializar um objeto `SpeechSynthesizer`, é preciso criar uma configuração que use a sua região e chave de assinatura. Insira esse código no método `SynthesisToAudioFileAsync()`.
+Antes de inicializar um objeto `SpeechSynthesizer`, é preciso criar uma configuração que use a região e a chave de assinatura. Insira esse código no método `SynthesisToAudioFileAsync()`.
 
 ````C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -91,7 +91,7 @@ using (var synthesizer = new SpeechSynthesizer(config, fileOutput))
 
 ## <a name="synthesize-text-using-speaktextasync"></a>Sintetizar texto usando SpeakTextAsync
 
-No objeto `SpeechSynthesizer`, chame o método `SpeakTextAsync()`. Esse método envia o texto para o Serviço de Fala que o converte em áudio. O `SpeechSynthesizer` usará a voz padrão se `config.VoiceName` não estiver explicitamente especificado.
+No objeto `SpeechSynthesizer`, chame o método `SpeakTextAsync()`. Esse método envia o texto para o serviço de Fala que o converte em áudio. O `SpeechSynthesizer` usará a voz padrão se `config.VoiceName` não estiver explicitamente especificado.
 
 Dentro da instrução using, adicione este código:
 ````C#

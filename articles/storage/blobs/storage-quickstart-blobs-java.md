@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 27fbd0084f9f8c91ee83802efe6a96213363b78f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: b5a59e51190fc8309d35445fba7ef4a2dd22b970
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422044"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770434"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v12 para Java
 
@@ -46,7 +46,7 @@ Esta seção fornece instruções sobre como preparar um projeto para funcionar 
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-Crie um aplicativo Java Core chamado *blob-quickstart-v12*.
+Crie um aplicativo Java chamado *blob-quickstart-v12*.
 
 1. Em uma janela do console (como cmd, PowerShell ou Bash), use o Maven para criar um novo aplicativo do console com o nome *blob-quickstart-v12*. Digite o seguinte comando **mvn** em uma única linha para criar um simples "Olá, mundo!" Projeto Java. O comando é exibido aqui em várias linhas para facilitar a leitura.
 

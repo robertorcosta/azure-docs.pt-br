@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ac96c3ce3924b8b2fe834e2b350e95ce23c52e1f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b20a8aabbd41c09efb6818cac2999a8c84b669fc
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559343"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816430"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Início Rápido: Obter a lista de vozes da conversão de texto em fala usando Python
 
 Neste início rápido, você aprenderá como obter a lista completa de vozes neurais e padrão para um região/ponto de extremidade usando o Python. A lista é retornada como JSON e disponibilidade de voz varia por região. Para obter uma lista das regiões com suporte, confira [regiões](regions.md).
 
-Este início rápido exige uma [Conta de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso dos Serviços de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
+Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso do serviço de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Este início rápido requer:
 
 * Python 2.7.x ou 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
-* Uma chave de assinatura do Azure para os Serviços de Fala
+* Uma chave de assinatura do Azure para o serviço de Fala
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
 
@@ -59,9 +59,9 @@ A `subscription_key` é sua chave exclusiva do portal do Azure.
 
 ## <a name="get-an-access-token"></a>Obter um token de acesso
 
-Esse ponto de extremidade requer um token de acesso para autenticação. Para obter um token de acesso, é necessária uma troca. Este exemplo troca sua chave de assinatura dos Serviços de Fala por um token de acesso usando o ponto de extremidade `issueToken`.
+Esse ponto de extremidade requer um token de acesso para autenticação. Para obter um token de acesso, é necessária uma troca. Este exemplo troca sua chave de assinatura do serviço de Fala por um token de acesso usando o ponto de extremidade `issueToken`.
 
-Este exemplo pressupõe que a sua assinatura dos Serviços de Fala esteja na região Oeste dos EUA. Se você estiver usando uma região diferente, atualize o valor para `fetch_token_url`. Para uma lista completa, consulte [Regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Este exemplo pressupõe que a sua assinatura do serviço de Fala esteja na região Oeste dos EUA. Se você estiver usando uma região diferente, atualize o valor para `fetch_token_url`. Para uma lista completa, consulte [Regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copie este código para a classe `GetVoices`:
 
@@ -80,7 +80,7 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Faça uma solicitação e salve a resposta
 
-Aqui você vai criar a solicitação e salvar a lista de vozes retornadas. Primeiro, você precisa definir `base_url` e `path`. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `base_url`. Para obter mais informações, consulte [regiões dos Serviços de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Aqui você vai criar a solicitação e salvar a lista de vozes retornadas. Primeiro, você precisa definir `base_url` e `path`. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `base_url`. Para obter mais informações, confira [Regiões do serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Em seguida, adicione cabeçalhos obrigatórios para a solicitação. Finalmente, você fará uma solicitação ao serviço. Se a solicitação for obtida com êxito e um código de status 200 for retornado, a resposta de será gravada no arquivo.
 

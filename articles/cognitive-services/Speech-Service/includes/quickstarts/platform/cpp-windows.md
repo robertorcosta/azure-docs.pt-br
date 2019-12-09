@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Configuração de plataforma do SDK de Fala para C++ (Windows) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para C++ na Área de Trabalho do Windows usando o SDK dos Serviços de Fala.
+description: Use este guia para configurar sua plataforma para C++ na Área de Trabalho do Windows usando o SDK do serviços de Fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 16c8ce068db31f0063b4c3b3d05b06a1136a26ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7a3984c2a99180bec96f3685b661cd9e6334ff26
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504520"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818587"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para C++ na Área de Trabalho do Windows.
 

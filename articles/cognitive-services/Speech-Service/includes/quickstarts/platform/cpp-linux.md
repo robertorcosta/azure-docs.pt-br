@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Instalação da plataforma C++ (Linux) do SDK de Fala – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para instalar a plataforma para C++ no Linux com o SDK dos Serviços de Fala.
+description: Use este guia para instalar a plataforma para C++ no Linux com o SDK do serviço de Fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 96e4c12d7b0aaceea3d652a81f2df8721c43954c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 03aafb133f1d4a18ffe2b46ae5ec36225865a239
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504544"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819041"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) no Linux
 

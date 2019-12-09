@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: 0ee22c7a34ac332fac930ead6b7d62f6e7aad5d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d7ca86092b973d369d37cbeac1bc9f8cfcf9b462
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505384"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818434"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer uma fala armazenada em um armazenamento de blobs, C# – Serviço de Fala'
+title: 'Início Rápido: Reconhecer a fala armazenada no Armazenamento de Blobs, C# – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 40b226796b4dfb9aced3c6b00eba1a12bad66894
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506152"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829004"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Siga estas etapas para a instalação:
 
 1. Vá para https://editor.swagger.io.
 1. Clique em **Arquivo** e, em seguida, em **Importar URL**.
-1. Insira a URL do Swagger, incluindo a região da assinatura dos Serviços de Fala `https://<your-region>.cris.ai/docs/v2.0/swagger`.
+1. Insira a URL do Swagger, incluindo a região da assinatura do serviço de Fala: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
 1. Clique em **Gerar Cliente** e selecione **Python**.
 1. Salve a biblioteca de clientes.
 1. Extraia o python-client-generated.zip baixado em algum lugar no sistema de arquivos.
@@ -77,13 +77,13 @@ Insira este código em `transcribe` [!code-python[](~/samples-cognitive-services
 Em seguida, geraremos a solicitação de transcrição. Adicione este código a `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Enviar a solicitação e verificar seu status
-Agora postaremos a solicitação no Serviço de Fala e verificaremos o código de resposta inicial. Esse código de resposta simplesmente indicará se o serviço recebeu a solicitação. O serviço retornará uma Url nos cabeçalhos de resposta, que é o local em que ele armazenará o status da transcrição.
+Agora postaremos a solicitação no serviço de Fala e verificaremos o código de resposta inicial. Esse código de resposta simplesmente indicará se o serviço recebeu a solicitação. O serviço retornará uma Url nos cabeçalhos de resposta, que é o local em que ele armazenará o status da transcrição.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=65-73)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a conclusão da transcrição
 Como o serviço processa a transcrição de maneira assíncrona, precisamos investigar seu status periodicamente. Verificaremos a cada 5 segundos.
 
-Enumeraremos todas as transcrições que esse recurso do Serviço de Fala está processando e procuraremos o que criamos.
+Enumeraremos todas as transcrições que esse recurso do serviço de Fala está processando e procuraremos o que criamos.
 
 Aqui está o código de sondagem com o status exibição para tudo, exceto uma conclusão bem-sucedida. Faremos isso em seguida.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=75-94,99-112)]

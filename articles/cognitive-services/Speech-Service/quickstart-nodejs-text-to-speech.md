@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 72be99ec666bb9e04ffca6e14ab4fcafa889ae68
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bfd9f53c54ac8ed374f11da188f2fade715cdfa
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553935"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812814"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Início Rápido: Converter texto em fala usando Node.js
 
 Neste início rápido, você aprenderá como converter texto em fala usando Node.js e API REST de conversão de texto em Fala. O corpo da solicitação neste guia é estruturado como [Linguagem de marcação de síntese de Fala (SSML)](speech-synthesis-markup.md), que permite escolher a voz e o idioma da resposta.
 
-Este início rápido exige uma [Conta de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso dos Serviços de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
+Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso do serviço de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Este início rápido requer:
 
 * [Node 8.12.x ou posterior](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
-* Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha uma gratuitamente!](get-started.md).
+* Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente!](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>Criar um projeto e exigir dependências
 
@@ -52,9 +52,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Obter um token de acesso
 
-A API REST de conversão de texto em fala requer um token de acesso para autenticação. Para obter um token de acesso, é necessária uma troca. Esta função troca sua chave de assinatura dos Serviços de Fala por um token de acesso usando o ponto de extremidade `issueToken`.
+A API REST de conversão de texto em fala requer um token de acesso para autenticação. Para obter um token de acesso, é necessária uma troca. Esta função troca sua chave de assinatura do serviço de Fala por um token de acesso usando o ponto de extremidade `issueToken`.
 
-Esta amostra pressupõe que a sua assinatura dos Serviços de Fala esteja na região Oeste dos EUA. Se você estiver usando uma região diferente, atualize o valor para `uri`. Para uma lista completa, consulte [Regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Este exemplo pressupõe que a sua assinatura do serviço de Fala esteja na região Oeste dos EUA. Se você estiver usando uma região diferente, atualize o valor para `uri`. Para uma lista completa, consulte [Regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copie este código em seu projeto:
 
@@ -79,7 +79,7 @@ Na próxima seção, criaremos a função para chamar a API de conversão de tex
 
 ## <a name="make-a-request-and-save-the-response"></a>Faça uma solicitação e salve a resposta
 
-Aqui, você criará a solicitação à API de conversão de texto em fala e salvará a resposta de fala. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `uri`. Para obter mais informações, veja [regiões dos Serviços de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Aqui, você criará a solicitação à API de conversão de texto em fala e salvará a resposta de fala. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `uri`. Para obter mais informações, confira [Regiões do serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Em seguida, você precisa adicionar cabeçalhos obrigatórios para a solicitação. Certifique-se de atualizar `User-Agent` com o nome do seu recurso (localizado no portal do Azure) e defina `X-Microsoft-OutputFormat` como sua saída de áudio preferida. Para obter uma lista completa dos formatos de saída, consulte [Saídas de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 

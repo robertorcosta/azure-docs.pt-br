@@ -1,25 +1,17 @@
 ---
-title: Exemplo de Script do Azure PowerShell – criar um aplicativo Web e implantar do repositório Git local | Microsoft Docs
-description: Exemplo de Script do Azure PowerShell - criar um aplicativo Web e implantar o código de um repositório Git local
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: Implantação por meio do repositório Git local'
+description: Saiba como usar o Azure PowerShell para automatizar a implantação e o gerenciamento do Serviço de Aplicativo. Esta amostra descreve como implantar um código por meio de um repositório Git local.
 tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 670660c3618124339c6d6ab416aa9baa4d5ca2ca
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7355f2730cc54ca027e20c48e989e9f28dac7487
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098333"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684835"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Criar um aplicativo Web e implantar o código de um repositório local Git
 

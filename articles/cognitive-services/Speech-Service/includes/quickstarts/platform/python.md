@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: SDK de Fala para instalação da plataforma Python - Serviço de Fala'
+title: 'Início Rápido: Configuração de plataforma do SDK de Fala para Python – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para usar Python com o SDK de Serviços de Fala.
+description: Use este guia para configurar sua plataforma para usar Python com o SDK do serviço de Fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: d4a81c6dd2b44efd432345627e78bb69fff1688d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 095c591f63cb228b48681ffc67499820631bbaf5
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504328"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816445"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python.
 
@@ -39,7 +39,7 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
         sudo apt-get install build-essential libssl1.0.0 libasound2
         ```
 
-  - No Debian 9, e xecute os seguintes comandos para instalar os pacotes necessários:
+  - No Debian 9, execute os seguintes comandos para instalar os pacotes necessários:
 
         ```sh
         sudo apt-get update

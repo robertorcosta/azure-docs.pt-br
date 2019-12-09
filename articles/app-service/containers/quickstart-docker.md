@@ -1,19 +1,18 @@
 ---
-title: Implantar um aplicativo Docker no Linux – Serviço de Aplicativo do Azure
-description: Como implantar uma imagem do Docker nos Serviços de Aplicativos do Azure para Linux
-author: msangapu
+title: 'Início Rápido: Executar um contêiner personalizado do Linux'
+description: Comece a usar os contêineres do Linux no Serviço de Aplicativo do Azure implantando seu primeiro contêiner personalizado usando os Registros de Contêiner do Azure.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.service: app-service
-ms.openlocfilehash: 2a7dc477b4cd0be0c50569d84e10cfe1d666eac9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392695"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688958"
 ---
-# <a name="deploy-to-azure-using-docker"></a>Implantar no Azure usando o Docker
+# <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Implantar um contêiner personalizado do Linux no Serviço de Aplicativo do Azure
 
 O Serviço de Aplicativo no Linux fornece pilhas de aplicativos predefinidos em Linux com suporte para linguagens como .NET, PHP, Node.js e outras. Também é possível usar uma imagem personalizada do Docker para executar seu aplicativo Web em uma pilha de aplicativos que ainda não foi definida no Azure. Este guia de início rápido mostra como implantar uma imagem de um [ACR (Registro de Contêiner do Azure)](/azure/container-registry) para o Serviço de Aplicativo.
 

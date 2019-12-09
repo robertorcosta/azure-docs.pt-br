@@ -1,6 +1,6 @@
 ---
-title: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
-description: O início rápido mostra como usar o Portal do Azure para criar um workspace do Azure Databricks, um cluster do Apache Spark e executar um trabalho do Spark.
+title: Início Rápido – Executar um trabalho do Spark no Azure Databricks usando o portal do Azure
+description: Esse início rápido mostra como usar o portal do Azure para criar um workspace do Azure Databricks, um cluster do Apache Spark e executar um trabalho do Spark.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 004557ab3eb73f3f793b0514913260a414645d40
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 23d04062d5db7c944b7734f5e8339342548062fa
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129375"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706188"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início Rápido: Executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 

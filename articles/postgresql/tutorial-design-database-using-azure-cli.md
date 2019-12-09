@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando a CLI do Azure'
+title: 'Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único – CLI do Azure'
 description: Este tutorial mostra como criar, configurar e consultar seu primeiro servidor de Banco de Dados do Azure para PostgreSQL - Servidor único usando a CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f1f4c07f3dc694bcae9b540c71a11e53a00eb7f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447233"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773673"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando a CLI do Azure 
 Neste tutorial, você usará a CLI (interface de linha de comando) do Azure e outros utilitários para aprender a:

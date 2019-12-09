@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer a fala armazenada no armazenamento de blobs, Java – Serviço de Fala'
+title: 'Início Rápido: Reconhecer a fala armazenada no Armazenamento de Blobs, Java – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5fa12621d689287db0d91885fc0a35edb772294
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d4a436540460240ebd97c39d3406b2886586a6df
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506056"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829179"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -24,7 +24,7 @@ Antes de começar, é preciso:
 
 > [!div class="checklist"]
 > * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
-> * [Carregar um arquivo de origem em um blob do azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Carregar um arquivo de origem em um blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=dotnet)
 
@@ -63,7 +63,7 @@ Insira este código em `Main` [!code-java[](~/samples-cognitive-services-speech-
 Em seguida, geraremos a solicitação de transcrição. Adicione este código a `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Enviar a solicitação e verificar seu status
-Agora postaremos a solicitação no Serviço de Fala e verificaremos o código de resposta inicial. Esse código de resposta simplesmente indicará se o serviço recebeu a solicitação. O serviço retornará uma Url nos cabeçalhos de resposta, que é o local em que ele armazenará o status da transcrição.
+Agora postaremos a solicitação no serviço de Fala e verificaremos o código de resposta inicial. Esse código de resposta simplesmente indicará se o serviço recebeu a solicitação. O serviço retornará uma Url nos cabeçalhos de resposta, que é o local em que ele armazenará o status da transcrição.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=118-129)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a conclusão da transcrição

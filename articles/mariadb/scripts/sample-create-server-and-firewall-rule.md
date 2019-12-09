@@ -1,5 +1,5 @@
 ---
-title: Script da CLI do Azure – Criar um Banco de Dados do Azure para MariaDB
+title: Script da CLI – Criar servidor – Banco de Dados do Azure para MariaDB
 description: Este exemplo de script da CLI cria um servidor do Banco de Dados do Azure para MariaDB e configura uma regra de firewall no nível do servidor.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: a7e8a4c8f8572cfdd236b1752e89b3a1b4e7b758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e0c17bbb413c2036ad1a3794dc029aaef0fe68c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171378"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771706"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Criar um servidor MariaDB e configurar uma regra de firewall usando a CLI do Azure
 Este exemplo de script da CLI cria um servidor do Banco de Dados do Azure para MariaDB e configura uma regra de firewall no nível do servidor. Após o script ser executado com êxito, o servidor MariaDB será acessível por todos os serviços do Azure e pelo endereço IP configurado.

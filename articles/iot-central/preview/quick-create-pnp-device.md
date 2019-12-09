@@ -1,6 +1,6 @@
 ---
-title: Adicionar um dispositivo simulado ao Azure IoT Central | Microsoft Docs
-description: Crie um modelo de dispositivo e adicione um dispositivo simulado ao seu aplicativo IoT Central.
+title: Início rápido – Adicionar um dispositivo simulado ao Azure IoT Central
+description: Este início rápido mostra como criar um modelo de dispositivo e adicionar um dispositivo simulado ao seu aplicativo IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 8b6720af6328242a1fe297e60c9d413d0b83f3d2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896294"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706707"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Início Rápido: Adicionar um dispositivo simulado ao seu aplicativo do IoT Central (versão prévia dos recursos)
 

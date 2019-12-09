@@ -1,25 +1,16 @@
 ---
-title: Criar um aplicativo Web Python no PHP – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Implante seu primeiro Olá, Mundo em PHP no aplicativo Web do Serviço de Aplicativo do Azure em minutos.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Início Rápido: Criar um aplicativo Web PHP'
+description: Implante seu primeiro Olá, Mundo em PHP no Serviço de Aplicativo do Azure em minutos. Você fará a implantação usando o Git, que é um dos vários modos de implantação no Serviço de Aplicativo.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 386229bc272a520ec8093c95bc861704ce9ea7eb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fb6451ce5e1e00bffc9195410125eb61b34555e4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471445"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672088"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar um aplicativo Web do PHP no Azure
 

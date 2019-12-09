@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Enviar dados do dispositivo por gateway transparente – Machine Learning no Azure IoT Edge'
-description: 'Tutorial: Use seu computador de desenvolvimento como um dispositivo IoT Edge simulado para enviar dados ao Hub IoT passando por um dispositivo configurado como um gateway transparente.'
+description: Este tutorial mostra como você pode usar seu computador de desenvolvimento como um dispositivo IoT Edge simulado para enviar dados ao Hub IoT passando por um dispositivo configurado como um gateway transparente.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a1974a9d9e635bad4094e38c2c194ff49993611
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 50f339b257110f0a5dc0ac08b9f40043ee384afb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113951"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706903"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados por meio do gateway transparente
 

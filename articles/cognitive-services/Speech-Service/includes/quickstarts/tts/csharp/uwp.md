@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 3a88f4fc14286a60feb9d72676827b0cce91eb25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276de42f2a37a0e48cd323e285760c00e6db9f32
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505128"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818339"
 ---
 > [!NOTE]
 > A Plataforma Universal do Windows permite desenvolver aplicativos que executam em qualquer dispositivo com suporte para Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=uwp)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -61,7 +61,7 @@ Agora, você está pronto para criar e testar seu aplicativo.
 
    ![Exemplo de aplicativo de síntese de fala da UWP em C# – início rápido](~/articles/cognitive-services/Speech-Service/media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
-1. Digite algum texto na caixa de texto e clique em **Fala**. Seu texto é transmitido para os Serviços de Fala e sintetizado em fala. Depois, é reproduzido no alto-falante.
+1. Digite algum texto na caixa de texto e clique em **Fala**. Seu texto é transmitido para o serviço de Fala e sintetizado em fala. Depois, é reproduzido no alto-falante.
 
     ![Interface do usuário de síntese de fala](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-uwp-ui-result.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Sintetizar fala, C# - Serviço de Fala'
+title: 'Início Rápido: Sintetizar fala, C# – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: c19afb7c847fe7523099936f745b39f367cc6b5d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 04abea446b69cdb3e57ddaabc645c42ef676d6b6
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505176"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818310"
 ---
-Se você preferir começar a usar agora, exiba ou baixe todas as <a href="https://aka.ms/speech/github-csharp">amostras do SDK de Fala do C#</a> no GitHub. Caso contrário, vamos começar.
+Caso prefira começar a usar agora, exiba ou baixe todos os <a href="https://aka.ms/speech/github-csharp">Exemplos do SDK de Fala do C#</a> no GitHub. Caso contrário, vamos começar.

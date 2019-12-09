@@ -1,18 +1,18 @@
 ---
-title: Visão geral do Banco de Dados do Azure para o serviço de banco de dados relacional MariaDB
+title: Visão geral – Banco de Dados do Azure para MariaDB
 description: Saiba mais sobre o serviço do Banco de Dados do Azure para MariaDB, um serviço de banco de dados relacional na nuvem da Microsoft baseada no MySQL Community Edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/25/2019
-ms.openlocfilehash: aed2e090a1e3a6a4c80f70ba25da9a903a6192c1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: f2dc6ec2fb99addc6a2c050c072e0221fd2c8e0b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484155"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769074"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é o Banco de Dados do Azure para o MariaDB?
 
@@ -53,7 +53,7 @@ O SLA de disponibilidade de 99,99%, líder no setor, do Azure é impulsionado po
 
 ## <a name="secure-your-data"></a>Proteja seus dados
 
-Os serviços de banco de dados do Azure têm uma tradição de segurança de dados que o Banco de Dados do Azure para MariaDB mantém. O Banco de Dados do Azure para MariaDB oferece recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam você a monitorar a atividade. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure. Para obter mais informações sobre os recursos de segurança do Banco de Dados do Azure para MySQL, confira a [visão geral de segurança](concepts-security.md).
+Os serviços de banco de dados do Azure têm uma tradição de segurança de dados que o Banco de Dados do Azure para MariaDB mantém. O Banco de Dados do Azure para MariaDB oferece recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam você a monitorar a atividade. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure. Para obter mais informações sobre os recursos de segurança do Banco de Dados do Azure para MariaDB, confira a [visão geral de segurança](concepts-security.md).
 
 ## <a name="contacts"></a>Contatos
 

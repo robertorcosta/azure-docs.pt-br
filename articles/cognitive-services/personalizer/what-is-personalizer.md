@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467198"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707944"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
-O Personalizador do Azure é um serviço de API baseado em nuvem que permite que você escolha a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento coletivo deles em tempo real.
+O Personalizador do Azure é um serviço de API baseado em nuvem que permite que seu aplicativo escolha a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento coletivo deles em tempo real.
 
 * Forneça informações sobre os usuários e o conteúdo e receba a ação principal a ser mostrada aos usuários. 
 * Não é necessário limpar nem rotular os dados antes de usar o Personalizador.
@@ -60,8 +60,8 @@ O Personalizador não é um serviço destinado a persistir e gerenciar informaç
 
 O serviço Personalizador tem duas APIs:
 
-* Enviar informações (_recursos_) sobre os usuários e o conteúdo (_ações_) para personalização. O Personalizador responde com a ação principal.
-* Envie comentários para o Personalizador sobre o quão bem a classificação funcionou como uma [pontuação de recompensa](concept-rewards.md). 
+* *Classificação*: use a API de classificação para determinar qual _ação_ mostrar, no _contexto_ atual. As ações são enviadas como uma matriz de objetos JSON, com uma ID e informações (_recursos_) sobre cada um. O contexto é enviado como outro objeto JSON. A API retorna a actionId que seu aplicativo deve renderizar para o usuário.
+* *Recompensa*: Depois que o usuário interage com seu aplicativo, você mede o quão bem a personalização funcionou com um número entre 0 e 1 e a envia como uma [pontuação de recompensa](concept-rewards.md). 
 
 ![Sequência básica de eventos para personalização](media/what-is-personalizer/personalization-intro.png)
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1dc7005ac0d1cb520e4c0452196a2b47665f9b5c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 5888547939759984effb10aa2c7c6b2add135d12
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325824"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708385"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e Java com o Azure Dev Spaces
 
@@ -43,9 +43,10 @@ az login
 Você pode exibir suas assinaturas, executando: 
 
 ```cmd
-az account list
+az account list --output table
 ```
-Localize a assinatura que tem `isDefault: true`na saída do JSON.
+
+Localize a assinatura que tenha *True* em *IsDefault*.
 Se não for a assinatura que você deseja usar, é possível alterar a assinatura padrão:
 
 ```cmd

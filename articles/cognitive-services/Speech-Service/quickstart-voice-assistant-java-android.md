@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 077f34e94423918d324eb41b56ab84c64a0db719
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111800"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816203"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: Criar um assistente de voz no Java ou no Android com o SDK de Fala
 
@@ -30,7 +30,7 @@ Esse aplicativo é compilado com o pacote do Maven do SDK de Fala e com o Androi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha uma gratuitamente](get-started.md) ou crie-a no [portal do Azure](https://portal.azure.com).
+- Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente](get-started.md) ou crie-a no [portal do Azure](https://portal.azure.com).
 - Um bot criado anteriormente, configurado com o [canal de Fala do Direct Line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Android Studio](https://developer.android.com/studio/) v3.3 ou posterior
 
@@ -260,7 +260,7 @@ O texto e a representação gráfica da sua interface do usuário agora devem se
 
     * Substitua `YourSpeechSubscriptionKey` por sua chave de assinatura.
 
-    * Substitua `YourServiceRegion` pela [região](regions.md) associada à assinatura. Somente um subconjunto de regiões dos Serviços de Fala são compatíveis atualmente com a Direct Line Speech. Para saber mais, confira [regiões](regions.md#voice-assistants).
+    * Substitua `YourServiceRegion` pela [região](regions.md) associada à assinatura. Atualmente, somente um subconjunto de regiões do Serviço de Fala são compatíveis atualmente com a Direct Line. Para saber mais, confira [regiões](regions.md#voice-assistants).
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar o aplicativo
 
@@ -285,7 +285,7 @@ Depois que o aplicativo e sua atividade forem iniciados, clique no botão para c
 
 ## <a name="see-also"></a>Consulte também
 - [Sobre os assistentes de voz](voice-assistants.md)
-- [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)
+- [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 - [Palavras-chave personalizadas](speech-devices-sdk-create-kws.md)
 - [Conectar a Direct Line Speech ao seu bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explorar amostras de Java no GitHub](https://aka.ms/csspeech/samples)

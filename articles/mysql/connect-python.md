@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Conectar-se ao Banco de Dados do Azure para MySQL no Python | Microsoft Docs'
+title: Conectar-se usando o Python – Banco de Dados do Azure para MySQL
 description: Este guia de início rápido fornece vários exemplos de código Python que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/08/2019
-ms.openlocfilehash: 9f9d432bc2f7d70396bca5d140f1a66a75fd7231
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 12/02/2019
+ms.openlocfilehash: ff30cdc1af0bd9596220d84556c985b9ea80d554
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434327"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770689"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Início Rápido: usar Python para se conectar e consultar dados com o Banco de Dados do Azure para MySQL
 Este artigo demonstra como usar [Python](https://python.org) para se conectar a um Banco de Dados do Azure para MySQL. Ele usa instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados de plataformas do Windows, Ubuntu Linux e Mac OS. 

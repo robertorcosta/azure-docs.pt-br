@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 5422298bf782944f10b60e98b5f251d8088f36ed
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172742"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703708"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -63,16 +63,16 @@ O certificado solicitado ou criado precisa atender aos requisitos a seguir. O do
 
 * **Emissor confiável** – o certificado deve ser emitido por uma autoridade confiável para os computadores que se conectarem ao domínio gerenciado usando LDAP seguro. Essa autoridade pode ser uma AC pública ou uma AC corporativa confiável nesses computadores.
 * **Tempo de vida** : o certificado deve ser válido por, pelo menos, os próximos três a seis meses. O acesso LDAP seguro para seu domínio gerenciado é interrompido quando o certificado expira.
-* **Nome da entidade**: o nome da entidade no certificado deve ser seu domínio gerenciado. Por exemplo, se o domínio for chamado *contoso.com*, o nome da entidade do certificado precisará ser * *.contoso.com*.
+* **Nome da entidade**: o nome da entidade no certificado deve ser seu domínio gerenciado. Por exemplo, se o domínio for chamado *aadds.contoso.com*, o nome da entidade do certificado precisará ser **aadds.contoso.com*.
     * O nome DNS ou o nome alternativo da entidade do certificado precisa ser um certificado curinga para garantir que o LDAP Seguro funcione corretamente com o Azure AD Domain Services. Os controladores de domínio usam nomes aleatórios e podem ser removidos ou adicionados para garantir que o serviço permaneça disponível.
 * **Uso de chave** – o certificado precisa ser configurado para *assinaturas digitais* e *codificação de chave*.
 * **Finalidade do certificado** : o certificado deve ser válido para autenticação de servidor SSL.
 
-Neste tutorial, vamos criar um certificado autoassinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Abra uma janela do PowerShell como **Administrador** e execute os comandos a seguir. Substitua a variável *$dnsName* pelo nome DNS usado por seu próprio domínio gerenciado, como *contoso.com*:
+Neste tutorial, vamos criar um certificado autoassinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Abra uma janela do PowerShell como **Administrador** e execute os comandos a seguir. Substitua a variável *$dnsName* pelo nome DNS usado por seu próprio domínio gerenciado, como *aadds.contoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
-$dnsName="contoso.com"
+$dnsName="aadds.contoso.com"
 
 # Get the current date to set a one-year expiration
 $lifetime=Get-Date
@@ -94,7 +94,7 @@ PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject *.$dnsName `
 
 Thumbprint                                Subject
 ----------                                -------
-959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=contoso.com
+959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=aadds.contoso.com
 ```
 
 ## <a name="understand-and-export-required-certificates"></a>Entender e exportar os certificados necessários
@@ -125,7 +125,7 @@ Para usar o certificado digital criado na etapa anterior com o domínio gerencia
 
     ![Abrir o repositório de certificados pessoais no Console de Gerenciamento Microsoft](./media/tutorial-configure-ldaps/open-personal-store.png)
 
-1. O certificado autoassinado criado na etapa anterior é mostrado, como *contoso.com*. Selecione o certificado com o botão direito do mouse e, em seguida, escolha **Todas as Tarefas > Exportar...**
+1. O certificado autoassinado criado na etapa anterior é mostrado, como *adds.contoso.com*. Selecione o certificado com o botão direito do mouse e, em seguida, escolha **Todas as Tarefas > Exportar...**
 
     ![Exportar certificado no Console de Gerenciamento Microsoft](./media/tutorial-configure-ldaps/export-cert.png)
 
@@ -150,7 +150,7 @@ Para usar o certificado digital criado na etapa anterior com o domínio gerencia
 
 Os computadores cliente precisam confiar no emissor do certificado LDAP Seguro para poderem se conectar com êxito ao domínio gerenciado usando o LDAPS. Os computadores cliente precisam ter um certificado para criptografar com êxito os dados descriptografados pelo Azure AD DS. Se você usar uma AC pública, o computador deverá confiar automaticamente nesses emissores do certificado e ter um certificado correspondente. Neste tutorial, você usou um certificado autoassinado e gerou um certificado que inclui a chave privada na etapa anterior. Agora, vamos exportar e, em seguida, instalar o certificado autoassinado no repositório de certificados confiáveis no computador cliente:
 
-1. Volte ao MMC para o repositório *Certificados (Computador Local) > Pessoal > Certificados*. O certificado autoassinado criado em uma etapa anterior é mostrado, como *contoso.com*. Selecione o certificado com o botão direito do mouse e, em seguida, escolha **Todas as Tarefas > Exportar...**
+1. Volte ao MMC para o repositório *Certificados (Computador Local) > Pessoal > Certificados*. O certificado autoassinado criado na etapa anterior é mostrado, como *adds.contoso.com*. Selecione o certificado com o botão direito do mouse e, em seguida, escolha **Todas as Tarefas > Exportar...**
 1. No **Assistente para Exportação de Certificados**, selecione **Avançar**.
 1. Como você não precisa da chave privada para clientes, na página **Exportar Chave Privada**, escolha **Não, não exportar a chave privada** e, em seguida, selecione **Avançar**.
 1. Na página **Formato do Arquivo de Exportação**, selecione **X.509 codificado em Base64 (.CER)** como o formato de arquivo para o certificado exportado:
@@ -180,7 +180,7 @@ Com um certificado digital criado e exportado que inclua a chave privada e o com
 
     ![Pesquisar e selecionar o domínio gerenciado do Azure AD DS no portal do Azure](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
-1. Escolha o domínio gerenciado, como *contoso.com*.
+1. Escolha o domínio gerenciado, como *aadds.contoso.com*.
 1. No lado esquerdo da janela do Azure AD DS, escolha **LDAP Seguro**.
 1. Por padrão, o acesso LDAP seguro ao seu domínio gerenciado fica desabilitado. Posicione a tecla de alternância **LDAP Seguro** em **Habilitar**.
 1. O acesso do LDAP Seguro ao domínio gerenciado na Internet está desabilitado por padrão. Quando você habilita o acesso LDAP Seguro público, o domínio fica suscetível a ataques de força bruta de senha na Internet. Na próxima etapa, um grupo de segurança de rede será configurado para bloquear o acesso somente aos intervalos de endereços IP de origem necessários.
@@ -208,7 +208,7 @@ Vamos criar uma regra para permitir o acesso LDAP Seguro de entrada pela porta T
 
 1. No portal do Azure, selecione *Grupos de recursos* na barra de navegação do lado esquerdo.
 1. Escolha o grupo de recursos, como *myResourceGroup* e, em seguida, selecione o grupo de segurança de rede, como *aaad-nsg*.
-1. A lista de regras de segurança de entrada e saída existentes é exibida. No lado esquerdo das janelas do grupo de segurança de rede, escolha **Segurança > Regras de segurança de entrada**.
+1. A lista de regras de segurança de entrada e saída existentes é exibida. No lado esquerdo das janelas do grupo de segurança de rede, escolha **Configurações > Regras de segurança de entrada**.
 1. Selecione **Adicionar** e, em seguida, crie uma regra para permitir a porta *TCP* *636*. Para maior segurança, escolha a origem como *Endereços IP* e, em seguida, especifique seu próprio intervalo ou endereço IP válido para sua organização.
 
     | Configuração                           | Valor        |
@@ -235,24 +235,24 @@ Com o acesso LDAP Seguro habilitado na Internet, atualize a zona DNS para que os
 
 Configure o provedor DNS externo para criar um registro de host, como *ldaps*, para fazer a resolução para esse endereço IP externo. Para testar localmente no computador primeiro, crie uma entrada no arquivo de hosts do Windows. Para editar com êxito o arquivo de hosts no computador local, abra o *Bloco de notas* como administrador e, em seguida, abra o arquivo *C:\Windows\System32\drivers\etc*
 
-A seguinte entrada DNS de exemplo, com o provedor DNS externo ou no arquivo de hosts local, resolve o tráfego de *ldaps.contoso.com* para o endereço IP externo *40.121.19.239*:
+A seguinte entrada DNS de exemplo, com o provedor DNS externo ou no arquivo de hosts local, resolve o tráfego de *ldaps.aadds.contoso.com* para o endereço IP externo *40.121.19.239*:
 
 ```
-40.121.19.239    ldaps.contoso.com
+40.121.19.239    ldaps.aadds.contoso.com
 ```
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testar consultas para o domínio gerenciado
 
-Para se conectar e se associar ao domínio gerenciado do Azure AD DS e pesquisar no LDAP, use o *LDP.exe* também. Essa ferramenta está incluída no pacote das Ferramentas de Administração de Servidor Remoto. Para obter mais informações, confira [Instalar Ferramentas de Administração de Servidor Remoto][rsat].
+Para se conectar e se associar ao domínio gerenciado do Azure AD DS e pesquisar no LDAP, use a ferramenta *LDP.exe*. Essa ferramenta está incluída no pacote das Ferramentas de Administração de Servidor Remoto. Para obter mais informações, confira [Instalar Ferramentas de Administração de Servidor Remoto][rsat].
 
 1. Abra *LDP.exe* e conecte-se ao domínio gerenciado. Selecione **Conexão** e, em seguida, escolha **Conectar...** .
-1. Insira o nome de domínio DNS do LDAP Seguro do domínio gerenciado criado na etapa anterior, como *ldaps.contoso.com*. Para usar o LDAP Seguro, defina **Porta** como *636* e marque a caixa de **SSL**.
+1. Insira o nome de domínio DNS do LDAP Seguro do domínio gerenciado criado na etapa anterior, como *ldaps.aadds.contoso.com*. Para usar o LDAP Seguro, defina **Porta** como *636* e marque a caixa de **SSL**.
 1. Selecione **OK** para se conectar ao domínio gerenciado.
 
 Em seguida, faça a associação ao domínio gerenciado do Azure AD DS. Os usuários (e as contas de serviço) não poderão executar associações LDAP simples se você desabilitar a sincronização de hash de senha NTLM na instância do Azure AD DS. Para obter mais informações sobre como desabilitar a sincronização de hash de senha NTLM, confira [Proteger o domínio gerenciado do Azure AD DS][secure-domain].
 
 1. Selecione a opção de menu **Conexão** e, em seguida, escolha **Associar...** .
-1. Forneça as credenciais de uma conta de usuário que pertence ao grupo *Administradores de controlador de domínio do AAD*, como *contosoadmin*. Insira a senha da conta de usuário e, em seguida, o domínio, como *contoso.com*.
+1. Forneça as credenciais de uma conta de usuário que pertence ao grupo *Administradores de controlador de domínio do AAD*, como *contosoadmin*. Insira a senha da conta de usuário e, em seguida, o domínio, como *aadds.contoso.com*.
 1. Em **Tipo de associação**, escolha a opção *Associar com credenciais*.
 1. Selecione **OK** para fazer a associação ao domínio gerenciado do Azure AD DS.
 
@@ -273,7 +273,7 @@ Se você adicionou uma entrada DNS ao arquivo de hosts local do computador para 
 
 1. No computador local, abra o *Bloco de notas* como administrador
 1. Procure e abra o arquivo *C:\Windows\System32\drivers\etc*
-1. Exclua a linha do registro adicionado, como `40.121.19.239    ldaps.contoso.com`
+1. Exclua a linha do registro adicionado, como `40.121.19.239    ldaps.aadds.contoso.com`
 
 ## <a name="next-steps"></a>Próximas etapas
 

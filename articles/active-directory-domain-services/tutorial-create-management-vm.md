@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172340"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703642"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar uma VM de gerenciamento para configurar e administrar um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -105,7 +105,7 @@ Para instalar as Ferramentas de Administração do Active Directory em uma máqu
 1. No painel *Dashboard* da janela **Gerenciador do Servidor**, selecione **Adicionar Funções e Recursos**.
 1. Na página **Antes de Você Começar** do *Assistente de Adição de Funções e Recursos*, selecione **Avançar**.
 1. Para o *Tipo de Instalação*, deixe a opção **Instalação baseada em função ou recurso** marcada e selecione **Avançar**.
-1. Na página **Seleção de servidor**, escolha a VM atual no pool de servidores, como *myvm.contoso.com* e, em seguida, selecione **Avançar**.
+1. Na página **Seleção de Servidor**, escolha a VM atual no pool de servidores, como *myvm.aadds.contoso.com* e, em seguida, selecione **Avançar**.
 1. Na página **Funções do Servidor**, clique em **Avançar**.
 1. Na página **Recursos**, expanda o nó **Ferramentas de Administração de Servidor Remoto** e, em seguida, expanda o nó **Ferramentas de Administração de Funções**.
 
@@ -125,7 +125,7 @@ Com as ferramentas administrativas instaladas, vejamos como é possível usá-la
     ![Lista de Ferramentas Administrativas instaladas no servidor](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Selecione **Centro Administrativo do Active Directory**.
-1. Para explorar o domínio gerenciado Azure AD DS, escolha o nome de domínio no painel esquerdo, como *contoso.com*. Dois contêineres denominados *Computadores do AADDC* e *Usuário do AADDC* estão na parte superior da lista.
+1. Para explorar o domínio gerenciado Azure AD DS, escolha o nome de domínio no painel esquerdo, como *aadds.contoso.com*. Dois contêineres denominados *Computadores do AADDC* e *Usuário do AADDC* estão na parte superior da lista.
 
     ![Listar os contêineres disponíveis do domínio gerenciado do Azure AD DS](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 

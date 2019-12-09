@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Configuração de plataforma do SDK de Fala para Unity C# – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para Unity C# com o SDK dos Serviços de Fala.
+description: Use este guia para configurar sua plataforma para Unity C# com o SDK do Serviço de Fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 6fa1024b68bae6a8353cc71f2749b221ab7e3bc4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 064916c0dad52749f724be8a1912f247128114b6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504400"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816266"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para [Unity](https://unity3d.com/).
 

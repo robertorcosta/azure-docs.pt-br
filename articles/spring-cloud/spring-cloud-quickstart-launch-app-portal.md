@@ -1,17 +1,17 @@
 ---
-title: 'Início Rápido: Iniciar um aplicativo do Azure Spring Cloud usando o portal do Azure'
-description: Implante um aplicativo de exemplo no Azure Spring Cloud usando o portal do Azure.
+title: Início rápido – Iniciar um aplicativo do Azure Spring Cloud usando o portal do Azure
+description: Neste início rápido, implante um aplicativo de exemplo no Azure Spring Cloud usando o portal do Azure.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 8a34dcd31ba15ed949fa0a50ec904da96a048a7d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 891952000f633d7d873c6d76c475916acc8ac4ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560057"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708858"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Início Rápido: Iniciar um aplicativo do Azure Spring Cloud usando o portal do Azure
 
@@ -72,13 +72,17 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Depois de implantada, a
 
 1. Acesse a página **Visão Geral** do serviço e selecione o **Servidor de Configuração**.
 
-1. Na seção **Repositório padrão**, defina **URI** como "https\://github.com/Azure-Samples/piggymetrics", defina **RÓTULO** como "config" e selecione **Aplicar** para salvar as alterações.
+1. Na seção **Repositório padrão**, defina **URI** como "https\://github.com/Azure-Samples/piggymetrics".
+
+1. Defina **RÓTULO** como "config".
+
+1. Selecione **Aplicar** para salvar as alterações.
 
     ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Compilar e implantar aplicativos de microsserviço
 
-1. Abra um [Azure Cloudshell](https://shell.azure.com) e clone o repositório do aplicativo de exemplo em seu computador local.  Aqui, primeiro criamos um diretório temporário chamado `source-code`, antes de clonar o aplicativo.
+1. Abra um [Azure Cloud Shell](https://shell.azure.com) e clone o repositório do aplicativo de exemplo em seu computador local.  Aqui, primeiro criamos um diretório temporário chamado `source-code`, antes de clonar o aplicativo.
 
     ```azurecli
     mkdir source-code
@@ -123,7 +127,7 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Depois de implantada, a
 
 1. Selecione o aplicativo `gateway` para mostrar a página **Visão geral**.
 
-1. Selecione **Atribuir Domínio** para atribuir um ponto de extremidade público ao gateway. Isso pode demorar alguns minutos.
+1. Selecione **Atribuir Domínio** para atribuir um ponto de extremidade público ao gateway. Isso pode levar alguns minutos.
 
     ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 

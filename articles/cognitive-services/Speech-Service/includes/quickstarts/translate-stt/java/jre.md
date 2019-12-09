@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Traduzir uma fala em texto, Java (Windows, Linux) - Serviço de Fala'
+title: 'Início Rápido: Traduzir fala em texto, Java (Windows, Linux) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c9c793a19a97326f5098a2f6d228a542ebf45570
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ed9d072cc18972d5f6a129b41f0a58bc34900796
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505048"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816989"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -131,7 +131,7 @@ Antes de começar:
 
 Pressione F11 ou selecione **Executar** > **Depurar**.
 
-1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para os Serviços de Fala, que a traduzem e transcrevem em texto (neste caso, para alemão). Em seguida, os Serviços de Fala enviam o texto de volta para o aplicativo para exibição.
+1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para os serviço de Fala, que a traduz e transcreve em texto (neste caso, para alemão). Em seguida, o serviço de Fala enviam o texto de volta para o aplicativo para exibição.
 
 ````
 Say something...

@@ -1,22 +1,18 @@
 ---
-title: Criar fluxos de trabalho automáticos com base em agendamento – Aplicativos Lógicos do Azure
+title: Criar fluxos de trabalho automáticos com base em agendamento
 description: Tutorial – Criar um fluxo de trabalho automático com base em agendamento e recorrente usando Aplicativos Lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: eae2319e8d1c162969a04f8dafa18eec671ee1d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034664"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790292"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho automatizados, recorrentes e com base em agendamento usando Aplicativos Lógicos do Azure
 

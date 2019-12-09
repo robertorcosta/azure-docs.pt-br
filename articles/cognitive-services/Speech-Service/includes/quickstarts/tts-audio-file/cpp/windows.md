@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Sintetizar uma fala em um arquivo de áudio, C++ (Windows) - Serviço de Fala'
+title: 'Início Rápido: Sintetizar uma fala em um arquivo de áudio, C++ (Windows) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 0f166fedd1044ba3b7076f3fb7eb14becbc1272b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 024e6121e950ba27cf18b65434d712af80d1ec17
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505136"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817880"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=windows)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 

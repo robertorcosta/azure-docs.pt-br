@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer a fala de um microfone, C++ (Windows) - Serviço de Fala'
+title: 'Início Rápido: Reconhecer a fala de um microfone, C++ (Windows) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em C++ no Windows Desktop usando o SDK de Fala
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 1a08a5413ae41ef8c17e817a01be9e9efcb7ff99
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74bc77fbb9436983c26c572b521d96795f14cfcd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505712"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818759"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=windows)
+> * Verificar se você tem acesso a um microfone para captura de áudio
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -40,13 +41,16 @@ Antes de começar:
 
 1. Na barra de menus, escolha **Arquivo** > **Salvar tudo**.
 
+> [!NOTE]
+> O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
+
 ## <a name="build-and-run-the-application"></a>Compile e execute o aplicativo
 
 1. Na barra de menus, selecione **Compilar** > **Compilar solução** para compilar o aplicativo. Agora, o código deve compilar sem erros.
 
 1. Escolha **Depurar** > **Iniciar depuração** (ou pressione **F5**) para iniciar o aplicativo **Olá Mundo**.
 
-1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para os Serviços de Fala, que transcrevem o conteúdo para texto e enviam de volta ao aplicativo para exibição.
+1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para o serviço de Fala, que transcreve o conteúdo para texto e o envia de volta ao aplicativo para exibição.
 
    ![Saída do console após o reconhecimento com êxito](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-08-console-output-release.png)
 

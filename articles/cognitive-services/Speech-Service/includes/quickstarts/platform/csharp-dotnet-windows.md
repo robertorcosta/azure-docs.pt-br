@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: SDK de Fala para instalação da plataforma .NET Framework (Windows) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para instalar a plataforma para C# no .NET Framework para Windows com o SDK dos Serviços de Fala.
+description: Use este guia para configurar a plataforma para C# no .NET Framework para Windows com o SDK dos serviço de Fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 2caa5124144146e2286b102bf6ded9c5d120f904
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a858a078f8e22a7176fc0eeb09ae0133e2ea11a4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504424"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818578"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o .NET Framework (Windows).
 

@@ -5,18 +5,17 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/18/2018
 author: djpmsft
 ms.author: daperlov
-manager: craigg
-ms.openlocfilehash: 46ea65c09ec9567bb03a524470a3550c9cdfd00e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 0d8418d846d26d4104718df6d0fc66d264ef4a54
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684569"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918824"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços vinculados no Azure Data Factory
 
@@ -34,8 +33,8 @@ Para uma introdução de sete minutos e uma demonstração desse recurso, assist
 ## <a name="supported-data-stores"></a>Armazenamento de dados com suporte
 
 Atualmente, há suporte para parametrização do serviço vinculado na interface do usuário do Data Factory no portal do Azure para os seguintes armazenamentos de dados. Para todos os outros armazenamentos de dados, é possível parametrizar o serviço vinculado selecionando o ícone de **Código** na guia **Conexões** e usando o editor JSON.
-- Banco de Dados SQL do Azure
-- SQL Data Warehouse do Azure
+- Banco de dados SQL do Azure
+- Azure SQL Data Warehouse
 - SQL Server
 - Oracle
 - Cosmos DB

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um Banco de Dados do Azure para o servidor MySQL – CLI do Azure'
+title: 'Início Rápido: Criar um servidor – CLI do Azure – Banco de Dados do Azure para MySQL'
 description: Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acf5f3cdf761e1773d6e9384a4ceb99a645ed7cc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160417"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773497"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure
 

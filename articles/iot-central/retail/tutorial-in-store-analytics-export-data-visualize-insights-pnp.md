@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Exportar dados e visualizar insights no Azure IoT Central'
+title: Tutorial – Exportar dados e visualizar insights no Azure IoT Central
 description: Neste tutorial, saiba como exportar dados do IoT Central e visualizar informações em um painel de Power BI.
 services: iot-central
 ms.service: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: ce775f207eaa5df05900ea2e5b6d9fbeab4dc878
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b85dd8d899a7e5d7d9f9d41ad7e2872249ee29c5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112885"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702012"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportar dados do Azure IoT Central e visualizar informações no Power BI
 

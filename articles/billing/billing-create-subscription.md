@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 7ca7256cbe42949141bc216ee1cb5c89ceac935c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226380"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665603"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma assinatura adicional do Azure
 
@@ -36,7 +36,7 @@ Você precisa das seguintes permissões para criar assinaturas:
 |---------|---------|
 |EA (Enterprise Agreement) |  Função proprietário da conta no registro do Contrato Enterprise. Para obter mais informações, consulte [Entendendo as funções administrativas do Azure Enterprise Agreement no Azure](billing-understand-ea-roles.md).    |
 |MCA (Contrato de Cliente da Microsoft) |  Função proprietário ou colaborador na seção da fatura, no perfil de cobrança ou na conta de cobrança. Ou a função criador de assinatura do Azure na seção da fatura.  Para obter mais informações, confira [Funções e tarefa da cobrança de assinatura](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|MPA (Contrato de Parceiro da Microsoft) |   Função Administrador Global e Agente Administrativo na organização do parceiro. Para saber mais, confira [Partner Center – Atribuir funções e permissões de usuários](https://docs.microsoft.com/partner-center/permissions-overview)  |
+|MPA (Contrato de Parceiro da Microsoft) |   Função Administrador Global e Agente Administrativo na organização do parceiro CSP. Para saber mais, confira [Partner Center – Atribuir funções e permissões de usuários](https://docs.microsoft.com/partner-center/permissions-overview).  O usuário precisa entrar no locatário do parceiro para criar assinaturas do Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Criar uma assinatura no portal do Azure
 

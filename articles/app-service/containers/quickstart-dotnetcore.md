@@ -1,26 +1,18 @@
 ---
-title: Criar um aplicativo ASP.NET Core no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Implante seu primeiro aplicativo .NET Core Olá, Mundo no Serviço de Aplicativo no Linux em alguns minutos.
+title: 'Início Rápido: Executar um aplicativo ASP.NET Core do Linux'
+description: Comece a usar os aplicativos do Linux no Serviço de Aplicativo do Azure implantando seu primeiro aplicativo ASP.NET Core em um contêiner do Linux no Serviço de Aplicativo.
 keywords: serviço de aplicativo do azure, aplicativo web, dotnet, core, linux, oss
-services: app-service
-documentationCenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
-ms.service: app-service
-ms.workload: web
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43771392adcbf49c9103ee7ebc4b3febbac11b05
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ea9449a89bcfbdb1378f0cceb31a07a288661bf7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071226"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687568"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Criar um aplicativo ASP.NET Core no Serviço de Aplicativo no Linux
 
@@ -131,7 +123,7 @@ remote:   ...
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala de um microfone,Python - Serviço de Fala'
+title: 'Início Rápido: Reconhecer a fala de um microfone, Python – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Use este guia para criar um aplicativo de console de conversão de fala em texto que usa o SDK de Fala para Python. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7fe11876a7ba20981f784bc41ce8094178591371
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a417c2a269ce66c291eda3c4c76f8d48f0ebad95
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505768"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818967"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Crie um aplicativo LUIS e obtenha uma chave de ponto de extremidade](../../../../quickstarts/create-luis.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md)
+> * Verificar se você tem acesso a um microfone para captura de áudio
 
 ## <a name="support-and-updates"></a>Suporte e atualizações
 
@@ -49,6 +49,9 @@ ou é possível baixar este tutorial de início rápido como um [Jupyter](https:
 
 ### <a name="sample-code"></a>Exemplo de código
 
+> [!NOTE]
+> O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
+
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/from-microphone/quickstart.py#code)]
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalar e usar o SDK de Fala com o Visual Studio Code
@@ -69,7 +72,7 @@ ou é possível baixar este tutorial de início rápido como um [Jupyter](https:
    ![Criar um arquivo](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copie, cole e salve o [código do Python](#sample-code) para o arquivo recém-criado.
-1. Insira as informações de assinatura dos Serviços de Fala.
+1. Insira as informações de assinatura do Serviço de Fala.
 1. Se já tiver sido selecionado, um interpretador do Python será exibido no lado esquerdo da barra de status na parte inferior da janela.
    Caso contrário, exiba uma lista de interpretadores do Python disponíveis. Abra a paleta de comandos (Ctrl+Shift+P) e insira **Python: selecionar interpretador**. Escolha um adequado.
 1. É possível instalar o pacote Python do SDK de Fala de dentro do Visual Studio Code. Faça isso se ele ainda não foi instalado para o interpretador do Python selecionado.

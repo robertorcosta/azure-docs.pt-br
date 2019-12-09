@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Traduzir uma fala em fala, Python - Serviço de Fala'
+title: 'Início Rápido: Traduzir uma fala em fala, Python – Serviço de Fala'
 description: TBD
 services: cognitive-services
 author: chlandsi
@@ -9,21 +9,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 679690c495f18a489c6fab11a18182c83ca1577f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e45777e8af75d568a98dd649159379a5d9c9a6f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505080"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816722"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=python)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=python)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=python)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=python)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -89,7 +89,7 @@ Antes de começar:
    python quickstart.py
    ```
 
-2. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para os Serviços de Fala, que a traduzem e transcrevem em texto (neste caso, para alemão). Em seguida, os Serviços de Fala enviam o texto de volta para o aplicativo para exibição.
+2. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para os serviço de Fala, que a traduz e transcreve em texto (neste caso, para alemão). Em seguida, o serviço de Fala enviam o texto de volta para o aplicativo para exibição.
 
    ````
    Say something...

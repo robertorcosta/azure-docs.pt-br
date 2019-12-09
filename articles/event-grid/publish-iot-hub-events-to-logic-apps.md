@@ -1,18 +1,18 @@
 ---
 title: Tutorial – Usar eventos do Hub IoT para disparar Aplicativos Lógicos do Azure
-description: Tutorial – Usando o serviço de roteiros de evento da Grade de Eventos do Azure, crie processos automatizados para realizar as ações nos Aplicativos Lógicos do Azure com base nos eventos do Hub IoT.
+description: Este tutorial mostra como usar o serviço de roteamento de evento da Grade de Eventos do Azure e criar processos automatizados para executar ações dos Aplicativos Lógicos do Azure com base nos eventos do Hub IoT.
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 70ad74715446a54605a23a049ebc92a81d7ee673
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 334b7b2c59b328e8eff3c7c2b9c3ed46bffc3442
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423623"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706428"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Enviar notificações por email sobre os eventos do Hub IoT do Azure usando Aplicativos Lógicos e a Grade de Eventos
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala de um microfone, C# (Xamarin) – Serviço de fala'
+title: 'Início Rápido: Reconhecer a fala de um microfone, C# (Xamarin) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você criará um aplicativo C# Xamarin multiplataforma para o UWP (Plataforma Universal do Windows), o Android e o iOS usando o SDK de Fala dos Serviços Cognitivos. Você converterá a fala em texto em tempo real por meio do microfone do dispositivo ou do simulador. O aplicativo é criado com o Pacote NuGet do SDK de Fala e o Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: d0d1cfee535a04203d9ff995b94fcad5d432ed3e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ecfdc74c72284da97ebf3107140911e666a3a12d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961184"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818849"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, é preciso:
+Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=xamarin)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * Verificar se você tem acesso a um microfone para captura de áudio
 
 Se você já fez isso, ótimo. Vamos continuar.
 
@@ -135,7 +136,7 @@ Agora adicione o código C# que define a parte do aplicativo específica do UWP.
 
    ![Solicitação de permissão de acesso ao microfone](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
-1. Selecione **Iniciar reconhecimento de fala** e fale uma frase ou uma oração em inglês no microfone do dispositivo. Sua fala será transmitida para o Serviço de Fala e transcrita em um texto, que será exibido na janela.
+1. Selecione **Iniciar reconhecimento de fala** e fale uma frase ou uma oração em inglês no microfone do dispositivo. Sua fala será transmitida para o serviço de Fala e transcrita para texto, que será exibida na janela.
 
    ![Interface do usuário do reconhecimento de fala](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *

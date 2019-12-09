@@ -9,21 +9,20 @@ manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: cabeb6314c16aa5bc37f1139954f8829a37af5bb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682774"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931325"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Azure Data Factory
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte o [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte o [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamente usando o SDK do .NET da Data Factory. Este artigo contém uma explicação passo a passo que você pode seguir para criar um aplicativo de console .NET de exemplo que cria e monitora uma Data Factory. 
 
 > [!NOTE]
@@ -100,14 +99,14 @@ Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para
 Você deve ter quatro valores após estas etapas:
 
 * ID do locatário
-* ID da assinatura
+* ID da Assinatura
 * ID do aplicativo
 * Senha (especificada no primeiro comando)
 
 ## <a name="walkthrough"></a>Passo a passo
 No passo a passo, você cria um data factory com um pipeline que contém uma atividade de cópia. A atividade de cópia copia dados de uma pasta no seu armazenamento de blobs do Azure para outra pasta no mesmo armazenamento de blobs. 
 
-A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
+A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
 
 1. Usando o Visual Studio 2012/2013/2015, crie um aplicativo de console C# .NET.
    1. Inicie o **Visual Studio** 2012/2013/2015.
@@ -155,7 +154,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
     ```
-6. Adicione o seguinte código que cria uma instância de classe **DataPipelineManagementClient** ao método **Main**. Você usa esse objeto para criar um data factory, um serviço vinculado, conjunto de dados de entrada e de saída e um pipeline. Você também usa esse objeto para monitorar as partes de um conjunto de dados em tempo de execução.
+6. Adicione o seguinte código que cria uma instância de classe **DataPipelineManagementClient** ao método **Main**. Você usa esse objeto para criar um data factory, um serviço vinculado, conjunto de dados de entrada e de saída e um pipeline. Você também usa esse objeto para monitorar as partes de um conjunto de dados em runtime.
 
     ```csharp
     // create data factory management client
@@ -301,7 +300,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
     ```
 10. Adicione o código a seguir, que **cria e ativa um pipeline** no método **Main**. Essa pipeline tem uma **CopyActivity** que usa **BlobSource** como fonte e **BlobSink** como coletor.
 
-    A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
+    A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
 
     ```csharp
     // create a pipeline
@@ -500,7 +499,7 @@ do
 while (response != null);
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte o exemplo a seguir para criar um pipeline usando o SDK do .NET que copia dados de um Armazenamento de Blobs do Azure para um banco de dados SQL do Azure: 
 
 - [Criar um pipeline para copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)

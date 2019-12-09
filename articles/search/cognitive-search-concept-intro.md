@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720151"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791038"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introdução à IA na Pesquisa Cognitiva do Azure
 
@@ -116,6 +116,8 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 | Indexador |  Um rastreador que extrai dados e metadados pesquisáveis de uma fonte de dados externa e popula um índice com base nos mapeamentos de campo a campo entre o índice e a fonte de dados para desbloqueio de documento. Para enriquecimentos de IA, o indexador invoca um conjunto de habilidades e contém os mapeamentos de campo que associam a saída do enriquecimento aos campos de destino no índice. A definição do indexador contém todas as instruções e as referências para as operações do pipeline e o pipeline é invocado quando você executa o indexador. Com a configuração adicional, você poderá reutilizar o processamento existente e executar somente as etapas e habilidades que foram alteradas. | Confira [Indexadores](search-indexer-overview.md) e [Indexação incremental (versão prévia)](cognitive-search-incremental-indexing-conceptual.md). |
 | Fonte de dados  | Um objeto usado por um indexador para se conectar a uma fonte de dados externa dos tipos com suporte no Azure. | Confira [Visão geral dos indexadores](search-indexer-overview.md) |
 | Índice | Um índice de pesquisa persistente na Pesquisa Cognitiva do Azure, criado com base em um esquema de índice que define a estrutura e o uso do campo. | Confira [Criar um índice básico](search-what-is-an-index.md) | 
+| Repositório de conhecimento | Uma conta de armazenamento em que os documentos aprimorados podem ser moldados e projetados juntamente com o índice de pesquisa | Confira [Introdução ao repositório de conhecimento](knowledge-store-concept-intro.md) | 
+| Cache do indexador | As saídas de habilidade de uma conta de armazenamento são armazenadas em cache pelo indexador. O cache permite que o indexador minimize o custo de reprocessar um grande número de documentos quando um conjunto de habilidades é editado. | Confira [Indexação incremental](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 

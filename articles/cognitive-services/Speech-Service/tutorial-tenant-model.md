@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578227"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816387"
 ---
 # <a name="create-a-tenant-model-preview"></a>Crie um Modelo de Locatário (Versão Prévia)
 
@@ -96,7 +96,7 @@ Quando o Modelo de Locatário estiver pronto, siga estas etapas para implantar s
 
 ## <a name="use-your-model-with-the-speech-sdk"></a>Use seu modelo com o SDK de Fala
 
-Agora que você implantou o modelo, poderá usá-lo com o SDK de Fala. Nesta seção, você usará o código de exemplo fornecido para chamar o Serviço de Fala usando a autenticação do Azure AD.
+Agora que você implantou o modelo, poderá usá-lo com o SDK de Fala. Nesta seção, você usará o código de exemplo fornecido para chamar o serviço de Fala usando a autenticação do Azure AD.
 
 Vamos analisar o código que você usará para chamar o SDK de Fala no C#. Neste exemplo, você executará o reconhecimento de fala usando um Modelo de Locatário. Este guia presume que sua plataforma já está configurada. Caso precise de ajuda para configurar, consulte o [Início Rápido: Reconheça a fala, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 

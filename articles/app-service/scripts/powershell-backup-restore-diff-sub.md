@@ -1,25 +1,19 @@
 ---
-title: Exemplo de script do Azure PowerShell – restaurar um backup de aplicativo para outra assinatura | Microsoft Docs
-description: Exemplo de script do Azure PowerShell - Restaurar um aplicativo Web de um backup em outra assinatura
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jpconnoc
-editor: ''
+title: 'PowerShell: Restaurar um backup em outra assinatura'
+description: Saiba como usar o Azure PowerShell para automatizar a implantação e o gerenciamento do Serviço de Aplicativo. Esta amostra descreve como restaurar um backup em outra assinatura.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 5f293f290bd0c8b6c5546d37a43dde64a5af4f82
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8168fbedd1a639dce0ab8bd076e14ab24e2f6d1e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098415"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685812"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Restaurar um aplicativo Web de um backup em outra assinatura usando o PowerShell
 

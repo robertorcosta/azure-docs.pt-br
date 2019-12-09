@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee2b25958feac2387779d9e60734a6600b60a2e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 23f0b459b67088518375fbb4fd0b106da3aaf57c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682063"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815833"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Início Rápido: Obter uma chave de ponto de extremidade LUIS
 
@@ -27,7 +27,7 @@ Você precisará ter os itens a seguir antes de começar este tutorial:
 
 ## <a name="luis-and-speech"></a>LUIS e fala
 
-O LUIS integra-se aos Serviços de Fala para reconhecer intenções de fala. Você não precisa de uma assinatura dos Serviços de Fala, apenas do LUIS.
+O LUIS integra-se ao serviço de Fala para reconhecer intenções de fala. Você não precisa de uma assinatura do serviço de Fala, apenas do LUIS.
 
 O LUIS usa três tipos de chaves:
 
@@ -39,7 +39,7 @@ O LUIS usa três tipos de chaves:
 
 Para este tutorial, você precisará do tipo de chave de ponto de extremidade. O tutorial usa o aplicativo LUIS de Automação Residencial como exemplo, que pode ser criado seguindo o início rápido [Usar o aplicativo de Automação residencial predefinido](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Se já tiver criado um aplicativo LUIS próprio, você poderá usá-lo.
 
-Ao criar um aplicativo LUIS, o LUIS gera automaticamente uma chave de início para que você possa testar o aplicativo usando consultas de texto. Essa chave não habilita a integração com os Serviços de Fala e não funcionará com este tutorial. Crie um recurso LUIS no painel do Azure e atribua-o ao aplicativo LUIS. Você pode usar a camada de assinatura gratuita para este tutorial.
+Ao criar um aplicativo LUIS, o LUIS gera automaticamente uma chave de início para que você possa testar o aplicativo usando consultas de texto. Essa chave não habilita a integração com o Serviço de Fala e não funciona com este tutorial. Crie um recurso LUIS no painel do Azure e atribua-o ao aplicativo LUIS. Você pode usar a camada de assinatura gratuita para este tutorial.
 
 Após criar o recurso LUIS no painel do Azure, faça logon no [portal do LUIS](https://www.luis.ai/home), escolha seu aplicativo na página **Meus Aplicativos** e alterne para a página **Gerenciar** do aplicativo. Por fim, selecione **Chaves e os pontos de extremidade** na barra lateral.
 

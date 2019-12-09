@@ -1,24 +1,18 @@
 ---
-title: Criar balanceador de carga interno com um Ambiente do Serviço de Aplicativo – Azure
-description: Detalhes sobre como criar e usar um ambiente do Serviço de Aplicativo do Azure isolado da Internet
-services: app-service
-documentationcenter: na
+title: Criar um ILB ASE com o ARM
+description: Saiba como criar um ILB ASE (Ambiente do Serviço de Aplicativo com um balanceador de carga interno) usando modelos do Azure Resource Manager. Isole totalmente seus aplicativos da Internet.
 author: ccompy
-manager: stefsch
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ae1d04043c740456368b0831bee84490778f0171
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470558"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687206"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e usar um Ambiente do Serviço de Aplicativo de Balanceador de Carga Interno 
 

@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: fe969b45384568a41fe74415995b0173450eeaf4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44fafa361744f3c405cdb5c7ad416146fc0b1de2
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505064"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817229"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=python)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=python)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=python)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=python)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -91,7 +91,7 @@ Antes de começar:
    python quickstart.py
    ```
 
-1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para os Serviços de Fala, que a traduzem e transcrevem em texto (neste caso, para francês e alemão). Em seguida, os Serviços de Fala enviam o texto de volta para o aplicativo para exibição.
+1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para o serviço de Fala, que a traduz e transcreve em texto (neste caso, para francês e alemão). Em seguida, o serviço de Fala enviam o texto de volta para o aplicativo para exibição.
 
    ```
    Say something...

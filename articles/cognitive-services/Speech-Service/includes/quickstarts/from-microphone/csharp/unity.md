@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala de um microfone, C# (Unity) – Serviço de Fala'
+title: 'Início Rápido: Reconhecer a fala de um microfone, C# (Unity) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,24 +10,27 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: babc6b1c0b6207d404091db3117f95f6d71c53ac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505552"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818873"
 ---
 > [!NOTE]
 > O SDK de Fala para Unity dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64), ao Android (x86, ARM32/64) e ao iOS (simulador x64, ARM32 e ARM64)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, é preciso:
+Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=unity), caso já tenha feito isso, ótimo. Vamos continuar.
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=unity)
+> * Verificar se você tem acesso a um microfone para captura de áudio
+
+Se você já fez isso, ótimo. Vamos continuar.
 
 ## <a name="create-a-unity-project"></a>Criar um projeto do Unity
 
@@ -86,7 +89,7 @@ Para adicionar o código de script de exemplo ao projeto do Unity, siga estas et
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Localize e substitua a cadeia de caracteres `YourSubscriptionKey` pela chave de assinatura do Serviço de Fala.
+1. Encontre e substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura do serviço de Fala.
 
 1. Localize e substitua a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à assinatura. Por exemplo, se você estiver usando a versão de avaliação gratuita, a região é `westus`.
 
@@ -117,7 +120,7 @@ Agora você está pronto para executar o aplicativo no Editor do Unity.
 
 1. Vá para a [exibição **Jogo**](https://docs.unity3d.com/Manual/GameView.html) e aguarde que o objeto **Texto** exiba a mensagem **Clique no botão para reconhecer a fala**. (Ele exibe **Novo Texto** quando o aplicativo não foi iniciado ou não está pronto para responder.)
 
-1. Selecione o botão e fale uma frase ou uma sentença em inglês no microfone do computador. Sua fala será transmitida para o Serviço de Fala e transcrita para texto, que aparecerá na exibição **Jogo**.
+1. Selecione o botão e fale uma frase ou uma sentença em inglês no microfone do computador. Sua fala será transmitida para o serviço de Fala e transcrita para texto, que aparecerá na exibição **Jogo**.
 
    [![Exibição Jogo no Editor do Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 

@@ -1,18 +1,18 @@
 ---
-title: 'Início Rápido: Criar um Banco de Dados do Azure para o servidor MySQL – portal do Azure'
+title: 'Início Rápido: Projetar um servidor – Portal do Azure – Banco de Dados do Azure para MySQL'
 description: Este artigo o orienta a usar o portal do Azure para criar rapidamente um servidor de Banco de Dados do Azure para MySQL de exemplo em aproximadamente cinco minutos.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/15/2019
-ms.openlocfilehash: ae19ff5adc220326e32b82bdba676a037e98fabe
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 12/02/2019
+ms.openlocfilehash: 1dfe4840d49983c4ae273c16ae16f6df253d509e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195136"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770349"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure
 

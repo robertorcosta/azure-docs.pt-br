@@ -1,30 +1,21 @@
 ---
-title: Autenticar e autorizar usuários de ponta a ponta no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Saiba como usar o recurso de autenticação e autorização do Serviço de Aplicativo de para proteger seus aplicativos do Serviço de Aplicativo em execução no Linux, incluindo o acesso a APIs remotas.
+title: 'Tutorial: Autenticar usuários E2E (Linux)'
+description: Saiba como usar a autenticação e a autorização do Serviço de Aplicativo para proteger seus aplicativos do Linux do Serviço de Aplicativo de ponta a ponta, incluindo o acesso a APIs remotas.
 keywords: serviço de aplicativo, serviço de aplicativo do azure, authN, authZ, proteger, segurança, várias camadas, azure active directory, azure ad
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a50a1183cb2e57e8e98f1940f1c14284e89088c3
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 71aec33d5afe1a909f460ddae2d5cb0552857fee
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019244"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688934"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure no Linux
 
-O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Além disso, o Serviço de Aplicativo tem suporte interno para [autenticação e autorização de usuário](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Este tutorial mostra como proteger seus aplicativos com os recursos de autenticação e autorização do Serviço de Aplicativo. Ele usa um aplicativo ASP.NET Core com um front-end Angular.js, mas é usado apenas como exemplo. O recurso de autorização e autenticação do Serviço de Aplicativo dá suporte a tempos de execução de todas as linguagens, e você pode aprender como aplicá-lo à sua linguagem preferida seguindo o tutorial.
+O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Além disso, o Serviço de Aplicativo tem suporte interno para [autenticação e autorização de usuário](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Este tutorial mostra como proteger seus aplicativos com os recursos de autenticação e autorização do Serviço de Aplicativo. Ele usa um aplicativo ASP.NET Core com um front-end Angular.js, mas é usado apenas como exemplo. O recurso de autorização e autenticação do Serviço de Aplicativo dá suporte a runtimes de todas as linguagens, e você pode aprender como aplicá-lo à sua linguagem preferida seguindo o tutorial.
 
 O tutorial usa o aplicativo de exemplo para mostrar como proteger um aplicativo autocontido (em [Habilitar autenticação e autorização para o aplicativo de back-end](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -234,7 +225,7 @@ Quando você vir a notificação com a mensagem `Successfully saved the Auth Set
 
 Clique em **Azure Active Directory** novamente e clique em **Aplicativo Azure AD**.
 
-Copie a **ID do cliente** do aplicativo do Azure AD para um bloco de notas. Você precisará desse valor mais tarde.
+Copie a **ID do Cliente** do aplicativo do Azure AD para um bloco de notas. Você precisará desse valor mais tarde.
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/get-application-id-back-end.png)
 

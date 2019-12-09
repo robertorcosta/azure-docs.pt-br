@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Habilitar o serviço Central de Segurança do Azure para IoT no Hub IoT'
-description: Neste início rápido, saiba como habilitar o serviço Central de Segurança do Azure para IoT em seu Hub IoT.
+description: Saiba como integrar e habilitar o serviço de segurança Central de Segurança do Azure para IoT no Hub IoT do Azure.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 641ba4c8d3b0e54132c19a493e1e4bf17bb28e13
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0b1f09cfaf107802e1ce6586b3f96b14269aaced
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904106"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664835"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Início Rápido: Integrar o serviço Central de Segurança do Azure para IoT no Hub IoT
 

@@ -1,18 +1,18 @@
 ---
-title: 'Início Rápido: Criar um servidor de Banco de Dados do Azure para MariaDB – portal do Azure'
+title: 'Início Rápido: Criar um servidor – Portal do Azure – Banco de Dados do Azure para MariaDB'
 description: Este artigo mostra como usar o portal do Azure para criar rapidamente um servidor de Banco de Dados do Azure para MariaDB de exemplo em aproximadamente cinco minutos.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/15/2019
-ms.openlocfilehash: 536d06948510dd5df05bfc2d46cc79b9cf1559ae
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.date: 12/02/2019
+ms.openlocfilehash: 240329ba3dc50cef249716f951595fea0cdc67eb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618013"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769975"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MariaDB usando o portal do Azure
 
@@ -43,13 +43,13 @@ Para criar um servidor de Banco de Dados do Azure para MariaDB:
     Configuração | Valor sugerido | DESCRIÇÃO
     ---|---|---
     Nome do servidor | *um nome de servidor exclusivo* | Escolha um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. Por exemplo, **mydemoserver**. O nome de domínio *.mariadb.database.azure.com* é acrescentado ao nome do servidor que você inseriu. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter entre 3 e 63 caracteres.
-    Assinatura | *sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura na qual você recebe a cobrança do recurso.
-    Grupo de recursos | **myresourcegroup** | Insira o nome de um novo grupo de recursos ou escolha um grupo de recursos existente. 
+    Subscription | *sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura na qual você recebe a cobrança do recurso.
+    Resource group | **myresourcegroup** | Insira o nome de um novo grupo de recursos ou escolha um grupo de recursos existente. 
     Selecionar a origem | **Em branco** | Selecione **Em branco** para criar um novo servidor do zero. (Escolha **Backup** se você estiver criando um servidor a partir de um backup de área geográfica de um servidor de Banco de Dados do Azure para MariaDB existente.)
     Logon de administrador do servidor | **myadmin** | Uma conta de logon a ser usada ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superusuário**, **admin**, **administrador**, **raiz**, **convidado** ou **público**.
     Senha | *sua escolha* | Insira uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar senha | *sua escolha*| Confirme a senha da conta do administrador.
-    Local padrão | *a região mais próxima de seus usuários*| Escolha o local mais próximo de seus usuários ou de outros aplicativos do Azure.
+    Location | *a região mais próxima de seus usuários*| Escolha o local mais próximo de seus usuários ou de outros aplicativos do Azure.
     Versão | *a versão mais recente*| A versão mais recente (a menos que você tenha requisitos específicos que exijam outra versão).
     Tipo de preço | Confira a descrição. | As configurações de computação, armazenamento e backup para o novo servidor. Escolha **Tipo de preço** > **Uso Geral**. Mantenha os valores padrão para as seguintes configurações:<br><ul><li>**Geração de Computação** (Gen 5)</li><li>**vCore** (4 vCores)</li><li>**Armazenamento** (100 GB)</li><li>**Período de Retenção de Backup** (7 dias)</li></ul><br>Para habilitar os backups do servidor em armazenamento com redundância geográfica, escolha **Redundância Geográfica** nas **Opções de Redundância de Backup**. <br><br>Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
   
@@ -102,7 +102,7 @@ Há vários aplicativos que você pode usar para se conectar ao servidor de Banc
 
 Primeiro, vamos usar a ferramenta de linha de comando [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para ilustrar como se conectar ao servidor. Você também pode usar um navegador da Web e o Azure Cloud Shell sem precisar instalar o software. Se você tiver o utilitário mysql instalado localmente, poderá também se conectar com ele.
 
-1. Inicie o Azure Cloud Shell pelo ícone de terminal (**>_**) na barra de ferramentas no canto superior direito do portal do Azure.
+1. Inicie o Azure Cloud Shell pelo ícone de terminal ( **>_** ) na barra de ferramentas no canto superior direito do portal do Azure.
    ![Símbolo de terminal do Azure Cloud Shell](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
 2. O Azure Cloud Shell é aberto no navegador. Você pode usar comandos do shell Bash no Cloud Shell.
@@ -125,7 +125,7 @@ Primeiro, vamos usar a ferramenta de linha de comando [mysql](https://dev.mysql.
 
     parâmetro mysql |Valor sugerido|DESCRIÇÃO
     ---|---|---
-    --host | *nome do servidor* | O valor do nome do servidor usado para criar o servidor do Banco de Dados do Azure para MariaDB. Nosso servidor de exemplo é **mydemoserver.mariadb.database.azure.com**. Use o nome de domínio totalmente qualificado (**\*.mariadb.database.azure.com**) conforme mostrado no exemplo. Caso não se lembre do nome do servidor, conclua as etapas da seção anterior para ter acesso às informações de conexão.
+    --host | *nome do servidor* | O valor do nome do servidor usado para criar o servidor do Banco de Dados do Azure para MariaDB. Nosso servidor de exemplo é **mydemoserver.mariadb.database.azure.com**. Use o nome de domínio totalmente qualificado ( **\*.mariadb.database.azure.com**) conforme mostrado no exemplo. Caso não se lembre do nome do servidor, conclua as etapas da seção anterior para ter acesso às informações de conexão.
     --user | *nome de logon do administrador do servidor* |O nome de usuário do logon do administrador do servidor usado para criar o servidor de Banco de Dados do Azure para MariaDB. Caso não se lembre do nome de usuário, conclua as etapas da seção anterior para ter acesso às informações de conexão. O formato é *nome de usuário\@nome do servidor*.
     -p | *sua senha*<br>(aguarde até a solicitação) |Quando solicitado, insira a senha que você usou para criar o servidor. Os caracteres de senha digitados não são mostrados no prompt do Bash quando você os digita. Depois de inserir a senha, pressione Enter.
 
@@ -190,7 +190,7 @@ Para se conectar ao servidor usando o MySQL Workbench:
 
 1. Abra o MySQL Workbench no computador cliente. Para baixar e instalar o MySQL Workbench, vá para [Baixar MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-2. Para criar uma nova conexão, escolha o ícone de adição (**+**) ao lado do título **Conexões MySQL**.
+2. Para criar uma nova conexão, escolha o ícone de adição ( **+** ) ao lado do título **Conexões MySQL**.
 
 3. Na caixa de diálogo **Configurar Nova Conexão**, na guia **Parâmetros**, insira as informações de conexão de servidor. Os valores de espaço reservado são mostrados como um exemplo. Substitua o **Nome de Host**, o **Nome de Usuário** e a **Senha** por seus próprios valores.
 
@@ -200,7 +200,7 @@ Para se conectar ao servidor usando o MySQL Workbench:
     |---|---|---|
      Nome da conexão | **Conexão de demonstração** | Um rótulo para essa conexão. |
     Método de conexão | **Padrão (TCP/IP)** | Padrão (TCP/IP) é suficiente. |
-    Nome do host | *nome do servidor* | O valor do nome do servidor usado para criar o servidor do Banco de Dados do Azure para MariaDB. Nosso servidor de exemplo é **mydemoserver.mariadb.database.azure.com**. Use o nome de domínio totalmente qualificado (**\*.mariadb.database.azure.com**) conforme mostrado no exemplo. Caso não se lembre do nome do servidor, conclua as etapas da seção anterior deste artigo para ter acesso às informações de conexão.|
+    Nome do host | *nome do servidor* | O valor do nome do servidor usado para criar o servidor do Banco de Dados do Azure para MariaDB. Nosso servidor de exemplo é **mydemoserver.mariadb.database.azure.com**. Use o nome de domínio totalmente qualificado ( **\*.mariadb.database.azure.com**) conforme mostrado no exemplo. Caso não se lembre do nome do servidor, conclua as etapas da seção anterior deste artigo para ter acesso às informações de conexão.|
      Porta | 3306 | A porta a ser usada ao se conectar ao servidor de Banco de Dados do Azure para MariaDB. |
     Nome de Usuário |  *nome de logon do administrador do servidor* | As informações de entrada do administrador do servidor que você usou para criar o Banco de Dados do Azure para MariaDB. Nosso nome de usuário de exemplo é **myadmin\@mydemoserver**. Caso não se lembre do nome do usuário, conclua as etapas da seção anterior deste artigo para ter acesso às informações de conexão. O formato é *nome de usuário\@nome do servidor*.
     Senha | *sua senha* | Para salvar a senha, escolha **Armazenar no Cofre** . |

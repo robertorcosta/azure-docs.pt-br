@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um aplicativo de análise na loja no Azure IoT Central'
+title: Tutorial – Criar um aplicativo de análise na loja no Azure IoT Central
 description: Este tutorial mostra como criar um aplicativo de varejo de análise na loja no IoT Central. Você vai criar, personalizar e adicionar dispositivos de sensor.
 services: iot-central
 ms.service: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 071d432ba2769705213cb98cee644b64e9e81b6e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 145aa87841c6334f7fa12535103b5e97db9c6918
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112889"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702035"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Criar um aplicativo de análise na loja no Azure IoT Central
 

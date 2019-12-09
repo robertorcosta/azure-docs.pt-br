@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar dispositivo para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure'
-description: 'Tutorial: Configurar o dispositivo para provisionar por meio do Serviço de Provisionamento de Dispositivos no Hub IoT durante o processo de fabricação do dispositivo'
+title: Tutorial – Configurar dispositivo para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
+description: Este tutorial mostra como você pode configurar o dispositivo para provisionar por meio do Serviço de Provisionamento de Dispositivos no Hub IoT durante o processo de fabricação do dispositivo
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e7f6151968fb14d44f1e330fb6ddc06fabad3ee6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: bdda46a89fc2bcf8b16b2ce771c6540c9ceaa3e0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112764"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701972"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
@@ -212,4 +212,3 @@ Avance para o próximo tutorial para aprender a provisionar o dispositivo para o
 
 > [!div class="nextstepaction"]
 > [Provisionar o dispositivo para o Hub IoT](tutorial-provision-device-to-hub.md)
-

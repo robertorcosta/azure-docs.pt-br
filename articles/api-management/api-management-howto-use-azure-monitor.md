@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072351"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707195"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -183,10 +183,10 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | Propriedade  | Type | DESCRIÇÃO |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | booleano | True se a solicitação HTTP foi concluída com código de status de resposta dentro do intervalo 2xx a 3xx |
-| time | date-time | Carimbo de data/hora de recebimento da solicitação HTTP pelo gateway |
+| time | date-time | Carimbo de data/hora de quando o gateway começa a processar a solicitação |
 | operationName | string | Valor de constante 'Microsoft.ApiManagement/GatewayLogs' |
 | category | string | Valor da constante 'GatewayLogs' |
-| durationMs | inteiro | Número de milissegundos do momento em que o gateway recebeu a solicitação até o momento em que a resposta foi enviada por completo |
+| durationMs | inteiro | Número de milissegundos do momento em que o gateway recebeu a solicitação até o momento em que a resposta foi enviada por completo. Inclui clienTime, cacheTime e backendTime. |
 | callerIpAddress | string | Endereço IP do chamador imediato do Gateway (pode ser um intermediário) |
 | correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
 | location | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
@@ -214,7 +214,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | apimSubscriptionId | string | Identificador da entidade de assinatura para a solicitação atual | 
 | backendId | string | Identificador da entidade de back-end para a solicitação atual | 
 | lastError | objeto | Erro de processamento da última solicitação | 
-| elapsed | inteiro | Número de milissegundos decorridos desde que o gateway recebeu a solicitação até o momento em que ocorreu o erro | 
+| elapsed | inteiro | Número de milissegundos decorridos desde que o gateway recebeu a solicitação até o momento em que o erro ocorreu | 
 | source | string | Nome da política ou do manipulador interno de processamento que causou o erro | 
 | scope | string | Escopo do documento de política que contém a política que causou o erro | 
 | section | string | Seção do documento de política que contém a política que causou o erro | 

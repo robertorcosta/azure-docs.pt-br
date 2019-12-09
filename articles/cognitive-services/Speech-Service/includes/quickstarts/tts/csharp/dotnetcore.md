@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 670d32a93df9e2a0363163079b50c7306f81975e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6e732237b22bec6e2a66d44f12ac25e5f9adca3f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504880"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818194"
 ---
 > [!NOTE]
 > O .NET Core é uma plataforma .NET multiplataforma de software livre que implementa a especificação [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=dotnetcore)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=dotnetcore)
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
 1. Abra `Program.cs` e substitua todo o código nesse arquivo pelo seguinte.
@@ -50,7 +50,7 @@ Antes de começar:
 
     ![Captura de tela do aplicativo do Visual Studio, com a opção Iniciar Depuração realçada](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Iniciar o aplicativo na depuração")
 
-1. Uma janela do console aparece, solicitando que você digite algum texto. Digite uma frase ou algumas palavras. O texto que você digitou é transmitido para os Serviços de Fala e sintetizado em fala, que é reproduzido no alto-falante.
+1. Uma janela do console aparece, solicitando que você digite algum texto. Digite uma frase ou algumas palavras. O texto que você digitou é transmitido para o serviço de Fala e sintetizado em fala, que é reproduzido no alto-falante.
 
     ![Captura de tela da saída do console após a síntese bem-sucedida](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Saída do console após uma síntese bem-sucedida")
 

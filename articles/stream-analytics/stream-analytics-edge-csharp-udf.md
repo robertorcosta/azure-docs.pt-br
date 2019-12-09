@@ -1,6 +1,6 @@
 ---
-title: Escrever funções em C# definidas pelo usuário para trabalhos do Azure Stream Analytics no Visual Studio (versão prévia)
-description: Aprenda a escrever em C# funções definidas pelo usuário para trabalhos do Stream Analytics no Visual Studio.
+title: Tutorial – Escrever funções em C# definidas pelo usuário para trabalhos do Azure Stream Analytics no Visual Studio (versão prévia)
+description: Este tutorial mostra como escrever funções em C# definidas pelo usuário para trabalhos do Stream Analytics no Visual Studio.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6cf420c8baceb243e8c4d70c8bcbc95ec626c3a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d600c891f35a0719012707bdc2cb45101e14e090
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990252"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707353"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutorial: Escrever uma função em C# definida pelo usuário para um trabalho do Azure Stream Analytics (versão prévia)
 
@@ -145,7 +145,7 @@ Depois de testar sua consulta localmente, selecione **enviar para o Azure** no e
 ![Enviar o trabalho de borda do Stream Analytics do Azure do Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>Implantar em dispositivos IoT Edge
-Se você optar por criar um trabalho do Edge do Stream Analytics, agora ele poderá ser implantado como um módulo do IoT Edge. Siga as [guia de início rápido do IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) para criar um IoT Hub, registrar um dispositivo IoT Edge e instalar e iniciar o tempo de execução do IoT Edge em seu dispositivo. Em seguida, siga as [implantar o trabalho](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) tutorial para implantar o trabalho do Stream Analytics como um módulo IoT Edge. 
+Se você optar por criar um trabalho do Edge do Stream Analytics, agora ele poderá ser implantado como um módulo do IoT Edge. Siga as [guia de início rápido do IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) para criar um IoT Hub, registrar um dispositivo IoT Edge e instalar e iniciar o runtime do IoT Edge em seu dispositivo. Em seguida, siga as [implantar o trabalho](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) tutorial para implantar o trabalho do Stream Analytics como um módulo IoT Edge. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

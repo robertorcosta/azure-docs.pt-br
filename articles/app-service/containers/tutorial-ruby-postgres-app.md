@@ -1,23 +1,16 @@
 ---
-title: Ruby (Rails) com o Postgres no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Saiba como fazer com que um aplicativo Ruby funcione no Azure com conexão a um banco de dados PostgreSQL. O Rails é usado no tutorial.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: 'Tutorial: Aplicativo Ruby do Linux com o Postgres'
+description: Saiba como executar um aplicativo Ruby do Linux no Serviço de Aplicativo do Azure, com uma conexão com um banco de dados PostgreSQL no Azure. O Rails é usado no tutorial.
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3ec19b1c564c09406ab1f29c38aef6332d80f8f1
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 6af9da060f7742fe2a9b9656199edd5feb67bec1
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544681"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687404"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Ruby e Postgres no Serviço de Aplicativo do Azure no Linux
 
@@ -167,13 +160,13 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Conecte-se ao servidor Postgres de produção localmente
 
-No Cloud Shell, conecte-se ao servidor Postgres no Azure. Use o valor especificado anteriormente para os espaços reservados _&lt;postgres-server-name>_.
+No Cloud Shell, conecte-se ao servidor Postgres no Azure. Use o valor especificado anteriormente para os espaços reservados _&lt;postgres-server-name>_ .
 
 ```bash
 psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
 ```
 
-Quando for solicitada uma senha, use _My5up3r$tr0ngPa$w0rd!_, que você especificou quando criou o banco de dados.
+Quando for solicitada uma senha, use _My5up3r$tr0ngPa$w0rd!_ , que você especificou quando criou o banco de dados.
 
 ### <a name="create-a-production-database"></a>Criar um banco de dados de produção
 

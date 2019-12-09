@@ -1,5 +1,5 @@
 ---
-title: Tutorial – criar e modificar um circuito com o ExpressRoute
+title: Tutorial – Criar e modificar um circuito com o ExpressRoute
 description: Neste tutorial, saiba como criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7327031a7cd05674e9823f21601aab34c859f540
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423572"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74813156"
 ---
-# <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutorial: criar e modificar um circuito do ExpressRoute
+# <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutorial: Criar e modificar um circuito do ExpressRoute
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
@@ -36,18 +36,21 @@ Este artigo ajuda você a criar um circuito do ExpressRoute usando o portal do A
 
 ## <a name="create"></a>Criar e provisionar um circuito do ExpressRoute
 
-### <a name="1-sign-in-to-the-azure-portal"></a>1. entre no portal do Azure
+### <a name="1-sign-in-to-the-azure-portal"></a>1. Entrar no Portal do Azure
 
 Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 
-### <a name="2-create-a-new-expressroute-circuit"></a>2. criar um novo circuito do ExpressRoute
+### <a name="2-create-a-new-expressroute-circuit"></a>2. Criar um novo circuito do ExpressRoute
 
 > [!IMPORTANT]
 > O circuito do ExpressRoute será cobrado a partir do momento em que uma chave de serviço for emitida. Execute esta operação quando o provedor de conectividade estiver pronto para provisionar o circuito.
 
-1. Você pode criar um circuito do ExpressRoute selecionando a opção de criar um novo recurso. Clique em **Criar um recurso** > **Rede** > **ExpressRoute**, conforme mostrado na imagem a seguir:
+Você pode criar um circuito do ExpressRoute selecionando a opção de criar um novo recurso. 
 
-   ![Criar um circuito do ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**. Clique em **Rede** > **ExpressRoute**, conforme mostrado na seguinte imagem:
+
+   ![Criar um circuito do ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+
 2. Após clicar em **ExpressRoute**, você verá a página **Criar circuito do ExpressRoute**. Ao preencher os valores nessa página, especifique a camada de SKU (Standard ou Premium) e o modelos de cobrança de medição de dados (Limitado ou Ilimitado) corretos.
 
    ![Configurar a camada da SKU e a medição de dados](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
@@ -56,14 +59,14 @@ Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre co
    * **medição de dados** determina o tipo de cobrança. Você pode especificar **Limitado** para um plano de dados limitado e **Ilimitado** para um plano de dados ilimitado. Observe que você pode alterar o tipo de cobrança de **Limitada** para **Ilimitada**.
 
      > [!IMPORTANT]
-     > Não é possível alterar o tipo de **ilimitado** para **limitado**.
+     > Você não pode alterar o tipo de **Ilimitada** para **Limitada**.
 
    * **Local de Emparelhamento** é o local físico em que você está realizando o emparelhamento com a Microsoft.
 
      > [!IMPORTANT]
      > O Local de Emparelhamento indica o [local físico](expressroute-locations.md) em que você está realizando o emparelhamento com a Microsoft. Isso **não** tem vínculo à propriedade "Local", que se refere à posição geográfica na qual o Provedor de Recursos de Rede do Azure está localizado. Embora eles não estejam relacionados, é uma boa prática escolher um provedor de recursos de rede geograficamente próximo do Local de Emparelhamento do circuito.
 
-### <a name="3-view-the-circuits-and-properties"></a>3. exibir os circuitos e as propriedades
+### <a name="3-view-the-circuits-and-properties"></a>3. Exibir os circuitos e as propriedades
 
 **Exibir todos os circuitos**
 
@@ -77,41 +80,41 @@ Selecione o circuito para exibir as propriedades dele. Na página **Visão geral
 
 ![Exibir propriedades](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
 
-### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. enviar a chave de serviço para o provedor de conectividade para provisionamento
+### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
 
 Nessa página, **Status do provedor** fornece informações sobre o estado de provisionamento atual no lado do provedor de serviço. **Status de circuito** fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Quando você cria um novo circuito do ExpressRoute, ele está no seguinte estado:
 
-Status do provedor: não provisionado<BR>
+Status do provedor: Não provisionado<BR>
 Status do circuito: habilitado
 
 ![Iniciar o processo de provisionamento](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 O circuito assumirá o seguinte o estado quando o provedor de conectividade estiver habilitando-o para você:
 
-Status do provedor: provisionando<BR>
+Status do provedor: Provisionamento<BR>
 Status do circuito: habilitado
 
 Para que você consiga usar um circuito do ExpressRoute, ele deverá estar no seguinte estado:
 
-Status do provedor: provisionado<BR>
+Status do provedor: Provisionado<BR>
 Status do circuito: habilitado
 
-### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. verificar periodicamente o status e o estado da chave de circuito
+### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Verifique periodicamente o status e o estado da chave do circuito
 
 Você pode exibir as propriedades do circuito de seu interesse selecionando-o. Verifique o **Status do provedor** e se ele mudou para **Provisionado** antes de continuar.
 
 ![Status do circuito e do provedor](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
 
-### <a name="6-create-your-routing-configuration"></a>6. criar sua configuração de roteamento
+### <a name="6-create-your-routing-configuration"></a>6. Criar sua configuração de roteamento
 
 Para obter instruções passo a passo, confira o artigo [Configuração do roteamento de circuito do ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) para criar e modificar os emparelhamentos de circuito.
 
 > [!IMPORTANT]
 > Estas instruções aplicam-se apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de camada 3 (normalmente um IP VPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
-### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. vincular uma rede virtual a um circuito do ExpressRoute
+### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. Vincular uma rede virtual a um circuito de ExpressRoute
 
 Em seguida, vincule uma rede virtual a seu circuito do ExpressRoute. Use o artigo [Vincular redes virtuais a circuitos do ExpressRoute](expressroute-howto-linkvnet-arm.md) ao trabalhar com o modelo de implantação do Gerenciador de Recursos.
 
@@ -146,7 +149,7 @@ Você pode modificar certas propriedades de um circuito do ExpressRoute sem afet
 
 Para modificar um circuito do ExpressRoute, clique em **Configuração**.
 
-![Modificar o circuito](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+![Modificar o circuito](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
 
 ## <a name="delete"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
 

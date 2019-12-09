@@ -1,27 +1,19 @@
 ---
-title: Exemplo de Script da CLI do Azure – criar um aplicativo Web e implantar o código em um slot de preparo | Microsoft Docs
-description: Amostra de script da CLI do Azure – Criar um aplicativo do Serviço de Aplicativo e implantar o código em um slot de preparo
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Implantação no slot de preparo'
+description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como implantar um código em um slot de preparo.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 069dbcb5784414e63d093b7e38c399f358f830fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1997d421a51e833e09b8d3062ba42bc0a2cf406b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136733"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686191"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Criar um aplicativo do Serviço de Aplicativo e implantar o código em um ambiente de preparo usando a CLI do Azure
 

@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/14/2019
 ms.author: yulili
-ms.openlocfilehash: 36e48a5d513daa951c1e92017ba9a2322b009703
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 990e795d0331df41ff098ed498508d6ecfd58f0e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505448"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818207"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md)
 > * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md)
 ```
 
@@ -69,7 +69,7 @@ ou é possível baixar este tutorial de início rápido como um [Jupyter](https:
    ![Criar um arquivo](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copie, cole e salve o [código do Python](#sample-code) para o arquivo recém-criado.
-1. Insira as informações de assinatura dos Serviços de Fala.
+1. Insira as informações de assinatura do Serviço de Fala.
 1. Se já tiver sido selecionado, um interpretador do Python será exibido no lado esquerdo da barra de status na parte inferior da janela.
    Caso contrário, exiba uma lista de interpretadores do Python disponíveis. Abra a paleta de comandos (Ctrl+Shift+P) e insira **Python: selecionar interpretador**. Escolha um adequado.
 1. É possível instalar o pacote Python do SDK de Fala de dentro do Visual Studio Code. Faça isso se ele ainda não foi instalado para o interpretador do Python selecionado.

@@ -22,7 +22,9 @@
   items:
     - name: Perguntas frequentes do Analisador de Internet
       href: internet-analyzer-faq.md
-    - name: Referência de CLI do Analisador de Internet
+    - name: Solução de problemas do Analisador de Internet
+      href: troubleshoot.md
+    - name: Referência da CLI do Analisador de Internet
       href: 'https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'

@@ -1,27 +1,20 @@
 ---
-title: Amostra de script da CLI do Azure – Monitorar um aplicativo com logs do servidor Web | Microsoft Docs
-description: Amostra de script da CLI do Azure – Monitorar um aplicativo no Serviço de Aplicativo com logs do servidor Web
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Monitorar um aplicativo com logs do servidor Web'
+description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como monitorar um aplicativo com logs do servidor Web.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c0bdf64e7fd9bf7de3ea46f6c08741b61ef0013f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 436cd16f94aae1668689c7333d5e5a2c9a1bbf46
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136689"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685952"
 ---
 # <a name="monitor-an-app-service-appwith-web-server-logs-using-azure-cli"></a>Monitorar um aplicativo do Serviço de Aplicativo com logs do servidor Web usando a CLI do Azure
 

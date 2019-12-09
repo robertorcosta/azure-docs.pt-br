@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Sintetizar uma fala em um arquivo de áudio, Python - Serviço de Fala'
+title: 'Início Rápido: Sintetizar uma fala em um arquivo de áudio, Python – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d6f6519ea5df630a914243046e74c315b4bd7db9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505392"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818040"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha uma gratuitamente](~/articles/cognitive-services/Speech-Service/get-started.md).
+* Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 ou posterior](https://www.python.org/downloads/).
 * O pacote do SDK de Fala do Python está disponível para estes sistemas operacionais:
     * Windows: x64 e x86.
@@ -127,7 +127,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    ![Criar um arquivo](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copie, cole e salve o [código do Python](#sample-code) para o arquivo recém-criado.
-1. Insira as informações de assinatura dos Serviços de Fala.
+1. Insira as informações de assinatura do Serviço de Fala.
 1. Se já tiver sido selecionado, um interpretador do Python será exibido no lado esquerdo da barra de status na parte inferior da janela.
    Caso contrário, exiba uma lista de interpretadores do Python disponíveis. Abra a paleta de comandos (Ctrl+Shift+P) e insira **Python: selecionar interpretador**. Escolha um adequado.
 1. É possível instalar o pacote Python do SDK de Fala de dentro do Visual Studio Code. Faça isso se ele ainda não foi instalado para o interpretador do Python selecionado.

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790301"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790316"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os três serviços de mensagens do Azure – Grade de Eventos, Hubs de Eventos e Barramento de Serviço
 
@@ -98,7 +98,7 @@ Em outros casos, você os vincula juntos para formar um pipeline de dados e even
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes artigos: 
-
+- [Opções de mensagens assíncronas no Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Eventos, pontos de dados e mensagens – escolhendo o serviço de mensagens do Azure correto para seus dados](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Filas de armazenamento e filas do Barramento de Serviço — comparações e contrastes](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Para começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md).

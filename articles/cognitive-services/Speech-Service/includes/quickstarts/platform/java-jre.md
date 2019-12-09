@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Configuração de plataforma do SDK de Fala para Java (Windows, Linux e macOS) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para usar Java (Windows, Linux e macOS) com o SDK dos Serviços de Fala.
+description: Use este guia para configurar sua plataforma para usar Java (Windows, Linux e macOS) com o SDK do Serviço de Fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 2814327bdc434dbdae5644bd40b09d0506b21df9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 195d43739ff27a493b2f2923eac43df03313963b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504336"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816274"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o JRE do Java 8 de 64 bits.
 

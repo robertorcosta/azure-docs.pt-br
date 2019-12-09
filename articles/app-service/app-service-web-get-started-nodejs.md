@@ -1,27 +1,18 @@
 ---
-title: Criar um aplicativo Web Node.js – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Implante seu primeiro Olá, Mundo em Node.js nos Aplicativos Web do Serviço de Aplicativo do Azure em minutos.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Início Rápido: Criar um aplicativo Web Node.js'
+description: Implante seu primeiro Olá, Mundo em Node.js no Serviço de Aplicativo do Azure em minutos. Você fará a implantação usando o Visual Studio Code, que é um dos vários modos de implantação no Serviço de Aplicativo.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 09/30/2019
-ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 98d939c69bb03666dbeed124778b06f8a7e73532
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91494cc9c1e3a1fc159702bdbb7f68a4423b604c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471463"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671355"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar um aplicativo Web do Node.js no Azure 
 

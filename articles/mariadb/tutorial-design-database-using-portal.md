@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure'
+title: 'Tutorial: Criar um Banco de Dados do Azure para MariaDB – Portal do Azure'
 description: Este tutorial explica como criar e gerenciar um servidor do Banco de Dados do Azure para MariaDB usando o portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 28a20325fac92d0b296c336e2e1186487d1e0272
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515644"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776701"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure
 
@@ -52,13 +52,13 @@ Crie um servidor do Banco de Dados do Azure para MariaDB com um conjunto definid
     Configuração | Valor sugerido | Descrição do campo 
     ---|---|---
     Nome do servidor | *um nome de servidor exclusivo* | Escolha um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. Por exemplo, **mydemoserver**. O nome de domínio *.mariadb.database.azure.com* é acrescentado ao nome do servidor que você inseriu. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter entre 3 e 63 caracteres.
-    Assinatura | *sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura na qual você recebe a cobrança do recurso.
-    Grupo de recursos | **myresourcegroup** | Insira o nome de um novo grupo de recursos ou escolha um grupo de recursos existente.
+    Subscription | *sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura na qual você recebe a cobrança do recurso.
+    Resource group | **myresourcegroup** | Insira o nome de um novo grupo de recursos ou escolha um grupo de recursos existente.
     Selecionar a origem | **Em branco** | Selecione **Em branco** para criar um novo servidor. (Selecione **Backup** caso esteja criando um servidor a partir de um backup de área geográfica de um servidor de Banco de Dados do Azure para MariaDB existente.)
     Logon de administrador do servidor | **myadmin** | A conta de entrada para usar ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
     Senha | *sua escolha* | Insira uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar senha | *sua escolha*| Confirme a senha da conta do administrador.
-    Local padrão | *a região mais próxima de seus usuários*| Selecione o local mais próximo de seus usuários ou de outros aplicativos do Azure.
+    Location | *a região mais próxima de seus usuários*| Selecione o local mais próximo de seus usuários ou de outros aplicativos do Azure.
     Versão | *a versão mais recente*| A versão mais recente (a menos que você tenha requisitos específicos para usar uma versão diferente).
     Tipo de preço | Confira a descrição. | As configurações de computação, armazenamento e backup para o novo servidor. Escolha **Tipo de preço** > **Uso Geral**. Mantenha os valores padrão para as seguintes configurações:<br><ul><li>**Geração de Computação** (Gen 5)</li><li>**vCore** (4 vCores)</li><li>**Armazenamento** (100 GB)</li><li>**Período de Retenção de Backup** (7 dias)</li></ul><br>Para habilitar os backups do servidor em armazenamento com redundância geográfica, escolha **Redundância Geográfica** nas **Opções de Redundância de Backup**. <br><br>Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
     

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Sintetizar fala, C# (Unity) - Serviço de Fala'
+title: 'Início Rápido: Sintetizar fala, C# (Unity) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Use este guia para criar um aplicativo de conversão de texto em fala com o Unity e o SDK de Fala para Unity. Quando terminar, você poderá sintetizar em tempo real uma fala a partir de texto no alto-falante do seu dispositivo.
 services: cognitive-services
@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 281fbcf3f42160b18adcad3f06f6ef4a7b8de243
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f3b3d68e0154913e3eb6d101965ad33530502954
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504896"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818202"
 ---
 > [!NOTE]
 > O Unity dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64), ao Android (x86, ARM32/64) e ao iOS (simulador x64, ARM32 e ARM64).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Crie um recurso do Azure Speech](../../../../get-started.md)
-> * [Configure o ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=unity)
+> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=unity)
 > * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md?tabs=unity)
 
 ## <a name="add-a-ui"></a>Adicionar uma interface do usuário
@@ -64,7 +64,7 @@ Quando você terminar, a interface do usuário deverá ser semelhante a esta cap
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/text-to-speech/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Localize e substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura do Serviço de Fala.
+1. Localize e substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura do serviço de Fala.
 
 1. Localize e substitua a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à assinatura. Por exemplo, a região será `westus` se você usar a avaliação gratuita.
 
@@ -83,7 +83,7 @@ Quando você terminar, a interface do usuário deverá ser semelhante a esta cap
 ## <a name="run-the-application-in-the-unity-editor"></a>Executar o aplicativo no Editor do Unity
 
 * Selecione o botão **Reproduzir** na barra de ferramentas do Editor do Unity que está abaixo da barra de menus.
-* Depois que o aplicativo for iniciado, insira um texto no campo de entrada e selecione o botão. Seu texto é transmitido para o Serviço de Fala e sintetizado em uma fala, que é reproduzida no alto-falante.
+* Depois que o aplicativo for iniciado, insira um texto no campo de entrada e selecione o botão. Seu texto é transmitido para o serviço de Fala e sintetizado em fala. Depois, é reproduzido no alto-falante.
 
   [![Captura de tela do início rápido em execução na janela Jogo do Unity](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-inline.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 

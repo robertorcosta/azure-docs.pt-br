@@ -1,27 +1,18 @@
 ---
-title: Criar um aplicativo Web Node.js – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Implante seu primeiro Olá, Mundo em Node.js nos Aplicativos Web do Serviço de Aplicativo do Azure em minutos.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Início Rápido: Criar um aplicativo Web Node.js'
+description: Implante seu primeiro Olá, Mundo em Node.js no Serviço de Aplicativo do Azure em minutos. Você fará a implantação usando um pacote zip, que é um dos vários modos de implantação no Serviço de Aplicativo.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 7d81dae25b793144bfe044f8434a6df181dbcd1b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c02caf7c70dfe88bd3312742fce08137bc360a2e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067398"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671415"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar um aplicativo Web do Node.js no Azure
 
@@ -100,9 +91,9 @@ Quando o aplicativo Web for criado, a CLI do Azure mostrará um resultado semelh
 }
 ```
 
-### <a name="set-nodejs-runtime"></a>Definir tempo de execução do Node.js
+### <a name="set-nodejs-runtime"></a>Definir runtime do Node.js
 
-Defina o tempo de execução do Node como 10.14.1. Para ver todos os tempos de execução com suporte, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
+Defina o runtime do Node como 10.14.1. Para ver todos os runtimes com suporte, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell

@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a9a68e9d71324ba05e24ba98802863211a569689
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839932"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815807"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: Criar e consultar um SQL Data Warehouse do Azure no portal do Azure
 
@@ -51,16 +51,14 @@ Siga estas etapas para criar um SQL Data Warehouse com os dados de exemplo de Ad
 
     | Configuração | Valor sugerido | DESCRIÇÃO |
     | :------ | :-------------- | :---------- |
-    | **Nome do banco de dados** | meuDataWarehouseDeExemplo | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers). Observe que um data warehouse é um tipo de banco de dados.|
     | **Assinatura** | Sua assinatura | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
     | **Grupo de recursos** | myResourceGroup | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
-    | **Selecionar fonte** | Amostra | Especifica a carga de um banco de dados de exemplo. Observe que um data warehouse é um tipo de banco de dados. |
-    | **Selecionar exemplo** | AdventureWorksDW | Especifica a carga do banco de dados de exemplo AdventureWorksDW. |
+    | **Nome do data warehouse** | meuDataWarehouseDeExemplo | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers). Observe que um data warehouse é um tipo de banco de dados.|
     ||||
 
     ![criar data warehouse](media/create-data-warehouse-portal/select-sample.png)
 
-4. Clique em **Servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** com as seguintes informações: 
+4. Selecione um **Servidor** ou clique em **Criar novo** para criar e configurar um novo servidor para seu banco de dados. Preencha o **formulário Novo servidor** com as seguintes informações: 
 
     | Configuração | Valor sugerido | DESCRIÇÃO |
     | :------ | :-------------- | :---------- |
@@ -82,7 +80,7 @@ Siga estas etapas para criar um SQL Data Warehouse com os dados de exemplo de Ad
 
 8. Clique em **Aplicar**.
 
-9. Agora que você concluiu o formulário do SQL Data Warehouse, clique em **Criar** para provisionar o banco de dados. O provisionamento demora alguns minutos.
+9. Agora que você concluiu a guia Básico do formulário do SQL Data Warehouse, clique em **Examinar + Criar** para provisionar o banco de dados. O provisionamento demora alguns minutos.
 
     ![clique em criar](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 84272336a9f70f663e134e16fe88c7e43bb73548
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef203eec1398e9f23fb162845b9d570316083ecf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208587"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703689"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Criar e configurar uma instância do Azure Active Directory Domain Services
 
@@ -72,7 +72,7 @@ Ao criar uma instância do Azure AD DS, você especifica um nome DNS. Eis alguma
 >
 > Você pode usar o nome DNS raiz para o domínio gerenciado do Azure AD DS, mas talvez precise criar alguns registros DNS adicionais para outros serviços no ambiente. Por exemplo, se você executar um servidor Web que hospeda um site usando o nome DNS raiz, poderá haver conflitos de nomenclatura que exigem entradas DNS adicionais.
 >
-> Nesses tutoriais e artigos de instruções, o domínio personalizado *contoso.com* é usado como um breve exemplo. Em todos os comandos, especifique seu próprio nome de domínio, que pode incluir um prefixo exclusivo.
+> Nestes tutoriais e nestes artigos de instruções, o domínio personalizado *aadds.contoso.com* é usado como um breve exemplo. Em todos os comandos, especifique seu próprio nome de domínio, que pode incluir um prefixo exclusivo.
 >
 > Para obter mais informações, confira [Selecionar um prefixo de nomenclatura para o domínio][naming-prefix].
 
@@ -117,7 +117,7 @@ Na página **Resumo** do assistente, examine as definições de configuração d
     ![Notificação no portal do Azure da implantação em andamento](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. A página será carregada com atualizações no processo de implantação, incluindo a criação de novos recursos em seu diretório.
-1. Selecione seu grupo de recursos, como *myResourceGroup* e, em seguida, escolha sua instância do Azure AD DS na lista de recursos do Azure, como *contoso.com*. A guia **Visão Geral** mostra que o domínio gerenciado está sendo *implantado* no momento. Você não pode configurar o domínio gerenciado até que ele esteja totalmente provisionado.
+1. Selecione seu grupo de recursos, como *myResourceGroup* e, em seguida, escolha sua instância do Azure AD DS na lista de recursos do Azure, como *aadds.contoso.com*. A guia **Visão Geral** mostra que o domínio gerenciado está sendo *implantado* no momento. Você não pode configurar o domínio gerenciado até que ele esteja totalmente provisionado.
 
     ![Status do Domain Services durante o estado de provisionamento](./media/tutorial-create-instance/provisioning-in-progress.png)
 

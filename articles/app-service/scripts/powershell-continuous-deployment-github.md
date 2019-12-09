@@ -1,25 +1,17 @@
 ---
-title: Exemplo de script do Azure PowerShell – criar um aplicativo Web com a implantação contínua do GitHub | Microsoft Docs
-description: Exemplo de script do Azure PowerShell - criar um aplicativo Web com a implantação contínua do GitHub
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: Implantar continuamente do GitHub'
+description: Saiba como usar o Azure PowerShell para automatizar a implantação e o gerenciamento do Serviço de Aplicativo. Esta amostra descreve como criar um aplicativo com a CI/CD no GitHub.
 tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bc8be33ede80070b8e9928e01d07b6066f1c887c
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: eee6ac9f9c469f9e1a9344ab4a30626c219d7836
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113571"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685161"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>Criar um aplicativo web com a implantação contínua do GitHub
 

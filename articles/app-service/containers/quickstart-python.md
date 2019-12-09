@@ -1,27 +1,17 @@
 ---
-title: 'Início Rápido: criar um aplicativo Python no Linux – Serviço de Aplicativo do Azure'
-description: Implante seu primeiro aplicativo Python Olá, Mundo no Serviço de Aplicativo do Azure no Linux em minutos.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 'Início Rápido: Criar um aplicativo Python do Linux'
+description: Comece a usar os aplicativos do Linux no Serviço de Aplicativo do Azure implantando seu primeiro aplicativo Python em um contêiner do Linux no Serviço de Aplicativo.
 ms.topic: quickstart
 ms.date: 10/22/2019
-ms.author: cephalin
 ms.custom: seo-python-october2019
 experimental: false
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: 69e7cfef01005432a99dd10ed5bc7f004562e582
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 67fbffbe96bc32b6ec38fa75c1e754c7f11d38d6
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470775"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687479"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 

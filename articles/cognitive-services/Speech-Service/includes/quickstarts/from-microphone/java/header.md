@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala de um microfone, Java – Serviço de Fala'
+title: 'Início Rápido: Reconhecer a fala de um microfone, Java – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 3f497cf09ee2b7c686e76b25898525f57af9f454
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aba7da0fa8d247c6b9c9d670a731b2aa267abac0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505704"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818730"
 ---
 Caso prefira começar a usar agora, exiba ou baixe todos os <a href="https://aka.ms/speech/github-java">Exemplos do SDK de Fala do Java</a> no GitHub. Caso contrário, vamos começar.

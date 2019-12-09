@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 556fb2c1caf9c763cf5a63b71d3dd1e522104e1d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.date: 12/04/2019
+ms.openlocfilehash: d7a746c170d04ad17b86e8aca63384edffbe75ac
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646957"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806789"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar SQL Server para uma instância gerenciada do Banco de Dados SQL do Azure online usando DMS
 
@@ -204,13 +204,18 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     | | |
     |--------|---------|
-    |**Compartilhamento do local de rede SMB** | O compartilhamento de rede SMB local que contém os seus arquivos de backup de banco de dados completos e os arquivo de backup de log de transações que o Serviço de Migração de Banco de Dados do Azure pode usar para a migração. A conta de serviço que executa a instância do SQL Server de origem precisa ter privilégios de leitura\gravação nesse compartilhamento de rede. Forneça um FQDN ou endereços IP do servidor no compartilhamento de rede, por exemplo, “\\\servername.domainname.com\backupfolder' ou '\\\IP address\backupfolder”.|
-    |**Nome de usuário** | Certifique-se de que o usuário do Windows possui privilégios de controle total no compartilhamento de rede fornecido acima. O Serviço de Migração de Banco de Dados do Azure representará a credencial do usuário para fazer upload dos arquivos de backup no contêiner de armazenamento do Azure para a operação de restauração. |
-    |**Senha** | Senha do usuário. |
+    |**Compartilhamento do local de rede SMB** | O compartilhamento de rede SMB local ou o compartilhamento de arquivo do Azure que contém os arquivos de backup do banco de dados completos e os arquivos de backup do log de transações que o Serviço de Migração de Banco de Dados do Azure pode usar para migração. A conta de serviço que executa a instância do SQL Server de origem precisa ter privilégios de leitura\gravação nesse compartilhamento de rede. Forneça um FQDN ou endereços IP do servidor no compartilhamento de rede, por exemplo, “\\\servername.domainname.com\backupfolder' ou '\\\IP address\backupfolder”.|
+    |**Nome de usuário** | Certifique-se de que o usuário do Windows possui privilégios de controle total no compartilhamento de rede fornecido acima. O Serviço de Migração de Banco de Dados do Azure representará a credencial do usuário para fazer upload dos arquivos de backup no contêiner de armazenamento do Azure para a operação de restauração. Se estiver usando o compartilhamento de arquivo do Azure, use o nome da conta de armazenamento com o prefixo AZURE \ como nome de usuário. |
+    |**Senha** | Senha do usuário. Se estiver usando o compartilhamento de arquivo do Azure, use uma chave de conta de armazenamento como senha. |
     |**Assinatura da Conta de Armazenamento do Azure** | Selecione a assinatura que contém a Conta de Armazenamento do Azure. |
     |**Conta de Armazenamento do Azure** | Selecione a Conta de Armazenamento do Azure da qual o DMS pode fazer upload dos arquivos de backup para o compartilhamento de rede do SMB e usá-los para a migração de banco de dados.  É recomendável selecionar a Conta de Armazenamento na mesma região que o serviço do DMS para um desempenho ideal de upload de arquivo. |
 
     ![Definir as configurações de migração](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
+
+
+> [!NOTE]
+  > Se o Serviço de Migração de Banco de Dados do Azure mostrar o “Erro do Sistema 53” ou o “Erro do Sistema 57”, a causa poderá ser a incapacidade do Serviço de Migração de Banco de Dados do Azure de acessar o compartilhamento de arquivo do Azure. Se encontrar um desses erros, permita acesso à conta de armazenamento da rede virtual usando [estas](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) instruções.
+
 
 2. Clique em **Salvar**.
 

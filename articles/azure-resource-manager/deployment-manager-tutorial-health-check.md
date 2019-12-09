@@ -1,16 +1,16 @@
 ---
-title: Usar o Gerenciador de Implantação do Azure com modelos
-description: Use modelos do Resource Manager com o Gerenciador de Implantação do Azure para implantar recursos do Azure.
+title: Usar a Verificação de Integridade do Gerenciador de Implantação do Azure
+description: Use a Verificação de Integridade para implantar recursos do Azure de maneira segura com o Gerenciador de Implantação do Azure.
 author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0ce37a744cdf22beddcef433fca1a64252e1673d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 355a40db7714ddae39c4171aaa0ebe4b5e5f777e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149903"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784673"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Usar a verificação de integridade no Gerenciador de Implantação do Azure (versão prévia pública)
 

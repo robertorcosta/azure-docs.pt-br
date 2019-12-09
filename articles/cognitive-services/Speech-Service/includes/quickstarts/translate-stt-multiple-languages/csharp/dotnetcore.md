@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Traduzir fala para vários idiomas, C# (.NET Core Windows) – Serviço de Fala'
+title: 'Início Rápido: Traduzir uma fala para vários idiomas, C# (.NET Core Windows) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 947c0dd8a15efa8ac296aa598d883951816e759d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ea3c0bd1ab12004b51c3c9b56eb8a8370da6f36
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504752"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817180"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -117,7 +117,7 @@ Antes de começar, é preciso:
 
 1. Escolha **Depurar** > **Iniciar depuração** (ou pressione **F5**) para iniciar o aplicativo **Olá Mundo**.
 
-1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para os Serviços de Fala, que a traduzem e transcrevem em texto (neste caso, para francês e alemão). Em seguida, os Serviços de Fala enviam o texto de volta para o aplicativo para exibição.
+1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para o serviço de Fala, que a traduz e transcreve em texto (neste caso, para francês e alemão). Em seguida, o serviço de Fala enviam o texto de volta para o aplicativo para exibição.
 
 ````
 Say something...

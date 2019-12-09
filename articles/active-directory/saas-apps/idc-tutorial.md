@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8dfc72dea9289fc13d648b05b59f6d1bd9b3e0
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 9fc7ccb1d619e36990fbc1b654a2b7be36a287e1
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273584"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705990"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-idc"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao IDC
 
@@ -93,7 +93,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     Na caixa de texto **URL de Logon**, digite uma URL: `https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do IDC](mailto:webchanneldev@idc.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a equipe de suporte ao cliente do IDC para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -135,7 +135,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="configure-idc-sso"></a>Configure o SSO do IDC
 
-Para configurar o logon único no lado do **IDC**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do IDC](mailto:webchanneldev@idc.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **IDC**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a equipe de suporte do IDC. O IDC define essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
 ### <a name="create-idc-test-user"></a>Criar usuário de teste do IDC
 
