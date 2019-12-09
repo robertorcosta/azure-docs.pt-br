@@ -1,18 +1,19 @@
 ---
-title: Descompasso de esquema no fluxo de dados de mapeamento | Azure Data Factory
-description: Criar fluxos de dados resilientes em Azure Data Factory com descompasso de esquema
+title: Descompasso de esquema no fluxo de dados de mapeamento
+description: Construa fluxos de dados resistentes no Azure Data Factory com descompasso de esquema
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/12/2019
-ms.openlocfilehash: 8c2764535515d0aeb1eb65a1621148fa58317cac
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9daf7973a2e48f866a8d0b93a682851d31dc3af7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553705"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928548"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Descompasso de esquema no fluxo de dados de mapeamento
 
@@ -21,12 +22,12 @@ A descompasso de esquema é o caso em que suas fontes geralmente alteram metadad
 Para se proteger contra descompasso de esquema, é importante ter as instalações em uma ferramenta de fluxo de dados para permitir que você, como engenheiro de dados,:
 
 * Definir fontes com nomes de campo mutáveis, tipos de dados, valores e tamanhos
-* Definir parâmetros de transformação que podem funcionar com padrões de dados em vez de valores e campos embutidos em código
-* Definir expressões que entendem padrões para corresponder campos de entrada, em vez de usar campos nomeados
+* Defina parâmetros de transformação que funcionam com padrões de dados ao invés de campos e valores codificados
+* Defina expressões que compreendam padrões para corresponder aos campos recebidos, ao invés de usar campos nomeados
 
 Azure Data Factory nativamente dá suporte a esquemas flexíveis que mudam da execução para a execução para que você possa criar uma lógica de transformação de dados genérica sem a necessidade de recompilar os fluxos de dados.
 
-Você precisa tomar uma decisão arquitetônica em seu fluxo de dados para aceitar descompasso de esquema em todo o fluxo. Ao fazer isso, você pode proteger contra alterações de esquema das fontes. No entanto, você perderá a ligação antecipada de suas colunas e tipos em todo o fluxo de dados. Azure Data Factory trata os fluxos de descompasso de esquema como fluxos de ligação tardia, portanto, quando você cria suas transformações, os nomes de coluna desfeitos não estarão disponíveis para você nas exibições de esquema em todo o fluxo.
+Você precisa tomar uma decisão sobre a arquitetura de seu fluxo de dados para aceitar o descompasso de esquema em todo o fluxo. Ao fazer isso, você pode proteger contra alterações de esquema das fontes. No entanto, você perderá a ligação antecipada de suas colunas e tipos em todo o fluxo de dados. Azure Data Factory trata os fluxos de descompasso de esquema como fluxos de ligação tardia, portanto, quando você cria suas transformações, os nomes de coluna desfeitos não estarão disponíveis para você nas exibições de esquema em todo o fluxo.
 
 ## <a name="schema-drift-in-source"></a>Descompasso de esquema na origem
 
