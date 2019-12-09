@@ -4,25 +4,24 @@ description: Este artigo explica como você pode escalar horizontalmente um Gate
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c3428019fe23e3f206e763249a18e7774bab149b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682691"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932024"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md). 
+> Este artigo se aplica à versão 1 da fábrica de dados. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md). 
 
 
 Este artigo ajudará a configurar a solução de alta disponibilidade e escalabilidade com o Gateway/Integração de Gerenciamento de Dados.    
@@ -32,7 +31,7 @@ Este artigo ajudará a configurar a solução de alta disponibilidade e escalabi
 > 
 > **Esse recurso em versão prévia é oficialmente compatível com o Gateway de Gerenciamento de Dados versão 2.12.xxxx.x e superior**. Verifique se você está usando a versão 2.12.xxxx.x ou superior. Baixe a versão mais recente do Gateway de Gerenciamento de Dados [aqui](https://www.microsoft.com/download/details.aspx?id=39717).
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Você pode associar gateways de gerenciamento de dados instalados em vários computadores locais a um único gateway lógico por meio do portal. Esses computadores são chamados de **nós**. Você pode ter até **quatro nós** associados a um gateway lógico. Os benefícios de ter vários nós (computadores locais com o gateway instalado) para um gateway lógico são:  
 
 - Melhorar o desempenho de movimentação de dados entre armazenamentos de dados local e na nuvem.  
@@ -109,10 +108,10 @@ Esta seção pressupõe que você percorreu os dois artigos a seguir ou está fa
 6. No Portal do Azure, inicie a página **Gateway**: 
     1. Na home page do data factory no portal, clique em **Serviços Vinculados**.
     
-        ![Página inicial da data factory](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+        ![Página inicial do data factory](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
     2. Selecione o **gateway** para ver a página **Gateway**:
     
-        ![Página inicial da data factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
+        ![Página inicial do data factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
     4. Você vê a página **Gateway**:   
 
         ![Gateway com exibição de nó único](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
@@ -159,21 +158,21 @@ Você pode atualizar um gateway existente para usar o recurso de alta disponibil
 - Adicione pelo menos dois nós para assegurar alta disponibilidade.  
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisitos de certificado TLS/SSL
-Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comunicações entre os nós do tempo de execução de integração:
+Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comunicações entre os nós do runtime de integração:
 
 - O certificado deve ser um certificado X509 v3 publicamente confiável. É recomendável que você use certificados emitidos por uma AC (autoridade de certificação) pública (de terceiros).
-- Cada nó de tempo de execução de integração deve confiar nesse certificado, bem como no computador cliente que está executando o aplicativo do gerenciador de credenciais. 
+- Cada nó de runtime de integração deve confiar nesse certificado, bem como no computador cliente que está executando o aplicativo do gerenciador de credenciais. 
   > [!NOTE]
   > O aplicativo do gerenciador de credenciais é usado durante a configuração segura da credencial do Assistente para Cópia/Portal do Azure. E isso pode ser disparado de qualquer computador na mesma rede que o armazenamento de dados local/privado.
 - Há suporte para certificados curinga. Se o nome FQDN for **node1.domain.contoso.com**, você poderá usar * **.domain.contoso.com** como nome da entidade do certificado.
-- Certificados SAN não são recomendados, já que apenas o último item dos Nomes Alternativos de Entidade será usado e todos os outros serão ignorados devido à limitação atual. Por exemplo você tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, você só pode usar este certificado no computador cujo FQDN é **node2.domain.contoso.com**.
+- Certificados SAN não são recomendados, já que apenas o último item dos Nomes Alternativos de Entidade será usado e todos os outros serão ignorados devido à limitação atual. Por exemplo: você tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, você só pode usar este certificado no computador cujo FQDN é **node2.domain.contoso.com**.
 - Dá suporte a qualquer tamanho de chave com suporte pelo Windows Server 2012 R2 para certificados SSL.
 - Não há suporte para certificado usando chaves CNG.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>Perguntas frequentes: Quando eu não habilitaria essa criptografia?
 Habilitar criptografia pode adicionar custos à sua infraestrutura (ter um certificado público), portanto, você pode ignorar a habilitação de criptografia nestes casos:
-- Quando o tempo de execução de integração for executado em uma rede confiável ou em uma rede com criptografia transparente, como IP/SEC. Uma vez que essa comunicação de canal só é limitada na sua rede confiável, talvez você não precise de criptografia adicional.
-- Quando o tempo de execução de integração não está em execução em um ambiente de produção. Isso pode ajudar a reduzir o custo do certificado TLS/SSL.
+- Quando o runtime de integração for executado em uma rede confiável ou em uma rede com criptografia transparente, como IP/SEC. Uma vez que essa comunicação de canal só é limitada na sua rede confiável, talvez você não precise de criptografia adicional.
+- Quando o runtime de integração não está em execução em um ambiente de produção. Isso pode ajudar a reduzir o custo do certificado TLS/SSL.
 
 
 ## <a name="monitor-a-multi-node-gateway"></a>Monitorar um gateway com vários nós
@@ -184,9 +183,9 @@ No Portal do Azure, você pode exibir o instantâneo quase em tempo real de util
 
 Você pode habilitar as **Configurações Avançadas** na página **Gateway** para ver as métricas avançadas como **Rede**(entrada/saída), **Função e Status de Credencial**, que é útil na depuração de problemas do gateway e **Trabalhos Simultâneos** (Executando/Limite), que podem ser modificados/alterados adequadamente durante o ajuste de desempenho. A tabela a seguir fornece descrições das colunas na lista **Nós de Gateway**:  
 
-Propriedade de monitoramento | DESCRIÇÃO
+Propriedade de monitoramento | Descrição
 :------------------ | :---------- 
-Nome | Nome do gateway lógico e nós associada ao gateway.  
+name | Nome do gateway lógico e nós associada ao gateway.  
 Status | Status do gateway lógico e dos nós de gateway. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a seção [status do gateway](#gateway-status) . 
 Versão | Mostra a versão do gateway lógico e cada nó do gateway. A versão do gateway lógico é determinada com base na versão da maioria dos nós no grupo. Se não há nós com versões diferentes na configuração do gateway lógico, somente os nós com o mesmo número de versão que o gateway lógico funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe). 
 Memória disponível | Memória disponível em um nó do gateway. Esse valor é um instantâneo quase em tempo real. 
@@ -256,7 +255,7 @@ Para reverter da versão prévia, exclua todos os nós, com exceção de um. Nã
 Depois de excluí-lo, clique na **versão prévia dos recursos** na mesma página do Portal do Azure e desabilite a versão prévia do recurso. Você redefiniu o gateway para um gateway de um nó de DG (disponibilidade geral).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Examine os seguintes artigos:
 - [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) – fornece uma visão geral detalhada do gateway.
 - [Mover dados entre locais e na nuvem armazenamentos de dados](data-factory-move-data-between-onprem-and-cloud.md) – contém um passo a passo com instruções passo a passo para usar um gateway com um único nó. 

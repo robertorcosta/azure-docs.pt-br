@@ -4,21 +4,20 @@ description: Saiba mais sobre como mover dados de um banco de dados DB2 local us
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0d066e66e4b9600eb5734ef2f3c6031dbc44f17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666596"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931780"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando a Atividade de Cópia do Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -26,7 +25,7 @@ ms.locfileid: "73666596"
 > * [Versão 2 (versão atual)](../connector-db2.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do DB2 na V2 ](../connector-db2.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do DB2 na V2 ](../connector-db2.md).
 
 
 Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Factory para copiar dados de um banco de dados DB2 local para um armazenamento de dados. Você pode copiar dados em qualquer armazenamento listado como um coletor suportado no artigo [Atividades de movimentação de dados no Data Factory](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Este tópico foi criado com base no artigo do Data Factory, que apresenta uma visão geral da movimentação de dados usando a Atividade de Cópia e lista as combinações de armazenamento de dados suportadas. 
@@ -34,7 +33,7 @@ Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Fa
 Atualmente, o Data Factory dá suporte apenas à movimentação de dados de um banco de dados DB2 para um [armazenamento de dados do coletor suportado](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Não há suporte para a movimentação de dados de outros armazenamentos de dados para um banco de dados DB2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-O Data Factory dá suporte à conexão com um banco de dados DB2 local usando o [gateway de gerenciamento de dados](data-factory-data-management-gateway.md). Para obter instruções passo a passo de como configurar o pipeline de dados de gateway para mover dados, confira o artigo [Move dados de fontes locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md).
+O Data Factory dá suporte à conexão com um banco de dados DB2 local usando o [gateway de gerenciamento de dados](data-factory-data-management-gateway.md). Para obter instruções passo a passo de como configurar o pipeline de dados de gateway para mover dados, confira o artigo [Mover dados de fontes locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
 O gateway é necessário, mesmo se o DB2 estiver hospedado na VM da Iaas do Azure. Você pode instalar o gateway na mesma VM da IaaS que o armazenamento de dados. Se o gateway puder se conectar com o banco de dados, você poderá instalar o gateway em uma VM diferente.
 
@@ -79,23 +78,23 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="db2-linked-service-properties"></a>Propriedades do serviço vinculado do DB2
 A tabela a seguir lista as propriedades JSON que são específicas a um serviço vinculado do DB2.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | --- | --- | --- |
-| **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |Sim |
-| **server** |O nome do servidor DB2. |Sim |
-| **database** |O nome do banco de dados DB2. |Sim |
+| **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |SIM |
+| **server** |O nome do servidor DB2. |SIM |
+| **database** |O nome do banco de dados DB2. |SIM |
 | **schema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não |
-| **authenticationType** |O tipo de autenticação que é usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anônimo, Básico e Windows. |Sim |
+| **authenticationType** |O tipo de autenticação que é usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anônimo, Básico e Windows. |SIM |
 | **username** |O nome da conta de usuário, se você usar a autenticação Básica ou do Windows. |Não |
 | **password** |A senha para a conta de usuário. |Não |
-| **gatewayName** |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |Sim |
+| **gatewayName** |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |SIM |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como **structure**, **availability** e **policy** de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, armazenamento de Blobs do Azure, armazenamento de Tabelas do Azure, entre outros).
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do DB2, tem a seguinte propriedade:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | --- | --- | --- |
 | **tableName** |O nome da tabela na instância do banco de dados DB2 à qual o serviço vinculado se refere. Essa propriedade diferencia maiúsculas de minúsculas. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
@@ -104,7 +103,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir as at
 
 Para a Atividade de Cópia, quando a fonte for do tipo **RelationalSource** (que inclui o DB2), as seguintes propriedades estarão disponíveis na seção **typeProperties**:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | obrigatórios |
 | --- | --- | --- | --- |
 | **query** |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""` |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 
@@ -311,43 +310,43 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
-| Real |Single |
-| Duplo |Duplo |
-| Float |Duplo |
+| Real |Individual |
+| DOUBLE |DOUBLE |
+| Float |DOUBLE |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
 | Data |DateTime |
-| Hora |TimeSpan |
+| Tempo |timespan |
 | Timestamp |DateTime |
-| Xml |Byte[] |
-| Char |Cadeia de caracteres |
-| VarChar |Cadeia de caracteres |
-| LongVarChar |Cadeia de caracteres |
-| DB2DynArray |Cadeia de caracteres |
+| xml |Byte[] |
+| Char |string |
+| VarChar |string |
+| LongVarChar |string |
+| DB2DynArray |string |
 | Binário |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |Cadeia de caracteres |
-| VarGraphic |Cadeia de caracteres |
-| LongVarGraphic |Cadeia de caracteres |
-| Clob |Cadeia de caracteres |
+| Graphic |string |
+| VarGraphic |string |
+| LongVarGraphic |string |
+| Clob |string |
 | Blob |Byte[] |
-| DbClob |Cadeia de caracteres |
+| DbClob |string |
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
-| Real |Single |
-| Duplo |Duplo |
-| Float |Duplo |
+| Real |Individual |
+| DOUBLE |DOUBLE |
+| Float |DOUBLE |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
 | Data |DateTime |
-| Hora |TimeSpan |
+| Tempo |timespan |
 | Timestamp |DateTime |
-| Xml |Byte[] |
-| Char |Cadeia de caracteres |
+| xml |Byte[] |
+| Char |string |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre como mapear colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
@@ -356,4 +355,4 @@ Para saber mais sobre como mapear colunas no conjunto de dados de origem para co
 Ao copiar dados de um armazenamento de dados relacional, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a propriedade **policy** de repetição para um conjunto de dados, a fim de executar novamente uma fatia quando ocorrer uma falha. Certifique-se de que os mesmos dados sejam lidos, não importa quantas vezes a fatia seja executada e independentemente de como você executa novamente a fatia. Para saber mais, confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste
-Saiba mais sobre os principais fatores que afetam o desempenho da Atividade de Cópia e maneiras de otimizar o desempenho no [Guia Desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md).
+Saiba mais sobre os principais fatores que afetam o desempenho da Atividade de Cópia e maneiras de otimizar o desempenho no [Guia de Desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md).

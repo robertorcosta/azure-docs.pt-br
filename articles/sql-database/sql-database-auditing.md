@@ -4,19 +4,17 @@ description: Use a auditoria de banco de dados SQL do Azure para rastrear evento
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 58a446baaf15facab3a85d4d83defdeb5e6d2ef9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851478"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928709"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -154,7 +152,7 @@ Se você tiver escolhido gravar logs de auditoria no Hub de Eventos:
 Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azure, poderá usar vários métodos para exibir os logs:
 
 > [!NOTE] 
-> A auditoria em [réplicas somente leitura](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out) é habilitada automaticamente. Para obter mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomenclatura e formato de log, consulte o [formato de log de auditoria do banco de dados SQL](sql-database-audit-log-format.md). 
+> A auditoria em [réplicas somente leitura](sql-database-read-scale-out.md) é habilitada automaticamente. Para obter mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomenclatura e formato de log, consulte o [formato de log de auditoria do banco de dados SQL](sql-database-audit-log-format.md). 
 
 - Os logs de auditoria são agregados na conta escolhida durante a instalação. Explore os logs de auditoria usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/). No Armazenamento do Azure, os logs de auditoria de blob são salvos como uma coleção de arquivos de blob em um contêiner chamado **sqldbauditlogs**. Para obter mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomenclatura e formato de log, consulte o [formato de log de auditoria do banco de dados SQL](https://go.microsoft.com/fwlink/?linkid=829599).
 

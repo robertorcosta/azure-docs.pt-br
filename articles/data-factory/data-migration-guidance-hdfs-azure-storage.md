@@ -1,23 +1,22 @@
 ---
-title: Usar Azure Data Factory para migrar dados de um cluster Hadoop local para o armazenamento do Azure
+title: Migrar dados de um cluster Hadoop local para o armazenamento do Azure
 description: Saiba como usar Azure Data Factory para migrar dados do cluster Hadoop local para o armazenamento do Azure.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
+author: dearandyxu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: b952be49bf5bc00b338aa04ed51e9dc451b5c4f9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: afccbdbbfd5b8ddeefa621448d6170d937b518f0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675824"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931441"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Usar Azure Data Factory para migrar dados de um cluster Hadoop local para o armazenamento do Azure 
 
@@ -30,13 +29,13 @@ O Data Factory oferece duas abordagens básicas para migrar dados do HDFS local 
 
 Este artigo fornece as seguintes informações sobre as duas abordagens:
 > [!div class="checklist"]
-> * Desempenho 
+> * Performance 
 > * Resiliência de cópia
 > * Segurança de rede
 > * Arquitetura de solução de alto nível 
 > * Práticas recomendadas de implementação  
 
-## <a name="performance"></a>Desempenho
+## <a name="performance"></a>Performance
 
 No modo de Data Factory DistCp, a taxa de transferência é a mesma de se você usar a ferramenta DistCp de forma independente. Data Factory modo DistCp maximiza a capacidade de seu cluster Hadoop existente. Você pode usar o DistCp para a cópia grande entre clusters ou dentro do cluster. 
 
@@ -144,7 +143,7 @@ Este é o preço estimado com base em nossas suposições:
 - [Conector do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Conector do Azure Data Lake Store Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Guia de ajuste de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Criar e configurar um tempo de execução da integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+- [Criar e configurar um runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [Alta disponibilidade e escalabilidade do tempo de execução de integração auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [Considerações de segurança de movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 - [Armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
@@ -152,6 +151,6 @@ Este é o preço estimado com base em nossas suposições:
 - [Copiar arquivos novos e alterados com base em LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [Página de preços do Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Copiar arquivos de vários contêineres usando Azure Data Factory](solution-template-copy-files-multiple-containers.md)

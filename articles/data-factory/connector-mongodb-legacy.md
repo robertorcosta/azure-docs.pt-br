@@ -1,25 +1,26 @@
 ---
-title: Copiar dados do MongoDB usando o Azure Data Factory
+title: Copiar dados do MongoDB usando herdado
 description: Saiba como copiar dados do MongoDB para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.author: jingwang
-ms.openlocfilehash: 0c2c2d9ad78bb09a37faaa5825f8dae3e27370ea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 089064cee68170ab44fc1cc05e630781529b7b60
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680683"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931296"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB usando o Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Versão atual](connector-mongodb.md)
@@ -54,15 +55,15 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo |A propriedade type deve ser definida como: **MongoDb** |Sim |
-| server |Endereço IP ou nome do host do servidor MongoDB. |Sim |
+| type |A propriedade type deve ser definida como: **MongoDb** |SIM |
+| server |Endereço IP ou nome do host do servidor MongoDB. |SIM |
 | porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Não (o padrão é 27017) |
-| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MongoDB.<br/>Os valores permitidos são: **Básica** e **Anônima**. |Sim |
+| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |SIM |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MongoDB.<br/>Os valores permitidos são: **Básica** e **Anônima**. |SIM |
 | Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
-| Senha |Senha do usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se a autenticação básica for usada). |
+| Senha |Senha do usuário. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se a autenticação básica for usada). |
 | authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Não. Para a autenticação Básica, o padrão é usar a conta do administrador e o banco de dados especificado, usando a propriedade databaseName. |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não |
 | allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é falso.  | Não |
@@ -97,10 +98,10 @@ As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 
 Para obter uma lista completa de seções e propriedades disponíveis para definição de conjuntos de dados, consulte [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md). As propriedades a seguir têm suporte para o conjunto de dados do MongoDB:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **MongoDbCollection** | Sim |
-| collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como: **MongoDbCollection** | SIM |
+| collectionName |Nome da coleção no banco de dados MongoDB. |SIM |
 
 **Exemplo:**
 
@@ -128,9 +129,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MongoDbSource** | Sim |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **MongoDbSource** | SIM |
 | query |Utiliza a consulta SQL-92 personalizada para ler os dados. Por exemplo: select * from MyTable. |Não (se "collectionName" no conjunto de dados for especificada) |
 
 **Exemplo:**
@@ -181,12 +182,12 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são usados de tipos de dad
 | Binário |Byte[] |
 | Booliano |Booliano |
 | Data |DateTime |
-| NumberDouble |Duplo |
+| NumberDouble |DOUBLE |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Cadeia de caracteres |
-| Cadeia de caracteres |Cadeia de caracteres |
-| UUID |Guid |
+| ObjectID |string |
+| string |string |
+| UUID |GUID |
 | Objeto |Renormalizado para colunas simples com “_" como separador aninhado |
 
 > [!NOTE]
@@ -207,14 +208,14 @@ As tabelas virtuais se referem aos dados na tabela real, permitindo que o driver
 
 Por exemplo, a ExampleTable mostrada aqui é uma tabela do MongoDB contendo uma coluna com uma matriz de Objetos em cada célula (Faturas) e uma coluna com uma matriz de tipos Escalares (Classificações).
 
-| _id | Nome do Cliente | Faturas | Nível de Serviço | Classificações |
+| _id | Nome do Cliente | Faturas | Nível do serviço | Classificações |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id:"123", item:"torradeira", price:"456", discount:"0,2"}, {invoice_id:"124", item:"forno",price: "1235",discount: "0,2"}] |Silver |[5,6] |
 | 2222 |XYZ |[{invoice_id:"135", item:"geladeira", price: "12543", discount: "0,0"}] |Gold |[1,2] |
 
 O driver geraria várias tabelas virtuais para representar essa tabela única. A primeira tabela virtual é a tabela base chamada "ExampleTable", mostrada no exemplo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foram omitidos e são expandidos nas tabelas virtuais.
 
-| _id | Nome do Cliente | Nível de Serviço |
+| _id | Nome do Cliente | Nível do serviço |
 | --- | --- | --- |
 | 1111 |ABC |Silver |
 | 2222 |XYZ |Gold |
@@ -242,5 +243,5 @@ As tabelas a seguir mostram as tabelas virtuais que representam as matrizes orig
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

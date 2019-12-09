@@ -1,34 +1,30 @@
 ---
-title: Migrar aplicativos Xamarin iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET
+title: Migrar o Xamarin iOS ADAL para MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Saiba como migrar aplicativos do Xamarin iOS que usam Microsoft Authenticator da biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) para a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
-documentationcenter: dev-center-name
+description: Saiba como migrar aplicativos do Xamarin iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET.
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c64f9f371424eddc7295b6ec40bda1ebdaaafd5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4e70865c897e408f1cebb7359d0890d27b11243b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175579"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921816"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrar aplicativos iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET
 
 Você esteve usando o Azure Active Directory ADAL.NET (biblioteca de autenticação para .NET) e o agente do iOS. Agora é hora de migrar para a MSAL.NET ( [biblioteca de autenticação da Microsoft](msal-overview.md) para .net), que dá suporte ao agente no Ios da versão 4,3 em diante. 
 
-Onde você deve começar? Este artigo ajuda você a migrar seu aplicativo Xamarin iOS da ADAL para MSAL.
+Por onde você deve começar? Este artigo ajuda você a migrar seu aplicativo Xamarin iOS da ADAL para MSAL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você já tenha um aplicativo Xamarin iOS integrado ao agente do iOS. Se você não fizer isso, mova diretamente para MSAL.NET e comece a implementação do agente. Para obter informações sobre como invocar o agente do iOS no MSAL.NET com um novo aplicativo, consulte [esta documentação](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).

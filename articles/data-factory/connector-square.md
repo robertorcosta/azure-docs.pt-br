@@ -1,30 +1,30 @@
 ---
-title: Copiar dados do Square utilizando Azure Data Factory (versão prévia)
+title: Copiar dados do quadrado (visualização)
 description: Saiba como copiar dados do Square para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-ms.openlocfilehash: b7f83e8e7690180dbed04572f2e2699f02d5fed7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de795d082069ff5ad895c48b7a507512449d0208
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680126"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931002"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados do Square utilizando Azure Data Factory (versão prévia)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o Square. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 > [!IMPORTANT]
-> Atualmente, esse conector está em versão prévia. Você pode experimentá-lo e oferecer comentários. Se você quiser uma dependência de conectores em versão prévia em sua solução, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/).
+> Este conector está atualmente em pré-visualização. Você pode experimentá-lo e oferecer comentários. Se você quiser uma dependência de conectores em versão prévia em sua solução, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -48,16 +48,16 @@ As seções que a seguir fornecem detalhes sobre as propriedades usadas para def
 
 As propriedades a seguir têm suporte para o serviço vinculado do Square:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Square** | Sim |
-| host | A URL da instância Square. (ou seja, mystore.mysquare.com)  | Sim |
-| clientId | A ID de cliente associada ao seu aplicativo Square.  | Sim |
-| clientSecret | O segredo do cliente associada ao seu aplicativo Square. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| redirectUri | A URL de redirecionamento atribuída no painel do aplicativo Square. (ou seja, http:\//localhost: 2500)  | Sim |
+| type | A propriedade type deve ser definida como: **Square** | SIM |
+| host | A URL da instância Square. (ou seja, mystore.mysquare.com)  | SIM |
+| clientId | A ID de cliente associada ao seu aplicativo Square.  | SIM |
+| clientSecret | O segredo do cliente associada ao seu aplicativo Square. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| redirectUri | A URL de redirecionamento atribuída no painel do aplicativo Square. (ou seja, http:\//localhost: 2500)  | SIM |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não |
-| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não |
+| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conectam por meio de SSL. O valor padrão é true.  | Não |
 
 **Exemplo:**
 
@@ -85,9 +85,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Square, defina a propriedade type do conjunto de dados como **SquareObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **squareobject** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **squareobject** | SIM |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -115,9 +115,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Square, defina o tipo de origem na atividade de cópia como **SquareSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SquareSource** | Sim |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **SquareSource** | SIM |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -156,5 +156,5 @@ Para copiar dados do Square, defina o tipo de origem na atividade de cópia como
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

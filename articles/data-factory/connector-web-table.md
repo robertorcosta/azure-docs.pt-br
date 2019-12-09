@@ -4,20 +4,19 @@ description: Saiba mais sobre o conector de tabela da Web do Azure Data Factory 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: a13f3c2d2bbebd2cd6fa95bd7aa144722447ac9d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 76f0dbb48ca5e250a383e8427ce2dd0c9dd618c9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680055"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930944"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar dados da tabela da Web usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -30,7 +29,7 @@ A diferença entre esse conector de tabela da Web, o [conector REST](connector-r
 
 - O **conector da tabela da Web** extrai o conteúdo da tabela de uma página da Web em HTML.
 - O **conector REST** especificamente dá suporte à cópia de dados de APIs RESTful.
-- O **conector HTTP** é genérico para recuperar dados de qualquer ponto de extremidade HTTP, por exemplo, para baixar o arquivo. 
+- O **conector HTTP** é genérico para recuperar dados de qualquer ponto de extremidade HTTP como, por exemplo, para fazer o download. 
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -45,7 +44,7 @@ Especificamente, esse conector de tabela da Web dá suporte à **extração de c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar este conector de tabela da Web, você precisa configurar um Tempo de Execução de Integração Auto-hospedado. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
+Para usar este conector de tabela da Web, você precisa configurar um runtime de integração auto-hospedada. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -57,12 +56,12 @@ As seções que a seguir fornecem detalhes sobre as propriedades usadas para def
 
 As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Web** |Sim |
-| url | URL para a origem da Web |Sim |
-| authenticationType | O valor permitido é: **Anônimo**. |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
+| type | A propriedade type deve ser definida como: **Web** |SIM |
+| URL | URL para a origem da Web |SIM |
+| authenticationType | O valor permitido é: **Anônimo**. |SIM |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |SIM |
 
 **Exemplo:**
 
@@ -89,11 +88,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados da tabela web, defina a propriedade type do conjunto de dados como **WebTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **WebTable** | Sim |
-| path |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
-| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como: **WebTable** | SIM |
+| caminho |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
+| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |SIM |
 
 **Exemplo:**
 
@@ -162,7 +161,7 @@ Para obter o índice de uma tabela que você precisa configurar em [propriedades
 2. Clique em **Nova Consulta** na barra de ferramentas, aponte para **De Outras Fontes** e clique em **Da Web**.
 
     ![Menu do Power Query](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. Na caixa de diálogo **Da Web**, insira a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/)) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
+3. Na caixa de diálogo **Da Web**, insira a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/) ) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
 
     ![Do diálogo da Web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 
@@ -187,5 +186,5 @@ Se você estiver usando o Excel 2013, use o [Microsoft Power Query para Excel](h
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

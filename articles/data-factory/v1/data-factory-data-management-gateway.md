@@ -4,25 +4,24 @@ description: Configure um gateway de dados para mover dados entre o local e a nu
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 41d8a5d3569d0b38ff569f9ccfa28a4b2af1d959
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682724"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932013"
 ---
-# <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
+# <a name="data-management-gateway"></a>Gateway de Gerenciamento de Dados
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md).
 
 > [!NOTE]
 > O Gateway de Gerenciamento de Dados agora foi remarcado como Integration Runtime auto-hospedado.
@@ -38,7 +37,7 @@ Você pode escalar horizontalmente um Gateway de Gerenciamento de Dados por meio
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 ### <a name="capabilities-of-data-management-gateway"></a>Funcionalidades do Gateway de Gerenciamento de Dados
 O Gateway de Gerenciamento de Dados fornece as seguintes funcionalidades:
 
@@ -141,7 +140,7 @@ Há dois firewalls que você precisa levar em consideração: o **firewall corpo
 
 No nível do firewall corporativo, você precisa configurar os seguintes domínios e portas de saída:
 
-| Nomes de domínio | Portas | DESCRIÇÃO |
+| Nomes de domínio | Portas | Descrição |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Usado para comunicação com o back-end do Serviço de Movimentação de Dados |
 | *.core.windows.net |443 |Usado para cópia em etapas usando Blobs do Azure (se estiver configurado)|
@@ -252,7 +251,7 @@ Se estiver usando um firewall de terceiros, você poderá abrir manualmente a po
 
 Se optar por não abrir a porta 8050 no computador do gateway, use mecanismos diferentes do aplicativo **Definindo Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) . Confira a seção Definir credenciais e segurança para saber como as credenciais do armazenamento de dados podem ser definidas.
 
-## <a name="update"></a>Atualização
+## <a name="update"></a>Atualizar
 Por padrão, o Gateway de Gerenciamento de Dados é atualizado automaticamente quando uma versão mais recente do gateway está disponível. O gateway não é atualizado até que todas as tarefas agendadas sejam concluídas. Nenhuma tarefa adicional é processada pelo gateway até que a operação de atualização seja concluída. Se a atualização falhar, o gateway será revertido para a versão antiga.
 
 Você vê a hora de atualização agendada nos seguintes locais:
@@ -306,10 +305,10 @@ Você pode habilitar/desabilitar o recurso de atualização automática seguindo
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Gerenciador de Configurações
+## <a name="configuration-manager"></a>Configuration Manager
 Depois de instalar o gateway, você pode iniciar o Gerenciador de Configuração de Gateway de Gerenciamento de Dados de uma das seguintes maneiras:
 
-1. Na janela de **Pesquisa**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário.
+1. Na janela **Search**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário.
 2. Execute o executável *configmanager. exe* na pasta: *C:\\\\arquivos de programas\\Microsoft Gerenciamento de Dados Gateway\\2,0\\compartilhado*.
 
 ### <a name="home-page"></a>Página inicial
@@ -363,9 +362,9 @@ No Portal do Azure, você pode exibir o instantâneo quase em tempo real de util
 
 A tabela a seguir fornece descrições das colunas na lista **Nós de Gateway**:
 
-Propriedade de monitoramento | DESCRIÇÃO
+Propriedade de monitoramento | Descrição
 :------------------ | :----------
-NOME | Nome do gateway lógico e nós associada ao gateway. O nó é um computador local do Windows em que o gateway está instalado. Para obter informações sobre ter mais de um nó (até quatro nós) em um único gateway lógico, consulte [Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade](data-factory-data-management-gateway-high-availability-scalability.md).
+name | Nome do gateway lógico e nós associada ao gateway. O nó é um computador local do Windows em que o gateway está instalado. Para obter informações sobre ter mais de um nó (até quatro nós) em um único gateway lógico, consulte [Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade](data-factory-data-management-gateway-high-availability-scalability.md).
 Status | Status do gateway lógico e dos nós de gateway. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a seção [status do gateway](#gateway-status) .
 Versão | Mostra a versão do gateway lógico e cada nó do gateway. A versão do gateway lógico é determinada com base na versão da maioria dos nós no grupo. Se não há nós com versões diferentes na configuração do gateway lógico, somente os nós com o mesmo número de versão que o gateway lógico funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe).
 Memória disponível | Memória disponível em um nó do gateway. Esse valor é um instantâneo quase em tempo real.
@@ -421,7 +420,7 @@ Esta seção fornece etapas para movimentação do cliente do gateway de um comp
     ![Configurar página](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. Mantenha o **Gerenciador de Configuração de Gateway do Gerenciamento de Dados da Microsoft**
 
-    ![Gerenciador de Configurações](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Na página **Configurar no portal**, clique em **Recriar chave** na barra de comandos e clique em **Sim** para a mensagem de aviso. Clique no **botão copiar** ao lado do texto da chave, que copia a chave para a área de transferência. O gateway no computador antigo deixa de funcionar assim que você recria a chave.
 
     ![Recriar chave](./media/data-factory-data-management-gateway/RecreateKey.png)
@@ -543,5 +542,5 @@ Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -Resourc
 Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Consulte o artigo [Mover os dados entre os armazenamentos de dados local e de nuvem](data-factory-move-data-between-onprem-and-cloud.md) . Neste passo a passo, você cria um pipeline que usa o gateway para mover dados de um banco de dados SQL Server local para um blob do Azure.

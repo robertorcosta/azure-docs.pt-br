@@ -6,16 +6,15 @@ documentationcenter: ''
 author: kromerm
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: 3f05b9ae490ea2b9d8e7b89ce02c7c1eb818bb0a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 47126d1cf51f4b27863bb0b11e73cfe5592b8d57
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769568"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929876"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de fluxo de dados no Azure Data Factory
 
@@ -91,7 +90,7 @@ Se o fluxo de dados for parametrizado, defina os valores dinâmicos dos parâmet
 
 Para executar uma execução de pipeline de depuração com uma atividade de fluxo de dados, você deve alternar o modo de depuração do fluxo de dados por meio do controle deslizante de **depuração do fluxo de dados** na barra superior. O modo de depuração permite executar o fluxo de dados em um cluster do Spark ativo. Para obter mais informações, consulte [modo de depuração](concepts-data-flow-debug-mode.md).
 
-![Botão de depuração](media/data-flow/debugbutton.png "Botão de depuração")
+![Botão de depuração](media/data-flow/debugbutton.png "Botão depurar")
 
 O pipeline de depuração é executado no cluster de depuração ativa, não no ambiente do Integration Runtime especificado nas configurações de atividade do fluxo de dados. Você pode escolher o ambiente de computação de depuração ao iniciar o modo de depuração.
 

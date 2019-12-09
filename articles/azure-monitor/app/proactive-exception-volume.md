@@ -1,18 +1,18 @@
 ---
-title: Detecção inteligente - Aumento anormal no volume de exceção, no Azure Application Insights | Microsoft Docs
-description: Monitore exceções de aplicativo com o Azure Application Insights para padrões incomuns no volume de exceção.
+title: Aumento anormal no volume de exceção – insights de Aplicativo Azure
+description: Monitore as exceções de aplicativo com detecção inteligente no Aplicativo Azure insights de padrões incomuns no volume de exceção.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/08/2017
-ms.openlocfilehash: fa7669b78caabb95b08200e83ed18ea982ce9ac9
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 02c4fca42f3d5d7494dc8fd6fe0e33161904ddbe
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820608"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928217"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anormal no volume de exceção (visualização)
 

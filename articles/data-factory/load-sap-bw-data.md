@@ -1,22 +1,22 @@
 ---
-title: Carregar dados do SAP Business Warehouse usando Azure Data Factory
+title: Carregar dados do SAP Business Warehouse
 description: Usar Azure Data Factory para copiar dados do SAP Business Warehouse (BW)
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.author: jingwang
-ms.openlocfilehash: 0c96ecff27a57b3277e7c8105766059b739d11af
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672657"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931460"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando Azure Data Factory
 
@@ -46,7 +46,7 @@ Este artigo mostra como usar Azure Data Factory para copiar dados do SAP Busines
 
 ## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>Faça uma cópia completa do Hub SAP BW Open
 
-Na portal do Azure, vá para o data factory. Selecione **criar & monitor** para abrir a interface do usuário do data Factory em uma guia separada.
+No portal do Azure, acesse seu data factory. Selecione **criar & monitor** para abrir a interface do usuário do data Factory em uma guia separada.
 
 1. Na página **vamos começar** , selecione **copiar dados** para abrir a ferramenta copiar dados.
 
@@ -101,7 +101,7 @@ Na portal do Azure, vá para o data factory. Selecione **criar & monitor** para 
 
     ![Definir configurações de cópia](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Na página **Resumo** , examine as configurações. Em seguida, selecione **Avançar**.
+12. Na página **Resumo**, verifique as configurações. Em seguida, selecione **Avançar**.
 
 13. Na página **implantação** , selecione **Monitor** para monitorar o pipeline.
 
@@ -187,7 +187,7 @@ Na página data factory **vamos começar** , selecione **criar pipeline do model
 
       3. Adicione uma ação **criar blob** . Para o **caminho da pasta** e o nome do **blob**, use os mesmos valores que você configurou anteriormente em **HighWatermarkBlobPath** e **HighWatermarkBlobName**.
 
-      4. Selecione **Salvar**. Em seguida, copie o valor da **URL http post** para usar no pipeline data Factory.
+      4. Clique em **Salvar**. Em seguida, copie o valor da **URL http post** para usar no pipeline data Factory.
 
 4. Depois de fornecer os parâmetros de pipeline Data Factory, selecione **depurar** > **concluir** para invocar uma execução para validar a configuração. Ou então, selecione **publicar tudo** para publicar as alterações e, em seguida, selecione **gatilho** para executar uma execução.
 
@@ -212,7 +212,7 @@ Se você precisar de cópia histórica e cópia incremental ou apenas cópia inc
 
    Você pode aumentar o número de processos de trabalho do SAP em execução paralela para o DTP:
 
-   ![Create-SAP-BW-Ohd-Delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Agende as cadeias de DTP em processo.
 
@@ -266,7 +266,7 @@ Para definir o status do Delta DTP a ser **buscado**, você pode usar a seguinte
 
     *No Data Transfer; Delta Status in Source: Fetched*
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre SAP BW suporte ao conector de Hub aberto:
 

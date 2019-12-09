@@ -1,5 +1,5 @@
 ---
-title: Configurar uma transformação de coletor no recurso de fluxo de dados de mapeamento
+title: Configurar uma transformação de coletor no fluxo de dados de mapeamento
 description: Saiba como configurar uma transformação de coletor no fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 828487aba651d10e5c906050dab544c097b49762
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217921"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930266"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformação do coletor para um fluxo de dados
 
@@ -115,5 +115,5 @@ Quando dados de aterrissagem no CosmosDB, você precisará considerar estas opç
 * Chave de partição: é um campo obrigatório. Insira uma cadeia de caracteres que represente a chave de partição para sua coleção. Exemplo: ```/movies/title```
 * Taxa de transferência: defina um valor opcional para o número de RUs que você gostaria de aplicar à sua coleção CosmosDB para cada execução desse fluxo de dados. O mínimo é 400.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora que você criou o fluxo de dados, adicione uma [atividade de fluxo de dados ao seu pipeline](concepts-data-flow-overview.md).

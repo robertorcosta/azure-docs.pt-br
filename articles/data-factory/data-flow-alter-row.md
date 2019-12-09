@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory mapeando a transformação alterar linha do fluxo de dados
+title: Mapeando a transformação alterar linha do fluxo de dados
 description: Como atualizar o destino do banco de dados usando Azure Data Factory mapeando a transformação alterar linha
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 03/12/2019
-ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1301b89ef1a6fb02356c6dcd4e568401eb5e9cd2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486207"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930469"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Transformação alterar linha Azure Data Factory
 
@@ -52,6 +53,6 @@ O comportamento padrão no fluxo de dados do ADF com coletores de banco de dado 
 > [!NOTE]
 > Se suas inserções, atualizações ou upserts modificarem o esquema da tabela de destino no coletor, o fluxo de dados falhará. Para modificar o esquema de destino em seu banco de dados, você deve escolher a opção "recriar tabela" no coletor. Isso removerá e recriará sua tabela com a nova definição de esquema.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Após a transformação alterar linha, talvez você queira [coletar seus dados em um armazenamento de dados de destino](data-flow-sink.md).

@@ -4,29 +4,28 @@ description: Configure um gateway de dados para mover dados entre o local e a nu
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 52bce71abd6ecf30b5a3661c2e6033537357db3a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682484"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931899"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [copiar dados entre local e nuvem usando o Data Factory](../tutorial-hybrid-copy-powershell.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [copiar dados entre local e nuvem usando o Data Factory](../tutorial-hybrid-copy-powershell.md).
 
 Este artigo fornece uma visão geral da integração de dados entre os armazenamentos de dados locais e os armazenamentos de dados na nuvem usando o Data Factory. Ele se baseia no artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) e em outros artigos de conceitos principais de data factory: [conjuntos de dados](data-factory-create-datasets.md) e [pipelines](data-factory-create-pipelines.md).
 
-## <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
+## <a name="data-management-gateway"></a>Gateway de Gerenciamento de Dados
 Você deve instalar o Gateway de Gerenciamento de Dados em seu computador local para habilitar a movimentação de dados de/para um armazenamento de dados local. O gateway pode ser instalado no mesmo computador que o armazenamento de dados ou em outro computador, desde que o gateway possa se conectar com o armazenamento de dados.
 
 > [!IMPORTANT]
@@ -37,7 +36,7 @@ O passo a passo a seguir mostra como você pode criar uma Data Factory com um pi
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Passo a passo: copiar os dados locais para a nuvem
 Neste passo a passo, você realizará as seguintes etapas: 
 
-1. Criar uma fábrica de dados.
+1. Criar um data factory.
 2. Criar um Gateway de Gerenciamento de Dados. 
 3. Criar serviços vinculados para armazenamentos de dados de origem e de coletor.
 4. Nesta etapa, você cria conjuntos de dados para representar a entrada e a saída de dados.
@@ -118,7 +117,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 5. Aguarde alguns minutos ou até ver a seguinte mensagem de notificação:
 
     ![Instalação do gateway bem-sucedida](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Inicie o aplicativo **Gerenciador de Configuração de Gateway de gerenciamento de dados** no computador. Na janela de **Pesquisa**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário. Você também pode encontrar o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+6. Inicie o aplicativo **Gerenciador de Configuração de Gateway de gerenciamento de dados** no computador. Na janela **Search**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário. Você também pode encontrar o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
     ![Gerenciador de configuração de gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Confirme que você vê a mensagem `adftutorialgateway is connected to the cloud service`. A barra de status inferior exibe a mensagem **Conectado ao serviço de nuvem** junto com uma **marca de seleção verde**.
@@ -183,7 +182,7 @@ Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService**
 3. Insira a chave da sua conta de armazenamento do Azure em **Chave de conta**.
 4. Clique em **Implantar** para implantar o **AzureStorageLinkedService**.
 
-## <a name="create-datasets"></a>Criar conjuntos de dados
+## <a name="create-datasets"></a>Crie conjuntos de dados
 Nesta etapa, você cria conjuntos de dados de entrada e saída que representam dados de entrada e saída da operação de cópia (banco de dados SQL Server local = > armazenamento de blobs do Azure). Antes de criar conjuntos de dados, primeiro é necessário fazer o seguinte (etapas detalhadas seguem a lista):
 
 * Criar uma tabela chamada **emp** no banco de dados SQL Server adicionado como um serviço vinculado à data factory e inserir alguns exemplos de entradas na tabela.
@@ -411,6 +410,6 @@ Nesta etapa, você utiliza o portal do Azure para monitorar o que está acontece
 
    ![Gerenciador de Armazenamento do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Confira o artigo [Data Management Gateway](data-factory-data-management-gateway.md) (Gateway de Gerenciamento de Dados) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados.
 * Confira [Copiar dados do Blob do Azure para o SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber mais sobre como usar a Atividade de Cópia para mover dados de um repositório de dados de origem para um repositório de dados de coletor.

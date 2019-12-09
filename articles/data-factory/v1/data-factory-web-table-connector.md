@@ -4,21 +4,20 @@ description: Saiba mais sobre como mover dados de uma tabela em uma página da W
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 957b47244744f161ad9cc8019a411e2e59c29418
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682314"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927931"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma fonte de tabela da Web usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -26,7 +25,7 @@ ms.locfileid: "73682314"
 > * [Versão 2 (versão atual)](../connector-web-table.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector de Tabela da Web na V2 ](../connector-web-table.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector de Tabela da Web na V2 ](../connector-web-table.md).
 
 Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para mover dados de uma tabela em uma página Web para um armazenamento de dados do coletor com suporte. Este artigo se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e a lista de armazenamentos de dados com suporte, como fontes/coletores.
 
@@ -37,7 +36,7 @@ Atualmente, o data factory dá suporte apenas para a movimentação de dados de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar este conector de tabela da Web, você precisa configurar um Tempo de Execução de Integração Auto-hospedado (também conhecido como Gateway de Gerenciamento de Dados) e configurar a propriedade `gatewayName` no serviço vinculado do coletor. Por exemplo, para copiar da tabela da Web para o Armazenamento de Blobs do Azure, configure o serviço vinculado do Armazenamento do Azure da seguinte forma:
+Para usar este conector de tabela da Web, você precisa configurar um Integration Runtime auto-hospedado (também conhecido como Gateway de Gerenciamento de Dados) e configurar a propriedade `gatewayName` no serviço vinculado do coletor. Por exemplo, para copiar da tabela da Web para o Armazenamento de Blobs do Azure, configure o serviço vinculado do Armazenamento do Azure da seguinte forma:
 
 ```json
 {
@@ -71,11 +70,11 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado à Web.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **Web** |Sim |
-| Url |URL para a origem da Web |Sim |
-| authenticationType |Anônima. |Sim |
+| type |A propriedade type deve ser definida como: **Web** |SIM |
+| Url |URL para a origem da Web |SIM |
+| authenticationType |Anônima. |SIM |
 
 ### <a name="using-anonymous-authentication"></a>Usando a autenticação anônima
 
@@ -99,11 +98,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **WebTable** tem as propriedades a seguir
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo |tipo do conjunto de dados. Deve ser definido como **WebTable** |Sim |
-| path |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
-| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
+| type |tipo do conjunto de dados. Deve ser definido como **WebTable** |SIM |
+| caminho |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
+| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |SIM |
 
 **Exemplo:**
 
@@ -289,7 +288,7 @@ Confira Propriedades do tipo WebSource para obter a lista de propriedades com su
 2. Clique em **Nova Consulta** na barra de ferramentas, aponte para **De Outras Fontes** e clique em **Da Web**.
 
     ![Menu do Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. Na caixa de diálogo **Da Web**, insira a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/)) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
+3. Na caixa de diálogo **Da Web**, insira a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/) ) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
 
     ![Do diálogo da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
@@ -310,7 +309,7 @@ Confira Propriedades do tipo WebSource para obter a lista de propriedades com su
 Se você estiver usando o Excel 2013, use o [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) a fim de obter o índice. Confira o artigo [Conectar-se a uma página da Web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) para obter detalhes. As etapas são semelhantes se você estiver usando o [Microsoft Power BI para Desktop](https://powerbi.microsoft.com/desktop/).
 
 > [!NOTE]
-> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

@@ -4,20 +4,19 @@ description: Saiba como copiar dados do DB2 para armazenamentos de dados de cole
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: e72e6c112913d646b6dc1479a9b80acc6d4ec7b1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 304d0615a12871fb4a9610058bc1be0ad6dff806
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280749"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929543"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -52,7 +51,7 @@ Especificamente, este conector DB2 dá suporte às plataformas e versões do IBM
 > - DB2 para i (AS400): permita que o usuário avançado crie uma coleção para o usuário de logon antes de usar a atividade de cópia. Comando: `create collection <username>`
 > - DB2 para z/OS ou LUW: use uma conta com privilégios elevados – usuário avançado ou administrador com autoridades de pacote e permissões BIND, BINDADD, GRANT EXECUTE TO PUBLIC – para executar a atividade de cópia de uma vez. Em seguida, o pacote necessário será criado automaticamente durante a cópia. Posteriormente, você poderá voltar para o usuário normal para a execução de cópias subsequentes.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -68,14 +67,14 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Db2** | sim |
-| server |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`. |sim |
-| banco de dados |Nome do banco de dados DB2. |sim |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |sim |
-| Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |sim |
-| password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |sim |
+| type | A propriedade type deve ser definida como: **Db2** | SIM |
+| server |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`. |SIM |
+| database |Nome do banco de dados DB2. |SIM |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |SIM |
+| Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |SIM |
+| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |SIM |
 | pacotecollection | Especifique em onde os pacotes necessários são criados automaticamente pelo ADF ao consultar o banco de dados | Não |
 | certificateCommonName | Ao usar o protocolo SSL (SSL) ou a criptografia TLS, você deve inserir um valor para o nome comum do certificado. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
@@ -111,9 +110,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do DB2, há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **Db2Table** | sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **Db2Table** | SIM |
 | schema | Nome do esquema. |Não (se "query" na fonte da atividade for especificada)  |
 | tabela | Nome da tabela. |Não (se "query" na fonte da atividade for especificada)  |
 | tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "query" na fonte da atividade for especificada) |
@@ -146,9 +145,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do DB2, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Db2Source** | sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Db2Source** | SIM |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -194,33 +193,33 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados d
 | BigInt |Int64 |
 | Binário |Byte[] |
 | Blob |Byte[] |
-| Char |String |
-| Clob |String |
-| data |Datetime |
-| DB2DynArray |String |
-| DbClob |String |
-| DECIMAL |DECIMAL |
-| DecimalFloat |DECIMAL |
-| Duplo |Duplo |
-| Float |Duplo |
-| Graphic |String |
-| Inteiro |Int32 |
+| Char |string |
+| Clob |string |
+| Data |DateTime |
+| DB2DynArray |string |
+| DbClob |string |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| DOUBLE |DOUBLE |
+| Float |DOUBLE |
+| Graphic |string |
+| Número inteiro |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |String |
-| Numérico |DECIMAL |
-| Real |Single |
+| LongVarChar |string |
+| LongVarGraphic |string |
+| Numérico |Decimal |
+| Real |Individual |
 | SmallInt |Int16 |
-| Hora |TimeSpan |
+| Tempo |timespan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
-| Xml |Byte[] |
+| VarChar |string |
+| VarGraphic |string |
+| xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -3,20 +3,19 @@ title: Identidade gerenciada para o Data Factory
 description: Saiba mais sobre identidade gerenciada para Azure Data Factory.
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: d8f65bef669e21af96ffe86319602ca5d1eea2c1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ede1e56384c75c64765962b7db196973a30c605b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822726"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928442"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerenciada para o Data Factory
 
@@ -24,7 +23,7 @@ Este artigo ajuda você a entender o que é a identidade gerenciada para Data Fa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Ao criar um data factory, uma identidade gerenciada pode ser criada junto com a criação de fábrica. A identidade gerenciada é um aplicativo gerenciado registrado para Azure Active Directory e representa esse data factory específico.
 
@@ -188,7 +187,7 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte os tópicos a seguir que introduzem quando e como usar data factory identidade gerenciada:
 
 - [Armazenar credencial no Azure Key Vault](store-credentials-in-key-vault.md)

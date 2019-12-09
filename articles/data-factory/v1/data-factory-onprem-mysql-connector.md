@@ -4,21 +4,20 @@ description: Saiba mais sobre como mover dados do banco de dados MySQL usando o 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4a7b42b51f49ab0c11aa8af3af6495c60907d230
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666106"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928101"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -26,12 +25,12 @@ ms.locfileid: "73666106"
 > * [Versão 2 (versão atual)](../connector-mysql.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do MySQL na V2](../connector-mysql.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do MySQL na V2](../connector-mysql.md).
 
 
-Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um banco de dados MySQL local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
+Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um banco de dados MySQL local. Ele se baseia no artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
-Você pode copiar dados de um armazenamento de dados local do MySQL para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MySQL para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MySQL. 
+Você pode copiar dados de um armazenamento de dados local do MySQL para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MySQL para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MySQL. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 O serviço Data Factory dá suporte à conexão com fontes MySQL locais usando o Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway.
@@ -66,23 +65,23 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do MySQL.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | --- | --- | --- |
-| Tipo |A propriedade do tipo deve ser definida como: **OnPremisesMySql** |Sim |
-| server |Nome do servidor MySQL. |Sim |
-| database |Nome do banco de dados MySQL. |Sim |
+| type |A propriedade do tipo deve ser definida como: **OnPremisesMySql** |SIM |
+| server |Nome do servidor MySQL. |SIM |
+| database |Nome do banco de dados MySQL. |SIM |
 | schema |Nome do esquema no banco de dados. |Não |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
-| userName |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
-| Senha |Especifique a senha da conta de usuário que você especificou. |Sim |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados MySQL local. |Sim |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |SIM |
+| userName |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |SIM |
+| Senha |Especifique a senha da conta de usuário que você especificou. |SIM |
+| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados MySQL local. |SIM |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties de um conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do MySQL) tem as propriedades a seguir
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância do Banco de Dados MySQL à qual o serviço vinculado se refere. |Não (se **query** de **RelationalSource** for especificado) |
 
@@ -93,7 +92,7 @@ Por outro lado, as propriedades disponíveis na seção **typeProperties** da at
 
 Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que inclui o MySQL), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | obrigatórios |
 | --- | --- | --- | --- |
 | query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |Não (se **tableName** de **dataset** for especificado) |
 
@@ -306,40 +305,40 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 | bit |Decimal |
 | blob |Byte[] |
 | bool |Booliano |
-| char |Cadeia de caracteres |
-| data |Datetime |
-| datetime |Datetime |
-| Decimal |Decimal |
-| double precision |Duplo |
-| double |Duplo |
-| enum |Cadeia de caracteres |
-| flutuante |Single |
+| char |string |
+| date |DateTime |
+| Datetime |DateTime |
+| decimal |Decimal |
+| double precision |DOUBLE |
+| Duplo |DOUBLE |
+| enum |string |
+| flutuante |Individual |
 | int unsigned |Int64 |
 | int |Int32 |
 | integer unsigned |Int64 |
 | inteiro |Int32 |
 | long varbinary |Byte[] |
-| long varchar |Cadeia de caracteres |
+| long varchar |string |
 | longblob |Byte[] |
-| longtext |Cadeia de caracteres |
+| longtext |string |
 | mediumblob |Byte[] |
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
-| mediumtext |Cadeia de caracteres |
-| numérico |Decimal |
-| real |Duplo |
-| set |Cadeia de caracteres |
+| mediumtext |string |
+| numeric |Decimal |
+| real |DOUBLE |
+| set |string |
 | smallint unsigned |Int32 |
 | smallint |Int16 |
-| texto |Cadeia de caracteres |
-| tempo real |TimeSpan |
-| timestamp |Datetime |
+| text |string |
+| time |timespan |
+| timestamp |DateTime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
-| tinytext |Cadeia de caracteres |
-| varchar |Cadeia de caracteres |
-| year |Int |
+| tinytext |string |
+| varchar |string |
+| ano |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

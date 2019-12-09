@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 6884c8f1bf7a462b5d93f5c9ea23a2f64021fd9e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328489"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925175"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions gatilho de aquecimento
 
@@ -22,7 +22,7 @@ Este artigo explica como trabalhar com o gatilho aquecimento no Azure Functions.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
 O pacote NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versão **3.0.5 ou superior** , é necessário. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/). 
 
@@ -200,7 +200,7 @@ public void run( ExecutionContext context) {
 
 ---
 
-## <a name="trigger---attributes"></a>Gatilho - atributos
+## <a name="trigger---attributes"></a>Gatilho – atributos
 
 Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), o atributo `WarmupTrigger` está disponível para configurar a função.
 
@@ -241,13 +241,13 @@ O gatilho aquecimento não tem suporte em Java como um atributo.
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `WarmupTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `WarmupTrigger` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo** | n/d| Obrigatório – deve ser definido como `warmupTrigger`. |
-| **direction** | n/d| Obrigatório – deve ser definido como `in`. |
-| **name** | n/d| Required – o nome da variável usada no código de função.|
+| **tipo** | N/D| Obrigatório – deve ser definido como `warmupTrigger`. |
+| **direction** | N/D| Obrigatório – deve ser definido como `in`. |
+| **name** | N/D| Required – o nome da variável usada no código de função.|
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 
@@ -260,6 +260,6 @@ Nenhuma informação adicional é fornecida a uma função disparada por aquecim
 * O gatilho aquecimento não pode ser invocado depois que uma instância já está em execução.
 * Só pode haver uma função de gatilho aquecimento por aplicativo de função.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

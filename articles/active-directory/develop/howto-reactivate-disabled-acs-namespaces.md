@@ -2,28 +2,25 @@
 title: Como reativar espaços de nomes desabilitados do Azure Access Control Service (ACS)
 description: Saiba como encontrar e habilitar os namespaces do Serviço de Controle de Acesso do Azure (ACS) e solicitar uma extensão para mantê-los habilitados até 4 de fevereiro de 2019.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 590fc99861035ce1a5219a3cfd788159c6c2a19b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482705"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917702"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar namespaces desabilitados do Serviço de Controle de Acesso
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar namespaces do Serviço de Controle de Acesso desabilitado
 
 Em novembro de 2017, anunciamos que o Serviço de Coleta de Auditoria (ACS), um Serviço do Microsoft Azure Active Directory (Azure AD), está sendo desativado em 7 de novembro de 2018.
 
@@ -90,7 +87,7 @@ Extensões adicionais não serão mais aprovadas automaticamente. Se você preci
 
 ### <a name="to-request-an-extension"></a>Para solicitar uma extensão
 
-1. Entre no portal do Azure e criar uma [nova solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support).
+1. Entre no portal do Azure e crie uma [nova solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support).
 1. Preencha o novo formulário de solicitação de suporte, conforme mostrado no exemplo a seguir.
 
     | Campo de solicitação de suporte | Value |
@@ -125,6 +122,6 @@ Extensões adicionais não serão mais aprovadas automaticamente. Se você preci
 - Se você tiver problemas depois de seguir estas instruções, entre em contato com [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 - Se você tiver dúvidas ou comentários sobre a desativação do ACS, entre em contato conosco em acsfeedback@microsoft.com.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Confira as informações sobre a desativação do ACS em [Como migrar do Serviço de Controle de Acesso do Azure](active-directory-acs-migration.md).
+- Examine as informações sobre a desativação do Serviço de Coleta de Acesso no [Como: migrar do serviço de controle de acesso do Azure](active-directory-acs-migration.md).

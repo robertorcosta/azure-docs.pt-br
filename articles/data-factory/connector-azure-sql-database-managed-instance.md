@@ -4,7 +4,6 @@ description: Aprenda a mover dados de e para a Instância Gerenciada do Banco de
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
@@ -12,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/09/2019
-ms.openlocfilehash: 9eedd8c1ad740f7393da47eac7a20cb5b58ad8d3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e8029b957fedc07ba571b61f1211c020b706bea3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218784"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929667"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados para e da Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -45,13 +44,13 @@ Especificamente, este conector da Instância Gerenciada do Banco de Dados SQL do
 >[!NOTE]
 >A entidade de serviço e as autenticações de identidade gerenciada atualmente não são compatíveis com este conector. Para contornar, escolha um conector do banco de dados SQL do Azure e especifique manualmente o servidor da instância gerenciada.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para acessar o [ponto de extremidade público](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)do instância gerenciada do banco de dados SQL do Azure, você pode usar um Azure data Factory tempo de execução de integração do Azure gerenciado. Certifique-se de habilitar o ponto de extremidade público e também permitir o tráfego de ponto de extremidade público no grupo de segurança de rede para que Azure Data Factory possa se conectar ao seu banco de dados. Para obter mais informações, consulte [este guia](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
 Para acessar o ponto de extremidade particular Instância Gerenciada do Banco de Dados SQL do Azure, configure um [tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) que pode acessar o banco de dados. Se você provisionar o tempo de execução de integração auto-hospedado na mesma rede virtual que sua instância gerenciada, certifique-se de que seu computador de tempo de execução de integração esteja em uma sub-rede diferente da instância gerenciada. Se você provisionar o tempo de execução de integração auto-hospedado em uma rede virtual diferente da instância gerenciada, você poderá usar um emparelhamento de rede virtual ou uma rede virtual para a conexão de rede virtual. Para obter mais informações, confira [Conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance-connect-app.md).
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -61,14 +60,14 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenciada do Banco de Dados SQL do Azure:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como **AzureSqlMI**. | sim |
-| connectionString |Esta propriedade especifica as informações de **ConnectionString** necessárias para se conectar à instância gerenciada usando a autenticação do SQL. Para obter mais informações, confira os exemplos a seguir. <br/>A porta padrão é 1433. Se você estiver usando Instância Gerenciada do Banco de Dados SQL do Azure com um ponto de extremidade público, especifique explicitamente a porta 3342.<br>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |sim |
+| type | A propriedade Type deve ser definida como **AzureSqlMI**. | SIM |
+| connectionString |Esta propriedade especifica as informações de **ConnectionString** necessárias para se conectar à instância gerenciada usando a autenticação do SQL. Para obter mais informações, confira os exemplos a seguir. <br/>A porta padrão é a 1433. Se você estiver usando Instância Gerenciada do Banco de Dados SQL do Azure com um ponto de extremidade público, especifique explicitamente a porta 3342.<br>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |SIM |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory ou [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | locatário | Especifique as informações do locatário, como o nome de domínio ou a ID do locatário, sob a qual seu aplicativo reside. Recupere-o passando o mouse no canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
-| connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Você pode usar um tempo de execução de integração auto-hospedado ou um tempo de execução de integração do Azure se sua instância gerenciada tiver um ponto de extremidade público e permitir que Azure Data Factory o acesse. Se não for especificado, o tempo de execução de integração do Azure padrão será usado. |sim |
+| connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Você pode usar um tempo de execução de integração auto-hospedado ou um tempo de execução de integração do Azure se sua instância gerenciada tiver um ponto de extremidade público e permitir que Azure Data Factory o acesse. Se não for especificado, o tempo de execução de integração do Azure padrão será usado. |SIM |
 
 Para diferentes tipos de autenticação, consulte as seções a seguir sobre pré-requisitos e amostras JSON, respectivamente:
 
@@ -242,9 +241,9 @@ Para obter uma lista completa das seções e das propriedades disponíveis para 
 
 Para copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure, há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureSqlMITable**. | sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureSqlMITable**. | SIM |
 | schema | Nome do esquema. |Não para fonte, Sim para o coletor  |
 | tabela | Nome da tabela/exibição. |Não para fonte, Sim para o coletor  |
 | tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para fonte, Sim para o coletor |
@@ -278,9 +277,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para uso 
 
 Para copiar dados de Instância Gerenciada do Banco de Dados SQL do Azure, as propriedades a seguir têm suporte na seção origem da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como **SqlMISource**. | sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como **SqlMISource**. | SIM |
 | sqlReaderQuery |Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |Não |
 | sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não |
 | storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e o uso de maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
@@ -384,9 +383,9 @@ GO
 
 Para copiar dados para Instância Gerenciada do Banco de Dados SQL do Azure, as propriedades a seguir têm suporte na seção coletor de atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | obrigatórios |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| type | A propriedade Type do coletor da atividade de cópia deve ser definida como **SqlMISink**. | sim |
+| type | A propriedade Type do coletor da atividade de cópia deve ser definida como **SqlMISink**. | SIM |
 | writeBatchSize |Número de linhas a serem inseridas na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha.  |Não |
 | writeBatchTimeout |Essa propriedade especifica o tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são para o TimeSpan. Um exemplo é "00: 30:00", que são 30 minutos. |Não |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados na instância gerenciada. É chamado apenas uma vez por execução de cópia. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não |
@@ -484,7 +483,7 @@ Consulte as respectivas seções sobre como configurar o em Azure Data Factory e
 
 Acrescentar dados é o comportamento padrão desse conector do coletor de Instância Gerenciada do Banco de Dados SQL do Azure. Azure Data Factory faz uma inserção em massa para gravar em sua tabela com eficiência. Você pode configurar a origem e o coletor de acordo com a atividade de cópia.
 
-### <a name="upsert-data"></a>Upsert de dados
+### <a name="upsert-data"></a>Upsert data
 
 **Opção 1:** Quando você tiver uma grande quantidade de dados a serem copiados, use a seguinte abordagem para fazer um Upsert: 
 
@@ -588,37 +587,37 @@ Quando dados são copiados para e da Instância Gerenciada do Banco de Dados SQL
 | Tipo de dados da Instância Gerenciada do Banco de Dados SQL do Azure | Tipo de dados provisório do Azure Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
-| binário |Byte[] |
-| bit |Boolean |
+| binary |Byte[] |
+| bit |Booliano |
 | char |String, Char[] |
-| data |DateTime |
-| Datetime |DateTime |
+| date |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
-| DECIMAL |DECIMAL |
-| Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Float |Duplo |
-| imagem |Byte[] |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |DOUBLE |
+| image |Byte[] |
 | int |Int32 |
-| money |DECIMAL |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |DECIMAL |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Individual |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |DECIMAL |
+| smallmoney |Decimal |
 | sql_variant |Objeto |
-| texto |String, Char[] |
-| tempo real |TimeSpan |
+| text |String, Char[] |
+| time |timespan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |xml |
 
 >[!NOTE]
 > Para tipos de dados que mapeiam para o tipo provisório Decimal, no momento, o Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres em uma consulta SQL.
@@ -631,5 +630,5 @@ Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](c
 
 Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, confira [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

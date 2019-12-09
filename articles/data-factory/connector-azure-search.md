@@ -1,23 +1,22 @@
 ---
-title: Copiar dados para o índice de pesquisa usando Azure Data Factory
+title: Copiar dados para o índice de pesquisa
 description: Saiba mais sobre como enviar por push ou copiar dados de um índice do Azure Search usando a atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.author: jingwang
-ms.openlocfilehash: ffdde571bbd2ae967003c520b09349ea9dcff414
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8a5b7bd366c504f0f5f4652728bf265289fb92e8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806079"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929685"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copiar dados para um índice de Pesquisa Cognitiva do Azure usando Azure Data Factory
 
@@ -41,11 +40,11 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte para o serviço vinculado do Azure Pesquisa Cognitiva:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearch** | Sim |
-| url | URL para o serviço de pesquisa. | Sim |
-| chave | Chave de administração para o serviço de pesquisa. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| type | A propriedade type deve ser definida como: **AzureSearch** | SIM |
+| URL | URL para o serviço de pesquisa. | SIM |
+| chave | Chave de administração para o serviço de pesquisa. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 > [!IMPORTANT]
@@ -79,10 +78,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados para o Azure Pesquisa Cognitiva, há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
-| indexName | Nome do índice de pesquisa. O Data Factory não cria o índice. O índice deve existir no Pesquisa Cognitiva do Azure. | Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | SIM |
+| indexName | Nome do índice de pesquisa. O Data Factory não cria o índice. O índice deve existir no Pesquisa Cognitiva do Azure. | SIM |
 
 **Exemplo:**
 
@@ -111,9 +110,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados para o Azure Pesquisa Cognitiva, defina o tipo de fonte na atividade de cópia como **AzureSearchIndexSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | Sim |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | SIM |
 | writeBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Merge** (padrão) e **Upload**. | Não |
 | writeBatchSize | Carrega dados no índice de pesquisa quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes.<br/><br/>Os valores permitidos são: inteiros de 1 a 1.000; o valor padrão é 1.000. | Não |
 
@@ -170,10 +169,10 @@ A tabela a seguir especifica se um tipo de dados do Azure Pesquisa Cognitiva tem
 
 | Tipo de dados Pesquisa Cognitiva do Azure | Com suporte no coletor de Pesquisa Cognitiva do Azure |
 | ---------------------- | ------------------------------ |
-| Cadeia de caracteres | S |
+| string | S |
 | Int32 | S |
 | Int64 | S |
-| Duplo | S |
+| DOUBLE | S |
 | Booliano | S |
 | DataTimeOffset | S |
 | Matriz de cadeia de caracteres | N |
@@ -181,5 +180,5 @@ A tabela a seguir especifica se um tipo de dados do Azure Pesquisa Cognitiva tem
 
 Atualmente, outros tipos de dados, por exemplo, complexType, não são suportados. Para obter uma lista completa de tipos de dados com suporte do Azure Pesquisa Cognitiva, consulte [tipos de dados com suporte (azure pesquisa cognitiva)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

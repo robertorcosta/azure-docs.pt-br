@@ -4,21 +4,20 @@ description: Saiba mais sobre como enviar dados por push ao índice de Pesquisa 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: da867ae62ce4480c5d5854ae3f28ad258421905d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809183"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929992"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Enviar dados por push para um índice de Pesquisa Cognitiva do Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -26,7 +25,7 @@ ms.locfileid: "73809183"
 > * [Versão 2 (versão atual)](../connector-azure-search.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [conector de pesquisa cognitiva do Azure na v2](../connector-azure-search.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço de Data Factory, consulte [conector de pesquisa cognitiva do Azure na v2](../connector-azure-search.md).
 
 Este artigo descreve como usar a atividade de cópia para enviar dados por push de um armazenamento de dados de origem com suporte para um índice de Pesquisa Cognitiva do Azure. Armazenamentos de dados de origem com suporte listados na coluna de origem a [fontes e coletores com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. Este artigo se baseia no artigo de [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral de movimentação de dados com a Atividade de Cópia e combinações de armazenamentos de dados com suporte.
 
@@ -56,20 +55,20 @@ As seções a seguir fornecem detalhes sobre as propriedades JSON que são usada
 
 A tabela a seguir fornece descrições para elementos JSON que são específicos para o serviço vinculado do Azure Pesquisa Cognitiva.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | -------- | ----------- | -------- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearch**. | Sim |
-| url | URL para o serviço de pesquisa. | Sim |
-| chave | Chave de administração para o serviço de pesquisa. | Sim |
+| type | A propriedade type deve ser definida como: **AzureSearch**. | SIM |
+| URL | URL para o serviço de pesquisa. | SIM |
+| chave | Chave de administração para o serviço de pesquisa. | SIM |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md) . As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados. A seção **typeProperties** é diferente para cada tipo de conjunto de dados. A seção typeProperties para um conjunto de dados do tipo **AzureSearchIndex** tem as propriedades a seguir:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | -------- | ----------- | -------- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearchIndex**.| Sim |
-| indexName | Nome do índice de pesquisa. O Data Factory não cria o índice. O índice deve existir no Pesquisa Cognitiva do Azure. | Sim |
+| type | A propriedade type deve ser definida como: **AzureSearchIndex**.| SIM |
+| indexName | Nome do índice de pesquisa. O Data Factory não cria o índice. O índice deve existir no Pesquisa Cognitiva do Azure. | SIM |
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -77,7 +76,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Na Atividade de Cópia, quando o coletor é do tipo **AzureSearchIndexSink**, as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | obrigatórios |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).| Merge (padrão)<br/>Carregar| Não |
 | WriteBatchSize | Carrega dados no índice de pesquisa quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes. | 1 a 1.000. O valor padrão é 1000. | Não |
@@ -100,10 +99,10 @@ A tabela a seguir especifica se um tipo de dados do Azure Pesquisa Cognitiva tem
 
 | Tipo de dados Pesquisa Cognitiva do Azure | Com suporte no coletor de Pesquisa Cognitiva do Azure |
 | ---------------------- | ------------------------------ |
-| Cadeia de caracteres | S |
+| string | S |
 | Int32 | S |
 | Int64 | S |
-| Duplo | S |
+| DOUBLE | S |
 | Booliano | S |
 | DataTimeOffset | S |
 | Matriz de cadeia de caracteres | N |
@@ -207,7 +206,7 @@ O exemplo copia dados para um índice de Pesquisa Cognitiva do Azure chamado **p
 
 **Atividade de cópia em um pipeline com fonte SQL e coletor de índice de Pesquisa Cognitiva do Azure:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **fonte** está definido como **SqlSource** e o tipo de **coletor** está definido como **AzureSearchIndexSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **fonte** está definido como **SqlSource** e o tipo de **coletor** está definido como **AzureSearchIndexSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados da última hora a serem copiados.
 
 ```JSON
 {
@@ -291,7 +290,7 @@ Você também pode mapear colunas do conjunto de dados de origem para colunas do
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação dos dados (Atividade de Cópia), além de várias maneiras de otimizar.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira os seguintes artigos:
 
 * [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criação de um pipeline com uma Atividade de cópia.

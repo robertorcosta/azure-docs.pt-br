@@ -1,23 +1,23 @@
 ---
-title: Integration Runtime no Azure Data Factory
+title: runtime de integração
 description: Saiba mais sobre o Integration Runtime no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/31/2019
-ms.author: abnarain
-ms.openlocfilehash: 0b137edbfb5ca439d4ba15614225ec0973511763
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218806"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927161"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
@@ -53,7 +53,7 @@ Um Integration Runtime do Azure é capaz de:
 
 - Executando fluxos de dados no Azure 
 - Executar a atividade de cópia entre armazenamentos de dados de nuvem
-- Expedindo as seguintes atividades de transformação na rede pública: bloco de anotações do databricks/jar/Python atividade, atividade de hive do hdinsight, atividade do HDInsight Pig, atividade de MapReduce do hdinsight, atividade do HDInsight Spark, atividade de streaming do HDInsight, máquina Atividade de execução de lote de aprendizagem, Machine Learning atualizar atividades de recurso, atividade de procedimento armazenado, Data Lake Analytics atividade U-SQL, atividade personalizada .NET, atividade da Web, atividade de pesquisa e atividade obter metadados.
+- Expedindo as seguintes atividades de transformação na rede pública: bloco de anotações do databricks/jar/Python atividade, atividade de hive do hdinsight, atividade de Pig do HDInsight, atividade de MapReduce do hdinsight, atividade do HDInsight Spark, atividade de streaming do HDInsight, atividade de Data Lake Analytics Machine Learning execução de Machine Learning, atividade da Web, atividade de pesquisa e atividade de obtenção de metadados.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede do IR do Azure
 O Azure Integration Runtime dá suporte à conexão com armazenamentos de dados e serviços de computação com pontos de extremidade acessíveis públicos. Use um Integration Runtime auto-hospedado para o ambiente de Rede Virtual do Azure.
@@ -121,7 +121,7 @@ Se você optar por usar a **resolução automática Azure ir** que é o padrão,
 
 - Para a atividade de cópia, o ADF fará um melhor esforço para detectar automaticamente o armazenamento de dados do coletor e da fonte para escolher o melhor local na mesma região, se disponível, ou o mais próximo na mesma geografia. Ou, se não for detectável, usar a região do data factory como alternativa.
 
-- Para pesquisa/GetMetadata/excluir execução de atividade (também conhecida como atividades de pipeline), expedição de atividade de transformação (também conhecida como atividades externas) e operações de criação (conexão de teste, lista de pastas de pesquisa e lista de tabelas, Visualizar dados), ADF usará o IR na região de data factory.
+- Para pesquisa/GetMetadata/excluir execução de atividade (também conhecida como atividades de pipeline), expedição de atividade de transformação (também conhecida como atividades externas) e operações de criação (testar conexão, procurar lista de pastas e lista de tabelas, Visualizar dados), o ADF usará o IR na região de data factory.
 
 - Para o fluxo de dados, o ADF usará o IR na região de data factory. 
 
@@ -171,7 +171,7 @@ Cada atividade de transformação tem um serviço vinculado de computação de d
 
 A atividade de fluxo de dados é executada no Integration Runtime associado a ela. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira os seguintes artigos:
 
 - [Criar tempo de execução de integração do Azure](create-azure-integration-runtime.md)

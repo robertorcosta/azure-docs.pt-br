@@ -1,21 +1,21 @@
 ---
-title: Script do PowerShell – implantar Integration Runtime do Azure-SSIS
+title: Implantar o tempo de execução de integração do Azure SSIS usando o PowerShell
 description: Este script do PowerShell cria um Integration Runtime do Azure-SSIS que pode executar pacotes SSIS na nuvem.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/12/2017
-author: swinarko
 ms.author: sawinark
-manager: craigg
-ms.openlocfilehash: beba0a8d01d7d10910716f03602116fe7673ffc8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: swinarko
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 09/12/2017
+ms.openlocfilehash: c6d9a9299fa25013a440ee6ac45f5eae407225b8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684363"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929813"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Script do PowerShell – implantar Integration Runtime do Azure-SSIS
 
@@ -29,7 +29,7 @@ Este exemplo de script do PowerShell cria um Integration Runtime do Azure-SSIS q
 
 [!code-powershell[main](../../../powershell_scripts/data-factory/deploy-azure-ssis-integration-runtime/deploy-azure-ssis-integration-runtime.ps1 "Deploy Azure-SSIS Integration Runtime")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Depois de executar o exemplo de script, use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele:
 
@@ -46,17 +46,17 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 Este script usa os seguintes comandos:
 
-| Command | Observações |
+| Command | Notas |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Criar uma fábrica de dados. |
+| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Criar um data factory. |
 | [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Cria um Integration Runtime do Azure-SSIS que pode executar pacotes SSIS na nuvem |
 | [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Inicia o Integration Runtime do Azure-SSIS. |
 | [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Obtém informações sobre o Integration Runtime do Azure-SSIS. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

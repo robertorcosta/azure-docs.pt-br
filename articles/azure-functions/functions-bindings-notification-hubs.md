@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 8bc7f879a2c2e8b1e0e2d82216241704a466ad60
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 211f8c8a203b81a4df6a8e9515b403f99cec572a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231132"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926321"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Associação de saída dos Hubs de Notificação para Azure Functions
 
@@ -23,15 +23,15 @@ Os Hubs de Notificação do Azure devem ser configurados para os PNS (Serviços 
 > [!IMPORTANT]
 > O Google [preteriu Google Cloud Messaging (GCM) em favor do firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Esta associação de saída não dá suporte a FCM. Para enviar notificações usando o FCM, use a [API do firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) diretamente em sua função ou use notificações de [modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
+## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
 
 As associações de Hubs de notificação são fornecidas no [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) pacote NuGet, versão 1. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
-Essa associação não está disponível em funções 2. x.
+Essa associação não está disponível no functions 2. x e superior.
 
 ## <a name="example---template"></a>Exemplo - modelo
 
@@ -247,11 +247,11 @@ Os parâmetros e as propriedades do construtor do atributo são descritos na se�
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `NotificationHub`:
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** |n/d| Deve ser definido como `notificationHub`. |
-|**direction** |n/d| Deve ser definido como `out`. | 
-|**name** |n/d| Nome da variável usada no código de função para a mensagem do hub de notificação. |
+|**tipo** |N/D| Deve ser definido como `notificationHub`. |
+|**direction** |N/D| Deve ser definido como `out`. | 
+|**name** |N/D| Nome da variável usada no código de função para a mensagem do hub de notificação. |
 |**tagExpression** |**TagExpression** | As expressões de marca permitem que você especifique que as notificações sejam entregues a um conjunto de dispositivos registrados para receber notificações que correspondem à expressão de marca.  Para saber mais, veja [Expressões de marca e de roteamento](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nome do recurso de hub de notificação no portal do Azure. |
 |**conexão** | **ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Hubs de Notificação.  A cadeia de caracteres de conexão deve ser definida como o valor *DefaultFullSharedAccessSignature* para o hub de notificação. Veja [Configuração da cadeia de conexão](#connection-string-setup) posteriormente neste artigo.|
@@ -298,9 +298,9 @@ O nome dessa configuração de aplicativo é o que está na configuração de co
 
 | Associação | Referência |
 |---|---|
-| Hub de notificação | [Log de operações](https://docs.microsoft.com/rest/api/notificationhubs/) |
+| Hub de notificação | [Guia de Operações](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

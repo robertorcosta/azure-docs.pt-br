@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 3c27ff06237336d37ad1b5bed1b90aaa6b076f0b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3e72bd366cdbba1d73bc05f98d3848e2d4f0ca6c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231008"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925331"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -19,7 +19,7 @@ Este artigo explica como trabalhar com associações de armazenamento de Fila do
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
+## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
 
 As associações de armazenamento Filas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versão 2.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue).
 
@@ -27,7 +27,7 @@ As associações de armazenamento Filas são fornecidas no pacote NuGet [Microso
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
 As associações de Armazenamento de Filas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versão 3.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues).
 
@@ -45,7 +45,7 @@ Use o gatilho de fila para iniciar uma função quando um novo item é recebido 
 Consulte o exemplo específico a um idioma:
 
 * [C#](#trigger---c-example)
-* [Script do C# (.csx)](#trigger---c-script-example)
+* [Script do C# (. CSx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
 * [Python](#trigger---python-example)
@@ -167,7 +167,7 @@ module.exports = async function (context, message) {
 
 A seção [uso](#trigger---usage) explica `myQueueItem`, que é chamado pela `name` propriedade function.json.  A [seção de metadados de mensagem](#trigger---message-metadata) explica todas as outras variáveis mostradas.
 
-### <a name="trigger---java-example"></a>Gatilho - exemplo de Java
+### <a name="trigger---java-example"></a>Trigger - exemplo de Java
 
 O exemplo Java a seguir mostra as funções do acionador da fila de armazenamento que registra a mensagem acionada colocada na fila `myqueuename`.
 
@@ -183,7 +183,7 @@ O exemplo Java a seguir mostra as funções do acionador da fila de armazenament
  }
  ```
 
-### <a name="trigger---python-example"></a>Gatilho – Exemplo do Python
+### <a name="trigger---python-example"></a>Gatilho – exemplo do Python
 
 O exemplo a seguir demonstra como ler uma mensagem de fila passada para uma função por meio de um gatilho.
 
@@ -231,7 +231,7 @@ def main(msg: func.QueueMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>Gatilho - atributos
+## <a name="trigger---attributes"></a>Gatilho – atributos
 
 Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguintes atributos para configurar um gatilho de fila:
 
@@ -289,13 +289,13 @@ A conta de armazenamento a ser usada é determinada na seguinte ordem:
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `QueueTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `QueueTrigger` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d| Deve ser definido como `queueTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direction**| n/d | Apenas no arquivo *function.json*. Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | n/d |O nome da variável que contém o conteúdo do item de fila no código da função.  |
+|**tipo** | N/D| Deve ser definido como `queueTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction**| N/D | Apenas no arquivo *function.json*. Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | N/D |O nome da variável que contém o conteúdo do item de fila no código da função.  |
 |**queueName** | **QueueName**| O nome da fila a ser controlada. |
 |**conexão** | **Conexão** |O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.|
 
@@ -318,7 +318,7 @@ Em JavaScript, use `context.bindings.<name>` para acessar o conteúdo de item de
 
 O gatilho de fila fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage).
 
-|Propriedade|Digite|DESCRIÇÃO|
+|Propriedade|Type|Descrição|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se o conteúdo de mensagem de fila como uma cadeia de caracteres `QueueTrigger` tem o mesmo valor da variável nomeada pela `name` propriedade em *function.json*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|
@@ -359,7 +359,7 @@ Use a associação de saída do armazenamento de Filas do Azure para que você g
 Consulte o exemplo específico a um idioma:
 
 * [C#](#output---c-example)
-* [Script do C# (.csx)](#output---c-script-example)
+* [Script do C# (. CSx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
 * [Python](#output---python-example)
@@ -606,13 +606,13 @@ Você pode usar o `StorageAccount` atributo para especificar a conta de armazena
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `Queue` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `Queue` atributo.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido como `queue`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direction** | n/d | Deve ser definido como `out`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | n/d | O nome da variável que representa a fila no código de função. Definido como `$return` para referenciar o valor de retorno da função.|
+|**tipo** | N/D | Deve ser definido como `queue`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | N/D | Deve ser definido como `out`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | N/D | O nome da variável que representa a fila no código de função. Definido como `$return` para referenciar o valor de retorno da função.|
 |**queueName** |**QueueName** | O nome da fila. |
 |**conexão** | **Conexão** |O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.|
 
@@ -649,7 +649,7 @@ Em funções em JavaScript, use `context.bindings.<name>` para acessar a mensage
 
 ## <a name="hostjson-settings"></a>configurações de host.json
 
-Esta seção descreve as definições de configuração globais disponíveis para esta associação na versão 2.x. O arquivo host.json de exemplo abaixo contém apenas as configurações da versão 2.x para essa associação. Para obter mais informações sobre as configurações globais na versão 2.x, confira a [referência de host.json para o Azure Functions versão 2.x](functions-host-json.md).
+Esta seção descreve as definições de configuração global disponíveis para essa associação nas versões 2. x e superior. O arquivo host. JSON de exemplo abaixo contém apenas as configurações da versão 2. x + para essa associação. Para obter mais informações sobre definições de configuração global nas versões 2. x e posteriores, consulte [referência de host. JSON para Azure Functions](functions-host-json.md).
 
 > [!NOTE]
 > Para obter uma referência de host.json no Functions 1.x, consulte [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
@@ -670,15 +670,15 @@ Esta seção descreve as definições de configuração globais disponíveis par
 ```
 
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|O intervalo máximo entre as sondagens de fila. O mínimo é 00:00:00.100 (100 ms) e incrementa até 00:01:00 (1 min).  Em 1. x, o tipo de dados é milissegundos e, em 2. x, é um TimeSpan.|
+|maxPollingInterval|00:00:01|O intervalo máximo entre as sondagens de fila. O mínimo é 00:00:00.100 (100 ms) e incrementa até 00:01:00 (1 min).  Em 1. x, o tipo de dados é milissegundos e, em 2. x e superior, é um TimeSpan.|
 |visibilityTimeout|00:00:00|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha. |
 |batchSize|16|O número de mensagens em fila que o runtime de Funções recupera simultaneamente e processa em paralelo. Quando o número que está sendo processado chega até `newBatchThreshold`, o runtime obtém outro lote e começa a processar as mensagens. Portanto, o número máximo de mensagens simultâneas que estão sendo processadas por função é `batchSize` mais `newBatchThreshold`. Esse limite se aplica separadamente a cada função acionada por fila. <br><br>Se quiser evitar uma execução paralela para mensagens recebidas em uma fila, é possível definir `batchSize` como 1. No entanto, essa configuração elimina a simultaneidade desde que seu aplicativo de função seja executado em uma única máquina virtual (VM). Se o aplicativo de função se expande para várias VMs, cada VM pode executar uma instância de cada função acionada por fila.<br><br>O máximo `batchSize` é 32. |
 |maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de mensagens suspeitas.|
 |newBatchThreshold|batchSize/2|Sempre que o número de mensagens processadas simultaneamente chega a esse número, o runtime recupera outro lote.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 

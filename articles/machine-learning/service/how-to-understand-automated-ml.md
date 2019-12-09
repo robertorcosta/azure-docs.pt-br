@@ -3,19 +3,19 @@ title: Entender os resultados de ML automatizados
 titleSuffix: Azure Machine Learning
 description: Saiba como exibir e entender os gráficos e as métricas para cada uma das execuções automatizadas do Machine Learning.
 services: machine-learning
-author: cartacioS
-ms.author: sacartac
+author: RachelKellam
+ms.author: rakellam
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7f8789076b00cd2b5a0694cf1f52e5dfe1569aee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 12/05/2019
+ms.openlocfilehash: 3572d2dffc38f18cbf02aa2e9de98b74ee8ff939
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571409"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930953"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Entender os resultados automatizados do Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Saiba mais sobre:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Crie um experimento para a execução automatizada do Machine Learning, seja com o SDK ou no Azure Machine Learning Studio.
 
@@ -76,7 +76,7 @@ Três as métricas e os gráficos a seguir estão disponíveis para cada modelo 
 
 As métricas a seguir são salvas em cada iteração de execução para uma tarefa de classificação.
 
-|Métrica|DESCRIÇÃO|Cálculo|Parâmetros adicionais
+|Métrica|Descrição|Cálculo|Parâmetros adicionais
 --|--|--|--|
 AUC_Macro| AUC é a área embaixo da Curva característica operacional do receptor. Macro é a média aritmética do AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC é a área embaixo da Curva característica operacional do receptor. O micro é calculado globalmente combinando os verdadeiros positivos e falsos positivos de cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -98,65 +98,109 @@ recall_score_macro|Recall é a porcentagem de elementos rotulados corretamente d
 recall_score_micro|Recall é a porcentagem de elementos rotulados corretamente de uma determinada classe. O micro é calculado globalmente contando o total de positivos verdadeiros, falsos negativos e falsos positivos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
 recall_score_weighted|Recall é a porcentagem de elementos rotulados corretamente de uma determinada classe. Ponderado é a média aritmética de recall para cada classe, ponderada pelo número de instâncias true em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|A precisão ponderada é a precisão em que o peso dado a cada exemplo é igual à proporção de instâncias verdadeiras na classe verdadeira do exemplo.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight é um vetor igual à proporção dessa classe para cada elemento no destino|
-
+<a name="confusion-matrix"></a>
 ### <a name="confusion-matrix"></a>Matriz de confusão
+#### <a name="what-is-a-confusion-matrix"></a>O que é uma matriz de confusão?
+Uma matriz de confusão é usada para descrever o desempenho de um modelo de classificação. Cada linha exibe as instâncias da classe true ou real no conjunto de dados, e cada coluna representa as instâncias da classe que foi prevista pelo modelo. 
 
-Uma matriz de confusão é usada para descrever o desempenho de um modelo de classificação. Cada linha exibe as instâncias da classe real, e cada coluna representa as instâncias da classe prevista. A matriz de confusão mostra os rótulos classificados de modo correto e incorreto para um determinado modelo.
+#### <a name="what-does-automated-ml-do-with-the-confusion-matrix"></a>O que o ML automatizado faz com a matriz de confusão?
+Para problemas de classificação, o Azure Machine Learning fornece automaticamente uma matriz de confusão para cada modelo compilado. Para cada matriz de confusão, o ML automatizado mostrará a frequência de cada rótulo previsto (coluna) comparado com o rótulo verdadeiro (linha). Quanto mais escura a cor, maior a contagem nessa parte específica da matriz. 
 
-Para problemas de classificação, o Azure Machine Learning fornece automaticamente uma matriz de confusão para cada modelo compilado. Para cada matriz de confusão, o ML automatizado mostrará a frequência de cada rótulo previsto e de cada interseção de rótulo verdadeiro. Quanto mais escura a cor, maior a contagem nessa parte específica da matriz. O ideal é que as cores mais escuras sejam ao longo da diagonal da matriz. 
+#### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
+Estamos comparando o valor real do conjunto de dados com os valores previstos que o modelo forneceu. Por isso, os modelos de aprendizado de máquina têm maior precisão se o modelo tiver a maioria de seus valores ao longo da diagonal, o que significa que o modelo preparou o valor correto. Se um modelo tiver desequilíbrio de classe, a matriz de confusão ajudará a detectar um modelo com tendência.
 
-Exemplo 1: um modelo de classificação com precisão insuficiente ![um modelo de classificação com precisão insuficiente](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
+##### <a name="example-1-a-classification-model-with-poor-accuracy"></a>Exemplo 1: um modelo de classificação com precisão incorreta
+![Um modelo de classificação com precisão incorreta](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
-Exemplo 2: um modelo de classificação com alta precisão (ideal) ![um modelo de classificação com alta precisão](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
+##### <a name="example-2-a-classification-model-with-high-accuracy"></a>Exemplo 2: um modelo de classificação com alta precisão 
+![Um modelo de classificação com alta precisão](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
+##### <a name="example-3-a-classification-model-with-high-accuracy-and-high-bias-in-model-predictions"></a>Exemplo 3: um modelo de classificação com alta precisão e alta diferença em previsões de modelo
+![Um modelo de classificação com alta precisão e alta tendência em previsões de modelo](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
 
+<a name="precision-recall-chart"></a>
 ### <a name="precision-recall-chart"></a>Gráfico de precisão/recall
+#### <a name="what-is-a-precision-recall-chart"></a>O que é um gráfico de recall de precisão?
+A curva de recall de precisão mostra a relação entre precisão e recall de um modelo. A precisão do termo representa essa capacidade para um modelo rotular todas as instâncias corretamente. O termo “recall” representa a capacidade de um classificador localizar todas as instâncias de um rótulo específico.
 
-Com esse gráfico, você pode comparar as curvas de precisão/recall de cada modelo para determinar qual deles tem uma relação aceitável entre a precisão e a recall conforme seu problema comercial específico. Esse gráfico mostra a média macro e micro da precisão/recall, além da precisão/recall associada a todas as classes de um modelo.
+#### <a name="what-does-automated-ml-do-with-the-precision-recall-chart"></a>O que o ML automatizado faz com o gráfico de recall de precisão?
 
-O termo “precisão” representa a capacidade de um classificador rotular todas as instâncias corretamente. O termo “recall” representa a capacidade de um classificador localizar todas as instâncias de um rótulo específico. A curva de precisão/recall mostra a relação entre esses dois conceitos. Idealmente, o modelo teria 100% de precisão e exatidão.
+Com esse gráfico, você pode comparar as curvas de precisão/recall de cada modelo para determinar qual deles tem uma relação aceitável entre a precisão e a recall conforme seu problema comercial específico. Esse gráfico mostra a média macro e micro da precisão/recall, além da precisão/recall associada a todas as classes de um modelo. 
 
-Exemplo 1: um modelo de classificação com baixa precisão e baixa recall ![um modelo de classificação com baixa precisão e baixa recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
+Macro-a média calculará a métrica independentemente de cada classe e, em seguida, assumirá a média, tratando todas as classes igualmente. No entanto, micro-Average agregará as contribuições de todas as classes para calcular a média. Micro-Average é preferível se houver desequilíbrio de classe presente no conjunto de
 
-Exemplo 2: um modelo de classificação com aproximadamente 100% de precisão e ~ 100% recall (ideal) ![um modelo de classificação alta precisão e RECALL](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+#### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
+Dependendo do objetivo do problema comercial, a curva de recall de precisão ideal poderia ser diferente. Alguns exemplos são fornecidos abaixo
 
-### <a name="roc"></a>ROC
+##### <a name="example-1-a-classification-model-with-low-precision-and-low-recall"></a>Exemplo 1: um modelo de classificação com baixa precisão e baixa recall
+![Um modelo de classificação com baixa precisão e uma recall baixa](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
+##### <a name="example-2-a-classification-model-with-100-precision-and-100-recall"></a>Exemplo 2: um modelo de classificação com aproximadamente 100% de precisão e ~ 100% de recall 
+![um modelo de classificação alta precisão e RECALL](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+<a name="roc"></a>
+### <a name="roc-chart"></a>Gráfico ROC
+
+#### <a name="what-is-a-roc-chart"></a>O que é um gráfico de ROC?
 O ROC (característica operacional do receptor) é um gráfico que compara os rótulos classificados de modo correto e incorreto de um modelo específico. A curva ROC pode ser menos informativa ao treinar modelos em conjuntos de dados com alto desvio, pois ela não mostrará os rótulos falso-positivos.
 
-Exemplo 1: um modelo de classificação com rótulos verdadeiros baixos e alto rótulos falsos ![modelo de classificação com rótulos verdadeiros de baixo e grandes rótulos de falsos](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+#### <a name="what-does-automated-ml-do-with-the-roc-chart"></a>O que o ML automatizado faz com o gráfico ROC?
+O ML automatizado gera a macro de recall de precisão média, o micro Average Precision-recall e a recall de precisão associada a todas as classes de um modelo. 
 
-Exemplo 2: um modelo de classificação com alto rótulos verdadeiros e rótulos falso baixo ![um modelo de classificação com rótulos verdadeiros de alta e baixa de rótulos falsos](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+Macro-a média calculará a métrica independentemente de cada classe e, em seguida, assumirá a média, tratando todas as classes igualmente. No entanto, micro-Average agregará as contribuições de todas as classes para calcular a média. Micro-Average é preferível se houver desequilíbrio de classe presente no conjunto de
 
-### <a name="lift-curve"></a>Curva de comparação de precisão
+#### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
+O ideal é que o modelo tenha mais de 100% de taxa positiva, e mais próximo da taxa de 0% de falsos positivos. 
 
+##### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>Exemplo 1: um modelo de classificação com baixos rótulos verdadeiros e grandes rótulos falsos
+![Modelo de classificação com baixos rótulos verdadeiros e grandes rótulos falsos](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+
+##### <a name="example-2-a-classification-model-with-high-true-labels-and-low-false-labels"></a>Exemplo 2: um modelo de classificação com alto rótulos verdadeiros e rótulos falsos inferiores
+![um modelo de classificação com alto rótulos verdadeiros e rótulos falsos baixos](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+<a name="lift-curve"></a>
+### <a name="lift-chart"></a>Gráfico de comparação de precisão
+#### <a name="what-is-a-lift-chart"></a>O que é um gráfico de comparação de precisão?
+Gráficos de comparação de precisão são usados para avaliar o desempenho de um modelo de classificação. Ele mostra o quanto melhor você pode esperar fazer com o modelo gerado em comparação a sem um modelo em termos de precisão.
+#### <a name="what-does-automated-ml-do-with-the-lift-chart"></a>O que o ML automatizado faz com o gráfico de comparação de precisão?
 Você pode comparar a precisão do modelo compilado automaticamente do Azure Machine Learning com a linha de base para exibir o ganho de valor desse determinado modelo.
+#### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
 
-Gráficos de comparação de precisão são usados para avaliar o desempenho de um modelo de classificação. Eles mostram o quão melhor seu desempenho pode ficar com um modelo em comparação a não ter um modelo. 
-
-Exemplo 1: o modelo tem um desempenho pior do que um modelo de seleção aleatório ![um modelo de classificação que faz pior do que um modelo de seleção aleatório](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
-
-Exemplo 2: o modelo tem um desempenho melhor do que um modelo de seleção aleatório ![um modelo de classificação que executa melhor](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
-
-### <a name="gains-curve"></a>Curva de ganhos
+##### <a name="example-1-a-classification-model-that-does-worse-than-a-random-selection-model"></a>Exemplo 1: um modelo de classificação que faz pior que um modelo de seleção aleatório
+![Um modelo de classificação que é pior do que um modelo de seleção aleatório](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
+##### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>Exemplo 2: um modelo de classificação que tem um desempenho melhor do que um modelo de seleção aleatório
+![um modelo de classificação que executa melhor](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
+<a name="gains-curve"></a>
+### <a name="gains-chart"></a>Gráfico de ganhos
+#### <a name="what-is-a-gains-chart"></a>O que é um gráfico de ganhos?
 
 Um gráfico de ganhos avalia o desempenho de um modelo de classificação em cada porção dos dados. Ele mostra, para cada percentil do conjunto de dados, o quão melhor o desempenho pode ser em comparação a um modelo de seleção aleatória.
 
+#### <a name="what-does-automated-ml-do-with-the-gains-chart"></a>O que o ML automatizado faz com o gráfico de ganhos?
 Use o gráfico de ganhos cumulativos para ajudar você a escolher o corte de classificação usando uma porcentagem que corresponda a um ganho desejado do modelo. Essas informações fornecem outra maneira de observar os resultados no gráfico de comparação de precisão anexo.
 
-Exemplo 1: um modelo de classificação com um mínimo de lucro ![um modelo de classificação com o mínimo de lucro](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
+#### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
+##### <a name="example-1-a-classification-model-with-minimal-gain"></a>Exemplo 1: um modelo de classificação com o mínimo de lucro
+![um modelo de classificação com o mínimo de lucro](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
 
-Exemplo 2: um modelo de classificação com um lucro significativo ![um modelo de classificação com um lucro significativo](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+##### <a name="example-2-a-classification-model-with-significant-gain"></a>Exemplo 2: um modelo de classificação com um lucro significativo
+![um modelo de classificação com um grande benefício](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+<a name="calibration-plot"></a>
+### <a name="calibration-chart"></a>Gráfico de calibragem
 
-### <a name="calibration-plot"></a>Gráfico de calibragem
+#### <a name="what-is-a-calibration-chart"></a>O que é um gráfico de calibragem?
+Um gráfico de calibragem é usado para exibir a confiança de um modelo de previsão. Para isso, ele mostra a relação entre a probabilidade prevista e a probabilidade real, em que “probabilidade” representa as chances de uma determinada instância pertencer a algum rótulo.
+#### <a name="what-does-automated-ml-do-with-the-calibration-chart"></a>O que o ML automatizado faz com o gráfico de calibragem?
+Em todos os problemas de classificação, você pode examinar a linha de calibração para cada média micro, macro e cada classe de um determinado modelo de previsão.
 
-Em todos os problemas de classificação, você pode examinar a linha de calibração para cada média micro, macro e cada classe de um determinado modelo de previsão. 
+Macro-a média calculará a métrica independentemente de cada classe e, em seguida, assumirá a média, tratando todas as classes igualmente. No entanto, micro-Average agregará as contribuições de todas as classes para calcular a média. 
+#### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
+ Um modelo bem calibrado se alinha com a linha y = x, em que é razoavelmente confiante em suas previsões. Um modelo com confiança excessiva se nivela à linha y=0, na qual a probabilidade prevista está presente, mas não há nenhuma probabilidade real. 
 
-Um gráfico de calibragem é usado para exibir a confiança de um modelo de previsão. Para isso, ele mostra a relação entre a probabilidade prevista e a probabilidade real, em que “probabilidade” representa as chances de uma determinada instância pertencer a algum rótulo. Um modelo bem calibrado se alinha com a linha y = x, estando razoavelmente confiante em suas previsões. Um modelo com confiança excessiva se nivela à linha y=0, na qual a probabilidade prevista está presente, mas não há nenhuma probabilidade real.
 
-Exemplo 1: um modelo mais bem calibrado ![ um modelo mais bem calibrado](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
+##### <a name="example-1-a-well-calibrated-model"></a>Exemplo 1: um modelo bem calibrado
+![ modelo mais bem calibrado](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
 
-Exemplo 2: um modelo mais confiável ![um modelo de confiança excessiva](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
+##### <a name="example-2-an-over-confident-model"></a>Exemplo 2: um modelo mais confiável
+![Um modelo mais confiável](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ## <a name="regression"></a>Resultados da regressão
 
@@ -171,7 +215,7 @@ Três as métricas e os gráficos a seguir estão disponíveis para cada modelo 
 
 As métricas a seguir são salvas em cada iteração de execução para uma tarefa de regressão ou de previsão.
 
-|Métrica|DESCRIÇÃO|Cálculo|Parâmetros adicionais
+|Métrica|Descrição|Cálculo|Parâmetros adicionais
 --|--|--|--|
 explained_variance|A variação explicada é a proporção na qual um modelo matemático responde pela variação de determinado conjunto de dados. É o percentual de redução na variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, ela é igual à variação explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhum|
 r2_score|R2 é o coeficiente de determinação ou a redução de percentual em erros quadráticos, comparado a um modelo de linha de base que gera a média. |[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhum|
@@ -185,37 +229,41 @@ normalized_root_mean_squared_error|A raiz do erro quadrático médio normalizado
 root_mean_squared_log_error|A raiz do erro de log quadrático médio é a raiz quadrada do erro logarítmico quadrático esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhum|
 normalized_root_mean_squared_log_error|A raiz do erro de log quadrático médio normalizada é a raiz do erro de log quadrático médio dividida pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dividir pelo intervalo dos dados|
 
-### <a name="pvt"></a>Previsto versus verdadeiro
-
+### <a name="pvt"></a>Gráfico previsto versus verdadeiro
+#### <a name="what-is-a-predicted-vs-true-chart"></a>O que é um gráfico previsto versus verdadeiro?
 Previsto versus verdadeiro mostra a relação entre um valor previsto e seu valor verdadeiro correlacionado para um problema de regressão. Esse gráfico pode ser usado para medir o desempenho de um modelo que, quanto mais próximos à linha y=x linha estiverem seus valores previstos, melhor será a precisão de um modelo de previsão.
 
+#### <a name="what-does-automated-ml-do-with-the-predicted-vs-true-chart"></a>O que o ML automatizado faz com o gráfico previsto versus verdadeiro?
 Após cada execução, você pode ver um gráfico comparando os dados previstos e reais de cada modelo de regressão. Para proteger a privacidade dos dados, os valores ficam no mesmo compartimento, sendo que o tamanho de cada compartimento é mostrado como um gráfico de barras na parte inferior da área do gráfico. Você pode comparar o modelo de previsão, com as áreas de tonalidade mais leves, mostrando as margens de erro comparadas ao valor ideal de onde o modelo deveria estar.
 
-Exemplo 1: um modelo de regressão com baixa precisão em previsões ![um modelo de regressão com baixa precisão nas previsões](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
+#### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
+##### <a name="example-1-a-classification-model-with-low-accuracy"></a>Exemplo 1: um modelo de classificação com baixa precisão
+![Um modelo de regressão com baixa precisão nas previsões](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-Exemplo 2: um modelo de regressão com alta precisão em suas previsões [![um modelo de regressão com alta precisão em suas previsões](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
+##### <a name="example-2-a-regression-model-with-high-accuracy"></a>Exemplo 2: um modelo de regressão com alta precisão 
+[![um modelo de regressão com alta precisão em suas previsões](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
 
 
 
-### <a name="histo"></a>Histograma de resíduos
-
+### <a name="histo"></a>Histograma do gráfico de resíduos
+#### <a name="what-is-a-residuals-chart"></a>O que é um gráfico de resíduos?
 Um resíduo representa um y observado, que é o y previsto. Para mostrar uma margem de erro com baixo desvio, o histograma de resíduos deve ter a forma de uma curva de sino, centralizada em torno do 0. 
+#### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>O que o ML automatizado faz com o gráfico de resíduos?
+O ML automatizado fornece automaticamente um gráfico de resíduos para mostrar a distribuição de erros nas previsões.
+#### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
+Um bom modelo normalmente terá uma curva de sino ou erros em volta de zero.
 
-Exemplo 1: um modelo de regressão com tendência em seus erros ![modelo de regressão de SA com tendência em seus erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
+##### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Exemplo 1: um modelo de regressão com tendência em seus erros
+![Modelo de regressão de SA com tendência em seus erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-Exemplo 2: um modelo de regressão com uma distribuição mais uniforme de erros ![um modelo de regressão com mais distribuição uniforme de erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
+##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Exemplo 2: um modelo de regressão com uma distribuição mais uniforme de erros
+![Um modelo de regressão com uma distribuição mais uniforme de erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 ## <a name="explain-model"></a>Importância da interpretação do modelo e do recurso
-
-A importância dos recursos permite que você veja quanto valor cada recurso estava na construção de um modelo. Esse cálculo é desativado por padrão, pois pode aumentar significativamente o tempo de execução.   Você pode habilitar a explicação do modelo para todos os modelos ou explicar apenas o modelo de melhor ajuste.
-
-É possível analisar a pontuação de importância do recurso do modelo geral, bem como por classe de um modelo de previsão. Também é possível ver, em cada recurso, como a importância se compara a cada classe e no geral.
-
-![Capacidade de explicar o recurso](./media/how-to-understand-automated-ml/feature-importance.gif)
-
+O ML automatizado fornece um painel de interpretação de aprendizado de máquina para suas execuções.
 Para obter mais informações sobre como habilitar recursos de interpretação, consulte [como](how-to-machine-learning-interpretability-automl.md) habilitar a interpretabilidade em experimentos de ml automatizados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 + Saiba mais sobre o [ml automatizado](concept-automated-ml.md) no Azure Machine Learning.
 + Experimente o bloco de anotações de exemplo [explicação do modelo de Machine Learning automatizado](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) .

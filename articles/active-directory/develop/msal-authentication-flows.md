@@ -1,40 +1,36 @@
 ---
-title: Fluxos de autenticação (biblioteca de autenticação da Microsoft)
+title: Fluxos de autenticação do MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os fluxos de autenticação e as concessões usadas pela MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473805"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917192"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
 Este artigo descreve os diferentes fluxos de autenticação fornecidos pela MSAL (biblioteca de autenticação da Microsoft).  Esses fluxos podem ser usados em uma variedade de cenários de aplicativos diferentes.
 
-| Flow | DESCRIÇÃO | Usado em|  
+| Flow | Descrição | Usado em|  
 | ---- | ----------- | ------- | 
 | [Interativo](#interactive) | Obtém o token por meio de um processo interativo que solicita as credenciais ao usuário por meio de um navegador ou janela pop-up. | [Aplicativos de desktop](scenario-desktop-overview.md), [aplicativos móveis](scenario-mobile-overview.md) |
 | [Concessão implícita](#implicit-grant) | Permite que o aplicativo obtenha tokens sem executar uma troca de credenciais de servidor back-end. Isso permite que o aplicativo entre no usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo no código JavaScript do cliente.| [Aplicativos de página única (SPA)](scenario-spa-overview.md) |
 | [Código de autorização](#authorization-code) | Usado em aplicativos que são instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Isso permite que você adicione entrada e acesso à API aos seus aplicativos móveis e de área de trabalho. | [Aplicativos de desktop](scenario-desktop-overview.md), [aplicativos móveis](scenario-mobile-overview.md), [aplicativos Web](scenario-web-app-call-api-overview.md) | 
-| [Em nome de](#on-behalf-of) | Um aplicativo invoca um serviço ou uma API Web que, por sua vez, precisa chamar outro serviço ou API da Web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. | [APIs da Web](scenario-web-api-call-api-overview.md) |
+| [On-behalf-of](#on-behalf-of) | Um aplicativo invoca um serviço ou uma API Web que, por sua vez, precisa chamar outro serviço ou API da Web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. | [APIs da Web](scenario-web-api-call-api-overview.md) |
 | [Credenciais do cliente](#client-credentials) | Permite que você acesse recursos hospedados pela Web usando a identidade de um aplicativo. Normalmente usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. | [Aplicativos de daemon](scenario-daemon-overview.md) |
 | [Código do dispositivo](#device-code) | Permite que os usuários entrem em dispositivos com restrição de entrada, como uma TV inteligente, um dispositivo IoT ou uma impressora. | [Aplicativos móveis/desktop](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
 | [Autenticação Integrada do Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permite que os aplicativos em computadores ingressados no domínio ou no Azure Active Directory (Azure AD) adquiram um token silenciosamente (sem qualquer interação com a interface do usuário).| [Aplicativos móveis/desktop](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
@@ -42,9 +38,9 @@ Este artigo descreve os diferentes fluxos de autenticação fornecidos pela MSAL
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite tokens e códigos
  
-Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte na plataforma de identidade da Microsoft.  Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico tem uma visão geral:
+Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte na plataforma de identidade da Microsoft.  Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico fornece uma visão geral:
  
-|Flow | Requisitos | id_token | o token de acesso | token de atualização | código de autorização | 
+|Flow | Requer | id_token | o token de acesso | token de atualização | código de autorização | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Fluxo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |

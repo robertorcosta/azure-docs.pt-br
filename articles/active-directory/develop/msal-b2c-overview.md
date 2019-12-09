@@ -1,28 +1,25 @@
 ---
-title: Saiba como os aplicativos podem interoperar com o Azure AD B2C usando a Biblioteca de Autenticação da Microsoft
+title: Usar MSAL com Azure Active Directory B2CLearn | Azure
+titleSuffix: Microsoft identity platform
 description: A MSAL (Biblioteca de Autenticação da Microsoft) permite que aplicativos interoperem com o Azure AD B2C e adquiram tokens para chamar APIs Web seguras. Essas APIs Web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs Web de terceiros ou sua própria API Web.
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eea0fd03b1df49e912a867b0c667ff0fd28c08a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: f080c14cd0aa20bd312b4be8d9eacd8d901b7cef
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097613"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917022"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>Use a Biblioteca de Autenticação da Microsoft para interoperar com o Azure Active Directory B2C
 
@@ -44,7 +41,7 @@ As etapas a seguir demonstram como um aplicativo de página única pode usar o A
 
 Para implementar a autenticação, primeiro você precisará registrar seu aplicativo. Confira [Registrar seu aplicativo](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#step-4-register-your-own-web-application-with-azure-ad-b2c) para ver as etapas detalhadas.
 
-### <a name="step-2-download-the-sample-application"></a>Etapa 2: Baixar o aplicativo de exemplo
+### <a name="step-2-download-the-sample-application"></a>Etapa 2: baixar o aplicativo de exemplo
 
 Baixe o exemplo como um arquivo zip ou clone-o do GitHub:
 
@@ -52,7 +49,7 @@ Baixe o exemplo como um arquivo zip ou clone-o do GitHub:
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
 
-### <a name="step-3-configure-authentication"></a>Etapa 3: Configurar autenticação
+### <a name="step-3-configure-authentication"></a>Etapa 3: configurar a autenticação
 
 1. Abra o arquivo **index.html** no exemplo.
 
@@ -84,7 +81,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 O nome do [fluxo de usuário](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) neste tutorial é **B2C_1_signupsignin1**. Se estiver usando um nome de fluxo de usuário diferente, configure o valor da **autoridade** como o nome em questão.
 
-### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>Etapa 4: Configurar seu aplicativo para usar `b2clogin.com`
+### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>Etapa 4: configurar seu aplicativo para usar o `b2clogin.com`
 
 Você pode usar `b2clogin.com` em vez de `login.microsoftonline.com` como URL de redirecionamento. Isso é feito em seu aplicativo do Azure AD B2C quando você configura um provedor de identidade para inscrição e entrada.
 
@@ -120,7 +117,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 Siga [este exemplo de JavaScript da MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#single-page-application-built-on-msaljs-with-azure-ad-b2c) de como usar a Versão Prévia da MSAL para JavaScript (MSAL.js). O exemplo obtém um token de acesso e chama uma API protegida pelo Azure AD B2C.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre:
 

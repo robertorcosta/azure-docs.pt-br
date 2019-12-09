@@ -3,23 +3,22 @@ title: Operar dispositivos offline – Azure IoT Edge | Microsoft Docs
 description: Saiba como módulos e dispositivos IoT Edge podem operar sem conexão à Internet por longos períodos e como o IoT Edge pode permitir que dispositivos IoT regulares operem offline também.
 author: kgremban
 ms.author: kgremban
-ms.date: 08/04/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b16a8d8ddd4ac23a59db8e7fed48f1c39752d130
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456880"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924863"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Entender os recursos offline estendidos para dispositivos IoT Edge, módulos e dispositivos filho
 
-O Azure IoT Edge dá suporte a operações offline estendidas em seus dispositivos IoT Edge e habilita operações offline em dispositivos não IoT Edge filhos também. Contanto que um dispositivo do IoT Edge tenha tido uma oportunidade de se conectar ao Hub IoT, ele e todos os dispositivos filho podem continuar a funcionar com uma conexão com a Internet intermitente ou sem nenhuma conexão. 
+O Azure IoT Edge dá suporte a operações offline estendidas em seus dispositivos IoT Edge e habilita operações offline em dispositivos não IoT Edge filhos também. Desde que um dispositivo IoT Edge tenha uma oportunidade de se conectar ao Hub IoT, esse dispositivo e todos os dispositivos filho podem continuar a funcionar com a conexão intermitente ou sem a Internet.
 
-
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 Quando um dispositivo do IoT Edge entra em modo offline, o hub do IoT Edge assume três funções. Primeiro, ele armazena todas as mensagens que estão no sentido upstream e as salva até que o dispositivo se reconecte. Em segundo lugar, ele atua em nome do Hub IoT para autenticar dispositivos filho e módulos para que eles possam continuar a operar. Em terceiro lugar, ele permite a comunicação entre os dispositivos filho que normalmente passariam pelo Hub IoT. 
 
@@ -39,7 +38,9 @@ O exemplo a seguir mostra como um cenário de IoT Edge opera no modo offline:
 
 4. **Reconectar e ressincronizar com o Hub IoT**
 
-   Quando a conexão com o Hub IoT for restaurada, o dispositivo do IoT Edge será sincronizado novamente. As mensagens armazenadas localmente são entregues na mesma ordem em que foram armazenadas. Todas as diferenças entre as propriedades desejadas e relatadas dos módulos e dispositivos são reconciliadas. O dispositivo do IoT Edge atualiza qualquer alteração de seu conjunto de dispositivos de IoT filho atribuídos.
+   Quando a conexão com o Hub IoT for restaurada, o dispositivo do IoT Edge será sincronizado novamente. As mensagens armazenadas localmente são entregues ao Hub IoT imediatamente, mas dependem da velocidade da conexão, da latência do Hub IoT e dos fatores relacionados. Eles são entregues na mesma ordem em que foram armazenados.
+
+   Todas as diferenças entre as propriedades desejadas e relatadas dos módulos e dispositivos são reconciliadas. O dispositivo do IoT Edge atualiza qualquer alteração de seu conjunto de dispositivos de IoT filho atribuídos.
 
 ## <a name="restrictions-and-limits"></a>Restrições e limites
 
@@ -139,7 +140,7 @@ Essa configuração é uma propriedade desejada do hub do IoT Edge, que é armaz
 
 As mensagens e as informações de estado do módulo são armazenadas no sistema de arquivos de contêiner local do hub de IoT Edge por padrão. Para maior confiabilidade, especialmente ao operar offline, você também pode dedicar o armazenamento no dispositivo IoT Edge host. Para obter mais informações, consulte [fornecer aos módulos acesso ao armazenamento local de um dispositivo](how-to-access-host-storage-from-module.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como configurar um gateway transparente para suas conexões de dispositivo pai/filho: 
 

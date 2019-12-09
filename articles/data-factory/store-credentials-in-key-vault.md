@@ -1,22 +1,21 @@
 ---
 title: Armazenar credenciais no Azure Key Vault
-description: Saiba como armazenar as credenciais para os armazenamentos de dados usados em um Azure Key Vault, de modo que o Azure Data Factory possa recuperá-las automaticamente em tempo de execução.
+description: Saiba como armazenar as credenciais para os armazenamentos de dados usados em um Azure Key Vault, de modo que o Azure Data Factory possa recuperá-las automaticamente em runtime.
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 1e2458fa125ee4d223ef46001534fb7ae72b805e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 32c4b9b8e6268aa648e3414b337e8b2b908589e8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684013"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928714"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial no Azure Key Vault
 
@@ -41,10 +40,10 @@ Para referenciar uma credencial armazenada no Azure Key Vault, você precisa:
 
 As propriedades a seguir têm suporte no serviço vinculado do Azure Key Vault:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureKeyVault**. | Sim |
-| baseUrl | Especifique a URL (nome DNS) do Azure Key Vault. | Sim |
+| type | A propriedade type deve ser definida como: **AzureKeyVault**. | SIM |
+| baseUrl | Especifique a URL (nome DNS) do Azure Key Vault. | SIM |
 
 **Usando a criação da interface do usuário:**
 
@@ -74,12 +73,12 @@ Selecione o Azure Key Vault provisionado onde as credenciais são armazenadas. V
 
 As propriedades a seguir têm suporte quando você configura um campo no serviço vinculado, referenciando um segredo do cofre de chaves:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do campo deve ser definida como: **AzureKeyVaultSecret**. | Sim |
-| secretName | O nome do segredo no Azure Key Vault. | Sim |
+| type | A propriedade type do campo deve ser definida como: **AzureKeyVaultSecret**. | SIM |
+| secretName | O nome do segredo no Azure Key Vault. | SIM |
 | secretVersion | A versão do segredo no Azure Key Vault.<br/>Se não for especificada, a versão mais recente do segredo será sempre usada.<br/>Se especificada, a versão especificada será sempre usada.| Não |
-| store | Refere-se a um serviço vinculado do Azure Key Vault que você usa para armazenar a credencial. | Sim |
+| store | Refere-se a um serviço vinculado do Azure Key Vault que você usa para armazenar a credencial. | SIM |
 
 **Usando a criação da interface do usuário:**
 
@@ -115,5 +114,5 @@ Selecione **Azure Key Vault** para os campos secretos ao criar a conexão para s
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

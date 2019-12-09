@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 6a9e410be7a52291d19478dbfb8e9ad30f144ccb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024778"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914069"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração de grupos do Office 365
 
@@ -28,7 +28,7 @@ Este artigo mostra como gerenciar o ciclo de vida dos grupos do Office 365 defin
 
 Depois de configurar a expiração de um grupo:
 
-- Grupos com atividades do usuário são renovados automaticamente à medida que a expiração é próxima
+- Grupos com atividades do usuário são renovados automaticamente à medida que a expiração se aproxima
 - Os proprietários do grupo são notificados para renovar o grupo, se o grupo não for renovado automaticamente
 - Todos os grupos não renovados serão excluídos
 - Os proprietários ou os administradores de grupos poderão restaurar, dentro de 30 dias, qualquer grupo do Office 365 excluído
@@ -62,7 +62,7 @@ As funções a seguir podem configurar e usar a expiração para grupos do Offic
 
 Função | Permissões
 -------- | --------
-Administrador global ou administrador de usuário | Pode criar, ler, atualizar ou excluir as configurações de política de expiração de grupos do Office 365<br>Pode renovar qualquer grupo do Office 365
+Administrador global, administrador de grupo ou administrador de usuário | Pode criar, ler, atualizar ou excluir as configurações de política de expiração de grupos do Office 365<br>Pode renovar qualquer grupo do Office 365
 Usuário | Pode renovar um grupo do Office 365 que ele possua<br>Pode restaurar um grupo do Office 365 que ele possua<br>Pode ler as configurações da política de expiração
 
 Para saber mais sobre permissões para restaurar um grupo excluído, confira [Restaurar um grupo excluído do Office 365 no Azure Active Directory](groups-restore-deleted.md).

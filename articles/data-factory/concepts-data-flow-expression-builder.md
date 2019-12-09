@@ -1,17 +1,18 @@
 ---
-title: Construtor de expressão de fluxo de dados de mapeamento de Azure Data Factory
+title: Construtor de expressões de fluxo de dados de mapeamento
 description: O construtor de expressões para mapear Azure Data Factory fluxos de dados
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: 7d8f02647224c971c44bff51f09315c53c53e9a3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672261"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928349"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Construtor de expressões de fluxo de dados de mapeamento
 
@@ -19,7 +20,7 @@ ms.locfileid: "74672261"
 
 No fluxo de dados de mapeamento Azure Data Factory, você encontrará caixas de expressão nas quais é possível inserir expressões para transformação de dados. Use colunas, campos, variáveis, parâmetros, funções do fluxo de dados nessas caixas. Para construir a expressão, use o Construtor de Expressões que é iniciado clicando na caixa de texto de expressões dentro da transformação. Às vezes, você também verá opções de "Coluna Computada" ao selecionar colunas para transformação. Ao clicar nessa opção, você também verá a inicialização do Construtor de Expressões.
 
-![Construtor de expressões](media/data-flow/xpb1.png "Construtor de Expressões")
+![Construtor de Expressões](media/data-flow/xpb1.png "Construtor de Expressões")
 
 A ferramenta Construtor de Expressões usa como padrão a opção do editor de texto. o recurso de preenchimento automático faz leitura de todo o modelo de objeto do Fluxo de Dados do Azure Data Factory com verificação de sintaxe e realce.
 
@@ -35,7 +36,7 @@ No painel esquema de saída à esquerda, você verá as colunas que está modifi
 
 ## <a name="data-preview-in-debug-mode"></a>Visualização de dados no modo de depuração
 
-![Construtor de expressões](media/data-flow/exp4b.png "Visualização de dados de expressão")
+![Construtor de Expressões](media/data-flow/exp4b.png "Visualização de dados de expressão")
 
 Quando você estiver trabalhando em suas expressões de fluxo de dados, ative o modo de depuração da superfície de design Azure Data Factory fluxo de dados, habilitando a visualização em andamento ao vivo dos resultados de seus dados da expressão que você está criando. A depuração dinâmica em tempo real está habilitada para as expressões.
 
@@ -43,13 +44,23 @@ Quando você estiver trabalhando em suas expressões de fluxo de dados, ative o 
 
 Clique no botão atualizar para atualizar os resultados da expressão em um exemplo ao vivo de sua fonte em tempo real.
 
-![Construtor de expressões](media/data-flow/exp5.png "Visualização de dados de expressão")
+![Construtor de Expressões](media/data-flow/exp5.png "Visualização de dados de expressão")
 
 ## <a name="comments"></a>Comentários
 
 Adicione comentários às expressões usando sintaxe de comentário de linha única e multilinhas:
 
 ![Comentários](media/data-flow/comments.png "Comentários")
+
+## <a name="string-interpolation"></a>Interpolação de cadeias de caracteres
+
+Use aspas duplas para incluir texto de cadeia de caracteres literal junto com expressões. Você pode incluir funções, colunas e parâmetros de expressão. Isso é muito útil para evitar o uso extensivo da concatenação de cadeia de caracteres ao incluir parâmetros em cadeias de consulta.
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 ## <a name="regular-expressions"></a>Expressões regulares
 

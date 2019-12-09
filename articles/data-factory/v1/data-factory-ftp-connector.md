@@ -4,21 +4,20 @@ description: Saiba como mover dados de um servidor FTP usando o Azure Data Facto
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5a6485e93e8f617883a7dfef511709ec857b411
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 55c8bf2210eb0990a91aeff1f90e4af4db2c22ab
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682590"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927171"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor FTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -26,7 +25,7 @@ ms.locfileid: "73682590"
 > * [Versão 2 (versão atual)](../connector-ftp.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector FTP na V2 ](../connector-ftp.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector FTP na V2 ](../connector-ftp.md).
 
 Este artigo explica como usar a atividade de cópia no Azure Data Factory para mover dados de um servidor FTP. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
@@ -40,7 +39,7 @@ Se você estiver movendo dados de um servidor FTP **local** para um armazenament
 
 É possível instalar o gateway no mesmo computador local ou na VM IaaS que o servidor FTP. No entanto, recomendamos que você instale o gateway em uma máquina separada/VM IaaS para evitar a contenção de recursos e para melhorar o desempenho. Ao instalar o gateway em um computador separado, o computador deverá ser capaz de acessar o servidor FTP.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 Você pode criar um pipeline com uma atividade de cópia que move dados de uma origem FTP usando diferentes ferramentas ou APIs.
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia do Data Factory**. Veja o [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para obter um passo a passo rápido.
@@ -63,18 +62,18 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir descreve elementos JSON específicos para um serviço FTP vinculado.
 
-| Propriedade | DESCRIÇÃO | Obrigatório | Padrão |
+| Propriedade | Descrição | obrigatórios | Padrão |
 | --- | --- | --- | --- |
-| Tipo |Defina isso para FtpServer. |Sim |&nbsp; |
-| host |Especifique o nome ou endereço IP do servidor FTP. |Sim |&nbsp; |
-| authenticationType |Especifique o tipo de autenticação. |Sim |Básica, Anônima |
+| type |Defina isso para FtpServer. |SIM |&nbsp; |
+| host |Especifique o nome ou endereço IP do servidor FTP. |SIM |&nbsp; |
+| authenticationType |Especifique o tipo de autenticação. |SIM |Básica, Anônima |
 | Nome de Usuário |Especifique o usuário que tem acesso ao servidor FTP. |Não |&nbsp; |
 | Senha |Especifique a senha para o usuário (nome de usuário). |Não |&nbsp; |
 | encryptedCredential |Especifique a credencial criptografada para acessar o servidor FTP. |Não |&nbsp; |
 | gatewayName |Especifique o nome do gateway no Gateway de Gerenciamento de Dados para se conectar a um servidor FTP local. |Não |&nbsp; |
 | porta |Especifique a porta ouvida pelo servidor FTP. |Não |21 |
-| enableSsl |Especifique se o canal FTP sobre SSL/TLS deve ser usado. |Não |verdadeiro |
-| enableServerCertificateValidation |Especifique se deseja habilitar a validação do certificado SSL do servidor ao usar o canal FTP sobre SSL/TLS. |Não |verdadeiro |
+| enableSsl |Especifique se o canal FTP sobre SSL/TLS deve ser usado. |Não |true |
+| enableServerCertificateValidation |Especifique se deseja habilitar a validação do certificado SSL do servidor ao usar o canal FTP sobre SSL/TLS. |Não |true |
 
 >[!NOTE]
 >O conector FTP oferece suporte ao acessar o servidor FTP sem criptografia ou a criptografia de SSL/TLS explícita; ele não oferece suporte a criptografia SSL/TLS implícita.
@@ -153,13 +152,13 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados. Ela fornece informações específicas ao tipo de conjunto de dados. A seção **typeProperties** para o conjunto de dados do tipo **FileShare** tem as propriedades a seguir:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | --- | --- | --- |
-| folderPath |Subcaminho para a pasta. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Confira Definições de conjunto de dados e serviço vinculado de exemplo para obter exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pastas com base na fatia de data/hora de início e término. |Sim |
+| folderPath |Subcaminho para a pasta. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Confira Definições de conjunto de dados e serviço vinculado de exemplo para obter exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pastas com base na fatia de data/hora de início e término. |SIM |
 | fileName |Especifique o nome do arquivo no **folderPath** se quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar algum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando o **fileName** não for especificado para um conjunto de dados de saída, o nome do arquivo gerado será no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no **folderPath** em vez de todos os arquivos.<br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (um único caractere).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** é aplicável a um conjunto de dados FileShare de entrada. Essa propriedade não tem suporte no HDFS (Sistema de Arquivos Distribuído Hadoop). |Não |
 | partitionedBy |Usado especificar um **folderPath** dinâmico e o **fileName** para dados de série temporal. Por exemplo, você pode especificar um **folderPath** que é parametrizada para cada hora dos dados. |Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
+| format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**; e os níveis com suporte são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 | useBinaryTransfer |Especifique se o modo de transferência binário deve ser usado. Os valores são true para o modo binário (esse é o valor padrão) e false para ASCII. Essa propriedade só pode ser usada quando o tipo de serviço vinculado associado for do tipo: FtpServer. |Não |
 
@@ -204,9 +203,9 @@ As propriedades disponíveis na seção **typeProperties** da atividade, por out
 
 Na atividade de cópia quando a fonte for do tipo **FileSystemSource**, as propriedades a seguir estarão disponíveis na seção **typeProperties**:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | obrigatórios |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. |True, False (padrão) |Não |
+| recursive |Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. |True, False (padrão) |Não |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Exemplo de JSON: Copiar dados do servidor FTP para o Blob do Azure
 Este exemplo mostra como copiar dados de um servidor FTP para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados diretamente para qualquer um dos coletores declarados em [formatos e repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Data Factory.
@@ -387,9 +386,9 @@ O pipeline contém uma atividade de cópia que está configurada para usar os co
 }
 ```
 > [!NOTE]
-> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira os seguintes artigos:
 
 * Para saber mais sobre os principais fatores que afetam o desempenho e a movimentação dos dados (atividade de cópia) no Azure Data Factory, além de várias maneiras de otimizá-la, consulte o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md).

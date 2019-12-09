@@ -1,19 +1,19 @@
 ---
-author: larryfr
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: larryfr
-ms.openlocfilehash: b3c1ad48da0ef28c73e3af5d1e30414534f4e94d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4f861d5e7832512e2c2732f1ce5dbf6ac76b91b1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73799620"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935790"
 ---
 As entradas no documento `deploymentconfig.json` são mapeadas para os parâmetros de [AciWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades no documento JSON e os parâmetros para o método:
 
-| Entidade JSON | Parâmetro do método | DESCRIÇÃO |
+| Entidade JSON | Parâmetro do método | Descrição |
 | ----- | ----- | ----- |
 | `computeType` | ND | O destino de computação. Para ACI, o valor deve ser `ACI`. |
 | `containerResourceRequirements` | ND | Contêiner para as entidades de CPU e memória. |
@@ -21,7 +21,7 @@ As entradas no documento `deploymentconfig.json` são mapeadas para os parâmetr
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) a ser alocada para este serviço Web. Padrão, `0.5` |
 | `location` | `location` | A região do Azure para a qual implantar este WebService. Se não for especificado, o local do espaço de trabalho será usado. Mais detalhes sobre as regiões disponíveis podem ser encontrados aqui: [regiões ACI](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
 | `authEnabled` | `auth_enabled` | Se a autenticação deve ser habilitada para este WebService. O padrão é false |
-| `sslEnabled` | `ssl_enabled` | Se o SSL deve ser habilitado para este WebService. O padrão é false. |
+| `sslEnabled` | `ssl_enabled` | Se o SSL deve ser habilitado para este WebService. Usa False como padrão. |
 | `appInsightsEnabled` | `enable_app_insights` | Se deseja habilitar AppInsights para este WebService. O padrão é false |
 | `sslCertificate` | `ssl_cert_pem_file` | O arquivo de certificado necessário se o SSL estiver habilitado |
 | `sslKey` | `ssl_key_pem_file` | O arquivo de chave necessário se o SSL estiver habilitado |

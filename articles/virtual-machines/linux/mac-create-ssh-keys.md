@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: cb3bb6a91c25298535cfba1107b85f200031a7d6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035909"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930002"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Etapas rápidas: criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure
 
@@ -38,10 +38,10 @@ Para ver outras maneiras de gerar e usar chaves SSH em um computador Windows, co
 
 Use o comando `ssh-keygen` para gerar arquivos de chave SSH pública e privada. Por padrão, esses arquivos são criados no diretório ~/.ssh. Você pode especificar um local diferente e uma senha opcional (*frase secreta*) para acessar o arquivo de chave privada. Se um par de chaves SSH com o mesmo nome existir no local especificado, esses arquivos serão substituídos.
 
-O comando a seguir cria um par de chaves SSH usando a criptografia RSA e o tamanho de bit 2048:
+O comando a seguir cria um par de chaves SSH usando a criptografia RSA e um comprimento de bit de 4096:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 Ao usar a [CLI do Azure](/cli/azure) para criar a VM com o comando [az vm create](/cli/azure/vm#az-vm-create), opcionalmente, você pode gerar arquivos de chave SSH pública e privada executando a opção `--generate-ssh-keys`. Os arquivos de chave são armazenados no diretório ~/.ssh, a menos que você especifique outro local com a opção `--ssh-dest-key-path`. A opção `--generate-ssh-keys` não substituirá os arquivos de chave existentes e retornará um erro. No comando a seguir, substitua *VMname* e *RGname* pelos seus próprios valores:
@@ -90,7 +90,7 @@ Se você tiver especificado uma frase secreta quando criou o par de chaves, insi
 
 Se a VM estiver usando a política de acesso Just-In-Time, você precisará solicitar acesso antes que possa se conectar à VM. Para obter mais informações sobre a política Just-In-Time, confira [Gerenciar o acesso à máquina virtual usando a política Just-In-Time](../../security-center/security-center-just-in-time.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações de como trabalhar com pares de chaves SSH, confira [Etapas detalhadas para criar e gerenciar pares de chaves SSH](create-ssh-keys-detailed.md).
 

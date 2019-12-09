@@ -9,13 +9,13 @@ ms.workload: data-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
-manager: craigg
-ms.openlocfilehash: 518da092f690108111ca4456eaca66e4f3153c54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 15aac35a7ebc505e76ddfd0c538c4fddb7b2d9ff
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681447"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930540"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurar o Microsoft Integration Runtime do Azure-SSIS para alto desempenho
 
@@ -66,7 +66,7 @@ $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** é o local para o nó de trabalho do tempo de execução de integração. O nó de trabalho mantém uma conexão constante ao SSISDB (banco de dados do Catálogo SSIS) em um Banco de dados SQL do Azure. Defina **AzureSSISLocation** para o mesmo local que o servidor do Banco de Dados SQL do Microsoft Azure que hospeda o SSISDB, permitindo que o tempo de execução de integração funcione tão eficientemente quanto possível.
+**AzureSSISLocation** é o local para o nó de trabalho do runtime de integração. O nó de trabalho mantém uma conexão constante ao SSISDB (banco de dados do Catálogo SSIS) em um Banco de dados SQL do Azure. Defina **AzureSSISLocation** para o mesmo local que o servidor do Banco de Dados SQL do Microsoft Azure que hospeda o SSISDB, permitindo que o runtime de integração funcione tão eficientemente quanto possível.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Data Factory, incluindo o IR do Azure-SSIS, dá suporte às opções a seguir:
@@ -76,7 +76,7 @@ Data Factory, incluindo o IR do Azure-SSIS, dá suporte às opções a seguir:
 -   Standard\_D2\_v2
 -   Standard\_D3\_v2
 -   Standard\_D4\_v2
--   Padrão\_D2\_v3
+-   Standard\_D2\_v3
 -   Standard\_D4\_v3
 -   Standard\_D8\_v3
 -   Standard\_D16\_v3
@@ -111,11 +111,11 @@ Caso você tenha muitos lotes de pacotes para executar, e se preocupa mais com a
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** ajusta a escalabilidade do tempo de execução de integração. A taxa de transferência do tempo de execução de integração é proporcional ao **AzureSSISNodeNumber**. Primeiramente, defina **AzureSSISNodeNumber** para um valor pequeno, monitore a taxa de transferência do tempo de execução de integração e, em seguida, ajuste o valor para o seu cenário. Para reconfigurar a contagem do nó de trabalho, consulte [Gerenciar um tempo de execução de integração do Azure-SSIS](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** ajusta a escalabilidade do runtime de integração. A taxa de transferência do runtime de integração é proporcional ao **AzureSSISNodeNumber**. Primeiramente, defina **AzureSSISNodeNumber** para um valor pequeno, monitore a taxa de transferência do runtime de integração e, em seguida, ajuste o valor para o seu cenário. Para reconfigurar a contagem do nó de trabalho, consulte [Gerenciar um runtime de integração do Azure-SSIS](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando você já estiver utilizando um nó de trabalho avançado para executar pacotes, aumentar o **AzureSSISMaxParallelExecutionsPerNode** poderá aumentar a taxa de transferência geral do tempo de execução de integração. Para nós Standard_D1_v2, há suporte para execuções paralelas 1-4 por nó. Para todos os outros tipos de nós, são suportados 1-Max (2 x número de núcleos, 8) execuções paralelas por nó. Se você quiser **AzureSSISMaxParallelExecutionsPerNode** além do valor máximo com suporte, você pode abrir um tíquete de suporte e podemos aumentar o valor máximo para você e depois disso, você precisa usar o Azure PowerShell para atualizar o **AzureSSISMaxParallelExecutionsPerNode** .
+Quando você já estiver utilizando um nó de trabalho avançado para executar pacotes, aumentar o **AzureSSISMaxParallelExecutionsPerNode** poderá aumentar a taxa de transferência geral do runtime de integração. Para nós Standard_D1_v2, há suporte para execuções paralelas 1-4 por nó. Para todos os outros tipos de nós, são suportados 1-Max (2 x número de núcleos, 8) execuções paralelas por nó. Se você quiser **AzureSSISMaxParallelExecutionsPerNode** além do valor máximo com suporte, poderá abrir um tíquete de suporte e poderemos aumentar o valor máximo para você e depois disso, você precisará usar o Azure PowerShell para atualizar o **AzureSSISMaxParallelExecutionsPerNode**.
 É possível estimar o valor apropriado com base no custo do pacote e nas seguintes configurações para os nós de trabalho. Para obter mais informações, consulte [Tamanhos das máquinas virtuais para uso geral](../virtual-machines/windows/sizes-general.md).
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Desempenho de rede esperado (Mbps) |
@@ -126,18 +126,18 @@ Quando você já estiver utilizando um nó de trabalho avançado para executar p
 | Standard\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16 / 16 x 500                       | 8 / 6000                                       |
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8 x 500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16 x 500                       | 8 / 2000                                       |
-| Padrão\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4/6x500                         | 2 / 1000                                       |
+| Standard\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4/6x500                         | 2 / 1000                                       |
 | Standard\_D4\_v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
 | Standard\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
 | Standard\_D16\_v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/48x500                        | 8 / 8000                                       |
-| Standard\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
-| Standard\_D64\_v3| 64   | 256         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
+| Standard\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
+| Standard\_D64\_v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
 | Standard\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4/6x500                         | 2 / 1000                                       |
 | Standard\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
 | Standard\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
-| Standard\_E16\_v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32/48x500                       | 8 / 8000                                       |
-| Standard\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
-| Standard\_E64\_v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
+| Standard\_E16\_v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32 / 48x500                       | 8 / 8000                                       |
+| Standard\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
+| Standard\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
 
 Aqui estão as diretrizes para definir o valor direito para a propriedade **AzureSSISMaxParallelExecutionsPerNode**: 
 
@@ -149,16 +149,16 @@ Aqui estão as diretrizes para definir o valor direito para a propriedade **Azur
 
 **SSISDBPricingTier** é o tipo de preço para o SSISDB (Banco de dados do catálogo do SSIS) em um banco de dados SQL do Azure. Essa configuração afeta o número máximo de funções de trabalho na instância do IR, a velocidade para colocar na fila uma execução de pacote e a velocidade para carregar o log de execução.
 
--   Se você não se preocupar com a velocidade para colocar na fila a execução do pacote e para carregar o log de execução, você poderá escolher o menor tipo de preço do banco de dados. O banco de dados SQL do Azure com preço Básico fornece suporte a 8 funções de trabalho em uma instância de tempo de execução de integração.
+-   Se você não se preocupar com a velocidade para colocar na fila a execução do pacote e para carregar o log de execução, você poderá escolher o menor tipo de preço do banco de dados. O banco de dados SQL do Azure com preço Básico fornece suporte a 8 funções de trabalho em uma instância de runtime de integração.
 
--   Escolha um banco de dados mais avançado do que Básico, se o número de funções de trabalho for superior a 8 ou a contagem do núcleo for superior a 50. Caso contrário, o banco de dados se torna o gargalo da instância de tempo de execução de integração e o desempenho geral é impactado negativamente.
+-   Escolha um banco de dados mais avançado do que Básico, se o número de funções de trabalho for superior a 8 ou a contagem do núcleo for superior a 50. Caso contrário, o banco de dados se torna o gargalo da instância de runtime de integração e o desempenho geral é impactado negativamente.
 
 -   Escolha um banco de dados mais potente, como S3, se o nível de log estiver definido como detalhado. De acordo com nosso teste interno não oficial, o tipo de preço S3 pode dar suporte à execução do pacote SSIS com dois nós, 128 contagens paralelas e nível de log detalhado.
 
 Também é possível ajustar o tipo de preço do banco de dados com base nas informações de uso de DTU [(unidade de transações do banco de dados)](../sql-database/sql-database-what-is-a-dtu.md) disponível no Portal do Azure.
 
 ## <a name="design-for-high-performance"></a>Design para alto desempenho
-Projetar um pacote SSIS para executar no Azure é diferente de projetar um pacote para execução local. Em vez de combinar várias tarefas independentes no mesmo pacote, separe-as em vários pacotes para uma execução mais eficiente no IR do Azure-SSIS. Crie uma execução de pacote para cada pacote, de modo que não precisem aguardar uns aos outros para concluir. Essa abordagem beneficia da escalabilidade do tempo de execução de integração do Azure-SSIS e aprimora a taxa de transferência geral.
+Projetar um pacote SSIS para executar no Azure é diferente de projetar um pacote para execução local. Em vez de combinar várias tarefas independentes no mesmo pacote, separe-as em vários pacotes para uma execução mais eficiente no IR do Azure-SSIS. Crie uma execução de pacote para cada pacote, de modo que não precisem aguardar uns aos outros para concluir. Essa abordagem beneficia da escalabilidade do runtime de integração do Azure-SSIS e aprimora a taxa de transferência geral.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o Microsoft Integration Runtime do Azure-SSIS. Consulte [Microsoft Integration Runtime do Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).

@@ -4,19 +4,19 @@ description: Usar o Azure Data Factory para copiar dados do Office 365
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0c938caef81063409d3c8d6632cd7e8df99f1ea1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 896265311a67b74ccf9d0226a2969284ee491c9b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672613"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931429"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 usando o Azure Data Factory
 
@@ -38,7 +38,7 @@ Este artigo mostra como usar o Data Factory para _carregar dados do Office 365 n
     * **Versão**: selecione **V2**.
     * **Local**: selecione um local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados que são usados pela data factory podem estar em outros locais e regiões. Esses armazenamentos de dados incluem Azure Data Lake Store, Azure Storage, Banco de Dados SQL do Azure e assim por diante.
 
-3. Selecione **Criar**.
+3. Clique em **Criar**.
 4. Após a conclusão da criação, vá para o seu data factory. Você verá a home page **Data Factory** conforme mostrado na imagem a seguir:
    
    ![Página inicial do data factory](./media/load-office-365-data/data-factory-home-page.png)
@@ -128,7 +128,7 @@ Para ver a atividade em execução associada à execução do pipeline, selecion
 
 ![Monitorar a atividade](./media/load-office-365-data/activity-status.png) 
 
-Se esta for a primeira vez que você está solicitando dados para esse contexto (uma combinação de qual tabela de dados está sendo acessada, em qual conta de destino os dados estão sendo carregados e qual identidade de usuário está fazendo a solicitação de acesso a dados), você verá a atividade de cópia status como **em andamento**, e somente quando você clicar no link "detalhes" em ações, verá o status como **RequesetingConsent**.  Um membro do grupo de aprovadores de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que seja possível prosseguir com a extração de dados.
+Se esta for a primeira vez que você está solicitando dados para esse contexto (uma combinação de qual tabela de dados está sendo acessada, em que conta de destino os dados estão sendo carregados e qual identidade do usuário está fazendo a solicitação de acesso a dados), você verá o status da **atividade de cópia**como **em andamento**e somente quando clicar no link "detalhes" em ações, você verá o  Um membro do grupo de aprovadores de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que seja possível prosseguir com a extração de dados.
 
 _Status como solicitando consentimento:_ 
 ![Detalhes de execução de atividade – solicitar consentimento](./media/load-office-365-data/activity-details-request-consent.png) 
@@ -143,7 +143,7 @@ Depois que o consentimento for fornecido, a extração de dados continuará e, a
 
 Agora, acesse o armazenamento de BLOBs do Azure de destino e verifique se os dados do Office 365 foram extraídos em formato binário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Ir para o seguinte artigo para saber mais sobre o suporte do SQL Data Warehouse do Azure: 
 

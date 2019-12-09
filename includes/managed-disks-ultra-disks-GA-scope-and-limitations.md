@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/18/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: df488c2a3033015175943f7d092beaaa41e34046
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b819264895e35c6ef4fe9dc5263444dcac17eaa2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260641"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935868"
 ---
 Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 
@@ -22,8 +22,8 @@ Por enquanto, ultra discos têm limitações adicionais, como a seguir:
     - Leste dos EUA
     - Oeste dos EUA 2
     - Sudeste da Ásia
-    - Norte da Europa
-    - Europa Ocidental
+    - Europa Setentrional
+    - Oeste da Europa
     - Sul do Reino Unido 
 - Só poderão ser usados com zonas de disponibilidade (conjuntos de disponibilidade e implantações de VM única fora das zonas não terão a possibilidade de anexar um disco Ultra)
 - Há suporte apenas na seguinte série de VMs:
@@ -32,8 +32,8 @@ Por enquanto, ultra discos têm limitações adicionais, como a seguir:
     - FSv2
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-- Nem todo tamanho de VM está disponível em todas as regiões com suporte com ultra discos.
-- Só estarão disponíveis como discos de dados e serão compatíveis somente com tamanho de setor físico de 4k  
+- Nem todo tamanho de VM está disponível em todas as regiões com suporte com ultra discos
+- Estão disponíveis somente como discos de dados e dão suporte apenas ao tamanho de setor físico de 4K. Devido ao tamanho do setor nativo de 4K do ultra Disk, há alguns aplicativos que não serão compatíveis com ultra discos. Um exemplo seria Oracle Database, que requer a versão 12,2 ou posterior para dar suporte a ultra discos.  
 - Só podem ser criados como discos vazios  
 - Ainda não há suporte para instantâneos de disco, imagens de VM, conjuntos de disponibilidade e Azure Disk Encryption
 - Ainda não há suporte para integração com o backup do Azure ou Azure Site Recovery

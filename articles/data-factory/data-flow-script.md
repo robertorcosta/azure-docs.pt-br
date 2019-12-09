@@ -1,17 +1,18 @@
 ---
-title: Script de fluxo de dados de mapeamento de Azure Data Factory
+title: Mapeamento de script de fluxo de dados
 description: Visão geral da linguagem code-behind do script de fluxo de dados do Data Factory
 author: kromerm
 ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/10/2019
-ms.openlocfilehash: 4ff5a05fd40ef086c1f2332443ca03d5e872e9a8
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d861a4355158dfe18ac3aa40a7f98dc11ebda90b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010157"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930250"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -21,7 +22,7 @@ O script de fluxo de dados (DFS) são os metadados subjacentes, semelhantes a um
 
 Por exemplo, `allowSchemaDrift: true,` em uma transformação de origem instrui o serviço a incluir todas as colunas do conjunto de dados de origem no fluxo de dados, mesmo que elas não estejam incluídas na projeção do esquema.
 
-## <a name="use-cases"></a>Casos de uso
+## <a name="use-cases"></a>Use casos
 O DFS é produzido automaticamente pela interface do usuário. Você pode clicar no botão script para exibir e personalizar o script. Você também pode gerar scripts fora da interface do usuário do ADF e, em seguida, passá-los para o cmdlet do PowerShell. Ao depurar fluxos de dados complexos, você pode achar mais fácil verificar o code-behind do script em vez de verificar a representação do grafo de interface do usuário de seus fluxos.
 
 Aqui estão alguns exemplos de casos de uso:
@@ -137,6 +138,6 @@ derive1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Explore os fluxos de dados iniciando com o [artigo Visão geral de fluxos de dados](concepts-data-flow-overview.md)

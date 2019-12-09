@@ -1,5 +1,5 @@
 ---
-title: Aplicativo móvel que chama APIs da Web-obtendo um token para o aplicativo
+title: Obter um token para chamar APIs Web em aplicativos móveis | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo móvel que chama APIs da Web (obtendo um token para o aplicativo)
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b1d6a0e4bfffaaf4ed0fa836bcf62a7f1104e6a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 1101a1923e094c22e9f6a82853f4dec4deb089a1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803776"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919912"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Aplicativo móvel que chama APIs da Web – obter um token
 
@@ -259,7 +259,7 @@ Não é recomendável usar o protocolo diretamente. Se você fizer isso, o aplic
 
 Ao usar o protocolo para obter tokens para aplicativos móveis, você precisa fazer duas solicitações: Obtenha um código de autorização e troque-o por um token.
 
-#### <a name="get-authorization-code"></a>Obter código de autorização
+#### <a name="get-authorization-code"></a>Obter o código de autorização
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?

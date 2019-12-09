@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/15/2018
-ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/06/2019
+ms.openlocfilehash: 5b1b85a0c600871cbedc478f3a56cf71ef8c2ca4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468417"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931503"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -66,9 +66,9 @@ Alguns dos valores embutidos em código no modelo:
 
 **VNet 1**
 
-| Propriedade | Valor |
+| Propriedade | Value |
 |----------|-------|
-| Localização | Oeste dos EUA |
+| Location | Oeste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -83,9 +83,9 @@ Alguns dos valores embutidos em código no modelo:
 
 **VNet 2**
 
-| Propriedade | Valor |
+| Propriedade | Value |
 |----------|-------|
-| Localização | Leste dos EUA |
+| Location | Leste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -281,7 +281,7 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
 
 **Para habilitar a replicação de HBase no Portal do Azure**
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster HBase de origem.
 3. No menu do cluster, selecione **Ações de Script**.
 4. Na parte superior da página, selecione **Enviar Novo**.
@@ -296,12 +296,14 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
     
       > [!NOTE]
       > Use o nome do host em vez de FQDN para o nome DNS do cluster de origem e de destino.
+      >
+      > Este tutorial pressupõe o hn1 como ativo cabeçalho. Verifique o cluster para identificar o nó principal ativo.
 
-6. Selecione **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
+6. Clique em **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
 
 Argumentos necessários:
 
-|Nome|DESCRIÇÃO|
+|name|Descrição|
 |----|-----------|
 |-s, --src-cluster | Especifica o nome DNS do cluster HBase de origem. Por exemplo: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Especifica o nome DNS do cluster HBase de destino (réplica). Por exemplo: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,12 +312,12 @@ Argumentos necessários:
 
 Argumentos opcionais:
 
-|Nome|DESCRIÇÃO|
+|name|Descrição|
 |----|-----------|
 |-su, --src-ambari-user | Especifica o nome de usuário administrador para Ambari no cluster HBase de origem. O valor padrão é **admin**. |
 |-du, --dst-ambari-user | Especifica o nome de usuário administrador para Ambari no cluster HBase de destino. O valor padrão é **admin**. |
 |-t, --table-list | Especificas as tabelas a serem replicadas. Por exemplo: --table-list="table1;table2;table3". Se você não especificar tabelas, todas as tabelas HBase existentes serão replicadas.|
-|-m, --machine | Especifica o nó de cabeçalho em que a ação de script é executada. O valor é **hn0** ou **hn1** e deve ser escolhida com base em que é o nó principal ativo. Use essa opção quando estiver executando o script de $0 como uma ação de script do portal do HDInsight ou do Azure PowerShell.|
+|-m, --machine | Especifica o nó de cabeçalho em que a ação de script é executada. O valor deve ser escolhido com base em qual é o nó principal ativo. Use essa opção quando estiver executando o script de $0 como uma ação de script do portal do HDInsight ou do Azure PowerShell.|
 |-cp, -copydata | Habilita a migração dos dados existentes nas tabelas em que a replicação está habilitada. |
 |-rpm, -replicate-phoenix-meta | Habilita a replicação nas tabelas do sistema Phoenix. <br><br>*Use esta opção com cuidado.* É recomendável que você recrie tabelas Phoenix em clusters de réplica antes de usar esse script. |
 |-h, --help | Exibe informações de uso. |
@@ -386,7 +388,7 @@ A seção `print_usage()` do [script](https://raw.githubusercontent.com/Azure/hb
 - **Desabilitar a replicação em todas as tabelas**:
 
         -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
-  ou o
+  ou
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
@@ -394,7 +396,7 @@ A seção `print_usage()` do [script](https://raw.githubusercontent.com/Azure/hb
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a configurar a replicação do Apache HBase em uma rede virtual ou entre duas redes virtuais. Para saber mais sobre o HDInsight e o Apache HBase, consulte estes artigos:
 

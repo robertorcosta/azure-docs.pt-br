@@ -1,29 +1,28 @@
 ---
-title: 'Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory '
+title: Solucionar problemas de gerenciamento de Integration Runtime do SSIS
 description: Este artigo fornece orientação para a solução de problemas de gerenciamento do SSIS Integration Runtime (SSIS IR)
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
+ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684032"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931934"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory
 
 Este artigo fornece orientação para a solução de problemas de gerenciamento no SSIS (Azure-SQL Server Integration Services) Integration Runtime (IR), também conhecido como IR do SSIS.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Se você tiver algum problema ao provisionar ou desprovisionar o SSIS IR, verá uma mensagem de erro no portal do Microsoft Azure Data Factory ou um erro retornado de um cmdlet do PowerShell. O erro sempre aparece no formato de um código de erro com uma mensagem de erro detalhada.
 
@@ -81,7 +80,7 @@ Esse tipo de mensagem de erro é semelhante a: "nome do objeto inválido ' Catal
 
 ## <a name="custom-setup-issues"></a>Problemas de instalação personalizada
 
-A configuração personalizada fornece uma interface para adicionar suas próprias etapas de configuração durante o provisionamento ou reconfigurar o IR do Azure-SSIS. Para obter mais informações, confira [Configuração personalizada para o tempo de execução de integração do Azure-SSIS](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+A configuração personalizada fornece uma interface para adicionar suas próprias etapas de configuração durante o provisionamento ou reconfigurar o IR do Azure-SSIS. Para obter mais informações, confira [Configuração personalizada para o Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
 Verifique se o contêiner contém apenas os arquivos de configuração personalizados necessários; todos os arquivos no contêiner serão baixados no nó de trabalho do SSIS IR. Recomendamos que você teste o script de configuração personalizada em um computador local para corrigir qualquer problema de execução de script antes de executar o script no SSIS IR.
 
@@ -105,7 +104,7 @@ Esse erro significa que a execução do script de instalação personalizada (ma
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-Esse erro indica um tempo limite de execução de script de configuração personalizada. Verifique se o script pode ser executado silenciosamente e nenhuma entrada interativa necessária e se o contêiner de BLOB contém apenas os arquivos de instalação personalizados necessários. É recomendável testar o script no computador local primeiro. Você também deve verificar os logs de execução da configuração personalizada em seu contêiner de BLOB. O período máximo para a configuração personalizada é de 45 minutos antes de atingir o tempo limite e o período máximo inclui o tempo para baixar todos os arquivos do seu contêiner e instalá-los no IR do SSIS. Se você precisar de um período mais longo, gere um tíquete de suporte.
+Esse erro indica um tempo limite de execução de script de configuração personalizada. Verifique se o script pode ser executado silenciosamente e nenhuma entrada interativa é necessária e se o contêiner de blob contém apenas os arquivos de instalação personalizados necessários. É recomendável testar o script no computador local primeiro. Você também deve verificar os logs de execução da configuração personalizada em seu contêiner de BLOB. O período máximo para a configuração personalizada é de 45 minutos antes de atingir o tempo limite e o período máximo inclui o tempo para baixar todos os arquivos do seu contêiner e instalá-los no IR do SSIS. Se você precisar de um período mais longo, gere um tíquete de suporte.
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 
@@ -113,7 +112,7 @@ Esse erro significa que a tentativa de carregar logs de execução de configura�
 
 ## <a name="virtual-network-configuration"></a>Configuração de rede virtual
 
-Quando você ingressa no SSIS IR para a rede virtual do Azure, o SSIS IR usa a rede virtual que está sob a assinatura do usuário. Para obter mais informações, consulte [Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+Quando você ingressa no SSIS IR para a rede virtual do Azure, o SSIS IR usa a rede virtual que está sob a assinatura do usuário. Para obter mais informações, consulte [Unir o Azure-SSIS Integration Runtime a uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
 Quando houver um problema relacionado à rede virtual, você verá um dos erros a seguir.
 

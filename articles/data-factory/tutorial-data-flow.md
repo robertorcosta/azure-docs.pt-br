@@ -1,18 +1,19 @@
 ---
-title: Transformar dados usando um fluxo de dados de mapeamento no Azure Data Factory
+title: Transformar dados usando um fluxo de dados de mapeamento
 description: Este tutorial fornece instruções passo a passo para usar Azure Data Factory para transformar dados com o fluxo de dados de mapeamento
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 886e6e659dee2a898167054c5d76bc3977f27e11
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1211a7f2aa82f7084dc87e2c9a8bdaab9997be45
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683636"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927199"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando o mapeamento de fluxos de dados
 
@@ -23,7 +24,7 @@ Neste tutorial, você usará a interface do usuário do Azure Data Factory (UX) 
 Neste tutorial, você executa as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Crie um pipeline com uma atividade de fluxo de dados.
 > * Crie um fluxo de dados de mapeamento com quatro transformações. 
 > * Executar teste do pipeline.
@@ -58,8 +59,8 @@ Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um p
          
     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md). 
 6. Em **Versão**, selecione **V2**.
-7. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
-8. Selecione **Criar**. 
+7. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte são mostrados na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
+8. Clique em **Criar**. 
 9. Depois que a criação for concluída, você verá o aviso no centro de notificações. Selecione **Ir para o recurso** para navegar até a página do Data Factory.
 10. Clique em **Criar e Monitorar** para iniciar a IU do Azure Data Factory em uma guia separada.
 
@@ -78,7 +79,7 @@ Nesta etapa, você criará um pipeline que contém uma atividade de fluxo de dad
 1. No painel **atividades** , expanda o acorde **e a transformação** . Arraste e solte a atividade **fluxo de dados** do painel para a tela do pipeline.
 
     ![Atividade de fluxo de dados](media/tutorial-data-flow/activity1.png)
-1. No pop-up **adicionando fluxo de dados** , selecione **criar novo fluxo de dados** e, em seguida, nomeie o fluxo de dados **TransformMovies**. Clique em concluir quando terminar.
+1. No pop-up **adicionando fluxo de dados** , selecione **criar novo fluxo de dados** e, em seguida, nomeie o fluxo de dados **TransformMovies**. Clique em Concluir quando tiver terminado.
 
     ![Atividade de fluxo de dados](media/tutorial-data-flow/activity2.png)
 
@@ -106,7 +107,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Serviço vinculado](media/tutorial-data-flow/ls1.png)
 1. Depois de voltar à tela de criação do conjunto de arquivos, insira onde o arquivo está localizado no campo **caminho do arquivo** . Neste tutorial, o arquivo moviesDB. csv está localizado em contêiner-dados de exemplo. Como o arquivo tem cabeçalhos, marque **a primeira linha como cabeçalho**. Selecione **do repositório/conexão** para importar o esquema de cabeçalho diretamente do arquivo no armazenamento. Clique em OK quando terminar.
 
-    ![Conjunto de dados](media/tutorial-data-flow/dataset4.png)
+    ![Conjuntos de dados](media/tutorial-data-flow/dataset4.png)
 1. Se o cluster de depuração for iniciado, vá para a guia **visualização de dados** da transformação origem e clique em **Atualizar** para obter um instantâneo dos dados. Você pode usar a visualização de dados para verificar se a transformação está configurada corretamente.
     
     ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow4.png)
@@ -115,7 +116,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow5.png)
 1. Nomeie sua transformação de filtro **FilterYears**. Clique na caixa expressão ao lado de **filtrar em** para abrir o construtor de expressões. Aqui você especificará sua condição de filtragem. 
     
-    ![Filter](media/tutorial-data-flow/filter1.png)
+    ![Filtrar](media/tutorial-data-flow/filter1.png)
 1. O construtor de expressões de fluxo de dados permite criar expressões interativamente para usar em várias transformações. As expressões podem incluir funções internas, colunas do esquema de entrada e parâmetros definidos pelo usuário. Para obter mais informações sobre como criar expressões, consulte [Construtor de expressões de fluxo de dados](concepts-data-flow-expression-builder.md).
     
     Neste tutorial, você deseja filtrar filmes de gênero comédia que se passaram entre os anos 1910 e 2000. Como ano, atualmente é uma cadeia de caracteres, você precisa convertê-lo em um inteiro usando a função ```toInteger()```. Use os operadores maior que ou igual a (> =) e menor ou igual a (< =) para comparar com os valores de ano literal 1910 e 200-. Union essas expressões junto com o operador and (& &). A expressão é exibida como:
@@ -128,13 +129,13 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
 
     Se você tiver um cluster de depuração ativo, poderá verificar sua lógica clicando em **Atualizar** para ver a saída da expressão em comparação com as entradas usadas. Há mais de uma resposta certa sobre como você pode realizar essa lógica usando a linguagem de expressão de fluxo de dados.
     
-    ![Filter](media/tutorial-data-flow/filter2.png)
+    ![Filtrar](media/tutorial-data-flow/filter2.png)
 
     Clique em **salvar e concluir** quando terminar com sua expressão.
 
 1. Busque uma **visualização de dados** para verificar se o filtro está funcionando corretamente.
     
-    ![Filter](media/tutorial-data-flow/filter3.png)
+    ![Filtrar](media/tutorial-data-flow/filter3.png)
 1. A próxima transformação que você adicionará é uma transformação **agregação** em **modificador de esquema**.
     
     ![Agregação](media/tutorial-data-flow/agg1.png)
@@ -191,12 +192,12 @@ Você pode depurar um pipeline antes de publicá-lo. Nesta etapa, você vai disp
 
 Se você seguiu este tutorial corretamente, deve ter escrito 83 linhas e 2 colunas na pasta do coletor. Você pode verificar se os dados estão corretos verificando seu armazenamento de BLOBs.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O pipeline neste tutorial executa um fluxo de dados que agrega a classificação média de Comedies de 1910 a 2000 e grava os dados em ADLS. Você aprendeu como:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Crie um pipeline com uma atividade de fluxo de dados.
 > * Crie um fluxo de dados de mapeamento com quatro transformações. 
 > * Executar teste do pipeline.

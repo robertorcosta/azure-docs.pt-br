@@ -1,5 +1,5 @@
 ---
-title: Aplicativos de produção de perfil no Azure com o Application Insights Profiler | Microsoft Docs
+title: Criar perfil de aplicativos de produção no Azure com Application Insights Profiler
 description: Identifique o afunilamento em seu código de servidor da Web com um criador de perfil de baixa capacidade.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: fc152aab6d0e62ac5656b50834ce17278bb6676e
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 64e7cc0afa4051836d38c885dff0bc0a0e0b08c6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820510"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922087"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicativos de produção de perfil no Azure com o Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Habilitar o Application Insights Profiler para o aplicativo
@@ -71,7 +71,7 @@ Se **clr!ThePreStub** demorar muito para uma solicitação, essa solicitação s
 
 ### <a id="ngencold"></a>Carregando código ([COLD])
 
-Se o nome do método contiver **[COLD]** , como **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, o tempo de execução do .NET Framework estará executando código pela primeira vez que ele não for otimizado pela [otimização guiada por perfil](/cpp/build/profile-guided-optimizations). Para cada método, ele deve ser exibido no máximo uma vez durante o processo.
+Se o nome do método contiver **[COLD]** , como **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, o runtime do .NET Framework estará executando código pela primeira vez que ele não for otimizado pela [otimização guiada por perfil](/cpp/build/profile-guided-optimizations). Para cada método, ele deve ser exibido no máximo uma vez durante o processo.
 
 Se o carregamento de um código leva uma quantidade significativa de tempo para uma solicitação, essa solicitação é a primeira a executar a parte não otimizada do método. Considere usar um processo de aquecimento que execute essa parte do código antes que seus usuários a acessem.
 

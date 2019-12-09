@@ -3,34 +3,30 @@ title: Migrando para o MSAL.NET
 titleSuffix: Microsoft identity platform
 description: Veja as diferenças entre a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET) e a Biblioteca de Autenticação do Active Directory para .NET (ADAL.NET) e descubra como migrar para a MSAL.NET.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5059acea753b4b8b7db80bfc79b4bb9718e0484e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 38f28f153eff11e2b4d705b874609a95a9def8d4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175569"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915667"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrar aplicativos para MSAL.NET
 
 Tanto a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET) quanto a Biblioteca de Autenticação do Active Directory para .NET (ADAL.NET) são usadas para autenticar as entidades do Azure AD e solicitar tokens a partir do Azure AD. Até agora, a maioria dos desenvolvedores trabalhava com o Azure AD para plataforma de desenvolvedores (v1.0) a fim de autenticar identidades do Azure AD (contas corporativas e de estudante) por meio da solicitação de tokens usando a Biblioteca de Autenticação do Active Directory (ADAL). Usando MSAL:
 
 - Você pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades do Azure AD e contas da Microsoft e contas sociais e locais por meio do Azure AD B2C), pois ele usa o ponto de extremidade da plataforma de identidade da Microsoft,
-- os usuários terão a melhor experiência de logon único.
+- Os usuários terão a melhor experiência de logon único.
 - seu aplicativo pode habilitar o consentimento incremental e o suporte ao acesso condicional é mais fácil
 - Você se beneficia da inovação.
 

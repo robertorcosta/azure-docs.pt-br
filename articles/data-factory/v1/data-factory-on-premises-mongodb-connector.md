@@ -1,37 +1,34 @@
 ---
-title: Mover dados do MongoDB usando o Data Factory
+title: Mover dados do MongoDB
 description: Saiba mais sobre como mover dados do banco de dados MongoDB usando o Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.assetid: 10ca7d9a-7715-4446-bf59-2d2876584550
+ms.author: jingwang
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: jingwang
-robots: noindex
-ms.openlocfilehash: 6f982928e706b442229cc249c17c3f7aabe1f60a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666651"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928122"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB usando o Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](data-factory-on-premises-mongodb-connector.md)
 > * [Versão 2 (versão atual)](../connector-mongodb.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do MongoDB na V2](../connector-mongodb.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do MongoDB na V2](../connector-mongodb.md).
 
 
-Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um banco de dados MongoDB local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
+Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um banco de dados MongoDB local. Ele se baseia no artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
-Você pode copiar dados de um armazenamento de dados local do MongoDB para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MongoDB para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MongoDB.
+Você pode copiar dados de um armazenamento de dados local do MongoDB para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MongoDB para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MongoDB.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para o serviço Azure Data Factory poder se conectar ao banco de dados MongoDB no local, você deve instalar os seguintes componentes:
@@ -64,17 +61,17 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado **OnPremisesMongoDB** .
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | --- | --- | --- |
-| Tipo |A propriedade do tipo deve ser definida como: **OnPremisesMongoDb** |Sim |
-| server |Endereço IP ou nome do host do servidor MongoDB. |Sim |
+| type |A propriedade do tipo deve ser definida como: **OnPremisesMongoDb** |SIM |
+| server |Endereço IP ou nome do host do servidor MongoDB. |SIM |
 | porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Opcional, valor padrão: 27017 |
-| authenticationType |Básica ou Anônima. |Sim |
+| authenticationType |Básica ou Anônima. |SIM |
 | Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
 | Senha |Senha do usuário. |Sim (se a autenticação básica for usada). |
 | authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). Padrão: usa a conta de administrador e o banco de dados especificado usando a propriedade databaseName. |
-| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
-| gatewayName |Nome do gateway que acessa o armazenamento de dados. |Sim |
+| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |SIM |
+| gatewayName |Nome do gateway que acessa o armazenamento de dados. |SIM |
 | encryptedCredential |Credencial criptografada pelo gateway. |Opcional |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -82,9 +79,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | obrigatórios |
 | --- | --- | --- |
-| collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
+| collectionName |Nome da coleção no banco de dados MongoDB. |SIM |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
@@ -93,7 +90,7 @@ As propriedades disponíveis na seção **typeProperties** da atividade, por out
 
 Quando a fonte é do tipo **MongoDbSource** , as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | obrigatórios |
 | --- | --- | --- | --- |
 | query |Utiliza a consulta personalizada para ler os dados. |Cadeia de consulta SQL-92. Por exemplo: select * from MyTable. |Não (se **collectionName** de **dataset** for especificado) |
 
@@ -286,7 +283,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 O serviço Azure Data Factory infere o esquema de uma coleção do MongoDB usando os 100 documentos mais recentes na coleção. Se esses 100 documentos não contiverem o esquema completo, algumas colunas poderão ser ignoradas durante a operação de cópia.
 
 ## <a name="type-mapping-for-mongodb"></a>Mapeamento de tipo para o MongoDB
-Como mencionado no artigo sobre as [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) , a atividade de Cópia executa conversões automáticas dos tipos de fonte nos tipos de coletor com a seguinte abordagem de duas etapas:
+Como mencionado no artigo sobre as [Atividades de movimentação de dados](data-factory-data-movement-activities.md) , a Atividade de Cópia executa conversões automáticas dos tipos de fonte nos tipos de coletor com a seguinte abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -298,12 +295,12 @@ Ao mover dados para o MongoDB, os seguintes mapeamentos serão usados dos tipos 
 | Binário |Byte[] |
 | Booliano |Booliano |
 | Data |DateTime |
-| NumberDouble |Duplo |
+| NumberDouble |DOUBLE |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Cadeia de caracteres |
-| Cadeia de caracteres |Cadeia de caracteres |
-| UUID |Guid |
+| ObjectID |string |
+| string |string |
+| UUID |GUID |
 | Objeto |Renormalizado para colunas simples com “_” como separador aninhado |
 
 > [!NOTE]
@@ -324,14 +321,14 @@ Você pode usar o [Assistente de Cópia](data-factory-data-movement-activities.m
 ### <a name="example"></a>Exemplo
 Por exemplo, "TabelaDeExemplo" abaixo é uma tabela do MongoDB com uma coluna com uma matriz de Objetos em cada célula – Faturas, e uma coluna com uma matriz de tipos escalares – Classificações.
 
-| _id | Nome do Cliente | Faturas | Nível de Serviço | Classificações |
+| _id | Nome do Cliente | Faturas | Nível do serviço | Classificações |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id:”123”, item:”torradeira”, price:”456”, discount:”0,2”}, {invoice_id:”124”, item:”forno”,price: ”1235”,discount: ”0,2”}] |Silver |[5,6] |
 | 2222 |XYZ |[{invoice_id:”135”, item:”fridge”, price: ”12543”, discount: ”0.0”}] |Gold |[1,2] |
 
 O driver geraria várias tabelas virtuais para representar essa tabela única. A primeira tabela virtual é a tabela base chamada "ExampleTable", mostra abaixo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foram omitidos e são expandidos nas tabelas virtuais.
 
-| _id | Nome do Cliente | Nível de Serviço |
+| _id | Nome do Cliente | Nível do serviço |
 | --- | --- | --- |
 | 1111 |ABC |Silver |
 | 2222 |XYZ |Gold |

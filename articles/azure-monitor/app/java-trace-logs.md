@@ -1,5 +1,5 @@
 ---
-title: Explorar os logs de rastreamento do Java no Azure Application Insights | Microsoft Docs
+title: Explorar os logs de rastreamento do Java no Aplicativo Azure insights
 description: Pesquisar rastreamentos Log4J ou Logback no Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f552ccdbc67df93913c698e5d763dbb62b48a4ad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784586"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927236"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento de Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.

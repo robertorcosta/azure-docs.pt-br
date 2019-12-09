@@ -1,24 +1,22 @@
 ---
-title: Criar as dependências de gatilho de janela em cascata no Azure Data Factory
+title: Criar dependências de gatilho de janela em cascata
 description: Saiba como criar dependência em um gatilho de janela em cascata no Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: daperlov
 author: djpmsft
-manager: craigg
-editor: ''
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.author: daperlov
-ms.openlocfilehash: 3780a50429b95c402459866b7e3c87e8a91207d3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3a4d31cb6986f8fc841a6afe20388e40e9f28c9b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683695"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926685"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de gatilho de janela em cascata
 
@@ -78,7 +76,7 @@ A tabela a seguir fornece a lista de atributos necessários para definir uma dep
 
 | **Nome da Propriedade** | **Descrição**  | **Tipo** | **Obrigatório** |
 |---|---|---|---|
-| Tipo  | Todos os gatilhos da janela em cascata existentes são exibidos neste menu suspenso. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
+| type  | Todos os gatilhos da janela em cascata existentes são exibidos neste menu suspenso. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | SIM |
 | deslocamento | Deslocamento do gatilho de dependência. Forneça um valor no formato de intervalo de tempo e deslocamentos negativos e positivos são permitidos. Essa propriedade será obrigatória se o gatilho estiver dependendo de si mesmo e em todos os outros casos for opcional. A autodependência deverá sempre ser um deslocamento negativo. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Timespan<br/>(hh:mm:ss) | Dependência automática: Sim<br/>Outro: não |
 | tamanho | Tamanho da janela em cascata de dependência. Forneça um valor de TimeSpan positivo. Essa propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
 
@@ -163,6 +161,6 @@ Para obter mais visual para exibir a agenda de dependência do gatilho, selecion
 
 ![Monitorar dependências](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitorar dependências")
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Examine [como criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md)

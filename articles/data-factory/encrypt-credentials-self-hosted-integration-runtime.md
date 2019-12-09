@@ -1,26 +1,25 @@
 ---
 title: Criptografar credenciais no Azure Data Factory
-description: Aprenda a criptografar e armazenar credenciais para seus armazenamentos de dados locais em um computador com tempo de execução de integração auto-hospedado.
+description: Aprenda a criptografar e armazenar credenciais para seus armazenamentos de dados locais em um computador com runtime de integração auto-hospedada.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 41e353931fb2d9fe26c0a6bd73d5085495ad7b78
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bcca2e6168baafe9f98f663298790841c0f1f450
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675051"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927424"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Criptografar credenciais para armazenamentos de dados locais no Azure Data Factory
-Você pode criptografar e armazenar credenciais para seus armazenamentos de dados locais (serviços vinculados com informações confidenciais) em um computador com tempo de execução de integração auto-hospedado. 
+Você pode criptografar e armazenar credenciais para seus armazenamentos de dados locais (serviços vinculados com informações confidenciais) em um computador com runtime de integração auto-hospedada. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,7 +28,7 @@ Você passa um arquivo de definição de JSON com as credenciais para o <br/>Cmd
 ## <a name="author-sql-server-linked-service"></a>Criar serviço vinculado do SQL Server
 Crie um arquivo JSON denominado **SqlServerLinkedService.json** em qualquer pasta com o conteúdo a seguir:  
 
-Substitua `<servername>`, `<databasename>`, `<username>` e `<password>` por valores de seu SQL Server antes de salvar o arquivo. E substitua `<integration runtime name>` pelo nome de seu tempo de execução de integração. 
+Substitua `<servername>`, `<databasename>`, `<username>` e `<password>` por valores de seu SQL Server antes de salvar o arquivo. E substitua `<integration runtime name>` pelo nome de seu runtime de integração. 
 
 ```json
 {
@@ -51,7 +50,7 @@ Substitua `<servername>`, `<databasename>`, `<username>` e `<password>` por valo
 ```
 
 ## <a name="encrypt-credentials"></a>Criptografar credenciais
-Para criptografar os dados confidenciais do conteúdo JSON em um tempo de execução de integração autohospedado local, execute **New-AzDataFactoryV2LinkedServiceEncryptedCredential**e passe o conteúdo JSON. Esse cmdlet garante que as credenciais sejam criptografadas usando DPAPI e armazenadas no nó de tempo de execução de integração auto-hospedado localmente. A carga de saída que contém a referência criptografada para a credencial pode ser redirecionada para outro arquivo JSON (neste caso, ' encryptedLinkedService. JSON ').
+Para criptografar os dados confidenciais do conteúdo JSON em um tempo de execução de integração autohospedado local, execute **New-AzDataFactoryV2LinkedServiceEncryptedCredential**e passe o conteúdo JSON. Esse cmdlet garante que as credenciais sejam criptografadas usando DPAPI e armazenadas no nó de runtime de integração auto-hospedada localmente. A carga de saída que contém a referência criptografada para a credencial pode ser redirecionada para outro arquivo JSON (neste caso, ' encryptedLinkedService. JSON ').
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
@@ -64,6 +63,6 @@ Agora, use o arquivo JSON de saída do comando anterior que contém a credencial
 Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter informações sobre considerações de segurança para a movimentação de dados, consulte [considerações de segurança da movimentação de dados](data-movement-security-considerations.md).
 

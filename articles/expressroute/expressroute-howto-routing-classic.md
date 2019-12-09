@@ -5,18 +5,18 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: 814a73900b05b66d1bacc946b9f994135d3fc9f6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 05602538f206032d924b39a7dd8f4325c48a5224
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083454"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931384"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute (clássico)
 > [!div class="op_single_selector"]
-> * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [CLI do Azure](howto-routing-cli.md)
 > * [Vídeo – Emparelhamento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -27,7 +27,7 @@ ms.locfileid: "74083454"
 
 Este artigo fornece uma orientação pelas etapas de criação e de gerenciamento da configuração de emparelhamento/roteamento de um circuito do ExpressRoute usando o PowerShell e o modelo de implantação clássico. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito do ExpressRoute. Você pode configurar um, dois ou todos os três emparelhamentos (privado e público do Azure e da Microsoft) para um circuito da ExpressRoute. Você pode configurar emparelhamentos em qualquer ordem escolhida. No entanto, você deve concluir a configuração de um emparelhamento por vez. 
 
-Estas instruções aplicam-se apenas a circuitos criados com provedores de serviços que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que ofereça serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
+Estas instruções aplicam-se apenas a circuitos criados com provedores de serviços que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -42,40 +42,7 @@ Estas instruções aplicam-se apenas a circuitos criados com provedores de servi
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Baixe os cmdlets mais recentes do PowerShell
 
-Instale as versões mais recentes dos módulos PowerShell do SM (Gerenciamento de Serviços) do Azure e do módulo ExpressRoute. Ao usar o exemplo a seguir, observe que o número da versão (neste exemplo, 5.1.1) será alterado conforme versões mais recentes dos cmdlets forem liberadas.
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-Para obter mais informações, consulte [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar seu computador para usar os módulos do Azure PowerShell.
-
-### <a name="sign-in"></a>Entrar
-
-Para entrar na sua conta do Azure, use os seguintes exemplos:
-
-1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Verificar as assinaturas da conta.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. Se você tiver mais de uma assinatura, selecione a assinatura que deseja usar.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. Use o cmdlet a seguir para adicionar sua assinatura do Azure ao PowerShell para o modelo de implantação clássico.
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="azure-private-peering"></a>Emparelhamento privado do Azure
 
@@ -94,7 +61,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    ```
 
-   Retorne:
+   Retorno:
 
    ```powershell
    Bandwidth                        : 200
@@ -147,7 +114,7 @@ Você pode exibir detalhes de configuração usando o seguinte cmdlet:
 Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 ```
 
-Retorne:
+Retorno:
 
 ```
 AdvertisedPublicPrefixes       : 
@@ -201,7 +168,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    ```
 
-   Retorne:
+   Retorno:
 
    ```powershell
    Bandwidth                        : 200
@@ -254,7 +221,7 @@ Para exibir detalhes de configuração, use o seguinte cmdlet:
 Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 ```
 
-Retorne:
+Retorno:
 
 ```powershell
 AdvertisedPublicPrefixes       : 
@@ -305,7 +272,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    ```
 
-   Retorne:
+   Retorno:
    
    ```powershell
    Bandwidth                        : 200
@@ -350,7 +317,7 @@ Você pode exibir detalhes de configuração usando o seguinte cmdlet:
 ```powershell
 Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 ```
-Retorne:
+Retorno:
 
 ```powershell
 AdvertisedPublicPrefixes       : 123.0.0.0/30
@@ -383,7 +350,7 @@ Você pode remover a configuração de emparelhamento executando o seguinte cmdl
 Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
