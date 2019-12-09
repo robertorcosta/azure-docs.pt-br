@@ -1,24 +1,23 @@
 ---
-title: Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
+title: Mapeando nova transformação de Branch de fluxo de dados
 description: Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: de8cb74d788e3ca7599f226e4204c4b09112e70c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b4617689fe1ab14856bde9a4e8134b12aa6d815b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387211"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930308"
 ---
 # <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
 
-
-
-![Opções de ramificação](media/data-flow/menu.png "AdicionarMenu")
+![Opções de ramificação](media/data-flow/menu.png "menu")
 
 A ramificação pegará o fluxo de dados atual no fluxo de dados e irá replicá-lo em outro fluxo. Use a Nova Ramificação para executar vários conjuntos de operações e transformações no mesmo fluxo de dados.
 
@@ -29,4 +28,4 @@ Você pode tratar esse novo fluxo com um conjunto de transformações e um colet
 > [!NOTE]
 > “Nova Ramificação” será exibida como uma ação no menu + Transformação quando há uma transformação subsequente no local atual no qual você está tentando ramificar a seguir. ou seja, você não verá uma opção de “Nova Ramificação” no final até que você adicione outra transformação depois de Selecionar
 
-![Ramo](media/data-flow/branch2.png "Ramificação 2")
+![Branch](media/data-flow/branch2.png "Ramificação 2")

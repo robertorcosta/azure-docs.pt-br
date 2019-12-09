@@ -1,36 +1,35 @@
 ---
-title: Use Azure Data Factory para migrar dados do Amazon S3 para o armazenamento do Azure
+title: Migrar dados do Amazon S3 para o Armazenamento do Azure
 description: Use Azure Data Factory para migrar dados do Amazon S3 para o armazenamento do Azure.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
+author: dearandyxu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 4d4e0453105dacfbf35624a2a9acb9d5994f4dea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675737"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927471"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Use Azure Data Factory para migrar dados do Amazon S3 para o armazenamento do Azure 
 
 O Azure Data Factory fornece um mecanismo de desempenho, robusto e econômico para migrar dados em escala do Amazon S3 para o armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2.  Este artigo fornece as seguintes informações para desenvolvedores e engenheiros de dados: 
 
 > [!div class="checklist"]
-> * Desempenho 
+> * Performance 
 > * Resiliência de cópia
 > * Segurança de rede
 > * Arquitetura de solução de alto nível 
 > * Práticas recomendadas de implementação  
 
-## <a name="performance"></a>Desempenho
+## <a name="performance"></a>Performance
 
 O ADF oferece uma arquitetura sem servidor que permite paralelismo em diferentes níveis, o que permite aos desenvolvedores criar pipelines para utilizar totalmente a largura de banda da rede, bem como IOPS de armazenamento e largura de banda para maximizar a taxa de transferência de movimentação de dados para o seu ambiente. 
 
@@ -93,7 +92,7 @@ Se qualquer um dos trabalhos de cópia falhar devido a um problema transitório 
 
 ### <a name="delta-data-migration"></a>Migração de dados Delta 
 
-A maneira mais eficaz de identificar arquivos novos ou alterados do AWS S3 é usar a Convenção de nomenclatura com particionamento de tempo – quando os dados no AWS S3 tiverem sido particionados com informações de fatia de tempo no nome do arquivo ou da pasta (por exemplo,/yyyy/mm/dd/File.csv), seu pipeline pode identificar facilmente quais arquivos/pastas são copiados incrementalmente. 
+A maneira mais eficaz de identificar arquivos novos ou alterados do AWS S3 é usar a Convenção de nomenclatura com particionamento de tempo – quando os dados no AWS S3 tiverem sido particionados com informações de fatia de tempo no nome do arquivo ou da pasta (por exemplo,/yyyy/mm/dd/File.csv), o pipeline poderá identificar facilmente quais arquivos/pastas serão copiados incrementalmente. 
 
 Como alternativa, se seus dados no AWS S3 não estiverem com o tempo particionado, o ADF poderá identificar arquivos novos ou alterados por seu LastModifiedDate.   A maneira como ele funciona é que o ADF examinará todos os arquivos do AWS S3 e copiará apenas o arquivo novo e atualizado cujo carimbo de data/hora da última modificação seja maior que um determinado valor.  Lembre-se de que, se você tiver um grande número de arquivos no S3, a verificação de arquivo inicial poderá demorar muito tempo, independentemente de quantos arquivos corresponderem à condição do filtro.  Nesse caso, é recomendável particionar os dados primeiro, usando a mesma configuração de "prefixo" para a migração de instantâneo inicial, para que a verificação de arquivo possa ocorrer em paralelo.  
 
@@ -153,6 +152,6 @@ Este é o preço estimado com base nas suposições acima:
 
 Aqui está o [modelo](solution-template-migration-s3-azure.md) para começar a migrar petabytes de dados que consistem em centenas de milhões de arquivos do Amazon S3 para Azure data Lake Storage Gen2.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Copiar arquivos de vários contêineres com Azure Data Factory](solution-template-copy-files-multiple-containers.md)

@@ -3,27 +3,23 @@ title: Serialização de cache de token personalizada em MSAL para Python | Azur
 titleSuffix: Microsoft identity platform
 description: Saiba como serializar o cache de token para MSAL para Python
 services: active-directory
-documentationcenter: dev-center-name
 author: rayluo
-manager: henrikm
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.author: rayluo
-ms.reviewer: navyasri.canumalla
+ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae6628e1fd4929723f11a2195136f94532a4ed76
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: bb77d05070543e35ac0addae933c5ca864e68dbc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152730"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915368"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Serialização de cache de token personalizada em MSAL para Python
 
@@ -41,6 +37,6 @@ Os aplicativos cliente públicos são executados no dispositivo de um usuário e
 
 Para aplicativos Web ou APIs Web, você pode usar a sessão ou um cache Redis ou um banco de dados para armazenar o cache de token. Deve haver um cache de token por usuário (por conta), portanto, certifique-se de serializar o cache de token por conta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [MS-Identity-Python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72) para obter um exemplo de como usar o cache de token para um aplicativo Web ou uma API Web do Windows ou Linux. O exemplo é para um aplicativo Web que chama a API de Microsoft Graph.

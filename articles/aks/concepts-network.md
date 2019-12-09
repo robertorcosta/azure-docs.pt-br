@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950375"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913893"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -74,7 +74,7 @@ Para obter mais informações, consulte [Configurar a rede kubenet para um clust
 
 ### <a name="azure-cni-advanced-networking"></a>Rede da CNI do Azure (avançada)
 
-Com a CNI do Azure, cada pod obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP precisam ser exclusivos no espaço de rede e ser planejados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods aos quais ele dá suporte. O número equivalente de endereços IP por nó é então reservado com antecedência para esse nó. Essa abordagem requer mais planejamento, como pode levar ao esgotamento de endereço IP ou à necessidade de recriar clusters em uma sub-rede maior conforme as demandas do seu aplicativo crescem.
+Com a CNI do Azure, cada pod obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP devem ser exclusivos em todo o seu espaço de rede e devem ser planejados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods aos quais ele dá suporte. O número equivalente de endereços IP por nó é então reservado com antecedência para esse nó. Essa abordagem requer mais planejamento, como pode levar ao esgotamento de endereço IP ou à necessidade de recriar clusters em uma sub-rede maior conforme as demandas do seu aplicativo crescem.
 
 Os nós usam o plug-in kubernetes do [CNI (interface de rede de contêiner do Azure)][cni-networking] .
 
@@ -92,21 +92,21 @@ O kubenet e o Azure CNI fornecem conectividade de rede para seus clusters AKS. N
     * Você deve gerenciar e manter manualmente as rotas definidas pelo usuário (UDRs).
     * Máximo de 400 nós por cluster.
 * **CNI do Azure**
-    * Os pods obtêm conectividade total de rede virtual e podem ser acessados diretamente de fora do cluster.
+    * Os pods obtêm conectividade total de rede virtual e podem ser diretamente acessados por meio de seu endereço IP privado de redes conectadas.
     * Requer mais espaço de endereço IP.
 
 Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
 
-| Funcionalidade                                                                                   | Kubenet   | Azure CNI |
+| Capacidade                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
-| Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Suportado |
-| Conectividade de pod de Pod                                                                         | Suportado | Suportado |
+| Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Com suporte |
+| Conectividade de pod de Pod                                                                         | Com suporte | Com suporte |
 | Pod-conectividade da VM; VM na mesma rede virtual                                          | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
 | Pod-conectividade da VM; VM na rede virtual emparelhada                                            | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
 | Acesso local usando VPN ou rota expressa                                                | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
-| Acesso a recursos protegidos por pontos de extremidade de serviço                                             | Suportado | Suportado |
-| Expor serviços Kubernetess usando um serviço de balanceador de carga, um gateway de aplicativo ou um controlador de entrada | Suportado | Suportado |
-| Zonas privadas e DNS do Azure padrão                                                          | Suportado | Suportado |
+| Acesso a recursos protegidos por pontos de extremidade de serviço                                             | Com suporte | Com suporte |
+| Expor serviços Kubernetess usando um serviço de balanceador de carga, um gateway de aplicativo ou um controlador de entrada | Com suporte | Com suporte |
+| Zonas privadas e DNS do Azure padrão                                                          | Com suporte | Com suporte |
 
 ### <a name="support-scope-between-network-models"></a>Escopo de suporte entre modelos de rede
 
@@ -140,13 +140,13 @@ Um grupo de segurança de rede filtra o tráfego para VMs, como os nós do AKS. 
 
 ## <a name="network-policies"></a>Políticas de rede
 
-Por padrão, todos os pods em um cluster AKS podem enviar e receber tráfego sem limitações. Para melhorar a segurança, você pode definir regras que controlam o fluxo de tráfego. Os aplicativos de back-end geralmente só são expostos aos serviços de front-end necessários ou os componentes de banco de dados são acessíveis somente para as camadas de aplicativos que se conectam a eles.
+Por padrão, todos os pods em um cluster do AKS podem enviar e receber tráfego sem limitações. Para melhorar a segurança, você pode definir regras que controlam o fluxo de tráfego. Os aplicativos de back-end geralmente só são expostos aos serviços de front-end necessários ou os componentes de banco de dados são acessíveis somente para as camadas de aplicativos que se conectam a eles.
 
 A política de rede é um recurso kubernetes disponível no AKS que permite controlar o fluxo de tráfego entre pods. Você pode optar por permitir ou negar o tráfego com base em configurações, como rótulos atribuídos, namespace ou porta de tráfego. Os grupos de segurança de rede são mais para os nós do AKS, e não para os pods. O uso de políticas de rede é uma maneira mais adequada e nativa da nuvem de controlar o fluxo de tráfego. Como os pods são criados dinamicamente em um cluster AKS, as políticas de rede necessárias podem ser aplicadas automaticamente.
 
 Para obter mais informações, consulte [proteger o tráfego entre pods usando as políticas de rede no serviço de kubernetes do Azure (AKs)][use-network-policies].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a usar a rede AKS, crie e configure um cluster AKS com seus próprios intervalos de endereços IP usando [kubenet][aks-configure-kubenet-networking] ou [CNI do Azure][aks-configure-advanced-networking].
 

@@ -3,27 +3,23 @@ title: Adquirir e armazenar tokens em cache usando MSAL
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a aquisição e o armazenamento em cache de tokens usando a MSAL (Biblioteca de Autenticação da Microsoft).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df30156cde0244209f5f07c2627887252642525
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: e1cb16b5635afcfac51063ec569ca74a0ecd3b6b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903010"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917158"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)
 
@@ -37,7 +33,7 @@ Também é possível limpar o cache do token removendo as contas do cache. No en
 
 Os [escopos](v2-permissions-and-consent.md) são as permissões que uma API da Web expõe para que os aplicativos cliente solicitem acesso. Os aplicativos cliente solicitam o consentimento do usuário para esses escopos quando fazem solicitações de autenticação para obter tokens para acessar as APIs da Web. A MSAL permite que você obtenha tokens para acessar o Azure AD para desenvolvedores (v1.0) e APIs da plataforma de identidade da Microsoft (v2.0). O protocolo v2.0 usa escopos em vez de recursos nas solicitações. Confira mais informações na [comparação entre a v1.0 e a v2.0](active-directory-v2-compare.md). Com base na configuração da API Web da versão do token que ela aceita, o ponto de extremidade da v2.0 retorna o token de acesso à MSAL.
 
-Vários métodos de token de aquisição da MSAL exigem um parâmetro de *escopos*. Esse parâmetro é uma lista simples de cadeias de caracteres que declara as permissões desejadas e os recursos que são solicitados. As [Permissões do Microsoft Graph](/graph/permissions-reference) são escopos conhecidos.
+Vários métodos de token de aquisição da MSAL exigem um parâmetro de *escopos*. Esse parâmetro é uma lista simples de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. As [Permissões do Microsoft Graph](/graph/permissions-reference) são escopos conhecidos.
 
 Na MSAL, também é possível acessar recursos da versão 1.0. Veja mais informações em [Escopos de um aplicativo v1.0](msal-v1-app-scopes.md).
 
@@ -52,7 +48,7 @@ Ou, por exemplo, escopos da API Web personalizada: `api://abscdefgh-1234-abcd-ef
 No caso da API do Microsoft Graph, um valor de escopo `user.read` é mapeado para o formato `https://graph.microsoft.com/User.Read` e pode ser usado de maneira intercambiável.
 
 > [!NOTE]
-> Determinadas APIs Web, como a API do Azure Resource Manager (https://management.core.windows.net/)) exigem uma “/” na declaração do público-alvo (aud) do token de acesso. Nesse caso, é importante transmitir o escopo como https://management.core.windows.net//user_impersonation (observe as barras duplas) para que o token seja válido na API.
+> Determinadas APIs Web, como a API do Azure Resource Manager (https://management.core.windows.net/) ) exigem uma “/” na declaração do público-alvo (aud) do token de acesso. Nesse caso, é importante transmitir o escopo como https://management.core.windows.net//user_impersonation (observe as barras duplas) para que o token seja válido na API.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Solicitar escopos dinâmicos de consentimento incremental
 
@@ -112,7 +108,7 @@ Quando seu cliente solicita um token de acesso, o Azure AD também retorna um re
 - Os escopos para os quais o token foi emitido.
 - A ID exclusiva para o usuário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você estiver usando o MSAL para Java, saiba mais sobre a [serialização de cache de token personalizada em MSAL para Java](msal-java-token-cache-serialization.md).
 

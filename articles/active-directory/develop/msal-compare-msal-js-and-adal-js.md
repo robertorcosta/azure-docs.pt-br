@@ -3,27 +3,23 @@ title: Diferenças entre MSAL. js e ADAL. js
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as diferenças entre a Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) e a Biblioteca de Autenticação do Microsoft Azure AD para JavaScript (ADAL.js) e como escolher qual usar.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d831f9f1cf8dbf565d569f63ee6215fac80949d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e3696eb90abbb35f4d989649b4a1198aec69b9a5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803177"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916903"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre a MSAL para JS e a ADAL para JS
 
@@ -66,7 +62,7 @@ Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você 
 
     Você pode solicitar escopos para qualquer recurso de API, usando o URI da API neste formato: appidURI/scope Por exemplo: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    Somente para o MS API do Graph, um valor de escopo `user.read` é mapeado para https: \//Graph. Microsoft. com/user. Read e pode ser usado de forma intercambiável.
+    Somente para o MS API do Graph, um valor de escopo `user.read` é mapeado para https:\//graph.microsoft.com/User.Read e pode ser usado de forma intercambiável.
 
     ```javascript
     var request = {

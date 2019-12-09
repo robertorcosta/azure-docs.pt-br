@@ -4,21 +4,20 @@ description: Saiba mais sobre como mover dados do SAP Business Warehouse usando 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47bc2db8730ebdedd180646d2fb86b642bbc631d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666033"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929217"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -26,12 +25,12 @@ ms.locfileid: "73666033"
 > * [Versão 2 (versão atual)](../connector-sap-business-warehouse.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do SAP Business Warehouse na V2 ](../connector-sap-business-warehouse.md).
+> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do SAP Business Warehouse na V2 ](../connector-sap-business-warehouse.md).
 
 
-Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um SAP BW (Business Warehouse) local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
+Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um SAP BW (Business Warehouse) local. Ele se baseia no artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
-Você pode copiar dados de um repositório de dados local do SAP Business Warehouse para qualquer repositório de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, a data factory dá suporte apenas à movimentação de dados de um SAP Business Warehouse para outros repositórios de dados, mas não para a movimentação de dados de outros repositórios de dados para o SAP Business Warehouse. 
+Você pode copiar dados de um repositório de dados local do SAP Business Warehouse para qualquer repositório de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, a data factory dá suporte apenas à movimentação de dados de um SAP Business Warehouse para outros repositórios de dados, mas não para a movimentação de dados de outros repositórios de dados para o SAP Business Warehouse. 
 
 ## <a name="supported-versions-and-installation"></a>Instalação e versões com suporte
 Este conector dá suporte ao SAP Business Warehouse versão 7.x. Ele oferece suporte à cópia de dados do InfoCubes e QueryCubes (incluindo consultas BEx) usando consultas MDX.
@@ -62,14 +61,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço vinculado do SAP Business Warehouse (BW).
 
-Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | obrigatórios
 -------- | ----------- | -------------- | --------
-server | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
-systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
-clientId | ID de Cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
-Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
-Senha | Senha do usuário. | string | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | Sim
+server | Nome do servidor no qual reside a instância do SAP BW. | string | SIM
+systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | SIM
+clientId | ID de Cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | SIM
+Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | SIM
+Senha | Senha do usuário. | string | SIM
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | SIM
 encryptedCredential | A cadeia de caracteres de credencial criptografada. | string | Não
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -85,9 +84,9 @@ Por outro lado, as propriedades disponíveis na seção **typeProperties** da at
 
 Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que inclui o SAP BW), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | obrigatórios |
 | --- | --- | --- | --- |
-| query | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | Sim |
+| query | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | SIM |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Exemplo de JSON: Copiar dados do SAP Business Warehouse para o Blob do Azure
@@ -292,30 +291,30 @@ Ao mover dados do SAP BW, os seguintes mapeamentos serão usados dos tipos do SA
 Tipo de dados no Dicionário ABAP | Tipo de dados .NET
 -------------------------------- | --------------
 ACCP |  Int
-CHAR | Cadeia de caracteres
-CLNT | Cadeia de caracteres
+CHAR | string
+CLNT | string
 CURR | Decimal
-CUKY | Cadeia de caracteres
+CUKY | string
 DEC | Decimal
-FLTP | Duplo
+FLTP | DOUBLE
 INT1 | Byte
 INT2 | Int16
 INT4 | Int
-LANG | Cadeia de caracteres
-LCHR | Cadeia de caracteres
+LANG | string
+LCHR | string
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | Cadeia de caracteres
-UNIDADE | Cadeia de caracteres
-DATS | Cadeia de caracteres
-NUMC | Cadeia de caracteres
-TIMS | Cadeia de caracteres
+STRING | string
+UNIDADE | string
+DATS | string
+NUMC | string
+TIMS | string
 
 > [!NOTE]
-> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor

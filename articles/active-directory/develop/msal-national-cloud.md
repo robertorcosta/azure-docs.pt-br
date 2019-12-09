@@ -1,28 +1,25 @@
 ---
-title: Usar a MSAL (biblioteca de autenticação da Microsoft) em nuvens nacionais – plataforma de identidade da Microsoft
+title: Usar o MSAL em um aplicativo de nuvem nacional | Azure
+titleSuffix: Microsoft identity platform
 description: A MSAL (biblioteca de autenticação da Microsoft) permite que os desenvolvedores de aplicativos adquiram tokens para chamar APIs da Web protegidas. Essas APIs da Web podem ser Microsoft Graph, outras APIs da Microsoft, APIs Web de parceiros ou sua própria API Web. A MSAL dá suporte a várias arquiteturas de aplicativos e plataformas.
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f1c73d89b0efc17e8f8836d080595927d500ad6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481875"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916045"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usar o MSAL em um ambiente de nuvem nacional
 
@@ -32,13 +29,13 @@ Além da nuvem Mundial da Microsoft, a MSAL (biblioteca de autenticação da Mic
 
 Incluindo a nuvem global, o Azure Active Directory (Azure AD) é implantado nas seguintes nuvens nacionais:  
 
-- Azure Government
+- Azure Governamental
 - Azure China 21Vianet
 - Azure Alemanha
 
 Este guia demonstra como entrar em contas corporativas e de estudante, obter um token de acesso e chamar a API de Microsoft Graph no ambiente de [nuvem do Azure governamental](https://azure.microsoft.com/global-infrastructure/government/) .
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de atender a esses pré-requisitos.
 
@@ -74,7 +71,7 @@ Para habilitar seu aplicativo MSAL. js para nuvens soberanas:
 
 ### <a name="step-1-register-your-application"></a>Etapa 1: Registrar seu aplicativo
 
-1. Entre no [Portal do Azure](https://portal.azure.us/).
+1. Entre no [portal do Azure](https://portal.azure.us/).
     
    Para localizar portal do Azure pontos de extremidade para outras nuvens nacionais, consulte [pontos de extremidade de registro de aplicativo](authentication-national-cloud.md#app-registration-endpoints).
 
@@ -87,7 +84,7 @@ Para habilitar seu aplicativo MSAL. js para nuvens soberanas:
 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** .
 1. Este tutorial requer que você habilite o [fluxo de concessão implícito](v2-oauth2-implicit-grant-flow.md). No painel esquerdo do aplicativo registrado, selecione **Autenticação**.
 1. Em **Configurações avançadas**, em **Concessão implícita**, marque as caixas de seleção **Tokens de ID** e **Tokens de Acesso**. Tokens de ID e tokens de acesso são necessários porque esse aplicativo precisa conectar usuários e chamar uma API.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Etapa 2: configurar seu servidor Web ou projeto
 
@@ -224,7 +221,7 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ---
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre:
 

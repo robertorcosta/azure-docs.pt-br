@@ -1,29 +1,25 @@
 ---
-title: Navegadores da Web na biblioteca de autenticação da Microsoft para .NET
+title: Usando navegadores da Web com MSAL.NET | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2446166aa8078040c06d7cb54ce01666d9931727
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802681"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921599"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Usando navegadores da Web no MSAL.NET
 Os navegadores da Web são necessários para a autenticação interativa. Por padrão, o MSAL.NET dá suporte ao [navegador da Web do sistema](#system-web-browser-on-xamarinios-xamarinandroid) em Xamarin. Ios e Xamarin. Android. Mas [você também pode habilitar o navegador da Web incorporado](#enable-embedded-webviews-on-ios-and-android) dependendo de seus requisitos (UX, necessidade de logon único (SSO), segurança) em aplicativos [xamarin. Ios](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) e [xamarin. Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) . E você pode até mesmo [escolher dinamicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) qual navegador da Web usar com base na presença do Chrome ou em um navegador com suporte a guias personalizadas do Chrome no Android. O MSAL.NET só dá suporte ao navegador do sistema em aplicativos de área de trabalho do .NET Core.
@@ -49,15 +45,15 @@ Em geral, é recomendável que você use o padrão de plataforma, e isso normalm
 
 ### <a name="at-a-glance"></a>Visão geral
 
-| Framework        | Caractere | Sistema | Padrão |
+| Framework        | Inserida | Sistema | Padrão |
 | ------------- |-------------| -----| ----- |
-| Clássico do .NET     | SIM | Sim ^ | Caractere |
+| Clássico do .NET     | SIM | Sim ^ | Inserida |
 | .NET Core     | Não | Sim ^ | Sistema |
 | .NET Standard | Não | Sim ^ | Sistema |
-| UWP | SIM | Não | Caractere |
+| UWP | SIM | Não | Inserida |
 | Xamarin.Android | SIM | SIM  | Sistema |
 | Xamarin.iOS | SIM | SIM  | Sistema |
-| Xamarin. Mac| SIM | Não | Caractere |
+| Xamarin.Mac| SIM | Não | Inserida |
 
 ^ Requer URI de redirecionamento "http://localhost"
 
@@ -153,7 +149,7 @@ Há algumas diferenças visuais entre o WebView e o navegador do sistema incorpo
 
 **Entrada interativa com MSAL.NET usando o WebView inserido:**
 
-![Caractere](media/msal-net-web-browsers/embedded-webview.png)
+![inserido](media/msal-net-web-browsers/embedded-webview.png)
 
 **Entrada interativa com MSAL.NET usando o navegador do sistema:**
 

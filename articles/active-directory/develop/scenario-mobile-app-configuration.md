@@ -1,5 +1,5 @@
 ---
-title: Aplicativo móvel que chama APIs Web (configuração de código) – plataforma de identidade da Microsoft | Azure
+title: Configurar aplicativos móveis que chamam APIs da Web-plataforma Microsoft Identity | Azure
 description: Saiba como criar um aplicativo móvel que chama APIs da Web (configuração de código do aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d0550dd92b786ec540bae6ae6da7322d4fb629
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 44392882a7d3e1816b952969dbadb518e2762142
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175488"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919946"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Aplicativo móvel que chama as APIs da Web-configuração de código
 
@@ -30,7 +30,7 @@ Depois de criar seu aplicativo, você aprenderá a configurar o código usando o
 
 As bibliotecas da Microsoft que dão suporte a aplicativos móveis são:
 
-  Biblioteca MSAL | DESCRIÇÃO
+  Biblioteca MSAL | Descrição
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Para desenvolver aplicativos portáteis. As plataformas com suporte do MSAL.NET para criar um aplicativo móvel são UWP, Xamarin. iOS e Xamarin. Android.
   ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Para desenvolver aplicativos iOS nativos com Objective-C ou Swift
@@ -355,7 +355,7 @@ Observe que o esquema "msauthv3" é necessário ao compilar seu aplicativo com o
 
 MSAL.NET ainda não dá suporte a agentes para Android.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adquirindo um token](scenario-mobile-acquire-token.md)

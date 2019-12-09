@@ -2,23 +2,21 @@
 title: Migrar dados do data Lake e do data warehouse para o Azure
 description: Use Azure Data Factory para migrar dados de seu data Lake e data warehouse para o Azure.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
-ms.openlocfilehash: 056e98c18dbe2dd1adaa9386145ef18e36f8aac2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: aaf1593cc049e8b23f8ebe36fea022b3029ccd04
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217576"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930792"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Use Azure Data Factory para migrar dados de seu data Lake ou data warehouse para o Azure
 
@@ -58,7 +56,7 @@ Por exemplo, suponha que você planeje usar Azure Data Factory para concluir a m
 > Usando a migração online, você pode obter o carregamento de dados históricos e os feeds incrementais de ponta a ponta por meio de uma única ferramenta.  Por meio dessa abordagem, os dados podem ser mantidos sincronizados entre o repositório existente e o novo repositório durante toda a janela de migração. Isso significa que você pode recriar sua lógica de ETL na nova loja com dados atualizados.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Migrar dados do AWS S3 para o Azure](data-migration-guidance-s3-azure-storage.md)
 - [Migrar dados do cluster Hadoop local para o Azure](data-migration-guidance-hdfs-azure-storage.md)

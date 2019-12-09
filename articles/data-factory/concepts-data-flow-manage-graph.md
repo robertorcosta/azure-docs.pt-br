@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory grafos de fluxo de dados
+title: Gráficos de fluxo de dados
 description: Como trabalhar com data factory gráficos de fluxo de dados
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/04/2019
-ms.openlocfilehash: 38f85dea554000daf89689a311c091bc9796a658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: da180bfb1aec29fa15b070fd73ba84d708ada927
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74015893"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928318"
 ---
 # <a name="mapping-data-flow-graphs"></a>Mapeando grafos de fluxo de dados
 
@@ -41,8 +42,8 @@ Há um botão na extrema direita do painel de configuração inferior, no qual v
 
 Você pode pesquisar o grafo com o botão Pesquisar na superfície de design.
 
-![Pesquisar](media/data-flow/search001.png "Grafo de pesquisa")
+![Search](media/data-flow/search001.png "Grafo de pesquisa")
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de concluir o design do fluxo de dados, ative o botão de depuração e teste-o no modo de depuração diretamente no [Designer de fluxo de dados](concepts-data-flow-debug-mode.md) ou na depuração de [pipeline](control-flow-execute-data-flow-activity.md).

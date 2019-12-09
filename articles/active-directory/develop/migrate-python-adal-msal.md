@@ -4,25 +4,23 @@ description: Saiba como migrar seu aplicativo Python da ADAL (biblioteca de aute
 services: active-directory
 titleSuffix: Microsoft identity platform
 author: rayluo
-manager: henrikm
-editor: twhitney
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Python
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
-ms.reviewer: ''
+ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b31000c8b5e64cbd0edb2fc062f1c6e077a75f4
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 72a4af690a1433f6a185ab17f06748d67927edea
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481934"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917226"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração do ADAL para MSAL para Python
 
@@ -30,7 +28,7 @@ Este artigo realça as alterações que você precisa fazer para migrar um aplic
 
 ## <a name="difference-highlights"></a>Destaques da diferença
 
-A ADAL funciona com o ponto de extremidade do Azure Active Directory v 1.0. A MSAL (biblioteca de autenticação da Microsoft) funciona com a plataforma de identidade da Microsoft, conhecida anteriormente como ponto de extremidade do Azure Active Directory v 2.0. A plataforma Microsoft Identity é diferente do Azure Active Directory v 1.0, pois:
+A ADAL funciona com o ponto de extremidade do Azure Active Directory (Azure AD) v 1.0. A MSAL (biblioteca de autenticação da Microsoft) funciona com a plataforma de identidade da Microsoft, conhecida anteriormente como ponto de extremidade do Azure Active Directory v 2.0. A plataforma Microsoft Identity é diferente do Azure AD v 1.0, pois:
 
 Suporta:
   - contas corporativas e de estudante (contas do Azure AD provisionadas)
@@ -43,7 +41,7 @@ Suporta:
 
 Veja [o que há de diferente no ponto de extremidade da plataforma Microsoft Identity (v 2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison) para obter mais detalhes.
 
-### <a name="scopes-not-resources"></a>Escopos, não recursos
+### <a name="scopes-not-resources"></a>Escopos não recursos
 
 O Python ADAL adquire tokens para recursos, mas o Python MSAL adquire tokens para escopos. A superfície de API no MSAL Python não tem mais o parâmetro de recurso. Você precisaria fornecer escopos como uma lista de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Para ver alguns exemplos de escopos, consulte [escopos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -101,6 +99,6 @@ for old_rt, old_scope in get_preexisting_rt_and_their_scopes_from_elsewhere(...)
     # stores it in the token cache.
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, confira a [comparação entre a v1.0 e a v2.0](active-directory-v2-compare.md).

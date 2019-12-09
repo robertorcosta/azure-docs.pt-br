@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/21/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 9ab308d0e2145a0d0b40e8b37c8c5be07b55dac6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a5540eea91937319a6ac947b50698ccaa8b25847
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673546"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931695"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Executar pacotes de SQL Server Integration Services com o utilitário dtexec habilitado para Azure
 Este artigo descreve o utilitário de prompt de comando dtexec (AzureDTExec) habilitado para Azure. Ele é usado para executar pacotes SQL Server Integration Services (SSIS) no Azure-SSIS Integration Runtime (IR) no Azure Data Factory.
@@ -31,7 +30,7 @@ O AzureDTExec executa seus pacotes como atividades de execução de pacote SSIS 
 O AzureDTExec pode ser configurado por meio do SSMS para usar um aplicativo Azure Active Directory (Azure AD) que gera pipelines no seu data factory. Ele também pode ser configurado para acessar sistemas de arquivos, compartilhamentos de arquivos ou arquivos do Azure em que você armazena seus pacotes. Com base nos valores que você fornece para suas opções de invocação, o AzureDTExec gera e executa um pipeline de Data Factory exclusivo com uma atividade executar pacote SSIS nele. Invocar AzureDTExec com os mesmos valores para suas opções executa novamente o pipeline existente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para usar o AzureDTExec, baixe e instale a versão mais recente do SSMS, que é a versão 18,3 ou posterior. Baixe- [o deste site](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+Para usar o AzureDTExec, baixe e instale a versão mais recente do SSMS, que é a versão 18,3 ou posterior. Baixe-o [neste site](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 ## <a name="configure-the-azuredtexec-utility"></a>Configurar o utilitário AzureDTExec
 Instalar o SSMS em seu computador local também instala o AzureDTExec. Para definir suas configurações, inicie o SSMS com a opção **Executar como administrador** . Em seguida, selecione **ferramentas** > **migrar para o Azure** > **Configurar dtexec habilitado para Azure**.
@@ -91,7 +90,7 @@ Invocar AzureDTExec oferece opções semelhantes como invocar dtexec. Para obter
 > [!NOTE]
 > Invocar AzureDTExec com novos valores para suas opções gera um novo pipeline, exceto para a opção **/de [cript]** .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois que os pipelines exclusivos com a atividade executar pacote SSIS são gerados e executados depois que você invoca o AzureDTExec, eles podem ser monitorados no portal de Data Factory. Para obter mais informações, consulte [executar pacotes do SSIS como data Factory atividades](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 

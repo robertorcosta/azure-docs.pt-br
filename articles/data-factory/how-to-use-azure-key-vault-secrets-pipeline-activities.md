@@ -3,20 +3,19 @@ title: Usar segredos de Azure Key Vault em atividades de pipeline
 description: Saiba como buscar credenciais armazenadas do Azure Key Vault e usá-las durante data factory execuções de pipeline.
 services: data-factory
 author: ChrisLound
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 83d0981a0d277eab1aae8654343ab34661b3e88b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 837d62784a56ad0f17471cca5a660819d4a83e12
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672886"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926771"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usar segredos de Azure Key Vault em atividades de pipeline
 
@@ -42,19 +41,19 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
 3. Navegue até seu segredo de Key Vault e copie o identificador secreto.
 
-    ![Identificador de segredo](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
+    ![Identificador do Segredo](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
 
     Anote seu URI secreto que você deseja obter durante a execução do pipeline de data factory.
 
 4. Em seu pipeline de Data Factory, adicione uma nova atividade da Web e configure-a da seguinte maneira.  
 
-    |Propriedade  |Valor  |
+    |Propriedade  |Value  |
     |---------|---------|
     |Saída segura     |True         |
     |URL     |[Seu valor de URI secreto]? API-Version = 7.0         |
     |Método     |GET         |
-    |Autenticação     |MSI         |
-    |Recurso        |https://vault.azure.net       |
+    |Authentication     |MSI         |
+    |Grupos        |https://vault.azure.net       |
 
     ![Atividade da Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
 
@@ -68,6 +67,6 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber como usar Azure Key Vault para armazenar credenciais para armazenamentos de dados e computações, consulte [armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)

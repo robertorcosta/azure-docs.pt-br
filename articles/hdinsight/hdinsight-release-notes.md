@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 54e28a9d434500915aa8cc8e07ade3592e5aa96c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5d9ca8d0df3eb0186add5c40765c87a4409a5660
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185613"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926417"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -41,7 +41,7 @@ O HIB (agente de identidade do HDInsight) permite que os usuários entrem no Apa
 
 O proxy da API REST do Kafka fornece uma implantação de um único clique do proxy REST altamente disponível com o cluster Kafka por meio da autorização do AAD e do protocolo OAuth seguros. 
 
-### <a name="auto-scale"></a>Escala automática
+### <a name="auto-scale"></a>Dimensionamento automático
 
 O dimensionamento automático para o Azure HDInsight agora está disponível em todas as regiões para tipos de cluster Apache Spark e Hadoop. Esse recurso possibilita o gerenciamento de cargas de trabalho de análise de Big Data de forma mais econômica e produtiva. Agora você pode otimizar o uso de seus clusters HDInsight e pagar apenas pelo que precisa.
 
@@ -51,11 +51,11 @@ O suporte a AutoEscala para a carga de trabalho do HBase e do LLAP também é vi
 
 ### <a name="hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do HDInsight para o Apache HBase 
 
-As gravações aceleradas usam discos gerenciados do SSD premium do Azure para melhorar o desempenho do log de gravação antecipada do Apache HBase (WAL). Para obter mais informações, consulte [gravações aceleradas do Azure HDInsight para Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
+As gravações aceleradas usam discos gerenciados do SSD premium do Azure para melhorar o desempenho do log de gravação antecipada do Apache HBase (WAL). Para obter mais informações, consulte [Gravações aceleradas do Azure HDInsight para o Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
 
 ### <a name="custom-ambari-db"></a>BD Ambari personalizado
 
-O HDInsight agora oferece uma nova capacidade para permitir que os clientes usem seu próprio BD SQL para Ambari. Agora, os clientes podem escolher o SQL DB correto para Ambari e atualizá-lo facilmente com base em seu próprio requisito de crescimento de negócios. A implantação é feita com um modelo de Azure Resource Manager. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+O HDInsight agora oferece uma nova capacidade para permitir que os clientes usem seu próprio BD SQL para Ambari. Agora, os clientes podem escolher o BD SQL correto para Ambari e atualizá-lo facilmente com base em seu próprio requisito de crescimento de negócios. A implantação é feita com um modelo de Azure Resource Manager. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
 
 ### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>As máquinas virtuais da série F agora estão disponíveis com o HDInsight
 
@@ -90,4 +90,4 @@ As VMs da série a podem causar problemas de cluster ESP devido à capacidade re
 O HDInsight continua a tornar as melhorias de desempenho e confiabilidade do cluster. 
 
 ## <a name="component-version-change"></a>Alteração de versão do componente
-Não há nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para o HDInsight 4,0 Ad HDInsight 3,6 [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Não há nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).

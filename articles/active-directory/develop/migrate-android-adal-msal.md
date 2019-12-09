@@ -4,10 +4,8 @@ description: Saiba como migrar seu aplicativo Android da ADAL (biblioteca de aut
 services: active-directory
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
@@ -16,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8129de8b1c12965810bd5d9b5dfd1093e18d1c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0653eef585dd81d2e03585bf45b45ee9df9de292
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667896"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917244"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração do ADAL para MSAL para Android
 
@@ -243,7 +241,7 @@ No MSAL, há uma hierarquia de exceções e cada uma tem seu próprio conjunto d
 
 Lista de exceções MSAL
 
-|Exceção  | DESCRIÇÃO  |
+|Exceção  | Descrição  |
 |---------|---------|
 | `MsalException`     | Exceção verificada padrão lançada por MSAL.  |
 | `MsalClientException`     | Gerado se o erro for do lado do cliente. |

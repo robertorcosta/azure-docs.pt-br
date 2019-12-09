@@ -4,25 +4,24 @@ titleSuffix: Microsoft identity platform
 description: Saiba como migrar seu aplicativo Java ADAL (biblioteca de autenticação do Azure Active Directory) para a biblioteca de autenticação da Microsoft (MSAL).
 services: active-directory
 author: sangonzal
-manager: henrikm
-editor: twhitney
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Java
 ms.workload: identity
-ms.date: 11/4/2019
+ms.date: 11/04/2019
 ms.author: sagonzal
-ms.reviewer: navyari.canumalla
+ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fedfbae5c333991e8cfd014cce6882e61bb1a9dc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 3e99cee3f21a4e0088fa97dcbec8fdcfdf982d80
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452210"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917379"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração do ADAL para o MSAL para Java
 
@@ -42,7 +41,7 @@ MSAL para Java é a biblioteca de autenticação que recomendamos que você use 
 
 Se você esteve trabalhando com o ponto de extremidade do Azure AD para desenvolvedores (v 1.0) (e ADAL4J), talvez queira ler [o que há de diferente no ponto de extremidade da plataforma Microsoft Identity (v 2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
 
-## <a name="scopes-not-resources"></a>Escopos, não recursos
+## <a name="scopes-not-resources"></a>Escopos não recursos
 
 O ADAL4J adquire tokens para recursos, enquanto MSAL para Java adquire tokens para escopos. Um número de MSAL para classes Java requer um parâmetro de escopos. Esse parâmetro é uma lista de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Consulte [escopos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) para ver os escopos de exemplo.
 
@@ -89,13 +88,13 @@ O ponto de extremidade v 2.0 (usado por MSAL) pode emitir tokens v 1.0 e v 2.0. 
 
 Para obter mais informações sobre tokens v 1.0 e v 2.0, consulte [Azure Active Directory tokens de acesso](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
-## <a name="adal-to-msal-migration"></a>ADAL para a migração MSAL
+## <a name="adal-to-msal-migration"></a>Migração de ADAL para MSAL
 
 No ADAL4J, os tokens de atualização foram expostos, que permitiam aos desenvolvedores armazená-los em cache. Em seguida, eles usarão `AcquireTokenByRefreshToken()` para habilitar soluções como a implementação de serviços de longa execução que atualizam painéis em nome do usuário quando o usuário não está mais conectado.
 
 O MSAL para Java não expõe tokens de atualização por motivos de segurança. Em vez disso, o MSAL lida com a atualização de tokens para você.
 
-O MSAL para Java tem uma API que permite migrar tokens de atualização adquiridos com ADAL4j para ClientApplication: [acquireToken (RefreshTokenParameters)](https://javadoc.io/static/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.html#acquireToken-com.microsoft.aad.msal4j.RefreshTokenParameters-). Com esse método, você pode fornecer o token de atualização usado anteriormente, juntamente a qualquer escopo (recurso) que você deseja. O token de atualização será trocado por um novo e armazenado em cache para ser usado pelo seu aplicativo.
+O MSAL para Java tem uma API que permite migrar tokens de atualização adquiridos com ADAL4j para ClientApplication: [acquireToken (RefreshTokenParameters)](https://javadoc.io/static/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.html#acquireToken-com.microsoft.aad.msal4j.RefreshTokenParameters-). Com esse método, é possível fornecer o token de atualização usado anteriormente junto com todos os escopos (recursos) desejados. O token de atualização será trocado por um novo e armazenado em cache para ser usado pelo seu aplicativo.
 
 O trecho de código a seguir mostra um código de migração em um aplicativo cliente confidencial:
 
