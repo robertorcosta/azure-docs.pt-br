@@ -2,18 +2,18 @@
 title: 'Infraestrutura: Apache Hadoop locais para o Azure HDInsight'
 description: Aprenda as melhores práticas de infraestrutura para migrar clusters do Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499226"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951506"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – práticas recomendadas de infraestrutura
 
@@ -23,10 +23,17 @@ Este artigo apresenta recomendações para gerenciar a infraestrutura de cluster
 
 As principais escolhas a fazer para planejamento de capacidade de cluster do HDInsight são as seguintes:
 
-- **Escolher a região** – a região do Azure determina o local em que o cluster é provisionado fisicamente. Para minimizar a latência de leituras e gravações, o cluster deverá estar na mesma região que os dados.
-- **Escolher a localização e o tamanho do armazenamento** – o armazenamento padrão deve estar na mesma região que o cluster. Para um cluster de 48 nós, é recomendável ter de 4 a 8 contas de armazenamento. Embora já possa haver um armazenamento total suficiente, cada conta de armazenamento fornece largura de banda de rede adicional para os nós de computação. Quando houver várias contas de armazenamento, use um nome aleatório para cada conta de armazenamento, sem um prefixo. A finalidade da nomeação aleatória é a redução da chance de gargalos (limitações) de armazenamento ou falhas de modo comum em todas as contas. Para obter melhor desempenho, use apenas um contêiner por conta de armazenamento.
-- **Escolher o tamanho e o tipo da VM (agora dá suporte à série G)** – cada tipo de cluster tem um conjunto de tipos de nó e cada tipo de nó tem opções específicas para seu tamanho e tipo de VM. O tamanho e o tipo da VM são determinados pelo poder de processamento da CPU, pelo tamanho da RAM e pela latência da rede. Uma carga de trabalho simulada pode ser usada para determinar o tamanho e o tipo ideais da VM para cada tipo de nó.
-- **Escolher o número de nós de trabalho** – o número inicial de nós de trabalho pode ser determinado usando as cargas de trabalho simuladas. O cluster pode ser dimensionado mais tarde adicionando mais nós de trabalho para atender às demandas de carga de pico. O cluster mais tarde pode ser dimensionado quando os nós de trabalho adicionais não são necessários.
+**Região**  
+A região do Azure determina onde o cluster está fisicamente provisionado. Para minimizar a latência de leituras e gravações, o cluster deverá estar na mesma região que os dados.
+
+**Local e tamanho do armazenamento**  
+O armazenamento padrão deve estar na mesma região que o cluster. Para um cluster de 48 nós, é recomendável ter de 4 a 8 contas de armazenamento. Embora já possa haver um armazenamento total suficiente, cada conta de armazenamento fornece largura de banda de rede adicional para os nós de computação. Quando houver várias contas de armazenamento, use um nome aleatório para cada conta de armazenamento, sem um prefixo. A finalidade da nomeação aleatória é a redução da chance de gargalos (limitações) de armazenamento ou falhas de modo comum em todas as contas. Para obter melhor desempenho, use apenas um contêiner por conta de armazenamento.
+
+**Tamanho e tipo da VM (agora dá suporte à série G)**  
+Cada tipo de cluster tem um conjunto de tipos de nós e cada tipo de nó tem opções específicas quanto ao tamanho e o tipo de VM. O tamanho e o tipo da VM são determinados pelo poder de processamento da CPU, pelo tamanho da RAM e pela latência da rede. Uma carga de trabalho simulada pode ser usada para determinar o tamanho e o tipo ideais da VM para cada tipo de nó.
+
+**Número de nós de trabalho**  
+O número inicial de nós de trabalho pode ser determinado usando as cargas de trabalhos simuladas. O cluster pode ser dimensionado mais tarde adicionando mais nós de trabalho para atender às demandas de carga de pico. Posteriormente, o cluster poderá ser dimensionado de volta quando os nós de trabalho adicionais não forem necessários.
 
 Para obter mais informações, confira o artigo [Planejamento de capacidade para clusters do HDInsight](../hdinsight-capacity-planning.md).
 
@@ -67,7 +74,7 @@ Aplicativos ou componentes que estavam disponíveis em clusters locais, mas que 
 |Waterline|Nó de borda do HDInsight
 |StreamSets|Borda do HDInsight 
 |Palantir|IaaS 
-|Sailpoint|IaaS 
+|SailPoint|IaaS 
 
 Para obter mais informações, consulte o artigo [Componentes do Apache Hadoop disponíveis com diferentes versões do HDInsight](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)
 
@@ -145,7 +152,7 @@ Para obter mais informações, confira o artigo [Usar nós de borda vazios em cl
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Usar o recurso de ampliação e redução de clusters
 
-O HDInsight proporciona elasticidade, oferecendo a opção de escalar e reduzir verticalmente o número de nós de trabalho em seus clusters. Esse recurso permite que você reduza um cluster depois do horário comercial ou nos finais de semana e o expanda durante picos da demanda empresarial. Para obter mais informações, consulte:
+O HDInsight proporciona elasticidade, oferecendo a opção de escalar e reduzir verticalmente o número de nós de trabalho em seus clusters. Esse recurso permite que você reduza um cluster depois do horário comercial ou nos finais de semana e o expanda durante picos da demanda empresarial. Para obter mais informações, veja:
 
 * [Dimensionar clusters HDInsight](../hdinsight-scaling-best-practices.md).
 * [Dimensionar clusters](../hdinsight-administer-use-portal-linux.md#scale-clusters).
@@ -189,8 +196,6 @@ O HDInsight pode ser conectado à rede local por meio de redes virtuais do Azure
 
 Para obter mais informações, confira o artigo [Conectar o HDInsight à sua rede local](../connect-on-premises-network.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Leia o próximo artigo desta série:
-
-- [Melhores práticas de armazenamento para migração do local para o Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md)
+Leia o próximo artigo desta série: [práticas recomendadas de armazenamento para migração local para Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md).

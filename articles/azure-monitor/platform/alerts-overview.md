@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802316"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951132"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
@@ -63,7 +63,7 @@ Veja a seguir os principais atributos de uma regra de alerta:
 Você pode alertar sobre métricas e logs, conforme descrito em [monitorando fontes de dados](../../azure-monitor/platform/data-sources-reference.md). Elas incluem, mas sem limitação:
 - Valores métricos
 - Consultas da pesquisa de logs
-- Eventos do log de atividades
+- Eventos de log de atividades
 - Integridade da plataforma subjacente do Azure
 - Testes de disponibilidade do site
 
@@ -178,7 +178,7 @@ A página detalhes do alerta inclui as seguintes seções:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>RBAC (controle de acesso baseado em função) para suas instâncias de alerta
 
-O consumo e o gerenciamento de instâncias de alerta exigem que o usuário tenha as funções RBAC internas de [monitorar o colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ou o [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Essas funções têm suporte em qualquer escopo de Azure Resource Manager, do nível de assinatura para atribuições granulares em um nível de recurso. Por exemplo, se um usuário só tiver acesso de colaborador de monitoramento para `ContosoVM1` de máquina virtual, esse usuário poderá consumir e gerenciar somente alertas gerados no `ContosoVM1`.
+O consumo e o gerenciamento de instâncias de alerta exigem que o usuário tenha as funções RBAC internas de [monitorar o colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ou o [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Essas funções têm suporte em qualquer escopo de Azure Resource Manager, do nível de assinatura para atribuições granulares em um nível de recurso. Por exemplo, se um usuário só tiver acesso de colaborador de monitoramento para `ContosoVM1`de máquina virtual, esse usuário poderá consumir e gerenciar somente alertas gerados no `ContosoVM1`.
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gerencie suas instâncias de alerta programaticamente
 
@@ -211,6 +211,7 @@ Use a [API REST do gerenciamento de alertas](https://aka.ms/alert-management-api
 - [Saiba mais sobre grupos de ação](../../azure-monitor/platform/action-groups.md)
 - [Gerenciar suas instâncias de alertas no Azure](https://aka.ms/managing-alert-instances)
 - [Gerenciar grupos inteligentes](https://aka.ms/managing-smart-groups)
+- [Saiba mais sobre os preços dos alertas do Azure](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

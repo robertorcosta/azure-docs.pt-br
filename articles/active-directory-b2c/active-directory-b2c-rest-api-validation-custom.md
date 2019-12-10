@@ -1,5 +1,6 @@
 ---
-title: Trocas de declarações da API REST como validação no Azure Active Directory B2C
+title: Trocas de declarações da API REST como validação
+titleSuffix: Azure AD B2C
 description: Uma explicação sobre como criar uma jornada de usuário Azure AD B2C que interage com os serviços RESTful.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 45fad1fab419c448febb3f3b760996fba278e154
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 8730870bfae9f704ee43594497f79942b70a6181
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644964"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949365"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário
 
@@ -30,7 +31,7 @@ A IEF envia dados em declarações e recebe dados de volta em declarações. A i
 - Pode ser criada como uma troca de declarações da API REST ou como um perfil de validação, que ocorre em uma etapa de orquestração.
 - Normalmente valida a entrada do usuário. Se o valor do usuário for rejeitado, o usuário poderá tentar inserir um valor válido novamente com a oportunidade de retornar uma mensagem de erro.
 
-Você também pode criar a interação como uma etapa de orquestração. Para saber mais, confira [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](active-directory-b2c-rest-api-step-custom.md).
+Você também pode criar a interação como uma etapa de orquestração. Para obter mais informações, consulte [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](active-directory-b2c-rest-api-step-custom.md).
 
 No exemplo de perfil de validação, usaremos o percurso do usuário de edição de perfil no arquivo de starter pack ProfileEdit.xml.
 
@@ -41,7 +42,7 @@ Podemos verificar que o nome fornecido pelo usuário na edição de perfil não 
 - Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
 - Um ponto de extremidade de API REST com o qual se irá interagir. Para este passo a passo, criamos um site de demonstração chamado [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) com um serviço de API REST.
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Etapa 1: Preparar a função da API REST
+## <a name="step-1-prepare-the-rest-api-function"></a>Etapa 1: preparar a função da API REST
 
 > [!NOTE]
 > A configuração das funções da API REST está fora do escopo deste artigo. O [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) fornece um kit de ferramentas excelente para criar serviços RESTful na nuvem.
@@ -131,13 +132,13 @@ Para adicionar a troca de declarações ao perfil técnico autodeclarado:
 2. Use **Executar agora** para testar o arquivo de política de edição do perfil RP.
 3. Teste a validação fornecendo um dos nomes existentes (por exemplo, mcvinny) no campo **Nome Fornecido**. Se tudo estiver configurado corretamente, você deverá receber uma mensagem que notifica o usuário de que a marcação de player já está sendo usada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Modificar a edição de perfil e o registro de usuário para coletar informações adicionais dos usuários](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
-[Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](active-directory-b2c-rest-api-step-custom.md)
+[Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](active-directory-b2c-rest-api-step-custom.md)
 
-[Referência: Perfil técnico RESTful](restful-technical-profile.md)
+[Referência: perfil técnico RESTful](restful-technical-profile.md)
 
 Para saber como proteger suas APIs, consulte os seguintes artigos:
 

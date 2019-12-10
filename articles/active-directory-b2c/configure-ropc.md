@@ -1,6 +1,7 @@
 ---
-title: Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure Active Directory B2C | Microsoft Docs
-description: Saiba como configurar o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C.
+title: Configurar o fluxo de credenciais de senha do proprietário do recurso
+titleSuffix: Azure AD B2C
+description: Saiba como configurar o fluxo ROPC no Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca17d049d988b2bc8b60249d99c03f70c555d3fb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 03ff564848298d31c8bf92169d9e5f66d024d711
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023744"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949177"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
@@ -25,14 +26,14 @@ O fluxo de credenciais de senha de proprietário do recurso (ROPC) é um fluxo d
 
 No Azure Active Directory B2C (Azure AD B2C), há suporte para as seguintes opções:
 
-- **Cliente nativo**: Interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel em execução em um sistema operacional nativo, como Android e iOS.
+- **Native Client**: interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel em execução em um sistema operacional nativo, como Android e iOS.
 - **Fluxo de cliente público**: Somente credenciais de usuário, coletadas por um aplicativo, são enviadas na chamada de API. As credenciais do aplicativo não são enviadas.
 - **Adicionar novas declarações**: O conteúdo do token de ID pode ser alterado para adicionar novas declarações.
 
 Não há suporte para os fluxos a seguir:
 
 - **Servidor-para-servidor**: O sistema de proteção de identidade precisa de um endereço IP confiável coletado pelo chamador (o cliente nativo) como parte da interação. Em uma chamada de API do lado do servidor, somente o endereço IP do servidor é usado. Se um limite dinâmico de autenticações com falha for excedido, o sistema de proteção de identidade pode identificar um endereço IP repetido como um invasor.
-- **Fluxo confidencial do cliente**: A ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
+- **Fluxo de cliente confidencial**: A ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Crie um fluxo de usuário do proprietário de recurso
 
@@ -64,11 +65,11 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | Valor |
+| Chave | Value |
 | --- | ----- |
-| username | leadiocl@outlook.com |
-| password | Passxword1 |
-| grant_type | password |
+| Nome de Usuário | leadiocl@outlook.com |
+| Senha | Passxword1 |
+| grant_type | Senha |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
@@ -104,12 +105,12 @@ Construa uma chamada POST como a monstrada aqui com as informações na tabela a
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | Valor |
+| Chave | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| recurso | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* e *resource* são os valores que você anotou anteriormente como a ID do aplicativo. *Refresh_token* é o token recebido na chamada de autenticação mencionada anteriormente.
@@ -132,7 +133,7 @@ Uma resposta bem-sucedida se parece com o seguinte exemplo:
 }
 ```
 > [!NOTE]
-> Ao criar usuários via API do Graph, o aplicativo precisa ter permissões "OpenID", "offline_access" e "Profile" de Microsoft Graph.
+> Ao criar usuários por meio de API do Graph, o aplicativo precisa ter permissões "OpenID", "offline_access" e "perfil" de Microsoft Graph.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementar com o SDK nativo preferencial ou usar App-Auth
 

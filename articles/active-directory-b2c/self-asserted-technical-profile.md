@@ -1,5 +1,6 @@
 ---
-title: Definir um perfil técnico autodeclarado em uma política personalizada no Azure Active Directory B2C | Microsoft Docs
+title: Definir um perfil técnico autodeclarado em uma política personalizada
+titleSuffix: Azure AD B2C
 description: Defina um perfil técnico autodeclarado em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4fec742766cebeb5b1d82655e09af77a888c375c
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: bfa8982fb49b31540d1926bdeb75a96dc1d79cf0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063688"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950894"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "71063688"
 
 Todas as interações em Azure Active Directory B2C (Azure AD B2C) em que o usuário deve fornecer entrada são perfis técnicos autodeclarados. Por exemplo, uma página de inscrição, entrada ou redefinição de senha.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocolo
 
 O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo usado pelo Azure AD B2C, para autodeclaração: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
@@ -127,12 +128,12 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessário | Descrição |
+| Atributo | obrigatórios | Descrição |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | Não | Mostra o botão continuar. Valores possíveis: `true` (padrão) ou `false` |
 | setting.showCancelButton | Não | Mostra o botão cancelar. Valores possíveis: `true` (padrão) ou `false` |
 | setting.operatingMode | Não | Em uma página de entrada, essa propriedade controla o comportamento do campo nome de usuário, como validação de entradas e mensagens de erro. Valores esperados: `Username` ou `Email`. |
-| ContentDefinitionReferenceId | Sim | O identificador da [definição de conteúdo](contentdefinitions.md) associada com este perfil técnico. |
+| ContentDefinitionReferenceId | SIM | O identificador da [definição de conteúdo](contentdefinitions.md) associada com este perfil técnico. |
 | EnforceEmailVerification | Não | Na inscrição ou edição de perfil, reforça a verificação de email. Valores possíveis: `true` (padrão) ou `false`. |
 | setting.showSignupLink | Não | Mostra o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
 | setting.retryLimit | Não | Controla a quantidade de vezes que um usuário pode tentar fornecer os dados verificados pelo perfil técnico de validação. Por exemplo, quanto um usuário tenta se inscrever com uma conta que já existe e continua tentando até alcançar o limite.

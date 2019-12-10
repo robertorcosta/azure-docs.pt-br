@@ -1,6 +1,7 @@
 ---
-title: Exemplos de transformação de declarações gerais para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C
-description: Exemplos de transformação de declarações gerais para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C.
+title: Exemplos de transformação de declarações gerais para políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Exemplos gerais de transformação de declarações para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7cea33cb61f8f8d0fe305a757f11c80bc5da24ca
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 639277177bf63e659e5b0ea804eca5e20f956831
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032892"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948821"
 ---
 # <a name="general-claims-transformations"></a>Transformações de declarações gerais
 
@@ -27,10 +28,10 @@ Este artigo fornece exemplos de como usar as transformações de declarações g
 
 Verifica se a **inputClaim** existe ou não e define **outputClaim** como true ou false adequadamente.
 
-| Item | TransformationClaimType | Tipo de dados | Observações |
+| Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |Any | A declaração de entrada cuja existência deve ser verificada. |
-| OutputClaim | outputClaim | boolean | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+| InputClaim | InputClaim |Qualquer | A declaração de entrada cuja existência deve ser verificada. |
+| OutputClaim | outputClaim | Booliano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Use essa transformação de declarações para verificar se uma declaração existe ou se contém algum valor. O valor retornado é um valor booliano que indica se a declaração existe. O exemplo a seguir verifica se o endereço de email existe.
 
@@ -56,12 +57,12 @@ Use essa transformação de declarações para verificar se uma declaração exi
 
 Transforme o texto sem formatação fornecido em hash usando o sal e um segredo. O algoritmo de hash usado é SHA-256.
 
-| Item | TransformationClaimType | Tipo de dados | Observações |
+| Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | texto não criptografado | cadeia de caracteres | A declaração de entrada a ser criptografada |
-| InputClaim | sal | cadeia de caracteres | O parâmetro sal. Você pode criar um valor aleatório, usando a transformação de declarações `CreateRandomString`. |
-| InputParameter | randomizerSecret | cadeia de caracteres | Aponta para uma chave de **política**de Azure ad B2C existente. Para criar uma nova chave de política: No locatário do Azure AD B2C, em **gerenciar**, selecione **estrutura de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis em seu locatário. Selecione **Adicionar**. Em **Opções** selecione **Manual**. Forneça um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **segredo** , insira qualquer segredo que você queira usar, como 1234567890. Para **Uso de chave**, selecione **Assinatura**. Selecione **Criar**. |
-| OutputClaim | hash | cadeia de caracteres | O ClaimType que é produzido depois de invocar esta transformação de declarações. A declaração configurada na inputClaim `plaintext`. |
+| InputClaim | texto não criptografado | string | A declaração de entrada a ser criptografada |
+| InputClaim | sal | string | O parâmetro sal. Você pode criar um valor aleatório, usando a transformação de declarações `CreateRandomString`. |
+| InputParameter | randomizerSecret | string | Aponta para uma chave de **política**de Azure ad B2C existente. Para criar uma nova chave de política: em seu locatário do Azure AD B2C, em **gerenciar**, selecione **estrutura de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis em seu locatário. Selecione **Adicionar**. Em **Opções** selecione **Manual**. Forneça um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **segredo** , insira qualquer segredo que você queira usar, como 1234567890. Para **Uso de chave**, selecione **Assinatura**. Clique em **Criar**. |
+| OutputClaim | hash | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. A declaração configurada na inputClaim `plaintext`. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
@@ -82,7 +83,7 @@ Transforme o texto sem formatação fornecido em hash usando o sal e um segredo.
 
 - Declarações de entrada:
   - **texto não criptografado**: MyPass@word1
-  - **salt**: 487624568
+  - **sal**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Declarações de saída:
   - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=

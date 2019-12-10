@@ -1,6 +1,7 @@
 ---
-title: Exemplos de logs de auditoria e definições no Azure Active Directory B2C
-description: Guia e exemplos sobre como acessar os logs de auditoria do Azure AD B2C.
+title: Acessar e examinar os logs de auditoria
+titleSuffix: Azure AD B2C
+description: Como acessar Azure AD B2C logs de auditoria programaticamente e no portal do Azure.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643592"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948225"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -31,14 +32,14 @@ Os eventos do log de auditoria são mantidos apenas por **sete dias**. Planeje r
 
 A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividades:
 
-|Tipo de atividade |DESCRIÇÃO  |
+|Tipo de atividade |Descrição  |
 |---------|---------|
 |Autorização |Atividades relacionadas à autorização de um usuário para acessar os recursos do B2C (por exemplo, um administrador acessando uma lista de políticas do B2C).         |
 |Diretório |Atividades relacionadas aos atributos de diretório recuperados quando um administrador entra usando o portal do Azure. |
 |Aplicativo | Operações CRUD (criar, ler, atualizar e excluir) em aplicativos B2C. |
 |Chave |Operações CRUD em chaves armazenadas em um contêiner de chave B2C. |
-|Recurso |Operações CRUD em recursos do B2C. Por exemplo, políticas e provedores de identidade.
-|Autenticação |Validação de credenciais de usuário e emissão de tokens.|
+|Grupos |Operações CRUD em recursos do B2C. Por exemplo, políticas e provedores de identidade.
+|Authentication |Validação de credenciais de usuário e emissão de tokens.|
 
 Para atividades CRUD do objeto de usuário, consulte a categoria **Diretório Principal**.
 
@@ -50,12 +51,12 @@ Esta imagem de exemplo da portal do Azure mostra os dados capturados quando um u
 
 O painel detalhes da atividade contém as seguintes informações relevantes:
 
-|Seção|Campo|DESCRIÇÃO|
+|Seção|Campo|Descrição|
 |-------|-----|-----------|
-| Atividade | Nome | Qual atividade ocorreu. Por exemplo, *emita um id_token para o aplicativo*, que conclui a entrada do usuário real. |
+| Atividade | name | Qual atividade ocorreu. Por exemplo, *emita um id_token para o aplicativo*, que conclui a entrada do usuário real. |
 | Iniciado por (ator) | ObjectId | A **ID de objeto** do aplicativo B2C ao qual o usuário está se conectando. Esse identificador não é visível no portal do Azure, mas pode ser acessado por meio da API do Microsoft Graph. |
 | Iniciado por (ator) | SPNs | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
-| Destino (s) | ObjectId | A **ID de objeto** do usuário que está entrando. |
+| Destino(s) | ObjectId | A **ID de objeto** do usuário que está entrando. |
 | Detalhes adicionais | TenantId | A **ID do locatário** do locatário do Azure ad B2C. |
 | Detalhes adicionais | PolicyId | A **ID de política** do fluxo do usuário (política) que está sendo usada para conectar o usuário. |
 | Detalhes adicionais | ApplicationId | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
@@ -113,17 +114,17 @@ Siga estas etapas para registrar um aplicativo, conceda a ele as permissões de 
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Em **gerenciar**, selecione **permissões de API**.
-1. Em **permissões configuradas**, selecione **Adicionar uma permissão**.
+1. Em **Gerenciar**, selecione **Permissões de API**.
+1. Em **Permissões Configuradas**, selecione **Adicionar uma permissão**.
 1. Selecione a guia **APIs da Microsoft** .
 1. Selecione **Microsoft Graph**.
 1. Selecione **Permissões de aplicativo**.
 1. Expanda **auditlog** e marque a caixa de seleção **auditlog. Read. All** .
-1. Selecione **adicionar permissões**. Conforme indicado, aguarde alguns minutos antes de prosseguir para a próxima etapa.
-1. Selecione **conceder consentimento de administrador para (seu nome de locatário)** .
+1. Selecione **Adicionar Permissões**. Conforme as instruções, aguarde alguns minutos antes de seguir para a próxima etapa.
+1. Selecione **Fornecer o consentimento do administrador para (nome do seu locatário)** .
 1. Selecione sua conta conectada no momento se ela tiver sido atribuída à função de *administrador global* ou entre com uma conta em seu locatário de Azure ad B2C que tenha sido atribuído à função de *administrador global* .
 1. Selecione **Aceitar**.
-1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status** para a permissão *AuditLog. Read. All* . Pode levar alguns minutos para que as permissões se propaguem.
+1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status** para a permissão *AuditLog. Read. All* . Pode levar alguns minutos para que as permissões sejam propagadas.
 
 * * *
 
@@ -255,6 +256,6 @@ Aqui está a representação JSON do evento de atividade de exemplo mostrado ant
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode automatizar outras tarefas de administração, por exemplo, [gerenciar usuários com o .net](active-directory-b2c-devquickstarts-graph-dotnet.md).

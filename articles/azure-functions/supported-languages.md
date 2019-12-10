@@ -2,13 +2,13 @@
 title: Linguagens com suporte no Azure Functions
 description: Saiba quais linguagens são compatíveis (GA) e quais são experimentais ou estão na versão prévia.
 ms.topic: conceptual
-ms.date: 08/02/2018
-ms.openlocfilehash: 3b61dd83e481d42dd15f089247d016c6b71ff0de
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 11/27/2019
+ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230277"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942249"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguagens com suporte no Azure Functions
 
@@ -24,7 +24,7 @@ Há três níveis de suporte:
 
 ## <a name="languages-by-runtime-version"></a>Idiomas por versão de tempo de execução 
 
-[Duas versões do Azure Functions runtime](functions-versions.md) estão disponíveis. A tabela a seguir indica quais linguagens têm suporte em cada versão de runtime.
+[Três versões do tempo de execução de Azure Functions](functions-versions.md) estão disponíveis. A tabela a seguir indica quais linguagens têm suporte em cada versão de runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
@@ -34,13 +34,13 @@ As linguagens experimentais na versão 1.x não escalam bem e não oferecem supo
 
 Não use recursos experimentais para algo em que você confia, pois não há suporte oficial para eles. Não devem ser abertos casos de suporte para problemas com linguagens experimentais. 
 
-O runtime versão 2.x não oferece suporte a linguagens experimentais. O suporte para novos idiomas é adicionado somente quando o idioma pode ter suporte em produção. 
+Versões de tempo de execução posteriores não dão suporte a idiomas experimentais. O suporte para novos idiomas é adicionado somente quando o idioma pode ter suporte em produção. 
 
 ### <a name="language-extensibility"></a>Extensibilidade de linguagem
 
 A partir da versão 2. x, o tempo de execução foi projetado para oferecer [extensibilidade de linguagem](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). As linguagens JavaScript e Java no runtime 2.x são criadas com essa extensibilidade.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como desenvolver funções nos idiomas com suporte, consulte os seguintes recursos:
 

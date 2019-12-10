@@ -1,5 +1,6 @@
 ---
-title: Definições e exemplos da API de relatório de uso no Azure Active Directory B2C | Microsoft Docs
+title: Exemplos e definições da API de relatório de uso
+titleSuffix: Azure AD B2C
 description: Guia e exemplos de como obter relatórios sobre usuários, autenticações e autenticações multifator de locatário do Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81acf28b502965f896cd8b38767e7c2e925156c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508706"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949331"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Acessando os relatórios de uso do Azure AD B2C por meio da API de geração de relatórios
 
@@ -29,7 +30,7 @@ Este artigo se concentra em relatórios ligados à atividade de cobrança, que �
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, você precisa concluir as etapas em [Pré-requisitos para acessar as APIs de relatório do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Criar um aplicativo, obter um segredo para ele e conceder acesso direitos para relatórios do locatário B2C do AD do Azure. Também são fornecidos aqui os exemplos de *script Bash* e de *script Python*. 
+Antes de começar, você precisa concluir as etapas em [Pré-requisitos para acessar as APIs de relatório do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Criar um aplicativo, obter um segredo para ele e conceder acesso direitos para relatórios do locatário B2C do AD do Azure. Também são fornecidos aqui os exemplos de *script Bash* e de *script Python*.
 
 ## <a name="powershell-script"></a>Script do PowerShell
 Este script demonstra a criação de quatro relatórios de uso por meio do parâmetro `TimeStamp` e do filtro `ApplicationId`.
@@ -38,10 +39,10 @@ Este script demonstra a criação de quatro relatórios de uso por meio do parâ
 # This script will require the Web Application and permissions setup in Azure Active Directory
 
 # Constants
-$ClientID      = "your-client-application-id-here"  
+$ClientID      = "your-client-application-id-here"
 $ClientSecret  = "your-client-application-secret-here"
 $loginURL      = "https://login.microsoftonline.com"
-$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"  
+$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
 $oauth         = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
@@ -100,13 +101,13 @@ if ($oauth.access_token -ne $null) {
 * **tenantUserCount**: o número de usuários no locatário por tipo de provedor de identidade, por dia, nos últimos 30 dias. (opcionalmente, um filtro `TimeStamp` fornece contas de usuário de uma data especificada até a data atual). O relatório fornece:
   * **TotalUserCount**: o número de todos os objetos de usuário.
   * **OtherUserCount**: o número de usuários do Azure Active Directory (não os usuários do Azure AD B2C).
-  * **LocalUserCount**: o número de contas de usuário do Azure AD B2C criadas com credenciais locais do locatário do Azure AD B2C.
+  * **LocalUserCount**: o número de contas de usuário do Azure AD B2C criadas com credenciais locais ao locatário do Azure AD B2C.
 
-* **AlternateIdUserCount**: o número de usuários do Azure AD B2C registrados com provedores de identidade externos (por exemplo, Facebook, uma conta Microsoft ou outro locatário do Azure Active Directory, também conhecido como `OrgId`).
+* **AlternateIdUserCount**: o número de usuários do Azure AD B2C registrados com provedores de identidade externa (por exemplo, Facebook, uma conta da Microsoft ou outro locatário do Azure Active Directory, também conhecido como uma `OrgId`).
 
 * **b2cAuthenticationCountSummary**: resumo do número diário de autenticações faturáveis nos últimos 30 dias, por dia e tipo de fluxo de autenticação.
 
-* **b2cAuthenticationCount**: o número de autenticações em um período de tempo. O padrão é nos últimos 30 dias.  (Opcional: os parâmetros `TimeStamp` inicial e final definem um período de tempo específico.) A saída inclui `StartTimeStamp` (data mais antiga de atividade para este locatário) e `EndTimeStamp` (atualização mais recente).
+* **b2cAuthenticationCount**: o número de autenticações em um período de tempo. O padrão é nos últimos 30 dias.  (Opcional: os parâmetros de `TimeStamp` inicial e final definem um período de tempo específico.) A saída inclui `StartTimeStamp` (primeira data de atividade para esse locatário) e `EndTimeStamp` (atualização mais recente).
 
 * **b2cMfaRequestCountSummary**: resumo do número diário de autenticações multifator, por dia e por tipo (SMS ou voz).
 
@@ -117,7 +118,7 @@ Dados de contagem de usuário são atualizados a cada 24 a 48 horas. As autentic
   * A ID do aplicativo existe, mas não foi encontrado nenhum dado no período do relatório. Examine seus parâmetros de data/hora.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 ### <a name="monthly-bill-estimates-for-azure-ad"></a>Estimativas de cobrança mensal do Azure AD
 Quando combinado com [a mais atual do Azure AD B2C preços disponíveis](https://azure.microsoft.com/pricing/details/active-directory-b2c/), você pode estimar diários, semana e mensal de consumo do Azure.  Uma estimativa é especialmente útil ao planejar alterações no comportamento do locatário que possam afetar o custo geral. Você pode examinar os custos reais na sua [assinatura vinculada do Azure](active-directory-b2c-how-to-enable-billing.md).
 

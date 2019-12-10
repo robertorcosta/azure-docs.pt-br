@@ -1,5 +1,6 @@
 ---
-title: Passe um token de acesso por meio de um fluxo de usuário para o seu aplicativo-Azure Active Directory B2C
+title: Passar um token de acesso por meio de um fluxo de usuário para seu aplicativo
+titleSuffix: Azure AD B2C
 description: Saiba como passar um token de acesso para provedores de identidade OAuth 2,0 como uma declaração em um fluxo de usuário no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a1a9ad0c615e50db746548a1ed5b557fe6fdea5a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 345924c10feabe9a7d5f50905689a4a0edb065ce
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064293"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948804"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso por meio de um fluxo de usuário para seu aplicativo no Azure Active Directory B2C
 
@@ -51,8 +52,8 @@ Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure 
 
     Você deverá ver algo semelhante ao texto a seguir:
 
-    ![Token decodificado em jwt.ms com bloco idp_access_token realçado](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
+    ![Token decodificado em jwt.ms com idp_access_token bloco realçado](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais na [visão geral de tokens de Azure ad B2C](active-directory-b2c-reference-tokens.md).

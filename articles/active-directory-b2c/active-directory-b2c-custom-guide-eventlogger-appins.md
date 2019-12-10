@@ -1,5 +1,6 @@
 ---
-title: Rastrear o comportamento do usuário usando eventos no Application Insights do Azure Active Directory B2C | Microsoft Docs
+title: Acompanhar o comportamento do usuário com Application Insights
+titleSuffix: Azure AD B2C
 description: Saiba como ativar os logs de eventos no Application Insights a partir de jornadas do usuário do Azure AD B2C usando políticas personalizadas (visualização).
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066178"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948939"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Rastrear o comportamento do usuário no Azure Active Directory B2C usando o Application Insights
 
@@ -44,7 +45,7 @@ Conclua as etapas em [Introdução às políticas personalizadas](active-directo
 
 Quando você estiver usando o Application Insights com o Azure AD B2C, tudo o que você precisa fazer é criar um recurso e obter a chave de instrumentação.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Verifique se você está usando o diretório que contém sua assinatura do Azure selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém sua assinatura. Esse locatário não é o seu locatário do Azure Active Directory B2C.
 3. Escolher **criar um recurso** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **Application Insights**.
 4. Clique em **Criar**.
@@ -228,7 +229,7 @@ Faça upload do arquivo *TrustFrameworkExtensions.xml* no seu locatário. Em seg
 
 ![Application Insights USAGE-Events Blase](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Adicione tipos de declarações e eventos ao percurso do usuário para ajustar às suas necessidades. Você pode usar [resolvedores de declaração](claim-resolver-overview.md) ou qualquer tipo de declaração de sequência, adicionar as declarações adicionando um elemento **Entrada de declaração** ao evento Application Insights ou ao perfil técnico Comum do AzureInsights.
 

@@ -1,6 +1,7 @@
 ---
-title: Usando AppAuth em um aplicativo do iOS no Azure Active Directory B2C | Microsoft Docs
-description: Este artigo mostra como criar um aplicativo iOS que usa AppAuth com o Azure Active Directory B2C para gerenciar identidades de usuário e autenticar usuários.
+title: Usar o AppAuth em um aplicativo iOS
+titleSuffix: Azure AD B2C
+description: Como criar um aplicativo iOS que usa o AppAuth com Azure Active Directory B2C para gerenciar identidades de usuário e autenticar usuários.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0fb5341c2e7ee55391cb38251b0ea66b55b93301
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a61b97ade6513785c1cd298f33a5158a14efad82
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469149"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948191"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: entrar usando um aplicativo iOS
 
@@ -39,7 +40,7 @@ Em seguida, registre um aplicativo em seu locatário de Azure AD B2C. Isso dá a
 
 Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
 
-Registre também seu URI de redirecionamento personalizado para uso em uma etapa posterior. Por exemplo: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Registre também seu URI de redirecionamento personalizado para uso em uma etapa posterior. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Criar seus fluxos de usuário
 No Azure AD B2C, toda experiência do usuário é definida por um [fluxo de usuário](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Ao criar as duas políticas, não se esqueça de:
@@ -91,8 +92,8 @@ OIDServiceConfiguration *configuration =
 
 Depois de configurar ou recuperar uma configuração de serviço de autorização, uma solicitação de autorização pode ser criada. Para criar a solicitação, você precisará das seguintes informações:
 
-* ID do cliente (ID do aplicativo) que você registrou anteriormente. Por exemplo: `00000000-0000-0000-0000-000000000000`.
-* URI de redirecionamento personalizado que você registrou anteriormente. Por exemplo: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+* ID do cliente (ID do aplicativo) que você registrou anteriormente. Por exemplo, `00000000-0000-0000-0000-000000000000`.
+* URI de redirecionamento personalizado que você registrou anteriormente. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Os dois itens devem ter sido salvos quando você estava [registrando seu aplicativo](#create-an-application).
 

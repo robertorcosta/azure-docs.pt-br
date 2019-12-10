@@ -1,6 +1,7 @@
 ---
-title: Exemplos de transformação de declarações boolianas do esquema do Identity Experience Framework do Azure Active Directory B2C | Microsoft Docs
-description: Exemplos de transformação de declarações boolianas do esquema do Identity Experience Framework do Azure Active Directory B2C.
+title: Exemplos de transformação de declarações booleanas para políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Exemplos de transformação de declarações booleanas para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da4fc4704ee72210e180ef95fe6a821c8d116fa2
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: dcebcc3e2021938f3fd3bde236ef08e4f26b8a97
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064570"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949884"
 ---
 # <a name="boolean-claims-transformations"></a>Transformações de declarações boolianas
 
@@ -27,11 +28,11 @@ Este artigo fornece exemplos de como usar as transformações de declarações b
 
 Executa uma operação And de dois inputClaims boolianos e define o outputClaim com o resultado da operação.
 
-| Item  | TransformationClaimType  | Tipo de dados  | Observações |
+| Item  | TransformationClaimType  | Tipo de Dados  | Notas |
 |-------| ------------------------ | ---------- | ----- |
-| InputClaim | inputClaim1 | boolean | O primeiro ClaimType a ser avaliado. |
-| InputClaim | inputClaim2  | boolean | O segundo ClaimType a ser avaliado. |
-|OutputClaim | outputClaim | boolean | Os ClaimTypes que serão produzidos após a invocação dessa transformação de declarações (true ou false). |
+| InputClaim | inputClaim1 | Booliano | O primeiro ClaimType a ser avaliado. |
+| InputClaim | inputClaim2  | Booliano | O segundo ClaimType a ser avaliado. |
+|OutputClaim | outputClaim | Booliano | Os ClaimTypes que serão produzidos após a invocação dessa transformação de declarações (true ou false). |
 
 A transformação de declarações a seguir demonstra como executar And em dois ClaimTypes boolianos: `isEmailNotExist`, e `isSocialAccount`. A declaração de saída `presentEmailSelfAsserted` será definida como `true` se o valor de ambas as declarações de entrada for `true`. Em uma etapa de orquestração, você poderá usar uma pré-condição para predefinir uma página autodeclarada, somente se o email da conta social estiver vazio.
 
@@ -60,14 +61,14 @@ A transformação de declarações a seguir demonstra como executar And em dois 
 
 Verifica se os valores boolianos de duas declarações são iguais e gera uma exceção se eles não são.
 
-| Item | TransformationClaimType  | Tipo de dados  | Observações |
+| Item | TransformationClaimType  | Tipo de Dados  | Notas |
 | ---- | ------------------------ | ---------- | ----- |
-| InputClaim | InputClaim | boolean | O ClaimType a ser declarado. |
-| InputParameter |valueToCompareTo | boolean | O valor a ser comparado (true ou false). |
+| InputClaim | InputClaim | Booliano | O ClaimType a ser declarado. |
+| InputParameter |valueToCompareTo | Booliano | O valor a ser comparado (true ou false). |
 
 A transformação de declarações **AssertBooleanClaimIsEqualToValue** é sempre executada por meio de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados do perfil técnico autodeclarado **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controlam a mensagem de erro que o perfil técnico apresenta ao usuário.
 
-![Execução de AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
+![Execução do AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
 
 A transformação de declarações a seguir demonstra como verificar o valor de um ClaimType booliano com um valor `true`. Se o valor de ClaimType `accountEnabled` for false, uma mensagem de erro será gerada.
 
@@ -111,16 +112,16 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 - Declarações de entrada:
     - **inputClaim**: false
     - **valueToCompareTo**: true
-- Resultado: Erro gerado
+- Resultado: erro gerado
 
 ## <a name="notclaims"></a>NotClaims
 
 Executa uma operação Not do inputClaim booliano e define o outputClaim com o resultado da operação.
 
-| Item | TransformationClaimType | Tipo de dados | Observações |
+| Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | boolean | A declaração a ser operada. |
-| OutputClaim | outputClaim | boolean | Os ClaimTypes que são produzidos após a invocação desse ClaimsTransformation (true ou false). |
+| InputClaim | InputClaim | Booliano | A declaração a ser operada. |
+| OutputClaim | outputClaim | Booliano | Os ClaimTypes que são produzidos após a invocação desse ClaimsTransformation (true ou false). |
 
 Use essa transformação de declaração para realizar a negação lógica em uma declaração.
 
@@ -145,11 +146,11 @@ Use essa transformação de declaração para realizar a negação lógica em um
 
 Calcula um Or entre dois inputClaims boolianos e define o outputClaim com o resultado da operação.
 
-| Item | TransformationClaimType | Tipo de dados | Observações |
+| Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | boolean | O primeiro ClaimType a ser avaliado. |
-| InputClaim | inputClaim2 | boolean | O segundo ClaimType a ser avaliado. |
-| OutputClaim | outputClaim | boolean | Os ClaimTypes que serão produzidos após a invocação desse ClaimsTransformation (true ou false). |
+| InputClaim | inputClaim1 | Booliano | O primeiro ClaimType a ser avaliado. |
+| InputClaim | inputClaim2 | Booliano | O segundo ClaimType a ser avaliado. |
+| OutputClaim | outputClaim | Booliano | Os ClaimTypes que serão produzidos após a invocação desse ClaimsTransformation (true ou false). |
 
 A transformação de declarações a seguir demonstra como executar `Or` em dois ClaimTypes boolianos. Na etapa de orquestração, você poderá usar uma pré-condição para predefinir uma página autodeclarada se o valor de uma das declarações for `true`.
 

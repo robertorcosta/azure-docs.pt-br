@@ -1,6 +1,7 @@
 ---
-title: Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C | Microsoft Docs
-description: Saiba mais sobre como os resolvedores de declarações são usados em uma política personalizada no Azure Active Directory B2C.
+title: Solicitar resolvedores em políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Saiba como usar resolvedores de declarações em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064408"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949867"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -47,8 +48,8 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 | Declaração | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {Culture:LanguageName} | As duas letras do código ISO para o idioma. | pt-BR |
-| {Culture:LCID}   | O LCID do código de idioma. | 1046 |
+| {Culture:LanguageName} | As duas letras do código ISO para o idioma. | en |
+| {Culture:LCID}   | O LCID do código de idioma. | 1033 |
 | {Culture:RegionName} | As duas letras do código ISO para a região. | EUA |
 | {Culture:RFC5646} | O código de idioma RFC5646. | en-US |
 
@@ -71,7 +72,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {OIDC:LoginHint} |  O parâmetro de cadeia de caracteres da consulta `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | O `max_age`. | N/D |
 | {OIDC:Nonce} |O parâmetro de cadeia de caracteres da consulta `Nonce`. | defaultNonce |
-| {OIDC:Prompt} | O parâmetro de cadeia de caracteres da consulta `prompt`. | Logon |
+| {OIDC:Prompt} | O parâmetro de cadeia de caracteres da consulta `prompt`. | logon |
 | {OIDC:Resource} |O parâmetro de cadeia de caracteres da consulta `resource`. | N/D |
 | {OIDC:scope} |O parâmetro de cadeia de caracteres da consulta `scope`. | openid |
 

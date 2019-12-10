@@ -1,5 +1,6 @@
 ---
-title: Configurar a inscrição e a entrada com uma conta da Microsoft-Azure Active Directory B2C
+title: Configurar a inscrição e a entrada com uma conta da Microsoft
+titleSuffix: Azure AD B2C
 description: Forneça inscrição e entrada para clientes com contas da Microsoft em seus aplicativos usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: fc79211f55edb471eb95fc55fe8519d228ca192e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642070"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949314"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta da Microsoft usando o Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "73642070"
 
 Para usar um conta Microsoft como um [provedor de identidade](active-directory-b2c-reference-oidc.md) no Azure Active Directory B2C (Azure ad B2C), você precisa criar um aplicativo no locatário do Azure AD. Locatário do Azure AD não é o mesmo que seu locatário do Azure AD B2C. Se você ainda não tiver uma conta Microsoft, poderá obter uma em [https://www.live.com/](https://www.live.com/).
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 1. Selecione **Novo registro**.
@@ -42,10 +43,10 @@ Para usar um conta Microsoft como um [provedor de identidade](active-directory-b
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Configurar uma conta da Microsoft como um provedor de identidade
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
-1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 1. Selecione **provedores de identidade**e, em seguida, selecione **conta da Microsoft**.
 1. Insira um **Nome**. Por exemplo, *MSA*.
 1. Para a **ID do cliente**, insira a ID do aplicativo (cliente) do aplicativo do Azure AD que você criou anteriormente.
 1. Para o **segredo do cliente**, insira o segredo do cliente que você registrou.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.

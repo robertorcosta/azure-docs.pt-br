@@ -1,5 +1,6 @@
 ---
-title: Notas do desenvolvedor para políticas personalizadas – Azure Active Directory B2C | Microsoft Docs
+title: Notas do desenvolvedor para políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Observações para os desenvolvedores sobre a configuração e a manutenção do Azure AD B2C com políticas personalizadas.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f8d1ac217647ee292338da875671ef8bd3f79db
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: edbd31434715c380badf15118b0779885aed700f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227209"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949748"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Active Directory B2C
 
@@ -44,7 +45,7 @@ Os desenvolvedores que consomem o conjunto de recursos de política personalizad
 - Executar testes de cenário metódicos.
 - Siga as práticas recomendadas de desenvolvimento/preparo de software com no mínimo um ambiente de desenvolvimento e teste um ambiente de produção.
 - Mantenha-se informado sobre novos desenvolvimentos de provedores de identidade e de serviços para integração. Por exemplo, acompanhe as alterações em segredos e alterações programadas e não programadas no serviço.
-- Configure o monitoramento ativo e monitore a capacidade de resposta dos ambientes de produção. Para obter mais informações sobre como integrar com o [Application insights, consulte Azure Active Directory B2C: Coletando](active-directory-b2c-custom-guide-eventlogger-appins.md)logs.
+- Configure o monitoramento ativo e monitore a capacidade de resposta dos ambientes de produção. Para obter mais informações sobre como integrar com Application Insights, consulte [Azure Active Directory B2C: coletando logs](active-directory-b2c-custom-guide-eventlogger-appins.md).
 - Mantenha atualizados os endereços de email de contato na assinatura do Azure e permaneça responsivo aos emails da equipe de site ativo da Microsoft.
 - Execute ação em tempo hábil quando for aconselhado a fazer isso pela equipe de site ativo da Microsoft.
 
@@ -60,7 +61,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="identity-providers-tokens-protocols"></a>Provedores de Identidade, Tokens, Protocolos
 
-| Recurso | Desenvolvimento | Visualizar | GA | Observações |
+| Recurso | Desenvolvimento | Versão prévia | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | Por exemplo, Google +.  |
 | IDP-OAUTH2 |  |  | X | Por exemplo, Facebook.  |
@@ -77,9 +78,9 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="component-support"></a>Suporte do componente
 
-| Recurso | Desenvolvimento | Visualizar | GA | Observações |
+| Recurso | Desenvolvimento | Versão prévia | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Autenticação Multifator do Azure |  |  | X |  |
+| Multi-Factor Authentication do Azure |  |  | X |  |
 | Azure Active Directory como diretório local |  |  | X |  |
 | Subsistema de email do Azure para verificação de email |  |  | X |  |
 | Suporte a vários idiomas|  |  | X |  |
@@ -88,7 +89,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="content-definition"></a>Definição de conteúdo
 
-| Recurso | Desenvolvimento | Visualizar | GA | Observações |
+| Recurso | Desenvolvimento | Versão prévia | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Página de erro, api.error |  |  | X |  |
 | Página de seleção de IDP, api.idpselections |  |  | X |  |
@@ -104,7 +105,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="app-ief-integration"></a>Integração de aplicativo IEF
 
-| Recurso | Desenvolvimento | Visualizar | GA | Observações |
+| Recurso | Desenvolvimento | Versão prévia | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parâmetro de cadeia de consulta domain_hint |  |  | X | Disponível como declaração, pode ser passado para IDP. |
 | Parâmetro de cadeia de consulta login_hint |  |  | X | Disponível como declaração, pode ser passado para IDP. |
@@ -114,7 +115,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="session-management"></a>Gerenciamento da sessão
 
-| Recurso | Desenvolvimento | Visualizar | GA | Observações |
+| Recurso | Desenvolvimento | Versão prévia | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Provedor de sessão SSO |  |  | X |  |
 | Provedor de sessão de logon externo |  |  | X |  |
@@ -123,7 +124,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="security"></a>Segurança
 
-| Recurso | Desenvolvimento | Visualizar | GA | Observações |
+| Recurso | Desenvolvimento | Versão prévia | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Chaves de política – gerar, manual, upload |  |  | X |  |
 | Chaves de política – RSA/Cert, segredos |  |  | X |  |
@@ -131,12 +132,12 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="developer-interface"></a>Interface do desenvolvedor
 
-| Recurso | Desenvolvimento | Visualizar | GA | Observações |
+| Recurso | Desenvolvimento | Versão prévia | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Portal do Azure – IEF UX |  |  | X |  |
 | Logs UserJourney do Application Insights |  | X |  | Usado para solução de problemas durante o desenvolvimento.  |
 | Application Insights logs de eventos (por meio de etapas de orquestração) |  | X |  | Usado para monitorar fluxos de usuário na produção. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [políticas personalizadas e as diferenças com fluxos de usuário](active-directory-b2c-overview-custom.md).

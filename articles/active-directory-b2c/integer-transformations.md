@@ -1,6 +1,7 @@
 ---
-title: Exemplos de transformação de declarações de inteiros para o esquema da Estrutura de Experiência de Identidade do Azure Active Directory B2C | Microsoft Docs
-description: Exemplos de transformação de declarações de inteiros para o esquema da Estrutura de Experiência de Identidade do Azure Active Directory B2C.
+title: Exemplos de transformação de declarações de inteiros para políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Exemplos de transformação de declarações de inteiro para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 7295e03f0a0f94b3450b99acc4d10d6ff86c92e7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064206"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948824"
 ---
 # <a name="integer-claims-transformations"></a>Transformações de declarações de inteiros
 
@@ -27,10 +28,10 @@ Este artigo fornece exemplos de como usar as transformações de declarações d
 
 Converte um tipo de dados Long em um tipo de dados String.
 
-| Item | TransformationClaimType | Tipo de dados | Observações |
+| Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | long | O ClaimType para converter em uma cadeia de caracteres. |
-| OutputClaim | outputClaim | cadeia de caracteres | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+| InputClaim | InputClaim | longo | O ClaimType para converter em uma cadeia de caracteres. |
+| OutputClaim | outputClaim | string | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Neste exemplo, a declaração `numericUserId` com um tipo de valor Long é convertido em uma declaração `UserId` com um tipo de valor String.
 
@@ -48,7 +49,7 @@ Neste exemplo, a declaração `numericUserId` com um tipo de valor Long é conve
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim**: 12334 (long)
+    - **inputClaim**: 12334 (Long)
 - Declarações de saída:
-    - **outputClaim**: "12334" (string)
+    - **outputClaim**: "12334" (String)
 

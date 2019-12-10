@@ -1,5 +1,6 @@
 ---
-title: Proteger seu serviço RESTful usando certificados do cliente no Azure Active Directory B2C | Microsoft Docs
+title: Proteger um serviço RESTful usando certificados de cliente
+titleSuffix: Azure AD B2C
 description: Proteja suas trocas de declarações da API REST personalizadas no Azure AD B2C usando certificados do cliente
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835621"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949850"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger seu serviço RESTful usando certificados do cliente
 
@@ -64,9 +65,9 @@ Depois de definir `clientCertEnabled` como *true*, a comunicação com a API RES
 
 7. Na caixa **Senha**, digite a senha do certificado.
 
-    ![Carregar chave de política no criar uma página de chave no portal do Azure](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
+    ![Carregue a chave de política na página criar uma chave no portal do Azure](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
-7. Selecione **Criar**.
+7. Clique em **Criar**.
 
 8. Para exibir as chaves disponíveis no seu locatário e confirmar que você criou a chave `B2C_1A_B2cRestClientCertificate`, selecione **Chaves de política**.
 
@@ -97,7 +98,7 @@ Para dar suporte à autenticação de certificado do cliente na sua política pe
 
     ![Defina os elementos XML de autenticação ClientCertificate](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-tech-profile.png)
 
-## <a name="step-4-upload-the-policy-to-your-tenant"></a>Etapa 4: Carregar a política ao seu locatário
+## <a name="step-4-upload-the-policy-to-your-tenant"></a>Etapa 4: Carregar a política para o seu locatário
 
 1. No [Portal do Azure](https://portal.azure.com), mude para o [contexto do locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e, em seguida, selecione **Azure AD B2C**.
 
@@ -111,7 +112,7 @@ Para dar suporte à autenticação de certificado do cliente na sua política pe
 
 6. Carregue o arquivo *TrustFrameworkExtensions.xml* e verifique se a validação dele é aprovada.
 
-## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Etapa 5: Testar a política personalizada usando a opção Executar Agora
+## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Etapa 5: Testar a política personalizada usando Executar Agora
 1. Abra **Configurações do Azure AD B2C** e selecione **Estrutura de Experiência de Identidade**.
 
     >[!NOTE]
@@ -122,7 +123,7 @@ Para dar suporte à autenticação de certificado do cliente na sua política pe
 3. Teste o processo digitando **Teste** na caixa **Nome**.
     O Azure AD B2C exibirá uma mensagem de erro na parte superior da janela.
 
-    ![Caixa de texto do nome fornecido realçado e mostrado de erro de validação de entrada](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![Caixa de texto de nome fornecido realçada e erro de validação de entrada mostrado](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
 4. Na caixa **Nome**, digite um nome (diferente de "Teste").
     O Azure AD B2C inscreve o usuário e envia um número de fidelidade para o aplicativo. Observe o número neste exemplo JWT:

@@ -1,5 +1,6 @@
 ---
-title: Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas – Azure Active Directory B2C | Microsoft Docs
+title: Adicionar declarações e personalizar a entrada do usuário em políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Saiba como personalizar a entrada do usuário e adicionar declarações ao percurso de inscrição ou de entrada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 452a7f61726c3039b2c2b37280d0153fbcbca5fb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066220"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948825"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -260,7 +261,7 @@ Os elementos a seguir são usados para definir a declaração:
 
 ## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 4. Selecione **Identity Experience Framework (versão prévia)** .
@@ -294,7 +295,7 @@ O token enviado de volta ao seu aplicativo inclui a declaração `city`.
 }
 ```
 
-## <a name="optional-remove-email-verification"></a>Opcional: Remover verificação de email
+## <a name="optional-remove-email-verification"></a>Opcional: remover a verificação de email
 
 Para ignorar a verificação de email, é possível optar por remover `PartnerClaimType="Verified.Email"`. Nesse caso, o endereço de email é necessário, mas não verificado, a menos que “Required” = true seja removido.  Considere cuidadosamente se esta opção é adequada para os casos de uso.
 
@@ -304,6 +305,6 @@ Verifique se o email está habilitado por padrão no `<TechnicalProfile Id="Loca
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [Usar atributos personalizados em uma política de edição de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).

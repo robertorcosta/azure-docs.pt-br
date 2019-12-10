@@ -1,5 +1,6 @@
 ---
-title: Complexidade de senha - Azure Active Directory B2C | Microsoft Docs
+title: Configurar requisitos de complexidade de senha
+titleSuffix: Azure AD B2C
 description: Como configurar os requisitos de complexidade de senhas fornecidas pelos consumidores no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 642621e2e04d3e96dc6886b1bdb28c161560b28e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d37d1ae3871e8b14a44540883b1d03c29b58d27e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065451"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950554"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurar os requisitos de complexidade de senhas fornecidas no Azure Active Directory B2C
 
@@ -36,8 +37,8 @@ Se estiver usando políticas personalizadas, você poderá ([configurar a comple
 
 ## <a name="configure-password-complexity"></a>Configurar a complexidade de senha
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
+1. Entre no [portal do Azure](https://portal.azure.com).
+2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 4. Escolha **Fluxos de usuário**.
 2. Selecione um fluxo de usuário e clique em **Propriedades**.
@@ -71,9 +72,9 @@ Permite que você controle as exigências de comprimento da senha.
 
 Permite que você controle os diferentes tipos de caracteres usados na senha.
 
-- **2 de 4: caracteres maiúsculos, minúsculos, números (0-9) ou símbolos** garante que a senha contenha, no mínimo, dois tipos de caracteres. Por exemplo, um número e um caractere minúsculo.
-- **3 de 4: caracteres maiúsculos, minúsculos, números (0-9) ou símbolos** garante que a senha contenha, no mínimo, dois tipos de caracteres. Por exemplo, um número, um caractere minúsculo e um caractere maiúsculos.
-- **4 de 4: caracteres maiúsculos, minúsculos, números (0-9) ou símbolos** garante que a senha contenha todos os quatro tipos de caracteres.
+- **2 de 4: caracteres maiúsculos, minúsculos, números (0-9) ou símbolos** a senha deve ter, no mínimo, dois tipos de caracteres. Por exemplo, um número e um caractere minúsculo.
+- **3 de 4: caracteres maiúsculos, minúsculos, números (0-9) ou símbolos** a senha deve ter, no mínimo, dois tipos de caracteres. Por exemplo, um número, um caractere minúsculo e um caractere maiúsculos.
+- **4 de 4: caracteres maiúsculos, minúsculos, números (0-9) ou símbolos** a senha deve ter todos os tipos de caracteres.
 
     > [!NOTE]
     > Exigir **4 de 4** pode resultar em frustração do usuário final. Alguns estudos mostraram que esse requisito não melhora a entropia de senha. Confira as [Diretrizes de senha NIST](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)

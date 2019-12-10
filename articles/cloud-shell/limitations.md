@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
-ms.openlocfilehash: 8fd88221818d28c227c33719c03e522e815a408b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097009"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951472"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações do Azure Cloud Shell
 
@@ -45,7 +45,7 @@ O Cloud Shell oferece suporte às versões mais recentes do Microsoft Edge, Micr
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Apenas um shell pode estar ativo para um dado usuário
 
-Os usuários podem iniciar apenas um tipo de shell por vez, **Bash** ou **PowerShell**. No entanto, você pode ter várias instâncias de Bash ou PowerShell em execução ao mesmo tempo. Trocar entre Bash ou PowerShell por meio do menu faz com que o Cloud Shell seja reinicializado, que encerra as sessões existentes. Como alternativa, você pode executar o bash dentro do PowerShell digitando `bash`, e você pode executar o PowerShell dentro de bash digitando `pwsh`.
+Os usuários podem iniciar apenas um tipo de shell por vez, **Bash** ou **PowerShell**. No entanto, você pode ter várias instâncias de Bash ou PowerShell em execução ao mesmo tempo. Alternar entre o bash ou o PowerShell usando o menu faz com que Cloud Shell reiniciar, o que encerra as sessões existentes. Como alternativa, você pode executar o bash dentro do PowerShell digitando `bash`e pode executar o PowerShell dentro do bash digitando `pwsh`.
 
 ### <a name="usage-limits"></a>Limites de uso
 
@@ -57,9 +57,9 @@ O Cloud Shell destina-se a casos de uso interativos. Como resultado, quaisquer s
 
 As permissões são definidas como usuários regulares sem acesso sudo. Qualquer instalação fora do seu diretório `$Home` não será persistida.
 
-### <a name="editing-bashrc-or-profile"></a>Editar. bashrc ou $PROFILE
+### <a name="editing-bashrc-or-profile"></a>Editando. bashrc ou $PROFILE
 
-Tome cuidado ao editar. bashrc ou arquivo de $PROFILE do PowerShell, isso pode causar erros inesperados no Cloud Shell.
+Tenha cuidado ao editar o arquivo de $PROFILE do. bashrc ou do PowerShell, fazer isso pode causar erros inesperados no Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitações do PowerShell
 
@@ -73,17 +73,17 @@ O módulo `SqlServer` incluído no Cloud Shell tem suporte apenas de pré-lança
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Local padrão do arquivo quando criado da unidade do Azure:
 
-Usando cmdlets do PowerShell, os usuários não é podem criar arquivos do Azure: unidade. Quando os usuários criam novos arquivos usando outras ferramentas como vim ou nano, os arquivos são salvos em `$HOME` por padrão. 
+Usando os cmdlets do PowerShell, os usuários não podem criar arquivos na unidade Azure:. Quando os usuários criam novos arquivos usando outras ferramentas como vim ou nano, os arquivos são salvos em `$HOME` por padrão. 
 
 ### <a name="gui-applications-are-not-supported"></a>Não há suporte para aplicativos GUI
 
-Se o usuário executa um comando que cria uma caixa de diálogo do Windows, vê-se uma mensagem de erro, como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Se o usuário executar um comando que criaria uma caixa de diálogo do Windows, um verá uma mensagem de erro como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Intervalo grande depois de exibir a barra de progresso
 
-Se o usuário executa uma ação que exibe uma barra de progresso, por exemplo, um preenchimento de guia na unidade `Azure:`, é possível que o cursor não esteja definido corretamente e uma lacuna apareça onde antes estava a barra de progresso.
+Se o usuário executar uma ação que exibe uma barra de progresso, como uma Tabulação sendo concluída enquanto estiver na unidade de `Azure:`, é possível que o cursor não esteja definido corretamente e um intervalo apareça onde a barra de progresso foi anteriormente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Solucionando problemas do Cloud Shell](troubleshooting.md) <br>
 [Guia de início rápido do Bash](quickstart.md) <br>

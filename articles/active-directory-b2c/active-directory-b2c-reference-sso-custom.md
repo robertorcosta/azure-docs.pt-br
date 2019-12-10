@@ -1,5 +1,6 @@
 ---
-title: Gerenciamento de sessão de logon único usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+title: Gerenciamento de sessão de logon único usando políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Saiba como gerenciar sessões de SSO usando políticas personalizadas no Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee32b13820cb50fc1649672b78b34e7e293d65b5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065390"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950486"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gerenciamento de sessão de logon único no Azure Active Directory B2C
 
@@ -89,7 +90,7 @@ Esse provedor é usado para gerenciar as sessões de SAML do Azure AD B2C entre 
 
 Há dois itens de metadados no perfil técnico:
 
-| Item | Valor padrão | Valores possíveis | Descrição
+| Item | Valor Padrão | Valores possíveis | Descrição
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | true/false | Indica ao provedor que o índice de sessão deve ser armazenado. |
 | RegisterServiceProviders | true | true/false | Indica que o provedor deve registrar todos os provedores de serviço SAML que emitiram uma declaração. |

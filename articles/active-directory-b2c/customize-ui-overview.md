@@ -1,5 +1,6 @@
 ---
-title: Personalizar a interface do usuário no Azure Active Directory B2C
+title: Personalizar a interface do usuário
+titleSuffix: Azure AD B2C
 description: Saiba como personalizar a interface do usuário para seus aplicativos que usam Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6ebaeedf88bc02aa16e8be07fcb734e44ffa5bb6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258162"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949399"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
 
@@ -57,7 +58,7 @@ Em **Personalizar** no menu à esquerda, selecione **layouts de página** e, em 
 
 Em seguida, selecione um modelo na lista. Aqui estão exemplos das páginas de entrada para cada modelo:
 
-| Azul marinho | Cinza-ardósia | Clássico |
+| Azul-marinho | Cinza-acinzentado | Clássico |
 |:-:|:-:|:-:|
 |![Exemplo do modelo azul do oceano renderizado na página de entrada de inscrição](media/customize-ui-overview/template-ocean-blue.png)|![Exemplo do modelo cinza-acinzentado renderizado na página de entrada de inscrição](media/customize-ui-overview/template-slate-gray.png)|![Exemplo do modelo clássico renderizado na página de entrada de inscrição](media/customize-ui-overview/template-classic.png)|
 
@@ -149,7 +150,7 @@ A tabela abaixo lista os fragmentos de HTML que o Azure AD B2C mescla ao element
 
 ## <a name="localize-content"></a>Conteúdo de localização
 
-Você localiza seu conteúdo HTML habilitando a [personalização de idioma](active-directory-b2c-reference-language-customization.md) em seu locatário do Azure AD B2C. Habilitar esse recurso permite que Azure ad B2C encaminhe o parâmetro `ui-locales` OpenID Connect para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
+Você localiza seu conteúdo HTML habilitando a [personalização de idioma](active-directory-b2c-reference-language-customization.md) em seu locatário do Azure AD B2C. Habilitar esse recurso permite que Azure AD B2C encaminhe o parâmetro OpenID Connect `ui-locales` para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
 
 O conteúdo pode ser extraído de diferentes locais com base na localidade usada. No ponto de extremidade habilitado para CORS, você configura uma estrutura de pastas para hospedar conteúdo para idiomas específicos. Você chamará adequadamente se usar o valor curinga `{Culture:RFC5646}`.
 
@@ -171,7 +172,7 @@ Você pode encontrar vários arquivos de modelo de exemplo no repositório [B2C-
 
 Os arquivos HTML e CSS de exemplo nos modelos estão localizados no diretório [/sample_templates](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Se você estiver usando **fluxos de usuário**, você pode começar a personalizar sua interface de usuário com o tutorial:
 

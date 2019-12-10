@@ -1,5 +1,6 @@
 ---
-title: Abordagens de migração de usuário no Azure Active Directory B2C
+title: Abordagens de migração de usuário
+titleSuffix: Azure AD B2C
 description: Discute os conceitos básicos e avançados sobre a migração do usuário usando o API do Graph do Azure AD e, opcionalmente, usando Azure AD B2C políticas personalizadas.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9c01e22cfa96321994c16df6b61a52ebd4137549
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c5b7d477b0704db3f23919281fd61328be114dae
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322926"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950214"
 ---
 # <a name="migrate-users-to-azure-active-directory-b2c"></a>Migrar usuários para Azure Active Directory B2C
 
@@ -179,7 +180,7 @@ Para validar a migração, use um dos dois métodos a seguir:
 
 - Para recuperar um usuário por endereço de email de entrada, use o aplicativo de exemplo:
 
-   1. Execute o seguinte comando:
+   1. Execute o comando a seguir:
 
       ```Console
           UserMigration.exe 3 {email address} > UserProfile.json

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 49f3759d7c5ba178cd0f1d0164a45c09df464571
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348933"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942215"
 ---
 # <a name="application-gateway-components"></a>Componentes do gateway de aplicativo
 
@@ -57,7 +57,7 @@ O gateway de aplicativo dá suporte a quatro protocolos: HTTP, HTTPS, HTTP/2 e W
 
 Use um ouvinte HTTPS para terminação SSL. Um ouvinte HTTPS descarrega o trabalho de criptografia e descriptografia para o gateway de aplicativo, para que os servidores Web não sejam sobrecarregados pela sobrecarga.
 
-### <a name="custom-error-pages"></a>Páginas de erro personalizadas
+### <a name="custom-error-pages"></a>Páginas de erros personalizados
 
 O gateway de aplicativo permite que você crie páginas de erro personalizadas em vez de exibir páginas de erro padrão. Você pode usar sua própria identidade visual e layout em uma página de erro personalizada. O gateway de aplicativo exibe uma página de erro personalizada quando uma solicitação não pode alcançar o back-end.
 
@@ -75,7 +75,7 @@ Há dois tipos de ouvintes:
 
 Depois de criar um ouvinte, você o associa a uma regra de roteamento de solicitação. Essa regra determina como a solicitação recebida no ouvinte deve ser roteada para o back-end.
 
-O gateway de aplicativo processa os ouvintes na ordem mostrada. Se o ouvinte básico corresponder a uma solicitação de entrada, ele será processado primeiro. Para rotear o tráfego para o back-end correto, configure um ouvinte multissite antes de um ouvinte básico.
+O gateway de aplicativo processa os ouvintes na [ordem mostrada](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ## <a name="request-routing-rules"></a>Regras de roteamento de solicitação
 
@@ -148,7 +148,7 @@ Além de usar o monitoramento da investigação de integridade padrão, você ta
 
 Para obter mais informações, consulte [monitorar a integridade do seu gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Criar um Application Gateway:
 

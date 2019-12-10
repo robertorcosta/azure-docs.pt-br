@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d2ac3b0f531b6384643d91fac1cf50a0ea719969
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: a3e4f543be2f01e0c649d5f9bcc9287dedc275f1
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900330"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941637"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos históricos
 
@@ -39,7 +39,7 @@ Siga estas etapas.
 > Você deve ser um administrador para executar as etapas a seguir.
 
 1. Baixe esse [script](https://aka.ms/farmbeatspartnerscript)e extraia-o na unidade local. Dois arquivos estão dentro do arquivo zip.
-2. Entre no [portal do Azure](https://portal.azure.com/) e abra o Azure Cloud Shell. Essa opção está disponível na barra de ferramentas no canto superior direito do Portal. 
+2. Entre no [portal do Azure](https://portal.azure.com/) e abra o Azure Cloud Shell. Essa opção está disponível na barra de ferramentas no canto superior direito do Portal.
 
     ![Barra de ferramentas portal do Azure](./media/for-tutorials/navigation-bar-1.png)
 
@@ -47,7 +47,7 @@ Siga estas etapas.
 
     ![Configuração do PowerShell](./media/for-tutorials/power-shell-new-1.png)
 
-4. Carregue os dois arquivos que você baixou da etapa 1 em sua instância de Cloud Shell. 
+4. Carregue os dois arquivos que você baixou da etapa 1 em sua instância de Cloud Shell.
 
     ![Botão carregar na barra de ferramentas](./media/for-tutorials/power-shell-two-1.png)
 
@@ -55,7 +55,7 @@ Siga estas etapas.
 
    >[!NOTE]
    > Por padrão, os arquivos são carregados para o diretório base/home/username.
-6. Execute o script usando este comando: 
+6. Execute o script usando este comando:
 
     ```azurepowershell-interactive
     ./generateCredentials.ps1
@@ -67,10 +67,10 @@ Siga estas etapas.
 
  Agora que você tem as credenciais necessárias, você pode definir o dispositivo e os sensores. Para fazer isso, crie os metadados usando APIs FarmBeats.
 
- FarmBeats Datahub tem as seguintes APIs que permitem a criação e o gerenciamento de metadados do dispositivo ou do sensor. 
+ FarmBeats Datahub tem as seguintes APIs que permitem a criação e o gerenciamento de metadados do dispositivo ou do sensor.
 
-- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um gateway ou um nó. 
-- **dispositivo**/: o dispositivo corresponde a um dispositivo físico presente no farm. 
+- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um gateway ou um nó.
+- **dispositivo**/: o dispositivo corresponde a um dispositivo físico presente no farm.
 - /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medição do sensor, como temperatura ambiente e pressão.
 - **sensor**de /: o sensor corresponde a um sensor físico que registra valores. Um sensor normalmente é conectado a um dispositivo com uma ID de dispositivo.  
 
@@ -269,7 +269,7 @@ Sensor
   }
 }
 ```
-A solicitação de exemplo a seguir cria um dispositivo. Esta solicitação tem um JSON de entrada como carga com o corpo da solicitação. 
+A solicitação de exemplo a seguir cria um dispositivo. Esta solicitação tem um JSON de entrada como carga com o corpo da solicitação.
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -292,7 +292,7 @@ Você deve enviar a telemetria para os hubs de eventos do Azure para processamen
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Enviar uma mensagem de telemetria como o cliente
 
-Depois de ter uma conexão estabelecida como um cliente de hubs de eventos, você pode enviar mensagens para o Hub de eventos como JSON. 
+Depois de ter uma conexão estabelecida como um cliente de hubs de eventos, você pode enviar mensagens para o Hub de eventos como JSON.
 
 Aqui está o código Python de exemplo que envia a telemetria como um cliente para um hub de eventos especificado:
 
@@ -313,7 +313,7 @@ write_client.stop()
 
 ```
 
-Converta o formato de dados do sensor histórico em um formato canônico que o FarmBeats do Azure entenda. O formato de mensagem canônica é o seguinte: 
+Converta o formato de dados do sensor histórico em um formato canônico que o FarmBeats do Azure entenda. O formato de mensagem canônica é o seguinte:
 
 ```json
 {
