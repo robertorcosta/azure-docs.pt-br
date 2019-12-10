@@ -10,7 +10,7 @@
   items:
     - name: Conectar computadores ao Azure usando o Azure Arc para servidores – Portal
       href: ./servers/quickstart-onboard-portal.md
-    - name: Conectar computadores ao Azure usando o Azure Arc para servidores – PowerShell
+    - name: Conectar computadores em escala usando o Azure Arc para servidores – PowerShell
       href: ./servers/quickstart-onboard-powershell.md
 - name: Referência
   items:
