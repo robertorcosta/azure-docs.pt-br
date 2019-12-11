@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b88257271f5177657e66cadc23abad36ad14e890
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186039"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974063"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: usar o serviço de entrega de licença e criptografia dinâmica de DRM
 
 > [!NOTE]
-> Embora este tutorial use os exemplos do [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , as etapas gerais são as mesmas para a [API REST](https://docs.microsoft.com/rest/api/media/liveevents), a [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)ou outros [SDKs](media-services-apis-overview.md#sdks)com suporte.
+> Embora este tutorial use os exemplos do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), as etapas gerais são as mesmas para [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) ou outros [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
 É possível usar os Serviços de Mídia do Azure para entregar seus fluxos criptografados com licenças do Microsoft PlayReady, Google Widevine ou Apple FairPlay. Para obter uma explicação detalhada, consulte [proteção de conteúdo com criptografia dinâmica](content-protection-overview.md).
 
@@ -46,7 +46,7 @@ Este tutorial mostra como:
 > * Crie um StreamingLocator com a política de streaming especificada.
 > * Crie uma URL usada para reproduzir o arquivo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os seguintes itens são necessários para concluir o tutorial:
 
@@ -92,7 +92,7 @@ Antes de criar uma nova **Transformação**, você deve verificar se já existe 
 
 ## <a name="submit-job"></a>Enviar Trabalho
 
-Conforme mecionado acima, o objeto de **Transformação** é a receita e um [Trabalho](transforms-jobs-concept.md) é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **trabalho** especifica informações como o local do vídeo de entrada e o local para a saída.
+Conforme mecionado acima, o objeto de **Transformação** é a receita e um [Trabalho](transforms-jobs-concept.md) é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização da saída.
 
 Neste tutorial, criamos a entrada do trabalho com base em um arquivo que é ingerido diretamente de uma [URL de origem https](job-input-from-http-how-to.md).
 
@@ -100,9 +100,9 @@ Neste tutorial, criamos a entrada do trabalho com base em um arquivo que é inge
 
 ## <a name="wait-for-the-job-to-complete"></a>Aguarde a conclusão do trabalho
 
-O trabalho leva algum tempo para ser concluído. Quando isso ocorrer, você deseja ser notificado. O exemplo de código a seguir mostra como sondar o serviço para o status do **Trabalho**. Sondagem não é uma prática recomendada para aplicativos de produção devido à latência potencial. A sondagem pode ser acelerada, se houver uso excessivo em uma conta. Os desenvolvedores devem usar a Grade de Eventos. Consulte [Rotear eventos para um ponto de extremidade personalizado de web](job-state-events-cli-how-to.md).
+O trabalho leva algum tempo para ser concluído. Quando isso ocorrer, você desejará ser notificado. O exemplo de código a seguir mostra como sondar o serviço para o status do **Trabalho**. Sondagem não é uma prática recomendada para aplicativos de produção devido à latência potencial. A sondagem pode ser acelerada, se houver uso excessivo em uma conta. Os desenvolvedores devem usar a Grade de Eventos. Consulte [Rotear eventos para um ponto de extremidade personalizado de web](job-state-events-cli-how-to.md).
 
-O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Em fila**, **Processamento**, **Concluído** (o estado final). Se o trabalho tiver se originado em um erro, você obterá o estado de **erro** . Se o trabalho estiver para ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
+O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Em fila**, **Processamento**, **Concluído** (o estado final). Se o trabalho tiver encontrado um erro, você receberá o estado do **Erro**. Se o trabalho estiver para ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
@@ -142,7 +142,7 @@ Ao criar um **localizador de streaming**, você precisa especificar o `Streaming
 
 ## <a name="get-a-test-token"></a>Obter um token de teste
 
-Neste tutorial, especificamos que a política de chave de conteúdo tenha uma restrição de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os serviços de mídia oferecem suporte a tokens nos formatos [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) e é isso que configuramos no exemplo.
+Neste tutorial, especificamos que a política de chave de conteúdo tenha uma restrição de token. A política restrita de token deve ser acompanhada por um token emitido por um STS (serviço de token de segurança). Os serviços de mídia oferecem suporte a tokens nos formatos [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) e é isso que configuramos no exemplo.
 
 O ContentKeyIdentifierClaim é usado em ContentKeyPolicy, o que significa que o token apresentado para o serviço de entrega de chave deve ter o identificador do ContentKey nele. No exemplo, não especificamos uma chave de conteúdo ao criar o localizador de streaming, o sistema cria um aleatório para nós. Para gerar o token de teste, devemos obter o ContentKeyId para colocar na declaração ContentKeyIdentifierClaim.
 
@@ -162,7 +162,7 @@ Você pode abrir um navegador e colar a URL resultante para inicializar a págin
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Limpar os recursos em sua conta de Serviços de Mídia
 
-Em geral, você deve limpar tudo, exceto os objetos que pretende reutilizar (normalmente, você reutilizará transformações, StreamingLocators e assim por diante). Se desejar que sua conta seja limpa após o teste, exclua os recursos que você não planeja reutilizar. Por exemplo, o código a seguir exclui trabalhos:
+Em geral, você deve limpar tudo, exceto os objetos que pretende reutilizar (normalmente, você reutilizará transformações, StreamingLocators e assim por diante). Se desejar que sua conta seja limpa após fazer experimentos, exclua os recursos que não planeja reutilizar. Por exemplo, o código a seguir exclui trabalhos:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
@@ -176,11 +176,15 @@ Execute este comando da CLI:
 az group delete --name amsResourceGroup
 ```
 
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira
 

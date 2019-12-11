@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 3f742d4cd2a5285c7c52611a0c4c4735dedc2f19
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 350b8d111652511627ddf67236f63248a5489015
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844789"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970441"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline para Windows 10  
 
@@ -35,11 +35,11 @@ Os serviços de mídia do Azure dão suporte offline ao download/reprodução co
 - [Streaming de FairPlay Offline para iOS](media-services-protect-hls-with-offline-fairplay.md)
 - [Streaming offline do Widevine para Android](offline-widevine-for-android.md)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Esta seção fornece algumas informações básicas sobre a reprodução de modo offline, especialmente porque:
 
-* Em alguns países/regiões, a disponibilidade e/ou a largura de banda da Internet ainda é limitada. Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em resolução alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, com mais frequência, o problema não é a disponibilidade da rede, mas a limitação da largura de banda. Provedores OTT/OVP solicitando suporte ao modo offline.
+* Em alguns países/regiões, a disponibilidade e/ou a largura de banda da Internet ainda é limitada. Os usuários podem optar por baixar primeiro para poder assistir conteúdo em resolução alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, com mais frequência, o problema não é a disponibilidade da rede, mas a limitação da largura de banda. Provedores OTT/OVP solicitando suporte ao modo offline.
 * Conforme divulgado na conferência do acionista da Netflix 2016 Q3, fazer o download de conteúdo é um "recurso muito solicitado" e "estamos abertos para que ele" de acordo com Reed Hastings, CEO da Netflix.
 * Alguns provedores de conteúdo podem impedir a entrega de licença do DRM além da borda de um país/região. Se um usuário quiser ver o conteúdo durante uma viagem para o exterior, é necessário fazer o download offline.
  
@@ -126,6 +126,10 @@ Em resumo, atingimos o modo offline nos Serviços de Mídia do Azure:
 * A entrega de licença do PlayReady pode ser nos Serviços de Mídia do Azure ou em outro lugar;
 * O conteúdo de streaming suave preparado ainda pode ser usado para streaming online por meio de DASH ou smooth com o PlayReady, como o gerenciamento de direitos digitais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
+## <a name="next-steps"></a>Próximos passos
 
 [Design do sistema de DRM híbrido](hybrid-design-drm-sybsystem.md)

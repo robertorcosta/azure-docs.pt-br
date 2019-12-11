@@ -1,7 +1,7 @@
 ---
 title: O que são pipelines de ML
 titleSuffix: Azure Machine Learning
-description: Neste artigo, Aprenda as vantagens dos pipelines do Machine Learning que você pode criar com o SDK do Azure Machine Learning para Python. Pipelines de ML (aprendizado de máquina) são usados por cientistas de dados para criar, otimizar e gerenciar seus fluxos de trabalho de aprendizado de máquina.
+description: Neste artigo, Aprenda as vantagens dos pipelines do ML (Machine Learning) que você pode criar com o SDK do Azure Machine Learning para Python. Pipelines de Machine Learning são usados por cientistas de dados para criar, otimizar e gerenciar seus fluxos de trabalho de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 21aa869d53a35ee974fb2f852b9be9b10eb929b0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 84a01597570a488652e3db2345bdf68b52d4bf5b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112407"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973570"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -40,7 +40,7 @@ Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md).
 
 A nuvem do Azure fornece vários outros pipelines, cada um com uma finalidade diferente. A tabela a seguir lista os pipelines diferentes e para que eles são usados:
 
-| Pipeline | O que faz | Pipe canônico |
+| Pipeline | O que ele faz | Pipe canônico |
 | ---- | ---- | ---- |
 | Pipelines de Azure Machine Learning | Define fluxos de trabalho de aprendizado de máquina reutilizáveis que podem ser usados como um modelo para seus cenários de aprendizado de máquina. | Modelo de > de dados |
 | [Pipelines do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Agrupa as atividades de movimentação de dados, transformação e controle necessárias para executar uma tarefa.  | Dados > dados |
@@ -185,7 +185,7 @@ Algumas situações que sugerem o uso de um pipeline:
 
 * Acoplamento pesado entre as etapas do pipeline. Se a refatoração de uma etapa dependente frequentemente exigir a modificação das saídas de uma etapa anterior, é provável que etapas separadas sejam atualmente mais de um custo do que um benefício. Outra pista de que as etapas são muito ligadas é argumentos para uma etapa que não são dados, mas sinalizadores para controlar o processamento. 
 
-* Otimização prematura dos recursos de computação. Por exemplo, muitas vezes há vários estágios para a preparação de dados e, muitas vezes, pode ver "Ah, aqui está um lugar onde eu poderia usar um `MpiStep` para a programação paralela, mas aqui está um lugar onde eu poderia usar um `PythonScriptStep` com um destino de computação menos potente , "e assim por diante. E talvez, a longo prazo, a criação de etapas refinadas como essa pode ser válida, especialmente se houver a possibilidade de usar resultados em cache em vez de sempre recalcular. Mas pipelines não se destinam a ser um substituto para o módulo `multiprocessing`. 
+* Otimização prematura dos recursos de computação. Por exemplo, geralmente há vários estágios para a preparação de dados e, com frequência, é possível ver "Ah, aqui está um lugar onde eu poderia usar um `MpiStep` para a programação paralela, mas aqui está um lugar onde eu poderia usar um `PythonScriptStep` com um destino de computação menos potente" e assim por diante. E talvez, a longo prazo, a criação de etapas refinadas como essa pode ser válida, especialmente se houver a possibilidade de usar resultados em cache em vez de sempre recalcular. Mas pipelines não se destinam a ser um substituto para o módulo `multiprocessing`. 
 
 Até que um projeto fique grande ou próximo da implantação, seus pipelines devem ser mais esparsos em vez de refinados. Se você considerar seu projeto ML como envolvendo _estágios_ e um pipeline como fornecer um fluxo de trabalho completo para movê-lo por um estágio específico, você está no caminho certo. 
 
@@ -193,7 +193,7 @@ Até que um projeto fique grande ou próximo da implantação, seus pipelines de
 
 As principais vantagens de usar pipelines para seus fluxos de trabalho de aprendizado de máquina são:
 
-|Principal vantagem|DESCRIÇÃO|
+|Principal vantagem|Descrição|
 |:-------:|-----------|
 |**Execuções&nbsp;autônomas**|Agende as etapas para execução em paralelo ou em sequência de maneira confiável e autônoma. A preparação e a modelagem de dados podem durar dias ou semanas, e os pipelines permitem que você se concentre em outras tarefas enquanto o processo está em execução. |
 |**Computação heterogênea**|Use vários pipelines que são coordenados de forma confiável entre os recursos de computação heterogêneos e escalonáveis e os locais de armazenamento. Faça uso eficiente dos recursos de computação disponíveis executando etapas de pipeline individuais em diferentes destinos de computação, como o HDInsight, VMs de ciência de dados de GPU e databricks.|
@@ -202,7 +202,7 @@ As principais vantagens de usar pipelines para seus fluxos de trabalho de aprend
 | **Modularidade** | Separar áreas de preocupações e isolar alterações permite que o software evolua a uma taxa mais rápida com maior qualidade. | 
 |**Colaboração**|Os pipelines permitem que os cientistas de dados colaborem em todas as áreas do processo de design do Machine Learning, ao mesmo tempo em que podem trabalhar simultaneamente em etapas de pipeline.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os pipelines do Azure ML são um recurso poderoso que começa a fornecer valor nos primeiros estágios de desenvolvimento. O valor aumenta conforme a equipe e o projeto crescem. Este artigo explicou como pipelines são especificados com o SDK Azure Machine Learning Python e orquestrados no Azure. Você viu algum código-fonte básico e foi apresentado a algumas das `PipelineStep` classes disponíveis. Você deve ter uma noção de quando usar pipelines do Azure ML e como o Azure os executa. 
 

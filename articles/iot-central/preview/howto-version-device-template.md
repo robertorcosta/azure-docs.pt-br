@@ -3,17 +3,17 @@ title: Noções básicas sobre o controle de versão de modelo de dispositivo pa
 description: Iterar modelos de dispositivo criando novas versões e sem afetar os dispositivos conectados em tempo real
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 666c3030d91fba3c3bdfe23f808c4e830dff6ec1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1f2ecb37ebe156b1eb092bda95f296c39c9e2baf
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895586"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974957"
 ---
 # <a name="create-a-new-device-template-version-preview-features"></a>Criar uma nova versão de modelo de dispositivo (recursos de visualização)
 
@@ -32,7 +32,7 @@ Determinados elementos de seus recursos de dispositivo podem ser editados sem a 
 1. Selecione o modelo de dispositivo que você deseja personalizar.
 1. Escolha a guia **Personalizar** .
 1. Todos os recursos definidos no modelo de funcionalidade do dispositivo serão listados aqui. Todos os campos que você pode editar aqui podem ser salvos e usados em seu aplicativo, sem a necessidade de versão do modelo de dispositivo. Se houver campos que você deseja editar que sejam somente leitura, você precisará criar sua versão do modelo de dispositivo para alterá-los. Selecione um campo que você deseja editar e insira um novo valor.
-1. Clique em **Salvar**. Agora, esses valores substituirão tudo o que foi salvo inicialmente em seu modelo de dispositivo e será usado em todo o aplicativo.
+1. Clique em **Save** (Salvar). Agora, esses valores substituirão tudo o que foi salvo inicialmente em seu modelo de dispositivo e será usado em todo o aplicativo.
 
 ## <a name="versioning-a-device-template"></a>Controle de versão de um modelo de dispositivo
 
@@ -79,7 +79,7 @@ Para a versão de uma interface:
 
 ![Como migrar um dispositivo](media/howto-version-device-template/pick-version.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu a usar as versões de modelos de dispositivo no aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
 

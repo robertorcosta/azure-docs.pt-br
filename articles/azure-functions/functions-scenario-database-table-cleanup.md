@@ -4,12 +4,12 @@ description: Use o Azure Functions para agendar uma tarefa que se conecta ao ban
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230392"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972227"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
 
@@ -17,9 +17,9 @@ Este artigo mostra como usar Azure Functions para criar um trabalho agendado que
 
 Se esta for sua primeira experiência trabalhando com funções C#, você deverá ler a [Referência do desenvolvedor de C# do Azure Functions](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-+ Conclua as etapas no artigo [Criar sua primeira função usando o Visual Studio](functions-create-your-first-function-visual-studio.md) para criar um aplicativo de funções local destinado ao runtime versão 2.x. Você também precisa ter publicado seu projeto em um aplicativo de funções no Azure.
++ Conclua as etapas no artigo [criar sua primeira função usando o Visual Studio](functions-create-your-first-function-visual-studio.md) para criar um aplicativo de função local que tenha como destino a versão 2. x ou uma versão posterior do tempo de execução. Você também precisa ter publicado seu projeto em um aplicativo de funções no Azure.
 
 + Este artigo demonstra um comando Transact-SQL que executa uma operação de limpeza em massa na tabela **SalesOrderHeader** no banco de dados de amostra AdventureWorksLT. Para criar o banco de dados de amostra AdventureWorksLT, conclua as etapas no artigo [Criar um Banco de Dados SQL do Azure no portal do Azure](../sql-database/sql-database-get-started-portal.md).
 
@@ -29,7 +29,7 @@ Se esta for sua primeira experiência trabalhando com funções C#, você dever�
 
 Você precisa obter a cadeia de conexão para o banco de dados que você criou quando concluiu [Criar um Banco de Dados SQL do Azure no Portal do Azure](../sql-database/sql-database-get-started-portal.md).
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Bancos de Dados SQL** no menu à esquerda e selecione seu banco de dados na página **Bancos de Dados SQL**.
 
@@ -39,7 +39,7 @@ Você precisa obter a cadeia de conexão para o banco de dados que você criou q
 
 ## <a name="set-the-connection-string"></a>Definir a cadeia de conexão
 
-Um aplicativo de função hospeda a execução de suas funções no Azure. Como uma prática de segurança recomendada, armazene cadeias de conexão e outros segredos nas configurações do seu aplicativo de funções. Usar as configurações do aplicativo impede a divulgação acidental da cadeia de conexão com seu código. Você pode acessar as configurações do aplicativo para seu aplicativo de funções diretamente do Visual Studio.
+Um aplicativo de funções hospeda a execução de suas funções no Azure. Como uma prática de segurança recomendada, armazene cadeias de conexão e outros segredos nas configurações do seu aplicativo de funções. Usar as configurações do aplicativo impede a divulgação acidental da cadeia de conexão com seu código. Você pode acessar as configurações do aplicativo para seu aplicativo de funções diretamente do Visual Studio.
 
 Você precisa ter publicado o aplicativo anteriormente no Azure. Se você ainda não fez isso, [publique o aplicativo de funções no Azure](functions-develop-vs.md#publish-to-azure).
 
@@ -122,7 +122,7 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
 
 Se você planeja [publicar essa função](functions-develop-vs.md#publish-to-azure), lembre-se de alterar o atributo `TimerTrigger` para uma [agenda de Cron](functions-bindings-timer.md#ncrontab-expressions) mais razoável do que a cada 15 segundos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, aprenda como usar. Functions com Aplicativos Lógicos para integração com outros serviços.
 

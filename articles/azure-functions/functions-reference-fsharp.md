@@ -6,19 +6,19 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: cf080b841e5fb3bbf3b36a2629a619f77fe52ddd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226742"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974999"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
 
 F# para Azure Functions é uma solução para executar facilmente pequenos trechos de código, ou "funções", na nuvem. Fluxos de dados em sua função F# por meio de argumentos de função. Os nomes de argumentos são especificados em `function.json`e há nomes predefinidos para acessar itens como a função logger e os tokens de cancelamento. 
 
 >[!IMPORTANT]
->O script F# (.fsx) só tem suporte da [versão 1.x](functions-versions.md#creating-1x-apps) do Azure Functions runtime. Se você desejar usar o F# com o runtime da versão 2.x, deverá usar um projeto de biblioteca de classes F# pré-compilado (.fs). Crie, gerencie e publique um projeto de biblioteca de classe F# usando o Visual Studio como faria com um projeto de biblioteca de classe [C#](functions-dotnet-class-library.md). Para saber mais sobre as versões do Functions, confira [Visão geral de versões do Azure Functions runtime](functions-versions.md).
+>O script F# (.fsx) só tem suporte da [versão 1.x](functions-versions.md#creating-1x-apps) do Azure Functions runtime. Se você quiser usar F# o com a versão 2. x e versões posteriores do tempo de execução, deverá usar um projeto F# de biblioteca de classes pré-compilado (. FS). Crie, gerencie e publique um projeto de biblioteca de classe F# usando o Visual Studio como faria com um projeto de biblioteca de classe [C#](functions-dotnet-class-library.md). Para saber mais sobre as versões do Functions, confira [Visão geral de versões do Azure Functions runtime](functions-versions.md).
 
 Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
 
@@ -48,7 +48,7 @@ FunctionsProject
 
 Há um arquivo [host.json](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.fsx) e arquivo de configuração de associação (function.json).
 
-As extensões de associação necessárias na [versão 2.x](functions-versions.md) do runtime do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+As extensões de associação necessárias na [versão 2. x e versões posteriores](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 ## <a name="binding-to-arguments"></a>Binding para argumentos
 Cada associação oferece suporte a um conjunto de argumentos, conforme detalhado na [Referências de gatilhos e de associações do Azure Functions para desenvolvedores](functions-triggers-bindings.md). Por exemplo, uma das associações de argumento com suporte de um gatilho de blob é um POCO, que pode ser expresso usando um registro em F#. Por exemplo:
@@ -202,7 +202,7 @@ Quando o Azure Functions executa seu código, ele processa o código-fonte com `
 
 <a name="package"></a>
 
-## <a name="package-management"></a>Gerenciamento de pacote
+## <a name="package-management"></a>Gerenciamento de pacotes
 Para usar os pacotes do NuGet em uma função F#, adicione um arquivo `project.json` à pasta da função, no sistema de arquivos do aplicativo de funções. Veja um exemplo de arquivo `project.json` que adiciona uma referência do pacote NuGet ao `Microsoft.ProjectOxford.Face` versão 1.1.0:
 
 ```json
@@ -284,7 +284,7 @@ Os caminhos fornecidos para a diretiva `#load` são relativos ao local de seu ar
 
 A diretiva `#load` só funciona com arquivos `.fsx` (script em F#) e não com arquivos `.fs`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais, consulte os recursos a seguir:
 
 * [Guia de F#](/dotnet/articles/fsharp/index)

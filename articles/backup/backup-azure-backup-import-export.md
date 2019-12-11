@@ -4,12 +4,12 @@ description: Saiba como o Backup do Azure permite que você envie dados fora da 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173296"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997353"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 
@@ -42,7 +42,7 @@ Os seguintes recursos ou cargas de trabalho do Backup do Azure são compatíveis
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
   > [!NOTE]
   > Os seguintes pré-requisitos e fluxo de trabalho aplicam-se somente ao backup offline de arquivos e pastas usando o [agente mais recente do MARS](https://aka.ms/azurebackup_agent). Para executar backups offline para cargas de trabalho que usam o DPM do System Center ou Servidor de Backup do Azure, confira [este artigo](backup-azure-backup-server-import-export-.md).
@@ -122,7 +122,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | . | DESCRIÇÃO |
+    | . | Descrição |
     | --- | --- |
     | s:&lt;*Caminho do Local de Preparo*&gt; |A entrada obrigatória usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho de **Iniciar backup offline**. |
     | p:&lt;*Caminho para PublishSettingsFile*&gt; |A entrada opcional usada para fornecer o caminho para o arquivo **Configurações de Publicação do Azure** inserido no fluxo de trabalho de **Iniciar o backup offline**. |
@@ -203,7 +203,7 @@ No horário do próximo backup agendado, o Backup do Azure executará um backup 
 
 Depois que o backup inicial for concluído, você poderá excluir com segurança os dados importados para o Contêiner de Armazenamento do Azure e os dados de backup no local de preparo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para qualquer dúvida sobre o fluxo de trabalho de Importação/Exportação do Azure, veja [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de Blobs](../storage/common/storage-import-export-service.md).
-* Consulte a seção sobre o backup offline das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho.
+

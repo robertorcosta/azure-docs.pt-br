@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 779df2794267a1cb62d9918fc718da02e94c48cb
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ab0891653f449b13f50dc43b196cf16a2f71370e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816614"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975815"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -224,7 +224,7 @@ O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 | 400 | Solicitação incorreta | Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo. |
 | 401 | Não autorizado | A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta. |
 | 413 | Entidade de solicitação muito grande | A entrada de SSML tem mais de 1024 caracteres. |
-| 415 | Tipo de mídia sem suporte | É possível que o `Content-Type` errado seja fornecido. `Content-Type` deve ser definido como `application/ssml+xml`. |
+| 415 | Tipo de Mídia Sem Suporte | É possível que o `Content-Type` errado seja fornecido. `Content-Type` deve ser definido como `application/ssml+xml`. |
 | 429 | Número Excessivo de Solicitações | Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura. |
 | 502 | Gateway incorreto | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 808e110ccb45b0b4f7bf34a43597c1f7a7bc0fed
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422571"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976954"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entidades e sua finalidade no LUIS
 
@@ -37,10 +37,10 @@ As entidades precisam ser rotuladas consistentemente em todos os declarações d
 
  Você pode definir suas próprias entidades ou usar entidades predefinidas para economizar tempo para conceitos comuns, como [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [email](luis-reference-prebuilt-email.md)e [número de telefone](luis-reference-prebuilt-phonenumber.md).
 
-|Enunciado|Entidade|Dados|
+|Declaração|Entidade|Dados|
 |--|--|--|
-|Comprar três passagens para Nova York|Número predefinido<br>Location.Destination|3<br>Nova Iorque|
-|Comprar uma passagem de Nova York para Londres em 5 de março|Location.Origin<br>Location.Destination<br>datetimeV2 predefinido|Nova Iorque<br>Londres<br>5 de março de 2018|
+|Comprar três passagens para Nova York|Número predefinido<br>Location.Destination|3<br>Nova York|
+|Comprar uma passagem de Nova York para Londres em 5 de março|Location.Origin<br>Location.Destination<br>datetimeV2 predefinido|Nova York<br>Londres<br>5 de março de 2018|
 
 ### <a name="entities-are-optional"></a>As entidades são opcionais
 
@@ -56,7 +56,7 @@ Um expressão pode, opcionalmente, incluir entidades. Por comparação, a previs
 
 Considere os quatro declarações a seguir:
 
-|Enunciado|Intenção prevista|Entidades extraídas|Explicação|
+|Declaração|Intenção prevista|Entidades extraídas|Explicação|
 |--|--|--|--|
 |Ajuda|ajuda|-|Nada para extrair.|
 |Enviar algo|sendSomething|-|Nada para extrair. O modelo não foi treinado para extrair `something` nesse contexto, e não há um destinatário.|
@@ -75,7 +75,7 @@ As [**entidades aprendidas por computador**](tutorial-machine-learned-entity.md)
 
 Um gatilho de entidade aprendida por máquina com base no contexto aprendido por meio de treinamento declarações. As **restrições** são regras opcionais aplicadas a uma entidade aprendida por máquina que restringe ainda mais o disparo com base na definição de correspondência de texto exato de uma entidade não aprendida por computador, como uma [lista](reference-entity-list.md) ou [Regex](reference-entity-regular-expression.md). Por exemplo, um `size` entidade aprendida por computador pode ter uma restrição de uma entidade de lista de `sizeList` que restringe a entidade `size` para disparar somente quando os valores contidos na entidade `sizeList` forem encontrados.
 
-Os [**descritores**](luis-concept-feature.md) são recursos aplicados para impulsionar a relevância das palavras ou frases para a previsão. Eles são chamados de *descritores* porque são usados para *descrever* uma intenção ou entidade. Os descritores descrevem a distinção de características ou atributos de dados, como palavras ou frases importantes. Esse LUIS observa e aprende.
+Os [**descritores**](luis-concept-feature.md) são recursos aplicados para impulsionar a relevância das palavras ou frases para a previsão. Eles são chamados de *descritores* porque são usados para *descrever* uma intenção ou entidade. Os descritores descrevem a distinção de características ou atributos de dados, como palavras importantes ou frases que LUIS observa e aprende.
 
 Quando você cria um recurso de lista de frases em seu aplicativo LUIS, ele é habilitado globalmente por padrão e aplica-se uniformemente em todas as intenções e entidades. No entanto, se você aplicar a lista de frases como um descritor (recurso) de uma entidade (ou *modelo*) aprendida por computador, seu escopo será reduzido para ser aplicado somente a esse modelo e não será mais usado com todos os outros modelos. Usar uma lista de frases como um descritor para um modelo ajuda a decomposição ao auxiliar na precisão do modelo ao qual ela é aplicada.
 
@@ -134,10 +134,11 @@ Se você precisar de mais do que o limite, entre em contato com o suporte. Para 
 
 O portal do LUIS mostra quando a entidade, em um exemplo, expressão, tem uma previsão de entidade diferente da entidade selecionada. Essa pontuação diferente é baseada no modelo treinado atual.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda os conceitos sobre [declarações](luis-concept-utterance.md) boas.
 
 Confira [Adicionar entidades](luis-how-to-add-entities.md) para saber como adicionar entidades ao seu aplicativo LUIS.
 
 Consulte [tutorial: extrair dados estruturados do usuário expressão com entidades aprendidas por máquina no reconhecimento vocal (Luis)](tutorial-machine-learned-entity.md) para saber como extrair dados estruturados de um expressão usando a entidade aprendida por máquina.
+ 

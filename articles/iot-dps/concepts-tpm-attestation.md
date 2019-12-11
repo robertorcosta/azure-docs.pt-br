@@ -1,6 +1,6 @@
 ---
 title: Serviço de Provisionamento de Dispositivos no Hub IoT do Azure – Atestado de TPM
-description: Este artigo fornece uma visão geral conceitual do fluxo de atestado de TPM usando o Serviço de Provisionamento de Dispositivos  IoT.
+description: Este artigo fornece uma visão geral conceitual do fluxo de atestado do TPM usando o DPS (serviço de provisionamento de dispositivos IoT).
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746352"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975271"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
 
@@ -21,11 +21,11 @@ O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar
 
 Este artigo descreve um processo de atestado de identidade ao usar um [TPM](./concepts-device.md). TPM significa Trusted Platform Module e é um tipo de HSM (módulo de segurança de hardware). Este artigo pressupõe que você está usando um TPM discreto, de firmware ou integrado. Os TPMs emulados para software são adequados para fazer protótipos ou teste, mas não oferecem o mesmo nível de segurança que os TPMs discretos, de firmware ou integrados oferecem. Não recomendamos usar TPMs de software em produção. Para obter mais informações sobre os tipos de TPMs, consulte [Uma breve introdução ao TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
-Este artigo só é relevante para dispositivos que usam o TPM 2.0 com suporte à chave HMAC e suas chaves de endosso. Não é para dispositivos que usam certificados X.509 para autenticação. O TPM é um padrão ISO de todo o setor do Trusted Computing Group, e é possível ler mais sobre ele na [especificação do TPM 2.0 completa](https://trustedcomputinggroup.org/tpm-library-specification/) ou na [especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também pressupõe que você conhece os pares de chaves públicas e privadas e como elas são usadas para criptografia.
+Este artigo só é relevante para dispositivos que usam o TPM 2.0 com suporte à chave HMAC e suas chaves de endosso. Não é para dispositivos que usam certificados X.509 para autenticação. O TPM é um padrão ISO, de todo o setor, da Trusted Computing Group, e você pode ler mais sobre o TPM na [especificação completa do tpm 2,0](https://trustedcomputinggroup.org/tpm-library-specification/) ou a [Especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também pressupõe que você esteja familiarizado com pares de chaves pública e privada e como eles são usados para criptografia.
 
 Os SDKs do dispositivo do Serviço de Provisionamento de Dispositivos lidam com tudo que foi descrito neste artigo para você. Não será necessário implementar mais nada se você estiver usando os SDKs em seus dispositivos. Este artigo ajuda a entender conceitualmente o que está acontecendo com seu chip de segurança do TPM quando seu dispositivo é provisionado e por que ele é tão seguro.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Os TPMs usam uma coisa chamada EK (chave de endosso) como a raiz de confiança segura. A EK é exclusiva do TPM e sua alteração altera essencialmente o dispositivo para um novo.
 
@@ -35,7 +35,7 @@ Depois que um dispositivo for configurado e estiver pronto para uso, ele terá u
 
 ![Assumindo a propriedade de um TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-Uma observação sobre a propriedade do TPM: Apropriar-se de um TPM depende de muitos fatores, incluindo o fabricante do TPM, o conjunto de ferramentas do TPM que está sendo usado e o sistema operacional do dispositivo. Siga as instruções relevantes para seu sistema para assumir a propriedade.
+Uma observação sobre assumir a propriedade do TPM: assumir a propriedade de um TPM depende de muitas coisas, incluindo fabricante do TPM, o conjunto de ferramentas do TPM que está sendo usado e o SO do dispositivo. Siga as instruções relevantes para seu sistema para assumir a propriedade.
 
 O Serviço de Provisionamento de Dispositivos usa a parte pública da EK (EK_pub) para identificar e registrar dispositivos. O fornecedor do dispositivo poderá ler o EK_pub durante a fabricação ou testagem final e carregar o EK_pub para o serviço de provisionamento para que o dispositivo seja reconhecido quando se conectar para provisionar. O Serviço de Provisionamento de Dispositivos não verifica a SRK ou o proprietário. Portanto, "limpar" o TPM apagará os dados do cliente, mas a EK (e os outros dados do fornecedor) será preservada e o dispositivo ainda será reconhecido pelo Serviço de Provisionamento de Dispositivos quando ele se conectar para provisionar.
 
@@ -63,7 +63,7 @@ O dispositivo pode assinar um token SAS usando o nonce descriptografado e reesta
 
 ![O dispositivo reestabelece a conexão com o Serviço de Provisionamento de Dispositivo para validar a propriedade da EK](./media/concepts-tpm-attestation/step-three-validation.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora o dispositivo conecta-se ao Hub IoT e você tem a certeza de que as chaves dos seus dispositivos estão armazenadas com segurança. Agora que você sabe como o Serviço de Provisionamento de Dispositivos verifica com segurança a identidade de um dispositivo usando o TPM, confira os seguintes artigos para saber mais:
 

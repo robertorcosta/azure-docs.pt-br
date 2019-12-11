@@ -3,17 +3,17 @@ title: Usar grupos de dispositivos em seu aplicativo de IoT Central do Azure | M
 description: Como um operador, saiba como usar grupos de dispositivos para analisar a telemetria de dispositivos em seu aplicativo de IoT Central do Azure.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/29/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 281806999b08c3babbb753459835850ad9d733eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 981046f9417876a68c215c6d01a63c7f0a634464
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895430"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976206"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry-preview-features"></a>Tutorial: usar grupos de dispositivos para analisar a telemetria do dispositivo (recursos de visualização)
 
@@ -23,15 +23,15 @@ Este artigo descreve como, como um operador, usar grupos de dispositivos para an
 
 Um grupo de dispositivos é uma lista de dispositivos agrupados, pois correspondem a alguns critérios especificados. Os grupos de dispositivos ajudam a gerenciar, Visualizar e analisar dispositivos em escala, agrupando dispositivos em grupos lógicos menores. Por exemplo, você pode criar um grupo de dispositivos para listar todos os dispositivos de ar-condicionado em Seattle para permitir que um técnico encontre os dispositivos para os quais eles são responsáveis.
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um grupo de dispositivos
 > * Usar um grupo de dispositivos para analisar a telemetria do dispositivo
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você deve concluir a [criação de um aplicativo de IOT central do Azure](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado aos seus](./quick-create-pnp-device.md) guias de início rápido do aplicativo IOT central para criar o modelo de dispositivo do **sensor de ambiente** com o qual trabalhar.
+Antes de começar, você deve concluir os inícios rápidos [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-pnp-device.md) para criar o modelo de dispositivo **Sensor Ambiental** com o qual trabalhar.
 
 ## <a name="create-simulated-devices"></a>Criar dispositivos simulados
 
@@ -67,7 +67,7 @@ Para criar um grupo de dispositivos:
 > [!NOTE]
 > Para dispositivos Azure IoT Edge, selecione modelos de Azure IoT Edge para criar um grupo de dispositivos.
 
-## <a name="analytics"></a>Análise
+## <a name="analytics"></a>Análises
 
 Você pode usar a **análise** com um grupo de dispositivos para analisar a telemetria dos dispositivos no grupo. Por exemplo, você pode plotar a temperatura média relatada por todos os sensores ambientais da contoso.
 
@@ -87,7 +87,7 @@ Para analisar a telemetria de um grupo de dispositivos:
 
     Você pode personalizar a exibição, alterar o período de tempo mostrado e exportar os dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu a usar grupos de dispositivos em seu aplicativo IoT Central do Azure, aqui está a próxima etapa sugerida:
 

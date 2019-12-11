@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/2/2019
-ms.openlocfilehash: 07feb3ebf9720d70da441486fd0b2e6e274b68e4
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/9/2019
+ms.openlocfilehash: 8b3d6ea46c4a88187b70b520457ad34f7e7f36ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770910"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975135"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
@@ -23,17 +23,17 @@ O número máximo de conexões por tipo de preço e vCores é o seguinte:
 |---|---|---|
 |Basic| 1| 50|
 |Basic| 2| 100|
-|Propósito geral| 2| 300|
-|Propósito geral| 4| 625|
-|Propósito geral| 8| 1250|
-|Propósito geral| 16| 2500|
-|Propósito geral| 32| 5\.000|
-|Propósito geral| 64| 10000|
-|Memória Otimizada| 2| 600|
-|Memória Otimizada| 4| 1250|
-|Memória Otimizada| 8| 2500|
-|Memória Otimizada| 16| 5\.000|
-|Memória Otimizada| 32| 10000|
+|Propósito geral| 2| 600|
+|Propósito geral| 4| 1250|
+|Propósito geral| 8| 2500|
+|Propósito geral| 16| 5\.000|
+|Propósito geral| 32| 10000|
+|Propósito geral| 64| 20000|
+|Memória Otimizada| 2| 1250|
+|Memória Otimizada| 4| 2500|
+|Memória Otimizada| 8| 5\.000|
+|Memória Otimizada| 16| 10000|
+|Memória Otimizada| 32| 20000|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > ERRO 1040 (08004): número excessivo de conexões

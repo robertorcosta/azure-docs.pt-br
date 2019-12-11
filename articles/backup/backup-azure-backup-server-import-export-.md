@@ -4,12 +4,12 @@ description: O backup do Azure permite que você envie dados fora da rede usando
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173242"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996316"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho do backup offline do DPM e do Servidor de Backup do Azure
 
@@ -21,7 +21,7 @@ O processo de propagação offline do Backup do Azure está totalmente integrado
 > O processo de backup Offline para o agente do Microsoft Azure Recovery Services (MARS) é diferente do DPM do System Center e o servidor de Backup do Azure. Para obter informações sobre como usar o backup offline com o agente de MARS, consulte [neste artigo](backup-azure-backup-import-export.md). Não há suporte para Backup Offline para backups de Estado do Sistema realizados usando o agente de Backup do Azure.
 >
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Com a capacidade de propagação offline do Backup do Azure e a Importação/Exportação do Azure, é simples carregar os dados offline no Azure usando discos. O processo de Backup Offline envolve as etapas a seguir:
 
@@ -43,7 +43,7 @@ Há suporte para o Backup Offline para todos os modelos de implantação de Back
 > * Backup de todas as cargas de trabalho e arquivos com o System Center Data Protection Manager (SC DPM)
 > * Backup de todas as cargas de trabalho e arquivos com o Servidor de Backup do Azure
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o fluxo de trabalho de Backup Offline
 
@@ -121,7 +121,7 @@ O utilitário *AzureOfflineBackupDiskPrep* é usado para preparar as unidades SA
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | . | DESCRIÇÃO |
+    | . | Descrição |
     | --- | --- |
     | s:&lt;*Caminho do Local de Preparo*&gt; |A entrada obrigatória usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho de **Iniciar o backup offline** . |
     | p:&lt;*Caminho para PublishSettingsFile*&gt; |A entrada opcional usada para fornecer o caminho para o arquivo **Configurações de Publicação do Azure** inserido no fluxo de trabalho de **Iniciar o backup offline**. |
@@ -162,7 +162,7 @@ O utilitário *AzureOfflineBackupDiskPrep* é usado para preparar as unidades SA
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | . | DESCRIÇÃO |
+    | . | Descrição |
     | --- | --- |
     | u: | Entrada obrigatória usada para atualizar os detalhes de envio para um trabalho de Importação do Azure |
     | s:&lt;*Caminho do Local de Preparo*&gt; | Entrada obrigatória quando o comando não é executado no computador de origem. Usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho **Iniciar o backup offline**. |
@@ -215,7 +215,7 @@ Após a conclusão da importação, os dados de backup inicias estarão disponí
 
 No horário do próximo backup agendado, o Backup do Azure executa o backup incremental sobre a cópia de backup inicial.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para qualquer dúvida sobre o fluxo de trabalho de Importação/Exportação do Azure, veja [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de Blobs](../storage/common/storage-import-export-service.md).
-* Consulte a seção sobre o backup offline das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho.
+

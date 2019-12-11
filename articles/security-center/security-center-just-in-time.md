@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576396"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997183"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando JIT
 
-O acesso à VM (just-in-time) de máquina virtual (JIT) pode ser usado para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário.
+O acesso JIT (just-in-time) à VM (máquina virtual) pode ser usado para bloquear o tráfego de entrada às suas VMs do Azure, reduzindo a exposição a ataques enquanto fornece acesso fácil para conectar às VMs quando necessário.
 
 > [!NOTE]
 > O recurso Just-In-Time está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
@@ -108,7 +108,7 @@ Na central de segurança, você pode configurar uma política JIT e solicitar o 
 
      3. Clique em **OK**.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 > [!NOTE]
 >Quando o acesso à VM JIT está habilitado para uma VM, a central de segurança do Azure cria as regras "negar todo o tráfego de entrada" para as portas selecionadas nos grupos de segurança de rede associados e no firewall do Azure com ele. Se outras regras tiverem sido criadas para as portas selecionadas, as regras existentes têm prioridade sobre as novas regras "negar todo o tráfego de entrada". Se não houver nenhuma regra existente nas portas selecionadas, a nova regra "negar todo o tráfego de entrada" assumirá a prioridade mais alta nos grupos de segurança de rede e no firewall do Azure.
@@ -176,10 +176,10 @@ Para sua conveniência, você pode se conectar a uma VM usando o JIT diretamente
 
 Para tornar mais fácil distribuir acesso Just-In-Time entre suas VMs, você pode definir uma VM para permitir apenas o acesso Just-In-Time diretamente de dentro da VM.
 
-1. No portal do Azure, selecione **Máquinas Virtuais**.
-2. Clique na máquina virtual que você deseja limitar o acesso Just-In-Time.
-3. No menu, clique em **Configuração**.
-4. Em **Acesso Just-In-Time** clique em **Habilitar política Just-In-Time**. 
+1. No [portal do Azure](https://ms.portal.azure.com), procure e selecione **máquinas virtuais**. 
+2. Selecione a máquina virtual que você deseja limitar ao acesso just-in-time.
+3. No menu, selecione **configuração**.
+4. Em **acesso just-in-time**, selecione **habilitar política just-in-time**. 
 
 Isso permite o acesso Just-In-Time para a VM usando as seguintes configurações:
 
@@ -283,7 +283,7 @@ Execute o seguinte no PowerShell:
 
 Para obter mais informações, consulte a documentação do cmdlet do PowerShell.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Nesse artigo você aprendeu como o acesso Just-In-Time à VM na Central de Segurança o ajuda a controlar o acesso às suas máquinas virtuais do Azure.
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 68ce0dca3bc7c5d408bd6e8f267d238ac812a84d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130575"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996629"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -106,7 +106,7 @@ A maioria das implantações que usam a SKU v2 leva cerca de 6 minutos para ser 
 
 Não. O gateway de aplicativo não dá suporte a protocolos de email como SMTP, IMAP e POP3. 
 
-## <a name="performance"></a>Desempenho
+## <a name="performance"></a>Performance
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Como o Application Gateway suporta alta disponibilidade e escalabilidade?
 
@@ -128,7 +128,7 @@ Não. As instâncias são distribuídas entre domínios de atualização e domí
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Gateway de Aplicativo suporta a drenagem de conexão?
 
-Sim. Você pode configurar o esgotamento de conexão para alterar os membros em um pool de back-end sem interrupções. Essa configuração permite que você continue a enviar conexões existentes para o destino anterior até que essa conexão seja fechada ou um tempo limite configurável expire. O esgotamento de conexão aguarda apenas as conexões atuais em andamento serem concluídas. O gateway de aplicativo não reconhece o estado da sessão do aplicativo.
+Sim. Você pode configurar o esgotamento de conexão para alterar os membros em um pool de back-end sem interrupções. Para obter mais informações, consulte a [seção descarga de conexão do gateway de aplicativo](overview.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Posso alterar o tamanho da instância de médio para grande sem interrupção?
 
@@ -381,6 +381,6 @@ Sim. Se sua configuração corresponder ao cenário a seguir, você não verá o
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o gateway de aplicativo, consulte [o que é aplicativo Azure gateway?](overview.md).

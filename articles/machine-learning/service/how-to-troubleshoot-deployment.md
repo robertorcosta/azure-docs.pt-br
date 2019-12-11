@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 7d7744aab6d83b3415f32ca9e311940836c6f93c
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123218"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997234"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas Azure Machine Learning implantação do serviço kubernetes do Azure e instâncias de contêiner do Azure
 
@@ -42,7 +42,7 @@ Ao implantar um modelo no Azure Machine Learning, o sistema executa várias tare
 
 Saiba mais sobre esse processo na introdução a [Gerenciamento de Modelos](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 * O [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
@@ -326,7 +326,7 @@ Há duas coisas que podem ajudar a evitar códigos de status 503:
 Para obter mais informações sobre como definir `autoscale_target_utilization`, `autoscale_max_replicas`e `autoscale_min_replicas` para, consulte a referência do módulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) .
 
 
-## <a name="advanced-debugging"></a>Depuração avançada
+## <a name="advanced-debugging"></a>Depurador avançado
 
 Em alguns casos, talvez seja necessário depurar interativamente o código Python contido em sua implantação de modelo. Por exemplo, se o script de entrada estiver falhando e o motivo não puder ser determinado por log adicional. Usando Visual Studio Code e o Ferramentas Python para Visual Studio (PTVSD), você pode anexar ao código em execução dentro do contêiner do Docker.
 
@@ -505,7 +505,7 @@ Para fazer alterações nos arquivos da imagem, você pode anexar ao contêiner 
     docker exec -it debug /bin/bash
     ```
 
-1. Para localizar os arquivos usados pelo serviço, use o seguinte comando do shell bash no contêiner:
+1. Para localizar os arquivos usados pelo serviço, use o seguinte comando do shell bash no contêiner se o diretório padrão for diferente do `/var/azureml-app`:
 
     ```bash
     cd /var/azureml-app
@@ -534,7 +534,7 @@ Para parar o contêiner, use o seguinte comando:
 docker stop debug
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a implantação:
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 8f1639a21e3783f587904c2a8085fd2f555ff5b8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: a0b0a4e89242103811f20071b7235c825c9d8bd2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900346"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967517"
 ---
 # <a name="azure-media-player-overview"></a>Visão geral do Player de Mídia do Azure
 
@@ -50,6 +50,10 @@ Você pode usar a página de demonstração do [Player de Mídia do Azure](https
 ## <a name="set-up-azure-media-player-in-your-html"></a>Configurar o Player de Mídia do Azure em seu HTML
 
 O Player de Mídia do Azure é fácil de configurar. São necessários apenas alguns minutos para obter a reprodução básica de conteúdo de mídia de sua conta dos Serviços de Mídia. Consulte a [Documentação do Player de Mídia do Azure](https://aka.ms/ampdocs) para obter detalhes de como instalar e configurar o Player de Mídia do Azure. 
+
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="next-steps"></a>Próximos passos
 

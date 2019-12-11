@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: e7114febe85af4acaf94ef7fe64fe47988fd6321
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d26ccd47ada4f1f1fd87f315e05f822bb2463114
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74079258"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976172"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsão do tempo usando os dados do sensor do Hub IoT no Azure Machine Learning
 
@@ -44,21 +44,21 @@ Saiba como usar o Azure Machine Learning para fazer uma previsão do tempo (poss
 - Conclua o tutorial do [simulador online do Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Eles abrangem os seguintes requisitos:
   - Uma assinatura ativa do Azure.
   - Um Hub IoT do Azure em sua assinatura.
-  - O aplicativo cliente que envia mensagens para o Hub IoT do Azure.
-- Uma conta de [Azure Machine Learning Studio](https://studio.azureml.net/) .
+  - O aplicativo cliente que envia mensagens para o hub IoT do Azure.
+- Uma conta [Azure Machine Learning Studio (clássica)](https://studio.azureml.net/) .
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Implantar o modelo de previsão do tempo como um serviço Web
 
 1. Acesse a [página do modelo de previsão do tempo](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
-1. Clique em **Abrir no Studio** no Microsoft Azure Machine Learning Studio.
+1. Clique em **abrir no estúdio** no Microsoft Azure Machine Learning Studio (clássico).
    ![Abrir a página do modelo de previsão do tempo na Galeria do Cortana Intelligence](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. Clique em **Executar** para validar as etapas no modelo. Esta etapa pode levar 2 minutos para ser concluída.
-   ![Abrir o modelo de previsão do tempo no Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![abrir o modelo previsão do tempo no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. Clique em **CONFIGURAR SERVIÇO WEB** > **Serviço Web Preditivo**.
-   ![Implantar o modelo de previsão do tempo no Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![implantar o modelo de previsão do clima em Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. No diagrama, arraste o módulo **entrada do serviço Web** em algum lugar próximo ao módulo **Modelo de Pontuação**.
 1. Conecte o módulo **entrada do serviço Web** ao módulo **Modelo de Pontuação**.
-   ![Conectar dois módulos no Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   ![conectar dois módulos no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
 1. Clique em **EXECUTAR** para validar as etapas no modelo.
 1. Clique em **IMPLANTAR SERVIÇO WEB** para implantar o modelo como um serviço Web.
 1. No painel do modelo, baixe o **Excel 2010 ou a pasta de trabalho anterior** de **SOLICITAÇÃO/RESPOSTA**.
@@ -81,11 +81,11 @@ Saiba como usar o Azure Machine Learning para fazer uma previsão do tempo (poss
 
    **Nome do trabalho**: o nome do trabalho. O nome deve ser globalmente exclusivo.
 
-   **Grupo de recursos**: use o mesmo grupo de recursos usado pelo seu Hub IoT.
+   **Grupo de recursos**: use o mesmo grupo de recursos usado pelo seu hub IoT.
 
    **Local**: use o mesmo local do que o grupo de recursos.
 
-   **Fixar no painel**: marque esta opção para facilitar o acesso ao seu Hub IoT do painel.
+   **Fixar no painel**: marque essa opção para facilitar o acesso ao seu hub IoT do painel.
 
    ![Criar um trabalho do Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
@@ -163,7 +163,7 @@ Saiba como usar o Azure Machine Learning para fazer uma previsão do tempo (poss
 
    Substitua `[YourOutputAlias]` pelo alias de saída do trabalho.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ### <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
 

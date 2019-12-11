@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 47c7e35f71fd33cc53d498867ef015364252d5ea
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 39bdcc94b785371044b5d49fd844a06a176a8fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910314"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970029"
 ---
 # <a name="media-services-concepts"></a>Conceitos dos serviços de mídia
 
@@ -26,7 +26,7 @@ Este tópico fornece uma breve visão geral da terminologia e dos conceitos dos 
 Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.
 
 > [!NOTE]
-> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
+> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
 
 ## <a name="terminology"></a>Terminologia
 
@@ -51,7 +51,7 @@ Para começar a gerenciar, criptografar, codificar, analisar e transmitir conte�
 - [Upload e armazenamento na nuvem](storage-account-concept.md)
 - [Conceito de ativos](assets-concept.md)
 
-## <a name="encoding"></a>Codificando
+## <a name="encoding"></a>Codificação
 
 Depois de carregar seus arquivos de mídia digital de alta qualidade em ativos, você pode codificá-los em formatos que podem ser reproduzidos em uma ampla variedade de navegadores e dispositivos. 
 
@@ -62,7 +62,7 @@ Para codificar com os serviços de mídia v3, você precisa criar **transformaç
 - [Transformações e Trabalhos](transforms-jobs-concept.md)
 - [Codificação com os serviços de mídia](encoding-concept.md)
 
-## <a name="media-analytics"></a>Análise de Mídia
+## <a name="media-analytics"></a>Análise de mídia
 
 Para analisar os arquivos de vídeo e áudio, você também precisa criar **transformações** e **trabalhos**.
 
@@ -76,7 +76,7 @@ Ao criar o **localizador de streaming**, além do nome do ativo, você precisa e
 
 O empacotamento dinâmico é usado se você transmite seu conteúdo ao vivo ou sob demanda. O diagrama a seguir mostra o streaming sob demanda com fluxo de trabalho de empacotamento dinâmico.
 
-![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Empacotamento Dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Com os serviços de mídia, você pode entregar seu conteúdo ao vivo e sob demanda criptografado dinamicamente com criptografia AES (AES-128) ou/e qualquer um dos três principais sistemas de DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados.
 
@@ -101,6 +101,9 @@ Você pode usar **manifestos dinâmicos** dos serviços de mídia para transmiti
 - [Manifestos dinâmicos](filters-dynamic-manifest-overview.md)
 - [Filtros](filters-concept.md)
 
+> [!NOTE]
+> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="live-streaming"></a>Transmissão ao vivo
 
 O Azure Media Services permite entregar eventos ao vivo para seus clientes na nuvem do Azure. **Eventos ao Vivo** são responsáveis pela ingestão e pelo processamento dos feeds de vídeo ao vivo. Quando você cria um **evento ao vivo**, é criado um ponto de extremidade de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. Depois que o fluxo fluir para o **evento ao vivo**, você poderá iniciar o evento de streaming criando um **ativo**, uma **saída ao vivo**e um **localizador de streaming**. A **saída ao vivo** arquivará o fluxo no **ativo** e o tornará disponível para os visualizadores por meio do ponto de **extremidade de streaming**. Um **evento ao vivo** pode ser um dos dois tipos: **codificação ativa**e de **passagem** .
@@ -110,11 +113,11 @@ A imagem a seguir ilustra o fluxo de trabalho do tipo de passagem:
 ![passagem](./media/live-streaming/pass-through.svg)
 
 - [Visão geral da transmissão ao vivo](live-streaming-overview.md)
-- [Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)
+- [Eventos ao Vivo e Saídas Dinâmicas ](live-events-outputs-concept.md)
 
-## <a name="monitoring"></a>Monitorando
+## <a name="monitoring"></a>Monitoramento
 
-### <a name="event-grid"></a>Grade do Evento
+### <a name="event-grid"></a>Grade de Eventos
 
 Para ver o progresso do trabalho, você deve usar a **grade de eventos**. Os serviços de mídia também emite os tipos de evento ao vivo. Com a Grade de Eventos, seus aplicativos podem escutar e reagir a eventos de praticamente todos os serviços do Azure, bem como de origens personalizadas. 
 
@@ -138,7 +141,7 @@ Você pode usar Player de Mídia do Azure para reproduzir conteúdo de mídia tr
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Codificar o arquivo remoto e o fluxo de vídeo – REST](stream-files-tutorial-with-rest.md)
 * [Codificar o arquivo carregado e o fluxo de vídeo – .NET](stream-files-tutorial-with-api.md)

@@ -1,6 +1,6 @@
 ---
 title: Data Factory-log de alterações da API .NET
-description: Descreve alterações significativas, novos recursos e correções de bugs etc... em uma versão específica de API do .NET para o Azure Data Factory.
+description: Descreve as alterações significativas, adições de recursos, correções de bugs e assim por diante, em uma versão específica da API do .NET para o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: e1902db6bc3a127262f5e37f36e82b07ab15c7c9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683190"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978995"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - Log de alterações da API .NET
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. 
+> Este artigo se aplica à versão 1 da fábrica de dados. 
 
 Este artigo fornece informações sobre alterações no SDK do Azure Data Factory em uma versão específica. Você pode encontrar o pacote NuGet mais recente do Azure Data Factory [aqui](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
@@ -163,7 +163,7 @@ As seguintes classes foram renomeadas. Os novos nomes eram os nomes das classes 
 | TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
 
-* Os métodos **List** agora retornam resultados paginados. Se a resposta contiver uma propriedade não vazia **NextLink** , o aplicativo cliente precisa continuar buscando a próxima página até que todas as páginas sejam retornadas.  Aqui está um exemplo:
+* Os métodos **List** agora retornam resultados paginados. Se a resposta contiver uma propriedade não vazia **NextLink** , o aplicativo cliente precisa continuar buscando a próxima página até que todas as páginas sejam retornadas.  Veja um exemplo:
 
     ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");

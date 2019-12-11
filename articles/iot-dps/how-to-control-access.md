@@ -1,6 +1,6 @@
 ---
 title: Pontos de extremidade de segurança no Serviço de Provisionamento de Dispositivo IoT | Microsoft Docs
-description: Conceitos - como controlar o acesso ao Serviço de Provisionamento de Dispositivos no IoT para aplicativos de back-end. Inclui informações sobre tokens de autenticação de segurança.
+description: Conceitos-como controlar o acesso ao DPS (serviço de provisionamento de dispositivos) IoT para aplicativos de back-end. Inclui informações sobre tokens de autenticação de segurança.
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626632"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975118"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao Serviço de Provisionamento de Dispositivo do Hub IoT do Azure
 
@@ -32,9 +32,9 @@ Você deve ter permissões adequadas para acessar qualquer um dos pontos de extr
 
 Você pode conceder [permissões](#device-provisioning-service-permissions) das seguintes maneiras:
 
-* **Políticas de autorização de acesso compartilhado**. As políticas de acesso compartilhado podem conceder qualquer combinação de [permissões](#device-provisioning-service-permissions). Você pode definir políticas no [Portal do Azure][lnk-management-portal] ou de forma programática usando as [APIs REST do Serviço de Provisionamento de Dispositivo][lnk-resource-provider-apis]. Um serviço de provisionamento recém-criado tem a seguinte política padrão:
+* **Políticas de autorização de acesso compartilhado**. As políticas de acesso compartilhado podem conceder qualquer combinação de [permissões](#device-provisioning-service-permissions). Você pode definir políticas no [portal do Azure][lnk-management-portal]ou programaticamente usando as [APIs REST do serviço de provisionamento de dispositivos][lnk-resource-provider-apis]. Um serviço de provisionamento recém-criado tem a seguinte política padrão:
 
-* **provisioningserviceowner**: Política com todas as permissões.
+* **provisioningserviceowner**: política com todas as permissões.
 
 > [!NOTE]
 > Para obter informações detalhadas, consulte [permissões](#device-provisioning-service-permissions).
@@ -44,7 +44,7 @@ Você pode conceder [permissões](#device-provisioning-service-permissions) das 
 O Serviço de Provisionamento do Hub IoT do Azure concede acesso aos pontos de extremidade, verificando um token com base nas políticas de acesso compartilhado. As credenciais de segurança, como as chaves simétricas, nunca são enviadas pela conexão.
 
 > [!NOTE]
-> O provedor de recursos do Serviço de Provisionamento de Dispositivo é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Azure Resource Manager][lnk-azure-resource-manager].
+> O provedor de recursos do serviço de provisionamento de dispositivos é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Azure Resource Manager][lnk-azure-resource-manager].
 
 Para saber mais sobre como construir e usar os tokens de segurança, veja a próxima seção.
 
@@ -57,11 +57,11 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> Os [SDKs do Serviço de Provisionamento de Dispositivo de IoT do Azure][lnk-sdks] geram tokens automaticamente durante a conexão com o serviço.
+> Os [SDKs do serviço de provisionamento de dispositivos IOT do Azure][lnk-sdks] geram tokens automaticamente ao se conectar ao serviço.
 
 ## <a name="security-tokens"></a>Tokens de segurança
 
-Os Serviços de Provisionamento de Dispositivo usam tokens de segurança para autenticar serviços para evitar o envio de chaves durante a transmissão. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. Os [SDKs do Serviço de Provisionamento de Dispositivo do IoT do Azure][lnk-sdks] geram tokens automaticamente sem precisar de configuração especial. Alguns cenários exigem que você gere e use tokens de segurança diretamente. Esses cenários incluem o uso direto da superfície HTTP.
+Os Serviços de Provisionamento de Dispositivo usam tokens de segurança para autenticar serviços para evitar o envio de chaves durante a transmissão. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. Os [SDKs do serviço de provisionamento de dispositivos IOT do Azure][lnk-sdks] geram tokens automaticamente sem exigir nenhuma configuração especial. Alguns cenários exigem que você gere e use tokens de segurança diretamente. Esses cenários incluem o uso direto da superfície HTTP.
 
 ### <a name="security-token-structure"></a>Estrutura do token de segurança
 
@@ -75,11 +75,11 @@ O token de segurança tem o seguinte formato:
 
 Veja os valores esperados:
 
-| Value | DESCRIÇÃO |
+| Value | Descrição |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: a chave é decodificada da base64 e usada como chave para executar o cálculo de HMAC-SHA256.|
 | {expiry} |As cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1º de janeiro de 1970. |
-| {URL-encoded-resourceURI} | Codificação de URL em letras minúsculas do URI de recurso em letras minúsculas. Prefixo de URI (por segmento) dos pontos de extremidade que podem ser acessados com esse token, começando com o nome de host do Serviço de Provisionamento de Dispositivo de IoT (sem protocolo). Por exemplo: `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Codificação de URL em letras minúsculas do URI de recurso em letras minúsculas. Prefixo de URI (por segmento) dos pontos de extremidade que podem ser acessados com esse token, começando com o nome de host do Serviço de Provisionamento de Dispositivo de IoT (sem protocolo). Por exemplo, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |O nome da política de acesso compartilhado a qual se refere esse token. |
 
 **Observação sobre o prefixo**: o prefixo URI é computado por segmento e não por caractere. Por exemplo, `/a/b` é um prefixo para `/a/b/c`, mas não para `/a/bc`.
@@ -177,7 +177,7 @@ Os tópicos de referência a seguir fornecem a você mais informações sobre co
 
 A tabela a seguir lista as permissões que você pode usar para controlar o acesso ao seu Serviço de Provisionamento de Dispositivo de IoT.
 
-| Permissão | Observações |
+| Permissão | Notas |
 | --- | --- |
 | **ServiceConfig** |Concede acesso para alterar as configurações de serviço. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |
 | **EnrollmentRead** |Concede acesso de leitura para os registros do dispositivo e os grupos de registro. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |

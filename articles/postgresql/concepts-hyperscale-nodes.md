@@ -1,5 +1,5 @@
 ---
-title: Nós no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
+title: Nós – Citus (hiperescala) – banco de dados do Azure para PostgreSQL
 description: Saiba mais sobre os dois tipos de nós, coordenador e trabalhadores, em um grupo de servidores no banco de dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 5348c8bbe432cd024a8da93ca866ae4458f956e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 04ebb4298f8a5398b0aa9921d740e3eaacfd8e11
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468098"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973995"
 ---
 # <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Nós no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
@@ -24,5 +24,5 @@ Cada grupo de servidores tem um nó de coordenador e vários trabalhadores. Os a
 
 Para cada consulta, o coordenador roteia-o para um único nó de trabalho ou paralelize-o entre vários dependendo de se os dados necessários residem em um único nó ou em vários. O coordenador decide o que fazer por meio das tabelas de metadados de consultoria. Essas tabelas acompanham os nomes DNS e a integridade dos nós de trabalho e a distribuição de dados entre nós.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como os nós armazenam [dados distribuídos](concepts-hyperscale-distributed-data.md)

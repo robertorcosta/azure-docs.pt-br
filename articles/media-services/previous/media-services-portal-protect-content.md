@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866959"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978195"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdo usando o portal do Azure
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Sem novos recursos ou funcionalidades estão sendo adicionados para os serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >
 
  Com os Serviços de Mídia do Azure, você pode proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. É possível usar os Serviços de Mídia para distribuir o conteúdo criptografado dinamicamente com a criptografia AES usando chaves de criptografia de 128 bits. Você também pode usá-los com criptografia comum (CENC) usando o PlayReady e/ou gerenciamento de direitos digitais (DRM) do Widevine e o FairPlay da Apple. 
@@ -40,7 +40,7 @@ Para usar o portal para configurar a proteção de conteúdo global usando sua c
 
 1. Selecione **Configurações** > **Proteção de conteúdo**.
 
-    ![Proteção do conteúdo](./media/media-services-portal-content-protection/media-services-content-protection001.png)
+    ![Proteção de conteúdo](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## <a name="keylicense-authorization-policy"></a>política de autorização de chave/licença
 Os Serviços de Mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave ou de licença. Você deve configurar a política de autorização da chave de conteúdo. Seu cliente deve, então, atender à política antes que a chave/licença possa ser fornecida a ele. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token.
@@ -51,7 +51,7 @@ Os Serviços de Mídia oferecem suporte a várias maneiras de autenticar os usu�
 A restrição aberta significa que o sistema entrega a chave a qualquer pessoa que faça uma solicitação de chave. Essa restrição pode ser útil para o teste. 
 
 ### <a name="token-authorization"></a>Autorização de token
-A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de Mídia oferecem suporte a tokens nos formatos Simple Web Token (SWT) e Token Web JSON (JWT). Os Serviços de Mídia não oferecem um STS. Você pode criar um STS personalizado ou usar o Serviço de Controle de Acesso do Azure para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. Se o token for válido, e as declarações no token corresponderem àquelas configuradas para a chave (ou licença), o serviço de distribuição de chaves dos Serviços de Mídia retornará a chave (ou licença) solicitada para o cliente.
+A política restrita de token deve ser acompanhada por um token emitido por um STS (serviço de token de segurança). Os Serviços de Mídia oferecem suporte a tokens nos formatos Simple Web Token (SWT) e Token Web JSON (JWT). Os Serviços de Mídia não oferecem um STS. Você pode criar um STS personalizado ou usar o Controle de Acesso do Azure para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. Se o token for válido, e as declarações no token corresponderem àquelas configuradas para a chave (ou licença), o serviço de distribuição de chaves dos Serviços de Mídia retornará a chave (ou licença) solicitada para o cliente.
 
 Ao configurar a política restrita do token, você deve especificar os parâmetros de chave de verificação primária, emissor e público. A chave de verificação primária contém a chave com a qual o token foi assinado. O emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
@@ -95,10 +95,10 @@ Para ver todos os seus ativos, selecione **Configurações** > **Ativos**.
 ![Opção de ativos](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
 ### <a name="encrypt-with-aes-or-drm"></a>Criptografar com AES ou DRM
-Quando você seleciona **Criptografar** para um ativo, há duas opções: **AES** ou **DRM**. 
+Quando você seleciona **Encrypt** para um ativo, há duas opções: **AES** ou **DRM**. 
 
 #### <a name="aes"></a>AES
-A criptografia da chave não criptografada AES é habilitada em todos os protocolos de streaming: Smooth Streaming, HLS e MPEG-DASH.
+A criptografia da chave de limpeza do AES é habilitada em todos os protocolos de streaming: Smooth Streaming, HLS e MPEG-DASH.
 
 ![Configuração de criptografia](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
@@ -124,7 +124,11 @@ A criptografia da chave não criptografada AES é habilitada em todos os protoco
 >[!NOTE] 
 >Se você planeja executar um HLS criptografado para AES no Safari, consulte a postagem de blog [HLS criptografado no Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
+## <a name="next-steps"></a>Próximos passos
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

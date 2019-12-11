@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155edf72a60e079a609853e953e3cf66024cc83c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f033563bbd7888e53d910773cd1e0c501eaad098
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794244"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997098"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento do Azure AD Connect Cloud
 Este tópico fornece orientação sobre como escolher e usar o provisionamento de nuvem Azure AD Connect como sua solução de identidade.
@@ -48,7 +48,7 @@ O restante do documento fornecerá instruções passo a passo para esses pré-re
      | --- | --- |
      | **80** | Baixa as listas de certificados revogados (CRLs) enquanto valida o certificado SSL |
      | **443** | Lida com toda a comunicação de saída com o serviço |
-     | **8080** (opcional) | Os agentes relatarão seu status a cada dez minutos pela porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. A porta 8080 _não_ é usada para entradas do usuário. |
+     | **8080** (opcional) | Os agentes relatarão seu status a cada dez minutos pela porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. |
      
      Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
    - Se o seu firewall ou proxy permitir que você especifique os sufixos seguros, adicione conexões a **\*. msappproxy.net** e **\*. ServiceBus.Windows.net**. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.

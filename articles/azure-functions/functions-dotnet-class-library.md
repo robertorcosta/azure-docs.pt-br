@@ -3,12 +3,12 @@ title: Referência do desenvolvedor de C# do Azure Functions
 description: Entenda como desenvolver no Azure Functions usando NodeJS.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 9ecaff438eb30e6a05a7e744e17d2d713eef21cd
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f412e5ea358fe7b97476802f432616c37b05dbd9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665569"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975475"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -25,7 +25,15 @@ Este artigo pressupõe que você tenha completado as seguintes etapas:
 
 ## <a name="supported-versions"></a>Versões com suporte
 
-O tempo de execução do Azure Functions 2. x usa o .NET Core 2,2. O código de função pode usar as APIs do .NET Core 2,2 Atualizando as configurações do projeto do Visual Studio. Os modelos de função não têm como padrão o .NET Core 2,2 para evitar afetar negativamente os clientes que não têm o .NET Core 2,2 instalado.
+As versões do tempo de execução do Functions funcionam com versões específicas do .NET. A tabela a seguir mostra o nível mais alto de .NET Core e .NET Framework e .NET Core que podem ser usados com uma versão específica de funções em seu projeto. 
+
+| Versão de tempo de execução do Functions | Versão máxima do .NET |
+| ---- | ---- |
+| Funções 3. x | .NET Core 3,1 |
+| Funções 2.x | .NET Core 2.2 |
+| Funções 1.x | .NET framework 4.6 |
+
+Para saber mais, consulte [visão geral das versões do Azure Functions Runtime](functions-versions.md)
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
@@ -49,7 +57,7 @@ Quando você cria o projeto, uma estrutura de pastas parecida com o exemplo a se
 Esse é o diretório implantado no aplicativo de funções no Azure. As extensões de associação necessárias na [versão 2.x](functions-versions.md) do runtime das Funções são [adicionadas ao projeto como pacotes do NuGet](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
-> O processo de compilação cria um arquivo *function.json* para cada função. Esse arquivo *function.json* não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. Para aprender como desabilitar uma função, consulte [Como desabilitar funções](disable-function.md#functions-2x---c-class-libraries).
+> O processo de compilação cria um arquivo *function.json* para cada função. Esse arquivo *function.json* não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. Para aprender como desabilitar uma função, consulte [Como desabilitar funções](disable-function.md).
 
 
 ## <a name="methods-recognized-as-functions"></a>Métodos reconhecidos como funções

@@ -3,12 +3,12 @@ title: Desenvolva Azure Functions usando Visual Studio Code
 description: Saiba como desenvolver e testar Azure Functions usando a extensão Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f9ad40cd50863990b9af629c77321195dce5e97c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227047"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975577"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolva Azure Functions usando Visual Studio Code
 
@@ -20,7 +20,7 @@ A extensão Azure Functions fornece estes benefícios:
 * Publicar seu projeto do Azure Functions diretamente no Azure.
 * Escreva suas funções em várias linguagens, aproveitando os benefícios de Visual Studio Code.
 
-A extensão pode ser usada com os seguintes idiomas, que têm suporte do tempo de execução do Azure Functions versão 2. x:
+A extensão pode ser usada com os seguintes idiomas, que têm suporte do tempo de execução Azure Functions a partir da versão 2. x:
 
 * [C#Compile](functions-dotnet-class-library.md)
 * <sup>*de</sup> script [ C# ](functions-reference-csharp.md)
@@ -38,7 +38,7 @@ Este artigo fornece detalhes sobre como usar a extensão Azure Functions para de
 > [!IMPORTANT]
 > Não combine desenvolvimento local e desenvolvimento de portal para um único aplicativo de funções. Ao publicar a partir de um projeto local para um aplicativo de funções, o processo de implantação substitui quaisquer funções que você desenvolveu o portal.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de instalar e executar a extensão de Azure Functions de [extensão de Azure Functions][extensão azure functions para visual studio code], você deve atender a esses requisitos:
 
@@ -138,7 +138,7 @@ Visual Studio Code permite que você adicione associações ao seu arquivo funct
 
 Veja a seguir exemplos de prompts para definir uma nova associação de saída de armazenamento:
 
-| Prompt | Valor | DESCRIÇÃO |
+| Prompt | Value | Descrição |
 | -------- | ----- | ----------- |
 | **Selecionar direção de associação** | `out` | A associação é uma associação de saída. |
 | **Selecionar associação com direção** | `Azure Queue Storage` | A associação é uma associação de fila do Armazenamento do Azure. |
@@ -218,7 +218,7 @@ As etapas a seguir publicam seu projeto em um novo aplicativo de funções criad
 
 1. Seguindo os prompts, forneça estas informações:
 
-    | Prompt | Valor | DESCRIÇÃO |
+    | Prompt | Value | Descrição |
     | ------ | ----- | ----------- |
     | Selecionar aplicativo de funções no Azure | Criar novos Aplicativo de funções no Azure | No prompt seguinte, digite um nome globalmente exclusivo que identifique o novo aplicativo de funções e selecione Enter. Caracteres válidos para um nome de aplicativo de funções são `a-z`, `0-9` e `-`. |
     | Selecionar um sistema operacional | Windows | O aplicativo de funções é executado no Windows. |
@@ -263,11 +263,11 @@ A extensão Azure Functions permite executar um projeto do Functions em seu comp
 
 Para executar o projeto do Functions localmente, você deve atender a estes requisitos adicionais:
 
-* Instale a versão 2. x de [Azure Functions Core Tools](functions-run-local.md#v2). O pacote de ferramentas principais é baixado e instalado automaticamente quando você inicia o projeto localmente. As ferramentas principais incluem todo o tempo de execução de Azure Functions, portanto, o download e a instalação podem levar algum tempo.
+* Instale a versão 2. x ou posterior do [Azure Functions Core Tools](functions-run-local.md#v2). O pacote de ferramentas principais é baixado e instalado automaticamente quando você inicia o projeto localmente. As ferramentas principais incluem todo o tempo de execução de Azure Functions, portanto, o download e a instalação podem levar algum tempo.
 
 * Instale os requisitos específicos para a linguagem de programação escolhida:
 
-    | idioma | Requisito |
+    | Idioma | Requisito |
     | -------- | --------- |
     | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[Ferramentas de CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Depurador para extensão Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou posterior](https://maven.apache.org/) |
@@ -311,7 +311,7 @@ Os valores em **ConnectionStrings** nunca são publicados.
 Os valores das configurações do aplicativo de funções também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, consulte as seções de variáveis de ambiente desses artigos de referência específicos a um idioma:
 
 * [C# pré-compilado](functions-dotnet-class-library.md#environment-variables)
-* [Script do C# (.csx)](functions-reference-csharp.md#environment-variables)
+* [Script do C# (. CSx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -359,7 +359,7 @@ Para saber mais, confira [logs de streaming](functions-monitoring.md#streaming-l
 > [!NOTE]
 > Os logs de streaming dão suporte a apenas uma única instância do host do functions. Quando a função é dimensionada para várias instâncias, os dados de outras instâncias não são mostrados no fluxo de log. [Live Metrics Stream](../azure-monitor/app/live-stream.md) no Application insights oferece suporte a várias instâncias. Embora também esteja quase em tempo real, o Stream Analytics é baseado em [dados de amostra](functions-monitoring.md#configure-sampling).
 
-### <a name="application-insights"></a>Application Insights
+### <a name="application-insights"></a>Percepções sobre o Aplicativo
 
 Recomendamos que você monitore a execução de suas funções integrando seu aplicativo de funções com Application Insights. Quando você cria um aplicativo de funções no portal do Azure, essa integração ocorre por padrão. Ao criar seu aplicativo de funções durante a publicação do Visual Studio, você precisa integrar Application Insights você mesmo.
 
@@ -383,7 +383,7 @@ Depois de concluir essas etapas, as chamadas feitas às ferramentas básicas sub
 
 A extensão Azure Functions fornece uma interface gráfica útil na área para interagir com seus aplicativos de funções no Azure. A mesma funcionalidade também está disponível como comandos na paleta de comandos (F1). Estes Azure Functions comandos estão disponíveis:
 
-|Azure Functions comando  | DESCRIÇÃO  |
+|Azure Functions comando  | Descrição  |
 |---------|---------|
 |**Adicionar novas configurações**  |  Cria uma nova configuração de aplicativo no Azure. Para saber mais, consulte [Publicar configurações do aplicativo](#publish-application-settings). Talvez você também precise [baixar essa configuração para suas configurações locais](#download-settings-from-azure). |
 | **Configurar a origem da implantação** | Conecta seu aplicativo de funções no Azure a um repositório git local. Para saber mais, consulte [implantação contínua para Azure Functions](functions-continuous-deployment.md). |
@@ -416,7 +416,7 @@ A extensão Azure Functions fornece uma interface gráfica útil na área para i
 | **Exibir confirmação no GitHub** | Mostra a confirmação mais recente em uma implantação específica quando seu aplicativo de funções está conectado a um repositório. |
 | **Exibir logs de implantação** | Mostra os logs de uma implantação específica para o aplicativo de funções no Azure. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre Azure Functions Core Tools, confira [trabalhar com Azure Functions Core Tools](functions-run-local.md).
 

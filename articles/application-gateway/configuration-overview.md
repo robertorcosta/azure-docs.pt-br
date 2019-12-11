@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108729"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996622"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -25,7 +25,7 @@ Esta imagem ilustra um aplicativo que tem três ouvintes. Os dois primeiros são
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Rede virtual do Azure e sub-rede dedicada
 
@@ -48,7 +48,7 @@ Recomendamos que você use um tamanho de sub-rede de pelo menos/28. Esse tamanho
 
 Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Mas há várias restrições:
 
-- Você deve permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para o SKU do gateway de aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como *qualquer*. Esse intervalo de portas é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem iniciar alterações nesses pontos de extremidade sem certificados apropriados em vigor.
+- Você deve permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para o SKU do gateway de aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como *qualquer*. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem iniciar alterações nesses pontos de extremidade sem certificados apropriados em vigor.
 
 - A conectividade de internet de saída não pode ser bloqueada. As regras de saída padrão no NSG permitem a conectividade com a Internet. É recomendável que você:
 
@@ -62,7 +62,7 @@ Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Ma
 Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as seguintes restrições na sub-rede nesta ordem de prioridade:
 
 1. Permitir o tráfego de entrada de um IP de origem ou intervalo de IP e o destino como toda a sub-rede do gateway de aplicativo ou para o IP de front-end privado configurado específico. O NSG não funciona em um IP público.
-2. Permitir solicitações de entrada de todas as fontes para as portas 65503-65534 para o SKU do gateway de aplicativo v1 e as portas 65200-65535 para SKU v2 para [comunicação de integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esse intervalo de portas é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados em vigor, as entidades externas não podem iniciar alterações nesses pontos de extremidade.
+2. Permitir solicitações de entrada de todas as fontes para as portas 65503-65534 para o SKU do gateway de aplicativo v1 e as portas 65200-65535 para SKU v2 para [comunicação de integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados em vigor, as entidades externas não podem iniciar alterações nesses pontos de extremidade.
 3. Permitir investigações de Azure Load Balancer de entrada (marca*AzureLoadBalancer* ) e tráfego de rede virtual de entrada (marca*VirtualNetwork* ) no [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquear todos os outros tráfegos de entrada usando uma regra negar-tudo.
 5. Permitir tráfego de saída para a internet para todos os destinos.
@@ -153,7 +153,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 O suporte ao WebSocket está habilitado por padrão. Não há nenhuma configuração configurável pelo usuário para habilitá-la ou desabilitá-la. Você pode usar Websockets com ouvintes HTTP e HTTPS.
 
-### <a name="custom-error-pages"></a>Páginas de erro personalizadas
+### <a name="custom-error-pages"></a>Páginas de erros personalizados
 
 Você pode definir um erro personalizado no nível global ou no nível do ouvinte. No momento, não há suporte para a criação de páginas de erro personalizadas de nível global do portal do Azure. Você pode configurar uma página de erro personalizada para um erro de firewall do aplicativo Web 403 ou uma página de manutenção de 502 no nível do ouvinte. Você também deve especificar uma URL de blob publicamente acessível para o código de status de erro fornecido. Para obter mais informações, confira [Criar páginas de erro personalizadas do Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
@@ -256,7 +256,7 @@ Esse recurso é útil quando você deseja manter uma sessão de usuário no mesm
 
 ### <a name="connection-draining"></a>Descarregamento de conexão
 
-O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam novas solicitações. Enquanto isso, as solicitações existentes podem ser concluídas dentro de um limite de tempo configurado. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end.
+O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end continuem a manter as conexões existentes e atendem a solicitações em andamento para um tempo limite configurável e não recebam novas solicitações ou conexões. A única exceção a isso são solicitações associadas para o desregistro de instâncias devido à afinidade de sessão gerenciada por gateway e continuarão a ser proxy para as instâncias de desregistro. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end.
 
 ### <a name="protocol"></a>Protocolo
 
@@ -264,7 +264,7 @@ O gateway de aplicativo dá suporte a HTTP e HTTPS para roteamento de solicitaç
 
 Essa configuração combinada com HTTPS no ouvinte dá suporte a [SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Isso permite que você transmita com segurança dados confidenciais criptografados para o back-end. Cada servidor back-end no pool de back-end que tem o SSL de ponta a ponta habilitado deve ser configurado com um certificado para permitir a comunicação segura.
 
-### <a name="port"></a>Port
+### <a name="port"></a>Porta
 
 Essa configuração especifica a porta em que os servidores back-end escutam o tráfego do gateway de aplicativo. Você pode configurar portas que variam de 1 a 65535.
 
@@ -340,7 +340,7 @@ Um gateway de aplicativo monitora a integridade de todos os recursos em seu back
 > [!NOTE]
 > Depois de criar uma investigação de integridade personalizada, você precisa associá-la a uma configuração de HTTP de back-end. Uma investigação personalizada não monitorará a integridade do pool de back-end, a menos que a configuração de HTTP correspondente esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você conhece os componentes do gateway de aplicativo, você pode:
 

@@ -1,19 +1,19 @@
 ---
 title: Examinando o status do trabalho de Importação/Exportação do Azure — v1 | Microsoft Docs
 description: Saiba como usar os arquivos de log criados durante a execução do trabalho de importação ou exportação para ver o status do trabalho de Importação/Exportação.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/26/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 306e3ccf19ba8db2de01e4b20a52707215a4a040
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 075af43796d3ca3dfef4b48f8f98f20903af3308
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320699"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978961"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Examinando o Status do trabalho de Importação/Exportação do Azure com cópias de arquivos de log
 Quando o serviço de Importação/Exportação do Microsoft Azure processa unidades associadas a um trabalho de importação ou exportação, ele grava arquivos de log de cópia na conta de armazenamento para a qual ou da qual os blobs estão sendo importados ou exportados. O arquivo de log contém o status detalhado sobre cada arquivo importado ou exportado. A URL para cada arquivo de log de cópia é retornada ao consultar o status de um trabalho concluído; consulte [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get) (Obter Trabalho) para obter mais informações.  
@@ -28,7 +28,7 @@ Estas são URLs de exemplo para arquivos de log de cópia de um trabalho de impo
   
  Confira [Formato de arquivo de log de serviço de Importação/Exportação](../storage-import-export-file-format-log.md) para obter o formato dos logs de cópia e a lista completa de códigos de status.  
   
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
  
  * [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)   
  * [Preparação de discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   

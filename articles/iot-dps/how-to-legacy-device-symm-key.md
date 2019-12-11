@@ -1,6 +1,6 @@
 ---
 title: Provisionar dispositivos herdados usando chaves simétricas – serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como usar chaves simétricas para provisionar dispositivos herdados com sua instância do serviço de provisionamento de dispositivos
+description: Como usar chaves simétricas para provisionar dispositivos herdados com sua instância do serviço de provisionamento de dispositivos (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 3e3b54592608f5c39d618f5ceda40747ad4fd0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c9beda9c271c755c9ea61498b24a9e40bde35a7e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209925"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975101"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como provisionar dispositivos herdados usando chaves simétricas
 
@@ -30,7 +30,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 > [!NOTE]
 > O exemplo usado neste artigo é escrito em C. Também há um [ C# exemplo de chave simétrica de provisionamento de dispositivos](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) disponível. Para usar este exemplo, baixe ou clone o repositório [Azure-IOT-Samples-Csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e siga as instruções embutidas no código de exemplo. Você pode seguir as instruções neste artigo para criar um grupo de registro de chave simétrica usando o portal e para localizar o escopo da ID e as chaves primárias e secundárias necessárias para executar o exemplo. Você também pode criar registros individuais usando o exemplo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Uma ID de registro exclusiva será definida para cada dispositivo com base nas informações que identificam esse dispositivo. Por exemplo, o endereço MAC ou um número de série.
 
@@ -41,7 +41,7 @@ O código de dispositivo demonstrado neste artigo seguirá o mesmo padrão que o
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md).
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com a carga de trabalho ["Desenvolvimento para desktop com C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
@@ -139,7 +139,7 @@ Crie uma ID de registro exclusiva para seu dispositivo. Os caracteres válidos s
 
 ## <a name="derive-a-device-key"></a>Derivar uma chave de dispositivo 
 
-Para gerar a chave do dispositivo, use a chave mestra de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
+Para gerar a chave do dispositivo, use a chave mester de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
 
 Não inclua a chave mestra de grupo em seu código de dispositivo.
 
@@ -277,7 +277,7 @@ Entenda que isso deixa a chave de dispositivo derivada incluída como parte da i
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
 * [Início Rápido: provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338826"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977719"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia v3
 
@@ -44,7 +44,7 @@ Ao usar a paginação, você sempre deve usar o próximo link para enumerar a co
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quais recursos ainda não estão disponíveis nos serviços de mídia do Azure v3?
 
-Para obter detalhes, confira lacunas de [recursos em relação às APIs v2](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+Para obter detalhes, confira [lacunas de recursos em relação às APIs v2](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual é o processo de mover uma conta de serviços de mídia entre assinaturas?  
 
@@ -90,7 +90,7 @@ No STS, dependendo do perfil do usuário, adicione declarações diferentes (com
 
 Use as APIs dos serviços de mídia do Azure para configurar a entrega de licença/chave e criptografar seus ativos (conforme mostrado neste [exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Visão geral da proteção de conteúdo](content-protection-overview.md)
 - [Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso](design-multi-drm-system-with-access-control.md)
@@ -119,11 +119,14 @@ Muitas vezes os clientes investiram em um farm de servidores de licença em seu 
 * O STS precisa emitir tokens que sejam aceitáveis e possam ser verificados pelo farm de servidores de licença. Por exemplo, os servidores de licença do Widevine fornecidos pela Axinom exigem um JWT específico que contém uma mensagem de autorização. Portanto, você precisa ter um STS para emitir esse JWT. 
 * Você não precisa mais configurar o serviço de entrega de licença nos Serviços de Mídia. Você precisa fornecer URLs de aquisição de licença (para o PlayReady, o Widevine e o FairPlay) ao configurar o ContentKeyPolicies.
 
+> [!NOTE]
+> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="media-services-v2-vs-v3"></a>Serviços de Mídia v2 comparado com v3 
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Eu posso usar o portal do Azure para gerenciar recursos da v3?
 
-Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
+Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito de AssetFile no v3?
 
@@ -135,6 +138,6 @@ Para obter mais informações, confira [Migrar para os Serviços de Mídia v3](m
 
 Agora é recomendável usar a criptografia de armazenamento do lado do servidor (que está ativada por padrão). Para obter mais informações, consulte [Criptografia de serviço do Armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral dos Serviços de Mídia v3](media-services-overview.md)

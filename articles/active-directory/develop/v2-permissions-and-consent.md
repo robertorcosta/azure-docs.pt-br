@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1ff874ee74864c84c976096ac5f7fa4b20cfab48
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271509"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996996"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -60,7 +60,7 @@ No OAuth 2.0, esses tipos de permissão são chamados de *escopos*. Eles também
 * Escrever no calendário de um usuário usando o `Calendars.ReadWrite`
 * Enviar email como um usuário usando `Mail.Send`
 
-Um aplicativo geralmente solicita essas permissões especificando os escopos em solicitações para o ponto de extremidade de autorização da plataforma de identidade da Microsoft. No entanto, certas permissões de alto privilégio só podem ser concedidas por meio do consentimento do administrador e solicitadas/concedidas usando o [ponto de extremidade de consentimento](v2-permissions-and-consent.md#admin-restricted-permissions)do Continue lendo para saber mais.
+Um aplicativo geralmente solicita essas permissões especificando os escopos em solicitações para o ponto de extremidade de autorização da plataforma de identidade da Microsoft. No entanto, certas permissões de alto privilégio só podem ser concedidas por meio do consentimento do administrador e solicitadas/concedidas usando o [ponto de extremidade de consentimento](v2-permissions-and-consent.md#admin-restricted-permissions)do Leia para saber mais.
 
 ## <a name="permission-types"></a>Tipos de permissão
 
@@ -98,7 +98,10 @@ O escopo do `profile` pode ser usado com o escopo do `openid` e com muitos outro
 
 O [escopo do `offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) concede ao seu aplicativo acesso a recursos em nome do usuário por um longo período. Na página de consentimento, esse escopo aparece como a permissão "Manter o acesso aos dados para os quais recebeu acesso". Quando um usuário aprova o escopo de `offline_access`, seu aplicativo pode receber tokens de atualização do ponto de extremidade de token da plataforma de identidade da Microsoft. Os tokens de atualização têm uma vida longa. Seu aplicativo pode obter novos tokens de acesso quando os mais antigos expirarem.
 
-Se o aplicativo não solicitar explicitamente o escopo `offline_access`, ele não receberá tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md), você só receberá de volta um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período. Geralmente, o token de acesso expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário novamente para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário poderá ou não precisar inserir suas credenciais novamente ou consentir de novo as permissões. Embora o escopo de `offline_access` seja solicitado automaticamente pelo servidor, o cliente ainda deve solicitá-lo para receber os tokens de atualização.
+> [!NOTE]
+> Essa permissão aparece em todas as telas de consentimento hoje, mesmo para fluxos que não fornecem um token de atualização (o [fluxo implícito](v2-oauth2-implicit-grant-flow.md)).  Isso é para abranger cenários em que um cliente pode começar dentro do fluxo implícito e, em seguida, ir até o fluxo de código em que um token de atualização é esperado.
+
+Na plataforma de identidade da Microsoft (solicitações feitas ao ponto de extremidade v 2.0), seu aplicativo deve solicitar explicitamente o escopo de `offline_access`, para receber tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md), você só receberá de volta um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período. Geralmente, o token de acesso expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário novamente para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário poderá ou não precisar inserir suas credenciais novamente ou consentir de novo as permissões. 
 
 Para obter mais informações sobre como obter e usar tokens de atualização, consulte a [referência de protocolo de plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
@@ -197,12 +200,12 @@ Quando estiver pronto para solicitar permissões do administrador da sua organiz
 ```
 
 
-| .     | Condição     | DESCRIÇÃO                                                                               |
+| .     | Condição     | Descrição                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | obrigatórios | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido no GUID ou formato de nome amigável, OU referenciado de maneira genérica com `common`, como visto no exemplo. |
 | `client_id` | obrigatórios | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
 | `redirect_uri` | obrigatórios |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
-| `state` | Recomendadas | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+| `state` | Recomendado | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 |`scope`        | obrigatórios      | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Pode ser estático (usando/.default) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC (`openid`, `profile`, `email`). | 
 
 
@@ -216,7 +219,7 @@ Se o administrador aprovar as permissões para o seu aplicativo, a resposta bem-
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| . | DESCRIÇÃO |
+| . | Descrição |
 | --- | --- |
 | `tenant` | O locatário do diretório que concedeu as permissões solicitadas, no formato de GUID. |
 | `state` | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
@@ -230,7 +233,7 @@ Se o administrador não aprovar as permissões para o seu aplicativo, a resposta
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| . | DESCRIÇÃO |
+| . | Descrição |
 | --- | --- |
 | `error` | Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | `error_description` | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro. |

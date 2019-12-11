@@ -1,18 +1,18 @@
 ---
 title: Como provisionar dispositivos para multilocação no serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como fornecer o provisionamento dos dispositivos para multilocação com a Instância de Serviço de Provisionamento de Dispositivos
+description: Como provisionar dispositivos para multilocação com sua instância do serviço de provisionamento de dispositivos (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228782"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974948"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
@@ -36,7 +36,7 @@ Este artigo usa uma amostra de dispositivo simulado com o [SDK do Azure IoT C](h
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md).
 
@@ -248,7 +248,7 @@ Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exe
 
 Ao usar o atestado de chave simétrica com registros em grupo, você não usa as chaves de registro de grupo diretamente. Em vez disso, você cria uma chave derivada e exclusiva para cada dispositivo e mencionada em [Registros de Grupo com chaves simétricas](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Para gerar a chave do dispositivo, use a chave mestra de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
+Para gerar a chave do dispositivo, use a chave mester de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
 
 Não inclua a chave mestra de grupo em seu código de dispositivo.
 
@@ -417,7 +417,7 @@ Para excluir o grupo de recursos por nome:
 
 4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
 - Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 

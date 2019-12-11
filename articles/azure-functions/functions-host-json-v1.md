@@ -3,12 +3,12 @@ title: Referência de host.json para as funções do Azure 1.x
 description: Documentação de referência para o arquivo host.json do Azure Functions com o runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 99a571483086343d4e7d6188b2f401abc616c1bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 256cd47fa0f309bef46c7f72951810d5f76d0fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230584"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975458"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referência de host.json para as funções do Azure 1.x
 
@@ -19,7 +19,7 @@ ms.locfileid: "74230584"
 O arquivo de metadados *host.json* contém opções de configuração global que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações disponíveis para o runtime v1. O esquema JSON está em http://json.schemastore.org/host.
 
 > [!NOTE]
-> Este artigo serve para o Azure Functions 1.x.  Para obter uma referência de host.json em Funções 2.x, consulte a referência [host.json para as Funções do Azure 2.x](functions-host-json.md).
+> Este artigo serve para o Azure Functions 1.x.  Para obter uma referência de host. JSON nas funções 2. x e posterior, consulte [referência de host. JSON para Azure Functions 2. x](functions-host-json.md).
 
 Outras opções de configuração de aplicativo de funções são gerenciadas nas [configurações de aplicativo](functions-app-settings.md).
 
@@ -136,11 +136,11 @@ Definições de configuração para o [gatilho Azure Cosmos DB e associações](
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB.  Leia [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|n/d|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
+|leasePrefix|N/D|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -152,7 +152,7 @@ Definições de configuração para [gatilhos e associações de Hub de Eventos]
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>funções
+## <a name="functions"></a>functions
 
 Uma lista de funções que o host de trabalho executa. Uma matriz vazia significa que todas as funções serão executadas. Para uso somente quando [em execução localmente](functions-run-local.md). Em aplicativos de funções no Azure, você deve seguir as etapas em [Como desabilitar funções no Azure Functions](disable-function.md) para desabilitar funções específicas em vez de usar essa configuração.
 
@@ -188,9 +188,9 @@ Definições de configuração para [monitor de integridade de Host](https://git
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|enabled|verdadeiro|Especifica se o recurso está habilitado. | 
+|habilitado|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
 |healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
@@ -211,9 +211,9 @@ Parâmetros de configuração para [gatilhos e associações http](functions-bin
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|dynamicThrottlesEnabled|false|Quando habilitada, essa configuração faz o pipeline de processamento de solicitação verificar periodicamente os contadores de desempenho do sistema como conexões/threads/processos/memória/cpu/etc. e, se algum desses contadores tiver excedido um alto limite interno (80%), as solicitações serão rejeitadas com a resposta 429 "Muito ocupado" até que os contadores retornem aos níveis normais.|
+|dynamicThrottlesEnabled|falso|Quando habilitada, essa configuração faz o pipeline de processamento de solicitação verificar periodicamente os contadores de desempenho do sistema como conexões/threads/processos/memória/cpu/etc. e, se algum desses contadores tiver excedido um alto limite interno (80%), as solicitações serão rejeitadas com a resposta 429 "Muito ocupado" até que os contadores retornem aos níveis normais.|
 |maxConcurrentRequests|Não associado (`-1`)|O número máximo de funções http que serão executadas em paralelo. Isso permite controlar a simultaneidade, o que pode ajudar a gerenciar a utilização de recursos. Por exemplo, talvez você tenha uma função http que use muitos recursos do sistema (memória/cpu/soquetes), de modo que ela causará problemas quando a simultaneidade for muito alta. Ou talvez você tenha uma função que faça solicitações de saída a um serviço de terceiro, e essas chamadas precisem ser limitadas por taxa. Nesses casos, aplicar uma limitação aqui pode ajudar.|
 |maxOutstandingRequests|Não associado (`-1`)|O número máximo de solicitações pendentes mantidas em um dado momento. Esse limite inclui solicitações que estão na fila, mas não iniciaram a execução, bem como qualquer execução em andamento. Quaisquer solicitações recebidas acima desse limite são rejeitadas com uma resposta "Muito ocupado" 429. Isso permite que os chamadores empreguem estratégias de repetição com base em tempo e também ajuda você a controlar as latências máximas de solicitação. Isso controla apenas o enfileiramento que ocorre no caminho de execução do host de script. Outras filas, como a fila de solicitação ASP.NET, ainda estarão vigor e não serão afetadas por essa configuração.|
 |routePrefix|api|O prefixo da rota que se aplica a todas as rotas. Use uma cadeia de caracteres vazia para remover o prefixo padrão. |
@@ -249,11 +249,11 @@ Controles de filtragem de logs gravados por um [objeto ILogger](functions-monito
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|categoryFilter|n/d|Especifica a filtragem por categoria| 
+|categoryFilter|N/D|Especifica a filtragem por categoria| 
 |defaultLevel|Informações|Para as categorias não especificadas na matriz `categoryLevels`, envie logs nesse nível e acima para o Application Insights.| 
-|categoryLevels|n/d|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
+|categoryLevels|N/D|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
 
 ## <a name="queues"></a>filas
 
@@ -271,7 +271,7 @@ Parâmetros de configuração para [gatilhos e associações de Armazenamento](f
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |maxPollingInterval|60000|O intervalo máximo em milissegundos entre as votações da fila.| 
 |visibilityTimeout|0|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha.| 
@@ -290,9 +290,9 @@ Parâmetro de configuração para a [Associação de saída SendGrind](functions
     }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|from|n/d|Endereço de email do remetente em todas as funções.| 
+|Da|N/D|Endereço de email do remetente em todas as funções.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -308,10 +308,10 @@ Parâmetro de configuração para [gatilhos e associações do Barramento de Ser
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagens deve iniciar. Por padrão, o runtime do Functions processa várias mensagens simultaneamente. Para direcionar o runtime para processar uma única fila ou mensagem de tópico de cada vez, defina `maxConcurrentCalls` como 1. | 
-|prefetchCount|n/d|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.| 
+|prefetchCount|N/D|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.| 
 |autoRenewTimeout|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.| 
 
 ## <a name="singleton"></a>singleton
@@ -330,13 +330,13 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/d|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="tracing"></a>rastreamento
 
@@ -353,7 +353,7 @@ Parâmetros de configuração para logs que você cria usando um objeto `TraceWr
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |consoleLevel|informações|O nível de rastreamento para o registro em log no console. As opções são: `off`, `error`, `warning`, `info` e `verbose`.|
 |fileLoggingMode|debugOnly|O nível de rastreamento para registros em log de arquivo. As opções são: `never`, `always` e `debugOnly`.| 
@@ -368,7 +368,7 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como atualizar o arquivo host.json](functions-reference.md#fileupdate)

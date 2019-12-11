@@ -1,23 +1,23 @@
 ---
 title: Gerenciar registros de dispositivo usando SDKs do Azure DPS
-description: Como gerenciar registros de dispositivo no Serviço de Provisionamento de Dispositivos no Hub IoT usando os SDKs de Serviço
+description: Como gerenciar registros de dispositivo no DPS (serviço de provisionamento de dispositivos) do Hub IoT usando os SDKs do serviço
 author: robinsh
 ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 75a24fd6b8cafe03ae8090e6f8bf71a27459c7eb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228813"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975067"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerenciar registros de dispositivo com SDKs do Serviço de Provisionamento de Dispositivos do Azure
 Um *registro de dispositivo* cria um registro de um único dispositivo ou um grupo de dispositivos que pode em algum momento registrar com o Serviço de Provisionamento de Dispositivos. O registro contém a configuração inicial desejada para os dispositivos como parte desse registro, incluindo o Hub IoT desejado. Este artigo mostra como gerenciar registros de dispositivo para seu serviço de provisionamento programaticamente usando os SDKs de Serviço de Provisionamento do Azure IoT.  Os SDKs do estão disponíveis no GitHub no mesmo repositório dos SDKs do Azure IoT.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Obtenha a cadeia de conexão da instância do Serviço de Provisionamento de Dispositivos.
 * Obter os artefatos de segurança do dispositivo para o [mecanismo de atestado](concepts-security.md#attestation-mechanism) usado:
     * [**TPM (Trusted Platform Module)** ](/azure/iot-dps/concepts-security#trusted-platform-module):

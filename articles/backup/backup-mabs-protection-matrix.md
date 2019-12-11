@@ -3,12 +3,12 @@ title: Que tipo de backup o Servidor de Backup do Azure pode fazer
 description: Este artigo fornece uma matriz de suporte listando todas as cargas de trabalho, tipos de dados e instalações que o Servidor de Backup do Azure protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: a7794ac82c70239693e91b3ae65c6292a6b4ed7f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7e34ba81ad20b2d6a4e89995ab8b834f5f7dc725
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841346"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996146"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Servidor de Backup do Azure
 
@@ -38,7 +38,8 @@ Este artigo lista os vários servidores e as cargas de trabalho que você pode p
 |Servidores (32 bits e 64 bits)|Windows Server 2008 SP2|Servidor físico<br /><br />Máquina virtual local do Hyper-V<br /> <br /> Azure Stack|Sem suporte|Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal|
 |Servidores (32 bits e 64 bits)|Windows Server 2008 SP2|Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal|
 |Servidores (32 bits e 64 bits)|Windows Storage Server 2008|Servidor físico<br /><br />Máquina virtual local do Hyper-V<br /> <br /> Azure Stack|V3, V2|Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal|
-|SQL Server|SQL Server 2017|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3|Todos os cenários de implantação: banco de dados|
+|SQL Server|SQL Server 2019|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure) <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3|Todos os cenários de implantação: banco de dados|
+|SQL Server|SQL Server 2017|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure) <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3|Todos os cenários de implantação: banco de dados|
 |SQL Server|Microsoft SQL Server 2016 SP2|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implantação: banco de dados|
 |SQL Server|SQL Server 2016 SP1|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implantação: banco de dados|
 |SQL Server|SQL Server 2016|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implantação: banco de dados|

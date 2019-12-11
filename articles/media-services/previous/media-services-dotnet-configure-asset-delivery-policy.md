@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b5e733c93fef8920c73c8cf460dac7a7051fddb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab3c40ee408498453bb137c63c440d980b0b7255
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465602"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974505"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configurar políticas de entrega de ativos usando o SDK do .NET
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Se você planeja entregar ativos criptografados, uma das etapas do fluxo de trabalho de fornecimento de conteúdo de Serviços de Mídia é configurar políticas de entrega de ativos. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum).
 
 Este artigo discute como e por que criar e configurar políticas de entrega de ativos.
@@ -38,7 +38,7 @@ Você pode aplicar políticas diferentes para o mesmo ativo. Por exemplo, você 
 
 Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia de envelope de AES (Criptografia Avançada Padrão), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a criptografia de armazenamento e transmitir o ativo não criptografado, defina o tipo de política como **NoDynamicEncryption**. Seguem exemplos que mostram como configurar esses tipos de política.
 
-Dependendo de como você configura a política de entrega de ativos, é possível empacotar, criptografar e transmitir dinamicamente os seguintes protocolos de transmissão: Smooth Streaming, HLS e MPEG DASH.
+Dependendo de como configurar a política de entrega de ativos, você pode empacotar e criptografar dinamicamente, bem como transmitir os seguintes protocolos de streaming: MPEG DASH, HLS e Smooth Streaming.
 
 A lista a seguir mostra os formatos usados para transmitir Smooth, HLS e DASH.
 
@@ -57,12 +57,12 @@ MPEG DASH
 ## <a name="considerations"></a>Considerações
 * Antes de excluir o AssetDeliveryPolicy, você deverá excluir todos os localizadores de streaming associados ao ativo. Posteriormente, você poderá criar novos localizadores de streaming, se desejar, com um novo AssetDeliveryPolicy.
 * Não é possível criar um localizador de streaming em um ativo criptografado para armazenamento quando nenhuma política de entrega de ativo estiver definida.  Se o Ativo não estiver criptografado para armazenamento, o sistema permitirá que você crie um localizador e transmita o ativo sem uma política de entrega de ativos.
-* Você pode ter várias políticas de entrega de ativos associadas a um único ativo, mas pode especificar apenas uma maneira de lidar com um determinado AssetDeliveryProtocol.  Isso significa que se você tentar vincular duas políticas de entrega que especificam o protocolo AssetDeliveryProtocol.SmoothStreaming, o resultado será um erro, pois o sistema não sabe qual delas você desejará aplicar quando um cliente fizer uma solicitação do Smooth Streaming.
-* Se você tiver um ativo com um localizador de streaming existente, não será possível vincular uma nova política ao ativo (você pode desvincular uma política existente do ativo ou atualizar uma política de entrega associada ao ativo).  Primeiramente, você precisa remover o localizador de streaming, ajustar as políticas e recriar o localizador de streaming.  Você pode usar o mesmo locatorId quando recriar o localizador de streaming, mas certifique-se de que isso não causará problemas para os clientes, uma vez que o conteúdo pode ser armazenado em cache pela CDN de origem ou downstream.
+* Você pode ter várias políticas de entrega de ativos associadas a um único ativo, mas pode especificar apenas uma maneira de lidar com um determinado AssetDeliveryProtocol.  Isso significa que se você tentar vincular duas políticas de entrega que especificam o protocolo AssetDeliveryProtocol.SmoothStreaming, o resultado será um erro pois o sistema não sabe qual delas você deseja aplicar quando um cliente fizer uma solicitação de Smooth Streaming.
+* Se você tiver um ativo com um localizador de streaming existente, não será possível vincular uma nova política ao ativo (você pode desvincular uma política existente do ativo ou atualizar uma política de entrega associada ao ativo).  Primeiro, você precisa remover o localizador de streaming, ajustar as políticas e, em seguida, recriar o localizador de streaming.  Você pode usar o mesmo locatorId quando recriar o localizador de streaming, mas certifique-se de que isso não causará problemas para os clientes uma vez que o conteúdo pode ser armazenado em cache pelo CDN de origem ou downstream.
 
 ## <a name="clear-asset-delivery-policy"></a>Política de entrega de ativos clara
 
-O método **ConfigureClearAssetDeliveryPolicy** a seguir especifica para não aplicar criptografia dinâmica nem entregar a transmissão em qualquer um dos seguintes protocolos:  Protocolos de MPEG DASH, HLS e Smooth Streaming. Você talvez queira aplicar essa política para seus ativos de armazenamento criptografados.
+O seguinte método **ConfigureClearAssetDeliveryPolicy** especifica para não aplicar criptografia dinâmica e entregar o fluxo em qualquer um dos seguintes protocolos: MPEG DASH, HLS e Smooth Streaming. Você talvez queira aplicar essa política para seus ativos de armazenamento criptografados.
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .
 
@@ -79,7 +79,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 ```
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Política de entrega de ativos DynamicCommonEncryption
 
-O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy**, que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) a um protocolo de streaming suave (outros protocolos de streaming serão bloqueados no streaming). O método utiliza dois parâmetros: **Asset** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **CommonEncryption**. Para saber mais, confira: [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#common_contentkey)).
+O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy**, que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) a um protocolo de streaming suave (outros protocolos de streaming serão bloqueados no streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **CommonEncryption**. Para obter mais informações, consulte: [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .
 
@@ -156,7 +156,7 @@ Os Serviços de Mídia do Azure também permitem que você adicione criptografia
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Política de entrega de ativos DynamicEnvelopeEncryption
-O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para Smooth Streaming, protocolos HLS e DASH (se você optar por não especificar outros protocolos, eles serão bloqueados do streaming). O método utiliza dois parâmetros: **Asset** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **EnvelopeEncryption**. Para saber mais, confira: [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para Smooth Streaming, protocolos HLS e DASH (se você optar por não especificar outros protocolos, eles serão bloqueados do streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **EnvelopeEncryption**. Para obter mais informações, consulte: [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .   
 
@@ -349,6 +349,11 @@ O enum a seguir descreve os valores que você pode definir para configurar as ch
         WidevineLicenseAcquisitionUrl
     }
 ```
+
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

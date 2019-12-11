@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: eeb1dc44341768984bd6e337a2fe65a277f5aa77
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581210"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977770"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteger seu conteúdo com a criptografia dinâmica dos serviços de mídia
 
@@ -124,7 +124,7 @@ O protocolo HLS dá suporte aos seguintes formatos de contêiner e esquemas de c
 
 |Formato de contêiner|Esquema de criptografia|Exemplo de URL|
 |---|---|---|
-|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|Tudo|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
@@ -142,7 +142,7 @@ O protocolo MPEG-DASH dá suporte aos seguintes formatos de contêiner e esquema
 
 |Formato de contêiner|Esquema de criptografia|Exemplos de URL
 |---|---|---|
-|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|Tudo|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
@@ -244,7 +244,10 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId` tem um valor da chave solicitada. Você pode usar `AlternativeMediaId` se quiser mapear a solicitação para uma entidade no seu lado. Por exemplo, `AlternativeMediaId` pode ser usado para ajudá-lo a Pesquisar permissões.
 
- Para obter exemplos de REST que usam URLs de licença/chave personalizadas, consulte [políticas de streaming – criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Para obter exemplos de REST que usam URLs de licença/chave personalizadas, consulte [políticas de streaming – criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+
+> [!NOTE]
+> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -256,7 +259,7 @@ Se você receber erros que terminem com `_NOT_SPECIFIED_IN_URL`, certifique-se d
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Proteger com criptografia AES](protect-with-aes128.md)
 * [Proteger com DRM](protect-with-drm.md)

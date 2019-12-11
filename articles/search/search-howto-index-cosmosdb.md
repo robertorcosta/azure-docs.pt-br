@@ -9,18 +9,21 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9301da884e26a65b198c885000159c383655b2d5
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 616e5dc5ac6416d2efe1d9338b99c2b400fe572a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771455"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977107"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar dados de Cosmos DB usando um indexador no Azure Pesquisa Cognitiva 
 
 > [!IMPORTANT] 
 > A API do SQL está geralmente disponível.
 > A API do MongoDB, a API Gremlin e o suporte a API do Cassandra estão atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Você pode solicitar acesso às visualizações preenchendo [este formulário](https://aka.ms/azure-cognitive-search/indexer-preview). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de versão prévia. Atualmente, há suporte limitado ao portal e não há suporte para o SDK do .NET.
+
+> [!WARNING]
+> Somente as coleções Cosmos DB com uma [política de indexação](https://docs.microsoft.com/azure/cosmos-db/index-policy) definida como [consistente](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) são suportadas pelo Azure pesquisa cognitiva. A indexação de coleções com uma política de indexação lenta não é recomendada e pode resultar em dados ausentes. Não há suporte para coleções com indexação desabilitadas.
 
 Este artigo mostra como configurar um [indexador](search-indexer-overview.md) Azure Cosmos DB para extrair conteúdo e torná-lo pesquisável no Azure pesquisa cognitiva. Este fluxo de trabalho cria um índice de Pesquisa Cognitiva do Azure e o carrega com o texto existente extraído do Azure Cosmos DB. 
 

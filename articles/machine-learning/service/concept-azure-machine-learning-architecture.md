@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1e67fc3a2f878e5e04834f67027c98e0b37e9059
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580627"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973587"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: arquitetura e conceitos
 
@@ -59,8 +59,8 @@ Use estas ferramentas para Azure Machine Learning:
 + <a href="#compute-instance">VM do notebook</a>
 + <a href="#compute-targets">Destinos de computação</a>
 + <a href="#datasets-and-datastores">Repositórios de & de conjunto de armazenamento</a>
-+ <a href="#endpoints">Pontos de extremidade</a>
-+ <a href="#environments">Sistemas</a>
++ <a href="#endpoints">EndPoints</a>
++ <a href="#environments">Ambientes</a>
 + [Estimativas](#estimators)
 + <a href="#experiments">Testes</a>
 + <a href="#github-tracking-and-integration">Rastreamento de git</a>
@@ -73,9 +73,9 @@ Use estas ferramentas para Azure Machine Learning:
 + <a href="#snapshots">Instantâneo</a>
 + <a href="#training-scripts">Script de treinamento</a>
 + <a href="#web-service-endpoint">Serviços Web</a>
-+ <a href="#workspaces">Espaço</a>
++ <a href="#workspaces">Workspace</a>
 
-### <a name="activities"></a>atividades
+### <a name="activities"></a>Atividades
 
 Uma atividade representa uma operação de execução demorada. As operações a seguir estão exemplos de atividades:
 
@@ -106,7 +106,7 @@ Para obter mais informações, consulte [criar e registrar conjuntos de dados Az
 
 Um **datastore** é uma abstração de armazenamento em uma conta de armazenamento do Azure. O repositório de dados pode usar um contêiner de blob do Azure ou um compartilhamento de arquivos do Azure como o armazenamento de back-end. Cada workspace tem um repositório de dados padrão e você poderá registrar repositórios de dados adicionais. Use a API do SDK do Python ou a CLI do Azure Machine Learning para armazenar e recuperar arquivos do repositório de dados.
 
-### <a name="endpoints"></a>Pontos de extremidade
+### <a name="endpoints"></a>Pontos de Extremidade
 
 Um ponto de extremidade é uma instanciação do seu modelo em um serviço Web que pode ser hospedado na nuvem ou um módulo IoT para implantações de dispositivo integradas.
 
@@ -149,7 +149,7 @@ Para obter mais informações, consulte os seguintes artigos:
 * [Treine e registre os modelos de TensorFlow em escala com Azure Machine Learning](how-to-train-tensorflow.md).
 * [Treine e registre modelos de encadeamento em escala com Azure Machine Learning](how-to-train-chainer.md).
 
-### <a name="experiments"></a>Testes
+### <a name="experiments"></a>Experimentos
 
 Um experimento é um agrupamento de diversas execuções de um determinado script. Ele sempre pertence a um workspace. Quando você envia uma execução, você pode fornecer um nome de experimento. As informações para a execução são armazenadas nesse experimento. Se você enviar uma execução e especificar um nome de experimento que não existe, um novo experimento com esse nome recém-especificado é criado automaticamente.
 
@@ -232,7 +232,7 @@ Para obter um exemplo, consulte [tutorial: treinar um modelo de classificação 
 
 [O espaço de trabalho](concept-workspace.md) é o recurso de nível superior para Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar ao usar o Azure Machine Learning. Você pode compartilhar um espaço de trabalho com outras pessoas. Para obter uma descrição detalhada dos espaços de trabalho, consulte [o que é um espaço de trabalho Azure Machine Learning?](concept-workspace.md).
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 
 Para começar a usar o Azure Machine Learning, consulte:
 

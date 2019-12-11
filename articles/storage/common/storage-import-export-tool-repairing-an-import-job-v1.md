@@ -1,19 +1,19 @@
 ---
 title: Reparando um trabalho de importação do serviço de Importação/Exportação do Azure — v1 | Microsoft Docs
 description: Saiba como reparar um trabalho de importação criado e executado usando o serviço de Importação/Exportação do Azure.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: fda1d3d626c91ba984f08b96c79ab6a2fd2ec74b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5db321d8c4a6e42591a82b0ed8eb6bc6e93bad4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477579"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973876"
 ---
 # <a name="repairing-an-import-job"></a>Reparação de um trabalho de importação
 O serviço de Importação/Exportação do Microsoft Azure pode não copiar alguns arquivos ou partes de um arquivo para o serviço Blob do Windows Azure. Alguns motivos para as falhas incluem:  
@@ -97,7 +97,7 @@ Em seguida, a ferramenta gravará os caminhos do arquivo problemático em `9WM35
   
 Depois de disponibilizar os arquivos necessários para a ferramenta, ou atualizar o arquivo de mapa do caminho, execute novamente a ferramenta para concluir o processo de importação.  
   
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
  
 * [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparação de discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   

@@ -1,5 +1,5 @@
 ---
-title: Criar imagens compartilhadas da máquina virtual do Azure para Windows usando o portal
+title: Criar uma galeria de imagens compartilhadas do Azure usando o portal
 description: Saiba como usar portal do Azure para criar e compartilhar imagens de máquinas virtuais.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 0823942964f2bdb9f943d6eb778a3132574af0f7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6273b58d9db53cfc4f6647885c70148982f0b950
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065527"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975492"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Criar uma galeria de imagens compartilhada usando o portal do Azure
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Criar uma galeria de imagens compartilhadas do Azure usando o portal
 
 Uma [Galeria de Imagens Compartilhadas](shared-image-galleries.md) simplifica o compartilhamento da imagem personalizada em sua organização. Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para inicializar tarefas de implantação, como pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. 
 
@@ -32,7 +32,7 @@ A galeria é um recurso de nível superior que fornece RBAC (controle de acesso 
 
 O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos. Usaremos ou criaremos estes itens neste artigo:
 
-| Recurso | DESCRIÇÃO|
+| Grupos | Descrição|
 |----------|------------|
 | **Imagem gerenciada** | Uma imagem básica que pode ser usada sozinha ou usada para criar uma **versão de imagem** em uma galeria de imagens. As imagens gerenciadas são criadas a partir de VMs [generalizadas](shared-image-galleries.md#generalized-and-specialized-images) . Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para criar várias VMs e agora pode ser usado para criar versões de imagem compartilhada. |
 | **Instantâneo** | Uma cópia de um VHD que pode ser usado para criar uma **versão de imagem**. Os instantâneos podem ser obtidos de uma VM [especializada](shared-image-galleries.md#generalized-and-specialized-images) (uma que não tenha sido generalizada) em seguida, usados sozinhos ou com instantâneos de discos de dados, para criar uma versão de imagem especializada.
@@ -82,7 +82,7 @@ Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados 
 
 Se você quiser excluir recursos individuais, será necessário excluí-los na ordem inversa. Por exemplo, para excluir uma definição de imagem, você precisa excluir todas as versões de imagem criadas por meio dessa imagem.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você também pode criar um recurso de Galeria de imagens compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
 

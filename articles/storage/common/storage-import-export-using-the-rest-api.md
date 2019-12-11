@@ -1,19 +1,19 @@
 ---
 title: Usando a API REST do serviço de Importação/Exportação do Azure | Microsoft Docs
 description: Saiba ais sobre como encontrar recursos para usar a API REST do serviço de Importação/Exportação do Azure, incluindo instruções e material de referência.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 1e8b60f37cefb81fbbbbb7823be7752dd1188dc3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 833b8c79fba57b7129092e084381c0671c396496
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320271"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978859"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Usando a API REST do serviço de Importação/Exportação do Azure
 
@@ -49,6 +49,6 @@ As solicitações para o serviço de Importação/Exportação devem especificar
 
 [Diagnóstico e recuperação de erro para trabalhos de Importação/Exportação](../storage-import-export-diagnostics-and-error-recovery.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Referência de REST de Importação/Exportação do Armazenamento](/rest/api/storageimportexport)

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a2d978a68f6f654e3bdeea07c931cd7103f5850c
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 386b49698ca6b8ded2972aba14c1968620fcbb08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015526"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974488"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Criptografia dinâmica: Configurar uma política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
  É possível usar os Serviços de Mídia do Azure para entregar MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com a criptografia AES por meio do uso de chaves de criptografia de 128 bits ou do [DRM (Gerenciamento de Direitos Digitais) do PlayReady](https://www.microsoft.com/playready/overview/). Com os Serviços de Mídia, também é possível distribuir streams DASH criptografados com o DRM do Widevine. O PlayReady e o Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC).
 
 Os Serviços de Mídia também fornecem um serviço de entrega de chaves/licenças por meio do qual os clientes podem obter chaves AES ou licenças do PlayReady/Widevine para reproduzir o conteúdo criptografado.
@@ -35,9 +35,9 @@ Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave
 
 Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização. As opções são restrição aberta ou por token. A política restrita de token deve ser acompanhada por um token emitido por um STS (serviço de token de segurança). Os Serviços de Mídia são compatíveis com tokens no formato [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (Token Web Simples) e no formato [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (Token Web JSON).
 
-Os Serviços de Mídia não oferecem um STS. Você pode criar um STS personalizado ou usar o Serviço de Controle de Acesso do Azure para emitir tokens. O STS deve ser configurado para criar um token assinado com a chave especificada e declarações de emissão que você especificou na configuração de restrição do token (conforme descrito neste artigo). Se o token for válido e as declarações no token corresponderem às configuradas para a chave de conteúdo, o serviço de distribuição de chave dos Serviços de Mídia retornará a chave criptografada para o cliente.
+Os Serviços de Mídia não oferecem um STS. Você pode criar um STS personalizado ou usar o Controle de Acesso do Azure para emitir tokens. O STS deve ser configurado para criar um token assinado com a chave especificada e declarações de emissão que você especificou na configuração de restrição do token (conforme descrito neste artigo). Se o token for válido e as declarações no token corresponderem às configuradas para a chave de conteúdo, o serviço de distribuição de chave dos Serviços de Mídia retornará a chave criptografada para o cliente.
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 - [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [Integrar o aplicativo OWIN com base no MVC dos Serviços de Mídia do Azure com o Azure Active Directory e restringir a entrega da chave de conteúdo restrito com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
@@ -228,7 +228,7 @@ Para obter um token de teste com base na restrição de token que foi usada para
 ```
 
 ## <a name="playready-dynamic-encryption"></a>Criptografia dinâmica do PlayReady
-Você pode usar os Serviços de Mídia para configurar os direitos e restrições que você deseja para que o tempo de execução do PlayReady DRM imponha quando um usuário tentar reproduzir conteúdo protegido. 
+Você pode usar os Serviços de Mídia para configurar os direitos e restrições que você deseja para que o runtime do PlayReady DRM imponha quando um usuário tentar reproduzir conteúdo protegido. 
 
 Ao proteger o conteúdo com PlayReady, uma das coisas que você precisa especificar na sua política de autorização é uma cadeia de caracteres XML que define o [modelo de licença do PlayReady](media-services-playready-license-template-overview.md). No SDK dos Serviços de Mídia para .NET, as classes PlayReadyLicenseResponseTemplate e PlayReadyLicenseTemplate ajudam a definir o modelo de licença do PlayReady.
 
@@ -426,12 +426,16 @@ Para obter um token de teste com base na restrição de token que foi usada para
     }
 ```
 
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora que você configurou a política de autorização da chave de conteúdo, consulte [Configurar uma política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 

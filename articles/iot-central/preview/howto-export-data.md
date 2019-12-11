@@ -4,16 +4,16 @@ description: Como exportar dados de seu aplicativo de IoT Central do Azure para 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 10/15/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 35415fd1a552328faa8d1ad5812f44d8f4b6d5e4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1aac5af916e414178676a1caf42fead41109de68
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894858"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974454"
 ---
 # <a name="export-your-azure-iot-central-data-preview-features"></a>Exportar seus dados de IoT Central do Azure (recursos de visualização)
 
@@ -29,7 +29,7 @@ Este artigo descreve como usar o recurso de exportação de dados contínuos no 
 > [!Note]
 > Ao ativar a exportação contínua de dados, você obtém apenas os dados desse momento em diante. Atualmente, não é possível recuperar dados por um tempo quando a exportação contínua de dados for desativada. Para reter dados mais históricos, ative a exportação contínua de dados no início.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa ser um administrador do aplicativo IoT Central
 
@@ -104,7 +104,7 @@ Agora que você tem um destino para exportar dados para o, siga estas etapas par
 
 7. Em **dados a serem exportados**, escolha os tipos de dados a serem exportados definindo o tipo como **ativado**.
 
-8. Para ativar a exportação de dados contínuas, verifique se a alternância de **exportação de dados** está **ativada**. Selecione **Salvar**.
+8. Para ativar a exportação de dados contínuas, verifique se a alternância de **exportação de dados** está **ativada**. Clique em **Salvar**.
 
 9. Depois de alguns minutos, seus dados aparecerão no destino escolhido.
 
@@ -608,7 +608,7 @@ Este é um instantâneo de exemplo que contém os dados de dispositivos e propri
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você sabe como exportar seus dados para os hubs de eventos do Azure, o barramento de serviço do Azure e o armazenamento de BLOBs do Azure, vá para a próxima etapa:
 

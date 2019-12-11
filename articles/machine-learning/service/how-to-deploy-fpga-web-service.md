@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e8dc6181660f0c1545df0688e2749f8f0187027
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b387c9d595898158ff8b5ab8c25f705825b8c248
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496904"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978212"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são FPGA (matrizes de portão programável por campo) e como implantar
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ O diagrama e a tabela a seguir mostram uma comparação das FPGAs com outros pro
 
 ![Diagrama de Azure Machine Learning comparação de FPGA](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|Processador||DESCRIÇÃO|
+|Processador||Descrição|
 |---|:-------:|------|
 |Circuitos integrados específicos do aplicativo|ASICs|Circuitos personalizados, como as Unidades de Processador (TPU) do TensorFlow da Google, fornecem a maior eficiência. Elas não podem ser reconfiguradas conforme suas necessidades mudam.|
 |Matrizes de portas programáveis em campo|FPGAs|As FPGAs, como aquelas disponíveis no Azure, fornecem desempenho aproximado ao dos ASICs. Eles também são flexíveis e reconfiguráveis ao longo do tempo, a fim de implementar a nova lógica.|
@@ -64,7 +64,7 @@ Esses modelos de DNN estão disponíveis no momento:
 FPGAs estão disponíveis nessas regiões do Azure:
   - Leste dos EUA
   - Sudeste Asiático
-  - Europa Ocidental
+  - Oeste da Europa
   - Oeste dos EUA 2
 
 > [!IMPORTANT]
@@ -90,7 +90,7 @@ Você pode implantar um modelo como um serviço Web no FPGAs com Azure Machine L
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure.  Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
+- Uma assinatura do Azure.  Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Cota de FPGA. Use o CLI do Azure para verificar se você tem cota:
 
@@ -136,9 +136,9 @@ Siga as instruções para:
 
 Use o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) para criar uma definição de serviço. Uma definição de serviço é um arquivo que descreve um pipeline de grafos (entrada, recursos e classificador) com base no TensorFlow. O comando de implantação compacta automaticamente a definição e os grafos em um arquivo zip e carrega o zip no Armazenamento de Blobs do Azure. O DNN já está implantado para ser executado no FPGA.
 
-### <a name="load-azure-ml-workspace"></a>Carregar espaço de trabalho do Azure ML
+### <a name="load-azure-machine-learning-workspace"></a>Carregar Azure Machine Learning espaço de trabalho
 
-Carregue seu espaço de trabalho do Azure ML.
+Carregue seu espaço de trabalho do Azure Machine Learning.
 
 ```python
 import os
@@ -380,7 +380,7 @@ ssl_enabled = address.startswith("https")
 address = address[address.find('/')+2:].strip('/')
 port = 443 if ssl_enabled else 80
 
-# Initialize AzureML Accelerated Models client
+# Initialize Azure ML Accelerated Models client
 client = PredictionClient(address=address,
                           port=port,
                           use_ssl=ssl_enabled,
@@ -428,13 +428,13 @@ Todos os [dispositivos Azure data Box Edge](https://docs.microsoft.com/azure/dat
 
 Para proteger seus serviços Web do FPGA, consulte o documento [Secure Web Services](how-to-secure-web-service.md) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira estes blocos de anotações, vídeos e Blogs:
 
-+ Vários [blocos de anotações de exemplo](https://aka.ms/aml-accel-models-notebooks).
++ Vários [blocos de anotações de exemplo](https://aka.ms/aml-accel-models-notebooks)
 
-+ [Hardware de Hiperescala: ML em escala em cima do Azure + FPGA: build 2018 (vídeo)](https://channel9.msdn.com/events/Build/2018/BRK3202)
++ [Hardware de hiperescala: ML em escala na parte superior do Azure + FPGA: Build 2018 (vídeo)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Por dentro da nuvem configurável baseada em FPGA da Microsoft (vídeo)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

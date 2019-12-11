@@ -3,16 +3,16 @@ title: Instalar ou atualizar manualmente as extensões de associação do Azure 
 description: Saiba como instalar ou atualizar as extensões de ligação do Azure Functions para aplicativos de função implantados.
 ms.topic: reference
 ms.date: 09/26/2018
-ms.openlocfilehash: 49e8e2ce7eb0267d5a4e6fc0f5566dffaed82661
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 83ae2cdd16bce0b0a5b11b8c24e996306453a7a9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226518"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977481"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalar ou atualizar manualmente as extensões de associação do Azure Functions no portal
 
-O runtime do Azure Functions versão 2.x usa extensões de associação para implementar código a gatilhos e associações. As extensões de associação são fornecidas nos pacotes NuGet. Registrar uma extensão é basicamente instalar um pacote. Ao desenvolver funções, a maneira de instalar as extensões de associação depende do ambiente de desenvolvimento. Para obter mais informações, consulte [Registrar extensões de associação](./functions-bindings-register.md) no artigo de gatilhos e associações.
+A partir da versão 2. x, o tempo de execução do Azure Functions usa extensões de associação para implementar o código para gatilhos e associações. As extensões de associação são fornecidas nos pacotes NuGet. Registrar uma extensão é basicamente instalar um pacote. Ao desenvolver funções, a maneira de instalar as extensões de associação depende do ambiente de desenvolvimento. Para obter mais informações, consulte [Registrar extensões de associação](./functions-bindings-register.md) no artigo de gatilhos e associações.
 
 Às vezes, é necessário instalar ou atualizar manualmente as extensões de associação no portal do Azure. Por exemplo, talvez seja necessário atualizar uma associação registrada para uma versão mais recente. Também pode ser necessário registrar uma associação com suporte que não pode ser instalada na guia **Integrar** no portal.
 
@@ -40,7 +40,7 @@ Siga as etapas abaixo para instalar ou atualizar manualmente as extensões do po
 
 1. Retorne à guia **Visão geral** no portal, escolha **Iniciar** para iniciar o aplicativo de funções.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

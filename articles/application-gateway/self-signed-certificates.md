@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3cf4f2314c7de2b2f7d581faeea88fe3c3177e81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075082"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975050"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gerar um certificado autoassinado de Aplicativo Azure gateway com uma autoridade de certificação raiz Personalizada
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a:
 - Criar um certificado autoassinado assinado por sua autoridade de certificação personalizada
 - Carregar um certificado raiz autoassinado para um gateway de aplicativo para autenticar o servidor de back-end
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **[OpenSSL](https://www.openssl.org/) em um computador executando Windows ou Linux** 
 
@@ -106,7 +106,7 @@ O CSR é uma chave pública que é dada a uma CA ao solicitar um certificado. A 
 1. Use o seguinte comando para criar o certificado:
 
    ```
-   openssl x509 -req -in fabrikam.csr -CA public.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
+   openssl x509 -req -in fabrikam.csr -CA  contoso.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
    ```
 ### <a name="verify-the-newly-created-certificate"></a>Verificar o certificado recém-criado
 
@@ -185,7 +185,7 @@ Para carregar o certificado raiz confiável do portal, selecione as **configura�
 
 ![Adicionar um certificado usando o portal](media/self-signed-certificates/portal-cert.png)
 
-### <a name="azure-powershell"></a>PowerShell do Azure
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Ou, você pode usar CLI do Azure ou Azure PowerShell para carregar o certificado raiz. O código a seguir é um exemplo de Azure PowerShell.
 
@@ -269,7 +269,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
     ![Investigação de HTTPS](media/self-signed-certificates/https-probe.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o SSL\TLS no gateway de aplicativo, consulte [visão geral da terminação SSL e SSL de ponta a ponta com o gateway de aplicativo](ssl-overview.md).
 

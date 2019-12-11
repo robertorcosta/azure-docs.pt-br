@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: c70226ef58ed60a7be556b88366953796ed6fff1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ddcf97a8c7ae6000c14638a8292bc8b4f39ed87d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580575"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978332"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Opções de configuração disponíveis no aprendizado de máquina automatizado:
 * Escolha o destino de computação: local ou remoto
 * Configurações do experimento de aprendizado de máquina automatizado
 * Executar um experimento de aprendizado de máquina automatizado
-* Exploração das métricas do modelo
+* Explorar as métricas do modelo
 * Registro e implantação do modelo
 
 Se preferir uma experiência sem código, você também poderá [criar experiências automatizadas de aprendizado de máquina no Azure Machine Learning Studio](how-to-create-portal-experiments.md).
@@ -171,7 +171,7 @@ Alguns exemplos incluem:
         n_cross_validations=5)
     ```
 
-Os três valores de parâmetro de `task` diferentes (o terceiro tipo de tarefa é `forecasting`e usa o mesmo pool de algoritmos que as tarefas de `regression`) determinam a lista de modelos a serem aplicados. Use os parâmetros `whitelist` ou `blacklist` para modificar ainda mais as iterações com os modelos disponíveis para incluir ou excluir. A lista de modelos com suporte pode ser encontrada na [classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
+Os três valores de parâmetro de `task` diferentes (o terceiro tipo de tarefa é `forecasting`e usa um pool de algoritmos semelhantes como tarefas de `regression`) determinam a lista de modelos a serem aplicados. Use os parâmetros `whitelist` ou `blacklist` para modificar ainda mais as iterações com os modelos disponíveis para incluir ou excluir. A lista de modelos com suporte pode ser encontrada na [classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Métrica principal
 A métrica primária determina a métrica a ser usada durante o treinamento do modelo para otimização. As métricas disponíveis que você pode selecionar são determinadas pelo tipo de tarefa que você escolher e a tabela a seguir mostra métricas primárias válidas para cada tipo de tarefa.
@@ -316,7 +316,7 @@ Há algumas opções que você pode definir para encerrar seu experimento.
 1. Sair após um período de tempo: usar `experiment_timeout_minutes` em suas configurações permite que você defina por quanto tempo em minutos um experimento continuará em execução.
 1. Sair depois que uma pontuação for atingida: usar `experiment_exit_score` concluirá o experimento depois que uma pontuação de métrica primária for atingida.
 
-### <a name="explore-model-metrics"></a>Exploração das métricas do modelo
+### <a name="explore-model-metrics"></a>Explorar as métricas do modelo
 
 Você pode exibir os resultados de treinamento em um widget ou embutido se estiver em um bloco de anotações. Confira [Track and evaluate models](how-to-track-experiments.md#view-run-details) (Rastrear e avaliar modelos) para obter mais detalhes.
 
@@ -396,13 +396,13 @@ Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Co
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   Em que:
+   Onde:
 
    |Saída|Definição|
    |----|--------|
    |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.|
    |TypeDetected|Tipo de dados detectado do recurso de entrada.|
-   |Passou|Indica se o recurso de entrada foi descartado ou usado.|
+   |Descartada|Indica se o recurso de entrada foi descartado ou usado.|
    |EngineeringFeatureCount|Número de recursos gerados por meio de transformações automatizadas de engenharia de recursos.|
    |Transformações|Lista de transformações aplicadas aos recursos de entrada para gerar recursos de engenharia.|
    
@@ -499,7 +499,7 @@ Consulte o [instruções](how-to-machine-learning-interpretability-automl.md) pa
 
 Para obter informações gerais sobre como as explicações de modelo e a importância dos recursos podem ser habilitadas em outras áreas do SDK fora do aprendizado de máquina automatizado, consulte o artigo [conceito](how-to-machine-learning-interpretability.md) sobre interpretação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [como e onde implantar um modelo](how-to-deploy-and-where.md).
 

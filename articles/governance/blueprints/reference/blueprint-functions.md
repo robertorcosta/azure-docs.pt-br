@@ -1,14 +1,14 @@
 ---
 title: Funções de plantas do Azure
 description: Descreve as funções disponíveis para uso com artefatos de Blueprint em definições e atribuições de plantas do Azure.
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.topic: reference
-ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128761"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970883"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para uso com plantas do Azure
 
@@ -18,7 +18,7 @@ Há suporte para as seguintes funções:
 
 - [artefato](#artifacts)
 - [concat](#concat)
-- [parameters](#parameters)
+- [parâmetros](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
 - [assinatura](#subscription)
@@ -29,11 +29,14 @@ Há suporte para as seguintes funções:
 
 Retorna um objeto das propriedades preenchidas com as saídas dos artefatos do Blueprint.
 
-### <a name="parameters"></a>Parâmetros
+> [!NOTE]
+> A função `artifacts()` não pode ser usada de dentro de um modelo do Resource Manager. A função só pode ser usada na definição do Blueprint JSON ou no artefato JSON ao gerenciar o plano gráfico com Azure PowerShell ou a API REST como parte de [plantas como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
-| . | obrigatórios | Digite | DESCRIÇÃO |
+### <a name="parameters"></a>parâmetros
+
+| . | obrigatórios | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| artifactName |sim |cadeia de caracteres |O nome de um artefato de plano gráfico. |
+| artifactName |SIM |string |O nome de um artefato de plano gráfico. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -103,14 +106,14 @@ Um artefato do modelo do Resource Manager com a ID _myTemplateArtifact_ que cont
 
 Alguns exemplos de recuperação de dados do exemplo _myTemplateArtifact_ são:
 
-| Expressão | Digite | Valor |
+| Expression | Type | Value |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["primeiro", "segundo"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | primeiro |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "meu valor de cadeia de caracteres" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | primeiro |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | string | "meu valor de cadeia de caracteres" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Objeto | {"MyProperty": "meu valor", "anotherproperty": true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "meu valor" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | verdadeiro |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | "meu valor" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -118,12 +121,12 @@ Alguns exemplos de recuperação de dados do exemplo _myTemplateArtifact_ são:
 
 Combina vários valores de cadeia de caracteres e retorna o resultado concatenado.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| . | obrigatórios | Digite | DESCRIÇÃO |
+| . | obrigatórios | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| string1 |sim |cadeia de caracteres |O primeiro valor de concatenação. |
-| argumentos adicionais |Não |cadeia de caracteres |Valores adicionais em ordem sequencial para concatenação |
+| string1 |SIM |string |O primeiro valor de concatenação. |
+| argumentos adicionais |Não |string |Valores adicionais em ordem sequencial para concatenação |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -137,17 +140,17 @@ A função Azure Blueprint difere da função de modelo Azure Resource Manager, 
 
 `concat(parameters('organizationName'), '-vm')`
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>parâmetros
 
 `parameters(parameterName)`
 
 Retorna um valor de parâmetro Blueprint. O nome do parâmetro especificado deve ser definido na definição do Blueprint ou em artefatos do Blueprint.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| . | obrigatórios | Digite | DESCRIÇÃO |
+| . | obrigatórios | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| parameterName |sim |cadeia de caracteres |O nome do parâmetro a retornar. |
+| parameterName |SIM |string |O nome do parâmetro a retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -264,11 +267,11 @@ Em seguida, use a função `resourceGroup()` no contexto de um artefato Blueprin
 
 Retorna um objeto que representa o artefato do grupo de recursos especificado. Ao contrário de `resourceGroup()`, que requer o contexto do artefato, essa função é usada para obter as propriedades de um espaço reservado do grupo de recursos específico quando não está no contexto desse grupo de recursos.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| . | obrigatórios | Digite | DESCRIÇÃO |
+| . | obrigatórios | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| placeholderName |sim |cadeia de caracteres |O nome do espaço reservado do artefato do grupo de recursos a ser retornado. |
+| placeholderName |SIM |string |O nome do espaço reservado do artefato do grupo de recursos a ser retornado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -320,7 +323,7 @@ Em seguida, use a função `resourceGroups()` do contexto de qualquer artefato d
 }
 ```
 
-## <a name="subscription"></a>assinatura
+## <a name="subscription"></a>subscription
 
 `subscription()`
 
@@ -362,7 +365,7 @@ Use o nome de exibição da assinatura e a função `concat()` para criar uma Co
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).

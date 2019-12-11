@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 472c4a75f5a4253220383ae79d88d5b90cec4795
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555037"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973961"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -74,7 +74,7 @@ O indexador lê o documento da fonte de dados, mas houve um problema ao converte
 | A chave do documento está ausente | A chave do documento não pode estar ausente ou vazia | Garantir que todos os documentos tenham chaves de documento válidas |
 | A chave do documento é inválida | A chave do documento não pode ter mais de 1024 caracteres | Modifique a chave do documento para atender aos requisitos de validação. |
 | Não foi possível aplicar o mapeamento de campo a um campo | Não foi possível aplicar a função de mapeamento `'functionName'` ao `'fieldName'`de campo. A matriz não pode ser nula. Nome do parâmetro: bytes | Verifique os [mapeamentos de campo](search-indexer-field-mappings.md) definidos no indexador e compare com os dados do campo especificado do documento com falha. Pode ser necessário modificar os mapeamentos de campo ou os dados do documento. |
-| Não foi possível ler o valor do campo | Não foi possível ler o valor da coluna `'fieldName'` no índice `'fieldIndex'`. ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: provedor TCP, erro: 0-uma conexão existente foi fechada forçosamente pelo host remoto.) | Esses erros normalmente são devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente executar o documento por meio do indexador novamente mais tarde. |
+| Não foi possível ler o valor do campo | Não foi possível ler o valor da coluna `'fieldName'` no índice `'fieldIndex'`. ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: Provedor TCP, erro: 0 – Uma conexão existente foi fechada forçadamente pelo host remoto.) | Esses erros normalmente são devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente executar o documento por meio do indexador novamente mais tarde. |
 
 <a name="could-not-execute-skill"/>
 
@@ -307,3 +307,9 @@ Os [modos de análise do indexador](https://docs.microsoft.com/rest/api/searchse
 Se nenhuma marca de ordem de byte estiver presente, presume-se que o texto seja codificado como UTF-8.
 
 Para contornar esse aviso, determine qual é a codificação de texto para esse BLOB e adicione a marca de ordem de byte apropriada.
+
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+
+## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Aviso: a coleção de Cosmos DB ' X ' tem uma política de indexação lenta. Alguns dados podem ser perdidos
+
+As coleções com políticas de indexação [lentas](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) não podem ser consultadas de forma consistente, resultando na falta de dados no indexador. Para contornar esse aviso, altere sua política de indexação para consistente.

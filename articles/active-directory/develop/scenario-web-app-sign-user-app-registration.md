@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Web que conecta usuários (registro de aplicativo)-plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo Web que entra em usuários (registro de aplicativo)
+title: Registrar um aplicativo Web que entra em usuários-plataforma de identidade da Microsoft | Azure
+description: Saiba como registrar um aplicativo Web que faz logon em usuários
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b08dd5602196bae0e250953c83320e69ddc6da83
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766065"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964813"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
@@ -58,7 +58,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 1. Selecione o menu **Autenticação** e, em seguida, adicione as seguintes informações:
    1. Para **URL de resposta**, adicione **https://localhost:44321/signin-oidc** do tipo **Web**.
    1. Na seção **Configurações avançadas** , defina **URL de logoff** para **https://localhost:44321/signout-oidc** .
-   1. Em **concessão implícita**, selecione **tokens de ID**.
+   1. Em **Concessão implícita**, selecione **Tokens de ID**.
    1. Clique em **Salvar**.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
@@ -103,7 +103,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
    1. Altere os **tipos de conta com suporte** para **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
    1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **http://localhost:5000/getAToken** .
 1. Selecione **Registrar** para criar o aplicativo.
-1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Você precisará dela para configurar o arquivo de configuração do Visual Studio para este projeto.
+1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Você precisará dele para definir o arquivo de configuração do Visual Studio para este projeto.
 1. No menu à esquerda, selecione **certificados & segredos**.
 1. Na seção **segredos do cliente** , selecione **novo segredo do cliente**e, em seguida:
 

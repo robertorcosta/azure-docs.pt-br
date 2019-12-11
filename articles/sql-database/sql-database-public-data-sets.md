@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821275"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973536"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para criação de protótipos e testes
 
@@ -26,7 +26,7 @@ Procure nesta lista de conjuntos de dados públicos os dados que você pode usar
 
 | Fonte de dados | Sobre os dados | Sobre os arquivos |
 |---|---|---|
-| [Dados do governo dos EUA](https://www.census.gov/data.html) | Mais de 190.000 conjuntos de dados que abrangem agricultura, clima, consumidor, ecossistemas, educação, energia, finanças, integridade, municipal, fabricação, marítima, oceano, segurança pública e ciência e pesquisa nos EUA. | Arquivos de vários tamanhos em vários formatos, incluindo HTML, XML, CSV, JSON, Excel e muitos outros. Você pode filtrar conjuntos de dados disponíveis pelo formato de arquivo. |
+| [Dados do governo dos EUA](https://catalog.data.gov/dataset) | Mais de 250.000 conjuntos de dados que abrangem agricultura, clima, consumidor, ecossistemas, educação, energia, finanças, saúde, governo local, manufatura, marítimas, oceano, segurança pública e ciência e pesquisa nos EUA | Arquivos de vários tamanhos em vários formatos, incluindo HTML, XML, CSV, JSON, Excel e muitos outros. Você pode filtrar conjuntos de dados disponíveis pelo formato de arquivo. |
 | [Dados de censo dos EUA](https://www.census.gov/data.html) | Dados estatísticos sobre a população dos EUA | Os conjuntos de dados estão em vários formatos. |
 | [Dados de ciências da Terra da NASA](https://earthdata.nasa.gov/) | Mais de 32.000 coleções de dados que abrangem agricultura, atmosfera, biosfera, clima, criosfera, dimensões humanas, hidrosfera, superfície da Terra, oceanos, interações entre o sol e a terra e muito mais. | Os conjuntos de dados estão em vários formatos. |
 | [Atrasos de voo de companhia aérea e outros dados de transporte](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "O departamento de transporte (ponto) dos Estados Unidos das estatísticas de transporte (BTS) do governo dos EUA controla o desempenho em tempo de vôos domésticos operados por grandes operadoras de ar. Informações de resumo sobre o número de voos no horário, atrasados, cancelados e desviados aparecem... em tabelas de resumo postadas no site." | Os arquivos estão no formato CSV. |

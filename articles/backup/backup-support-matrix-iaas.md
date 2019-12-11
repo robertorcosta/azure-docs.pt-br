@@ -3,12 +3,12 @@ title: Matriz de suporte para backup de VM do Azure
 description: Fornece um resumo de configurações compatíveis e limitações ao fazer backup de VMs do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 85a32dd9ea875bdfc73d7e4a9515e5cfe0e2da42
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559037"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996163"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -44,7 +44,7 @@ Backup de discos gerenciados depois de habilitar o bloqueio de grupo de recursos
 Modificar a política de backup de uma VM | Com suporte.<br/><br/> O backup da VM será feito usando as configurações de agendamento e retenção em nova política. Se as configurações de retenção forem estendidas, os pontos de recuperação existentes serão marcados e mantidos. Se eles forem reduzidos, os pontos de recuperação existentes serão removidos no próximo trabalho de limpeza e eventualmente excluídos.
 Cancelar um trabalho de backup| Tem suporte durante o processo de instantâneo.<br/><br/> Não tem suporte quando o instantâneo está em transferência para o cofre.
 Backup da VM para uma região ou uma assinatura diferentes |Sem suporte.
-Backups por dia (com a extensão de VM do Azure) | Um backup agendado por dia.<br/><br/> O serviço permite até nove backups sob demanda por dia, mas a Microsoft só recomenda e dá suporte a até quatro backups diários sob demanda.
+Backups por dia (com a extensão de VM do Azure) | Um backup agendado por dia.<br/><br/>O serviço de backup do Azure dá suporte a até nove backups sob demanda por dia, mas a Microsoft recomenda não mais do que quatro backups diários sob demanda para garantir o melhor desempenho.
 Backups por dia (por meio do agente MARS) | Três backups agendados por dia.
 Backups por dia (por meio do DPM/MABS) | Dois backups agendados por dia.
 Backup mensal/anual| Não tem suporte durante o backup com a extensão de VM do Azure. Só há suporte para diários e semanais.<br/><br/> É possível configurar a política para manter backups diários/semanais por um período de retenção mensal/anual.

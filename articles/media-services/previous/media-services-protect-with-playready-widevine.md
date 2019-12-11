@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d6a24184cf02c88ede5a83ed47ae686ee670773
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: c90dc7877bced8a4ceececc04b8e3d1ebdcbfe44
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014951"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968622"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usar a criptografia comum dinâmica PlayReady e/ou Widevine
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
  Você pode usar os Serviços de Mídia para fornecer fluxos MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com o [DRM do PlayReady](https://www.microsoft.com/playready/overview/). Também pode fornecer fluxos DASH criptografados com licenças DRM do Widevine. O PlayReady e o Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC). Você pode usar o [SDK do .NET dos Serviços de Mídia](https://www.nuget.org/packages/windowsazure.mediaservices/) (começando da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration ao uso do Widevine.
 
-Os Serviços de Mídia fornecem um serviço para entregar licenças DRM do PlayReady e do Widevine. Os Serviços de Mídia também fornecem APIs que você pode usar para configurar os direitos e restrições que você deseja que sejam impostos pelo tempo de execução do DRM do PlayReady ou do Widevine quando um usuário reproduz conteúdo protegido. Quando um usuário solicitar conteúdo protegido por DRM, o player de mídia solicitará uma licença do serviço de licença dos Serviços de Mídia. Se o player de mídia estiver autorizado, o serviço de licença dos Serviços de Mídia emitirá uma licença para o player. Uma licença do PlayReady ou do Widevine contém a chave de descriptografia que pode ser usada pelo player cliente para descriptografar e transmitir o conteúdo.
+Os Serviços de Mídia fornecem um serviço para entregar licenças DRM do PlayReady e do Widevine. Os Serviços de Mídia também fornecem APIs que você pode usar para configurar os direitos e restrições que você deseja que sejam impostos pelo runtime do DRM do PlayReady ou do Widevine quando um usuário reproduz conteúdo protegido. Quando um usuário solicitar conteúdo protegido por DRM, o player de mídia solicitará uma licença do serviço de licença dos Serviços de Mídia. Se o player de mídia estiver autorizado, o serviço de licença dos Serviços de Mídia emitirá uma licença para o player. Uma licença do PlayReady ou do Widevine contém a chave de descriptografia que pode ser usada pelo player cliente para descriptografar e transmitir o conteúdo.
 
 Você também pode usar os seguintes parceiros dos Serviços de Mídia para ajudá-lo a fornecer licenças do Widevine: 
 
@@ -41,7 +41,7 @@ Você também pode usar os seguintes parceiros dos Serviços de Mídia para ajud
 
 Para saber mais, veja: integração ao [Axinom](media-services-axinom-integration.md) e ao [castLabs](media-services-castlabs-integration.md).
 
-Os serviços de mídia oferecem suporte a várias maneiras de autorizar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de Mídia oferecem suporte a tokens nos formatos [Simple Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). 
+Os serviços de mídia oferecem suporte a várias maneiras de autorizar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token. A política restrita de token deve ser acompanhada por um token emitido por um STS (serviço de token de segurança). Os Serviços de Mídia oferecem suporte a tokens nos formatos [Simple Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). 
 
 Para saber mais, veja [Configure a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
@@ -115,7 +115,7 @@ Configure a política de entrega para seu ativo. Algumas coisas incluídas na co
 * O protocolo de entrega de ativos (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos).
 * O tipo de criptografia dinâmica (nesse caso, criptografia comum).
 
-Para obter mais informações, veja [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
+Para obter mais informações, consulte [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 
 ## <a id="create_locator"></a>Criar um localizador de streaming OnDemand para obter uma URL de streaming
 Você precisa fornecer ao seu usuário a URL de streaming para Smooth Streaming, DASH ou HLS.
@@ -605,14 +605,18 @@ namespace DynamicEncryptionWithDRM
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 * [Use o CENC com DRM múltiplo e controle de acesso](media-services-cenc-with-multidrm-access-control.md)
 * [Configurar o empacotamento Widevine com os Serviços de Mídia](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)

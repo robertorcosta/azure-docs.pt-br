@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 77442eda6c8b2aae71c5d647127ead9f851ec485
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1754168478caf3ca029e003ad0187fc29e85fa8a
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421429"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997285"
 ---
 # <a name="automated-backups"></a>Backups automatizados
 
@@ -115,7 +115,7 @@ Quando você migra o banco de dados de uma camada de serviço baseada em DTU, co
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Como alterar o período de retenção de backup de PITR
 
-Você pode alterar o período de retenção de backup PITR padrão usando o portal do Azure, o PowerShell ou a API REST. Os valores com suporte são: 7, 14, 21, 28 ou 35 dias. Os exemplos a seguir ilustram como alterar a retenção de PITR para 28 dias.
+Você pode alterar o período de retenção de backup PITR padrão usando o portal do Azure, o PowerShell ou a API REST. Os exemplos a seguir ilustram como alterar a retenção de PITR para 28 dias.
 
 > [!WARNING]
 > Se você reduzir o período de retenção atual, todos os backups existentes mais antigos que o novo período de retenção não estarão mais disponíveis. Se você aumentar o período de retenção atual, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.
@@ -153,7 +153,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 
 ### <a name="change-pitr-retention-period-using-rest-api"></a>Alterar o período de retenção de PITR usando a API REST
 
-#### <a name="sample-request"></a>Solicitação de Exemplo
+#### <a name="sample-request"></a>Amostra de Solicitação
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
@@ -169,7 +169,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-#### <a name="sample-response"></a>Exemplo de Resposta
+#### <a name="sample-response"></a>Amostra de Resposta
 
 Código de status: 200
 
@@ -186,7 +186,7 @@ Código de status: 200
 
 Para obter mais informações, confira [API REST de retenção de backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL do Azure, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 - Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](sql-database-recovery-using-backups.md).

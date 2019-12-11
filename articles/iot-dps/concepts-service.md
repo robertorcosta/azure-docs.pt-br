@@ -1,6 +1,6 @@
 ---
 title: Conceitos de serviço no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
-description: Descreve conceitos de provisionamento de serviços específicos para dispositivos com o Serviço de Provisionamento de Dispositivos e Hub IoT
+description: Descreve os conceitos de provisionamento de serviço específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104373"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975594"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos do Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -69,10 +69,10 @@ Um registro individual é uma entrada para um único dispositivo que pode regist
 > [!TIP]
 > É recomendável o uso de registros individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que somente podem autenticar usando tokens de SAS via atestado de TPM.
 
-## <a name="registration"></a>Registro
+## <a name="registration"></a>Inscrição
 
 Um registro é o registro de um dispositivo com registro/provisionamento com êxito para um Hub IoT por meio do Serviço de Provisionamento de Dispositivos. Registros são criados automaticamente. Eles podem ser excluídos, mas não podem ser atualizados.
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 As operações são a unidade de cobrança do Serviço de Provisionamento de Dispositivos. Uma operação é a conclusão bem-sucedida de uma instrução para o serviço. As operações incluem registros e repetições de registros de dispositivo, bem como alterações no lado do serviço, como adição e atualização das entradas da lista de registro.

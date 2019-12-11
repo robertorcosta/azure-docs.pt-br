@@ -1,17 +1,17 @@
 ---
 title: Logs de consulta lentos-banco de dados do Azure para MariaDB
 description: Descreve os logs disponíveis no Banco de Dados do Azure para MariaDB para os parâmetros disponíveis para habilitar níveis de log diferentes.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 8a451b06c8166b48fd892050e53204e2b65856c3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 9b9babc9db9dd7fa225b9649d4ac96b15debec2b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772097"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976308"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Logs de consulta lentos no banco de dados do Azure para MariaDB
 No Banco de Dados do Azure para MariaDB, o log de consultas lentas está disponível para os usuários. No entanto, não há suporte para acesso ao log de transação. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
@@ -24,6 +24,8 @@ Você pode listar e baixar logs de consultas lentas do banco de dados do Azure p
 No portal do Azure, selecione o servidor do Banco de Dados do Azure para MariaDB. Sob o título **Monitoramento**, selecione a página **Logs do Servidor**.
 
 Para obter mais informações sobre a CLI do Azure, consulte [Configurar e acessar logs de servidor usando a CLI do Azure](howto-configure-server-logs-cli.md).
+
+Da mesma forma, você pode canalizar os logs para Azure Monitor usando os logs de diagnóstico. Consulte [abaixo](concepts-server-logs.md#diagnostic-logs) para obter mais informações.
 
 ## <a name="log-retention"></a>Retenção de log
 Logs estão disponíveis por até sete dias desde a criação deles. Se o tamanho total dos logs disponíveis exceder 7 GB, os arquivos mais antigos serão excluídos até que haja espaço disponível.
@@ -39,6 +41,7 @@ Outros parâmetros que você pode ajustar incluem:
 - **log_slow_admin_statements**: se ON inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas para o slow_query_log.
 - **log_queries_not_using_indexes**: determina se as consultas que não usam índices são ou não registradas para o slow_query_log
 - **log_throttle_queries_not_using_indexes**: este parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro tem efeito quando log_queries_not_using_indexes está definido como ON.
+- **log_output**: se "File", permite que o log de consultas lentas seja gravado no armazenamento do servidor local e em Azure monitor logs de diagnóstico. Se "None", o log de consultas lentas só será gravado no armazenamento do servidor local. 
 
 Consulte a [documentação de log de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/) do MariaDB para ver descrições completas dos parâmetros de log de consulta lenta.
 
@@ -74,7 +77,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
 | `insert_id_s` | Inserir ID |
 | `sql_text_s` | Consulta completa |
-| `server_id_s` | ID do servidor |
+| `server_id_s` | ID de servidor |
 | `thread_id_s` | ID do thread |
 | `\_ResourceId` | URI de recurso |
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5841826e1d8fcfd96ff5bf91b518df3b856d3ce5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083204"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978161"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
@@ -31,13 +31,13 @@ O AMS opera em vários datacenters no mundo inteiro. Esses datacenters estão ag
 
 Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_scenarios) ou sob demanda. O tópico também fornece detalhes sobre a disponibilidade dos recursos de mídia e serviços nos datacenters.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 
-* Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
+* Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-portal-create-account.md).
 * O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**.
 
@@ -99,7 +99,7 @@ Para obter informações sobre a disponibilidade nos datacenters, consulte a se�
 
 1. Carregue um arquivo de mídia de alta qualidade em um ativo.
 2. Codificar em um único arquivo MP4.
-3. Publicar o ativo criando um localizador OnDemand ou SAS
+3. Publicar o ativo criando um localizador OnDemand ou SAS.
 
     Se você estiver usando o localizador de SAS, o conteúdo será baixado do armazenamento de blobs do Azure. Nesse caso, não é necessário ter pontos de extremidade de streaming em estado iniciado.
 4. Download progressivo de conteúdo.
@@ -123,7 +123,7 @@ O diagrama a seguir mostra as partes principais da plataforma AMS que estão env
 
 ![Fluxo de trabalho ao vivo](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
-Para obter mais informações, veja [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md)(Trabalhando com canais que recebem a transmissão ao vivo de taxa de bits múltipla de codificadores locais).
+Para obter mais informações, consulte [Trabalhando com Canais que Recebem a Transmissão ao Vivo de Múltiplas Taxas de Bits de Codificadores Locais](media-services-live-streaming-with-onprem-encoders.md).
 
 ### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
 
@@ -131,7 +131,7 @@ O diagrama a seguir mostra as partes principais da plataforma AMS envolvidas no 
 
 ![Fluxo de trabalho ao vivo](./media/scenarios-and-availability/media-services-live-streaming-new.png)
 
-Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Para obter informações sobre a disponibilidade nos datacenters, consulte a seção [Disponibilidade](#availability).
 
@@ -149,7 +149,7 @@ Os clientes AMS podem dimensionar os pontos de extremidade do streaming, process
 
 * Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**. Um ponto de extremidade de streaming **Standard** é adequado para a maior parte das cargas de trabalho do streaming. Isso inclui os mesmos recursos dos pontos de extremidade do streaming **Premium** e dimensiona a largura de banda de saída automaticamente. 
 
-    Os pontos de extremidade de streaming **Premium** são adequados para cargas de trabalho avançadas, fornecendo capacidade de largura de banda escalonável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma US (Unidade de Streaming). O ponto de extremidade de streaming pode ser dimensionado adicionando USs. Cada SU fornece uma capacidade de largura de banda adicional para o aplicativo. Para obter mais informações sobre como dimensionar os pontos de extremidade do streaming **Premium**, consulte o tópico [Dimensionando os pontos de extremidade do streaming](media-services-portal-scale-streaming-endpoints.md).
+    Os pontos de extremidade de streaming **Premium** são adequados para cargas de trabalho avançadas, fornecendo capacidade de largura de banda escalonável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma US (Unidade de Streaming). O ponto de extremidade de streaming pode ser dimensionado adicionando USs. Cada US fornece uma capacidade de largura de banda adicional para o aplicativo. Para obter mais informações sobre como dimensionar os pontos de extremidade do streaming **Premium**, consulte o tópico [Dimensionando os pontos de extremidade do streaming](media-services-portal-scale-streaming-endpoints.md).
 
 * Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
 
@@ -177,10 +177,10 @@ Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de st
 
 #### <a name="availability"></a>Disponibilidade
 
-|NOME|Status|Datacenters
+|name|Status|Datacenters
 |---|---|---|
-|Standard|GA|Todos|
-|Premium|GA|Todos|
+|Standard|GA|Tudo|
+|Premium|GA|Tudo|
 
 ### <a name="live-encoding"></a>Codificação ativa
 
@@ -196,7 +196,7 @@ A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **F
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Media Encoder Standard|GA|Todos|
+|Media Encoder Standard|GA|Tudo|
 |Fluxo de trabalho do Media Encoder Premium|GA|Todos, exceto China|
 
 ### <a name="analytics-media-processors"></a>Processadores de mídia da Análise
@@ -207,13 +207,13 @@ A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual q
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Detector de Rostos em Mídias do Azure|Visualização|Todos|
-|Indexador de Mídia do Azure|GA|Todos|
-|Detector de Movimento em Mídias do Azure|Visualização|Todos|
-|OCR de Mídia do Azure|Visualização|Todos|
-|Azure Media Redactor|Visualização|Todos|
-|Miniaturas de Vídeo de Mídia do Azure|Visualização|Todos|
-|Azure Media Indexer 2|Visualização|Todos, exceto regiões da China e do Governo Federal|
+|Detector de Rostos em Mídias do Azure|Versão prévia|Tudo|
+|Indexador de Mídia do Azure|GA|Tudo|
+|Detector de Movimento em Mídias do Azure|Versão prévia|Tudo|
+|OCR de Mídia do Azure|Versão prévia|Tudo|
+|Azure Media Redactor|Versão prévia|Tudo|
+|Miniaturas de Vídeo de Mídia do Azure|Versão prévia|Tudo|
+|Azure Media Indexer 2|Versão prévia|Todos, exceto regiões da China e do Governo Federal|
 
 ### <a name="protection"></a>Proteção
 
@@ -223,10 +223,10 @@ Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o mom
 
 |Criptografia|Status|Datacenters|
 |---|---|---| 
-|Armazenamento|GA|Todos|
-|Chaves AES-128|GA|Todos|
-|FairPlay|GA|Todos|
-|PlayReady|GA|Todos|
+|Armazenamento|GA|Tudo|
+|Chaves AES-128|GA|Tudo|
+|FairPlay|GA|Tudo|
+|PlayReady|GA|Tudo|
 |Widevine|GA|Todos, exceto Alemanha, Governo Federal e China.
 
 ### <a name="reserved-units-rus"></a>Unidades Reservadas (URs)
@@ -249,11 +249,15 @@ Para obter mais informações, consulte a seção sobre [dimensionamento](#scali
 
 |Nome do tipo de UR|Status|Datacenters
 |---|---|---|
-|S1|GA|Todos|
+|S1|GA|Tudo|
 |S2|GA|Todos, exceto sul do Brasil e Índia Ocidental|
 |S3|GA|Todos, exceto Índia Ocidental|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
+## <a name="next-steps"></a>Próximos passos
 
 Revise os roteiros de aprendizagem dos Serviços de Mídia.
 

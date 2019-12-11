@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: bb8cfae73d84135858733899e6441f564106e9d1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438639"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997217"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Aposentadoria dos recursos da central de segurança (julho de 2019)
 
@@ -156,7 +156,7 @@ A central de segurança pode habilitar [soluções de segurança integradas no A
 
 - [Firewall da próxima geração e soluções de firewall do aplicativo Web](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
 - [Integração de soluções de segurança que dão suporte ao formato de evento comum (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
-- [Análise avançada de ameaças da Microsoft](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
+- [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
 Após a desativação, você não pode adicionar ou modificar nenhum dos tipos de solução mencionados na lista anterior, seja da interface do usuário ou da API. A central de segurança do Azure não descobrirá mais nenhuma nova instância dessas soluções de parceiros.
@@ -169,7 +169,7 @@ Se você tiver soluções conectadas existentes, recomendamos que você passe pa
 
 A Central de Segurança do Azure monitora as configurações de segurança aplicando um conjunto de [mais de 150 regras recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger o sistema operacional. Essas regras pertencem a firewalls, auditoria, políticas de senha e muito mais. Se uma configuração vulnerável é encontrada em um computador, a Central de Segurança gera uma recomendação de segurança. A [tela Editar configuração de segurança](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permite que os clientes personalizem a configuração de segurança do sistema operacional padrão na central de segurança.
 
-Desativamos esse recurso de visualização. Para redefinir as configurações de segurança de volta para seus valores padrão após a data de desativação, faça isso por meio da API ou do PowerShell usando as [instruções a seguir](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)
+Desativamos esse recurso de visualização. Para redefinir as configurações de segurança de volta para seus valores padrão após a data de desativação, faça isso por meio da API ou do PowerShell usando as [instruções a seguir](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization).
 
 ![Editar configurações de segurança][17]
 

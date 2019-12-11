@@ -14,20 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8665f6daa698f2e885f1fe768ad6b9c87dbbe164
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e99d72a0bce51d5d61e5f248f5ba279afe13a405
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074514"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970118"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Usando o Azure Media Packager para realizar tarefas de empacotamento estáticas  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Para fornecer vídeo digital pela Internet, você deve compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para serem fornecidos pela Internet ou exibidos corretamente nos dispositivos dos clientes. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia. Quando um vídeo tiver sido codificado, ele poderá ser colocado em contêineres de arquivo diferentes. O processo de posicionar mídia codificada em um contêiner é chamado de empacotamento. Por exemplo, você pode pegar um arquivo MP4 e convertê-lo em conteúdo do Smooth Streaming ou do HLS usando o Azure Media Packager. 
 
@@ -42,7 +42,7 @@ No entanto, existem alguns cenários que exigem o empacotamento estático:
 
 * Validando MP4s com taxa de bits adaptável codificados com codificadores externos (por exemplo, usando codificadores de terceiros).
 
-Você também pode usar o empacotamento estático para executar as tarefas a seguir: No entanto, é recomendável usar o empacotamento dinâmico e/ou a criptografia dinâmica.
+Você também pode utilizar empacotamento estático para executar as seguintes tarefas: no entanto, é recomendável utilizar criptografia dinâmica.
 
 * Usando a criptografia estática para proteger o MPEG DASH e o Smooth com o PlayReady
 * Usando a criptografia estática para proteger o HLSv3 com o AES-128
@@ -52,7 +52,7 @@ Você também pode usar o empacotamento estático para executar as tarefas a seg
 Se desejar usar um conjunto de arquivos MP4 com taxa de bits adaptável (várias taxas de bits) que não foi codificado com os codificadores dos Serviços de Mídia, você deverá validar seus arquivos antes de continuar o processamento. O Media Services Packager pode validar um ativo que contenha um conjunto de arquivos MP4 e verificar se o ativo pode ser empacotado para o Smooth Streaming ou o HLS. Se a tarefa de validação falhar, o trabalho que estava processando a tarefa concluirá com um erro. O XML que define a predefinição para a tarefa de validação pode ser encontrado no artigo [Predefinição de Tarefa para o Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx).
 
 > [!NOTE]
-> Use o Codificador de Mídia Padrão para produzir ou o Empacotador dos Serviços de Mídia para validar o conteúdo e evitar problemas de tempo de execução. Se o servidor de Streaming Sob Demanda não for capaz de analisar seus arquivos de origem em tempo de execução, você receberá um erro HTTP 1.1“415 Tipo de Mídia Sem Suporte.” Fazer com que o servidor falhe repetidamente em analisar seus arquivos de origem afetará o desempenho do servidor de Streaming Sob Demanda e poderá reduzir a largura de banda disponível para servir outras solicitações. O Azure Media Services oferece um Contrato de Nível de Serviço (SLA) em seus serviços de Streaming Sob Demanda; no entanto, esse SLA não poderá ser cumprido se o servidor for mal utilizado da forma como descrita acima.
+> Use o Codificador de Mídia Padrão para produzir ou o Empacotador dos Serviços de Mídia para validar o conteúdo e evitar problemas de runtime. Se o servidor de Streaming Sob Demanda não for capaz de analisar seus arquivos de origem em runtime, você receberá um erro HTTP 1.1“415 Tipo de Mídia Sem Suporte.” Fazer com que o servidor falhe repetidamente em analisar seus arquivos de origem afetará o desempenho do servidor de Streaming Sob Demanda e poderá reduzir a largura de banda disponível para servir outras solicitações. O Azure Media Services oferece um Contrato de Nível de Serviço (SLA) em seus serviços de Streaming Sob Demanda; no entanto, esse SLA não poderá ser cumprido se o servidor for mal utilizado da forma como descrita acima.
 > 
 > 
 
@@ -81,7 +81,7 @@ Para validar seus arquivos MP4 com o Media Services Packager, você deverá cria
     </smil>
 ```
 
-Depois que o conjunto de MP4 de taxa de bits adaptável, você pode tirar proveito do empacotamento dinâmico. O Empacotamento Dinâmico permite distribuir fluxos no protocolo especificado sem empacotamento adicional. Para saber mais, consulte [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
+Depois de ter o conjunto de MP4 de taxa de bits adaptável, você pode aproveitar o empacotamento dinâmico. O Empacotamento Dinâmico permite distribuir fluxos no protocolo especificado sem empacotamento adicional. Para saber mais, consulte [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
 O exemplo de código a seguir usa Extensões do SDK do .NET dos Serviços de Mídia do Azure.  Atualize o código para apontar para a pasta onde seus arquivos MP4 de entrada e o arquivo .ism estão localizados. E também onde o arquivo MediaPackager_ValidateTask.xml está localizado. Esse arquivo XML é definido no artigo [Predefinição de Tarefa para o Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx).
 
@@ -717,7 +717,7 @@ Se você deseja criptografar seu HLS com o AES-128, terá a opção de usar a cr
 > [!NOTE]
 > Para converter o conteúdo em HLS, primeiro você deverá converter/codificar seu conteúdo em Smooth Streaming.
 > Além disso, para que o HLS seja criptografado com o AES, defina as propriedades a seguir em seu arquivo MediaPackager_SmoothToHLS.xml: defina a propriedade de criptografia como verdadeira, defina o valor da chave e o valor de keyuri para apontar para seu servidor de autenticação/autorização.
-> Os serviços de mídia cria um arquivo de chave e o coloca no contêiner do ativo. Copie o arquivo /asset-containerguid/\*.key para seu servidor (ou crie seu próprio arquivo de chave) e, em seguida, exclua o arquivo \*.key do contêiner do ativo.
+> Os serviços de mídia criam um arquivo de chave e os colocam no contêiner de ativos. Copie o arquivo /asset-containerguid/\*.key para seu servidor (ou crie seu próprio arquivo de chave) e, em seguida, exclua o arquivo \*.key do contêiner do ativo.
 > 
 > 
 
@@ -1478,6 +1478,10 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
         }
     }
 ```
+
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

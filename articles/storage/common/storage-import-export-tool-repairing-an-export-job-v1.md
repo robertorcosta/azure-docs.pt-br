@@ -1,19 +1,19 @@
 ---
 title: Reparando um trabalho de exportação do serviço de Importação/Exportação do Azure — v1 | Microsoft Docs
 description: Saiba como reparar um trabalho de exportação criado e executado usando o serviço de Importação/Exportação do Azure.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2ba30bddfc6364c79e1bb01d30cde63b261a07f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477936"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978008"
 ---
 # <a name="repairing-an-export-job"></a>Reparação de um trabalho de exportação
 Após a conclusão de um trabalho de exportação, você poderá executar a Ferramenta de Importação/Exportação do Microsoft Azure local para:  
@@ -30,7 +30,7 @@ O comando para reparar um trabalho de importação é **RepairExport**.
 
 Os seguintes parâmetros podem ser especificados com **RepairExport**:  
   
-|Parâmetro|DESCRIÇÃO|  
+|.|Descrição|  
 |---------------|-----------------|  
 |**/r:<RepairFile\>**|Obrigatório. Caminho até o arquivo de reparo, que controla o progresso do reparo e permite que você retome um reparo interrompido. Cada unidade deve ter um, e somente um, arquivo de reparo. Ao iniciar o reparo de uma determinada unidade, você passará no caminho até um arquivo de reparo que ainda não existe. Para retomar um reparo interrompido, você deve passar no nome de um arquivo de reparo existente. O arquivo de reparo que corresponde à unidade de destino deve sempre ser especificado.|  
 |**/logdir:<LogDirectory\>**|Opcional. O diretório de log. Os arquivos de log detalhados serão gravados nesse diretório. Se nenhum diretório de log for especificado, o diretório atual será usado como o diretório de log.|  
@@ -150,7 +150,7 @@ G:\pictures\wild\canyon.jpg.properties
 
 Qualquer componente que falhar na verificação será baixado pela ferramenta e reescrito no mesmo arquivo na unidade.  
   
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
  
 * [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparação de discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   

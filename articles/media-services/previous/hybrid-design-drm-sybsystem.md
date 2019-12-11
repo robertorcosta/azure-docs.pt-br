@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: d15bfcfbae3b24e1a9b29dc74f9b41a979e63ae9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014658"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975186"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido de subsistemas DRM 
 
 Este tópico discute o design híbrido dos subsistemas DRM usando os Serviços de Mídia do Azure.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Os Serviços de Mídia do Azure dão suporte aos três sistemas DRM a seguir:
 
@@ -97,11 +97,11 @@ Com base em explicações na seção anterior, os cinco cenários híbridos a se
 
 |**Hospedagem e origem de conteúdo**|**Criptografia do DRM**|**Entrega de licença do DRM**|**Configurar chave de conteúdo**|**Configurar política de entrega de ativos**|**Amostra**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|Sim|Sim|Exemplo 1|
-|AMS|AMS|Terceiros|Sim|Sim|Exemplo 2|
-|AMS|Terceiros|AMS|Sim|Não|Exemplo 3|
+|AMS|AMS|AMS|SIM|SIM|Exemplo 1|
+|AMS|AMS|Terceiros|SIM|SIM|Exemplo 2|
+|AMS|Terceiros|AMS|SIM|Não|Exemplo 3|
 |AMS|Terceiros|Externa|Não|Não|Exemplo 4|
-|Terceiros|Terceiros|AMS|Sim|Não|    
+|Terceiros|Terceiros|AMS|SIM|Não|    
 
 Nos exemplos, a proteção PlayReady funciona tanto para DASH quanto para streaming suave. As URLs de vídeos abaixo são URLs de streaming suave. Para obter as URLs do DASH correspondentes, basta acrescentar "(format=mpd-time-csf)". Você pode usar o [player de teste de mídia do azure](https://aka.ms/amtest) para testar em um navegador. Ele permite que você configure qual protocolo de streaming usar sob qual técnica. IE11 e Microsoft Edge no Windows 10 dão suporte a PlayReady por meio de EME. Para obter mais informações, consulte os [detalhes sobre a ferramenta de teste](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
@@ -127,11 +127,15 @@ Nos exemplos, a proteção PlayReady funciona tanto para DASH quanto para stream
 * Url da origem: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
 * PlayReady LA_URL (DASH & smooth): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
 
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="summary"></a>Resumo
 
 Em resumo, componentes de DRM dos Serviços de Mídia do Azure são flexíveis, você pode usá-los em um cenário híbrido configurando corretamente a chave de conteúdo e a política de entrega de ativos conforme descrito neste tópico.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Exibir os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

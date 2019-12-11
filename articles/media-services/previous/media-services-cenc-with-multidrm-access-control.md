@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 6004e08f5f30c7f3c63bb87437147db15da5e335
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b0fec44a59bd70c6f1d0236861d93e81aaba033c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016773"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969421"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O design e a criação de um subsistema de DRM (gerenciamento de direitos digitais) para uma solução de streaming OTT (over-the-top) ou online é uma tarefa complexa. Os operadores ou provedores de vídeo online normalmente terceirizam essa tarefa para provedores de serviço de DRM especializados. A meta deste documento é apresentar um design e uma implementação de referência de um subsistema DRM de ponta a ponta em uma solução de streaming OTT ou online.
 
@@ -90,7 +90,7 @@ Um subsistema de DRM pode conter os seguintes componentes:
 * Entrega de licença do DRM
 * Verificação de autorização
 * Autenticação/autorização
-* Player
+* Jogador
 * Origem/CDN (rede de distribuição de conteúdo)
 
 O diagrama a seguir ilustra a interação de alto nível entre os componentes em um subsistema de DRM:
@@ -150,7 +150,7 @@ A tabela abaixo mostra o mapeamento.
 | --- | --- |
 | **Player** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IdP (provedor de identidade)** |Active Directory do Azure (Azure AD) |
-| **STS (serviço de token de segurança)** |Azure AD |
+| **STS (serviço de token de segurança)** |AD do Azure |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
 | **Origem** |Ponto de extremidade de streaming dos Serviços de Mídia |
@@ -175,7 +175,7 @@ Esta é a saída da ferramenta de gerenciamento de conteúdo:
 * A ContentKeyAuthorizationPolicy, que contém a especificação de como a entrega de licença verifica um JWT (Token Web JSON) e as especificações de licença do DRM.
 * A AssetDeliveryPolicy, que contém especificações sobre o formato de streaming, a proteção de DRM e as URLs de aquisição de licença.
 
-Aqui está o fluxo durante o tempo de execução:
+Aqui está o fluxo durante o runtime:
 
 * Após a autenticação de usuário, um JWT é gerado.
 * Uma das declarações contidas no JWT é uma declaração grupos que contém o EntitledUserGroup da ID de objeto do grupo. Esta declaração é usada para passar a verificação de autorização.
@@ -215,10 +215,10 @@ A implementação inclui as seguintes etapas:
 
     | **DRM** | **Navegador** | **Resultado para usuário autorizado** | **Resultado para usuário não autorizado** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge ou Internet Explorer 11 no Windows 10 |Bem-sucedido(a) |Falha |
-    | **Widevine** |Chrome, Firefox, Opera |Bem-sucedido(a) |Falha |
-    | **FairPlay** |Safari no macOS      |Bem-sucedido(a) |Falha |
-    | **AES-128** |Navegadores mais modernos  |Bem-sucedido(a) |Falha |
+    | **PlayReady** |Microsoft Edge ou Internet Explorer 11 no Windows 10 |Êxito |Reprovado |
+    | **Widevine** |Chrome, Firefox, Opera |Êxito |Reprovado |
+    | **FairPlay** |Safari no macOS      |Êxito |Reprovado |
+    | **AES-128** |Navegadores mais modernos  |Êxito |Reprovado |
 
 Para obter informações sobre como configurar o Azure AD para um aplicativo player do ASP.NET MVC, consulte [Integrar um aplicativo OWIN com base em MVC dos Serviços de Mídia do Azure com o Azure Active Directory e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
@@ -336,7 +336,7 @@ Para registrar e configurar o aplicativo de ponteiro no Azure AD, execute as seg
 
 2. Adicione uma nova chave para o aplicativo de recurso.
 
-3. Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o valor "groupMembershipClaims": "All".
+3. Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o valor: "groupMembershipClaims": "All".
 
 4. No aplicativo do Azure AD que aponta para o aplicativo Web de player, na seção **Permissões para outros aplicativos**, adicione o aplicativo de recurso que foi adicionado na etapa 1. Em **Permissão delegada**, selecione **Acessar [resource_name]** . Essa opção concede permissão ao aplicativo Web para criar tokens de acesso que acessam o aplicativo de recurso. Faça isso para a versão local e a implantada do aplicativo Web se você desenvolve com Visual Studio e o Aplicativo Web do Azure.
 
@@ -369,7 +369,7 @@ Ao usar um STS personalizado, duas alterações devem ser feitas:
 Há dois tipos de chaves de segurança:
 
 * Chave simétrica: a mesma chave é usada para gerar e verificar um JWT.
-* Chave assimétrica: um par de chaves pública/privada em um certificado X509 é usado com uma chave privada para criptografar/gerar um JWT e, com a chave pública, para verificar o token.
+* Chave assimétrica: um par de chaves pública/privada em um certificado X509 é usado com uma chave privada para criptografar/gerar um JWT e, com a chave pública, verificar o token.
 
 > [!NOTE]
 > Se você usa o .NET Framework /C# como sua plataforma de desenvolvimento, o certificado X509 usado para uma chave assimétrica de segurança deve ter um comprimento de chave de pelo menos 2048. Este é um requisito da classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey no .NET Framework. Caso contrário, a seguinte exceção é lançada:
@@ -408,7 +408,7 @@ Entre em contato com qualquer um dos autores para que criem ou adicionem uma con
 
 As capturas de tela a seguir mostram as diferentes páginas de entrada usadas por diferentes contas de domínio:
 
-**Conta de domínio do locatário do AD do Azure personalizada**: a página de entrada personalizada do domínio de locatário do Azure AD personalizado.
+**Conta de domínio de locatário do Azure AD personalizado**: a página de entrada personalizada do domínio de locatário do Azure AD personalizado.
 
 ![Conta de domínio do locatário do AD do Azure personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
@@ -416,7 +416,7 @@ As capturas de tela a seguir mostram as diferentes páginas de entrada usadas po
 
 ![Conta de domínio do locatário do AD do Azure personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
-**Conta Microsoft**: a página de entrada da conta Microsoft para consumidores.
+**Conta da Microsoft**: a página de entrada da conta da Microsoft para consumidores.
 
 ![Conta de domínio do locatário do AD do Azure personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
@@ -463,11 +463,16 @@ A captura de tela a seguir mostra um cenário que usa uma chave assimétrica por
 Nos dois casos anteriores, a autenticação do usuário permanece a mesma. Ela ocorre por meio do Azure AD. A única diferença é que os JWTs são emitidos pelo STS personalizado em vez do Azure AD. Ao configurar a proteção por CENC dinâmica, a restrição do serviço de entrega de licença especifica o tipo de JWT, sendo uma chave simétrica ou assimétrica.
 
 ## <a name="summary"></a>Resumo
+
 Este documento abordou a CENC com DRM múltiplo nativo e o controle de acesso por meio de autenticação de token, seu design e sua implementação, usando o Azure, os Serviços de Mídia e o Player de Mídia.
 
 * Um design de referência foi apresentado, contendo todos os componentes necessários em um subsistema DRM/CENC.
 * Foi apresentada uma implementação de referência no Azure, nos Serviços de Mídia e no Player de Mídia.
 * Alguns tópicos envolvidos diretamente no design e na implementação também foram analisados.
+
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -3,23 +3,23 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: bb10f15db1d152ff1d8fd8d38ba22e312a2031b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 08d772fc9b2871262b449a017f8be59a344576b2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323072"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975441"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x"></a>Referência host.json para o Azure Functions 2.x  
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
-O arquivo de metadados *host.json* contém opções de configuração global que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações disponíveis para o runtime v2.  
+O arquivo de metadados *host.json* contém opções de configuração global que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações que estão disponíveis a partir da versão 2. x do tempo de execução de Azure Functions.  
 
 > [!NOTE]
-> Este artigo serve para o Azure Functions 2.x.  Para obter uma referência de host.json no Functions 1.x, consulte [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
+> Este artigo é para o Azure Functions 2. x e versões posteriores.  Para obter uma referência de host.json no Functions 1.x, consulte [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
 
 Outras opções de configuração de aplicativo de funções são gerenciadas nas [configurações de aplicativo](functions-app-settings.md).
 
@@ -111,13 +111,13 @@ Controla o [recurso de amostragem no Application Insights](./functions-monitorin
 > [!NOTE]
 > A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights.
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|isEnabled|verdadeiro|Habilita ou desabilita a amostragem.| 
+|isEnabled|true|Habilita ou desabilita a amostragem.| 
 |maxTelemetryItemsPerSecond|20|O limite em que a amostragem começa.| 
-|EnableLiveMetrics |verdadeiro|Habilita a coleta de métricas em tempo real.|
-|EnableDependencyTracking|verdadeiro|Habilita o rastreamento de dependência.|
-|EnablePerformanceCountersCollection|verdadeiro|Habilita a coleta de contadores de desempenho kudu.|
+|EnableLiveMetrics |true|Habilita a coleta de métricas em tempo real.|
+|EnableDependencyTracking|true|Habilita o rastreamento de dependência.|
+|EnablePerformanceCountersCollection|true|Habilita a coleta de contadores de desempenho kudu.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -141,7 +141,7 @@ Os pacotes de extensão permitem que você adicione um conjunto compatível de e
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-## <a name="functions"></a>funções
+## <a name="functions"></a>functions
 
 Uma lista de funções que o host de trabalho executa. Uma matriz vazia significa que todas as funções serão executadas. Para uso somente quando [em execução localmente](functions-run-local.md). Em aplicativos de funções no Azure, você deve seguir as etapas em [Como desabilitar funções no Azure Functions](disable-function.md) para desabilitar funções específicas em vez de usar essa configuração.
 
@@ -181,9 +181,9 @@ Definições de configuração para [monitor de integridade de Host](https://git
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|enabled|verdadeiro|Especifica se o recurso está habilitado. | 
+|habilitado|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
 |healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
@@ -213,12 +213,12 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|n/d|Objeto que define a filtragem da categoria de log para funções no aplicativo. A versão 2.x segue o layout do ASP.NET Core para filtragem de categoria de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
-|console|n/d| A configuração de log do [console](#console). |
-|applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights). |
+|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|console|N/D| A configuração de log do [console](#console). |
+|applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
 
 ## <a name="console"></a>console
 
@@ -236,9 +236,9 @@ Essa configuração é a filha de [Registro em log](#logging). Ela controla o lo
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|isEnabled|false|Habilita ou desabilita o log de console.| 
+|isEnabled|falso|Habilita ou desabilita o log de console.| 
 
 ## <a name="manageddependency"></a>managedDependency
 
@@ -280,13 +280,13 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/d|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="version"></a>version
 
@@ -302,7 +302,7 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como atualizar o arquivo host.json](functions-reference.md#fileupdate)

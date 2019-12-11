@@ -1,19 +1,19 @@
 ---
 title: Gerar token de segurança para acessar o repositório do IoT Plug and Play Preview | Microsoft Docs
 description: Gere um token de assinatura de acesso compartilhado para usar ao acessar um repositório de modelo de visualização de Plug and Play de IoT programaticamente.
-author: YasinMSFT
-ms.author: yahajiza
+author: Philmea
+ms.author: philmea
 ms.date: 08/06/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e5d6e7087a7e3d5f4a001e16c5cfa19a6df6a68e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f6c4f5b9784eeff9d03b6e93953674736fb78c6c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880534"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976019"
 ---
 # <a name="generate-sas-token"></a>Gerar token SAS
 
@@ -46,7 +46,7 @@ def calculate_sas_token(hostname, repo_id, key_name, key, expiry_in_second):
 
 ## <a name="c"></a>C\#
 
-O trecho a seguir mostra como gerar um token SAS usando C\#:
+O trecho a seguir mostra como gerar um token SAS usando o C\#:
 
 ```csharp
 public static string generateSasToken(string hostName, string repoId, string key, string keyName, int expiryInSeconds = 3600)
@@ -82,6 +82,6 @@ POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-0
 
 Se você fornecer a um cliente um token SAS, o cliente não terá a chave primária do recurso e não poderá reverter o hash para obtê-lo. Um token SAS dá a você controle sobre o que o cliente pode acessar e por quanto tempo. Quando você altera a chave primária na política, todos os tokens SAS criados a partir dela são invalidados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu a gerar tokens de segurança a serem usados para acessar os repositórios do modelo IoT Plug and Play Preview, uma próxima etapa sugerida é saber mais no [Guia do desenvolvedor de modelagem da visualização de iot plug and Play Preview](concepts-developer-guide.md).

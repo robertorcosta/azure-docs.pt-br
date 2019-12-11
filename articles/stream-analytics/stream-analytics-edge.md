@@ -1,5 +1,5 @@
 ---
-title: O Stream Analytics do Azure no IoT Edge
+title: Azure Stream Analytics no IoT Edge
 description: Crie trabalhos do Edge no Azure Stream Analytics e implante-os nos dispositivos em execução no Azure IoT Edge.
 ms.service: stream-analytics
 author: mamccrea
@@ -8,23 +8,23 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 07fa43563ca9b6c9ae247df6eb28894331b004c1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621008"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976427"
 ---
-# <a name="azure-stream-analytics-on-iot-edge"></a>O Stream Analytics do Azure no IoT Edge
+# <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics no IoT Edge
  
-O ASA (Azure Stream Analytics) no IoT Edge oferece aos desenvolvedores a capacitação necessária para implantar inteligência analítica quase em tempo real próxima à dispositivos IoT, assim eles podem desbloquear o valor integral de dados gerados por dispositivos. O Azure Stream Analytics foi projetado para baixa latência, resiliência, uso eficiente da largura de banda e conformidade. Agora as empresas podem implantar a lógica de controle perto das operações industriais e complementar a análise de Big Data feita na nuvem.  
+O ASA (Azure Stream Analytics) no IoT Edge oferece aos desenvolvedores a capacitação necessária para implantar inteligência analítica quase em tempo real próxima a dispositivos IoT, assim eles podem descobrir o valor integral de dados gerados por dispositivos. O Azure Stream Analytics foi projetado para baixa latência, resiliência, uso eficiente da largura de banda e conformidade. Agora as empresas podem implantar a lógica de controle perto das operações industriais e complementar a análise de Big Data feita na nuvem.  
 
 Azure Stream Analytics no IoT Edge executado dentro da estrutura do [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Depois que o trabalho é criado no ASA, você pode implantá-lo e gerenciá-lo usando um Hub IoT.
 
 ## <a name="scenarios"></a>Cenários
 ![Diagrama de alto nível do IoT Edge](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
-* **Controle e comando de baixa latência**: por exemplo, sistemas de segurança de fabricação devem reagir aos dados operacionais com latência extremamente baixa. Com o ASA no IoT Edge, você pode analisar dados de sensor quase em tempo real e emitir comandos ao detectar anomalias para interromper um computador ou disparar gatilho.
+* **Comando de baixa latência e controle**: por exemplo, sistemas de segurança de fabricação devem reagir aos dados operacionais com latência extremamente baixa. Com o ASA no IoT Edge, você pode analisar dados de sensor quase em tempo real e emitir comandos ao detectar anomalias para interromper um computador ou disparar gatilho.
 *   **Conectividade limitada com a nuvem**: sistemas críticos, como equipamentos de mineração remotos, embarcações conectadas ou perfuração offshore, precisam analisar e reagir aos dados, mesmo quando a conectividade de nuvem é intermitente. Com o ASA, a lógica de fluxo é executado independentemente da conectividade de rede, e você pode escolher o que envia para a nuvem para processamento adicional ou armazenamento.
 * **Largura de banda limitada**: o volume de dados produzidos por motores a jato ou carros conectados pode ser tão grande que os dados devem ser filtrados ou pré-processados antes de serem enviados para a nuvem. Usando o ASA, você pode filtrar ou agregar os dados que precisam ser enviados para a nuvem.
 * **Conformidade**: a conformidade normativa pode exigir que alguns dados sejam mantidos anônimos localmente ou agregados antes de serem enviados para a nuvem.
@@ -44,7 +44,7 @@ O ASA usa o Hub IoT para implantar os trabalhos de borda para o(s) dispositivo(s
 ### <a name="installation-instructions"></a>Instruções de instalação
 As etapas de alto nível são descritas na tabela a seguir. Mais detalhes são fornecidos nas seções a seguir.
 
-|      |Etapa   | Observações   |
+|      |Etapa   | Notas   |
 | ---   | ---   |  ---      |
 | 1   | **Criar um contêiner de armazenamento**   | Contêineres de armazenamento são usados para salvar a definição de trabalho em que eles podem ser acessados por dispositivos IoT. <br>  Você pode reutilizar qualquer contêiner de armazenamento existente.     |
 | 2   | **Criar um trabalho de borda ASA**   |  Crie um novo trabalho e selecione **Borda** como **ambiente de hospedagem**. <br> Esses trabalhos são criados/gerenciados na nuvem e executados em seus próprios dispositivos IoT Edge.     |
@@ -94,7 +94,7 @@ Um contêiner de armazenamento é necessário para exportar a consulta compilada
 Os trabalhos de borda podem ser implantados em dispositivos que executam o Azure IoT Edge.
 Para isso, você precisa seguir estas etapas:
 - Crie um Hub IoT.
-- Instale o docker e o tempo de execução do IoT Edge nos dispositivos de borda.
+- Instale o docker e o runtime do IoT Edge nos dispositivos de borda.
 - Defina os dispositivos como **Dispositivos IoT Edge** no Hub IoT.
 
 Essas etapas são descritas na documentação do IoT Edge para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
@@ -110,7 +110,7 @@ Essas etapas são descritas na documentação do IoT Edge para [Windows](https:/
 
 > [!Note]
 > Durante esta etapa, o ASA cria uma pasta chamada "EdgeJobs" no contêiner de armazenamento (se ela ainda não existe). Para cada tipo de implantação, uma nova subpasta é criada na pasta "EdgeJobs".
-> Quando você implanta seu trabalho em dispositivos IoT Edge, o ASA cria uma assinatura de acesso compartilhado (SAS) para o arquivo de definição de trabalho. A chave SAS é transmitida com segurança para os dispositivos IoT Edge usando o dispositivo gêmeo. A expiração dessa chave é de três anos a partir do dia de sua criação. Quando você atualiza um trabalho de borda de IoT, a SAS será alterado, mas a versão da imagem não será alterado. Depois que você **atualizar**, siga o fluxo de trabalho de implantação e uma notificação de atualização é registrada no dispositivo.
+> Quando você implanta seu trabalho em dispositivos IoT Edge, o ASA cria uma SAS (assinatura de acesso compartilhado) para o arquivo de definição de trabalho. A chave SAS é transmitida com segurança para os dispositivos IoT Edge usando o dispositivo gêmeo. A expiração dessa chave é de três anos a partir do dia de sua criação. Quando você atualiza um trabalho de IoT Edge, a SAS será alterada, mas a versão da imagem não será alterada. Depois de **Atualizar**, siga o fluxo de trabalho de implantação e uma notificação de atualização será registrada no dispositivo.
 
 
 Para obter mais detalhes sobre implantações do IoT Edge, confira [esta página](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -143,11 +143,11 @@ Este exemplo define as seguintes rotas:
 
 ## <a name="technical-information"></a>Informações técnicas
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitações atuais dos trabalhos do IoT Edge em comparação com os trabalhos de nuvem
-O objetivo é ter a paridade entre os trabalhos do IoT Edge e os trabalhos de nuvem. A maioria dos recursos de linguagem de consulta SQL têm suporte, permitindo que para executar a mesma lógica na nuvem e do IoT Edge.
+O objetivo é ter a paridade entre os trabalhos do IoT Edge e os trabalhos de nuvem. Há suporte para a maioria dos recursos da linguagem de consulta SQL, permitindo que o execute a mesma lógica em nuvem e IoT Edge.
 No entanto, os recursos a seguir ainda não têm suporte para trabalhos de borda:
 * Funções definidas pelo usuário (UDF) no JavaScript. Os UDF estão disponíveis no [C# para trabalhos do IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (versão prévia).
 * Agregações definidas pelo usuário (UDA).
-* Funções do Azure ML
+* Funções do Azure ML.
 * Uso de mais de 14 agregações em uma única etapa.
 * Formato AVRO para entrada/saída. No momento, há suporte apenas para CSV e JSON.
 * Os seguintes operadores SQL:
@@ -155,7 +155,7 @@ No entanto, os recursos a seguir ainda não têm suporte para trabalhos de borda
     * GetMetadataPropertyValue
 
 
-### <a name="runtime-and-hardware-requirements"></a>Requisitos de hardware e de tempo de execução
+### <a name="runtime-and-hardware-requirements"></a>Requisitos de hardware e de runtime
 Para executar o ASA no IoT Edge, você precisa de dispositivos que possam executar o [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
 
 O ASA e o Azure IoT Edge usam contêineres **Docker** para fornecer uma solução portátil que é executada em vários sistemas operacionais host (Windows, Linux).
@@ -202,33 +202,33 @@ Existem duas maneiras de atualizar os dados de referência:
 * [Licença do Azure Stream Analytics no IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Aviso de terceiros para o Azure Stream Analytics no IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
-## <a name="azure-stream-analytics-module-image-information"></a>Informações de imagem de módulo do Stream Analytics do Azure 
+## <a name="azure-stream-analytics-module-image-information"></a>Informações de imagem do módulo Azure Stream Analytics 
 
-Última atualização: essas informações de versão de 2019-06-27:
+Esta informação de versão foi atualizada pela última vez em 2019-06-27:
 
 - Imagem: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
-   - imagem base: microsoft/dotnet:2.1.6-runtime-alpine3.7
-   - Plataforma:
-      - architecture: amd64
-      - os: linux
+   - imagem base: Microsoft/dotnet: 2.1.6-Runtime-Alpine 3.7
+   - plataforma
+      - arquitetura: AMD64
+      - sistema operacional: Linux
   
 - Imagem: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
-   - imagem base: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
-   - Plataforma:
-      - arquitetura: arm
-      - os: linux
+   - imagem base: Microsoft/dotnet: 2.1.6-Runtime-Bionic-arm32v7
+   - plataforma
+      - arquitetura: ARM
+      - sistema operacional: Linux
   
 - Imagem: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
-   - imagem base: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
-   - Plataforma:
-      - architecture: amd64
-      - sistema operacional: windows
+   - imagem base: Microsoft/dotnet: 2.1.6-Runtime-beserver-1809
+   - plataforma
+      - arquitetura: AMD64
+      - sistema operacional: Windows
       
       
-## <a name="get-help"></a>Obter ajuda
+## <a name="get-help"></a>Obtenha ajuda
 Para obter mais assistência, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Mais informações sobre o Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA no tutorial de IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)

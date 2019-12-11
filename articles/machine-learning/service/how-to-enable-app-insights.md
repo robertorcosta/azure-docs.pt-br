@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 19dba88bf04ee84459ebd9ef0279f125724d7522
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: f4bb399e24b2c480023eba6bf5b71990f6d39c8c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406444"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978366"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorar e coletar dados de pontos de extremidade de serviço Web do ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ Neste artigo, você aprende a coletar dados do e a monitorar modelos implantados
 [Saiba mais sobre o aplicativo Azure insights](../../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree)
 
@@ -39,7 +39,7 @@ Neste artigo, você aprende a coletar dados do e a monitorar modelos implantados
 
 ## <a name="web-service-input-and-response-data"></a>Dados de entrada e resposta do serviço Web
 
-A entrada e a resposta para o serviço, que corresponde às entradas para o modelo ML e sua previsão, são registradas nos rastreamentos do Aplicativo Azure insights sob a mensagem `"model_data_collection"`. Você pode consultar Aplicativo Azure informações diretamente para acessar esses dados ou configurar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para maior retenção ou processamento adicional. Os dados de modelo podem ser usados no serviço do Azure ML para configurar o rotulamento, o retreinamento, a explicação, a análise de dados ou outro uso. 
+A entrada e a resposta para o serviço, que corresponde às entradas para o modelo ML e sua previsão, são registradas nos rastreamentos do Aplicativo Azure insights sob a mensagem `"model_data_collection"`. Você pode consultar Aplicativo Azure informações diretamente para acessar esses dados ou configurar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para maior retenção ou processamento adicional. Os dados de modelo podem ser usados no Azure Machine Learning para configurar o rotulamento, o retreinamento, a explicação, a análise de dados ou outro uso. 
 
 ## <a name="use-the-azure-portal-to-configure"></a>Usar o portal do Azure para configurar
 
@@ -121,7 +121,7 @@ Para desabilitar o Aplicativo Azure insights, use o seguinte código:
 Os dados do serviço são armazenados em sua conta do Aplicativo Azure insights, dentro do mesmo grupo de recursos que Azure Machine Learning.
 Para exibi-lo:
 
-1. Vá para o espaço de trabalho do serviço Machine Learning no [Azure Machine Learning Studio](https://ml.azure.com) e clique no link Application insights
+1. Vá para o espaço de trabalho Azure Machine Learning no [Azure Machine Learning Studio](https://ml.azure.com) e clique no link Application insights
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
@@ -155,7 +155,7 @@ O bloco de anotações [Enable-app-Revisions-in-Production-Service. ipynb](https
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [como implantar um modelo em um cluster do serviço kubernetes do Azure](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-azure-kubernetes-service) ou [como implantar um modelo em instâncias de contêiner do Azure](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-azure-container-instance) para implantar seus modelos em pontos de extremidade de serviço Web e habilitar aplicativo Azure insights para aproveitar a coleta de dados e o monitoramento de ponto de extremidades
 * Consulte [MLOps: gerenciar, implantar e monitorar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-model-management-and-deployment) para saber mais sobre como aproveitar os dados coletados de modelos em produção. Esses dados podem ajudar a melhorar continuamente o processo de aprendizado de máquina

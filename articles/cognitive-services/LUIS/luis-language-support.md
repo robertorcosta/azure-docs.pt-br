@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 83fd06078500be7b5bd58e9ea92d957f9d77f892
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f6b95f76af4c83459ac81ff1703d8588f649326c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904218"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970535"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -26,13 +26,14 @@ LUIS tem uma variedade de recursos dentro do serviço. Nem todos os recursos est
 
 Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um chatbot, terá algumas opções. Se o LUIS der suporte a todos os idiomas, desenvolva um aplicativo LUIS para cada idioma. Cada aplicativo LUIS tem uma ID de aplicativo exclusiva e um log de ponto de extremidade. Se você precisa fornecer o reconhecimento de idioma para um idioma ao qual o LUIS não oferece suporte, use a [API de Tradução da Microsoft](../Translator/translator-info-overview.md) para traduzir a declaração para um idioma com suporte, envie a declaração para o ponto de extremidade do LUIS e receba as pontuações resultantes.
 
-## <a name="languages-supported"></a>Idiomas com suporte
+## <a name="languages-supported"></a>Idiomas compatíveis
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| idioma |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Idioma |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | \**[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
+| Árabe (visualização-árabe moderno padrão) |`ar-AR`|-|-|-|-|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Holandês |`nl-NL` |✔|  -   |-|✔|
 | Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
@@ -66,7 +67,7 @@ Veja [Idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/S
 Veja [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) da Verificação Ortográfica do Bing para obter uma lista dos idiomas com suporte e status.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Palavras raras ou estrangeiras em um aplicativo
-Na cultura`en-us`, o LUIS aprende a distinguir mais palavras em inglês, incluindo gírias. Na cultura `zh-cn`, o LUIS aprende distinguir a maioria dos caracteres chineses. Se você usar uma palavra rara em `en-us` ou caractere em `zh-cn`, e você verá que o LUIS não parece capaz de distinguir essa palavra ou caractere, você pode adicionar essa palavra ou caractere a um [recurso de lista de frases](luis-how-to-add-features.md). Por exemplo, as palavras fora da cultura do aplicativo, ou seja, as palavras estrangeiras, devem ser adicionadas a um recurso de lista de frases. 
+Na cultura`en-us`, o LUIS aprende a distinguir mais palavras em inglês, incluindo gírias. Na cultura `zh-cn`, o LUIS aprende distinguir a maioria dos caracteres chineses. Se você usar uma palavra rara em `en-us` ou caractere em `zh-cn`, e você verá que o LUIS não parece capaz de distinguir essa palavra ou caractere, você pode adicionar essa palavra ou caractere a um [recurso de lista de frases](luis-how-to-add-features.md). Por exemplo, as palavras fora da cultura do aplicativo, ou seja, as palavras estrangeiras, devem ser adicionadas a um recurso de lista de frases.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -76,8 +77,9 @@ Os idiomas híbridos combinam palavras de duas culturas, como inglês e chinês.
 ## <a name="tokenization"></a>Geração de tokens
 Para executar o aprendizado de máquina, o LUIS divide uma declaração em [tokens](luis-glossary.md#token) com base na cultura.
 
-|idioma|  cada espaço ou caractere especial | nível do caractere|palavras compostas|[Entidade indexada retornada](luis-concept-data-extraction.md#tokenized-entity-returned)
+|Idioma|  cada espaço ou caractere especial | nível do caractere|palavras compostas|[Entidade indexada retornada](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
+|Árabe|||||
 |Chinês||✔||✔|
 |Holandês|||✔|✔|
 |Inglês (en-us)|✔ ||||
@@ -103,9 +105,9 @@ As seguintes culturas têm versões de criador personalizadas:
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrando entre versões do criador
 <!--
-Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
-Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -154,7 +156,7 @@ Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 }
 ```
 
-Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -204,6 +206,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-A geração de tokens ocorre no nível do aplicativo. Não há suporte para geração de tokens no nível de versão. 
+A geração de tokens ocorre no nível do aplicativo. Não há suporte para geração de tokens no nível de versão.
 
-[Importe o arquivo como um novo aplicativo](luis-how-to-start-new-app.md), em vez de uma versão. Essa ação significa que o novo aplicativo tem uma ID de aplicativo diferente, mas usa a versão criador especificada no arquivo. 
+[Importe o arquivo como um novo aplicativo](luis-how-to-start-new-app.md), em vez de uma versão. Essa ação significa que o novo aplicativo tem uma ID de aplicativo diferente, mas usa a versão criador especificada no arquivo.

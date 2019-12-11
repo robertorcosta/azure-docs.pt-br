@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 4d4823e8dcce0d1296ebe39a0b7a7c4bbc180317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 275fa173c5005c4d1609a858c8edb39b5c307c5e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015422"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974607"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando o Axinom para fornecer licenças Widevine para os Serviços de Mídia do Azure 
 > [!div class="op_single_selector"]
@@ -29,10 +29,10 @@ ms.locfileid: "69015422"
 > 
 > 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O AMS (Serviços de Mídia do Azure) adicionou a proteção dinâmica do Google Widevine (veja o [blog de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) para obter detalhes). Além disso, o Player de Mídia do Azure (AMP) também adicionou suporte Widevine (consulte o [documento AMP](https://amp.azure.net/libs/amp/latest/docs/) para obter detalhes). Isso é uma grande conquista de streaming de conteúdo DASH protegido por CENC com DRM multinativo (PlayReady e Widevine) em navegadores modernos equipados com MSE e EME.
 
-A partir da versão 3.5.2 do SDK do .NET dos Serviços de Mídia, os Serviços de Mídia permitem que você configure um modelo de licença do Widevine e obtenha licenças do Widevine. Você também pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
+A partir da versão 3.5.2 do SDK do .NET dos Serviços de Mídia, os Serviços de Mídia permitem que você configure um modelo de licença do Widevine e obtenha licenças do Widevine. Você também pode usar os seguintes parceiros do AMS para ajudar no fornecimento de licenças do Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/) e [castLabs](https://castlabs.com/company/partners/azure/).
 
 Este artigo descreve como integrar e testar o servidor de licença Widevine gerenciado pelo Axinom. Especificamente, ele abrange:  
 
@@ -44,8 +44,8 @@ O sistema completo e o fluxo de chave de conteúdo, a ID da chave, a propagaçã
 
 ![DASH e CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
-## <a name="content-protection"></a>Proteção do Conteúdo
-Para configurar a proteção dinâmica e a política de entrega de chaves, confira o blog de Mingfei: [Como configurar o empacotamento Widevine com os Serviços de Mídia do Azure](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+## <a name="content-protection"></a>Proteção do conteúdo
+Para configurar a proteção dinâmica e a política de entrega de chaves, consulte o blog de Mingfei: [Como configurar o empacotamento do Widevine com os Serviços de Mídia do Azure](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 Você pode configurar a proteção CENC dinâmica com multi-DRM para o streaming DASH com o seguinte:
 
@@ -177,6 +177,7 @@ Talvez você tenha notado que uma ID da chave é necessária no código para a g
     }
 
 ## <a name="summary"></a>Resumo
+
 Com a mais recente adição de suporte Widevine à Proteção de Conteúdo dos Serviços de Mídia do Azure e ao Player de Mídia do Azure, somos capazes de implementar o streaming de DASH mais DRM multinativo (PlayReady + Widevine) com o serviço de licença PlayReady no AMS e o servidor de licença Widevine da Axinom para os seguintes navegadores modernos:
 
 * Chrome
@@ -186,13 +187,17 @@ Com a mais recente adição de suporte Widevine à Proteção de Conteúdo dos S
 
 Os parâmetros a seguir são necessários na mini-solução que aproveita o servidor de licença Widevine da Axinom. Com exceção da ID da chave, os outros parâmetros são fornecidos pela Axinom com base na configuração do servidor Widevine.
 
-| Parâmetro | Como ele é usado |
+| . | Como ele é usado |
 | --- | --- |
 | ID da chave de comunicação |Deve ser incluído como valor de declaração "com_key_id" no token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) seção). |
 | Chave de comunicação |Deve ser usado como a chave de assinatura de token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) seção). |
 | Semente de chave |Deve ser usada para gerar a chave de conteúdo com qualquer ID de chave de conteúdo fornecida (consulte [esta](media-services-axinom-integration.md#content-protection) seção). |
 | URL de aquisição de licença de Widevine |Deve ser usada na configuração de política de entrega de ativos para streaming de DASH (consulte [esta](media-services-axinom-integration.md#content-protection) seção). |
 | ID de chave de conteúdo |Deve ser incluída como parte do valor da declaração da Mensagem de Qualificação do token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) seção). |
+
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -201,5 +206,5 @@ Os parâmetros a seguir são necessários na mini-solução que aproveita o serv
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Agradecimentos
-Gostaríamos de agradecer às seguintes pessoas que contribuíram para a criação deste documento: Kristjan Jõgi da Axinom, Mingfei Yan e Amit Rajput.
+Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Kristjan Jõgi da Axinom, Mingfei Yan e Amit Rajput.
 

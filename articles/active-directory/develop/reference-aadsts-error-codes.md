@@ -1,5 +1,5 @@
 ---
-title: Códigos de erro de autenticação e autorização do Azure Active Directory | Microsoft Docs
+title: Autenticação do Azure AD e códigos de erro de autorização | Azure
 description: Saiba mais sobre os códigos de erro do AADSTS que são retornados do serviço de token de segurança (STS) do Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 261fe2142fc3bc45625b5d088a46ad92c34222db
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193174"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965799"
 ---
-# <a name="authentication-and-authorization-error-codes"></a>Códigos de autenticação e erro de autorização
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
 Procurando informações sobre os códigos de erro AADSTS que são retornados do serviço de token de segurança (STS) do Azure Active Directory (Azure AD)? Leia este documento para encontrar descrições de erros, correções e algumas sugestões sugeridas do AADSTS.
 
@@ -40,7 +40,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 
 ## <a name="aadsts-error-codes"></a>Códigos de erro AADSTS
 
-| Erro | DESCRIÇÃO |
+| Erro | Descrição |
 |---|---|
 | AADSTS16000 | SelectUserAccount - Esta é uma interrupção lançada pelo Azure AD, que resulta na interface do usuário que permite ao usuário selecionar entre várias sessões válidas do SSO. Esse erro é bastante comum e pode ser retornado ao aplicativo se `prompt=none` for especificado. |
 | AADSTS16001 | UserAccountSelectionInvalid - Você verá esse erro se o usuário clicar em um bloco que a lógica de seleção da sessão rejeitou. Quando acionado, esse erro permite que o usuário recupere escolhendo de uma lista atualizada de blocos / sessões ou escolhendo outra conta. Este erro pode ocorrer devido a um defeito de código ou condição de corrida. |
@@ -273,6 +273,6 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS1000002 | BindCompleteInterruptError - A ligação foi concluída com êxito, mas o usuário deve ser informado. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled-o aplicativo está desabilitado. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Tem alguma dúvida ou não consegue encontrar o que está procurando? Crie um problema no GitHub ou consulte [Suporte e opções de ajuda para desenvolvedores](active-directory-develop-help-support.md) para aprender sobre outras maneiras de obter ajuda e suporte.

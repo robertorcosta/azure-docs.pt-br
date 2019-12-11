@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: f9c7278e60c8342aa7d5b68ab8da7143abaf4c89
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/09/2019
+ms.openlocfilehash: b4029d49eeba53e7a502a7ac68081bb5a2d549f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970525"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971920"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versões com suporte do servidor de Banco de Dados do Azure para MySQL
 
@@ -26,15 +26,15 @@ No momento, o Banco de Dados do Azure para MySQL dá suporte às seguintes vers�
 
 ## <a name="mysql-version-56"></a>MySQL Versão 5.6
 
-Versão de correção de bug: 5.6.44
+Versão de correção de bug: 5.6.45
 
-Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-44.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
+Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
 
 ## <a name="mysql-version-57"></a>MySQL Versão 5.7
 
-Versão de correção de bug: 5.7.26
+Versão de correção de bug: 5.7.27
 
-Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
+Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
 
 ## <a name="mysql-version-80"></a>MySQL versão 8,0
 
@@ -50,6 +50,6 @@ O serviço gerencia automaticamente a aplicação de patch para atualizações d
 
 Atualmente, não há suporte para atualizações de versão principal e secundária. Por exemplo, não há suporte para a atualização do MySQL 5.6 para o MySQL 5.7. Caso deseje atualizar da versão 5.6 para a 5.7, faça um [despejo e restaure-a](./concepts-migrate-dump-restore.md) para um servidor que foi criado com a nova versão do mecanismo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre cotas e limitações específicas de recursos com base em sua **camada de serviço**, confira [Camadas de serviço](./concepts-pricing-tiers.md)

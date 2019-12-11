@@ -1,17 +1,17 @@
 ---
-title: Configurar alertas de métricas para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
+title: Configurar alertas-Citus (hiperescala)-banco de dados do Azure para PostgreSQL
 description: Este artigo descreve como configurar e acessar os alertas de métricas para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d5f45df16ac294f50e99cc7e05ab6eba43c0ae85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a830f344023967f07ab809d67833f99e4e2958
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516013"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977600"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Usar o portal do Azure para configurar alertas em métricas para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -25,7 +25,7 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 * Chamar um webhook.
 
 Você pode configurar e obter informações sobre as regras de alerta usando:
-* [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [API REST do Monitor do Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
@@ -89,6 +89,6 @@ Depois de criar um alerta, você pode selecioná-lo e executar as seguintes aç�
 * **Editar** ou **Excluir** a regra de alerta.
 * **Desabilitar** ou **Habilitar** o alerta, se desejar interromper temporariamente ou retomar o recebimento de notificações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
 * Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.

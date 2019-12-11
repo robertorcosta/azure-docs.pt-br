@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/12/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: edb46bc361c515439a93d9c3d0b9987bebe4b1b1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4b0e5be0e5f71fa61e3a6c6fa39e720c4c298898
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229868"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967926"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerenciar orçamentos do Azure
 
@@ -27,18 +27,18 @@ Os orçamentos são redefinidos automaticamente no final de um período (mensal,
 
 Os exemplos deste tutorial ajudam você a criar e editar um orçamento para uma assinatura do Azure Enterprise Agreement (EA).
 
-Assista ao vídeo [como criar um orçamento para monitorar seus gastos com o gerenciamento de custos do Azure](https://www.youtube.com/watch?v=ExIVG_Gr45A) para ver como você pode criar orçamentos no Azure para monitorar os gastos.
+Assista às [assinaturas aplicar orçamentos usando o portal do Azure](https://www.youtube.com/watch?v=UrkHiUx19Po) vídeo para ver como você pode criar orçamentos no Azure para monitorar os gastos.
 
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um orçamento no portal do Azure
 > * Editar um orçamento
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Há suporte para orçamentos de uma variedade de tipos de conta do Azure. Para exibir a lista completa dos tipos de conta compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Para exibir os orçamentos, você precisará, pelo menos, de acesso de leitura em sua conta do Azure.
+Há suporte para orçamentos de uma variedade de tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Para exibir os orçamentos, você precisará, pelo menos, de acesso de leitura em sua conta do Azure.
 
  Para assinatura do Azure EA, você deve ter acesso de leitura para exibir orçamentos. Para criar e gerenciar orçamentos, você deve ter permissão de colaborador. Você pode criar orçamentos individuais para grupos de recursos e assinaturas de EA. No entanto, não é possível criar os orçamentos para contas de cobrança de EA.
 
@@ -56,29 +56,29 @@ Para obter mais informações sobre como atribuir permissões aos dados de Geren
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Criar um orçamento no portal do Azure
 
-Você pode criar um orçamento de assinatura do Azure para um período mensal, trimestral ou anual. O conteúdo de navegação na portal do Azure determina se você cria um orçamento para uma assinatura ou para um grupo de gerenciamento.
+Você pode criar um orçamento de assinatura do Azure para um período mensal, trimestral ou anual. O conteúdo de navegação no portal do Azure determina se você criará um orçamento para uma assinatura ou para um grupo de gerenciamento.
 
-Para criar ou exibir um orçamento, abra o escopo desejado no portal do Azure e selecione **orçamentos** no menu. Por exemplo, navegue até **assinaturas**, selecione uma assinatura na lista e, em seguida, selecione **orçamentos** no menu. Use o **escopo** do Pill para alternar para um escopo diferente, como um grupo de gerenciamento, em orçamentos. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
+Para criar ou ver um orçamento, abra o escopo desejado no portal do Azure e selecione **Orçamentos** no menu. Por exemplo, navegue até **assinaturas**, selecione uma assinatura na lista e, em seguida, selecione **orçamentos** no menu. Use o **escopo** do Pill para alternar para um escopo diferente, como um grupo de gerenciamento, em orçamentos. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 Depois de criar os orçamentos, eles mostram uma exibição simples de seus gastos atual em relação a eles.
 
-Clique em **Adicionar**.
+Selecione **Adicionar**.
 
 ![Exemplo mostrando uma lista de orçamentos já criados](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Na janela **criar orçamento** , verifique se o escopo mostrado está correto. Escolha os filtros que você deseja adicionar. Os filtros permitem que você crie orçamentos para custos específicos, como grupos de recursos em uma assinatura ou um serviço como máquinas virtuais. Qualquer filtro que você possa usar na análise de custo também pode ser aplicado a um orçamento.
+Na janela **Criar orçamento**, verifique se o escopo mostrado está correto. Escolha os filtros que deseja adicionar. Os filtros permitem que você crie orçamentos para custos específicos, como grupos de recursos em uma assinatura ou um serviço como máquinas virtuais. Qualquer filtro que você possa usar na análise de custo também pode ser aplicado a um orçamento.
 
-Depois de identificar o escopo e os filtros, digite um nome de orçamento. Em seguida, escolha um período mensal, trimestral ou anual de redefinição de orçamento. Esse período de redefinição determina a janela de tempo que é analisada pelo orçamento. O custo avaliado pelo orçamento começa em zero no início de cada novo período. Quando você cria um orçamento trimestral, ele funciona da mesma maneira que um orçamento mensal. A diferença é que o valor do orçamento para o trimestre é dividido entre os três meses do trimestre. Um valor de orçamento anual é dividido uniformemente entre todos os 12 meses do ano civil.
+Depois de identificar o escopo e os filtros, digite um nome de orçamento. Em seguida, escolha um período mensal, trimestral ou anual de redefinição de orçamento. Esse período de redefinição determina a janela de tempo que é analisada pelo orçamento. O custo avaliado pelo orçamento começa em zero no início de cada novo período. Quando você cria um orçamento trimestral, ele funciona da mesma maneira que um orçamento mensal. A diferença é que o valor do orçamento para o trimestre é dividido entre os três meses do trimestre. Um valor do orçamento anual é dividido de maneira uniforme entre todos os 12 meses do ano civil.
 
-Se você tiver uma assinatura de Pagamento Conforme o Uso, do MSDN ou do Visual Studio, o período de cobrança da fatura talvez não esteja alinhado ao mês do calendário. Para esses tipos de assinatura e grupos de recursos, você pode criar um orçamento alinhado ao seu período de fatura ou a meses de calendário. Para criar um orçamento alinhado ao período da fatura, selecione um período de redefinição de **mês de cobrança**, **trimestre de cobrança**ou ano de **cobrança**. Para criar um orçamento alinhado ao mês do calendário, selecione um período de redefinição **mensal**, **trimestral**ou **anual**.
+Se você tiver uma assinatura de Pagamento Conforme o Uso, do MSDN ou do Visual Studio, o período de cobrança da fatura talvez não esteja alinhado ao mês do calendário. Para esses tipos de assinaturas e grupos de recursos, você pode criar um orçamento que esteja alinhado ao período da fatura ou aos meses do calendário. Para criar um orçamento alinhado ao período da fatura, selecione um período de redefinição de **mês de cobrança**, **trimestre de cobrança**ou ano de **cobrança**. Para criar um orçamento alinhado ao mês do calendário, selecione um período de redefinição **mensal**, **trimestral**ou **anual**.
 
-Em seguida, identifique a data de validade quando o orçamento se tornar inválido e pare de avaliar seus custos.
+Em seguida, identifique a data de validade do orçamento e quando ele deixará de avaliar seus custos.
 
-Com base nos campos escolhidos no orçamento até o momento, um grafo é mostrado para ajudá-lo a selecionar um limite a ser usado para seu orçamento. O orçamento sugerido é baseado no custo previsto mais alto que você pode incorrer em períodos futuros. Você pode alterar o valor do orçamento.
+Com base nos campos escolhidos no orçamento até o momento, um grafo é mostrado para ajudar você a selecionar um limite a ser usado para o orçamento. O orçamento sugerido baseia-se no custo previsto mais alto que você pode gerar em períodos futuros. Você pode alterar o valor do orçamento.
 
-![Exemplo mostrando a criação de orçamento com dados de custo mensal ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Exemplo mostrando a criação de orçamento com os dados de custo mensal ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Depois de configurar o valor do orçamento, clique em **Avançar** para configurar alertas de orçamento. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações de email normalmente são recebidas em menos de 20 horas. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](cost-mgt-alerts-monitor-usage-spending.md). No exemplo a seguir, um alerta de email é gerado quando 90% do orçamento é atingido. Se você criar um orçamento com a API de orçamentos, também poderá atribuir funções a pessoas para receber alertas. Não há suporte para a atribuição de funções a pessoas no portal do Azure. Para saber mais sobre a API de orçamentos do Azure, confira [API de orçamentos](/rest/api/consumption/budgets).
+Depois de configurar o valor do orçamento, selecione **Avançar** para configurar alertas de orçamento. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações de email normalmente são recebidas em menos de 20 horas. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](cost-mgt-alerts-monitor-usage-spending.md). No exemplo a seguir, um alerta de email é gerado quando 90% do orçamento é atingido. Se você criar um orçamento com a API de orçamentos, também poderá atribuir funções a pessoas para receber alertas. Não há suporte para a atribuição de funções a pessoas no portal do Azure. Para saber mais sobre a API de orçamentos do Azure, confira [API de orçamentos](/rest/api/consumption/budgets).
 
 ![Exemplo mostrando condições de alerta](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -90,16 +90,16 @@ No exemplo anterior, você criou um orçamento para uma assinatura. No entanto, 
 
 ## <a name="trigger-an-action-group"></a>Disparar um grupo de ações
 
-Quando você cria ou edita um orçamento para um escopo de grupo de recursos ou assinatura, você pode configurá-lo para chamar um grupo de ação. O grupo de ações pode executar uma variedade de ações diferentes quando o limite do orçamento é atingido. No momento, os grupos de ação só têm suporte para escopos de grupo de recursos e assinatura. Para obter mais informações sobre grupos de ações, consulte [criar e gerenciar grupos de ações no portal do Azure](../azure-monitor/platform/action-groups.md). Para obter mais informações sobre como usar a automação baseada em orçamento com grupos de ação, consulte [gerenciar custos com orçamentos do Azure](../billing/billing-cost-management-budget-scenario.md).
+Ao criar ou editar um orçamento para um escopo de grupo de recursos ou assinatura, você poderá configurá-lo para chamar um grupo de ações. O grupo de ações pode executar uma variedade de ações diferentes quando o limite de orçamento é atingido. No momento, os grupos de ação só têm suporte para escopos de grupo de recursos e assinatura. Para obter mais informações sobre grupos de ações, consulte [criar e gerenciar grupos de ações no portal do Azure](../azure-monitor/platform/action-groups.md). Para obter mais informações sobre como usar a automação baseada em orçamento com grupos de ação, consulte [gerenciar custos com orçamentos do Azure](../billing/billing-cost-management-budget-scenario.md).
 
 
 
-Para criar ou atualizar grupos de ações, clique em **gerenciar grupos de ações** enquanto estiver criando ou editando um orçamento.
+Para criar ou atualizar grupos de ações, selecione **gerenciar grupos de ações** enquanto estiver criando ou editando um orçamento.
 
 ![Exemplo de criação de um orçamento para mostrar grupos de ação de gerenciamento](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-Em seguida, clique em **Adicionar grupo de ações** e crie o grupo de ações.
+Em seguida, selecione **Adicionar grupo de ação** e criar o grupo de ação.
 
 
 ![Imagem da caixa Adicionar grupo de ações](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
@@ -116,9 +116,15 @@ O exemplo a seguir mostra os limites de orçamento definidos como 50%, 75% e 100
 
 A integração de orçamento com grupos de ação só funciona para grupos de ação que têm o esquema de alerta comum desabilitado. Para obter mais informações sobre como desabilitar o esquema, consulte [como fazer habilitar o esquema de alerta comum?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="edit-an-existing-budget"></a>Editar um orçamento existente
+Se você quiser fazer alterações em um orçamento existente, navegue até a janela principais orçamentos e selecione o orçamento que você deseja editar. Na janela detalhes do orçamento, selecione **Editar orçamento** e faça as alterações necessárias e, em seguida, selecione **salvar**.
 
-Neste tutorial, você aprendeu a:
+![Exemplo mostrando o orçamento de edição](./media/tutorial-acm-create-budgets/edit-budget.png)
+
+
+## <a name="next-steps"></a>Próximos passos
+
+Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
 > * Criar um orçamento no portal do Azure

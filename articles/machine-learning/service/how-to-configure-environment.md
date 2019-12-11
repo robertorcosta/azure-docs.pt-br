@@ -11,25 +11,25 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19045b54b97fdb69f9fdab3d17066faa5dbcc435
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cba77b89ac9a9a93a2a3d889d4faca32708fd719
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580726"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997251"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprenderá a configurar um ambiente de desenvolvimento para trabalhar com Azure Machine Learning. Azure Machine Learning é independente da plataforma. O único requisito rígido para seu ambiente de desenvolvimento é o Python 3. Um ambiente isolado como Anaconda ou Virtualenv também é recomendado.
 
-A tabela a seguir mostra cada ambiente de desenvolvimento abordado neste artigo, juntamente com prós e contras.
+A tabela a seguir mostra cada ambiente de desenvolvimento abordado neste artigo, com os prós e contras.
 
 | Ambiente | Prós | Contras |
 | --- | --- | --- |
 | [VM do notebook Azure Machine Learning baseado em nuvem](#notebookvm) | A maneira mais fácil de começar. O SDK completo já está instalado na VM do seu espaço de trabalho, e os tutoriais do notebook são previamente clonados e prontos para serem executados. | Falta de controle sobre seu ambiente de desenvolvimento e dependências. Custo adicional incorrido para a VM do Linux (a VM pode ser interrompida quando não estiver em uso para evitar cobranças). Consulte [detalhes de preço](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Ambiente local](#local) | Controle total do seu ambiente de desenvolvimento e dependências. Execute com qualquer ferramenta de compilação, ambiente ou IDE de sua escolha. | Leva mais tempo para começar. Os pacotes SDK necessários devem ser instalados e um ambiente também deve ser instalado se você ainda não tiver um. |
-| [Azure Databricks](#aml-databricks) | Ideal para executar fluxos de trabalho de aprendizado de máquina com uso intensivo em larga escala na plataforma de Apache Spark escalonável. | Um exagero para aprendizado de máquina experimental ou experimentos e fluxos de trabalho de escala menor. Custo adicional incorrido para Azure Databricks. Consulte [detalhes de preço](https://azure.microsoft.com/pricing/details/databricks/). |
+| [Azure Databricks](#aml-databricks) | Ideal para executar fluxos de trabalho de aprendizado de máquina com uso intensivo em larga escala na plataforma Apache Spark escalonável. | Um exagero para aprendizado de máquina experimental ou experimentos e fluxos de trabalho de escala menor. Custo adicional incorrido para Azure Databricks. Consulte [detalhes de preço](https://azure.microsoft.com/pricing/details/databricks/). |
 | [O Máquina Virtual de Ciência de Dados (DSVM)](#dsvm) | Semelhante à VM do bloco de notas baseado em nuvem (o Python e o SDK são pré-instalados), mas com mais populares ferramentas de ciência de dados e de aprendizado de máquina instaladas previamente. Fácil de dimensionar e combinar com outras ferramentas e fluxos de trabalho personalizados. | Uma experiência de introdução mais lenta em comparação com a VM do bloco de notas baseado em nuvem. |
 
 
@@ -158,7 +158,7 @@ Quando você estiver usando um computador local (que também pode ser uma máqui
 
     Este exemplo cria um ambiente usando Python 3.6.5, mas qualquer subversão específica pode ser escolhida. A compatibilidade do SDK pode não ser garantida com determinadas versões principais (o 3.5 + é recomendado) e é recomendável tentar uma versão/subversão diferente em seu ambiente Anaconda se você encontrar erros. Levará vários minutos para criar o ambiente enquanto os componentes e pacotes são baixados.
 
-1. Execute os seguintes comandos em seu novo ambiente para habilitar kernels ipython específicos do ambiente. Isso garantirá o comportamento esperado de importação de kernel e pacote ao trabalhar com notebooks Jupyter em ambientes Anaconda:
+1. Execute os seguintes comandos em seu novo ambiente para habilitar kernels IPython específicos do ambiente. Isso garantirá o comportamento esperado de importação de kernel e pacote ao trabalhar com notebooks Jupyter em ambientes Anaconda:
 
     ```shell
     conda install notebook ipykernel
@@ -167,7 +167,7 @@ Quando você estiver usando um computador local (que também pode ser uma máqui
     Em seguida, execute o seguinte comando para criar o kernel:
 
     ```shell
-    ipython kernel install --user
+    ipython kernel install --user --name myenv --display-name "Python (myenv)"
     ```
 
 1. Use os seguintes comandos para instalar pacotes do:
@@ -183,7 +183,7 @@ Quando você estiver usando um computador local (que também pode ser uma máqui
    >
    >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
    >
-   > * A partir do macOS Catalina, o zsh (Z Shell) é o Shell de logon padrão e o shell interativo. No zsh, use o comando a seguir que escapa entre colchetes com "\\" (barra invertida):
+   > * A partir do macOS Catalina, o zsh (Z Shell) é o shell de logon padrão e o shell interativo. No zsh, use o comando a seguir que escapa os colchetes com "\\" (barra invertida):
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
@@ -289,14 +289,14 @@ Crie um [cluster do databricks](https://docs.microsoft.com/azure/azure-databrick
 
 Use estas configurações:
 
-| Configuração |Aplica-se a| Valor |
+| Configuração |Aplica-se a| Value |
 |----|---|---|
-| Nome do cluster |Constante| nomedoseucluster |
-| Databricks Runtime |Constante|Tempo de execução não ML 6,0 (escala 2,11, Spark 2.4.3) |
-| Versão do Python |Constante| 3 |
-| Trabalhos |Constante| 2 ou superior |
-| Tipos de VM do nó de trabalho <br>(determina o número máximo de iterações simultâneas) |ML automatizado<br>somente| Uma VM otimizada para memória é preferível |
-| Habilitar o dimensionamento automático |ML automatizado<br>somente| Desmarcar |
+| Nome do cluster |always| nomedoseucluster |
+| Databricks Runtime |always|Tempo de execução não ML 6,0 (escala 2,11, Spark 2.4.3) |
+| Versão do Python |always| 3 |
+| Trabalhos |always| 2 ou superior |
+| Tipos de VM do nó de trabalho <br>(determina o número máximo de iterações simultâneas) |ML automatizado<br>Somente| Uma VM otimizada para memória é preferível |
+| Habilitar o dimensionamento automático |ML automatizado<br>Somente| Desmarcar |
 
 Aguarde até que o cluster está em execução antes de continuar.
 
@@ -307,7 +307,7 @@ Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.d
 
 1. Escolha **apenas uma** opção (não há suporte para nenhuma outra instalação do SDK)
 
-   |SDK&nbsp;pacote&nbsp;extras|Fonte|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;pacote&nbsp;extras|Origem|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para databricks| Carregar Python Egg ou PyPI | azureml-sdk[databricks]|
    |Para databricks-com-<br> recursos de ML automatizados| Carregar Python Egg ou PyPI | azureml-SDK [automl]|
@@ -391,7 +391,7 @@ Para usar esse arquivo de seu código, use `ws=Workspace.from_config()`. Esse c�
     Esse código grava o arquivo de configuração no arquivo *. azureml/config. JSON* .
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Treinar um modelo](tutorial-train-models-with-aml.md) no Azure Machine Learning com o conjunto de dados MNIST
 - Veja a referência do [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

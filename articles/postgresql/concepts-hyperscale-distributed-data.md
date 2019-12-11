@@ -1,5 +1,5 @@
 ---
-title: Distributed data in Azure database for PostgreSQL – Citus (hiperescala)
+title: Distributed data – Citus (hiperescala) – banco de dados do Azure para PostgreSQL
 description: Saiba mais sobre tabelas distribuídas, tabelas de referência, tabelas locais e fragmentos no banco de dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 53d656d8d39c71c813d7dd7a504ec45667bf18b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482428"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975611"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Distributed data in Azure database for PostgreSQL – Citus (hiperescala)
 
@@ -90,5 +90,5 @@ WHERE shardid = 102027;
     │  102027 │ localhost │     5433 │
     └─────────┴───────────┴──────────┘
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [escolher uma coluna de distribuição](concepts-hyperscale-choose-distribution-column.md) para tabelas distribuídas.

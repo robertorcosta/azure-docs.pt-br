@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8d5683cb060b63aebad7c68672c78f5b350a25d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073578"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968758"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteger o conteúdo do HLS com o Apple FairPlay ou Microsoft PlayReady
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Sem novos recursos ou funcionalidades estão sendo adicionados para os serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >
 
 Os Serviços de Mídia do Azure permitem que você criptografe seu conteúdo de HLS (HTTP Live Streaming) de maneira dinâmica, usando os seguintes formatos:  
@@ -59,7 +59,7 @@ Veja a seguir o que é necessário ao usar os Serviços de Mídia para distribui
 
 Os seguintes itens devem ser definidos no lado de distribuição de chaves dos Serviços de Mídia:
 
-  * **Certificado do aplicativo (AC)** : Trata-se de um arquivo .pfx que contém a chave privada. Você cria esse arquivo e o criptografa com uma senha.
+  * **AC (Certificado do Aplicativo)** : trata-se de um arquivo .pfx que contém a chave privada. Você cria esse arquivo e o criptografa com uma senha.
 
        Ao configurar a política de distribuição de chaves, você deve fornecer a senha e o .pfx no formato Base64.
 
@@ -74,15 +74,15 @@ Os seguintes itens devem ser definidos no lado de distribuição de chaves dos S
     3. Execute o comando a seguir na linha de comando. Isso converte o arquivo .pem em um arquivo .pfx com a chave privada. A senha para o arquivo .pfx é solicitada pelo OpenSSL.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
-  * **Senha do certificado do aplicativo**: A senha para criar o arquivo .pfx.
+  * **Senha do Certificado do Aplicativo**: a senha para a criação do arquivo .pfx.
   * **ID da senha do Certificado do Aplicativo**: você deve fazer upload da senha, de maneira semelhante a como faz upload de outras chaves dos Serviços de Mídia. Use o valor de enumeração **ContentKeyType.FairPlayPfxPassword** para obter a ID dos Serviços de Mídia. É necessário usá-la na opção de política de distribuição de chaves.
   * **iv**: é um valor aleatório de 16 bytes. Ele deve corresponder ao iv na política de distribuição de ativos. Você gera o iv e o coloca em dois locais: na política de distribuição de ativos e na opção de política de distribuição de chaves.
-  * **ASK**: Essa chave é recebida quando você gera a certificação usando o portal do Desenvolvedor da Apple. Cada equipe de desenvolvimento receberá uma ASK exclusiva. Salve uma cópia da ASK e armazene-a em um local seguro. Você precisará configurar posteriormente a ASK como FairPlayAsk nos Serviços de Mídia.
-  * **ID da ASK**: ID obtida quando você faz upload da ASK nos Serviços de Mídia. Você deve fazer upload da ASK usando o valor de enumeração **ContentKeyType.FairPlayAsk**. Como resultado, a ID dos Serviços de Mídia é retornada, que deve ser usada na configuração da opção de política de distribuição de chaves.
+  * **ASK**: essa chave é recebida quando você gera a certificação usando o portal do Desenvolvedor da Apple. Cada equipe de desenvolvimento receberá uma ASK exclusiva. Salve uma cópia da ASK e armazene-a em um local seguro. Você precisará configurar posteriormente a ASK como FairPlayAsk nos Serviços de Mídia.
+  * **ID da ASK**: essa ID é obtida quando você faz upload da ASK nos Serviços de Mídia. Você deve fazer upload da ASK usando o valor de enumeração **ContentKeyType.FairPlayAsk**. Como resultado, a ID dos Serviços de Mídia é retornada, que deve ser usada na configuração da opção de política de distribuição de chaves.
 
 Os seguintes itens devem ser definidos pelo lado do cliente FPS:
 
-  * **Certificado do aplicativo (AC)** : Trata-se de um arquivo .cer/.der que contém a chave pública que o sistema operacional usa para criptografar conteúdo. Os Serviços de Mídia precisam ter conhecimento sobre ele, uma vez que ele é exibido pelo player. O serviço de distribuição de chaves descriptografa-o usando a chave privada correspondente.
+  * **AC (Certificado do Aplicativo)** : trata-se de um arquivo .cer/.der que contém a chave pública que o sistema operacional usa para criptografar conteúdo. Os Serviços de Mídia precisam ter conhecimento sobre ele, uma vez que ele é exibido pelo player. O serviço de distribuição de chaves descriptografa-o usando a chave privada correspondente.
 
 Para reproduzir uma transmissão criptografada do FairPlay, obtenha a ASK real primeiro e, em seguida, gere um certificado real. Esse processo cria três partes:
 
@@ -90,7 +90,7 @@ Para reproduzir uma transmissão criptografada do FairPlay, obtenha a ASK real p
   * arquivo .pfx
   * senha do .pfx
 
-Os clientes a seguir dão suporte ao HLS com a criptografia **AES-128 CBC**: Safari no SO X, Apple TV, iOS.
+Os clientes a seguir dão suporte ao HLS com a criptografia **AES-128 CBC**: Safari no OS X, Apple TV, iOS.
 
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>Configurar a criptografia dinâmica do FairPlay e os serviços de distribuição de licenças
 Veja a seguir as etapas gerais para proteger seus ativos com o FairPlay usando o serviço de distribuição de licenças dos Serviços de Mídia e também usando a criptografia dinâmica.
@@ -143,7 +143,7 @@ As seguintes considerações se aplicam:
 * O tipo de criptografia não precisa ser especificado na URL se apenas uma criptografia foi aplicada no ativo.
 * O tipo de criptografia não diferencia letras maiúsculas de minúsculas.
 * Os seguintes tipos de criptografia podem ser especificados:  
-  * **cenc**:  criptografia comum (PlayReady ou Widevine)
+  * **cenc**: criptografia comum (PlayReady ou Widevine)
   * **cbcs-aapl**: FairPlay
   * **cbc**: criptografia de envelope AES
 
@@ -555,7 +555,11 @@ namespace DynamicEncryptionWithFairPlay
 }
 ```
 
-## <a name="next-steps-media-services-learning-paths"></a>Próximas etapas: Roteiros de aprendizagem dos Serviços de Mídia
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
+## <a name="next-steps-media-services-learning-paths"></a>Próximas etapas: roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

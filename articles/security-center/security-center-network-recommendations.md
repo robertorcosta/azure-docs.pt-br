@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 21feed73d025e0c0a4b2c7bb07d23f450780126e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 5d13e944cbc083b314c71936d181101ec13037b4
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766779"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997132"
 ---
 # <a name="protect-your-network-resources"></a>Proteja seus recursos de rede
 A Central de Segurança do Azure analisa continuamente o estado de segurança de seus recursos do Azure para as práticas recomendadas de segurança de rede. Quando o Security Center identifica possíveis vulnerabilidades de segurança, ele cria recomendações que guiam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
@@ -27,7 +27,7 @@ Este artigo explica a página de **rede** da seção segurança de recursos da c
 
 Para obter uma lista completa das recomendações de rede, consulte [recomendações de rede](recommendations-network.md).
 
-Este artigo aborda recomendações que se aplicam a seus recursos do Azure de uma perspectiva de segurança de rede. As recomendações de rede centram-se em firewalls de próxima geração, grupos de segurança de rede, acesso JIT VM a regras de tráfego de entrada excessivamente permissivas e muito mais. Para obter uma lista de recomendações de rede e ações de correção, consulte [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
+Este artigo aborda recomendações que se aplicam a seus recursos do Azure de uma perspectiva de segurança de rede. Centro de recomendações de rede sobre firewalls da próxima geração, grupos de segurança de rede, acesso de VM JIT, regras de tráfego de entrada excessivamente permissivas e muito mais. Para obter uma lista de recomendações de rede e ações de correção, consulte [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
 
 > [!NOTE]
 > A página **Rede** permite aprofundar a integridade dos recursos do Azure a partir de uma perspectiva de rede. O mapa de rede e os controles de rede adaptativos estão disponíveis apenas para a camada padrão da Central de Segurança do Azure. [Se você usar a camada gratuita, poderá clicar no botão para**Exibir rede legada**e receber recomendações de recursos de rede](#legacy-networking).
