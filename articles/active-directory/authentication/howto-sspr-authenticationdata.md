@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/09/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1c00d0f4ba365442762df6e041f02ea0a39f099
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a14338e552250ac63c344365099a16f20616ea9a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847296"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964014"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
-Para implantar a redefinição de senha de autoatendimento (SSPR) do Azure Active Directory (Azure AD), os dados de autenticação precisam estar presentes. Algumas organizações fazem com que seus usuários insiram seus próprios dados de autenticação. Mas muitas organizações preferem a sincronização com os dados que já existem no Active Directory. Os dados sincronizados serão disponibilizados para o Azure AD e SSPR sem a necessidade de interação do usuário se você:
+Para implantar a redefinição de senha de autoatendimento (SSPR) do Azure Active Directory (Azure AD), os dados de autenticação precisam estar presentes. Algumas organizações fazem com que seus usuários insiram seus próprios dados de autenticação. Outras organizações preferem sincronizar com os dados que já existem no Active Directory. Esses dados sincronizados são disponibilizados para o Azure AD e o SSPR sem a necessidade de interação do usuário se você atender aos seguintes requisitos:
 
 * Formatar corretamente os dados em seu diretório local.
 * Configurar o [Azure AD Connect usando as configurações expressas](../hybrid/how-to-connect-install-express.md).
@@ -41,21 +41,18 @@ Se você usar as configurações padrão no Azure AD Connect, serão realizados 
 | telephoneNumber | Telefone comercial |
 | Serviço Móvel | Telefone celular |
 
-Quando um usuário confirma o número de telefone celular, o campo de telefone em informações de Contato de autenticação no Microsoft Azure Active Directory também será populado com esse número.
+Depois que um usuário verifica seu número de telefone celular, o campo *telefone* em **autenticação informações de contato** no Azure ad também é preenchido com esse número.
 
 ## <a name="authentication-contact-info"></a>Informações de contato de autenticação
 
-Um Administrador Global pode definir manualmente as informações de contato de autenticação para um usuário conforme exibido na captura de tela a seguir.
+Na página **métodos de autenticação** de um usuário do Azure AD na portal do Azure, um administrador global pode definir manualmente as informações de contato de autenticação, conforme mostrado no seguinte exemplo de captura de tela:
 
 ![Informações de contato de autenticação em um usuário no Azure AD][Contact]
 
-Se o campo de telefone for preenchido e o telefone celular estiver habilitado na política de SSPR, o usuário verá o número na página de registro de redefinição de senha e a senha durante a redefinição de fluxo de trabalho.
-
-O campo de telefone alternativo não é usado para redefinição de senha.
-
-Se o campo de telefone for preenchido e o email estiver habilitado na política de SSPR, o usuário verá o email na página de registro de redefinição de senha e a senha durante a redefinição de fluxo de trabalho.
-
-Se o campo email alternativo for preenchido e o email estiver habilitado na política de SSPR, o usuário **não** verá o email na página de registro de redefinição de senha, mas ainda a verão durante a redefinição de fluxo de trabalho.
+* Se o campo **telefone** for preenchido e o **telefone celular** estiver habilitado na política SSPR, o usuário verá esse número na página de registro de redefinição de senha e durante o fluxo de trabalho de redefinição de senha.
+* O campo **telefone alternativo** não é usado para redefinição de senha.
+* Se o campo de **email** for preenchido e o **email** estiver habilitado na política SSPR, o usuário verá esse email na página de registro de redefinição de senha e durante o fluxo de trabalho de redefinição de senha.
+* Se o campo de **email alternativo** for preenchido e o **email** estiver habilitado na política SSPR, o usuário **não** verá esse email na página de registro de redefinição de senha, mas o verá durante o fluxo de trabalho de redefinição de senha.
 
 ## <a name="security-questions-and-answers"></a>Perguntas e respostas de segurança
 
@@ -69,7 +66,7 @@ Quando um usuário se registra, a página de registro define os seguintes campos
 * **Email de autenticação**
 * **Perguntas e respostas de segurança**
 
-Se você forneceu um valor para **Celular** ou **Email Alternativo**, os usuários poderão usar esses valores imediatamente para redefinir as senhas, mesmo que não tenham se registrado no serviço. Além disso, os usuários visualizam esses valores ao se registrarem pela primeira vez, e os modificam, se for desejado. Após o registro bem-sucedido, esses valores serão mantidos nos campos **Telefone de Autenticação** e **Email de Autenticação**, respectivamente.
+Se você forneceu um valor para **Celular** ou **Email Alternativo**, os usuários poderão usar esses valores imediatamente para redefinir as senhas, mesmo que não tenham se registrado no serviço. Além disso, os usuários visualizam esses valores ao se registrarem pela primeira vez, e os modificam, se for desejado. Depois que eles são registrados com êxito, esses valores são persistidos nos campos **telefone de autenticação** e **email de autenticação** , respectivamente.
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Definir e ler os dados de autenticação usando o PowerShell
 

@@ -11,12 +11,12 @@ ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d8c3e3c272ce12200ab7506fd7c9759a8cb3aa64
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 30a3be1365f152a88713604570169091f09f0536
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851733"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975424"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gerenciamento de carga de trabalho com classes de recursos no SQL Data Warehouse do Azure
 
@@ -36,7 +36,7 @@ Há dois tipos de classes de recursos:
 
 As classes de recursos usam slots de simultaneidade para medir o consumo de recursos.  Os [slots de simultaneidade](#concurrency-slots) são explicados mais adiante neste artigo.
 
-- Para exibir a utilização de recursos para as classes de recurso, consulte [limites de memória e simultaneidade] memória-Concurrency-limits.md).
+- Para exibir a utilização de recursos para as classes de recursos, consulte [Limites de memória e simultaneidade](memory-concurrency-limits.md).
 - Para ajustar a classe de recurso, você pode executar a consulta em um usuário diferente ou [alterar a associação da classe de recurso do usuário](#change-a-users-resource-class) atual.
 
 ### <a name="static-resource-classes"></a>Classes de recursos estáticos

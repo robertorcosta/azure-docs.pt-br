@@ -1,6 +1,6 @@
 ---
-title: Web API que chamadas às APIs da web (mover para a produção) – plataforma de identidade da Microsoft
-description: Saiba como criar uma web API que chamadas downstream web APIs (mover para a produção).
+title: Mover API Web chamando APIs da Web para produção-plataforma de identidade da Microsoft | Azure
+description: Saiba como mover uma API Web que chama APIs da Web para produção.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,23 +15,23 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7de892a0851e556c5046fe4b3691f39b42a9d237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d59a5b2a74c10e36103713725113cbe8c9cc412
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074749"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965162"
 ---
-# <a name="web-api-that-calls-web-apis---move-to-production"></a>API da Web que chama APIs - web passar para a produção
+# <a name="web-api-that-calls-web-apis---move-to-production"></a>API Web que chama APIs da Web – mover para produção
 
-Depois que você já adquiriu um token para chamar APIs da web, você pode mover seu aplicativo para produção.
+Depois de adquirir um token para chamar APIs Web, você pode mover seu aplicativo para produção.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="learn-more"></a>Saiba mais
 
-Agora que você conhece as Noções básicas de como chamar as APIs web de sua própria API da web, você pode estar interessado é este tutorial, que descreve o código que foi usado para criar uma API web protegida chamar APIs da web.
+Agora que você conhece as noções básicas de como chamar APIs da Web de sua própria API Web, você pode estar interessado neste tutorial, que descreve o código usado para criar uma API Web protegida que chama APIs da Web.
 
-| Amostra | Plataforma | DESCRIÇÃO |
+| Amostra | Plataforma | Descrição |
 |--------|----------|-------------|
-| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2\.2 API Web ASP.NET Core, área de trabalho (WPF) | API da Web do ASP.NET Core 2.2 chamando o Microsoft Graph, em si chamado a partir de um aplicativo WPF usando a plataforma de identidade da Microsoft (v2.0) |
+| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | API Web do ASP.NET Core 2,2, área de trabalho (WPF) | ASP.NET Core API Web de 2,2 chamando Microsoft Graph, chamada a partir de um aplicativo WPF usando a plataforma de identidade da Microsoft (v 2.0) |

@@ -1,5 +1,5 @@
 ---
-title: Diferenças entre MSAL. js e ADAL. js
+title: Diferenças entre a MSAL.js e a ADAL.js | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as diferenças entre a Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) e a Biblioteca de Autenticação do Microsoft Azure AD para JavaScript (ADAL.js) e como escolher qual usar.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3696eb90abbb35f4d989649b4a1198aec69b9a5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d156ccd4b3f81081433962dcd939a91ab1bc7143
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916903"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963215"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre a MSAL para JS e a ADAL para JS
 

@@ -1,18 +1,18 @@
 ---
 title: Como transferir dados adicionais entre o dispositivo e o serviço de provisionamento de dispositivos do Azure
-description: Este documento descreve como transferir dados adicionais entre o dispositivo e o DPS
+description: Este documento descreve como transferir dados adicionais entre o serviço de provisionamento de dispositivos e dispositivos (DPS)
 author: menchi
 ms.author: menchi
 ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 90402dd6fbe19811b5bb6d5ac0fbdd984b71fd33
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e9482f7069616d61efb98f66590ce33cfe3cf350
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123175"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974846"
 ---
 # <a name="how-to-transfer-additional-data-between-device-and-dps"></a>Como transferir dados adicionais entre o dispositivo e o DPS
 Às vezes, o DPS precisa de mais dados dos dispositivos para provisioná-los de forma adequada no Hub IoT correto e esses dados precisam ser fornecidos pelo dispositivo. Vice-versa, o DPS pode retornar dados para o dispositivo para facilitar as lógicas do lado do cliente. 
@@ -57,5 +57,5 @@ Se o webhook da diretiva de alocação personalizada quiser retornar alguns dado
 ## <a name="sdk-support"></a>Suporte a SDK
 Esse recurso está disponível em SDKs do C# [cliente](https://docs.microsoft.com/azure/iot-dps/)C,, Java e node. js.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Desenvolver usando o [SDK do IoT do Azure]( https://github.com/Azure/azure-iot-sdks) para o Hub IoT do Azure e o Serviço de Provisionamento de Dispositivos Hub IoT do Azure

@@ -1,5 +1,5 @@
 ---
-title: Contas com suporte em aplicativos (público-alvo) – plataforma de identidade da Microsoft
+title: Tipos de contas com suporte na plataforma Microsoft Identity | Azure
 description: Documentação conceitual sobre públicos-alvo e tipos de conta com suporte em aplicativos
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 04aac02623fe4918db671e2385c181653bdc344a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73942160"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966547"
 ---
 # <a name="supported-account-types"></a>Tipos de conta com suporte
 
@@ -58,7 +58,7 @@ Alguns tipos de conta não podem ser usados ​​com determinados fluxos de aut
 
  Os aplicativos também podem conectar usuários em [nuvens nacionais](authentication-national-cloud.md). No entanto, as contas Microsoft pessoais não têm suporte nessas nuvens (por definição dessas nuvens). É por isso que os tipos de conta com suporte são reduzidos, para essas nuvens, à sua organização (locatário único) ou a qualquer organização (aplicativos multilocatários).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [Locação no Azure Active Directory](./single-and-multi-tenant-apps.md)
 - Saiba mais sobre [Nuvens Nacionais](./authentication-national-cloud.md)

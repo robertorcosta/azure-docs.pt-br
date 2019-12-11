@@ -1,6 +1,6 @@
 ---
-title: Como reativar espaços de nomes desabilitados do Azure Access Control Service (ACS)
-description: Saiba como encontrar e habilitar os namespaces do Serviço de Controle de Acesso do Azure (ACS) e solicitar uma extensão para mantê-los habilitados até 4 de fevereiro de 2019.
+title: Reativar os namespaces do serviço de controle de acesso (ACS) do Azure desabilitados
+description: Localize e habilite seus namespaces do ACS (serviço de controle de acesso) do Azure e solicite uma extensão para mantê-los habilitados até 4 de fevereiro de 2019.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 590fc99861035ce1a5219a3cfd788159c6c2a19b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9cc038e67e5528a52b0b98ea1698da07e8120242
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917702"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966938"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar namespaces do Serviço de Controle de Acesso desabilitado
 

@@ -1,5 +1,5 @@
 ---
-title: Aplicativo Web que conecta usuários (configuração de código)-plataforma de identidade da Microsoft
+title: Configurar um aplicativo Web que conecta usuários-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo Web que faz logon de usuários (configuração de código)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b7032f8568cc944fb95d2e56a84a3d475c3994
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b077a71a541d29c9b93778babc096ea40c3b43cb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482730"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964864"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicativo Web que assina usuários: configuração de código
 
@@ -31,7 +31,7 @@ Saiba como configurar o código para seu aplicativo Web que faz logon em usuári
 <!-- This section can be in an include for Web App and Web APIs -->
 As bibliotecas que são usadas para proteger um aplicativo Web (e uma API da Web) são:
 
-| Plataforma | Biblioteca | DESCRIÇÃO |
+| Plataforma | Biblioteca | Descrição |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [Extensões do modelo de identidade para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Usado diretamente pelo ASP.NET e pelo ASP.NET Core, o Microsoft Identity modelo Extensions for .NET propõe um conjunto de DLLs em execução no .NET Framework e no .NET Core. Em um aplicativo Web ASP.NET ou ASP.NET Core, você pode controlar a validação de token usando a classe **TokenValidationParameters** (em particular, em alguns cenários de parceiros). |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL (biblioteca de autenticação da Microsoft) para Java. Atualmente em visualização pública. |
@@ -378,7 +378,7 @@ Session(app)
 
 ---
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 No próximo artigo, você aprenderá a disparar o logon e a saída.
 

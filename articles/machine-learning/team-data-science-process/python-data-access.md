@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7b86d643540e46f9a4fc86c83fc77d739bfba418
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498098"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978485"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acessar os conjuntos de dados com o Python usando a biblioteca de cliente do Python de Azure Machine Learning
 A visualização da biblioteca de cliente do Python de Microsoft Azure Machine Learning pode habilitar o acesso seguro a seus conjuntos de dados de Azure Machine Learning em um ambiente Python local e habilita a criação e o gerenciamento de conjuntos de dados no workspace.
@@ -56,13 +56,13 @@ Se tiver o git instalado em seu computador, você pode usar pip para instalar di
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Usar snippets de código do Estúdio para acessar conjuntos de dados
+## <a name="datasetAccess"></a>Usar trechos de código para acessar conjuntos de os
 A biblioteca de cliente do Python fornece acesso programático aos conjuntos de dados existentes de testes que foram executados.
 
-Na interface da Web do Studio, você pode gerar snippets de código que incluem todas as informações necessárias para baixar e desserializar conjuntos de dados como objetos DataFrame de pandas em seu computador local.
+Na interface da Web Azure Machine Learning Studio (clássica), você pode gerar trechos de código que incluem todas as informações necessárias para baixar e desserializar conjuntos de dados como objetos de dataframe do pandas em seu computador local.
 
 ### <a name="security"></a>Segurança para acesso a dados
-Os snippets de código fornecidos pelo Estúdio para uso com a biblioteca de cliente do Python incluem a ID do workspace e a autorização de token. Eles fornecem acesso completo ao workspace e devem ser protegidos, com uma senha, por exemplo.
+Os trechos de código fornecidos pelo Azure Machine Learning Studio (clássico) para uso com a biblioteca de cliente do Python incluem a ID do espaço de trabalho e o token de autorização. Eles fornecem acesso completo ao workspace e devem ser protegidos, com uma senha, por exemplo.
 
 Por motivos de segurança, a funcionalidade do snippet de código está disponível somente para usuários que tenham a função definida como **Proprietário** no workspace. Sua função é exibida no Azure Machine Learning Studio (clássico) na página **usuários** em **configurações**.
 
@@ -72,22 +72,22 @@ Se a sua função não estiver definida como **Proprietário**, você pode solic
 
 Para obter o token de autorização, você pode fazer o seguinte:
 
-* Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu workspace no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários. Embora os tokens de autorização primários ou secundários possam ser usados no snippet de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
+* Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações de seu espaço de trabalho no Azure Machine Learning Studio (clássico). Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários. Embora os tokens de autorização primários ou secundários possam ser usados no snippet de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
 
-![Tokens de autorização](./media/python-data-access/ml-python-access-settings-tokens.png)
+   ![Tokens de autorização](./media/python-data-access/ml-python-access-settings-tokens.png)
 
 * Peça para ser promovido à função do proprietário. Para fazer isso, um proprietário atual do workspace precisa primeiro remover você do workspace e depois convidá-lo novamente como um proprietário.
 
-Depois que os desenvolvedores tiverem obtido a ID do workspace e o token de autorização, eles poderão acessar o workspace usando o snippet de código, independentemente de sua função.
+Depois que os desenvolvedores obtiverem a ID do espaço de trabalho e o token de autorização, eles poderão acessar o espaço de trabalho usando o trecho de código, independentemente de sua função.
 
 Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO** em **CONFIGURAÇÕES**. Você pode gerá-los novamente, mas esse procedimento revogará o acesso ao token anterior.
 
 ### <a name="accessingDatasets"></a>Conjuntos de dados de acesso de um aplicativo Python local
-1. No Machine Learning Studio, clique em **CONJUNTOS DE DADOS** na barra de navegação à esquerda.
+1. Em Machine Learning Studio (clássico), clique em **conjuntos de valores** na barra de navegação à esquerda.
 2. Selecione o conjunto de dados que você deseja acessar. Você pode selecionar qualquer um dos conjuntos de dados da lista **MEUS CONJUNTOS DE DADOS** ou da lista **EXEMPLOS**.
 3. Na barra de ferramentas inferior, clique em **Gerar código de acesso a dados**. Esse botão será desabilitado se os dados estiverem em um formato incompatível com a biblioteca de cliente do Python.
    
-    ![Conjunto de dados][datasets]
+    ![Conjuntos de dados][datasets]
 4. Selecione o snippet de código na janela que aparece e copie-o para a área de transferência.
    
     ![Botão Gerar código de acesso a dados][dataset-access-code]
@@ -96,7 +96,7 @@ Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO
     ![Cole o código no notebook][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Acesse os conjuntos intermediários de testes de Machine Learning
-Depois de um teste ser executado no Machine Learning Studio, é possível acessar os conjuntos de dados intermediários de nós de saída dos módulos. Os conjuntos de dados intermediários são dados que foram criados e usados para etapas intermediárias quando uma ferramenta de modelo tiver sido executada.
+Depois que um experimento é executado na versão clássica do Machine Learning Studio, é possível acessar os conjuntos de resultados intermediários dos nós de saída dos módulos. Os conjuntos de dados intermediários são dados que foram criados e usados para etapas intermediárias quando uma ferramenta de modelo tiver sido executada.
 
 Os conjuntos de dados intermediários podem ser acessados conforme o formato de dados for compatível com a biblioteca de cliente do Python.
 
@@ -141,7 +141,7 @@ As etapas a seguir mostram um exemplo que cria um teste, executa-o e acessa o co
 
 ## <a name="clientApis"></a>Use a biblioteca de cliente do Python de Machine Learning para acessar, ler, criar e gerenciar conjuntos de dados
 ### <a name="workspace"></a>Workspace
-O workspace é o ponto de entrada para a biblioteca de cliente do Python. Forneça a classe `Workspace` com a sua ID de workspace e token de autorização para criar uma instância:
+O workspace é o ponto de entrada para a biblioteca de cliente do Python. Forneça a classe `Workspace` com a ID do espaço de trabalho e o token de autorização para criar uma instância:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')

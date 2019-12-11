@@ -1,18 +1,18 @@
 ---
 title: Serviço de provisionamento de dispositivos no Hub IoT do Azure-conceitos de segurança
-description: Descreve conceitos de provisionamento de segurança específicos para dispositivos com o Serviço de Provisionamento de Dispositivos e o Hub IoT
+description: Descreve os conceitos de provisionamento de segurança específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: ad392d9d979986723c17b43f210959e2504a8fb8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228819"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973451"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do Serviço de Provisionamento de Dispositivos no Hub IoT 
 

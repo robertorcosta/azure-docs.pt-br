@@ -1,5 +1,5 @@
 ---
-title: API Web protegida-configuração de código do aplicativo
+title: Configurar aplicativos de API Web protegidos | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web protegida e configurar o código do aplicativo.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882638"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965391"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
@@ -32,7 +32,7 @@ Para configurar o código para sua API Web protegida, você precisa entender o q
 
 Como os aplicativos Web, as APIs Web do ASP.NET/ASP.NET Core são "protegidas" porque suas ações de controlador são prefixadas com o atributo `[Authorize]`. Assim, as ações do controlador poderão ser chamadas somente se a API for chamada com uma identidade autorizada.
 
-Considere as seguintes perguntas:
+Considere as perguntas a seguir:
 
 - Como a API Web sabe a identidade do aplicativo que a chama? (Somente um aplicativo pode chamar uma API da Web.)
 - Se o aplicativo chamou a API da Web em nome de um usuário, qual é a identidade do usuário?
@@ -148,7 +148,7 @@ As etapas de validação são capturadas em validadores, que estão todas na bib
 
 Os validadores são descritos nesta tabela:
 
-| Validator | DESCRIÇÃO |
+| Validator | Descrição |
 |---------|---------|
 | `ValidateAudience` | Garante que o token seja para o aplicativo que valida o token (para mim). |
 | `ValidateIssuer` | Garante que o token foi emitido por um STS confiável (de alguém que eu confio). |
@@ -163,7 +163,7 @@ Os validadores são todos associados às propriedades da classe `TokenValidation
 
 Também é possível validar tokens de acesso de entrada no Azure functions. Você pode encontrar exemplos de validação de tokens no Azure Functions no [dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)e [python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Verificar escopos e funções de aplicativo em seu código](scenario-protected-web-api-verification-scope-app-roles.md)

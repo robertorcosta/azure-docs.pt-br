@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 228b00a19bac9c773fce8e502d302314821fbf39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871649"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968690"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Streaming de FairPlay Offline para iOS 
 
@@ -123,8 +123,8 @@ Agora, a sua conta de Serviços de Mídia está configurada para licenças de Fa
 ## <a name="sample-ios-player"></a>Exemplo de Player iOS
 O suporte ao modo offline de FPS está disponível apenas no iOS 10 e posterior. O SDK do Servidor de FPS (versão 3.0 ou posterior) contém o documento e exemplo para o modo offline de FPS. Especificamente, o SDK do Servidor de FPS (versão 3.0 ou posterior) contém os dois seguintes itens relacionados ao modo offline:
 
-* Documento: "Reprodução Offline com Streaming de FairPlay e HTTP Live Streaming". Apple, 14 de setembro de 2016. Na versão 4.0 do SDK do Servidor de FPS, este documento é mesclado no documento FPS principal.
-* Exemplo de código: Exemplo HLSCatalog para o modo offline de FPS em \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. No aplicativo de exemplo HLSCatalog, os arquivos de código a seguir são usados para a implementação dos recursos do modo offline:
+* Documento: “Reprodução Offline com Streaming de FairPlay e HTTP Live Streaming”. Apple, 14 de setembro de 2016. Na versão 4.0 do SDK do Servidor de FPS, este documento é mesclado no documento FPS principal.
+* Código de exemplo: exemplo HLSCatalog para o modo offline de FPS em \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. No aplicativo de exemplo HLSCatalog, os arquivos de código a seguir são usados para a implementação dos recursos do modo offline:
 
     - Arquivo de código AssetPersistenceManager.swift: AssetPersistenceManager é a classe principal neste exemplo que demonstra como:
 
@@ -204,7 +204,7 @@ Observamos que com o exemplo da versão 3 ou versão 4 de SDK do Servidor de FPS
 ## <a name="faq"></a>Perguntas Frequentes
 As perguntas frequentes a seguir fornecem assistência com a solução de problemas:
 
-- **Por que apenas o áudio toca, mas nenhum vídeo aparece durante o modo offline?** Esse comportamento parece estar relacionado ao design do aplicativo de exemplo. Quando a faixa de áudio alternativo está presente (que é o caso para HLS) durante o modo offline, tanto iOS 10 e iOS 11 apresentarão por padrão uma faixa de áudio alternativo. Para compensar esse comportamento para o modo offline de FPS, é preciso remover a faixa de áudio alternativo da transmissão. Para fazer isso nos Serviços de Mídia, adicione o filtro de manifestação dinâmica “audio-only=false”. Em outras palavras, uma URL de HLS termina com .ism/manifest(format=m3u8-aapl,audio-only=false). 
+- **Por que apenas o áudio toca, mas nenhum vídeo aparece durante o modo offline?** Esse comportamento parece estar relacionado ao design do aplicativo de exemplo. Quando uma faixa de áudio alternativa está presente (que é o caso de HLS) durante o modo offline, o iOS 10 e o iOS 11 têm como padrão a faixa de áudio alternativa. Para compensar esse comportamento para o modo offline de FPS, remova a faixa de áudio alternativa do fluxo. Para fazer isso nos Serviços de Mídia, adicione o filtro de manifestação dinâmica “audio-only=false”. Em outras palavras, uma URL de HLS termina com .ism/manifest(format=m3u8-aapl,audio-only=false). 
 - **Por que ela ainda toca áudio somente sem vídeo durante o modo offline após eu adicionar audio-only=false?** Dependendo do design da chave do cache de rede de distribuição de conteúdo (CDN), o conteúdo pode ser armazenado em cache. Limpe o cache.
 - **O modo de FPS offline também tem suporte em iOS 11 além do iOS 10?** Sim. O modo offline de FPS tem suporte para iOS 10 e iOS 11.
 - **Por que eu não consigo encontrar o documento “Reprodução Offline com o Streaming de FairPlay e HTTP Live Streaming no SDK do Servidor de FPS”?** Desde a versão 4 do SDK do Servidor de FPS, este documento foi mesclado no “Guia de Programação de Streaming de FairPlay”.
@@ -245,6 +245,10 @@ Um arquivo de exemplo boot.xml:
 </HLSMoviePackage>
 ```
 
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="summary"></a>Resumo
 Este documento inclui as seguintes etapas e informações que você pode usar para implementar o modo offline de FPS:
 
@@ -252,3 +256,7 @@ Este documento inclui as seguintes etapas e informações que você pode usar pa
 * Um player iOS baseado no exemplo do SDK do Servidor de FPS pode configurar um player iOS que pode reproduzir conteúdo de FPS em modo de streaming online ou offline.
 * Vídeos de FPS de exemplo são usados para testar o streaming em modo offline e online.
 * Perguntas Frequentes responde a perguntas sobre o modo offline de FPS.
+
+## <a name="next-steps"></a>Próximos passos
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

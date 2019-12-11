@@ -1,5 +1,5 @@
 ---
-title: Aplicativo de daemon chamando APIs Web (visão geral)-plataforma de identidade da Microsoft
+title: Criar um aplicativo daemon que chama APIs da Web-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo daemon que chama APIs da Web
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,14 +16,14 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 70a8c97ee1e10d53cd8da9687a9109eb4ce8ae3d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056390"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965561"
 ---
-# <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicativo daemon que chama APIs da Web
+# <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: aplicativo daemon que chama APIs da Web
 
 Saiba tudo o que você precisa para criar um aplicativo daemon que chama APIs da Web.
 
@@ -31,7 +31,7 @@ Saiba tudo o que você precisa para criar um aplicativo daemon que chama APIs da
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Seu aplicativo pode adquirir um token para chamar uma API da Web em nome de si mesmo (não em nome de um usuário). Esse cenário é útil para aplicativos de daemon. Ele está usando a concessão de [credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 padrão.
 
@@ -64,7 +64,7 @@ Para os desenvolvedores, a experiência de ponta a ponta para esse cenário tem 
 - A [configuração do aplicativo](./scenario-daemon-app-configuration.md) precisa fornecer credenciais de cliente como compartilhadas com o Azure ad durante o registro do aplicativo.
 - O [escopo](scenario-daemon-acquire-token.md#scopes-to-request) usado para adquirir um token com o fluxo de credenciais do cliente precisa ser um escopo estático.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Aplicativo daemon-registro de aplicativo](./scenario-daemon-app-registration.md)

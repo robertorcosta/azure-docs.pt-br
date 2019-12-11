@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 59d18ea11699ed77763c162e4930b159fcd19fe2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/9/2019
+ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888658"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976291"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Como configurar os parâmetros do servidor no banco de dados do Azure para MariaDB usando o portal do Azure
 
@@ -37,21 +37,21 @@ A lista de parâmetros de servidor com suporte está em constante crescimento. U
 
 Pool de buffers InnoDB e Máximo de Conexões não são configuráveis e são associados ao seu [tipo de preço](concepts-pricing-tiers.md).
 
-|**Tipo de preço**| **vCore(s)**|**Pool de Buffers InnoDB (MB)**| **Máximo de conexões**|
-|---|---|---|---|
-|Basic| 1| 1\.024| 50|
-|Basic| 2| 2560| 100|
-|Propósito geral| 2| 3584| 300|
-|Propósito geral| 4| 7680| 625|
-|Propósito geral| 8| 15360| 1250|
-|Propósito geral| 16| 31232| 2500|
-|Propósito geral| 32| 62976| 5\.000|
-|Propósito geral| 64| 125952| 10000|
-|Memória Otimizada| 2| 7168| 600|
-|Memória Otimizada| 4| 15360| 1250|
-|Memória Otimizada| 8| 30720| 2500|
-|Memória Otimizada| 16| 62464| 5\.000|
-|Memória Otimizada| 32| 125952| 10000|
+|**Tipo de preço**| **vCore(s)**|**Pool de Buffers InnoDB (MB)**|
+|---|---|---|
+|Basic| 1| 1\.024|
+|Basic| 2| 2560|
+|Propósito geral| 2| 3584|
+|Propósito geral| 4| 7680|
+|Propósito geral| 8| 15360|
+|Propósito geral| 16| 31232|
+|Propósito geral| 32| 62976|
+|Propósito geral| 64| 125952|
+|Memória Otimizada| 2| 7168|
+|Memória Otimizada| 4| 15360|
+|Memória Otimizada| 8| 30720|
+|Memória Otimizada| 16| 62464|
+|Memória Otimizada| 32| 125952|
 
 Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 

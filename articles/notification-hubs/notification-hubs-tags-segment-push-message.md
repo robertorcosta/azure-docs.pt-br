@@ -12,20 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 66388f139b63c63e1f0f8ee8ee063e0ddd0f9da5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213044"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971958"
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de marca e roteamento
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 As expressões de marcas permitem que você direcione conjuntos específicos de dispositivos, ou mais especificamente, registros, ao enviar uma notificação por push por meio de Hubs de notificação.
 
@@ -37,11 +37,11 @@ A única maneira de direcionar registros de notificações específicos é assoc
 2. **Marca**: todos os registros que contêm a marca especificada recebem a notificação.
 3. **Expressão de marca**: todos os registros cujos conjuntos de marcas correspondem à expressão especificada recebem a notificação.
 
-## <a name="tags"></a>tags
+## <a name="tags"></a>Marcas
 
 Uma marca pode ser qualquer cadeia de caracteres com até 120 caracteres que contenha caracteres alfanuméricos e os seguintes caracteres não alfanuméricos: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. O exemplo a seguir mostra um aplicativo do qual você pode receber notificações de aviso sobre grupos musicais específicos. Nesse cenário, uma maneira simples de direcionar as notificações é rotular os registros com marcas que representem as diferentes bandas, como na seguinte imagem:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
+![Visão geral de marcas](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
 Nesta figura, a mensagem marcada como **Beatles** atinge somente o tablet que estiver registrado com a marca **Beatles**.
 
@@ -65,7 +65,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 As marcas não precisam ser pré-configuradas e podem se referir a vários conceitos específicos do aplicativo. Por exemplo, os usuários deste aplicativo de exemplo podem comentar sobre as bandas e desejar receber notificações do sistema, não apenas dos comentários sobre suas bandas favoritas, mas também de todos os comentários dos seus amigos, independentemente da banda sobre a qual eles estão comentando. A figura a seguir mostra um exemplo desse cenário:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
+![Marca amigos](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
 Nesta imagem, Alice está interessada em atualizações dos Beatles e Fábio está interessado em atualizações dos Wailers. Fábio também está interessado nos comentários de Carlos e Carlos está interessado nos Wailers. Quando uma notificação é enviada para o comentário de Carlos sobre os Beatles, Alice e Fábio o recebem.
 
@@ -80,9 +80,9 @@ Para obter um tutorial passo a passo completo sobre como usar marcas para enviar
 
 Outra maneira de usar marcas é identificar todos os dispositivos de um usuário específico. Os registros podem ser marcados com uma marca que contenha uma ID de usuário, como na seguinte imagem:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
+![Marcar usuários](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-Nesse cenário, a mensagem marcada com uid: Alice obtém todos os registros marcados com “uid:Alice”; portanto, todos os dispositivos de Alice.
+Nesta imagem, a mensagem marcada UID: Alice atinge todos os registros marcados como "UID: Alice"; Portanto, todos os dispositivos de Alice.
 
 ## <a name="tag-expressions"></a>Expressões de marca
 
@@ -94,7 +94,7 @@ Considere um aplicativo de esportes que envia um lembrete para todos em Boston s
 (follows_RedSox || follows_Cardinals) && location_Boston
 ```
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
+![Expressões de marca](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
 As expressões de marca podem conter todos os operadores boolianos, como E (&&), OU (||) e NÃO (!). Eles também podem conter parênteses. As expressões de marca são limitadas a 20 marcas se contiverem apenas ORs; caso contrário, elas são limitadas a seis marcas.
 

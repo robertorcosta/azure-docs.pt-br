@@ -1,18 +1,18 @@
 ---
-title: Conceitos de servidor no Banco de Dados do Azure para PostgreSQL
-description: Este artigo fornece diretrizes e considerações para trabalhar com o Banco de Dados do Azure para servidores PostgreSQL.
+title: Colocação de tabela-hiperescala (Citus)-banco de dados do Azure para PostgreSQL
+description: Como armazenar informações relacionadas juntas para consultas mais rápidas
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482759"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967330"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocação de tabela no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
@@ -132,12 +132,12 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-Devido ao filtro e à junção em tenant_id, o Citus (subscale) sabe que toda a consulta pode ser respondida usando o conjunto de fragmentos colocalizados que contêm os dados para esse locatário específico. Um único nó PostgreSQL pode responder à consulta em uma única etapa.
+Devido ao filtro e à junção em tenant_id, o Citus (hiperescala) sabe que toda a consulta pode ser respondida usando o conjunto de fragmentos colocalizados que contêm os dados para esse locatário específico. Um único nó PostgreSQL pode responder à consulta em uma única etapa.
 
 ![Consulta melhor](media/concepts-hyperscale-colocation/colocation-better-query.png)
 
 Em alguns casos, as consultas e os esquemas de tabela devem ser alterados para incluir a ID do locatário em restrições exclusivas e condições de junção. Essa alteração é normalmente simples.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Veja como os dados de locatário estão colocalizados no [tutorial de vários locatários](tutorial-design-database-hyperscale-multi-tenant.md).

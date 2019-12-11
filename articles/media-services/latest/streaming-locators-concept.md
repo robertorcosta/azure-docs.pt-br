@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: 6d13ca5b3657f1deac9e6b4218decf8fe57eb1d9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a227c5d0edfb9b49e70452cfcfd08b29ba381857
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113745"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969099"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
 
@@ -75,19 +75,22 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 
 Se você também quiser criptografar o fluxo do HLS com CBCS (FairPlay), use ' Predefined_MultiDrmStreaming '.
 
+> [!NOTE]
+> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="associate-filters-with-streaming-locators"></a>Associar filtros a localizadores de streaming
 
 Consulte [filtros: associar a localizadores de streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="filter-order-page-streaming-locator-entities"></a>Entidades do localizador de streaming, Order, Page
 
-Veja [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
+Confira [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
 ## <a name="list-streaming-locators-by-asset-name"></a>Listar localizadores de streaming por nome de ativo
 
 Para obter localizadores de streaming com base no nome do ativo associado, use as seguintes operações:
 
-|idioma|API|
+|Idioma|API|
 |---|---|
 |REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
@@ -101,6 +104,6 @@ Para obter localizadores de streaming com base no nome do ativo associado, use a
 * [Políticas de Streaming](streaming-policy-concept.md)
 * [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: carregar, codificar e transmitir vídeos usando o .NET](stream-files-tutorial-with-api.md)

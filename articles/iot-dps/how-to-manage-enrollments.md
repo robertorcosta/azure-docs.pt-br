@@ -1,6 +1,6 @@
 ---
 title: Gerenciar registros de dispositivo para o serviço de provisionamento de dispositivos no Hub IoT do Azure no portal do Azure
-description: Como gerenciar registros de dispositivos para o Serviço de Provisionamento de Dispositivos no portal do Azure
+description: Como gerenciar registros de dispositivo para seu DPS (serviço de provisionamento de dispositivos) no portal do Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 03559183e46182c4f80fe3d16ec542add9b1692b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229724"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974931"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerenciar os registros de dispositivo com o Portal do Azure
 
@@ -34,7 +34,7 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
      a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registros**.  
      b. Clique no botão **Adicionar** na parte superior.  
      c. Quando o painel "Adicionar Grupos de Registros" for exibido, insira as informações da entrada da lista de registro.  O **Nome de Grupo** é obrigatório. Selecione também "AC ou Intermediária" para **Tipo de certificado** e carregue o **Certificado principal** raiz para o grupo de dispositivos.  
-     d. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o nome do grupo aparecer sob a guia **Grupos de Registro**.  
+     d. Clique em **Save** (Salvar). Após a criação bem-sucedida de seu grupo de registro, você deverá ver o nome do grupo aparecer sob a guia **Grupos de Registro**.  
 
      [![grupo de registro no portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
@@ -49,7 +49,7 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
        a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.  
        b. Clique no botão **Adicionar** na parte superior.   
        c. Quando o painel "Adicionar Registro" for exibido, insira as informações da entrada da lista de registro. Primeiro, selecione o **Mecanismo** de certificação para o dispositivo (X.509 ou TPM). A certificação X.509 exige upload do **Certificado principal** para o dispositivo. O TPM exige que você insira a **Chave de Atestado** e a **ID do Registro** para o dispositivo.  
-       d. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o dispositivo aparecer sob a guia **Registros Individuais**.  
+       d. Clique em **Save** (Salvar). Após a criação bem-sucedida de seu grupo de registro, você deverá ver o dispositivo aparecer sob a guia **Registros Individuais**.  
 
        [![Registro individual no portal](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 

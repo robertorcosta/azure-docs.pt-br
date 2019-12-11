@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76afafb59de762776b7d2614e383320b7d8f79e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b32e2abcffda24fa82d3911575fe48acfc294ccc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669399"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973162"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse
 Neste tutorial, explicamos como criar e implantar de um modelo de Machine Learning usando o SQL DW (SQL Data Warehouse) para um conjunto de dados publicamente disponível – o conjunto de dados [Corridas de Táxi de NYC](https://www.andresmh.com/nyctaxitrips/). O modelo de classificação binária construído prevê se uma gorjeta foi paga ou não por uma corrida. Também discutimos os modelos de regressão e classificação multiclasse que preveem a distribuição das gorjetas pagas.
@@ -336,13 +336,13 @@ Após a execução bem-sucedida, você verá uma tela parecida com a seguinte:
 
 ![Saída de uma execução bem-sucedida do script][20]
 
-## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no Azure SQL Data Warehouse
+## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no SQL Data Warehouse do Azure
 Nesta seção, executamos a exploração de dados e a geração de recursos por meio da execução de consultas SQL no Azure SQL DW usando diretamente o **Visual Studio Data Tools**. Todas as consultas SQL usadas nesta seção podem ser encontradas no exemplo de script chamado *SQLDW_Explorations.sql*. Esse arquivo já foi baixado em seu diretório local pelo script do PowerShell. Você também pode recuperá-lo no [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Mas o arquivo no GitHub não tem as informações do Azure SQL DW conectadas.
 
 Conecte-se ao seu Azure SQL DW usando o Visual Studio com o nome e senha de logon do SQL DW e abra o **Pesquisador de Objetos do SQL** para confirmar se o banco de dados e as tabelas foram importados. Recupere o arquivo *SQLDW_Explorations.sql*.
 
 > [!NOTE]
-> Para abrir um editor de consultas do PDW (Parallel Data Warehouse), use o comando **Nova Consulta** com seu PDW selecionado no **Pesquisador de Objetos do SQL **. O editor de consulta SQL padrão não tem suporte do PDW.
+> Para abrir um editor de consultas do PDW (Parallel Data Warehouse), use o comando **Nova Consulta** com seu PDW selecionado no **Pesquisador de Objetos do SQL**. O editor de consulta SQL padrão não tem suporte do PDW.
 >
 >
 
@@ -438,7 +438,7 @@ Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determina
 | 4 |85765 |
 
 ### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: calcular e comparar a distância da corrida
-Este exemplo converte a longitude e a latitude de pickup e dropoff em pontos de geografia SQL, calcula a distância da viagem usando a diferença de pontos de geografia SQL e retorna uma amostra aleatória dos resultados para comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
+Este exemplo converte a longitude e latitude de saída e chegada para pontos geográficos do SQL, calcula a distância de corrida usando a diferença de pontos geográficos do SQL e retorna uma amostra aleatória dos resultados de comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
     SET ANSI_NULLS ON
@@ -540,7 +540,7 @@ Veja um exemplo para chamar essa função a fim de gerar recursos em sua consult
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparar dados para criação de modelo
-A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra do conjunto de dados totalmente unido. A amostragem é feita recuperando um subconjunto das viagens com base na hora de saída.  Essa consulta pode ser copiada e colada diretamente no módulo [Azure Machine Learning Studio](https://studio.azureml.net) [importar dados][import-data] para ingestão direta de dados da instância do banco de dados SQL no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
+A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai um exemplo do conjunto de dados totalmente unido. A amostragem é feita recuperando um subconjunto das viagens com base na hora de saída.  Essa consulta pode ser copiada e colada diretamente no módulo de [dados de importação][import-data] [Azure Machine Learning Studio (clássico)](https://studio.azureml.net) para ingestão de dados diretas da instância do SQL Database no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -567,15 +567,15 @@ Nesta seção, realizaremos a exploração de dados e a geração de recursos ex
 
 As informações necessárias do Azure SQL DW no exemplo de Notebook IPython e o arquivo de script Python baixados em seu computador local foram conectados anteriormente pelo script do PowerShell. Eles são executáveis sem qualquer modificação.
 
-Se você já tiver configurado um workspace do AzureML, carregue diretamente o exemplo de Notebook IPython no serviço do Notebook IPython do AzureML e comece a executá-lo. Estas são as etapas para carregar no serviço Notebook IPython do AzureML:
+Se você já tiver configurado um espaço de trabalho Azure Machine Learning, poderá carregar diretamente o exemplo de notebook IPython no serviço do notebook IPython do AzureML e começar a executá-lo. Estas são as etapas para carregar o serviço do notebook IPython do AzureML:
 
-1. Faça logon em seu workspace do AzureML, clique em "Studio" na parte superior e clique em "NOTEBOOKS" no lado esquerdo da página Web.
+1. Faça logon em seu espaço de trabalho do Azure Machine Learning, clique em **estúdio "** na parte superior e clique em **blocos de anotações** no lado esquerdo da página da Web.
 
     ![Clique em Studio e NOTEBOOKS][22]
-2. Clique em "NOVO" no canto inferior esquerdo da página Web e selecione "Python 2". Em seguida, forneça um nome para o notebook e clique na marca de seleção para criar o novo Notebook IPython em branco.
+2. Clique em **novo** no canto inferior esquerdo da página da Web e selecione **Python 2**. Em seguida, forneça um nome para o notebook e clique na marca de seleção para criar o novo Notebook IPython em branco.
 
     ![Clique em NOVO e em seguida, selecione Python 2][23]
-3. Clique no símbolo "Jupyter" no canto superior esquerdo do novo Notebook IPython.
+3. Clique no símbolo **Jupyter** no canto superior esquerdo do novo notebook ipython.
 
     ![Clique no símbolo do Jupyter][24]
 4. Arraste e solte o exemplo de Notebook IPython na página de **árvore** de seu serviço Notebook IPython do AzureML e clique em **Carregar**. Em seguida, o exemplo de Notebook IPython será carregado no serviço de Notebook IPython do AzureML.
@@ -590,7 +590,7 @@ Para executar o exemplo de Notebook IPython ou o arquivo de script Python, os se
 - pyodbc
 - PyTables
 
-Veja a seguir a sequência recomendada ao criar soluções de análise avançadas no AzureML com grandes volumes de dados:
+A sequência recomendada ao criar soluções analíticas avançadas em Azure Machine Learning com dados grandes é a seguinte:
 
 * Leia em uma pequena amostra dos dados em um quadro de dados na memória.
 * Execute algumas visualizações e explorações usando os dados de amostrados.
@@ -711,7 +711,7 @@ Podemos plotar a distribuição de compartimentos acima em um gráfico de barras
 
 ![Saída de plotagem de gráfico de barra][3]
 
-e
+e a
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
@@ -811,14 +811,14 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 
 Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho **Azure Machine Learning (clássico)** . Se você ainda não criou um espaço de trabalho do Machine Learning, consulte [criar um Azure Machine Learning Studio (clássico) espaço de trabalho](../studio/create-workspace.md).
 
-1. Para ver os primeiros passos no Azure Machine Learning, consulte [O que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
-2. Faça logon no [Azure Machine Learning Studio](https://studio.azureml.net).
-3. A página inicial do Estúdio fornece uma grande quantidade de informações, vídeos, tutoriais e links para a Referência de Módulos e outros recursos. Para saber mais sobre o Azure Machine Learning, confira o [Centro de Documentação do Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+1. Para começar a usar o Azure Machine Learning, consulte [o que é Azure Machine Learning Studio (clássico)?](../studio/what-is-ml-studio.md)
+2. Faça logon no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
+3. A Home Page Machine Learning Studio (clássica) fornece uma infinidade de informações, vídeos, tutoriais, links para a referência de módulos e outros recursos. Para saber mais sobre o Azure Machine Learning, confira o [Centro de Documentação do Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Um teste de treinamento típico é formado pelas seguintes etapas:
 
 1. Criar uma experiência **+NEW** .
-2. Obtenha os dados no Azure Machine Learning Studio.
+2. Obtenha os dados em Azure Machine Learning Studio (clássico).
 3. Pré-processar, transformar e manipular os dados conforme necessário.
 4. Gerar recursos conforme necessário.
 5. Dividir os dados em conjuntos de dados de treinamento/validação/teste (ou conjuntos de dados separados para cada um desses).
@@ -828,7 +828,7 @@ Um teste de treinamento típico é formado pelas seguintes etapas:
 9. Avaliar os modelos para computar a métrica relevante para o problema de aprendizado.
 10. Ajustar os modelos e selecionar o melhor modelo a ser implantado.
 
-Neste exercício, já exploramos e engenhamos os dados no SQL Data Warehouse e escolhemos o tamanho da amostra para ingestão no Azure Machine Learning Studio. Este é o procedimento para compilar um ou mais dos modelos de previsão:
+Neste exercício, já exploramos e projetamos os dados em SQL Data Warehouse e decidimos o tamanho da amostra para ingerir no Azure Machine Learning Studio (clássico). Este é o procedimento para compilar um ou mais dos modelos de previsão:
 
 1. Obtenha os dados em Azure Machine Learning Studio (clássico) usando o módulo [importar dados][import-data] , disponível na seção **entrada e saída de dados** . Para obter mais informações, consulte a página de referência do módulo [importar dados][import-data] .
 
@@ -881,7 +881,9 @@ Vamos recapitular o que fizemos neste tutorial passo a passo: você criou um amb
 Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebooks são compartilhados pela Microsoft sob a licença MIT. Verifique o arquivo LICENSE.txt no diretório do código de exemplo no GitHub para obter mais detalhes.
 
 ## <a name="references"></a>Referências
-•    [Página de download de Viagens de Táxi de Nova York, de Andrés Monroy](https://www.andresmh.com/nyctaxitrips/) •    [Dados de corridas de táxi de Nova York de FOILing, de Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/) •    [Pesquisa e Estatísticas da Comissão de Corridas de Táxis e Limusines de Nova York](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+- [Página de download do Andrés Monroy NYC táxi TRIPS](https://www.andresmh.com/nyctaxitrips/)
+- [FRUSTRAndo os dados de corrida de táxi de NYC por Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
+- [Pesquisa e estatísticas de NYC táxi e limusines Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

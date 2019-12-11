@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175773"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963929"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para acesso condicional no Azure Active Directory
 
@@ -45,17 +45,18 @@ Para que a política funcione, você deve configurar:
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Como as políticas de acesso condicional são aplicadas?
 
-Mais de uma política de acesso condicional pode ser aplicada quando você acessa um aplicativo de nuvem. Nesse caso, todas as políticas que se aplicam devem ser atendidas. Por exemplo, se uma política exigir a MFA e a segunda exigir um dispositivo em conformidade, você deverá passar pela MFA e usar um dispositivo de conformidade. 
+Mais de uma política de acesso condicional pode ser aplicada quando você acessa um aplicativo de nuvem. Nesse caso, todas as políticas que se aplicam devem ser atendidas. Por exemplo, se uma política exigir a MFA (autenticação multifator) e outra exigir um dispositivo em conformidade, você deverá concluir a MFA e usar um dispositivo compatível. 
 
 Todas as políticas são impostas em duas fases:
 
-- Na **primeira** fase, todas as políticas são avaliadas e todos os controles de acesso que não forem atendidos serão coletados. 
-
-- Na **segunda** fase, você é solicitado a atender aos requisitos que não atendeu. Se qualquer uma das políticas bloquear o acesso, você será bloqueado e não será solicitado a atender a outros controles de política. Se nenhuma das políticas bloquear você, você será solicitado a atender a outros controles de política na seguinte ordem:
-
-   ![Solicite](./media/best-practices/06.png)
-    
-   Os provedores de MFA externos e os termos de uso vêm em seguida.
+- Fase 1: 
+   - Coleção de detalhes: Reúna detalhes para identificar políticas que já seriam satisfeitas.
+   - Durante essa fase, os usuários poderão ver um prompt de certificado se a conformidade do dispositivo fizer parte de suas políticas de acesso condicional. Esse prompt pode ocorrer para aplicativos de navegador quando o sistema operacional do dispositivo não é o Windows 10.
+   - A fase 1 da avaliação de política ocorre para todas as políticas e políticas habilitadas no [modo somente de relatório](concept-conditional-access-report-only.md).
+- Fase 2:
+   - Imposição: levar em conta os detalhes coletados na fase 1, solicitar que o usuário atenda a quaisquer requisitos adicionais que não foram atendidos.
+   - Aplicar resultados à sessão. 
+   - A fase 2 da avaliação de política ocorre para todas as políticas habilitadas.
 
 ### <a name="how-are-assignments-evaluated"></a>Como as atribuições são avaliadas?
 

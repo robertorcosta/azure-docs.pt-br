@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes de Hiperescala
+title: Perguntas frequentes-Citus (hiperescala)-banco de dados do Azure para PostgreSQL
 description: Respostas para perguntas comuns que os clientes fazem sobre um banco de dados SQL do Azure na camada de serviço da Hiperescala - comumente chamado de banco de dados da Hiperescala.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 89316811f39b4cab918b913b45ae5945686e6b15
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818220"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974012"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 
@@ -39,19 +39,19 @@ A camada de serviço Hiperescala está disponível apenas para bancos de dados i
 
 As camadas de serviço baseadas em vCore são diferenciadas com base na disponibilidade do banco de dados e no tipo de armazenamento, desempenho e tamanho máximo, conforme descrito na tabela a seguir.
 
-| | Tipo de recurso | Uso geral |  Hiperescala | Comercialmente Crítico |
+| | Tipo de recurso | Propósito geral |  Hiperescala | Comercialmente Crítico |
 |:---:|:---:|:---:|:---:|:---:|
-| **Mais adequado para** |Todos|Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento.|A maioria das cargas de trabalho comerciais. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
+| **Mais adequado para** |Tudo|Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento.|A maioria das cargas de trabalho comerciais. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
 |  **Tipo de recurso** ||Banco de dados único / Elástico pool / instância gerenciada | Banco de dados individual | Banco de dados único / Elástico pool / instância gerenciada |
 | **Tamanho da computação**|Banco de dados único / Elástico pool * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
 | |Instância gerenciada | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
-| **Tipo de armazenamento** | Todos |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
+| **Tipo de armazenamento** | Tudo |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
 | **Tamanho de armazenamento** | Banco de dados único / Elástico pool *| 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
 | | Instância gerenciada  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
 | **IOPS** | Banco de dados individual | 500 IOPS por vCore com máximo de 7.000 IOPS | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximo|
 | | Instância gerenciada | Depende do tamanho do arquivo | N/D | 1375 IOPS/vCore |
-|**Disponibilidade**|Todos|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
-|**Backups**|Todos|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
+|**Disponibilidade**|Tudo|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
+|**Backups**|Tudo|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
 
 \* pools elásticos não têm suporte na camada de serviço de hiperescala
 
@@ -95,7 +95,7 @@ O hiperscale fornece escalabilidade rápida com base em sua demanda de carga de 
 
 ### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-logical-server"></a>Posso misturar o hiperescala e os bancos de dados individuais em um único servidor lógico
 
-Sim, pode.
+Sim, você pode.
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>O da Hiperescala requer que meu modelo de programação de aplicativo mude
 
@@ -117,7 +117,7 @@ O hiperscale dá suporte a todas as cargas de trabalho de SQL Server, mas é ess
 
 Se você estiver executando consultas de análise interativas usando SQL Server como um data warehouse, o hiperscale é uma ótima opção, pois você pode hospedar data warehouses de pequeno e médio porte (como alguns TB de até 100 TB) a um custo mais baixo e pode migrar seus SQL Server War de dados Ehouse cargas de trabalho para hiperescala com alterações mínimas de código T-SQL.
 
-Se você estiver executando a análise de dados em uma grande escala com consultas complexas e taxas de ingestão sustentadas maiores que 100 MB/s ou usando o PDW (Parallel data warehouse), Teradata ou outros data warehouses de processamento paralelo (MPP), SQL Data Warehouse poderá ser o melhor opção.
+Se você estiver executando a análise de dados em grande escala com consultas complexas e taxas de ingestão sustentadas superiores a 100 MB/s ou usando o PDW (Parallel data warehouse), o Teradata ou outros data warehouses de processamento paralelo (MPP), o SQL Data Warehouse poderá ser a melhor opção.
   
 ## <a name="hyperscale-compute-questions"></a>Perguntas de computação de hiperescala
 
@@ -278,7 +278,7 @@ Sim.  A restauração geográfica tem suporte total.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Posso configurar a replicação geográfica com o banco de dados de hiperescala
 
-Não no momento.
+No momento, não.
 
 ### <a name="can-i-take-a-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-on-sql-server-in-a-vm"></a>Posso pegar um backup de banco de dados de hiperescala e restaurá-lo para meu servidor local ou em SQL Server em uma VM
 

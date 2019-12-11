@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Web que chamadas às APIs da web (mover para a produção) – plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo web que chamadas de web APIs (mover para a produção)
+title: Mover aplicativos Web chamando APIs da Web para produção-plataforma de identidade da Microsoft | Azure
+description: Saiba como mover um aplicativo Web que chama APIs da Web para produção.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,31 +15,31 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b326cdb7303ff392c6129e0f0fa460ffe088305
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e40920b7045dad6f64b5699bc3c4c560eb399f2a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074929"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964949"
 ---
-# <a name="web-app-that-calls-web-apis---move-to-production"></a>Aplicativo Web que chama o web APIs - passar para a produção
+# <a name="web-app-that-calls-web-apis---move-to-production"></a>Aplicativo Web que chama APIs da Web – mover para produção
 
-Agora que você sabe como adquirir um token para chamar APIs da Web, saiba como mover para a produção.
+Agora que você sabe como adquirir um token para chamar APIs da Web, saiba como mover para produção.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais experimentando o ASP.NET Core web app progressivo tutorial completo, que mostra:
+Saiba mais experimentando o tutorial completo de ASP.NET Core aplicativo Web, que mostra:
 
-- Como conectar usuários com vários públicos, nuvens nacionais, ou com identidades sociais
+- Como conectar usuários com vários públicos, nuvens nacionais ou identidades sociais
 - Chama o Microsoft Graph
 - Chama várias APIs da Microsoft
 - Manipula o consentimento incremental
-- Chama a sua própria API Web
+- Chama sua própria API Web
 
 > [!div class="nextstepaction"]
-> [Tutorial do aplicativo web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
+> [Tutorial do ASP.NET Core aplicativo Web](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
 
 <!--- Removing this diagram as it's already shown from the next step linked tutorial
 
