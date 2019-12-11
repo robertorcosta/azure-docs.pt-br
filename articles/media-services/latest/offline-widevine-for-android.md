@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 9e90951f810c5101a46c29570af8ad71b42be637
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1c1142f995376a8a640f33402294e20c925bbfbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341025"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974148"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming offline do Widevine para Android
 
 Além de proteger o conteúdo para streaming online, os serviços de aluguel e assinatura de conteúdo de mídia oferecem conteúdo para baixar que funciona quando você não está conectado à Internet. Talvez você precise baixar o conteúdo em seu telefone ou tablet para reprodução no modo avião quando estiver em um voo desconectado da rede. Outros cenários, em que talvez você deseje baixar o conteúdo:
 
-- Alguns provedores de conteúdo pode não permitir a entrega de licença do DRM além das fronteiras de um país/região. Se um usuário quiser ver o conteúdo durante uma viagem para o exterior, é necessário fazer o download offline.
-- Em alguns países ou regiões, a disponibilidade de Internet e/ou largura de banda é limitada. Os usuários podem optar por baixar o conteúdo para assistir em uma resolução alta o suficiente para uma experiência de exibição satisfatória.
+- Alguns provedores de conteúdo podem impedir a entrega de licença do DRM além da borda de um país/região. Se um usuário quiser ver o conteúdo durante uma viagem para o exterior, é necessário fazer o download offline.
+- Em alguns países/regiões, a disponibilidade e/ou a largura de banda da Internet é limitada. Os usuários podem optar por baixar o conteúdo para assistir em uma resolução alta o suficiente para uma experiência de exibição satisfatória.
 
 Este artigo aborda como implementar a reprodução de modo offline para conteúdo DASH protegido pelo Widevine em dispositivos Android. O DRM offline permite que você forneça modelos de assinatura, aluguel e compra para seu conteúdo, possibilitando aos clientes de seus serviços levar o conteúdo consigo com facilidade quando estiverem desconectados da Internet.
 
@@ -40,7 +40,7 @@ Para criar aplicativos de player do Android, descrevemos três opções:
 O artigo também responde a algumas perguntas comuns relacionadas ao streaming offline de conteúdo protegido pelo Widevine.
 
 > [!NOTE]
-> DRM offline é cobrado apenas para fazer uma única solicitação para uma licença ao baixar o conteúdo. Os erros não são cobrados.
+> O DRM offline é cobrado apenas para fazer uma única solicitação de licença quando você baixa o conteúdo. Quaisquer erros não são cobrados.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -132,11 +132,11 @@ Encontre associações do Xamarin para o ExoPlayer usando os seguintes links:
 - [Biblioteca de associações do Xamarin para a biblioteca do Google ExoPlayer](https://github.com/martijn00/ExoPlayerXamarin)
 - [Associações do Xamarin para NuGet do ExoPlayer](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/)
 
-Confira também o seguinte thread: [Associação do Xamarin](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
+Além disso, consulte o seguinte thread: [associação do Xamarin](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
 
 ## <a name="chrome-player-apps-for-android"></a>Aplicativos de player do Chrome para Android
 
-A partir do lançamento do [Chrome para Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates), há suporte para licença persistente em EME. Agora, o [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1) também é compatível com o Chrome para Android. Isso permite que você crie aplicativos de reprodução offline no Chrome caso os usuários finais tiverem essa versão (ou superior) do Chrome. 
+A partir do lançamento do [Chrome para Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates), há suporte para a licença persistente em eme. Agora, o [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1) também é compatível com o Chrome para Android. Isso permite que você crie aplicativos de reprodução offline no Chrome caso os usuários finais tiverem essa versão (ou superior) do Chrome. 
 
 Além disso, a Google produziu uma amostra de PWA (Aplicativo Web Progressivo), publicando-a como software livre: 
 
@@ -147,8 +147,8 @@ Se você fizer upgrade do navegador móvel Chrome para a v62 (ou superior) em um
 
 O aplicativo PWA de software livre acima foi criado no Node.js. Se deseja hospedar sua própria versão em um servidor Ubuntu, os seguintes problemas comuns encontrados que podem impedir a reprodução:
 
-1. Problema do CORS: o exemplo de vídeo no aplicativo de exemplo hospedado em https://storage.googleapis.com/biograf-video-files/videos/. A Google configurou o CORS para todas as suas amostras de teste hospedadas no bucket do Google Cloud Storage. Elas trazem cabeçalhos do CORS, especificando explicitamente a entrada do CORS https://biograf-155113.appspot.com (domínio no qual a Google hospeda sua amostra), impedindo o acesso por outros sites. Se você tentar, verá o seguinte erro HTTP: Falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: Nenhum cabeçalho 'Access-Control-Allow-Origin' está presente no recurso solicitado. Origem ' https:\//13.85.80.81:8080', portanto, não é permitido acessar. Se uma resposta opaca atender às suas necessidades, defina o modo da solicitação como 'no-cors' para buscar o recurso com o CORS desabilitado.
-2. Problema de certificado: do Chrome v 58 em diante, o EME para Widevine exige HTTPS. Portanto, é necessário hospedar o aplicativo de exemplo em HTTPS com um certificado X509. Um certificado de teste normal não funciona devido aos seguintes requisitos: Você precisa obter um certificado que atenda aos seguintes requisitos mínimos:
+1. Problema de CORS: o exemplo de vídeo no aplicativo de exemplo hospedado em https://storage.googleapis.com/biograf-video-files/videos/. A Google configurou o CORS para todas as suas amostras de teste hospedadas no bucket do Google Cloud Storage. Elas trazem cabeçalhos do CORS, especificando explicitamente a entrada do CORS https://biograf-155113.appspot.com (domínio no qual a Google hospeda sua amostra), impedindo o acesso por outros sites. Se você tentar, verá o seguinte erro HTTP: falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd:: nenhum cabeçalho 'Access-Control-Allow-Origin' está presente no recurso solicitado. A origem ' https:\//13.85.80.81:8080 ', portanto, não tem permissão de acesso. Se uma resposta opaca atender às suas necessidades, defina o modo da solicitação como 'no-cors' para buscar o recurso com o CORS desabilitado.
+2. Problema de certificado: a partir do Chrome v 58, o EME para Widevine exige HTTPS. Portanto, é necessário hospedar o aplicativo de exemplo em HTTPS com um certificado X509. Um certificado de teste normal não funciona devido aos requisitos a seguir. É necessário obter um certificado que atenda aos seguintes requisitos mínimos:
     - O Chrome e Firefox exigem a presença da configuração de SAN (Nome Alternativo da Entidade) no certificado
     - O certificado precisa ter uma AC confiável e um certificado autoassinado de desenvolvimento não funciona
     - O certificado precisa ter uma correspondência entre o CN e o nome DNS do servidor Web ou do gateway
@@ -176,8 +176,8 @@ Em relação aos níveis de segurança do Widevine, na documentação [Visão ge
 
 Na [Visão geral da arquitetura de DRM do Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) da Google, são definidos os três seguintes níveis de segurança:
 
-1.  Nível de Segurança 1: Todo processamento, criptografia e controle de conteúdo é realizado no TEE (Ambiente de Execução Confiável). Em alguns modelos de implementação, o processamento da segurança pode ser feito em diferentes chips.
-2.  Nível de Segurança 2: Realiza a criptografia (mas não o processamento de vídeo) no TEE: os buffers descriptografados são retornados para o domínio do aplicativo e processados por meio de um hardware ou software de vídeo separado. No entanto, no nível 2, as informações de criptografia ainda são processadas somente no TEE.
+1.  Nível de Segurança 1: todo o processamento, criptografia e controle de conteúdo é realizado no TEE (Ambiente de Execução Confiável). Em alguns modelos de implementação, o processamento da segurança pode ser feito em diferentes chips.
+2.  Nível de Segurança 2: faz a criptografia (mas não o processamento de vídeo) no TEE: os buffers descriptografados são retornados para o domínio do aplicativo e processados por meio de um hardware ou software de vídeo separado. No entanto, no nível 2, as informações de criptografia ainda são processadas somente no TEE.
 3.  Nível de Segurança 3: não tem um TEE no dispositivo. Podem ser tomadas medidas apropriadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operacional do host. Uma implementação de Nível 3 também pode incluir um mecanismo de criptografia de hardware, mas isso melhora apenas o desempenho, não a segurança.
 
 Ao mesmo tempo, na [documentação dos Serviços de Mídia do Azure no modelo de licença do Widevine](widevine-license-template-overview.md), a propriedade security_level de content_key_specs pode ter os cinco seguintes valores diferentes (requisitos de robustez do cliente para reprodução):
@@ -192,9 +192,9 @@ Ambos os níveis de segurança são definidos pelo Google Widevine. A diferença
 
 | **Níveis de segurança definidos na arquitetura do Widevine** |**Níveis de segurança usados na API do Widevine**|
 |---|---| 
-| **Nível de Segurança 1**: Todo processamento, criptografia e controle de conteúdo é realizado no TEE (Ambiente de Execução Confiável). Em alguns modelos de implementação, o processamento da segurança pode ser feito em diferentes chips.|**security_level=5**: A criptografia, a decodificação e qualquer manipulação da mídia (compactada e descompactada) precisam ser feitas em um TEE com suporte de hardware.<br/><br/>**security_level=4**: A criptografia e a decodificação do conteúdo precisam ser feitas em um TEE com suporte de hardware.|
-**Nível de Segurança 2**: Realiza a criptografia (mas não o processamento de vídeo) no TEE: os buffers descriptografados são retornados para o domínio do aplicativo e processados por meio de um hardware ou software de vídeo separado. No entanto, no nível 2, as informações de criptografia ainda são processadas somente no TEE.| **security_level=3**: As operações de criptografia e material de chave precisam ser executadas em um TEE com suporte de hardware. |
-| **Nível de Segurança 3**: Não tem um TEE no dispositivo. Podem ser tomadas medidas apropriadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operacional do host. Uma implementação de Nível 3 também pode incluir um mecanismo de criptografia de hardware, mas isso melhora apenas o desempenho, não a segurança. | **security_level=2**: A criptografia de software e um decodificador oculto são obrigatórios.<br/><br/>**security_level=1**: A criptografia whitebox baseada em software é obrigatória.|
+| **Nível de Segurança 1**: todo o processamento, criptografia e controle de conteúdo é realizado no TEE (Ambiente de Execução Confiável). Em alguns modelos de implementação, o processamento da segurança pode ser feito em diferentes chips.|**security_level=5**: a criptografia, a decodificação e qualquer manipulação da mídia (compactada e descompactada) precisam ser feitas em um TEE com suporte de hardware.<br/><br/>**security_level=4**: a criptografia e a decodificação do conteúdo precisam ser feitas em um TEE com suporte de hardware.|
+**Nível de Segurança 2**: faz a criptografia (mas não o processamento de vídeo) no TEE: os buffers descriptografados são retornados para o domínio do aplicativo e processados por meio de um hardware ou software de vídeo separado. No entanto, no nível 2, as informações de criptografia ainda são processadas somente no TEE.| **security_level=3**: as operações de criptografia e material de chave precisam ser executadas em um TEE com suporte de hardware. |
+| **Nível de Segurança 3**: não tem um TEE no dispositivo. Podem ser tomadas medidas apropriadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operacional do host. Uma implementação de Nível 3 também pode incluir um mecanismo de criptografia de hardware, mas isso melhora apenas o desempenho, não a segurança. | **security_level = 2**: a criptografia de software e um decodificador ofuscado são necessários.<br/><br/>**security_level=1**: a criptografia whitebox baseada em software é obrigatória.|
 
 ### <a name="question"></a>Pergunta
 
@@ -208,6 +208,10 @@ Há duas maneiras para melhorar a velocidade do download:
 2.  Fornecer aos usuários finais a opção de baixar seletivamente camadas de qualidade de vídeo e faixas de áudio, em vez de todo o conteúdo. Para o modo offline, não faz sentido baixar todas as camadas de qualidade. Há duas maneiras de fazer isso:
     1.  Controlado pelo cliente: o aplicativo de player seleciona automaticamente ou o usuário seleciona a camada de qualidade de vídeo e as faixas de áudio a serem baixadas;
     2.  Controlado pelo serviço: é possível usar o recurso de Manifesto Dinâmico nos Serviços de Mídia do Azure para criar um filtro (global), que limita a playlist de HLS ou o DASH MPD a uma única camada de qualidade de vídeo e faixas de áudio selecionadas. Em seguida, a URL de download apresentada aos usuários finais incluirá esse filtro.
+
+## <a name="additional-notes"></a>Observações adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="summary"></a>Resumo
 
