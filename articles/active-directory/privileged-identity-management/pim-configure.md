@@ -14,12 +14,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f45a7bc870874319a8238c7c8c50bf7a37998
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c1f0708f0674633ddfee8b84388a2d96f2a04636
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023018"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899977"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -46,7 +46,7 @@ O Privileged Identity Management fornece ativação de função baseada em tempo
 
 Depois de configurar o Privileged Identity Management, você verá as opções **Tarefas**, **Gerenciar** e **Atividade** no menu de navegação à esquerda. Como administrador, você poderá escolher entre gerenciar **funções do Azure AD** e funções de **recursos do Azure**. Quando você escolhe o tipo de funções a ser gerenciado, você vê um conjunto semelhante de opções para esse tipo de função.
 
-![Captura de tela do Privileged Identity Management no portal do Azure](./media/pim-configure/pim-overview.png)
+![Captura de tela do Privileged Identity Management no portal do Azure](./media/pim-configure/pim-quickstart.png)
 
 ## <a name="who-can-do-what"></a>Quem pode fazer o quê?
 
