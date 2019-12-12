@@ -3,12 +3,12 @@ title: Adicionar uma associação de fila do Armazenamento do Azure à sua funç
 description: Saiba como adicionar uma associação de saída de fila do Armazenamento do Azure à sua função do Python.
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.openlocfilehash: dede135da56e9ed1eaaed2ae0f7b5cd14d08195c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f2db0f470c4205919343e3838a4f73b05bf71fb0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231244"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928875"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicionar uma associação de fila do Armazenamento do Azure à sua função do Python
 
@@ -55,7 +55,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Como você habilitou os pacotes de extensões no host.json, a [extensão de associação do armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi baixada e instalada para você durante a inicialização, juntamente com outras extensões de associação da Microsoft.
+> Como você habilitou os pacotes de extensões no host.json, a [extensão de associação do armazenamento](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) foi baixada e instalada para você durante a inicialização, juntamente com outras extensões de associação da Microsoft.
 
 Copie a URL da função `HttpTrigger` da saída do runtime de função e cole-a na barra de endereços do navegador. Acrescente o valor de cadeia de consulta `?name=<yourname>` a essa URL e execute a solicitação. Você deve ver a mesma resposta no navegador como você viu no artigo anterior.
 
