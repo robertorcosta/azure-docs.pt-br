@@ -3,12 +3,12 @@ title: Conectar a função Java ao Armazenamento do Azure
 description: Saiba como conectar uma função Java disparada por HTTP ao Armazenamento do Azure usando uma associação de saída do Armazenamento de Filas.
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231200"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926892"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conectar a função Java ao Armazenamento do Azure
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> Como você habilitou os pacotes de extensões no host.json, a [extensão de associação do armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi baixada e instalada para você durante a inicialização, juntamente com outras extensões de associação da Microsoft.
+> Como você habilitou os pacotes de extensões no host.json, a [extensão de associação do armazenamento](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) foi baixada e instalada para você durante a inicialização, juntamente com outras extensões de associação da Microsoft.
 
 Como anteriormente, dispare a função na linha de comando usando o cURL em uma nova janela de terminal:
 

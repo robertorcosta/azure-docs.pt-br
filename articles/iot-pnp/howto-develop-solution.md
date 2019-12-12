@@ -1,20 +1,20 @@
 ---
 title: Interagir com um dispositivo IoT Plug and Play Preview de uma solução de IoT do Azure   Microsoft Docs
 description: Como um desenvolvedor de soluções, saiba como usar o SDK do serviço para interagir com dispositivos de IoT Plug and Play.
-author: YasinMSFT
-ms.author: yahajiza
+author: Philmea
+ms.author: philmea
 ms.date: 07/24/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5abfe0300bd61f5ccfbfccedf16659f055eb8ad4
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878607"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977583"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Conectar-se a um dispositivo de IoT Plug and Play Preview e interagir com ele
 

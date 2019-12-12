@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18d60614a07895c7e9468d35b2d389a28129af4d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f1ca0baa98336570d870a98c75c45a5303bdfaca
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271661"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868891"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso de usuários convidados na colaboração B2B do Azure Active Directory?
 
@@ -61,7 +61,7 @@ Como administrador, é possível adicionar facilmente usuários convidados à su
 - O usuário convidado imediatamente recebe um convite personalizável que permite entrar no Painel de Acesso dele.
 - Os usuários convidados no diretório podem ser atribuídos a aplicativos ou grupos.  
 
-![Captura de tela mostrando a página de entrada de convite Novo Usuário Convidado](media/what-is-b2b/adding-b2b-users-admin.png)
+![Captura de tela mostrando a página de entrada de convite Novo Usuário Convidado](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Permitir que o aplicativo e os proprietários de grupos gerenciem os próprios usuários convidados
 
