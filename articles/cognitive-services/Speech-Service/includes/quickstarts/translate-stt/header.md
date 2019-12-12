@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/20/2019
+ms.date: 12/09/2019
 ms.author: yulili
-ms.openlocfilehash: cd45657beacd04eb2376af3e4297eae051157778
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d4781808ce8e80f62e86ce1d0c6db9c38b2636d0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816735"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74980592"
 ---
 Neste guia de início rápido, você usará o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para traduzir de maneira interativa uma fala de um idioma para um texto em outro idioma. Após cumprir alguns pré-requisitos, traduzir uma fala em texto requer apenas cinco etapas:
 > [!div class="checklist"]

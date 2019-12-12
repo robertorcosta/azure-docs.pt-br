@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 1e91b204401033c7c6c47484140720ab8076f9f9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719486"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971688"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para Python
 
@@ -206,5 +206,5 @@ Neste início rápido, você aprendeu a usar a biblioteca da Pesquisa Visual Com
 > [!div class="nextstepaction"]
 >[Referência da API da Pesquisa Visual Computacional (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [O que é a API da Pesquisa Visual Computacional?](../Home.md)
+* [O que é a Pesquisa Visual Computacional?](../Home.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

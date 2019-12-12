@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 23d8c847bc041f3e583aa8706a919393c54a4627
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 256f78b5bfe7598bf418678c75ed93131434c370
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817567"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981433"
 ---
 Caso prefira começar a usar agora, exiba ou baixe todos os <a href="https://aka.ms/speech/github-csharp">Exemplos do SDK de Fala do C#</a> no GitHub. Caso contrário, vamos começar.
