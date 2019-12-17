@@ -1,5 +1,5 @@
 ---
-title: Introdução ao servidor Web ASP.NET do Azure AD v2.0
+title: Adicionar entrada ao aplicativo Web do ASP.NET no Azure AD
 titleSuffix: Microsoft identity platform
 description: Como implementar a opção Entrar com a conta da Microsoft em uma solução ASP.NET usando um aplicativo tradicional baseado em navegador da Web e o padrão OpenID Connect
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66d2a9a958afd536dcffeca211a3fc56cf09ef8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 9ff89d3c11ca88db14d2efd772be44aef7165a8a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803711"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964728"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 

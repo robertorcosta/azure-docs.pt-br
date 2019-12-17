@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: afb804dd3fd0fecd676f04f18db577f87861a163
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6a470979ce4276d510f1a89bc9bc192d609c2083
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564688"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973502"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o Java
 
@@ -50,7 +50,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
     import com.google.gson.JsonParser;
     ```
 
-2. Crie uma classe denominada `CustomSrchJava` e crie variáveis para sua chave de assinatura, o ponto de extremidade de pesquisa personalizada e a ID de configuração personalizada da instância de pesquisa. 
+2. Crie uma classe denominada `CustomSrchJava` e crie variáveis para a chave de assinatura, o ponto de extremidade de pesquisa personalizada e a ID de configuração personalizada da instância de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";

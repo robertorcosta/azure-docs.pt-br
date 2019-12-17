@@ -1,7 +1,7 @@
 ---
 title: Empacotamento dinâmico dos Serviços de Mídia
 titleSuffix: Azure Media Services
-description: Visão geral do empacotamento dinâmico nos Serviços de Mídia do Microsoft Azure.
+description: Este artigo apresenta uma visão geral do empacotamento dinâmico nos Serviços de Mídia do Azure.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 304a6168ee5a4c60369b541d4a8cc7ac961913b6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574884"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977753"
 ---
 # <a name="dynamic-packaging-in-media-services"></a>Empacotamento dinâmico dos Serviços de Mídia
 
@@ -269,6 +269,9 @@ Para controlar o número de faixas, formatos, taxas de bits e janelas de tempo d
 ## <a name="dynamic-encryption"></a>Criptografia dinâmica
 
 Você pode usar *criptografia dinâmica* para criptografar dinamicamente seu conteúdo ao vivo ou sob demanda com o AES-128 ou qualquer um dos três sistemas principais de gerenciamento de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Serviços de Mídia também fornecem um serviço para entrega de chaves AES e licenças DRM a clientes autorizados. Para saber mais, confira [criptografia dinâmica](content-protection-overview.md).
+
+> [!NOTE]
+> O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="more-information"></a>Mais informações
 

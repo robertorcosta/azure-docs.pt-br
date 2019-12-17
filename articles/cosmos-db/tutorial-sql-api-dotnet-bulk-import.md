@@ -1,20 +1,20 @@
 ---
-title: Otimizar a taxa de transferência ao importar dados em massa para a conta da API do SQL do Azure Cosmos DB
-description: Saiba como criar um aplicativo de console .NET que otimiza a taxa de transferência provisionada (RU/s) necessária para importar dados para o Azure Cosmos DB.
+title: Importar dados em massa para a conta da API do SQL do Azure Cosmos DB usando o SDK do .Net
+description: Saiba como importar ou ingerir dados para o Azure Cosmos DB criando um aplicativo de console do .NET que otimiza a taxa de transferência provisionada (RU/s) necessária para importar dados
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d80d762338744c0ca783d1768bacb8443dbc5020
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606212"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896270"
 ---
-# <a name="optimize-throughput-when-bulk-importing-data-to-azure-cosmos-db-sql-api-account"></a>Otimizar a taxa de transferência ao importar dados em massa para a conta da API do SQL do Azure Cosmos DB
+# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importar dados em massa para a conta da API do SQL do Azure Cosmos DB usando o SDK do .NET
 
 Este tutorial mostra como criar um aplicativo de console .NET que otimiza a taxa de transferência provisionada (RU/s) necessária para importar dados para o Azure Cosmos DB. Neste artigo, você lerá dados de uma fonte de dados de exemplo e os importará em um contêiner do Azure Cosmos.
 Este tutorial usa a [Versão 3.0 e posterior](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do SDK do .NET do Azure Cosmos DB, que pode ser direcionada para o .NET Framework ou o .NET Core.

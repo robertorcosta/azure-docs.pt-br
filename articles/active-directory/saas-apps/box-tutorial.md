@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b808e13ec37b9667a3ab1aaa233532a076bf4970
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: aceec8ad6ca23a1bd89b93a6442d48aa81597e55
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558927"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964167"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Box
 
@@ -45,8 +45,8 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Box dá suporte ao SSO iniciado por **SP**
+* O Box é compatível com provisionamento e desprovisionamento de usuário [**automatizados**](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (recomendado)
 * O Box é compatível com o provisionamento de usuário **Just In Time**
-* O Box dá suporte ao [provisionamento **Automatizado** de usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial)
 
 ## <a name="adding-box-from-the-gallery"></a>Adicionar o Box da galeria
 

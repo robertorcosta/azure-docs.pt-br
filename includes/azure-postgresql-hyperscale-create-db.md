@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73986215"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973400"
 ---
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -46,7 +46,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
    ![IP do cliente adicionado](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
-   > O servidor PostgreSQL do Azure se comunica pela porta 5432. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 5432 talvez não seja permitido pelo firewall de sua rede. Se isso acontecer, você não poderá conectar o servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 5432.
+   > O servidor PostgreSQL do Azure se comunica pela porta 5432. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 5432 talvez não seja permitido pelo firewall de sua rede. Se isso acontecer, você não poderá se conectar ao cluster do Hiperescala (Citus), a menos que o departamento de TI abra a porta 5432.
    >
 
 9. Clique em **Examinar + criar** e, em seguida, **Criar** para provisionar o servidor. O provisionamento demora alguns minutos.
@@ -57,10 +57,10 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 
 Ao criar o servidor do Banco de Dados do Azure para PostgreSQL, um banco de dados padrão chamado **citus** é criado. Para se conectar ao seu servidor de banco de dados, é necessário uma cadeia de conexão e a senha de administrador.
 
-1. Obter a cadeia de conexão. Na página de grupo de servidor, clique no item de menu **Cadeias de conexão**. (Ele está em **Configurações**). Localize a cadeia de caracteres marcada **C++ (libpq)** . Ela terá o formato:
+1. Obter a cadeia de conexão. Na página de grupo de servidor, clique no item de menu **Cadeias de conexão**. (Ele está em **Configurações**). Localize a cadeia de caracteres marcada como **psql**. Ela terá o formato:
 
    ```
-   host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require
+   psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
    ```
 
    Copie a cadeia de caracteres. Você precisará substituir "{sua\_senha}" pela senha administrativa escolhida anteriormente. O sistema não armazena a senha de texto sem formatação e, portanto, não é possível exibi-la na cadeia de conexão.
@@ -69,7 +69,7 @@ Ao criar o servidor do Banco de Dados do Azure para PostgreSQL, um banco de dado
 
 3. No prompt, conecte-se ao servidor do Banco de Dados do Azure para PostgreSQL com o utilitário [psql](https://www.postgresql.org/docs/current/app-psql.html). Passe a cadeia de conexão entre aspas, certificando-se de que contém a senha:
    ```bash
-   psql "{connection_string}"
+   psql "host=..."
    ```
 
    Por exemplo, o comando a seguir conecta-se ao nó coordenador do grupo de servidores **mydemoserver**:

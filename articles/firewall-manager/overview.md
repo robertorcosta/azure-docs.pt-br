@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/21/2019
+ms.date: 12/06/2019
 ms.author: victorh
-ms.openlocfilehash: 897819928ab0bcf48b58428014c03aea6b2145fd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cf8e6ca3a532dea29a413b1afdfc684ac8f08f17
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267964"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869554"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>O que é a Versão prévia do Gerenciador de Firewall do Azure?
 
@@ -70,12 +70,13 @@ A Versão prévia do Gerenciador de Firewall do Azure tem os seguintes problemas
 
 |Problema  |DESCRIÇÃO  |Redução  |
 |---------|---------|---------|
-|Não há suporte para VNets centrais criadas manualmente|Atualmente, o Gerenciador de Firewall do Azure oferece suporte a redes criadas com hubs virtuais. O uso de sua própria VNet de hub criada manualmente ainda não é compatível.|Por enquanto, use o Gerenciador de Firewall do Azure com redes de hub e spoke criadas com Hubs Virtuais.<br>Em investigação.
+|Não há suporte para VNets centrais criadas manualmente|Atualmente, o Gerenciador de Firewall do Azure oferece suporte a redes criadas com hubs virtuais. O uso de sua própria VNet de hub criada manualmente ainda não é compatível.|Por enquanto, use o Gerenciador de Firewall do Azure com redes de hub e spoke criadas com Hubs Virtuais.<br>Conserto em andamento.
 |Limitações da filtragem de terceiros|A filtragem de tráfego V2I com provedores de terceiros não tem suporte no Firewall do Azure B2V e V2V.|Em investigação.|
 |Divisão de tráfego sem suporte no momento|A divisão de tráfego do Office 365 e PaaS público do Azure não tem suporte no momento. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço do parceiro.|Atualmente investigando a divisão de tráfego no hub.
 |Um hub por região|Você não pode ter mais de um hub por região|Crie várias WANs virtuais em uma região.|
 |As políticas básicas devem estar na mesma região que a política local|Crie todas as políticas locais na mesma região que a política básica. Você ainda pode aplicar uma política que foi criada em uma região em um hub seguro de outra região.|Em investigação.|
 |A comunicação entre os hubs não está funcionando com o hub virtual seguro|A comunicação do hub virtual seguro com o hub virtual seguro ainda não tem suporte.|Em investigação.|
+|Todos os Hubs Virtuais Seguros que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado aos Hubs da WAN Virtual hoje.|Crie várias WANs Virtuais para permitir que os Hubs Virtuais Seguros sejam criados em diferentes grupos de recursos.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

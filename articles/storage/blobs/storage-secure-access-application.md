@@ -1,22 +1,23 @@
 ---
-title: Proteger o acesso aos dados de um aplicativo na nuvem com o Armazenamento do Azure | Microsoft Docs
+title: Proteger o acesso aos dados do aplicativo
+titleSuffix: Azure Storage
 description: Use tokens SAS, criptografia e HTTPS para proteger os dados do aplicativo na nuvem.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/30/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986691"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892423"
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de um aplicativo na nuvem
+# <a name="secure-access-to-application-data"></a>Proteger o acesso aos dados do aplicativo
 
 Este tutorial é a parte três de uma série. Aprenda a proteger o acesso à conta de armazenamento. 
 
@@ -31,7 +32,7 @@ O [Armazenamento de Blobs do Azure](../common/storage-introduction.md#blob-stora
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você deve ter concluído o tutorial anterior de Armazenamento: [Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos][previous-tutorial]. 
+Para concluir este tutorial, você deve ter concluído o tutorial anterior de Armazenamento: [Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos][previous-tutorial].
 
 ## <a name="set-container-public-access"></a>Configurar o acesso público ao contêiner
 

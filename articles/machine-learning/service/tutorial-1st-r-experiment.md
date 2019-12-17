@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 52dc0ff27ad2f04b9faeab24c6bdba68d9ec138e
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 62c9ac0020db92c1540d0ecb4fa996d9b8405a58
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307286"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974250"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Tutorial: Treinar e implantar seu primeiro modelo no R com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ saveRDS(accidents, file="accidents.Rd")
 ```
 
 ### <a name="upload-data-to-the-datastore"></a>Carregar dados para o armazenamento de dados
-Carregue dados para a nuvem para que eles possam ser acessados por seu ambiente de treinamento remoto. Cada workspace do Azure ML é fornecido com um armazenamento de dados padrão que armazena informações de conexão no contêiner de blobs do Azure que é provisionado na conta de armazenamento anexada ao workspace. O código a seguir carregará os dados de acidentes que você criou em cima desse armazenamento de dados.
+Carregue dados para a nuvem para que eles possam ser acessados por seu ambiente de treinamento remoto. Cada workspace do Azure Machine Learning vem com um armazenamento de dados padrão que armazena informações de conexão no contêiner de blobs do Azure que é provisionado na conta de armazenamento anexada ao workspace. O código a seguir carregará os dados de acidentes que você criou em cima desse armazenamento de dados.
 
 ```R
 ds <- get_default_datastore(ws)
@@ -164,10 +164,10 @@ Para este tutorial, ajuste um modelo de regressão lógica nos dados carregados 
 * Enviar o trabalho
 
 ### <a name="prepare-the-training-script"></a>Preparar o script de treinamento
-Um script de treinamento chamado `accidents.R` foi fornecido para você no mesmo diretório que este tutorial. Observe os detalhes a seguir **dentro do script de treinamento** que foram feitos para usar o serviço do Azure ML para treinamento:
+Um script de treinamento chamado `accidents.R` foi fornecido para você no mesmo diretório que este tutorial. Observe os detalhes a seguir **dentro do script de treinamento** que foram feitos para usar o Azure Machine Learning para treinamento:
 
 * O script de treinamento usa um argumento `-d` para localizar o diretório que contém os dados de treinamento. Quando você definir e enviar seu trabalho posteriormente, você apontará para o armazenamento de dados deste argumento. O Azure ML montará a pasta de armazenamento para o cluster remoto do trabalho de treinamento.
-* O script de treinamento registra a precisão final como uma métrica no registro de execução no Azure ML usando `log_metric_to_run()`. O SDK do Azure ML fornece um conjunto de APIs de registro para registrar várias métricas durante execuções de treinamento. Essas métricas são registradas e continuam no registro de execução do experimento. As métricas podem ser acessadas a qualquer momento ou exibidas na página de detalhes da execução no [Estúdio do Azure Machine Learning](https://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para obter o conjunto completo de métodos de registro em log `log_*()`.
+* O script de treinamento registra a precisão final como uma métrica no registro de execução no Azure ML usando `log_metric_to_run()`. O SDK do Azure ML fornece um conjunto de APIs de registro para registrar várias métricas durante execuções de treinamento. Essas métricas são registradas e continuam no registro de execução do experimento. As métricas podem ser acessadas a qualquer momento ou exibidas na página de detalhes da execução no [estúdio](https://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para obter o conjunto completo de métodos de registro em log `log_*()`.
 * O script de treinamento salva o modelo em um diretório chamado **outputs**. A pasta `./outputs` recebe tratamento especial pelo Azure ML. Durante o treinamento, os arquivos gravados no `./outputs` são carregados automaticamente em seu registro de execução pelo Azure ML e persistidos como artefatos. Ao salvar o modelo treinado em `./outputs`, você poderá acessar e recuperar seu arquivo de modelo mesmo depois que a execução terminar e você não tiver mais acesso ao seu ambiente de treinamento remoto.
 
 ### <a name="create-an-estimator"></a>Criar um estimador

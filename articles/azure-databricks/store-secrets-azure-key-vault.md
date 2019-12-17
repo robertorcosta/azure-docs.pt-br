@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706135"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849251"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: acessar o Armazenamento de Blobs do Azure no Azure Databricks usando o Azure Key Vault
 
@@ -129,7 +129,8 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
 4. Quando o workspace do Azure Databricks for aberto em uma janela separada, acrescente **#secrets/createScope** à URL. A URL deve ter o seguinte formato: 
 
-   **https://<\location>.azuredatabricks.net/#secrets/createScope**.
+   **https://<\location>.azuredatabricks.net/?o=<\orgID>#secrets/createScope**.
+   
 
 5. Insira um nome de escopo e depois o nome DNS e a ID do Recurso do Azure Key Vault salvos anteriormente. Salve o nome do escopo em um editor de texto para uso posterior neste tutorial. Em seguida, selecione **Criar**.
 

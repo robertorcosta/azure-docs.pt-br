@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743695"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961532"
 ---
 # <a name="what-is-the-azure-face-api"></a>O que é a API de Detecção Facial do Azure?
 
@@ -45,11 +45,11 @@ O exemplo a seguir mostra o rosto selecionado:
 
 ![Uma mulher sorrindo](./Images/FaceFindSimilar.QueryFace.jpg)
 
-E estes são os rostos elegíveis:
+E estas imagens são os rostos elegíveis:
 
 ![Cinco imagens de pessoas sorrindo. As imagens a e b mostram a mesma pessoa.](./Images/FaceFindSimilar.Candidates.jpg)
 
-Para encontrar quatro rostos semelhantes, o modo matchPerson retorna a e b, que mostram a mesma pessoa que o rosto buscado. O modo matchFace retorna a, b, c e d, exatamente quatro possibilidades, mesmo se algumas não forem a pessoa selecionada ou tiverem semelhança baixa. Para saber mais, confira o guia de conceitos [Reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência [API de Localização de Semelhantes](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+Para encontrar quatro rostos semelhantes, o modo matchPerson retorna a e b, que mostram a mesma pessoa que o rosto buscado. O modo matchFace retornará a, b, c e d&mdash;, exatamente quatro possibilidades, mesmo se algumas não forem a pessoa selecionada ou tiverem semelhança baixa. Para saber mais, confira o guia de conceitos [Reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência [API de Localização de Semelhantes](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
 ## <a name="face-grouping"></a>Agrupamento facial
 

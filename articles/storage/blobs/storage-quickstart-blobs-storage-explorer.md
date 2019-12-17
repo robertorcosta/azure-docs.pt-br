@@ -1,21 +1,22 @@
 ---
-title: 'Início Rápido: Usar o Gerenciador de Armazenamento do Azure para criar um blob no armazenamento de objetos'
-description: Neste início rápido, você aprenderá como usar o Gerenciador de Armazenamento do Azure para criar um contêiner e um blob. Em seguida, você aprenderá como baixar o blob para seu computador local e como exibir todos os blobs em um contêiner. Você também aprenderá como criar um instantâneo de um blob, gerenciar as políticas de acesso do contêiner e criar uma assinatura de acesso compartilhado.
+title: Início rápido – Criar um blob com o Gerenciador de Armazenamento do Azure
+titleSuffix: Azure Storage
+description: Neste guia de início rápido, você aprende a usar o Gerenciador de Armazenamento do Azure para criar um contêiner e um blob, baixar o blob em seu computador local e exibir todos os blobs no contêiner.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/15/2018
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: cd31d1c40f30ebc8341c2126da22f8a74cb05438
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f19152b5b8bc569fa07109b6135fa85b9b55bff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640513"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892457"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Início Rápido: Usar o Gerenciador de Armazenamento do Azure para criar um blob no armazenamento de objetos
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Início Rápido: Usar o Gerenciador de Armazenamento do Azure para criar um blob
 
 Neste início rápido, você aprenderá como usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para criar um contêiner e um blob. Em seguida, você aprenderá como baixar o blob para seu computador local e como exibir todos os blobs em um contêiner. Você também aprenderá como criar um instantâneo de um blob, gerenciar as políticas de acesso do contêiner e criar uma assinatura de acesso compartilhado.
 

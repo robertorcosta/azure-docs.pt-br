@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra de blueprint do UK OFFICIAL e do UK NHS
 description: Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 06/26/2019
+ms.date: 12/04/2019
 ms.topic: sample
-ms.openlocfilehash: 79c39ee058a74bc740e72b75fe85882a89f9cd85
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546442"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851359"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS
 
@@ -25,16 +25,19 @@ O blueprint ajuda você a garantir que a transferência de informações com os 
 
 - Apenas conexões seguras com o Cache Redis devem ser habilitadas
 - A transferência segura para contas de armazenamento deve ser habilitada
+- Mostrar os resultados da auditoria dos servidores Web do Windows que não estão usando protocolos de comunicação segura
+- Implantar pré-requisitos para auditar os servidores Web do Windows que não estão usando protocolos de comunicação segura
+- A última versão do TLS deve ser usada no aplicativo de API
+- A última versão do TLS deve ser usada no aplicativo Web
+- A última versão do TLS deve ser usada no aplicativo de funções
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Proteção de dados em repouso
 
 Esse blueprint ajuda você a impor sua política sobre o uso de controles de criptografia por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que impõem controles de criptografia específicos e auditam o uso de configurações de criptografia fraca.
 Entender em que local os recursos do Azure podem ter configurações de criptografia não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos sejam configurados de acordo com a política de segurança de informações. Especificamente, as políticas atribuídas por esse blueprint exigem criptografia para contas do Data Lake Storage; exigem Transparent Data Encryption em bancos de dados SQL; auditam a criptografia ausente em contas de armazenamento, bancos de dados SQL, discos de máquina virtual e variáveis da conta de automação; auditam conexões não seguras para contas de armazenamento e o Cache Redis; auditam a criptografia fraca de senhas de máquina virtual; e auditam a comunicação não criptografada do Service Fabric.
 
-- A Transparent Data Encryption em bancos de dados SQL deve ser habilitada
 - A criptografia de disco deve ser aplicada em máquinas virtuais
 - As variáveis da conta de automação devem ser criptografadas
-- A transferência segura para contas de armazenamento deve ser habilitada
 - A propriedade ClusterProtectionLevel dos clusters do Service Fabric deve ser definida como EncryptAndSign
 - A Transparent Data Encryption em bancos de dados SQL deve ser habilitada
 - Implantar a Transparent Data Encryption no BD SQL
@@ -48,9 +51,15 @@ Esse blueprint ajuda você a gerenciar as vulnerabilidades do sistema de informa
 
 - monitora o Endpoint Protection ausente na Central de Segurança do Azure
 - As atualizações do sistema devem ser instaladas em suas máquinas
+- As atualizações do sistema nos conjuntos de dimensionamento de máquinas virtuais devem ser instaladas
 - As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
+- A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
+- A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
+- As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
+- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
+- A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 
 ## <a name="53-protective-monitoring"></a>5.3 Monitoramento de proteção
 
@@ -58,12 +67,27 @@ Este blueprint ajuda a proteger os ativos do sistema de informações atribuindo
 
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 - Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
+- Auditar máquinas virtuais sem a recuperação de desastre configurada
+- A Proteção contra DDoS Standard deve ser habilitada
+- Os tipos de Proteção Avançada contra Ameaças devem estar definidos como “Todos” nas configurações de Segurança de Dados Avançada da instância gerenciada de SQL
+- Os tipos de Proteção Avançada contra Ameaças devem estar definidos como “Todos” nas configurações de Segurança de Dados Avançada do SQL Server
 - Implantar a Detecção de Ameaças em servidores SQL
 - Implantar a extensão padrão antimalware de IaaS da Microsoft para Windows Server
 
-## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 Gerenciamento seguro de usuários/10 identidade e autenticação
+## <a name="9-secure-user-management"></a>9 Gerenciamento seguro de usuários 
 
 O Azure implementa o RBAC (controle de acesso baseado em função) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint ajuda você a restringir e controlar os direitos de acesso por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou leitura/gravação e contas com permissões de proprietário, leitura e/ou gravação que não têm a autenticação multifator habilitada.
+
+- O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
+- A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
+- O MFA deve ser habilitado em contas com permissões de leitura em sua assinatura
+- As contas externas com permissões de proprietário devem ser removidas de sua assinatura
+- As contas externas com permissões de gravação devem ser removidas de sua assinatura
+- As contas externas com permissões de leitura devem ser removidas de sua assinatura
+
+## <a name="10-identity-and-authentication"></a>10 Identidade e autenticação
+
+Esse blueprint ajuda você a restringir e controlar os direitos de acesso por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou leitura/gravação e contas com permissões de proprietário, leitura e/ou gravação que não têm a autenticação multifator habilitada.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
@@ -86,20 +110,20 @@ Esse blueprint também atribui definições do Azure Policy para auditar as cont
 
 Esse blueprint também atribui uma definição do Azure Policy que audita as permissões de arquivo de senha da VM do Linux para alertar se elas estão definidas incorretamente. Esse design permite que você tome uma ação corretiva para garantir que os autenticadores não sejam comprometidos.
 
-- \[Versão Prévia\]: Auditar que as permissões do arquivo/etc/passwd de VM Linux estejam definidas para 0644
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
 
 Esse blueprint ajuda você a impor senhas fortes por meio da atribuição de definições do Azure Policy que auditam VMs do Windows que não impõem a força mínima e outros requisitos de senha. O reconhecimento de VMs que estejam violando a política de força da senha ajuda você a tomar ações corretivas para garantir que as senhas de todas as contas de usuário da VM estejam em conformidade com a política.
 
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que podem reutilizar as últimas 24 senhas
-- \[Versão Prévia\]: Auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão Prévia\]: Auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- \[Versão Prévia\]: Auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- \[Versão Prévia\]: Auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
-- \[Versão Prévia\]: Auditar as VMs do Windows que podem reutilizar as 24 senhas anteriores
+- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
+- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
+- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
+- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que permitem reutilizar as 24 senhas anteriores
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração máxima da senha de 70 dias
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que permitir reutilizar as 24 senhas anteriores
 
 Esse blueprint também ajuda você a controlar o acesso aos recursos do Azure por meio da atribuição de definições do Azure Policy. Essas políticas auditam o uso de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos. Entender os recursos que estão violando essas políticas pode ajudar você a tomar ações corretivas para garantir que o acesso aos recursos do Azure seja restrito a usuários autorizados.
 
@@ -117,6 +141,18 @@ Além de usar mais de 25 políticas para o gerenciamento seguro de usuários apr
 
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 - Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
+- As regras NSGs para aplicativos Web em IaaS devem ser protegidas
+- O acesso pelo ponto de extremidade para a Internet deve ser restrito
+- As regras do grupo de segurança de rede para máquinas virtuais para a Internet devem ser protegidas
+- A solução de proteção de ponto de extremidade deve ser instalada nos conjuntos de dimensionamento de máquinas virtuais
+- O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais
+- Auditar o acesso irrestrito à rede para contas de armazenamento
+- A depuração remota deve ser desativada para o aplicativo de funções
+- Depuração remota deve ser desativada para o aplicativo da Web
+- A depuração remota deve ser desligada para o aplicativo de API
+- Aplicativo Web deve ser acessível somente por HTTPS
+- O aplicativo de funções deve ser acessível apenas por HTTPS
+- O aplicativo de API só deve estar acessível via HTTPS
 
 ## <a name="12-secure-service-administration"></a>12 Administração segura do serviço
 
@@ -151,7 +187,6 @@ Este blueprint ajuda você a garantir que os eventos do sistema sejam registrado
 
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançada no SQL Server
 - Configuração de diagnóstico de auditoria
-- Auditar configurações de Auditoria de nível do servidor SQL
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 - Implantar o observador de rede quando redes virtuais são criadas

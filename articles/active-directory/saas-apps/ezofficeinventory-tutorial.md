@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ebfe5f75d5d8546e0f5e8ad6f8c5d0063e5bda2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: cc73d7ec81ea0105a5868ec698289bd27526a43b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377278"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893494"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao EZOfficeInventory
 
@@ -94,7 +94,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo EZOfficeInventory espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo à sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
 1. Além do indicado acima, o aplicativo EZOfficeInventory espera que mais alguns atributos sejam passados novamente na resposta SAML que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seu requisito.
 
@@ -144,13 +144,21 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-ezofficeinventory-sso"></a>Configurar o SSO do EZOfficeInventory
 
-1. Abra uma nova janela do navegador da Web e entre em seu site de empresa do EZOfficeInventory como administrador.
+1. Para automatizar a configuração no EZOfficeInventory, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
 
-2. No canto superior direito da página, clique em **Perfil** e, em seguida, navegue até **Configurações** > **Complementos**.
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clicar em **Configurar o EZOfficeInventory** o levará para o aplicativo EZOfficeInventory. De lá, forneça as credenciais de administrador para entrar no EZOfficeInventory. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 5.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Se desejar configurar o EZOfficeInventory manualmente, abra uma nova janela do navegador da Web, entre no site da empresa EZOfficeInventory como administrador e execute as seguintes etapas:
+
+1. No canto superior direito da página, clique em **Perfil** e navegue para **Configurações** > **Suplementos**.
 
     ![Configuração do EZOfficeInventory](./media/ezofficeinventory-tutorial/configure01.png)
 
-3. Role para baixo até a seção **Integração do SAML** e execute as seguintes etapas:
+1. Role para baixo até a seção **Integração do SAML** e execute as seguintes etapas:
 
     ![Configuração do EZOfficeInventory](./media/ezofficeinventory-tutorial/configure02.png)
 
@@ -176,7 +184,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 Nesta seção, uma usuária chamada Brenda Fernandes será criada no EZOfficeInventory. O EZOfficeInventory dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no EZOfficeInventory, um será criado após a autenticação.
 
-## <a name="test-sso"></a>Testar o SSO 
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -191,4 +199,3 @@ Ao clicar no bloco do EZOfficeInventory no Painel de Acesso, você deverá ser c
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimentar o EZOfficeInventory com o Azure AD](https://aad.portal.azure.com/)
-

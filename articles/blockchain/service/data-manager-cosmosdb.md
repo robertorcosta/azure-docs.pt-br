@@ -1,15 +1,15 @@
 ---
 title: Usar o Gerenciador de Dados do Blockchain para atualizar o Azure Cosmos DB – Azure Blockchain Service
 description: Usar o Gerenciador de Dados do Blockchain para o Azure Blockchain Service para enviar dados de blockchain para o Azure Cosmos DB
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 497652f91d46592212a17a0a22832c02a696df62
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 79c39d9883b5ba618e368b0ff6d3e95f1af5bd96
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326253"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977380"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: Usar o Gerenciador de Dados do Blockchain para enviar dados para o Azure Cosmos DB
 
@@ -78,13 +78,15 @@ O ABI do contrato define as interfaces do contrato inteligente. Ele descreve com
 
 1. Salve a matriz **abi** como um arquivo JSON. Por exemplo, *abi.json*. Você usará esse arquivo em uma etapa posterior.
 
-O Gerenciador de Dados do Blockchain requer o código de bytes implantado para o contrato inteligente. O código de bytes implantado é diferente do código de bytes do contrato inteligente. Você pode obter o código de bytes implantado do arquivo de metadados do contrato compilado.
+O Gerenciador de Dados do Blockchain requer o código de bytes implantado para o contrato inteligente. O código de bytes implantado é diferente do código de bytes do contrato inteligente. Use a extensão do Azure Blockchain Development Kit para copiar o código de bytes para a área de transferência.
 
-1. Abra o arquivo de metadados do contrato contido na pasta **build/contracts** do projeto do Solidity. O nome do arquivo é o nome do contrato inteligente seguido pela extensão **.json**.
-1. Localize o elemento **deployedBytecode** no arquivo JSON.
-1. Copie o valor hexadecimal sem as aspas.
+1. No painel do Visual Studio Code Explorer, expanda a pasta **build/contracts** do projeto do Solidity.
+1. Clique com o botão direito do mouse no arquivo JSON de metadados do contrato. O nome do arquivo é o nome do contrato inteligente seguido pela extensão **.json**.
+1. Selecione **Copiar Código de Bites de Transação**.
 
-    ![Painel do Visual Studio Code com o código de bytes nos metadados](./media/data-manager-portal/bytecode-metadata.png)
+    ![Painel do Visual Studio Code com a seleção de Copiar Código de Bytes da Transação](./media/data-manager-cosmosdb/bytecode-devkit.png)
+
+    O código de bytes é copiado para a área de transferência.
 
 1. Salve o valor de **código de bytes** como um arquivo JSON. Por exemplo, *bytecode.json*. Você usará esse arquivo em uma etapa posterior.
 

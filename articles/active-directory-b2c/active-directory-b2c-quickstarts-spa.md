@@ -1,5 +1,6 @@
 ---
-title: 'Início Rápido: configurar a entrada em um aplicativo de página única usando o Azure Active Directory B2C'
+title: 'Início Rápido: Configurar a entrada para um SPA (aplicativo de página única)'
+titleSuffix: Azure AD B2C
 description: Neste Início Rápido, execute um aplicativo de página única de exemplo que usa o Azure Active Directory B2C para fornecer a entrada na conta.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7dc3a52ca9f227f8476cf74286be917b5b6ba021
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ef6fd46ef51cff9823c93e2297a738f95494f577
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420174"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948311"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo de página única usando o Azure Active Directory B2C
 
@@ -29,7 +30,7 @@ O Azure AD B2C (Azure Active Directory B2C) fornece gerenciamento de identidades
 - [Node.js](https://nodejs.org/en/download/)
 - Uma conta social do Facebook, do Google ou da Microsoft
 - Exemplo de código do GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-    
+
     É possível [baixar os arquivos .zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonar o repositório:
 
     ```

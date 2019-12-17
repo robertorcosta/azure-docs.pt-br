@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Simular uma falha ao acessar o armazenamento redundante com acesso de leitura no Azure | Microsoft Docs'
-description: Simular um erro ao acessar o armazenamento com redundância geográfica com acesso de leitura
+title: Tutorial – Simule uma falha na leitura de dados da região primária
+titleSuffix: Azure Storage
+description: Simule um erro na leitura de dados da região primária quando o RA-GRS (armazenamento com redundância geográfica com acesso de leitura) estiver habilitado para a conta de armazenamento.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 1f5c404e410ded2714be761e35060f3c07379bd3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508090"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892440"
 ---
-# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutorial: Simular uma falha ao acessar o armazenamento com acesso de leitura
+# <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simule uma falha na leitura de dados da região primária
 
 Este tutorial é a parte dois de uma série. Nele, você aprenderá sobre os benefícios de uma conta de armazenamento [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (com redundância geográfica com acesso de leitura) simulando uma falha.
 
@@ -68,7 +69,7 @@ Para adicionar uma rota estática para um host de destino, digite o seguinte com
 route add <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route add <destination_ip> <gateway_ip>
@@ -86,7 +87,7 @@ Para simular o ponto de extremidade primário se tornando funcional novamente, e
 route del <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route delete <destination_ip>

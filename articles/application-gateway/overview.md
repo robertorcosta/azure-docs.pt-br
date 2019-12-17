@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a61b1a44419ac35efa5888de2b5a6e4988dfb512
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422304"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996571"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicativo do Azure?
 
@@ -111,7 +111,7 @@ Para obter mais informações, consulte [suporte ao WebSocket](https://docs.micr
 
 ## <a name="connection-draining"></a>Descarregamento de conexão
 
-O descarregamento de conexão ajuda você a efetuar a remoção normal de membros do pool de back-end durante atualizações de serviço planejadas. Essa configuração é habilitada por meio da configuração do http de back-end e pode ser aplicada a todos os membros de um pool de back-end durante a criação da regra. Com a configuração habilitada, o Gateway de Aplicativo garante que todas as instâncias de um pool de back-end cujos registros forem cancelados não receberão nenhuma nova solicitação, permitindo que solicitações existentes sejam concluídas dentro de um limite de tempo configurado. Isso se aplica a instâncias de back-end removidas explicitamente do pool de back-end por uma chamada à API e a instâncias de back-end relatadas como não íntegras, conforme determinado por investigações de integridade.
+O descarregamento de conexão ajuda você a efetuar a remoção normal de membros do pool de back-end durante atualizações de serviço planejadas. Essa configuração é habilitada por meio da configuração do http de back-end e pode ser aplicada a todos os membros de um pool de back-end durante a criação da regra. Com a configuração habilitada, o Gateway de Aplicativo garante que todas as instâncias de um pool de back-end, cujos registros forem cancelados, não receberão nenhuma nova solicitação, permitindo que solicitações existentes sejam concluídas dentro de um limite de tempo configurado. Isso se aplica a instâncias de back-end removidas explicitamente do pool de back-end por uma alteração de configuração do usuário e a instâncias de back-end relatadas como não íntegras, conforme determinado por investigações de integridade. A única exceção a isso são solicitações associadas para cancelamento de registro de instâncias, que tiveram o registro cancelado explicitamente devido à afinidade de sessão gerenciada por gateway e que continuarão a ser proxy para as instâncias de cancelamento de registro.
 
 Para obter mais informações, confira a seção Drenagem de Conexão da [Visão geral de configuração do Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
 

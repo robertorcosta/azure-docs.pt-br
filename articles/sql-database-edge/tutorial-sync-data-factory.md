@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 2bfa65117bf31ad9cb9917fd8a643a0358e02be0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384217"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851682"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronizar dados do Banco de Dados SQL no Edge para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 
@@ -177,7 +177,7 @@ Crie um Data Factory seguindo as instruções fornecidas [neste tutorial](../dat
 
 27. Vá para a guia **Conexão** de SinkDataset e conclua estas etapas:
 
-    1. Em **Caminho do arquivo**, insira *asdedatasync/incrementalcopy*, em que *adftutorial* é o nome do contêiner de blob e *incrementalcopy* é o nome da pasta. Crie o contêiner caso ele não exista ou use o nome de um contêiner existente. O Azure Data Factory criará automaticamente a pasta de saída *incrementalcopy* se ela não existir. Você também pode usar o botão **Procurar** para o **Caminho de arquivo** para navegar até uma pasta em um contêiner de blob.
+    1. Em **Caminho do arquivo**, insira *asdedatasync/incrementalcopy*, em que *asdedatasync* é o nome do contêiner de blob e *incrementalcopy* é o nome da pasta. Crie o contêiner caso ele não exista ou use o nome de um contêiner existente. O Azure Data Factory criará automaticamente a pasta de saída *incrementalcopy* se ela não existir. Você também pode usar o botão **Procurar** para o **Caminho de arquivo** para navegar até uma pasta em um contêiner de blob.
 
     2. Para a parte referente ao **Arquivo** do **Caminho do arquivo**, selecione **Adicionar conteúdo dinâmico [Alt+P]** e, em seguida, insira **@CONCAT('Incremental-', pipeline().RunId, '.txt')** na janela que se abre. Selecione **Concluir**. Neste tutorial, o nome do arquivo é gerado dinamicamente pela expressão. Cada execução de pipeline possui uma ID exclusiva. A atividade de Cópia usa a ID de execução para gerar o nome do arquivo.
 

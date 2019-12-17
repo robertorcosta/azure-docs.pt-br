@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5843e6a5669cd90cdc0572e7a104c4fdf70ac2b3
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 54aea9fac946713ee6c1709e952e3962bb7288e9
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669141"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951761"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -34,7 +34,7 @@ As Migrações para Azure ajudam você a migrar sua empresa do ambiente local pa
 Atualmente, há duas versões do serviço de Migrações para Azure:
 
 - **Versão atual**: use esta versão para criar projetos de Migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: se você usou a versão anterior das Migrações para Azure (havia suporte apenas a avaliação de VMs do VMware locais), agora deve usar a versão atual. Não é mais possível criar projetos das Migrações para Azure usando a versão anterior e recomendamos que você não realize novas descobertas. Para acessar projetos existentes, no portal do Azure > **Todos os serviços**, pesquise **Migrações para Azure**. No painel das Migrações para Azure, há uma notificação e um link para acessar projetos antigos das Migrações para Azure.
+- **Versão anterior**: se você usou a versão anterior das Migrações para Azure (havia suporte apenas a avaliação de VMs do VMware locais), agora deve usar a versão atual. Não é mais possível criar projetos das Migrações para Azure usando a versão anterior e recomendamos que você não realize novas descobertas. Para acessar projetos existentes, no portal do Azure, pesquise e selecione **Migrações para Azure**. No painel **Migrações para Azure**, há uma notificação e um link para acessar projetos antigos das Migrações para Azure.
 
 
 

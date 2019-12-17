@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419771"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899857"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Início Rápido: Criar um ponto de extremidade privado usando portal do Azure
 
@@ -144,7 +144,7 @@ Nesta seção, você criará um SQL Server e adicionará um ponto de extremidade
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
-    | NOME | Insira * myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
+    | NOME | Insira *myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     |Região|Selecione **WestCentralUS**.|
     |||
 5. Selecione **Avançar: Recurso**.
@@ -177,7 +177,7 @@ Nesta seção, você criará um SQL Server e adicionará um ponto de extremidade
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conectar-se a uma VM usando a RDP (Área de Trabalho Remota)
 
 
-Depois de criar **myVm*, conecte-se a ela pela Internet da seguinte maneira: 
+Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira: 
 
 1. Na barra de pesquisa do portal, insira *myVm*.
 
@@ -185,7 +185,7 @@ Depois de criar **myVm*, conecte-se a ela pela Internet da seguinte maneira:
 
 1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo downloaded.rdp*.
+1. Abra o arquivo *downloaded.rdp*.
 
     1. Se solicitado, selecione **Conectar**.
 

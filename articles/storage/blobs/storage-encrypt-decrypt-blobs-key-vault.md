@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Criptografar e descriptografar blobs no Armazenamento do Azure usando o Azure Key Vault | Microsoft Docs'
-description: Como criptografar e descriptografar um blob usando a criptografia do lado do cliente para o Armazenamento do Microsoft Azure com o Azure Key Vault.
+title: Tutorial – Criptografar e descriptografar blobs usando o Azure Key Vault
+titleSuffix: Azure Storage
+description: Saiba como criptografar e descriptografar um blob usando a criptografia do lado do cliente com o Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003441"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892882"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Criptografar e Descriptografar Blobs no Armazenamento do Microsoft Azure usando o Azure Key Vault
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial – Criptografar e descriptografar blobs usando o Azure Key Vault
 
-## <a name="introduction"></a>Introdução
 Este tutorial aborda como aproveitar a criptografia de armazenamento do cliente com o Cofre da Chave do Azure. Ele explica como criptografar e descriptografar um blob em um aplicativo de console usando essas tecnologias.
 
 **Tempo estimado para conclusão:** 20 minutos
@@ -48,7 +48,7 @@ Aqui está uma breve descrição de como funciona a criptografia do lado do clie
 
 ## <a name="set-up-your-azure-key-vault"></a>Configure o seu Cofre da Chave do Azure
 
-Para continuar com este tutorial, você precisa executar as etapas a seguir, que são descritas no guia de início rápido do [tutorial: Definir e recuperar um segredo de Azure Key Vault usando um aplicativo](../../key-vault/quick-create-net.md)Web .net:
+Para continuar com este tutorial, você precisa realizar as etapas a seguir, que são descritas no tutorial [Início rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET](../../key-vault/quick-create-net.md):
 
 * Crie um cofre da chave.
 * Adicionar uma chave ou segredo ao cofre da chave.
@@ -121,9 +121,9 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>Acessar o Armazenamento e o Cofre da Chave em seu programa
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Acessar o Armazenamento do Azure e o Key Vault em seu programa
 
-No método Main (), adicione o código a seguir.
+No método Main(), adicione o código a seguir.
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -229,6 +229,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
+
 É isso. Aproveite!
 
 ## <a name="next-steps"></a>Próximas etapas

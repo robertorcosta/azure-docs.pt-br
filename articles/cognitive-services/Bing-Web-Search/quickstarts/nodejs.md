@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f45b6ce402a5f61faeabd1534d7e3562af81294c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834482"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973859"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Início Rápido: Pesquise na Web usando a API REST de Pesquisa na Web do Bing e Node.js
 
@@ -57,7 +57,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>Criar uma função para fazer a solicitação
 
-Essa função fará uma solicitação GET segura, salvando a consulta de pesquisa como um parâmetro de consulta no caminho. `encodeURIComponent` é usado para fugir dos caracteres inválidos; a chave de assinatura é passada em um cabeçalho. O retorno de chamada recebe uma [resposta](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) que assina o evento `data` para agregar o corpo JSON, o evento `error` para criar o log de problemas e o evento `end` para saber quando a mensagem deve ser considerada concluída. Ao concluir, o aplicativo imprimirá os cabeçalhos interessantes e o corpo da mensagem. Você pode experimentar as cores e definir a profundidade de acordo com sua preferência; uma profundidade de `1` oferece um bom resumo da resposta.
+Essa função fará uma solicitação GET segura, salvando a consulta de pesquisa como um parâmetro de consulta no caminho. `hostname` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.  `encodeURIComponent` é usado para fugir dos caracteres inválidos; a chave de assinatura é passada em um cabeçalho. O retorno de chamada recebe uma [resposta](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) que assina o evento `data` para agregar o corpo JSON, o evento `error` para criar o log de problemas e o evento `end` para saber quando a mensagem deve ser considerada concluída. Ao concluir, o aplicativo imprimirá os cabeçalhos interessantes e o corpo da mensagem. Você pode experimentar as cores e definir a profundidade de acordo com sua preferência; uma profundidade de `1` oferece um bom resumo da resposta.
 
 ```javascript
 function bingWebSearch(query) {

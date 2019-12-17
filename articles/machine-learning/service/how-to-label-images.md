@@ -1,18 +1,18 @@
 ---
-title: Como usar a ferramenta de rotulagem de dados do Azure Machine Learning
+title: Marcar imagens em um projeto de rotulagem
 title.suffix: Azure Machine Learning
-description: Este artigo ensina a usar as ferramentas de marcação de dados em um projeto de rotulagem do Azure Machine Learning.
+description: Saiba como usar as ferramentas de marcação de dados em um projeto de rotulagem do Azure Machine Learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bc7eaeefcef042417b29eb7c887cc19acf8c5c02
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: b36eed1918be2c769bcf74c0d8dee09a5bd62756
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688228"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978127"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem
 

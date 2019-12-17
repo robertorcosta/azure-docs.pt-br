@@ -1,16 +1,13 @@
 ---
-title: Criar aplicativo de página única do AngularJS para entrada e saída com o Azure AD | Microsoft Docs
-description: Saiba como criar um aplicativo de página única AngularJS que se integre ao Azure AD para conexão e que chame as APIs protegidas do Azure AD usando OAuth.
+title: Criar aplicativo de página única do AngularJS no Azure AD para entrada e saída | Microsoft Docs
+description: Saiba como criar um aplicativo de página única do AngularJS que se integre ao Azure AD para entrada e saída e que chame as APIs protegidas do Azure AD usando OAuth.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 10/25/2019
@@ -18,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6e66b51199d19ea6af2b88c48aa89a93c1ed731c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150052"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963521"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Início Rápido: Criar o aplicativo de página única AngularJS para conexão e saída com o Azure Active Directory
 

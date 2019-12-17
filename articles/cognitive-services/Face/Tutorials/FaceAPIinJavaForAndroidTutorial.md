@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858976"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977787"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Criar um aplicativo Android para detectar e enquadrar rostos em uma imagem
 
-Neste tutorial, você criará um aplicativo simples para Android que usa a API de Detecção Facial do Azure, por meio do SDK de Java, para detectar faces humanas em uma imagem. O aplicativo exibe uma imagem selecionada e desenha um quadro ao redor de cada face detectada.
+Neste tutorial, você criará um aplicativo para Android que usa a API de Detecção Facial do Azure, por meio do SDK do Java, para detectar faces humanas em uma imagem. O aplicativo exibe uma imagem selecionada e desenha um quadro ao redor de cada face detectada.
 
 Este tutorial mostra como:
 
@@ -103,7 +103,7 @@ Seu aplicativo detectará faces chamando o método **faceClient.Face.DetectWithS
 
 Cada **Face** retornada contém um retângulo para indicar sua localização, combinado com uma série de atributos faciais opcionais. Neste exemplo, somente os retângulos faciais são solicitados.
 
-Insira os dois métodos a seguir na classe **MainActivity**. Observe que, após a conclusão da detecção facial, o aplicativo chama o método **drawFaceRectanglesOnBitmap** para modificar a **ImageView**. Você definirá esse método a seguir.
+Insira os dois métodos a seguir na classe **MainActivity**. Após a conclusão da detecção facial, o aplicativo chama o método **drawFaceRectanglesOnBitmap** para modificar a **ImageView**. Você definirá esse método a seguir.
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 

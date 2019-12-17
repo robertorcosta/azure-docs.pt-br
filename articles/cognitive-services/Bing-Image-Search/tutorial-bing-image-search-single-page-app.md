@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868253"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930692"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: criar um aplicativo de página única usando a API de Pesquisa de Imagem do Bing
 
@@ -40,7 +40,7 @@ O código-fonte completo deste tutorial está disponível no [GitHub](https://gi
 
 ## <a name="manage-and-store-user-subscription-keys"></a>Gerenciar e armazenar chaves de assinatura de usuário
 
-Este aplicativo usa o armazenamento persistente dos navegadores da Web para armazenar as chaves de assinatura de API. Se nenhuma chave for armazenada, a página da Web solicitará a chave do usuário, armazenando-a para uso posterior. Se a chave for rejeitada mais tarde pela API, o aplicativo vai removê-la do armazenamento.
+Este aplicativo usa o armazenamento persistente dos navegadores da Web para armazenar as chaves de assinatura de API. Se nenhuma chave for armazenada, a página da Web solicitará a chave do usuário, armazenando-a para uso posterior. Se a chave for rejeitada mais tarde pela API, o aplicativo vai removê-la do armazenamento. Este exemplo usa o ponto de extremidade global. Você também pode usar o ponto de extremidade do [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
 
 Defina as funções `storeValue` e `retrieveValue` para usar o objeto `localStorage` (se o navegador for compatível) ou um cookie.

@@ -1,19 +1,19 @@
 ---
 title: Tutorial de criar, compilar e implantar contratos inteligentes – Azure Blockchain Service
 description: Tutorial sobre como usar a extensão Azure Blockchain Development Kit para Ethereum no Visual Studio Code para criar e implantar um contrato inteligente no Azure Blockchain Service.
-ms.date: 11/20/2019
+ms.date: 12/06/2019
 ms.topic: tutorial
 ms.reviewer: chrisseg
-ms.openlocfilehash: 2d2cb174656f5ed8f13d4463d416455ebb3f9ec9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 5b901ab904425a22d2fe9643ffa75a4e978efa88
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325162"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972755"
 ---
 # <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Tutorial: Criar, compilar e implantar contratos inteligentes no Azure Blockchain Service
 
-Neste tutorial, use a extensão Azure Blockchain Development Kit para Ethereum no Visual Studio Code para criar e implantar um contrato inteligente no Azure Blockchain Service. Use também o Truffle para executar uma função de contrato inteligente por meio de uma transação.
+Neste tutorial, use a extensão Azure Blockchain Development Kit para Ethereum no Visual Studio Code para criar e implantar um contrato inteligente no Azure Blockchain Service. Use também o kit de desenvolvimento para executar uma função de contrato inteligente por meio de uma transação.
 
 Você usa o Azure Blockchain Development Kit for Ethereum para:
 
@@ -21,7 +21,6 @@ Você usa o Azure Blockchain Development Kit for Ethereum para:
 > * Criar um contrato inteligente
 > * Implantar um contrato inteligente
 > * Executar uma função de contrato inteligente por meio de uma transação
-> * Estado do contrato de consulta
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -65,11 +64,11 @@ Os contratos inteligentes estão localizados no diretório **contracts** do proj
 1. Na barra lateral do explorer do VS Code, expanda a pasta **contracts** no projeto.
 1. Clique com o botão direito do mouse em **HelloBlockchain.sol** e escolha **Compilar Contratos** no menu.
 
-    ![Compilar contratos](./media/send-transaction/build-contracts.png)
+    ![Escolha o menu Compilar contratos ](./media/send-transaction/build-contracts.png)
 
 O Azure Blockchain Development Kit usa o Truffle para compilar os contratos inteligentes.
 
-![Compilar saída](./media/send-transaction/compile-output.png)
+![Saída do compilador do Truffle](./media/send-transaction/compile-output.png)
 
 ## <a name="deploy-a-smart-contract"></a>Implantar um contrato inteligente
 
@@ -85,104 +84,25 @@ O Azure Blockchain Development Kit usa o Truffle para executar o script de migra
 
 ## <a name="call-a-contract-function"></a>Chamar uma função de contrato
 
-A função **SendRequest** do contrato **HelloBlockchain** altera a variável de estado **RequestMessage**. A alteração do estado de uma rede de blockchain é feita por meio de uma transação. Você pode criar um script para executar a função **SendRequest** por meio de uma transação.
+A função **SendRequest** do contrato **HelloBlockchain** altera a variável de estado **RequestMessage**. A alteração do estado de uma rede de blockchain é feita por meio de uma transação. Você pode usar a página de interação do contrato inteligente do Azure Blockchain Development Kit para chamar a função **SendRequest** por meio de uma transação.
 
-1. Crie um arquivo na raiz do seu projeto do Truffle e nomeie-o `sendrequest.js`. Adicione o código JavaScript Web3 a seguir ao arquivo.
+1. Para interagir com o contrato inteligente, clique com o botão direito do mouse em **HelloBlockchain.sol** e escolha **Mostrar Página de Interação do Contrato Inteligente** no menu.
 
-    ```javascript
-    var HelloBlockchain = artifacts.require("HelloBlockchain");
-        
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the HelloBlockchain smart contract")
-      HelloBlockchain.deployed().then(function(instance) {
-        console.log("Calling SendRequest function for contract ", instance.address);
-        return instance.SendRequest("Hello, blockchain!");
-      }).then(function(result) {
-        console.log("Transaction hash: ", result.tx);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
+    ![Escolha Mostrar Página de Interação do Contrato Inteligente no menu](./media/send-transaction/contract-interaction.png)
 
-1. Quando o Azure Blockchain Development Kit cria um projeto, o arquivo de configuração do Truffle é gerado com os detalhes do ponto de extremidade de rede de blockchain de consórcio. Abra **truffle-config.js** no projeto. O arquivo de configuração lista duas redes: uma denominada desenvolvimento e outra com o mesmo nome que o consórcio.
-1. No painel do terminal do VS Code, use o Truffle para executar o script na rede de blockchain de consórcio. Na barra de menus do painel do terminal, selecione a guia **Terminal** e o **PowerShell** na lista suspensa.
+1. A página de interação permite que você escolha uma versão de contrato implantada, chame funções, exiba o estado atual e exiba os metadados.
 
-    ```PowerShell
-    truffle exec sendrequest.js --network <blockchain network>
-    ```
+    ![Exemplo da Página de Interação do Contrato Inteligente](./media/send-transaction/interaction-page.png)
 
-    Substitua \<rede de blockchain\> pelo nome da rede de blockchain definida em **truffle-config.js**.
+1. Para chamar a função de contrato inteligente, selecione a ação de contrato e passe seus argumentos. Escolha ação de contrato **SendRequest** e insira **Olá, Blockchain!** no parâmetro **requestMessage**. Selecione **Executar** para chamar a função **SendRequest** por meio de uma transação.
 
-O Truffle executa o script na rede de blockchain.
+    ![Executar ação SendRequest](./media/send-transaction/sendrequest-action.png)
 
-![Saída do script](./media/send-transaction/execute-transaction.png)
+Depois que a transação for processada, a seção de interação refletirá as alterações de estado.
 
-Quando você executa uma função de contrato por meio de uma transação, a transação não é processada até que um bloco seja criado. As funções destinadas a serem executadas por meio de uma transação retornam uma ID de transação em vez de um valor retornado.
+![Alterações no estado do contrato](./media/send-transaction/contract-state.png)
 
-## <a name="query-contract-state"></a>Estado do contrato de consulta
-
-As funções de contrato inteligente podem retornar o valor atual das variáveis de estado. Vamos adicionar uma função para retornar o valor de uma variável de estado.
-
-1. Em **HelloBlockchain.sol**, adicione uma função **getMessage** ao contrato inteligente **HelloBlockchain**.
-
-    ``` solidity
-    function getMessage() public view returns (string memory)
-    {
-        if (State == StateType.Request)
-            return RequestMessage;
-        else
-            return ResponseMessage;
-    }
-    ```
-
-    A função retorna a mensagem armazenada em uma variável de estado com base no estado atual do contrato.
-
-1. Clique com o botão direito do mouse em **HelloBlockchain.sol** e escolha **Compilar Contratos** no menu para compilar as alterações ao contrato inteligente.
-1. Para implantar, clique com o botão direito do mouse em **HelloBlockchain.sol** e escolha **Implantar Contratos** no menu. Quando solicitado, escolha a rede de consórcio do Azure Blockchain na paleta de comandos.
-1. Em seguida, crie um script usando para chamar a função **getMessage**. Crie um arquivo na raiz do seu projeto do Truffle e nomeie-o `getmessage.js`. Adicione o código JavaScript Web3 a seguir ao arquivo.
-
-    ```javascript
-    var HelloBlockchain = artifacts.require("HelloBlockchain");
-    
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the HelloBlockchain smart contract")
-      HelloBlockchain.deployed().then(function(instance) {
-        console.log("Calling getMessage function for contract ", instance.address);
-        return instance.getMessage();
-      }).then(function(result) {
-        console.log("Request message value: ", result);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
-
-1. No painel do terminal do VS Code, use o Truffle para executar o script na rede de blockchain. Na barra de menus do painel do terminal, selecione a guia **Terminal** e o **PowerShell** na lista suspensa.
-
-    ```bash
-    truffle exec getmessage.js --network <blockchain network>
-    ```
-
-    Substitua \<rede de blockchain\> pelo nome da rede de blockchain definida em **truffle-config.js**.
-
-Chamando a função getMessage, o script consulta o contrato inteligente. O valor atual da variável de estado **RequestMessage** é retornado.
-
-![Saída do script](./media/send-transaction/execute-get.png)
-
-Observe que o valor não é **Olá, blockchain!** . Em vez disso, o valor retornado é um espaço reservado. Quando você altera e implanta o contrato, o contrato alterado é implantado em um novo endereço e valores são atribuídos às variáveis de estado no construtor do contrato inteligente. O script de migração de exemplo do Truffle **2_deploy_contracts.js** implanta o contrato inteligente e passa um valor de espaço reservado como um argumento. O construtor define a variável de estado **RequestMessage** para o valor de espaço reservado e esse é o valor que é retornado.
-
-1. Para definir a variável de estado **RequestMessage** e consultar o valor, execute os scripts **sendrequest.js** e **getmessage.js** novamente.
-
-    ![Saída do script](./media/send-transaction/execute-set-get.png)
-
-    **sendrequest.js** define a variável de estado **RequestMessage** para **Olá, blockchain!** e **getmessage.js** consulta o contrato quanto ao valor da variável de estado **RequestMessage** e retorna **Olá, blockchain!** .
+A função SendRequest define os campos **RequestMessage** e **Estado**. O estado atual para **RequestMessage** é o argumento para o qual você passou **Olá, Blockchain**. O valor do campo **Estado** permanece **Solicitação**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

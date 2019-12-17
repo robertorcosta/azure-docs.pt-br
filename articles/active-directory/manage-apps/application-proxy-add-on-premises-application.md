@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f1f812bb7d31319476e6b940443e067fac895f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 7b00fff9c979fe6bd2c52f67801a94cb50b1c660
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420460"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970339"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -217,8 +217,9 @@ Para adicionar um usuário de teste:
 
 Para testar o logon no aplicativo:
 
-1. No seu navegador, navegue até a URL externa configurada durante a etapa de publicação. Você deverá ver a tela inicial.
-1. Entre no aplicativo como o usuário que você criou na seção anterior.
+1. No aplicativo que você deseja testar, selecione **Proxy de Aplicativo**.
+2. Na parte superior da página, selecione **Aplicativo de Teste** para executar um teste no aplicativo e verificar se há algum problema de configuração.
+3. Inicie primeiro o aplicativo para testar a conexão e, em seguida, baixe o relatório de diagnóstico para examinar as diretrizes de resolução para os problemas detectados.
 
 Para solucionar problemas, confira [Solucionar problemas e mensagens de erro do Proxy do Aplicativo](application-proxy-troubleshoot.md).
 

@@ -2,27 +2,23 @@
 title: Evolução da plataforma de identidade da Microsoft – Azure
 description: Saiba mais sobre a plataforma de identidade da Microsoft, uma evolução da plataforma de desenvolvedor e serviço de identidade do Azure AD (Azure Active Directory).
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/03/2019
+ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c5fdc1c937136eb512eccf1d4df02a4fcdc3911
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7e5faf9db9a6ba97f353b54a4fb8123fde072574
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533097"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996979"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
 
@@ -30,13 +26,13 @@ A plataforma de identidade da Microsoft é uma evolução da plataforma de desen
 
 Até agora, a maioria dos desenvolvedores trabalhou com a plataforma do Azure AD v1.0 para autenticar contas corporativas e de estudante (provisionadas pelo Azure AD) solicitando tokens do ponto de extremidade do Azure AD v1.0, usando a ADAL (Biblioteca de Autenticação do Azure AD), o portal do Azure para registro de aplicativo e configuração e a API do Graph do Azure AD para configuração programática de aplicativo.
 
-Com a plataforma de identidade da Microsoft (v2.0), expanda seu alcance para estes tipos de usuários:
+Com a plataforma de identidade unificada da Microsoft (v2.0), você pode escrever o código uma vez e autenticar qualquer identidade da Microsoft em seu aplicativo. Para várias plataformas, a MSAL (Biblioteca de Autenticação da Microsoft) de software livre totalmente compatível é recomendada para uso em pontos de extremidade da plataforma de identidade. A MSAL é simples de usar, fornece ótimas experiências de SSO (logon único) para seus usuários, ajuda você a alcançar alta confiabilidade e desempenho e foi desenvolvida usando o Microsoft SDL (Secure Development Lifecycle). Ao chamar APIs, você pode configurar seu aplicativo para aproveitar o consentimento incremental, que permite atrasar a solicitação de consentimento para escopos mais invasivos até que o uso do aplicativo garanta isso em runtime.  A MSAL também é compatível com o Azure Active Directory B2C permitindo que seus clientes usem suas identidades de conta social, empresarial ou local preferenciais para obter acesso de logon único a seus aplicativos e APIs.
+
+Com a plataforma de identidade da Microsoft, expanda seu alcance para estes tipos de usuários:
 
 - contas corporativas e de estudante (contas do Azure AD provisionadas)
 - contas pessoais (como Outlook.com ou Hotmail.com)
-- clientes que trazem seus próprios emails ou identidades sociais (como LinkedIn, Facebook e Google) por meio da oferta do Azure AD B2C
-
-Com a plataforma de identidade unificada da Microsoft, você pode escrever o código uma vez e autenticar qualquer identidade da Microsoft em seu aplicativo. Para várias plataformas, há uma biblioteca open-source com suporte completo, chamada MSAL (Biblioteca de Autenticação da Microsoft). A MSAL é simples de usar, fornece ótimas experiências de SSO (logon único) para seus usuários, ajuda você a alcançar alta confiabilidade e desempenho e foi desenvolvida usando o Microsoft SDL (Secure Development Lifecycle). Ao chamar APIs, você pode configurar seu aplicativo para aproveitar o consentimento incremental, que permite atrasar a solicitação de consentimento para escopos mais invasivos até que o uso do aplicativo garanta isso em runtime.
+- Seus clientes que trazem os próprios emails ou identidades sociais (como LinkedIn, Facebook e Google) por meio da MSAL e do Azure AD B2C
 
 Use o portal do Azure para registrar e configurar seu aplicativo e a API do Microsoft Graph para a configuração programática de aplicativo.
 

@@ -4,12 +4,12 @@ description: Saiba como associar dados de saída para conectar suas funções da
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd899c5cc7aafc5b3349cf4cec9098a849665a2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227434"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849200"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conectar funções ao Armazenamento do Azure usando o Visual Studio
 
@@ -23,7 +23,7 @@ A maioria das associações requer uma cadeia de conexão armazenada que o Funct
 
 Antes de iniciar este artigo, você deve: 
 
- - Concluir a [parte 1 do Início Rápido do Visual Studio][./functions-create-first-function-vs-code.md]. 
+ - Conclua [parte 1 do início rápido do Visual Studio](./functions-create-first-function-vs-code.md). 
 
 - Entrar em sua assinatura do Azure por meio do Visual Studio.
 

@@ -1,8 +1,7 @@
 ---
-title: Entrada de usuários e chamada à API do Microsoft Graph de um aplicativo Android (v1.0) | Microsoft Docs
+title: Conectar usuários e chamar a API do Microsoft Graph no Android (v1.0) | Azure
 description: Saiba como conectar usuários e chamar a API do Microsoft Graph de um aplicativo Android.
 services: active-directory
-documentationcenter: android
 author: rwike77
 manager: CelesteDG
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
@@ -17,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da92944149f983960605bd219ce9707bb3e9276
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 87dd60f00278389c1fc03d6fd69652608ae0c998
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150284"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966054"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app-v10"></a>Início Rápido: Entrada de usuários e chamada à API do Microsoft Graph de um aplicativo Android (v1.0)
 

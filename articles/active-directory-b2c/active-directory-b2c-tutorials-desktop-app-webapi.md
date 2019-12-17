@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Permitir acesso a uma API Web do Node.js de um aplicativo da área de trabalho – Azure Active Directory B2C | Microsoft Docs
-description: Tutorial sobre como usar o Active Directory B2C para proteger uma API Web Node.js e chamá-la de um aplicativo de desktop .NET.
+title: 'Tutorial: Permitir acesso a uma API Web do Node.js em um aplicativo da área de trabalho'
+description: Tutorial sobre como usar o Active Directory B2C para proteger uma API Web do Node.js e chamá-la de um aplicativo da área de trabalho do .NET.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0cf9a0a13a1c16f5be6d82528849e6e2cc3d466d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f271dd23501aa0514faff29f638f695c80c844f2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641837"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949765"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web do Node.js de um aplicativo da área de trabalho usando o Azure Active Directory B2C
 

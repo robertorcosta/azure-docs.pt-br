@@ -3,12 +3,12 @@ title: Visão geral da Política do Azure
 description: A Política do Azure é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484014"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885459"
 ---
 # <a name="what-is-azure-policy"></a>O que é a Política do Azure?
 
@@ -16,7 +16,9 @@ A governança valida que sua organização seja capaz de alcançar suas metas po
 
 A empresa tem um número significativo de problemas de TI que parecem nunca ser resolvidos? Uma boa governança de TI envolve planejar suas iniciativas e prioridades de configuração em um nível estratégico para ajudar a gerenciar e evitar problemas. É nessa necessidade estratégica que entra o Azure Policy.
 
-O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar políticas. Essas políticas impõem diferentes regras e efeitos sobre os recursos para que esses recursos permaneçam em conformidade com seus padrões corporativos e contratos de nível de serviço. O Azure Policy atende a essa necessidade, avaliando os recursos quanto a não conformidade com políticas atribuídas. Por exemplo, você pode ter uma política para permitir apenas determinado tamanho de SKU de máquinas virtuais em seu ambiente. Depois que essa política é implementada, os recursos novos e existentes são avaliados quanto à conformidade. Com o tipo correto de política, os recursos existentes podem ser colocados em conformidade. Mais adiante nesta documentação, veremos como criar e implementar políticas com o Azure Policy.
+O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar políticas. Essas políticas impõem diferentes regras e efeitos sobre os recursos para que esses recursos permaneçam em conformidade com seus padrões corporativos e contratos de nível de serviço. O Azure Policy atende a essa necessidade, avaliando os recursos quanto a não conformidade com políticas atribuídas. Todos os dados armazenados pelo Azure Policy são criptografados em repouso.
+
+Por exemplo, você pode ter uma política para permitir apenas determinado tamanho de SKU de máquinas virtuais em seu ambiente. Depois que essa política é implementada, os recursos novos e existentes são avaliados quanto à conformidade. Com o tipo correto de política, os recursos existentes podem ser colocados em conformidade. Mais adiante nesta documentação, veremos como criar e implementar políticas com o Azure Policy.
 
 > [!IMPORTANT]
 > A avaliação de conformidade da política do Microsoft Azure agora é fornecida para todas as atribuições, independentemente do tipo de preço. Se suas atribuições não mostrarem os dados de conformidade, certifique-se de que a assinatura está registrada com o provedor de recursos Microsoft.PolicyInsights.

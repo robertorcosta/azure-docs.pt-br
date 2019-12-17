@@ -1,15 +1,15 @@
 ---
 title: Usar o Visual Studio Code para se conectar ao Azure Blockchain Service
 description: Conectar-se a uma rede de consórcio do Azure Blockchain Service usando a extensão Azure Blockchain Development Kit para Ethereum no Visual Studio Code
-ms.date: 11/19/2019
+ms.date: 12/05/2019
 ms.topic: quickstart
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4d4625df1cb07818dcadb88e2c98bf9ae1da1b1f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455993"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977041"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Início Rápido: usar o Visual Studio Code para se conectar a uma rede de consórcio do Azure Blockchain Service
 
@@ -59,12 +59,12 @@ Você pode se conectar a membros do consórcio usando a extensão Azure Blockcha
 Se você não tem acesso a um membro do consórcio do Azure Blockchain Service, conclua o pré-requisito [Início Rápido: Criar um membro do blockchain usando o portal do Azure](create-member.md) ou [Início Rápido: Criar um membro do blockchain do Azure Blockchain Service usando a CLI do Azure](create-member-cli.md).
 
 1. No painel do gerenciador do VS Code, expanda a extensão **Azure Blockchain Service**.
-1. Selecione **Conectar-se ao Consórcio**.
+1. Selecione **Conectar-se à rede**.
 
-   ![Conectar-se ao consórcio](./media/connect-vscode/connect-consortium.png)
+   ![Conectar-se à rede](./media/connect-vscode/connect-consortium.png)
 
     Se a autenticação do Azure for solicitada, siga os prompts para autenticar usando um navegador.
-1. Escolha **Conectar-se ao consórcio do Azure Blockchain Service** no menu suspenso da paleta de comandos.
+1. Escolha **Azure Blockchain Service** no menu suspenso da paleta de comandos.
 1. Escolha a assinatura e o grupo de recursos associados ao membro do consórcio do Azure Blockchain Service.
 1. Escolha o consórcio na lista.
 

@@ -1,20 +1,20 @@
 ---
-title: Obter rótulos de dados
+title: Criar um projeto de rotulagem de dados
 titleSuffix: Azure Machine Learning
-description: Este artigo mostra como criar e executar projetos de rotulagem para marcar dados para o aprendizado de máquina.
+description: Saiba como criar e executar projetos de rotulagem para marcar dados para o aprendizado de máquina.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: e66a9f8a775a46c906601ea08be52ca9dfbe0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: bdedc3ee0c76eafc4b4bc95116fb5be846f4bee5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689304"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978229"
 ---
-# <a name="get-labels-for-data"></a>Obter rótulos de dados
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
 A rotulagem de um grande volume de dados em projetos de Machine Learning costuma ser um problema. Os projetos que têm um componente de pesquisa visual computacional, como classificação de imagem ou detecção de objetos, geralmente exigem rótulos para milhares de imagens.
  
@@ -24,6 +24,9 @@ O Machine Learning acompanha o progresso e mantém a fila de tarefas de rotulage
 
 No Machine Learning, você inicia e interrompe o projeto, adiciona e remove pessoas e equipes e monitora o progresso. Você pode exportar os dados rotulados no formato COCO ou como um conjunto de dados do Azure Machine Learning.
 
+> [!Important]
+> Somente projetos de rotulagem de classificação de imagens e identificação de objetos são compatíveis no momento. Além disso, as imagens de dados devem estar disponíveis em um armazenamento de blobs do Azure. (Se você não tiver um armazenamento de dados existente, poderá carregar imagens durante a criação do projeto). 
+
 Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
@@ -32,6 +35,7 @@ Neste artigo, você aprenderá a:
 > * Gerenciar as equipes e as pessoas que trabalham no projeto
 > * Executar e monitorar o projeto
 > * Exportar os rótulos
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

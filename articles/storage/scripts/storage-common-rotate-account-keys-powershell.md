@@ -1,28 +1,22 @@
 ---
-title: Exemplo de script do Azure PowerShell – reciclar a chave de acesso da conta de armazenamento | Microsoft Docs
+title: Girar chaves de acesso da conta de armazenamento com o PowerShell
+titleSuffix: Azure Storage
 description: Crie uma conta de Armazenamento do Azure e, em seguida, recupere e recicle uma de suas chaves de acesso da conta.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
 ms.topic: sample
-ms.date: 06/13/2017
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 0aae733f94ab4a217ca41ca3de6df2e5da47df50
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 54a7a6cb89c88726853a39ab5b2a61e1f0cde0b5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244344"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894935"
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Criar uma conta de armazenamento e reciclar suas chaves de acesso da conta
+# <a name="rotate-storage-account-access-keys-with-powershell"></a>Girar chaves de acesso da conta de armazenamento com o PowerShell
 
 Esse script cria uma conta de Armazenamento do Azure, exibe a chave de acesso primária da nova conta de armazenamento e, em seguida, renova (recicla) a chave.
 
@@ -34,7 +28,7 @@ Esse script cria uma conta de Armazenamento do Azure, exibe a chave de acesso pr
 
 [!code-powershell[main](../../../powershell_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.ps1 "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos, a conta de armazenamento e todos os recursos relacionados.
 

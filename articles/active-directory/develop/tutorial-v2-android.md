@@ -1,6 +1,6 @@
 ---
-title: Introdução ao Android – Plataforma de identidade da Microsoft | Azure
-description: Como um aplicativo do Android pode obter um token de acesso e chamar a API do Microsoft Graph ou APIs que exigem tokens de acesso por meio da plataforma de identidade da Microsoft.
+title: Conectar usuários e chamar o Microsoft Graph (Android) – plataforma de identidade da Microsoft | Azure
+description: Obtenha um token de acesso e chame o Microsoft Graph ou as APIs que exigem tokens de acesso por meio da plataforma de identidade da Microsoft (Android)
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5417c29b62414468064338a67b188c7b7f832ac5
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 7feefc368815b1bfe57b67db2cd94702db799d78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242210"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961550"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Tutorial: Conectar usuários e chamar o Microsoft Graph em um aplicativo Android
 
