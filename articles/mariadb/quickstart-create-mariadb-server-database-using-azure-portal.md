@@ -66,7 +66,7 @@ Para criar um servidor de Banco de Dados do Azure para MariaDB:
 Por padrão, os seguintes bancos de dados são criados em seu servidor: **information_schema**, **mysql**, **performance_schema** e **sys**.
 
 
-## <a name="configure-firewall-rule">Configurar uma regra de firewall no nível do servidor</a>
+## <a name="configure-firewall-rule"></a>Configurar uma regra de firewall no nível do servidor
 
 O serviço do Banco de Dados do Azure para MariaDB cria um firewall no nível do servidor. O firewall impede que as ferramentas e os aplicativos externos se conectem ao servidor ou aos bancos de dados no servidor, a menos que uma regra de firewall seja criada para abrir o firewall para endereços IP específicos. 
 
