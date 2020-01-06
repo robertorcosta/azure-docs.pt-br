@@ -4,7 +4,7 @@
   items:
     - name: O que são conjuntos de escala de máquina virtual?
       href: overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar no portal do Azure
@@ -64,7 +64,7 @@
 - name: Conceitos
   items:
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
       maintainContext: true
     - name: Regiões
       href: ../virtual-machines/windows/regions.md
@@ -171,7 +171,7 @@
           maintainContext: true
     - name: Perguntas frequentes sobre conjunto de dimensionamento
       href: virtual-machine-scale-sets-faq.md
-- name: Como
+- name: Instruções
   items:
     - name: Planejar e projetar
       items:

@@ -14,12 +14,12 @@ metadata:
   author: aahill
   ms.author: aahi
   ms.date: 11/06/2019
-  ms.openlocfilehash: 27161f4d3d9b39ae4fcfa6f9f170b85e98517937
-  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+  ms.openlocfilehash: a425aab2f9f2fb8bf8ffcff5ec91aa1f43078250
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/03/2019
-  ms.locfileid: "74763888"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75448310"
 highlightedContent:
   items:
   - title: Comparar as APIs de Pesquisa do Bing
@@ -57,7 +57,7 @@ conceptualContent:
       text: Criar um aplicativo Web de página única
     footerLink:
       url: overview.md
-      text: Veja mais
+      text: Ver mais
   - title: API de Pesquisa Personalizada do Bing
     links:
     - text: Criar uma instância de pesquisa personalizada
@@ -77,7 +77,7 @@ conceptualContent:
       url: ../bing-custom-search/tutorials/custom-search-web-page.md
     footerLink:
       url: ../bing-custom-search/overview.md
-      text: Veja mais
+      text: Ver mais
   - title: Pesquisa de Imagem do Bing
     links:
     - url: ../bing-image-search/image-search-sdk-quickstart.md
@@ -97,7 +97,7 @@ conceptualContent:
       url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
     footerLink:
       url: ../bing-image-search/overview.md
-      text: Veja mais
+      text: Ver mais
   - title: API de Pesquisa de Entidade do Bing
     links:
     - text: Como usar C#
@@ -117,7 +117,7 @@ conceptualContent:
       url: ../bing-entities-search/tutorial-bing-entities-search-single-page-app.md
     footerLink:
       url: ../bing-entities-search/overview.md
-      text: Veja mais
+      text: Ver mais
   - title: API de Pesquisa de Notícias do Bing
     links:
     - text: Como usar C#
@@ -137,7 +137,7 @@ conceptualContent:
       url: ../bing-news-search/tutorial-bing-news-search-single-page-app.md
     footerLink:
       url: ../bing-news-search/search-the-web.md
-      text: Veja mais
+      text: Ver mais
   - title: API de Pesquisa de Vídeo do Bing
     links:
     - text: Como usar C#
@@ -157,7 +157,7 @@ conceptualContent:
       url: ../Bing-Video-Search/tutorial-bing-video-search-single-page-app.md
     footerLink:
       url: ../Bing-Video-Search/overview.md
-      text: Veja mais
+      text: Ver mais
   - title: API da Pesquisa Visual do Bing
     links:
     - text: Como usar C#
@@ -177,7 +177,7 @@ conceptualContent:
       url: ../bing-visual-search/tutorial-visual-search-crop-area-results.md
     footerLink:
       url: ../bing-visual-search/overview.md
-      text: Veja mais
+      text: Ver mais
   - title: API de Sugestão Automática do Bing
     links:
     - text: Como usar C#
@@ -197,7 +197,7 @@ conceptualContent:
       url: ../Bing-Autosuggest/tutorials/autosuggest.md
     footerLink:
       url: ../Bing-Autosuggest/get-suggested-search-terms.md
-      text: Veja mais
+      text: Ver mais
   - title: API de Verificação Ortográfica do Bing
     links:
     - text: Como usar C#
@@ -217,7 +217,7 @@ conceptualContent:
       url: ../bing-spell-check/tutorials/spellcheck.md
     footerLink:
       url: ../bing-spell-check/overview.md
-      text: Veja mais
+      text: Ver mais
   - title: API da Pesquisa de Empresas Locais
     links:
     - text: Como usar C#
@@ -234,7 +234,7 @@ conceptualContent:
       url: ../bing-local-business-search/quickstarts/local-search-python-quickstart.md
     footerLink:
       url: ../bing-local-business-search/overview.md
-      text: Veja mais
+      text: Ver mais
 additionalContent:
   sections:
   - title: Referência
@@ -362,4 +362,4 @@ additionalContent:
       - text: Azure PowerShell
         url: https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services
       - text: CLI do Azure
-        url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+        url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list

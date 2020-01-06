@@ -9,7 +9,7 @@
     - name: Novidades
       href: whats-new.md
       displayName: 'release notes, service updates, videos'
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: 'Usando C#'
       href: csharp-quickstart-commandline-feedback-loop.md
@@ -66,7 +66,7 @@
     - name: Criar e configurar o Personalizador
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
-    - name: Analise
+    - name: Analisar
       items:
         - name: Avaliação offline
           href: how-to-offline-evaluation.md
@@ -94,6 +94,8 @@
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
         - name: Python
           items:
+            - name: Referência
+              href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python'
             - name: Pacote Pypi
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Recursos

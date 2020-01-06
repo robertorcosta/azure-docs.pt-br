@@ -4,7 +4,7 @@
   items:
     - name: O que é o Hub IoT do Azure?
       href: about-iot-hub.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Enviar telemetria
@@ -83,6 +83,8 @@
       href: tutorial-connectivity.md
 - name: Conceitos
   items:
+    - name: Imposição do TLS 1.2
+      href: tls-1.2-everywhere.md
     - name: Visão geral de aprimoramentos de mensagem
       href: iot-hub-message-enrichments-overview.md
     - name: Visão geral de gerenciamento de dispositivo
@@ -91,7 +93,7 @@
       href: iot-hub-compare-event-hubs.md
     - name: Escolher a camada certa
       href: iot-hub-scaling.md
-    - name: Alta disponibilidade e recuperação de desastres
+    - name: Alta disponibilidade e recuperação de desastre
       href: iot-hub-ha-dr.md
     - name: Como clonar um Hub IoT para outra região
       href: iot-hub-how-to-clone.md
@@ -170,7 +172,7 @@
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Segurança desde o início
           href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
-        - name: Práticas recomendadas de segurança
+        - name: Melhores práticas de segurança
           href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc
         - name: Arquitetura de segurança
           href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc

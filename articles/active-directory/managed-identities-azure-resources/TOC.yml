@@ -4,7 +4,7 @@
   items:
     - name: Sobre as identidades gerenciadas dos recursos do Azure
       href: overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Usar uma identidade gerenciada pela VM para acessar o Azure Resource Manager
       items:
@@ -22,8 +22,6 @@
           href: tutorial-vm-windows-access-storage.md
         - name: Acessar Armazenamento do Azure usando chave de acesso
           href: tutorial-windows-vm-access-storage.md
-        - name: Acessar Armazenamento do Azure usando SAS
-          href: tutorial-windows-vm-access-storage-sas.md
         - name: Acessar SQL do Azure
           href: tutorial-windows-vm-access-sql.md
         - name: Acessar Azure Key Vault

@@ -21,7 +21,7 @@ ms.locfileid: "73818324"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>O aplicativo Wingtip Tickets SaaS
 
-O mesmo aplicativo SaaS *Wingtip Tickets* é implementado em cada uma das três amostras. O aplicativo é uma lista de eventos simples e o aplicativo SaaS de tíquetes direcionando pequenos locais – teatros, paus, etc. Cada local é um locatário do aplicativo e tem seus próprios dados: detalhes do local, listas de eventos, clientes, pedidos de tíquetes, etc.  O aplicativo, junto com os scripts e tutoriais de gerenciamento, apresenta um cenário de SaaS de ponta a ponta. Isso inclui provisionamento de locatários, monitoramento e gerenciamento de desempenho, gerenciamento de esquema e relatórios e análises entre locatários.
+O mesmo aplicativo SaaS *Wingtip Tickets* é implementado em cada uma das três amostras. O aplicativo é uma lista de eventos simples e o aplicativo SaaS de tíquetes direcionando pequenos locais – teatros, clubes etc. Cada local é um locatário do aplicativo e tem seus próprios dados: detalhes do local, listas de eventos, clientes, pedidos de tíquetes etc.  O aplicativo, junto com os scripts e tutoriais de gerenciamento, apresenta um cenário de SaaS de ponta a ponta. Isso inclui provisionamento de locatários, monitoramento e gerenciamento de desempenho, gerenciamento de esquema e relatórios e análises entre locatários.
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>Três padrões de locatários e aplicativos SaaS
 

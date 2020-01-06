@@ -9,7 +9,7 @@ ms.date: 10/22/2019
 ms.author: emalani
 ms.openlocfilehash: c9fbcc089f3f0a6fdba5a21b463ad833ec40701b
 ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/23/2019
 ms.locfileid: "72795946"
@@ -25,7 +25,7 @@ O [mapas do Azure](https://azure.microsoft.com/services/azure-maps/) fornece a p
 - O **Roteamento** para apresentar as rotas mais curtas ou mais rápidas disponíveis — para vários destinos de cada vez — ou fornecer roteiros e fatos especializados para os ciclistass, os veículos e as propagandas comerciais.
 - Os **fusos horários** tornam mais fácil para os usuários ver qual é o tempo em qualquer lugar do mundo.
 - **Operações espaciais** para aprimorar sua inteligência de local.
-- **Geolocalização** para pesquisar o país de um endereço IP.
+- **Geolocalização** para pesquisar o país/região de um endereço IP.
 - **Serviço de dados** para carregar e armazenar dados geoespaciais para uso com operações espaciais ou composição de imagem.
 - A **mobilidade** fornece inteligência de local em tempo real sobre serviços de trânsito públicos próximos, incluindo interrupções, informações de rota e estimativas de tempo de viagem.
 

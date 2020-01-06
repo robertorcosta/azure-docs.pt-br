@@ -3,12 +3,12 @@ title: Visão Geral do exemplo de blueprint da Base do CAF
 description: Visão geral e arquitetura do exemplo de blueprint do CAF (Cloud Adoption Framework) para o Azure Foundation.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: 8339b7335ff2946dcd602db6ece4637ac4bc1d92
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545443"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562554"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Visão geral do exemplo de blueprint do Cloud Adoption Framework da Microsoft para o Azure Foundation
 
@@ -43,7 +43,7 @@ Todos esses elementos cumprem as práticas comprovadas publicadas no [Centro de 
 > A Base do CAF apresenta uma arquitetura de base para as cargas de trabalho.
 > Ainda é necessário implantar cargas de trabalho por trás dessa arquitetura de base.
 
-Para obter mais informações, confira o [Cloud Adoption Framework da Microsoft para o Azure – Pronta](/azure/architecture/cloud-adoption/ready/azure-readiness-guide/govern-org-compliance?tabs=AzurePolicy).
+Para obter mais informações, confira o [Cloud Adoption Framework da Microsoft para o Azure – Pronta](/azure/cloud-adoption-framework/ready/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

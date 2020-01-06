@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 07/27/2019
-  ms.openlocfilehash: 11d32abbcd07f16bd21d512d36cd08abd8ca97df
-  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+  ms.openlocfilehash: d212a7223eea2ccbaaddeb9c45db85e13c7ff9c8
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74842299"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75443471"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -53,8 +53,8 @@ conceptualContent:
       text: Proxy de aplicativo para aplicativos locais
     footerLink:
       url: ./manage-apps/index.yml
-      text: Veja mais
-  - title: Authentication
+      text: Ver mais
+  - title: Autenticação
     links:
     - url: ./authentication/concept-mfa-howitworks.md
       itemType: concept
@@ -67,7 +67,7 @@ conceptualContent:
       text: Proteção de senha do Azure AD
     footerLink:
       url: ./authentication/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: B2B (Entre empresas)
     links:
     - url: ./b2b/what-is-b2b.md
@@ -81,7 +81,7 @@ conceptualContent:
       text: B2B e compartilhamento do Office 365
     footerLink:
       url: ./b2b/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: B2C (Entre empresa e consumidor)
     links:
     - url: ../active-directory-b2c/active-directory-b2c-overview.md
@@ -95,7 +95,7 @@ conceptualContent:
       text: Políticas personalizadas no Azure AD B2C
     footerLink:
       url: ../active-directory-b2c/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Provisionamento em nuvem
     links:
     - url: ./cloud-provisioning/what-is-cloud-provisioning.md
@@ -109,7 +109,7 @@ conceptualContent:
       text: Instalar o agente de provisionamento de nuvem do Azure AD Connect
     footerLink:
       url: ./cloud-provisioning/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Acesso Condicional
     links:
     - url: ./conditional-access/overview.md
@@ -123,7 +123,7 @@ conceptualContent:
       text: Condições com base no local
     footerLink:
       url: ./conditional-access/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Desenvolvedores
     links:
     - url: ./develop/about-microsoft-identity-platform.md
@@ -137,7 +137,7 @@ conceptualContent:
       text: Registre um aplicativo na plataforma de identidade da Microsoft
     footerLink:
       url: ./develop/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Gerenciamento de dispositivos
     links:
     - url: ./devices/overview.md
@@ -151,7 +151,7 @@ conceptualContent:
       text: Planejar ingresso no Azure AD
     footerLink:
       url: ./devices/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Serviços do domínio
     links:
     - url: ../active-directory-domain-services/active-directory-ds-overview.md
@@ -165,7 +165,7 @@ conceptualContent:
       text: Administrar política de grupo
     footerLink:
       url: ../active-directory-domain-services/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Usuários corporativos
     links:
     - url: ./users-groups-roles/groups-create-rule.md
@@ -179,7 +179,7 @@ conceptualContent:
       text: Restrições e limites de serviço do AD do Azure
     footerLink:
       url: ./users-groups-roles/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Identidade híbrida
     links:
     - url: ./hybrid/whatis-hybrid-identity.md
@@ -193,7 +193,7 @@ conceptualContent:
       text: Instalação personalizada do Azure AD Connect
     footerLink:
       url: ./hybrid/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Governança de identidade
     links:
     - url: ./governance/create-access-review.md
@@ -207,21 +207,21 @@ conceptualContent:
       text: Requerer termos de uso
     footerLink:
       url: ./governance/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Identity Protection
     links:
-    - url: ./identity-protection/overview.md
+    - url: ./identity-protection/overview-identity-protection.md
       itemType: overview
       text: O que é proteção de identidade?
-    - url: ./identity-protection/quickstart-sign-in-risk-policy.md
-      itemType: quickstart
-      text: Bloquear acesso ao detectar risco da sessão
-    - url: ./identity-protection/howto-unblock-user.md
+    - url: ./identity-protection/howto-identity-protection-configure-risk-policies.md
+      itemType: how-to-guide
+      text: Configurar políticas de risco
+    - url: ./identity-protection/howto-identity-protection-remediate-unblock.md
       itemType: how-to-guide
       text: Como desbloquear usuários
     footerLink:
       url: ./identity-protection/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Identidades gerenciadas dos recursos do Azure
     links:
     - url: ./managed-identities-azure-resources/tutorial-windows-vm-access-sql.md
@@ -235,7 +235,7 @@ conceptualContent:
       text: Serviços que dão suporte à identidade gerenciada
     footerLink:
       url: ./managed-identities-azure-resources/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: PIM (Privileged Identity Management)
     links:
     - url: ./privileged-identity-management/pim-getting-started.md
@@ -249,7 +249,7 @@ conceptualContent:
       text: Atribuir funções de diretório
     footerLink:
       url: ./privileged-identity-management/index.yml
-      text: Veja mais
+      text: Ver mais
   - title: Relatórios e monitoramento
     links:
     - url: ./reports-monitoring/concept-audit-logs.md
@@ -263,7 +263,7 @@ conceptualContent:
       text: Referência de códigos de erro de entrada
     footerLink:
       url: ./reports-monitoring/index.yml
-      text: Veja mais
+      text: Ver mais
 additionalContent:
   sections:
   - items:

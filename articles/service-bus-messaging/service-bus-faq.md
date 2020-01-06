@@ -11,7 +11,7 @@ ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
 ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/07/2019
 ms.locfileid: "73748439"
@@ -58,7 +58,7 @@ Consulte a tabela a seguir para as portas de saída que você precisa abrir para
 | HTTP, HTTPS | 80, 443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
-Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
+Para localizar os endereços IP corretos para a lista de permissões de suas conexões, siga estas etapas:
 
 1. Execute o seguinte comando em um prompt de comando: 
 

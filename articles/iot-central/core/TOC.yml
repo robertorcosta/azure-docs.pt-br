@@ -4,11 +4,9 @@
   items:
     - name: O que é Azure IoT Central
       href: overview-iot-central.md
-    - name: Opções da Solução IoT
-      href: overview-iot-options.md
     - name: Tour da interface do usuário
       href: overview-iot-central-tour.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Crie um novo aplicativo

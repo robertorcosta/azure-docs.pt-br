@@ -3,7 +3,7 @@
   items:
     - name: Sobre os Ambientes do Serviço de Aplicativo
       href: intro.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar ASE externo
@@ -83,7 +83,7 @@
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informações de cota
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: Atualizações do serviço
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Práticas recomendadas

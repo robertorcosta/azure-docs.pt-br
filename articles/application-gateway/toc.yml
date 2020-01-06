@@ -4,9 +4,9 @@
   items:
     - name: Sobre os gateways de aplicativo
       href: overview.md
-    - name: O que há de novo?
+    - name: Novidades
       href: whats-new.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar Gateway de Aplicativo – Portal
@@ -247,7 +247,7 @@
       href: /rest/api/applicationgateway
     - name: Azure Resource Manager
       displayName: ARM
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
     - name: Modelo do Resource Manager
       displayName: ARM
       href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
@@ -255,7 +255,7 @@
   items:
     - name: Modelos de autor
       displayName: ARM
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modelos da comunidade

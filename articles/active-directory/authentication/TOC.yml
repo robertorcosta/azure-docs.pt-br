@@ -4,7 +4,7 @@
   items:
     - name: O que é a autenticação?
       href: overview-authentication.md
-- name: Início rápido
+- name: Guia de Início Rápido
   items:
     - name: Configurar a redefinição de senha
       href: quickstart-sspr.md
@@ -49,6 +49,8 @@
           href: concept-mfa-authprovider.md
         - name: Diretrizes de segurança
           href: multi-factor-authentication-security-best-practices.md
+        - name: Residência de dadosResidência de dados
+          href: concept-mfa-data-residency.md
         - name: MFA para Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
         - name: PERGUNTAS FREQUENTES SOBRE O MFA
@@ -81,7 +83,7 @@
           href: howto-mfa-userstates.md
         - name: Configurações de usuário e dispositivo
           href: howto-mfa-userdevicesettings.md
-        - name: Configurar definições
+        - name: Definir configurações
           href: howto-mfa-mfasettings.md
         - name: Diretório de Federação
           items:
@@ -150,7 +152,7 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: CBA em dispositivos iOS
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Relatórios
+    - name: Relatório
       items:
         - name: Uso e insights
           href: howto-authentication-methods-usage-insights.md

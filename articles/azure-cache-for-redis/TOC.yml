@@ -1,10 +1,10 @@
 - name: Documentação do Cache Redis do Azure
-  href: index.md
+  href: index.yml
 - name: Visão geral
   items:
     - name: Sobre o Cache Redis do Azure
       href: cache-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Aplicativo do ASP.NET

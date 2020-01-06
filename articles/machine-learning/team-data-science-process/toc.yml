@@ -74,7 +74,7 @@
       href: team-data-science-process-for-data-scientists.md
     - name: Para DevOps
       href: team-data-science-process-for-devops.md
-- name: Como
+- name: Instruções
   items:
     - name: Configurar um ambiente de ciência de dados
       href: environment-setup.md
@@ -144,7 +144,7 @@
                   href: explore-data-sql-server.md
                 - name: Explorar as tabelas do Hive
                   href: explore-data-hive-tables.md
-            - name: Dados de amostra
+            - name: Dados de exemplo
               items:
                 - name: Visão geral
                   href: sample-data.md
@@ -193,7 +193,7 @@
 - name: Relacionados
   items:
     - name: Azure Machine Learning
-      href: ../service/
+      href: ../
     - name: Galeria de IA do Azure
       href: 'https://gallery.azure.ai'
     - name: Cortana Analytics
