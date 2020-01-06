@@ -1,6 +1,6 @@
 ---
-title: Visão geral da Política do Azure
-description: A Política do Azure é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
+title: Visão geral do Azure Policy
+description: O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
 ms.date: 11/25/2019
 ms.topic: overview
 ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
@@ -10,7 +10,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2019
 ms.locfileid: "74885459"
 ---
-# <a name="what-is-azure-policy"></a>O que é a Política do Azure?
+# <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
 A governança valida que sua organização seja capaz de alcançar suas metas por meio de um uso eficaz e eficiente de TI. Ela atende a essa necessidade gerando clareza entre projetos de TI e metas empresariais.
 
@@ -144,7 +144,7 @@ A visão geral do Azure Policy a seguir é da versão 2018. Para download de ví
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você tem uma visão geral da Política do Azure e de alguns dos principais conceitos, aqui estão as próximas etapas sugeridas:
+Agora que você tem uma visão geral do Azure Policy e de alguns dos principais conceitos, aqui estão as próximas etapas sugeridas:
 
 - [Atribuir uma definição de política usando o portal](./assign-policy-portal.md).
 - [Atribuir uma definição de política usando a CLI do Azure](./assign-policy-azurecli.md).
