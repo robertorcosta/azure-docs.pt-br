@@ -17,7 +17,7 @@ ms.locfileid: "74894357"
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Alterações de nomenclatura e de terminologia do Azure Monitor
 Alterações significativas foram feitas ao Azure Monitor recentemente, com diferentes serviços sendo consolidados para simplificar o monitoramento para os clientes do Azure. Este artigo descreve as alterações recentes de nomes e de terminologia na documentação do Azure Monitor.
 
-## <a name="october-2019---diagnostic-log-to-resource-log"></a>Outubro de 2019-log de diagnóstico para o log de recursos
+## <a name="october-2019---diagnostic-log-to-resource-log"></a>Outubro de 2019 - log de diagnóstico para log de recurso
 "Logs de diagnóstico" foram alterados para "logs de recursos" para melhor correspondência do que realmente está sendo coletado. O termo "configurações de diagnóstico" permanece o mesmo.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>Fevereiro de 2019 – terminologia do Log Analytics
@@ -28,8 +28,8 @@ Os dados de log do Azure Monitor ainda estão armazenados em um espaço de traba
 
 O termo _Log Analytics_ agora se aplica principalmente para a página no portal do Azure usada para gravar e executar consultas e analisar dados de log. É o equivalente funcional do [Metrics Explorer](platform/metrics-charts.md), que é a página no portal do Azure usada para analisar dados de métrica.
 
-### <a name="log-analytics-workspaces"></a>Workspaces do Log Analytics
-[Workspaces](platform/manage-access.md) que armazenam dados de log no Azure Monitor ainda são chamados de workspaces do Log Analytics. O menu **Log Analytics** no portal do Azure foi renomeado para **Workspaces do Log Analytics** e é nele que você [cria novos workspaces](learn/quick-create-workspace.md) e configura fontes de dados. Analise seus logs e outros dados de monitoramento no **Azure Monitor** e configure seu workspace nos **workspaces do Log Analytics**.
+### <a name="log-analytics-workspaces"></a>Espaços de trabalho do Log Analytics
+[Espaços de trabalho](platform/manage-access.md) que armazenam dados de log no Azure Monitor ainda são chamados de espaços de trabalho do Log Analytics. O menu **Log Analytics** no portal do Azure foi renomeado para **espaços de trabalho do Log Analytics** e é nele que você [cria novos espaços de trabalho](learn/quick-create-workspace.md) e configura fontes de dados. Analise seus logs e outros dados de monitoramento no **Azure Monitor** e configure seu espaço de trabalho nos **espaços de trabalho do Log Analytics**.
 
 ### <a name="management-solutions"></a>Soluções de gerenciamento
 As [soluções de gerenciamento](insights/solutions.md) foram renomeadas para _soluções de monitoramento_, o que descreve melhor sua funcionalidade.
@@ -46,18 +46,18 @@ Outros recursos que foram considerados parte do Log Analytics, tais como agentes
 ## <a name="april-2018---retirement-of-operations-management-suite-brand"></a>Abril de 2018 – desativação da marca do Operations Management Suite
 O OMS (Operations Management Suite) era um agrupamento dos seguintes serviços de gerenciamento do Azure para fins de licenciamento:
 
-- Percepções sobre o Aplicativo
+- Application Insights
 - Automação do Azure
 - Backup do Azure
 - Log Analytics
-- Recuperação de site
+- Site Recovery
 
 [O novo preço foi introduzido para esses serviços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), e o agrupamento do OMS não está mais disponível para novos clientes. Nenhum dos serviços que faziam parte do OMS foram alterados, exceto para a consolidação no Azure Monitor descrita acima. 
 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia uma [visão geral do Azure Monitor](overview.md) que descreve as funcionalidades e componentes diferentes.
 - Saiba mais sobre a [transição do portal do OMS](../log-analytics/log-analytics-oms-portal-transition.md).
