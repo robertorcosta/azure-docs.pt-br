@@ -10,7 +10,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2019
 ms.locfileid: "74894297"
 ---
-# <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
+# <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
 Definições de política de recurso são usadas pelo Azure Policy para estabelecer convenções para recursos. Cada definição descreve a conformidade do recurso e o efeito que ocorre quando um recurso não está em conformidade.
 Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou você pode exigir que todos os recursos tenham uma marca específica. As políticas são herdadas por todos os recursos filho. Assim, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
