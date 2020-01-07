@@ -1,7 +1,6 @@
 ---
 title: Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
 description: Neste tutorial, execute o mecanismo de consulta avançada com funções definidas pelo usuário do JavaScript
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426056"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
  
@@ -102,12 +101,12 @@ Há diferenças nos tipos com suporte na linguagem de consulta do Stream Analyti
 
 Stream Analytics | JavaScript
 --- | ---
-bigint | Número (o JavaScript pode representar apenas o inteiro até 2^53 exatamente)
+BIGINT | Número (o JavaScript pode representar apenas o inteiro até 2^53 exatamente)
 Datetime | Data (o JavaScript dá suporte somente a milissegundos)
 double | Número
-nvarchar(MAX) | Cadeia de caracteres
-Registro | Objeto
-Matriz | Matriz
+nvarchar(MAX) | String
+Record | Objeto
+Array | Array
 NULO | Nulo
 
 
@@ -118,16 +117,16 @@ JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for arredondado e estiver entre long.MinValue e long.MaxValue; caso contrário, será dobrado)
 Data | Datetime
-Cadeia de caracteres | nvarchar(MAX)
-Objeto | Registro
-Matriz | Matriz
+String | nvarchar(MAX)
+Objeto | Record
+Array | Array
 Null, Undefined | NULO
-Qualquer outro tipo (por exemplo, uma função ou um erro) | Sem suporte (resulta em erro de tempo de execução)
+Qualquer outro tipo (por exemplo, uma função ou um erro) | Sem suporte (resulta em erro de runtime)
 
 A linguagem JavaScript diferencia maiúsculas de minúsculas e maiúsculas e minúsculas dos campos de objeto no código JavaScript devem coincidir com o uso de maiúsculas e minúsculas dos campos nos dados de entrada. Observe que os trabalhos com o nível de compatibilidade 1.0 convertem os campos da instrução do SQL SELECT em minúsculas. No nível de compatibilidade 1.1 e superior, os campos da instrução SELECT terão as mesmas maiúsculas e minúsculas conforme especificado na consulta SQL.
 
 ## <a name="troubleshooting"></a>solução de problemas
-Os erros de tempo de execução do JavaScript são considerados fatais e exibidos no Log de atividades. Para recuperar o log, no Portal do Azure, vá para o seu trabalho e clique em **Log de atividades**.
+Os erros de runtime do JavaScript são considerados fatais e exibidos no Log de atividades. Para recuperar o log, no Portal do Azure, vá para o seu trabalho e clique em **Log de atividades**.
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Outros padrões de função definida pelo usuário do JavaScript
 
@@ -155,9 +154,9 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
+Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, poderá interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.  
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
