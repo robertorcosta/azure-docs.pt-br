@@ -17,7 +17,7 @@ ms.locfileid: "74894357"
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Alterações de nomenclatura e de terminologia do Azure Monitor
 Alterações significativas foram feitas ao Azure Monitor recentemente, com diferentes serviços sendo consolidados para simplificar o monitoramento para os clientes do Azure. Este artigo descreve as alterações recentes de nomes e de terminologia na documentação do Azure Monitor.
 
-## <a name="october-2019---diagnostic-log-to-resource-log"></a>Outubro de 2019-log de diagnóstico para o log de recursos
+## <a name="october-2019---diagnostic-log-to-resource-log"></a>Outubro de 2019 – log de diagnóstico para log de recurso
 "Logs de diagnóstico" foram alterados para "logs de recursos" para melhor correspondência do que realmente está sendo coletado. O termo "configurações de diagnóstico" permanece o mesmo.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>Fevereiro de 2019 – terminologia do Log Analytics
@@ -46,18 +46,18 @@ Outros recursos que foram considerados parte do Log Analytics, tais como agentes
 ## <a name="april-2018---retirement-of-operations-management-suite-brand"></a>Abril de 2018 – desativação da marca do Operations Management Suite
 O OMS (Operations Management Suite) era um agrupamento dos seguintes serviços de gerenciamento do Azure para fins de licenciamento:
 
-- Percepções sobre o Aplicativo
+- Application Insights
 - Automação do Azure
 - Backup do Azure
 - Log Analytics
-- Recuperação de site
+- Site Recovery
 
 [O novo preço foi introduzido para esses serviços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), e o agrupamento do OMS não está mais disponível para novos clientes. Nenhum dos serviços que faziam parte do OMS foram alterados, exceto para a consolidação no Azure Monitor descrita acima. 
 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia uma [visão geral do Azure Monitor](overview.md) que descreve as funcionalidades e componentes diferentes.
 - Saiba mais sobre a [transição do portal do OMS](../log-analytics/log-analytics-oms-portal-transition.md).

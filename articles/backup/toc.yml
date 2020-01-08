@@ -4,7 +4,7 @@
   items:
     - name: O que é o Backup do Azure?
       href: backup-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Fazer backup de uma VM – Portal
@@ -36,6 +36,14 @@
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restaurar arquivos para o Windows Server
       href: tutorial-backup-restore-files-windows-server.md
+    - name: Bancos de dados do SAP HANA em VMs do Azure – Como usar a CLI
+      items:
+        - name: Backup dos bancos de dados do SAP HANA – CLI
+          href: tutorial-sap-hana-backup-cli.md
+        - name: Restaurar bancos de dados do SAP HANA – CLI
+          href: tutorial-sap-hana-restore-cli.md
+        - name: Gerenciar bancos de dados do SAP HANA com backup – CLI
+          href: tutorial-sap-hana-manage-cli.md
 - name: Exemplos
   items:
     - name: Azure PowerShell
@@ -244,6 +252,8 @@
           href: manage-monitor-sql-database-backup.md
     - name: Bancos de dados do SAP HANA em VMs do Azure
       items:
+        - name: Sobre o backup do SAP HANA em VMs do Azure
+          href: sap-hana-db-about.md
         - name: Fazer backup de bancos de dados do SAP HANA em VMs do Azure
           href: backup-azure-sap-hana-database.md
         - name: Restaurar bancos de dados do SAP HANA em VMs do Azure

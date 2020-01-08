@@ -28,7 +28,7 @@
           href: expressroute-locations.md
     - name: Sobre gateways de rede virtual
       href: expressroute-about-virtual-network-gateways.md
-    - name: Pré-requisitos
+    - name: Prerequisites
       href: expressroute-prerequisites.md
     - name: Fluxos de trabalho
       href: expressroute-workflows.md
@@ -157,7 +157,7 @@
           href: expressroute-monitoring-metrics-alerts.md
         - name: Configurar o Monitor de Desempenho de Rede para ExpressRoute
           href: how-to-npm.md
-    - name: Artigos do modelo de implantação clássica
+    - name: Artigos clássicos e herdados
       items:
         - name: Modificar um circuito
           href: expressroute-howto-circuit-classic.md
@@ -169,6 +169,8 @@
           href: expressroute-howto-coexist-classic.md
         - name: Adicionar um gateway a uma VNet
           href: expressroute-howto-add-gateway-classic.md
+        - name: Criar e modificar um emparelhamento público
+          href: about-public-peering.md
     - name: Práticas Recomendadas
       items:
         - name: Práticas recomendadas para segurança de rede e serviços de nuvem
@@ -223,7 +225,7 @@
     - name: Contrato de Nível de Serviço
       href: 'https://azure.microsoft.com/support/legal/sla/'
     - name: Limites de Serviço e Assinatura
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: ExpressRoute para Provedores de Soluções na Nuvem (CSP)
       href: expressroute-for-cloud-solution-providers.md
     - name: vídeos

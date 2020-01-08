@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f026957b5f9fceab8a0df1f339e7cb459ec1078d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985762"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562129"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar a exclusão reversível do Key Vault com o PowerShell
 
@@ -22,7 +22,7 @@ O recurso de exclusão reversível do Azure Key Vault permite a recuperação de
 - Suporte à exclusão reversível de cofres de chaves
 - Suporte à exclusão reversível de objetos do cofre de chaves, chaves, segredos e certificados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,7 +41,7 @@ As operações de Key Vault são gerenciadas separadamente por meio de permissõ
 
 | Operação | DESCRIÇÃO | Permissão de usuário |
 |:--|:--|:--|
-|Listar|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
+|Lista|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Recupera o cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
 |Limpar|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -160,7 +160,7 @@ Para excluir permanentemente (também conhecido como limpeza) uma chave excluíd
 Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
-As ações de **recuperação** e **limpeza** têm suas próprias permissões associadas em uma política de acesso de cofre de chaves. Para que um usuário ou diretor de serviço possa executar uma ação **recover** ou **purge**, eles devem ter a respectiva permissão para essa chave ou segredo. Por padrão, **purge** não é adicionada à política de acesso de um cofre de chaves, quando o atalho 'all' é usado para conceder todas as permissões. Você deve conceder especificamente **limpar** permissão. 
+As ações de **recuperação** e **limpeza** têm suas próprias permissões associadas em uma política de acesso do cofre de chaves. Para que um usuário ou diretor de serviço possa executar uma ação **recover** ou **purge**, eles devem ter a respectiva permissão para essa chave ou segredo. Por padrão, **purge** não é adicionada à política de acesso de um cofre de chaves, quando o atalho 'all' é usado para conceder todas as permissões. Você deve conceder especificamente **limpar** permissão. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Definir uma política de acesso de cofre de chaves
 
@@ -257,4 +257,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## <a name="other-resources"></a>Outros recursos
 
 - Para obter uma visão geral do recurso de exclusão reversível do Key Vault, veja [Visão geral da exclusão reversível do Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Para ter uma visão geral do uso do Azure Key Vault, confira [O que é o Azure Key Vault?](key-vault-overview.md).ate=Succeeded}
+- Para ter uma visão geral do uso do Azure Key Vault, confira [O que é Azure Key Vault?](key-vault-overview.md).

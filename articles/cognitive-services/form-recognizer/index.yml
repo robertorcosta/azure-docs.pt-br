@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Reconhecimento de Formulários
-summary: O Reconhecimento de Formulários do Azure é um serviço cognitivo que usa a tecnologia de aprendizado de máquina para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, ele gera dados estruturados que incluem as relações no arquivo original. O aprendizado sem supervisão permite que o modelo entenda o layout e as relações entre os campos e as entradas sem rotulagem manual de dados nem codificação e manutenção intensivas.
+summary: O Reconhecimento de Formulários do Azure é um serviço cognitivo que usa a tecnologia de aprendizado de máquina para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, ele gera dados estruturados que incluem as relações no arquivo original. O aprendizado sem supervisão permite que o modelo entenda o layout e os dados de campo sem rotulagem manual de dados nem codificação intensiva. Você também pode fazer aprendizado supervisionado usando dados rotulados manualmente. Os modelos treinados usando dados rotulados podem funcionar melhor e podem trabalhar com documentos mais complicados.
 metadata:
   title: Documentação do Reconhecimento de Formulários – Inícios rápidos, tutoriais e referência de API – Serviços Cognitivos do Azure | Microsoft Docs
-  description: O Reconhecimento de Formulários do Azure é um serviço cognitivo que usa a tecnologia de aprendizado de máquina para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, ele gera dados estruturados que incluem as relações no arquivo original. O aprendizado sem supervisão permite que o modelo entenda o layout e as relações entre os campos e as entradas sem rotulagem manual de dados nem codificação e manutenção intensivas.
+  description: O Reconhecimento de Formulários do Azure é um serviço cognitivo que usa a tecnologia de aprendizado de máquina para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, ele gera dados estruturados que incluem as relações no arquivo original. O aprendizado sem supervisão permite que o modelo entenda o layout e os dados de campo sem rotulagem manual de dados nem codificação intensiva. Você também pode fazer aprendizado supervisionado usando dados rotulados manualmente. Os modelos treinados usando dados rotulados podem funcionar melhor e podem trabalhar com documentos mais complicados.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: form-recognizer
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 835eb7bece58e93375c09c51149381d7882702de
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931294"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75446504"
 landingContent:
 - title: Sobre o Reconhecimento de Formulários
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: O que é o Reconhecimento de Formulários?
       url: overview.md
+  - linkListType: whats-new
+    links:
+    - text: O que há de novo no Reconhecimento de Formulários?
+      url: whats-new.md
   - linkListType: video
     links:
     - text: Automação de processos de IA com o Reconhecimento de Formulários
@@ -38,18 +42,38 @@ landingContent:
       url: quickstarts/python-train-extract.md
     - text: Usar a API REST (cURL)
       url: quickstarts/curl-train-extract.md
-- title: Extrair dados de destinatários
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Usar o .NET SDK
-      url: quickstarts/dotnet-sdk.md
 - title: Criar um conjunto de dados de treinamento
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Criar um conjunto de dados de treinamento
       url: build-training-data-set.md
+- title: Treinar um modelo personalizado usando rótulos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Dados rotulados
+      url: overview.md#train-with-labels
+  - linkListType: quickstart
+    links:
+    - text: Treinar usando a ferramenta de rotulagem de exemplo
+      url: quickstarts/label-tool.md
+    - text: Treinar com rótulos usando a API REST e o Python
+      url: quickstarts/python-labeled-data.md
+- title: Extrair dados de destinatários
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Usar a API REST (Python)
+      url: quickstarts/python-receipts.md
+    - text: Usar a API REST (cURL)
+      url: quickstarts/curl-receipts.md
+- title: Obter informações de layout de texto
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Usar a API REST (Python)
+      url: quickstarts/python-layout.md
 - title: Usar contêineres
   linkLists:
   - linkListType: get-started
@@ -68,8 +92,10 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: API de Reconhecimento de Formulários
-      url: https://aka.ms/form-recognizer/api
+    - text: API de Reconhecimento de Formulários v2.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+    - text: API de Reconhecimento de Formulários v1.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
     - text: SDK .NET
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
     - text: Azure PowerShell

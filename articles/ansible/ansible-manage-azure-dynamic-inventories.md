@@ -4,12 +4,12 @@ description: Saiba como usar o Ansible para gerenciar seus inventários dinâmic
 keywords: ansible, azure, devops, bash, cloudshell, inventário dinâmico
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: dea6b47e5e263fdd2e048a0435efbebfa90fe69e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f159322a19cc79758de33904bbad9dfce32ff7cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442781"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutorial: Configurar inventários dinâmicos de seus recursos do Azure usando o Ansible
 
@@ -24,7 +24,7 @@ O Ansible pode ser usado para extrair informações de inventário de várias fo
 > * Instalar o Nginx nas máquinas virtuais marcadas
 > * Configurar um inventário dinâmico que inclua os recursos configurados do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -32,7 +32,7 @@ O Ansible pode ser usado para extrair informações de inventário de várias fo
 
 ## <a name="create-the-test-vms"></a>Criar as VMs de teste
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Abra o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -95,7 +95,7 @@ O Ansible fornece um script Python chamado [azure_rm.py](https://github.com/ansi
     wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
     ```
 
-1. Use o comando `chmod` para alterar as permissões de acesso para o script `azure_rm.py`. O comando a seguir usa o parâmetro `+x` para permitir a execução (executando) do arquivo especificado (`azure_rm.py`):
+1. Use o comando `chmod` para alterar as permissões de acesso para o script `azure_rm.py`. O comando a seguir usa o parâmetro `+x` para permitir a execução do arquivo especificado (`azure_rm.py`):
 
     ```azurecli-interactive
     chmod +x azure_rm.py
@@ -228,7 +228,7 @@ A finalidade das marcas é habilitar a capacidade de trabalhar de forma rápida 
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     

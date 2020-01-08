@@ -1,14 +1,14 @@
 ---
 title: Respostas a perguntas comuns
-description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
+description: 'Respostas a perguntas comuns sobre: recursos do Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4005b171ef61fa02821b4a32db3be26cfb94c9ff
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
-ms.translationtype: MT
+ms.openlocfilehash: c8449ef27ca73cd6e0c2908ce4cbebea2c513dbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668085"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450087"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -24,10 +24,10 @@ Sim. Crie até 500 cofres dos Serviços de Recuperação por região com suporte
 
 Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se estiver usando o agente de Backup do Microsoft Azure, você poderá registrar até 50 agentes MAB por cofre. E você pode registrar servidores DPM/servidores MAB 50 em um cofre.
 
-### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quantas fontes de fonte/itens podem ser protegidos em um cofre?
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quantos itens/fontes de dados podem ser protegidos em um cofre?
 
-Você pode proteger até 2000 fontes de fonte/itens em todas as cargas de trabalho (IaaS VM, SQL, AFS, etc.) em um cofre.
-Por exemplo, se você já protegeu 500 VMs e 400 compartilhamentos de arquivos do Azure no cofre, você só pode proteger até 1100 bancos de dados SQL nele.
+Você pode proteger até 2.000 itens/fontes de dados em todas as cargas de trabalho (VM IaaS, SQL, AFS etc.) em um cofre.
+Por exemplo, se você já protegeu 500 VMs e 400 compartilhamentos de Arquivos do Azure no cofre, só poderá proteger até 1.100 bancos de dados SQL nele.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Quantas políticas posso criar por cofre?
 
@@ -39,7 +39,7 @@ Os dados do servidor que você deseja recuperar juntos devem usar a mesma frase 
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Posso mover meu cofre entre assinaturas?
 
-Sim. Para mover um cofre dos serviços de recuperação, consulte este [artigo](backup-azure-move-recovery-services-vault.md)
+Sim. Para mover um cofre dos Serviços de Recuperação, consulte este [artigo](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de backup para outro cofre?
 
@@ -51,15 +51,15 @@ Não. Um cofre do Recovery Services só pode alterar as opções de armazenament
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso criar uma ILR (restauração no nível do item) para VMs com backup em um cofre dos Serviços de Recuperação?
 
-- O ILR tem suporte para VMs do Azure com backup pelo backup de VM do Azure. Para obter mais informações, consulte o [artigo](backup-azure-restore-files-from-vm.md)
-- Não há suporte para ILR para pontos de recuperação online de VMs locais com backup feito pelo servidor de backup do Azure ou pelo System Center DPM.
+- O ILR tem suporte para VMs do Azure com backup pelo backup de VM do Azure. Para saber mais, confira este [artigo](backup-azure-restore-files-from-vm.md)
+- O ILR não é compatível com pontos de recuperação online de VMs locais com backup feito pelo servidor de backup do Azure ou pelo System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Onde posso encontrar perguntas comuns sobre o agente do Backup do Azure para o backup da VM do Azure?
 
 - Para o agente em execução nas VMs do Azure, leia estas [Perguntas frequentes](backup-azure-vm-backup-faq.md).
-- Para o agente usado para fazer backup de pastas de arquivos do Azure, leia estas [perguntas frequentes](backup-azure-file-folder-backup-faq.md).
+- Para o agente usado para fazer backup de pastas de arquivos do Azure, leia estas [Perguntas frequentes](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="general-backup"></a>Backup geral
 
@@ -83,7 +83,7 @@ Windows 8.1 de 64 bits | Enterprise, Pro | As máquinas devem estar executando o
 Windows 8 de 64 bits | Enterprise, Pro | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Servidor | |
-Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
+Windows Server 2019 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
 Windows Server 2012 de 64 bits | Datacenter, Foundation, Standard | Com os service packs/atualizações mais recentes.
@@ -107,7 +107,7 @@ Windows 8 ou superior | 54.400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54.400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-VM do Azure | 16 discos de dados<br/><br/> Disco de dados de até 4095 GB
+VM do Azure | 16 discos de dados<br/> Para se inscrever para a versão prévia privada de VMs com mais de 16 discos (até 32 discos), escreva para nós em AskAzureBackupTeam@microsoft.com <br><br> Disco de dados de até 32 TB
 
 ### <a name="how-is-the-data-source-size-determined"></a>Como é determinado o tamanho da fonte de dados?
 
@@ -155,7 +155,7 @@ Sim, você pode personalizar políticas. Por exemplo, você pode configurar os r
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Posso usar períodos diferentes para agendamento de backup e políticas de retenção?
 
-Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Por exemplo, essa imagem mostra uma política de retenção para backups feitos em 12am e 18:00.
+Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Por exemplo, essa imagem mostra uma política de retenção para backups feitos às 00h e às 18h.
 
 ![Retenção e agendamento de Backup](./media/backup-azure-backup-faq/Schedule.png)
 
@@ -178,7 +178,7 @@ Você pode criar até 9999 pontos de recuperação por instância protegida. Uma
 
 - Saiba mais sobre [backup e retenção](./backup-support-matrix.md).
 
-### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quantas vezes posso recuperar dados dos quais foi feito backup no Azure?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quantas vezes posso recuperar dados cujo backup foi feito no Azure?
 
 Não há limite para o número de recuperações do Backup do Azure.
 
@@ -216,7 +216,7 @@ A chave de criptografia deve ter pelo menos 16 caracteres, quando você estiver 
 
 A chave usada para criptografar os dados de backup está presente apenas no seu site. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se você perder a chave, a Microsoft não poderá recuperar os dados de backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Leia as outras perguntas frequentes:
 

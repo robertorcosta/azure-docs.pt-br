@@ -1,7 +1,6 @@
 ---
 title: Tutorial – Escrever funções em C# definidas pelo usuário para trabalhos do Azure Stream Analytics no Visual Studio (versão prévia)
 description: Este tutorial mostra como escrever funções em C# definidas pelo usuário para trabalhos do Stream Analytics no Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d600c891f35a0719012707bdc2cb45101e14e090
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1d71f4c5616efb05efe2733c49507b085ca2dcf6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426289"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutorial: Escrever uma função em C# definida pelo usuário para um trabalho do Azure Stream Analytics (versão prévia)
 
@@ -27,7 +26,7 @@ Neste tutorial, você aprenderá como:
 > * Teste seu trabalho do Stream Analytics localmente.
 > * Publique seu trabalho no Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se que você concluiu os pré-requisitos a seguir:
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: bf6efbdbe19be28c005e2081c99827734ef10174
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177001"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446465"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: Usar o Reconhecimento de Formulários com Aplicativos Lógicos do Azure para analisar faturas
 
@@ -31,7 +31,7 @@ Este tutorial abrange:
 > * Configurar o aplicativo lógico para usar um recurso do Reconhecimento de Formulários
 > * Testar o fluxo de trabalho executando o aplicativo lógico
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
 
@@ -85,9 +85,9 @@ Vamos começar! Siga estas etapas para configurar seu fluxo de trabalho.
    |----------|-------|-------------|
    | **Nome** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses(`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-App". |
    | **Assinatura** | <*Azure-subscription-name*> | Seu nome da assinatura do Azure |
-   | **Grupo de recursos** | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](./../../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
+   | **Grupo de recursos** | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](./../../azure-resource-manager/management/overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
    | **Localidade** | <*Azure-region*> | A região em que as informações de seu aplicativo lógico serão armazenadas. Este exemplo usa "Leste dos EUA". |
-   | **Log Analytics** | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. |
+   | **Log Analytics** | Desativado | Mantenha a configuração **Desligado** para o log de diagnósticos. |
    ||||
 
 1. Depois que o Azure implanta seu aplicativo, na barra de ferramentas do Azure, selecione **Notificações** > **Ir para o recurso** para seu aplicativo lógico implantado. Ou você pode encontrar e selecionar seu aplicativo lógico digitando o nome na caixa de pesquisa.
