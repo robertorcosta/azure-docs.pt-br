@@ -1,25 +1,16 @@
 ---
-title: Gerenciar segredos do aplicativo do Microsoft Azure Service Fabric | Microsoft Docs
+title: Gerenciar segredos do aplicativo Service Fabric do Azure
 description: Saiba como proteger os valores do segredo em um aplicativo do Service Fabric (independente de plataforma).
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: a24f670314d2f6679e37b438a74421e0e84604e2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075497"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457546"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerenciar segredos criptografados nos aplicativos do Service Fabric
 Este guia explica as etapas do gerenciamento de segredos em um aplicativo do Service Fabric. Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação.
@@ -146,7 +137,7 @@ if (MySecretIsEncrypted)
 string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Armazenamento de segredos](service-fabric-application-secret-store.md) Service Fabric 
 * Saiba mais sobre [segurança de aplicativo e serviço](service-fabric-application-and-service-security.md)
 

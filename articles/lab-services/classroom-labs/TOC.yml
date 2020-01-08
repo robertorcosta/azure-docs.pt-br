@@ -28,6 +28,8 @@
           href: classroom-labs-scenarios.md
 - name: Guias de instruções
   items:
+    - name: Guia do administrador
+      href: administrator-guide.md
     - name: Laboratórios de sala de aula – tipos de aula
       items:
         - name: Visão geral dos tipos de classe
@@ -52,6 +54,8 @@
           href: how-to-connect-peer-virtual-network.md
         - name: Anexar ou desanexar uma galeria de imagens compartilhada
           href: how-to-attach-detach-shared-image-gallery.md
+        - name: Adicionar usuário como um proprietário a um laboratório de sala de aula
+          href: how-to-add-user-lab-owner.md
     - name: Criar e configurar laboratórios de sala de aula (instrutor)
       items:
         - name: Criar e gerenciar laboratórios de sala de aula
@@ -70,6 +74,8 @@
           href: how-to-use-shared-image-gallery.md
         - name: Habilitar a conexão de área de trabalho remota para Linux
           href: how-to-enable-remote-desktop-linux.md
+        - name: Habilitar desligamento automático ao desconectar
+          href: how-to-enable-shutdown-disconnect.md
         - name: Habilitar a virtualização aninhada em uma VM modelo
           href: how-to-enable-nested-virtualization-template-vm.md
         - name: Preparar uma VM modelo do Windows

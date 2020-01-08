@@ -4,7 +4,7 @@
   items:
     - name: Sobre Máquinas Virtuais
       href: overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar VM - Portal
@@ -86,7 +86,7 @@
               href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
             - name: Copiar um instantâneo
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
-        - name: Segurança
+        - name: Seguro
           items:
             - name: Criptografar uma VM e os respectivos discos de dados
               href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
@@ -130,7 +130,7 @@
           items:
             - name: Proteger o tráfego de rede entre as VMs
               href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md
-        - name: Segurança
+        - name: Seguro
           items:
             - name: Criptografar uma VM e discos de dados
               href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
@@ -141,7 +141,7 @@
 - name: Conceitos
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Regiões
       href: regions.md
     - name: Disponibilidade e desempenho
@@ -186,6 +186,8 @@
               href: sizes-gpu.md
             - name: Configurar drivers de GPU
               href: n-series-driver-setup.md
+            - name: Configurar drivers de GPU AMD
+              href: n-series-amd-driver-setup.md
         - name: Computação de alto desempenho
           displayName: H-series
           href: sizes-hpc.md
@@ -313,7 +315,7 @@
           href: security-recommendations.md
         - name: Acesso Just-In-Time
           href: ../../security-center/security-center-just-in-time.md
-        - name: Criptografar
+        - name: Encrypt
           items:
             - name: Cenários de criptografia de disco para Windows
               href: disk-encryption-windows.md
@@ -672,7 +674,7 @@
 - name: Recursos
   items:
     - name: Modelos de autor
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Desenvolva suas habilidades com o Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Roteiro do Azure

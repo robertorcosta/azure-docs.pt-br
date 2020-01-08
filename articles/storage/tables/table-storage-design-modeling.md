@@ -1,5 +1,5 @@
 ---
-title: Modelagem de relações no projeto da tabela de armazenamento do Azure | Microsoft Docs
+title: Relações de modelagem no design de armazenamento de tabelas do Azure | Microsoft Docs
 description: Entenda o processo de modelagem ao projetar sua solução de armazenamento em tabela.
 services: storage
 author: MarkMcGeeAtAquent
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457568"
 ---
 # <a name="modeling-relationships"></a>Relações de modelagem
 Este artigo descreve o processo de modelagem para ajudar você a projetar suas soluções de armazenamento em Tabela do Azure.
@@ -43,8 +43,8 @@ A tabela a seguir resume os prós e contras de cada uma das abordagens descritas
 <table>
 <tr>
 <th>Abordagem</th>
-<th>Prós</th>
-<th>Contras</th>
+<th>Vantagens</th>
+<th>Desvantagens</th>
 </tr>
 <tr>
 <td>Separar tipos de entidade, mesma partição, mesma tabela</td>
@@ -120,7 +120,7 @@ Você pode persistir instâncias das duas classes concretas no serviço Tabela u
 Para saber mais sobre como trabalhar com vários tipos de entidade na mesma tabela no código cliente, confira a seção Trabalhando com tipos de entidade heterogênea mais adiante neste guia. Isso fornece exemplos de como reconhecer o tipo de entidade no código do cliente.  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Padrões de design de tabela](table-storage-design-patterns.md)
 - [Design para consulta](table-storage-design-for-query.md)

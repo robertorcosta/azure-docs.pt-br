@@ -4,15 +4,15 @@ description: Os dados de transmissão são dados consolidados de rede e de desem
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/03/2018
-ms.openlocfilehash: 5e19c9bd47fe253f9a416b923ec0cb1748682842
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 031a09203ab2ab2bcfcdf4352e975c1374446c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365794"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução Wire Data 2.0 (versão prévia) no Azure Monitor
 
@@ -54,9 +54,9 @@ O Wire Data obtém seus dados do Agente de Dependência da Microsoft. A Dependen
 
 | **Fonte conectada** | **Com suporte** | **Descrição** |
 | --- | --- | --- |
-| Agentes do Windows | SIM | O Wire Data analisa e coleta dados de computadores de agente do Windows. <br><br> Além do [Agente do Log Analytics](../platform/agent-windows.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Agentes do Linux | SIM | O Wire Data analisa e coleta dados de computadores de agente do Linux.<br><br> Além do [Agente do Log Analytics](../learn/quick-collect-linux-computer.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Grupo de gerenciamento do System Center Operations Manager | SIM | O Wire Data analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../platform/om-agents.md) conectado. <br><br> É necessária uma conexão direta do computador do agente de System Center Operations Manager para Azure Monitor. |
+| Agentes do Windows | Sim | O Wire Data analisa e coleta dados de computadores de agente do Windows. <br><br> Além do [Agente do Log Analytics](../platform/agent-windows.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Agentes do Linux | Sim | O Wire Data analisa e coleta dados de computadores de agente do Linux.<br><br> Além do [Agente do Log Analytics](../learn/quick-collect-linux-computer.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Grupo de gerenciamento do System Center Operations Manager | Sim | O Wire Data analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../platform/om-agents.md) conectado. <br><br> É necessária uma conexão direta do computador do agente de System Center Operations Manager para Azure Monitor. |
 | Conta de Armazenamento do Azure | Não | O Wire Data coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
 
 No Windows, o Microsoft Monitoring Agent (MMA) é usado pelo System Center Operations Manager e Azure Monitor para coletar e enviar dados. Dependendo do contexto, esse agente é chamado de Agente do System Center Operations Manager, agente do Log Analytics, MMA ou Agente Direto. System Center Operations Manager e Azure Monitor fornecem versões ligeiramente diferentes do MMA. Essas versões podem cada relatório para System Center Operations Manager, para Azure Monitor ou para ambos.
@@ -134,7 +134,7 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4,15.\*<br>4,18 * |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4,18 * |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
@@ -382,7 +382,7 @@ A coleta de dados coleta metadados sobre o tráfego de rede usando os agentes qu
 
 Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entrada. Os registros do WireData têm as propriedades mostradas na tabela a seguir:
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 |---|---|
 | Computador | Nome do computador em que os dados foram coletados |
 | TimeGenerated | Hora do registro |

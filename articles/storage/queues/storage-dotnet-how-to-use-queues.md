@@ -8,20 +8,20 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: aa92b72b09ed28b41d85ac7c7605077761657d40
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5ffee146bdbd666d4175af2f49f6b447743b2bc0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721555"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457668"
 ---
-# <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao armazenamento de Fila do Azure usando o .NET
+# <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de Filas do Azure usando o .NET
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O armazenamento de filas do Azure fornece mensagens na nuvem entre os componentes do aplicativo. Na criação de aplicativos para escala, os componentes do aplicativo geralmente são desassociados, para que possam ser redimensionados independentemente. O armazenamento de filas fornece mensagens assíncronas para a comunicação entre os componentes do aplicativo, estando eles em execução na nuvem, na área de trabalho, em um servidor local ou em um dispositivo móvel. O armazenamento de Fila também dá suporte ao gerenciamento de tarefas assíncronas e à criação de fluxos de trabalho do processo.
 
@@ -52,7 +52,7 @@ Em seguida, configure seu ambiente de desenvolvimento no Visual Studio para pode
 No Visual Studio, crie um novo aplicativo de console do Windows. As etapas a seguir mostram como criar um aplicativo de console no Visual Studio 2019. As etapas são semelhantes em outras versões do Visual Studio.
 
 1. Selecione **Arquivo** > **Novo** > **Projeto**
-2. Selecionar**janelas** de **plataforma** > 
+2. Selecionar **plataforma** > **Windows**
 3. Selecione **Aplicativo do Console (.NET Framework)**
 4. Selecione **Avançar**
 5. No campo **nome do projeto** , insira um nome para seu aplicativo
@@ -66,9 +66,9 @@ Você pode usar as bibliotecas de cliente de armazenamento do Azure em qualquer 
 
 Você precisa fazer referência aos três pacotes a seguir em seu projeto para concluir este tutorial:
 
-* [Armazenamento do Microsoft Azure biblioteca de cliente comum para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): este pacote fornece acesso programático aos recursos de dados em sua conta de armazenamento.
-* [Biblioteca de fila de armazenamento do Microsoft Azure para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Essa biblioteca de cliente permite trabalhar com o serviço Fila de Armazenamento do Microsoft Azure para armazenar mensagens que podem ser acessadas por um cliente.
-* [Biblioteca do Gerenciador de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de conexão em um arquivo de configuração, independentemente do local em que o aplicativo está sendo executado.
+* [Armazenamento do Microsoft Azure biblioteca de cliente comum para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este pacote fornece acesso programático a recursos de dados em sua conta de armazenamento.
+* [Biblioteca de fila de armazenamento do Microsoft Azure para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): essa biblioteca de cliente permite trabalhar com o serviço Fila de armazenamento do Microsoft Azure para armazenar mensagens que podem ser acessadas por um cliente.
+* [Biblioteca do Gerenciador de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de conexão em um arquivo de configuração, independentemente de onde o aplicativo está sendo executado.
 
 Você pode usar o NuGet para obter esses pacotes. Siga estas etapas:
 
@@ -89,7 +89,7 @@ Você tem duas opções de ambiente para executar os exemplos neste guia:
 * Você pode executar o código em uma conta de Armazenamento do Azure na nuvem.
 * Você pode executar o código em um emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de Armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar seu código enquanto o aplicativo está em desenvolvimento. O emulador usa uma conta e chave bem conhecidas. Para saber mais, confira [Usar o emulador de armazenamento do Azure para desenvolvimento e teste](../common/storage-use-emulator.md).
 
-Se você estiver selecionando uma conta de armazenamento na nuvem, copie a chave de acesso primário para sua conta de armazenamento a partir do portal do Azure. Para obter mais informações, confira [Chaves de acesso](../common/storage-account-manage.md#access-keys).
+Se você estiver selecionando uma conta de armazenamento na nuvem, copie a chave de acesso primário para sua conta de armazenamento a partir do portal do Azure. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](../common/storage-account-keys-manage.md).
 
 > [!NOTE]
 > Você pode utilizar o emulador de armazenamento como destino para evitar quaisquer custos associados ao Armazenamento do Azure. Todavia, se você escolher utilizar como destino uma conta de armazenamento do Azure na nuvem, os custos para realização das operações neste tutorial serão insignificantes.
@@ -103,7 +103,7 @@ Para obter mais detalhes sobre as sequências de conexão, veja [Configurar uma 
 > [!NOTE]
 > Sua chave de conta de armazenamento é semelhante para a senha raiz da sua conta de armazenamento. Sempre tenha cuidado para proteger a chave de sua conta de armazenamento. Evite distribuí-la a outros usuários, embuti-la no código ou salvá-lo em um arquivo de texto sem formatação que esteja acessível a outras pessoas. Regenere a chave usando o portal do Azure se você achar que ela pode ter sido comprometida.
 
-Para configurar a cadeia de conexão, abra o arquivo **app. config** de Gerenciador de soluções no Visual Studio. Adicione o conteúdo do **\<elemento appSettings\>** mostrado abaixo. Substitua *Account-Name* pelo nome da sua conta de armazenamento e da *chave de conta* pela chave de acesso da conta:
+Para configurar a cadeia de conexão, abra o arquivo **app. config** de Gerenciador de soluções no Visual Studio. Adicione o conteúdo do elemento **\<appsettings\>** mostrado abaixo. Substitua *Account-Name* pelo nome da sua conta de armazenamento e da *chave de conta* pela chave de acesso da conta:
 
 ```xml
 <configuration>
@@ -369,7 +369,7 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 queue.Delete();
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 

@@ -2,19 +2,15 @@
 title: Usar um alerta para disparar um runbook de Automação do Azure
 description: Saiba como disparar um runbook para executar quando um alerta do Azure é acionado.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c4afcbced2879a2a6d50112b6388cdf5c8098b1d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850373"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366693"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usar um alerta para disparar um runbook de Automação do Azure
 
@@ -33,7 +29,7 @@ Você pode usar runbooks de automação com três tipos de alerta:
 
 Quando um alerta chama um runbook, a chamada real é uma solicitação HTTP POST para o webhook. O corpo da solicitação POST contém um objeto com o formato JSON que tem propriedades úteis relacionadas ao alerta. A tabela a seguir lista links para o esquema de conteúdo para cada tipo de alerta:
 
-|Alerta  |Descrição|Esquema de conteúdo  |
+|Alerta  |Description|Esquema de conteúdo  |
 |---------|---------|---------|
 |[Alerta comum](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|O esquema de alerta comum que padroniza a experiência de consumo para notificações de alerta no Azure hoje.|Esquema de conteúdo de alerta comum|
 |[Alerta do log de atividades](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no log de atividades do Azure corresponde a condições específicas. Por exemplo, quando uma operação `Delete VM` ocorre em **myProductionResourceGroup** ou quando um novo evento da Integridade do Serviço do Azure com um status **Ativo** é exibido.| [Esquema de conteúdo de alerta de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -49,7 +45,7 @@ Conforme descrito na seção anterior, cada tipo de alerta tem um esquema difere
 
 Este exemplo usa um alerta de uma VM. Ele recupera os dados da VM do conteúdo e utiliza essas informações para interromper a VM. A conexão deve ser configurada na conta de Automação em que o runbook é executado. Ao usar alertas para disparar runbooks, é importante verificar o status do alerta no runbook que é disparado. O runbook vai disparar sempre que o alerta mudar de estado. Alertas têm vários estados. Os dois estados mais comuns são `Activated` e `Resolved`. Verifique se há esse estado em sua lógica de runbook para garantir que seu runbook não seja executado mais de uma vez. O exemplo neste artigo mostra como procurar alertas `Activated` somente.
 
-O runbook usa o **AzureRunAsConnection** [Executar como conta](automation-create-runas-account.md) para se autenticar com o Azure para executar a ação de gerenciamento na VM.
+O runbook usa a [conta Executar como](automation-create-runas-account.md) AzureRunAsConnection para autenticar com o Azure para executar a ação de gerenciamento na VM.
 
 Use este exemplo para criar um runbook chamado **Stop-AzureVmInResponsetoVMAlert**. Você pode modificar o script do PowerShell e usá-lo com muitos recursos diferentes.
 

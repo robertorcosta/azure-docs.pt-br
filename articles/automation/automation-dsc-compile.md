@@ -2,19 +2,15 @@
 title: Configurações de compilação na Configuração do Estado de Automação do Azure
 description: Este artigo descreve como compilar as configurações da DSC (Configuração de Estado Desejado) para Automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: fdea8ed9a9e59a169a6ffb525ed286eb7d1ada53
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9d8efce09c2981e4ee256228d4792bcf97172e6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366406"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação das configurações DSC na Configuração do Estado de Automação do Azure
 
@@ -189,7 +185,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="working-with-assets-in-azure-automation-during-compilation"></a>Trabalhando com ativos na automação do Azure durante a compilação
 
-As referências de ativos são as mesmas na Configuração do Estado de Automação do Azure e runbooks. Para saber mais, confira o seguinte:
+As referências de ativos são as mesmas na Configuração do Estado de Automação do Azure e runbooks. Para saber mais, consulte o seguinte:
 
 - [Certificados](automation-certificates.md)
 - [Conexões](automation-connections.md)

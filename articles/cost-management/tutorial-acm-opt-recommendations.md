@@ -1,5 +1,5 @@
 ---
-title: Tutorial – reduzir os custos do Azure com recomendações de otimização | Microsoft Docs
+title: Tutorial-reduzir os custos do Azure com recomendações
 description: Este tutorial o ajuda a reduzir os custos do Azure quando você age com base em recomendações de otimização.
 services: cost-management
 keywords: ''
@@ -10,28 +10,28 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a9dbb121cab49024aaf0dc65bbac938764d9f8b2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c3fc60ca623649a175fb1078efc6903ebde2811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229844"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444579"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Otimizar os custos usando recomendações
 
 O Gerenciamento de Custos do Azure funciona com o Assistente do Azure para fornecer recomendações de otimização de custo. O Assistente do Azure ajuda você a otimizar e melhorar a eficiência identificando recursos ociosos e subutilizados. Este tutorial o conduz por um exemplo em que você identifica recursos do Azure subutilizados e, em seguida, você age para reduzir os custos.
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Exiba as recomendações de otimização de custos para exibir possíveis ineficiências de uso
 > * Aja em uma recomendação para redimensionar uma máquina virtual para uma opção mais econômica
 > * Verifique a ação para garantir que a máquina virtual foi redimensionada com êxito
 
-## <a name="prerequisites"></a>pré-requisitos
-As recomendações estão disponíveis para uma variedade de escopos e tipos de conta do Azure. Para exibir a lista completa dos tipos de conta compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
+## <a name="prerequisites"></a>Pré-requisitos
+As recomendações estão disponíveis para uma variedade de escopos e tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
-- Assinatura
+- Subscription
 - Grupo de recursos
 
 Você deve ter máquinas virtuais ativas com pelo menos 14 dias de atividade.
@@ -96,7 +96,7 @@ Quando o redimensionamento da VM é concluído com êxito, uma notificação do 
 
 ![Notificação de êxito da máquina virtual redimensionada](./media/tutorial-acm-opt-recommendations/resized-notification.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu a:
 

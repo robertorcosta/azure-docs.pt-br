@@ -2,19 +2,15 @@
 title: Implantação contínua da Configuração de Estado da Automação do Azure com Chocolatey
 description: Implantação contínua do Azure DevOps usando Configuração de Estado da Automação do Azure, DSC, e gerenciador de pacotes Chocolatey.  Exemplo com modelo completo do Resource Manager do JSON e fonte do PowerShell.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/08/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ddbf652c35c4f1504e3253838a983fd0f6039401
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ad42d7c2257519c2622ba17f74f97b9521233850
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366423"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de uso: implantação contínua em Máquinas Virtuais usando Configuração de Estado da Automação e Chocolatey
 
@@ -185,7 +181,7 @@ Esse nuspec deve ser compilado e armazenado em seu servidor do NuGet. Este proce
 Sempre que uma versão passar na garantia de qualidade e for aprovada para implantação, o pacote será criado e o nuspec e o nupkg serão atualizados e implantados no servidor do NuGet. Além disso, a configuração (Etapa 4 acima) deve ser atualizada de acordo com o novo número de versão. Ela deve ser enviada para o servidor de recepção e compilada.
 Daí em diante, as VMs que dependem dessa configuração serão responsáveis por receber a atualização e instalá-la. Cada uma dessas atualizações é simples - apenas uma ou duas linhas do PowerShell. No caso do Azure DevOps, algumas delas são encapsuladas em tarefas de compilação que podem ser encadeadas juntas em uma compilação. Este [artigo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) fornece mais detalhes. Este [repositório GitHub](https://github.com/Microsoft/vso-agent-tasks) fornece detalhes das várias tarefas de compilação disponíveis.
 
-## <a name="notes"></a>Notas
+## <a name="notes"></a>Observações
 
 Este exemplo de uso começa com uma VM de uma imagem genérica do Windows Server 2012 R2 da galeria do Azure. Você poderá iniciar de qualquer imagem armazenada e ajustá-la com a configuração da DSC.
 No entanto, é muito mais difícil alterar a configuração incorporada a uma imagem do que atualizar de forma dinâmica a configuração usando a DSC.
@@ -197,9 +193,9 @@ Não é necessário usar um modelo do Resource Manager e a extensão da VM para 
 O código-fonte completo deste exemplo de uso está [neste projeto do Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) no GitHub.
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Visão geral da DSC da Automação do Azure](automation-dsc-overview.md)
-* [cmdlets da DSC de Automação do Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
-* [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
+* [Visão geral do DSC de Automação do Azure](automation-dsc-overview.md)
+* [cmdlets do DSC de Automação do Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Integração de computadores para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Próximos passos
 

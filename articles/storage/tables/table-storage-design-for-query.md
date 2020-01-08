@@ -1,6 +1,6 @@
 ---
-title: Projetar tabelas de armazenamento do Azure para consultas | Microsoft Docs
-description: Projetar tabelas para consultas no armazenamento de tabela do Azure.
+title: Criar o armazenamento de tabelas do Azure para consultas | Microsoft Docs
+description: Projetar tabelas para consultas no armazenamento de tabelas do Azure.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325860"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457633"
 ---
 # <a name="design-for-querying"></a>Design para consulta
 Soluções de serviço Tabela podem ser de leitura intensiva, gravação intensiva ou uma combinação dos dois. Este artigo aborda as coisas a serem lembradas ao criar seu serviço Tabela para dar suporte a operações de leitura com eficiência. Normalmente, um design que dá suporte a operações de leitura com eficiência também é eficiente para operações de gravação. No entanto, neste artigo, [Design para modificação de dados](table-storage-design-for-modification.md), existem e são discutidas considerações adicionais para se ter em mente ao projetar de modo a dar suporte a operações de gravação.
@@ -35,14 +35,14 @@ Esta seção se concentra nos principais problemas que você deve abordar ao pro
 ## <a name="how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance"></a>Como sua escolha de PartitionKey e RowKey afeta o desempenho da consulta
 Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de funcionário com a seguinte estrutura (a maioria dos exemplos omite a propriedade **Timestamp** por motivos de clareza):  
 
-| *Nome da coluna* | *Tipo de dados* |
+| *Nome da coluna* | *Data type* |
 | --- | --- |
-| **PartitionKey** (nome de departamento) |Cadeia de caracteres |
-| **RowKey** (Id do funcionário) |Cadeia de caracteres |
-| **Nome** |Cadeia de caracteres |
-| **Sobrenome** |Cadeia de caracteres |
-| **Idade** |Número inteiro |
-| **EmailAddress** |Cadeia de caracteres |
+| **PartitionKey** (nome de departamento) |String |
+| **RowKey** (Id do funcionário) |String |
+| **Nome** |String |
+| **Sobrenome** |String |
+| **Idade** |Integer |
+| **EmailAddress** |String |
 
 O artigo [Visão geral do armazenamento de Tabela do Azure](table-storage-overview.md) descreve alguns dos principais recursos do serviço Tabela do Azure que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. Observe que a sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, veja [Query Entities](https://docs.microsoft.com/rest/api/storageservices/Query-Entities) (Consultar entidades).  
 
@@ -96,7 +96,7 @@ Muitos aplicativos têm requisitos para usar dados classificados em ordens difer
 * [Padrão de índice secundário entre partições](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições e tabelas separadas, para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de RowKey.
 * [Padrão de rastro do log](table-storage-design-patterns.md#log-tail-pattern) - Recupere as entidades *n* adicionadas recentemente em uma partição, usando um valor **RowKey** que classifica em ordem de data e hora inversa.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Padrões de design de tabela](table-storage-design-patterns.md)
 - [Relações de modelagem](table-storage-design-modeling.md)

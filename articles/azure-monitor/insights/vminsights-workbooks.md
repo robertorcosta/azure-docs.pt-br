@@ -4,15 +4,15 @@ description: Simplifique relatórios complexos com pastas de trabalho parametriz
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b89e61f0c268df0ed6dd69ae1c6d97f00678fc32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365913"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos Azure Monitor para VMs com pastas de trabalho
 
@@ -27,11 +27,11 @@ As pastas de trabalho são úteis para cenários como:
 
 O Azure Monitor para VMs inclui várias pastas de trabalho para você começar e a tabela a seguir as resume.
 
-| Pasta de trabalho | Descrição | Escopo |
+| Pasta de trabalho | Description | Escopo |
 |----------|-------------|-------|
 | Performance | Fornece uma versão personalizável do nosso modo de exibição de lista e gráficos em uma única pasta de trabalho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou.| Em escala |
-| contadores de desempenho | Uma exibição de gráfico N superior em um amplo conjunto de contadores de desempenho. | Em escala |
-| conexões | Conexões fornece uma exibição detalhada das conexões de entrada e saída de suas VMs monitoradas. | Em escala |
+| Contadores de desempenho | Uma exibição de gráfico N superior em um amplo conjunto de contadores de desempenho. | Em escala |
+| Conexões | Conexões fornece uma exibição detalhada das conexões de entrada e saída de suas VMs monitoradas. | Em escala |
 | Portas ativas | Fornece uma lista dos processos que foram vinculados às portas nas VMs monitoradas e suas atividades no período de tempo escolhido. | Em escala |
 | Abrir portas | Fornece o número de portas abertas em suas VMs monitoradas e os detalhes sobre essas portas abertas. | Em escala |
 | Conexões com falha | Exiba a contagem de conexões com falha em suas VMs monitoradas, a tendência de falha e se a porcentagem de falhas estiver aumentando com o passar do tempo. | Em escala |
@@ -39,7 +39,7 @@ O Azure Monitor para VMs inclui várias pastas de trabalho para você começar e
 | Tráfego de TCP | Um relatório classificado para suas VMs monitoradas e seus tráfegos de rede enviados, recebidos e totais em uma grade e exibidos como uma linha de tendência. | Em escala |
 | Comparação de tráfego | Essas pastas de trabalho permitem comparar as tendências de tráfego de rede para um único computador ou um grupo de computadores. | Em escala |
 | Performance | Fornece uma versão personalizável do nosso modo de exibição de desempenho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou. | VM única | 
-| conexões | Conexões fornece uma exibição detalhada das conexões de entrada e saída de sua VM. | VM única |
+| Conexões | Conexões fornece uma exibição detalhada das conexões de entrada e saída de sua VM. | VM única |
  
 ## <a name="starting-with-a-template-or-saved-workbook"></a>Começando com um modelo ou pasta de trabalho salva
 

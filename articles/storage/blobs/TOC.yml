@@ -11,7 +11,7 @@
       items:
         - name: Introdução ao armazenamento de Blobs
           href: storage-blobs-introduction.md
-    - name: Guia de início rápido
+    - name: Inícios rápidos
       items:
         - name: Gerenciar blobs sem código
           items:
@@ -115,11 +115,11 @@
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Segurança
           items:
-            - name: Visão geral da segurança
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Recomendações de segurança
+              href: security-recommendations.md
             - name: Criptografia de Armazenamento do Azure
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Autorização
+            - name: Como autorizar operações de dados
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
                 - name: Autorizar com o Azure AD
@@ -130,6 +130,8 @@
                   href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Acesso anônimo aos blobs
                   href: storage-manage-access-to-resources.md
+            - name: Como autorizar operações de gerenciamento
+              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Blobs imutáveis
               href: storage-blob-immutable-storage.md
             - name: Proteção avançada contra ameaças
@@ -165,8 +167,6 @@
               href: storage-lifecycle-management-concepts.md
         - name: 'Desempenho, dimensionamento e otimização de custos'
           items:
-            - name: Escalabilidade e metas de desempenho
-              href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Lista de verificação de desempenho e escalabilidade
               href: storage-performance-checklist.md
             - name: Latência no armazenamento de blobs
@@ -205,7 +205,7 @@
                   href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Exportar dados dos blobs
                   href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Instruções
+                - name: Como fazer
                   items:
                     - name: Exibir status da unidade
                       href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -221,7 +221,7 @@
                   href: /rest/api/storageimportexport/jobs
                 - name: Contatar o suporte
                   href: ../common/storage-import-export-contact-microsoft-support.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Arquivo
+                - name: Archive
                   items:
                     - name: Preparar unidades para importação (v1)
                     - name: Preparar unidades para importação (v2)
@@ -259,11 +259,9 @@
           items:
             - name: Criar uma conta de armazenamento de uso geral
               displayName: 'Resource Manager, Resource Manager template, template, ARM'
-              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Criar uma conta de armazenamento de blobs de blocos
               href: storage-blob-create-account-block-blob.md
-            - name: Gerenciar uma conta de armazenamento
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Atualizar uma conta de armazenamento
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Obter tipo de conta e nome de SKU (.NET)
@@ -276,8 +274,6 @@
               href: storage-blob-containers-list.md
             - name: Gerenciar propriedades e metadados (.NET)
               href: storage-blob-container-properties-metadata.md
-            - name: Definir e gerenciar políticas de imutabilidade
-              href: storage-blob-immutability-policies-manage.md
         - name: Criar e gerenciar blobs
           items:
             - name: Listar blobs (.NET)
@@ -296,8 +292,10 @@
                   items:
                     - name: Portal
                       href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: PowerShell ou CLI do Azure
-                      href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: PowerShell
+                      href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: CLI do Azure
+                      href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Gerenciar direitos de acesso com RBAC
                   items:
                     - name: Portal
@@ -314,6 +312,8 @@
                       href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Autorizar com Chave Compartilhada
                   items:
+                    - name: Exibir e gerenciar chaves de conta
+                      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Configurar cadeias de conexão
                       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Usar a API REST do Armazenamento do Azure
@@ -368,6 +368,8 @@
                   href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Habilitar protocolo TLS
                   href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Definir e gerenciar políticas de imutabilidade
+              href: storage-blob-immutability-policies-manage.md
         - name: Recuperação de desastre
           items:
             - name: Iniciar failover da conta
@@ -442,6 +444,18 @@
               href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Referência
       items:
+        - name: Escalabilidade e metas de desempenho
+          items:
+            - name: Armazenamento de blob
+              href: scalability-targets.md
+            - name: Contas de armazenamento padrão
+              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Contas de armazenamento de blobs de blocos Premium
+              href: scalability-targets-premium-block-blobs.md
+            - name: Contas de armazenamento de blobs de páginas Premium
+              href: scalability-targets-premium-page-blobs.md
+            - name: Provedor de recursos de armazenamento
+              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
           href: /powershell/module/az.storage
         - name: CLI do Azure
@@ -472,7 +486,7 @@
               href: /rest/api/storageservices
             - name: Provedor de recursos de armazenamento
               href: /rest/api/storagerp
-            - name: Importar/exportar
+            - name: Importar/Exportar
               href: /rest/api/storageimportexport
         - name: C++
           href: 'https://azure.github.io/azure-storage-cpp'
@@ -607,7 +621,7 @@
       items:
         - name: Introdução ao Data Lake Storage
           href: ../blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Guia de início rápido
+    - name: Inícios rápidos
       items:
         - name: Analisar dados com o Databricks
           href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -675,8 +689,6 @@
           items:
             - name: Criar uma conta de armazenamento para o seu Data Lake
               href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Gerenciar uma conta de armazenamento
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Gerenciar dados com Gerenciador de Armazenamento
               href: ../blobs/data-lake-storage-explorer.md
             - name: Atualizar uma conta de armazenamento
@@ -743,18 +755,6 @@
               href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Otimizar Storm no HDInsight
               href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gerenciar arquivos (blobs)
-          items:
-            - name: Visão geral
-              href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar Spark no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar Hive no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar MapReduce no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar Storm no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Migrar dados
           items:
             - name: Atualizar do Data Lake Storage Gen1
@@ -799,7 +799,7 @@
               href: /rest/api/storageservices/data-lake-storage-gen2
             - name: Provedor de recursos
               href: /rest/api/storagerp
-            - name: Importar/exportar
+            - name: Importar/Exportar
               href: /rest/api/storageimportexport
         - name: Modelo do Resource Manager
           displayName: ARM

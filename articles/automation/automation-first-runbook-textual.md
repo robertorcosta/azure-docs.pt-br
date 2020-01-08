@@ -3,19 +3,15 @@ title: Meu primeiro runbook de Fluxo de Trabalho do PowerShell na Automação do
 description: Tutorial que orienta você pela criação, teste e publicação de um runbook textual simples usando o Fluxo de Trabalho do PowerShell.
 keywords: fluxo de trabalho do powershell, exemplos de fluxo de trabalho do powershell, fluxo de trabalho powershell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/24/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: dea13d084d80ce787cb8d6cf6146325d8c556b37
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: cdaadcfa3108ca847443e100bc624c2458c34115
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850832"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365947"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Meu primeiro runbook de Fluxo de Trabalho do PowerShell
 
@@ -84,7 +80,7 @@ Antes de publicar o runbook para disponibilizá-lo na produção, teste-o para v
 
 1. Quando o trabalho do runbook é concluído, sua saída é exibida. No seu caso, você deve ver *Olá, Mundo*.
 
-   ![Olá Mundo](media/automation-first-runbook-textual/test-output-hello-world.png)
+   ![Olá, Mundo](media/automation-first-runbook-textual/test-output-hello-world.png)
 
 1. Feche o Painel de teste para retornar à tela.
 
@@ -150,7 +146,7 @@ Você testou e publicou seu runbook, mas, até o momento, ele não faz nada úti
 1. Clique em **Painel de teste** para que você possa testar o runbook.
 1. Clique em **Iniciar** para iniciar o teste. Quando ele for concluído, você deverá receber uma saída semelhante ao exemplo a seguir, que exibe informações básicas de sua conta. Essa ação confirma que a credencial é válida.
 
-   ![Autenticar](media/automation-first-runbook-textual/runbook-auth-output.png)
+   ![Authenticate](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Etapa 6: adicionar código para iniciar uma máquina virtual
 
@@ -213,5 +209,5 @@ No momento, o seu runbook inicia a máquina virtual que você codificou no runbo
 * Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 * Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
-* Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+* Para aprender mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 * Para saber mais sobre o recurso de suporte de script do PowerShell, veja [Native PowerShell script support in Azure Automation (Suporte a scripts nativos do PowerShell na Automação do Azure)](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

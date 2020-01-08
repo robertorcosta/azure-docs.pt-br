@@ -3,19 +3,15 @@ title: Meu primeiro runbook do PowerShell na Automação do Azure
 description: Tutorial que orienta você pela criação, pelos testes e pela publicação de um runbook simples do PowerShell.
 keywords: azure powershell, tutorial de script do powershell, automação do powershell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: f950a2fed2fbd355fc99453f09b655463e67102d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 07be9aa9ab576845c5b2ad94b1a2b3fb828ea514
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366389"
 ---
 # <a name="my-first-powershell-runbook"></a>Meu primeiro runbook do PowerShell
 
@@ -34,7 +30,7 @@ Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Conta de automação](automation-quickstart-create-account.md) para manter o runbook e se autenticar nos recursos do Azure. Esta conta deve ter permissão para iniciar e parar a máquina virtual.
 * Uma máquina virtual do Azure. Você para e inicia essa máquina, portanto, não deve ser uma VM de produção.
-* Talvez seja necessário [atualizar seus módulos do Azure](automation-update-azure-modules.md) com base nos cmdlets que você usa.
+* Talvez seja necessário [importar](shared-resources/modules.md)/[atualizar seus módulos do Azure](automation-update-azure-modules.md) com base nos cmdlets que você usa.
 
 ## <a name="create-new-runbook"></a>Criar o novo runbook
 
@@ -53,7 +49,7 @@ Você pode digitar o código diretamente no runbook, ou você pode selecionar cm
 
 1. O seu runbook está vazio no momento. Digite *Write-Output "Olá, Mundo”.* no corpo do script.
 
-   ![Olá Mundo](media/automation-first-runbook-textual-powershell/automation-helloworld.png)
+   ![Olá, Mundo](media/automation-first-runbook-textual-powershell/automation-helloworld.png)
 
 2. Salve o runbook clicando em **Salvar**.
 
@@ -158,12 +154,12 @@ Você testou e publicou seu runbook, mas, até o momento, ele não faz nada úti
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** e **Login-AzureRmAccount** agora são aliases para **Connect-AzureRMAccount**. Se o **Connect-AzureRMAccount** cmdlet não existe, você pode usar **Add-AzureRmAccount** ou **Login-AzureRmAccount**, ou você pode atualizar os módulos na sua automação Conta para as versões mais recentes.
+   > **Add-AzureRmAccount** e **Login-AzureRmAccount** agora são aliases de **Connect-AzureRMAccount**. Se o **Connect-AzureRMAccount** cmdlet não existe, você pode usar **Add-AzureRmAccount** ou **Login-AzureRmAccount**, ou você pode atualizar os módulos na sua automação Conta para as versões mais recentes.
 
 1. Clique em **Painel de teste** para que você possa testar o runbook.
 1. Clique em **Iniciar** para iniciar o teste. Quando ele for concluído, você deverá receber uma saída semelhante ao exemplo a seguir, que exibe informações básicas de sua conta. Essa saída confirma que a conta Executar como é válida.
 
-   ![Autenticar](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
+   ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## <a name="add-code-to-start-a-virtual-machine"></a>Adicionar código para iniciar uma máquina virtual
 
@@ -247,5 +243,5 @@ Os runbooks do PowerShell têm o mesmo ciclo de vida, os mesmos recursos e o mes
 * Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](/powershell/scripting/overview).
 * Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-* Para saber mais sobre os tipos de runbook, suas vantagens e limitações, consulte [Tipos de runbook de Automação do Azure](automation-runbook-types.md)
+* Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 * Para saber mais sobre o recurso de suporte de script do PowerShell, veja [Native PowerShell script support in Azure Automation (Suporte a scripts nativos do PowerShell na Automação do Azure)](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

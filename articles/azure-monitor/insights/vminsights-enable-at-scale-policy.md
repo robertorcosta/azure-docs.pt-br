@@ -4,15 +4,15 @@ description: Este artigo descreve como habilitar Azure Monitor para VMs para vá
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 4a89eb36c9aa7369d6145304b572b4245cef3483
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d9458230d07c1c40a3eec2d51879f58fac6543b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365811"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Habilitar Azure Monitor para VMs (versão prévia) usando Azure Policy
 
@@ -51,7 +51,7 @@ Essa opção não está relacionada a nenhuma ação de política. Ele está dis
 
 A tabela a seguir fornece uma análise das informações apresentadas na página cobertura de política e como interpretá-las.
 
-| Função | DESCRIÇÃO | 
+| Função | Description | 
 |----------|-------------| 
 | **Escopo** | O grupo de gerenciamento e as assinaturas que você tem ou acesso herdado com a capacidade de detalhar a hierarquia do grupo de gerenciamento.|
 | **Função** | Sua função para o escopo, que pode ser leitor, proprietário ou colaborador. Em alguns casos, pode aparecer em branco para indicar que você pode ter acesso à assinatura, mas não ao grupo de gerenciamento ao qual ela pertence. As informações em outras colunas variam de acordo com sua função. A função é fundamental para determinar quais dados você pode ver e as ações que podem ser executadas em termos de atribuição de políticas ou iniciativas (proprietário), edição ou exibição da conformidade. |
@@ -77,7 +77,7 @@ Para obter mais informações sobre como atribuir o Azure Policy, confira [Visã
 
 As definições de política para uma VM do Azure são listadas na tabela a seguir.
 
-|NOME |DESCRIÇÃO |Digite |
+|Nome |Description |Tipo |
 |-----|------------|-----|
 |\[Visualização\]: habilitar o Azure Monitor para máquinas virtuais |Habilite Azure Monitor para as máquinas virtuais no escopo especificado (grupo de gerenciamento, assinatura ou grupo de recursos). Usa o espaço de trabalho do Log Analytics como parâmetro. |Iniciativa |
 |\[visualização\]: implantação de agente de dependência de auditoria – imagem de VM (SO) não listada |Relata as VMs como não compatíveis se a imagem de VM (SO) não estiver definida na lista e o agente não estiver instalado. |Política |
@@ -91,7 +91,7 @@ As definições de política para uma VM do Azure são listadas na tabela a segu
 
 As definições de política para um conjunto de dimensionamento de máquinas virtuais do Azure estão listadas na tabela a seguir.
 
-|NOME |DESCRIÇÃO |Digite |
+|Nome |Description |Tipo |
 |-----|------------|-----|
 |\]de visualização de \[: habilitar Azure Monitor para conjuntos de dimensionamento de máquinas virtuais |Habilite Azure Monitor para os conjuntos de dimensionamento de máquinas virtuais no escopo especificado (grupo de gerenciamento, assinatura ou grupo de recursos). Usa o espaço de trabalho do Log Analytics como parâmetro. Observação: se a política de atualização do conjunto de dimensionamento estiver definida como manual, aplique a extensão a todas as VMs no conjunto chamando a atualização nelas. Na CLI, isso é `az vmss update-instances`. |Iniciativa |
 |\[visualização\]: implantação de agente de dependência de auditoria em conjuntos de dimensionamento de máquinas virtuais – imagem de VM (SO) não listada |Relata o conjunto de dimensionamento de máquinas virtuais como não compatível se a imagem da VM (SO) não estiver definida na lista e o agente não estiver instalado. |Política |
@@ -103,7 +103,7 @@ As definições de política para um conjunto de dimensionamento de máquinas vi
 
 A política independente (não incluída com a iniciativa) é descrita aqui:
 
-|NOME |DESCRIÇÃO |Digite |
+|Nome |Description |Tipo |
 |-----|------------|-----|
 |\[visualização\]: auditar Log Analytics espaço de trabalho para a VM – relatar incompatibilidade |Relate as VMs como não compatíveis se elas não estiverem registradas no espaço de trabalho Log Analytics especificado na política ou na atribuição de iniciativa. |Política |
 
@@ -143,24 +143,24 @@ Depois de criar a atribuição, a página de **cobertura de política de Azure m
 
 A matriz a seguir mapeia cada Estado de conformidade possível para a iniciativa.  
 
-| Estado de conformidade | DESCRIÇÃO | 
+| Estado de conformidade | Description | 
 |------------------|-------------|
-| **Em conformidade** | Todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados nelas.|
+| **Compatível** | Todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados nelas.|
 | **Não compatível** | Nem todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados e podem exigir correção.|
 | **Não iniciado** | Uma nova atribuição foi adicionada. |
-| **Proprietário** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
+| **Bloqueio** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
 | **Em branco** | Nenhuma política foi atribuída. | 
 
 <sup>1</sup> se você não tiver acesso ao grupo de gerenciamento, peça ao proprietário para fornecer acesso. Ou então, exiba a conformidade e gerencie atribuições por meio dos grupos de gerenciamento filho ou assinaturas. 
 
 A tabela a seguir mapeia cada possível status de atribuição para a iniciativa.
 
-| Status da atribuição | DESCRIÇÃO | 
+| Status da atribuição | Description | 
 |------------------|-------------|
 | **Êxito** | Todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados nelas.|
 | **Aviso** | A assinatura não está sob um grupo de gerenciamento.|
 | **Não iniciado** | Uma nova atribuição foi adicionada. |
-| **Proprietário** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
+| **Bloqueio** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
 | **Em branco** | Não existem VMs ou uma política não está atribuída. | 
 | **Ação** | Atribua uma política ou edite uma atribuição. | 
 
@@ -195,12 +195,12 @@ Com base nos resultados das políticas incluídas na iniciativa, as VMs são rel
 A qualquer momento depois de atribuir uma iniciativa a um grupo de gerenciamento ou assinatura, você pode editá-la para modificar as seguintes propriedades:
 
 - Nome da atribuição
-- DESCRIÇÃO
+- Description
 - Atribuído por
 - Espaço de trabalho do Log Analytics
 - Exceções
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que o monitoramento está habilitado para suas máquinas virtuais, essas informações estão disponíveis para análise com Azure Monitor para VMs. 
 

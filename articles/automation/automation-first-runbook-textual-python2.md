@@ -2,19 +2,15 @@
 title: Meu primeiro runbook Python na Automação do Azure
 description: Este tutorial guia o usuário pela criação, pelos testes e pela publicação de um runbook Python simples.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 54b008939b3d083769756b9ac3c3c9e3f7aebea5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b17a0403a3b2a3ff8c3586ed26a4b833db54922d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850271"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365930"
 ---
 # <a name="my-first-python-runbook"></a>Meu primeiro runbook Python
 
@@ -235,6 +231,6 @@ except Exception as detail:
 - Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
 - Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 - Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-- Para saber mais sobre os tipos de runbook, suas vantagens e limitações, consulte [Tipos de runbook de Automação do Azure](automation-runbook-types.md)
+- Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 - Para aprender sobre o desenvolvimento do Azure com o Python, consulte [Azure para desenvolvedores do Python ](/azure/python/)
 - Para exibir runbooks de amostra do Python 2, consulte o [GitHub de Automação do Azure](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).

@@ -1,25 +1,14 @@
 ---
-title: Tópicos de atualização de aplicativo avançados | Microsoft Docs
+title: Tópicos avançados de atualização de aplicativos
 description: Este artigo aborda alguns tópicos avançados relativos à atualização de um aplicativo do Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: c37ee8177ba31ac8a5da90fef175a6fbd63a6d75
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bd95d651e02cb61bcbe7a108db92afce8b5484bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167596"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457536"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização do aplicativo Service Fabric: tópicos avançados
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Adicionando ou removendo tipos de serviços durante uma atualização de aplicativo
@@ -132,7 +121,7 @@ As reversões poderão ser disparadas automaticamente quando as políticas de in
 
 Durante a reversão, o valor de *UpgradeReplicaSetCheckTimeout* e o modo ainda podem ser alterados a qualquer momento usando-se [Update-ServiceFabricApplicationUpgrad](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
 
 [Atualização do aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
